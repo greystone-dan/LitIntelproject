@@ -1,0 +1,398 @@
+{
+ "case_id": 69976,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0081776
+ },
+ "verification": {
+  "paragraphs": 45,
+  "summaries": 45,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 6,
+   "court": 39
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Nigerian appellants seeking refugee protection in Canada, who fear harm due to religious conversion and abandonment of idol worship. The Refugee Appeal Division (RAD) reviewed the Refugee Protection Division's (RPD) decision that an internal flight alternative (IFA) in Port Harcourt was viable and dismissed the appeal. The tribunal found the appellants failed to prove serious persecution risk or unreasonable relocation, thus confirming the RPD's decision denying refugee protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 5,
+    "label": "Disposition summary",
+    "kind": "disposition"
+   },
+   {
+    "first": 6,
+    "last": 15,
+    "label": "New evidence and admissibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 17,
+    "label": "Hearing and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 18,
+    "last": 19,
+    "label": "Issue and framework for IFA analysis",
+    "kind": "issue"
+   },
+   {
+    "first": 20,
+    "last": 30,
+    "label": "Analysis of internal flight alternative (IFA)",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 44,
+    "label": "Reasonableness of relocation to Port Harcourt",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 45,
+    "label": "Final disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Nigerian Appellants fear harm from the Principal Appellant's husband's family due to religious conversion and blame for abandoning idol worship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Appellants arrived in Canada in 2017, claimed refugee protection in 2018, and had their claims rejected in 2020 due to the viability of an internal flight alternative (IFA) in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Principal Appellant was designated representative for two minor female Associate Appellants; one is now an adult and no longer needs representation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred on IFA findings; the tribunal invited submissions on new evidence, granted a partial extension, and received late supplementary submissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants argue RPD erred on IFA",
+    "Tribunal invited and received submissions with extension"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, agreeing with the RPD that the Appellants have a viable IFA in Port Harcourt and are not Convention refugees or persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellants seek to rely on new evidence including affidavits from the Principal Appellant and others, a newspaper article, and official documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Appellants submitted nine additional documents addressing Nigerian country conditions with their supplementary submissions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal states the legal criteria for accepting new evidence: it must arise after the RPD decision, be unavailable before, or not reasonably expected to be provided earlier.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "If evidence meets criteria, it must be new, credible, and relevant; post-perfection evidence requires consideration under RAD Rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal finds most of the Principal Appellant's affidavit and Exhibits A-D admissible, but excludes paragraphs 7-14 and Exhibit E; the nine supplementary documents are admissible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Principal Appellant's affidavit is mostly admissible as new evidence except paragraphs 7-14, which repeat prior evidence and lack explanation for late submission.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Affidavits from the Principal Appellant's husband and neighbour are new, credible, relevant, and admissible as they relate to post-RPD events and motivation of persecutors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The newspaper article (Exhibit D) is new, credible, relevant, and admissible as it reports on conditions in Port Harcourt after the RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Exhibit E, showing online search results and a driver's licence, is inadmissible as the Appellants failed to justify its late submission or unavailability before the RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The nine documents submitted with supplementary submissions are admissible as new, credible, relevant evidence of Nigerian conditions post-RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal denies the Appellants' request for an oral hearing, finding the new evidence does not raise determinative credibility issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RAD's role is to review all evidence and decide correctness; no advantage in oral credibility assessment means correctness is the standard of review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The key issue is IFA; the tribunal accepts the Appellants' allegations for analysis but finds no RPD credibility findings beyond IFA relevance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal agrees RAD must independently assess evidence without relying on revoked Guide TB7-19851 but finds it still useful as a framework for IFA analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The legal test for IFA requires no serious persecution risk and that relocation is not unreasonable; both prongs must be met with high proof standards.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal independently finds the RPD correctly concluded the Appellants failed to prove the persecutors have means and motivation to locate them in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal finds it unnecessary to address arguments about ignored evidence and affidavits since the Appellants failed to prove persecutors' means to locate them in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the affidavit evidence of threats speculative and insufficient to prove persecutors can locate the Appellants in a large city like Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Appellants' testimony lacks sufficient knowledge to establish how persecutors would locate them in the IFA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellants' argument that corrupt access to personal data would enable persecutors to locate them, finding insufficient proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants' speculation about corrupt officials enabling persecutors to access personal information unpersuasive.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal finds documentary evidence shows restricted access to personal data and no proof persecutors have high-level connections to obtain it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants' scenarios about police corruption in a 2017 incident speculative and insufficient to prove persecutors' ability to locate them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal agrees Appellants cannot be expected to live in hiding but finds no evidence they would be unable to live safely and normally in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal independently finds the Appellants have not proven a serious persecution risk or section 97 risk in Port Harcourt and that relocation there is not unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the appellants did not prove it would be unreasonable to relocate to Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal assessed the IFA reasonableness assuming the Principal Appellant and husband remain married and considered the adult associate appellants' circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal is not persuaded by the appellants' argument that indigeneship discrimination makes relocation to Port Harcourt unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal weighed evidence on indigeneship and found challenges do not amount to unreasonable hardship for the appellants given their circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal finds the report of non-indigenes being removed as vagrants irrelevant and speculative to the appellants' situation and not evidence of systemic discrimination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal finds no error in the RPD's conclusion that the appellants did not prove it unreasonable to expect them to find employment in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal notes the appellants have significantly higher education and experience than most Nigerians, aiding employment prospects despite challenges.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal acknowledges COVID-19's economic impact but finds the appellants remain well positioned to obtain sustaining employment in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that fears of kidnapping and education challenges do not make Port Harcourt unreasonable for the appellants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal finds no error in the RPD's conclusion that the appellants can obtain housing in Port Harcourt given their financial prospects.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The tribunal agrees the appellants can practice their religion and speak English in Port Harcourt, with cultural difficulties not applying to them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The tribunal finds no basis to conclude the appellants lack resources for adequate health care in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The tribunal is not persuaded that COVID-19's human rights impact makes relocation unreasonable for the appellants given their circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellants have not met the high standard to prove relocation to Port Harcourt would jeopardize their life or safety.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,389 @@
+{
+ "case_id": 35606,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.011438400000000001
+ },
+ "verification": {
+  "paragraphs": 43,
+  "summaries": 43,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 9,
+  "speakers": {
+   "other": 1,
+   "court": 28,
+   "below": 10,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves an appeal by the applicants against the IRCC's refusal of their humanitarian and asylum claims, with the Attorney General as the respondent. The Federal Court of Appeal reviewed the IRCC's decision and found it reasonable, dismissing claims of procedural unfairness and emphasizing the applicants' failure to provide sufficient evidence. The court also addressed concerns about the applicants' lawyer's conduct regarding AI disclosure and ultimately dismissed the judicial review without costs but issued a warning to the lawyer.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Introduction and judicial system concerns",
+    "kind": "other"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Decisions below on humanitarian and asylum claims",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 11,
+    "label": "Court's review and procedural issues with applicants' memorandum",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Parties' positions on procedural fairness and reasonableness",
+    "kind": "issue"
+   },
+   {
+    "first": 17,
+    "last": 23,
+    "label": "Standards of review and judicial resource considerations",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 24,
+    "last": 38,
+    "label": "Analysis of evidence and humanitarian factors by tribunal and court",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 45,
+    "label": "Consideration of children's best interests and overall discretionary decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 50,
+    "label": "Procedural fairness analysis and court's findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 52,
+    "last": 52,
+    "label": "Disposition and warning to applicants' lawyer",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "The applicants, Jose Pele Messa and his two children, Angolan citizens, challenge a February 29, 2024 IRCC decision denying their permanent residence application on humanitarian grounds. The tribunal_below is the IRCC. Issues addressed include: 1) Whether the IRCC's decision was reasonable given the evidence on their establishment in Canada, best interests of the children, and conditions in Angola; 2) Whether there was a procedural fairness breach by not allowing them to respond to doubts about their documents; 3) The appropriateness of the legal arguments and evidence presented; 4) The discretionary nature of humanitarian considerations; and 5) The court's concern about the applicant's counsel's conduct and use of AI in submissions.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Federal Court of Appeal introduces the decision with a general statement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court states that lawyers who knowingly take doomed cases contribute to judicial system abuse, as in this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The IRCC agent found no significant humanitarian factors to justify an exemption and rejected the application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The applicants' asylum claim was rejected by the Refugee Protection Division and Refugee Appeal Division, and their pre-removal risk assessment was also refused.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court rejects the judicial review, agreeing the IRCC's decision was reasonable and found no procedural fairness issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court points out a misunderstanding of Vavilov in the applicants' memorandum regarding judicial review's role in re-assessing evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court reminds counsel of its May 7, 2024 notice requiring disclosure when AI is used to prepare court documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The applicants' lawyer failed to declare AI use in preparing the memorandum as required by the court's notice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court finds the memorandum general, lacking specific evidence or legal analysis, and insufficient to support the applicants' case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The applicants claim procedural unfairness because the agent questioned documents without allowing them to respond, but give no details.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The respondent, the Attorney General, argues the IRCC decision was reasonable due to insufficient evidence to justify humanitarian relief.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Attorney General denies any procedural fairness breach, emphasizing the applicants' burden to submit full evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "For procedural fairness, the court applies a correctness standard, assessing fairness in all circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court notes limited federal court resources must be preserved from vexatious litigants to protect meritorious cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court states humanitarian permanent residence decisions are highly discretionary, with the burden on applicants to prove their case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The agent must assess evidence and weigh factors in humanitarian applications, per established case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court finds the IRCC decision reasonable and justified under legal and factual constraints.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court stresses limiting repetitive or unfounded claims to protect access for deserving litigants, citing Coady and Olumide.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The IRCC agent gave high weight to prior refugee decisions but found no new evidence to support claims of political persecution in Angola.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court cites precedent that applicants must link personal risk to country conditions to succeed on humanitarian grounds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The agent found the applicants' economic and social hardship claims vague and unsupported by documentary evidence or reliable sources.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court agrees with the agent that despite Angola's lower living standards, the applicants failed to prove personalized hardships.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The agent reasonably concluded the applicants did not show unusual hardships compared to other Angolans, warranting low weight to this factor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court agrees with the respondent that humanitarian discretion does not compensate for general living standard differences without exceptional proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The agent acknowledged employment but found insufficient proof of financial management, tax compliance, or stable residence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds the agent's limited weight to establishment reasonable despite a tax notice in the record.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court notes basic life activities are expected and not exceptional to warrant greater weight in humanitarian claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court confirms time and establishment in Canada are relevant but not determinative in humanitarian residence decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "below",
+   "summary": "The agent found the applicants' community ties and support letters general and insufficient to merit significant weight.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "below",
+   "summary": "The agent recognized the difficulty of leaving Canada but noted the applicant's skills would ease reintegration in Angola.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court rejects the main applicant's argument that his clean record justifies a public interest exemption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "The tribunal below recognizes Victoria's establishment efforts in Canada but notes her ties to Angola that could ease her return.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "below",
+   "summary": "The tribunal below finds no evidence that Victoria cannot access higher education in Angola and deems her friendship ties insufficient.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "below",
+   "summary": "The tribunal below concludes Jose's best interests are protected as long as he has his father's support, even if the family is in Angola.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court agrees the tribunal below reasonably considered the children's best interests and that such interests don't mandate automatic exemption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "The main applicant argues his children depend on him and are better established in Canada, but the tribunal below found insufficient evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court defers to the tribunal below's discretion and expertise, finding no error in its reasonable, transparent decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court finds the tribunal below reasonably considered all factors collectively and that positive elements were insufficient for exemption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court concludes the applicants failed to show any error in the tribunal below's decision warranting intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The court explains procedural fairness varies by context and the tribunal below had no duty to request more evidence or clarify issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court holds the tribunal below had no obligation to inform applicants of evidence gaps or allow them to fill those gaps.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court finds no procedural fairness violation in this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court considered ordering costs against the applicants' lawyer but instead issues a warning against improper conduct; the judicial review is dismissed with no costs.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,598 @@
+{
+ "case_id": 42716,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.010966799999999999
+ },
+ "verification": {
+  "paragraphs": 71,
+  "summaries": 71,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 55,
+   "below": 8,
+   "party": 8
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Denso Manufacturing Canada's appeal against the Minister of National Revenue's refusal to accept a late-filed election form under the Excise Tax Act, which affected GST/HST obligations. Denso Manufacturing and Denso Sales, closely related corporations, failed to file the required new election form by the 2015 deadline, leading to reassessments and denial of late filing relief. The Federal Court dismissed their judicial review, and the Federal Court of Appeal upheld that decision, finding no procedural fairness breach and that the Minister's decision was reasonable.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 24,
+    "label": "Minister's decision and administrative process",
+    "kind": "background"
+   },
+   {
+    "first": 25,
+    "last": 29,
+    "label": "Federal Court judicial review",
+    "kind": "background"
+   },
+   {
+    "first": 30,
+    "last": 38,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 39,
+    "last": 56,
+    "label": "Procedural fairness analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 57,
+    "last": 70,
+    "label": "Reasonableness of Minister's decision on late filing and negligence",
+    "kind": "analysis"
+   },
+   {
+    "first": 71,
+    "last": 71,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Excise Tax Act allows closely related corporations to elect to avoid GST/HST collection and input tax credit claims on intercorporate supplies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Denso Manufacturing and Denso Sales, closely related corporations, completed the old election form in April 2007, which then did not require filing with the Minister.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Amendments to the ETA in 2014 required a new election form (RC4616) to be filed with the Minister starting January 1, 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Minister allowed existing corporations to file the new election form by December 31, 2015, to maintain benefits under subsection 156(2) for 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Denso Manufacturing and Denso Sales did not file the new election form by December 31, 2015, leading to reassessments for unremitted tax in 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appeals concern the Minister's refusal to accept a late-filed new election form, not the reassessments themselves.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Federal Court dismissed the appellants' judicial review application; these appeals challenge that dismissal and will be dismissed here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Though not consolidated, the appeals share identical issues; these reasons apply to both, with originals filed accordingly.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Denso Manufacturing makes auto parts and sells to affiliates including Denso Sales; they completed the old election form in 2007 but did not file it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "In late 2015, Denso Manufacturing found an accounting issue, made a voluntary disclosure to CBSA, and had its GST/HST returns reviewed by CRA in January 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "In early 2016, the appellants told CRA they had an internal election via GST25; CRA asked them to file the new election form to comply with section 156.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Denso Manufacturing consulted Ryan Tax Consultants, who found no CRA guidance on missing the new form deadline but noted possible wash transaction treatment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Ryan Tax Consultants advised only January 2016 net tax exposure if the new form was not filed by February 2016; the form was filed February 22, 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "In June 2017, CRA began auditing Denso Manufacturing for April 2014 to March 2016 under the ETA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "On November 7, 2017, Denso Manufacturing requested CRA accept a late-filed election form effective January 1, 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "On December 4, 2017, Denso Manufacturing explained to CRA their unawareness of the new form requirement and sought administrative relief for a 2015 effective date.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "In April 2018, CRA proposed an additional $30 million GST for 2015 but waived interest above 4%; further submissions and meetings followed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "On September 11, 2018, the Minister denied the appellants' request to late file the new election form for 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Section 156(2) and (4) of the ETA require the joint election to be in prescribed form and filed by specified deadlines to be effective.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Subsection 156(2) mandates filing the election after 2014; subsection 156(4)(b)(ii) allows the Minister to accept late filings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The Minister's decision noted Denso Manufacturing's position about CRA's notification, tax consultant advice, audit manual, voluntary disclosure, and fairness concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The Minister found no extenuating circumstances or lack of negligence and noted consistency with other tax offices in denying late filing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The Minister's denial was based on timing of notification, limited review, audit manual applicability, prior CRA publications, and fairness to compliant registrants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The Minister denied Denso Manufacturing's request to late file the new election form for 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Denso Manufacturing sought judicial review, alleging procedural unfairness due to nondisclosure and unreasonableness of the Minister's decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The Federal Court applied correctness standard for procedural fairness and reasonableness for the Minister's late filing decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The Federal Court found the process fair, no obligation to disclose advisor's opinion, and Denso Manufacturing had ample opportunity to respond.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The Federal Court found the Minister's decision reasonable, rejecting Denso Manufacturing's claim of error in the election form's start date and unawareness excuse.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The Federal Court dismissed Denso Manufacturing's judicial review application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The appeal court reviews the judicial review decision de novo, stepping into the lower court's shoes per Supreme Court precedents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The appellants list four issues with the Federal Court decision, including errors in fact findings, negligence finding, misapplication of law, and procedural fairness errors.",
+   "ideas": "multiple",
+   "idea_list": [
+    "errors in fact findings",
+    "negligence finding error",
+    "misapplication of law",
+    "procedural fairness error"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The appellants argue the Federal Court decision is unreasonable and outside a reasonable range of outcomes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court states it will conduct a de novo review of the administrative decision without deference to the Federal Court, making some Federal Court issues irrelevant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court reframes the negligence issue as whether the Minister erred in finding the appellants failed to prove they were not negligent or careless.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court notes uncertainty whether de novo review applies to procedural fairness issues, referencing a prior case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court states that whether it reviews procedural fairness de novo or reviews the Federal Court's decision, no deference is given to the Federal Court on procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The standard of review for the Minister's denial of late filing is reasonableness, and the focus is on the Minister's decision, not the Federal Court's.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court identifies the appeal issues: procedural fairness breaches regarding nondisclosure and unreasonableness of the Minister's findings on extenuating circumstances and negligence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "procedural fairness breach - nondisclosure",
+    "unreasonableness of Minister's findings"
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The administrative decision under appeal is the Minister's denial of late filing of a new election form, resulting in GST collection and interest payable by Denso Manufacturing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court cites Supreme Court's Vavilov decision outlining the variable and context-specific nature of procedural fairness and five relevant factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court quotes Baker emphasizing that procedural fairness principles ensure affected individuals can fully present their case in a fair, impartial process.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court notes that the duty of procedural fairness regarding document disclosure by the Minister is low since the appellants requested a discretionary late filing acceptance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "The appellants argue procedural fairness was breached because the Minister failed to disclose a Senior Program Advisor's recommendation not to assess unremitted GST.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court cites Canadian Pacific stating the key procedural fairness question is whether the appellants knew the case to meet and had a fair chance to respond, which appellants failed to show.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court notes the appellants knew from CRA policy they had to explain their late filing and prove no negligence to have their request accepted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The appellants understood they needed to explain their late filing and show no negligence to have their late filing request accepted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The appellants' explanation was based on known facts and would not differ if they knew the Senior Program Advisor's opinion, which changed after more facts emerged.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The court finds no breach of procedural fairness from nondisclosure of the Senior Program Advisor's opinion, as it would not have changed appellants' submissions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "The appellants argue the Minister failed to disclose documents from 15 individuals involved, violating Federal Courts Rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court states Rule 317 disclosure applies after judicial review starts; appellants should have moved in Federal Court for additional disclosure.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The procedural fairness issue is whether the Minister had a duty to disclose all documents from 15 individuals before deciding on the late filing request.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court cites May v. Ferndale Institution that procedural fairness requires disclosing relied-upon information so the individual knows the case to meet.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The court finds the Minister relied only on appellants' information and had no duty to disclose all documents from others involved in the application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The court explains procedural fairness review focuses on whether a fair process was followed considering all circumstances, not on standard of review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court distinguishes procedural fairness review from substantive review, emphasizing different objectives and the importance of tailored remedies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The court stresses that regardless of deference, the key procedural fairness question is whether the party knew the case and had a fair chance to respond.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The court finds the Minister's consideration of extenuating circumstances does not make the denial unreasonable, as success required proving such circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "party",
+   "summary": "The appellants argue the Minister's finding of no extenuating circumstances was unreasonable, citing voluntary disclosure and CRA review as such circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The court finds no indication the Minister's decision rejecting voluntary disclosure as an extenuating circumstance was unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "party",
+   "summary": "The appellants argue CRA publications were unclear about intercorporate election changes, despite the Minister citing a January 2015 publication.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court explains the requirements of Form RC4616 for closely related corporations to elect nil consideration under section 156 of the Excise Tax Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "description of Form RC4616",
+    "filing deadlines",
+    "application to this case"
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The court emphasizes the clear requirement for existing elections to file Form RC4616 before January 1, 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The court finds no unreasonable basis in the Minister's determination that appellants could have filed the new election form earlier in 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court rejects appellants' argument that CRA's 2016 review and notification excused late filing since it occurred after the deadline.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The court finds appellants' inference about CRA's 2016 refund processing is unsupported and notes a proper late filing application might have changed the outcome.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellants' inference about refund",
+    "court's rejection of inference",
+    "possible different result with proper late filing"
+   ]
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The court states the issue is the Minister's reasonableness in rejecting late filing, not the prior election's memorialization in the old form GST25.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "party",
+   "summary": "Each appellant argues they exercised reasonable care by employing professionals, maintaining records, relying on advice, having prior elections, and acting promptly after error discovery.",
+   "ideas": "multiple",
+   "idea_list": [
+    "employment of professionals",
+    "adequate records",
+    "reliance on advice",
+    "prior election in place",
+    "prompt action after error"
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The court summarizes appellants' negligence defense but notes they filed the new form late with an effective date of 2016, not 2015, based on incomplete advice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellants' negligence defense",
+    "late filing with 2016 effective date",
+    "incomplete advice explanation"
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The court notes the clear statutory and CRA publication requirements to file the new election form by end of 2015, supported by tax advisor's early 2016 advice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The court finds no unreasonable basis in the Minister's determination that appellants failed to prove they were not negligent or careless.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The court concludes no procedural fairness breach occurred and the Minister's decision was reasonable, dismissing the appeals with costs to Denso Manufacturing.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

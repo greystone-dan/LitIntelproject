@@ -1,0 +1,181 @@
+{
+ "case_id": 42157,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0027024
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 7,
+   "below": 2,
+   "court": 7
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves Air Canada flight attendants, led by Ms. Perrin, seeking judicial review of the Canada Industrial Relations Board's decision dismissing their complaint against the Canadian Union of Public Employees for breach of fair representation. The applicants argued the Union failed to file grievances against Air Canada's vaccination policy and disciplinary measures, but the Board found no breach, relying on a prior decision upheld by the court. The Federal Court of Appeal dismissed the application, finding the Board's decision reasonable and procedural fairness was maintained.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Standard of review and Board's findings",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 11,
+    "label": "Court's analysis of Board's decision and applicants' arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 15,
+    "label": "Procedural fairness issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 16,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicants seek judicial review of the Canada Industrial Relations Board's May 20, 2022 decision dismissing their complaint against the Canadian Union of Public Employees for breach of fair representation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Applicants, Air Canada flight attendants led by Ms. Perrin, allege the Union breached its duty by refusing to file a grievance against Air Canada's vaccination policy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The Board relied on its prior Watson decision, which found no breach by the Union regarding the vaccination policy grievance, a decision upheld by this Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Applicants argue their complaint differs from Watson's as it includes failure to file grievances against disciplinary measures, which the Board failed to address.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Applicants agree the Board's decision is reviewable on a reasonableness standard, citing relevant case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Board found applicants' issues and Union conduct similar to Watson, reviewed their allegations, and found no new facts or arguments warranting a different conclusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court finds the applicants' distinction about disciplinary grievances immaterial as the Board considered disciplinary measures and the Union's case-by-case review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court is satisfied the Board considered all other elements raised by applicants' counsel at the hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Applicants criticize the Union's failure to disclose a second legal opinion and allege the Board misinterpreted facts and law and ignored Union's unfair representation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court rejects applicants' arguments about legal opinion disclosure and finds the Board reasonably examined Union conduct and addressed applicants' issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No legal basis for disclosure",
+    "Board reasonably examined Union conduct"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court finds applicants recognized complaint similarity with Watson and that the Board's decision applying Watson's rationale was reasonable and justified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicants argue the Board breached procedural fairness by not granting an oral hearing despite issues of bad faith and witness credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court states the Board is not required to hold oral hearings on request and credibility issues do not necessarily require one, citing precedent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court finds the detailed written complaint sufficed and applicants failed to show lack of oral hearing prevented fair presentation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicants raise a new procedural fairness claim about lack of reply opportunity compared to Ms. Watson, which the court finds meritless.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New procedural fairness claim",
+    "Claim found meritless"
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court dismisses the application with costs despite counsel's submissions.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

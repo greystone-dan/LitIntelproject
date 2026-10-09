@@ -1,0 +1,363 @@
+{
+ "case_id": 42859,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0064
+ },
+ "verification": {
+  "paragraphs": 40,
+  "summaries": 40,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 30,
+   "party": 9,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Bauer Hockey Ltd. appeals the Federal Court's dismissal of its patent infringement claim against Sport Maska Inc. (CCM), which found Bauer's patent invalid for obviousness. The Federal Court concluded that the invention of a one-piece skate boot quarter was obvious based on prior art and common knowledge. The Federal Court of Appeal upholds the obviousness finding, rejects Bauer's arguments on appellate deference and evidentiary issues, and dismisses the appeal with costs.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Legal framework on obviousness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 13,
+    "label": "Facts and Federal Court findings on obviousness",
+    "kind": "background"
+   },
+   {
+    "first": 14,
+    "last": 31,
+    "label": "Appellant's arguments and appellate analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 32,
+    "label": "Conclusion on obviousness",
+    "kind": "disposition"
+   },
+   {
+    "first": 33,
+    "last": 39,
+    "label": "Claim construction and prosecution history evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 40,
+    "last": 40,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Bauer Hockey Ltd. appeals the Federal Court's dismissal of its patent infringement action against Sport Maska Inc. (CCM), which found Bauer's patent invalid for obviousness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Bauer appeals Federal Court decision",
+    "Federal Court dismissed Bauer's patent infringement action",
+    "Federal Court found Bauer's patent claims invalid for obviousness"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Federal Court made other findings on claim construction and anticipation, but this Court will not address them as it upholds the obviousness conclusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The 748 Patent concerns a skate boot quarter, traditionally made in two sewn pieces forming the upper part of the boot, illustrated in the Decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The inventive concept is a one-piece quarter instead of two, including 'foxing portions'; simplicity of the concept does not imply obviousness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Federal Court correctly stated the law on obviousness per Patent Act s.28.3 and the Supreme Court's Apotex framework, which Bauer does not dispute.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The obviousness framework is flexible; only Patent Act s.28.3's requirements about public information and skilled person knowledge are mandatory.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The skilled person is agreed to be experienced in skate boot pattern design and manufacturing, combining work experience and education.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Federal Court found the skilled person's knowledge includes general footwear industry pattern-making; Bauer does not dispute this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The obviousness dispute focuses on defining the gap between the inventive concept and prior art, and whether bridging it was obvious.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Federal Court defined the gap as changing the quarter from two pieces joined at a junction line to a single piece.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Federal Court found bridging the gap was obvious using simple pattern-making techniques and common general knowledge.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The patent's background highlights problems with sewing lines, such as difficulty, risk of breakage, and assembly errors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Federal Court found the patent claims invalid for obviousness, and this Court sees no basis to overturn that finding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Bauer argues the Federal Court erred by ignoring testimony from industry witnesses who failed to find the one-piece quarter solution despite known problems.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Bauer's memorandum alleges the trial judge advanced his own theory, ignored problems solved by the invention, and discounted inventiveness evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The standard of review is palpable and overriding error for mixed fact and law issues like obviousness; Bauer does not dispute the law statement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Bauer argues less deference should be given on appeal due to the trial judge's limited patent case experience, citing UK Supreme Court authority.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Court rejects Bauer's proposal to vary appellate deference based on trial judge experience as inconsistent with Canadian precedent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court notes Bauer misreads Actavis, which supports more deference for experienced judges; existing appellate tools suffice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Court addresses Bauer's claim that the Federal Court advanced its own theory to explain why one-piece quarters were not used before the patent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Federal Court found directional material properties caused material waste, deterring one-piece quarters until non-directional materials emerged.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Bauer contends no expert linked directional material properties to the obviousness of the one-piece quarter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "CCM cites expert evidence acknowledging material waste issues and the mitigating effect of non-directional materials on one-piece quarter adoption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Court finds sufficient evidence to support the Federal Court's conclusion on material properties affecting one-piece quarter adoption, no palpable error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Bauer's example of CCM's one-piece quarter with directional material does not negate the Federal Court's theory about material considerations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Bauer argues the Federal Court ignored or minimized problems solved by the invention, contrary to evidence and the low threshold for inventiveness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Court declines to reweigh evidence and finds no error in the Federal Court's conclusion that the transition to one-piece quarters was obvious.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "Bauer argues the Federal Court discounted evidence of inventiveness, including industry players' failure to adopt one-piece quarters and other CCM adaptations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Court finds no palpable error in the Federal Court's weighing of evidence on inventiveness and its reasons for its conclusions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "Bauer criticizes the Federal Court for mischaracterizing evidence of widespread adoption as commercial success rather than utility, which is not disputed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "Bauer argues Federal Court's conclusions conflict with Justice Gauthier's in Easton, but CCM counters differences in evidence and parties; court finds no need to reconcile.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Bauer's argument on inconsistency with Easton",
+    "CCM's counterpoint on differences",
+    "Court's decision no reconciliation needed"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Federal Court made no reviewable error in its obviousness assessment, says the court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court introduces section 53.1 of the Patent Act, allowing prosecution history evidence in claim construction, quoting subsection 53.1(1) fully.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Federal Court acknowledged general prohibition on extrinsic evidence in claim construction but noted section 53.1 alters this regarding prosecution history.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "below",
+   "summary": "Federal Court held section 53.1 applies broadly to claim construction, allowing prosecution history without identifying specific representations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court disagrees with Federal Court's broad interpretation of section 53.1, citing inconsistency with other decisions and the provision's detailed wording.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Section 53.1 aims to address patentees' inconsistent statements during prosecution and litigation, requiring identification of representations to apply.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court explains the prohibition on prosecution history evidence protects public notice and limits litigation complexity, citing Free World Trust.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court notes concerns about public notice and litigation justify limiting prosecution history evidence, but courts must apply the law as written.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal with costs of $30,000, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

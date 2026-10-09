@@ -1,0 +1,467 @@
+{
+ "case_id": 30692,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.008070400000000002
+ },
+ "verification": {
+  "paragraphs": 48,
+  "summaries": 48,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 11,
+  "speakers": {
+   "party": 6,
+   "below": 19,
+   "court": 23
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by Finastra International Limited against the Canadian trademark registrations of Fenestrae B.V., a Dutch software company, regarding the use and registration of the FENESTRAE mark for various software goods and services. The Federal Court reviewed the evidence of use of the mark in Canada, partially upholding the trademark registrations related to Faxination software and services but finding insufficient evidence for Udocx services. The appeal was allowed in part, with some deletions of goods and services from the registrations, and no costs were awarded due to the divided outcome.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Parties and Trademark Use",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 27,
+    "label": "Tribunal Below's Findings on Trademark Use and Registrations",
+    "kind": "background"
+   },
+   {
+    "first": 31,
+    "last": 38,
+    "label": "Standard of Review and Burden of Proof",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 41,
+    "last": 51,
+    "label": "Analysis of Evidence for Goods and Sales in Canada",
+    "kind": "analysis"
+   },
+   {
+    "first": 53,
+    "last": 62,
+    "label": "Analysis of Evidence for Services and Use of Udocx Mark",
+    "kind": "analysis"
+   },
+   {
+    "first": 64,
+    "last": 64,
+    "label": "Disposition and Costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Respondent Fenestrae BV is a Dutch software company owning the FENESTRAE mark, with a subsidiary in Georgia providing global support and sales.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's business nature",
+    "Subsidiary's role",
+    "Mark usage and control",
+    "Software solutions purpose"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Respondent uses the FENESTRAE mark mainly for Faxination, a secure digital document platform, and Udocx, a cloud-based document conversion solution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The Officer grouped registered goods and services into Faxination, Udocx, and others, upholding only some registrations; Appellant wants all deleted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Grouping of goods/services",
+    "Officer's partial upholding",
+    "Appellant's deletion request"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The appeal is allowed in part for reasons explained below.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "Mr. Hogewoning admitted the mark was unused in Canada for some hardware goods, which were deleted accordingly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "Faxination was described broadly but established as at least computer facsimile software with modular components.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer divided goods into Computer Facsimile Software and Remaining Computer Software Goods.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "Computer Facsimile Software included software for transmission and analysis of various media across networks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "No evidence showed Faxination exchanged audio or moving pictures, so those entries were deleted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Appellant argued no evidence showed software installation images were viewed in Canada; one document showed a Netherlands account.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "Officer found FENESTRAE mark on software installation images sufficient to associate the mark with Faxination subscription.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "Remaining Computer Software Goods included backup hard drives, peripherals, mobile devices, and payment processing software.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "Officer agreed backup hard drives lacked sales evidence and deleted those goods accordingly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "Mr. Hogewoning's description of backup hard drives was unsupported by affidavit evidence, so association was rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "No evidence supported payment processing software goods; general references were deleted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Officer found Faxination descriptions correlated to various telecommunication and facsimile messaging services.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "Audio and moving pictures were not described for Faxination and were deleted from registered services.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "Officer found Faxination subscription included performance of Faxination services, supported by promotional brochures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "Udocx described as cloud solution converting documents; correlated to user access and cloud computing services.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "Despite no Udocx subscriptions, Officer accepted services were advertised and available in Canada during relevant period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "Brochures showed FENESTRAE and UDOCX as distinct marks, each with its own \u00ae symbol.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "Officer did not infer Udocx backorders meant availability but accepted direct sales and website display as evidence of use.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "Remaining Solutions not addressed in affidavit were deleted by Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Questions of fact and mixed fact-law are reviewed for palpable and overriding error; questions of law for correctness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Interpretation of evidence is reviewed for palpable and overriding error, meaning obvious error affecting outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Court must decide if Officer made palpable and overriding errors in inferences from evidence including affidavit and exhibits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Adverse inference not justified as Respondent does not contest factual deficiencies found by Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Officer found Respondent's evidence sufficient; Appellant bears burden to show palpable and overriding error; no adverse inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Appellant argues invoices with Canadian addresses lack shipping costs and no evidence goods arrived in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Sales qualify as normal trade if genuine arm's length transactions; burden is low and may be inferred by Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Justice Nadon in JC Penney explained that a single sale can prove trademark use if in the normal course of trade, excluding token or related-party sales.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of normal course of trade",
+    "single sale sufficiency",
+    "excluded sales types",
+    "issue is sufficiency of sales"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "No evidence suggested Mr. Hogewoning's transactions were outside the normal course of trade; the Officer properly relied on documents and explanations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Nothing indicated the sales in Exhibit D were not genuine commercial transactions or excluded types; Respondent needed only to show genuine sales pattern.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Respondent needed only a prima facie case; Officer could reasonably infer delivery from invoices with major clients.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Officer's inferences were based on holistic evidence linking invoices and product descriptions to the trademarked goods.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Officer accepted Mr. Hogewoning's statement that installation screen was viewed in Canada; no reason to think it differed from Netherlands version.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Officer found Respondent demonstrated use of Faxination goods, deleting unproven goods; Appellant failed to show palpable error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "party",
+   "summary": "Appellant argues invoices don't prove registered services were performed in Canada; ordering services isn't use under s 4(2).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Services term is liberally construed; performance means Canadians derived tangible benefit during relevant period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Officer found Faxination services performed and Udocx services at least advertised and available in Canada during relevant period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Officer reasonably inferred Faxination services performed from evidence including annual subscriptions and invoices to agencies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "Appellant notes Udocx licenses were backordered on PC Canada website, suggesting services weren't available during relevant period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Officer rejected Appellant's 'tacit admission' claim, accepting Mr. Hogewoning's explanation about sales channels and timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "No evidence beyond Mr. Hogewoning's assertion showed Udocx use in Canada; mere assertion insufficient per Plough case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Under s 45, burden is light but evidence must show use within three years, not just bald assertions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Respondent needed factual assertions showing use; Officer accepted bald assertion and found only advertising and availability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Officer erred palpably and overridingly by finding Udocx services used during relevant period without sufficient evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "Because the appeal's success is divided, no order as to costs will be made.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

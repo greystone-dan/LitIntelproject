@@ -1,0 +1,479 @@
+{
+ "case_id": 28435,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0076304
+ },
+ "verification": {
+  "paragraphs": 53,
+  "summaries": 53,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 1,
+  "speakers": {
+   "court": 37,
+   "party": 10,
+   "below": 6
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves the Applicant's judicial review of a Canada Revenue Agency (CRA) decision denying her eligibility for the Canada Recovery Benefit (CRB) due to insufficient net self-employment income. The Applicant challenged the CRA's finding that she did not meet the $5,000 minimum net income threshold, arguing procedural unfairness and errors in the decision. The Federal Court dismissed the application, finding the CRA's decision reasonable, procedurally fair, and justified by the evidence and law.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 9,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 20,
+    "label": "Statutory framework and eligibility criteria",
+    "kind": "background"
+   },
+   {
+    "first": 21,
+    "last": 28,
+    "label": "Issues and standards of review",
+    "kind": "issue"
+   },
+   {
+    "first": 29,
+    "last": 37,
+    "label": "Preliminary matters and parties' positions",
+    "kind": "other"
+   },
+   {
+    "first": 38,
+    "last": 46,
+    "label": "Procedural fairness and Applicant's arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 50,
+    "last": 56,
+    "label": "Legal principles on review standards and procedural fairness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 104,
+    "last": 125,
+    "label": "Reasonableness and evidence assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court introduces the judicial review application of a CRA decision denying the Applicant's eligibility for the CRB due to insufficient income.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court states it will dismiss the Applicant's judicial review application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court explains the Applicant was self-represented, received CRB and CERB payments, was audited, and only CRB eligibility is at issue.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant was self-employed in education during the pandemic and received $24,600 CRB between Oct 2020 and Oct 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court outlines the CRB Act's income eligibility requirements, including a $5,000 minimum net self-employment income.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CRB Act income eligibility",
+    "Definition of net self-employment income"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court highlights the CRB Act's definition of net self-employment income as revenue minus expenses, noting the Applicant's issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court explains the CRB Act requires repayment of erroneous payments and that such amounts constitute debts to the Crown.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court notes the CRB Act requires recipients to provide information for application and audits to verify compliance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The CRA audited the Applicant's CRB eligibility and requested documentation to prove the $5,000 net self-employment income threshold.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The CRA's First Letter clarified that net self-employment income means income after deducting expenses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Applicant replied she did some cash teaching work in 2019 but lacked invoices or records and asked CRA to accept this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The CRA's First Level Decision found the Applicant ineligible for CRB due to not earning at least $5,000 net employment or self-employment income.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Applicant objected, arguing relevant information was ignored, including her tax return and lack of documentation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "On reconsideration, the CRA again found the Applicant ineligible for CRB due to insufficient net self-employment income.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review of the CRA's Decision, including information from the initial audit.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Decision states the Applicant did not earn $5,000 net employment or self-employment income and must repay any overpayment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Officer's notes show the Applicant's submissions were considered, including a Notice of Assessment and income/expense spreadsheet.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Applicant's 2019 Notice of Assessment showed a net self-employment loss of $-5,936.62 despite reported gross income of $5,450.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The Applicant reported another net self-employment loss of $-5,912.90 in 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's reported net self-employment losses are well below the $5,000 minimum required for CRB eligibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court identifies the issues as whether the Decision is reasonable and procedurally fair.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court states the reasonableness standard applies to the Decision's merits and procedural fairness requires a fair opportunity to respond.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court cites Canada Post and Vavilov for the requirements of a reasonable decision and judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court quotes Vavilov emphasizing that a decision-maker's reasoning must logically add up.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court notes Vavilov instructs courts not to reweigh evidence except in exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court cites Canadian Pacific Railway for the procedural fairness standard requiring knowledge of the case and a fair chance to respond.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court cites Canadian Association of Refugee Lawyers and Khosa confirming the correctness standard applies to procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court cites Dunsmuir for the correctness standard requirements on procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Respondent raises several preliminary objections.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court amends the style of cause to name the Attorney General of Canada as the proper respondent, not the CRA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court explains that a reasonable decision must be coherent, rational, and justified by facts and law, citing Vavilov and related cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of reasonable decision",
+    "method of reasonableness review",
+    "reading reasons holistically"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court states that reasonableness depends on legal and factual context and must show justification, transparency, and intelligibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court notes the burden is on the challenger to prove the decision unreasonable by showing significant flaws, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Respondent argues the Officer reasonably considered the Applicant's submissions and correctly found her negative net self-employment income disqualified her from CRB.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The Respondent submits the CRB Act lacks discretion or compassionate relief, so the Applicant's disagreement with the law is not for the Court to reverse.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no compassionate relief in CRB Act",
+    "mandatory net income criterion",
+    "Applicant disagrees with legislative scheme"
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Respondent submits the issue is whether the Officer properly considered the Applicant's net self-employment income after expenses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The Applicant admits she read the February 9, 2023 letter clearly stating eligibility required over $5,000 net self-employment income.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The Applicant thought the eligibility requirement was a CRA mistake and lacked assistance to correct this misunderstanding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court finds no basis to intervene, concluding the Officer's decision was reasonable, transparent, intelligible, and justified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "The Applicant claims procedural unfairness due to nondisclosure of net income requirement and alleges a coverup, which the court rejects as meritless.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant alleges procedural unfairness",
+    "court rejects coverup claim",
+    "court notes Applicant knew law"
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "The Applicant claims CRA delayed correcting eligibility mistake, but acknowledges documentary demands were timely; court finds no merit in this claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Applicant claims receiving a different letter than Respondent's record; court finds letters relate to different programs (CRB vs CERB).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court explains judicial intervention for procedural fairness breaches follows correctness standard and relief depends on substantial wrong or miscarriage of justice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "judicial intervention for procedural fairness",
+    "correctness standard applies",
+    "relief governed by common law"
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court notes the Applicant had opportunities to make further submissions to the Second Reviewing Officer, which were reasonably rejected.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court observes that Applicant's arguments may be addressed in Flock decision and CERB issues may be subject to remission orders.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court concludes the application must be dismissed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court explains that under correctness review it independently analyzes the question and decides if it agrees with the tribunal's decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court states procedural and substantive reviews serve different purposes and procedural fairness issues may not fit standard of review analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "procedural vs substantive review differ",
+    "some procedural matters not suited to standard of review",
+    "court can tailor remedies"
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The court emphasizes procedural fairness requires the applicant to know the case and have a fair chance to respond, regardless of deference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "The court states a decision's internal rationality is questioned if reasons show logical fallacies, but not held to academic logic standards.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "The court says a reasonable decision must be justified by relevant law and facts, citing Dunsmuir and related cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "The court lists elements relevant to evaluating reasonableness, including statutory scheme, evidence, submissions, past practices, and impact on individuals.",
+   "ideas": "multiple",
+   "idea_list": [
+    "elements relevant to reasonableness",
+    "not a checklist",
+    "context matters"
+   ]
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The court states decision makers may assess evidence and courts should not reweigh evidence absent exceptional circumstances, citing case law.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

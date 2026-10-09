@@ -1,0 +1,198 @@
+{
+ "case_id": 34427,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.004966000000000001
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "speakers": {
+   "party": 5,
+   "court": 10,
+   "below": 2,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Ms. Luttrell's judicial review application challenging the refusal of her Temporary Resident Permit (TRP) application by the immigration officer. The Minister argues the case is moot as Ms. Luttrell now holds a valid TRP, and the Federal Court agrees, declining to hear the matter on its merits. The court finds no practical effect or sufficient reasons to exercise discretion to proceed with the review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Procedural and factual background",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Applicant's submissions on mootness and discretion",
+    "kind": "issue"
+   },
+   {
+    "first": 14,
+    "last": 24,
+    "label": "Court's analysis on mootness and discretion",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 26,
+    "label": "Certification and concluding remarks",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "Ms. Luttrell (applicant) challenges the refusal of her Temporary Resident Permit (TRP) application by the immigration officer (tribunal_below). The Minister of Citizenship and Immigration (respondent) argues the case is moot as Ms. Luttrell now holds a valid TRP. Issues addressed include: 1) whether the case is moot given the current valid TRP; 2) if the court should exercise discretion to hear the matter despite mootness; 3) alleged errors in the officer's assessment of exceptional circumstances, immigration history, and best interests of the child; and 4) whether judicial economy and adversarial context justify review. The court dismisses the application for mootness and declines to hear the merits.",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. Luttrell argues the Officer made three errors in her TRP application: applying 'exceptional circumstances', assessing immigration history, and best interest of the child.",
+   "ideas": "multiple",
+   "idea_list": [
+    "exceptional circumstances standard error",
+    "immigration history assessment error",
+    "best interest of child assessment error"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Minister argues the judicial review is moot because Ms. Luttrell now holds a valid TRP since December 2024.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court agrees the application is moot due to the valid TRP and declines to exercise discretion to hear the matter on merits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "In 2021, Ms. Luttrell's permanent residence application on humanitarian grounds was refused and judicial review was dismissed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "In 2022, Ms. Luttrell applied for a TRP citing no criminal record, family ties, work with disabled children, and community advocacy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "In August 2023, the Officer upheld the TRP refusal, citing lack of exceptional circumstances and availability of other means to regularize status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "In January 2025, Ms. Luttrell applied for an open work permit, which remains under processing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Ms. Luttrell contends the case is not moot due to future TRP needs and urges the Court to exercise discretion to hear the matter for judicial economy and adversarial context.",
+   "ideas": "multiple",
+   "idea_list": [
+    "future TRP need argument",
+    "discretion to hear urged",
+    "judicial economy and adversarial context arguments"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court rejects Ms. Luttrell's submissions and finds the application moot.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court agrees the case is moot as Ms. Luttrell holds a valid TRP, so judicial review would have no practical effect.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court finds Ms. Luttrell's possible future TRP need speculative and insufficient to maintain a live controversy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court finds no adversarial context as Ms. Luttrell was granted a TRP and the Minister's arguments were brief.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds no collateral consequences warranting review since TRP decisions are discretionary and fact-specific.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Judicial economy favors dismissal as the case has no practical effect and does not raise important or evasive issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court notes judicial resources have already been spent, making judicial economy a neutral factor here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds no general importance question raised and notes Ms. Luttrell made no submissions on this factor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court concludes the Borowski analysis and interests of justice weigh against hearing the merits of the application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "other",
+   "summary": "The parties did not propose any question of general importance for certification.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

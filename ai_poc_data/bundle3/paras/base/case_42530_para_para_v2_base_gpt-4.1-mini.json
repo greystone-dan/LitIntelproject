@@ -1,0 +1,159 @@
+{
+ "case_id": 42530,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0022084
+ },
+ "verification": {
+  "paragraphs": 13,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 11,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves an appeal by the appellant against a Federal Court order dismissing her motions related to a claim that Canada Post employees interfered with her mail. The appellant filed a statement of claim and motions, which were dismissed by the Federal Court and Associate Judge Molgat. The appeal was dismissed with costs, affirming the lower court's decisions and finding no reversible error.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Procedural history and initial motions",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Federal Court decisions on appeal and default judgment",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 11,
+    "label": "Analysis of Federal Court's discretionary decisions and rules application",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 12,
+    "label": "Systemic discrimination claim procedural issue",
+    "kind": "issue"
+   },
+   {
+    "first": 13,
+    "last": 13,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appellant appeals a Federal Court order dismissing her motions, as per Fuhrer J, 2023 FC 863.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court introduces the relevant facts of the case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "On February 8, 2022, the appellant filed a statement of claim alleging Canada Post employees interfered with her mail under the Canada Post Corporation Act, using simplified action rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The respondent did not file a defence but filed a motion to strike the appellant's claim on March 11, 2022, under Rule 221.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "Associate Judge Molgat dismissed the respondent's motion to strike because it was late and lacked necessary material.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appellant appealed the Associate Judge's decision and filed a motion for default judgment, both dismissed by the Federal Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Federal Court dismissed the appellant's default judgment motion due to lack of supporting evidence and respondent's interest in the matter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court finds no legal or factual errors in the Federal Court's discretionary dismissal of the default judgment motion and disagrees with the appellant's arguments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Federal Court rejected the appellant's argument that the Associate Judge erred by applying Rule 298(2)(b) instead of Rule 221, finding the motion properly addressed under both rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The appellant's allegations about Rules 221 and 298 do not show reversible error by the Federal Court after careful consideration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Differences between Rule 221 grounds do not affect the case outcome; the respondent's motion was out of time and lacked necessary material, so no intervention is warranted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The appellant failed to follow proper procedures to raise a systemic discrimination claim, so the court cannot rule on it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The appeal is dismissed with costs for the reasons stated.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

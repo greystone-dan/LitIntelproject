@@ -1,0 +1,371 @@
+{
+ "case_id": 5732,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0087784
+ },
+ "verification": {
+  "paragraphs": 68,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 17,
+   "below": 1,
+   "party": 2,
+   "mixed": 3
+  },
+  "multi_idea_paragraphs": 18,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the Minister of National Revenue's application for court authorization to serve Hydro-Qu\u00e9bec with a 2019 Request for Information (RFI) under the Income Tax Act, following a similar 2017 RFI that was previously refused authorization. Hydro-Qu\u00e9bec argued that the 2019 RFI was barred by res judicata based on the earlier 2018 Federal Court decision refusing the 2017 RFI, a position the court ultimately accepted. The court denied the Minister's application, finding that the 2019 RFI was identical in object, cause, and parties to the 2017 RFI and thus barred by res judicata under Quebec law.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and Minister's application",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Previous Federal Court decision and legal context",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Hydro-Qu\u00e9bec's res judicata argument and court's initial finding",
+    "kind": "issue"
+   },
+   {
+    "first": 10,
+    "last": 15,
+    "label": "Legal principles of res judicata under Quebec law",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 16,
+    "last": 21,
+    "label": "Requirements for res judicata: identity of parties, cause, and object",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 22,
+    "last": 27,
+    "label": "Parties' positions on identity of object",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 39,
+    "label": "Court's analysis on identity of object between 2017 and 2019 RFIs",
+    "kind": "analysis"
+   },
+   {
+    "first": 40,
+    "last": 45,
+    "label": "Further case law and court's conclusion on identity of object and cause",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 57,
+    "label": "Detailed analysis of identity of cause and parties' arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 58,
+    "last": 63,
+    "label": "Application of res judicata and final judgment requirements",
+    "kind": "analysis"
+   },
+   {
+    "first": 64,
+    "last": 66,
+    "label": "Minister's new evidence and court's dismissal of application",
+    "kind": "disposition"
+   },
+   {
+    "first": 67,
+    "last": 68,
+    "label": "Costs and statutory provisions",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The Minister seeks court authorization to serve Hydro-Qu\u00e9bec a 2019 RFI under the Income Tax Act about certain commercial customers, requiring pre-conditions of ascertainable group and compliance verification; a similar 2017 RFI was previously submitted without objection from Hydro-Qu\u00e9bec.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's 2019 RFI request",
+    "Legal pre-conditions for authorization",
+    "Previous 2017 RFI without objection"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "below",
+   "summary": "The 2018 Federal Court refused the 2017 RFI authorization due to lack of ascertainable group and insufficient connection to the Act; the Minister did not appeal, making it res judicata; the 2020 FCA decision in Roofmart clarified the law, potentially changing the outcome for the 2019 RFI.",
+   "ideas": "multiple",
+   "idea_list": [
+    "2018 Court refusal of 2017 RFI",
+    "Minister did not appeal",
+    "2020 FCA decision impacts legal interpretation"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "Hydro-Qu\u00e9bec argues the 2018 decision is res judicata, ending the 2019 RFI; parties agree to apply Quebec's res judicata doctrine; the court finds the 2019 RFI identical in object, cause, and parties to the 2018 case and thus denies it on res judicata grounds.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Res judicata doctrine applies",
+    "Parties agree on legal framework",
+    "2019 RFI identical to 2018 case",
+    "Court denies 2019 RFI"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court explains Quebec's article 2848 on res judicata as an absolute presumption requiring same object, cause, parties, and final judgment in contentious matter; it cites Supreme Court and scholarly authority supporting this principle.",
+   "ideas": "single",
+   "idea_list": [
+    "Explanation of res judicata under Quebec law"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The court cites Professor Ducharme and Supreme Court of Canada to confirm that final judgments in contentious matters, even ex parte or default, have res judicata effect; it rejects the Minister's argument that the 2018 judgment was non-contentious due to Hydro-Qu\u00e9bec's non-objection.",
+   "ideas": "single",
+   "idea_list": [
+    "Contentious nature of 2018 judgment confirmed"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The court states res judicata requires triple identity of parties, cause, and object; it notes res judicata prevents re-litigation of dismissed grounds and is mandatory under Quebec law; parties agree on identity of parties, so court must assess identity of object and cause.",
+   "ideas": "single",
+   "idea_list": [
+    "Triple identity requirement and mandatory application"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court defines 'object' as the immediate legal benefit sought, requiring examination of right and remedy; identity of object need not be absolute but must be a necessary part of the first action; it cites leading cases explaining this principle.",
+   "ideas": "single",
+   "idea_list": [
+    "Definition and test for identity of object"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The court notes identity of object includes similarity or necessary consequence, considering substance over form; it introduces parties' positions on the objects of the 2018 judgment and 2019 RFI, with the Minister claiming different years and groups.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Identity of object includes necessary consequence",
+    "Minister's position on different years and groups"
+   ]
+  },
+  {
+   "para": 25,
+   "last": 27,
+   "speaker": "party",
+   "summary": "The Minister argues the 2019 RFI is new because it concerns different customers and years, with a broader scope including residential sector; Hydro-Qu\u00e9bec counters that the object is the same group of commercial customers, with material composition irrelevant, and the object need only be a necessary part of the prior judgment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's argument for new object",
+    "Hydro-Qu\u00e9bec's argument for same object"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 30,
+   "speaker": "court",
+   "summary": "The court finds both RFIs seek information on Hydro-Qu\u00e9bec's business customers; the Minister's claim that each RFI covers a different year does not distinguish the objects; the court agrees with Hydro-Qu\u00e9bec that the objects are not distinguishable.",
+   "ideas": "single",
+   "idea_list": [
+    "Court finds objects of RFIs indistinguishable"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "party",
+   "summary": "Hydro-Qu\u00e9bec provides a comparative table showing the 2017 and 2019 RFIs request substantially the same information about the same group of unnamed persons, with identical exclusions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Hydro-Qu\u00e9bec's comparative table",
+    "Substantial similarity of RFIs",
+    "Same exclusions in both RFIs"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "The court explains that the 2017 and 2019 RFIs cover the same customer groups except the 2019 RFI excludes institutional sector customers, and the RFIs do not specify the year of the group or audit.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Same customer groups except institutional exclusion",
+    "Definition of institutional customers",
+    "No year specified in RFIs"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 39,
+   "speaker": "court",
+   "summary": "The court finds no evidence that the RFIs target different years or objects, rejects the Minister's argument that group composition changes negate identity of object, and notes the RFIs are based on a generic group description.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No indication RFIs target different years",
+    "Rejects Minister's argument on group composition",
+    "RFIs based on generic group description"
+   ]
+  },
+  {
+   "para": 40,
+   "last": 42,
+   "speaker": "court",
+   "summary": "The court finds the Quebec Court of Appeal's Damphousse decision unhelpful on identity of object, but finds Rocois Construction and Doyon clarify that identity of issue can establish res judicata despite differences, and notes the Minister seeks information on Hydro-Qu\u00e9bec\u2019s business customers.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Damphousse not relevant for identity of object",
+    "Rocois Construction and Doyon clarify identity of issue",
+    "Minister's legal benefit is info on business customers"
+   ]
+  },
+  {
+   "para": 43,
+   "last": 45,
+   "speaker": "court",
+   "summary": "The court finds the 2017 and 2019 RFIs have identical objects\u2014obtaining information on Hydro-Qu\u00e9bec\u2019s business customers\u2014and defines cause as the juridical or material fact forming the basis of the right claimed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Identical object of both RFIs",
+    "Definition of cause by Quebec Court of Appeal"
+   ]
+  },
+  {
+   "para": 46,
+   "last": 48,
+   "speaker": "court",
+   "summary": "The court reviews Supreme Court definitions of identity of cause, emphasizing cause as the principal fact legally characterized to create obligations, and favors a concrete concept of cause over an abstract one.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Cause as principal fact legally characterized",
+    "Same facts can yield different causes",
+    "Preference for concrete concept of cause"
+   ]
+  },
+  {
+   "para": 49,
+   "last": 51,
+   "speaker": "mixed",
+   "summary": "The Minister argues for a narrow concept of cause, claiming the 2019 RFI is a separate audit obligation for a different fiscal year, while the court notes this restricts res judicata application and Hydro-Qu\u00e9bec disputes the Minister's position.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's narrow cause concept argument",
+    "2019 RFI as separate audit",
+    "Hydro-Qu\u00e9bec's opposing view"
+   ]
+  },
+  {
+   "para": 52,
+   "last": 54,
+   "speaker": "mixed",
+   "summary": "The Minister submits the 2019 RFI has a different cause and goals than the 2017 RFI due to different fiscal years and audit needs, while Hydro-Qu\u00e9bec argues both RFIs share the same goal and year is irrelevant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's argument on different causes and years",
+    "Hydro-Qu\u00e9bec's argument on same goal and irrelevance of year"
+   ]
+  },
+  {
+   "para": 55,
+   "last": 57,
+   "speaker": "court",
+   "summary": "The court adopts the narrow cause concept but finds the year does not distinguish the RFIs, agrees with Hydro-Qu\u00e9bec that the legal characterization is identical, and concludes there is identity of cause.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Adopts narrow cause concept",
+    "Year not distinguishing factor",
+    "Identity of cause found"
+   ]
+  },
+  {
+   "para": 58,
+   "last": 60,
+   "speaker": "court",
+   "summary": "The court distinguishes the Minister's statutory obligation to seek court authorization for RFIs from the court's decision on statutory conditions, and holds that res judicata would prevent re-litigation of the criteria if the 2017 RFI had been authorized.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Distinction between statutory obligation and court decision",
+    "Minister must seek leave for each RFI",
+    "Res judicata prevents re-opening criteria findings"
+   ]
+  },
+  {
+   "para": 61,
+   "last": 63,
+   "speaker": "court",
+   "summary": "The court finds that the conditions for res judicata under the Civil Code of Qu\u00e9bec are met, including jurisdiction, final judgment, identity of parties, object, and cause, thus applying the presumption that terminates the Minister's 2019 RFI.",
+   "ideas": "multiple",
+   "idea_list": [
+    "res judicata conditions met",
+    "jurisdiction and final judgment",
+    "identity of parties, object, and cause",
+    "application of presumption under article 2848"
+   ]
+  },
+  {
+   "para": 64,
+   "last": 66,
+   "speaker": "court",
+   "summary": "The court notes the Minister's submission about new evidence but finds it does not affect res judicata application, agrees with Hydro-Qu\u00e9bec on abuse of rights discretion, and dismisses the Minister's application to serve the information requirement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's new evidence submission",
+    "court's discretion on abuse of rights",
+    "dismissal of Minister's application"
+   ]
+  },
+  {
+   "para": 67,
+   "last": 68,
+   "speaker": "mixed",
+   "summary": "The court awards costs to Hydro-Qu\u00e9bec and quotes subsection 231.2 of the Act detailing the Minister's power to require information or documents, including procedural details and limitations regarding unnamed persons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "costs awarded to Hydro-Qu\u00e9bec",
+    "statutory provision on Minister's information requirements",
+    "procedural rules for serving notices",
+    "restrictions on requiring info about unnamed persons"
+   ]
+  }
+ ]
+}

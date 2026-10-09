@@ -1,0 +1,237 @@
+{
+ "case_id": 5111,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0035748000000000004
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 1,
+  "speakers": {
+   "court": 22,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of a visa officer's refusal of Harvinder Singh Sangha's work permit application under the Temporary Foreign Worker Program. The Applicant challenged the refusal on grounds of unreasonableness and procedural fairness, arguing that he met the job requirements and was not given a chance to respond to concerns. The Court found the refusal unreasonable but held there was no breach of procedural fairness, ultimately granting judicial review to quash the decision and order reconsideration by a different officer.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and decision under review",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Facts and issues for judicial review",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 16,
+    "label": "Legal framework and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 17,
+    "last": 21,
+    "label": "Analysis of reasonableness of refusal",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 25,
+    "label": "Analysis of procedural fairness",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "This is a judicial review application of a visa officer's March 6, 2020 refusal of the Applicant's work permit under the Temporary Foreign Worker Program.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Applicant, Harvinder Singh Sangha, is a 36-year-old Indian citizen who applied on February 11, 2020 for a work permit as a long-haul truck driver in British Columbia.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicant submitted evidence of truck driving experience in UAE, training certificates, licenses, IELTS results, education, LMIA, and a job offer from KingK Transport Ltd.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Officer refused the application on March 6, 2020, finding the Applicant could not demonstrate ability to perform the work; no interview was conducted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review to quash the Decision, have it reconsidered by a different officer, and other relief deemed just by the Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Officer refused the application under paragraph 200(3)(a) of the Immigration and Refugee Protection Regulations for inability to perform the work.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Officer's GCMS notes mention the Applicant's 2010 US visa refusal, legal separation since 2013, and truck driving experience supported by reference letters and salary documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Officer found the Applicant's employment evidence insufficient due to lack of salary deposits and older documents supporting employment in UAE.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The judicial review issues are whether the Decision was reasonable and whether it was procedurally fair.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The standard of review for merits of administrative decisions is reasonableness, per Vavilov 2019 SCC 65.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Procedural fairness issues are reviewed on correctness or an equivalent standard, citing Canadian Pacific Railway and Mission Institution cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Foreign nationals may work in Canada if they meet conditions in the Immigration and Refugee Protection Act and Regulations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "An Officer must not issue a work permit if there are reasonable grounds to believe the foreign national cannot perform the work, per paragraph 200(3)(a).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Regulations do not specify competence levels, but safety is paramount for long-haul truck drivers; applicants must prove competence; officers have wide discretion and decisions get deference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "NOC 7511 (Skill Level C) describes duties and requirements for transport truck drivers, including long-haul drivers.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "NOC 7511 does not require work experience but may require secondary school, accredited driver training, and relevant licenses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant argues the refusal was unreasonable because he met or exceeded NOC 7511 requirements and the Officer failed to properly assess his work experience evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant's documents lacked details proving skills and experience for NOC 7511 duties, justifying refusal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court finds the Officer's refusal unreasonable as the reasons do not support the conclusion and the Officer accepted some evidence but then required unnecessary proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The NOC 7511 does not require work experience; the Applicant met education and training requirements; refusal based on salary deposits and ignoring other documents was unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Respondent's arguments add justification not present in the Decision, which lacks clarity and detailed evidence analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Temporary visa decisions generally attract a low or minimal level of procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Work permit applicants usually are not given a chance to respond to officer concerns arising from statutory requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicant submits the Officer breached procedural fairness by not allowing him to provide further information to address concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Officer had no concerns about credibility, only insufficiency of materials, so no duty to notify or allow response; no procedural fairness breach.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

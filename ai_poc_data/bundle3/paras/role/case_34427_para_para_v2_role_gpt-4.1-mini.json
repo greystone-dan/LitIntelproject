@@ -1,0 +1,221 @@
+{
+ "case_id": 34427,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0037784000000000003
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "speakers": {
+   "party": 3,
+   "court": 14,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Luttrell applied for judicial review of a decision refusing her Temporary Resident Permit (TRP) application, arguing errors in the assessment of exceptional circumstances, immigration history, and the best interest of the child. The Minister contended the review was moot as Ms. Luttrell had since been granted a one-year TRP. The Federal Court agreed with the Minister, finding the case moot and dismissing the judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Procedural history and background",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Tribunal below decision and subsequent applications",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 14,
+    "label": "Applicant's mootness arguments and Court's approach",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 24,
+    "label": "Court's analysis on mootness and judicial economy",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 26,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. Luttrell argues the Officer erred on three points in her TRP application: exceptional circumstances, immigration history, and best interest of the child.",
+   "ideas": "multiple",
+   "idea_list": [
+    "exceptional circumstances standard error",
+    "immigration history assessment error",
+    "best interest of child assessment error"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Minister argues the judicial review is moot because Ms. Luttrell was granted a one-year TRP in December 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court agrees with the Minister that the application is moot due to the valid TRP and will dismiss the judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Ms. Luttrell's 2021 humanitarian and compassionate permanent residence application was refused and judicial review dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "In February 2022, Ms. Luttrell applied for a TRP citing lack of criminal record, family ties, work, and community advocacy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "On August 31, 2023, the Officer upheld the TRP refusal, emphasizing TRPs require exceptional circumstances and Ms. Luttrell could regularize status otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "On January 23, 2025, Ms. Luttrell applied for an open work permit, which remains under processing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Ms. Luttrell argues her judicial review is not moot due to future TRP needs and collateral consequences, urging the Court to hear the matter.",
+   "ideas": "multiple",
+   "idea_list": [
+    "future TRP need argument",
+    "collateral consequences argument",
+    "judicial economy argument"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court rejects Ms. Luttrell's mootness arguments and proceeds to analyze the mootness test from Borowski.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Court agrees the case is moot as Ms. Luttrell holds a valid TRP, so judicial review would have no practical effect.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Ms. Luttrell's possible future TRP need is speculative and insufficient to maintain a live controversy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court finds no adversarial context remains as Ms. Luttrell was granted a TRP and the Minister's arguments were brief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Court finds no collateral consequences as TRP decisions are discretionary and prior decisions do not bind officers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Judicial economy favors dismissal since the case has no practical effect and existing cases address TRP standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Judicial resources already spent make judicial economy a neutral factor in deciding to hear the case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Court notes no question of general importance arises and Ms. Luttrell made no submissions on this factor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Court concludes the Borowski test and interests of justice weigh against hearing Ms. Luttrell's judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The parties did not propose any question of general importance for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  }
+ ]
+}

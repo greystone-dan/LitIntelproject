@@ -1,0 +1,700 @@
+{
+ "case_id": 61482,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0121008
+ },
+ "verification": {
+  "paragraphs": 85,
+  "summaries": 85,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "other": 17,
+   "court": 53,
+   "below": 13,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 10,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal regarding the reasonableness of delay between conviction and sentencing under section 11(b) of the Charter. The appellant challenges the sentencing delay, advocating for a five-month presumptive ceiling, while the Crown supports a flexible approach. The Supreme Court adopts the Crown's flexible 'markedly longer' test for assessing sentencing delay, finds the delay unreasonable, and upholds the Court of Appeal's reduction of the sentence as the appropriate remedy.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 21,
+    "label": "Decisions below",
+    "kind": "background"
+   },
+   {
+    "first": 22,
+    "last": 31,
+    "label": "Legal framework on delay and Jordan ceilings",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 38,
+    "label": "Rationale against presumptive ceilings for sentencing delay",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 47,
+    "label": "Test for assessing post-verdict sentencing delay",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 61,
+    "label": "Considerations in applying the 'markedly longer' test",
+    "kind": "analysis"
+   },
+   {
+    "first": 62,
+    "last": 73,
+    "label": "Balancing interests and remedies under section 11(b) post-verdict",
+    "kind": "analysis"
+   },
+   {
+    "first": 74,
+    "last": 80,
+    "label": "Remedies for unreasonable post-verdict sentencing delay",
+    "kind": "analysis"
+   },
+   {
+    "first": 81,
+    "last": 84,
+    "label": "Application and disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 85,
+    "last": 85,
+    "label": "Conclusion",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Section heading introducing the background of the case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Court in Jordan set presumptive ceilings of 18 months for provincial and 30 months for superior court trials to address delay under s. 11(b).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeal concerns assessing delay reasonableness between conviction and sentencing, with appellant favoring a five-month ceiling and Crown a flexible approach.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal issue on post-conviction delay",
+    "Appellant's position for five-month ceiling",
+    "Crown's position for flexible assessment"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court adopts the Crown's flexible standard, noting sentencing requires evidence and submissions after guilt is found.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Reasonableness of sentencing delay depends on factors like duration, complexity, parties' conduct, and local case timing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "If s. 11(b) breach occurs post-verdict, remedy is usually sentence reduction, with stays rare; s. 24(1) allows discretion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Section heading introducing decisions below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "On Dec 13, 2021, defence requested adjournment for transcript; sentencing submissions scheduled for Feb 25, 2022.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "On Feb 25, 2022, sentencing submissions began but Crown couldn't finish due to technical issues; hearing continued April 5.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On April 5, 2022, another judge adjourned due to trial judge unavailability; rescheduled for April 19, 2022.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "On May 24, 2022, trial judge questioned counsel; written responses agreed; next date set for July 12, 2022.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "On July 12, 2022, another judge adjourned due to trial judge emergency; rescheduled to Sept 16, 2022.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "On Sept 16, 2022, trial judge not ready to sentence, sought immigration info; continuation set for Oct 20, 2022.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "On Oct 20, 2022, defence filed stay application for unreasonable sentencing delay; appellant waived delay for Crown response.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "On Dec 16, 2022, trial judge dismissed s. 11(b) application and sentenced appellant to conditional sentence and probation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "other",
+   "summary": "Section heading introducing Ontario Court of Justice decision by Redgate J.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "Trial judge found 378-day sentencing delay, deducted 74 days for defence, 80 for unavailability, 69 for complexity, 39 for submissions delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "Trial judge concluded net delay was 116 days, under five-month ceiling, and dismissed s. 11(b) application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "other",
+   "summary": "Section heading introducing issues before the Court of Appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Court of Appeal found net delay 225 days, exceeding five-month ceiling, thus infringing s. 11(b).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "Court of Appeal reduced sentence to 20 months due to delay, rejected conditional discharge, and considered immigration consequences.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "other",
+   "summary": "Section heading introducing analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "Section heading introducing Jordan presumptive ceilings for trial delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Jordan replaced Morin framework with presumptive ceilings to combat delay culture and protect accused and public interests.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Jordan set 18- and 30-month ceilings for provincial and superior courts, deducting defence delays; exceeding ceiling shifts burden to Crown.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Below ceiling, defence must show meaningful steps and marked delay; assessment is contextual, not mathematical.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Jordan ceilings apply only to charge-to-trial end, not post-verdict delay, which was not addressed by Jordan majority.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Ontario Court of Appeal in Charley applied s. 11(b) to sentencing delay, creating a separate five-month ceiling for post-verdict delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Charley rejected flexible approach, holding presumptive ceilings essential to avoid uncertainty and complacency in sentencing delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "K.G.K. declined to extend Jordan ceilings to verdict deliberation, adopting a standard of marked longer delay due to judicial integrity presumption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "other",
+   "summary": "Heading introducing the topic of variability in sentencing proceedings and their unsuitability for presumptive ceilings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court declines to follow Charley or impose presumptive ceilings for post-verdict sentencing delay due to lack of evidentiary foundation and sentencing variability.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "other",
+   "summary": "Heading introducing the rationale for presumptive ceilings not applying to post-verdict sentencing delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court lists legitimate reasons for extended sentencing time, emphasizing the need for informed and proportionate sentences.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Sentencing may take longer due to systemic and background factors affecting Indigenous and racialized offenders, requiring specialized assessments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Criminal Code mandates an individualized sentencing process with provisions allowing evidence and submissions to ensure fairness and completeness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Sentencing judges must control proceedings by setting clear positions, timelines, and encouraging collaboration to avoid unnecessary delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Sentencing proceedings vary greatly in length and complexity depending on case specifics, requiring flexible timing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "other",
+   "summary": "Heading introducing the test for assessing reasonableness of post-verdict sentencing delay as the 'markedly longer' test.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court explains Jordan's presumptive ceilings address trial delay complacency, not sentencing delay, emphasizing systemic change needs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court notes prior refusals to extend Jordan ceilings to other proceedings without evidence of systemic delay problems.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court rejects the appellant's argument of complacency in sentencing delay due to lack of evidentiary record showing systemic problems.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court declines to follow Charley, emphasizing the need for evidence of systemic problems before imposing presumptive ceilings on sentencing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "other",
+   "summary": "Heading introducing the consistency and simplicity of the 'markedly longer' test with s. 11(b) jurisprudence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Different provinces use varied tests for post-verdict sentencing delay, including 'markedly longer', MacDougall, and flexible approaches.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The Crown supports the 'markedly longer' test for clarity; the appellant opposes it as replicating Morin's unpredictability and burdening defence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court endorses the 'markedly longer' test as consistent, clear, and suitable for sentencing's individualized nature and interests balance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "other",
+   "summary": "Heading introducing considerations informing whether post-verdict delay was markedly longer than reasonably necessary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Applying the 'markedly longer' test uniformly to sentencing avoids artificial distinctions and respects judicial integrity presumption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The 'markedly longer' standard fits the post-guilt balance where offender's s.11(b) interests are attenuated and society's interest in prompt sentencing is heightened.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "other",
+   "summary": "Heading introducing that remedies for unreasonable post-verdict sentencing delay are discretionary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The 'markedly longer' standard is objective and normative, assessing delay in an ideal justice system, not current resource-limited realities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The standard requires contextual comparison of actual sentencing time to reasonable time considering all circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Factors from K.G.K. for verdict deliberation time can guide assessing whether sentencing delay was markedly longer than reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Extreme post-verdict delay alone may breach s.11(b), but usually the analysis starts with length, which rarely alone meets the threshold.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Case complexity is key in assessing delay, including evidence, co-accused, legal issues, reports, and associated proceedings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Reasons for specific delay periods, including medical emergencies or report delays, are relevant to the markedly longer analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Parties' conduct and timing of legal issues affect whether delay was markedly longer than reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Comparing elapsed time to typical case durations in local contexts helps assess reasonableness, though systemic issues may limit this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The markedly longer standard encourages timely sentencing without excusing delays caused by systemic underfunding or deficiencies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court states local circumstances matter but cannot justify systemic under-resourcing causing unreasonable post-verdict delay in sentencing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "local circumstances relevant",
+    "cannot justify systemic under-resourcing",
+    "delay must be assessed carefully"
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "other",
+   "summary": "Heading introducing the qualitative difference in balancing interests under section 11(b) during post-verdict sentencing phase.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The court explains Rahey's stay remedy applies pre-conviction but not post-verdict, where the remedial question differs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "party",
+   "summary": "The appellant argues only a stay or absolute discharge can remedy post-verdict delay; the Crown argues for no automatic stay due to differing interests post-conviction.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant: only stay or discharge remedy",
+    "Crown: no automatic stay, interests differ post-conviction"
+   ]
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The court agrees with the Crown that stay is not automatic post-verdict; remedies must be discretionary and consider both offender and public interests.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "other",
+   "summary": "Heading introducing section 24(1) of the Charter conferring broad remedial discretion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "After conviction, the balance shifts from individual interests to society's interest in resolving criminal matters with a fit sentence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The offender's s. 11(b) interests narrow after conviction, reflecting loss of presumption of innocence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "A convicted offender's liberty interests differ from an untried accused; delay may prolong detention but is tied to adjudicated guilt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Post-conviction delay causes stress and anxiety but differs qualitatively from pre-conviction uncertainty due to established guilt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Fair-trial interests diminish post-verdict as evidentiary record is preserved and sentencing allows wide latitude for information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Society's interest in proper criminal disposition grows post-conviction, focusing on appropriate sanctions as reflected in the Criminal Code.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The court summarizes that post-verdict s. 11(b) interests are attenuated and societal interests heightened, making automatic stay unsuitable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "other",
+   "summary": "Heading introducing the application section of the decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The court states remedies must respond to Charter breaches post-verdict without undermining the lawful finding of guilt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The usual remedy for unreasonable post-verdict delay is a reduced sentence to address harms caused by the delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "Delay can be mitigating even without Charter breach, but reduction for unconstitutional delay is a distinct constitutional remedy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "Section 24(1) allows broad remedies; stay is rare and reserved for clear cases after considering all factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "A stay post-verdict stops sentencing but does not affect valid guilt finding; nullifying conviction would be unjustified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The court emphasizes wide remedial discretion under s. 24(1) allowing tailored remedies beyond formulaic approaches.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 81,
+   "speaker": "other",
+   "summary": "Heading introducing the conclusion section of the decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The trial judge's management of collateral immigration consequences was incremental and inefficient, causing unreasonable sentencing delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "Various adjournments cumulatively contributed to delay exceeding reasonable time for sentencing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 84,
+   "speaker": "below",
+   "summary": "The Court of Appeal reduced the conditional sentence from 2 years less a day to 20 months as remedy for s. 11(b) violation due to delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 85,
+   "speaker": "other",
+   "summary": "Heading introducing the overview section of the decision.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,616 @@
+{
+ "case_id": 40477,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.00989
+ },
+ "verification": {
+  "paragraphs": 66,
+  "summaries": 66,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 21,
+   "court": 36,
+   "below": 4,
+   "evidence": 5
+  },
+  "multi_idea_paragraphs": 25,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Polish Roma family seeking refugee protection in Canada based on ethnic persecution and inadequate state protection in Poland. The Refugee Protection Division (RPD) panel reviewed the claimants' evidence, including incidents of violence and discrimination, but found that Poland is a functioning democracy with adequate state protection mechanisms. Consequently, the panel rejected the refugee claims, concluding the claimants did not meet the burden of proof for protection needs.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 13,
+    "label": "Background and Claimants' Evidence",
+    "kind": "background"
+   },
+   {
+    "first": 14,
+    "last": 18,
+    "label": "Procedural History and Issues",
+    "kind": "other"
+   },
+   {
+    "first": 19,
+    "last": 33,
+    "label": "Claimants' Testimony and Evidence",
+    "kind": "background"
+   },
+   {
+    "first": 34,
+    "last": 63,
+    "label": "Panel's Analysis of State Protection and Credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 64,
+    "last": 66,
+    "label": "Disposition and Conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimants, Polish Roma family members, seek refugee protection under IRPA based on their ethnic group membership.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The principal claimant was appointed Designated Representative for a mentally challenged adult child, with the panel considering relevant procedural guidelines.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The principal claimant was the main witness; the panel considered gender guidelines when hearing the claimant's wife.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The initial hearing in 2012 resulted in a negative refugee determination for the claimants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "In 2014, the Federal Court granted judicial review, quashed the RPD decision, and remitted the matter for redetermination by a different panel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The claimants changed counsel for the De Novo hearing due to the death of their original lawyer.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The principal claimant authored and signed the Personal Information Form in January 2012.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The claimants are Roma from Kalisz, Poland; the nephew is mentally challenged and was removed from school due to abuse.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The principal claimant's home was repeatedly vandalized with racist graffiti, and they were forced to live in a segregated area.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "In 2002, the principal claimant was attacked by skinheads; police installed cameras but did not effectively investigate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "In 2011, the principal claimant was attacked by skinheads and hospitalized for a week.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "In 2011, skinheads attempted to sexually assault the co-claimant, causing her to lose front teeth.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "In 2011, skinheads set the claimants' house on fire, prompting their departure from Poland.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Federal Court quashed the RPD decision due to procedural unfairness, rejecting negative credibility and lack of state protection analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The issues in the claims include identity, Roma ethnicity, credibility, subjective fear, failure to claim asylum in the U.S., and state protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel finds the claimants are Polish citizens based on their seized passports.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The claimants were previously determined to be members of the Roma ethnicity in 2012.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The claimants' failure to claim asylum in the U.S. in 2005 negates their subjective fear of persecution, per the panel's finding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The principal claimant stated he and his wife raised their nephew, removing him from school due to abuse.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The principal claimant described vandalism, a knife attack in 2002, police inability to help, and his 2005 U.S. visit and return to Poland.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The principal claimant narrated three incidents occurring after returning to Poland in 2005.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "In 2011, the principal claimant was attacked by skinheads and hospitalized for a week.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "In 2011, the co-claimant survived an attempted rape, losing front teeth during the attack.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "In 2011, skinheads set the claimants' house on fire; police refused to assist with camera footage; they then left Poland.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The principal claimant testified he was born and raised in the Roma Ghetto in Kalisz, Poland, living in a government-granted home.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The principal claimant completed grade 2 but can read, do math, and has a driver's license; he worked casually then privately.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The principal claimant went to the U.S. in 2005 with family, did not claim asylum due to lack of time and knowledge, was deported, and married in 2011.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The principal claimant explained their move to Canada was due to his wife's assault and house fire; police and fire services were involved.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The claimants arrived in Canada in 2011, claimed refugee status at the airport, stayed with a cousin, and obtained work permits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The principal claimant noted no change in police treatment since leaving Poland; his wife sees a specialist and nephew works with him.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "evidence",
+   "summary": "The principal claimant's wife agreed with her husband's testimony and expressed fear of returning to Poland.",
+   "ideas": "multiple",
+   "idea_list": [
+    "wife agrees with husband's testimony",
+    "wife fears returning to Poland"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "evidence",
+   "summary": "The principal claimant said he won't have health care for wife and nephew, distrusts doctors, and claims 50% of Polish people are racist.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of health care",
+    "distrust of doctors",
+    "claim of racism in Poland"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The panel assessed all information and submissions, noting Roma face discrimination but each case depends on personal circumstances; not all Roma experience persecution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "panel assessed submissions and evidence",
+    "Roma face discrimination",
+    "case-by-case review needed"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The panel notes Roma face discrimination and violence in Poland and must assess if adequate state protection exists for claimants returning in 2019.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Roma face discrimination and violence",
+    "assessment of state protection for returnees"
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Courts presume states can protect citizens unless the state is in complete breakdown; the panel starts from this presumption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "To rebut presumption of state protection, clear and convincing evidence is needed showing state's inability to protect on a balance of probabilities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "need clear and convincing evidence",
+    "balance of probabilities standard",
+    "must show state's inability to protect"
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Claimants must prove state protection is inadequate on a balance of probabilities; protection need not be perfect; burden increases with democracy level; Poland is a functioning democracy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "burden on claimant to prove inadequate protection",
+    "protection need not be perfect",
+    "Poland is a functioning democracy"
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Poland has functioning security and judicial systems with civilian control; no evidence of state breakdown; Poland scores 85 on freedom scale.",
+   "ideas": "multiple",
+   "idea_list": [
+    "functioning security and judicial systems",
+    "no state breakdown",
+    "high freedom score"
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Discrimination against Roma exists including verbal and physical abuse; Roma face unemployment and discrimination in services and employment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Roma face discrimination and violence",
+    "high unemployment",
+    "discrimination in services and employment"
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The panel finds Roma face discrimination but the Polish government is making serious efforts to combat violence and discrimination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The principal claimant's 2002 police report about skinhead attack was not assisted due to no witnesses; panel finds police were not unwilling to help.",
+   "ideas": "multiple",
+   "idea_list": [
+    "police unable to assist without witnesses",
+    "no evidence police unwilling to help"
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "evidence",
+   "summary": "The claimants went to the USA in 2005; the principal claimant was deported; he referred to three 2011 incidents including an attack and hospitalization.",
+   "ideas": "multiple",
+   "idea_list": [
+    "travel to USA and deportation",
+    "three incidents in 2011",
+    "hospitalization"
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "evidence",
+   "summary": "In 2011, the co-claimant was assaulted and had teeth knocked out; the principal claimant's house was set on fire; none reported to police.",
+   "ideas": "multiple",
+   "idea_list": [
+    "assault and attempted rape",
+    "house set on fire",
+    "no police reports"
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The panel finds claimants did not use available recourses; failure at local level doesn't mean no protection; claimants reluctant to seek police help.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimants did not seek recourse",
+    "failure at local level not conclusive",
+    "claimants reluctant to seek help"
+   ]
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Authorities have taken positive actions; police are making arrests in assaults against Roma.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "If police refuse to investigate, decisions can be appealed to district court; victims can challenge closures of investigations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal police refusal to investigate",
+    "challenge investigation closures"
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Victims can file complaints against police officers with the chief of police by mail, in person, or fax.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Complaints can be filed electronically, by email, or orally; telephone complaints are not accepted; detailed complaint info required.",
+   "ideas": "multiple",
+   "idea_list": [
+    "multiple complaint filing methods",
+    "telephone complaints not accepted",
+    "complaint must be detailed"
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Complaints on behalf of others require consent; anonymous complaints are not examined.",
+   "ideas": "multiple",
+   "idea_list": [
+    "consent needed for third-party complaints",
+    "anonymous complaints ignored"
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "An Ombudsman exists to aid complainants; the Human Rights Defender is independent and accepts applications in various forms.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ombudsman aid available",
+    "Human Rights Defender independent",
+    "multiple application methods"
+   ]
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Claimants must take reasonable steps to access protective services; claimants failed to show they did so regarding police.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "High Roma unemployment is due to economic and educational factors; government funds education, health, employment, and social inclusion programs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "high unemployment causes",
+    "government funding for programs"
+   ]
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Claimants lived in family-assigned house with no evidence they couldn't return; family in Poland previously helped financially; housing is a general problem.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimants' housing available",
+    "family support exists",
+    "housing is a general issue"
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Polish government funded many projects including Roma NGOs; concrete actions to improve Roma housing and combat discrimination exist.",
+   "ideas": "multiple",
+   "idea_list": [
+    "government funded projects",
+    "Roma NGOs active",
+    "actions to improve housing and combat discrimination"
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Concerns about impunity and insufficient police response exist, but evidence shows state action against extremists targeting Roma.",
+   "ideas": "multiple",
+   "idea_list": [
+    "concerns about impunity",
+    "state action against extremists"
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Despite criticisms, government programs exist to improve Roma lives; recourses exist for complaints; claimants failed to prove inadequate state protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "government programs exist",
+    "recourses for complaints",
+    "claimants failed burden of proof"
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "evidence",
+   "summary": "Principal claimant alleges no social assistance or health care in Poland; submitted psychiatrist letters about nephew and family treatment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "alleged lack of social assistance and health care",
+    "psychiatrist letters submitted"
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Roma have full access to education with support measures like language classes and scholarships; 80% attend school.",
+   "ideas": "multiple",
+   "idea_list": [
+    "full education access",
+    "support measures",
+    "high attendance"
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Polish government reports annual $3.5 million Canadian funding for Roma integration programs in education, housing, employment, and health care.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Roma healthcare access is limited by distrust, but no reliable evidence shows lack of access to healthcare.",
+   "ideas": "multiple",
+   "idea_list": [
+    "healthcare limited by distrust",
+    "no evidence of lack of access"
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The claimant failed to reasonably explain why adequate health care was unavailable in Poland.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The panel reviewed the Federal Court decision Jaworowska, which upheld the RAD and RPD's correct application of state protection tests in a similar Roma ethnicity assault case.",
+   "ideas": "multiple",
+   "idea_list": [
+    "panel considered Jaworowska case",
+    "Jaworowska upheld correct state protection test application"
+   ]
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The panel finds the claimants have not rebutted the presumption that Poland can protect its citizens.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "Although claimants have been in Canada since 2012 and have relatives here, humanitarian and compassionate grounds are not within the Refugee Protection Division's mandate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The panel concludes the claimants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The panel rejects the claimants' refugee claims, as signed by M. Wakim on July 25, 2019.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

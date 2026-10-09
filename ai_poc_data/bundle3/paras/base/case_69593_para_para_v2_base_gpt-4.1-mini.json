@@ -1,0 +1,381 @@
+{
+ "case_id": 69593,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006984800000000001
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 1,
+   "below": 1,
+   "court": 34
+  },
+  "multi_idea_paragraphs": 18,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by a Kenyan appellant claiming fear of persecution due to his bisexual orientation, which was rejected by the Refugee Protection Division (RPD) on credibility grounds. The Refugee Appeal Division reviewed the evidence and upheld the RPD's decision, finding the appellant's testimony inconsistent and documents likely inauthentic. Consequently, the appeal was dismissed, confirming the appellant is not a Convention refugee nor in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 4,
+    "label": "Role of the Refugee Appeal Division",
+    "kind": "other"
+   },
+   {
+    "first": 5,
+    "last": 35,
+    "label": "Analysis of Credibility and Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 36,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Appellant from Kenya claims fear of persecution due to his bisexual orientation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The RPD heard the Appellant's claim on March 12, 2021, and rejected it on March 29, 2021, based on credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; credibility is the key issue and the RPD was correct in its findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Refugee Appeal Division's role is to independently assess all evidence and determine if the RPD's decision was correct.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RPD found the Appellant generally not credible; despite some errors, the appeal is dismissed on credibility grounds.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's credibility finding",
+    "Appellant's arguments on errors",
+    "Court's independent assessment and conclusion"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RPD found the Appellant did not prove the alleged same-sex relationship with XXXX due to inconsistencies; the court agrees.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding on relationship",
+    "Appellant's argument",
+    "Court's agreement with RPD"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Appellant gave inconsistent testimony on the relationship duration; the RPD and court find the explanation unreasonable and damaging to credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistent testimony on duration",
+    "RPD's rejection of explanation",
+    "Court's agreement"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Appellant's testimony conflicts with a letter from XXXX brother about knowledge of the relationship; the RPD and court find the explanation unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Testimony vs letter inconsistency",
+    "Appellant's explanation",
+    "Court's rejection and consideration of SOGIE Guideline"
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Appellant's testimony about XXXX's death date and attendance at the send-off is inconsistent and undermines his credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Death date inconsistency",
+    "Send-off attendance inconsistency",
+    "Court's credibility finding"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Appellant's evidence about how he and XXXX spent time is inconsistent between BOC and testimony; court rejects Appellant's argument that this is mere elaboration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistency in relationship details",
+    "Appellant's argument on elaboration",
+    "Court's rejection and conclusion"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The RPD found the Appellant submitted non-genuine documents; the court agrees and rejects the Appellant's argument to consider their content.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding on non-genuine documents",
+    "Appellant's argument",
+    "Court's agreement with RPD"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RPD found the school letters not authentic; the court independently agrees with this conclusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The 1995 school expulsion letter conflicts with the Appellant's BOC evidence; the court finds the Appellant's explanation unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistency between letter and BOC",
+    "Appellant's explanation",
+    "Court's rejection"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The 1993 school letter's date is not credible as it appears to be issued over 25 years ago; the court finds this not believable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The RPD's conclusion that both school letters are likely inauthentic is upheld by the court without error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Appellant's argument that the 1995 letter supports expulsion due to sexual activity is rejected as the letter is not genuine.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RPD found three support letters likely inauthentic due to accompanying falsified identity documents; the court agrees on independent assessment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding on support letters",
+    "Appellant's argument on forgery prevalence",
+    "Court's independent conclusion"
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The identity cards with support letters have discrepancies; the Appellant's explanations are unpersuasive and the court finds the letters inauthentic.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Discrepancies in identity cards",
+    "Appellant's explanation",
+    "Court's rejection and conclusion"
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Appellant's testimony about contact with XXXX contradicts XXXX's letter; the court finds the Appellant's evolving testimony inconsistent and unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Testimony vs letter inconsistency",
+    "Appellant's changed testimony",
+    "Court's finding"
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The inconsistent spelling of XXXX's name in his own letter and identity document undermines the document's credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court refers to earlier paragraphs addressing inconsistencies with XXXX brother's letter and supports the RPD's finding on the same-sex relationship in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RPD found the Canadian same-sex relationship not credible; the court agrees despite some errors, affirming the RPD's conclusion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding",
+    "Appellant's argument on errors",
+    "Court's agreement"
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Appellant's testimony on meeting XXXX conflicts with supporting evidence; the RPD and court find the explanation unreasonable and damaging to credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistency on meeting date",
+    "Appellant's explanation",
+    "Court's agreement with RPD"
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Appellant and XXXX gave inconsistent evidence on meeting frequency; the court finds these discrepancies undermine credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistent testimony on meeting frequency",
+    "Appellant's general argument",
+    "Court's rejection of argument"
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Appellant and XXXX gave inconsistent testimony about their first date meal; the court finds this alone insufficient to reject the relationship claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistent meal testimony",
+    "Appellant's lack of response",
+    "Court's assessment"
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RPD found consistent evidence on some relationship details, which the court considers in the overall assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The RPD found the Appellant and XXXX vague about what they like about each other; the court rejects the Appellant's argument about cultural bias.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding on vagueness",
+    "Appellant's argument on SOGIE Guideline",
+    "Court's rejection"
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court finds the Appellant's and XXXX's descriptions of their attraction general and insufficient to establish an intimate relationship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RPD erred in finding the Appellant's description of XXXX's house location not credible; the court accepts the Appellant's argument and finds no negative inference warranted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's error on location description",
+    "Appellant's argument accepted",
+    "Court's conclusion"
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The RPD erred in finding inconsistency in the Appellant's future relationship plans; the court accepts the Appellant's explanation and draws no negative inference.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's error on future plans",
+    "Appellant's argument accepted",
+    "Court's conclusion"
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court agrees with the appellant that it was reasonable for XXXX not to know the names of the appellant's children and draws no negative inference from this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds the RPD's errors non-determinative and independently concludes the appellant failed to establish the alleged relationship on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court agrees with the RPD that the appellant lost credibility due to inconsistencies and non-genuine documents, fatally undermining his claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court considered the psychotherapist's report but finds it does not explain inconsistencies or document issues, maintaining the appellant is not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The appellant failed to prove he is bisexual or had same-sex relationships, so he has not shown a serious risk of persecution or harm.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal and confirms the RPD's decision that the appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,664 @@
+{
+ "case_id": 47945,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.010870800000000002
+ },
+ "verification": {
+  "paragraphs": 81,
+  "summaries": 81,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 28,
+   "court": 49,
+   "below": 1,
+   "other": 1,
+   "evidence": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a Haitian claimant seeking refugee and protection status in Canada, alleging persecution and threats in Haiti and discrimination in Brazil. The Immigration and Refugee Board panel found the claimant lacked credibility, rejected the Minister's evidence of the claimant's permanent residency in Brazil, and ultimately denied the refugee and protection claims. The decision emphasizes the need for individual evidence in exclusion assessments and the importance of credible testimony in refugee claims.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and claimant's allegations",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 9,
+    "label": "Panel's initial credibility finding and claim denial",
+    "kind": "disposition"
+   },
+   {
+    "first": 10,
+    "last": 11,
+    "label": "Minister's intervention and Article 1E exclusion issue",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 43,
+    "label": "Legal framework and burden of proof on Article 1E exclusion",
+    "kind": "analysis"
+   },
+   {
+    "first": 44,
+    "last": 51,
+    "label": "Assessment of claimant's evidence on Brazilian permanent residency",
+    "kind": "analysis"
+   },
+   {
+    "first": 52,
+    "last": 73,
+    "label": "Credibility analysis of claimant's testimony and amendments",
+    "kind": "analysis"
+   },
+   {
+    "first": 74,
+    "last": 78,
+    "label": "Panel's evaluation of claimant's explanations and counsel's arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 79,
+    "last": 81,
+    "label": "Final findings and claim rejection",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from Haiti alleges he is a Convention refugee and person in need of protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant's Basis of Claim Form, amended January 16, 2018, sets out his allegations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant alleges thugs sought to kill his brother over debt, attacked his home on Nov 27, 2011, police did not respond, brother escaped.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The thugs returned later that day, killed the claimant's mother who was alone at home.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "After brother fled to Brazil, thugs killed claimant's father Feb 6, 2014, threatened family; claimant hid then fled Haiti to Dominican Republic, then Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "In Brazil, claimant found work Jan 27, 2015, but faced discrimination and was underpaid by supervisor and colleagues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Claimant was laid off Mar 20, 2016, left Brazil for US June 15, 2016, traveled through eight countries, then came to Canada where claim was received July 25, 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On Feb 2, 2018, claimant amended claim naming feared persons, explaining debt origin, thugs' visits, and flight details including threats in Dominican Republic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel finds the claimant lacks credibility and denies refugee and protection status for reasons below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On Jan 5, 2018, the RPD notified the Minister about possible Article 1E exclusion due to claimant's permanent residency in Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "On Jan 18, 2018, the Minister intervened, asking the panel to exclude the claimant under Article 1E of the Convention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel accepts the claimant's identity based on supporting documents including his seized Haitian passport.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "Article 1E of the Convention excludes persons recognized by a country as having rights similar to nationals.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal's Zeng test for Article 1E exclusion involves assessing claimant's status in third country and related factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel must determine who bears the burden of proof regarding exclusion under Article 1E of the Convention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Minister argues that once prima facie evidence of exclusion under Article 1E is shown, the burden shifts to the claimant to prove lack of status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel notes case law supports burden reversal after Minister's prima facie evidence, citing Shahpari decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Minister claims the claimant lived in Brazil 2014-2016, is on a list of Haitians granted permanent residence, and thus has prima facie permanent resident status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant lived in Brazil 2014-2016",
+    "Claimant on list of Haitians granted permanent residence",
+    "Minister argues prima facie permanent resident status",
+    "Onus shifts to claimant to disprove status",
+    "Most Haitians completed residence process",
+    "Minister argues claimant likely completed process"
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel rejects the Minister's evidence as insufficient to establish a prima facie case that the claimant is a permanent resident of Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel agrees the listed Haitians had one year to fulfill formalities to obtain permanent residence in Brazil, until Nov 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel distinguishes citizenship acquisition by mere formalities from exclusion under Article 1E, which requires more analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "A claimant who has not fulfilled formalities to acquire permanent residence cannot be considered a permanent resident for Article 1E exclusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Minister notes 71% of Haitians on the list completed the residence process by Jan 2017 and argues claimant likely did too.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel disagrees with the Minister's interpretation that claimant likely completed the residence process based on group data.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The panel holds that the Minister must provide evidence personally concerning the claimant, not general group evidence, to shift burden of proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel acknowledges group determinations in refugee law but emphasizes individual assessment is the norm for refugee claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel states refugee protection claims under IRPA section 97 must be assessed individually as per IRPA wording.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The panel finds the Minister gave no reason to accept a prima facie group determination of permanent residence to shift burden to claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The panel notes the claim is by one individual, not the group of Haitians on the list.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The panel concludes the Minister must establish prima facie that the claimant personally is a permanent resident of Brazil to reverse burden of proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court explains that general statistics cannot replace specific evidence about a refugee claimant's personal situation to prove permanent residency.",
+   "ideas": "multiple",
+   "idea_list": [
+    "analogy about statistics",
+    "need for personal evidence",
+    "Minister's duty to assess evidence"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court states that without specific evidence about the claimant, general statistics alone do not prima facie prove permanent residency, which was not shown here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court notes that case law on burden reversal under Article 1E requires evidence directly about the claimant's personal permanent residence status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "In Shahpari, the respondent showed applicants had valid permanent resident cards at hearing time, with obligations and renewal rules explained.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court notes the permanent resident cards belonged to the respondents, reflecting their personal status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "In Choovak, multiple personal documents and statements demonstrated the applicant's permanent resident status in Germany.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Justice Rouleau found prima facie proof of permanent residence from the German travel document and residence permit issued to the respondent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court emphasizes that travel documents and residence permits concern the applicant's personal situation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "In Nepete, the Minister met the burden by producing a letter specifically addressing the applicant's situation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court reiterates that the letter in Nepete specifically concerned the applicant's personal situation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Justice Tremblay-Lamer in Hussein Ramadan stated relevant points about permanent residence evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Other cases show applicants' own statements and official indications of permanent residence provide prima facie evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court concludes the burden should not shift to the claimant based only on his presence on a Brazilian list and general statistics about it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The panel must analyze all evidence, including claimant's testimony, to decide if he is a permanent resident on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "The claimant testified about his arrival and departure dates in Brazil, protocol received, expired work permit, police stamp, and CPF card, but no residence card.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The claimant testified he had rights to school, work, healthcare, but no right to return to Brazil due to lack of a card.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "party",
+   "summary": "In forms, the claimant stated he was a temporary resident of Brazil from December 2014 to June 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Despite rejecting claimant's testimony as non-credible, the panel notes an objective element not based on his word.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The claimant called the Brazilian Embassy in Canada before the hearing, as shown by phone records examined by the panel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The panel accepts the objectively verifiable embassy call despite doubts about its timing, giving claimant benefit of doubt on this and CPF card evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The panel finds on a balance of probabilities that the claimant is not a permanent resident of Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The panel finds contradictions and omissions in claimant's explanations, undermining his credibility and rejecting all his testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The claimant amended most of his account, with only 20 of 113 lines unchanged from the initial version.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The first amendment was dated January 16, 2018, received January 22, 2018; the second dated February 1, 2018, received at hearing on February 2, 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "party",
+   "summary": "The claimant explained his original account was translated at YMCA and expected counsel to correct it, but no corrections were made.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "party",
+   "summary": "The claimant denied having an interpreter with Mr. Karkar, despite BOC Form indicating one was present.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "The claimant testified that immigration authorities told him Mr. Karkar could no longer argue cases as a Bar member.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "party",
+   "summary": "The claimant said the first amendment was prepared without counsel present, with an interpreter and secretary, who said only small changes were allowed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "The claimant said the second amendment was made the day before hearing with counsel present due to translation issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanation for substantial amendments as unjustified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "party",
+   "summary": "The claimant argues the interpreter intended only minor changes in the January 2018 amendment, but the changes were actually significant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The court details major changes in the January 2018 amendment, contradicting the claim of minor changes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "evidence",
+   "summary": "The first amendment was signed by both the claimant and the interpreter, who certified providing a faithful oral translation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "party",
+   "summary": "The claimant testified that the first amendment was not orally translated to him, contradicting the interpreter's signed statement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "party",
+   "summary": "When questioned about the contradiction, the claimant replied that the interpreter's involvement was part of his story.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "party",
+   "summary": "The claimant said his lawyer explained the amendment, and the interpreter was with him but made errors, failing to explain the contradiction.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "party",
+   "summary": "The claimant denied the interpreter named in the amendment was with him, but his counsel contradicted him, confirming it was the same interpreter.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant denies interpreter identity",
+    "Counsel contradicts claimant"
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "party",
+   "summary": "The claimant said he did not understand the interpreter's name, despite clear communication and opportunity to ask for repetition.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The panel questioned omissions and inconsistencies in the claimant's accounts, which he attributed to translator errors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanation, finding it implausible that multiple translators and interpreters made critical errors or acted dishonestly.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The claimant's version implies interpreters ignored critical allegations, which the panel finds unlikely and undermines his credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The panel finds the claimant knowingly signed a false amendment and submitted it, contradicting his claim of minor changes and accurate story.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The panel does not believe the claimant's explanations for major amendments and omissions, finding his credibility fatally undermined.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "Due to non-credible testimony, the panel disbelieves the claimant's story of persecution, risks, and threats.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 75,
+   "speaker": "party",
+   "summary": "Claimant's counsel argues refugee stories can be reasonably modified before hearing to ensure truth and currency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The panel agrees reasonable modifications are allowed but must be credibly explained, which the claimant failed to do.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 77,
+   "speaker": "party",
+   "summary": "Counsel acknowledges major amendments but notes removal of some favorable elements, like police inaction, to improve coherence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The panel rejects counsel's argument, emphasizing the claimant must credibly explain major amendments regardless of their positive or negative effect.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 79,
+   "speaker": "evidence",
+   "summary": "The claimant submitted a death certificate with a different mother's name than in his forms; the certificate shows death date but no cause.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The panel finds the claimant failed to prove a serious possibility of persecution or risk of torture, death, or cruel treatment if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant is neither a Convention refugee nor a person in need of protection and rejects his claim.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

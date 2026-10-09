@@ -1,0 +1,332 @@
+{
+ "case_id": 66744,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.005980400000000001
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 37,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "below": 3,
+   "party": 6,
+   "court": 28
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by a family from Rajasthan, India, against the Refugee Protection Division's (RPD) decision rejecting their refugee claims based on the existence of a viable Internal Flight Alternative (IFA) in Mumbai. The Refugee Appeal Division (RAD) reviewed the evidence, including new affidavits and news articles, and found the new evidence inadmissible or irrelevant. The RAD confirmed the RPD's decision, concluding that the appellants do not face a serious risk of persecution in Mumbai and that relocating there is reasonable, thus dismissing the appeal.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Background facts and claims",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 16,
+    "label": "New evidence and procedural issues",
+    "kind": "issue"
+   },
+   {
+    "first": 17,
+    "last": 18,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 19,
+    "last": 37,
+    "label": "Analysis of Internal Flight Alternative and credibility",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "below",
+   "summary": "The RPD rejected the Indian appellants' refugee claims, finding a viable Internal Flight Alternative (IFA) in Mumbai.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' fear of DSS",
+    "RPD decision rejecting claims",
+    "Finding of viable IFA"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellants appeal to the RAD to set aside the RPD decision or refer the matter back for redetermination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The RAD dismisses the appeal and confirms the RPD's decision that the appellants are not refugees or in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The appellants are a family of four from Sri Ganganagar, Rajasthan, including the principal appellant, his wife, son, and daughter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellants trace their issues with DSS to threats against the principal appellant's brother-in-law starting in 2007.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "In 2017, the principal appellant found his brother-in-law's business looted and DSS followers threatening to kill him.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "In 2019, the appellants experienced three threatening incidents involving DSS followers at the mother-in-law's home.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The appellants left India for Canada in 2019 and filed refugee claims the same year.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD found the appellants not refugees due to a viable IFA and made adverse credibility findings about the principal appellant's testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Viable IFA in Mumbai",
+    "Adverse credibility findings on principal appellant"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The appellants submit a new affidavit and ten news articles as new evidence on appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "New evidence is admissible only if it arose after rejection, was unavailable, or could not reasonably have been presented, and must be relevant, new, and credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal will consider the affidavit's arguments but finds new sworn evidence elaborating prior testimony inadmissible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Five news articles predating the claim denial are inadmissible as they do not meet legislative criteria for new evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Five post-denial news articles are irrelevant to the appellants' claims and thus inadmissible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The appellants failed to explain the relevance of the post-denial articles, which mostly do not relate to their claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The appellants' request for a RAD hearing is denied due to inadmissible new evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The key issue on appeal is whether an Internal Flight Alternative in Mumbai is viable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The correctness standard applies, requiring independent assessment without deference to the RPD in this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the appellants have a viable IFA in Mumbai after independent review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Claimants must seek protection elsewhere in their country if available; appellants must show serious persecution risk throughout including the IFA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The IFA analysis requires showing serious persecution risk in the IFA and that seeking refuge there is reasonable; both must be met.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The appellants do not face a serious possibility of persecution or harm in Mumbai as agents of harm lack motivation to pursue them there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The appellants were bystanders targeted due to the brother-in-law, not directly targeted themselves in the alleged incidents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the principal appellant's testimony about being followed and threatened from 2017 to 2019 is not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The RPD properly drew an adverse credibility finding due to omission of key allegations from the Basis of Claim form.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RPD correctly found contradictory evidence about threats after 2019, undermining the principal appellant's credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The appellants' cited case on trivial discrepancies does not apply; here contradictions are material and central to credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Objective evidence shows DSS followers mainly reside in Punjab, Haryana, Uttar Pradesh, and Rajasthan, not Mumbai.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Given no direct targeting and DSS's regional base, agents of harm are unlikely to pursue appellants in Mumbai.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds no serious persecution risk in Mumbai and concludes it is reasonable for appellants to relocate there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds it reasonable for the Appellants to seek refuge in Mumbai, citing a high threshold for unreasonableness per Federal Court of Appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal affirms the RPD's correct analysis of Mumbai as a reasonable IFA considering travel, language, community, and objective evidence about Sikhs' integration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal notes both adult Appellants are highly educated with work experience, rejecting the claim they lack job prospects in Mumbai.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellants' argument about gender-related persecution and mischaracterization of the female Appellant's education and work experience.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' argument on gender-related persecution",
+    "Tribunal's rejection based on evidence and precedent"
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal finds no special risk or unreasonable conditions for the minor Appellants in Mumbai, as they will be under parental care.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal concludes the Appellants meet the Rasaratnam test and relocating to Mumbai is not objectively unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD's decision that the Appellants have a viable IFA in Mumbai and dismisses the appeal, denying refugee status.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "case_id": 35268,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0031480000000000006
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 7,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 1,
+  "speakers": {
+   "mixed": 4,
+   "court": 3
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Wahab seeks judicial review of an IRCC decision that returned his sponsorship application as incomplete for missing a required document under the Temporary Policy. The Minister defends the decision as reasonable and argues the policy was closed, making review futile. The court dismisses the judicial review, finding the decision reasonable and procedural fairness requirements met, and declines to grant review as it would have no practical effect.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 4,
+    "label": "Applicant's challenge and respondent's position",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 8,
+    "label": "Court's initial stance and policy context",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 12,
+    "label": "Evidence on compliance and policy status",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 18,
+    "label": "Legal framework and scope of review",
+    "kind": "other"
+   },
+   {
+    "first": 19,
+    "last": 22,
+    "label": "Analysis of compliance and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 26,
+    "label": "Court's findings on procedural fairness and futility",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 28,
+    "label": "Disposition and exercise of discretion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 4,
+   "speaker": "mixed",
+   "summary": "Mr. Wahab seeks judicial review of an IRCC decision returning his application as incomplete for missing the RSD document, arguing unreasonableness and procedural unfairness; the Minister defends the decision as reasonable and urges the court to deny review as futile due to policy closure.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's challenge to decision",
+    "respondent's defense and alternative argument"
+   ]
+  },
+  {
+   "para": 5,
+   "last": 8,
+   "speaker": "mixed",
+   "summary": "The court states it will dismiss the judicial review; instructions required specific email subject line for Temporary Policy applications; Mr. Wahab submitted an application under the Temporary Policy exempting the RSD document requirement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court's disposition",
+    "Temporary Policy application instructions",
+    "applicant's submission under Temporary Policy"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 12,
+   "speaker": "mixed",
+   "summary": "There is no evidence Mr. Wahab complied with the Temporary Policy's email subject line requirement; the policy was full by December 1, 2022; the Officer's July 11, 2024 decision returned the application as incomplete for missing the RSD document, treating it as a regular sponsorship application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of compliance with policy instructions",
+    "policy closure before application date",
+    "Officer's decision and reasoning"
+   ]
+  },
+  {
+   "para": 15,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The court explains it must not reweigh evidence but may find unreasonableness if evidence was misapprehended; procedural fairness requires notice and opportunity to be heard; the court will not address merits of sponsorship, only application completeness; Mr. Wahab argues unreasonableness and legal error by ignoring Temporary Policy evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard on evidence review",
+    "procedural fairness standard",
+    "scope limited to completeness",
+    "applicant's unreasonableness arguments"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 22,
+   "speaker": "mixed",
+   "summary": "The court finds no evidence Mr. Wahab complied with Temporary Policy instructions, so it was reasonable to treat his application as regular requiring RSD; the policy was full before his application; Mr. Wahab claims procedural unfairness for lack of notice, but the Minister argues officers must return incomplete applications without prompting correction.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of compliance justifies regular processing",
+    "policy capacity and expiry",
+    "applicant's procedural fairness claim",
+    "Minister's legal position on returning incomplete applications"
+   ]
+  },
+  {
+   "para": 23,
+   "last": 26,
+   "speaker": "court",
+   "summary": "The court agrees with the Minister that IRPR requires returning incomplete applications without further steps, dismisses procedural fairness claim, and would deny judicial review as redetermination would be futile since the policy was full when application was submitted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IRPR mandates return of incomplete applications",
+    "procedural fairness claim rejected",
+    "residual discretion to deny review due to futility",
+    "legal principles on remedial discretion"
+   ]
+  },
+  {
+   "para": 27,
+   "last": 28,
+   "speaker": "court",
+   "summary": "The court finds that setting aside the decision and redetermining would have no practical effect as the policy was closed when the application was submitted, so it would exercise discretion against granting judicial review.",
+   "ideas": "single",
+   "idea_list": [
+    "no practical significance in redetermination"
+   ]
+  }
+ ]
+}

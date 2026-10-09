@@ -1,0 +1,194 @@
+{
+ "case_id": 29801,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0027512
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 10,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review of the Immigration Appeal Division's (IAD) decision allowing Ms. Cabigas's appeal on humanitarian and compassionate (H&C) grounds after her sponsorship application was denied. The Minister challenges the IAD's process, alleging a procedural fairness breach for not permitting submissions on H&C grounds as agreed. The Federal Court found a fairness breach in the IAD's failure to follow the agreed two-phase process and remitted the H&C issue back to the original panel for reconsideration with opportunity for evidence submission.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Parties' positions on procedural fairness",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Court's analysis of procedural fairness breach",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Disposition and remedy",
+    "kind": "disposition"
+   },
+   {
+    "first": 14,
+    "last": 14,
+    "label": "Certification",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Respondent, Ms. Cabigas, a Filipino citizen and Canadian permanent resident, applied to sponsor her husband but was denied; the IAD allowed her appeal on humanitarian grounds.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's identity and status",
+    "Sponsorship application and denial",
+    "IAD appeal and decision"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Minister seeks judicial review of the IAD decision, alleging procedural fairness breach for not allowing submissions on humanitarian grounds as agreed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Minister says the IAD and parties agreed on a two-phase process: first substantive issues, then humanitarian grounds with opportunity for submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Procedural fairness questions are legal issues reviewed on correctness, considering context and factors from Baker and CPR cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Respondent argues no fairness breach occurred; Minister knew of H&C relief and had chances to submit evidence, and IAD properly used discretion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No breach of fairness",
+    "Minister had notice and opportunities",
+    "IAD's discretion to decide without oral hearing"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Respondent admits the two-phase approach was unclear and no promise for further hearing was made, so no legitimate expectation arose; Minister's lack of prejudice evidence is fatal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Two-phase approach not clearly adopted",
+    "No legitimate expectation for further hearing",
+    "Minister failed to show prejudice"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court finds the IAD proposed and parties agreed to a two-phase process at the June 15, 2021 hearing, with substantive issues first and H&C later if needed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD proposed two-phase process",
+    "Parties agreed at hearing",
+    "H&C evidence could be filed later"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Despite conditional language, the court finds a clear understanding that parties would get a chance to submit evidence on H&C if needed after substantive issues decided.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The IAD's discretion doesn't excuse its failure to follow the agreed process, nor can the Minister be faulted for not submitting H&C evidence early.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The IAD's failure to follow the process was a clear fairness breach making the decision invalid, with no exceptions applying here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Respondent says if breach found, the case should be remitted for redetermination on H&C by the same panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Minister argues remitting to the same panel is inappropriate since it already ruled positively on H&C without Minister's evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Given the lengthy hearings and significant interests, the court will remit the H&C issue to the original panel for decision after allowing parties to submit evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lengthy hearings and evidence",
+    "Significant interests",
+    "Remit to original panel with submissions"
+   ],
+   "role": "disposition"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "No question for certification is identified or arises in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  }
+ ]
+}

@@ -1,0 +1,392 @@
+{
+ "case_id": 31108,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0052768
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 37,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 14,
+   "below": 2,
+   "court": 21
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Malavika Rajasekharan's judicial review application challenging the refusal of her study permit by a visa officer under Canadian immigration regulations. The Federal Court found the visa officer's decision unreasonable due to ignoring critical evidence about the applicant's study program, intent to leave Canada, and financial capacity. Consequently, the court granted the judicial review application and set aside the refusal decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 9,
+    "label": "Judicial review framework and issues",
+    "kind": "issue"
+   },
+   {
+    "first": 10,
+    "last": 11,
+    "label": "Legal framework under IRPA and IRPR",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Applicant's evidence and visa officer's findings",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 23,
+    "label": "Analysis of reasonableness and evidence consideration",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 31,
+    "label": "Consideration of applicant's ties to home country",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 34,
+    "label": "Financial evidence and reasonableness of study costs",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 37,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicant Malavika Rajasekharan, 26, from India, studied Biology at IUPUI from 2015 to 2021, with some delays due to financial issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Applicant's first study permit application in May 2020 was refused due to concerns about expenses and intent to leave Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Applicant submitted a second study permit application in September 2021 for a two-year healthcare management diploma at Cape Breton University.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "Visa officer refused the second application in December 2021, doubting Applicant would leave Canada after authorized stay per IRPR.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Court finds the visa officer's decision unreasonable and grants judicial review to the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Applicant raises two issues: procedural fairness breach and unreasonableness due to ignoring critical evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "procedural fairness breach",
+    "unreasonable decision due to ignored evidence"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Court identifies the main issue as the reasonableness of the visa officer's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Parties agree the reasonableness of the decision is reviewable under the Vavilov standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Court explains the reasonableness standard from Vavilov and that Applicant bears the onus to prove unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Under IRPA, foreign nationals need authorization to study in Canada, granted if conditions in regulations are met.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Decision concerns IRPR paragraph 216(1)(b) requiring study permit applicants to leave Canada after authorized stay.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicant submitted a Statement of Intent explaining study reasons, costs, benefits, and career goals in India after graduation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Applicant submitted a Letter of Explanation addressing prior refusal concerns and intent to reside in India due to family responsibilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "Officer's GCMS notes state Applicant's educational goals are inconsistent, program choice illogical, and refusal based on these findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Court notes Respondent's submission on deference but finds Officer's reasons lack transparency and overlook evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Officer erred by calling Applicant's program 'college level' when acceptance letter indicated otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Respondent argues 'college level' reference is inconsequential; Applicant counters program is post-baccalaureate diploma.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's argument on program level",
+    "Applicant's rebuttal on program level"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicant explained program benefits and career goals; Officer ignored this evidence and did not explain rejection of logical progression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Respondent argues Officer's findings reasonable due to limited evidence on Applicant's shift in career goals and inconsistent applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Court rejects Respondent's new reasons as improper bolstering not found in Officer's original decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Respondent claims Applicant's ambitious goals lack third-party evidence; Applicant argues officers shouldn't act as career counsellors.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's argument on lack of evidence",
+    "Applicant's counter on officer role"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Applicant cites Adom case for ignored study plan; court finds Adom differs as Officer here never addressed goals.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's reliance on Adom",
+    "Court's distinction from Adom"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Court agrees silence on evidence suggests Officer overlooked contradictory evidence, warranting intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Court finds Officer also failed to consider Applicant's ties to home country evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Decision silent on Applicant's intent to return to India despite refusal based on non-satisfaction of leaving Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Applicant stated family responsibilities in India as primary reason to return after studies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "Applicant cites cases where failure to consider ties to home country led to court intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "Respondent argues no reviewable error, only reweighing evidence, and officers need not provide extensive reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's argument on no error",
+    "Respondent's argument on reasons required"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court quotes Jalili case on officers' duty to consider evidence properly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court quotes Balepo case on proper consideration of applicant's ties to home country.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Decision did not mention evidence of the Applicant's ties to her country, supporting the Applicant's claim that this evidence was ignored by the Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Officer's conclusion on the unreasonableness of the study cost ignored evidence of the Applicant's substantial funds and paid tuition, indicating overlooked evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court cites Caianda v Canada, where it was unreasonable to doubt an applicant's education path due to high costs when the applicant could afford it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the same conclusion applies here as in Caianda regarding the reasonableness of the Applicant's education path despite high costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Because the Decision is unreasonable due to the errors noted, the court does not address the Applicant's procedural fairness argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court grants the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds no question for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

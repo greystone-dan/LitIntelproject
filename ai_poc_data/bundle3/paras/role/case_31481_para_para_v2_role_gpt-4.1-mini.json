@@ -1,0 +1,287 @@
+{
+ "case_id": 31481,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0045828
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 22,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 9,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Smeele applied for judicial review of a CRA Officer's decision denying his eligibility for the Canada Recovery Benefit (CRB) due to not meeting the $5,000 income threshold from self-employment in 2019 or 2020. The CRA found his Airbnb and car rental income to be rental income rather than self-employment income, a finding the court found reasonable. The court dismissed Mr. Smeele's application for judicial review, finding no reviewable error in the Officer's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 10,
+    "label": "CRA's income assessment and CRB eligibility decisions",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Procedural matters and issue",
+    "kind": "other"
+   },
+   {
+    "first": 13,
+    "last": 19,
+    "label": "Analysis of income classification and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 22,
+    "label": "Consideration of additional arguments and burden of proof",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 23,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Applicant Mr. Smeele seeks judicial review of CRA Officer's decision denying CRB eligibility due to not meeting $5000 income threshold in 2019 or 2020.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant and respondent identified",
+    "CRB eligibility criteria explained",
+    "Officer's decision summarized"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Court expresses sympathy for Mr. Smeele but finds no reviewable error in Officer's decision and will dismiss the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "CRB introduced Sept 26, 2020; Mr. Smeele applied Oct 12, 2020, received payments for seven periods; file selected for eligibility review Jan 12, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Mr. Smeele submitted documents showing $7,400+ Airbnb and car rental income in 2019 but initially reported a net loss; he applied to amend tax return to report $5,236 net self-employment income.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Income documents submitted",
+    "Initial tax return showed loss",
+    "Amended tax return filed"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "First Reviewer denied CRB on Aug 5, 2021, finding Mr. Smeele did not meet income threshold or 50% income reduction requirement under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Second Reviewer in Oct-Nov 2021 denied CRB, ruling Airbnb and car rental income was rental income, not self-employment income, thus not meeting threshold.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Mr. Smeele discontinued judicial review after CRA agreed to third review; he submitted new documents including an archived CRA bulletin on rental property income.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Judicial review discontinued",
+    "Third review agreed",
+    "New documents submitted"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Mr. Smeele submitted affidavits describing extra services provided to Airbnb guests to argue income was self-employment income, not rental income.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Third-level Officer refused CRB on Mar 18, 2022, again finding income was rental income; breakdown showed host and cleaning fees totaling less than $6000.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Third review decision",
+    "Income breakdown noted",
+    "CRB denied"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Officer concluded host and cleaning fees alone did not meet $5000 threshold; no other income breakdown provided; Mr. Smeele did not qualify for CRB.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Attorney General requested style of cause be amended to name Attorney General as respondent; court agrees and will order amendment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Issue is whether Officer reasonably found Mr. Smeele ineligible for CRB due to income threshold; standard of review is reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Issue identified",
+    "Standard of review stated"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Mr. Smeele bases review on facts and arguments not before Officer; issue before CRA was whether Airbnb income was self-employment or rental income.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Mr. Smeele argued Airbnb income was self-employment based on CRA bulletin; provided evidence of fees and affidavits describing extra services.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Officer found Airbnb income was rental income despite extra services and considered the CRA bulletin; this finding is accepted by court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Before court, Mr. Smeele raised new argument about $6,000 art sale in 2019 not included in income; affidavit provided but no bank proof; inconsistency in sale date noted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New argument about art sale",
+    "Affidavit evidence",
+    "Date inconsistency"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Court explains it must assess Officer's decision based on information before Officer; new arguments not before Officer cannot make decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Mr. Smeele reasserted Airbnb income was self-employment based on bulletin and extra services; Officer found services insufficient to reclassify income; court finds this reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Argument repeated",
+    "Officer's finding",
+    "Court's acceptance"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Only monetary breakdown for extra services was hosting and cleaning fees totaling less than $5,000, below minimum income threshold.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Mr. Smeele's partner, Ms. Pemberton-Smith, argued the Airbnb was a true business creating an artist space, not just a side investment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court notes Ms. Pemberton-Smith's broader business vision was not before Officer; Officer only had minimal evidence of extra services and found income was rental.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Broader business vision not submitted",
+    "Officer had minimal evidence",
+    "Officer's rental income finding"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court states if broader business model had been submitted, Officer's decision might differ; burden is on claimant; Officer not obliged to make claimant's case.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Broader evidence might change decision",
+    "Burden on claimant",
+    "No duty to make claimant's case"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Application for judicial review is dismissed; no costs awarded.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

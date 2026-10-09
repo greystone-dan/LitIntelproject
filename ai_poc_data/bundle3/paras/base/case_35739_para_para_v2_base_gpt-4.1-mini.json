@@ -1,0 +1,308 @@
+{
+ "case_id": 35739,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0064052
+ },
+ "verification": {
+  "paragraphs": 32,
+  "summaries": 32,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 10,
+  "speakers": {
+   "court": 19,
+   "below": 9,
+   "other": 1,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves the judicial review of a refusal by an immigration officer to grant humanitarian and compassionate (H&C) relief to the Applicants, who sought to extend their visitor status in Canada. The Applicants challenged the Officer's decision on grounds of unreasonableness, citing errors in the assessment of their establishment in Canada, family ties, and hardship upon return to India. The Federal Court granted the judicial review, finding the Officer's decision unreasonable due to factual and legal errors.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 12,
+    "label": "Background: Applicants' status and H&C application",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 20,
+    "label": "Procedural issues: judicial review and evidence admissibility",
+    "kind": "other"
+   },
+   {
+    "first": 23,
+    "last": 26,
+    "label": "Legal framework: standard of review and discretion in H&C cases",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 28,
+    "last": 36,
+    "label": "Analysis: errors in Officer's assessment of establishment and family ties",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 42,
+    "label": "Analysis: errors regarding personal risk and hardship evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 44,
+    "last": 44,
+    "label": "Disposition: no certification question arises",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court grants the Application for judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The Applicants' visitor status in Canada was extended repeatedly until October 11, 2023, when their visitor records expired.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "On December 9, 2022, IRCC received the Applicants' H&C application with forms, IDs, and submissions addressing various hardship criteria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "On March 4, 2024, the Officer refused the Applicants' H&C application, finding no exemption justified under section 25 and no undue hardship on return to India.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer gave little weight to the Applicants' establishment in Canada, finding their 1.5-year stay insufficient to prove establishment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer gave some weight to family ties but discounted evidence of residence in Greece, focusing on India and finding minimal hardship upon return.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer gave little weight to health hardship claims, citing lack of evidence and noting Applicants' good physical health and available communication methods.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer gave little weight to the child's best interests, noting the child\u2019s adaptability and parental care despite grandparents' absence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Officer gave little weight to adverse country conditions in India, noting lack of personal incidents and police action against crimes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Officer rejected the H&C application, finding insufficient humanitarian and compassionate considerations to justify approval.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The Applicants sought judicial review of the Officer\u2019s Decision on March 12, 2024.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court explains the general rule restricting judicial review evidence to that before the decision maker, with limited exceptions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Respondent submits no exceptions apply to the new evidence; the Applicants only argue it underscores unreasonableness, which the court rejects.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Four of the Further Affidavits and exhibits A-G of the Principal Applicant\u2019s affidavit go to the merits and are inadmissible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Principal Applicant\u2019s affidavit contains new evidence post-refusal that goes to the merits and is inadmissible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Exhibits H and I were previously submitted and thus are not new evidence and may be admitted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Paragraphs 10-20 of the Principal Applicant\u2019s affidavit contain impermissible argument and opinion and are disregarded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Reasonableness review requires assessing justification, transparency, and intelligibility of the decision\u2019s rationale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Minister has discretion to grant exemptions justified by humanitarian and compassionate considerations, considering best interests of affected children.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Discretion must align with humanitarian and compassionate considerations, assessed globally and based on evidence, per Kanthasamy and Chirwa.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Applicants argue the Officer failed to conduct a thorough global analysis, rendering the Decision unreasonable; the court focuses on four main issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' argument of failure to analyze globally",
+    "Court limits analysis to four issues"
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The misapprehension of time in Canada is a reviewable error as the Officer failed to address important contradictory evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Officer\u2019s error on establishment time impacts the global analysis, though establishment alone rarely justifies H&C relief.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Officer confined consideration of family ties solely to India, ignoring Greece.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Evidence shows Applicants lived in Greece for many years before Canada, contradicting the Officer\u2019s belief of little evidence of Greek residence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Officer\u2019s belief that Applicants lived about 60 years in India is inaccurate and puzzling given their ages and time in Greece.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Officer failed to consider the impact of Applicants\u2019 extended absence from India on family ties, constituting a reviewable error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "party",
+   "summary": "The Respondent argues the Officer reasonably found no personal risk from generalized crime evidence against elderly in India.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Officer failed to apply the correct legal standard and consider all evidence, making the decision unreasonable and legally flawed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The Officer failed to appreciate that Applicants were not elderly when last in India, making the personal victimization evidence requirement unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court finds the decision unreasonable due to factual and logical errors, citing Vavilov and Pepa, leading to loss of confidence in the outcome.",
+   "ideas": "multiple",
+   "idea_list": [
+    "identifies errors",
+    "finds decision unreasonable",
+    "cites precedent",
+    "loses confidence in outcome"
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court agrees with the parties that no question for certification under paragraph 74(d) of the Act arises.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

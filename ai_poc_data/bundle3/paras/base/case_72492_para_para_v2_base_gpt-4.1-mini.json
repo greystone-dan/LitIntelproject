@@ -1,0 +1,228 @@
+{
+ "case_id": 72492,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0029372
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 9,
+   "court": 13,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by an Angolan citizen against the Refugee Protection Division's (RPD) rejection of his refugee claim, with the Minister as the respondent. The Refugee Appeal Division (RAD) reviewed the RPD's decision, focusing on whether the RPD erred in assessing the appellant's credibility. The RAD dismissed the appeal, confirming the RPD's decision due to credibility concerns and lack of evidence supporting the appellant's claims.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and initial decision",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Appeal and parties' positions",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Standard of review and issue",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 21,
+    "label": "Analysis of credibility and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The appellant, an Angolan citizen, appeals the Refugee Protection Division's rejection of his refugee claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal is dismissed for the reasons explained below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The appellant alleges living partly in the DRC due to Angola's war.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellant claims discrimination and detentions in Angola due to his DRC ties and was deported to the DRC in 2018 before returning to Angola.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellant left Angola in 2018 for the US, then came to Canada in December 2018 to claim refugee protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Minister, via representative, intervened before the RPD, arguing the appellant's allegations lack credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RPD rejected the refugee claim due to lack of credibility in the appellant's allegations after a September 2018 hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The appellant argues before the RAD that the RPD erred in assessing his credibility, to be detailed later.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant requests the RAD to overturn the RPD's decision or refer the case back for re-determination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Minister did not intervene before the RAD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The RAD reviews RPD decisions for correctness by analyzing the record to determine if the RPD erred as claimed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The issue is whether the RPD erred in assessing the appellant's credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "After reviewing evidence and submissions, the RAD finds no error in the RPD's credibility assessment for reasons below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The RPD based its decision on contradictions: lack of discrimination examples, visa obtained by false documents, and Facebook posts during alleged detentions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of discrimination examples",
+    "visa obtained by false documents",
+    "Facebook posts during alleged detentions"
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The appellant's explanations repeat prior justifications but fail to show the RPD's decision was erroneous.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The appellant cannot provide examples of discrimination beyond job loss in 2017 and omits employment end date on forms.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The appellant's claim that he obtained a US visa for prestige but did not use it is unreasonable given his persecution claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The appellant explains Facebook posts during alleged detentions were algorithm reposts or posted by his wife to reassure family.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD finds no evidence Facebook posts were algorithm reposts and doubts the wife's explanation to reassure family.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The RPD discredits a medical document due to date contradictions, supporting overall credibility concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The appellant failed to show RPD errors warranting overturning its decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RPD's determination that the appellant is not a Convention refugee or person in need of protection is confirmed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The appeal is dismissed by Normand Leduc on March 24, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

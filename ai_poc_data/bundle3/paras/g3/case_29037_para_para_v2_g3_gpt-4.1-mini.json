@@ -1,0 +1,124 @@
+{
+ "case_id": 29037,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.001992
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 1,
+   "below": 1,
+   "mixed": 1,
+   "court": 2
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the judicial review of a refugee claim dismissal by the Refugee Appeal Division (RAD) involving Indian citizens Jagjit Singh and his family, who fled police harassment in India. The Applicants challenged the RAD's negative credibility finding, arguing it wrongly assumed they had legal counsel, but the court found this to be a minor error that did not affect the overall reasonableness of the decision. Consequently, the court dismissed the judicial review application and refused to grant questions for certification.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background: Applicants' refugee claim and police harassment",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Tribunal below: Refugee claim dismissal due to inconsistencies and omissions",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Issue: Credibility finding and counsel assumption challenge",
+    "kind": "issue"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Court's analysis: Minor error regarding counsel does not affect reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Disposition: Judicial review dismissed and no certification granted",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "party",
+   "summary": "The Applicants, Indian citizens Jagjit Singh, his wife, and son, claim police harassment and fled India to seek refugee protection in Canada, but their refugee claim was dismissed by the Refugee Appeal Division.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' identity and nationality",
+    "Claims of police harassment and detention",
+    "Flight from India and refugee claim filing"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division and Refugee Appeal Division dismissed the Applicants' claim due to significant inconsistencies and omissions, particularly a material omission about a police threat not included in their Basis of Claim form, undermining credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's dismissal for inconsistencies and lack of credibility",
+    "RAD's agreement and emphasis on omitted material event",
+    "Description of omitted police threat incident"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "mixed",
+   "summary": "The RAD noted the Applicants had experienced legal counsel when preparing their claim, but the Applicants argue the negative credibility finding wrongly assumed this; the Respondent concedes the error but says it doesn't undermine the overall decision, which the court agrees with.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's assumption of experienced legal counsel",
+    "Applicants' argument on error in counsel assumption",
+    "Respondent's concession and court's agreement"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court finds the Applicants were assisted by immigration consultants, not legal counsel, but this minor misstatement is not a reviewable error and does not make the RAD's decision unreasonable under the Vavilov standard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants assisted by immigration consultants",
+    "Applicants' understanding and choice in BOC omissions",
+    "Reasonableness standard and minor misstatement"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The RAD's thorough and reasonable analysis justifies dismissing the Applicants' claim, so the judicial review application is dismissed and no questions for certification are granted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's thorough and justified analysis",
+    "Dismissal of judicial review application",
+    "No certification questions proposed or granted"
+   ]
+  }
+ ]
+}

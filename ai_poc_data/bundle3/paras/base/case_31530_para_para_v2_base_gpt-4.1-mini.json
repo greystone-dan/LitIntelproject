@@ -1,0 +1,325 @@
+{
+ "case_id": 31530,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006216
+ },
+ "verification": {
+  "paragraphs": 31,
+  "summaries": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "speakers": {
+   "party": 1,
+   "court": 26,
+   "below": 4
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Levy sought judicial review of the Immigration Appeal Division's (IAD) decision to deny reopening his appeal after it was declared abandoned due to his failure to update his contact information. The Federal Court dismissed his application, finding the IAD's decision reasonable and that no breach of natural justice occurred. The court emphasized Mr. Levy's obligation to notify the IAD of address changes and upheld the IAD's efforts to notify him before abandoning the appeal.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 5,
+    "last": 11,
+    "label": "Factual background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 16,
+    "label": "Tribunal below's reasoning",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 19,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 21,
+    "last": 37,
+    "label": "Court's analysis and decision",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Mr. Levy seeks judicial review of the IAD's decision denying reopening of his appeal, arguing unreasonableness and requesting costs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mr. Levy seeks judicial review",
+    "Argues IAD decision unreasonable",
+    "Requests costs"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court dismisses Mr. Levy's application, finding the IAD reasonably concluded no breach of natural justice occurred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Between 2017 and 2020, Mr. Levy moved several times but only notified CBSA, mistakenly believing this sufficed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "From June to October 2020, IAD's mail to Mr. Levy was returned; he missed filing submissions and a hearing, but CBSA provided updated contact info to IAD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD's mail returned",
+    "Mr. Levy missed hearing",
+    "CBSA gave new contact info"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "IAD postponed declaring appeal abandoned, set a new hearing for Nov 20, 2020, and sent notice by mail and email, but email failed due to incorrect address.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD postponed abandonment",
+    "New hearing date set",
+    "Email notice failed"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "By Nov 20, 2020, IAD had no submissions from Mr. Levy; a Dec 15 call attempt failed due to disconnected phone.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "IAD declared appeal abandoned on Dec 18, 2020, after Mr. Levy's failures; decision mailed but returned in April 2021 as undeliverable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal declared abandoned",
+    "Decision mailed and returned"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "In May 2021, CBSA emailed Mr. Levy, who then learned of the IAD's abandonment decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Mr. Levy investigated the abandonment in June 2021 and requested reopening of the IAD decision on July 13, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "IAD noted Mr. Levy's legal obligation to notify it of address changes, which he failed to do despite clear instructions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "IAD explained Mr. Levy's failure to update contact info caused missed notices; it was not required to do extra checks after sending notice to last known address.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Failure to update contact info",
+    "No obligation for extra checks",
+    "IAD tried calling"
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "Despite an email error, IAD sent notice by mail to last known address and deemed its efforts diligent after multiple unsuccessful contact attempts.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Email error acknowledged",
+    "Mail sent to last address",
+    "IAD diligent in attempts"
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "IAD dismissed reopening application as Mr. Levy failed to prove breach of natural justice on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The reasonableness standard requires decisions to be justified, transparent, and intelligible, based on facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Reasonableness review demands respectful, restrained evaluation, intervening only to safeguard legality, rationality, and fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court rejects Mr. Levy's arguments, finds IAD's decision reasonable, and declines to address other issues like remedies or costs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejects Mr. Levy's position",
+    "Finds IAD decision reasonable",
+    "No need to address remedies or costs"
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "IAD's reopening jurisdiction is limited to natural justice breaches; here, only minor email transcription error occurred, with no evidence mail was undelivered.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Limited reopening jurisdiction",
+    "Minor email error only",
+    "No evidence mail undelivered"
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "No natural justice breach occurs when IAD sends notice to last known address; it is not required to investigate further if mail is returned.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "IAD's voluntary steps to contact Mr. Levy exceeded its natural justice obligations before declaring appeal abandoned.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "IAD reasonably rejected reopening as Mr. Levy's failure to update contact info, not IAD's email error, prevented his participation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Court cites Jones: IAD not at fault for not investigating address changes when no indication CBSA was notified; returned mail justifies abandonment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Mr. Levy's failure to update IAD caused missed notices; affidavit lacks evidence he did not reside at last known address during notices.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mr. Levy failed to update IAD",
+    "No evidence of non-residence at last address"
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "IAD took extra steps after first hearing cancellation, but was unaware mail was undelivered; reasonably concluded notice was received.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD took extra steps",
+    "Unaware mail undelivered",
+    "Reasonable to conclude notice received"
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "IAD took necessary steps to notify Mr. Levy; his failure to comply justified no breach of natural justice in abandonment decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "IAD and CBSA are distinct; Mr. Levy's belief that notifying CBSA sufficed does not make IAD's decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "IAD's reasons are transparent, intelligible, and justified; no serious flaws render the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Court rejects argument that IAD's second notice created new obligations or that email was preferred communication; mail was also sent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No new obligations from second notice",
+    "Email not preferred method",
+    "Mail sent and no evidence of non-receipt"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "IAD reasonably concluded Mr. Levy failed to prove breach of natural justice in appeal processing and abandonment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Court notes permanent residents have obligations; Mr. Levy cannot blame IAD for his negligence in updating address causing abandonment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Absence of hearing audio is irrelevant without showing it affects judicial review; Mr. Levy presented no such evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Audio absence irrelevant without prejudice",
+    "Mr. Levy gave no evidence of impact"
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court agrees that no question of general importance was proposed for certification.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

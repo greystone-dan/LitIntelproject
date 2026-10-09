@@ -1,0 +1,277 @@
+{
+ "case_id": 72147,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0041356
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 7,
+   "below": 3,
+   "court": 15,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. XXXX, representing her minor children from Angola, appealed the Refugee Protection Division's (RPD) rejection of their refugee claims based on credibility concerns. The Refugee Appeal Division (RAD) reviewed the appeal, found the new evidence inadmissible, denied an oral hearing, and concluded the RPD did not err in its credibility findings. Consequently, the RAD dismissed the appeal, upholding the RPD's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and initial decision",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Appeal and tribunal's conclusion",
+    "kind": "disposition"
+   },
+   {
+    "first": 7,
+    "last": 13,
+    "label": "Rules on evidence and oral hearings",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Applicant's arguments on new evidence and oral hearing request",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 17,
+    "label": "Role and standard of review of the RAD",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 18,
+    "last": 22,
+    "label": "Analysis of alleged errors in RPD's credibility findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 24,
+    "label": "Assessment of medical evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 26,
+    "label": "Final determination and dismissal of appeal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Ms. XXXX, representing her minor children from Angola, claims political threats due to her father's political ties and a sexual assault in March 2019.",
+   "ideas": "multiple",
+   "idea_list": [
+    "representation and citizenship",
+    "political threat claim",
+    "sexual assault claim"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Minister of Public Safety challenged the credibility of the refugee claims and requested the RPD to reject them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division rejected the refugee claims based on a finding of non-credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "On appeal, the applicant submitted evidence, requested an oral hearing, and argued the RPD erred in assessing credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal finds the new documentary evidence inadmissible, denies an oral hearing, and concludes the RPD did not err as alleged.",
+   "ideas": "multiple",
+   "idea_list": [
+    "inadmissibility of evidence",
+    "no oral hearing",
+    "no RPD error"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appeal is dismissed based on the tribunal's conclusions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The RAD Rules require appellants to submit detailed memoranda explaining how new evidence meets IRPA subsection 110(4) and relates to them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The applicant claims to have submitted new evidence under IRPA subsection 110(4), specifically testimony from her father's brother-in-law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The applicant argues the evidence was obtained after the RPD hearing and was previously unavailable, relating to threats and assault suffered.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal explains that RAD generally proceeds without oral hearings, with exceptions under subsection 110(4) to preserve judicial finality and narrow issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "evidence",
+   "summary": "The testimony from the father's step-brother confirms the father's political role, family threats, and the applicant's departure for safety.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal finds the testimony relates to pre-RPD events, lacks explanation for late submission, and thus is inadmissible on appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "RAD Rules require appellants to provide detailed reasons why an oral hearing should be held.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The applicant argues the new evidence supports her credibility regarding threats, rape, and her father's experiences.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal holds that since the new evidence is inadmissible, the criteria for an oral hearing are unmet, so no hearing can be held.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The RAD's role is to determine if the RPD erred, not to reconsider the claim de novo; the correctness standard applies here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "RAD Rules require appellants to identify alleged errors and their location in the RPD decision or hearing record.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicant's counsel identifies alleged RPD errors regarding negative inferences on testimony about husband, work, address, and assault.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal concludes after analysis that the RPD did not err as alleged by the applicant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The RPD found multiple contradictions and omissions undermining credibility, including husband's whereabouts, social media, work history, visa refusals, and threats.",
+   "ideas": "multiple",
+   "idea_list": [
+    "contradictions about husband",
+    "social media evidence",
+    "omissions on work and visa",
+    "omissions on threats"
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal explains that credibility presumptions can be rebutted by inconsistencies or unsatisfactory explanations, allowing adverse findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD's credibility findings and rejects the applicant's counsel's arguments on appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RPD analyzed the medical certificate and found it insufficient to confirm sexual assault by political or military members due to credibility issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal affirms the RPD's decision to give no weight to the medical certificate due to overall credibility concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD's determination that the applicant and children failed to establish a well-founded fear of persecution or risk under IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The appeal is dismissed by the tribunal's decision dated February 8, 2021, signed by Alain Bissonnette.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,171 @@
+{
+ "case_id": 35046,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0028028000000000003
+ },
+ "verification": {
+  "paragraphs": 22,
+  "summaries": 8,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 2,
+   "mixed": 1,
+   "below": 1,
+   "court": 4
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review of a decision refusing the Applicant's permanent residence application on humanitarian and compassionate (H&C) grounds. The Applicant challenged the Officer's decision, arguing that a refugee analysis was wrongly applied instead of an H&C analysis, leading to flawed assessments of hardship and the best interests of the child. The Federal Court agreed with the Applicant, found errors in the Officer's reasoning, and granted the judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Applicant's argument and outcome",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 8,
+    "label": "Applicant's background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 12,
+    "label": "Applicant's circumstances and Officer's refusal",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 16,
+    "label": "Decision below and standard of review agreed",
+    "kind": "background"
+   },
+   {
+    "first": 17,
+    "last": 20,
+    "label": "Reasonableness standard and parties' submissions",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 21,
+    "last": 23,
+    "label": "Error in applying refugee analysis instead of H&C",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 26,
+    "label": "Mischaracterization of evidence and BIOC analysis errors",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 28,
+    "label": "No questions for certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 5,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer wrongly applied a refugee analysis instead of an H&C analysis, making the hardship and best interests of the child assessments flawed; the court agrees and grants judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's submission on error",
+    "Court's agreement and grant of review",
+    "Applicant's refugee claim history"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 8,
+   "speaker": "party",
+   "summary": "The Applicant was detained in 2019, had a PRRA refused in 2020, applied for permanent residence on H&C grounds which was refused in 2022, and successfully challenged that refusal leading to a remand in 2023.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's procedural history"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 12,
+   "speaker": "mixed",
+   "summary": "The Applicant integrated socially in Canada and supported his grandnephew FS emotionally after his nephew's deportation; the Officer refused the H&C application, finding no personal link to anti-Roma discrimination or sufficient evidence of hardship in Hungary.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's social ties and support role",
+    "Officer's refusal and reasoning on hardship"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 16,
+   "speaker": "below",
+   "summary": "The Officer acknowledged the Applicant's emotional bond with FS but found insufficient evidence that alternative care was impossible, giving modest weight to the BIOC factor, and refused the application under IRPA section 25(1); parties agree reasonableness is the review standard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's BIOC analysis",
+    "Refusal under IRPA",
+    "Agreement on standard of review"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 20,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard from Vavilov, emphasizing deference and the need for a justified, coherent decision, and summarizes the Applicant's and Respondent's opposing submissions on alleged errors and evidence reweighing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness standard explanation",
+    "Applicant's submissions on errors",
+    "Respondent's defense and reweighing objection"
+   ]
+  },
+  {
+   "para": 21,
+   "last": 23,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Officer wrongly applied a refugee analysis instead of an H&C analysis, requiring an incorrect unusualness threshold, which is a reviewable error under precedent.",
+   "ideas": "single",
+   "idea_list": [
+    "Officer's error in analytical framework"
+   ]
+  },
+  {
+   "para": 24,
+   "last": 26,
+   "speaker": "court",
+   "summary": "The court finds the Officer mischaracterized evidence of anti-Roma hardship, disparaged credible evidence, and erred in the BIOC analysis by undervaluing FS's emotional needs and failing to properly consider the child's best interests.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mischaracterization of evidence",
+    "Inadequate hardship analysis",
+    "Errors in BIOC assessment"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 28,
+   "speaker": "court",
+   "summary": "The court finds no questions for certification arise and agrees none were raised.",
+   "ideas": "single",
+   "idea_list": [
+    "No certification questions"
+   ]
+  }
+ ]
+}

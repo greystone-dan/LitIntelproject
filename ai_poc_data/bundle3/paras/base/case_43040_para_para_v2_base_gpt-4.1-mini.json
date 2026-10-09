@@ -1,0 +1,208 @@
+{
+ "case_id": 43040,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0033548000000000002
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 12,
+   "party": 5,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves Brian and Michelle Smith appealing a Federal Court decision that dismissed their judicial review applications concerning Service Canada's denial of retroactive Old Age Security benefits. The appellants argued that Service Canada's erroneous advice and administrative errors caused them to lose retroactive payments, but the court found Service Canada's decision reasonable and dismissed the appeal. The appeal was ultimately dismissed with no costs awarded to the respondent.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 6,
+    "label": "Procedural History and Parties' Positions",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Standard of Review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 16,
+    "label": "Analysis of Service Canada's Decision and Appellants' Arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 18,
+    "label": "Disposition and Closing Remarks",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appellants, Brian and Michelle Smith, appeal a Federal Court decision dismissing their judicial review applications about Service Canada's denial of retroactive benefits under the Old Age Security Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal background",
+    "benefits application timeline",
+    "initial benefit decisions"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellants argue that section 32 of the Act should apply to remedy lost benefits due to erroneous advice or administrative error by Service Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The appellants contend that Service Canada's written materials misled them to delay applying for GIS and ALW benefits, causing loss of retroactive payments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "Service Canada found an administrative error in not providing forms promptly but no erroneous advice; benefits were granted retroactive 11 months to May 2016, not April.",
+   "ideas": "multiple",
+   "idea_list": [
+    "administrative error found",
+    "no erroneous advice found",
+    "benefits retroactive to May 2016"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The appellants were partially successful, receiving additional benefits but not for April 2016, which is the issue on appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appellants' judicial review applications were dismissed by the Federal Court, and they now appeal that decision to this Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The parties agree the standard of review is as per Agraira and Horrocks: this Court reviews the Federal Court's application of the standard, focusing on the administrative decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The parties do not dispute the Federal Court's identification of the standard of review but disagree on whether it was properly applied.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Reasonableness applies to most issues; procedural fairness is reviewed for fairness; original findings of law/fact by Federal Court are reviewed on correctness or palpable error standards.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard for most issues",
+    "standard for procedural fairness",
+    "standard for original findings"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The appellants argue Service Canada's finding of no erroneous advice was an unreasonable narrow interpretation of 'advice' in section 32 of the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court finds Service Canada's decision does not clearly exclude written materials from 'advice' and interprets the materials as not erroneous, rejecting the appellants' narrow interpretation argument.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no narrow interpretation of 'advice'",
+    "materials not erroneous",
+    "reject appellants' inference"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Because Service Canada's decision does not rely on a narrow interpretation of 'advice', the court declines to address related appellants' arguments on reasonableness, fairness, and judicial review appropriateness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The appellants argue the materials were ambiguous and failed to instruct timely GIS and ALW applications, causing loss of retroactive benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court views appellants' criticisms as about omissions rather than misleading content and finds nothing misleading enough to prevent applicants from seeking specific advice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court is not convinced Service Canada's conclusion that the materials were not erroneous was unreasonable and does not comment on Federal Court or respondent's arguments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The appellants' argument of an earlier administrative error fails because Service Canada reasonably found the benefit loss resulted from appellants' interpretation and failure to seek specific advice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court would dismiss the appeal and notes the respondent has not sought costs, so none will be awarded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court thanks the self-represented appellants for their submissions and clarifies that silence on some Federal Court aspects is not approval.",
+   "ideas": "multiple",
+   "idea_list": [
+    "thanks to appellants",
+    "no implied approval of Federal Court"
+   ]
+  }
+ ]
+}

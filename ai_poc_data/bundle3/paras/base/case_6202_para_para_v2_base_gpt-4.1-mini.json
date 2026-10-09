@@ -1,0 +1,254 @@
+{
+ "case_id": 6202,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0037252
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 8,
+   "court": 16,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Tuyebekova, a Kazakhstani citizen, applied for permanent residence in Canada on humanitarian grounds, which was refused by IRCC. She challenged the decision, arguing that the Officer unreasonably assessed her hardship and her grandchildren's best interests. The Federal Court found the Officer's assessments unreasonable and granted judicial review, requiring redetermination of these issues.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Legal framework and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 19,
+    "label": "Analysis of hardship assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 24,
+    "label": "Analysis of children's best interests",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 25,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicant Ms. Tuyebekova, a 74-year-old Kazakhstani citizen, applied for permanent residence in Canada on humanitarian grounds; IRCC refused her application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant background",
+    "Application details",
+    "Refusal and challenge"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova argues the Officer failed to reasonably assess her hardship, grandchildren's best interests, and daughter's psychological harm.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Hardship in Kazakhstan",
+    "Best interests of grandchildren",
+    "Psychological harm to daughter"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees the Officer's hardship and children's best interests assessments are unreasonable, requiring redetermination; other issues not addressed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Hardship assessment unreasonable",
+    "Children's best interests minimal",
+    "Other issues not addressed"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court grants the judicial review for reasons explained below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova is estranged from her five siblings in Kazakhstan due to her Christian conversion over 25 years ago.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "In 2012, Ms. Tuyebekova's daughter moved to Canada with her family.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova came to Canada as a visitor in 2016 and lived with her daughter, son-in-law, and three grandchildren aged 8 months, 9, and 11 years.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova filed her humanitarian and compassionate application in 2018, which was refused in August 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The key issues are the Officer's evaluation of hardship and children's best interests; reasonableness is the standard of review per Vavilov.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Key issues identified",
+    "Standard of review is reasonableness",
+    "Reference to Vavilov"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Humanitarian and compassionate discretion under IRPA s 25(1) allows relief considering factors including children's best interests, per Kanthasamy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "There is no limited set of factors for humanitarian relief; officers must consider all relevant facts substantively, citing Kanthasamy and Baker.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Ms. Tuyebekova raised key factors: establishment in Canada, grandchildren's best interests, adverse conditions in Kazakhstan due to religion, and family separation hardship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Officer's hardship analysis is unreasonable, ignoring and distorting central evidence and submissions from Ms. Tuyebekova.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova described 2012-2016 as difficult due to family separation; supported by letters from her doctor and daughter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "evidence",
+   "summary": "Ms. Tuyebekova's doctor reported depression symptoms since 2012 linked to family separation and increased medication dosage in 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova and her daughter explained the stress caused by their separation despite frequent Skype communication.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Officer ignored evidence of hardship and wrongly characterized the separation period as evidence Ms. Tuyebekova could live alone in Kazakhstan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Officer failed to appreciate that Ms. Tuyebekova's main hardship was family separation, not adjustment to Canada, making the reasoning unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer's failure to engage with central evidence renders the hardship assessment unreasonable under Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "IRPA s 25(1) requires officers to consider children's best interests, which is a significant focus per Kanthasamy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Kanthasamy and Baker require children's interests to be well defined and carefully examined; minimizing them renders decisions unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Officer's review of the three children's interests was perfunctory and insufficiently attentive, despite acknowledging possible negative impact.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Evidence showed one grandchild has a language disability needing support from Ms. Tuyebekova; the Officer ignored the child's doctor's letter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Officer's minimal consideration of the children's interests renders the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The judicial review is granted; no certification question arises.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

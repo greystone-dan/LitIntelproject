@@ -1,0 +1,382 @@
+{
+ "case_id": 46982,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.005343200000000001
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 22,
+   "party": 12,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 21,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns refugee protection claims made by claimants alleging persecution in Djibouti, with the Minister as the respondent. The tribunal found significant inconsistencies and fraudulent elements in the claimants' identity and citizenship claims, leading to a conclusion that the claims were manifestly unfounded. Consequently, the refugee protection claims were rejected.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 12,
+    "label": "Background and claimants' story",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Legal framework and issues",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 30,
+    "label": "Inconsistencies and evidence on identity",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 36,
+    "label": "Credibility findings and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The claimants, citizens of Djibouti, seek refugee protection under IRPA sections 96 and 97(1).",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimants' identity and citizenship",
+    "Legal basis for claim"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Claimant XXXX is a Djibouti citizen, married in 1990, with children, member of Yonis Moussa tribe and MRD since 2013.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's citizenship and marriage",
+    "Children and tribal membership",
+    "Political affiliation"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Claimant arrived in Canada in 2017 with husband and daughter; husband left for Ethiopia to join other children and grandmother.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Arrival in Canada",
+    "Husband's departure to Ethiopia",
+    "Family members' location"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Claimant's problems began in 2015 when police fired on her tribe's celebration; she escaped unharmed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Claimant was summoned then forcibly arrested by police in 2015 and taken to the police station.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Claimant detained for two days in 2015, mistreated and held in poor conditions, then sought medical treatment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Detention duration and reason",
+    "Mistreatment and conditions",
+    "Medical treatment"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "In 2017, claimant received a police summons after attending MRD meeting; police officer shoved her, prompting her to hide.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Summons after political meeting",
+    "Police officer's aggression",
+    "Claimant went into hiding"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Claimant was forcibly detained again in 2017, slapped, accused of political activities, released next day, sought medical care, then decided to leave country.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Second detention and abuse",
+    "Accusations of political activity",
+    "Medical treatment and decision to leave"
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Claimant's sister became ill in 2017; claimant accompanied her to Dubai, met cousin who opposes Djibouti government and is exiled.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Sister's illness and treatment",
+    "Meeting cousin in Dubai",
+    "Cousin's political opposition and exile"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Upon return to Djibouti in 2017, claimant was arrested, abused severely, threatened to end political activities, and hospitalized.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Third arrest and interrogation",
+    "Severe abuse and threats",
+    "Hospital treatment"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Claimant fears return due to political involvement, cousin's opposition, and tribal membership.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "These reasons summarize the claimants' basis for refugee protection in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Key issues are identity and credibility of facts supporting refugee claims; identity requires specific personal details.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Panel finds claimants failed to establish identity and deems claims manifestly unfounded after evidence review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "IRPA section 106 and RPD rule 7 place onus on claimant to provide identity documents or reasonable explanation for absence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Claimant XXXX allegedly born in Djibouti, married in 1990, with children; all claim Djibouti citizenship and provided passports.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's birth and marriage details",
+    "Children and citizenship",
+    "Supporting documents provided"
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Minister's evidence shows claimants gave inconsistent identity statements and differing accounts between refugee claim and permanent residence application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistent identity statements",
+    "Differences between claims"
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "A 2009 permanent residence application was submitted under the Private Sponsorship of Refugees program, supported by a Winnipeg sponsor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The 2009 application states claimant born in Mogadishu, Somalia, living in Yemen, married, and daughter also Somali citizen living in Yemen.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's birthplace and citizenship",
+    "Residence in Yemen",
+    "Family details"
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The 2009 permanent residence application was refused by Canadian visa office and omitted from refugee claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Application refusal",
+    "Omission from refugee claim"
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Documents show claimant's name and citizenship differ between 2009 application (Somalia) and refugee claim (Djibouti), including father's last name.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Name and citizenship discrepancies",
+    "Father's last name differences"
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Claimant's daughter's citizenship and last name differ between 2009 application (Somalia) and refugee claim (Djibouti).",
+   "ideas": "multiple",
+   "idea_list": [
+    "Daughter's citizenship discrepancy",
+    "Last name differences"
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Evidence shows 2010 application alleges persecution in Somalia and risk in Yemen, differing from refugee claim story.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Claimant denies prior permanent residence application and having been to Yemen when questioned about citizenship change.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Denial of prior application",
+    "Denial of Yemen residence"
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Claimant later said husband submitted prior application without her knowledge, but this doesn't explain Djibouti citizenship claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's changed testimony",
+    "Unexplained citizenship claim"
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Claimant failed to credibly explain husband's submission of prior application or correct last name to match refugee claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No credible explanation for husband's actions",
+    "No correction of last name"
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Claimant's sworn facts presumed true unless doubted; panel doubts truthfulness of Djibouti identity allegations on balance of probabilities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Presumption of truth",
+    "Panel doubts Djibouti identity"
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Claimant's testimony was not candid; she denied other names despite discrepancies in last names and father's name.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lack of candor",
+    "Name discrepancies"
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Claimant's daughter's last name in prior application matches father's, but refugee claim uses daughter's first name as last name.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Use of new last names and citizenship after failing to disclose refused application leads panel to conclude Djibouti documents are likely fraudulent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel finds that attempts to mislead with sworn documents destroy the claimants' credibility and identity is crucial to credibility under IRPA section 106.",
+   "ideas": "multiple",
+   "idea_list": [
+    "misleading documents destroy credibility",
+    "identity issues affect credibility under IRPA"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel concludes the claimants are not credible or trustworthy, noting fraudulent allegations and fabricated testimony about Djibouti.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimants not credible",
+    "fraudulent allegations",
+    "fabricated testimony"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The panel finds the claimants failed to establish their identities with credible and trustworthy evidence, especially regarding citizenship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The panel determines that the claimants are neither Convention refugees nor persons in need of protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The panel rejects the claims of the individuals named, identified as citizens of Djibouti and Somalia.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel further concludes the refugee protection claims are clearly fraudulent and manifestly unfounded.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

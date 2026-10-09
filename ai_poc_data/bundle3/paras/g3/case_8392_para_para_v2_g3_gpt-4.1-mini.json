@@ -1,0 +1,122 @@
+{
+ "case_id": 8392,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0017132000000000002
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "other": 1,
+   "court": 4
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a judicial review of an Immigration Appeal Division (IAD) decision confirming a removal order against the applicant, a Colombian permanent resident, for serious criminality. The applicant challenges the IAD's decision on grounds including alleged bias and unfair comparison to his brother's case. The Federal Court finds the IAD's decision reasonable and dismisses the judicial review application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Standard of review and preliminary issues",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "IAD's findings on offence seriousness and rehabilitation",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "IAD's assessment of establishment and removal consequences",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "other",
+   "summary": "The applicant, a Colombian permanent resident, faces judicial review of an Immigration Appeal Division decision confirming a removal order for serious criminality.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application for judicial review",
+    "applicant's criminal history",
+    "removal order confirmed"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The court explains the standard of reasonableness review, rejects the applicant's comparison to his brother's case and bias allegation as unfounded.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review",
+    "rejection of case comparison",
+    "rejection of bias claim"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The court outlines the IAD's discretionary authority and summarizes its findings on the seriousness of the offence, weak rehabilitation, and risk factors for reoffending.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD's discretionary authority",
+    "seriousness of offence and weak rehabilitation",
+    "risk factors for reoffending"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The IAD found the applicant had low establishment in Canada but positive family/community support, and assessed removal consequences and children's best interests as neutral or insignificant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "low establishment in Canada",
+    "positive family/community support",
+    "neutral impact on children and removal consequences"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The IAD found insufficient grounds for special relief; the court finds the decision reasonable and dismisses the judicial review application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "insufficient grounds for relief",
+    "court finds decision reasonable",
+    "dismissal of judicial review"
+   ]
+  }
+ ]
+}

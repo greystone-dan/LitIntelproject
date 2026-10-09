@@ -1,0 +1,122 @@
+{
+ "case_id": 32263,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0029352
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 6,
+  "dropped_rows": 2,
+  "speakers": {
+   "court": 4,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Lirui Shao's application for a stay of removal to China pending judicial review or Pre-Removal Risk Assessment (PRRA) eligibility. Shao alleges new evidence of threats and political activities that could substantiate risk claims previously dismissed by the Refugee Protection Division (RPD) and Refugee Appeal Division (RAD). The Federal Court granted the stay, finding a strong case of error in the deferral decision and that the balance of convenience favored the Applicant.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Applicant's request and new evidence",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Legal test for injunctions and deferral challenges",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Court's analysis of errors in deferral decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 19,
+    "label": "Disposition: granting stay of removal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The Applicant, Lirui Shao, seeks a stay of removal to China pending judicial review or PRRA eligibility; the court grants the stay and summarizes the refugee claim history and refusals by RPD and RAD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks stay of removal",
+    "Court grants stay",
+    "Background of refugee claim and refusals"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "party",
+   "summary": "The Applicant requests deferral of removal until PRRA eligibility, citing new evidence of threats and political activities in Canada and China, which may substantiate previously considered risk allegations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Request to defer removal until PRRA eligibility",
+    "New evidence of threats and political activities",
+    "New evidence may substantiate prior risk allegations"
+   ]
+  },
+  {
+   "para": 8,
+   "last": 10,
+   "speaker": "court",
+   "summary": "The court explains the contextual test for granting an injunction, noting a low threshold for serious questions generally but a higher 'quite a strong case' threshold when challenging a deferral of removal decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "contextual test for injunction",
+    "low threshold for serious question",
+    "higher threshold for deferral of removal challenge"
+   ]
+  },
+  {
+   "para": 12,
+   "last": 14,
+   "speaker": "court",
+   "summary": "The court finds a 'quite strong case' that the Officer erred by ignoring evidence mentioning the Applicant's political activism and by relying on internet searches that may have been inadequate due to language issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer ignored evidence mentioning Applicant",
+    "Officer's internet search possibly inadequate due to language"
+   ]
+  },
+  {
+   "para": 15,
+   "last": 19,
+   "speaker": "court",
+   "summary": "The court finds the Applicant meets the serious issue and irreparable harm prongs, and the balance of convenience favors the Applicant, thus granting the stay of removal until judicial review or PRRA eligibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant meets serious issue prong",
+    "Applicant shows irreparable harm",
+    "Balance of convenience favors Applicant",
+    "Stay of removal granted until judicial review or PRRA eligibility"
+   ]
+  }
+ ]
+}

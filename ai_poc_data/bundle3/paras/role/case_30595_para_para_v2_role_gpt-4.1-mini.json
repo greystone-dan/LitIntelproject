@@ -1,0 +1,252 @@
+{
+ "case_id": 30595,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.004596800000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "speakers": {
+   "below": 2,
+   "court": 19,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the judicial review of a decision denying the Applicant's permanent residence application under the Pathway Program, which required proving 120 hours of direct patient care work during a specified period. The Applicant challenged the decision as unreasonable and procedurally unfair, arguing that medical leave should have been counted towards the work hours. The court found the Officer's decision reasonable and fair, dismissing the application while acknowledging the Applicant's significant pandemic contribution.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 10,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Issues and legal standards",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 23,
+    "label": "Analysis of reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Procedural fairness and discretion",
+    "kind": "analysis"
+   },
+   {
+    "first": 3,
+    "last": 3,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Applicant's application was denied for not proving 120 hours of direct patient care work between March 13 and August 14, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court finds the Officer's decision reasonable and fair, dismissing the judicial review application but acknowledging the Applicant's significant pandemic contribution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision reasonable",
+    "no procedural fairness breach",
+    "application dismissed",
+    "applicant's contribution acknowledged"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Pathway Program was created on November 23, 2020, to grant PR status to refugee claimants working in healthcare during COVID-19, running from Dec 14, 2020 to Aug 31, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Eligibility required 120 hours of direct patient care between March 13 and August 14, 2020, and 6 months full-time or 750 hours part-time before August 31, 2021, with paid work except certain internships.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Program allowed counting paid or unpaid sick leave for COVID-19 related absences towards work requirements under specific conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant worked as a PSW in Montreal (2018-2019) and Toronto (Jan-Sep 2020), but only completed 42 hours during the First Work Period due to medical leave from April to August 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Applicant applied for permanent residence under the Pathway Program in June 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer refused the application because the Applicant worked only 42 hours during the First Work Period and medical leave counted only if due to COVID-19, so eligibility was not met.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The judicial review raises two issues: whether the Officer's decision was reasonable and whether there was a breach of procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Reasonableness review requires the decision to be transparent, intelligible, justified, and based on a rational analysis of facts and law, per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Fairness is assessed by the nature of rights and circumstances, with correctness as the best standard for procedural fairness review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Applicant contends the refusal was unreasonable and unfair because the Officer interpreted the hours requirement disjunctively and the Applicant met the criteria despite injury.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by not counting medical leave time in the First Work Period as allowed by the Program's exception.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's arguments unpersuasive despite sympathy for her circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer's refusal letter shows the Applicant failed to satisfy one or the other work period, not that only one is required, consistent with the Program's terms.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Officer's decision clearly requires meeting both work periods, using 'and' in the rationale, which is the only reasonable interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Officer reasonably concluded the Applicant's medical leave was not countable for the First Work Period's minimum hours.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Program allows sick leave counting only if due to COVID-19 for the First Work Period; the Applicant's injury was unrelated, so leave was excluded.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer's decision is transparent, intelligible, and justified when considering the Program and Applicant's facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Applicant did not identify any specific procedural fairness breach, so Baker factors need not be addressed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Applicant's claim of failed discretion exercise is unpersuasive; discretion is assessed on reasonableness and no discretion was identified.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Pathway Program does not confer discretion; the Applicant's argument of fettered discretion is rejected based on precedent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Adequacy of reasons relates to reasonableness, not fairness breach; the Officer's decision was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

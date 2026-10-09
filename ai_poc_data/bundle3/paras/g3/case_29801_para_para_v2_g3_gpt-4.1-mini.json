@@ -1,0 +1,122 @@
+{
+ "case_id": 29801,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0021660000000000004
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "mixed": 3,
+   "court": 2
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application by the Minister challenging the Immigration Appeal Division's (IAD) decision to allow Ms. Cabigas's sponsorship appeal on humanitarian and compassionate grounds. The Minister alleges procedural unfairness due to the IAD's failure to provide an opportunity to make submissions on H&C contrary to an agreed two-phase process. The court found the IAD breached procedural fairness and ordered the matter remitted to the original panel for reconsideration with proper opportunity for submissions.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Procedural fairness standards and parties' arguments",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Court's findings on procedural fairness breach",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Effect of breach and parties' positions on remittal",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 14,
+    "label": "Disposition: remittal to original panel",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "mixed",
+   "summary": "The Respondent, Ms. Cabigas, had her sponsorship application denied but won an appeal at the IAD on humanitarian grounds; the Minister applies for judicial review alleging procedural unfairness due to lack of opportunity to make submissions on H&C, contrary to an agreed two-phase process.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's background and appeal outcome",
+    "Minister's judicial review application and procedural fairness claim",
+    "Description of agreed two-phase process by IAD"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "mixed",
+   "summary": "The court explains procedural fairness review standards; the Respondent argues no breach occurred as the Minister had notice and opportunities to present evidence, the IAD has discretion over process, and any breach lacks demonstrated prejudice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court's legal framework for procedural fairness",
+    "Respondent's argument against breach of fairness",
+    "Respondent's position on IAD discretion and lack of prejudice"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The court finds the IAD proposed and the parties agreed to a two-phase process with a later opportunity for H&C submissions, rejecting the Respondent's view that no clear commitment was made, and finds the IAD's deviation from this process unfair.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD proposed two-phase process and parties agreed",
+    "Conditional language reflected process dependency, not uncertainty",
+    "IAD's discretion does not excuse failure to follow agreed process"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "mixed",
+   "summary": "The court holds the IAD's failure to follow the agreed process was a clear breach of fairness that invalidates the decision; the Respondent wants remittal to the same panel, but the Minister opposes remitting to a panel that already ruled positively without full evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Breach of fairness invalidates decision unless exceptions apply",
+    "Respondent requests remittal to same panel",
+    "Minister opposes remittal to same panel"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 14,
+   "speaker": "court",
+   "summary": "Considering the lengthy hearings and significant interests, the court finds remittal to the original panel appropriate for H&C reconsideration with opportunity for evidence and submissions; no certification question arises.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Remittal to original panel appropriate",
+    "Parties to be given opportunity for evidence and submissions",
+    "No question for certification identified"
+   ]
+  }
+ ]
+}

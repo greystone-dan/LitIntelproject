@@ -1,0 +1,182 @@
+{
+ "case_id": 42386,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.003948
+ },
+ "verification": {
+  "paragraphs": 17,
+  "summaries": 17,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 9,
+  "speakers": {
+   "court": 13,
+   "other": 1,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a cost assessment appeal initiated by the Appellant, Canada (Attorney General), against the Respondent, Iris Technologies Inc., under the Federal Courts Rules. The Federal Court assessed the costs claimed by the Appellant, addressing issues such as the applicability of public interest considerations and the reasonableness of photocopy disbursements. The court allowed certain costs related to an interim stay motion and partially allowed photocopy costs, disallowing others such as second counsel copies.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Procedural background and filings",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Preliminary issues and assessment officer's role",
+    "kind": "other"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "Public interest argument and rejection",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 16,
+    "label": "Assessment of costs for interim stay motion",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 25,
+    "label": "Assessment of photocopy disbursements",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Appellant filed an assessment request and Bill of Costs on February 29, 2024, initiating cost assessment under Federal Courts Rules sections 405-407.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court issued directions on March 4, 2024; the Appellant filed a Costs Record on March 27, and the Respondent filed a Responding Record on April 29, with no reply from the Appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The court introduces preliminary issues to be addressed before proceeding with the cost assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The assessment officer explains they cannot issue orders directing payment of costs, only reasons and certificates, citing Federal Courts Act and Rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The assessment officer acknowledges litigants often misunderstand their role but will proceed with cost assessment and issue reasons and certificate respecting jurisdiction.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Respondent argues public interest under Rules 409 and 400(3)(h) can minimize costs, citing Hiebert v. Canada, which the officer summarizes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The assessment officer declines to consider public interest here, finding no precedent or argument justifying it, and will assess costs per Tariff B.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Appellant claims 13 units for assessable services totaling $1,950.00.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court record shows the Appellant is entitled to costs for the interim stay motion as awarded in August 19, 2021 order.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Respondent states their contempt motion was withdrawn and costs should not be paid; the Appellant claims no units for it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The assessment officer allows the 2 units claimed under Item 21(a) for the interim stay motion, deeming further assessment unnecessary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent argues photocopy claims are unreasonable for a remote hearing with electronic filing; the court agrees but reasons differently.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court cites Tariff B and case law requiring disbursements to be reasonable and necessary for litigation to be allowed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Though photocopy costs are substantiated, the court questions whether they were necessary and reasonable for the litigation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court notes electronic copies were filed and only one paper copy of the Joint Book of Authorities was filed with the Registry.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court states costs for second counsel copies are disallowed as no court direction or award exists for second counsel costs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Appellant is entitled to one copy each of the Joint Book and Appeal Book; $87.77 allowed fully, $359.37 halved to $267.46 for photocopies.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

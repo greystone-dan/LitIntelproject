@@ -1,0 +1,208 @@
+{
+ "case_id": 47928,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0032924000000000004
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 4,
+   "court": 16
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Haitian citizen claimant seeking refugee protection under sections 96 and 97(1) of the IRPA, alleging targeted violence and threats in Haiti. The Immigration and Refugee Board Tribunal assessed the credibility of the claimant's evidence and testimony, ultimately finding inconsistencies and lack of credible motive for persecution. The Tribunal concluded that the claimant failed to prove a serious possibility of persecution or risk of torture, and dismissed the claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Claimant's background and allegations",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Legal framework and claimant's nationality",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Assessment of documentary evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 16,
+    "label": "Credibility findings and risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Evaluation of claimant's risk profile",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 20,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant, a Haitian citizen, seeks refugee protection under sections 96 and 97(1) of the IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant failed to prove a serious possibility of persecution or risk of torture, life risk, or cruel treatment on return to Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant alleges being attacked and threatened in Port au Prince in 2015, with her brother killed and family dispersed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant left Haiti for Brazil in 2015, then traveled to the US in 2016, not claiming asylum there due to legal advice delays.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The claimant alleges ongoing family threats since 2015, with family members living in various locations including the Dominican Republic and Miami.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Tribunal accepts the claimant's Haitian nationality based on her testimony and supporting documents like passport and ID card.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The claim involving gender-related persecution was assessed according to Chairpersons Guideline Number 8 for women fearing such persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "At the hearing, the claimant produced four documents supporting her claim, including police complaint and death certificate copies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Tribunal questioned the claimant about the originals and inconsistencies in her father's letter, finding her explanations not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Tribunal noted poor quality of father's letter and ID card, and inconsistencies in his location, reducing document reliability.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Tribunal found no credible motive for the alleged targeted violence against the claimant's family.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Tribunal rejects the father's claim of unexplained threats over years as not credible for targeted violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The claimant's testimony about contacting family after her brother's death was inconsistent and unclear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant's timing of contacting family after attack not credible and her explanation not believable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Tribunal finds contradictions in death-related documents and gives them no probative value.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Tribunal does not believe the allegations of targeted attack and finds no risk under section 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant does not fit the profile of a woman at risk in Haiti despite general risks described in reports.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The claimant's independent travel and living situation over three years suggest she is not vulnerable or at risk in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The claimant failed to establish a serious possibility of persecution based on membership in a particular social group.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Tribunal concludes the claimant failed to prove serious possibility of persecution or risk of torture, life risk, or cruel treatment, finding no credible basis for the claim under section 107(2) IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

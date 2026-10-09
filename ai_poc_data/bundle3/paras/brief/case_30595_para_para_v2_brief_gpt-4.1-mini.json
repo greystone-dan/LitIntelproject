@@ -1,0 +1,242 @@
+{
+ "case_id": 30595,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.006146
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "speakers": {
+   "below": 2,
+   "court": 18,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the judicial review of a decision by an immigration officer denying the Applicant's application for permanent residence under the Pathway Program, which required specific hours of direct patient care work during the COVID-19 pandemic. The Applicant challenged the decision as unreasonable and procedurally unfair, arguing that medical leave should count towards the work hours requirement. The Federal Court found the officer's decision reasonable and dismissed the application for judicial review, concluding there was no breach of procedural fairness.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Tribunal below decision",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 3,
+    "label": "Court's disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 5,
+    "last": 9,
+    "label": "Background: Pathway Program and Applicant's work history",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 10,
+    "label": "Tribunal below refusal reasons",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Issues and legal standards",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 17,
+    "label": "Applicant's arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 23,
+    "label": "Court's analysis on reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Court's analysis on procedural fairness and discretion",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "The applicant, Chinwe Bridget Keke, challenges the refusal of her permanent residence application under the Pathway Program by the respondent, Minister of Citizenship and Immigration. The refusal was based on her failure to demonstrate 120 hours of direct patient care work during the first work period due to medical leave. The court addresses: 1) whether the officer's decision was reasonable in interpreting the program's eligibility requirements; 2) whether the officer properly considered medical leave exceptions; and 3) whether there was a breach of procedural fairness. The court finds the decision reasonable, no breach of fairness, and dismisses the judicial review application.",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Applicant's application was denied for not demonstrating 120 hours of direct patient care work between March 13 and August 14, 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court finds the Officer's decision reasonable with no procedural fairness breach and dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Pathway Program was created on November 23, 2020, to grant PR status to refugee claimants working in healthcare during COVID-19, implemented Dec 14, 2020 to Aug 31, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Eligibility required 120 hours of direct patient care work between March 13 and August 14, 2020, and 6 months full-time or 750 hours part-time before August 31, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Program allowed paid or unpaid sick leave to count towards work requirements only if COVID-19 related, with specific conditions for the 120-hour and 6-month periods.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant worked as a PSW from June 2018, but only completed 42 hours during the First Work Period due to medical leave from April to August 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Applicant applied for permanent residence under the Pathway Program in June 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer refused the application because the Applicant worked only 42 hours during the First Work Period and medical leave counted only if COVID-19 related.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The judicial review raises two issues: whether the Officer's decision was reasonable and whether there was a breach of procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Reasonableness review requires decisions to be transparent, intelligible, justified, and based on coherent analysis per Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Fairness is assessed by the nature of rights and circumstances, with correctness as the best standard for procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Applicant contends the refusal letter shows a disjunctive interpretation and that she met requirements despite fewer hours due to injury, making refusal unreasonable and unfair.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by not counting medical leave time towards the First Work Period as allowed by the Program.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's arguments unpersuasive despite sympathy for her circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer's refusal letter shows failure to satisfy one or both work periods, not that only one is required, consistent with Program terms.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Officer's use of 'or' may cause uncertainty but the refusal letter clarifies both work periods are required, a reasonable interpretation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Officer reasonably concluded medical leave was not countable for the First Work Period's minimum hours requirement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Program allows sick leave counting only if COVID-19 related for the First Work Period; Applicant's injury was unrelated, so leave was excluded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer's decision is transparent, intelligible, and justified when read with the Program and Applicant's facts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Applicant did not identify any specific fairness breach, and no evidence rejection or credibility issues occurred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Applicant claims the Officer failed to exercise discretion, but discretion is assessed on reasonableness and no discretion was identified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court finds no fettering of discretion as the Program does not confer discretion to waive eligibility requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Adequacy of reasons relates to reasonableness, and since the Officer's decision was reasonable, no fairness breach arises from reasons.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

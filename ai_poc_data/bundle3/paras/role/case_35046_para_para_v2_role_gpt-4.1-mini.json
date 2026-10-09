@@ -1,0 +1,249 @@
+{
+ "case_id": 35046,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0038236000000000003
+ },
+ "verification": {
+  "paragraphs": 22,
+  "summaries": 22,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "speakers": {
+   "party": 3,
+   "court": 16,
+   "below": 3
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review of a decision by an immigration officer who refused the Applicant's permanent residence application under humanitarian and compassionate grounds. The Applicant, who had previously made a refugee claim and faced deportation, argued that the officer erred by applying a refugee analysis instead of the correct humanitarian and compassionate analysis, leading to flawed assessments of hardship and the best interests of the child. The Federal Court agreed with the Applicant, finding the officer's decision unreasonable and granting the judicial review application.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 11,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Decision below",
+    "kind": "other"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 20,
+    "last": 26,
+    "label": "Analysis of officer's errors and unreasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 28,
+    "label": "Disposition and other matters",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by doing a refugee analysis instead of an H&C analysis, making the hardship and BIOC assessments flawed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer erred in analysis type",
+    "Hardship and BIOC assessments flawed"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Officer's decision is unreasonable and grants the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "In 2011, the Applicant came to Canada and made a refugee claim, which was refused in 2015.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "In 2019, the Applicant was detained by the Canada Border Services Agency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Applicant's Pre-Removal Risk Assessment was refused in 2020, and his H&C permanent residence application was refused in 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant successfully challenged the refusal of his permanent residence application, leading to a 2023 remand to IRCC.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "During this period, the Applicant worked, attended church, and built relationships in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "In 2023, the Applicant's nephew was deported, causing distress to his son FS, whom the Applicant now supports emotionally.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Officer acknowledged widespread anti-Roma discrimination in Hungary but found no personal link or sufficient evidence of discrimination against the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Officer recognized the Applicant's emotional support to FS but found insufficient evidence that alternatives couldn't be arranged, giving modest weight to their relationship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Officer refused the Applicant's permanent residence application under subsection 25(1) of IRPA for these reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Both parties agree the reasonableness standard of review applies, citing Vavilov at paras 16\u201317, 23\u201325.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard requires decisions to be transparent, intelligible, justified, and coherent per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "To find a decision unreasonable, flaws must be central or significant; courts should not reweigh evidence or interfere with factual findings absent exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant failed to show unreasonableness and is effectively seeking to reweigh evidence for a desired outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant's submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court agrees the Officer wrongly applied a refugee analysis instead of an H&C analysis, citing Diabete and explaining the correct approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer erred by requiring the Applicant to prove personalized risk and unusual circumstances, applying a refugee framework to an H&C claim, which is reviewable error.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Incorrect requirement of personalized risk",
+    "Misapplied refugee framework to H&C claim"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds the Respondent mischaracterized the evidence as self-serving despite clear evidence of hardship, and rejects those disparaging comments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Officer's hardship analysis is unjustified as it ignores pervasive anti-Roma discrimination evidence and mischaracterizes the record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Officer erred in the BIOC analysis by focusing on minimum care rather than best interests, ignoring FS's emotional pain and the severe impact of removal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Incorrect BIOC focus on minimum care",
+    "Ignored FS's emotional pain",
+    "Failed to consider severe removal impact"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "No questions for certification were raised or found to arise by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  }
+ ]
+}

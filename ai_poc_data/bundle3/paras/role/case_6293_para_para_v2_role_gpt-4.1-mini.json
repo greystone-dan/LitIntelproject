@@ -1,0 +1,279 @@
+{
+ "case_id": 6293,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0043268000000000004
+ },
+ "verification": {
+  "paragraphs": 22,
+  "summaries": 22,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 4,
+   "below": 4,
+   "court": 14
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Jessica Alex and her children, who applied for permanent residence in Canada on humanitarian and compassionate (H&C) grounds after fleeing racial discrimination in Italy. The Senior Immigration Officer refused their second H&C application, citing available anti-discrimination measures in Italy and lack of evidence that the applicants sought help. The Federal Court allowed the judicial review, finding the Officer unreasonably failed to address the effectiveness of Italy's anti-discrimination measures, and remitted the matter for redetermination.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and parties' applications",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 4,
+    "label": "Decision below",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Applicants' challenge and court's preliminary view",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 11,
+    "label": "Standard of review and legal framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Officer's reasoning on hardship and children's best interests",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 19,
+    "label": "Court's analysis of Officer's errors and reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 20,
+    "label": "Other issues not addressed due to reconsideration",
+    "kind": "other"
+   },
+   {
+    "first": 21,
+    "last": 22,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Jessica Alex, born in Sierra Leone in 1984, fled to Italy in 2001, became an Italian citizen in 2017, and her children are Italian citizens.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. Alex and her children came to Canada in 2018 on visitor visas and applied for permanent residence on humanitarian and compassionate grounds, which were refused in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "In October 2019, the applicants submitted a second H&C application citing hardship if returned to Italy, focusing on racial discrimination and supported by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "A Senior Immigration Officer refused the second H&C application in January 2021, noting some establishment in Canada but limited economic hardship evidence and available state assistance in Italy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's findings on establishment in Canada",
+    "Officer's findings on economic hardship",
+    "Officer's findings on racial discrimination and state assistance"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The applicants seek judicial review arguing the Officer unreasonably applied a protection test with a presumption of state protection to their H&C claim and failed to consider effectiveness of measures.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' argument on unreasonable test import",
+    "Applicants' argument on failure to consider effectiveness"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court agrees it was not unreasonable to consider available anti-discrimination measures but agrees the Officer erred by not addressing their effectiveness, requiring reconsideration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court agrees on reasonableness of considering measures",
+    "Court agrees on unreasonableness for ignoring effectiveness"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The parties and court agree that H&C decisions are reviewed on a reasonableness standard, as confirmed by Supreme Court precedents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "A reasonable decision must be coherent, justified by facts and law, and is entitled to deference, but review is robust and not a reweighing of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Applicants bear the onus to show the Officer's decision is unreasonable by demonstrating serious shortcomings undermining justification, intelligibility, and transparency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Subsection 25(1) IRPA allows discretion to make exceptions based on equitable grounds, requiring flexible interpretation but not an alternative immigration scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Hardship alone does not usually warrant H&C relief; what warrants relief varies by case facts and context.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Officer accepted racial discrimination as hardship but limited weight due to available anti-discrimination measures in Italy and no evidence applicants sought help.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer accepts racial discrimination hardship",
+    "Officer limits weight due to available measures",
+    "Officer notes no evidence of seeking assistance"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "Regarding children's best interests, the Officer noted evidence of racism in Italy but also institutional steps and lack of evidence applicants sought help before leaving Italy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer notes racism evidence",
+    "Officer notes institutional steps",
+    "Officer notes no evidence of seeking help"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Officer reiterated the same analysis in the overall conclusion of the H&C application refusal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court agrees that importing a protection test with presumption of state protection into H&C would be error but finds the Officer did not err as alleged.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "State protection is relevant in H&C assessments; the Officer reasonably considered Italy's anti-discrimination measures and did not treat them as determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Officer reasonably considered lack of evidence of seeking help as relevant but not determinative, reflecting proper burden of proof application, not presumption error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court agrees the decision is unreasonable because the Officer failed to address the effectiveness of Italy's anti-discrimination measures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer focused on availability but failed to explain belief in effectiveness of anti-discrimination measures despite evidence raising concerns, undermining reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer focused on availability",
+    "Officer failed to explain effectiveness belief",
+    "Evidence raised concerns about effectiveness"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Other challenges to the Officer's assessment of children's best interests and establishment in Canada need not be addressed as reconsideration will update these issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The judicial review application is allowed, the Officer's decision is set aside, and the matter is remitted for redetermination by a different decision maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "No serious questions of general importance for certification under IRPA paragraph 74(d) arise, as agreed by parties and court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

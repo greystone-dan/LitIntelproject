@@ -1,0 +1,197 @@
+{
+ "case_id": 5111,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0029043999999999997
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 9,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 8,
+   "mixed": 1
+  },
+  "multi_idea_paragraphs": 9,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application by Harvinder Singh Sangha challenging the refusal of his work permit application as a long-haul truck driver by a visa Officer. The Officer refused the permit due to insufficient evidence of the Applicant's ability to perform the work, particularly citing lack of salary deposit proof. The Federal Court found the refusal unreasonable and no breach of procedural fairness, allowed the application, and remitted the matter to a different Officer for reconsideration.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background: Applicant and application",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Decision below and grounds for review",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Officer's findings and issues for review",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Standards of review and legal framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Legal requirements for work permit refusals",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Parties' arguments on evidence and qualifications",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Court's analysis of reasonableness of refusal",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Procedural fairness considerations",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 25,
+    "label": "Disposition: application allowed and remitted",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The court introduces the judicial review application by the Applicant, Harvinder Singh Sangha, who applied for a work permit as a long-haul truck driver and submitted various supporting documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application for judicial review",
+    "Applicant's identity and job application",
+    "supporting documents submitted"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The Officer refused the Applicant's work permit application for inability to demonstrate adequate work performance, and the Applicant seeks judicial review to quash and remit the decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's refusal reason",
+    "Applicant's relief sought",
+    "reference to relevant regulation"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The Officer's notes mention the Applicant's prior US visa refusal, marital status, and employment evidence, but find the evidence insufficient due to lack of salary deposits; the issues for review are reasonableness and procedural fairness of the Decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's notes on Applicant's background",
+    "Officer's finding on evidence insufficiency",
+    "issues for judicial review"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court states the standards of review: reasonableness for merits and correctness for procedural fairness, and notes the legal framework authorizing foreign nationals to work in Canada under the Act and Regulations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review for merits",
+    "standard of review for procedural fairness",
+    "legal basis for work authorization"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The court explains the legal requirement that officers must refuse work permits if reasonable grounds exist to believe the applicant cannot perform the work, emphasizing safety for truck drivers and the onus on applicants to prove competence, referencing relevant jurisprudence and occupational classification.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legal refusal criteria",
+    "importance of safety for truck drivers",
+    "applicant's burden of proof",
+    "deference to officer's discretion",
+    "NOC 7511 description"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "mixed",
+   "summary": "The court notes NOC 7511 requirements and presents the Applicant's argument that he met these, while the Respondent contends the Applicant's documents lack sufficient detail to prove skills and experience.",
+   "ideas": "multiple",
+   "idea_list": [
+    "NOC 7511 requirements",
+    "Applicant's argument on meeting requirements",
+    "Respondent's argument on insufficient evidence"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court finds the Officer's refusal unreasonable due to lack of supporting reasons, noting the Officer accepted some evidence but improperly demanded salary deposit proof and ignored other relevant documents, while the Respondent's justifications are unsupported by the Decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "unreasonableness of Officer's Decision",
+    "improper evidentiary requirements",
+    "ignored relevant documents",
+    "Respondent's unsupported arguments"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The court explains that procedural fairness for temporary visa decisions is minimal, applicants usually lack opportunity to respond to concerns, and the Applicant alleges a breach of procedural fairness for not being allowed to address Officer's concerns.",
+   "ideas": "multiple",
+   "idea_list": [
+    "low procedural fairness standard",
+    "no usual opportunity to respond",
+    "Applicant's procedural fairness claim"
+   ]
+  },
+  {
+   "para": 25,
+   "last": 25,
+   "speaker": "court",
+   "summary": "The court concludes the Officer had no procedural fairness duty to notify or allow response since the insufficiency was not about credibility, and orders the application allowed with remittance to a different Officer for reconsideration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no procedural fairness breach",
+    "Officer's view on evidence sufficiency",
+    "court's judgment and remedy"
+   ]
+  }
+ ]
+}

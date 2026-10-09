@@ -1,0 +1,242 @@
+{
+ "case_id": 30874,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0040160000000000005
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 22,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant, a Bangladeshi citizen recognized as a Convention refugee, who challenges a decision by IRCC finding him inadmissible under IRPA for alleged terrorism links to the BNP. The Applicant seeks judicial review of the IRCC's terrorism finding, arguing it was unreasonable and lacked procedural fairness. The Federal Court found the decision unreasonable due to insufficient justification of BNP's specific intent to engage in terrorism, set aside the decision, and remitted the matter for redetermination.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "Standard of review and legal framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 8,
+    "last": 12,
+    "label": "Definition of terrorism and evidentiary requirements",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 20,
+    "label": "Analysis of IRCC's findings on BNP's intent and control",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "Miscellaneous and procedural notes",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, a Bangladeshi citizen, claimed refugee status in Canada in 2017 due to BNP membership and was recognized as a Convention refugee in 2018.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's nationality and arrival",
+    "Refugee claim basis",
+    "Refugee status granted",
+    "Permanent residence application"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "In 2021, IRCC informed the Applicant of possible inadmissibility under IRPA due to BNP's terrorism designation, exchanging evidence and submissions thereafter.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IRCC's inadmissibility notice",
+    "BNP terrorism designation",
+    "Evidence exchange",
+    "Applicant's submissions"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "On December 15, 2021, IRCC found the Applicant inadmissible under IRPA paragraph 34(1)(f) for reasonable grounds to believe BNP engages in terrorism.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review, arguing IRCC's terrorism finding is unreasonable and procedural fairness was denied due to insufficient explanation of evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Unreasonable terrorism finding claim",
+    "Procedural fairness claim"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court agrees the reasonableness standard applies, requiring transparent, justified decisions with coherent analysis, intervening only for serious shortcomings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court quotes IRPA sections 33 and 34(1)(f) defining inadmissibility on security grounds and reasonable grounds to believe an organization engages in terrorism.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The standard of proof for inadmissibility is 'reasonable grounds to believe,' a low threshold requiring credible, compelling evidence beyond mere suspicion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court cites Suresh for the definition of terrorism as acts intended to cause death or serious injury to civilians to intimidate or compel a government.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Several prior court decisions have upheld findings that BNP engaged in terrorism.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Conversely, some court decisions have found similar terrorism findings against BNP unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Reasonableness of BNP terrorism findings depends on the evidentiary record and decision-maker's specific reasons and analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The parties agree BNP must have specific intent to cause death or serious injury for terrorism, requiring more than awareness or recklessness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court agrees the Officer failed to justify imputing specific intent to BNP leadership, wrongly inferring intent from violence presence alone.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Officer's reasons describe BNP and hartals, linking BNP to violence during hartals, but lack detailed analysis of control or intent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Officer's reasons lack discussion of BNP's internal control and structure, which is crucial to assess leadership accountability for members' actions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Prior cases require evidence like speeches or plans to prove BNP's intent to kill or injure, which the Officer failed to provide here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Although BNP leadership sometimes condemned violence, the Officer found little evidence they discouraged it, but failure to discourage doesn't prove intent to kill.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Officer failed to explain why violent acts are attributable to BNP leadership to meet the specific intent requirement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer found hartals caused death and injury but did not expressly conclude BNP intended such harm, only violence and criminal activity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds the Officer's intent finding insufficient, distinguishing violence from intent to cause death or serious injury, rejecting Respondent's argument.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Officer's errors render the decision unreasonable, warranting judicial review, setting aside, and remitting for redetermination; procedural fairness need not be addressed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "No question for certification is proposed or arises in this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "Paragraph 23 is blank or procedural with no substantive content.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

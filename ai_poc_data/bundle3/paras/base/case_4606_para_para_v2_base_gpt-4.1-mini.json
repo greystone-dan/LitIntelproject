@@ -1,0 +1,439 @@
+{
+ "case_id": 4606,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0061164
+ },
+ "verification": {
+  "paragraphs": 51,
+  "summaries": 51,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 43,
+   "party": 6,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of a Canadian Human Rights Tribunal (CHRT) Remedies Decision concerning age-related disability discrimination against the Applicant, a former unionized commercial truck driver. The Applicant challenged the Tribunal's findings on failure to mitigate damages and the refusal to order reinstatement. The Federal Court dismissed the judicial review, finding the Tribunal's decision reasonable and its exercise of discretion proper.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 19,
+    "label": "Tribunal's Remedies Decision",
+    "kind": "other"
+   },
+   {
+    "first": 20,
+    "last": 23,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 24,
+    "last": 32,
+    "label": "Reasonableness of Tribunal's decision on mitigation and lost wages",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 42,
+    "label": "Applicant's arguments on mitigation and burden of proof",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 49,
+    "label": "Applicant's arguments on reinstatement and Tribunal's discretion",
+    "kind": "analysis"
+   },
+   {
+    "first": 50,
+    "last": 51,
+    "label": "Disposition and concluding remarks",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "This is a judicial review application of the CHRT Remedies Decision awarding the Applicant compensation for age-related disability discrimination by the Respondent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application for judicial review",
+    "CHRT Remedies Decision",
+    "compensation awarded"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Applicant challenges two main conclusions: failure to mitigate damages and no reinstatement ordered by the Tribunal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Tribunal experienced egregious maladministration and delay unrelated to the parties, causing over four years delay in decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The judicial review concerns only the Remedies Decision; Tribunal procedural problems are not at issue here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Applicant, about 70, was a unionized commercial truck driver for 33 years who was suspended after requesting reduced hours due to age-related disability.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Respondent assumed the Applicant was unsafe to drive, refused accommodation, and terminated his employment, labeling it \"voluntary\".",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Tribunal found the Respondent discriminated by refusing accommodation; remedies were decided separately due to delay and changed circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant claimed about 11 years lost wages, no cut-off date until reinstatement, plus damages for pain, suffering, and public interest remedy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Tribunal's task was to determine when discrimination ceased affecting the Applicant's income earning capacity after recovery.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Tribunal provided authorities like Chopra and Hughes to assist parties in remedies submissions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Tribunal aimed for a justified, transparent, and rational decision, aware of the reasonableness standard from Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Tribunal rejected the Applicant's claim of $539,573 for wages from suspension in 2010 to 2021 submissions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Tribunal awarded lost wages from May 2010 to March 2011, finding the Applicant failed to mitigate losses after that date.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Tribunal allowed a longer recovery period due to the Applicant's long service and outright refusal of accommodation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Tribunal found the Applicant failed to mitigate losses due to a limited, infrequent job search restricted to cement delivery companies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Tribunal found the Applicant had transferable commercial driving skills enabling comparable earnings in other vehicle types.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Applicant's later employment in a comparable transport job broke the causal link between discrimination and lost wages.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Tribunal also awarded vacation pay, RRSP adjustments, interest, pain and suffering, special compensation, and a public interest remedy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Tribunal found reinstatement inappropriate as the Applicant planned retirement in 2015 and had not sought other jobs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant submits two issues: legal error in reversing burden of proof on mitigation and unreasonableness of the Remedies Decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Both issues are mixed law and fact questions governed by the same standard of review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The standard of review is reasonableness per Vavilov; correctness does not apply as this is judicial review, not appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Even if appellate standard applied, the issue is mixed law and fact requiring palpable and overriding error, which Applicant failed to show.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Tribunal fulfilled its obligation to provide a justified, transparent, and intelligible decision under reasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Tribunal thoroughly engaged all remedy grounds and awarded the Applicant at the higher end, emphasizing employer's high-handed conduct.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Applicant wrongly treated this as a labour or wrongful termination case, ignoring the public interest focus of human rights law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Tribunal correctly identified its duty to find a cut-off date when discrimination ceased affecting income earning capacity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Tribunal followed Chopra's legal principles limiting losses caused by discrimination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Tribunal reasonably applied mitigation principles, citing Chopra on minimizing losses to promote economic efficiency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Tribunal set March 2011 as the cut-off date linking discrimination and loss, applying Morgan's legal limit.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds the Tribunal's conclusion reasonable, noting the Applicant received extra lost wages due to long-term employment with the Respondent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Tribunal reasonably rejected the Applicant's claim for an unlimited wage loss period.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Applicant argues the Tribunal erred in mitigation analysis by misdefining 'comparable work' and reversing the burden of proof regarding mitigation efforts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The Tribunal identified the Applicant's job as commercial truck driver, while the Applicant viewed it narrowly as cement truck driver with union protection and specific wages.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Tribunal's description of the Applicant's job and comparable work is reasonable, considering the type of truck driving the Applicant did at S & J Transport.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Tribunal reasonably considered the Applicant's limited efforts to seek comparable employment, contacting few employers with limited follow-up.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The Applicant claims the Tribunal reversed the burden of proof on mitigation, but the court finds this claim unsupportable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant claims burden reversal",
+    "Court rejects claim"
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The Applicant argues the Respondent failed to provide sufficient evidence of available comparable jobs to prove non-mitigation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The Respondent can meet its burden through evidence from the Applicant, cross-examination, and industry context, all present in the Tribunal's file.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Citing Rowe, the Tribunal had direct and circumstantial evidence to infer the Applicant conducted a desultory job search.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The Tribunal reasonably rejected the Applicant's claim that no Ontario trucking company would hire him, given his prior employment at S & J Transport.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Tribunal's mitigation analysis was principled and reasonable, with no reversal of burden of proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "The Applicant claims reinstatement is the true remedy or alternatively lost wages through 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "below",
+   "summary": "The Tribunal denied reinstatement because the Applicant admitted intending to retire in 2015, with the desire for reinstatement stemming from boredom.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "The Applicant relies on Hughes, where reinstatement was recognized as a remedy to restore the victim's pre-discrimination position.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The Hughes decision emphasized the need for a causal link between discrimination and income loss, as noted by the Tribunal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Hughes discussed reinstatement within the broad discretion of the CHRT's remedies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The Tribunal's refusal to order reinstatement was a discretionary decision, balanced by granting greater loss compensation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The Tribunal's reasonable exercise of discretion on remedies deserves deference; no basis exists for court interference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The judicial review is dismissed with costs at the usual scale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The Tribunal must rationally connect the cut-off date for discrimination's effect on income to the factual record, as explained in cited cases.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

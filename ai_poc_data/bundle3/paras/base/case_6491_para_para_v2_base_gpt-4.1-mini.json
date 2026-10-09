@@ -1,0 +1,321 @@
+{
+ "case_id": 6491,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.00509
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 28,
+   "below": 2,
+   "party": 1,
+   "other": 2,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of the Immigration Appeal Division's (IAD) decision denying Kulwant Kaur Dayal's sponsorship application due to insufficient income and inadequate consideration of the best interests of the child. The applicant challenges the IAD's decision alleging legal errors, speculation, and flawed assessment of the children's best interests. The Federal Court found the IAD's decision unreasonable, set it aside, and remitted the matter for redetermination.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 4,
+    "label": "Applicant's challenge and issues",
+    "kind": "issue"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "Standard of review and court's approach",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 8,
+    "last": 8,
+    "label": "Legislative provisions",
+    "kind": "other"
+   },
+   {
+    "first": 9,
+    "last": 19,
+    "label": "Analysis of alleged errors in law and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 32,
+    "label": "Analysis of best interests of the child and overall reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 34,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "This is the second judicial review involving these parties about a sponsorship application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "On Nov 27, 2018, the IAD found Applicant Kulwant Kaur Dayal ineligible to sponsor due to insufficient income and lack of humanitarian factors; prior judicial review sent matter back for redetermination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD decision on ineligibility",
+    "Prior judicial review outcome"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "At rehearing, Applicant did not challenge refusal legality but focused on best interests of child; IAD dismissed appeal on April 16, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Applicant challenges IAD decision alleging legal errors, speculation, ignoring evidence, and flawed best interests of child assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The main issue is whether the IAD decision was reasonable, with reasonableness as the presumptive standard of review per Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Reasonableness requires justification, transparency, and intelligibility; errors in evidence or law may render decision unreasonable; burden on challenger.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Despite Supreme Court's caution, court finds compelling reasons to grant judicial review due to insufficient best interests of child analysis by IAD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Annex A contains applicable legislative provisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Analysis addresses each alleged error; first, no misapplication of IRPA paragraph 67(1)(c).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Court is not persuaded that IAD erred in law by misapplying IRPA s 67(1)(c).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "IRPA s 67(1)(c) requires sufficient humanitarian considerations for special relief, a discretionary remedy for exceptional cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court cites prior cases that more serious inadmissibility requires more compelling humanitarian considerations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "IAD reasonably described discretion as nuanced qualitative assessment considering all circumstances including income shortfall magnitude.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Court disagrees with Applicant that sliding scale approach is unjustified; weight of inadmissibility reason is relevant but not determinative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Applicant's income shortfall exceeds $70,000 annually; IAD reasonably considered this in weighing financial risk and humanitarian factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "IAD engaged in speculation rather than ignoring evidence; no indication it ignored financial asset evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "IAD improperly speculated about Applicant's father's ability to work due to age without explanation, which is improper.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "IAD turned positive factor of father's willingness to work into negative speculative conclusion about age-related work difficulty, which is improper.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "IAD's other findings on financial matters were reasonable and based on insufficient evidence, not speculation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "IAD erred in best interests of child analysis, warranting court intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Best interests of child analysis must be contextual, responsive to each child's needs, and well defined per relevant jurisprudence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Decision-makers must give substantial weight to children's best interests as a singularly significant focus per Supreme Court guidance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Officers must independently assess each humanitarian factor, including best interests of children, and weigh collectively; income shortfall irrelevant to child interests.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "IAD minimized children's best interests by overlooking their exposure to severe parental abuse, which is unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "IAD acknowledged children's trauma but did not provide evident basis for finding children healthy, especially mentally.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "evidence",
+   "summary": "Applicant testified children are generally healthy but also under stress and aware of her stress.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Court finds IAD's conclusion children are healthy was not sufficiently sensitive to their abuse and stress experiences.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "IAD failed to examine best interests of each child, especially younger two, with sufficient attention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "IAD unreasonably failed to consider impact of Applicant's abuse and mental health on her caregiving ability.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "IAD erred by not properly identifying and examining children's interests; income gap should not outweigh humanitarian factors without proper analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court notes that a single error by the IAD might not justify interference, but repeated errors could make the decision unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD's speculation about father's work ability",
+    "Court's view on errors affecting reasonableness"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds the IAD's speculation combined with BIOC errors makes the decision unreasonable overall.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court sets aside the decision and remits the matter to the IAD for redetermination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds no serious question of general importance for certification from either party.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "case_id": 32263,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0029188000000000005
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "speakers": {
+   "party": 3,
+   "court": 12
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Applicant Shao's request for a stay of removal to China pending judicial review or Pre-Removal Risk Assessment (PRRA) eligibility, challenging the Canada Border Services Agency's (CBSA) refusal to defer removal. Shao, a Chinese citizen with a refused refugee claim and appeal, submitted new evidence of risks to support his deferral request. The Federal Court granted the stay, finding that Shao demonstrated a strong case of error in the deferral refusal and that the balance of harms favored granting the stay.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and Applicant's Request",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 10,
+    "label": "Legal Framework and Test for Stay",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 15,
+    "label": "Analysis of Applicant's Case and Officer's Errors",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Irreparable Harm and Balance of Convenience",
+    "kind": "analysis"
+   },
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicant Shao seeks a stay of removal to China until his judicial review or PRRA eligibility, challenging CBSA's deferral refusal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks stay of removal",
+    "Underlying ALJR challenges CBSA deferral refusal"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court grants the Applicant's motion to stay removal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Applicant Shao, a Chinese citizen, arrived in 2023, had refugee claim and appeal refused, and was denied leave for judicial review in April 2025.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's background and arrival",
+    "Refugee claim and appeal refused",
+    "Leave for judicial review denied"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Applicant requested CBSA to defer removal until PRRA eligibility on April 30, 2026, per IRPA s.112(2)(c)(i).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Applicant submits new evidence of family threats, political activities, associations, media mentions, and party membership to support deferral and stay.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New evidence of family threats",
+    "Additional political activities",
+    "Association with dissident",
+    "Media articles mentioning Applicant",
+    "Membership in Chinese Democratic Party"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Court finds new evidence does not show new risk but may substantiate previously considered risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The injunction test is contextual, focusing on whether granting it is just and equitable overall.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The serious question threshold is low; applicant must show at least one non-frivolous ground in ALJR.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "A higher threshold applies for deferral refusal challenges; applicant must show a 'quite strong case' to meet first test prong.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court finds Applicant has a 'quite strong case' that the Officer erred, justifying judicial review intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Court notes Deferral Decision wrongly states media articles exclude Applicant's mention, contradicting evidence showing his name and photo.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Court questions Officer's internet search in English only, missing Mandarin info, possibly affecting decision weight.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Court finds first RJR test part met and declines to address other review grounds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Applicant's serious issue and new personalized risk evidence suffice to establish irreparable harm.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court finds short-term harm to Applicant outweighs Respondent's interest; balance favors Applicant; stay granted until judicial review or PRRA eligibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Balance favors Applicant",
+    "Stay granted until judicial review or PRRA eligibility"
+   ]
+  }
+ ]
+}

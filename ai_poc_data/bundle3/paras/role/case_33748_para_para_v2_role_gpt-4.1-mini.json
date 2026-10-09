@@ -1,0 +1,195 @@
+{
+ "case_id": 33748,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0031116
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 2,
+  "speakers": {
+   "court": 16
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Court's decision to remove the Plaintiffs' statement of claim and dismiss the proceeding under Rules 74(1) and 168 due to the claim being frivolous, vexatious, and an abuse of process. The Plaintiffs sought enforcement of various orders and damages beyond the Court's jurisdiction, while the Court found the claim lacked rational argument and improperly relitigated resolved matters. The Court adopted authoritative interpretations of Rule 74 and its amendments, ultimately dismissing the proceeding.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Initial procedural orders and dismissal",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Legal basis for removal under Rule 74",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Plaintiffs' claims and jurisdictional issues",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 12,
+    "label": "Characterization of the statement of claim as frivolous and abuse of process",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 13,
+    "label": "Dismissal under Rule 168 following removal",
+    "kind": "disposition"
+   },
+   {
+    "first": 16,
+    "last": 20,
+    "label": "Amendments and interpretation of Rule 74",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Court ordered parties to submit written arguments on whether the Plaintiffs' statement of claim should be removed from the Court file.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Court decides to remove the Plaintiff's statement of claim and dismiss the proceeding under Rules 74(1) and 168.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Justice Lafreni\u00e8re's explanation of Rule 74 in Gaskin is adopted by this Court as authoritative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Removing an originating document under Rule 74 dismisses the proceeding as improperly commenced, per prior case Dona v. Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Plaintiffs seek enforcement of unidentified orders, large damages, and various unrelated reliefs beyond this Court's jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "None of the relief sought or facts alleged fall within this Court's jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "A document is scandalous, frivolous or vexatious if it lacks rational argument, is futile, derogatory, malicious, or without probable cause, per cited cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "An abuse of process includes relitigating issues in different forums, undermining finality and justice, per cited cases and Gaskin.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Plaintiffs attack judges and seek to relitigate resolved matters outside this Court's jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Plaintiffs' statement of claim is frivolous, vexatious, and an abuse of process, so it must be removed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The proceeding is dismissed under Rule 168 because the statement of claim removal prevents continuation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Rule 74 was amended after 2012 consultations to address excessive procedural use and delay by some parties, especially self-represented litigants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Before amendments, Rule 74 allowed removal of improperly filed documents after parties had chance to be heard.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Federal Court of Appeal held that Rule 74 and related rules allow summary dismissal of abusive proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Amendments to Rule 74 added grounds for removal and emphasize written submissions over oral hearings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Rule 74 amendments took effect on January 13, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  }
+ ]
+}

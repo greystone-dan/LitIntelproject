@@ -1,0 +1,288 @@
+{
+ "case_id": 70280,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0042196000000000004
+ },
+ "verification": {
+  "paragraphs": 30,
+  "summaries": 30,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 14,
+   "party": 10,
+   "below": 6
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by a Haitian citizen whose refugee claim was rejected by the Refugee Protection Division (RPD) due to a finding of generalized risk rather than targeted risk. The appellant argued that the RPD erred in assessing the nature of the risk, submitting new evidence and alleging gang targeting related to his ministry duties and his brother's kidnapping. The Refugee Appeal Division (RAD) allowed the appeal, found the RPD made key errors in risk assessment, and referred the case for re-determination by a different RPD panel.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and initial decision",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Issue on appeal",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 14,
+    "label": "New evidence and admissibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 16,
+    "label": "Procedural matters and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 17,
+    "last": 28,
+    "label": "Analysis of risk and errors by RPD",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 30,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal and refers the case for re-determination by a different RPD panel; the appellant is a Haitian citizen whose claim was rejected.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal allowed",
+    "Case referred for re-determination",
+    "Appellant is Haitian citizen",
+    "Claim rejected by RPD"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant alleges gang targeting due to his ministry duties and that his brother was kidnapped for ransom.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD found the appellant credible but rejected the claim due to generalized risk of criminal activity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "On appeal, the appellant submits new evidence and argues the RPD erred in assessing the nature of the risk in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The key issue for the RAD is whether the RPD erred in assessing the nature of the risk to the appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD did err by ignoring an important element from the appellant's written account in the BOC Form.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The appellant submitted new evidence on appeal: letters from his siblings with ID photos and four newspaper articles on Haiti's violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The siblings' letters state they fled Haiti fearing gang targeting due to the appellant's ministry duties; brother was kidnapped for ransom.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant explains he couldn't get this evidence before the hearing because his siblings fled Haiti leaving belongings behind.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal outlines IRPA rules for admitting new evidence after the RPD decision, including criteria for new, credible, relevant evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The hearing transcript shows the appellant was asked if he lacked any documents but he said no, despite letters now submitted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal rejects the letters of testimony as the appellant failed to explain their absence at hearing and they need not be accompanied by ID.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant said no missing evidence at hearing",
+    "Letters not accompanied by ID not required",
+    "Appellant failed to explain late submission"
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RPD noted concerns about missing family letters, and the appellant appears to try to complete the record on appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal admits the newspaper articles as new, credible, relevant evidence published after the RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The appellant requested an oral hearing, but the tribunal finds criteria unmet and proceeds without one.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal independently assessed all evidence and applied the correctness standard, finding RPD erred in risk assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "At hearing, the appellant said his government rank made him a target due to perceived wealth and identifiable government vehicles.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RPD acknowledged the appellant's government status and that gangs identified him via his government vehicle.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "On appeal, the appellant asks the RAD to consider his high personal risk due to his logistics role at the ministry.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD ignored the BOC Form's allegation that the appellant was associated with the government blamed for misery.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal holds the RPD erred by failing to analyze the appellant's claim of being targeted as government-associated, a determinative error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The appellant submitted a letter from his ex-spouse stating he was targeted due to his ministry duties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RPD gave no probative value to the ex-spouse's letter, noting she did not witness events and appellant cited money as motive.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by selectively assessing evidence and ignoring the BOC Form allegations supporting the letter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The RPD found credible the appellant's claim that his brother was kidnapped and released for ransom, possibly as intended victim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The RPD found insufficient evidence linking the appellant's being followed and his brother's kidnapping, viewing risk as generalized.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD wrongly isolated facts and mischaracterized his claim as generalized wealth perception risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD erred by setting too high a proof bar and ignoring the appellant's claim of targeting due to ministry duties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal's analysis ends as the RPD's errors concern the key issue of the nature of the risk to the appellant if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal and refers the matter for re-determination before a differently constituted RPD panel.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

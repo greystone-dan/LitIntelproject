@@ -1,0 +1,285 @@
+{
+ "case_id": 30717,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006013600000000001
+ },
+ "verification": {
+  "paragraphs": 31,
+  "summaries": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 9,
+  "speakers": {
+   "court": 29,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review application by Applicants challenging the Refugee Appeal Division's (RAD) decision that found a viable Internal Flight Alternative (IFA) in Delhi, India. The Applicants argued that the RAD erred in its assessment of the IFA and related evidence. The Federal Court dismissed the application, finding the RAD's decision reasonable and supported by a coherent analysis of facts and law.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 4,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Issue: IFA challenge and judicial review",
+    "kind": "issue"
+   },
+   {
+    "first": 10,
+    "last": 22,
+    "label": "Standard of review and legal principles on IFA and evidence",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 24,
+    "last": 34,
+    "label": "Analysis of RAD's findings on evidence and IFA in Delhi",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 39,
+    "label": "Analysis of personal hardship and living conditions in Delhi",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 42,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court dismisses the judicial review application, finding the RAD reasonably assessed the Applicants' evidence and found a viable IFA in Delhi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicants left India on July 24, 2019, and filed their refugee claim in Canada on August 24, 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicants argued to the RAD that the RPD erred in finding a viable IFA in Delhi, focusing on this second principal submission.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court assumes Applicants meant to refer to the RAD decision and notes their assertion that the RAD erred on the IFA issue; the court will dismiss the application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Reasonableness requires deference to decisions with coherent, rational analysis justified by facts and law, assessing justification, transparency, and intelligibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Absent procedural fairness breaches, courts apply reasonableness and do not substitute their own decisions, respecting administrative roles.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Decision makers assess evidence and courts generally do not interfere with factual findings or reweigh evidence under reasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Courts must not reweigh evidence or substitute views on credibility if the decision is transparent, justifiable, intelligible, and defensible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Refugee claimants' testimony is presumed truthful unless omissions or inconsistencies justify requiring corroboration, with articulated reasons for suspicion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Claims cannot be rejected for lack of corroboration if credibility is intact, but negative inferences are reasonable if credibility concerns exist and corroboration is expected.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The IFA test requires no serious persecution risk in the IFA area and that it is not unreasonable for the claimant to seek refuge there, on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "An IFA describes a safe part of the country; it only applies if serious persecution risk exists elsewhere and throughout the country.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "A serious persecution possibility requires agents to have probable means and motivation to search for the claimant in the IFA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal must find conditions in the IFA not objectively unreasonable, with a high threshold requiring jeopardy to life or safety to reject it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The applicant must refute the reasonableness of the IFA considering their circumstances and country context.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD found the Principal Applicant's omission about police inquiries in the BOC undermined credibility and noted police would likely contact relatives if searching.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The RAD reasonably sought corroboration for police inquiries; lack of evidence in affidavits justified a negative inference on this allegation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RAD did not make a negative inference about police tracking capacity but found Applicants failed to provide objective evidence supporting their tracking claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD reviewed the 2021 NDP and found insufficient evidence to support Applicants' allegations about police and BJP reach in Delhi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The NDP shows extrajudicial arrests occur but appear random and unrecorded, not supporting a serious risk to the Applicants in Delhi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "No evidence shows Applicants have charges or warrants recorded in CCTNS, which tracks serious criminals; Applicants lack police records or diary entries.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "No credible evidence supports police use of Aadhaar or tenant verification systems to track Applicants; legal restrictions prohibit such use.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Applicants' claim that Delhi police act as proxies for their hometown police lacks evidence and is unsupported speculation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Delhi is a major city with no evidence of persecution risk to Applicants; bald statements without evidence do not justify court intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds no shortcomings in the RAD's first prong IFA decision and considers it reasonably open to the RAD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "Applicants argue the RAD erred by requiring them to live in hiding in Delhi and failing to consider personal hardships like language and employment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The RAD reasonably rejected Applicants' claim of needing to live in hiding, finding no credible evidence supporting their fears in Delhi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The RAD considered personal hardships but reasonably concluded conditions in Delhi were not objectively unreasonable for the Applicants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court finds the RAD's decision reasonable, based on a coherent and justified analysis of facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court dismisses the judicial review application for the reasons stated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court states no serious question of general importance for certification was proposed or arises in this case.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

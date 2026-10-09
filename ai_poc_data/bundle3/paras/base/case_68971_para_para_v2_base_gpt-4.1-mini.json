@@ -1,0 +1,255 @@
+{
+ "case_id": 68971,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.004374
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 19,
+   "party": 3,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves an appeal by a Principal Appellant from Mexico and his U.S. citizen children against the Refugee Protection Division's (RPD) rejection of their refugee claims based on persecution fears. The tribunal found the Principal Appellant to be a Convention refugee due to credible risks as a pastor targeted by cartels, but rejected the Minor Appellants' claims for lack of risk. The appeal was allowed for the Principal Appellant and dismissed for the Minor Appellants.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Standard of Review and Legal Framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "New Evidence and Procedural Issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Findings on Minor Appellants and RPD's Decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 20,
+    "label": "Analysis of Persecution Risk to Principal Appellant",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 22,
+    "label": "Internal Flight Alternative and State Protection",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 23,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Principal Appellant from Mexico and his U.S. citizen children appealed the RPD's March 25, 2020 decision rejecting their refugee claims based on persecution fears.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' identities and citizenship",
+    "Appeal of RPD decision",
+    "Allegations of persecution",
+    "RPD findings on credibility and IFA"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Appellant lacks a viable IFA and is a Convention refugee but agrees with the RPD to reject the Minor Appellants' appeals for lack of risk claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Principal Appellant lived mostly in the U.S., moved to Mexico as a pastor, faced threats and crimes, while his children returned to the U.S. and he remained threatened by cartels, leading to refugee claims in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The RAD reviews RPD decisions on correctness, except when the RPD has an advantage assessing oral testimony, where deference applies; here, correctness standard is applied.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred by not adequately considering evidence of cartel targeting of pastors, ongoing risks, foreigner perception, crime in Merida, and unreasonableness of relocation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD error on risk assessment",
+    "Cartel targeting evidence",
+    "Foreigner perception risk",
+    "Crime in Merida underestimated",
+    "Relocation unreasonableness"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Section 110(4) IRPA limits new evidence to post-rejection or previously unavailable evidence; if met, RAD considers factors from Federal Court's Singh decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Appellants submit five new evidence items including employment letter, CSW report, pastor's letter, cartel article, and assessment for Minor Appellants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal accepts the first four new evidence items as credible and relevant, reflecting ongoing conditions and employment, and admits them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Minor Appellants' assessment as new evidence because it does not meet statutory requirements and was reasonably available before rejection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal finds no serious credibility issues from new evidence, denies oral hearing, and rejects Minor Appellants' appeals for lack of risk claims against the U.S.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No credibility issues",
+    "No oral hearing",
+    "Minor Appellants' appeals rejected"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The RPD and tribunal agree the Minor Appellants made no risk claims against the U.S., so their appeals are rejected; the Principal Appellant's risk as a pastor is the key issue.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minor Appellants' claims rejected",
+    "No risk claims against U.S.",
+    "Principal Appellant's risk is determinative"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Principal Appellant's allegations are credible and consistent with the evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RPD found no specific threats from cartels, noted religious leaders face crime but not in Merida, and concluded Merida is safe for relocation, rejecting persecution claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Appellants argue they would be perceived as foreigners anywhere in Mexico, increasing kidnapping risk, and highlight evidence of cartel targeting of religious leaders.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Appellant faces a serious possibility of persecution as a pastor after independent review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal explains the two-prong IFA test from Rasaratnam requiring no serious persecution risk and unreasonableness of relocation, with burden on Appellants to disprove IFA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal agrees threats may not locate the Principal Appellant in Merida but finds he faces serious persecution risk throughout Mexico as a pastor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Objective evidence shows religious leaders in Mexico face extortion, threats, violence, kidnappings, and unsolved murders, targeted as moral authorities by cartels.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "A pastor's letter confirms pastors in Mexico, including Yucatan, face extortion and kidnappings, supporting the Appellants' allegations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Principal Appellant credibly continues as a pastor preaching against drugs, increasing his risk from cartels, with prior threats and surveillance confirming serious persecution risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Since the IFA fails the first prong of no serious persecution risk, the tribunal does not consider the second prong of unreasonableness of relocation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal finds state protection inadequate due to police corruption, ineffectiveness, and failure to protect religious leaders, including the Principal Appellant's failed police attempts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal, finding the Principal Appellant a Convention refugee, but dismisses the Minor Appellants' appeals, confirming the RPD's decision.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

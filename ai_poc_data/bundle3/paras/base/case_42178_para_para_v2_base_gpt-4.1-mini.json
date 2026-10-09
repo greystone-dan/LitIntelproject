@@ -1,0 +1,166 @@
+{
+ "case_id": 42178,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0022784000000000003
+ },
+ "verification": {
+  "paragraphs": 12,
+  "summaries": 12,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 11,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves an appeal by the appellant challenging the Federal Court's order striking his judicial review of the Supreme Court Registrar's refusal to reconsider a leave to appeal dismissal. The appellant argued procedural and jurisdictional errors regarding the Registrar's authority and the reconsideration process. The Federal Court's decision was upheld, dismissing the appeal with costs.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Procedural history and motions",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 8,
+    "label": "Legal principles on judicial review and Supreme Court Registrar's authority",
+    "kind": "analysis"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Appellant's arguments and court's analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 12,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "This appeal challenges the Federal Court's order striking the appellant's judicial review of the Supreme Court Registrar's refusal to reconsider a leave to appeal dismissal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal of Federal Court order",
+    "Registrar refused reconsideration motion",
+    "appellant's judicial review struck"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The procedural background leading to this appeal is briefly introduced.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appellant sought to appear as counsel without Law Society membership; his application was struck, his appeal time expired, and subsequent motions to extend and for leave to appeal were denied, including by the Supreme Court.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant's initial counsel appearance application struck",
+    "failed to appeal timely",
+    "motions to extend and for leave to appeal denied"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The appellant filed a motion for reconsideration of the Supreme Court's refusal to grant leave to appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Registrar refused the reconsideration motion due to lack of rare circumstances, prompting the appellant's judicial review application, which was struck by the Federal Court.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Registrar refused reconsideration motion",
+    "appellant filed judicial review application",
+    "Federal Court struck application"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Federal Court correctly applied the legal test to strike the judicial review application as clearly improper and without any possibility of success.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Jurisprudence confirms the Supreme Court cannot be compelled to consider a motion for reconsideration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Supreme Court is not subject to Federal Court review on reconsideration motions, preserving judicial independence and avoiding absurdity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant argues the Registrar cannot decide appeal-related matters and that reconsideration motions require a three-judge panel like leave applications; the court rejects both arguments.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Registrar lacks authority",
+    "reconsideration requires three-judge panel",
+    "court disagrees with both"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Supreme Court Act and Rules authorize the Registrar to act with judge-like authority, including refusing reconsideration motions, binding on parties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Unlike leave applications requiring three judges, reconsideration motions have no such quorum and differ in nature and statutory governance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no three-judge quorum for reconsideration",
+    "reconsideration differs from leave to appeal",
+    "motions governed by Rules, not Supreme Court Act"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The appeal is dismissed with costs fixed at $500, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

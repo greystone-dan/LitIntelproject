@@ -1,0 +1,314 @@
+{
+ "case_id": 44846,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.004886
+ },
+ "verification": {
+  "paragraphs": 33,
+  "summaries": 33,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 7,
+   "other": 1,
+   "court": 23,
+   "evidence": 2
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns claimants seeking refugee protection in Canada based on persecution due to their Ahmadi Muslim identity in Pakistan. The Refugee Protection Division panel found that the claimants failed to establish their Pakistani citizenship through credible documentation, which was a prerequisite to assessing their risk of persecution. Consequently, the panel rejected their refugee claims, concluding there was no credible basis for protection under IRPA.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Procedural background and claimants' representation",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Claimants' basis of claim and allegations",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 15,
+    "label": "Assessment of claimants' identity and citizenship evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 24,
+    "label": "Evidence and testimony regarding identity documents and travel",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Panel's findings on failure to prove citizenship and burden of proof",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 30,
+    "label": "Assessment of risk of persecution and country conditions",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 33,
+    "label": "Conclusion and disposition of refugee claims",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimants seek refugee protection under sections 96 and 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The claims were heard jointly under Rule 55, with each decided on its own merits, and the principal claimant identified.",
+   "ideas": "multiple",
+   "idea_list": [
+    "joint hearing",
+    "individual merits",
+    "principal claimant identified"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The panel designated a representative for minor claimants as required by IRPA subsection 167(2) and RPD Rule 20.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The claimants' fear of persecution due to their Ahmadi Muslim identity is summarized from their Basis of Claim Forms, with associate claimants relying on the principal claimant's narrative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The claimants allege persecution from Orthodox Muslims in Pakistan due to their Ahmadi faith, including harassment and assaults in daily life.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "After harassment and threats, the claimants left Pakistan using false passports and arrived in Canada in 2017, applying for refugee protection in January 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The panel finds the claimants failed to establish Pakistani citizenship and thus failed to prove a well-founded fear of persecution or risk to life if returned.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel focused on assessing the credibility of the claimants' allegations of persecution risk due to their Ahmadi Muslim identity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel acknowledges difficulties claimants faced in establishing their claims, including cultural and language barriers, and considered these in its decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The key issue is the claimants' national identity, and the panel finds they failed to provide acceptable documentation proving Pakistani citizenship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Section 106 IRPA requires the panel to consider if claimants have acceptable identity documents or reasonable explanations for their absence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "RPD Rule 11 mandates claimants provide acceptable identity documents or explain their absence and efforts to obtain them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel doubts the credibility of the claimants' identity evidence, citing precedent that claimants must make genuine efforts to provide acceptable documentation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel applies Federal Court decisions allowing it to assess document authenticity and consider the possibility of fraudulent documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel finds the claimants have not provided sufficient credible documentary evidence to establish their national identity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "evidence",
+   "summary": "Claimants provided photocopies of birth certificates lacking security features; minors' copies were seized by immigration authorities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Claimants testified they traveled to Canada on false Pakistani passports with Canadian visas, which were taken back upon arrival.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Claimants paid an agent about $40,000 CDN to provide necessary documents, having never traveled or obtained genuine passports before.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Documentary evidence shows fraudulent documents are widespread in Pakistan, undermining the claimants' use of such documents to prove citizenship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Claimants testified about their marriage in 1996 and possession of a marriage certificate left in Pakistan; panel draws negative inference from its absence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "marriage testimony",
+    "negative inference from missing certificate"
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "evidence",
+   "summary": "The claimant provided a copy of a Pakistani driver's license as identity evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel notes a CNIC is required to obtain a driver's license in Pakistan; claimant did not provide a CNIC, which could have served as identity proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel gives no weight to the driver's license as evidence of citizenship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Claimants testified that the children did not attend school and have no school records or documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The panel finds, on a balance of probabilities, that claimants failed to establish Pakistani citizenship and thus failed to prove a serious possibility of persecution or risk under IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel finds the claimants' documents lack security features and gives them little weight in establishing identity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel concludes claimants failed to provide sufficient reliable documents and credible evidence to establish Pakistani citizenship as required by law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The panel states the burden of proving identity must be met before considering the merits of persecution claims, which claimants failed to do.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The panel relies on Pakistan National Documentation Packages as reliable sources to understand the situation of Ahmadi Muslims in Pakistan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The panel finds claimants failed to prove a serious possibility of persecution or risk of torture, death, or cruel treatment in Pakistan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Section 107(2) of IRPA requires the Refugee Protection Division to state there is no credible basis if it finds no credible evidence for a claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel finds there is no credible basis for the claimants' claims for the reasons previously stated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The panel concludes the claimants are neither Convention refugees nor persons in need of protection and rejects their claims, signed by Stephen Rudin on October 8, 2019.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

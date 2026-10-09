@@ -1,0 +1,660 @@
+{
+ "case_id": 44985,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.010292
+ },
+ "verification": {
+  "paragraphs": 77,
+  "summaries": 77,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 13,
+   "other": 2,
+   "court": 62
+  },
+  "multi_idea_paragraphs": 11,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant and her minor daughter seeking asylum in Canada, alleging persecution in Haiti and discrimination in Chile. The Refugee Protection Division panel found that the claimant lost her Chilean permanent residence and that neither claimant met the criteria for refugee protection or need for protection under Canadian law. Consequently, both claims were rejected, with the claimant excluded under Article 1E of the Refugee Convention due to her status in Chile.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and claims",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 13,
+    "label": "Initial findings and citizenship status",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 25,
+    "label": "Article 1E exclusion and Chilean permanent residence",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 42,
+    "label": "Assessment of discrimination and persecution risk in Chile",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 45,
+    "label": "Claimant's ability to regain Chilean status",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 57,
+    "label": "Credibility and evidence regarding threats in Haiti",
+    "kind": "analysis"
+   },
+   {
+    "first": 58,
+    "last": 69,
+    "label": "Gender-based persecution and risk in Haiti",
+    "kind": "analysis"
+   },
+   {
+    "first": 70,
+    "last": 77,
+    "label": "Minor claimant's claim and final decision",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant and her minor daughter seek asylum in Canada under IRPA articles 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The claimant is the designated representative for the minor, and their claims were heard jointly under Rule 55 of the Refugee Protection Division Rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant alleges persecution in Haiti after political opposition led to threats and violence by armed men, which she reported to police.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "A month later, the same man threatened sexual assault against the claimant and daughters, stopped by neighbours.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The claimant moved to Chile in 2011, obtained permanent residence, then moved to the US in 2014 with her daughter and new husband, leaving other children in Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The claimant's first marriage in Haiti ended in 2013; the minor claimant's father was never involved.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The claimant married a Haitian citizen in Chile who now lives in Port au Prince after US deportation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The minor claimant's asylum claim is based on her mother's claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel concludes neither claimant qualifies as a Convention refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The adult claimant is excluded under Article 1E due to lost Chilean permanent residence; the minor lacks well-founded fear or risk of persecution or torture in Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel considered gender-related persecution guidelines and social factors affecting evidence and whether gender forms a particular social group.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Key issues are exclusion under Article 1E, discrimination in Chile, and credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The claimant's Haitian citizenship is established by testimony and official documents including Chilean permanent residence card and Haitian birth certificates.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Counsel claimed both had Chilean permanent residence, but evidence shows only the mother has it; the daughter is a Chilean citizen by birth.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel did not see passports but notes US officials took them when asylum claims were filed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "other",
+   "summary": "Article 1E excludes persons recognized by a country as having rights similar to nationals.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Zeng decision sets criteria to determine Article 1E exclusion based on status in a third country and reasons for loss of status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Chilean permanent residence allows indefinite residence and lawful activity, with registration and identity card requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Despite unclear testimony, the claimant lived and worked in Chile, held permanent residence, and left children attending school there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The claimant identified a 2012 identity card as her permanent residence card, confirmed by translation and status listing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel finds on balance of probabilities that the claimant obtained permanent residence in Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Permanent residence in Chile is lost after one year outside the country unless extended for justified reasons, with a maximum of four extensions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The claimant has been outside Chile since 2014, likely without passport use, and no evidence shows she returned to Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel finds the claimant lost her Chilean permanent resident status in 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Despite loss of status, the panel must balance factors per Zeng to decide if Article 1E exclusion applies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The claimant testified she left Chile because people disliked her there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The claimant described workplace mistreatment in 2011 but did not understand employer's response due to language barriers.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The claimant reported a theft not linked to race, did not report to police due to language issues, and made no effort to learn Spanish despite family support.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The US report describes Chilean police as professional, well-trained, and among the least corrupt in Latin America.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanation for not seeking police help as speculative and notes the theft was not racially motivated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The claimant's language barrier hindered workplace remedy; she finds daily activities difficult without Spanish but is learning English in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "language barrier hinders remedy",
+    "daily activities difficult without Spanish",
+    "learning English in Canada"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The claimant experienced racism on Chilean buses but no direct harm; only one workplace harassment incident alleged; evidence insufficient for persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Chile's constitution and labor code prohibit discrimination; surveys show immigrant discrimination; human rights bodies actively promote rights.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legal protections against discrimination",
+    "survey shows immigrant discrimination",
+    "human rights bodies active"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Women and minorities participate politically in Chile; government cooperates with UNHCR to protect refugees and displaced persons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "political participation of minorities",
+    "government cooperation with UNHCR"
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Chile grants asylum and refugee status with access to services; launched Chile Reconoce to grant citizenship to children of refugees and immigrants.",
+   "ideas": "multiple",
+   "idea_list": [
+    "asylum and refugee protections",
+    "Chile Reconoce citizenship project"
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Chile encourages immigration with laws supporting migrant integration, including ratification of international conventions and administrative measures.",
+   "ideas": "multiple",
+   "idea_list": [
+    "immigration encouragement",
+    "laws supporting migrant integration",
+    "international conventions ratified"
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "Counsel submitted documents reporting racism and discrimination against Haitians in Chile, including racist comments and physical mistreatment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "A letter from claimant's adult child in Chile states family lives calmly without fear or discrimination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Claimant's testimony about children's phone thefts is speculative and insufficient to prove racial targeting.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Panel accepts claimant experienced workplace racism in 2011 but finds insufficient evidence that it amounts to persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Claimant left Chile partly due to not learning Spanish, hindering integration and redress; no sufficient evidence of leaving due to racism; held permanent residence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "left Chile partly due to language barrier",
+    "no evidence of leaving due to racism",
+    "held permanent residence"
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Panel finds claimant left Chile voluntarily, favoring exclusion under Article 1E.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Panel finds no sufficient evidence claimant or minor would face persecution-level discrimination in Chile; no serious forward risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Claimant said she could not regain permanent residence in Chile and found sponsorship required but did not pursue further.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Claimant bears burden to prove inability to recover status but provided no evidence; factor cannot be evaluated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "Claimant alleges threats and assault in 2010 in Port au Prince by political supporters and unknown individuals.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "party",
+   "summary": "Claimant testified about dates and places she stayed after threats in 2010, moving from home to mother's then to former husband's mother.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Claimant's testimony about police reports and clinic visits in 2010 is inconsistent and shifting; panel draws negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Claimant claimed police report date was error; panel finds police unlikely to err on date, undermining claimant's testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Objective evidence shows fraudulent documents are readily available in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Panel finds police report fraudulent due to inconsistent testimony and date issues; doubt cast on alleged threats and harm.",
+   "ideas": "multiple",
+   "idea_list": [
+    "police report fraudulent",
+    "inconsistent testimony",
+    "doubt on alleged threats"
+   ]
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Medical note from 2010 shows bruises and hallucinations but conflicts with claimant's timeline; no other medical evidence; note's value limited.",
+   "ideas": "multiple",
+   "idea_list": [
+    "medical note details",
+    "conflicts with timeline",
+    "no other medical evidence"
+   ]
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Panel finds claimant not credible on 2010 whereabouts; medical certificate likely fraudulent and given no weight.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of credibility on whereabouts",
+    "medical certificate fraudulent",
+    "no evidentiary weight"
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Despite some consistent testimony about threats, inconsistencies and negative inferences undermine claimant's evidence of events causing departure from Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Claimant's vague testimony about sister's report of people looking for claimant lacks evidence; panel draws negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Panel finds cumulative credibility issues; claimant failed to prove allegations; no one is looking for claimant in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Claimant's daughter's letter reiterates allegations but does not overcome panel's credibility concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Letter from political party confirms claimant's membership but does not prove risk or forward-looking danger from that affiliation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's party membership confirmed",
+    "no evidence of risk from membership"
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Panel considered gender-based risk under IRPA section 96 due to widespread violence against Haitian women.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Violence against women is prevalent in Haiti, but mere membership in social group of Haitian women insufficient to prove persecution risk.",
+   "ideas": "multiple",
+   "idea_list": [
+    "violence against women prevalent",
+    "membership alone insufficient for persecution"
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The claimant must show elements specific to her profile to prove a well-founded fear of gender-based persecution in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Country documents show violence against Haitian women is linked to vulnerabilities like rural living, displacement, domestic violence, disabilities, sexual minorities, and pregnancy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "Violence against women in Haiti varies by socio-economic status, affecting those in poor neighborhoods and displacement camps post-2010 earthquake.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "Reports estimate 25-70% of Haitian women face gender-based violence, with high rape rates in Cit\u00e9 Soleil and endemic violence in displacement camps.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The panel finds the claimant unlikely to face gender-based violence upon return as she will live with her husband and not in vulnerable conditions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The claimant failed to prove a more than possible risk of gender-based persecution upon return to Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant lacks a reasonable fear of persecution or risk under subsection 97(1) if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The claimant failed to show risk upon return to Haiti, supporting exclusion under article 1E of the Convention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The panel decides Canada's international obligations support excluding the claimant under Article 1E, protecting only those with well-founded fear or risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Applying Zheng factors, the panel excludes the claimant under Article 1E, even if she lost permanent residence in Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The minor claimant's refugee claim based on her mother's allegations fails to show persecution risk in Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Evidence shows Chile is a constitutional democracy with effective civilian control and an independent judiciary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The panel finds the presumption of state protection in Chile has not been rebutted by claimant's evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The minor claimant can access protection in Chile living with her aunt and siblings; her father remains in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The minor claimant failed to prove a serious possibility of persecution or risk of torture, death, or cruel treatment in Chile.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The panel finds the claimant is neither a Convention refugee nor in need of protection, excluded under Article 1E due to Chile residence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The panel rejects the minor claimant's refugee protection claim, finding she is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,384 @@
+{
+ "case_id": 72405,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006536
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 28,
+   "party": 8,
+   "below": 2,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 10,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a Nigerian appellant appealing a Refugee Protection Division (RPD) decision that rejected his claim of risk related to alleged threats from the Ogboni cult. The appellant argued errors in credibility assessment, objective risk evaluation, and cultural understanding, submitting new evidence on appeal. The tribunal dismissed the appeal, finding no serious possibility of persecution or risk, and confirmed the RPD's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and initial decision",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Appellant's arguments and tribunal's summary conclusion",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 11,
+    "label": "New evidence and hearing requests",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Tribunal's independent review and confirmation of RPD decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 18,
+    "label": "Credibility and legal nexus issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 26,
+    "label": "Assessment of evidence and probative value",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 29,
+    "label": "Appellant's reliance on objective documents and prior decisions",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 35,
+    "label": "Evaluation of evidence on Ogboni cult and cultural context",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 38,
+    "label": "Appellant's circumstances and generalized risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 39,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal of the Nigerian appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant alleges his father was in the Ogboni cult, was pressured to take his father's position, declined, and experienced threats and harm linked to the cult.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD rejected the claim, finding no objective evidence of forward-facing risk from the Ogboni cult.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD erred on credibility, objective risk, cultural lens, and legal assessment, submitting new evidence without requesting a hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD's conclusion is correct despite some articulation errors and finds no serious possibility of persecution or section 97 risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, agreeing the appellant is neither a Convention refugee nor in need of protection, and rejects new evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dismiss appeal",
+    "Reject new evidence"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal states the legal criteria for accepting new evidence on appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal must decide if new evidence is credible, relevant, and new before acceptance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant submits an academic article as new evidence but acknowledges it was available before the RPD decision and argues it was not reasonably expected to be submitted earlier.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal rejects the new evidence, finding the appellant's counsel could have submitted it earlier and no effort was made to provide it post-hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appellant did not request an oral hearing, and without new evidence, the tribunal cannot convene one.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal will independently assess the evidence and decide if the RPD's decision was correct, not deferring to the RPD's credibility findings here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Despite some errors, the tribunal finds the RPD's ultimate decision correct and confirms it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD's decision lacks transparency and clarity on legal nexus under sections 96 or 97.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD did not clearly identify the nexus but finds this non-determinative and agrees the appellant failed to establish persecution or section 97 risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD found him credible but erred by framing the decision as one of credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD confused credibility and objective risk headings but finds no impact on the decision as the appellant's beliefs were accepted as credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal accepts the appellant's testimony as credible but will not rely on new credibility concerns not raised before.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal reviews Justice Grammond's framework on credibility, probative value, weight, and sufficiency for assessing evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The case concerns probative value, weight, and sufficiency, not honesty; the RPD found no direct evidence linking the Ogboni to harms, reducing probative value.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD erred by not making a negative credibility finding and ignoring threatening phone calls evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "evidence",
+   "summary": "The appellant testified about dreams, a motor accident, and threatening phone calls with changing numbers.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the threats generic and unconnected to harms, thus having low probative value.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD correctly gave little weight to affidavits that do not establish an objective basis linking the Ogboni to harms.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal explains that speculation cannot form findings of fact and finds the link between harms and the Ogboni speculative and unproven.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's truthful finding does not mean the claim is objectively well-founded and agrees with the RPD's conclusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RPD found no objective basis for the claim despite accepting the appellant's belief in the Ogboni's involvement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The appellant argues objective documents and prior RAD decisions support his risk claim, which the tribunal rejects as unsupported or distinguishable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The appellant cites two RIRs about the Ogboni cult's violent supernatural practices to support his claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds the RIRs show beliefs about the Ogboni's supernatural powers but no proof they cause harm like death or accidents, and notes the group's waning power.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds mixed evidence on consequences for refusing hereditary chieftaincy and does not find the Appellant faces persecution for refusing Ogboni membership.",
+   "ideas": "multiple",
+   "idea_list": [
+    "mixed evidence on consequences",
+    "court rejects relevance of article",
+    "court finds no established persecution risk"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court distinguishes the cited RAD decision, noting accepted evidence of violent assault there unlike in this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court disagrees with the Appellant's claim that the RPD failed cultural sensitivity, affirming the RPD assessed evidence logically and did not accept all beliefs as true.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court rejects Appellant's cultural sensitivity claim",
+    "court affirms RPD's evidence-based approach"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the RPD did not ignore relevant evidence, unlike cases cited by the Appellant where important evidence was ignored.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court finds the final RAD case cited unpersuasive due to age and different facts, noting RAD decisions are not binding and fact-specific.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court rejects RAD case due to age and facts",
+    "court notes RAD decisions are not binding"
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court notes the Appellant vacated the land demanded by Ogboni, received vague threats, and believes an accident was caused by Ogboni without evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant vacated land",
+    "Appellant received vague threats",
+    "Appellant alleges accident caused by Ogboni without evidence"
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds the Appellant's giving land reduces Ogboni's motive to harm him and finds insufficient evidence of persecution or risk on return to Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court agrees with the RPD that the Appellant's fear of socio-economic and political conditions in Nigeria is a generalized risk and not a basis for protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal and confirms the RPD's decision that the Appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

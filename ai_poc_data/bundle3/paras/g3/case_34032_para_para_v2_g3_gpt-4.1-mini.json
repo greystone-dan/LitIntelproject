@@ -1,0 +1,268 @@
+{
+ "case_id": 34032,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.006174799999999999
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "retried": 5,
+  "dropped_rows": 2,
+  "speakers": {
+   "mixed": 2,
+   "court": 10,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 13,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves Mr. Salkhan challenging the refusal of his spousal open work permit application by the immigration officer, who found insufficient evidence of his spouse's employment. The Minister, representing Canada (Citizenship and Immigration), argued the refusal was reasonable and procedurally fair due to missing documents. The Federal Court dismissed the review, finding the officer's decision reasonable and the procedural fairness requirements met.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Case background and outcome",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Application process and refusal reasons",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Standard of review: reasonableness for work permit decisions",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 16,
+    "label": "Judicial deference and standards for procedural fairness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 17,
+    "last": 20,
+    "label": "Procedural fairness framework and legislative context",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "Minister's argument on missing documents and reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 27,
+    "label": "Burden of proof on applicant and record completeness",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 31,
+    "label": "Assessment of applicant's evidence and burden not met",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 34,
+    "label": "Sufficiency of reasons and GCMS notes supporting refusal",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 38,
+    "label": "Conclusion on reasonableness and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 41,
+    "label": "Duty to inform and credibility findings analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 43,
+    "label": "Clarity of communication and duty to assist applicants",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 45,
+    "label": "No certification of questions of general importance",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 5,
+   "speaker": "mixed",
+   "summary": "The Officer found insufficient evidence of the principal applicant's employment; Mr. Salkhan contests the decision's reasonableness and procedural fairness, but the court finds the decision reasonable and procedurally fair, dismissing the review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's finding of insufficient evidence",
+    "Applicant's contest of reasonableness and procedural fairness",
+    "Court's dismissal of review application"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 9,
+   "speaker": "mixed",
+   "summary": "Mr. Salkhan submitted a spousal OWP application; IRCC requested additional documents due to submission errors; the Officer refused the application for insufficient proof of spouse's employment, supported by GCMS notes explaining the refusal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Application submission and IRCC request",
+    "Counsel's response to IRCC",
+    "Officer's refusal and GCMS notes explanation"
+   ]
+  },
+  {
+   "para": 11,
+   "last": 13,
+   "speaker": "court",
+   "summary": "The court explains that the reasonableness standard applies to work permit decisions and outlines how courts must review such decisions by examining the decision maker's reasoning for justification, transparency, and intelligibility, intervening only when necessary.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness standard applies",
+    "role of reviewing court",
+    "reasons-first approach and restraint"
+   ]
+  },
+  {
+   "para": 14,
+   "last": 16,
+   "speaker": "court",
+   "summary": "The court elaborates on judicial deference to administrative fact-finding, the burden on challengers to prove unreasonableness, and the correctness standard for procedural fairness issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Judicial deference to fact-finding",
+    "Burden to prove unreasonableness",
+    "Procedural fairness reviewed on correctness standard"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 20,
+   "speaker": "court",
+   "summary": "The court states that procedural fairness review focuses on fairness of process, not correctness, and outlines the legislative framework for work permits and relevant administrative guidelines.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Procedural fairness review focus",
+    "Legislative framework for work permits",
+    "Minister's guidelines for C-41 OWP applications"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 23,
+   "speaker": "party",
+   "summary": "The Minister argues that Mr. Salkhan did not submit his spouse\u2019s employment letter and paystubs as claimed, and that the refusal decision was reasonable based on the evidence filed, emphasizing the applicant's responsibility to provide required documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister denies submission of documents",
+    "decision reasonable based on filed evidence",
+    "applicant's onus to provide documents"
+   ]
+  },
+  {
+   "para": 24,
+   "last": 27,
+   "speaker": "court",
+   "summary": "The court explains the burden on Mr. Salkhan to prove documents were before the Officer, noting the presumption of completeness of the certified record and finding no evidence the missing documents were submitted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Burden to prove documents were before Officer",
+    "Presumption of record completeness",
+    "No evidence of missing documents submission"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 31,
+   "speaker": "court",
+   "summary": "The court finds Mr. Salkhan's affidavit insufficient to prove documents were before the Officer, and that the evidence submitted was inadequate to meet the burden of proof for eligibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Affidavit insufficient to prove document submission",
+    "Documents not before Officer cannot undermine decision",
+    "Remaining evidence inadequate for eligibility"
+   ]
+  },
+  {
+   "para": 32,
+   "last": 34,
+   "speaker": "court",
+   "summary": "The court acknowledges the decision's brevity but finds the GCMS notes provide adequate, intelligible reasons supporting the refusal based on insufficient evidence of spouse's employment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Decision brief but typical",
+    "GCMS notes provide adequate reasons",
+    "Refusal justified by insufficient evidence"
+   ]
+  },
+  {
+   "para": 35,
+   "last": 38,
+   "speaker": "court",
+   "summary": "The court concludes the Officer did not err or ignore evidence, finds the decision reasonable, and rejects the claim of procedural fairness breach, noting the low duty of fairness in work permit applications.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No error or ignored evidence by Officer",
+    "Decision reasonable",
+    "No procedural fairness breach",
+    "Low duty of fairness in work permit cases"
+   ]
+  },
+  {
+   "para": 39,
+   "last": 41,
+   "speaker": "court",
+   "summary": "The court explains that visa officers must inform applicants only when adverse credibility findings arise, which did not occur here; the officer found insufficient evidence, not credibility issues, and Mr. Salkhan was given a chance to resubmit after a submission error.",
+   "ideas": "multiple",
+   "idea_list": [
+    "distinction between insufficiency of evidence and adverse credibility findings",
+    "no adverse credibility finding by officer",
+    "no procedural fairness breach as no credibility finding",
+    "applicant given chance to resubmit after submission error"
+   ]
+  },
+  {
+   "para": 42,
+   "last": 43,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Salkhan's claim that the letter about the submission error was unclear, noting the letter clearly requested resubmission and that visa officers have no duty to clarify deficient applications or seek additional documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "letter was clear about submission error",
+    "applicant or counsel chose to submit only some documents",
+    "officer has no duty to clarify or seek more info",
+    "no procedural fairness breach found"
+   ]
+  },
+  {
+   "para": 45,
+   "last": 45,
+   "speaker": "court",
+   "summary": "The court states there are no questions of general importance to certify.",
+   "ideas": "single",
+   "idea_list": [
+    "no certification of questions"
+   ]
+  }
+ ]
+}

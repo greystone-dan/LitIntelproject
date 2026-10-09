@@ -1,0 +1,218 @@
+{
+ "case_id": 5785,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0038852
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 14,
+   "party": 5,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Kuljit Singh Dhaliwal's judicial review of a refusal of his work permit application based on doubts about the genuineness of his job offer for 25 temporary foreign workers. The Federal Court found the immigration officer's decision unreasonable due to insufficient reasons and procedural unfairness, particularly regarding the assessment of the job offer's genuineness and failure to provide notice of new concerns. The court set aside the decision and ordered a redetermination by a different officer.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Introduction and outcome",
+    "kind": "other"
+   },
+   {
+    "first": 3,
+    "last": 4,
+    "label": "Applicant's arguments and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "Officer's reasons and legal framework",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 12,
+    "label": "Analysis of officer's reasoning and decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 17,
+    "label": "Procedural fairness issues",
+    "kind": "issue"
+   },
+   {
+    "first": 18,
+    "last": 19,
+    "label": "Bias and legitimate expectation claims",
+    "kind": "issue"
+   },
+   {
+    "first": 20,
+    "last": 20,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The applicant, Kuljit Singh Dhaliwal, is an Indian farmer whose work permit was refused because the officer doubted the genuineness of his job offer for 25 temporary foreign workers.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant background",
+    "officer's refusal reason"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court is satisfied the officer's decision should be set aside for reasons explained below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Mr. Dhaliwal argues the officer's decision is unreasonable for failing to explain why his job offer was not genuine and ignoring relevant information including the positive LMIA and PFL response.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard of review from Vavilov, emphasizing deference and focus on whether the decision is transparent, intelligible, and justified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The GCMS notes show the officer's reasons: the employer's financials suggest insufficient resources to hire 25 TFWs, so the offer is not genuine, leading to refusal under IRPR.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court outlines the officer's discretion and relevant IRPR provisions on genuine job offers, especially factors about employer's business activity, employment needs, and ability to fulfill offer terms.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court agrees with the respondent that a positive LMIA is not determinative and the officer must independently assess genuineness considering statutory factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court agrees with Mr. Dhaliwal that the officer failed to articulate sufficient reasons why his offer was not genuine, making the decision unclear and requiring return of the matter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "If the officer's conclusion was based on a legislative interpretation, the court cannot determine its reasonableness and notes IRCC approved 5 permits under the same LMIA, suggesting inconsistency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "If the officer used 'all or nothing' logic, the conclusion is unreasonable due to unsupported assumptions and inconsistency with Mr. Dhaliwal's PFL information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Mr. Dhaliwal points to PFL response evidence showing the farm's need for TFWs and labor shortages worsened by the pandemic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The officer assumed all 25 offers were unconditional and identical, ignoring the conditional nature of Mr. Dhaliwal's offer and the timing of work permit approvals, making reasoning unintelligible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Mr. Dhaliwal alleges procedural unfairness, claiming new concerns were raised without notice, a legitimate expectation of approval existed, and bias is shown by other approvals under the LMIA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court explains procedural fairness standards require meaningful opportunity to present and have case fairly considered, with fairness judged contextually.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The respondent argues concerns about subsections 200(5)(b) and (c) are not new and no duty to provide notice arises for concerns directly from legislation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court disagrees that the officer's concern arose directly from legislation, as Mr. Dhaliwal could not have anticipated it from the statutory language.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court finds the PFL did not mention the officer's concern about employer capacity, denying Mr. Dhaliwal procedural fairness to address that issue.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Mr. Dhaliwal argues bias and legitimate expectation based on five work permits approved after his refusal; respondent notes others were also refused under the LMIA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court rejects bias and legitimate expectation claims, noting the doctrine is procedural, approvals post-date the decision, and bias requires high threshold not met here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court allows the judicial review, sets aside the officer's decision, orders redetermination by a different officer, and finds no question for certification.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

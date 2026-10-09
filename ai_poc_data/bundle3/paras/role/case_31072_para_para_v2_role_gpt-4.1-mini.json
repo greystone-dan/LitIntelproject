@@ -1,0 +1,215 @@
+{
+ "case_id": 31072,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.002628
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 20
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves the Applicant, a Filipino citizen residing in Canada, seeking judicial review of a negative humanitarian and compassionate (H&C) decision by Canadian immigration authorities. The Applicant emphasized her close family ties and caregiving roles, particularly for her disabled nephew and elderly parents, arguing that deportation would cause psychological suffering and lack of support in the Philippines. The Federal Court found reviewable errors in the decision, granted the judicial review, set aside the decision, and remitted the matter for redetermination.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and Applicant's circumstances",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 17,
+    "label": "Analysis of caregiving evidence and decision errors",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, a Filipino citizen residing in Canada since 2002, seeks judicial review of a negative H&C decision dated June 21, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court grants the Applicant's judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicant's family, including parents, siblings, nieces, nephews, and partner, all live in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant's H&C application emphasized her close family ties and her role caring for her brother's and sister's children, including her nephew Aaron with paralysis and epilepsy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Applicant is the main caretaker for her elderly parents, financially self-sufficient, and actively involved in her community and church.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Applicant submitted evidence of psychological suffering if deported, lack of support and employment prospects in the Philippines as a 48-year-old absent for nearly 20 years.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The key issue is whether the Decision is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Supreme Court of Canada presumes reasonableness when reviewing administrative decisions, per Vavilov at para 16.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "To set aside a decision, serious shortcomings must exist beyond superficial flaws, per Vavilov at para 100.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Evidence shows Aaron had a stroke at age two causing right-side paralysis and epilepsy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Officer acknowledged the Applicant cared for nieces and nephews but noted they are adults and need little care, including Aaron.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Applicant provides ongoing care to Aaron, ensuring medication and acting as a second mother; Aaron is physically and emotionally dependent on her.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Applicant is the main caregiver for her elderly parents aged 96 and 92.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Officer failed to address Aaron's health issues despite prior recognition that Aaron cannot live independently due to disability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Failure to consider critical evidence can infer erroneous findings or ignoring contradictory evidence, citing Laifatt v Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Officer's failure to consider Aaron's condition and the Applicant's role are reviewable errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "These errors are significant and undermine the Decision's justification, intelligibility, and transparency per Vavilov para 100.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The application is granted for the reasons stated above.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Decision is set aside and the matter is remitted to a different Officer for redetermination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "There is no question for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

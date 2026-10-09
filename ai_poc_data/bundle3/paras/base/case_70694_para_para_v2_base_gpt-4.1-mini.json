@@ -1,0 +1,606 @@
+{
+ "case_id": 70694,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0103928
+ },
+ "verification": {
+  "paragraphs": 67,
+  "summaries": 67,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 52,
+   "party": 11,
+   "below": 4
+  },
+  "multi_idea_paragraphs": 11,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by Mexican citizens against the Refugee Protection Division's (RPD) decision denying their refugee claim. The appellants argued procedural fairness violations and challenged the internal flight alternative (IFA) to M\u00e9rida, Yucat\u00e1n, presenting new evidence on appeal. The tribunal dismissed the appeal, finding no procedural fairness breach, no credible new evidence, and that the appellants failed to disprove the viability of the IFA in M\u00e9rida.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and RPD decision",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Appellants' procedural fairness arguments and tribunal's response",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 20,
+    "label": "New evidence requirements and assessment",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 21,
+    "last": 23,
+    "label": "Oral hearing request and tribunal's role",
+    "kind": "issue"
+   },
+   {
+    "first": 24,
+    "last": 34,
+    "label": "Procedural fairness and internal flight alternative issue",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 47,
+    "label": "Assessment of internal flight alternative and gang threat",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 50,
+    "label": "Credibility and state protection arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 66,
+    "label": "Reasonableness of relocation to M\u00e9rida and gender-based violence considerations",
+    "kind": "analysis"
+   },
+   {
+    "first": 67,
+    "last": 67,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal of the Principal and Associate Appellants, Mexican citizens.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Refugee Protection Division correctly found the Appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal summarizes the Appellants' allegations about fearing a criminal gang in Morelos, their kidnapping, escape, police report, business closure, departure from Mexico, and new evidence about the CJNG gang.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' fear of criminal gang",
+    "Kidnapping and escape",
+    "Police report and business closure",
+    "Departure and refugee claim",
+    "New evidence about CJNG"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The RPD found the Appellants failed to prove the gang would pursue them to M\u00e9rida and that the internal flight alternative there was not objectively unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The unrepresented Appellants argue procedural fairness was violated by lack of notice about M\u00e9rida as IFA and that the RPD erred on both IFA prongs and new evidence on appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Procedural fairness violation claim",
+    "Errors in IFA assessment",
+    "New evidence on appeal"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal finds no procedural fairness violation and agrees the RPD correctly determined M\u00e9rida as a viable IFA; the RPD decision stands.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal explains subsection 110(4) IRPA limits new evidence to that arising after rejection or not reasonably available, requiring detailed submissions on relevance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "If new evidence meets IRPA 110(4), the RAD must assess it for credibility, relevance, and newness per Singh factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Appellants submit one item of new evidence: a letter from the Appellant's sister dated 2023.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal treats the Appellant's affidavit as submissions, not new evidence, but considers it in assessing the sister's letter's admissibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the sister's letter does not meet subsection 110(4) IRPA requirements for new evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The letter concerns events before the RPD hearing, including threatening calls from CJNG to the sister, added to police files, with reasons for lack of proof.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Appellants claim the evidence was not reasonably available before because they only learned of the calls and APH identity after the RPD decision from the sister.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal finds the explanation not credible since the PA regularly contacts family, who knew about the targeting and supported the refugee claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds it implausible the sister withheld information about threatening calls until after the RPD rejection, given her support and the calls' severity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal notes plausibility findings require caution; no evidence supports the sister's claim to withhold info to protect PA's health, so the explanation is not believable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants failed to credibly show the evidence arose after rejection or was not reasonably available before.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the new evidence not credible or trustworthy due to suspicious timing and coincidence with adverse RPD findings, warranting rejection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Although the letter is sworn, the tribunal doubts its truthfulness for the reasons given.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal does not admit the new evidence as it fails IRPA s.110(4) requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Appellants request an oral hearing, but the tribunal's jurisdiction requires admissible new evidence raising serious credibility issues and determinative of the claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "No admissible new evidence exists, so the tribunal has no jurisdiction to hold an oral hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal's role is to independently assess all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The key issue is the internal flight alternative in M\u00e9rida, Yucat\u00e1n, and no procedural fairness violation occurred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD failed to notify them about considering M\u00e9rida as an IFA, violating procedural fairness and natural justice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "They submit that as self-represented, they should have received a screening form before the hearing identifying relevant issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The RPD raised M\u00e9rida as an IFA at the hearing's start, but the Appellants had little understanding and asked for explanation; the RPD did not address their concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The RPD Member did not ask the Appellants for further submissions at the hearing's end.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal finds no merit in the Appellants' procedural fairness arguments and no violation occurred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Jurisprudence holds notice of an IFA is sufficient if raised at hearing and claimant can address it; here, the RPD raised M\u00e9rida IFA at hearing start and questioned the Appellants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds no procedural fairness breach by the RPD, which addressed the PA's question about M\u00e9rida in plain language during the hearing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' claim of RPD ignoring PA's question",
+    "RPD's plain language explanation",
+    "No procedural fairness breach found"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court agrees with Kamatasingh's fairness principle but finds the Appellants had a fair hearing and opportunity to present their case regarding IFA in M\u00e9rida.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Affirmation of Kamatasingh principle",
+    "Appellants had fair hearing",
+    "RPD used plain language",
+    "No obligation to teach law"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court distinguishes Gomes and Kugapalan cases as inapplicable here and finds Appellants failed to show procedural fairness violation under Baker.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Gomes and Kugapalan cases differ",
+    "No clear Baker violation shown",
+    "No procedural fairness breach demonstrated"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court concludes there was no procedural fairness or natural justice violation by the RPD and that the Appellants have a viable IFA in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court states the two-pronged Rasaratnam test for IFA: no serious risk in IFA and reasonable conditions to seek refuge there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court notes the onus is on the Appellants to disprove IFA and finds the IFA meets the first prong as they are not at risk there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "The RPD found Appellants were victims of local gang threats but failed to prove the gang's motivation to pursue them to the IFA in M\u00e9rida.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD accepted local gang threat",
+    "Appellants failed to prove gang's motivation to pursue to IFA",
+    "No contact from gang after escape",
+    "Gang's interest was local and financial"
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The Appellants argue new evidence shows the APH is CJNG with national reach, that RPD ignored their circumstances, and that relocation risks exist in M\u00e9rida.",
+   "ideas": "multiple",
+   "idea_list": [
+    "APH identified as CJNG by new evidence",
+    "Organized crime may track targets nationally",
+    "RPD ignored overall circumstances",
+    "Risk of data exposure in M\u00e9rida",
+    "No negative credibility inference error",
+    "Lack of state protection"
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court agrees with the RPD and rejects the Appellants' arguments, finding they failed to prove APH's motivation to pursue them to M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court agrees with RPD that Appellants failed to identify the APH beyond a local gang and rejects new evidence identifying APH as CJNG.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court cites jurisprudence placing burden on Appellants to identify APH, noting failure undermines claim of nationwide pursuit risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court agrees with RPD that lack of contact by APH after escape indicates lack of motivation to pursue Appellants to IFA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court accepts that criminal groups' motivation to track depends on their power and interests, not all targets are pursued nationwide.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court finds Appellants failed to show APH is powerful or motivated to pursue them nationally, given no contact after escape.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court finds both RPD and Appellants speculate about APH's motivation related to business and ransom refusal nationwide search.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court finds no error in RPD's consideration of all relevant circumstances and that Appellants bear burden to prove APH's motivation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court finds Appellants speculate about APH gaining personal data in M\u00e9rida and have not shown APH motivation to do so.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The court acknowledges case law against negative credibility inferences but finds no such error by RPD here, which affirmed core allegations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court finds Appellants' state protection arguments irrelevant as the key issue is IFA, not state protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court notes Appellants raised gender-based violence concerns for the AA in the IFA, to be addressed next.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The court finds Appellants failed to prove APH's means and motivation to pursue them to M\u00e9rida and no serious risk exists there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court agrees with RPD that Appellants did not prove it would be unreasonable to relocate to M\u00e9rida under all circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "below",
+   "summary": "The RPD considered Appellants' language, education, and employment skills as transferable and helpful for relocation to M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "below",
+   "summary": "The RPD found Appellants would not face serious barriers in language, employment, housing, religion, or culture in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "below",
+   "summary": "The RPD acknowledged relocation difficulties but found no undue hardship making the IFA unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "party",
+   "summary": "The Appellants argue RPD erred by not applying Gender Guidelines and failing proper analysis of cost of living and services in M\u00e9rida.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Failure to apply Gender Guidelines",
+    "Improper analysis of cost of living and services"
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The court finds no error in RPD's application of Gender Guidelines as no gender concerns were raised or evident in the record.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The court nonetheless applies Gender Guidelines, acknowledging feminicide is a serious issue in Mexico with frequent impunity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Application of Gender Guidelines",
+    "Feminicide is serious and persistent problem",
+    "Frequent impunity for perpetrators"
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "The Appellants submit AA faces risk of gender-based violence in M\u00e9rida, noting prior kidnapping and high homicide rates there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The court finds risk of gender-based violence to AA in M\u00e9rida is a mere possibility, with no evidence of gender motivation or fear.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Risk cannot be ruled out",
+    "Risk is only a possibility",
+    "No evidence of gender-based violence fear or history"
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with the Appellants that the RPD failed to analyze their situation properly, noting the RPD considered their evidence but found no support for claims the IFA was unaffordable or inaccessible.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' argument on RPD failure",
+    "RPD's consideration of evidence",
+    "Lack of evidence on unaffordability and access"
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The tribunal notes the Gender Guidelines' considerations but finds no gender-related concerns as the Appellants are a male-female couple without children.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The Appellants bear a high burden to prove the IFA is unreasonable, which they have not met with concrete evidence of adverse conditions threatening their safety.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD's findings for the reasons the RPD provided.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants have not shown that relocating to M\u00e9rida would be objectively unreasonable or unduly harsh.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The tribunal finds that the Appellants have a viable IFA in M\u00e9rida, Yucat\u00e1n.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the Appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

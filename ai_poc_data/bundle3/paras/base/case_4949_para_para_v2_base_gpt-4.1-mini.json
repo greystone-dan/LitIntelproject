@@ -1,0 +1,348 @@
+{
+ "case_id": 4949,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006080800000000001
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 5,
+   "court": 15,
+   "other": 2,
+   "evidence": 5,
+   "below": 9
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Abeid seeks judicial review of the Immigration Appeal Division's (IAD) decision denying her relief from removal due to misrepresentation, challenging the humanitarian approach, children's best interests, and medical report analysis. The Federal Court finds the IAD's decision reasonable, upholding the removal order against Ms. Abeid but allowing her sons' appeals on humanitarian grounds. The court dismisses Ms. Abeid's application for judicial review and declines to certify any question of general importance.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Applicant's background and immigration history",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 15,
+    "label": "Tribunal below's findings and decision",
+    "kind": "other"
+   },
+   {
+    "first": 16,
+    "last": 21,
+    "label": "Analysis of misrepresentation and humanitarian approach",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 28,
+    "label": "Analysis of children's best interests",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 34,
+    "label": "Analysis of medical and psychological evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 36,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Ms. Abeid seeks judicial review of the IAD's November 9, 2020 decision denying relief from removal for misrepresentation, alleging errors in humanitarian approach, children's best interests, and medical report analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's claim of IAD error on humanitarian grounds",
+    "Applicant's claim of error on children's best interests",
+    "Applicant's claim of error on medical report analysis"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court finds the IAD's decision reasonable, rejecting claims of undue focus on misrepresentations, and accepts the IAD's reasonable analysis of children's best interests and medical reports.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court finds IAD decision reasonable",
+    "Court rejects claim of undue focus on misrepresentations",
+    "Court accepts IAD's analysis of children's best interests",
+    "Court rejects applicant's medical report arguments"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court dismisses the request for judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Ms. Abeid raises three issues for review: IAD's methodology on humanitarian considerations, analysis of children's best interests, and treatment of medical and psychological reports.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The parties agree the reasonableness standard applies, defined by Vavilov as justified, transparent, intelligible, and coherent in relation to facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Under reasonableness review, the court defers to IAD's findings and assesses only if the decision is reasonable based on evidence and context.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "Ms. Abeid is a Turkish citizen with two sons born in 2000 and 2004 from her first marriage; she divorced in 2005.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "evidence",
+   "summary": "Ms. Abeid remarried Mr. Hussam Abeid in 2009; he sponsored her and her sons, all became permanent residents in 2010, based on false divorce documents; they divorced in 2013.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "In 2015, Ms. Abeid applied to sponsor her first husband but withdrew the application in 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "In 2016-17, interviews led to a 2017 report alleging misrepresentations; the Immigration Division found misrepresentation and issued removal orders in 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "Ms. Abeid and sons appealed to the IAD, admitting misrepresentations but seeking relief on humanitarian grounds; hearings occurred in 2020 without transcript in record.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The IAD's November 9, 2020 decision upheld removal orders for Ms. Abeid but allowed the sons' appeals on humanitarian grounds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The IAD detailed multiple misrepresentations by Ms. Abeid, including false statements about marriage, sponsorship, divorce, and the 2015 sponsorship application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The IAD analyzed humanitarian factors, found misrepresentations serious with little remorse, and concluded children's best interests did not outweigh negatives, dismissing Ms. Abeid's appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The IAD found the children had minimal involvement in misrepresentations and stronger Canadian ties, allowing their appeals under IRPA paragraph 67(1)(c).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Ms. Abeid argues the IAD overemphasized misrepresentations, 'triple counting' their seriousness, contrary to humanitarian analysis requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court disagrees that frequent references to misrepresentations render the IAD's decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court explains that multiple references to misrepresentations in different contexts do not constitute error or unreasonable 'double counting' by the IAD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court finds it reasonable for the IAD to consider Ms. Abeid's establishment in Canada as positive but diminished due to arising from misrepresentations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds the IAD's reference to misrepresentations in family separation and BIOC analysis concerning but not unreasonable, as the IAD weighed all factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court rejects the claim that detailed analysis of misrepresentations shows undue focus, affirming their relevance in humanitarian grounds analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The IAD analyzed the children's best interests considering their situation, studies, Canadian ties, and noted their approaching majority and choice to stay or move.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The IAD's BIOC analysis supported allowing the children's appeal based on humanitarian and compassionate grounds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Ms. Abeid claims the IAD downplayed the impact of her removal on her children and portrayed their choice between staying or moving as unrealistic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court finds the IAD's BIOC analysis reasonable and reiterates its limited role in judicial review to assess reasonableness, not reweigh evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The IAD acknowledged the children's best interests to stay with their mother but considered options if she were removed, concluding BIOC did not outweigh negatives.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court agrees with the Minister that Ms. Abeid essentially asks for reweighing BIOC, which is one factor and not determinative, so IAD's conclusion was reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court notes assessing IAD's reasonableness is difficult without party submissions before the IAD, as BIOC analysis depends on those arguments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "evidence",
+   "summary": "Ms. Abeid was diagnosed with colon cancer in 2017, treated and in remission, with medical evidence warning removal to Turkey risks her health and recovery.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "evidence",
+   "summary": "A psychological assessment focused on marriage veracity notes Ms. Abeid's anxiety and depression but does not address impact of removal to Turkey.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The IAD reviewed medical and psychological reports, noting Ms. Abeid's stable health and lack of evidence on medical care in Turkey.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD references medical and psychological reports",
+    "IAD finds health stable despite GP opinion",
+    "IAD notes lack of evidence on Turkish medical care"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "Ms. Abeid argues the IAD lacks medical expertise and unreasonably rejects the GP's opinion, disputing the claim her condition is stable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds the IAD's conclusion of stable health reasonable and justified despite Ms. Abeid's claims and the GP's general opinion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the IAD reasonably considered the psychological report despite its limited relevance and placement in the analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court dismisses the application for judicial review based on the reasons given.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court agrees no question of general importance was raised for certification by the parties.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

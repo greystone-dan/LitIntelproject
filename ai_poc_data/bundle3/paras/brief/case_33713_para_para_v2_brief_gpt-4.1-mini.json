@@ -1,0 +1,198 @@
+{
+ "case_id": 33713,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0047972000000000015
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "speakers": {
+   "court": 16,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Edward Ryckman sought judicial review of the Canada Revenue Agency's (CRA) decision denying his eligibility for the Canada Emergency Response Benefit (CERB) on the basis that he did not cease work due to COVID-19. The Federal Court found the CRA's decision unreasonable due to procedural fairness issues, particularly the failure to consider key evidence submitted by Ryckman. The court set aside the decision and ordered the CRA to redetermine eligibility, awarding Ryckman costs.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 9,
+    "label": "Standard of review: reasonableness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 11,
+    "last": 16,
+    "label": "Analysis: admissibility of evidence and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 17,
+    "label": "Analysis: other arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   },
+   {
+    "first": 127,
+    "last": 128,
+    "label": "Principles of justification and transparency",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "Edward Ryckman (applicant) challenges the Canada Revenue Agency's (respondent) decision denying his eligibility for the Canada Emergency Relief Benefit (CERB), arguing he ceased work due to COVID-19-related reasons. The Federal Court reviews the CRA's decision for reasonableness, focusing on whether the CRA properly considered Ryckman's evidence and arguments, particularly his medical condition and treatment delays caused by the pandemic. Key issues include procedural fairness, the CRA's failure to consider critical evidence, and whether the decision was justified and transparent. The Court finds the CRA's decision unreasonable, sets it aside, and orders a redetermination by a different officer, awarding Ryckman costs.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Edward Ryckman seeks judicial review of CRA's decision denying CERB eligibility for not ceasing work due to COVID-19; court finds CRA's decision unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ryckman seeks review",
+    "CRA decision denies CERB",
+    "court finds decision unreasonable"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "On Feb 22, 2022, CRA informed Ryckman he was ineligible for CERB; after a Second Review, CRA confirmed ineligibility on Sept 14, 2023.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Ryckman sought judicial review; Respondent agreed decision was unreasonable; Justice Heneghan set it aside and ordered CRA to redetermine.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "On July 11, 2024, CRA Officer gave Ryckman deadline to submit info; Ryckman submitted evidence including affidavit and argument on July 29, 2024.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Officer called Ryckman Sept 5, 2024 about return to work; Ryckman referred Officer to his affidavit as containing all needed info.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "On Sept 19, 2024, CRA again decided Ryckman was ineligible for CERB as he did not stop work for COVID-19 reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Reasonableness review requires decisions to be coherent and justified; failure to address key issues may show lack of sensitivity to matter (Vavilov).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Respondent challenges admissibility of five exhibits Ryckman submitted that were not before the Officer.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court doubts Respondent's objections to some exhibits but finds no need to rule as they do not affect outcome.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Respondent relies on Officer's affidavit listing documents considered, asserting it is a complete list including Ryckman's prior submissions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Ryckman's July 29, 2024 Application Record was not listed as considered by Officer; Respondent concedes it was not considered.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Officer's failure to consider central evidence deprived Ryckman of procedural fairness and caused an unreasonable decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Having found the decision unreasonable, court declines to address other arguments raised by Ryckman.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court orders matter remitted to CRA for redetermination, respecting CRA's expertise in eligibility decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Ryckman requests order compelling CRA to provide reasons if ineligible again; court finds no need as CRA must comply with binding jurisprudence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court awards Ryckman $1,500 costs despite Respondent's objection, noting it reflects incurred costs and promotes settlement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 127,
+   "speaker": "court",
+   "summary": "Principles of justification and transparency require decision makers to address central issues and allow parties to present their case fully.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 128,
+   "speaker": "court",
+   "summary": "Decision makers need not respond to every argument, but failure to address key issues may show lack of sensitivity to the matter.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

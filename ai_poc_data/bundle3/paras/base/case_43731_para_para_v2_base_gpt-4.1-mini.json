@@ -1,0 +1,157 @@
+{
+ "case_id": 43731,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0022452
+ },
+ "verification": {
+  "paragraphs": 12,
+  "summaries": 12,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 9,
+   "party": 2,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Gupta appealed the Tax Court's dismissal of his 2020 tax assessment appeal concerning disallowed pre-bankruptcy net capital losses under the Income Tax Act. The Tax Court held that notices of assessment are not binding determinations and that the Minister was not barred from adjusting the assessment. The Federal Court of Appeal dismissed Mr. Gupta's appeal, finding no reviewable error in the Tax Court's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Issue: validity of prior net capital loss determinations and statute-bar",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 6,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 11,
+    "label": "Analysis of Tax Court decision and statutory interpretation",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 12,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Mr. Gupta appeals the Tax Court's dismissal of his 2020 tax assessment appeal involving disallowed pre-bankruptcy net capital losses under ITA s.128(2)(g)(i).",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal introduction",
+    "Tax Court's finding",
+    "legal provision cited"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Facts: Mr. Gupta declared bankruptcy in 1993 with unused net capital losses; Minister reduced his 2019 and 2020 net capital loss claims for pre-bankruptcy losses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Mr. Gupta argued the Minister's prior net capital loss determinations were fixed and could not be changed 25 years later, citing ITA ss.152(1.3) and 152(4).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "Tax Court held notices of assessment about net capital losses are not binding determinations under ITA s.152(1.3) and can be corrected if not statute-barred.",
+   "ideas": "multiple",
+   "idea_list": [
+    "notice of assessment not binding",
+    "Minister can correct unbarred years"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Mr. Gupta submits the Tax Court erred by finding no notice of determination and that the Minister was not statute-barred from adjusting his 2020 assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The applicable standards of review are correctness for law questions and palpable and overriding error for fact or mixed questions, per Housen v. Nikolaisen.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Court finds Mr. Gupta has not shown any reviewable error by the Tax Court warranting intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court agrees with the Tax Court that ITA s.128(2)(g)(i) clearly prohibits deducting pre-bankruptcy net capital losses after discharge.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Tax Court found, and Mr. Gupta confirmed, he never requested or received a notice of determination of net capital loss.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Tax Court correctly held the Minister was not barred from considering bankruptcy consequences in assessing 2020 tax, consistent with prior case law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister not barred from considering bankruptcy",
+    "consistent with prior decisions"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Mr. Gupta has not shown any reviewable error regarding the accuracy of the amounts used by the Minister.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The appeal is dismissed without costs.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

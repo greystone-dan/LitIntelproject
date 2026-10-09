@@ -1,0 +1,363 @@
+{
+ "case_id": 70532,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006506800000000001
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 34,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by Mexican citizens fearing the CJNG cartel, who fled Mexico due to extortion and threats related to a loan. The Refugee Protection Division (RPD) found credibility issues with their claim, including inconsistencies and delays in seeking protection. The tribunal dismissed the appeal, agreeing the appellants are not refugees or persons in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 4,
+    "label": "Disposition and procedural requests",
+    "kind": "disposition"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Standard of review and credibility assessment",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Assessment of PA's evasive testimony on CJNG knowledge",
+    "kind": "analysis"
+   },
+   {
+    "first": 9,
+    "last": 13,
+    "label": "Inconsistencies in BOC narrative and testimony",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 19,
+    "label": "Clarification on 'Drop to Drop' extortion and fear of CJNG",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 20,
+    "label": "Credibility findings on CJNG involvement and police reporting",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 24,
+    "label": "Inconsistencies about fisherman's death and event chronology",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Omission of death threats in BOC narrative and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 33,
+    "label": "Loan documentation and credibility findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 34,
+    "label": "Consideration of delay in seeking protection",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 36,
+    "label": "Final decision and dismissal of appeal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appellants, Mexican citizens fearing the CJNG cartel, fled Mexico after extortion and threats related to a loan; the RPD found credibility issues and delays in seeking protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' background and fear",
+    "RPD's credibility findings",
+    "Appellants' arguments against RPD findings"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, agreeing the appellants are not refugees or in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The appellants requested an oral hearing, but it is denied as no new evidence was admitted and the tribunal lacks jurisdiction to hold one.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal reviews the RPD decision on correctness standard, finding no meaningful advantage in credibility assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal rejects appellants' argument that the PA's evasive testimony about extortion knowledge was misinterpreted, finding the argument unpersuasive.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal sets out the RPD's repeated questioning of the PA about how she knew the CJNG was involved, showing evasive and unclear answers.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal finds the PA failed to answer clearly about CJNG knowledge despite repeated questioning, supporting the RPD's finding of evasiveness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RPD found the PA's BOC narrative inconsistent with her testimony about when the appellants learned CJNG was involved.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The appellants argue the BOC narrative is unclear about CJNG involvement and the PA's testimony should be preferred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal rejects appellants' argument, finding the BOC narrative clearly states CJNG involvement was reported to police, inconsistent with PA's testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal notes additional inconsistent PA testimony about reporting CJNG involvement to police, conflicting with earlier statements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal finds no need to give notice on inconsistent testimony as appellants had full notice and opportunity to address credibility concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with appellants' claim that the RPD misapprehended testimony about the 'Drop to Drop' criminal organization.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal summarizes the PA's explanation that 'Drop to Drop' refers to a type of extortion involving small payments over time, not a named group.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The appellants argue that 'Drop to Drop' is a payment method, not a feared organization, and they actually fear the CJNG.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD accurately summarized that 'Drop to Drop' is a type of extortion, distinct from fearing the CJNG.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD correctly noted letters show fear of MF extortion group but no mention of CJNG, rejecting appellants' argument.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the PA's testimony about telling her sister about extortion but not CJNG supports the RPD's view that letters do not corroborate CJNG fear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal finds, on balance, CJNG was not involved in extortion and appellants did not report to police as alleged, undermining credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with appellants that RPD erred in finding minor inconsistencies about the fisherman's death.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The PA's BOC narrative describes learning about fisherman's death and MF office disappearance in a specific sequence linked to extortion realization.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The PA's testimony about the fisherman's death timing and sequence conflicts with her BOC narrative; she claims nervousness caused confusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal finds the inconsistency in event chronology significant and rejects the PA's nervousness explanation, supporting RPD's negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal rejects appellants' argument that omission of death threats in BOC narrative is insignificant or tangential.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The BOC narrative mentions fearing for life after gas station incident but lacks details on death threats, which are key to the claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The PA testified about death threats at gas station but was nervous and confused about dates and omission of threats in BOC narrative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal finds fearing for life and direct death threats are different; omission of threats unexplained, supporting negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal rejects appellants' argument that RPD failed to consider explanations and wrongly made negative credibility finding due to lack of loan documentation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The PA testified the loan was verbal without contract or documentation, explaining why no paperwork exists.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds it implausible that a legitimate lender would loan money without a written contract or signature and that the appellants failed to obtain loan documentation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "implausibility of loan without contract",
+    "appellants' failure to obtain documentation"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal finds the landlord's letter somewhat corroborates the appellants' loan claim but gives it little weight as the landlord is not a direct witness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the presumption of truthfulness was rebutted and supports the negative credibility finding not solely based on lack of documentation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal decides there is no need to consider delay in seeking protection because earlier findings are determinative of the appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellants failed to credibly establish their allegations and do not face serious risk of persecution or harm if returned to Mexico.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

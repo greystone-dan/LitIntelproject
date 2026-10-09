@@ -1,0 +1,173 @@
+{
+ "case_id": 50186,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0027612
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "below": 5,
+   "court": 10
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a refugee claim by a 58-year-old ethnic Jewish man from Ukraine who fears persecution due to anti-Semitic violence. The claimant's initial refugee claim was denied, quashed by the Federal Court, and redetermined by the tribunal. The tribunal ultimately rejected the claim, finding the fear of persecution not objectively well-founded based on current country conditions and evidence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 6,
+    "label": "Issue: country conditions and risk assessment",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 13,
+    "label": "Analysis of evidence on anti-Semitic violence in Ukraine",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Disposition: claim rejected",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "below",
+   "summary": "The claimant arrived in Canada in 2008, had his refugee claim denied in 2012, and a 2013 Federal Court decision quashed that denial and ordered redetermination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant arrival and claim denial",
+    "Federal Court quashed decision and ordered redetermination"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The claimant is a 58-year-old ethnic Jewish man from western Ukraine who previously worked in Turka and visited Canada in 1998 to buy dentistry equipment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The claimant fears Ukrainian nationalists who beat him in 2007, he was hospitalized, did not report the attack immediately, and left Ukraine in 2008 with a false passport to come to Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "fear of Ukrainian nationalists",
+    "attack and hospitalization",
+    "lack of police reporting",
+    "departure with false passport"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "In his 2008 Personal Information Form, the claimant feared harm from Ukrainian nationalists, found Kiev unsafe as an internal flight alternative, and omitted childhood harassment due to Jewish ethnicity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's fear of harm",
+    "Kiev unsafe as IFA",
+    "omission of childhood harassment"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The claimant's Ukrainian national identity is established by his testimony and identity documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The main issue is the current country conditions for the claimant as an ethnic Jewish man absent from Ukraine since 2008, with counsel arguing high anti-Semitic incidents make Kiev unsafe as an IFA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal considered conflicting evidence on country conditions, with counsel citing a surge in anti-Semitic violence contradicted by a 2017 U.S. State Department report.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The U.S. State Department report, relying on the NMRMG, found no anti-Semitic violence in 2017 but noted some anti-Semitic vandalism incidents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Counsel's main evidence of increased anti-Semitic violence comes from the Israeli Ministry for Diaspora Affairs reporting a doubling of incidents in 2017, including violent assaults.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Israeli Ministry's report is disputed by a Ukrainian researcher who criticized its methodology as unprofessional and flawed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal prefers evidence from local Jewish monitoring groups cited by the U.S. report, finding their hate crime documentation more thorough and concluding isolated anti-Semitic violence and vandalism exist.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal finds the evidence shows isolated anti-Semitic incidents but not pervasive persecution, noting contradictions like Ukraine having a Jewish Prime Minister.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal concludes the claimant's fear is not objectively well-founded, considering the passage of time and lack of ongoing persecution risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant is not a Convention refugee or person in need of protection under IRPA sections 96 or 97.1.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claimant's refugee claim.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

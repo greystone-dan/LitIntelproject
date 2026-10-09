@@ -1,0 +1,138 @@
+{
+ "case_id": 34427,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0026460000000000003
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 6,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "mixed": 3,
+   "court": 3
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Luttrell, the applicant, challenges a Temporary Resident Permit (TRP) decision by the immigration officer, alleging errors, while the Minister, the respondent, argues the case is moot due to a valid TRP issued later. The Federal Court agrees with the Minister, finding no live controversy and dismisses the application for mootness. The court also rejects arguments for hearing the case based on collateral consequences, judicial economy, or general importance.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 4,
+    "label": "Applicant's challenge and respondent's mootness argument",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 14,
+    "label": "Applicant's arguments against mootness and court's preliminary view",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 19,
+    "label": "Court's finding of mootness and dismissal of application",
+    "kind": "disposition"
+   },
+   {
+    "first": 20,
+    "last": 22,
+    "label": "Rejection of collateral consequences and judicial economy arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 26,
+    "label": "No general importance or law-making function; final conclusion on mootness",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 4,
+   "speaker": "mixed",
+   "summary": "Ms. Luttrell (applicant) alleges three errors in the Officer's TRP decision; the Minister (respondent) argues the case is moot due to a valid TRP; the court agrees and plans to dismiss the application for mootness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's alleged errors",
+    "respondent's mootness argument",
+    "court's agreement on mootness"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 9,
+   "speaker": "mixed",
+   "summary": "The background shows Ms. Luttrell's prior refusals and TRP applications, the Officer's refusal based on alternative options and exceptional circumstances standard, and a later TRP issuance after travel to the US.",
+   "ideas": "multiple",
+   "idea_list": [
+    "prior refusals and judicial review dismissal",
+    "TRP application and refusal reasoning",
+    "new TRP issued after US trip"
+   ]
+  },
+  {
+   "para": 11,
+   "last": 14,
+   "speaker": "mixed",
+   "summary": "Ms. Luttrell applied for an open work permit and argues the judicial review is not moot due to future TRP needs and collateral consequences; the court introduces the Borowski mootness test and signals disagreement with her submissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "open work permit application",
+    "applicant's argument against mootness",
+    "court's explanation of mootness test"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 19,
+   "speaker": "court",
+   "summary": "The court finds no live controversy as Ms. Luttrell holds a valid TRP, dismisses the application as moot, and finds no adversarial context to justify exercising discretion to hear the case.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no live controversy due to valid TRP",
+    "mootness dismissal",
+    "lack of adversarial context"
+   ]
+  },
+  {
+   "para": 20,
+   "last": 22,
+   "speaker": "court",
+   "summary": "The court rejects collateral consequences and judicial economy arguments for hearing the case, noting TRP decisions are discretionary and prior rulings cover relevant legal issues, making judicial economy neutral here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no collateral consequences",
+    "judicial economy favors dismissal",
+    "existing case law covers issues"
+   ]
+  },
+  {
+   "para": 23,
+   "last": 26,
+   "speaker": "court",
+   "summary": "The court finds no general importance or law-making function engaged here, notes no question certified by parties, and concludes the Borowski factors weigh against hearing the application on the merits.",
+   "ideas": "single",
+   "idea_list": [
+    "no general importance or law-making function engaged"
+   ]
+  }
+ ]
+}

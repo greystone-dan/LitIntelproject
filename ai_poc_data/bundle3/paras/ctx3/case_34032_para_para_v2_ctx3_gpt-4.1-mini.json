@@ -1,0 +1,328 @@
+{
+ "case_id": 34032,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0070108
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 7,
+  "speakers": {
+   "below": 2,
+   "court": 31,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves Mr. Salkhan's judicial review application challenging the refusal of his spouse's open work permit application by an immigration officer. The Court reviewed the reasonableness and procedural fairness of the decision, focusing on whether sufficient employment evidence was provided. The Court dismissed Mr. Salkhan's application, finding the decision reasonable and procedurally fair with no grounds for intervention.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 9,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 18,
+    "label": "Standard of review and procedural fairness principles",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 20,
+    "last": 35,
+    "label": "Analysis of evidence and reasonableness of decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 43,
+    "label": "Procedural fairness analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 45,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Officer found Mr. Salkhan provided insufficient proof of his wife's employment in Canada and he contests the reasonableness and procedural fairness of the Decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's finding of insufficient information",
+    "Mr. Salkhan contests reasonableness and procedural fairness"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court dismisses Mr. Salkhan's judicial review application, finding the Decision reasonable and procedurally fair with no grounds for intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Mr. Salkhan previously submitted two spousal OWP applications in 2023 and 2024, both refused, blaming an incompetent former immigration consultant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "In August 2024, Mr. Salkhan submitted a spousal OWP application; IRCC requested additional documents in November 2024 due to submission errors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Mr. Salkhan responded to IRCC's letter, noting it lacked specifics and invited IRCC to request further documents if needed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer's GCMS notes reveal the refusal was based on missing employment letter and paystubs for the principal applicant, leading to ineligibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The parties and Court agree reasonableness is the applicable standard for reviewing work permit decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Under reasonableness review, courts assess if the decision is coherent, justified, and intelligible based on facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Reviewing courts must rigorously but respectfully examine the decision maker's reasons and intervene only when necessary to protect legality and fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Reasonableness review respects administrative decision makers' roles, especially on factual findings, which courts rarely overturn absent exceptional cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The party challenging the decision must prove serious flaws beyond superficial ones to overturn an administrative decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Procedural fairness issues are reviewed akin to correctness, focusing on whether a fair and just process was followed given the rights involved.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "For procedural fairness, courts assess if the process was fair and allowed parties to be heard and informed of evidence to rebut.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Courts do not defer to administrative decision makers on procedural fairness matters and review them without deference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Minister's guidelines for C-41 OWP applications are not binding but assist officers; evidence of employment includes job contracts or employer letters.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Minister responds that the record shows no employment letter or paystubs were submitted and the Decision is reasonable based on actual evidence filed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The absence of the spouse's employment letter and paystubs was decisive in the Officer's refusal of Mr. Salkhan's application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Mr. Salkhan must prove on a balance of probabilities that he submitted all relevant documents and that the Officer ignored them, which is not the case here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Rules require visa officers to produce a complete record of relevant documents, and certified records are presumed complete and accurate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Applicants claiming documents were before the decision maker but ignored must prove those documents were actually submitted; bare assertions are insufficient.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "No evidence shows the spouse's employment letter or paystubs were before the Officer; they are missing from the record and consistent with Officer's notes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Mr. Salkhan's affidavit alone is insufficient to overcome the presumption that the record is complete and that the Officer did not have those documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Documents now before the Court but not before the Officer cannot undermine the reasonableness of the Officer's Decision on judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Mr. Salkhan admits no company name on salary deposits but failed to provide convincing evidence to address this omission.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "Mr. Salkhan argues the Officer's reasons were generic and did not reference his evidence; the Court notes reasons are brief but often so in such cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Reasons need not be perfect but must be comprehensible to allow the Court to understand the decision and its rationale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The GCMS notes provide adequate, intelligible reasons for refusal, showing the Officer's concerns about the spouse's employment evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Officer did not ignore evidence and reasonably concluded Mr. Salkhan failed to prove his spouse's eligible employment; the Decision is reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The Court disagrees with Mr. Salkhan's claim of procedural fairness breach.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Procedural fairness in work permit applications is minimal; visa officers need not seek additional information unless credibility is at issue.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court explains that visa officers must inform applicants only if adverse credibility findings arise, not for mere insufficiency of evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "distinction between insufficiency and credibility findings",
+    "procedural fairness triggered by loss of confidence in reliability"
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court finds no adverse credibility findings against Mr. Salkhan, so no procedural fairness duty to inform him arose.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no adverse credibility findings",
+    "concerns were about insufficiency of evidence",
+    "no duty to alert applicant"
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Mr. Salkhan argues he was never notified about the application 'mix-up' and that the Letter was vague and unclear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Salkhan's claim, finding the Letter clear enough and no obligation on the officer to clarify deficiencies or seek more information.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Letter was sufficiently clear",
+    "no obligation to clarify or seek more info"
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court concludes there was no breach of procedural fairness by the Officer in handling the application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court states there are no questions of general importance to certify in this case.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

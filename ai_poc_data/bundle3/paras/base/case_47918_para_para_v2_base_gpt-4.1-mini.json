@@ -1,0 +1,242 @@
+{
+ "case_id": 47918,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.00385
+ },
+ "verification": {
+  "paragraphs": 24,
+  "summaries": 24,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 20,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an application by the applicant to reopen his refugee claim, which was declared abandoned by the Refugee Protection Division (RPD) due to failure to submit required documents and attend a hearing. The applicant alleged financial difficulties and other reasons for missing the hearing, while the RPD panel found no breach of natural justice and questioned the applicant's credibility. Ultimately, the panel dismissed the application to reopen the claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and initial abandonment",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Application to reopen and opposition",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 9,
+    "label": "Legal framework and panel's approach",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 21,
+    "label": "Analysis of applicant's presence, credibility, and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "Panel's findings on natural justice and procedure",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 24,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal considers an application to reopen the applicant's refugee claim abandoned on May 15, 2018, under RPD Rule 62.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The applicant's refugee claim was referred to the RPD on March 20, 2018; a partial Basis of Claim form was submitted April 13, 2018, listing a BC address.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "On April 17, 2018, the panel notified the applicant by mail at his BC address and counsel to submit the completed BOC Form by May 8, 2018, or attend a special hearing on May 15, 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The applicant failed to submit the BOC Form on time and did not attend the May 15, 2018 special hearing, leading the panel to declare the claim abandoned that day.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The completed BOC Form was filed on May 15, 2018, the same day as the hearing and abandonment decision, with the applicant's address listed as Montr\u00e9al.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The applicant's counsel applied to reopen on October 26, 2018, alleging financial difficulties, presence at the May 15 hearing, counsel's attendance elsewhere, a removal summons, and no intent to abandon claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's financial difficulties and moves",
+    "Applicant's presence at hearing",
+    "Counsel's attendance in another case",
+    "Removal summons received",
+    "Applicant's intent not to abandon claim"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "On October 29, 2018, the Minister's counsel opposed reopening, arguing no natural justice breach and noting the applicant's removal scheduled for November 3, 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RPD has limited jurisdiction to reopen a hearing, only allowed if there is a breach of natural justice, as it is functus officio after decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel considered the entire record and RPD Rule 62(6) to decide on the reopening application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Applicant's counsel stated he was present on May 15, 2018, proceeding with file VB7-01743.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel found counsel was late to a Vancouver hearing starting at 7:45 a.m. PST (10:45 a.m. Montr\u00e9al time), arriving at 9:15 a.m. PST (12:15 p.m. Montr\u00e9al), after the 9:00 a.m. Montr\u00e9al hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Since the applicant's hearing was at 9:00 a.m. Montr\u00e9al time, counsel was available then but did not attend; the reopening application does not explain this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The applicant claims he was present on May 15, 2018, waiting to be called for the hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel doubts the applicant's claim of waiting, noting no explanation why he did not notify reception or why counsel did not appear; the reopening application is silent on this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel questions why the applicant and counsel did not act diligently, noting the reopening was filed over five months after abandonment and after a removal summons, with no explanation given.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel finds the reopening explanations lack detail and undermine the applicant's credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel notes an important fact (to be detailed in following paragraphs).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Division's April 17, 2018 letter requested the completed BOC Form by May 8, but it was submitted May 15 with a photocopied signature dated March 12, before the request.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "If the applicant was in Montr\u00e9al May 15, he should have signed and dated the form himself; failure to do so undermines his credibility, unaddressed in reopening application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Counsel says the applicant lacks a fixed Montr\u00e9al address; his affidavit was signed in Toronto but states he lives in Vancouver, causing confusion about his residence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel disbelieves the applicant was in Montr\u00e9al May 15 due to lack of supporting evidence and finds his credibility irreparably undermined.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel concludes the applicant failed to prove a breach of natural justice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel finds no breach of natural justice occurred; the RPD followed legal procedures throughout.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The application to reopen is dismissed by the panel on November 2, 2018, signed by Lyne Gauthier.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

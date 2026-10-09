@@ -1,0 +1,225 @@
+{
+ "case_id": 72552,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0040912
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 18,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by an appellant fearing persecution in Malawi due to her father's political opposition and her intended political advocacy. The tribunal reviewed the evidence and the Refugee Protection Division's (RPD) findings, ultimately agreeing that the appellant does not face a serious risk of persecution. The appeal was dismissed, confirming the RPD's decision that the appellant is neither a Convention refugee nor in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and role of tribunal",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Key issue and initial findings",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Appellant's arguments and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 8,
+    "last": 11,
+    "label": "Contextual and political background in Malawi",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 15,
+    "label": "Post-hearing evidence and risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 20,
+    "label": "Assessment of appellant's profile and risk",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, summarizing the appellant's background, her fear of persecution in Malawi, and the RPD's findings on risk and credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's background and fear",
+    "RPD's findings on credibility and risk",
+    "Tribunal's conclusion on risk and evidence"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD's correct finding that the appellant is neither a Convention refugee nor in need of protection and dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD correctly found no prospective risk of harm to the appellant in Malawi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The key issue is whether the appellant faces a serious possibility of persecution in Malawi due to her father's past opposition and her intent to engage in political advocacy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the appellant does not face serious persecution risk, noting contradictions in her political activity and her sisters' safe residence in Malawi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD's risk analysis was too narrow, failing to consider her family connection and activism profile as a whole with documentary evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant credible but concludes no objective basis exists for her fear of harm despite minor contradictions and her asylum history.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal outlines questions to assess if the appellant's credible situation amounts to a serious possibility of persecution, including past persecution and current government actions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal reviews the appellant's father's past persecution and political context in Malawi, including regional dynamics and ongoing interest in his political role.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Objective evidence shows Malawi's political culture involves ethnicity and patrimonialism, with contentious 2019 elections involving key political figures related to the appellant's family.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Recent evidence shows a peaceful 2020 election transition in Malawi with no unlawful killings, confirming a stable political environment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD erred by not considering post-hearing evidence about risks to the appellant as a former government representative's daughter and health advocate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The appellant's counsel submitted post-hearing evidence to the RPD showing government limits on NGOs and harassment of activists, arguing for deeper risk analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Objective evidence acknowledges some harassment but confirms Malawi's multiparty democracy, free elections, and no serious reprisals against political opponents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant's fears understandable but lacking objective basis, noting Malawi's democratic institutions protect political dissent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The appellant's two sisters live safely in Malawi, indicating family ties alone do not establish risk of persecution for the appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The appellant intends to engage in health care advocacy exposing corruption, but the tribunal finds this unlikely to put her at risk from the current government.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant lacks a political activist profile due to no activism since 1993, despite her passion and personal circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Even if the appellant had a strong activist profile, objective evidence shows Malawi accepts political dissent and advocacy without risk of harm.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The appellant's compounded profile does not create a serious persecution risk, considering time passed and her sisters' safe residence in Malawi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, confirming the RPD's decision that the appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

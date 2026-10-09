@@ -1,0 +1,113 @@
+{
+ "case_id": 28343,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0022892
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 1,
+   "court": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicants who fled gang threats in Patiala and sought refugee status in Canada, which was rejected by the Refugee Protection Division and the Refugee Appeal Division (RAD) based on an internal flight alternative (IFA). The Applicants appealed the RAD's decision, arguing that new evidence about gang violence and police collusion was improperly omitted. The Federal Court found the RAD's omission unreasonable, granted judicial review, and set aside the decision.",
+  "sections": [
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Background: Applicants' flight and refugee claim",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 10,
+    "label": "Tribunal decisions and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Court upholds RAD's findings on police system use",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 16,
+    "label": "Court finds RAD unreasonably omitted new evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Disposition: judicial review granted and decision set aside",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 3,
+   "last": 5,
+   "speaker": "party",
+   "summary": "The Applicants fled Patiala due to gang threats, moved multiple times, and ultimately fled to Canada claiming refugee status, fearing for their lives due to ongoing threats.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "last": 10,
+   "speaker": "court",
+   "summary": "The Refugee Protection Division and RAD rejected the Applicants' claim based on a viable IFA; the Court reviews the reasonableness of the RAD's decision focusing on the IFA viability test and the Applicants' arguments.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision below rejecting claim",
+    "issue and standard of review",
+    "IFA test and Applicants' challenge"
+   ]
+  },
+  {
+   "para": 11,
+   "last": 13,
+   "speaker": "court",
+   "summary": "The Court upholds the RAD's finding that there is insufficient evidence the gangsters can use police systems to locate the Applicants, rejecting the Applicants' request to reweigh evidence on CCTNS capabilities.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's finding on CCTNS evidence upheld"
+   ]
+  },
+  {
+   "para": 14,
+   "last": 16,
+   "speaker": "court",
+   "summary": "The Court finds the RAD unreasonably omitted new credible evidence about gangsters' violent pursuit and possible police collusion, which was central to assessing the gangsters' motivation and means to track the Applicants.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's omission of new evidence renders decision unreasonable"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 19,
+   "speaker": "court",
+   "summary": "The Court concludes the RAD erred by omitting important contradictory evidence without reasons, leading to judicial review being granted and the decision set aside.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's omission caused loss of confidence",
+    "judicial review granted"
+   ]
+  }
+ ]
+}

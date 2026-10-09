@@ -1,0 +1,280 @@
+{
+ "case_id": 30484,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.005779200000000001
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 7,
+  "speakers": {
+   "party": 7,
+   "below": 8,
+   "court": 11
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a family seeking asylum in Canada due to fears of persecution related to religious conversion and gender-based citizenship discrimination. The Refugee Protection Division and Refugee Appeal Division both rejected their claims, finding no serious risk of persecution or need for protection. The Federal Court dismissed the judicial review application, upholding the reasonableness and procedural fairness of the Refugee Appeal Division's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 4,
+    "label": "Court's disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 6,
+    "last": 10,
+    "label": "Applicants' personal and family background",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 18,
+    "label": "Decisions of Refugee Protection and Appeal Divisions",
+    "kind": "background"
+   },
+   {
+    "first": 20,
+    "last": 23,
+    "label": "Legal standards and procedural fairness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 24,
+    "last": 25,
+    "label": "Procedural fairness analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 27,
+    "label": "Analysis of gender-based discrimination claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 32,
+    "label": "Analysis of internal flight alternative and reasonableness",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The applicants are a family of five; the principal applicant fears death from his father due to his conversion to Islam, and the associated applicant faces gender-based citizenship discrimination in Morocco.",
+   "ideas": "multiple",
+   "idea_list": [
+    "family composition and identities",
+    "principal applicant's fear",
+    "associated applicant's discrimination claim"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division refused the asylum claim as the applicants were neither refugees under section 96 nor persons in need of protection under section 97; the Refugee Appeal Division dismissed their appeal on April 20, 2022.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The applicants seek judicial review of the Refugee Appeal Division's decision, arguing it is unreasonable and raises procedural fairness issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court is not persuaded that the Refugee Appeal Division erred or made an unreasonable conclusion regarding state protection and thus dismisses the application for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The principal applicant and associated applicant married in 2015 in Lebanon and had a child, Edmond, born in 2017, who is a citizen of Lebanon and Morocco.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The principal applicant grew up in a strict Maronite Christian family, left Lebanon in 2002 due to his father's harsh treatment, and converted to Islam in Saudi Arabia in 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The principal applicant's mother warned him in 2015 that his father sought to kill him because of his conversion to Islam.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The principal applicant lost his job and work visa in Saudi Arabia in 2018, unsuccessfully tried to settle in Morocco due to visa refusal allegedly based on his Lebanese nationality, and the associated applicant also failed to obtain a visa.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The principal applicant arrived in Canada in June 2018, and shortly after, the associated applicants left Morocco to join him; they filed their asylum claim on July 6, 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division rejected the asylum claim, finding no connection to the UN Refugee Convention, noting internal flight alternatives in Lebanon, and dismissing claims by the associated applicants who did not claim asylum against Morocco.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's rejection of refugee status",
+    "internal flight alternative in Lebanon",
+    "dismissal of associated applicants' claims"
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Refugee Appeal Division found no serious risk of persecution for Raymond and Adam in the Philippines, rejecting claims they were denied a right to be heard as the Philippines was not a claimed country of persecution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no serious risk for Raymond and Adam",
+    "rejection of right to be heard claim"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "Even if a claim had been made regarding the Philippines, the Refugee Appeal Division would reject the argument that Raymond and Adam face persecution due to custody and citizenship issues, equating it to a rejected family unity argument.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Refugee Appeal Division found no evidence that Raymond and Adam would lack education access or face abuse or homelessness in the Philippines, and dismissed claims about the UN Convention on the Rights of the Child as inapplicable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Refugee Appeal Division rejected the associated applicant and Edmond's claim against Morocco because no asylum claim was made there and gender-based citizenship discrimination did not amount to persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Refugee Appeal Division agreed with the internal flight alternatives identified by the RPD in Lebanese cities Tyr and Sa\u00efda, finding the principal applicant's father lacked means and motivation to persecute him there.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agreement on internal flight alternatives",
+    "father's lack of means and motivation to persecute"
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Refugee Appeal Division noted the high threshold for reasonableness of internal flight alternatives and found economic conditions and lack of family ties insufficient to render relocation to Tyr or Sa\u00efda unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal clarified that procedural fairness issues require assessing fairness in context, not necessarily applying a standard of review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The parties agree the reasonableness standard applies to the second issue; the court explains the reasonableness standard and the burden on applicants to show serious flaws in the decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agreement on reasonableness standard",
+    "explanation of reasonableness standard and burden"
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Refugee Appeal Division must proceed without a hearing unless new documentary evidence raises credibility or essential issues justifying a hearing; absent such evidence, no oral hearing is required.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Refugee Appeal Division reasonably rejected the applicants' claim that Raymond and Adam were denied a right to be heard, noting the applicants repeatedly stated the Philippines was not a country of concern.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Refugee Appeal Division acted fairly and did not breach procedural fairness obligations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Refugee Appeal Division reasonably concluded that Moroccan women's inability to transmit citizenship is discriminatory but does not meet the persecution threshold, satisfying justification requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court explains the high threshold for reasonableness of internal flight alternatives, requiring concrete evidence of life or safety risks, not mere hardships.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Refugee Appeal Division considered applicants' submissions about Lebanon's instability and provided a detailed analysis of documentary evidence regarding internal flight alternatives.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Economic hardship alone does not make an internal flight alternative unreasonable; the Refugee Appeal Division reasonably found the applicant's foreign experience applicable in Lebanon.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court is satisfied the Refugee Appeal Division considered favorable evidence, including political and economic instability, and properly evaluated the applicants' claims.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

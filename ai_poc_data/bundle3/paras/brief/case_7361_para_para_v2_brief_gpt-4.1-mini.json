@@ -1,0 +1,411 @@
+{
+ "case_id": 7361,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0095388
+ },
+ "verification": {
+  "paragraphs": 43,
+  "summaries": 43,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 29,
+   "party": 6,
+   "below": 8
+  },
+  "multi_idea_paragraphs": 8,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Mexican family's refugee claim alleging persecution by the Knights Templar cartel, which was rejected by the Refugee Appeal Division (RAD) due to credibility issues. The applicants challenged the RAD's findings, arguing errors in credibility assessments and failure to consider key evidence. The Federal Court found several RAD credibility findings unreasonable, allowed the judicial review, and remitted the appeal to the RAD for redetermination.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 16,
+    "label": "Applicants' evidence and tribunal below findings",
+    "kind": "background"
+   },
+   {
+    "first": 17,
+    "last": 23,
+    "label": "Issues on credibility and presumption of truthfulness",
+    "kind": "issue"
+   },
+   {
+    "first": 24,
+    "last": 31,
+    "label": "Analysis of RAD's credibility findings and evidence consideration",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 37,
+    "label": "Errors regarding extortion evidence and overall reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 41,
+    "label": "Consideration of National Documentation Package",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 43,
+    "label": "Disposition and certification of appeal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "The applicants, a Mexican family (Mr. Ramos and Ms. Perez), seek refugee protection in Canada, alleging persecution by the Knights Templar cartel. The Refugee Protection Division (RPD) and Refugee Appeal Division (RAD) rejected their claim due to credibility issues. The applicants challenge the RAD's credibility findings and failure to consider all evidence. The court addresses: (1) whether the RAD failed to apply the presumption of truthfulness; (2) if the RAD considered all evidence; (3) if the RAD considered the National Documentation Package. The court finds some RAD credibility findings unreasonable, particularly regarding translation, reporting to authorities, and extortion allegations, and remits the case for redetermination.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The applicants, a Mexican family, allege persecution by the Knights Templar cartel involving kidnapping, threats, extortion, and fear of vengeance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants' identity and origin",
+    "allegations of persecution",
+    "fear of vengeance"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The RPD and RAD rejected the applicants' refugee claim due to credibility issues; the applicants allege RAD erred in credibility findings and evidence consideration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees that three key RAD credibility findings were unreasonable, undermining the decision's justification and transparency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The judicial review application is allowed and the appeal is remitted to the RAD for redetermination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The applicants raise three issues: RAD's presumption of truthfulness, consideration of all evidence, and consideration of the National Documentation Package.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court states the issues are reviewable on reasonableness standard, with deference to factual findings but credibility findings must be justified.",
+   "ideas": "multiple",
+   "idea_list": [
+    "issues reviewable on reasonableness",
+    "deference to factual findings",
+    "credibility findings require justification"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court introduces background overview of facts, RPD decision, applicants' arguments before RAD, and RAD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Mr. Ramos alleges cartel member Lozada invited him to join in 2015; he refused; cartel threatened Ms. Perez and kidnapped Mr. Ramos in 2017; they reported to authorities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lozada's invitation and refusal",
+    "threats and extortion attempts",
+    "kidnapping and reporting"
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Cartel leader forced Mr. Ramos to deliver cocaine in July 2017; he complied twice, resigned, hid, and fled to Canada fearing vengeance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "forced cocaine deliveries",
+    "resignation and hiding",
+    "flight to Canada and fear"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD found five problems: contradictory dates of cartel invitation, contradiction on PGR appearances, translation inconsistency on drug delivery timing, failure to report deliveries, and extortion omission in BOC form.",
+   "ideas": "multiple",
+   "idea_list": [
+    "contradictory dates",
+    "PGR report contradiction",
+    "translation issue",
+    "failure to report deliveries",
+    "extortion omission"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD rejected the applicants' explanations and did not believe their persecution story.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicants appealed to RAD, arguing no contradictions on dates, translation issue irrelevant, unreasonable to fault non-reporting, and extortion criticism unjustified.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no date contradictions",
+    "translation issue",
+    "non-reporting not discrediting",
+    "extortion criticism unjustified"
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "RAD upheld RPD on date contradictions, finding timing of cartel invitation central and contradictions undermined persecution story.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "RAD held translation issue did not directly lead to RPD conclusion but noted certified interpreters' translation conflicted with testimony about drug deliveries.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "RAD noted Mr. Ramos's non-reporting strengthened credibility doubts; he did not testify fear of trouble, only that he did not report.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "RAD found extortion omission in BOC form and complaints, and held applicants' explanations insufficient, supporting RPD's decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Claimants have a rebuttable presumption of truthfulness in testimony, per case law cited.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicants claim RAD failed to apply presumption of truthfulness and exaggerated contradictions without full evidence consideration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court finds RAD applied correct framework, finding reason to doubt testimony, consistent with case law on presumption of truthfulness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Applicants cite Supreme Court's Chan decision for benefit of doubt principle, alleging RAD conflicted with it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court rejects applicants' claim that RAD conflicted with Chan and UNHCR Handbook; coherence and plausibility are key in credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD decision consistent with Chan",
+    "benefit of doubt conditional",
+    "credibility based on coherence and plausibility"
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court rejects applicants' claim RAD applied wrong threshold on credibility; RAD disagreed that date was peripheral, not triviality threshold.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Applicants challenge several RAD credibility findings; court agrees enough are unreasonable to render decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Applicants frame issue as failure to consider all evidence, but court finds RAD considered evidence; issue is findings drawn from evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Court finds RAD's conclusion on translation inconsistency unreasonable for ignoring complaint context supporting applicants' meaning.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Court notes complaint's later sentence supports applicants' translation that Mr. Ramos had not yet delivered drugs when complaint filed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Court finds it unreasonable to emphasize single phrase translation without full context, leading to erroneous credibility assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "RPD found Mr. Ramos's conduct inconsistent for not reporting drug deliveries; RAD rejected applicants' arguments for three reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD inconsistency finding",
+    "RAD rejection of arguments",
+    "three reasons given"
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court finds RAD's second reason unreasonable; Mr. Ramos was not asked why he didn't report and non-reporting is not a negative inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court agrees RAD correctly rejected Charter argument but finds it unreasonable to reject other applicants' arguments on non-reporting.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The RAD upheld the RPD's finding that the applicants' credibility was undermined because their BOC Form mentioned threats and harassment but not extortion, and noted no extortion attempt in Ms. Perez's complaints.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Ms. Perez's June 26, 2017 complaint to the DIF clearly states an extortion demand, which the Minister admitted but the RAD apparently missed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The RAD's error may stem from a missing page in the complaint copy in the CTR, but the full document was available in the RPD record before the RAD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Minister's claim that the applicants did not mention the DIF complaint on appeal is rejected; the applicants referred to it and the RAD understood the reference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The RAD's error on the extortion allegation makes its negative credibility finding unreasonable, as the extortion claim was in a prior document, not fabricated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Minister argues the RAD's errors are not determinative, but the court finds them central enough to render the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Three of five RAD credibility findings were unreasonable, so the court finds the RAD's decision cannot stand and must be reconsidered.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The applicants argue the RAD erred by failing to refer to the National Documentation Package (NDP) on Mexico, which they say is important evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court rejects the applicants' NDP argument, noting the RAD is not required to address evidence not raised before it, and the NDP was not referenced by parties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court distinguishes Hooper, noting the RAD's role differs from the RPD's and it is not unreasonable for the RAD not to mention the NDP if not raised by the appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The NDP is not relevant to the credibility issues raised, which focus on the applicants' specific allegations of violence and extortion by the Knights Templar.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court allows the judicial review, finding several RAD credibility findings unreasonable, and remits the appeal to a differently constituted RAD panel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "No serious question of general importance was proposed, so no question is certified for appeal.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

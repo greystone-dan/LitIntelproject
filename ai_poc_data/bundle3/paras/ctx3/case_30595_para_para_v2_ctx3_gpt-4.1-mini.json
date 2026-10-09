@@ -1,0 +1,223 @@
+{
+ "case_id": 30595,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0043796
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "speakers": {
+   "below": 2,
+   "court": 18,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the judicial review of a decision denying the Applicant's application for permanent residence under the Pathway Program, which required proof of specific work hours during the COVID-19 pandemic. The Applicant challenged the decision as unreasonable and unfair, particularly regarding the counting of medical leave hours. The court found the Officer's decision reasonable and fair, dismissing the judicial review while acknowledging the Applicant's significant pandemic contribution.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 10,
+    "label": "Background and Tribunal Decision",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Issues and Legal Standards",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 27,
+    "label": "Analysis of Reasonableness and Procedural Fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 28,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Applicant's application was denied for not proving 120 hours of direct patient care work between March 13 and August 14, 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court finds the Officer's decision reasonable and fair, dismissing the judicial review but acknowledging the Applicant's significant pandemic contribution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision reasonable",
+    "procedural fairness upheld",
+    "application dismissed",
+    "Applicant's contribution acknowledged"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Pathway Program was created on November 23, 2020, to grant PR to refugee claimants in healthcare during COVID-19, running from Dec 14, 2020 to Aug 31, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Eligibility required 120 hours of direct patient care between March 13 and August 14, 2020, and 6 months full-time or 750 hours part-time before August 31, 2021, with paid work except certain internships.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Paid or unpaid sick leave counts toward work requirements only if COVID-19 related, with specific conditions for the First and Second Work Periods.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant worked as a PSW in Montreal and Toronto but only completed 42 hours during the First Work Period due to injury and medical leave from April to August 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Applicant applied for permanent residence under the Pathway Program in June 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer refused the application because the Applicant worked only 42 hours during the First Work Period and medical leave counted only if COVID-19 related.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The judicial review raises two issues: whether the Officer's decision was reasonable and whether procedural fairness was breached.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Reasonableness review requires decisions to be transparent, intelligible, justified, and based on facts and law, intervening only if flaws make the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Fairness is assessed by the nature of rights and circumstances, with correctness as the best standard for procedural fairness review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Applicant contends the refusal was unreasonable and unfair because the Officer interpreted the hours requirement disjunctively and the Applicant met one period despite injury.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by not counting medical leave time toward the First Work Period as allowed by the Pathway Program exception.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's arguments unpersuasive despite sympathy for her circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer's refusal letter shows the Applicant failed to satisfy one or the other work period, not that only one is required, consistent with program terms.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The refusal letter's use of 'or' may cause uncertainty but the Officer's rationale clarifies both work periods are required, a reasonable interpretation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Officer reasonably concluded the Applicant's medical leave was not countable toward the First Work Period's minimum hours.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Pathway Program counts sick leave only if COVID-19 related for the First Work Period; the Applicant's injury was unrelated, so leave was excluded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer's decision is transparent, intelligible, and justified when considering the program and Applicant's circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Applicant did not identify any specific fairness breach, no evidence was rejected unfairly, so Baker factors need not be addressed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Applicant claims the Officer failed to exercise discretion, but discretion is reviewed for reasonableness and no discretion was identified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's fettering discretion claim, noting the Pathway Program does not confer discretion to waive requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Adequacy of reasons relates to reasonableness, not fairness breach; the Officer's decision was reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

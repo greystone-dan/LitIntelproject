@@ -1,0 +1,196 @@
+{
+ "case_id": 32263,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0040872
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "speakers": {
+   "court": 14,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Applicant Lirui Shao's request for a stay of removal to China pending judicial review or PRRA eligibility, challenging the CBSA's refusal to defer removal. The Federal Court granted the stay, finding that the Applicant presented a quite strong case that the Officer erred in assessing evidence and risk. The court balanced the irreparable harm to the Applicant against the Respondent's interest and ruled in favor of the Applicant.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Applicant's Arguments and Evidence",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 6,
+    "label": "Assessment of New Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Legal Test for Stay and Serious Issue Threshold",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 15,
+    "label": "Analysis of Officer's Errors and Serious Issue Finding",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 17,
+    "label": "Irreparable Harm Assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 19,
+    "label": "Disposition: Stay Granted",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "Applicant Lirui Shao challenges a CBSA officer's refusal to defer his removal to China, seeking a stay until his judicial review or PRRA eligibility. Issues include whether Shao shows a strong case against the deferral refusal, if irreparable harm would occur without a stay, and the balance of convenience. The court examines new evidence of political persecution risk, errors in the officer's assessment, and the adequacy of internet searches. It finds Shao meets the elevated threshold for a serious issue, establishes irreparable harm, and that the balance favors a stay until judicial review or PRRA eligibility.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Applicant Lirui Shao seeks a stay of removal to China until his judicial review or PRRA eligibility, challenging CBSA's refusal to defer removal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks stay of removal",
+    "Underlying ALJR challenges CBSA deferral refusal"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court grants the motion to stay the Applicant's removal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Applicant is a Chinese citizen who arrived in 2023, filed a refugee claim rejected by RPD and RAD, and had leave denied for judicial review in April 2025.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's background and refugee claim",
+    "RPD and RAD refusals",
+    "Leave for judicial review denied"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Applicant requested CBSA to defer removal until PRRA eligibility on April 30, 2026, per IRPA s.112(2)(c)(i).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Applicant argues changed circumstances with new evidence of family threats, political activities, associations, media mentions, and party membership.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New evidence of family threats",
+    "Additional political activities",
+    "Association with dissident",
+    "Media articles mentioning Applicant",
+    "Membership in Chinese Democratic Party"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The new evidence does not suggest a new risk but may further substantiate previously considered risk allegations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The stay test is contextual, asking if granting the injunction is just and equitable in all circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The serious question threshold is low, requiring only that a ground in the ALJR is not frivolous or vexatious.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "A higher threshold applies for deferral refusal challenges; the applicant must show a 'quite strong case' to satisfy the serious issue prong.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court finds a 'quite strong case' that the Officer erred, justifying judicial review intervention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Officer's claim that Media Articles exclude mention of Applicant contradicts evidence showing articles naming and depicting him, raising doubt if Officer reviewed them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Officer's internet search likely ignored Mandarin sources, missing relevant information, which may raise a serious issue.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "These findings suffice to meet the serious issue test; other grounds need not be addressed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Applicant's evidence of errors and personalized risk is sufficient to establish irreparable harm.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The limited stay's benefit to Applicant outweighs Respondent's interest in immigration law enforcement; balance favors Applicant; stay granted until judicial review or PRRA eligibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Limited duration of stay",
+    "Applicant's harm outweighs Respondent's interest",
+    "Stay granted until judicial review or PRRA eligibility"
+   ]
+  }
+ ]
+}

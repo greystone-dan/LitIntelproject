@@ -1,0 +1,273 @@
+{
+ "case_id": 29702,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0045684
+ },
+ "verification": {
+  "paragraphs": 30,
+  "summaries": 30,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "speakers": {
+   "court": 25,
+   "party": 3,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review application by the Applicant challenging a Pre-Removal Risk Assessment (PRRA) decision that denied his claim of risk of persecution if returned to Cameroon. The Applicant, claiming political persecution due to involvement with the SCNC, had his refugee claim refused by the Refugee Protection Division (RPD) and the Refugee Appeal Division (RAD), findings which the PRRA Officer upheld. The Federal Court reviewed the reasonableness of the PRRA Officer's decision and procedural fairness issues, ultimately deferring to the Officer's findings and dismissing the Applicant's challenge.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and prior decisions",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 13,
+    "label": "PRRA Officer's findings and evidence assessment",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 16,
+    "label": "Issues on review",
+    "kind": "issue"
+   },
+   {
+    "first": 19,
+    "last": 37,
+    "label": "Standard of review and legal principles",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 50,
+    "last": 125,
+    "label": "Analysis and application of standard of review",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court introduces the judicial review application of a PRRA decision denying risk of persecution for the Applicant if returned to Cameroon.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant claims membership in SCNC since 2006 and alleges detention, arrest, and torture for political activities, going into hiding in 2014 due to a warrant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD refused the Applicant's refugee claim in June 2015, doubting his credibility, documents, and risk of persecution due to political involvement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RAD affirmed the RPD's refusal in October 2015, finding the Applicant's allegations not credible and documents fraudulent due to significant errors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Officer found the new documents insufficient to counter RPD and RAD's findings that the Applicant's documents and arrest warrant were fraudulent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant submitted additional documents including his father's refugee claim, letters, affidavits, an SCNC list, and a personal affidavit about political activities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Officer found the Applicant's father's refugee claim insufficient to support the Applicant's allegations or claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Officer found the additional letters and affidavits insufficient to prove SCNC membership or ongoing government interest in the Applicant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Officer gave limited weight to the SCNC registration list due to lack of corroborating evidence about its origin or source.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Officer found insufficient evidence that the Cameroonian government knew of or was interested in the Applicant's activities in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Officer concluded there was only a mere possibility of risk of persecution or torture to the Applicant under IRPA provisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Respondent submits issues on the applicable standard of review and whether the PRRA Officer's decision was reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court identifies the primary issue as whether the Officer's decision was reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court cites Supreme Court of Canada in Vavilov that it should not reweigh evidence unless exceptional circumstances exist, which are absent here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal in Doyle confirms the court's role is not to reweigh or reassess evidence on judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court states the standard of review for procedural fairness is correctness, per Supreme Court of Canada in Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court explains that the standard of review for merits of administrative decisions is presumed to be reasonableness unless law dictates otherwise.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court agrees the Officer did not assess the Applicant's father's Ghanaian claim, as summarized earlier, and will not reweigh evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's argument that the Officer erred in assessing the mother's letter, viewing it as a matter of weight not to revisit.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's claim that the Officer failed to assess the sister's letter and medical certificate, noting no obligation to address every detail.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court agrees the Officer did not review each document but states there is no obligation to do so.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court finds the Officer reasonably required more details about the SCNC list's origin and source to assess its credibility and sufficiency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court finds the RPD and RAD's findings of fraudulent documents reasonable due to significant departures from objective evidence, rejecting Applicant's reliance on Efosi.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court outlines the reasonableness standard requiring a rational, justified decision based on facts and law, per Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court explains reasonableness review considers justification, transparency, and intelligibility in context of legal and factual constraints.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court states the burden is on the challenger to show flaws central enough to render the decision unreasonable, per Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court holds that procedural fairness standard of review remains correctness, relying on established jurisprudence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "Ms. Avril concedes no error in not holding an oral hearing and accepts credibility findings on documents do not require one under the Act and Regulations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court explains that under correctness review, it independently analyzes and decides if the tribunal's decision was correct, substituting its view if not.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The court states it must not reweigh evidence absent exceptional circumstances and must defer to the decision maker's factual findings.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

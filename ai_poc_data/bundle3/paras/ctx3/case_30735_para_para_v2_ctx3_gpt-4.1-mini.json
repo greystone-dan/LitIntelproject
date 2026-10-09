@@ -1,0 +1,214 @@
+{
+ "case_id": 30735,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0036676
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 2,
+  "speakers": {
+   "court": 17,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves the SEJ Estate Trust as the applicant and the Minister of Finance of Canada as the respondent. The applicant sought to amend its claim and compel the Minister to honor certain financial obligations, but the court found the claim legally baseless and manifestly without merit. Consequently, the court dismissed the applicant's motion to amend and granted the respondent's motion to strike the claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Introduction and motions overview",
+    "kind": "other"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Applicant's burden and failure to support amendment motion",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 15,
+    "label": "Representation requirements and procedural issues",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 22,
+    "label": "Analysis of the claim's legal basis and merits",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 23,
+    "label": "Disposition and order",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court is seized of two motions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The respondent, Minister of Finance of Canada, filed a motion to strike the applicant's claim under Rule 369 for dismissal without amendment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The applicant filed a motion seeking the court's permission to amend its claim and notice of application, which the respondent wants struck.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's motion to amend and grants the respondent's motion to strike the applicant's claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court explains the applicant bears the burden to prove amendment is justified considering injustice, interests of justice, and reasonable chance of success.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court states it cannot analyze the amendment motion without evidence showing the proposed amendments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The applicant's motion lacks affidavit evidence and a draft amended pleading, so it fails to meet the burden and must be rejected.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The applicant filed written submissions with a draft amended notice and affidavit in response, but these are inadmissible under Rule 369(3) and are rejected.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Although not required to decide, the court considers whether the applicant must be represented by a lawyer for the motion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Rule 120 requires corporations and similar entities to be represented by counsel unless the court permits otherwise; the applicant trust is none of these.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court explains a trust is not a legal person but is administered by a trustee who can act in court for the trust.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Rule 112(1) allows trustees to initiate proceedings without involving beneficiaries, but the trustee must be represented by counsel unless the court orders otherwise.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The applicant failed to file a response within the deadline, so the court proceeds on the respondent's motion without opposition.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court must realistically assess the essential nature of the applicant's claim to see if it is manifestly defective or lacks a valid cause of action.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court will consider only the notice of application and incorporated documents, excluding affidavit evidence, on the motion to strike.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The applicant's notice seeks orders compelling the Minister to honor claims and pay $100,000 in damages.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The notice alleges the Minister failed to respond and honor obligations regarding bills of exchange and securities transfers.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The notice lacks legal basis for the claim; the Minister has no special duty to the applicant as a public official.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "There is no legal basis in the notice for damages against the Minister.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Even assuming the facts are true, the claim is manifestly without merit and cannot succeed; amendment would not help.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court orders the applicant's motion to amend dismissed, grants the respondent's motion to strike, and reserves costs with a timetable for submissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dismiss amendment motion",
+    "Grant strike motion",
+    "Reserve costs and set timetable"
+   ]
+  }
+ ]
+}

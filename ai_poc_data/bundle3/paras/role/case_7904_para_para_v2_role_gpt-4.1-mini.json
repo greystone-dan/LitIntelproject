@@ -1,0 +1,404 @@
+{
+ "case_id": 7904,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.006198400000000001
+ },
+ "verification": {
+  "paragraphs": 42,
+  "summaries": 42,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "below": 11,
+   "court": 18,
+   "party": 12,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Mr. Adefisan's judicial review application challenging the Refugee Appeal Division's (RAD) dismissal of his refugee claim, which was originally denied by the Refugee Protection Division (RPD) due to credibility concerns. Mr. Adefisan alleged threats and persecution from his uncle related to family inheritance disputes, but the RAD found inconsistencies and omissions in his testimony undermining his credibility. The Federal Court dismissed the judicial review, finding the RAD's credibility assessment reasonable and supported by the evidence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 35,
+    "label": "Analysis of credibility findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 41,
+    "label": "Further analysis of omissions and cumulative credibility concerns",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 42,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "below",
+   "summary": "The RAD dismissed Mr. Adefisan's appeal from the RPD's denial of his refugee claim due to credibility concerns about inconsistencies in his testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD decision",
+    "RPD decision",
+    "credibility concerns"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court dismisses Mr. Adefisan's judicial review application, finding the RAD's assessment of discrepancies reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Mr. Adefisan claims family conflict over inheritance with his uncle, who threatens him with voodoo and harm if he doesn't relinquish property rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Mr. Adefisan fled to the US in 2017 due to threats, returned to Nigeria to confront his uncle, who allegedly used voodoo on his daughter, prompting relocation of his daughter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "After his father's death in 2017, Mr. Adefisan's uncle allegedly burglarized his property; Mr. Adefisan did not report it but heard threats second-hand.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "In May 2018, Mr. Adefisan traveled to the US, then crossed into Canada seeking protection after being refused accommodation by another uncle's wife.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RPD denied Mr. Adefisan's claim in July 2019, doubting his credibility on key issues including death certificate and uncle's threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RAD confirmed the RPD's denial in November 2019, agreeing on credibility issues despite some RPD errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The sole issue is whether the RAD's credibility assessment of Mr. Adefisan was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "There is agreement that the reasonableness standard applies to RAD credibility findings, citing Supreme Court precedents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Mr. Adefisan argues the RPD and RAD erred on credibility, citing the presumption of truthfulness and need for concrete reasons to disbelieve testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Mr. Adefisan contends the RAD was insensitive to his explanations for discrepancies about his uncle's influence, threats, and confrontation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The court introduces the first issue for analysis: the uncle's influence with police and politicians.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Mr. Adefisan testified he did not report burglaries due to his uncle's influence and submitted two unsigned affidavits supporting this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RPD found Mr. Adefisan's explanation for omitting his uncle's influence in his BOC implausible and expected such an explanation if true.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RAD agreed with the RPD and found the uncle's influence with police and politicians was not established on the balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court finds nothing unreasonable in the RPD and RAD rejecting Mr. Adefisan's explanation about wanting to forget his uncle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Mr. Adefisan argues the RAD misidentified the persecutor as police rather than his uncle and wrongly treated the omission as substantive, not technical.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Mr. Adefisan submits his oral testimony added detail rather than altered his story, citing a case to argue omission should not be fatal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court disagrees with Mr. Adefisan's submissions regarding the omission and its impact on credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds the omission central to the claim and reasonable for the RAD to doubt credibility due to lack of explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The uncle is mentioned throughout the BOC, so the RAD reasonably doubted Mr. Adefisan's claim he wanted to forget his uncle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Mr. Adefisan introduced a new central element in testimony, not a mere technical omission or detail addition.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD reasonably gave no weight to two unsigned affidavits, a conclusion not challenged by Mr. Adefisan.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Overall, the court finds the RAD's conclusions on the uncle's influence issue reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Mr. Adefisan's BOC mentioned his uncle would 'deal with' him; at RPD hearing he added the uncle threatened to kill him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RPD rejected the omission of a death threat in the BOC as too important; the RAD agreed it weighed against credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The RAD found the death threat was a different type of threat than those mentioned in the BOC, rejecting Mr. Adefisan's explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "Mr. Adefisan argues he only added details and cites cases to say negative credibility inferences are unreasonable in such cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court finds the RAD reasonably distinguished the death threat as materially different from generalized threats in the BOC.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds Ahangaran does not support Adefisan's argument about distinguishing omitted facts from added testimony details.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds the uncle's threats in this case are substantial and related to Adefisan's persecution claim, justifying RAD's negative credibility inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds RAD engaged with Adefisan's explanation but reasonably rejected it as implausible, unlike in Osagie.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court disagrees that RAD read threats in isolation, noting uncle's voodoo threats do not imply personal killing threats to Adefisan.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court finds no reviewable errors; RAD reasonably drew negative credibility inferences on this issue and Adefisan's story.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "below",
+   "summary": "The RPD asked why Adefisan stayed in Nigeria despite threats; he said he stayed to confront his uncle about family property in December 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "The RPD asked why the confrontation was omitted from Adefisan's BOC; he said he wanted to forget it, but RAD found this omission harmed his credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "RAD noted Adefisan returned from the US to confront his uncle, making the omission significant and concluding he likely did not confront his uncle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "party",
+   "summary": "Adefisan concedes the omission was unhelpful; the court agrees RAD's conclusion on credibility was reasonable given the omission's significance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "below",
+   "summary": "RAD found multiple discrepancies fatal to Adefisan's credibility, doubting key elements of his claim including threats, police reporting, and confrontation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court agrees RAD reasonably found cumulative omissions undermined Adefisan's overall credibility, citing case law on cumulative inconsistencies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court dismisses the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

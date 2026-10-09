@@ -1,0 +1,204 @@
+{
+ "case_id": 31072,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0024976
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 7,
+   "court": 11,
+   "evidence": 1,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves the Applicant, a Filipino citizen residing in Canada since 2002, seeking judicial review of a negative humanitarian and compassionate (H&C) decision by Canadian immigration authorities. The Applicant argued that the decision failed to properly consider her significant family ties and caregiving responsibilities, particularly for her disabled nephew Aaron and elderly parents. The Federal Court found the decision unreasonable due to errors in considering critical evidence and granted the judicial review, setting aside the decision and ordering a new determination by a different officer.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and Applicant's circumstances",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 13,
+    "label": "Evidence regarding caregiving and family ties",
+    "kind": "background"
+   },
+   {
+    "first": 14,
+    "last": 17,
+    "label": "Analysis of decision's errors and unreasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicant, a Filipino citizen residing in Canada since 2002, seeks judicial review of a negative H&C decision dated June 21, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court grants the Applicant's judicial review application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant's family, including parents, siblings, nieces, nephews, and partner, all live in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant's H&C application highlights her close family ties and her role caring for her brother's and sister's children, especially her nephew Aaron with paralysis and epilepsy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant is the main caretaker for her elderly parents, financially stable, self-sufficient, and active in her community and church.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicant submitted evidence of psychological suffering if deported, lack of support and employment prospects in the Philippines as a 48-year-old absent for 20 years.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The key issue is whether the Decision is reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Supreme Court of Canada presumes reasonableness in reviewing administrative decisions per Vavilov at para 16.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "To set aside a decision, serious shortcomings must exist beyond superficial flaws, per Vavilov at para 100.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "evidence",
+   "summary": "Evidence shows Aaron had a stroke at age two causing right-side paralysis and epilepsy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Officer acknowledged the Applicant cared for nieces and nephews but noted they are adults needing little care, including Aaron.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Applicant provides ongoing care to Aaron, managing his medication and acting as a second mother due to his physical and emotional dependence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Applicant is the main caregiver for her elderly parents aged 96 and 92.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Officer failed to address Aaron's health issues despite prior recognition that he cannot live independently due to disability.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Failure to consider critical evidence can infer erroneous findings or ignoring contradictory evidence, citing Laifatt v Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Officer's failure to consider Aaron's profile and the Applicant's role are reviewable errors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "These errors are significant and undermine the Decision's justification, intelligibility, and transparency per Vavilov para 100.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The application is granted for the reasons stated above.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Decision is set aside and the matter is returned to a different Officer for redetermination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "There is no question for certification.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

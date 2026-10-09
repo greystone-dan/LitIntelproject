@@ -1,0 +1,374 @@
+{
+ "case_id": 42855,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0060296
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 34
+  },
+  "multi_idea_paragraphs": 19,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The Attorney General of Canada appealed the Canadian International Trade Tribunal's (CITT) classification of a Fisher-Price product as \"other toys\" rather than \"upholstered seats.\" The dispute centered on whether the CITT was bound to follow a World Customs Organization (WCO) Classification Opinion that classified the product as furniture. The Federal Court of Appeal found no legal error in the CITT's decision to deviate from the WCO opinion based on sound reasons, including expert evidence, and dismissed the appeal.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Overview and outcome",
+    "kind": "other"
+   },
+   {
+    "first": 4,
+    "last": 18,
+    "label": "Background and factual history",
+    "kind": "background"
+   },
+   {
+    "first": 19,
+    "last": 26,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 27,
+    "last": 33,
+    "label": "Analysis of CITT's decision and WCO opinion",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 34,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Attorney General of Canada appeals the CITT's classification of a Fisher-Price product as \"other toys\" instead of \"upholstered seats.\"",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal by Attorney General",
+    "product classification dispute",
+    "CITT decision",
+    "classification categories"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal concerns the relationship between the CITT and the WCO Harmonized System Committee regarding tariff classification.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The CITT may deviate from WCO opinions with sound reason, including contradictory expert evidence; the court finds no legal error and would dismiss the appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CITT's authority to deviate",
+    "contradictory expert evidence as sound reason",
+    "court's view to dismiss appeal"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Mattel requested an advance ruling from CBSA on June 16, 2017, describing the product as a donut-shaped seat suspended by springs from steel posts and base.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Mattel sought classification of the product under tariff item No. 9503.00.00 as \"other toys.\"",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "CBSA classified the product under heading 94.01 for seats; Mattel requested review but CBSA maintained classification; Mattel appealed to CITT.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CBSA classification",
+    "Mattel's review request",
+    "appeal to CITT"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The CITT described the goods and legal framework, focusing on whether to apply a WCO Classification Opinion conflicting with expert evidence and prior decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "In a prior decision (Mattel 1), the CITT classified virtually identical goods as toys.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "After Mattel 1, CBSA requested WCO Committee opinion, which classified similar products as furniture; the opinion was published December 1, 2015.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CBSA requested WCO opinion",
+    "WCO classified as furniture",
+    "publication date"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The June 2017 advance ruling followed the WCO opinion; CBSA classified goods accordingly; Mattel appealed to CITT, which overturned CBSA's decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "advance ruling timing",
+    "CBSA classification",
+    "CITT overturn"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "WCO and CBSA classified goods under heading 94.01 for seats, but WCO notes restrict this to goods not classifiable elsewhere; CITT noted classification conflict with Mattel's proposed Chapter 95 classification.",
+   "ideas": "multiple",
+   "idea_list": [
+    "WCO classification under 94.01",
+    "restriction in WCO notes",
+    "conflict with Mattel's Chapter 95 classification"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "CITT held goods classifiable as \"other toys\" and not bound by WCO opinion, citing Best Buy 1 that WCO opinions should be followed absent sound reason; CITT found two reasons to deviate.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CITT's classification as toys",
+    "not bound by WCO opinion",
+    "two reasons to deviate"
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "First, expert evidence favored Mattel's classification, showing goods intended for amusement, not utilitarian seating, supporting classification as toys under explanatory notes.",
+   "ideas": "multiple",
+   "idea_list": [
+    "expert evidence on intended use",
+    "CBSA's utilitarian argument",
+    "CITT's amusement purpose finding"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Second, CITT found WCO opinion and process flawed, lacking evidence WCO considered product's essential intent as a toy per explanatory notes.",
+   "ideas": "multiple",
+   "idea_list": [
+    "WCO opinion process flawed",
+    "lack of consideration of essential intent",
+    "relevance to classification"
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "CITT found jumpers designed for entertainment, thus fitting heading 95.03's explanatory note for toys.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "CITT questioned WCO Committee's internal process and found rationale legally and factually questionable due to lack of adversarial testing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "questioning WCO process",
+    "legal and factual issues",
+    "lack of adversarial process"
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "CITT concluded sound reason existed to not follow WCO opinion and classified products as toys designed for infant entertainment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Canada appealed the CITT's decision to this Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The appeal raises issues of the appropriate standard of review and whether CITT erred by not following the WCO Classification Opinion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The standard of review for CITT questions of law is correctness, as established by Vavilov and subsequent cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review is correctness",
+    "citing Vavilov and other cases"
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Canada frames appeal as two legal questions: CITT's authority to \"reach behind\" and overrule WCO opinion, and whether CITT erred interpreting WCO opinion and notes to avoid conflict.",
+   "ideas": "multiple",
+   "idea_list": [
+    "authority to overrule WCO opinion",
+    "interpretation of WCO opinion and notes"
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Legal principle: CITT can contradict WCO opinion but must show sound reasons; applies also to WCO Explanatory Notes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The issue is whether CITT had sound reasons to classify goods differently from the CBSA's WCO-based classification.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Section 11 of Customs Tariff requires \"regard\" to WCO documents; court clarifies this means consider and respect WCO opinions unless sound reason to disregard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legal standard of \"regard\"",
+    "WCO opinions not binding but must be considered",
+    "sound reason needed to disregard"
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The CITT's standard to not apply a Classification Opinion is flexible; it cannot disregard but may not apply if sound reason exists.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Expert evidence can provide sound reason; CITT relied on expert evidence about product purpose to justify differing classification; no legal error found.",
+   "ideas": "multiple",
+   "idea_list": [
+    "expert evidence as sound reason",
+    "CITT's reliance on expert evidence",
+    "no legal error"
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "CITT criticized WCO Committee's decision process and CBSA's request for WCO opinion after Mattel 1 decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CITT's criticism of WCO process",
+    "CITT's condemnation of CBSA's WCO request"
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court disagrees with CITT; CBSA can request WCO guidance after CITT decision; WCO guidance is part of its purpose; CBSA's request not circumvention.",
+   "ideas": "multiple",
+   "idea_list": [
+    "disagreement with CITT",
+    "CBSA's right to request WCO guidance",
+    "WCO's role",
+    "no circumvention"
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "CITT implied CITT decisions prohibit CBSA from seeking WCO guidance; court cites Bri-Chem allowing exceptions when facts differ and bona fide action.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CITT's implication",
+    "court cites Bri-Chem",
+    "exceptions for different facts and good faith"
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court finds new WCO opinion relevant and CBSA's engagement with WCO justified; no evidence CBSA acted in bad faith.",
+   "ideas": "multiple",
+   "idea_list": [
+    "new WCO opinion relevant",
+    "CBSA's principled basis",
+    "no bad faith"
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The CITT was not bound by the CBSA's WCO Classification Opinion and correctly relied on expert evidence about the jumper's intended use to classify it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CITT not bound by WCO Opinion",
+    "CITT relied on expert evidence",
+    "No legal error in CITT's approach"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court is unconvinced that the CITT's interpretation of the Classification Opinion contradicted the Explanatory Notes, as the CITT found the jumpers were primarily for amusement, not seating.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds no reviewable legal errors made by the CITT.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal with costs, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

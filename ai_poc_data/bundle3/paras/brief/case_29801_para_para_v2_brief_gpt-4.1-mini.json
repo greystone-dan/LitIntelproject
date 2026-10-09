@@ -1,0 +1,180 @@
+{
+ "case_id": 29801,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.003566
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "below": 1,
+   "party": 6,
+   "court": 7
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application by the Minister challenging a decision of the Immigration Appeal Division (IAD) that allowed Ms. Cabigas's sponsorship appeal on humanitarian and compassionate (H&C) grounds. The Minister alleges the IAD breached procedural fairness by not permitting submissions on H&C as agreed in a two-phase process. The Federal Court found a breach of procedural fairness by the IAD and ordered the matter to be remitted to the original panel for reconsideration on H&C submissions.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Parties' positions on procedural fairness",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Court's analysis on procedural fairness breach",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Disposition and remedy",
+    "kind": "disposition"
+   },
+   {
+    "first": 14,
+    "last": 14,
+    "label": "Certification question",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "The applicant is the Minister of Citizenship and Immigration, seeking judicial review of the Immigration Appeal Division's (IAD) decision allowing Ms. Rogelyn Cabigas's appeal to sponsor her husband on humanitarian and compassionate (H&C) grounds. The Minister challenges the IAD's procedural fairness, arguing the IAD failed to follow the agreed two-phase process that would allow submissions on H&C issues after substantive issues were decided. Key issues include whether the IAD breached procedural fairness by not providing a proper opportunity for H&C submissions, whether the two-phase process was clearly adopted, and if the breach warrants invalidating the decision or remitting the matter for reconsideration.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "below",
+   "summary": "The Respondent, Ms. Cabigas, a Filipino citizen and Canadian permanent resident, applied to sponsor her husband; the application was denied but the IAD allowed the appeal on H&C grounds.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's identity and status",
+    "Sponsorship application and denial",
+    "IAD's decision allowing appeal on H&C grounds"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Minister applies for judicial review, alleging the IAD breached procedural fairness by not allowing submissions on H&C as agreed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Minister submits the IAD and Parties agreed on a two-phase process: first substantive issues, then H&C submissions if needed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Procedural fairness questions are legal issues reviewed on a correctness standard considering context and factors from Baker and CPR cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Respondent argues no fairness breach occurred, claiming the Minister had notice and opportunities to submit on H&C, and the IAD properly exercised discretion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No breach of fairness",
+    "Minister had notice and opportunities",
+    "IAD's discretion to decide without oral hearing"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Respondent admits the two-phase approach was discussed but not clearly adopted, denies legitimate expectation, and says Minister's lack of prejudice evidence is fatal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Two-phase approach not clearly adopted",
+    "No legitimate expectation",
+    "Minister failed to show prejudice"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court finds the IAD proposed and the Parties agreed to a two-phase process at the June 15, 2021 hearing, with substantive issues first and H&C later if needed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD proposed two-phase process",
+    "Parties agreed at hearing",
+    "H&C to be addressed after substantive issues"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Despite conditional language, the court finds a clear understanding that Parties would get a further chance to submit on H&C if required after substantive issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The IAD's discretion does not excuse its failure to follow the agreed process, nor does the Minister's prior H&C submissions negate the separate phase understanding.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD's discretion not a defense",
+    "Minister's prior H&C submissions irrelevant"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The IAD's failure to follow the process was a clear breach of fairness, invalidating the decision as no exceptions apply here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Respondent argues that if breach is found, the matter should be remitted for redetermination on H&C by the same panel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Minister argues remitting to the same panel is inappropriate since it already ruled positively on H&C without Minister's evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Given the lengthy hearings and significant interests, the court finds remitting to the original panel for H&C reconsideration with submissions is appropriate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "No question for certification arises as none was identified by the Parties.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

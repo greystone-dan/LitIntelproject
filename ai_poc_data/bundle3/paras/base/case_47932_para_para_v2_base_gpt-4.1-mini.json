@@ -1,0 +1,608 @@
+{
+ "case_id": 47932,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.010208000000000002
+ },
+ "verification": {
+  "paragraphs": 74,
+  "summaries": 74,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 19,
+   "below": 14,
+   "court": 37,
+   "evidence": 3,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Haitian claimants seeking refugee protection in Canada, alleging persecution and risk of harm in Haiti and Brazil. The Minister argues the claimants have permanent resident status in Brazil, which would exclude them from refugee protection. The tribunal found the female claimant excluded due to her Brazilian permanent residence and rejected both claimants' refugee claims based on credibility issues and lack of serious risk, dismissing their claims.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 15,
+    "label": "Background and parties' claims",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Tribunal's initial findings",
+    "kind": "other"
+   },
+   {
+    "first": 19,
+    "last": 29,
+    "label": "Female claimant's status and exclusion",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 42,
+    "label": "Male claimant's status and female claimant's credibility issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 53,
+    "label": "Country conditions in Brazil and risk assessment for female claimant",
+    "kind": "analysis"
+   },
+   {
+    "first": 54,
+    "last": 71,
+    "label": "Male claimant's credibility and risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 72,
+    "last": 74,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimants, Haitian citizens, allege they are Convention refugees and persons in need of protection under the Immigration and Refugee Protection Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimants' nationality",
+    "Claimants' refugee status claim"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The male claimant states his father was attacked in 2004 in Gona\u00efves due to his employment, prompting the family to move and the claimant to go to the Dominican Republic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "In 2013, the male claimant was involved in politics with his brother, refused to join the PHTK party, and was attacked as a result.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The male claimant left Haiti for the Dominican Republic in 2013, returned to search for his missing brother, then went to Brazil in 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The male claimant returned to Haiti in 2015, faced suspicion, then went back to Brazil, later to the US in 2016, and claimed refugee protection in Canada in 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The male claimant fears returning to Haiti due to threats from those who disappeared his brother for refusing to join the PHTK.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The female claimant states her uncle raped and beat her in 2007 in Bellad\u00e8re, threatening her to keep silent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The female claimant told her mother, was later beaten and threatened with death by her uncle after encounters in the street.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The female claimant left Haiti for the Dominican Republic in 2007, then to Brazil in 2014 after facing difficulties and robbery.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The female claimant experienced racism and theft in Brazil, then traveled to the US in 2016 and claimed refugee protection in Canada in 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "After arriving in Canada, the female claimant learned her uncle had a visa for Brazil and was seen where she lived; he was a criminal in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The female claimant fears returning to Haiti due to risk of rape and death by her uncle or his associates.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Minister alleges the claimants are permanent residents of Brazil and that the male claimant obtained a VIPER visa in 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Minister states there is no indication the male claimant's Brazilian permanent resident status was cancelled, so he can return to Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Minister requests the RPD exclude the claimants from refugee protection under section 98 of the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The panel determines the female claimant is excluded from refugee protection under Article 1E of the Convention and section 98 of the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The panel determines the male claimant is not excluded under Article 1E of the Convention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The panel determines neither claimant qualifies as a Convention refugee or person in need of protection for reasons explained later.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The claimants established their identities with passports filed in the record.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Article 1E of the Convention excludes persons recognized by their country of residence as having rights like nationals.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The female claimant admits obtaining permanent residence in Brazil in 2015, receiving a residence card valid for ten years, which she lost.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The female claimant's name appears on a Brazilian government list of Haitians granted permanent residence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel concludes the female claimant obtained permanent resident status in Brazil based on evidence and testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The female claimant states she had work rights and some access to health care and education in Brazil, indicating social rights.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Documentary evidence shows permanent residents in Brazil have rights to work, study, social services, and re-entry.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court of Appeal ruled the relevant date for permanent residence status is the RPD hearing date, here in early 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel finds the female claimant is a permanent resident of Brazil as of the hearing dates, supported by evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The panel concludes the female claimant's status in Brazil is essentially like a national's, making her excluded under Article 1E.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The female claimant fears for her life in both Haiti and Brazil despite her permanent residence status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The male claimant alleges he was never granted permanent residence in Brazil but entered with a VIPER visa in 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The male claimant's inconsistent testimony about his permanent residence application in Brazil undermines his credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "male claimant's testimony on permanent residence",
+    "panel's doubts on credibility"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel doubts the male claimant's claim of not receiving permanent residence in Brazil but finds no evidence he was a permanent resident.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "The female claimant fears returning to Brazil due to robbery assaults and her uncle allegedly seeking revenge there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The female claimant heard from a friend that her uncle had gone to Brazil about a month before the hearing but lacks details on his whereabouts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "below",
+   "summary": "The female claimant testified her uncle could find her anywhere in Brazil by asking around, as he did in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel questions why the uncle waited nearly 10 years to search for the female claimant and why he searched Brazil after she left.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel finds the female claimant not credible and rejects her claim that her uncle is currently in Brazil seeking her to kill her.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "The female claimant alleges three robberies and assaults in Brazil, stating Haitians are often victims but unsure about Brazilians.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The female claimant's omission of a firearm detail in her assault account undermines her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The female claimant's inconsistent testimony about which assault caused work absence and injuries undermines her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The panel rejects counsel's argument on amendment chronology and finds multiple omissions in the female claimant's account undermine her credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "rejection of counsel's chronology argument",
+    "omissions undermine credibility"
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "below",
+   "summary": "The female claimant fears only general racism and mistreatment of Haitians upon returning to Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The panel acknowledges Brazil's economic decline and increased racism and discrimination against foreigners like Haitians.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "evidence",
+   "summary": "Documentary evidence shows discrimination and poverty among Afro-Brazilians, especially in outskirts and favelas.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "evidence",
+   "summary": "Evidence shows Brazil has high homicide rates with racial dimensions, disproportionately affecting Afro-Brazilian youth and involving police violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The panel notes the female claimant never alleged fear of police or state actions in Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "evidence",
+   "summary": "Evidence indicates Brazil's violence is linked to organized crime, with young black men from poor areas as frequent victims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The panel finds that violence against young black people is due to socio-economic factors, not targeted racial persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The panel states Haitians' victimization in Brazil does not mean they are targeted solely for being foreigners.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The panel acknowledges Haitians have been killed in Brazil but reasons for these murders are unclear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "below",
+   "summary": "The female claimant stated she experienced no problems in Brazil except losing her job during nearly three years there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The panel concludes the female claimant failed to prove a serious risk of persecution or cruel treatment if returned to Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Since the female claimant faces no risk in Brazil, the panel does not examine risks if she returns to Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "other",
+   "summary": "The claimants had three hearings between January and April 2018, with Brazil discussed first and male claimant's Haiti fears later.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The panel draws a negative inference from the male claimant's late amendment submission, finding his explanation unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "below",
+   "summary": "The male claimant fears persecution in Haiti by PHTK supporters due to political involvement, but his descriptions are inconsistent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "below",
+   "summary": "The male claimant gave inconsistent statements about his membership and involvement in the LAPEH party.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "below",
+   "summary": "The male claimant described limited political activities involving messaging and employment tasks with LAPEH and an NGO.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The male claimant denied being a party official despite forms indicating otherwise, blaming errors by form preparers.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The panel finds it surprising that errors occurred on forms completed with legal and interpreter assistance, implying inconsistency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The panel finds major discrepancies in the male claimant's amended account versus his testimony about his roles, undermining his credibility and suggesting exaggeration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "discrepancies in claimant's roles",
+    "credibility undermined",
+    "exaggeration suspected"
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The male claimant's return to Haiti to look for his missing brother despite threats undermines his credibility and subjective fear, as it exposed him to danger unnecessarily.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The male claimant's 2015 return to Haiti and vague threats against him, with no direct attacks, further undermine his credibility and subjective fear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The male claimant denies family involvement in the party, but the panel doubts his fear is justified given his limited political involvement and time elapsed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The male claimant's explanation for returning to Haiti instead of another country, and lack of research about the US, undermines his credibility and fear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The male claimant's amended account about his cousin's message differs from his hearing testimony, showing inconsistency about threats against him.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The panel notes the contradiction between the claimant's testimony and amended account about threats, with the claimant blaming the interpreter for the discrepancy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The interpreter's evasive testimony undermines her credibility; the claimant confirmed the amendment's accuracy by signing, so cannot blame others for discrepancies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The male claimant fails to reasonably explain contradictions between his testimony and amended account, further undermining his credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The male claimant did not submit any documents supporting his allegations about working for XXXX or his brother's disappearance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The panel finds the male claimant not credible and does not believe his allegations about working for magistrate XXXX or related problems with PHTK members.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The panel determines the female claimant is neither a Convention refugee nor a person in need of protection due to her permanent resident status in Brazil.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The panel concludes the male claimant is neither a Convention refugee nor a person in need of protection, finding no serious possibility of persecution or risk upon return.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The panel rejects the refugee protection claims of both claimants.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

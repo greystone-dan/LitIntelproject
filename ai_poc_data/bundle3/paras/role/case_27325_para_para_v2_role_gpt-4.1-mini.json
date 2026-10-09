@@ -1,0 +1,608 @@
+{
+ "case_id": 27325,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0106348
+ },
+ "verification": {
+  "paragraphs": 57,
+  "summaries": 57,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 10,
+  "speakers": {
+   "party": 6,
+   "court": 50,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 13,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant's challenge to his listing under the Haiti Regulations Schedule for 'Acts of Significant Corruption' and the adequacy of the Section 8 delisting process as a remedy before seeking judicial review. The Respondent, Canada (Attorney General), moved to strike the Applicant's judicial review application as premature and unexhausted, arguing the Section 8 process must be exhausted first. The Federal Court granted the motion to strike, finding the Section 8 Application an adequate alternative remedy and no exceptional circumstances justified bypassing it.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 6,
+    "label": "Court's initial findings and disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 8,
+    "last": 16,
+    "label": "Legal standards on motions to strike and affidavit admissibility",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 17,
+    "last": 23,
+    "label": "Affidavit evidence and relevance",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 27,
+    "label": "Judicial review prematurity and alternative remedies",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 34,
+    "label": "Factual background and Applicant's claims",
+    "kind": "background"
+   },
+   {
+    "first": 36,
+    "last": 41,
+    "label": "Regulatory framework for listing and delisting",
+    "kind": "background"
+   },
+   {
+    "first": 42,
+    "last": 45,
+    "label": "Adequacy of alternative remedies analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 49,
+    "label": "Applicant's speculative arguments rejected",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 56,
+    "label": "Decision-making process and distinct roles",
+    "kind": "analysis"
+   },
+   {
+    "first": 57,
+    "last": 60,
+    "label": "Applicant's procedural fairness arguments and remedy availability",
+    "kind": "analysis"
+   },
+   {
+    "first": 61,
+    "last": 63,
+    "label": "Court's conclusion on remedy adequacy and exhaustion",
+    "kind": "disposition"
+   },
+   {
+    "first": 65,
+    "last": 66,
+    "label": "Final disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Respondent AGC moves to strike the Applicant's application as premature, unexhausted, and lacking exceptional circumstances.",
+   "ideas": "multiple",
+   "idea_list": [
+    "motion to strike",
+    "prematurity",
+    "remedy exhaustion",
+    "no exceptional circumstances"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant argues the Section 8 delisting process is not an adequate remedy due to no statutory deadline, expected delay, and same decision-maker involvement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Section 8 not adequate",
+    "no statutory deadline",
+    "expected delay",
+    "same decision-maker"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court finds the Section 8 Application is an adequate alternative remedy that must be exhausted before judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court rejects the speculative argument that the Minister would delay responding to a Section 8 Application as unfounded and unsupported by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court explains the Governor in Council makes the initial decision, while the Minister decides delisting under Section 8 on a different record including new applicant information.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Respondent's motion to strike is granted and the Applicant's application is struck without leave to amend for reasons explained below.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court quotes JP Morgan that striking requires a 'knockout punch' or fatal flaw making the application clearly improper and without success possibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Supreme Court of Canada has reiterated and confirmed the JP Morgan test in Iris Technologies Inc. v Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Court lists three obvious fatal flaws justifying striking: no cognizable claim, no jurisdiction, or no relief possible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court states prematurity is an obvious fatal flaw affecting jurisdiction, justifying striking the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court must read the application holistically and practically to understand its real essence on a motion to strike.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court accepts pleaded facts as true but not characterizations, speculations, or legal arguments on a motion to strike.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Exceptions to affidavit inadmissibility on motions to strike are allowed only if justified and in the interests of justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Affidavits are admissible on prematurity motions as jurisdictional issues, but must be procedurally and evidentially relevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Applicant filed an affidavit from a legal assistant with no clear personal knowledge beyond attaching exhibits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The affidavit attaches various government and related documents about sanctions and delisting processes as exhibits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "None of the attached documents are shown relevant to the issues before the Court and were not referenced in oral argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Court finds the attached documents have little probative value on whether Section 8 Application is an effective alternative remedy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The affidavit includes a letter from the Applicant's solicitor to Global Affairs Canada requesting reasons to prepare a Section 8 delisting application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Court finds the letter relevant to the motion's issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Court notes the Applicant knew early he could file a Section 8 Application but stopped pursuing it, now claiming it inadequate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Judicial review of interlocutory administrative decisions is nearly absolutely unavailable except in very rare, exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court reiterates the high threshold to strike an application for judicial review as bereft of any possibility of success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Court cites that an alternative remedy need not be preferred or identical, only adequate, to render judicial review premature.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Applicant was listed in the Haiti Regulations Schedule on January 12, 2023, under 'Acts of Significant Corruption' per Governor in Council's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Applicant was not given notice, opportunity to make submissions, or reasons before being listed in the Schedule to the Haiti Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "It is undisputed the Applicant has not made a Section 8 Application to seek delisting from the Schedule.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The Applicant seeks various orders including quashing the listing decision, removal from Schedule, declarations of unfairness, and interim relief.",
+   "ideas": "multiple",
+   "idea_list": [
+    "quashing decision",
+    "removal from Schedule",
+    "declaration of unfairness",
+    "alternative orders",
+    "interim relief"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Application alleges facts about the sanctions regime, listing, news release, lack of information, procedural fairness breaches, and lack of reasonable basis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "sanctions adoption",
+    "sanctions imposed",
+    "Applicant listed",
+    "news release",
+    "blanket allegations",
+    "lack of case info",
+    "no reasons given",
+    "procedural fairness denied",
+    "no reasonable basis"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Court finds the Applicant seeks removal from the Schedule due to procedural fairness breaches and lack of knowledge of the case against him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Haiti Regulations empower the Governor in Council, on the Minister's recommendation, to list persons in the Schedule based on specific criteria.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Governor in Council is decision-maker",
+    "Minister recommends",
+    "Criteria for listing persons"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The Governor in Council decides on listing persons after receiving the Minister's recommendation; the Minister is not the decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Sections 8 and 9 of the Haiti Regulations allow listed persons to apply in writing to the Minister for removal from the Schedule.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "A listed person may apply to the Minister for removal, who decides if reasonable grounds exist to recommend removal to the Governor in Council.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court agrees the Haiti Regulations lack a 90-day decision deadline but require the Minister to act promptly upon receipt of a delisting application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court outlines factors for assessing adequacy of alternative remedies, emphasizing that remedies need not be identical to judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The adequacy inquiry is broad, balancing factors and considering whether judicial review is appropriate in context.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The balancing exercise must consider legislative purposes and policy, focusing on respecting statutory frameworks and normal processes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Discretionary factors in denying relief cannot be reduced to a checklist; all relevant factors must be considered contextually.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The Applicant submits notices of application from others under Russia Regulations to support his argument, but these are speculative and irrelevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's reliance on Exhibit L, showing the Minister responded favorably to a delisting application, undermining his argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Other exhibits show Ministerial responses to delisting applications despite ongoing mandamus proceedings, further undermining Applicant's argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The Applicant's second argument is speculative and must be rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Generally, affidavits are inadmissible in motions to strike judicial review applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court explains why affidavits are generally inadmissible on motions to strike, emphasizing summary nature and fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The Haiti Regulations' decision-making scheme involves distinct steps and decision-makers for listing and delisting persons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Governor in Council lists persons on Minister's recommendation",
+    "Person applies to Minister for delisting",
+    "Minister decides on recommending removal",
+    "Governor in Council decides on removal"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "speaker": "below",
+   "summary": "Associate Judge Cotter found in Mobile Telesystems that a Section 8 Application is not a reconsideration by the original decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court agrees with Associate Judge Cotter's reasoning that Section 8 Applications are not reconsiderations by the original decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The listing and delisting decisions are distinct, made by different decision-makers on different information, not a reconsideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "The Applicant argues the Minister lacks sufficient separation from Cabinet to provide a true remedy, but no evidence supports this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The Applicant's grievances about lack of information and procedural fairness can be addressed through a Section 8 Application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "A successful Section 8 Application may result in removal from the Schedule, achieving the relief sought by the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Considering relevant factors, the court finds the Section 8 Application is an adequate, effective, and available remedy requiring exhaustion before judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Section 8 Application addresses procedural fairness",
+    "Minister has expertise",
+    "No evidence of delay",
+    "Deference owed to Minister and Governor in Council",
+    "Remedy must be exhausted before court"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "No special circumstances exist to justify an exception to the exhaustion principle in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "There is no reason to exempt the Applicant from exhausting available remedies before seeking judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "No amendment to the Notice of Application is permitted to cure its defects.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The parties agreed the successful party is entitled to costs of $3,000, which the Court orders accordingly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

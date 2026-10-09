@@ -1,0 +1,163 @@
+{
+ "case_id": 30735,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0037052
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 7,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 1,
+  "speakers": {
+   "other": 1,
+   "court": 6
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves the SEJ Estate Trust as the applicant challenging the Minister of Finance, the respondent, in a judicial review application. The Minister sought to strike the applicant's claim without leave to amend, while the applicant sought leave to amend the claim. The court rejected the applicant's motion to amend due to lack of evidence and granted the Minister's motion to strike, dismissing the claim as clearly without merit.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Motions before the court",
+    "kind": "other"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Court's decision on motions to amend and strike",
+    "kind": "disposition"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Failure of applicant's motion and inadmissibility of new evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Legal representation requirements for the applicant trust",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 17,
+    "label": "Proceeding without opposition and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Applicant's claims and legal basis",
+    "kind": "issue"
+   },
+   {
+    "first": 21,
+    "last": 23,
+    "label": "Final disposition and dismissal of claim",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "other",
+   "summary": "The court is seized of two motions: the respondent Minister of Finance seeks to strike the applicant's claim without leave to amend, and the applicant seeks leave to amend the claim the respondent wants struck.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court seized of two motions",
+    "respondent's motion to strike claim",
+    "applicant's motion for leave to amend"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 7,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's motion for leave to amend due to lack of evidence and grants the respondent's motion to strike, explaining the legal test and burden on the applicant to justify amendment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court rejects applicant's motion to amend",
+    "applicant bears burden of proof",
+    "legal test for amendment explained",
+    "lack of evidence prevents analysis"
+   ]
+  },
+  {
+   "para": 8,
+   "last": 10,
+   "speaker": "court",
+   "summary": "The applicant's motion lacks affidavit evidence and a draft amended pleading, so it fails the burden; the respondent's written submissions with new evidence are inadmissible; the court also addresses the issue of legal representation for the applicant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's motion lacks evidence",
+    "respondent's submissions inadmissible",
+    "court considers legal representation issue"
+   ]
+  },
+  {
+   "para": 11,
+   "last": 13,
+   "speaker": "court",
+   "summary": "The court explains that the applicant trust is not a legal person and must be represented by a lawyer, and that the named individual cannot represent the trust alone without counsel unless the court orders otherwise.",
+   "ideas": "multiple",
+   "idea_list": [
+    "trust is not a legal person",
+    "trust must be represented by lawyer",
+    "individual cannot represent trust alone"
+   ]
+  },
+  {
+   "para": 15,
+   "last": 17,
+   "speaker": "court",
+   "summary": "The court notes the applicant did not file a response within the deadline and will proceed on the respondent's motion without opposition, applying a realistic assessment to determine if the judicial review application is clearly without merit, considering only the pleadings and incorporated documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant failed to respond in time",
+    "court will proceed without opposition",
+    "standard for assessing application\u2019s validity",
+    "only pleadings and referenced documents considered"
+   ]
+  },
+  {
+   "para": 18,
+   "last": 20,
+   "speaker": "court",
+   "summary": "The applicant seeks orders against the Minister to honor certain claims and pay damages; facts allege Minister failed to respond to communications; the claim lacks legal basis and does not establish a valid cause of action under administrative law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant seeks orders and damages",
+    "alleges Minister failed obligations",
+    "claim lacks legal basis",
+    "no valid cause of action"
+   ]
+  },
+  {
+   "para": 21,
+   "last": 23,
+   "speaker": "court",
+   "summary": "The claim has no legal basis for damages; even if facts are true, the claim is doomed to fail; no amendment can cure the defect; the court grants the respondent's motion to strike and dismisses the applicant's motion to amend, reserving costs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no legal basis for damages",
+    "claim doomed to fail even if true",
+    "no amendment can fix claim",
+    "court grants motion to strike",
+    "costs reserved"
+   ]
+  }
+ ]
+}

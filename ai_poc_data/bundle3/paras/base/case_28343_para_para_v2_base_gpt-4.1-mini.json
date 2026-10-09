@@ -1,0 +1,158 @@
+{
+ "case_id": 28343,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0029988000000000003
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "speakers": {
+   "court": 9,
+   "party": 4,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicants challenging the Refugee Appeal Division's (RAD) decision rejecting their refugee claim based on the existence of a viable Internal Flight Alternative (IFA) in India. The Applicants fled gang threats in India and sought refuge in Canada, arguing ongoing fear for their safety. The Federal Court found the RAD's decision unreasonable due to failure to consider new evidence about gangsters' violent pursuit and motivation, and thus set aside the decision.",
+  "sections": [
+   {
+    "first": 3,
+    "last": 6,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 8,
+    "label": "Standard of Review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 17,
+    "label": "Analysis of RAD's IFA Decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 19,
+    "label": "Conclusion and Acknowledgment",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicants left Patiala in July 2017 fearing gang retaliation and stayed in Bathinda until April 2018 when they returned after the gang leader died.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "On October 15, 2018, gangsters threatened the Applicants, causing the family to flee to Ludhiana and later to Canada claiming refugee status in January 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Principal Applicant claims ongoing fear for his life due to unknown individuals asking about their whereabouts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division and RAD rejected the Applicants' refugee claim due to a viable IFA; the Applicants now challenge the RAD's decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD and RAD rejected claim due to viable IFA",
+    "Applicants challenge RAD decision"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The standard of review is reasonableness, requiring justification, transparency, and intelligibility, with the challenger bearing the onus to prove unreasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The applicant argues the RAD's decision is unreasonable regarding the first prong of the IFA test, raising two arguments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The applicant argues the RAD wrongly found insufficient evidence that gangsters could use India's CCTNS to locate them in proposed IFA locations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court defers to the RAD's justified and transparent finding that evidence was insufficient to prove gangsters' access to CCTNS information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court notes CCTNS limitations and refuses to reweigh evidence on gangsters' capacity to locate the Applicants absent exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicants argue the RAD failed to consider new evidence of gangsters' violent pursuit and motivation to track them in IFA cities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court finds the RAD's omission of new evidence on gangsters' motivation unreasonable, requiring transparent and intelligible reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The new evidence showed gangsters' violent retaliation and possible police collusion, making its omission from the IFA analysis unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RAD could weigh evidence but could not omit important contradictory evidence without reasons; this omission undermines confidence in the decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court thanks counsel for their detailed and able submissions.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "case_id": 44999,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0026511999999999994
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 15,
+   "party": 2,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a refugee protection claim by Ms. XXXX, a Chinese national, based on imputed political opinion under the Immigration and Refugee Protection Act. The Minister challenged her credibility, and the tribunal found Ms. XXXX not credible due to misrepresentations and lack of corroborating evidence. Consequently, the tribunal rejected her claim as having no credible basis.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and parties",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 15,
+    "label": "Credibility assessment and evidence analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 16,
+    "label": "Legal standard on credibility",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 17,
+    "last": 18,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The claimant, XXXX XXXX, is a Chinese national seeking refugee protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Ms. XXXX claims refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Ms. XXXX bases her refugee claim on the Convention ground of imputed political opinion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Minister intervened personally on issues of Ms. XXXX's credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal finds Ms. XXXX has not proven a serious possibility of persecution or risk of harm upon return to China.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Ms. XXXX alleges she smuggled political dissident books into China and was later sought by Chinese authorities after traveling to Canada and the US in 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal accepts Ms. XXXX's identity and Chinese nationality based on her testimony and passport evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Credibility is the key issue in this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Ms. XXXX is found not credible due to misrepresentations on multiple visa and immigration applications and her indifferent attitude toward these discrepancies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal rejects Ms. XXXX's explanation that errors on official applications were clerical and holds her responsible for misrepresentations made for pleasure travel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Ms. XXXX's claim that she is wanted by Chinese authorities conflicts with a no-criminal-history certificate she provided, undermining her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal draws a negative inference on Ms. XXXX's credibility due to her misrepresentations and lack of concern for accuracy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Ms. XXXX failed to provide any corroborating evidence for her claim that Chinese authorities are searching for her, leading to a negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal does not accept Ms. XXXX's allegation of being wanted by Chinese authorities due to lack of evidence and reasonable explanation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Ms. XXXX's testimony is overall not credible or trustworthy, justifying use of the 'no credible basis' provision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "other",
+   "summary": "Section 107(2) of the Immigration and Refugee Protection Act requires stating 'no credible basis' if no trustworthy evidence supports the claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal concludes Ms. XXXX has not established her claim due to lack of credible evidence and is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The claim is rejected as having no credible basis.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

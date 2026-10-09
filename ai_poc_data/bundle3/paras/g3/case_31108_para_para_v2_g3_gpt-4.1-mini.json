@@ -1,0 +1,263 @@
+{
+ "case_id": 31108,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.004246
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 1,
+   "court": 9,
+   "mixed": 3
+  },
+  "multi_idea_paragraphs": 10,
+  "sections": 13,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Ms. Rajasekharan's judicial review application against the refusal of her second Canadian study permit application by a visa officer. The key issue was whether the officer's decision was reasonable, particularly regarding the applicant's intent to leave Canada after studies and the assessment of her ties to India. The Federal Court found the decision unreasonable due to failure to consider relevant evidence and granted the judicial review.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background: Applicant's study permit applications",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Decision below and judicial review application",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Issue and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Legal framework and applicant's study plan",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Applicant's explanations and officer's refusal reasons",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Court's findings on officer's errors regarding program and career goals",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Respondent's arguments and court's rejection",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Court distinguishes precedent and notes overlooked evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 27,
+    "label": "Court notes refusal's silence on ties to home country",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 30,
+    "label": "Respondent's defense and court's emphasis on adequate reasons",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 33,
+    "label": "Court finds decision unreasonable for ignoring key evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 36,
+    "label": "Disposition: judicial review granted",
+    "kind": "disposition"
+   },
+   {
+    "first": 37,
+    "last": 37,
+    "label": "No question for certification",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "party",
+   "summary": "The Applicant, Ms. Rajasekharan, an Indian citizen, applied twice for Canadian study permits after completing a Biology degree in the US, with the first application refused due to concerns about expenses and intent to leave Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant background and education",
+    "First study permit application and refusal",
+    "Second study permit application"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The visa officer refused the Applicant's second study permit application for failing to satisfy the requirement to leave Canada after study; the court finds this decision unreasonable and grants judicial review, identifying two main issues raised by the Applicant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's refusal reason",
+    "Court's finding of unreasonableness",
+    "Applicant's issues raised"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The court identifies the reasonableness of the decision as the key issue, confirms the reasonableness standard applies per Vavilov, and states the Applicant bears the onus to prove unreasonableness.",
+   "ideas": "single",
+   "idea_list": [
+    "Reasonableness standard and burden"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court outlines the legal framework under IRPA and IRPR for study permits, including the requirement that applicants must leave Canada after their authorized stay, and summarizes the Applicant's study plan and career goals submitted with the second application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Legal framework for study permits",
+    "Relevant IRPR provision",
+    "Applicant's study plan and goals"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "mixed",
+   "summary": "The Applicant submitted explanations addressing prior refusal concerns and intent to return to India; the Officer's refusal reasons in GCMS notes are summarized and criticized by the court for lacking justification and ignoring evidence; the Respondent defends officer deference.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's explanations and intent",
+    "Officer's refusal reasons",
+    "Court's criticism of refusal",
+    "Respondent's submission on deference"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The court finds the Officer erred by mischaracterizing the program level and ignoring the Applicant's explanations for program choice and career progression, which were not addressed in the refusal decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's error on program level",
+    "Respondent's argument on program level",
+    "Applicant's study plan explanations ignored"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "mixed",
+   "summary": "The Respondent argues the Officer's findings were reasonable due to limited evidence and inconsistency, but the court notes these reasons were not in the refusal decision and rejects attempts to bolster it; the court also rejects the Respondent's argument that lack of third-party evidence made the Applicant's goals unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's argument on limited evidence",
+    "Court's rejection of post-decision justifications",
+    "Respondent's argument on lack of third-party evidence",
+    "Court's rejection of career counselor role"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The court distinguishes this case from Adom, noting the Officer never addressed the Applicant's career goals, and finds the Officer's silence on relevant evidence suggests overlooked contradictory evidence warranting intervention, including on ties to home country.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Comparison to Adom case",
+    "Officer's failure to address goals",
+    "Inference from silence on evidence",
+    "Failure to consider ties to home country"
+   ]
+  },
+  {
+   "para": 25,
+   "last": 27,
+   "speaker": "court",
+   "summary": "The court notes the refusal decision was silent on the Applicant's evidence of intent to return to India, including family responsibilities, and cites cases where failure to consider such ties warranted intervention.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Decision silence on intent to return",
+    "Applicant's family responsibilities",
+    "Relevant case law on ties to country"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 30,
+   "speaker": "mixed",
+   "summary": "The Respondent argues no reviewable error exists and officers need not address all evidence in detail; the court references prior cases emphasizing the need for adequate reasons in refusals.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's argument on no error and reasons",
+    "Court's reference to case law on reasons"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "court",
+   "summary": "The court finds the decision unreasonable for failing to consider the applicant's evidence of ties to her country and financial ability to afford studies, citing a precedent that high costs alone do not justify suspicion about study reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "failure to consider evidence of ties",
+    "failure to consider financial evidence",
+    "precedent on high cost of study"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "The court concludes the decision is unreasonable due to the errors noted, grants the judicial review application, and declines to address procedural fairness arguments.",
+   "ideas": "single",
+   "idea_list": [
+    "decision found unreasonable and judicial review granted"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 37,
+   "speaker": "court",
+   "summary": "The court states there is no question for certification.",
+   "ideas": "single",
+   "idea_list": [
+    "no question for certification"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,269 @@
+{
+ "case_id": 35606,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0077388
+ },
+ "verification": {
+  "paragraphs": 43,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 12,
+  "dropped_rows": 4,
+  "speakers": {
+   "below": 1,
+   "court": 13,
+   "mixed": 1
+  },
+  "multi_idea_paragraphs": 13,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves Angolan applicants seeking judicial review of a decision by Immigration, Refugees and Citizenship Canada (IRCC) refusing their permanent residence application on humanitarian grounds. The Federal Court of Appeal reviewed the procedural fairness and reasonableness of the decision, ultimately dismissing the judicial review. The court criticized the applicants' lawyer for poor conduct and found no error in the decision-maker's discretionary analysis or procedural fairness.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 11,
+    "label": "Conduct of counsel and procedural concerns",
+    "kind": "other"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Parties' positions on procedural fairness",
+    "kind": "issue"
+   },
+   {
+    "first": 17,
+    "last": 20,
+    "label": "Standard of review and burden of proof",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 21,
+    "last": 26,
+    "label": "Analysis of evidence and decision reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 39,
+    "label": "Assessment of hardship and establishment in Canada",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 46,
+    "label": "Evaluation of family unity and humanitarian waiver",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 50,
+    "label": "Procedural fairness findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 52,
+    "last": 52,
+    "label": "Disposition and warning to counsel",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 4,
+   "speaker": "below",
+   "summary": "The Federal Court of Appeal summarizes the case: the applicants, Angolan citizens, seek judicial review of an IRCC decision refusing their permanent residence application on humanitarian grounds, which the agent found insufficient.",
+   "ideas": "multiple",
+   "idea_list": [
+    "case background",
+    "applicants' status",
+    "IRCC decision summary"
+   ]
+  },
+  {
+   "para": 5,
+   "last": 8,
+   "speaker": "court",
+   "summary": "The court notes prior refusals of asylum and risk assessments, rejects the judicial review, criticizes the applicant's lawyer for poor conduct and possible AI use in the memorandum, and highlights misunderstandings of legal principles.",
+   "ideas": "multiple",
+   "idea_list": [
+    "prior refusals",
+    "court's rejection",
+    "lawyer's conduct",
+    "AI use in memorandum",
+    "legal misunderstanding"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 11,
+   "speaker": "court",
+   "summary": "The court reminds the lawyer of the requirement to disclose AI use in documents, notes the applicant's lawyer failed to do so, and finds the memorandum lacks specific factual connections and is insufficiently serious.",
+   "ideas": "multiple",
+   "idea_list": [
+    "AI disclosure requirement",
+    "lawyer's failure to disclose",
+    "memorandum's generalities",
+    "lack of specific evidence",
+    "insufficient seriousness"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "mixed",
+   "summary": "The applicants allege procedural fairness breaches by the agent questioning documents without allowing response; the respondent (Minister's counsel) defends the decision as reasonable and denies procedural fairness violation, emphasizing the applicants' burden to provide evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants allege procedural fairness breach",
+    "respondent defends decision as reasonable",
+    "respondent denies procedural fairness violation"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 20,
+   "speaker": "court",
+   "summary": "The court explains the standard of review for procedural fairness and humanitarian permanent residence applications, emphasizing the discretionary nature and burden of proof on applicants.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review for procedural fairness",
+    "principles for humanitarian permanent residence",
+    "discretionary nature and burden of proof"
+   ]
+  },
+  {
+   "para": 21,
+   "last": 23,
+   "speaker": "court",
+   "summary": "The court states the agent must weigh evidence and finds the decision reasonable and justified, emphasizing limited judicial resources and the need to restrict meritless litigants' access.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agent's role",
+    "decision reasonableness",
+    "judicial resource limits",
+    "restricting meritless litigants"
+   ]
+  },
+  {
+   "para": 24,
+   "last": 26,
+   "speaker": "court",
+   "summary": "The court reviews the agent's detailed analysis of unfavorable conditions in Angola, noting lack of new evidence from applicants and insufficient proof on economic and social hardships, supporting the agent's low weight to these factors.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agent's analysis",
+    "lack of new evidence",
+    "economic/social hardship",
+    "low weight to Angola conditions"
+   ]
+  },
+  {
+   "para": 27,
+   "last": 29,
+   "speaker": "court",
+   "summary": "The court agrees with the agent that applicants failed to prove exceptional hardship in Angola, reiterates the discretionary nature of humanitarian relief, and begins analysis of applicants' establishment in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants' failure to prove hardship",
+    "discretionary power",
+    "start of Canada establishment analysis"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "court",
+   "summary": "The court finds the agent considered all evidence, reasonably weighed employment and financial proof, and correctly limited weight to the applicant's establishment in Canada, citing prior case law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agent considered all evidence",
+    "agent gave positive weight to employment history",
+    "agent reasonably limited weight on financial and residence evidence"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "The court states time and establishment in Canada are relevant but not decisive, finds applicant's community ties insufficiently proven, and notes agent's recognition of applicant's assets facilitating return to Angola.",
+   "ideas": "multiple",
+   "idea_list": [
+    "time in Canada relevance",
+    "community ties insufficient",
+    "agent's recognition of applicant's assets"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 39,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's argument that a waiver should be granted for public interest reasons due to his clean record, and finds the decision-maker reasonably assessed the children's ties and difficulties with returning to Angola, deeming the evidence insufficient.",
+   "ideas": "multiple",
+   "idea_list": [
+    "rejection of applicant's public interest argument",
+    "assessment of daughter's ties and difficulties",
+    "assessment of son's ties and educational needs"
+   ]
+  },
+  {
+   "para": 41,
+   "last": 43,
+   "speaker": "court",
+   "summary": "The court agrees the decision-maker reasonably prioritized family unity for the minor child's best interest, found the humanitarian waiver not automatic, and upheld the decision-maker's view that evidence was insufficient to justify the waiver despite the applicant's claims about his children's dependence and establishment in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "family unity as key factor",
+    "decision-maker's reasonable approach to child's best interest",
+    "insufficient evidence for humanitarian waiver"
+   ]
+  },
+  {
+   "para": 44,
+   "last": 46,
+   "speaker": "court",
+   "summary": "The court finds no error in the decision-maker's discretionary and expert analysis, considers the overall positive factors insufficient for a waiver, and concludes the applicants failed to show an error warranting court intervention.",
+   "ideas": "single",
+   "idea_list": [
+    "no error in decision-maker's analysis and decision"
+   ]
+  },
+  {
+   "para": 48,
+   "last": 50,
+   "speaker": "court",
+   "summary": "The court holds the agent's conclusions stem from insufficient evidence, cites case law on procedural fairness requiring no obligation to point out evidentiary gaps, and finds no procedural fairness violation here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agent's conclusions based on insufficient evidence",
+    "procedural fairness context and obligations",
+    "no procedural fairness violation found"
+   ]
+  },
+  {
+   "para": 52,
+   "last": 52,
+   "speaker": "court",
+   "summary": "The court considered ordering costs against the applicant's lawyer but instead issues a warning against improper conduct and dismisses the judicial review application without costs or certification of a question of public importance.",
+   "ideas": "single",
+   "idea_list": [
+    "dismissal of application and warning to lawyer"
+   ]
+  }
+ ]
+}

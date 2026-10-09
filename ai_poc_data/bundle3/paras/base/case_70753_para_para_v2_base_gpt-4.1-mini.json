@@ -1,0 +1,399 @@
+{
+ "case_id": 70753,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006636400000000001
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 44,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 44
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Miss XXXX, a 12-year-old Nigerian girl fearing forced female genital mutilation (FGM) and death threats from relatives, appeals a Refugee Protection Division (RPD) decision denying her refugee protection. The Refugee Appeal Division (RAD) finds the RPD erred in assessing the risk of FGM and persecution effects, admits new evidence, and declares her a Convention refugee. The RAD also finds inadequate state protection and no viable internal flight alternative for Miss XXXX.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 16,
+    "label": "New evidence and procedural issues",
+    "kind": "issue"
+   },
+   {
+    "first": 17,
+    "last": 21,
+    "label": "Assessment of evidence and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 26,
+    "label": "Risk of FGM and persecution nexus",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 33,
+    "label": "Persecution effects and children's rights",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 36,
+    "label": "State protection analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 43,
+    "label": "Internal flight alternative analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 44,
+    "last": 44,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Miss XXXX, a Nigerian citizen, fears forced FGM or death by relatives if returned; RPD denied protection, but she appeals with new evidence of threats.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's fear of FGM and death",
+    "RPD's refusal of claim",
+    "New evidence of threats submitted"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "I allow the appeal, find RPD erred on FGM risk and persecution effects, admit new evidence showing risk of death, and declare Miss XXXX a Convention refugee.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "I applied Chairperson Guidelines 3 and 4, expedited decision for Miss XXXX's best interests, and note her sister remains her representative under RAD Rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Minister did not intervene but I considered notice under Alazar and found it unnecessary as issues are not distinct and Minister is informed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Miss XXXX is a 12-year-old from Ogun state, Nigeria, whose relatives insist she undergo FGM, blaming tragedies on her refusal; parents oppose FGM.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "In 2021, father returned to Nigeria, relatives threatened to find Miss XXXX for FGM, police advised family to resolve it; father had accident and mother's shop burned in 2022; claim made in March 2022; relatives inquired further.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Relatives' threats and police response",
+    "Family misfortunes blamed on refusal",
+    "Claim filed in March 2022"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "In 2022, relatives threatened to kill Miss XXXX if tragedies continued, searched home, police again advised family to resolve; after death of family head's son, threats repeated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Section 110(4) IRPA limits new evidence to post-rejection, unavailable or unpresentable before, and requires it be new, relevant, credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Miss XXXX submitted new evidence including affidavits, police reports, medical and WhatsApp messages, representative affidavit, doctor letters, and reports; documents (a) to (j) admitted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "I admit documents (a) to (j) as new evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Documents meet section 110(4) IRPA criteria; some events occurred just before RPD decision but were not reasonably available then, explanation credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Documents are new, relevant, credible; they show further threats and mental health evidence relevant to claim and internal flight alternative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Documents credible by source and consistency; threats align with pattern; mental health evidence from credible sources; some documents not admitted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Credibility of threat evidence",
+    "Credibility of mental health evidence",
+    "Some documents excluded"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "I do not admit letters from Members of Parliament as new evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "MP letters are irrelevant to appeal issues as they express support but do not affect refugee determination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Miss XXXX requested oral hearing, but jurisdiction limited to new evidence raising serious, central, determinative credibility issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "I dismiss oral hearing request as new evidence does not raise serious credibility issues and is not central or determinative to claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "My role is to review RPD decision; I conduct independent assessment; Miss XXXX established allegations on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "I agree with RPD that Miss XXXX's identity is established by Nigerian passports.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "I agree with RPD that Miss XXXX established allegations at RPD on balance of probabilities; representative's testimony consistent and corroborated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "I find Miss XXXX established new evidence allegations on balance of probabilities; events consistent with threats; corroborated by affidavits, messages, police reports, and medical evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Miss XXXX's claim has nexus to Convention ground as a young girl targeted for FGM and death threats due to age and gender.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "RPD found no serious possibility of FGM due to parental opposition; Miss XXXX challenges this finding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "RPD erred in finding no serious possibility of FGM; I find serious possibility of FGM risk to Miss XXXX.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "RPD overlooked evidence that forcible FGM by extended family occurs in Nigeria; parental consent not determinative in Miss XXXX's community; credible evidence supports this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Evidence of another 12-year-old girl forcibly subjected to FGM by same relatives is highly probative despite RPD discounting it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "New evidence shows serious possibility Miss XXXX will be killed by relatives for refusing FGM; threats escalated after family head's son's death.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "RPD found effects of fear of FGM not persecution; Miss XXXX challenges this finding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "RPD erred by ignoring children's rights; effects of fear from credible gender-based violence threats constitute persecution for a 12-year-old.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Miss XXXX is fearful, affected mentally and physically by threats; representative and medical evidence confirm negative impacts on her health and activities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court notes Canadian law recognizes children have unique rights under the Convention on the Rights of the Child affecting persecution assessments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds Miss XXXX would live in constant fear and suffer negative impacts on health and rights if returned to Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds these negative effects constitute persecution for a 12-year-old, violating her fundamental child rights.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court agrees with Miss XXXX that there is inadequate state protection against threats in Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court finds police ignored reports and country evidence shows impunity for gender-based violence in Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court concludes the state cannot protect Miss XXXX from child-specific persecution due to credible threats of gender-based violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court notes the RPD did not propose an internal flight alternative, and Miss XXXX argues none exists.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court explains the two-part test for internal flight alternative: safety and reasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court finds Miss XXXX unlikely to relocate alone and that relatives would likely pursue her anywhere in Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court finds relatives have motivation and means to persecute Miss XXXX due to ongoing threats related to FGM refusal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court finds relatives can locate Miss XXXX through a wide family network, making safe hiding impossible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court finds the child-specific persecution effects would exist throughout Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court finds a serious possibility of persecution throughout Nigeria, so it need not assess reasonableness of internal flight alternative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court allows the appeal and declares Miss XXXX a Convention refugee.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

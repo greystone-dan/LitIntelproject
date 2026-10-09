@@ -1,0 +1,669 @@
+{
+ "case_id": 47954,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.009804
+ },
+ "verification": {
+  "paragraphs": 85,
+  "summaries": 85,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 78,
+   "party": 4,
+   "below": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns refugee claims made by Haitian adult claimants and their US citizen minor daughter under the Immigration and Refugee Protection Act. The Refugee Protection Division panel rejected the adult claimants' claims due to credibility issues and lack of evidence of persecution, but accepted the minor claimant's claim based on her perceived American nationality and risk of persecution in Haiti. The panel found the minor claimant to be a Convention refugee, while rejecting the adult claimants' claims.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and procedural context",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 26,
+    "label": "Claimants' allegations and credibility assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 47,
+    "label": "Detailed credibility findings on principal claimant",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 55,
+    "label": "Assessment of evidence and risk for principal claimant",
+    "kind": "analysis"
+   },
+   {
+    "first": 56,
+    "last": 75,
+    "label": "Assessment of minor claimant's risk and protection in Haiti",
+    "kind": "analysis"
+   },
+   {
+    "first": 76,
+    "last": 85,
+    "label": "Panel's conclusions and disposition of claims",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Refugee Protection Division panel decides refugee claims of Haitian citizens and their US citizen daughter under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Ms. XXXX XXXX XXXX XXXX was designated as representative for the minor claimant before the hearing started.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The hearing was in English with Haitian Creole interpretation; submissions were in French; decision is written in English.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The panel finds the minor claimant does not face serious persecution or risk in the United States.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant does not face serious persecution or risk in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The panel rejects the adult claimants' refugee claims under sections 96 and 97(1) of the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The panel finds the minor claimant faces serious persecution in Haiti due to perceived American nationality and accepts her claim as a Convention refugee.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel introduces its reasons for the decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The claimants' detailed allegations are in their Basis of Claim Forms, including significant amendments before the hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Original BOCs signed July 24, 2017, state no fear of Haiti and reasons for coming to Canada were education and health care.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Both adult claimants made substantial amendments to their BOCs that fundamentally contradicted their original statements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The principal claimant's new BOC alleges fear of harm from the Lavalas party since 2006 due to negative comments made at work.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The claimant experienced threats and violence from Lavalas party members.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The claimant left Haiti in 2008 for the US, made an asylum claim there based on similar allegations, which was rejected.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The associated claimant fears returning to Haiti due to vulnerability from her American accent and lack of Creole fluency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "At hearing, the principal claimant alleged fear of the minor claimant returning to the US due to family separation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "All claimants made refugee claims at the Canada-US border on XXXX XXXX 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The adult claimants' Haitian citizenship is established by testimony and Haitian passports on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The minor claimant's US citizenship is established by a certified copy of her American passport on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel finds the minor claimant has not established serious risk or persecution in the United States.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The principal claimant alleges the minor claimant faces risk in the US due to family separation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel lacks jurisdiction for humanitarian considerations; family separation is not persecution under Canadian refugee law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "It is speculative that the minor claimant would be returned to the US without her parents; likely she will remain in Canada with her mother.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The best interests of the minor claimant is a concern but cannot substitute for meeting refugee claim requirements under the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "No other allegations besides family separation were made regarding the minor claimant's fear of returning to the US.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The principal claimant's credibility is determinative and the panel finds him not credible for reasons explained.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The claimant's allegations about timing between learning of the enemies list and first attack are contradictory.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "In US asylum documents, claimant said he received verbal threats after learning of the Lavalas enemies list in late 2006.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "In the amended BOC, the claimant's statement about threats is less precise and unclear if referring to the list or ongoing threats.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "At hearing, claimant said no problems occurred between 2006 and 2007 attack; he explained verbal threats meant learning about the list.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanation for contradictory testimony about ongoing verbal threats, finding the explanation not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel draws a negative credibility inference against the claimant due to contradictory testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The claimant made a significant new allegation at the hearing not found in prior asylum documents or BOC.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The claimant testified that Lavalas members continued searching for him in Haiti after he left, via his cousin's report.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The claimant explained he omitted this information from claim forms because he thought it irrelevant as he was in the US then.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanation for omission, expecting such ongoing threat info to be included given counsel assistance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel draws a negative credibility inference due to the claimant's significant omission about ongoing threats after departure.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "At the Canada-US border, both claimants stated they faced no risk in Haiti and sought a better life in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "below",
+   "summary": "In original BOCs signed after border interview, claimants repeated no-risk statements and said principal claimant left Haiti in 2008 for work and education.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "In amended BOC, principal claimant said original BOC statements were due to fear of deportation and imprisonment but gave no explanation for repeating them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "At hearing, claimant said he lacked lawyer guidance preparing original BOC and relied on uncle's guidance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanations for the statements made at the border and in original BOC as unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The panel finds the border statements denying persecution are not minor contradictions but deliberate denials to immigration officials.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The panel finds claimant's fear explanation inconsistent with his statement about possible kidnapping, expecting him to mention ongoing death risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The panel finds claimant's excuse for not stating true reasons in original BOC unreasonable given his understanding and prior asylum claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The panel draws a negative credibility inference due to contradictions between border interview, original and amended BOCs, and hearing testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant not credible for all stated reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "below",
+   "summary": "The claimants provided no personal documentary evidence supporting persecution allegations by Lavalas members in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant failed to prove he was targeted by Lavalas members in Haiti or would be if returned.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The panel considers the claimant's fear of kidnapping as stated to Canadian officials at the border.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The panel notes the claimant's fluency in Creole, adult residence in Haiti, and family connections there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's kidnapping fear is not linked to any Convention ground.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The panel finds the kidnapping risk is a generalized risk faced by all Haitians.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The panel finds crime including kidnapping is endemic in Haiti and targeting of returnees is not distinct from other Haitians.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The panel notes its finding aligns with Federal Court reasoning on targeting of Haitians returning from abroad due to perceived wealth.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The panel finds the associated claimant's allegations establish a nexus to perceived American nationality under the Convention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The panel finds the associated claimant would likely be perceived as American due to accent, long absence, and lack of Haitian ties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The panel's credibility concerns about the principal claimant's border and BOC statements also apply to the associated claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The associated claimant has additional credible allegations distinct from her husband's, including language and family connection issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The panel finds the associated claimant's testimony straightforward, sincere, and without unexplained inconsistencies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The panel finds credible the associated claimant's testimony that her interview was in French, not Creole, and she requires English interpretation at the hearing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "panel notes CBSA interview in Creole",
+    "claimant says interview was in French",
+    "panel finds claimant credible",
+    "claimant needs English interpretation"
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The panel finds the associated claimant has lived mostly in the US, barely speaks Creole, speaks with an American accent, and has no family in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's perceived American identity and lack of resources put her at risk of kidnapping and violent crimes in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The claimant's risk arises from her perceived American nationality and her limited ability to function in Haitian society.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant differs materially, speaks Creole fluently, has family ties, and would not be perceived as American in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "Country evidence shows the associated claimant's profile as a vulnerable perceived American creates a serious possibility of persecution in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "A report states middle-class Haitians and diaspora members are at higher risk of criminal victimization due to perceived wealth.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The claimant's limited Creole, American accent, and early departure from Haiti distinguish her risk from other returnees.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has rebutted the presumption of state protection with clear evidence the Haitian state is unwilling or unable to protect her.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Evidence shows Haitian police are often powerless or afraid to intervene against armed criminals, lacking adequate equipment and protection systems.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The claimant's inability to speak Creole severely limits her access to any state protection that might exist.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant has rebutted the presumption of state protection for all these reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The claimant faces a serious possibility of persecution throughout Haiti due to perceived American nationality and lack of state protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The claimant's lack of Creole and family ties makes internal flight within Haiti objectively unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The panel finds no viable internal flight alternative exists for the claimant anywhere in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has a subjective fear of return to Haiti that is objectively well-founded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The panel finds the associated claimant faces a serious possibility of persecution in Haiti based on perceived American nationality.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The panel finds the claimant is a Convention refugee under section 96 of the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The panel accepts the claimant's refugee claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant does not face a serious risk of persecution or harm in the United States.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant is neither a Convention refugee nor a person in need of protection under the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The panel rejects the principal claimant's refugee claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The panel finds the other claimant does not face a serious risk of persecution or harm in Haiti.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "The panel finds the other claimant is neither a Convention refugee nor a person in need of protection under the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "The panel rejects the other claimant's refugee claim.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

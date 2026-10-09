@@ -1,0 +1,294 @@
+{
+ "case_id": 47943,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0045968
+ },
+ "verification": {
+  "paragraphs": 32,
+  "summaries": 32,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 20,
+   "court": 12
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a refugee protection claim by a male claimant from the Democratic Republic of Congo (DRC) who alleges persecution due to his association with a church opposing the government. The Immigration and Refugee Board Tribunal found the claimant's testimony not credible and concluded he did not establish a well-founded fear of persecution or need for protection under the Immigration and Refugee Protection Act (IRPA). Consequently, the Tribunal denied the refugee claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 11,
+    "label": "Background and claimant's story",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Tribunal's initial findings on identity and credibility",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 29,
+    "label": "Claimant's evidence and Tribunal's credibility assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 31,
+    "label": "Tribunal's conclusion on claim merits",
+    "kind": "disposition"
+   },
+   {
+    "first": 32,
+    "last": 32,
+    "label": "Final decision and order",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from DRC seeks refugee protection under sections 96 and 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant has not proven a well-founded fear of persecution or that he is a person in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant, a male from Lubumbashi, fears for his life due to perceived opposition to the government.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Since 2005, the claimant was a member of a church led by a politician opposing President Kabila, monitored by intelligence agents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "In 2013, authorities arrested church members distributing a letter; soldiers sought the leader, leading to a confrontation and a death.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "After a church protest in 2013, government troops attacked key sites and blamed the claimant's church, causing the leader to flee to South Africa.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Initially only senior church members were arrested, so the claimant was not afraid until 2014 when regular members were also arrested, prompting him to flee.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "In 2014, the claimant was arrested, mistreated, detained, and escaped prison with his uncle's help.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The claimant was arrested again in 2014, questioned about church plans, and escaped prison a second time with his uncle's help in 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "After hiding in a remote village, the claimant's uncle arranged his departure; in 2016, he traveled to Zambia for a U.S. embassy interview.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "In 2016, the claimant left DRC for a church conference, then traveled to Canada to claim refugee status where his sister lived.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Tribunal accepts the claimant's passport and U.S. visa as sufficient to establish his identity for refugee status purposes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Although claimants benefit from a presumption of truth, the Tribunal finds serious reasons to reject the claimant's testimony as not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The claimant states he was a church member blamed for 2013 events, with the leader fleeing and members facing arrest in 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The claimant explained he did not flee immediately after 2013 because authorities initially targeted only church executives.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The claimant said he learned only executives were arrested from information leaking, specifically from his brother in Zambia.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant's explanations unreasonable given evidence of widespread government response targeting all church members.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Tribunal finds it unreasonable the claimant relied on his brother's information and that his delay fleeing damages his credibility about the threat.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The claimant alleges he was arrested in 2014, mistreated, jailed, and escaped with his uncle's help.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The claimant said he fled to his brother's home in Likasi after arrest in Lubumbashi, following his uncle's advice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant's explanation unreasonable given his prior fear of staying at his brother's home and his later actions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant's credibility damaged regarding whether the ANR arrested him due to inconsistent explanations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The claimant states he was arrested a second time in 2014, escaped again, and stayed in a remote village until 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The claimant explained he returned to DRC after the U.S. embassy interview to travel with a group and follow his uncle's security advice.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Tribunal confronted the claimant with evidence that many church members fled to Zambia, but he only cited his uncle's instructions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant's failure to remain in Zambia unreasonable and his behavior incompatible with fearing persecution, damaging credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The claimant submitted a letter alleging political detention, but the Tribunal finds it lacks probative value due to no first-hand knowledge.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The claimant submitted documents about his brother's refugee claim in South Africa, but they lack details to support the claimant's allegations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The claimant submitted emails with family after claiming refugee status, which the Tribunal finds insufficient to restore credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Tribunal concludes the claimant's testimony is not credible and he has not established his allegations on the balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Tribunal finds the claimant has not shown a serious possibility of persecution or risks under sections 96 and 97(1) of the IRPA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no serious possibility of persecution",
+    "no danger of torture or threat to life",
+    "no risk of cruel or unusual treatment"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The claim is denied, signed by Darin Jacques on February 1, 2018, with references to relevant IRPA section 106 and supporting documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claim denied",
+    "date and signature",
+    "references to IRPA section 106 and documents"
+   ]
+  }
+ ]
+}

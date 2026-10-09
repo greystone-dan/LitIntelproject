@@ -1,0 +1,286 @@
+{
+ "case_id": 27635,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.005856400000000001
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 1,
+  "speakers": {
+   "party": 2,
+   "court": 10,
+   "evidence": 2,
+   "mixed": 1
+  },
+  "multi_idea_paragraphs": 15,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves the Applicants seeking judicial review of the Canada Revenue Agency's (CRA) decision accepting harassment investigation reports that found a complaint against them well-founded, arising from a January 2023 letter alleging dysfunction caused by another Occupational Health and Safety (OHS) Committee member. The Federal Court found the harassment investigation procedurally fair and the CRA's decision reasonable, dismissing the judicial review application. The court also rejected new procedural fairness complaints and privilege claims raised by the Applicants.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 4,
+    "label": "Background: parties and complaint",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 8,
+    "label": "Court's initial findings and complaint context",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 15,
+    "label": "Evidence and investigation process",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 19,
+    "label": "Investigator's findings and issues for review",
+    "kind": "background"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Standards of review and procedural fairness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 26,
+    "last": 31,
+    "label": "Investigator's discretion and witness interviews",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 37,
+    "label": "New procedural fairness complaint and notice requirements",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 40,
+    "label": "Fairness of opportunity to rebut evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 44,
+    "label": "Applicants' privilege claims and court's refusal to consider new issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 50,
+    "label": "Analysis of labour relations and qualified privilege claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 52,
+    "label": "Final disposition and reasonableness of CRA's decision",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 4,
+   "speaker": "party",
+   "summary": "The Applicants seek judicial review of the CRA's decision accepting harassment investigation reports finding a complaint against them well-founded, arising from a January 2023 letter alleging dysfunction caused by another OHS Committee member.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants seek review of CRA decision",
+    "Harassment complaint found well-founded",
+    "Complaint arose from January Letter alleging dysfunction"
+   ]
+  },
+  {
+   "para": 5,
+   "last": 8,
+   "speaker": "court",
+   "summary": "The court finds the harassment investigation procedurally fair and the CRA's decision reasonable, dismissing the judicial review; it outlines the January Letter's transmission and the Complainant's submission of the harassment complaint with witnesses.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court decision to dismiss application",
+    "January Letter forwarded within CRA",
+    "Complainant submitted harassment complaint with witnesses"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 12,
+   "speaker": "evidence",
+   "summary": "The CRA notified Applicants as responding parties, appointed Investigator who interviewed Complainant and others; Complainant denied allegations, and LM cited second-hand information about deletion of a report.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants notified as responding parties",
+    "Investigator appointed and conducted interviews",
+    "Complainant denied allegations",
+    "LM cited second-hand info about report deletion"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "evidence",
+   "summary": "Investigator's interview with Complainant's supervisor NP confirmed report was edited, not deleted; DA responded in writing identifying sources; Investigator did not interview PA or BA, who were mentioned but not named as witnesses by Applicants.",
+   "ideas": "multiple",
+   "idea_list": [
+    "NP confirmed report edited, not deleted",
+    "DA provided written responses",
+    "Investigator did not interview PA or BA",
+    "Applicants mentioned PA and BA but did not name them as witnesses"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 19,
+   "speaker": "court",
+   "summary": "Investigator's reports found January Letter met harassment definition; CRA accepted findings; Investigator noted vague allegations and lack of evidence for serious claims; court outlines issues for review and standard of reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Investigator found harassment in January Letter",
+    "CRA accepted findings",
+    "Allegations were vague, serious claim unsupported",
+    "Court states issues and standard of review"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The court explains standards for reviewing CRA's decision and procedural fairness, emphasizing high procedural fairness in workplace harassment investigations and framing the ultimate question as whether the applicant had a full and fair chance to be heard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standards for reviewing decision",
+    "Procedural fairness standard",
+    "High procedural fairness in harassment cases",
+    "Ultimate question is chance to be heard"
+   ]
+  },
+  {
+   "para": 26,
+   "last": 28,
+   "speaker": "court",
+   "summary": "The court explains that the applicants did not initially identify two witnesses but mentioned them later, and that the investigator has discretion over whom to interview, with fairness as the only limit, referencing precedent; it also notes the relevance of these witnesses' information.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' witness identification",
+    "Investigator's discretion and fairness",
+    "Relevance of witnesses' information"
+   ]
+  },
+  {
+   "para": 29,
+   "last": 31,
+   "speaker": "court",
+   "summary": "Court finds Investigator reasonably relied on supervisor's interview about report deletion; PA and BA unlikely to add relevant evidence; failure to interview them did not make investigation unfair.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Investigator's reliance on supervisor's interview reasonable",
+    "PA and BA unlikely to add relevant evidence",
+    "Failure to interview PA and BA not unfair"
+   ]
+  },
+  {
+   "para": 32,
+   "last": 34,
+   "speaker": "party",
+   "summary": "Applicants raise new procedural fairness complaint about lack of opportunity to rebut evidence and see preliminary reports, relying on Marentette; court notes this ground was not in Notice of Application and new grounds are generally not allowed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants raise new procedural fairness complaint",
+    "Rely on Marentette decision",
+    "Ground not in Notice of Application",
+    "New grounds generally disallowed"
+   ]
+  },
+  {
+   "para": 35,
+   "last": 37,
+   "speaker": "court",
+   "summary": "Court reviews case law on Rule 301 requiring notice of grounds, allowing amendments rarely; Applicants' basket clause does not cover new procedural fairness argument; Applicants acknowledge Marentette was not new law but application of existing law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rule 301 requires notice of grounds",
+    "Amendments allowed rarely",
+    "Basket clause does not cover new argument",
+    "Marentette not new law but application of existing law"
+   ]
+  },
+  {
+   "para": 38,
+   "last": 40,
+   "speaker": "court",
+   "summary": "The court finds the Applicants had a fair chance to rebut evidence, mainly their own January Letter, and notes the investigation was procedurally fair; the Investigator's report forms part of the decision under review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' opportunity to rebut evidence",
+    "Investigation was procedurally fair",
+    "Investigator's report as decision reasoning"
+   ]
+  },
+  {
+   "para": 41,
+   "last": 44,
+   "speaker": "mixed",
+   "summary": "The Applicants argue their January Letter was protected speech under labour relations or qualified privilege, but the Respondent counters this was not raised before the Investigator and is outside her mandate; the court declines to consider this new issue and rejects the privilege claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' claim of privilege",
+    "Respondent's procedural objection",
+    "Court's refusal to consider new issue and rejection of privilege"
+   ]
+  },
+  {
+   "para": 45,
+   "last": 47,
+   "speaker": "court",
+   "summary": "The court explains labour relations privilege requires meeting four Wigmore factors, which the Applicants did not address before the Investigator or court, and questions whether the January Letter was intended as a confidential union communication.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Explanation of Wigmore factors for privilege",
+    "Applicants' failure to address factors",
+    "Uncertainty about Letter's intended confidentiality"
+   ]
+  },
+  {
+   "para": 48,
+   "last": 50,
+   "speaker": "court",
+   "summary": "The Investigator found the January Letter was not confidential and was shared beyond union confines, waiving any privilege; qualified privilege does not apply to broad personal attacks in the Letter.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Investigator's finding on Letter's confidentiality",
+    "Waiver of privilege by disclosure",
+    "Qualified privilege inapplicable to personal attacks"
+   ]
+  },
+  {
+   "para": 51,
+   "last": 52,
+   "speaker": "court",
+   "summary": "The court rejects the Applicants' claim that the CRA's Decision discourages raising workplace safety concerns, affirming the Code's dual objectives and concluding the Decision was reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejection of claim that Decision discourages safety concerns",
+    "Coexistence of safety and harassment complaint rights",
+    "Conclusion that Decision was reasonable"
+   ]
+  }
+ ]
+}

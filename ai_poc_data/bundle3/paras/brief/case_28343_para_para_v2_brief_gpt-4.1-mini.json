@@ -1,0 +1,170 @@
+{
+ "case_id": 28343,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0044356000000000005
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "speakers": {
+   "party": 6,
+   "below": 1,
+   "court": 7
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves the Applicants challenging the Refugee Appeal Division's (RAD) decision rejecting their refugee claim based on the existence of a viable internal flight alternative (IFA) in India. The Applicants fled gang violence and fear for their safety, arguing that the RAD unreasonably assessed their risk and failed to consider new evidence of gang retaliation. The Federal Court found the RAD's omission of key contradictory evidence unreasonable and thus set aside the decision.",
+  "sections": [
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 6,
+    "label": "Decision below",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 8,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 13,
+    "label": "Analysis of gangsters' ability to track Applicants",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 17,
+    "label": "Analysis of new evidence and RAD's omission",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 19,
+    "label": "Disposition and closing remarks",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "The applicant, Mr. Chauhan and family, challenge the Refugee Appeal Division's (RAD) decision rejecting their refugee claim in Canada, arguing the RAD unreasonably found they had a viable internal flight alternative (IFA) in India. The issues addressed include: 1) Whether the RAD reasonably assessed the gangsters' ability and motivation to track the applicants in proposed IFA locations; 2) The RAD's findings on India's police tracking systems (CCTNS) and their role in locating the applicants; 3) Whether the RAD failed to consider new evidence of violent retaliation against the applicant's relatives, impacting the IFA analysis. The court found the RAD's omission of this evidence unreasonable, granting judicial review.",
+ "summaries": [
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicants left Patiala in July 2017 for Bathinda due to gang retaliation fears, returning in April 2018 after the gang leader's death.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "On October 15, 2018, men threatened the Applicants, causing the family to flee to Ludhiana and later to Canada, where they claimed refugee status in January 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Principal Applicant fears for his life as unknown individuals continue asking about their whereabouts, according to relatives and neighbours.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division and RAD rejected the Applicants' claim due to a viable IFA; the Applicants now challenge the RAD's decision on gangsters' tracking ability.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD and RAD rejection of claim",
+    "Applicants challenge RAD's IFA finding"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The standard of review is reasonableness, requiring justification, transparency, and intelligibility; the challenger bears the onus to prove unreasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The applicant argues the RAD's decision is unreasonable regarding the first prong of the IFA test, raising two arguments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The applicant argues the RAD unreasonably found insufficient evidence that gangsters could use India's CCTNS to locate them in IFA locations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court defers to the RAD's justified and transparent finding that police systems are not integrated and lack evidence gangsters can access CCTNS data.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court notes CCTNS limitations and refuses to reweigh evidence on gangsters' capacity to locate applicants absent exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicants argue the RAD failed to consider new evidence of violent retaliation against a cousin, showing gangsters' motivation to track them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court finds the RAD's omission of this new evidence unreasonable, as reasons must transparently address contradictory evidence on key points.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The omitted evidence showed gangsters' violent retaliation and possible police collusion, crucial to assessing means and motivation to pursue Applicants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RAD could not omit important contradictory evidence without reasons; this omission undermines confidence in the decision's outcome.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court thanks counsel for their detailed and able submissions.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

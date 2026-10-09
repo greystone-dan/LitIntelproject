@@ -1,0 +1,225 @@
+{
+ "case_id": 35046,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0047552
+ },
+ "verification": {
+  "paragraphs": 22,
+  "summaries": 22,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "speakers": {
+   "party": 3,
+   "court": 16,
+   "below": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review of a decision by an immigration officer who refused the Applicant's permanent residence application on humanitarian and compassionate (H&C) grounds. The Applicant, who initially came to Canada as a refugee claimant, argued that the officer erred by applying a refugee analysis instead of the correct H&C analysis, leading to flawed assessments of hardship and the best interests of the child (BIOC). The Federal Court agreed with the Applicant, found the officer's decision unreasonable, and granted the judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 10,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Decision Below",
+    "kind": "other"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Standard of Review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 20,
+    "last": 26,
+    "label": "Analysis of Officer's Errors",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 28,
+    "label": "Other Issues",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "The applicant, Sallai, challenges the refusal of his permanent residence application on humanitarian and compassionate (H&C) grounds by an immigration officer (tribunal_below). The officer applied a refugee analysis instead of an H&C analysis, mischaracterized evidence of hardship as a Roma man in Hungary, and set an unreasonably high threshold for the best interests of the child (BIOC) analysis regarding his grandnephew FS. The court addresses whether the officer erred in applying the wrong legal test, misapprehended evidence of discrimination and hardship, and inadequately considered the child's emotional needs. The court finds the officer's decision unreasonable and grants judicial review, ordering a redetermination.",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by applying a refugee analysis instead of an H&C analysis, leading to flawed hardship and BIOC assessments.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's position",
+    "Officer's error in legal test",
+    "Flawed hardship and BIOC assessments"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Officer's decision is unreasonable and grants judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "In 2011, the Applicant came to Canada and filed a refugee claim, which was refused in 2015.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "In 2019, the Applicant was detained by the Canada Border Services Agency.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Applicant's PR application on H&C grounds was refused in 2022 after a refused Pre-Removal Risk Assessment in 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant successfully challenged the refusal, leading to a 2023 remand to IRCC for reconsideration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "During this period, the Applicant worked, attended church, and built relationships in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "In 2023, the Applicant's nephew was deported, causing emotional distress to FS, whom the Applicant supports emotionally.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Officer acknowledged widespread anti-Roma discrimination but found no personal hardship evidence for the Applicant in Hungary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Officer recognized the Applicant's emotional support to FS but found insufficient evidence that alternatives were unavailable, giving modest weight to their relationship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Officer refused the Applicant's permanent residence application under IRPA subsection 25(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Both parties agree the reasonableness standard of review applies, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard requires decisions to be transparent, justified, and coherent with facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court states only significant flaws justify intervention; it will not reweigh evidence or disturb factual findings absent exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant failed to show unreasonableness and seeks to reweigh evidence for a desired outcome.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant's submissions regarding errors in the Officer's decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court agrees the Officer wrongly applied refugee analysis instead of H&C analysis, citing Diabete and explaining the correct hardship test.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer erred by requiring the Applicant to prove unusual circumstances, applying refugee claim standards to H&C relief, which is reviewable error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds the Respondent mischaracterized the evidence as self-serving despite clear hardship evidence, rejecting that disparagement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Officer's hardship analysis is unjustified and mischaracterizes evidence of pervasive anti-Roma discrimination in Hungary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Officer erred in the BIOC analysis by focusing on minimum care rather than best interests, ignoring FS's emotional pain and the severe impact of removal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "BIOC analysis error",
+    "Ignoring FS's emotional pain",
+    "Insufficient response to evidence"
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "No certification questions were raised or found to arise in this case.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

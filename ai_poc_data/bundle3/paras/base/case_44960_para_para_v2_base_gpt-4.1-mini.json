@@ -1,0 +1,585 @@
+{
+ "case_id": 44960,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.009764
+ },
+ "verification": {
+  "paragraphs": 68,
+  "summaries": 68,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 53,
+   "party": 14,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves Gambian and US citizen claimants seeking refugee protection in Canada, alleging fear of forced marriage and female genital mutilation upon return to The Gambia. The Minister intervened, raising issues of identity, credibility, and exclusion for serious non-political crimes. The tribunal found the claimants not credible and rejected their refugee claims, concluding no serious risk of persecution or harm existed.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 10,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 17,
+    "label": "Claimant's allegations and fears",
+    "kind": "background"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Key issues identified by tribunal",
+    "kind": "issue"
+   },
+   {
+    "first": 21,
+    "last": 32,
+    "label": "Identity evidence and challenges",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 36,
+    "label": "Minister's exclusion claim and burden of proof",
+    "kind": "issue"
+   },
+   {
+    "first": 37,
+    "last": 41,
+    "label": "Analysis of child abduction allegation",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 44,
+    "label": "Credibility standard and findings",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 45,
+    "last": 60,
+    "label": "Credibility issues and negative inferences",
+    "kind": "analysis"
+   },
+   {
+    "first": 61,
+    "last": 62,
+    "label": "Disposition on principal claimant's refugee claim",
+    "kind": "disposition"
+   },
+   {
+    "first": 63,
+    "last": 67,
+    "label": "Disposition on minor co-claimants' refugee claims",
+    "kind": "disposition"
+   },
+   {
+    "first": 68,
+    "last": 68,
+    "label": "Final decision and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The claimants, citizens of The Gambia and the USA, seek refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The panel appointed XXXX XXXX as the designated representative for the minor children claimants.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The panel applied the Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution in its reasoning.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The panel also applied the Chairperson's Guidelines on Child Refugee Claimants regarding procedural and evidentiary issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Minister intervened under 1F(b) Exclusion, alleging the claimant committed a serious non-political crime (child abduction), and raised issues on identity, credibility, and state protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's 1F(b) intervention for child abduction",
+    "Issues on identity, credibility, and state protection"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The claimant submitted late disclosure including a letter and affidavit, which were refused due to timing and insufficient reasons for delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "An additional medical document and country condition documents were accepted as they met late submission requirements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Although the claimant's sister was available to testify, no advance request was made, so she was not questioned due to procedural rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The claimant's allegations are summarized in the Basis of Claim narrative provided in the exhibits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The claimant provided amendments to the Basis of Claim on a specified date in 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The claimant alleges fear of return to The Gambia due to pre-arranged marriage customs and Female Genital Mutilation experienced as an infant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Fear of forced marriage by family",
+    "Experience of Female Genital Mutilation as infant"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "In grade 11, the claimant's teacher opposed the forced marriage and tried to persuade her parents, but they refused; claimant and twin brother appealed to their mother.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The claimant graduated in 2012, planned marriage in 2013, but escaped to the USA with help from her brother and an accomplice using a US passport.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "In 2015, the claimant's twin brother was tragically shot while intervening in a fight in New York City.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The claimant had a serious relationship with the father of her two US-born children but came to Canada in 2017 due to lack of support and her sister's presence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The claimant fears forced marriage upon return to The Gambia and fears her children would be at risk, especially her daughter facing FMG.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The claimant believes Gambian authorities are corrupt and would not protect her from traditional practice disputes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has not established a serious possibility of persecution or risk of torture, death, or cruel treatment upon return.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The US-born minor co-claimants also failed to establish a serious possibility of persecution or risk upon return to the US.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The key issues in the case are the claimant's credibility and state protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The claimant provided three identity documents: a 1994 birth extract, a Gambian National ID card, and a BSIC Gambia Ltd ID card; the first two were seized and analyzed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Minister challenged the claimant's identity, noting inconsistencies in the birth extract, including a 2014 notation despite the father's death in 1997.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The claimant explained the birth extract was obtained by her aunt using her own documents; the panel found no reason to doubt the aunt's letter of support.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The claimant said the birth extract was brought to her in New York; late birth registration and corruption in Gambia make the document's authenticity uncertain, so it is given no weight.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The claimant's counsel submitted the Gambian National Identity Card and work ID as evidence of identity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Gambian National ID card requires supporting documents; the claimant lacks a passport and driver's license; discrepancies and visa applications undermine the card's reliability.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Requirements for National ID card",
+    "Claimant lacks passport and driver's license",
+    "Discrepancies with visa applications"
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "US biometric data shows multiple visa applications with consistent birthdate and father name differing from claimant's current claims; claimant said parents applied for visas when she was minor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Fingerprints match the claimant but birthdates differ; claimant explained she followed parents' instructions as a minor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The biometric data confirms identity but differing birthdates lead the panel to reject claimant's explanation and draw a negative inference on her age.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "An affidavit from the claimant's biological sister confirms family relationship; the sister was not questioned due to procedural issues but the letter is given full weight.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The claimant provided birth certificates for her two minor children showing US birth and parental details, which the tribunal accepts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The co-claimant minors are US citizens, relevant to Exclusion 1 Fb.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Minister intervened on October 17, 2019, by providing a Notice of Intent to Intervene.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Section F(b) of Article 1 of the Convention excludes serious non-political criminals from refugee protection in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The standard of proof for crimes under section F(b) is 'serious reasons for considering,' a burden on the Minister.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel finds the Minister has not met the burden to prove the claimant committed a serious crime under section F(b).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel considers whether the claimant committed abduction under Canadian Criminal Code s. 282(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "evidence",
+   "summary": "The claimant entered Canada with a letter from the father consenting to travel and medical treatment for the children, dated and sworn in 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "party",
+   "summary": "The Minister argues the claimant lacks full custody and the letter only permits travel; the claimant says she has full custody per the letter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal finds no lack of consent or intent to deprive the father of the children, who is aware and communicates regularly with them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Despite preferring a detailed custody document, the tribunal finds no serious reasons to consider intent to deprive the father; claimant not excluded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The standard of proof for evidence credibility is balance of probabilities, requiring probable truth, not mere possibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "A sworn claimant's allegations are presumed true unless there is reason to doubt their truthfulness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The panel found omissions, inconsistencies, and contradictions in the claimant's testimony, undermining her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "The claimant was notified of the Minister's intervention raising issues on identity, documents, exclusion, state protection, fear, and credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The claimant withheld information about siblings on her BOC form, leading to a negative credibility inference by the panel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The claimant acknowledged siblings' US status but did not include them in her BOC form, reinforcing credibility concerns.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The claimant omitted her mother and stepfather's information from the BOC form, leading to further negative credibility inferences.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The claimant denied seeing her mother during visits to the USA and Canada despite evidence of the mother's travel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Minister's evidence showed omissions of family members in the BOC form, leading to negative credibility inferences against the claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "The claimant alleges forced marriage threat by her mother if she returns to The Gambia.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The claimant omitted the mother's threat from her claim despite instructions, leading to a negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The claimant omitted a family member's role in her Gambia departure, which the panel found unacceptable and drew a negative inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The claimant's visa applications and family control claims are internally inconsistent and implausible, undermining credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "party",
+   "summary": "The claimant stated she did not make a refugee claim in the USA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "party",
+   "summary": "The claimant alleges paying a lawyer in 2013 who disappeared, an event omitted from her narrative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The claimant omitted paying a lawyer and related details from her narrative despite opportunities to amend, a negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The claimant's failure to seek help in the USA despite alleged fear undermines her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The claimant's English skills and education suggest she could have sought help in the USA, contradicting her claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "In summary, the panel found the claimant not credible regarding her failure to claim refugee status in the USA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal finds no serious possibility of persecution or risk of torture or cruel treatment for the applicant in their country and concludes they are not a refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The tribunal rejects the applicant's claim for protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The tribunal finds the two US-born minor co-claimants have not met the burden to show serious risk of persecution or harm in the US.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The principal claimant's Basis of Claim forms did not indicate the US-born children faced serious harm risk in the US.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The minors' counsel did not make submissions about risk in the US, and the principal claimant testified the children did not face serious harm there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The US National Documentation Package shows no serious harm or persecution risk for the minor claimants, and family separation is not considered serious harm.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The tribunal concludes the US-born minor co-claimants are not Convention refugees or persons in need of protection under IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claims of the minor children and signs the decision dated June 26, 2020.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

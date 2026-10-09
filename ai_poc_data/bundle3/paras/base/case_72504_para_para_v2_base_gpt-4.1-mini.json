@@ -1,0 +1,393 @@
+{
+ "case_id": 72504,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.005941200000000001
+ },
+ "verification": {
+  "paragraphs": 42,
+  "summaries": 42,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 25,
+   "party": 8,
+   "below": 8,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by a Nigerian citizen who fears persecution in Nigeria due to her sexual orientation. The Refugee Protection Division (RPD) initially found her not credible and rejected her claims, but the tribunal reviewing the appeal found errors in the RPD's credibility assessment and accepted the appellant's claims. The tribunal allowed the appeal and recognized the appellant as a Convention refugee.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and initial decision",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Appellant's arguments and tribunal's review role",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 15,
+    "label": "Credibility assessment: early awareness and girlfriend absence",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 27,
+    "label": "Credibility assessment: incident exposure and extortion claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 37,
+    "label": "Assessment of corroborating evidence and LGBTQ+ involvement",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 41,
+    "label": "Country conditions and persecution risk",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 42,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant, a Nigerian citizen, fears persecution in Nigeria due to her sexual orientation from family, community, and government.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division found the appellant not credible and that she failed to establish her claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD's analysis of her testimony was overly detailed and unfairly microscopic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred in assessing the appellant's testimony and that the appellant has established her claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD errors in testimony assessment",
+    "Appellant established claims"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appeal is allowed and the tribunal substitutes its own decision that the appellant is a Convention refugee.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal considered Chairperson's Guidelines 4 and 9 regarding women refugee claimants and sexual orientation proceedings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal finds insufficient inconsistencies to rebut the presumption of truth and finds the appellant credible; reasons follow.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by negatively inferring credibility from the appellant's testimony about early awareness of her sexual orientation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD found the appellant's testimony about feelings on realizing her sexual orientation lacked detail and found no barriers explaining vagueness, undermining credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The appellant argues she described her feelings well at age 13 and that the RPD misquoted her and misused her parents' religion in assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal listened to the hearing and finds the appellant testified with sufficient detail about her feelings when realizing her sexual orientation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant's testimony sufficiently detailed given her age and nature of realization, and finds RPD erred in negative credibility inference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by negatively inferring credibility from the absence of the appellant's girlfriend at the hearing and accepts the appellant's explanation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RPD found the appellant deprived herself of best proof by not bringing her girlfriend, expecting the girlfriend to testify despite work obligations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The appellant argues her girlfriend was working and unwilling to take time off, and the relationship was very new at hearing time.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal notes no affidavit from the girlfriend was provided but finds no negative inference from her absence and accepts the appellant was dating her at hearing time.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by microscopically assessing the appellant's testimony about the incident exposing her sexual orientation and extortion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The RPD found the appellant failed to establish being caught with her girlfriend and extortion, negatively affecting credibility due to memory and inconsistency issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The appellant argues her date range for being caught is accurate and trauma explains memory issues; tribunal agrees on sufficient accuracy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD engaged in microscopic analysis of her testimony about extortion payments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's summary of the appellant's extortion testimony accurate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RPD found the appellant's narrative described repeated extortion demands and payments, including threats to release a sex tape.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "evidence",
+   "summary": "The appellant testified paying the neighbour varying amounts, culminating in a large sum she could not pay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal finds no significant difference between testimony and narrative and that the RPD erred in negative credibility inference on extortion evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant established being discovered in a compromising situation and extorted by her neighbour.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred in assessing corroborating evidence and gave too much weight to omissions on immigration forms.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The RPD did not accept the appellant's explanation for omitting a Nigerian address on immigration forms, finding it diminished credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "below",
+   "summary": "The RPD gave no weight to an affidavit from XXXX XXXX due to a contradiction with the appellant's testimony about tenancy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD wrongly rejected an affidavit corroborating her testimony about fleeing to Lanlate, despite an inconsistency about her student status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's argument on affidavit rejection",
+    "Affidavit corroborates testimony",
+    "Inconsistency on student status"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal accepts the Appellant's explanation about the affidavit's student status error and gives it weight to prove she fled to Lanlate.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Acceptance of Appellant's explanation",
+    "Affidavit given weight",
+    "Establishes flight to Lanlate"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's omission on Schedule A affects credibility but is not enough to rebut sworn testimony; it finds RPD erred on LGBTQ+ involvement assessment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Omission impacts credibility",
+    "Omission not significant alone",
+    "RPD erred on LGBTQ+ involvement"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by negatively inferring credibility from the Appellant's delayed involvement in LGBTQ+ organizations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "below",
+   "summary": "The RPD concluded the Appellant joined LGBTQ+ groups late to create self-serving evidence and found her explanation unsatisfactory, undermining her credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's conclusion on late joining",
+    "RPD's view on explanation",
+    "Credibility undermined"
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Appellant argues she tried to join an LGBTQ+ center soon after arrival but it was closed, later volunteering and joining organizations in 2018 and 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's conclusions unsupported and based on wrong assumptions, giving weight to evidence supporting the Appellant's sexual orientation claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD conclusions unsupported",
+    "Wrong assumptions on behavior",
+    "Evidence given weight"
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant has established she fled Nigeria due to exposure of her sexuality and that state protection and internal flight alternative are unavailable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Country documents show Nigeria's 2013 Same-Sex Marriage Act prohibits same-sex unions and penalizes involvement in LGBTQ organizations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Police in Nigeria perpetrate rights violations against LGBTQ persons, often arresting them for extortion and raiding gatherings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The tribunal concludes the Appellant is credible and will face persecution in Nigeria based on sexual orientation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The appeal is allowed and the tribunal substitutes its decision that the Appellant is a Convention refugee, signed by Anna Wyse on April 30, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

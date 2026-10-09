@@ -1,0 +1,402 @@
+{
+ "case_id": 69634,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0077096000000000005
+ },
+ "verification": {
+  "paragraphs": 38,
+  "summaries": 38,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 20,
+   "below": 12,
+   "party": 6
+  },
+  "multi_idea_paragraphs": 15,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by the Principal and Associate Appellants from China against the Refugee Protection Division's (RPD) decision rejecting their refugee claims based on persecution for practicing Falun Gong. The Refugee Appeal Division (RAD) conducted an independent review, found errors in the RPD's credibility assessments, and concluded that the Appellants are Convention refugees under the Immigration and Refugee Protection Act (IRPA). The appeal was allowed, the RPD's decision was set aside, and the RAD substituted its own decision recognizing the Appellants as refugees.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and RPD decision",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Appellants' arguments on appeal",
+    "kind": "issue"
+   },
+   {
+    "first": 9,
+    "last": 23,
+    "label": "Credibility assessment of Principal Appellant's Falun Gong claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 32,
+    "label": "Credibility assessment of Associate Appellant's Falun Gong claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 37,
+    "label": "RAD's findings and conclusion on refugee status",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 38,
+    "label": "Disposition and order",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Principal and Associate Appellants from China appeal the RPD's April 19, 2021 decision rejecting their refugee claims as not credible, alleging persecution for Falun Gong practice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' identities and origin",
+    "RPD decision date and outcome",
+    "Allegation of persecution for Falun Gong",
+    "Appeal request and no new evidence"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The RAD conducts an independent assessment of evidence and finds no meaningful advantage in RPD's oral testimony assessment, applying correctness standard.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the RPD's decision is set aside and replaced with a finding that the Appellants are Convention refugees under IRPA section 96.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Appellants allege the PA practiced Falun Gong in China, faced crackdown fears, traveled to Canada with false passports, and resumed practice here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "PA's introduction and practice of Falun Gong",
+    "AA's initial disinterest",
+    "Fear of crackdown in 2019",
+    "Use of false passports to come to Canada",
+    "Resumption of practice in Canada",
+    "Fear of arrest if returned"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "At hearing end, AA added she wants more children but cannot in China due to family planning policies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The RPD found credibility issues, doubted PA's sincerity as Falun Gong practitioner in China and Canada, and rejected family planning fear as unfounded.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Credibility as key issue",
+    "PA not sincere in China",
+    "Both not sincere in Canada",
+    "No objective basis for family planning fear"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred in credibility findings, claiming overzealous examination and false inconsistencies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Appellants concede the family planning claim lacks strong support and focus the appeal on Falun Gong identity findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RAD notes sworn testimony is presumed truthful unless rebutted by inconsistencies or implausibilities, and credibility can be assessed by common sense.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD found the PA's hearing testimony about using fraudulent passports conflicted with his BOC narrative about reasons for using them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD questioned the PA about the inconsistency between fearing legal exit due to Falun Gong and visa ineligibility as reasons for false passports.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RPD found the PA's hearing testimony inconsistent with his narrative, implying authorities knew of his Falun Gong practice, which conflicted with other testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistency on passport use reason",
+    "Implication of authorities' knowledge",
+    "Conflict with hearing testimony"
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Appellants argue no inconsistency exists as the PA's primary reason was visa ineligibility, with speculative fear of authorities; the court rejects this argument.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' argument on cumulative reasons",
+    "Speculative fear not primary",
+    "Court rejects argument as counsel submission",
+    "Court finds inconsistent evidence"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD wrongly inferred authorities knew of PA's Falun Gong practice; evidence shows no such knowledge or risk existed; the court agrees with RPD's negative credibility inference.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants deny authorities' knowledge",
+    "Evidence of private practice only",
+    "No risk of detection",
+    "Court agrees with RPD on negative inference"
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court finds the RPD correctly identified an unexplained inconsistency between the PA's narrative and hearing testimony about passport use.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RPD noted Falun Gong's core principles of truthfulness, compassion, and forbearance, and the PA's claim to live by them in China except for truthfulness due to government ban.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The RPD found the PA's use of a false passport inconsistent with Falun Gong's truthfulness principle and drew a negative credibility inference from lack of moral struggle.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistency between actions and truthfulness",
+    "Expectation of attempts to leave legally",
+    "No spontaneous mention of moral struggle",
+    "Negative credibility inference"
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred by ignoring the PA's testimony about visa ineligibility leading to use of false passports, making the RPD's finding inconsistent with evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court rejects the RPD's adverse inference about moral struggle, finding no clear evidence the PA lacked internal conflict over using a false passport.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds the RPD erred in drawing a negative inference from the PA's use of a false passport, which does not undermine his credibility as a Falun Gong practitioner.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RPD found the PA insincere as a Falun Gong practitioner based on inconsistent passport testimony and conflict with truthfulness principle.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistent passport testimony",
+    "Adverse inference from false passport use"
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court finds the RPD erred on the truthfulness principle issue, leaving only the inconsistent testimony as basis, which is insufficient to rebut the presumption of truthfulness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD error on truthfulness principle",
+    "Only one valid credibility finding remains",
+    "That finding insufficient to rebut truthfulness"
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds no evidence disproving the PA's claim to be a Falun Gong practitioner in China, and accepts his testimony as truthful on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RPD found the PA not credible as a Falun Gong practitioner in Canada, relying on its negative finding about his practice in China, which the court rejects.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's negative inference on Canadian practice",
+    "Based on discredited China practice finding",
+    "Court rejects this inference"
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The RPD found the PA's knowledge of Falun Gong insufficient to overcome credibility concerns and rejected his sincerity as a current practitioner.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The RPD noted knowledge is important for Falun Gong practice and found three specific errors in the PA's knowledge of exercises, undermining his sincerity claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Importance of knowledge in Falun Gong",
+    "Three specific knowledge errors identified",
+    "Errors undermine sincerity"
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RPD concluded the PA learned Falun Gong knowledge to support his claim but lacked genuine interest, finding he is not a sincere practitioner in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court finds the RPD's negative findings on the PA's Canadian practice are undermined by errors about his China practice and that minor knowledge errors do not show fundamental misunderstanding.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's findings undermined by prior errors",
+    "Knowledge errors minor, not fundamental",
+    "PA's knowledge commensurate with experience"
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court finds the PA's truthful testimony establishes on balance of probabilities that he is a Falun Gong practitioner and likely to practice if returned to China.",
+   "ideas": "multiple",
+   "idea_list": [
+    "PA's truthful testimony accepted",
+    "PA established as Falun Gong practitioner",
+    "No basis to doubt future practice"
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "below",
+   "summary": "The RPD found the AA not a sincere Falun Gong practitioner due to memorized responses, limited knowledge, and lack of interest in practice since arrival in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "AA's memorized and rehearsed responses",
+    "Limited knowledge of exercises",
+    "Lack of interest due to baby",
+    "Negative credibility inference"
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Appellants argue the AA's FG knowledge matches her short practice period and post-birth limited exercises, given her five months practice before the pandemic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds the AA's limited FG knowledge reasonable and consistent with her short practice and personal circumstances, accepting she is a FG practitioner.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds the RPD's decision that the Appellants are not Convention refugees is incorrect and cannot stand.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the RAD can substitute the RPD's decision as the claims were sufficiently canvassed and the Appellants face serious persecution risk in China.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD can substitute RPD decision",
+    "Appellants face serious persecution risk"
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court is satisfied that FG practitioners face persecution in China and the Appellants likely face persecution based on political opinion as FG practitioners.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds no adequate state protection or internal flight alternative exists in China for the Appellants facing persecution by state agents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court concludes the Appellants are Convention refugees based on the evidence and findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The appeal is allowed and the court substitutes its own decision that the Appellants are Convention refugees, signed by N. Kaufman on October 29, 2021.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

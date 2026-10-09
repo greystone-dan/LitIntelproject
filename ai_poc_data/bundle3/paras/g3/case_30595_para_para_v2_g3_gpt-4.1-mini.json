@@ -1,0 +1,175 @@
+{
+ "case_id": 30595,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0034244
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 8,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 1,
+  "speakers": {
+   "court": 6,
+   "mixed": 2
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application by the Applicant challenging the refusal of permanent residence under the Pathway Program by the Minister of Citizenship and Immigration. The Applicant failed to prove the required 120 hours of direct patient care work during the first eligibility period due to injury, leading to the refusal. The Federal Court dismissed the application, finding the Officer's decision reasonable and procedurally fair.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Outcome and summary",
+    "kind": "disposition"
+   },
+   {
+    "first": 6,
+    "last": 8,
+    "label": "Pathway Program eligibility requirements",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 12,
+    "label": "Application and issues raised",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 16,
+    "label": "Legal standards and Applicant's arguments",
+    "kind": "issue"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Court's rejection of Applicant's interpretation",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 22,
+    "label": "Reasonableness of Officer's interpretation",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 26,
+    "label": "Fairness and discretion analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 28,
+    "label": "Fettered discretion and adequacy of reasons",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 5,
+   "speaker": "court",
+   "summary": "The court finds the Applicant did not prove 120 hours of direct patient care work during the specified period and dismisses the judicial review application, while acknowledging the Applicant's significant pandemic contributions as a PSW.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant failed to prove 120 hours work",
+    "Application dismissed",
+    "Acknowledgement of Applicant's contribution",
+    "Background on Applicant and Pathway Program"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 8,
+   "speaker": "mixed",
+   "summary": "The Pathway Program's eligibility required 120 hours of direct patient care in the first period and 6 months or 750 hours in the second, with limited sick leave exceptions; the Applicant worked only 42 hours in the first period due to injury.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Eligibility criteria for Pathway Program",
+    "Sick leave counting rules",
+    "Applicant's work history and injury"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 12,
+   "speaker": "mixed",
+   "summary": "The Applicant applied for permanent residence under the Pathway Program but was refused by the Officer for not meeting the 120-hour requirement; the Respondent is correctly identified as Minister of Citizenship and Immigration; issues raised concern reasonableness and procedural fairness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's application and refusal",
+    "Officer's rationale for refusal",
+    "Correction of Respondent's title",
+    "Issues for judicial review"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 16,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard and fairness assessment, then summarizes the Applicant's argument that the Officer misinterpreted the eligibility requirements as conjunctive rather than disjunctive, making the refusal unreasonable and unfair.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness review standard",
+    "Fairness assessment standard",
+    "Applicant's argument on eligibility interpretation"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 19,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's arguments that only one work period needed to be met and that medical leave should count for the first period, finding the Officer's decision consistent and the program's terms clear.",
+   "ideas": "single",
+   "idea_list": [
+    "Rejection of Applicant's interpretation and medical leave argument"
+   ]
+  },
+  {
+   "para": 20,
+   "last": 22,
+   "speaker": "court",
+   "summary": "The court finds the Officer's interpretation requiring both work periods met was reasonable, and that only sick leave due to COVID-19 counts for the first period, so the Applicant's medical leave did not qualify.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's reasonable interpretation of 'and'",
+    "Medical leave not counted for first period",
+    "Explanation of sick leave counting rules"
+   ]
+  },
+  {
+   "para": 23,
+   "last": 26,
+   "speaker": "court",
+   "summary": "The court finds the Officer's decision transparent and justified, rejects the Applicant's fairness claims and discretion arguments, and cites precedent that the Pathway Program confers no discretion to waive eligibility requirements.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's decision reasonable and justified",
+    "No breach of fairness found",
+    "No discretion to waive eligibility",
+    "Precedent cited"
+   ]
+  },
+  {
+   "para": 27,
+   "last": 28,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's claim of fettered discretion and finds adequacy of reasons relates to reasonableness, which the Officer's decision satisfies.",
+   "ideas": "single",
+   "idea_list": [
+    "Rejection of fettered discretion claim and adequacy of reasons argument"
+   ]
+  }
+ ]
+}

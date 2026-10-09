@@ -1,0 +1,171 @@
+{
+ "case_id": 29037,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0032924
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 6,
+   "party": 5,
+   "below": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the judicial review of the Refugee Appeal Division's (RAD) decision dismissing the refugee claim of Indian citizens Jagjit Singh, his wife Prabhvir Kaur, and their son Jagnoor Singh, who alleged police harassment and assault in Punjab. The Applicants challenged the RAD's credibility findings, particularly the assumption that they had experienced legal counsel when preparing their Basis of Claim (BOC) form. The Federal Court dismissed the judicial review application, finding the RAD's decision reasonable despite a minor error regarding the Applicants' legal representation.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Tribunal below's findings",
+    "kind": "other"
+   },
+   {
+    "first": 8,
+    "last": 11,
+    "label": "Parties' arguments on judicial review",
+    "kind": "issue"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Court's analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "The applicants, Jagjit Singh and family, challenge the Refugee Appeal Division's dismissal of their refugee claim. They allege police harassment and assault in India, leading to their flight to Canada. The Refugee Protection Division found inconsistencies and lack of credibility in their evidence, a finding upheld by the RAD. The applicants argue the RAD erred by assuming they had experienced legal counsel when preparing their claim. The court addresses whether this assumption undermines the credibility finding, the significance of omissions in their claim, and the reasonableness of the RAD's decision. Ultimately, the court finds the error minor and dismisses the judicial review application.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicants seek judicial review of the RAD's February 14, 2023 decision dismissing their refugee claim; the application is dismissed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicants, Indian citizens Jagjit Singh, his wife Prabhvir Kaur, and son Jagnoor Singh, claim police harassment, arrest, and assault in 2017 in Punjab.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicants fled their village after police raids, moved to Delhi, then left India, arriving in Canada on December 25, 2017, and filed a refugee claim two months later.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD dismissed the Applicants' claim due to significant inconsistencies and omissions, finding them not credible about police interactions and relocation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RAD upheld the RPD's credibility finding, noting Mr. Singh's testimony included material events omitted from the Basis of Claim form.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "Mr. Singh testified about a police officer threatening his wife after hospital release, a pivotal event omitted from the BOC, which the RAD found undermined credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RAD noted the Applicants had experienced legal counsel preparing the BOC, so they should have included all material information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On judicial review, the Applicants accept omissions but argue the RAD erred by wrongly assuming they had experienced legal counsel, making the decision flawed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Respondent concedes the RAD erred calling the Applicants' representative \"legal counsel\" but argues this error doesn't overturn the credibility finding; the court agrees.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent concedes error",
+    "Court agrees error insufficient to overturn"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court finds the Applicants' focus on two words is minor; they had experienced immigration consultants assisting with the BOC and hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Applicants do not claim incompetence or lack of opportunity to update the BOC; Mr. Singh confirmed understanding and chose to omit some details.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court applies the reasonableness standard, finds the RAD's reference to \"legal counsel\" a minor misstatement not undermining the decision's reasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RAD's thorough analysis and reasons show the Applicants' claim lacked credibility; the decision is justified, intelligible, and transparent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "No questions for certification were proposed or certified.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

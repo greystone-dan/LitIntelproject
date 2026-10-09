@@ -1,0 +1,572 @@
+{
+ "case_id": 6195,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0092
+ },
+ "verification": {
+  "paragraphs": 58,
+  "summaries": 58,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 48,
+   "below": 6,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 8,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Fiaz Ahmad, a permanent resident, sought judicial review of the Immigration Appeal Division's (IAD) dismissal of his appeal regarding his failure to meet residency obligations under humanitarian and compassionate (H&C) grounds. The Federal Court found no procedural fairness violations or bias by the IAD, although some findings were unwarranted but not central to the decision. The judicial review application was dismissed, upholding the IAD's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Issues and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 13,
+    "label": "Background facts and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 14,
+    "last": 29,
+    "label": "Procedural fairness and bias claims analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 42,
+    "label": "Merits review of IAD's H&C decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 56,
+    "label": "Further analysis of credibility and best interests of children",
+    "kind": "analysis"
+   },
+   {
+    "first": 57,
+    "last": 58,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Fiaz Ahmad, a permanent resident, fell 309 days short of residency obligation and appealed IAD's dismissal on H&C grounds, now seeking judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Fiaz Ahmad's residency shortfall",
+    "Appeal to IAD on H&C grounds",
+    "Judicial review sought for procedural fairness and unreasonableness"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Court finds no procedural fairness denial or bias by IAD; some unwarranted findings not central enough to be unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No procedural fairness denial",
+    "No bias by IAD",
+    "Unwarranted findings not central"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Issues raised: denial of procedural fairness and unreasonableness of IAD's decision on merits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Procedural fairness review assesses fairness of procedure considering all circumstances, not applying a standard of review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Merits review defers to IAD unless decision is unreasonable; court's role is to assess reasonableness, not reweigh evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Mr. Ahmad married a Canadian citizen in 1999, had four Canadian-born children, became permanent resident in 2009, but relationship broke down and he returned to Pakistan in 2016.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Marriage and children",
+    "Permanent residence obtained",
+    "Relationship breakdown and legal issues",
+    "Return to Pakistan"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Mr. Ahmad applied for a travel document in 2020, listing 421 days in Canada over five years, including visits and a continuous period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Application form required H&C grounds if under 730 days; Mr. Ahmad cited family reunification, parental advice, and retirement plans.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "IRCC officer informed Mr. Ahmad in 2021 he did not meet residency obligation and H&C grounds were insufficient.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Mr. Ahmad appealed to IAD, received visa, and returned to Canada in July 2021 for hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Mr. Ahmad, self-represented, filed amended witness list of six relatives and a friend, with affidavits and letters.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "IAD member questioned Mr. Ahmad about witness list size, suggesting some evidence might be repetitive and counsel might accept some evidence without testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "After a break, Mr. Ahmad agreed only two witnesses were necessary; hearing continued with friend's evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Court rejects Mr. Ahmad's claim that IAD unfairly influenced him to reduce witnesses, finding it was fair to avoid repetitive evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD's review of witness list was fair",
+    "Avoidance of repetitive evidence justified",
+    "Mr. Ahmad agreed to reduce witnesses"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court rejects claim that IAD unfairly failed to solicit Minister's acceptance of each witness's evidence after break.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Court finds IAD member's repeated phrase 'lots of witnesses' was not unfair emphasis but a correction of phrasing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Mr. Ahmad argues IAD's negative findings about brother's affidavit were unreasonable and resulted from unfairness in limiting witnesses.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court notes IAD accepted brother's Canadian residence evidence but later found false information without questioning, a serious finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Court finds no reasonable basis for IAD's conclusion brother was unaware of divorce, given timing and affidavit language.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court concludes IAD's concerns about brother's affidavit did not cause material unfairness or affect decision on H&C issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Brother's affidavit repeated known facts",
+    "No bearing on H&C issues",
+    "IAD's comments not grounds for interference"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Mr. Ahmad argues IAD unfairly denied adjournment to file citizenship application documents he believed IAD had.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Court finds no procedural unfairness in not offering adjournment since none was requested and other evidence addressed issue.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No obligation to propose adjournment",
+    "No unfairness in denying unrequested adjournment",
+    "Other evidence covered issue"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Court rejects Mr. Ahmad's claim citizenship documents would contradict IAD's findings about immigration attempts, finding issue irrelevant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD's statement related to earlier period",
+    "No basis to expect citizenship documents relevant",
+    "Relevant issue was H&C relief in recent period"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Mr. Ahmad alleges IAD had closed mind and animus but not classic bias; court agrees bias claim includes all such allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "To prove bias, applicant must show reasonable apprehension that decision maker would not decide fairly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Mr. Ahmad points to negative IAD statements about brother, family, and character as evidence of bias.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court finds no reasonable apprehension of bias; adverse findings do not prove bias and some comments were misplaced but not unfair.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No reasonable apprehension of bias",
+    "Adverse findings not proof of bias",
+    "Some comments misplaced but not unfair"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court concludes no procedural unfairness due to bias or procedural steps by IAD member.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court summarizes H&C factors from Ambat relevant to residency obligation appeals, including best interests of child and other factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The IAD structured its reasons around five factors related to Mr. Ahmad's residency and H&C relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The IAD found Mr. Ahmad's 309-day non-compliance significant and mainly due to work, with little evidence of parental care necessity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "The IAD found Mr. Ahmad had little establishment in Canada and would suffer little dislocation living in Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The IAD found family and children's best interests favored Mr. Ahmad but overall did not justify H&C relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Mr. Ahmad's strongest argument concerns the IAD's comments on his presence in Canada from 2013 to 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Mr. Ahmad's presence in Canada from 2013 to 2016 was undisputed and supported by travel records and prior acceptance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "The IAD doubted Mr. Ahmad's stated residency from 2013 to 2016 based on his daughter's letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The daughter's letter did not detail residency and should be read with other evidence, which the IAD did not do.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The IAD's finding doubting Mr. Ahmad's 2013-2016 residency and speculating fraud was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Despite the unreasonable finding, it was peripheral and did not render the IAD's overall decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The IAD reasonably considered H&C factors despite possible negative impressions from unreasonable statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The unreasonable statements do not make the IAD's overall decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Mr. Ahmad challenges the IAD's credibility finding about his changing reasons for returning to Pakistan and witness issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The IAD's observation about changing reasons was fair and supported by evidence; court will not interfere.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The IAD's discussion of the children's best interests was reasonable despite Mr. Ahmad's contrary arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "below",
+   "summary": "The IAD found Mr. Ahmad's motivation to rebuild relationships arose late but acknowledged it positively for the children.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "party",
+   "summary": "Mr. Ahmad argues the IAD grudgingly accepted his dedication and wrongly judged meaningful involvement with children.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The IAD reasonably assessed children's best interests and Mr. Ahmad's role; court will not reassess evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The IAD's finding that Mr. Ahmad did not appear at custody hearing was reasonable based on record evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The IAD's statement about lack of contact with friend's children was supported by evidence and relevant to best interests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Mr. Ahmad has not shown the IAD's best interests analysis to be unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "Mr. Ahmad argues the IAD failed to consider his continuing connections to Canada as a relevant factor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The IAD considered family and support factors; no failure to consider relevant factors found.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "party",
+   "summary": "Mr. Ahmad challenges IAD's phrasing as belittling and implying negative impressions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The IAD is not required to mention every positive evidence piece and balanced factors reasonably.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Despite some unjustified findings, the IAD's overall decision was not unreasonable or unfair.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "No question for certification arises in this matter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

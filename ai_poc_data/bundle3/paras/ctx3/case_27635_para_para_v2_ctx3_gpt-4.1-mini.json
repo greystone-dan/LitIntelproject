@@ -1,0 +1,380 @@
+{
+ "case_id": 27635,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.006979600000000001
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 44,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "speakers": {
+   "party": 8,
+   "below": 12,
+   "court": 24
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 1
+ },
+ "structure": {
+  "overview": "The case involves the Applicants seeking judicial review of the Canada Revenue Agency's (CRA) decision that accepted investigation reports finding a harassment complaint against them well-founded. The Applicants challenged procedural fairness and the reasonableness of the CRA's decision, including arguments about witness interviews and privilege claims. The Federal Court found the investigation procedurally fair, the CRA's decision reasonable, and dismissed the judicial review application.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 4,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 19,
+    "label": "Investigation Process and Findings",
+    "kind": "background"
+   },
+   {
+    "first": 22,
+    "last": 31,
+    "label": "Procedural Fairness and Witness Interview Issue",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 39,
+    "label": "Procedural Fairness: Opportunity to Rebut Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 50,
+    "label": "Privilege Arguments and Their Rejection",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 52,
+    "label": "Disposition and Conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicants seek judicial review of the CRA's decision accepting investigation reports that found a harassment complaint against them well-founded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "Associate Judge Sylvie Molgat ordered confidentiality of parties' names and participants in the harassment complaint investigation, using initials instead.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The harassment complaint arose from a January 11, 2023 letter by the Applicants criticizing dysfunction in the regional OHS Committee, blaming another member, the Complainant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court finds the harassment complaint investigation procedurally fair and the CRA's decision reasonable, dismissing the judicial review application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "On January 13, 2023, the UTE Labour Relations Officer forwarded the January Letter to CRA officials, who shared it with the Complainant on February 15, 2023.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Complainant submitted the harassment complaint on March 17, 2023, naming four potential witnesses including his supervisor NP.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "On August 3, 2023, CRA notified the Applicants as responding parties and asked for witnesses; Applicants named themselves and four senior UTE reps.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On October 31, 2023, CRA appointed Investigator Jeanette Bicknell to investigate the harassment complaint under the WPHVP Regulations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Investigator interviewed LM on November 29, 2023, who said her belief about the deleted T4009 Report came from co-worker PA and other observations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Investigator interviewed NP, the Complainant's supervisor, on December 8, 2024, who confirmed the T4009 Report was edited, not deleted, and explained the context.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "DA requested to respond in writing to Investigator's questions on December 20, 2023, identifying PA as source of deletion allegation and BA as the report filer.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "Applicants mentioned PA and BA in interviews but did not name them as witnesses; Investigator never spoke to PA or BA about the T4009 allegation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Investigator delivered two similar reports on January 10, 2024, finding the January Letter's contents met harassment definition and recommending prevention measures.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Investigator found many allegations in the January Letter vague and based on character traits rather than concrete actions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The Investigator found the Applicants' allegations lacked evidence, especially the serious claim of report removal, and noted sincerity did not justify inclusion in workplace communication.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Justification, intelligibility, and transparency mean reasons must explain the decision and show it falls within acceptable outcomes based on facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Procedural fairness is reviewed on a correctness standard, focusing on whether the applicant had a full and fair chance to be heard.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Workplace harassment investigations require a high level of procedural fairness due to serious consequences for all parties involved.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Applicants did not initially or at interview end identify PA or BA as necessary witnesses but mentioned them during interviews.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "An investigation is not unfair for not interviewing every proposed witness; the investigator controls the process subject to fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court considers what information PA and BA might have provided; NP's interview indicated the T4009 report was not deleted but misused.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Investigator reasonably based conclusions on NP's interview, who had personal knowledge, and PA or BA likely would not have altered findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The serious allegation was deletion of the report, but other allegations were negative characterizations; PA and BA could not provide relevant evidence on these.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Investigator's failure to interview PA and BA did not make the harassment complaint investigation procedurally unfair.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "Applicants argue they were denied opportunity to rebut evidence and see preliminary reports, citing Marentette and Provonost decisions on procedural fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "This new procedural fairness ground was not included in the Applicants' Notice of Application; only failure to interview PA and BA was raised.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Applicants must state grounds in their notice of application and cannot raise new grounds later without rare discretion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal requires strict adherence to notice rules to ensure respondents have adequate notice and can respond meaningfully.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Applicants' basket clause does not permit the new procedural fairness argument as it is distinct and not incidental to the relief requested.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "Applicants acknowledge Marentette decision was not a new matter but an application of existing law to facts, so not a new ground.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds the Applicants had a fair chance to rebut evidence, mainly their own January Letter, but the Investigator found the main allegation unsubstantiated.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court states the investigation of the Harassment Complaint was procedurally fair and introduces the reasonableness of the CRA's Decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Investigation was procedurally fair",
+    "Question of CRA's Decision reasonableness"
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "The Applicants argue the Investigator ignored the protected nature of their January Letter speech, claiming labour relations or qualified privilege as UTE representatives.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Respondent counters that the privilege argument was not raised before the Investigator and that qualified privilege does not apply here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court explains it may refuse to consider new issues on judicial review if not raised before the tribunal, to avoid unfair prejudice and lack of evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court holds the privilege issue is not properly before it and is not persuaded either labour relations or qualified privilege applies here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court outlines the four Wigmore factors for labour relations privilege and states the burden of proof lies with the party asserting it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court notes the Applicants did not address the Wigmore factors before the Investigator or this Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court questions whether the January Letter was intended for the UTE Regional Vice President in his official capacity, noting its title and opening.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "below",
+   "summary": "The Investigator found the January Letter was intended for a national body, was not confidential, and serious enough to require investigation by the supervisor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court notes nothing indicated the January Letter was an internal union communication and that any labour relations privilege was waived by disclosure to CRA's OHS program.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court states qualified privilege, a defamation law aspect, does not apply and would not cover broad personal attacks in the January Letter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The court rejects the Applicants' claim that the CRA's Decision discourages raising workplace safety concerns, noting both safety and harassment complaints coexist.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court concludes the CRA's Decision was reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

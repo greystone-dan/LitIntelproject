@@ -1,0 +1,254 @@
+{
+ "case_id": 30735,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.0042252
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 2,
+  "speakers": {
+   "court": 17,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves the SEJ Estate Trust (applicant) seeking to amend its claim against the Minister of Finance of Canada (respondent), who moved to strike the claim. The court rejected the applicant's motion to amend due to lack of evidence and granted the respondent's motion to strike the claim for being legally unfounded and having no chance of success. The applicant's claim was struck, and costs were reserved with a timetable for submissions.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Introduction and motions summary",
+    "kind": "other"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Applicant's motion to amend and evidentiary requirements",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 15,
+    "label": "Representation requirements for the applicant trust",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 17,
+    "label": "Legal standard for motion to strike",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 18,
+    "last": 19,
+    "label": "Applicant's claim summary",
+    "kind": "background"
+   },
+   {
+    "first": 20,
+    "last": 22,
+    "label": "Court's analysis of legal basis and merits",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 23,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court is seized of two motions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The respondent, Minister of Finance of Canada, filed a motion to strike the applicant's claim under Rule 369, citing case law JP Morgan and David Bull Laboratories.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The applicant filed a motion seeking the court's authorization to amend its claim and notice of application, which the respondent wants struck out.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's motion to amend and grants the respondent's motion to strike the applicant's claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The applicant bears the burden to prove the court should allow amendment considering injustice, interests of justice, and reasonable chance of success, citing McCain Foods and Janssen.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's burden to prove",
+    "criteria for amendment"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court cannot analyze the motion without evidence showing the proposed amendments and relevant considerations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The applicant's motion lacks affidavit evidence and a draft amended pleading, so it fails to meet the burden and must be rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The applicant filed written submissions with a draft amended notice and affidavit in response, but Rule 369(3) only allows additional submissions, not new evidence, so these are inadmissible and rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Although not required to decide, the court considers whether the applicant must be represented by a lawyer to decide the motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Rule 120 requires corporations, partnerships, or unincorporated associations to be represented by a lawyer unless the court permits otherwise; the applicant trust is none of these.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "A trust is created by a settlor transferring property to a trustee to hold and administer; the trustee has exclusive control and can act in court for the trust.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Rule 112(1) allows trustees to sue or be sued without involving beneficiaries; the applicant trust's notice suggests Sacha Evenotte Joseph is its authorized representative, but she must be represented by a lawyer unless the court orders otherwise.",
+   "ideas": "multiple",
+   "idea_list": [
+    "trustees can sue without beneficiaries",
+    "applicant's representative must have lawyer"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The applicant did not file a response within the deadline to the respondent's motion to strike, so the court proceeds without opposition.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court must realistically assess the essential nature of the applicant's claim to see if it is manifestly defective or has no chance of success, citing JP Morgan and other cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "On a motion to strike, the court considers only the notice of application and incorporated documents; affidavit evidence is inadmissible except to produce pleaded documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The applicant's notice seeks orders requiring the Minister to honor claims of security beneficiaries and account rights holders, and $100,000 in damages.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The notice alleges the Minister failed to respond and fulfill obligations as a public official regarding communications and instructions about bills of exchange and securities transfers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The notice does not state a legal basis for the claim; the allegation of a special duty by the Minister is legally unfounded and no administrative law cause is pleaded.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "There is no legal basis in the notice for an award of damages against the Minister.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Even assuming the facts are true, the claim has no chance of success and is doomed; no amendment can fix the fundamental legal defects.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court orders the applicant's motion to amend is rejected, the respondent's motion to strike is granted, the applicant's claim is struck, and costs are reserved with a timetable for submissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reject amendment motion",
+    "grant strike motion",
+    "strike claim",
+    "reserve costs and set timetable"
+   ],
+   "role": "disposition"
+  }
+ ]
+}

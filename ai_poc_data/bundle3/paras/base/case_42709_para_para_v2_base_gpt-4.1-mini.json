@@ -1,0 +1,319 @@
+{
+ "case_id": 42709,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0057568
+ },
+ "verification": {
+  "paragraphs": 35,
+  "summaries": 35,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 20,
+   "party": 6,
+   "below": 9
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by Industria de Diseno Textil, S.A. against a Federal Court decision that allowed Zara Natural Stones Inc.'s trademark application for ZARA, which Industria opposed based on an earlier trademark. The Federal Court had found the opposition board's amendment allowance unreasonable and remitted the matter, but the Federal Court of Appeal disagreed, restoring the Board's decision and remitting the case back to the Federal Court for further consideration. The appeal was allowed, the cross-appeal dismissed, and costs were awarded against Zara Natural Stones Inc.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and parties",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 15,
+    "label": "Tribunal below and Federal Court decisions on amendment",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 27,
+    "label": "Standard of review and appellate approach",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 28,
+    "last": 31,
+    "label": "Analysis of amendment criteria and prejudice",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 35,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appeal concerns Zara Natural Stones Inc.'s application to register the trademark ZARA based on use since 2011, alongside a related appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal context",
+    "trademark application details"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Industria de Diseno Textil, S.A. opposes both applications, relying on section 16 of the Trademarks Act citing its earlier ZARA HOME application from 2003.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Section 16 was amended after the application was filed; the version relevant here had subsections for different bases of trademark applications.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Industria mistakenly relied on subsection 16(3) for proposed use, but the application was based on use, corresponding to subsection 16(1); Industria sought to amend this at the hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The Board allowed Industria's amendment and maintained the opposition, refusing the trademark application for confusion with ZARA HOME.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Federal Court allowed ZNSI's appeal, finding the Board's amendment analysis unreasonable, and remitted the matter for reconsideration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Industria appeals to restore the Board's decision; ZNSI cross-appeals to allow the trademark application outright without remitting.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court will allow Industria's appeal, remit to Federal Court, and dismiss ZNSI's cross-appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Board considered criteria for amendment: stage of proceeding, timing, importance, and prejudice to the other party.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Board found late stage and no explanation against amendment, but importance and minimal prejudice favored allowing it, noting Industria's intent was clear.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Board allowed the amendment as the benefits outweighed the adverse effects of lateness and lack of explanation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Federal Court compared this case to McDowell, where amendment refusal was unreasonable due to mitigated prejudice and awareness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Federal Court found facts here warranted refusing amendment due to lateness, no extra time for ZNSI, and no explanation for delay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Federal Court disagreed with the Board that ZNSI knew Industria's intent and that the subsection 16(3) reference was a typographical error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Federal Court found the Board's decision unreasonable and remitted the matter for a new determination on amendment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court discusses the applicable standard of review for the Federal Court's decision on the Board's error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Federal Court applied reasonableness standard, but Vavilov directs appellate standards apply on appeal from administrative decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Both parties argue the Federal Court's use of reasonableness was proper at the time and should not be viewed as error despite Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court will not decide the standard of review issue as it does not affect the appeal outcome; the Judge needed an error by the Board to intervene.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Judge misdirected by focusing on her own assessment rather than the Board's decision, contrary to Vavilov's guidance on reasonableness review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Despite this, the Judge considered the Board's analysis, mainly disputing the Board's conclusions on ZNSI's knowledge and the typographical error claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court agrees the error was not typographical but a technical error, and this does not impair the Board's decision reasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds no basis to doubt the Board's conclusion that ZNSI knew Industria intended to rely on subsection 16(1), making the subsection 16(3) reference obviously erroneous.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "ZNSI's additional arguments on the Board's unreasonableness are considered but found without merit by the court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court would reach the same conclusion if applying the appellate standard of palpable and overriding error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "No extricable error of law by the Board is suggested; the question is whether there was a palpable and overriding error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "If appellate standard applies, no deference is owed to the Judge's decision; the court will assess palpable and overriding error by the Board.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Board weighed four criteria, finding lateness and timing against amendment but importance and minimal prejudice in favor, outweighing the negatives.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "ZNSI argues the Board found some prejudice and no extra time was given, citing precedents where prejudice prevented amendment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court finds minimal prejudice similar to no prejudice, and the Board's assessment that ZNSI knew Industria's opposition was reasonable and not palpably erroneous.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds no palpable error in denying ZNSI extra time to respond to the amended opposition ground, as it was a technical correction, not a new ground.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Board's view on amendment",
+    "No evidence ZNSI requested more time",
+    "ZNSI did not specify what more to say on appeal"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court allows the appeal, sets aside the Judge's decision, and remits the matter to the Federal Court for further consideration of unaddressed issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court dismisses the cross-appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "ZNSI argues that if the appeal is allowed, no costs should be awarded against it because Industria failed to plead properly and correct the opposition statement timely.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court rejects ZNSI's costs argument, noting the flaw was addressed and both parties share some blame; orders costs against ZNSI.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Flaw addressed before Board and Federal Court",
+    "Board noted ZNSI's failure to mention flaw",
+    "Costs ordered against ZNSI"
+   ]
+  }
+ ]
+}

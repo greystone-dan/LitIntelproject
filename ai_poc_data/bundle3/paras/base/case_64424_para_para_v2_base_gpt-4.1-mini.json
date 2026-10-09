@@ -1,0 +1,485 @@
+{
+ "case_id": 64424,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.007578400000000001
+ },
+ "verification": {
+  "paragraphs": 54,
+  "summaries": 54,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 44,
+   "party": 4,
+   "below": 5,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by an Algerian single mother who fears persecution due to gender-based violence and honour crimes in Algeria. The Refugee Protection Division (RPD) initially rejected her claim, finding insufficient evidence and improper application of Guideline 4 regarding gender-based claims. The Refugee Appeal Division (RAD) allowed the appeal, finding the appellant credible, identifying errors in the RPD's analysis, and concluding she faces a serious risk of persecution without state protection, thus granting her refugee status.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Parties and appeal outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 3,
+    "last": 4,
+    "label": "RPD decision summary",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Appellant's arguments and key issue",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 23,
+    "label": "Review of RPD's application of Guideline 4 and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 27,
+    "label": "RPD's credibility findings and appellant's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 40,
+    "label": "Assessment of persecution risk and evidence on single mothers",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 52,
+    "label": "State protection and internal flight alternative analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 53,
+    "last": 54,
+    "label": "Tribunal's conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant, an Algerian citizen and single mother, fears for her life due to her gender.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD rejected the appellant's claim, citing lack of proof of family threat, failure to claim asylum abroad, rarity of honour crimes, and insufficient evidence of persecution of single mothers.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's reasons for rejection",
+    "Lack of proof of family threat",
+    "Failure to claim asylum abroad",
+    "Honour crimes rare and rural",
+    "Insufficient evidence on single mothers"
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD found the appellant did not establish risk of honour crime in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "On appeal, the appellant argues the RPD erred in applying section 97, assessing evidence, fear of honour crime, compliance with Guideline 4, and sur place claim analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD error on section 97",
+    "Unreasonable evidence assessment",
+    "Unreasonable fear assessment",
+    "Non-compliance with Guideline 4",
+    "Deficient sur place analysis"
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The key issue for the RAD is the prospective risk to the appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and determine if the RPD decision is correct; the RPD did not apply Guideline 4.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Tribunal's review role",
+    "RPD did not apply Guideline 4"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RPD failed to be sensitive to the appellant's gender and vulnerability as required by Guideline 4.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD failed to comply with Guideline 4, especially regarding her reasons for not seeking asylum in France.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The RPD claimed to have applied Guideline 4, but hearing recordings show otherwise.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "evidence",
+   "summary": "The hearing transcript shows RPD questions that do not comply with Guideline 4, including blaming the appellant for not seeking asylum or filing complaints.",
+   "ideas": "single",
+   "idea_list": [
+    "Hearing questions violating Guideline 4"
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RPD's questions failed to consider the appellant's sociocultural context and unfairly blamed her for not filing complaints or seeking asylum.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "It is unacceptable that the RPD decision-maker lacked basic understanding of Algerian women's situation, including state protection and complaint options.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The RPD stated it applied Guideline 4 but gave no evidence of proper application; substance over form is required.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The member mentioned Guideline 4 but did not apply it properly, impeding the appellant's claim by not considering her gender-based violence fears.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Guideline 4 interprets refugee status to protect women fearing gender-related persecution, assessing testimony in cultural context.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Though not binding, failure to apply Guideline 4 in appropriate cases is a reviewable error, as here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal analyzed the appellant's situation under Guideline 4, considering Algerian cultural standards and the suggested framework.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RPD failed to assess the appellant's claim under Guideline 4 principles or consider her social context, violating her right to a full hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The RPD wrongly assumed the appellant's sisters could support her, ignoring their own vulnerable situation under family male control.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RPD erred by using the appellant's education as evidence of autonomy without considering Algerian women's rights violations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RPD erred by failing to consider Guideline 4 in the hearing and claim analysis; the appellant is credible.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD error on Guideline 4",
+    "Appellant credibility"
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant credible regarding threats from her father and fear of persecution or honour crime in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RPD found the appellant's failure to claim asylum abroad and returns to Algeria undermined her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The appellant explains her failure to claim asylum due to lack of knowledge and short stays; her behaviour is acceptable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Explanation for not claiming asylum",
+    "Short stays in France",
+    "Legal status in US",
+    "Contacted lawyer too late"
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The appellant's explanations are valid; not claiming asylum abroad is minor and does not undermine her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The RPD made erroneous credibility findings about the appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The RPD found the appellant failed to prove threats from family men or persecution as a single mother in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD's sur place claim analysis is deficient and evidence on single mothers was improperly analyzed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant credible and documentary evidence supports her refugee claim, including her status as a single mother.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant credible and substantiated her fear of persecution as a single mother fearing honour crimes in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The appellant's unchallenged testimony details threats, violence, and social restrictions supporting her subjective fear of persecution in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant's feared physical and psychological violence constitutes persecution, supported by documentary evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The RPD noted stigmatization of single mothers but found insufficient corroborating evidence of physical or verbal violence from relatives, denying persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal questions the RPD's demand for more corroboration and cites NDP evidence confirming stigma and aggression against single mothers in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Contrary to the RPD, the tribunal finds corroborating evidence from French refugee sources detailing discrimination, violence, and honour crimes against single mothers in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Documentary evidence shows femicides are common in Algeria, with 36 reported in 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal notes the appellant's disownment and lack of family support increases her vulnerability as a single mother in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The appellant's credibility regarding abuse and fear of persecution as a single mother is affirmed by testimonial and documentary evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal concludes the appellant faces a serious risk of persecution in Algeria due to her status as a single mother.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Applying Guideline 4, the tribunal finds the appellant lacks access to adequate state protection in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Despite constitutional guarantees, Algerian women face legal restrictions, such as needing male permission to marry and abduction laws favoring perpetrators.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Domestic violence laws in Algeria exclude protection for relatives like the appellant's father, leaving her unprotected.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Legal gaps allow offenders to escape punishment if pardoned, increasing victims' vulnerability in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Survivors face police discouragement, poor investigations, and lack of sentence enforcement when reporting violence in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Economic dependence, coercion, and lack of restraining orders hinder abuse survivors from pressing charges in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The appellant did not file police complaints due to fear and distrust, consistent with documentary evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant's testimony and evidence sufficient to rebut the presumption of state protection in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The tribunal finds no safe internal flight alternative for the appellant within Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The appellant's persecutors include military and police, who can track her, and her family threatens her life for dishonouring them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The appellant's personal risk and lack of state protection mean she cannot live safely in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "There is no viable internal flight alternative for the appellant in Algeria given her serious risk of persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The tribunal concludes the RPD erred and the appellant has shown a serious possibility of persecution in Algeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The appeal is allowed and the tribunal substitutes its own determination that the appellant is a Convention refugee.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

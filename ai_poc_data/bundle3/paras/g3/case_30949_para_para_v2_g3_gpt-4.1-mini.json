@@ -1,0 +1,247 @@
+{
+ "case_id": 30949,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0053048
+ },
+ "verification": {
+  "paragraphs": 35,
+  "summaries": 12,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 1,
+  "speakers": {
+   "court": 8,
+   "mixed": 3,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review application challenging the Canada Revenue Agency's (CRA) decisions regarding eligibility for CERB and CRB benefits. The Applicant sought review of decisions conveyed in informal August 2023 phone calls, while the Respondent argued the application was premature due to no formal decision being made. The Federal Court dismissed the application as premature and denied the Respondent's motion to strike, awarding minimal costs to the Respondent.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and summary of outcome",
+    "kind": "other"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Background on CERB/CRB and Applicant's eligibility history",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Applicant's affidavit and Respondent's motion to strike",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Issues to decide and Respondent's arguments on prematurity",
+    "kind": "issue"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Respondent's concession and abandonment of affidavit reliance",
+    "kind": "issue"
+   },
+   {
+    "first": 20,
+    "last": 23,
+    "label": "Court's decision on motion to strike and evidence admissibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 27,
+    "label": "Court's analysis of existence of decision and prematurity argument",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 30,
+    "label": "Interpretation of Applicant's relief sought and evidence on decisions",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 33,
+    "label": "Court's finding on absence of formal decision and prematurity",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 36,
+    "label": "Rejection of exceptional circumstances and procedural fairness claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 40,
+    "label": "Disposition: dismissal of application and costs awarded",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The court explains the application for judicial review of CRA's decision on the Applicant's CERB and CRB eligibility, notes the Respondent's motion to strike as premature and without merit, and dismisses both the motion and the application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application for judicial review",
+    "Respondent's motion to strike",
+    "court's dismissal of both"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "mixed",
+   "summary": "The court describes the CERB and CRB benefits, the Applicant's initial eligibility and application process, and CRA's validation request and the Applicant's response.",
+   "ideas": "multiple",
+   "idea_list": [
+    "description of CERB and CRB",
+    "Applicant's initial eligibility and application",
+    "CRA's validation and Applicant's response"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "mixed",
+   "summary": "The court recounts CRA's December 2022 ineligibility decision, the Applicant's request for second review with additional evidence, CRA's June 2023 reaffirmation of ineligibility, and prior judicial reviews settled with CRA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CRA's initial ineligibility decision",
+    "Applicant's second review request",
+    "CRA's reaffirmation of ineligibility",
+    "prior judicial reviews and settlement"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "mixed",
+   "summary": "The Applicant's affidavit recounts August 2023 phone calls with a CRA officer about eligibility, receipt of a Statement of Account, and the Respondent's motion to strike the judicial review application as premature, including an affidavit from the officer which the Applicant opposes.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's affidavit about phone calls",
+    "Statement of Account received",
+    "Respondent's motion to strike and affidavit",
+    "Applicant's opposition"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The Respondent argues no decision exists for review and the application is premature; the court outlines the issues to decide, including evidence admissibility and reasonableness standard for review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's position on prematurity",
+    "issues for court determination",
+    "standard of review"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 19,
+   "speaker": "party",
+   "summary": "The Respondent initially intended to rely on the Officer's affidavit and Statement of Account to show the Applicant owed $32,000 in CERB/CRB benefits, but later conceded the Applicant seeks review of decisions conveyed in August 2023 phone calls, not the Statement of Account, and thus abandoned reliance on the affidavit, arguing the application is premature.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's initial reliance on Officer's affidavit and Statement of Account",
+    "Applicant's actual challenge is to decisions in phone calls",
+    "Respondent abandons affidavit reliance and argues prematurity"
+   ]
+  },
+  {
+   "para": 20,
+   "last": 23,
+   "speaker": "court",
+   "summary": "The court declines to consider affidavit evidence on the motion to strike, will decide based on the Notice of Application, and finds the Notice pleads an administrative decision capable of review, dismissing the motion to strike.",
+   "ideas": "multiple",
+   "idea_list": [
+    "refusal to consider affidavit evidence",
+    "decision based on Notice of Application",
+    "Notice pleads reviewable decision",
+    "motion to strike dismissed"
+   ]
+  },
+  {
+   "para": 24,
+   "last": 27,
+   "speaker": "court",
+   "summary": "The court considers the Respondent's arguments that no decision exists and the application is premature, accepts the principles but finds the Notice pleads a decision, so the motion to strike fails; the same prematurity argument is raised against the application itself.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's prematurity arguments",
+    "court accepts principles but rejects motion to strike",
+    "prematurity argument raised against application"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 30,
+   "speaker": "court",
+   "summary": "The court interprets the Applicant's relief sought as enforcing a positive August 10 decision and setting aside a negative August 15 decision, but finds the evidence does not show a decision was made on August 15, only a new requirement was stated.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's relief sought",
+    "August 10 call positive decision",
+    "August 15 call no decision, only new requirement"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "court",
+   "summary": "The court notes CRA's prior formal written decisions contrast with the informal August 2023 phone calls, finds no decision was made on reconsideration, so the application is premature, and considers but rejects the Applicant's argument for exceptional circumstances to override prematurity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "comparison of formal prior decisions to phone calls",
+    "no decision made on reconsideration",
+    "application premature",
+    "exceptional circumstances argument rejected"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's attempt to bypass the administrative process, finding no exceptional circumstances and noting procedural unfairness claims can be addressed through judicial review after CRA's decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "rejection of bypassing administrative process",
+    "no exceptional circumstances found",
+    "procedural unfairness claims can be reviewed later"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 40,
+   "speaker": "court",
+   "summary": "The court finds the judicial review application premature and dismisses it, declines to review reasonableness or fairness, and awards the respondent $100 in costs despite the respondent's higher claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application dismissed as premature",
+    "no review of decision's reasonableness or fairness",
+    "costs awarded to respondent at reduced amount"
+   ]
+  }
+ ]
+}

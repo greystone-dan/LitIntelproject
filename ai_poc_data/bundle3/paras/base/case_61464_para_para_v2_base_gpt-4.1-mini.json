@@ -1,0 +1,373 @@
+{
+ "case_id": 61464,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006597199999999999
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "speakers": {
+   "court": 31,
+   "below": 5,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 10,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the tax treatment of compensation paid to non-resident athletes Martin and Donaldson, specifically the allocation and inclusion of Registered Retirement Compensation Arrangement (RCA) contributions in taxable income under the Income Tax Act. The Crown appealed the Tax Court's decision, which had sided with Martin and Donaldson by allowing their appeals against reassessments and excluding RCA contributions from taxable income after allocating 40% of total compensation to Canadian duties. The Federal Court of Appeal dismissed the Crown's appeals, affirming the Tax Court's approach and interpretation of the Act.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and Tax Court Decision",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Appeal and Preliminary Matters",
+    "kind": "other"
+   },
+   {
+    "first": 8,
+    "last": 14,
+    "label": "Factual Findings on Compensation and RCA Contributions",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 19,
+    "label": "Tax Treatment of RCA Contributions and Refundable Tax",
+    "kind": "background"
+   },
+   {
+    "first": 21,
+    "last": 24,
+    "label": "Tax Court's Legal Analysis on Income Allocation",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 27,
+    "label": "Crown's Argument and Court's Rejection",
+    "kind": "issue"
+   },
+   {
+    "first": 28,
+    "last": 30,
+    "label": "Standard of Review and Statutory Interpretation Principles",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 31,
+    "last": 35,
+    "label": "Statutory Provisions and Interpretation of Income Allocation",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 42,
+    "label": "Detailed Analysis of RCA Contributions as Compensation",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 44,
+    "label": "Statutory Interpretation Approach and Conclusion",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Martin and Donaldson, non-residents, performed 60% of duties in the US and 40% in Canada; employer paid to RCAs excluded from income under the Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "employment duties split US/Canada",
+    "RCA contributions excluded from income"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Martin and Donaldson allocated 40% of total compensation to Canadian services but reported only salary portion as taxable income, excluding RCA contributions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Minister applied the Act to salary only (excluding RCA contributions) then allocated 40% to Canada, resulting in lower taxable income than taxpayers claimed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "Tax Court agreed with Martin and Donaldson's approach and allowed their appeals against reassessments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Crown appeals the Tax Court decision, maintaining the Minister's approach is correct.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court will dismiss the appeals and notes amounts are stated in US dollars but must be converted to Canadian dollars for tax purposes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Westcoast Actuaries' report reasonably estimated RCA contributions for Martin based on 40% Canadian income; date corrected to 2015; Crown does not dispute amounts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Martin's UPC amended in 2015 to reflect RCA; payments made in 2015-2017 include salary, playoff bonus, and RCA contributions as per agreement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Payments to Martin and RCA include deductions; total matches agreed salary and bonuses in UPC.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Donaldson's UPC for 2016-2017 sets salary amounts excluding playoff bonuses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Westcoast Actuaries' report reasonably estimated RCA contributions for Donaldson based on 40% Canadian income; Crown does not dispute amounts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Donaldson's UPC amended in 2016 to reflect RCA; payments made in 2016-2017 include salary, playoff bonus, and RCA contributions as per agreement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Payments to Donaldson and RCA include deductions; total matches agreed salary and playoff bonuses in UPC.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Part XI.3 imposes refundable tax on RCA custodian; employer must deduct and remit this tax when paying RCA contributions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Refundable tax equals 50% of contributions plus 50% of RCA income exceeding losses minus 50% of distributions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Refundable tax is refunded when RCA distributions are made, which are then taxed or withheld accordingly.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Club deducted and remitted refundable tax for all RCA payments made.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "Tax Court noted Act taxes non-residents on taxable income earned in Canada per Division D, subsection 2(3).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "Tax Court referred to place-by-place income determination for employees performing duties in multiple locations under paragraph 4(1)(b).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "Tax Court found RCA contributions were part of compensation for duties performed in Canada by Martin and Donaldson.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "Tax Court concluded Canadian-sourced compensation is 40% of total, then RCA contributions excluded from income under the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Crown argues Tax Court erred by including 40% of RCA contributions in income before deducting them under subparagraph 6(1)(a)(ii).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Court rejects Crown's characterization; Tax Court excluded RCA contributions from income after isolating Canadian-sourced compensation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Standard of review is correctness because issue is statutory interpretation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Supreme Court summarized modern statutory interpretation principles in Piekut v. Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Section 2 of the Act distinguishes residents and non-residents; non-residents taxed only on income earned in Canada per subsection 2(3).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Subparagraph 115(1)(a)(i) limits non-resident taxable income to income from duties performed in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "Crown argues taxable income earned in Canada is 40% of total income excluding RCA contributions, so RCA contributions don't factor into allocation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Court finds text does not require applying Act to entire compensation before allocation; Act applies only to Canadian-sourced compensation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Applying Act to entire compensation then allocating 40% would tax more than 40% of compensation, including US duties, which is incorrect.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court illustrates the Crown's tax interpretation on total compensation including RCA contributions for Russell Martin and Josh Donaldson with detailed tables.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown's tax interpretation",
+    "RCA contributions and taxable income",
+    "Total compensation percentages"
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court rejects the Crown's view that RCA contributions are not compensation for Canadian duties, affirming the Tax Court's finding that they are.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds evidence supports that RCA payments were part of compensation for duties performed in Canada, based on actuarial assumptions of 40% Canadian duties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court explains that UPCs were amended to divert salary to RCAs, with total yearly payments matching agreed compensation plus bonuses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court reasons that RCA contributions logically represent compensation for Canadian duties, not U.S. duties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court rejects the Crown's argument that RCA contributions shouldn't be considered due to different taxpayers and tax parts, affirming tax under the Act applies.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court holds RCA contributions and distributions are relevant as they replace salary and will be taxed, so should not alter compensation for Canadian services.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court states statutory interpretation requires textual, contextual, and purposive analysis harmonized with the Act, citing Supreme Court precedents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court agrees with Martin and Donaldson's and the Tax Court's approach to first determine compensation for Canadian duties, then income inclusion or exclusion.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

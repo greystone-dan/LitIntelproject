@@ -1,0 +1,189 @@
+{
+ "case_id": 29037,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.00262
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 6,
+   "party": 5,
+   "below": 4
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the judicial review of the Refugee Appeal Division's (RAD) decision dismissing the refugee claim of Indian citizens Jagjit Singh and his family, who alleged harassment and assault by Punjabi police. The Applicants challenged the RAD's credibility findings, particularly the assumption that they had legal counsel when preparing their Basis of Claim (BOC) form. The Federal Court dismissed the application, finding the RAD's error minor and the overall decision reasonable.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 1,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Background facts and refugee claim",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Decisions below: RPD and RAD findings",
+    "kind": "other"
+   },
+   {
+    "first": 8,
+    "last": 11,
+    "label": "Applicants' and Respondent's arguments on judicial review",
+    "kind": "issue"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Court's analysis and standard of review",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicants seek judicial review of the RAD's February 14, 2023 decision dismissing their refugee claim; the application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicants, Indian citizens Jagjit Singh, his wife Prabhvir Kaur, and son Jagnoor Singh, claim harassment, arrest, and assault by Punjabi police in 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "After release, the Applicants fled their village to Delhi, faced police raids, then left India and arrived in Canada on December 25, 2017, filing a refugee claim two months later.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD dismissed the Applicants' claim due to significant inconsistencies and omissions, finding them not credible about police interactions and relocation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RAD dismissed the Applicants' appeal, agreeing with the RPD that the claim lacked credibility, noting Mr. Singh's testimony included material events not in the BOC form.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "Mr. Singh testified about a police officer threatening his wife after hospital release, a pivotal event not detailed in the BOC, which the RAD found undermined credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RAD noted the Applicants had experienced legal counsel preparing the BOC, so they should have included all material information.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On judicial review, the Applicants accept material omissions but argue the RAD erred by assuming they had experienced legal counsel, making the decision flawed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Respondent concedes the RAD erred calling the Applicants' representative \"legal counsel\" but argues this error doesn't overturn the overall finding; the court agrees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court finds the Applicants' focus on the \"legal counsel\" wording is minor; they had immigration consultants experienced in refugee processes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Applicants do not claim incompetence or lack of opportunity to update the BOC; Mr. Singh confirmed understanding and chose to omit some details.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court applies the reasonableness standard from Vavilov, finding the RAD's reference to \"legal counsel\" a minor, inconsequential misstatement not rendering the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RAD's thorough analysis and reasons justify its credibility findings; the claim lacked credibility based on ample evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The application for judicial review is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "No questions for certification were proposed or certified by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

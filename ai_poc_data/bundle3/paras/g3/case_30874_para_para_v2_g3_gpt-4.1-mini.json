@@ -1,0 +1,174 @@
+{
+ "case_id": 30874,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.0031867999999999996
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 8,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 1,
+   "court": 7
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant from Bangladesh who claimed refugee status but was found inadmissible by IRCC for alleged involvement in BNP terrorism under IRPA section 34(1)(f). The Applicant seeks judicial review of this terrorism finding and procedural fairness issues. The Federal Court found the IRCC decision unreasonable due to lack of evidence imputing intent to BNP leadership and granted judicial review.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background: Applicant's claim and inadmissibility finding",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Judicial review application and legal framework",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Standard of review and terrorism definition",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Review of prior cases and reasonableness standard",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Analysis of Officer's failure to justify intent imputation",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Requirement for evidence of intent and Officer's error",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Conclusion on unreasonableness and granting judicial review",
+    "kind": "disposition"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "No certification questions",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "party",
+   "summary": "The Applicant from Bangladesh claimed refugee status due to political targeting by BNP; IRCC later found him inadmissible for alleged BNP terrorism involvement under IRPA section 34(1)(f).",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's refugee claim",
+    "IRCC's inadmissibility finding"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review of IRCC's terrorism finding and procedural fairness; the court confirms reasonableness as the review standard and outlines relevant IRPA provisions on inadmissibility and terrorism.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's grounds for review",
+    "Standard of review",
+    "Relevant IRPA provisions"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The court explains the low standard of proof for inadmissibility, defines terrorism per Suresh, and notes prior cases where BNP was found to engage in terrorism.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of proof",
+    "Definition of terrorism",
+    "Prior BNP terrorism findings"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court notes some cases found BNP terrorism findings unreasonable, emphasizing that reasonableness depends on evidentiary record and specific intent to cause death or serious injury, not mere awareness of violence likelihood.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Contrasting case outcomes",
+    "Importance of evidentiary record",
+    "Specific intent requirement"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The court agrees the Officer failed to justify imputing intent to BNP leadership, lacking analysis of control, structure, and knowledge of violence, relying improperly on violence presence alone to infer intent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Failure to justify intent",
+    "Lack of analysis on control and structure",
+    "Improper inference from violence presence"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The court states that evidence like speeches or plans is needed to infer intent to kill or injure; the Officer failed to provide such evidence and wrongly inferred intent from lack of public discouragement of violence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Need for evidence of intent",
+    "Officer's failure to link violence to intent",
+    "Inadequacy of failure to discourage violence"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The Officer found BNP's hartals caused harm but did not expressly find intent to cause death or serious injury; the court rejects equating violence with intent and finds the decision unreasonable, granting judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's findings on harm",
+    "Distinction between results and intent",
+    "Court's rejection of lowered fault standard",
+    "Granting judicial review"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 23,
+   "speaker": "court",
+   "summary": "No questions for certification were proposed or arise in this case.",
+   "ideas": "single",
+   "idea_list": [
+    "No certification questions"
+   ]
+  }
+ ]
+}

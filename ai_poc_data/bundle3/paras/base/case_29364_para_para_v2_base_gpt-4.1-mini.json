@@ -1,0 +1,327 @@
+{
+ "case_id": 29364,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.006448
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 10,
+  "speakers": {
+   "court": 33,
+   "below": 2,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 7,
+  "section_gap_paragraphs": 1
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review of a decision by immigration officers who refused the Applicant's humanitarian and compassionate (H&C) application, relying on the principle that establishment in Canada cannot be determinative in such applications. The Applicant challenged this approach, arguing that the officers unreasonably fettered their discretion by giving limited weight to establishment evidence. The Federal Court found the officers' decision unreasonable, departed from precedent that precludes establishment as determinative, and granted judicial review, returning the matter for redetermination.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Court's summary and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "Background: Applicant's claim and officer's decision",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 13,
+    "label": "Court's critique of officer's reasoning and discretion fettering",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 23,
+    "label": "Review of precedent on establishment evidence in H&C applications",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 34,
+    "label": "Re-examination and departure from precedent on establishment as determinative",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 44,
+    "label": "Legal principles on discretion and rejection of fettering establishment evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 49,
+    "label": "Conclusion on unreasonableness and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Officer wrongly fettered discretion by stating establishment evidence cannot be determinative in H&C applications, contrary to appellate jurisprudence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The decision is unreasonable and judicial review is granted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RPD, RAD, and PRRA Officer refused the Applicant's protection claim, finding internal flight alternatives in India.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicant's H&C application relied on his establishment in Canada and hardship of returning to limited areas in India, citing residence, family ties, employment, and community involvement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer gave moderate to little weight to establishment factors, stating establishment alone is not determinative, and relied on RPD and RAD findings on risk and relocation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Officer's unexplained limited weight to the Applicant's establishment evidence is unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Officers can assign weight to evidence without explaining each assignment to avoid undue burden.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Vavilov and Mason require transparent, justified explanations when assigning less than full weight to central evidence in H&C applications.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Officer failed to justify limited weight to central establishment evidence and fettered discretion by deeming it non-determinative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Previous decisions hold establishment in Canada cannot be determinative in H&C applications.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Post-Kanthasamy cases continue to support that establishment is not determinative in H&C applications, citing multiple cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Several cases illustrate the principle that establishment is not determinative in H&C applications, with examples and reasoning.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The quantity of decisions does not alone justify precedent; underlying reasoning must align with binding appellate authority.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "No appellate authority affirms that establishment cannot be determinative; the principle conflicts with administrative law and Kanthasamy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Departure from precedent is justified when rationale is undermined by appellate decisions; re-examination supports departure here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Irimie held establishment is a factor but not determinative, based on policy requiring unusual or disproportionate hardship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Kanthasamy found the unusual hardship criteria unjustifiably restrictive, undermining the principle that establishment cannot be determinative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Irimie justified precluding establishment as determinative to deter refugee claims, emphasizing H&C is not to eliminate hardship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Irimie used policy concern about refugee claims to narrow discretion in H&C decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court must show judicial restraint and respect administrative roles, not substitute its own conclusions for decision makers'.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Parliament delegates H&C decision authority to the Minister, who issues policies; courts do not perform these functions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Irimie's deterrence rationale ignores IRPA's objective to protect refugees, risking improper policy formation by courts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Irimie's policy is overbroad, affecting many applicants and conflicting with the humanitarian purpose of subsection 25(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "H&C applications provide a distinct statutory pathway to permanent residence for inadmissible applicants via wide discretion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Precluding establishment as determinative effectively prohibits certain H&C applications, an inappropriate judicial function.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Discretion must be exercised within statutory, legal, societal, and Charter principles.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "It is unreasonable to fetter discretion when decision makers have wide discretion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Parliament grants broad discretion under subsection 25(1) of IRPA, evident from its unqualified wording.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Kanthasamy cautions that policy guidelines cannot fetter discretion in subsection 25(1); officers must consider all relevant facts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Discretion under subsection 25(1) must align with humanitarian purposes; all relevant evidence must be considered and weighed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Court explains that subsection 25(1) grants broad, context-specific discretion and officers should not be precluded from finding any factor determinative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The Court rejects the principle that establishment can never be determinative in H&C applications as inconsistent with law and discretion principles.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The Court respectfully disagrees with the Irimie principle precluding establishment as determinative and departs from related Court jurisprudence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The Court finds it unreasonable for the Officer to determine that the Applicant's establishment evidence cannot be determinative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The Officer gave little weight to risk and adverse conditions, unreasonably relying on a non-responsive risk-based conclusion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The Officer's decision was unreasonable and fettered discretion; the judicial review is granted and the matter is returned for redetermination.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

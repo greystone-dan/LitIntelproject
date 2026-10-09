@@ -1,0 +1,194 @@
+{
+ "case_id": 29864,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0030120000000000004
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 12,
+   "party": 3,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the judicial review of a visa officer's refusal to process a post-graduate work permit application submitted by a Brazilian citizen who was outside Canada due to COVID-19 travel restrictions. The applicant challenged the refusal on the basis that the application should have been processed as an out-of-Canada application. The Federal Court found the refusal unreasonable, set aside the decision, and remitted the matter for redetermination with directions to treat the application as out-of-Canada.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 10,
+    "label": "Tribunal below decision and reconsideration",
+    "kind": "other"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Standard of review and analysis of decision",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Disposition and directions",
+    "kind": "disposition"
+   },
+   {
+    "first": 16,
+    "last": 16,
+    "label": "Certification of questions",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The applicant seeks judicial review of a visa officer's January 25, 2022 decision refusing a post-graduate work permit application; the court will allow the review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant seeks judicial review",
+    "decision refused work permit",
+    "court allows review"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The applicant, a Brazilian citizen, was completing her degree in Edmonton but had to return to Brazil in March 2020 due to a family emergency and COVID-19 travel restrictions prevented her return.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Despite being stuck in Brazil, the applicant completed her degree on time as MacEwan University suspended classes and moved exams online due to the pandemic.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "In May 2020, while in Brazil, the applicant applied online for a post-graduate work permit, believing she was still legally resident in Canada and submitted form IMM 5710 with an explanatory letter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "On November 17, 2021, IRCC refused the application because the applicant was outside Canada and thus ineligible to apply to change conditions or extend stay from within Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The applicant retained counsel who submitted a detailed reconsideration request on December 9, 2021, challenging the refusal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Counsel argued the applicant used the wrong form initially, submitted the correct form later, met eligibility requirements, and requested reconsideration due to IRCC's delay causing a missed application timeframe.",
+   "ideas": "multiple",
+   "idea_list": [
+    "wrong form used initially",
+    "correct form submitted",
+    "eligibility met",
+    "reconsideration requested due to delay"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Counsel noted the applicant's eligibility for the work permit did not depend on whether she was inside or outside Canada when applying.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Counsel requested that if the visa officer could not process an out-of-Canada application, the application be forwarded to the appropriate IRCC decision maker.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On January 25, 2022, the IRCC officer confirmed the refusal, stating the application could not be processed as an out-of-Canada application and a new application was required.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The parties and court agree the officer's decision should be reviewed on a reasonableness standard.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard requires decisions to be coherent, rational, justified, intelligible, and transparent per Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court finds the officer's refusal to treat the application as out-of-Canada unreasonable, noting no legal basis for the refusal and that a new application would fail due to timing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "officer's refusal unreasonable",
+    "no legal support for refusal",
+    "new application would fail due to timing"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The officer's decision is set aside and the matter is remitted for redetermination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court directs IRCC to treat the application as out-of-Canada, use the original lock-in date, request additional info within 30 days, allow applicant to update info, and decide expeditiously.",
+   "ideas": "multiple",
+   "idea_list": [
+    "treat as out-of-Canada application",
+    "use original lock-in date",
+    "request info within 30 days",
+    "allow applicant updates",
+    "decide expeditiously"
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court agrees with parties that no serious questions of general importance arise for certification under IRPA section 74(d).",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

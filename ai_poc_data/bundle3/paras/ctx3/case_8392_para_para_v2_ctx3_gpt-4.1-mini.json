@@ -1,0 +1,162 @@
+{
+ "case_id": 8392,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "ctx3",
+ "run": "bundle3_ctx3",
+ "usage": {
+  "usd": 0.0023708
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 8,
+   "party": 1,
+   "below": 6
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application by a Colombian permanent resident challenging the Immigration Appeal Division's (IAD) decision confirming a removal order for serious criminality under the Immigration and Refugee Protection Act (IRPA). The applicant argued that the IAD unfairly weighed humanitarian factors and showed bias, but the Federal Court found the IAD's decision reasonable and supported by evidence. Consequently, the Court dismissed the judicial review application, affirming the IAD's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and legal framework",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Applicant's arguments and Court's response",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 13,
+    "label": "Tribunal below's findings and reasoning",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Court's decision and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "This is a judicial review application of the IAD's December 4, 2020 decision confirming a removal order for serious criminality under IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The applicant, a Colombian permanent resident since 2005, pleaded guilty to break and enter and conspiracy in 2017 and had other offences between 2016-2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "In July 2019, a removal order was issued for serious criminality; the IAD dismissed the appeal and stay application for insufficient humanitarian grounds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The judicial review focuses on the reasonableness of the IAD decision, which must be coherent, rational, and justified by facts and law per Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The applicant argues the IAD gave undue weight to irrelevant elements and unfairly weighed humanitarian factors, comparing his case to his brother's and hinting at bias.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court rejects comparing the applicant's case to his brother's and dismisses the bias allegation as unfounded and unsupported by evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The IAD has discretionary authority on humanitarian factors guided by Ribic and Chieu, with weight given to evidence left to its discretion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The IAD found the offence very serious with weak rehabilitation, noting the applicant's careless compliance and untimely obligation fulfillment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The IAD considered multiple curfew violations, contradictory alcohol statements, lack of seriousness, and financial instability as reoffending risks.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The IAD found the applicant had low establishment in Canada but positive family and community support factors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The IAD did not consider dislocation from removal but concluded no significant hardship from loss of permanent resident status without clear evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The IAD found the best interests of children affected to be neutral as the applicant did not show impact from loss of status on them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The IAD found the applicant failed to show grounds for special relief, lacking responsibility and recognition of his crimes' significance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court finds the IAD decision reasonable, rejecting the applicant's nuanced challenges and affirming the IAD's consideration and conclusions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court dismisses the judicial review application for the reasons stated.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

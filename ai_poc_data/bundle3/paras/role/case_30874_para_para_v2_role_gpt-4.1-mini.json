@@ -1,0 +1,251 @@
+{
+ "case_id": 30874,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "role",
+ "run": "bundle3_role",
+ "usage": {
+  "usd": 0.004177200000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 20,
+   "below": 1,
+   "party": 1,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant, a Bangladeshi citizen recognized as a Convention refugee in Canada, who was found inadmissible under the Immigration and Refugee Protection Act (IRPA) due to alleged involvement with the Bangladesh Nationalist Party (BNP), designated as a terrorist organization. The Applicant seeks judicial review of the IRCC's decision, arguing it was unreasonable and lacked procedural fairness. The Federal Court found the decision unreasonable due to insufficient analysis of BNP's specific intent to engage in terrorism, set aside the decision, and remitted the matter for redetermination.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 12,
+    "label": "Legal framework and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 13,
+    "last": 20,
+    "label": "Analysis of terrorism finding and intent",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "Miscellaneous and conclusion",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, a Bangladeshi citizen, arrived in Canada in 2017, claimed refugee status due to BNP membership, was recognized as a Convention refugee in 2018, and applied for permanent residence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "In 2021, IRCC informed the Applicant of possible inadmissibility under IRPA due to BNP's terrorist designation, exchanged evidence and submissions with the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "On December 15, 2021, IRCC found the Applicant inadmissible under IRPA paragraph 34(1)(f) due to reasonable grounds BNP engages in terrorism.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant seeks judicial review, arguing IRCC's terrorism finding is unreasonable and procedural fairness was denied due to inadequate explanation of evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Unreasonable terrorism finding",
+    "Procedural fairness breach"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court agrees the standard of review is reasonableness, requiring transparent, intelligible, justified decisions based on coherent analysis and facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court quotes IRPA sections 33 and 34(1)(f) defining inadmissibility on security grounds and reasonable grounds to believe an organization engages in terrorism.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The standard of proof for inadmissibility is 'reasonable grounds to believe,' a low threshold requiring credible, compelling information beyond mere suspicion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court cites Suresh for the definition of terrorism as acts intended to cause death or serious injury to civilians to intimidate or compel a government.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court notes prior decisions have found it reasonable to conclude BNP engaged in terrorism in some cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Conversely, some court decisions have found similar terrorism findings against BNP unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court explains BNP terrorism findings depend on the evidentiary record and decision-maker's specific reasons and analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The parties agree BNP must have specific intent to cause death or serious injury for terrorism under IRPA, requiring more than awareness or recklessness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Officer failed to justify imputing intent to BNP leadership, improperly inferring intent from violence alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Officer's reasons describe BNP's use of hartals causing violence but do not adequately analyze control or intent factors required for terrorism findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Officer's reasons lack discussion of BNP's internal control and leadership's role, which is necessary to assess accountability for violent acts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court cites cases requiring evidence like speeches or plans to prove a political party's intent to kill or seriously injure, which the Officer failed to provide.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Officer noted BNP leadership's public denials of violence but found little evidence of discouragement; the court finds failure to discourage insufficient to prove intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the Officer failed to explain why violent acts are attributable to BNP leadership to meet the specific intent requirement.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer did not expressly find BNP intended death or serious injury, only that hartals caused harm and were planned with violent and criminal activities in mind.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds the Officer's finding of violence causing harm reasonable but rejects equating violence with intent to cause death or serious injury as lowering the fault standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds the Officer's errors render the decision unreasonable, grants judicial review, sets aside the decision, and remits for redetermination, not addressing procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "No question for certification is proposed or arises in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "End of decision text or blank paragraph.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  }
+ ]
+}

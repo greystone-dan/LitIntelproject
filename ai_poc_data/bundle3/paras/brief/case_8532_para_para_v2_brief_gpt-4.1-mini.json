@@ -1,0 +1,328 @@
+{
+ "case_id": 8532,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.008143599999999999
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "speakers": {
+   "court": 20,
+   "party": 7,
+   "below": 9
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Christophe Bigirimana, a Burundian citizen and refugee claimant in Canada, seeks judicial review of a deportation order based on alleged membership in the MSD organization linked to armed subversion through RED-Tabara. The Immigration Division found him inadmissible due to this membership and the violent activities of these groups. The Federal Court found the Immigration Division's decision unreasonable due to insufficient evidence linking MSD and RED-Tabara and remitted the case for reconsideration.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background: Applicant and Allegations",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 14,
+    "label": "Tribunal Below: Immigration Division Decision",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 21,
+    "label": "Parties' Arguments and Legal Framework",
+    "kind": "issue"
+   },
+   {
+    "first": 22,
+    "last": 34,
+    "label": "Court's Analysis of Reasonableness and Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 36,
+    "label": "Disposition and Remittal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "Applicant Christophe Bigirimana challenges a deportation order by the Immigration Division (tribunal_below) under IRPA sections 34(1)(b) and (f), alleging his membership in the MSD, linked to armed subversion via RED-Tabara. Issues addressed include: (1) whether the applicant was a member of MSD and RED-Tabara; (2) whether these organizations engaged in subversion by force; (3) the reasonableness of the ID's findings on the link between MSD and RED-Tabara; (4) the applicant's credibility; and (5) whether the evidence justified inadmissibility. The court found the ID's decision unreasonable due to ignored contradictory evidence and insufficient proof of the link between MSD and RED-Tabara, allowing judicial review and remitting the case.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Christophe Bigirimana seeks judicial review of a deportation order for alleged MSD membership linked to armed subversion via RED-Tabara; court doubts the conclusion's reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's challenge",
+    "ID's findings",
+    "court's initial doubt"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The applicant is a Burundian citizen who arrived in Canada in late 2017 and claimed refugee status, declaring MSD membership from 2009 to 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The applicant stated he held an official MSD position from 2009 to 2014 as a representative at the Bujumbura mayor\u2019s office.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "In a CBSA interview, the applicant revised his MSD involvement, saying it ended in 2014 during protests, though he never officially resigned.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The applicant denied MSD had an armed branch and claimed ignorance of any link between MSD and RED-Tabara.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "Officers\u2019 reports under IRPA subsections 44(1) and 44(2) concluded the applicant is inadmissible despite his testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Immigration Division held a hearing to determine the applicant\u2019s admissibility, resulting in the challenged decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The ID outlined its task: to assess reasonable grounds for the applicant\u2019s membership in MSD or RED-Tabara and their subversive acts by force.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The ID found the applicant was an MSD member from 2009 to 2017 despite inactivity, noting his inconsistent explanations and violent acts from 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The ID found evidence that MSD and RED-Tabara were responsible for violent acts and calls to armed resistance to subvert the government.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The ID cited reports of MSD\u2019s armed patrols, a 2014 protest with police hostage-taking, and threats by party leaders as evidence of violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The ID relied on sources linking RED-Tabara as MSD\u2019s armed branch led by Sinduhije, despite some mystery and public denials.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The ID doubted the applicant\u2019s claim of ignorance about RED-Tabara, interpreting it as denial of knowledge of the MSD-RED-Tabara link.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The ID declared the applicant an MSD member linked to RED-Tabara, rendering him inadmissible and issuing a deportation order.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The applicant argues the sole question is whether the ID unreasonably concluded he was a member of an organization subverting a government by force.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Inadmissibility under IRPA paragraphs 34(1)(b) and (f) involves fact and law questions reviewed on a reasonableness standard.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Facts for inadmissibility must meet the 'reasonable grounds to believe' standard, as affirmed in prior cases and applicable here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The reasonableness standard requires decisions to be justified, transparent, intelligible, and reasonable in rationale and outcome.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Two elements for inadmissibility: membership in the organization and that the organization engages in or instigates subversion by force.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The applicant submits the ID ignored key evidence and wrongly linked MSD and RED-Tabara, leading to an erroneous inadmissibility finding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The respondent contends the ID decision was reasonable, supported by evidence of the applicant\u2019s membership, MSD\u2019s violence, and the MSD-RED-Tabara link.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court accepts the ID\u2019s credibility finding and MSD membership conclusion but rejects the reasonableness of other conclusions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds the ID decision unreasonable due to ignoring contradictory evidence and lacking critical proof of MSD\u2019s violence and MSD-RED-Tabara link.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ignored contradictory evidence",
+    "lack of critical evidence for violence and link"
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court views the sources on MSD\u2019s violence as speculative except for one violent protest event in 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The 2014 violent event likely involved individuals and police plotting, not the party itself, amid government oppression of MSD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Statements by MSD leaders, read in context, are misleadingly called threats; they could be peaceful calls without evidence of party approval of violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The ID mainly relied on RED-Tabara\u2019s acts to conclude MSD\u2019s violence, but the link was insufficiently proven.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal warns against equating membership in one group as proxy for another without thorough evidence, especially in nationalist movements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "In Kanagendren, a well-supported link between two organizations justified membership equivalence and reasonable grounds for inadmissibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Here, the MSD-RED-Tabara link is weak, based on suspicion, geography, and some members\u2019 involvement, with explicit denials of connection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court notes no evidence shows the applicant's active participation in MSD after 2014 or support for violent acts, and the ID confused MSD's Secretary General with a RED-Tabara member.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no evidence of applicant's active participation after 2014",
+    "ID confused key individuals"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court acknowledges possible links between MSD and RED-Tabara and that membership in one might equate to membership in the other under IRPA section 34.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court holds the ID could not reasonably conclude the link between MSD and RED-Tabara without careful proof, emphasizing the importance of prudence in inadmissibility findings.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ID's conclusion lacked required care",
+    "inadmissibility findings require prudence"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court concludes the ID's decision was unreasonable due to lack of prudence and justification in its findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court refuses to certify the applicant's proposed question as it is not dispositive of the appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds the ID made a fatal error by ignoring essential evidence, allowing judicial review and remitting the case to a different decision-maker.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

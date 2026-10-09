@@ -1,0 +1,374 @@
+{
+ "case_id": 5783,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0056972
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 37,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 22,
+   "party": 8,
+   "below": 6,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant, a Turkish Kurdish Alevi, seeking judicial review of a negative Pre-Removal Risk Assessment (PRRA) decision by Canadian immigration authorities. The Applicant argued that changed country conditions after the 2016 attempted coup in Turkey created new risks of persecution, which the PRRA Officer unreasonably dismissed by deferring to prior refugee claim findings. The Federal Court found the PRRA decision unreasonable for failing to properly consider new evidence and changed circumstances, granting judicial review.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and parties",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Tribunal below's PRRA decision",
+    "kind": "other"
+   },
+   {
+    "first": 10,
+    "last": 13,
+    "label": "Legal framework and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 16,
+    "label": "Applicant's evidence and tribunal's findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 20,
+    "label": "Court's analysis on changed circumstances and deference",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 22,
+    "label": "Applicant's new evidence and tribunal's dismissal",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 25,
+    "label": "Respondent's arguments and court's rejection",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 28,
+    "label": "Court's conclusion on unreasonableness and disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 29,
+    "last": 29,
+    "label": "Certification question",
+    "kind": "other"
+   },
+   {
+    "first": 31,
+    "last": 33,
+    "label": "Reasonableness review principles",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 66,
+    "last": 68,
+    "label": "Credibility findings and evidentiary assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 126,
+    "last": 128,
+    "label": "Reasonableness and engagement with key issues",
+    "kind": "standard_of_review"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, a 66-year-old Turkish Kurdish Alevi, seeks judicial review of a negative PRRA decision dated November 1, 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant alleges past arrests and torture in Turkey due to family political protests, fled to Canada in 2015, and had refugee claims rejected as not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant filed a PRRA in March 2019 claiming new sur place risk; his adult daughter was not included in this application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The PRRA Officer rejected the Applicant's PRRA application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant submitted new evidence including statements, letters, photos, and updated country condition documents to support new risk claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Officer accepted the Applicant's Kurdish-Alevi identity and political activism but found insufficient evidence that Turkish officials perceive or can identify him.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer noted the Applicant re-argued his refugee claim and found his documents consistent with prior evidence, failing to overcome credibility findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer found the country condition evidence generalized and not directly linked to the Applicant's personal circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer concluded the Applicant failed to show new risks since the RPD decision and was not at risk under IRPA sections 96 or 97.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The issue before the court is whether the PRRA Decision is reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court cites Canada Post Corp and Vavilov to explain the requirements for a reasonable decision and judicial review standards.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Vavilov requires decisions to be justified by reasons to those affected, and courts must decide based on the record before them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Vavilov mandates courts assess if the decision meaningfully addresses key issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicant argued two related risks: sur place risk from political activism and risk from dissent against Turkey, supported by photos and community letters.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Applicant provided country condition evidence showing increased risk for Kurdish Alevi activists after Turkey's 2016 attempted coup.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Officer found the Applicant's personal evidence re-argued his refugee claim, country evidence generalized, and overall insufficient objective evidence of new risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court finds the Officer's treatment unreasonable, noting the 2016 coup changed risk conditions significantly after the 2015 RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "PRRA officers must assess new risks since prior decisions and are bound to accept prior findings unless circumstances materially changed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Deference to prior negative RPD decisions is not absolute; new evidence of changed personal or country conditions can rebut prior findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Where circumstances have changed, PRRA officers must reassess risk and cannot defer to earlier findings, as explained in Magonza.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Applicant pointed to new risks post-2016 coup and provided changed country condition evidence on targeting Turkish dissidents abroad.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Officer accepted new evidence but unreasonably dismissed it as re-arguing the refugee claim and not overcoming credibility findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Respondent argues the Decision is reasonable due to lack of evidence Turkish authorities would identify or target the Applicant, citing case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds the Respondent's cited cases irrelevant as they lack the significant country condition changes present here post-2016 coup.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court rejects the Officer's disbelief that Turkish officials would know of the Applicant's activism, finding the risk of persecution more than a mere possibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Applicant submits the Officer unreasonably fettered discretion by adopting the 2015 RPD findings without considering 2016 coup changes; the court agrees.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Officer failed to address key issues of changed country conditions and sur place risk, rendering the assessment unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Decision failed to address key differences post-2016 coup and sur place claim, thus is unjustified and unreasonable; judicial review granted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "other",
+   "summary": "No question of general importance was proposed or arises for certification.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "A reasonable decision must be coherent, rational, and justified; courts must respectfully examine the decision-maker's reasoning holistically.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court explains that reasonableness review requires assessing if the decision is justified, transparent, and intelligible within its legal and factual context.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness depends on context",
+    "criteria: justification, transparency, intelligibility"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court states the burden is on the challenger to prove the decision is unreasonable by showing significant flaws.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The court notes PRRA officers can rely on prior negative credibility findings but cannot reject all evidence solely on that basis, or the PRRA process would be ineffective.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The court says PRRA officers must explain why prior credibility findings affect current evidence and usually must reassess credibility if evidence differs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The court finds the PRRA officer failed to explain why prior credibility findings applied to new documents, which were not found false or forged.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 126,
+   "speaker": "court",
+   "summary": "The court explains a reasonable decision must consider the evidentiary record and not misapprehend evidence, citing Baker where failure to consider evidence led to bias.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision must consider evidence",
+    "failure to consider evidence can make decision unreasonable"
+   ]
+  },
+  {
+   "para": 128,
+   "speaker": "court",
+   "summary": "The court states decision makers need not address every argument explicitly but must engage key issues to show sensitivity and avoid reasoning flaws.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no need to address every argument",
+    "must engage key issues to avoid flaws"
+   ]
+  }
+ ]
+}

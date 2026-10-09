@@ -1,0 +1,584 @@
+{
+ "case_id": 43430,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0116312
+ },
+ "verification": {
+  "paragraphs": 70,
+  "summaries": 70,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 15,
+  "speakers": {
+   "court": 54,
+   "party": 6,
+   "below": 9,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the application of the General Anti-Avoidance Rule (GAAR) to tax avoidance transactions undertaken by DAC Investment Holdings Inc., which continued its incorporation from Canada to the British Virgin Islands to defer tax on investment income. The Crown, as appellant, challenged the Tax Court's decision that found no abuse of the Income Tax Act provisions, arguing that DAC's transactions frustrated the object, spirit, and purpose of anti-deferral tax measures. The Federal Court of Appeal allowed the Crown's appeal, finding that GAAR applies and that DAC's continuance to the BVI constituted an abuse of the relevant tax provisions.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 6,
+    "label": "Case background and outcome",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 18,
+    "label": "Factual background and Tax Court decision",
+    "kind": "background"
+   },
+   {
+    "first": 21,
+    "last": 29,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 32,
+    "last": 56,
+    "label": "Analysis of relevant tax provisions and their purposes",
+    "kind": "analysis"
+   },
+   {
+    "first": 58,
+    "last": 70,
+    "label": "Abuse analysis and errors in Tax Court's reasoning",
+    "kind": "analysis"
+   },
+   {
+    "first": 71,
+    "last": 77,
+    "label": "Court's fresh analysis and conclusion on abuse and GAAR application",
+    "kind": "analysis"
+   },
+   {
+    "first": 79,
+    "last": 81,
+    "label": "Respondent's argument on reassessment period and court's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 139,
+    "last": 226,
+    "label": "Detailed legislative context and policy considerations",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "DAC undertook transactions to circumvent tax measures and benefit from tax deferral on a share sale by transferring shares between CCPCs and continuing DAC to the BVI.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "DAC's continuance to the BVI caused it to be deemed incorporated there and no longer a CCPC, enabling tax deferral subject to GAAR application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Minister reassessed DAC under GAAR and denied the tax deferral.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Tax Court allowed DAC's appeal, and the Crown now appeals to this Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court concludes GAAR applies and would allow the Crown's appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Appellant DAC was incorporated in Ontario in 2001, underwent name changes, was controlled by David Civiero, acquired Soberlink shares via rollover, and continued into the BVI in 2015.",
+   "ideas": "multiple",
+   "idea_list": [
+    "DAC incorporation and name changes",
+    "Control by Civiero",
+    "Acquisition of Soberlink shares",
+    "Continuance to BVI"
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "From 2015 to 2019, David Civiero was the sole common shareholder of DAC.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Minister reassessed DAC under GAAR by increasing tax payable under section 123.3 and denying a deduction under section 123.4.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Section 123.3 levies refundable tax on CCPC investment income; section 123.4 permits a tax deduction but excludes CCPC investment income from rate reduction.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Sections 123.3 and 123.4 collectively prevent tax deferral on investment income earned by a CCPC, called anti-deferral measures.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "DAC conceded tax benefit and two avoidance transactions: rollover of shares and continuance to BVI; main issue was abuse.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Crown argued DAC abused anti-deferral measures and related ITA provisions in the Tax Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Tax Court determined the object, spirit and purpose of provisions, then assessed abuse.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Tax Court rejected Crown's argument that anti-deferral measures apply to all private corporations, limiting them to CCPCs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Tax Court found no abuse as Parliament intended different rules for CCPCs and non-CCPCs, and DAC's move was allowed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Parliament's policy for different corporations",
+    "DAC's move from CCPC to non-CCPC allowed",
+    "No abuse found"
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "GAAR analysis involves three steps: tax benefit, avoidance transaction, and abuse; only abuse is at issue here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Parties agree tax benefit and avoidance transactions exist; only abuse is disputed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Supreme Court says abuse occurs if transactions produce outcomes provisions seek to prevent, defeat rationale, or frustrate purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The issue is whether Tax Court erred in finding the transactions did not frustrate the provisions' object, spirit and purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "Tax Court held no abuse because anti-deferral measures apply only to CCPCs and DAC was not a CCPC when gain realized.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court finds Tax Court overstated Parliament's intent; transactions defeat Parliament's objective against tax deferral.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court declines to decide if anti-deferral measures apply beyond CCPCs, leaving that for another case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Assuming anti-deferral measures apply only to CCPCs, the Court proceeds to analyze abuse issue.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Determining object, spirit and purpose is a legal question reviewed for correctness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Section 123.3 was enacted in 1995 to increase tax on investment income to prevent deferral through corporations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "evidence",
+   "summary": "Section 123.3 imposes a refundable tax on CCPCs' investment income at 10 2/3% of lesser of investment income or taxable income excess.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "below",
+   "summary": "Tax Court described section 123.3's object, spirit and purpose at paragraph 139.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Section 123.3 addresses the part of the tax scheme aimed at preventing deferral of investment income.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Section 123.3's purpose is to reduce income tax deferral opportunities for individuals earning investment income via CCPCs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "CCPC investment income benefits from incentivized tax rates and dividend refunds introduced in 1971 reform.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court explains that investment income earned by a CCPC is excluded from the section 123.4 rate reduction, citing relevant ITA provisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "investment income exclusion",
+    "relevant ITA provisions cited"
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "below",
+   "summary": "The Tax Court described the object, spirit and purpose of section 123.4 at paragraph 158 of its reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The Tax Court used 'general corporate tax rate' to mean a non-incentivized rate and described the legislation but not its rationale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court finds that part of the rationale of section 123.4 is to foster international competitiveness for Canadian business, excluding already incentivized rates like CCPC investment income.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court notes the Department of Finance aimed to foster competitiveness but also preserved the principle that investment income should be taxed equally whether received directly or through a private corporation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court states the object and purpose of excluding CCPC investment income from section 123.4 tax reduction is twofold: preferential tax rate and preserving tax equality principle.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The amendment aimed to make corporate continuances fairer by having residence determine tax liability, avoiding prior unfair taxation results.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court quotes subsection 250(5.1) deeming a corporation incorporated in the new jurisdiction from continuance until any further continuance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court notes the new regime was ambitious but imperfect, with further revisions needed to improve corporate immigration and continuance rules.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "below",
+   "summary": "The Tax Court described the object, spirit and purpose of subsection 250(5.1) in its reasons at paragraph 185.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court agrees with the Tax Court on the amendment's intent but finds it erred by not accurately stating the object, spirit and purpose regarding Parliament's intended results.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The court states the object, spirit and purpose of subsection 250(5.1) is to make tax provisions fairer for corporations moving into or leaving Canada by continuance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court outlines the three conditions a corporation must satisfy to be a CCPC: private corporation, Canadian corporation, and Canadian-controlled.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The court quotes the definition of CCPC from subsection 125(7), excluding corporations controlled by non-residents or public corporations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The second stage of abuse analysis asks if the transaction frustrates the object, spirit and purpose of the provisions relied on for the tax benefit.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The second stage abuse analysis is fact-intensive and reviewed for palpable and overriding error unless there is an extricable error of law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Two avoidance transactions are at issue: share rollover from Jacal to DAC and DAC's continuance into the BVI, with focus on the continuance for abuse analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The Tax Court suggests Parliament intended subsection 250(5.1) may be used to circumvent anti-deferral measures, a critical Canadian tax policy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "below",
+   "summary": "The Tax Court supports its conclusion by noting Parliament enacted provisions to facilitate movement from CCPC to non-CCPC status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court finds the Tax Court erred in law by concluding GAAR cannot apply just because Parliament allows a corporation to cease being a CCPC.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 65,
+   "speaker": "below",
+   "summary": "The Tax Court found DAC did not abuse provisions because it chose to move from one taxing regime to another with different advantages and disadvantages.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The court states that theoretical minuses are only relevant if material to DAC in the abuse analysis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The court is not persuaded that DAC was materially adversely affected by longer reassessment periods or that minuses were material.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "DAC acknowledges the transactions were undertaken for tax benefits, making it implausible minuses outweighed pluses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The court concludes pluses and minuses were irrelevant and the Tax Court erred by relying on them to find no abuse.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The Tax Court's no-abuse finding cannot stand due to errors and lack of deference owed on subsection 250(5.1) object, spirit and purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The court will undertake a fresh analysis of whether the avoidance transactions abuse the relevant provisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The court finds there was abuse of subsection 250(5.1) because DAC's continuance frustrated the provision's object, spirit and purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "DAC's continuance into the BVI was unrelated to business ties and was virtually inconsequential except for tax benefits, frustrating the provision's purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The use of subsection 250(5.1) was merely a means to achieve tax benefits, which was not the provision's object or purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The court finds that sections 123.3 and 123.4 anti-deferral provisions were abused by the continuance, frustrating their purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The court agrees with the Crown that circumventing anti-deferral measures undermines their effectiveness and Parliament did not intend this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The court finds the Tax Court erred and that GAAR applies because the continuance circumvented anti-deferral provisions' rationale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 79,
+   "speaker": "party",
+   "summary": "DAC argues that if GAAR applies, the reassessment should use a three-year period for CCPCs, making the reassessment statute barred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The court states subsection 245(2) of the ITA governs GAAR adjustments to deny tax benefits from avoidance transactions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The court explains subsection 245(2) limits GAAR adjustments to denying tax benefits, rejecting DAC's reassessment period argument.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 139,
+   "speaker": "court",
+   "summary": "The court concludes section 123.3 aims to prevent CCPCs from deferring taxes payable at higher rates by shareholders, maintaining tax integration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 158,
+   "speaker": "court",
+   "summary": "The court finds section 123.4's purpose is to lower the general corporate tax rate to a maximum 15% non-refundable rate.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 185,
+   "speaker": "court",
+   "summary": "The court explains subsection 250(5.1) equates place of continuance with incorporation to ensure proper tax treatment after continuation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 226,
+   "speaker": "court",
+   "summary": "The court states Parliament intended corporations to move jurisdictions, facilitating this with provisions recognizing such moves.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

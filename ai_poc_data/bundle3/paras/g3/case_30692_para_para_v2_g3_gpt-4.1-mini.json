@@ -1,0 +1,319 @@
+{
+ "case_id": 30692,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.006500000000000001
+ },
+ "verification": {
+  "paragraphs": 48,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 1,
+  "speakers": {
+   "evidence": 1,
+   "court": 9,
+   "mixed": 5,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 14,
+  "sections": 16,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by Finastra International Limited against Fenestrae B.V. regarding the use and registration of the FENESTRAE trademark on various software goods and services in Canada. The Federal Court reviewed the evidence of use presented by Fenestrae and the decisions of the trademark Officer, partly allowing the appeal by deleting unsupported goods and services from the registration. The Court found some errors in the Officer's acceptance of evidence, particularly regarding the Udocx software, but upheld other findings related to Faxination and related services.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 4,
+    "label": "Background: parties and trademark use",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 9,
+    "label": "Appeal outcome and Officer's review",
+    "kind": "disposition"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Classification of goods by Officer",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Challenges to evidence of use",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Deletion of unsupported hardware goods",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 22,
+    "label": "Officer's findings on services and subscriptions",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 25,
+    "label": "Findings on Udocx cloud services and marks",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 31,
+    "label": "Further deletions and standards of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 32,
+    "last": 37,
+    "label": "Legal framework and rejection of adverse inference",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 38,
+    "last": 42,
+    "label": "Assessment of evidence sufficiency and challenges",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 45,
+    "label": "Legal standard for normal course of trade use",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 49,
+    "label": "Prima facie case and evidence inferences",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 54,
+    "label": "Evidence sufficiency for goods and services",
+    "kind": "analysis"
+   },
+   {
+    "first": 55,
+    "last": 57,
+    "label": "Officer's findings on service performance and availability",
+    "kind": "analysis"
+   },
+   {
+    "first": 58,
+    "last": 60,
+    "label": "Rejection of backorder argument and evidence insufficiency",
+    "kind": "analysis"
+   },
+   {
+    "first": 61,
+    "last": 64,
+    "label": "Court's finding of error and partial allowance of appeal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 4,
+   "speaker": "evidence",
+   "summary": "The Respondent Fenestrae BV, a Dutch software company, owns the FENESTRAE mark and uses it for products Faxination and Udocx; the Appellant argues all goods and services should be deleted from the register.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's business nature",
+    "Products using the mark",
+    "Appellant's deletion claim"
+   ]
+  },
+  {
+   "para": 5,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The appeal is partly allowed; the Officer reviewed evidence of use in Canada, accepted some goods related to Faxination, but found the description broad and modular, establishing Faxination as at least computer facsimile software.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal outcome",
+    "Evidence of use",
+    "Goods description and classification"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The Officer classified goods into Computer Facsimile Software and Remaining Computer Software Goods, deleting unsupported entries like 'audio' and 'moving pictures' from the registration.",
+   "ideas": "single",
+   "idea_list": [
+    "Goods classification and deletions"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "mixed",
+   "summary": "The Appellant challenged evidence of Canadian use of software images, but the Officer found the mark's presence on installation windows sufficient; Remaining Computer Software Goods included various hardware and software items.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's challenge on evidence",
+    "Officer's acceptance",
+    "Description of Remaining Computer Software Goods"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The Officer agreed to delete backup hard drives and other hardware goods due to lack of evidence and found general references unsupported, deleting them accordingly.",
+   "ideas": "single",
+   "idea_list": [
+    "Deletion of unsupported goods"
+   ]
+  },
+  {
+   "para": 20,
+   "last": 22,
+   "speaker": "below",
+   "summary": "The Officer found that Faxination's registered services included various telecommunication and facsimile services, excluded audio and moving pictures, and that a subscription involved the Respondent performing these services, supported by promotional brochures showing the FENESTRAE mark.",
+   "ideas": "multiple",
+   "idea_list": [
+    "description of Faxination services",
+    "exclusion of audio and moving pictures",
+    "subscription includes Respondent's performance with promotional evidence"
+   ]
+  },
+  {
+   "para": 23,
+   "last": 25,
+   "speaker": "court",
+   "summary": "The Officer correlated Udocx with registered cloud services, accepted its advertising in Canada despite no subscriptions, and found consumers would view UDOCX and FENESTRAE as distinct marks.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Udocx service correlation",
+    "Advertising acceptance",
+    "Distinct marks finding"
+   ]
+  },
+  {
+   "para": 26,
+   "last": 31,
+   "speaker": "court",
+   "summary": "The Officer did not infer Udocx availability from backorders, deleted Remaining Solutions for lack of evidence, and the Court states standards of review for factual and legal questions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Udocx availability inference",
+    "Deletion of Remaining Solutions",
+    "Standards of review"
+   ]
+  },
+  {
+   "para": 32,
+   "last": 37,
+   "speaker": "court",
+   "summary": "The Court explains the standard of review, relevant statutory provisions on trademark use and expungement, and rejects the Appellant's request for an adverse inference against the Respondent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of review",
+    "Relevant statutory provisions",
+    "Adverse inference rejected"
+   ]
+  },
+  {
+   "para": 38,
+   "last": 42,
+   "speaker": "court",
+   "summary": "The Officer found Respondent's evidence sufficient; the Appellant challenges assumptions on normal course of trade and evidence support, but the Court notes the low burden to prove sales in the normal course of trade.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Evidence sufficiency",
+    "Appellant's challenges",
+    "Legal standard for normal course of trade"
+   ]
+  },
+  {
+   "para": 43,
+   "last": 45,
+   "speaker": "court",
+   "summary": "The court explains the legal standard for 'normal course of trade' use of a trademark, accepts the Respondent's evidence as showing genuine commercial transactions, and finds no reason to doubt the sales were in the normal course of trade.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legal standard for normal course of trade",
+    "acceptance of Respondent's evidence",
+    "no excluded sales categories"
+   ]
+  },
+  {
+   "para": 46,
+   "last": 49,
+   "speaker": "mixed",
+   "summary": "The court states the Respondent needed only to establish a prima facie case; the Officer reasonably inferred delivery from invoices; the Appellant challenges these inferences and evidence connection, but the Officer's holistic assessment and acceptance of sworn statements are upheld.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's prima facie burden",
+    "Officer's reasonable inferences",
+    "Appellant's challenge to evidence and inferences",
+    "Officer's holistic evidence assessment"
+   ]
+  },
+  {
+   "para": 51,
+   "last": 54,
+   "speaker": "mixed",
+   "summary": "The Officer found sufficient evidence of use for some goods but deleted others lacking evidence; the Appellant argues the Officer accepted ambiguous evidence for services and that services must be performed in Canada, with the court noting services must confer tangible benefit in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's findings on goods use",
+    "Appellant's challenge on services evidence",
+    "legal standard for services use"
+   ]
+  },
+  {
+   "para": 55,
+   "last": 57,
+   "speaker": "mixed",
+   "summary": "The Officer found Faxination services performed and Udocx services at least advertised and available in Canada; the Officer inferred performance from evidence but the Appellant argues Udocx was backordered and not available, with Mr. Hogewoning's affidavit characterizing the evidence as representative.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's findings on Faxination and Udocx services",
+    "Appellant's argument on Udocx availability",
+    "affidavit characterization of evidence"
+   ]
+  },
+  {
+   "para": 58,
+   "last": 60,
+   "speaker": "mixed",
+   "summary": "The Officer rejected the Appellant's claim that Udocx was backordered and unavailable, interpreting evidence as general website appearance; however, there was no evidence beyond assertion for Udocx use, which is insufficient under precedent; evidence must show use, not just assert it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's rejection of backorder claim",
+    "lack of supporting evidence for Udocx use",
+    "legal requirement for evidence of use"
+   ]
+  },
+  {
+   "para": 61,
+   "last": 64,
+   "speaker": "court",
+   "summary": "The court finds the Officer erred by accepting bald assertions of Udocx use without evidence showing tangible benefit in Canada, constituting palpable and overriding error; as the appeal is partly successful, no costs order is made.",
+   "ideas": "multiple",
+   "idea_list": [
+    "requirement to show tangible benefit",
+    "Officer's error in accepting assertions",
+    "no costs order due to divided success"
+   ]
+  }
+ ]
+}

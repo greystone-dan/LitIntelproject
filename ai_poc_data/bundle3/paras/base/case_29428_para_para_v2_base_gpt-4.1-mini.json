@@ -1,0 +1,598 @@
+{
+ "case_id": 29428,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.012762800000000001
+ },
+ "verification": {
+  "paragraphs": 67,
+  "summaries": 67,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 9,
+  "speakers": {
+   "party": 12,
+   "court": 48,
+   "evidence": 7
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves the applicant seeking reimbursement and damages for a vehicle purchased from the respondent via GCSurplus, alleging hidden defects and negligence. The court applied Ontario law as per the contract's terms, found no hidden defects or negligence by the respondent, and upheld the sale's 'as is' condition disclaiming warranties. Consequently, the applicant's claims were rejected.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Applicant's claims and vehicle purchase",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Court's initial conclusion and claim rejection",
+    "kind": "disposition"
+   },
+   {
+    "first": 7,
+    "last": 17,
+    "label": "GCSurplus auction process and contract terms",
+    "kind": "background"
+   },
+   {
+    "first": 19,
+    "last": 27,
+    "label": "Vehicle history and condition at sale",
+    "kind": "background"
+   },
+   {
+    "first": 29,
+    "last": 33,
+    "label": "Applicant's knowledge and purchase details",
+    "kind": "background"
+   },
+   {
+    "first": 34,
+    "last": 38,
+    "label": "Evidence of repair costs and expenses",
+    "kind": "background"
+   },
+   {
+    "first": 40,
+    "last": 41,
+    "label": "Legal issues to determine",
+    "kind": "issue"
+   },
+   {
+    "first": 42,
+    "last": 57,
+    "label": "Applicable law analysis and choice of law",
+    "kind": "analysis"
+   },
+   {
+    "first": 58,
+    "last": 58,
+    "label": "Alternative outcome under Quebec law",
+    "kind": "analysis"
+   },
+   {
+    "first": 60,
+    "last": 63,
+    "label": "Ontario sale law and contract disclaimers",
+    "kind": "analysis"
+   },
+   {
+    "first": 64,
+    "last": 72,
+    "label": "Analysis of hidden defects and warranty disclaimers",
+    "kind": "analysis"
+   },
+   {
+    "first": 74,
+    "last": 75,
+    "label": "Negligence claim analysis and dismissal",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The applicant claims $42,094.11 to reimburse amounts paid for buying and repairing a vehicle from the Canadian Forces via GCSurplus auction on January 20, 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The applicant argues the vehicle bought from the respondent had significant hidden defects known but undisclosed by the respondent, making it unfit for intended use.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The applicant also claims $5,000 for negligence and inconvenience and requests GCSurplus to take back the vehicle for disposal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court concludes the vehicle had no hidden defects at sale, and even if it did, the applicant bought it without quality warranty, so no claim against respondent; negligence not proven.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No hidden defects",
+    "No warranty claim",
+    "No negligence proven"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "GCSurplus sells hundreds of vehicles annually via virtual auctions; vehicles are physically located across Canada and can be inspected at provincial sales centers before bidding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "A client ministry selling a vehicle via GCSurplus completes a Surplus Report detailing vehicle info, condition, and known defects, sometimes with photos.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Surplus Report and photos are sent to GCSurplus to list the vehicle for sale on its website.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "GCSurplus compiles and displays Surplus Report info and photos under 'Detailed Information' for each vehicle on its website, relying on ministry declarations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "GCSurplus performs only visual inspections of vehicles for sale, lacking mechanical expertise or accredited inspectors.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Potential buyers must register and open an online account with GCSurplus before bidding; bidding without registration is impossible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Users must accept GCSurplus's 'General Conditions A' at registration to bid or buy; these conditions form the contract between parties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The applicant admits registering with GCSurplus and accepting the General Conditions A as contractual terms for his bids and purchases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "General Conditions A include disclaimers, 'as is' sale terms, buyer's inspection responsibility, and Ontario law governs sales unless parties agree otherwise.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Buyers may inspect vehicles at GCSurplus centers with mechanics before bidding but are not required to; conditions state buyers acknowledge inspection freedom and satisfaction before bidding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The auction process involves bidding, acceptance or refusal, invoicing, payment, receipt, and possession under 'as is' terms without warranties per General Conditions A.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Evidence shows the Sprinter was closely monitored and most issues were detected and fixed during Forces' use, including annual inspections from 2011 to 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Sprinter was used continuously from Feb 2010 to June 2019 with low mileage; engine stopped starting around June 2019, leading to resale decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Resale was approved at Valcartier base; a 'Full Service Resale Checklist' was prepared with visual inspection info summarizing vehicle condition.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Checklist showed 33,364 km, engine not starting, poor condition, rust, and poor paint; engine details not specified but non-functioning engine implied.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Sprinter was listed for resale at GCSurplus's Montreal sales center and offered via its website.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The GCSurplus website listing detailed the Sprinter's specs, condition, and auction info, including warnings about mechanical inspection absence and repair needs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The listing included a clause stating all sales are final with no returns or refunds, subject to General Conditions A unless B applied.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The listing included 61 color photos of the Sprinter taken by GCSurplus staff before resale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Photos showed the blue Sprinter with a flat front left tire, rust, dents, dirty interior, illuminated engine warning light, and other vehicle details.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The applicant read the Sprinter's online info but chose not to inspect it in person with a mechanic, relying on photos and website details.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The applicant knew the vehicle was used, uninspected mechanically, might need unknown repairs, and the engine ran but didn't start; he reasoned the engine likely was fine given low mileage.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "Without other representations, the applicant believed the Sprinter was a bargain at $3,000 minimum bid and thought he was buying a nearly new vehicle due to low mileage and diesel engine.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The applicant presumed the vehicle was mechanically sound based on disclosed info, GCSurplus and Forces' credibility, and his neighbor's well-functioning Sprinter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The applicant bought the Sprinter for $9,299 on January 8, 2020, took possession on January 13, signing an 'Authority to Release' document noting the vehicle was sold used without mechanical inspection and required inspection before registration.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "evidence",
+   "summary": "The vehicle description and detailed information accessed by the applicant before purchasing the Sprinter are reiterated in the Authorization to Release, but in English.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "evidence",
+   "summary": "The applicant had the Sprinter towed to his mechanic shortly after the date of the Authorization to Release.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "evidence",
+   "summary": "The applicant's total expenses to repair and maintain the Sprinter exceed $44,094.14, including $6,700 for the engine and $6,626.50 for labor and parts related to the engine replacement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "evidence",
+   "summary": "The applicant deducted $1,626.59 in maintenance costs from his claim during cross-examination, making his repair claim $42,094.11.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court must also determine if the respondent was negligent in conduct and disclosure of facts to the applicant up to the sale.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court must first determine the applicable law given the parties' arguments.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The parties argued that Quebec law on hidden defects under articles 1726 and following of the Civil Code of Quebec (CcQ) should apply to the dispute.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "evidence",
+   "summary": "General Conditions A binding the parties provide at paragraph 5(12) that the sale is governed by Ontario laws and regulations unless otherwise indicated by the parties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "evidence",
+   "summary": "The parties did not consider the applicable law at the time of sale or offer in January 2020 and acted according to General Conditions A until the respondent's defense asserting Quebec law applied.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "With no contrary indications, the court holds the parties to their contract applying Ontario law as explicitly provided, unless a substantive reason exists to apply another law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The applicant, self-represented, argues Quebec law applies without providing jurisprudential support.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "party",
+   "summary": "The respondent argues article 3117 CcQ applies to override Ontario law despite General Conditions A, making the CcQ applicable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Article 3117 CcQ is not isolated; article 3111 CcQ sets the general principle overridden by 3117 in specific cases, governing the law applicable to juridical acts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Applying article 3111 CcQ alone leads to Ontario law as designated in General Conditions A being applicable to the sale and warranty dispute.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Article 3117 CcQ conditions require the contract to be a consumer contract as defined by article 1384 CcQ, involving a natural person acquiring goods for personal use from a business.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Quebec Court of Appeal in eBay Canada Ltd. v. Mofo Moko clarified consumer contracts require a consumer and a merchant, with consumer defined by the Consumer Protection Act excluding merchants buying for business.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Nothing suggests the applicant is a merchant buying the Sprinter for business; thus, the applicant is a consumer under article 3117 CcQ.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Assuming the respondent is a merchant, the court focuses on whether article 3117 CcQ applies based on contract conclusion conditions, including special offer, advertising, or consumer inducement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Assumes respondent is merchant for analysis",
+    "Focus on article 3117 CcQ application conditions"
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Conditions b) and c) of article 3117 CcQ are excluded: the applicant was not induced to travel outside Quebec, and the contract designates applicable law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "No evidence shows the purchase contract was preceded by a special offer or advertising in Quebec; mere listing on GCSurplus website is insufficient to meet article 3117 CcQ's advertising requirement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Since article 3117 CcQ's application condition is conjunctive, failure to prove advertising or special offer negates the need to assess other conditions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Article 3117 CcQ does not apply; article 3111 CcQ applies, so Ontario law governs the sale dispute as per General Conditions A.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "If Quebec law applied, the applicant's claim would be rejected for failing to notify the respondent of alleged defects within prescribed delays and for repairing without allowing seller's inspection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Ontario sale law is governed by the Sale of Goods Act (LRO 1990, c S.1) and applicable common law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Section 15 of the Sale of Goods Act outlines implied conditions on quality and fitness for particular purpose, with specific exceptions and conditions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Section 53 of the Sale of Goods Act allows parties to expressly exclude or modify statutory rights and obligations by agreement or usage.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 63,
+   "speaker": "evidence",
+   "summary": "General Conditions A paragraph 4(1)(b) expressly disclaim any warranty on goods sold via GCSurplus, stating goods are sold 'as is' and at buyer's risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "This express disclaimer excludes any warranty against hidden defects; thus, the applicant's claim fails as the vehicle was bought 'as is' at own risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "Common law distinguishes hidden defects as those not discoverable by reasonable inspection, while apparent defects are visible or discernible with reasonable diligence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The respondent clearly described the Sprinter's condition online, including engine issues and lack of mechanical inspection; the applicant relied on assumptions minimizing apparent or potential problems.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The court finds it was wrong to believe the Sprinter was nearly new based on diesel engine and low mileage, as the engine had serious issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "wrong belief about vehicle condition",
+    "engine problems evident",
+    "comparison to neighbor's Sprinter irrelevant"
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The defendant did not know the exact engine problems; the disclosed need for unknown repairs showed the defects were apparent, not hidden.",
+   "ideas": "multiple",
+   "idea_list": [
+    "defendant's lack of knowledge",
+    "disclosure of possible repairs",
+    "apparent defects, not hidden"
+   ]
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Repairs claimed by the plaintiff aimed to improve the used vehicle; plaintiff relied on mechanic's advice without proof these repairs were necessary.",
+   "ideas": "multiple",
+   "idea_list": [
+    "repairs were improvements",
+    "plaintiff did not inquire about condition",
+    "no proof repairs were required"
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The defendant is not liable for costs to improve vehicle components after purchase, especially since the sale was 'as is' and at buyer's risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Since hidden defects were not proven, the court does not consider the appropriate remedy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The defendant did not know the engine needed replacement and thus was not negligent; the sale terms advised buyers to verify information independently.",
+   "ideas": "multiple",
+   "idea_list": [
+    "defendant's lack of knowledge",
+    "no negligence for nondisclosure",
+    "sale terms disclaim guarantees",
+    "buyer failed to verify information"
+   ]
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The plaintiff failed to prove the defendant knew of the defect, so the negligence claim is dismissed.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

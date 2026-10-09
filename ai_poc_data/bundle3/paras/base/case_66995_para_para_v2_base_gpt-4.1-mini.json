@@ -1,0 +1,493 @@
+{
+ "case_id": 66995,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.009773200000000001
+ },
+ "verification": {
+  "paragraphs": 54,
+  "summaries": 54,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 5,
+   "court": 49
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The Hungarian Appellant, a Roma woman, appealed the Refugee Protection Division's (RPD) decision denying her refugee or protection status based on claims of long-term discrimination and gender-based violence. The Refugee Appeal Division (RAD) reviewed the case, found significant credibility issues, insufficient corroboration, and adequate state protection in Hungary, and ultimately dismissed the appeal. The RAD confirmed the RPD's decision, denying the Appellant refugee or protection status under IRPA.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and parties",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 3,
+    "label": "Disposition summary",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Appellant's claims and alleged errors",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 16,
+    "label": "Application of Guideline 4 and hearing conduct",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 21,
+    "label": "Credibility findings and evidence inconsistencies",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 29,
+    "label": "Corroboration and evidentiary weight of documents",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 33,
+    "label": "Subjective fear and domestic violence allegations",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 38,
+    "label": "Assessment of corroborating letters and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 44,
+    "label": "State protection analysis and legal principles",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 52,
+    "label": "Country conditions and state protection evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 53,
+    "last": 54,
+    "label": "Summary and final decision",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Hungarian Appellant appeals the RPD's November 25, 2019 decision denying refugee or protection status under IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Appellant has not submitted new evidence under IRPA subsection 110(4) or RAD Rule 29.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The RAD confirms the RPD decision denying the Appellant refugee or protection status; the appeal is denied.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Appellant, a Roma Hungarian woman, claims persecution from long-term discrimination and gender-based violence by ex-partner G.S.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD reviews the RPD decision on correctness without deference, having independently examined all evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Appellant's Hungarian nationality and Roma ethnicity were established and accepted based on passport and confirmation letter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The RPD found the Appellant's evidence unreliable and her testimony not credible; the Appellant alleges five errors by the RPD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD found evidence unreliable and testimony not credible",
+    "Appellant alleges five RPD errors"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD failed to meaningfully apply Guideline 4 on women fearing gender-based persecution and imposed too high evidentiary standards.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RAD disagrees, finding the hearing and decision consistent with Guideline 4 despite lack of formal analysis in RPD reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The RAD confirms the RPD hearing was conducted sensitively and respectfully, consistent with Guideline 4, with no signs of Appellant stress.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Appellant's claim involves Roma discrimination and gender-based persecution; gender can form a social group under the Convention.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RAD rejects the Appellant's claim that Guideline 4 requires loosening evidentiary standards, viewing it as a principled approach.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RAD summarizes Guideline 4's key points on evidence, state protection, and evidentiary considerations in gender-related claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The RAD finds Guideline 4 does not relax evidentiary standards but requires sensitive handling balanced with proof and credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The RAD rejects the Appellant's claim that the RPD erred by dismissing her mother's letter without verifying its veracity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The RAD finds the RPD's hearing and decision demonstrated engagement and consistency with Guideline 4.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RAD concurs with the RPD that the Appellant's allegations have significant credibility concerns undermining her claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Appellant omitted her 2012 seven-month stay in the USA, undermining credibility; the omission is material, not minor.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD rejects the Appellant's claim that former counsel advised nondisclosure, finding no evidence to support this and credibility undermined.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The RAD shares concern over selective medical records and finds the Appellant's inconsistent explanations for missing records unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Appellant's mother's letter conflicts with the Appellant's narrative, raising serious inconsistencies and undermining credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RAD discusses corroboration law, noting it is not always required but absence without explanation can harm credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD notes corroboration is not generally required absent credibility issues, but lack of available corroboration can harm credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD finds the Appellant's psychological report lacks probative value due to reliance on self-report and overstepping role.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The psychological report is based solely on self-report without diagnostic testing, improperly assessing credibility and risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RAD finds the mother's letter unreliable and not credible, declining to give it evidentiary weight despite possible further investigation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The mother's letter details incidents omitted by the Appellant, causing significant inconsistencies and undermining the letter's reliability.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD may consider evidence on record without notice; the mother's letter relates to credibility and need not be disclosed anew.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RAD gives little weight to a vague letter from a rights group, finding its claims about police inaction inconceivable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The RAD agrees with the RPD that the Appellant's failure to claim refugee status in the USA undermines her subjective fear claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant's return to Hungary after staying in the USA undermines her subjective fear of persecution claim based on prior discrimination as a Roma.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant's return to Hungary undermines fear claim",
+    "prior discrimination claims not particularized",
+    "failure to claim in USA undermines fear"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "After returning to Hungary, the appellant met her partner G.S., who she alleges persecuted her due to her Roma ethnicity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The RPD found the appellant's domestic violence allegations lacked credibility and failed to specifically address risk from her former partner, which the tribunal will now address.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD found domestic violence allegations lacked credibility",
+    "RPD failed to address risk from former partner"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal agrees the domestic violence allegations rely solely on the appellant's testimony and finds the corroborating documents insufficient.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "A letter from a former boyfriend confirms a 2016 assault but fails to prove ongoing risk or state protection efforts, limiting its evidentiary weight.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "A letter from the appellant's brother mostly contains second-hand knowledge and highlights the appellant's failure to report a 2016 sexual assault, affecting credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The brother's letter about a 2015 assault and police refusal contradicts NDP evidence, so the tribunal prefers objective evidence on police training and reporting.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Due to credibility issues, the tribunal finds the appellant failed to prove on a balance of probabilities that the alleged abuse by G.S. occurred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD erred by inadequately analyzing state protection, and finds Hungary can provide adequate protection to the appellant if returned.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal accepts the appellant's Roma ethnicity as established by testimony and a corroborating letter, requiring assessment against country conditions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Hungary is a democratic state, which factors into the assessment of its capacity to provide adequate state protection to its citizens.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Refugee claimants must prove their country cannot protect them; states need not provide perfect protection, only reasonable protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The tribunal summarizes state protection principles: claimant's burden, operational effectiveness, systemic issues, and democracy's variable relevance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The test for state protection is operational adequacy, not just best efforts or improvements by the state.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The NDP evidence on Hungary's state protection is mixed and conflicting, showing discrimination but also that Roma must try to seek state protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The tribunal notes evidence of police training initiatives to improve handling of hate crimes against Roma in Hungary.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Despite police failures in an incident, a court ruling recognizing police discrimination against Roma and civil rights actions show evidence of state protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Since 2013, Hungary has made reforms improving Roma protection, including court rulings, police training, complaint processes, and independent bodies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Hungary's reforms since 2013",
+    "examples of improvements in police and legal protections"
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The ECRI notes progress in Hungary's anti-discrimination efforts but also ongoing concerns about Roma discrimination in many life areas.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The Federal Court emphasizes the importance of police oversight agencies in ensuring adequate state protection for Roma victims of random crimes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The tribunal rejects the appellant's claims of police inaction due to lack of corroboration and prefers NDP evidence showing robust complaint procedures.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The appellant failed to prove lack of adequate state protection; the tribunal gives more weight to NDP evidence supporting Hungary's capacity to protect Roma.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The tribunal summarizes the appellant's claim phases, credibility issues, lack of corroboration, and failure to prove abuse or lack of state protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claim phases and intersectionality",
+    "credibility and corroboration issues",
+    "failure to prove abuse and state protection"
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, confirming the RPD's decision that the appellant is not a Convention refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

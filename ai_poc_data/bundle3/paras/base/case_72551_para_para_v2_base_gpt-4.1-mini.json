@@ -1,0 +1,133 @@
+{
+ "case_id": 72551,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0022112
+ },
+ "verification": {
+  "paragraphs": 10,
+  "summaries": 10,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 7,
+   "party": 2,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves appellants from Colombia who claim persecution by FARC-EP and seek refugee protection in Canada. The Refugee Protection Division (RPD) found them credible but determined they had a viable internal flight alternative in Barranquilla, which the tribunal upheld. The tribunal dismissed the appeal, affirming the RPD's decision that the appellants are not refugees or persons in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 1,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Background and Tribunal Below Decision",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Tribunal's Analysis of Internal Flight Alternative and Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 8,
+    "last": 9,
+    "label": "Appellants' Arguments and Tribunal's Response",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 10,
+    "label": "Final Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal for the reasons explained below.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellants from Colombia claim persecution by FARC-EP for refusing extortion fees and fled to Canada after threats in 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD found appellants credible but decided they had a viable internal flight alternative in Barranquilla, doubting FARC membership of extortionist.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal reviews the evidence and agrees with the RPD that the appellants have a viable internal flight alternative in Barranquilla.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal rejects appellants' claim that RPD applied a higher proof standard, affirming RPD's correct legal test and reasoning on agent of harm identity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal finds no error in RPD's view that linking extortionist's mobilization reference to FARC withdrawal is speculative.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal agrees with RPD's reliance on objective evidence showing Bogot\u00e1 is not a FARC dissident area and that criminals pose as FARC.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Appellants argue RPD erred by ignoring an article about Gabriel Garcia Marquez's niece's kidnapping near Barranquilla, implying FARC presence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal rejects appellants' argument, noting the article does not confirm FARC involvement and RPD rightly gave it no weight.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, confirming RPD's decision that appellants are not refugees or persons in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,367 @@
+{
+ "case_id": 44887,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0052856
+ },
+ "verification": {
+  "paragraphs": 40,
+  "summaries": 40,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "party": 6,
+   "court": 34
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Honduran claimant seeking refugee protection in Canada due to threats from the Barrio 18 gang. The tribunal assessed whether the claimant faced a risk of persecution or cruel treatment and whether a safe internal flight alternative (IFA) existed in Roatan, Honduras. The tribunal found the claimant credible but concluded that Roatan was a viable and safe IFA, leading to the rejection of the refugee claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background: claimant and claim",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 4,
+    "label": "Issue: key legal question",
+    "kind": "issue"
+   },
+   {
+    "first": 5,
+    "last": 10,
+    "label": "Findings on claimant's identity, credibility, and claim basis",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Legal test for internal flight alternative (IFA)",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 13,
+    "last": 29,
+    "label": "Analysis of gang's means and motivation regarding IFA in Roatan",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 37,
+    "label": "Assessment of reasonableness of relocation to Roatan",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 40,
+    "label": "Disposition: claim rejected due to viable IFA",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from Honduras seeks refugee protection under sections 96 and 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant alleges risk of persecution and cruel treatment by the Barrio 18 gang in Honduras, as detailed in her Basis of Claim form.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant is neither a Convention refugee nor in need of protection under IRPA section 97(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The key issue is whether a viable internal flight alternative exists in Roatan for the claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The claimant's Honduran nationality is established by her passport and U.S. biometrics.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The claimant is credible; her evidence aligns with her narrative and is supported by documents and country conditions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal accepts the claimant's allegations about gang harassment, family threats, a break-in, and her flight from Honduras in 2018.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant and spouse were pastors harassed by Barrio 18",
+    "Gang threatened family over claimant's brother",
+    "Nephew was murdered by gang",
+    "Brother fled to Canada and was accepted as refugee",
+    "Break-in at claimant's house",
+    "Claimant fled Honduras in 2018",
+    "Spouse hasn't seen gang since claimant left"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The gang's interest in the claimant is criminal, linked to retaliation against her brother who cooperated with police.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The gang's threats are criminal acts and generally do not establish a Convention ground nexus.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The claimant is targeted for criminal reasons, so her claim is assessed under section 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal outlines the two-prong test for internal flight alternative viability: no serious risk and reasonableness of relocation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Once IFA is raised, the claimant must prove serious risk exists in the proposed IFA location on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal considers Roatan as the IFA; it is an island without Barrio 18 presence per the National Documentation Package.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal must assess if the gang has both means and motivation to pursue the claimant in Roatan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The claimant failed to show Barrio 18 has tried to locate her since she left Honduras, supported by family letters.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "A nephew was approached by the gang post-departure, but this was unrelated to the claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The gang is strongly motivated to find the claimant's brother but has not succeeded in over a decade.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The gang's motivation to find the claimant herself is weaker and linked only to locating her brother.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The claimant has not proven the gang has strong motivation to find her anywhere in Honduras since 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal next considers whether the gang has the means to find the claimant in Roatan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Counsel submits that physical presence differs from the ability to reach a target in a location.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The claimant must provide objective evidence showing how the gang can reach her in Roatan without physical presence there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The NDP shows no Barrio 18 presence or alliances in Roatan to assist in locating the claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The claimant submitted post-hearing documents about murders in Roatan, but culprits and motives are unidentified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "General violence in Roatan does not make it unsafe or negate the IFA under the first prong of the test.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "One article alleges a Barrio 18 member worked at a Tegucigalpa 911 call center.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Corruption is known, but a gang member at a capital city call center does not prove ability to locate claimant in Roatan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "No evidence shows the call center services Roatan or that the gang could locate the claimant there.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The claimant has not shown on balance of probabilities that Barrio 18 has means and motivation to find her in Roatan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal must consider if relocating to Roatan would be unduly harsh for the claimant under the second prong of the IFA test.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court states the test for an internal flight alternative (IFA) is objective and sets a high threshold for unreasonableness, requiring proof of life or safety jeopardy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "test is objective",
+    "high threshold for IFA unreasonableness",
+    "hardship from relocation not undue hardship",
+    "requires proof of life/safety risk"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court asked the claimant if any reasons besides safety prevent relocation to Roatan; the claimant gave no other reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "Counsel argues that failed Honduran refugee claimants returning to Tegucigalpa have sometimes been killed, as gangs control the capital.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court notes the claimant can avoid returning to Tegucigalpa and that returning there voluntarily exposes her to risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The claimant can relocate to Roatan where, on balance of probabilities, she would not face a s. 97(1) risk to life.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds the claimant has not proven on a balance of probabilities that the IFA location is unreasonable given her circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Roatan is a safe and reasonable internal flight alternative for the claimant considering her personal circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds the claimant is neither a Convention refugee nor in need of protection, lacking proof of persecution or risk throughout Honduras.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The claimant has a viable internal flight alternative in Roatan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The claimant's refugee claim is rejected by the court.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

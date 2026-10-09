@@ -1,0 +1,347 @@
+{
+ "case_id": 6143,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "brief",
+ "run": "bundle3_brief",
+ "usage": {
+  "usd": 0.0082196
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 37,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 15,
+   "below": 5,
+   "party": 7,
+   "evidence": 10
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of an IRCC officer's decision denying his Temporary Resident Permit (TRP) application due to insufficient evidence of unique and compelling reasons. The Applicant argued the officer applied an incorrect standard and failed to consider key evidence, including alleged negligence by an immigration consultant and COVID-19 travel difficulties. The Federal Court found the officer's decision unreasonable for ignoring pivotal evidence, granted judicial review, set aside the refusal, and ordered a redetermination by another officer.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Introduction and judicial review outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 5,
+    "last": 14,
+    "label": "Applicant's background and application history",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 18,
+    "label": "Tribunal below's decision and reasoning",
+    "kind": "other"
+   },
+   {
+    "first": 19,
+    "last": 22,
+    "label": "Issue and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 23,
+    "last": 28,
+    "label": "Parties' arguments on reasonableness and standards",
+    "kind": "issue"
+   },
+   {
+    "first": 29,
+    "last": 36,
+    "label": "Court's analysis of reasonableness and errors",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 37,
+    "label": "Disposition and order",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "The applicant, Mr. Thind, challenges the refusal by an IRCC immigration officer (tribunal_below) to grant him a Temporary Resident Permit (TRP). The officer denied the TRP, citing insufficient evidence of unique and compelling reasons to overcome his inadmissibility. Issues addressed include: (1) whether the officer applied the correct legal standard for TRP assessment; (2) whether the officer properly considered key evidence, including alleged negligence by the applicant's immigration consultant and COVID-19 travel restrictions; and (3) whether the decision was reasonable under judicial review standards. The court found the officer's decision unreasonable due to failure to adequately consider pivotal evidence and ordered a redetermination by a different officer.",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review of an IRCC officer's September 15, 2021 decision denying his Temporary Resident Permit application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Officer found insufficient evidence that the Applicant had unique and compelling reasons to overcome inadmissibility for a TRP under IRPA subsection 24(1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by applying an incorrect standard and failing to consider key evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court finds the Officer's decision unreasonable due to failure to consider pivotal evidence, granting judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "The Applicant is a 39-year-old Indian citizen who entered Canada on a study permit in 2010 and completed a Diploma in Marketing Management in 2011.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "The Applicant extended his study permit until August 2013 and completed a Diploma in Computer Science during that time.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "The Applicant married Daljit Kaur in 2013, extended his study permit until November 2014, then extended his visitor visa until October 2016.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "evidence",
+   "summary": "The Applicant obtained an open work permit from October 2016 to August 2018 and worked as a mason from January 2017 to August 2018.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "The Applicant's permanent residence and bridging work permit applications were refused in 2018; judicial review allowed in February 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "evidence",
+   "summary": "The Applicant's wife was a full-time student, making him eligible for an open work permit under LMIA Exemption Code C42; New Vision filed an application refused in January 2019.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "evidence",
+   "summary": "The Applicant's work permit expired in October 2018; New Vision filed a late restoration application refused in March 2019; Applicant alleges negligence and filed a complaint.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "evidence",
+   "summary": "The Applicant's first TRP application was approved in December 2019; work permit application returned in July 2020 due to status issues and COVID-19 travel restrictions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "evidence",
+   "summary": "The Applicant's second TRP was issued March 30, 2021 but only valid until April 11, 2021, due to outdated passport records despite submitting a new passport.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "evidence",
+   "summary": "The Applicant applied for a third TRP in May 2021, citing his wife's valid open work permit and New Vision's negligence as reasons to approve his stay.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Officer rejected the Applicant's third TRP application on September 15, 2021, which is the subject of this judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Officer noted the Applicant lost restoration eligibility on January 18, 2019, and held the Applicant responsible for complying with entry conditions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Officer found no reason the Applicant could not return to India to apply for a work permit, noting COVID-19 travel challenges but no clear inability to return.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Officer concluded the Applicant failed to show unique and compelling reasons to justify a TRP.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The sole issue is whether the Officer's denial of the Applicant's TRP application is reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The standard of review is reasonableness, per Vavilov and prior Federal Court jurisprudence on TRP decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Reasonableness requires a transparent, intelligible, justified decision with a rational chain of analysis based on facts and law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Reasonableness includes adequacy of reasons and considers institutional context, recognizing visa officers' high volume of cases.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by applying a 'unique or compelling reasons' standard instead of assessing if a TRP is justified under IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicant submits the Officer overstepped discretion by using a heightened 'compelling reasons' standard from IRCC Guidelines, making the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer failed to consider New Vision's negligence, COVID-19 impact, passport validity issues, and family disruption.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Applicant submits the Officer failed to properly assess his circumstances by ignoring key evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Respondent argues the Officer's decision is reasonable and that the 'compelling reasons' standard is appropriate, citing recent case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Respondent contends the Officer reasonably found insufficient evidence of inability to travel and that judicial review is not for re-determining facts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court finds no reviewable error in applying the 'compelling reasons' standard, noting unsettled jurisprudence and supporting case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court notes Vavilov's guidance that reasonable decisions align with established standards, but TRP standards remain unsettled, justifying the Officer's approach.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court agrees the Officer erred by not properly assessing key evidence about the Applicant's status and alleged negligence by New Vision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court agrees with Applicant",
+    "Officer failed to consider key evidence",
+    "negligence impact not properly assessed"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Officer ignored the difficulty the Applicant faced returning to Canada during COVID-19, a central reason for his TRP application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer focused on general travel rules",
+    "ignored Applicant's personal hardship",
+    "COVID-19 travel difficulty central to TRP"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Officer failed to consider the Applicant's vulnerability as a client relying on an immigration consultant's alleged negligence affecting his status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "vulnerability of clients noted",
+    "Applicant did due diligence",
+    "Officer ignored negligence evidence"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court compares this case to Osmani, where refusal was unreasonable for relying on limited evidence and ignoring key circumstances.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court cites Mousa, emphasizing that TRP refusals require full analysis of compelling need, which was lacking here.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Officer's decision lacks fulsome analysis of the Applicant's reasons, making the refusal unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court grants judicial review, sets aside the refusal, and orders redetermination by another officer; no certification questions arise.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "case_id": 42654,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.005891200000000001
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 23,
+   "below": 3,
+   "party": 4,
+   "other": 4
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of the Social Security Tribunal's decision regarding whether Quebec paternity benefits and federal maternity/parental benefits are \"corresponding types of benefits\" under the Employment Insurance Regulations. The applicant, Mr. Ouimet, challenges the Appeal Division's decision that these benefits correspond, which affects his entitlement and repayment obligations. The Federal Court of Appeal upheld the Appeal Division's interpretation, dismissing the judicial review application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and overview",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Factual background and statutory provisions",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Decisions below",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 14,
+    "last": 17,
+    "label": "Parties' arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 26,
+    "label": "Court's analysis of statutory interpretation",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 30,
+    "label": "Context of the Regulations and legislative purpose",
+    "kind": "background"
+   },
+   {
+    "first": 31,
+    "last": 33,
+    "label": "Court's conclusions on fairness and reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 34,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court introduces the judicial review of the Social Security Tribunal's decision on whether Quebec paternity benefits and federal maternity/parental benefits are \"corresponding types of benefits\" under the Regulations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court explains the importance of the issue, affecting benefit amounts and start dates, and whether Mr. Ouimet must repay $4,400 in benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court states it will uphold the Appeal Division's decision that Quebec paternity benefits are the same type as federal benefits when a child is born.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court summarizes undisputed facts: Mr. Ouimet accrued 600 hours, took Quebec paternity leave benefits Sept 17-Oct 21, then was laid off after returning to work.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Mr. Ouimet claimed federal regular benefits starting Dec 6, but the Commission deemed his benefit period to start Sept 17, the start of Quebec paternity benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "If Mr. Ouimet had not received Quebec paternity benefits, he would have qualified for federal benefits in December due to 1,000 hours accrued; minimum hours required were 665.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court reproduces subsection 76.19(1.1) stating federal benefit periods align with provincial ones if claimant would be entitled to corresponding benefits under the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Because Mr. Ouimet lacked minimum hours on Sept 17, the Commission denied federal benefits and demanded repayment of $4,400, upholding this on review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The General Division reversed the Commission, ruling Quebec paternity and federal parental benefits are not corresponding, so no overpayment occurred.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Appeal Division allowed the Commission's appeal, finding the General Division erred in law interpreting \"corresponding types of benefits\" as requiring identical benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Appeal Division explained \"corresponding types\" means benefits sharing common features, so Quebec paternity benefits are equivalent to federal benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Mr. Ouimet seeks judicial review; the court's issue is whether the Appeal Division's decision to overturn the General Division's interpretation is reasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court's role is to assess if the Appeal Division reasonably found the General Division erred in law, per the Vavilov standard of reasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The applicant argues the Appeal Division ignored Parliament's intent to prevent double benefits and that paternity benefits don't exist federally, so no corresponding benefits exist.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The applicant notes subsection 76.19(1) treats provincial benefits as federal when corresponding, affecting maximum weeks payable under the Act.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The applicant contends the Appeal Division erred by ignoring context, arguing Quebec paternity benefits differ from federal maternity/parental benefits and 2019 amendments aligned the plans.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Respondent's counsel raised new textual arguments at hearing about the phrase \"corresponding types\" referring only to maternity/parental benefits, urging harmonious interpretation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court rejects the respondent's new textual arguments as unacceptable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court notes the Act favors claimants in ambiguity but requires plausible interpretations based on language, context, and purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court concludes the Appeal Division reasonably found subsection 76.19(1.1) unambiguous and that the General Division erred in excluding paternity benefits as corresponding.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court explains \"corresponding types\" means resembling benefits, not identical, consistent with Regulations allowing provincial plans to differ from federal ones.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court dismisses the applicant's argument about phrase absence in other provisions as unfair and inappropriate to consider first on judicial review.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds the Appeal Division's interpretation aligns with ordinary meaning, context, and Parliament's object, citing Supreme Court precedent on parental benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court holds paternity benefits share the objective of maternity and parental benefits, allowing parents to care for newborns, thus are corresponding types.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The 2019 Act amendment supports the respondent by creating equivalent paternal benefits through shared parental weeks, showing no real difference.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court states Part III.1 of the Regulations aims to implement provincial-federal agreements and ensure fairness, as shown by the Regulatory Impact Study.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "other",
+   "summary": "The Quebec Parental Insurance Plan pays benefits for maternity, paternity, parental, and adoption leave to support new parents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "other",
+   "summary": "Subsection 76.19(1) limits entitlement by reducing federal weeks if provincial benefits correspond to federal ones.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "other",
+   "summary": "Subsection 76.19(1.1) deems benefit periods established under provincial law to begin the same week federally if corresponding benefits exist; added in 2010.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "other",
+   "summary": "These provisions aim to ensure consistency and fairness between provinces with provincial plans and federal employment insurance benefits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court agrees with the General Division that the applicant cannot receive both Quebec paternity benefits and federal parental benefits for the same period, as it would violate regulations and be unfair.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's argument rejected",
+    "contravention of subsection 76.09(1)",
+    "unfairness to other Canadians"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court notes that allowing the claimant to receive regular benefits without accounting for prior paternity benefits would give an unfair advantage and contradict statutory wording and parliamentary intent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "unfair advantage to claimant",
+    "contrary to subsections 76.19(1) and (1.1)",
+    "contrary to Parliament's objective"
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds the Appeal Division's ruling reasonable despite harsh consequences for the applicant, stating adjustments should be made by the Commission and Governor in Council if needed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal Division's ruling reasonable",
+    "harsh consequences acknowledged",
+    "adjustments responsibility to Commission and Governor in Council"
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court dismisses the judicial review application without costs, with all three judges agreeing.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

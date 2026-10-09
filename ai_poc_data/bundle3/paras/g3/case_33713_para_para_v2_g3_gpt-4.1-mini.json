@@ -1,0 +1,157 @@
+{
+ "case_id": 33713,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle3_g3",
+ "usage": {
+  "usd": 0.00304
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 7,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 1,
+  "speakers": {
+   "court": 5,
+   "mixed": 1,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Edward Ryckman seeks judicial review of a Canada Revenue Agency (CRA) decision denying his eligibility for the Canada Emergency Response Benefit (CERB). The Federal Court finds the CRA's decision unreasonable due to procedural unfairness and sets it aside, ordering a redetermination. Costs are awarded to Mr. Ryckman despite his unrepresented status.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "CRA's process and applicant's response",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 12,
+    "label": "Standard of review and procedural issues",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 16,
+    "label": "Review of CRA's decision and errors found",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 20,
+    "label": "Court's findings and order for redetermination",
+    "kind": "disposition"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Costs awarded to applicant",
+    "kind": "disposition"
+   },
+   {
+    "first": 127,
+    "last": 128,
+    "label": "General principles on reasons in administrative decisions",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 4,
+   "speaker": "court",
+   "summary": "The applicant, Edward Ryckman, seeks judicial review of a CRA decision denying CERB eligibility, which the court finds unreasonable and sets aside.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's background and benefit receipt",
+    "CRA's initial ineligibility finding",
+    "judicial review and prior court order"
+   ]
+  },
+  {
+   "para": 5,
+   "last": 7,
+   "speaker": "mixed",
+   "summary": "The CRA officer sought further information from Mr. Ryckman, who submitted evidence and declined phone questions; the CRA again found him ineligible for CERB.",
+   "ideas": "multiple",
+   "idea_list": [
+    "officer's contact and deadline",
+    "applicant's submission of evidence",
+    "CRA's repeated ineligibility decision"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard, agrees the Attorney General should be named respondent, and questions but does not rule on objections to certain exhibits.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness review standard",
+    "correct respondent naming",
+    "exhibit admissibility issues"
+   ]
+  },
+  {
+   "para": 14,
+   "last": 16,
+   "speaker": "court",
+   "summary": "The court finds that the Officer did not consider the applicant's July 29, 2024 Application Record during the Further Second Review, which was a reviewable error causing an unreasonable decision and procedural unfairness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's affidavit listing considered documents",
+    "Applicant's Application Record not considered",
+    "Court finds procedural unfairness and unreasonable decision"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 20,
+   "speaker": "court",
+   "summary": "The court finds the decision unreasonable, declines to decide eligibility itself, and orders the matter remitted to the CRA for redetermination with proper reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision found unreasonable",
+    "court declines to decide eligibility",
+    "remittal to CRA with deference and no special order for reasons"
+   ]
+  },
+  {
+   "para": 21,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court awards Mr. Ryckman $1,500 in costs despite his unrepresented status, to reflect incurred costs and encourage settlement.",
+   "ideas": "single",
+   "idea_list": [
+    "award of costs to applicant"
+   ]
+  },
+  {
+   "para": 127,
+   "last": 128,
+   "speaker": "other",
+   "summary": "The court explains that administrative decision makers must provide reasons addressing central issues but need not respond to every argument, balancing fairness and efficiency.",
+   "ideas": "multiple",
+   "idea_list": [
+    "duty of procedural fairness and right to be heard",
+    "responsive reasons importance",
+    "limits on decision maker's obligation to address all arguments"
+   ]
+  }
+ ]
+}

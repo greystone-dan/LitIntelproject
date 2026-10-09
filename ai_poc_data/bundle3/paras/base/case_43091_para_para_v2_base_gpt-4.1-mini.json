@@ -1,0 +1,192 @@
+{
+ "case_id": 43091,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle3_base",
+ "usage": {
+  "usd": 0.0030424
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "speakers": {
+   "court": 14,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the applicant's judicial review of the Social Security Tribunal's dismissal of her disability benefits appeal under the Canada Pension Plan. The applicant sought to introduce new medical evidence and challenged the weight given to existing evidence by the General Division and the Appeal Division. The Federal Court of Appeal upheld the decisions below, finding no unreasonable error, and dismissed the application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and admissibility of new evidence",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Decisions of the General Division and Appeal Division",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 13,
+    "label": "Legal framework and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 14,
+    "last": 17,
+    "label": "Analysis of evidence and tribunal's findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 18,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The applicant seeks judicial review to set aside the Social Security Tribunal's dismissal of her disability benefits appeal under the Canada Pension Plan.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant seeks judicial review",
+    "decision dismissed disability benefits appeal"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The applicant wants to submit a new affidavit with a psychiatrist's letter not previously before the tribunal, expanding on prior testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees with the respondent that the new psychiatrist's letter is inadmissible as it was not before the tribunal and no exceptions apply.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The General Division found the applicant failed to prove she had a severe and prolonged disability as of the minimum qualifying period date in 2012.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The General Division reviewed medical evidence including Dr. Pityk's and concluded the applicant was not disabled as of the qualifying date despite being disabled at hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The General Division gave little weight to Dr. Pityk's opinion about disability at the qualifying date due to lack of evidence from 2009-2017 and earlier doctors' opinions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Appeal Division upheld the General Division's dismissal of the applicant's disability benefits appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Appeal Division found no legal or factual error in the General Division's decision and upheld its findings on evidence and employment history.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Section 58 of DESDA limits Appeal Division's authority to errors of law, jurisdiction, or perverse factual findings by the General Division.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court explains the stringent test for factual error under section 58 of DESDA requires unreasonableness, not mere incorrectness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court elaborates that perverse or capricious factual findings contradict or ignore evidence, citing recent case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The standard of review before this court is reasonableness; intervention requires the Appeal Division's decision to be unreasonable.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Factual findings are unreasonable only if perverse, capricious, or ignoring evidence; reweighing evidence is not the court's role.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The applicant argues the General Division erred by not giving enough weight to Dr. Pityk's evidence and the Appeal Division erred in upholding that.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court states disagreement over evidence weight is not unreasonable; tribunals have broad discretion in factual findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "There was sufficient evidence to discount Dr. Pityk's testimony about the qualifying date due to lack of firsthand knowledge and missing source information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Given the evidence gaps and timing of treatment, the General Division's and Appeal Division's decisions were reasonable and properly supported.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court dismisses the application without costs, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

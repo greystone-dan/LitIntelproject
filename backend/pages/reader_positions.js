@@ -14,7 +14,9 @@
  const pos={on:store.get(),cache:new Map(),loading:new Set(),timer:0,busy:false};
  const ORDER=['applicant','respondent','earlier_decision_maker','court','prior_court_or_authority','witness_or_document','other'];
 
- /* The data for whatever is open now: {available, mode, notice, paragraphs} or null while it loads. */
+ /* Guard: the stored data can name paragraph numbers the decision does not have (bracketed numbers inside quotations).
+    Tags are drawn only on paragraphs in the page (fmt-para[data-para]) and the colour legend counts only those.
+   The data for whatever is open now: {available, mode, notice, paragraphs} or null while it loads. */
  function current(){
   const payload=readerState.payload;if(!payload)return {none:true};
   const live=payload.readerData&&payload.readerData.position_tags;
@@ -38,8 +40,8 @@
 
  function bar(data){
   const el=document.createElement('div');el.className='pos-bar';el.setAttribute('data-pos-bar','');
-  const present=new Set();Object.values(data.paragraphs).forEach(row=>row.positions.forEach(p=>present.add(p.key)));
-  const legend=ORDER.filter(k=>present.has(k)).map(k=>{const label=Object.values(data.paragraphs).flatMap(r=>r.positions).find(p=>p.key===k).label;return '<span class="pos-chip pos-'+E(k)+'">'+E(label)+'</span>';}).join('');
+  const real=new Set([...body.querySelectorAll('.fmt-para[data-para]')].map(p=>String(p.dataset.para))),shown=Object.entries(data.paragraphs).filter(([n])=>real.has(n)).map(([,row])=>row),present=new Set();shown.forEach(row=>row.positions.forEach(p=>present.add(p.key)));
+  const legend=ORDER.filter(k=>present.has(k)).map(k=>{const label=shown.flatMap(r=>r.positions).find(p=>p.key===k).label;return '<span class="pos-chip pos-'+E(k)+'">'+E(label)+'</span>';}).join('');
   el.innerHTML='<button type="button" class="pos-switch" aria-pressed="'+pos.on+'" data-pos-switch>'+(pos.on?'Hide':'Show')+' whose position</button>'
    +'<span class="pos-badge">Preview</span>'
    +(pos.on?'<span class="pos-legend" aria-label="Tag colours">'+legend+'</span><p class="pos-notice">'+E(data.notice||'')+'</p>'+levels(data):'<span class="pos-hint">'+(data.mode==='rules'?'Rule-based tags from cue phrases in the text':'Who is speaking in each paragraph, with a one-line summary')+'</span>');

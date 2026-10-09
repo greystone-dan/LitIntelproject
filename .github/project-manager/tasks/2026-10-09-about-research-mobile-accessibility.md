@@ -10,7 +10,7 @@ Task: Audit and surgically improve About and Research views at 360px and 390px, 
 
 Why now: Issue #431 identifies narrow-screen and accessibility defects in active research views.
 
-Owner surface: `backend/pages/data_explorer.py` and its focused UI contract tests in `tests/test_feature_tabs.py`.
+Owner surface: active About and Case Search builder/styles plus the standalone Research and Quick Search builders; focused UI contract tests.
 
 Commit allowed: yes
 
@@ -30,7 +30,7 @@ Acceptance criteria:
 - Canonical Research UI guidance and Active Research UI Swimm walkthrough are updated.
 
 Harness criteria:
-- About and Research affordances/layout are corrected for narrow 360px and 390px widths without horizontal overflow in covered surfaces.
+- About and Research affordances/layout have static contracts for narrow 360px and 390px widths; browser-rendered overflow remains unverified.
 - Focused UI contract tests pass and continue to assert tab-click reset behavior.
 - Required documentation and final requested checks are recorded.
 
@@ -38,11 +38,11 @@ Docs/generated references: `docs/RESEARCH_UI_GUIDE.md`; `.swm/6.maiixtsw.sw.md`;
 
 Rollback/recovery: Revert only this task's page-builder, test, and documentation hunks; no data or external state is involved.
 
-Evidence: Required docs read before changes: `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `.github/copilot-instructions.md`, `OVERNIGHT.md`, `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`, `.swm/6.maiixtsw.sw.md`, and `docs/RESEARCH_UI_GUIDE.md`. Managed worker returned structured evidence; manager removed first-pass Site Architecture/Research Bench changes as outside active About/Research. Updated canonical `docs/RESEARCH_UI_GUIDE.md` and Swimm walkthrough `.swm/6.maiixtsw.sw.md`. `python -m py_compile backend/pages/data_explorer.py tests/test_feature_tabs.py` passed (existing invalid-escape `SyntaxWarning` emitted at page-builder line 36); `git diff --check` passed; changed-file secret-pattern scan passed. `python -m pytest tests/test_feature_tabs.py -q` could not start (`No module named pytest`). `python scripts/check_generated_docs.py` failed because required `fastapi` and `sqlalchemy` modules are unavailable. No browser test, live site, or database was used. Blocked pending an environment with project dependencies for focused test and generated-doc check.
+Evidence: Required docs read before changes: `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `.github/copilot-instructions.md`, `OVERNIGHT.md`, `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`, `.swm/6.maiixtsw.sw.md`, and `docs/RESEARCH_UI_GUIDE.md`. Managed worker returned structured evidence; manager removed first-pass Site Architecture/Research Bench changes as outside active About/Research. Static inspection found mobile Research tabs forced into a horizontal row and multiple search/changelog controls below 44px. The current change wraps tabs, raises the relevant touch targets, adds visible focus and landmarks to standalone search builders, and makes Quick Search status changes a polite live status. About diagrams have accessible labels and local scroll wrappers; no defects found in their static markup. Updated canonical `docs/RESEARCH_UI_GUIDE.md` and Swimm walkthrough `.swm/6.maiixtsw.sw.md`. The initial builder compile and `git diff --check` passed; initial secret scan passed. `python -m pytest tests/test_feature_tabs.py -q` could not start (`No module named pytest`). `python scripts/check_generated_docs.py` failed because required `fastapi` and `sqlalchemy` modules are unavailable. No browser test, live site, or database was used. Current focused checks and generated-doc check remain unrun in this environment.
 
-Files changed: `backend/pages/data_explorer.py`, `tests/test_feature_tabs.py`, `docs/RESEARCH_UI_GUIDE.md`, `.swm/6.maiixtsw.sw.md`, this task record.
+Files changed: `backend/pages/data_explorer.py`, `backend/pages/about_how.html`, `backend/pages/changelog_tab.py`, `backend/pages/mobile_layout.css`, `backend/pages/quick_search.py`, `backend/pages/research.py`, `tests/test_feature_tabs.py`, `tests/test_accessibility_builders.py`, `tests/test_changelog.py`, `tests/test_mobile_layout.py`, `docs/RESEARCH_UI_GUIDE.md`, `.swm/6.maiixtsw.sw.md`, this task record.
 Delegated work: Managed worker `about-research-ui` inspected the builder/tests and supplied a static audit/fix pass; out-of-scope Research Bench/Site Architecture edits were removed. Manager owns final scope refinement, docs, and validation.
-Focused validation: `python -m py_compile backend/pages/data_explorer.py tests/test_feature_tabs.py` passed with the noted warning; focused pytest and generated-doc checks were attempted but blocked by unavailable dependencies. Secret scan and `git diff --check` passed.
+Focused validation: The initial builder compilation passed with the noted warning; focused pytest and generated-doc checks are blocked by missing `pytest`, `fastapi`, and `sqlalchemy`. Static inspection and `git diff --check` are complete; the new code/test edits have not been executed.
 Residual risk: Focused tests and generated-doc consistency remain unverified until dependencies are installed; viewport assertions are static CSS/markup contracts, not browser/device or screen-reader validation. No live site/database was used.
 Next bounded task: Rerun the focused UI test and generated-document check in an environment with project dependencies.
 
@@ -74,10 +74,10 @@ If About and Research layout/semantics are corrected without changing navigation
 
 Completion recorded: no
 
-Summary: Code/test/documentation slice implemented, but completion is blocked on focused-test and generated-document checks in an environment missing project dependencies.
+Summary: Code/test/documentation changes implement the static mobile/accessibility fixes. Completion remains blocked on focused tests and generated-document verification in an environment missing project dependencies, and on browser-rendered checks.
 
-Validation: `py_compile`, changed-file secret scan, and `git diff --check` passed. Pytest and generated-doc check were attempted and failed to start due to missing `pytest`, `fastapi`, and `sqlalchemy`.
+Validation: An initial `py_compile`, changed-file secret scan, and `git diff --check` passed. Pytest and generated-doc check were attempted and failed to start due to missing `pytest`, `fastapi`, and `sqlalchemy`; later edits have not been run through those checks.
 
-Residual risk: No browser/device or screen-reader audit was performed.
+Residual risk: No browser/device reflow, no-horizontal-scroll, touch-size, keyboard-only, screen-reader, or comprehensive contrast measurement was performed. The CSS tests are static contracts only.
 
 Next recommended task: Rerun the exact blocked checks with project dependencies installed.

@@ -117,7 +117,7 @@ def run_probes(base: str) -> int:
     return short
 
 
-PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&limit=25&facets=0"
+PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&case_type=refugee_cessation&limit=25&facets=0"   # only real cessation decisions (tags alone also match other kinds)
 
 
 def _get_json(base: str, path: str):
@@ -152,7 +152,7 @@ def pick_example_case(base: str) -> int:
         acts = sum(1 for c in statutes or [] if c.get("instrument_key") or c.get("legislation_url"))
         cited_by = int((reader.get("metrics") or {}).get("in_degree") or row.get("cited_by_cases") or 0)
         judge = bool(row.get("judge"))
-        usable = outline >= 4 and pins >= 1 and acts >= 1 and judge
+        usable = outline >= 4 and pins >= 1 and acts >= 1 and judge and cited_by >= 1   # the tour shows how it has been cited
         score = (100 if usable else 0) + min(outline, 10) * 3 + min(pins, 5) * 2 + min(cited_by, 20) * 2 - rank
         ranked.append((score, rank, row, outline, pins, acts, cited_by, judge, usable))
     ranked.sort(key=lambda item: -item[0])
@@ -161,7 +161,7 @@ def pick_example_case(base: str) -> int:
         print(f"{score:>5} {rank:>4}  {str(row.get('citation')):<16} {outline:>7} {pins:>9} {acts:>8} {cited_by:>8}  {'yes' if judge else 'no ':<5}  {str(row.get('title'))[:60]}{'' if usable else '  (not usable)'}")
     best = next((item for item in ranked if item[8]), None)
     if not best:
-        print("no decision has an outline, a pinpoint citation, a statute and a judge")
+        print("no decision has an outline, a pinpoint citation, a statute, a judge and a citing decision")
         return 1
     print(f"BEST: {best[2].get('citation')} (case {best[2]['case_id']}): {best[2].get('title')}")
     return 0

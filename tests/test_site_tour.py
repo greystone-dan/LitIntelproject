@@ -308,3 +308,15 @@ def test_card_and_rings_follow_the_layout_rules():
     assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
     assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps
     assert "u.skip.style.visibility" in js                          # Next keeps its place when Skip section is not offered
+
+
+def test_cards_state_what_is_shown_and_the_decision_is_a_cessation_case():
+    data = tour_steps()
+    for step in data["steps"]:                      # no narration of the tour's own buttons ("Next clicks it", "I'll...")
+        for key in ("text", "say", "lead", "leadText"):
+            words = step.get(key) or ""
+            assert "Next " not in words and "I'll" not in words and "I will" not in words, (step["id"], key)
+    cessation = data["cases"]["cessation"]
+    assert cessation["citation"] == "2023 FC 1553" and "case_type=refugee_cessation" in cessation["search"]
+    tour_decision = next(p for p in data["probes"] if p["id"] == "tour-decision")
+    assert "case_type=refugee_cessation" in tour_decision["url"]

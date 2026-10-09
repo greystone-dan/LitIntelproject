@@ -320,3 +320,7 @@ def test_cards_state_what_is_shown_and_the_decision_is_a_cessation_case():
     assert cessation["citation"] == "2023 FC 1553" and "case_type=refugee_cessation" in cessation["search"]
     tour_decision = next(p for p in data["probes"] if p["id"] == "tour-decision")
     assert "case_type=refugee_cessation" in tour_decision["url"]
+
+
+def test_tour_never_opens_the_outline():
+    assert "outl" not in json.dumps(tour_steps()["steps"])   # Daniel: the tour should not click on the Outline at all

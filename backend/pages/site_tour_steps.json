@@ -822,103 +822,6 @@
       ]
     },
     {
-      "id": "reader-outline",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "The Outline",
-      "text": "The decision's sections, each with the paragraph it starts at. It is marked Coming soon because section detection is not yet reliable on every decision.",
-      "target": ".v6-outline",
-      "also": [
-        {
-          "sel": "[data-v6-outl-toggle]"
-        }
-      ],
-      "focus": 0,
-      "optional": true,
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='about']",
-          "unless": "#decisionTarget [data-v6-tab='about'].on"
-        }
-      ],
-      "say": "Further down the About tab is the Outline.",
-      "act": [
-        {
-          "do": "click",
-          "selector": "[data-v6-outl-toggle]",
-          "unless": ".v6-outline"
-        }
-      ]
-    },
-    {
-      "id": "reader-outline-jump",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "Jump to a section",
-      "text": "The text moved to that section and marked it. In a long decision, the Outline is the quickest way to the analysis or the conclusion.",
-      "target": "#decisionBody .v6-flash",
-      "also": [
-        {
-          "sel": ".v6-outline"
-        }
-      ],
-      "optional": true,
-      "settle": 400,
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='about']",
-          "unless": "#decisionTarget [data-v6-tab='about'].on"
-        },
-        {
-          "do": "click",
-          "selector": "[data-v6-outl-toggle]",
-          "unless": ".v6-outline"
-        }
-      ],
-      "say": "Each section in the Outline leads into the text.",
-      "act": [
-        {
-          "do": "click",
-          "selector": ".v6-outline .v6-orow:nth-child(3), .v6-outline .v6-orow:nth-child(2)"
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .v6-flash",
-          "timeout": 4
-        }
-      ]
-    },
-    {
       "id": "reader-judge",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
@@ -1028,8 +931,12 @@
             },
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ],
-          "high": true
+          ]
+        },
+        {
+          "do": "waitFor",
+          "selector": ".reader-hover-tooltip.is-visible",
+          "timeout": 4
         }
       ],
       "before": [
@@ -1047,7 +954,8 @@
           "do": "wait",
           "ms": 600
         }
-      ]
+      ],
+      "settle": 400
     },
     {
       "id": "reader-cite-card",
@@ -1182,6 +1090,11 @@
           "do": "hover",
           "selector": "#decisionBody .fmt-para mark.chunk-statute",
           "high": true
+        },
+        {
+          "do": "waitFor",
+          "selector": ".reader-hover-tooltip.is-visible",
+          "timeout": 4
         }
       ],
       "before": [
@@ -1199,7 +1112,8 @@
           "do": "wait",
           "ms": 600
         }
-      ]
+      ],
+      "settle": 400
     },
     {
       "id": "reader-stat-card",

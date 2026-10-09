@@ -73,6 +73,9 @@ class Parties:
 	# From the case frame: False when the proceeding has no earlier decision (a tribunal's first hearing, a motion),
 	# so layers 3 and 4 cannot exist. None when unknown.
 	has_earlier: bool | None = None
+	# Whose voice an untagged sentence is: "court" in a decision; "applicant" or "respondent" in a one-sided
+	# document (memorandum of argument, factum, submissions), where the author argues and the Court is absent.
+	author: str = "court"
 
 
 def _aliases(name: str) -> tuple[str, ...]:
@@ -103,6 +106,8 @@ def detect_forum(header: str) -> str:
 		return "rad"
 	if re.search(r"\bIAD File|dossier de la SAI|Immigration Appeal Division", h):
 		return "iad"
+	if re.search(r"\bID File|dossier de la SI\b|Immigration Division", h):
+		return "id"
 	if re.search(r"Federal Court of Appeal", h):
 		return "fca"
 	if re.search(r"Federal Court Decisions", h):
@@ -112,7 +117,7 @@ def detect_forum(header: str) -> str:
 	return ""
 
 
-_TRIBUNAL_AUTHOR = re.compile(r"^(?:the\s+)?(?:panel|member|division|board|tribunal|chair|rpd|rad|iad|appeal division)\b", re.I)
+_TRIBUNAL_AUTHOR = re.compile(r"^(?:the\s+)?(?:panel|member|division|board|tribunal|chair|rpd|rad|iad|id|appeal division|immigration division)\b", re.I)
 
 
 def parse_parties(title: str) -> Parties:
@@ -495,14 +500,14 @@ def sentence_cue(sentence: str, parties: Parties | None = None, *, index: int = 
 		if vm:
 			add(m.start(1), 5, EARLIER, s[m.start(1): m.end() + len(vm.group(0)) + 1 if vm else m.end()])
 			break
-	if parties.forum not in ("rpd", "rad", "iad"):
+	if parties.forum not in ("rpd", "rad", "iad", "id"):
 		m = _NAMED_EARLIER_ANY.search(s)
 		if m and not any(h[2] == EARLIER for h in hits):
 			add(m.start(1), 5, EARLIER, m.group(0))
 	m = _EARLIER_POSS.search(s)
 	if m:
 		add(m.start(), 5, EARLIER, m.group(0))
-	if parties.forum in ("rpd", "rad", "iad"):
+	if parties.forum in ("rpd", "rad", "iad", "id"):
 		m = _CLAIMANT_SUBJECT.match(s)
 		if m:
 			add(0, 5, APPLICANT, m.group(0))
@@ -611,13 +616,13 @@ _COURT_RESET = re.compile(
 
 def _author_fix(cue: Cue | None, parties: Parties) -> Cue | None:
 	"""In a tribunal's own decision the deciding body is the author, so its voice is the court's."""
-	if cue is None or cue.holder != EARLIER or parties.forum not in ("rpd", "rad", "iad"):
+	if cue is None or cue.holder != EARLIER or parties.forum not in ("rpd", "rad", "iad", "id"):
 		return cue
 	m = _TRIBUNAL_AUTHOR.match(cue.phrase.strip())
 	if not m:
 		return cue
 	word = m.group(0).lower().replace("the ", "").strip()
-	if word in ("rpd", "rad", "iad") and word != parties.forum:
+	if word in ("rpd", "rad", "iad", "id") and word != parties.forum:
 		return cue  # a different body (the RAD reviewing the RPD)
 	cue.holder = COURT
 	return cue
@@ -642,6 +647,8 @@ def parties_from_frame(frame, title: str = "") -> Parties:
 		p.has_earlier = False
 	elif frame.earlier_decision_maker.known:
 		p.has_earlier = True
+	if getattr(frame, "author", None) is not None and frame.author.value in (APPLICANT, RESPONDENT):
+		p.author = frame.author.value
 	return p
 
 
@@ -660,6 +667,12 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 		cue = _author_fix(sentence_cue(s, parties, index=i), parties)
 		if cue:
 			assign_layer(s, cue)
+			if parties.author != COURT and cue.holder == COURT:
+				# one-sided document: "the Court does not reweigh" or "no question for certification" is the author
+				# stating the law or asking for an order, never the Court deciding
+				cue.holder = parties.author
+				if cue.layer == LAYER_COURT:
+					cue.layer = LAYER_JR_PARTY
 			if parties.forum == "rpd" or parties.has_earlier is False:
 				# no earlier decision here: layers 3 and 4 cannot exist, so fold them into 1 and 2
 				if cue.layer == LAYER_FIRST_INSTANCE:
@@ -689,11 +702,13 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 			res.cues.append(carried)
 			res.sentence_holders.append(last)
 		else:
-			dflt = Cue(COURT, "", i, "default")
+			dflt = Cue(parties.author, "", i, "default")
 			assign_layer(s, dflt)
+			if parties.author != COURT and dflt.layer == LAYER_COURT:
+				dflt.layer = LAYER_JR_PARTY  # a side's own argument, not the Court's evaluation
 			res.cues.append(dflt)
-			res.sentence_holders.append(COURT)
-			last = COURT if last in (None, COURT, AUTHORITY) else last
+			res.sentence_holders.append(parties.author)
+			last = parties.author if last in (None, COURT, AUTHORITY, parties.author) else last
 	if text.rstrip().endswith(":") and res.cues:
 		lc = res.cues[-1]
 		if lc.holder in (APPLICANT, RESPONDENT) and lc.confidence in ("explicit", "lead_in", "carried"):
@@ -711,6 +726,9 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 			order.append(h)
 	res.holders = order
 	explicit = [c.holder for c in res.cues if c.confidence == "explicit"]
+	if parties.author != COURT:
+		explicit = [h for h in explicit if h != COURT] or explicit
+	res.primary = parties.author
 	if explicit:
 		res.primary = max(set(explicit), key=lambda h: (explicit.count(h), -explicit.index(h)))
 	elif res.sentence_holders:

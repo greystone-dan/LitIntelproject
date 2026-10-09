@@ -105,6 +105,14 @@ remains a separate accessible control.
 The audit and remaining limitations are in
 `docs/reports/accessibility-audit.md`.
 
+The 2026-10-09 narrow-screen pass covers the embedded About and default Case
+Search views at 360px and 390px by checking their generated markup and responsive
+CSS contracts. About's asynchronously refreshed inventory summary is a polite,
+atomic status message. Case Search retains its named combobox and polite status
+message; its layout stacks at narrow widths, while About's columns collapse and
+wide diagrams remain locally scrollable. These are static contract checks, not
+browser-rendered viewport or assistive-technology verification.
+
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
 announcements, responsive/touch behavior, and assistive-technology use still
 need manual verification.

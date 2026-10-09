@@ -702,6 +702,37 @@ def test_research_bench_tab_exposes_three_prototype_views():
     assert "new URLSearchParams(location.search).get('tab')||'search'" in html
 
 
+def test_about_and_case_search_mobile_accessibility_contracts():
+    html = routes._data_explorer_page_html()
+    about_start = html.index('<section id="aboutPanel"')
+    search_start = html.index('<section id="searchPanel"', about_start)
+    search_end = html.index('<section id="caseReaderPanel"', search_start)
+    about_panel = html[about_start:search_start]
+    search_panel = html[search_start:search_end]
+
+    # 360px and 390px both fall within the stacked, single-column breakpoints.
+    assert "@media(max-width:920px)" in html
+    assert ".search-form{grid-template-columns:1fr}" in html
+    assert "@media(max-width:760px)" in about_panel
+    assert "@media (max-width:760px)" in about_panel
+    assert "@media (max-width:520px)" in about_panel
+    assert ".ilit-about .svgwrap{overflow-x:auto" in about_panel
+
+    # About inventory updates after load; Case Search already announces search state.
+    assert (
+        '<div class="summaryRows" id="aboutSummary" role="status" '
+        'aria-live="polite" aria-atomic="true">'
+    ) in about_panel
+    assert 'id="searchQuery" aria-label="Case name or citation"' in search_panel
+    assert 'id="searchMeta" role="status" aria-live="polite"' in search_panel
+    assert 'aria-controls="searchSuggestions"' in search_panel
+    assert "search-form input:focus-visible" in html
+
+    # The viewport coverage is CSS-contract-only; no browser viewport is launched.
+    for viewport_width in (360, 390):
+        assert viewport_width <= 520
+
+
 def test_site_architecture_panel_lists_data_layers_and_feature_map():
     html = routes._data_explorer_page_html()
 

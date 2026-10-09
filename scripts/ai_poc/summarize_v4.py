@@ -1,0 +1,161 @@
+"""Propositions layer (prompt version prop_v4): after a code-only split of glued paragraphs and headings (split_paras.py), for EVERY paragraph: a short list of
+propositions (who holds it, what kind of statement, the point), a one-sentence summary and a role; then, from the propositions alone, a case overview and
+issue blocks (issue, each side's position, the court's conclusion, paragraph ranges). The court is always the writer; 'holder' says whose position is reported.
+Public case law only; nothing is written to the database. Without --send it prints a cost ceiling per case. --stop-file stops before the next call.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
+from extract_themes_v5 import META, header  # noqa: E402
+from split_paras import resplit  # noqa: E402
+from summarize_paragraphs import clean  # noqa: E402
+from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
+
+PROMPT_VERSION = "prop_v4"
+CHUNK = 20
+HOLDERS = ["court", "applicant", "respondent", "earlier_decision_maker", "witness_or_document", "prior_court_or_authority", "other"]
+KINDS = ["issue", "allegation_or_argument", "finding", "rule_of_law", "fact", "conclusion_or_order", "procedure"]
+ROLES = ["facts", "procedural_history", "issue", "law", "analysis", "conclusion", "disposition", "other"]
+
+SYSTEM_P = """You read numbered paragraphs of a Canadian court or tribunal decision. The decision-maker is always the one writing, so do not label who is "speaking". Instead, for EVERY paragraph shown, in order, return:
+- para: the paragraph number exactly as shown.
+- propositions: one entry for each distinct point the paragraph makes (usually 1 to 4; list every separate item when the paragraph itself lists grounds, objections or findings, one entry per item). Each entry:
+  holder = whose position the point is: court (the decision-maker's own reasoning, findings, statement of law or narration), applicant (what the applicant, appellant or claimant alleges, argues or says), respondent (what the respondent, Minister or Crown says), earlier_decision_maker (what the officer, board, tribunal or lower court found or reasoned, as reported here), witness_or_document (testimony, an affidavit, a letter or a document being described), prior_court_or_authority (a case, statute or textbook being relied on), other.
+  kind = issue (a question to be decided), allegation_or_argument (what a party claims or argues), finding (a conclusion on the facts or the application of law, including a reported finding), rule_of_law (a legal test, standard or principle), fact (background or procedural fact), conclusion_or_order (the outcome or order), procedure.
+  text = the point in at most 22 words, naming who makes it when it is not the court.
+  answers = when this point answers or rejects an earlier point in the SAME paragraph, the 1-based position of that point in this paragraph's list; otherwise 0.
+- summary: ONE plain sentence, at most 25 words, saying what the paragraph says and who makes each point. Use only the paragraph text.
+- role: facts, procedural_history, issue, law, analysis, conclusion, disposition or other: the job the paragraph does in the decision.
+A line "[Section heading: ...]" before a paragraph is context only: do not summarize it. Ignore footnote numbers. Do not merge paragraphs and do not skip any."""
+
+SCHEMA_P = {"type": "object", "additionalProperties": False, "required": ["paragraphs"], "properties": {"paragraphs": {"type": "array", "items": {
+	"type": "object", "additionalProperties": False, "required": ["para", "propositions", "summary", "role"],
+	"properties": {
+		"para": {"type": "integer"},
+		"propositions": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["holder", "kind", "text", "answers"], "properties": {
+			"holder": {"type": "string", "enum": HOLDERS}, "kind": {"type": "string", "enum": KINDS}, "text": {"type": "string"}, "answers": {"type": "integer"}}}},
+		"summary": {"type": "string"},
+		"role": {"type": "string", "enum": ROLES}}}}}}
+
+SYSTEM_B = """You are given, for a Canadian court or tribunal decision, the propositions found in each paragraph (paragraph number, holder, kind, point). Using ONLY these, return:
+- overview: three sentences at most saying what the case is about, who the parties are and how it came out.
+- background_paras and disposition_paras: paragraph ranges as text (for example "1-5, 14-18"; empty when none).
+- blocks: one block per issue the decision actually deals with, in order. Each block: issue (the question in plain words), paras (the range where it is dealt with), positions (each side's or earlier decision-maker's position: holder, text of at most 25 words, paras; write 'not stated' as the text when the propositions do not give that side's position), court_conclusion (at most 30 words, 'not stated' if none), conclusion_paras.
+Do not invent anything the propositions do not support."""
+
+SCHEMA_B = {"type": "object", "additionalProperties": False, "required": ["overview", "background_paras", "disposition_paras", "blocks"], "properties": {
+	"overview": {"type": "string"}, "background_paras": {"type": "string"}, "disposition_paras": {"type": "string"},
+	"blocks": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["issue", "paras", "positions", "court_conclusion", "conclusion_paras"], "properties": {
+		"issue": {"type": "string"}, "paras": {"type": "string"}, "court_conclusion": {"type": "string"}, "conclusion_paras": {"type": "string"},
+		"positions": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["holder", "text", "paras"], "properties": {
+			"holder": {"type": "string", "enum": HOLDERS}, "text": {"type": "string"}, "paras": {"type": "string"}}}}}}}}}
+
+
+def render(ch, pre):
+	lines = []
+	for p in ch:
+		if p.get("heading_before"):
+			lines.append(f"[Section heading: {p['heading_before']}]")
+		lines.append(f"[{p['paragraph_index']}] {p['text']}")
+	return pre + "\n\n".join(lines)
+
+
+def run_case(client, ledger, run, model, case_id, report, send, stop_file):
+	paras = resplit([{"paragraph_index": p["paragraph_index"], "text": clean(p["text"])} for p in load_paragraphs(report) if p["paragraph_index"] != 0])
+	head = header(case_id).replace("tribunal_below", "earlier_decision_maker")
+	pre = (head + "\n\n") if head else ""
+	est = lambda msgs: int(sum(len(m["content"]) for m in msgs) / 3.2)  # noqa: E731
+	chunks = [paras[i:i + CHUNK] for i in range(0, len(paras), CHUNK)]
+	mk = lambda ch: [{"role": "system", "content": SYSTEM_P}, {"role": "user", "content": render(ch, pre)}]  # noqa: E731
+	if not send:
+		tin = sum(est(mk(c)) for c in chunks) + 3000
+		tout = 220 * len(paras) + 1500
+		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "paragraphs": len(paras), "calls": len(chunks) + 1, "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
+		return None
+
+	def stop():
+		if stop_file is not None and stop_file.exists():
+			print(json.dumps({"stopped": "stop file found", "case_id": case_id}), flush=True)
+			raise SystemExit(3)
+
+	usd, rows, dropped = 0.0, {}, 0
+	why = {"duplicate": 0, "not_in_chunk": 0}
+
+	def ask(ch):
+		nonlocal usd, dropped
+		stop()
+		msgs = mk(ch)
+		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="propositions", schema=SCHEMA_P, max_output_tokens=min(16000, 500 + 420 * len(ch)), est_input_tokens=est(msgs), label=f"prop case {case_id}")
+		usd += u["usd"]
+		want = {p["paragraph_index"] for p in ch}
+		for r in data["paragraphs"]:
+			if r["para"] in want and r["para"] not in rows:
+				rows[r["para"]] = r
+			else:
+				dropped += 1
+				why["duplicate" if r["para"] in rows else "not_in_chunk"] += 1
+
+	for ch in chunks:
+		ask(ch)
+	retried = sorted({p["paragraph_index"] for p in paras} - set(rows))
+	if retried:
+		ask([p for p in paras if p["paragraph_index"] in set(retried)])
+	missing = sorted({p["paragraph_index"] for p in paras} - set(rows))
+	ordered = [rows[k] for k in sorted(rows)]
+	listing = "\n".join(f"{r['para']}\t{pp['holder']}/{pp['kind']}\t{pp['text']}" for r in ordered for pp in r["propositions"])
+	msgs = [{"role": "system", "content": SYSTEM_B}, {"role": "user", "content": pre + listing}]
+	stop()
+	blocks, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="blocks", schema=SCHEMA_B, max_output_tokens=4000, est_input_tokens=est(msgs), label=f"blocks case {case_id}")
+	usd += u["usd"]
+	hold = {}
+	for r in ordered:
+		for pp in r["propositions"]:
+			hold[pp["holder"]] = hold.get(pp["holder"], 0) + 1
+	check = {"paragraphs": len(paras), "rows": len(ordered), "paragraphs_missing": missing, "retried": len(retried), "dropped_rows": dropped, "dropped_why": why, "propositions": sum(len(r["propositions"]) for r in ordered), "holders": hold,
+		"empty_proposition_rows": sum(1 for r in ordered if not r["propositions"]), "blocks": len(blocks["blocks"]), "split_paragraphs": sum(1 for p in paras if "split_from" in p), "headings_before": sum(1 for p in paras if "heading_before" in p)}
+	return {"usd": usd, "paragraphs": ordered, "blocks": blocks, "verification": check, "headings": {p["paragraph_index"]: p["heading_before"] for p in paras if "heading_before" in p}, "split_from": {p["paragraph_index"]: p["split_from"] for p in paras if "split_from" in p}}
+
+
+def main() -> int:
+	ap = argparse.ArgumentParser(description=__doc__)
+	ap.add_argument("--model", default="gpt-4.1-mini", choices=sorted(PRICES))
+	ap.add_argument("--run", required=True)
+	ap.add_argument("--cases", required=True)
+	ap.add_argument("--out-dir", type=Path, required=True)
+	ap.add_argument("--ledger", type=Path, required=True)
+	ap.add_argument("--send", action="store_true")
+	ap.add_argument("--reports-dir", type=Path, action="append")
+	ap.add_argument("--meta-csv", type=Path, action="append")
+	ap.add_argument("--cap-usd", type=float, default=None)
+	ap.add_argument("--stop-file", type=Path, default=None)
+	args = ap.parse_args()
+	for m in args.meta_csv or []:
+		for row in csv.DictReader(m.open(encoding="utf-8-sig")):
+			META[int(float(row["case_id"]))] = row
+	dirs = args.reports_dir or [REPORTS]
+	ledger = SpendLedger(args.ledger, args.cap_usd) if args.cap_usd else SpendLedger(args.ledger)
+	client = make_client() if args.send else None
+	args.out_dir.mkdir(parents=True, exist_ok=True)
+	for cid in [int(x) for x in args.cases.split(",")]:
+		path = next((d / f"case_{cid}_deterministic.json" for d in dirs if (d / f"case_{cid}_deterministic.json").exists()), None)
+		if path is None:
+			raise SystemExit(f"no report for case {cid}")
+		out = run_case(client, ledger, args.run, args.model, cid, json.loads(path.read_text(encoding="utf-8")), args.send, args.stop_file)
+		if out is None:
+			continue
+		(args.out_dir / f"case_{cid}_prop_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({"case_id": cid, "model": args.model, "prompt_version": PROMPT_VERSION, "run": args.run, "usage": {"usd": out["usd"]}, "verification": out["verification"], "headings": out["headings"], "split_from": out["split_from"], "blocks": out["blocks"], "paragraphs": out["paragraphs"]}, indent=1), encoding="utf-8")
+		print(json.dumps({"case_id": cid, "model": args.model, "prompt": PROMPT_VERSION, "usd": round(out["usd"], 4), **{k: v for k, v in out["verification"].items() if k != "paragraphs_missing"}, "paragraphs_missing": len(out["verification"]["paragraphs_missing"])}), flush=True)
+	print(json.dumps({"spent_total_usd": round(ledger.total(), 4)}))
+	return 0
+
+
+if __name__ == "__main__":
+	raise SystemExit(main())

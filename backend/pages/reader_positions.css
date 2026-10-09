@@ -26,10 +26,23 @@
 #decisionBody .pos-b-court{border-left-color:#2f9a55}
 #decisionBody .pos-b-prior_court_or_authority{border-left-color:#1d9aa6}
 #decisionBody .pos-b-witness_or_document{border-left-color:#7b8798}
+#decisionBody .pos-layer{display:block;margin-bottom:2px;font-size:11.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#475569}
+#decisionBody .pos-layer.is-unknown{font-weight:600;text-transform:none;font-style:italic;color:#7b8798}
+#decisionBody .pos-d1{margin-left:1.4rem}
+#decisionBody .pos-d2{margin-left:2.8rem}
+#decisionBody .pos-levels{flex-basis:100%;font-size:12.5px;color:#475569}
+#decisionBody .pos-levels summary{cursor:pointer;font-weight:600;color:#1f3350}
+#decisionBody .pos-levels p{margin:4px 0}
+#decisionBody .pos-levels ul{margin:4px 0 0;padding:0;list-style:none}
+#decisionBody .pos-levels li{padding:2px 0 2px .6rem;border-left:3px solid #94a3b8;margin-bottom:3px}
+#decisionBody .pos-levels li.pos-d1{margin-left:1rem}
+#decisionBody .pos-levels li.pos-d2{margin-left:2rem}
 #decisionBody .fmt-para.mk-folded+.pos-note{display:none}
 @media(max-width:700px){
  #decisionBody .pos-bar{padding:8px;gap:6px 8px}
  #decisionBody .pos-switch{width:100%;min-height:44px}
- #decisionBody .pos-note{margin-left:0;padding:.35rem .6rem;font-size:13.5px}
+ #decisionBody .pos-d1{margin-left:.7rem}
+ #decisionBody .pos-d2{margin-left:1.4rem}
+ #decisionBody .pos-note{padding:.35rem .6rem;font-size:13.5px}
  #decisionBody .pos-tags{display:flex;margin:0 0 3px}
 }

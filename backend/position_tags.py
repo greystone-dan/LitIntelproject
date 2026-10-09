@@ -35,6 +35,31 @@ POSITION_LABELS: dict[str, str] = {
 	"other": "Other",
 }
 
+# Nesting. A judicial review is nested: the judge (level 0) evaluates whether an earlier decision maker's decision
+# (level 1) was reasonable, and that decision itself reports what two other parties argued (level 2). ``depth`` drives
+# the indent. Holder labels alone cannot say which level an applicant or respondent paragraph sits at, so those stay
+# "not yet detected" until a layer is supplied (stored rows may carry an explicit ``layer``; rules may set one later).
+LAYERS: dict[str, dict[str, Any]] = {
+	"judge": {"label": "Judge\u2019s evaluation", "depth": 0, "detected": True},
+	"jr_party": {"label": "Argument to the Court", "depth": 1, "detected": True},
+	"earlier_decision": {"label": "Earlier decision", "depth": 1, "detected": True},
+	"first_instance": {"label": "Position reported in the earlier decision", "depth": 2, "detected": True},
+	"source": {"label": "Authority or document", "depth": 1, "detected": True},
+	"unknown": {"label": "Level not yet detected", "depth": None, "detected": False},
+}
+_LAYER_BY_HOLDER = {
+	"court": "judge",
+	"earlier_decision_maker": "earlier_decision",
+	"prior_court_or_authority": "source",
+	"witness_or_document": "source",
+}
+
+LEGEND_NOTE = (
+	"A judicial review is nested. The judge (first level) decides whether an earlier decision maker\u2019s decision was "
+	"reasonable. That earlier decision (second level) itself reports what two other parties argued (third level, "
+	"indented furthest). Where the level of a paragraph is not known yet, it says so."
+)
+
 KIND_LABELS: dict[str, str] = {
 	"fact": "Fact",
 	"finding": "Finding",
@@ -60,10 +85,18 @@ class PositionSource(Protocol):
 		"""Paragraph number (as text) -> tag row, or ``None`` when this source has nothing for the decision."""
 
 
-def _row(holders: list[str], summary: str, kinds: list[str], role: str | None, cue: str | None = None) -> dict[str, Any]:
+def _layer(holder: str, explicit: str | None) -> dict[str, Any]:
+	key = explicit if explicit in LAYERS else _LAYER_BY_HOLDER.get(holder, "unknown")
+	return {"key": key, **LAYERS[key]}
+
+
+def _row(
+	holders: list[str], summary: str, kinds: list[str], role: str | None, cue: str | None = None, layer: str | None = None
+) -> dict[str, Any]:
 	keys = [h for h in holders if h in POSITION_LABELS] or ["other"]
 	return {
 		"positions": [{"key": k, "label": POSITION_LABELS[k]} for k in keys],
+		"layer": _layer(keys[0], layer),
 		"summary": summary,
 		"kinds": [KIND_LABELS.get(k, k.replace("_", " ").capitalize()) for k in kinds],
 		"role": role,
@@ -87,7 +120,7 @@ class FilePositionSource:
 		except (OSError, ValueError):
 			return None
 		out = {
-			number: _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"))
+			number: _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"), layer=row.get("l"))
 			for number, row in stored.get("paragraphs", {}).items()
 		}
 		return out or None
@@ -109,6 +142,8 @@ def case_positions(case_id: int, source: PositionSource | None = None) -> dict[s
 		"mode": "stored",
 		"preview": True,
 		"notice": PREVIEW_NOTICE_STORED,
+		"legend": LEGEND_NOTE,
+		"layers": LAYERS,
 		"paragraphs": rows or {},
 	}
 
@@ -232,6 +267,8 @@ def live_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, Any]:
 		"mode": "rules",
 		"preview": True,
 		"notice": PREVIEW_NOTICE_RULES,
+		"legend": LEGEND_NOTE,
+		"layers": LAYERS,
 		"paragraphs": rows,
 	}
 

@@ -84,3 +84,26 @@ def test_reader_page_injects_the_assets_and_makes_no_model_calls() -> None:
 	assert "paragraph-positions" in js and "data-pos-cites" in js and "@media(max-width:700px)" in css
 	for forbidden in ("openai", "ollama", "embedding", "/rag"):
 		assert forbidden not in js.lower()
+
+
+def test_layer_is_set_where_the_holder_decides_it_and_marked_undetected_otherwise() -> None:
+	data = case_positions(28105)
+	layers = {row["positions"][0]["key"]: row["layer"] for row in data["paragraphs"].values()}
+	assert layers["court"]["key"] == "judge" and layers["court"]["depth"] == 0
+	assert layers["earlier_decision_maker"]["key"] == "earlier_decision"
+	# An applicant or respondent paragraph could be a review argument or a position inside the earlier decision.
+	assert layers["respondent"] == {"key": "unknown", **data["layers"]["unknown"]}
+	assert data["layers"]["unknown"]["detected"] is False and "nested" in data["legend"]
+
+
+def test_an_explicit_layer_overrides_the_holder_default(tmp_path: Path) -> None:
+	(tmp_path / "case_1.json").write_text(
+		'{"paragraphs":{"5":{"h":["applicant"],"k":[],"s":"x","r":"analysis","l":"first_instance"}}}', encoding="utf-8")
+	row = FilePositionSource(tmp_path).paragraphs_for(1)["5"]
+	assert row["layer"]["key"] == "first_instance" and row["layer"]["depth"] == 2
+
+
+def test_live_rules_rows_carry_a_layer_too() -> None:
+	text = "The Board found that the claim was not credible."
+	row = rules_positions(text, _blocks(text))["1"]
+	assert row["layer"]["key"] == "earlier_decision"

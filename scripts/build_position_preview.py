@@ -30,6 +30,8 @@ def compact_case(raw: dict) -> dict:
 			"s": (row.get("summary") or "").strip(),
 			"r": row.get("role") or "other",
 		}
+		if row.get("layer"):  # optional: set once layer detection exists
+			paragraphs[str(row["para"])]["l"] = row["layer"]
 	return {
 		"case_id": raw["case_id"],
 		"source": {"model": raw.get("model"), "prompt": raw.get("prompt_version"), "run": raw.get("run")},

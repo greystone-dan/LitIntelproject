@@ -29,13 +29,20 @@
   return null;
  }
 
+ function levels(data){
+  const rows=Object.values(data.layers||{}).filter(l=>l.detected).sort((a,b)=>a.depth-b.depth);
+  return '<details class="pos-levels"><summary>How to read the levels</summary><p>'+E(data.legend||'')+'</p><ul>'
+   +['judge','earlier_decision','first_instance'].map(k=>{const l=(data.layers||{})[k];return l?'<li class="pos-d'+l.depth+'"><b>'+E(l.label)+'</b></li>':'';}).join('')
+   +'</ul></details>';
+ }
+
  function bar(data){
   const el=document.createElement('div');el.className='pos-bar';el.setAttribute('data-pos-bar','');
   const present=new Set();Object.values(data.paragraphs).forEach(row=>row.positions.forEach(p=>present.add(p.key)));
   const legend=ORDER.filter(k=>present.has(k)).map(k=>{const label=Object.values(data.paragraphs).flatMap(r=>r.positions).find(p=>p.key===k).label;return '<span class="pos-chip pos-'+E(k)+'">'+E(label)+'</span>';}).join('');
   el.innerHTML='<button type="button" class="pos-switch" aria-pressed="'+pos.on+'" data-pos-switch>'+(pos.on?'Hide':'Show')+' whose position</button>'
    +'<span class="pos-badge">Preview</span>'
-   +(pos.on?'<span class="pos-legend" aria-label="Tag colours">'+legend+'</span><p class="pos-notice">'+E(data.notice||'')+'</p>':'<span class="pos-hint">'+(data.mode==='rules'?'Rule-based tags from cue phrases in the text':'Who is speaking in each paragraph, with a one-line summary')+'</span>');
+   +(pos.on?'<span class="pos-legend" aria-label="Tag colours">'+legend+'</span><p class="pos-notice">'+E(data.notice||'')+'</p>'+levels(data):'<span class="pos-hint">'+(data.mode==='rules'?'Rule-based tags from cue phrases in the text':'Who is speaking in each paragraph, with a one-line summary')+'</span>');
   return el;
  }
 
@@ -43,7 +50,9 @@
   const lead=row.positions[0].key,chips=row.positions.map(p=>'<span class="pos-chip pos-'+E(p.key)+'">'+E(p.label)+'</span>').join('');
   const kinds=row.kinds&&row.kinds.length?'<span class="pos-kinds">'+E(row.kinds.slice(0,2).join(' · '))+'</span>':'';
   const text=mode==='rules'?(row.cue?'<span class="pos-cue">Cue: “'+E(row.cue)+'”</span>':''):(row.summary?'<span class="pos-sum">'+E(row.summary)+'</span>':'');
-  return '<aside class="pos-note pos-b-'+E(lead)+'" data-pos-note><span class="pos-tags">'+chips+kinds+'</span>'+text+'<span class="pos-cites" data-pos-cites hidden></span></aside>';
+  const lay=row.layer||{key:'unknown',label:'Level not yet detected',depth:null},depth=lay.depth==null?'u':lay.depth;
+  const layer='<span class="pos-layer'+(lay.detected===false?' is-unknown':'')+'">'+E(lay.label)+'</span>';
+  return '<aside class="pos-note pos-d'+depth+' pos-b-'+E(lead)+'" data-pos-note data-pos-layer="'+E(lay.key)+'">'+layer+'<span class="pos-tags">'+chips+kinds+'</span>'+text+'<span class="pos-cites" data-pos-cites hidden></span></aside>';
  }
 
  function sync(){

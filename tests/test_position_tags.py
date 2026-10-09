@@ -106,3 +106,11 @@ def test_live_rules_rows_carry_a_layer_too() -> None:
 	text = "The Board found that the claim was not credible."
 	row = rules_positions(text, _blocks(text))["1"]
 	assert row["layer"]["key"] == "earlier_decision"
+
+
+def test_framework_commentary_is_flagged_from_stored_labels_and_unknown_in_rules() -> None:
+	flags = {row["framework"] for row in case_positions(28105)["paragraphs"].values()}
+	assert "yes" in flags and "no" in flags
+	text = "The applicant submits the test in Vavilov applies."
+	assert rules_positions(text, _blocks(text))["1"]["framework"] == "unknown"
+	assert "not linked to the cited cases" in case_positions(28105)["framework_note"]

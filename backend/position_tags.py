@@ -60,6 +60,12 @@ LEGEND_NOTE = (
 	"indented furthest). Where the level of a paragraph is not known yet, it says so."
 )
 
+FRAMEWORK_LABEL = "Legal framework"
+FRAMEWORK_NOTE = (
+	"Legal framework marks passages that comment on other decisions or on the law itself (what a case stands for, how a "
+	"test works). It sits beside the tag in grey and is not linked to the cited cases yet."
+)
+
 KIND_LABELS: dict[str, str] = {
 	"fact": "Fact",
 	"finding": "Finding",
@@ -91,18 +97,30 @@ def _layer(holder: str, explicit: str | None) -> dict[str, Any]:
 
 
 def _row(
-	holders: list[str], summary: str, kinds: list[str], role: str | None, cue: str | None = None, layer: str | None = None
+	holders: list[str],
+	summary: str,
+	kinds: list[str],
+	role: str | None,
+	cue: str | None = None,
+	layer: str | None = None,
+	framework: str = "unknown",
 ) -> dict[str, Any]:
 	keys = [h for h in holders if h in POSITION_LABELS] or ["other"]
 	return {
 		"positions": [{"key": k, "label": POSITION_LABELS[k]} for k in keys],
 		"layer": _layer(keys[0], layer),
+		"framework": framework,  # "yes", "no", or "unknown" when the data cannot tell
 		"summary": summary,
 		"kinds": [KIND_LABELS.get(k, k.replace("_", " ").capitalize()) for k in kinds],
 		"role": role,
 		"cue": cue,
 		"citations": [],  # reserved: citation use attaches here later
 	}
+
+
+def _framework(kinds: list[str], role: str | None) -> str:
+	"""Stored labels say it directly: a legal-rule statement, or a paragraph whose role is "law"."""
+	return "yes" if role == "law" or (kinds and kinds[0] == "rule_of_law") else "no"
 
 
 class FilePositionSource:
@@ -120,7 +138,8 @@ class FilePositionSource:
 		except (OSError, ValueError):
 			return None
 		out = {
-			number: _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"), layer=row.get("l"))
+			number: _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"), layer=row.get("l"),
+				framework=_framework(row.get("k", []), row.get("r")))
 			for number, row in stored.get("paragraphs", {}).items()
 		}
 		return out or None
@@ -143,6 +162,7 @@ def case_positions(case_id: int, source: PositionSource | None = None) -> dict[s
 		"preview": True,
 		"notice": PREVIEW_NOTICE_STORED,
 		"legend": LEGEND_NOTE,
+		"framework_note": FRAMEWORK_NOTE,
 		"layers": LAYERS,
 		"paragraphs": rows or {},
 	}
@@ -268,6 +288,7 @@ def live_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, Any]:
 		"preview": True,
 		"notice": PREVIEW_NOTICE_RULES,
 		"legend": LEGEND_NOTE,
+		"framework_note": FRAMEWORK_NOTE,
 		"layers": LAYERS,
 		"paragraphs": rows,
 	}

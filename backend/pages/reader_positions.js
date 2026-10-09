@@ -33,7 +33,7 @@
   const rows=Object.values(data.layers||{}).filter(l=>l.detected).sort((a,b)=>a.depth-b.depth);
   return '<details class="pos-levels"><summary>How to read the levels</summary><p>'+E(data.legend||'')+'</p><ul>'
    +['judge','earlier_decision','first_instance'].map(k=>{const l=(data.layers||{})[k];return l?'<li class="pos-d'+l.depth+'"><b>'+E(l.label)+'</b></li>':'';}).join('')
-   +'</ul></details>';
+   +'</ul><p><span class="pos-chip pos-framework">Legal framework</span> '+E(data.framework_note||'')+(data.mode==='rules'?' Not yet detected in this rule-based preview.':'')+'</p></details>';
  }
 
  function bar(data){
@@ -47,7 +47,7 @@
  }
 
  function note(row,mode){
-  const lead=row.positions[0].key,chips=row.positions.map(p=>'<span class="pos-chip pos-'+E(p.key)+'">'+E(p.label)+'</span>').join('');
+  const lead=row.positions[0].key,chips=row.positions.map(p=>'<span class="pos-chip pos-'+E(p.key)+'">'+E(p.label)+'</span>').join('')+(row.framework==='yes'?'<span class="pos-chip pos-framework">Legal framework</span>':'');
   const kinds=row.kinds&&row.kinds.length?'<span class="pos-kinds">'+E(row.kinds.slice(0,2).join(' · '))+'</span>':'';
   const text=mode==='rules'?(row.cue?'<span class="pos-cue">Cue: “'+E(row.cue)+'”</span>':''):(row.summary?'<span class="pos-sum">'+E(row.summary)+'</span>':'');
   const lay=row.layer||{key:'unknown',label:'Level not yet detected',depth:null},depth=lay.depth==null?'u':lay.depth;

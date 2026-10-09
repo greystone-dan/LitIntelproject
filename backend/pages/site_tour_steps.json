@@ -462,8 +462,8 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Who won",
-      "text": "Refugee cessation decisions tagged cessation and Sri Lanka that the Minister won: four filters, one list. Words in the search box would narrow it further.",
-      "target": "#searchResults",
+      "text": "Refugee cessation decisions tagged cessation and Sri Lanka that the Minister won: four filters, one list, with Veerasingam first. Words in the search box would narrow it further.",
+      "target": "#searchResults .case-result",
       "also": [
         {
           "sel": ".sp-rail .sp-cols"
@@ -1384,7 +1384,10 @@
       "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
       "title": "Citation Intelligence",
       "text": "Citation Intelligence is the full version of the reader's small citation snapshot. Here it is for Vavilov: who relies on it, which courts and judges cite it, the outcomes of the cases citing it, and how its use has changed over the years.",
-      "target": "#ciBody .ix-hero",
+      "target": {
+        "css": "#ciBody .ix-hero",
+        "text": "cited alongside|No other decision"
+      },
       "top": true,
       "lead": "Next, let's go to Intelligence / Statistics",
       "leadText": "The full versions of the reader's judge and citation snapshots.",
@@ -1392,7 +1395,7 @@
       "span": [
         "#ciBody .ix-tiles"
       ],
-      "timeout": 15
+      "timeout": 45
     },
     {
       "id": "judges",
@@ -1572,7 +1575,8 @@
           },
           "timeout": 30
         }
-      ]
+      ],
+      "top": true
     },
     {
       "id": "workbench-home",

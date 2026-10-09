@@ -1457,7 +1457,7 @@ function activateResearchTab(tabKey,updateUrl=true){
   const reader=document.getElementById('caseReaderPanel');
   if(reader){if(updateUrl||selected!=='search')reader.hidden=true;else if(!reader.hidden)document.getElementById('searchPanel').hidden=true;}
   document.querySelectorAll('[data-tab]').forEach(tab=>{const active=tab.dataset.tab===selected;tab.classList.toggle('active',active);tab.setAttribute('aria-pressed',String(active))});
-  if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',selected);url.searchParams.set('group',group);if(selected!=='citation-intelligence')url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}
+  if(updateUrl){const url=new URL(location.href),from=url.searchParams.get('tab');url.searchParams.set('tab',selected);url.searchParams.set('group',group);if(selected!=='citation-intelligence')url.searchParams.delete('case_id');if(selected==='fc-analytics'&&from!=='fc-analytics')url.searchParams.delete('judge');history.pushState(null,'',url.pathname+url.search+url.hash)}
   if(selected==='about')loadAbout();
   if(selected==='citation-intelligence')loadCitationIntelligence();
   if(selected==='judge-profile')loadJudgeProfiles();

@@ -97,6 +97,20 @@ def validate_steps(data: dict) -> list[str]:
     return problems
 
 
+
+LOCAL_TOUR = False   # --local-tour: the walk uses this checkout's tour on another site's data
+
+
+def _new_context(browser, **options):
+    """A browser context; with --local-tour, the site's tour script and style are swapped for this checkout's."""
+    context = browser.new_context(**options)
+    if LOCAL_TOUR:
+        sys.path.insert(0, str(ROOT))
+        from backend.site_tour import tour_css, tour_js
+        context.route("**/site-tour.js*", lambda route: route.fulfill(status=200, content_type="application/javascript", body=tour_js()))
+        context.route("**/site-tour.css*", lambda route: route.fulfill(status=200, content_type="text/css", body=tour_css()))
+    return context
+
 def run_probes(base: str) -> int:
     """Search the example data the tour relies on (read-only GETs). Returns how many came back short."""
     import urllib.parse
@@ -209,7 +223,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
     with sync_playwright() as pw:
         browser = launch(pw)
         for index, step in enumerate(steps):
-            context = browser.new_context(viewport={"width": width, "height": 900 if width > 700 else 800})
+            context = _new_context(browser, viewport={"width": width, "height": 900 if width > 700 else 800})
             if demo:
                 sign_in(context, base)
             page = context.new_page()
@@ -420,7 +434,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
     size = f"{width}x{height or (900 if width > 700 else 800)}"
     with sync_playwright() as pw:
         browser = launch(pw)
-        context = browser.new_context(viewport={"width": width, "height": height or (900 if width > 700 else 800)})
+        context = _new_context(browser, viewport={"width": width, "height": height or (900 if width > 700 else 800)})
         context.add_init_script(MOTION_RECORDER)
         page = context.new_page()
         errors: list[str] = []
@@ -549,7 +563,7 @@ def run_controls(base: str, width: int) -> int:
     problems: list[str] = []
     with sync_playwright() as pw:
         browser = launch(pw)
-        context = browser.new_context(viewport={"width": width, "height": 900 if width > 700 else 800})
+        context = _new_context(browser, viewport={"width": width, "height": 900 if width > 700 else 800})
         page = context.new_page()
         errors: list[str] = []
         page.on("pageerror", lambda error: errors.append(str(error)))
@@ -608,8 +622,11 @@ def main() -> int:
     parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
     parser.add_argument("--part", default="", help="with --walk: walk only steps FIRST:LAST (step ids), e.g. plain-search:adv-won")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
+    parser.add_argument("--local-tour", action="store_true", help="use this checkout's tour steps and script on the site at --base-url (to check an unmerged tour on the real library)")
     parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
+    global LOCAL_TOUR
+    LOCAL_TOUR = args.local_tour
     if args.pick_case:
         return pick_example_case(args.base_url.rstrip("/"))
 

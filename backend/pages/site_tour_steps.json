@@ -71,9 +71,6 @@
     }
   ],
   "warm": [
-    "/api/fc-activity/dashboard?",
-    "/api/fc-activity/judges?min_decisions=25",
-    "/api/fc-activity/counsel?min_files=15",
     {
       "url": "/api/fc-activity/dashboard?",
       "years": {
@@ -86,18 +83,44 @@
       }
     },
     {
-      "url": "/api/judge-profiles?limit=500",
-      "top": {
-        "by": "decision_count",
-        "key": "slug",
-        "then": "/api/judge-profiles/{}"
-      }
-    },
-    {
       "post": "/live-analysis/reader",
       "file": "/site-tour/sample-memo.docx",
       "name": "Memorandum of Argument (fictional).docx"
     }
+  ],
+  "cache": [
+    "/analytics/search/cases?query=2019+SCC+65&limit=8",
+    "/analytics/search/cases?query=2024+FC+639&limit=8",
+    "/analytics/search/cases?query=Vavilov&sort_by=relevance&limit=50&facets=0&citation_stats=0",
+    "/analytics/search/facets?query=Vavilov&facets=0&citation_stats=0",
+    "/analytics/search/cases?query=best+interests+of+the+child&sort_by=relevance&limit=50&facets=0&citation_stats=0",
+    "/analytics/search/facets?query=best+interests+of+the+child&facets=0&citation_stats=0",
+    "/cases/{cessation}/reader-data?evidence=0",
+    "/api/judge-profiles/judge-zinn",
+    "/citation-map/cases/{vavilov}/authority-signals?limit=4&context_limit=1",
+    "/citation-map/cases/{vavilov}/similar?limit=6&min_shared=2",
+    "/api/citation-intelligence/{vavilov}/table?page=1&page_size=8",
+    "/api/citation-intelligence/{vavilov}/overview",
+    "/api/citation-intelligence/{vavilov}/timeline",
+    "/api/citation-intelligence/{vavilov}/outcomes",
+    "/api/citation-intelligence/{vavilov}/courts",
+    "/api/citation-intelligence/{vavilov}/judges",
+    "/api/citation-intelligence/{vavilov}/statutes",
+    "/api/citation-intelligence/{vavilov}/companions",
+    "/api/citation-intelligence/{vavilov}/table?page=1&page_size=100",
+    "/api/judge-profiles?limit=500",
+    "/api/judge-profiles?limit=100",
+    "/api/judge-profiles/judge-brouwer",
+    "/analytics/explorer?limit=1",
+    "/analytics/search/ministers",
+    "/api/fc-activity/dashboard?",
+    "/api/fc-activity/insights?",
+    "/api/fc-activity/motions?",
+    "/api/fc-activity/timeline",
+    "/api/fc-activity/breakdowns",
+    "/api/fc-activity/judges?min_decisions=25",
+    "/api/fc-activity/counsel?min_files=20",
+    "/api/fc-activity/counsel?min_files=15"
   ],
   "introOn": false,
   "intro": [
@@ -1291,7 +1314,7 @@
           "do": "click",
           "selector": ".v6-find[data-v6-find='cite']",
           "times": 2,
-          "pause": 1200
+          "pause": 900
         }
       ]
     },
@@ -1317,13 +1340,13 @@
         },
         {
           "do": "wait",
-          "ms": 600
+          "ms": 300
         },
         {
           "do": "click",
           "selector": "#v6SearchNext:not(:disabled)",
           "times": 2,
-          "pause": 800
+          "pause": 600
         }
       ],
       "before": [

@@ -1041,7 +1041,17 @@
   // An entry is a URL; {url,top:{by,key,then}} also loads the item with the highest "by" from that list;
   // {post,sample} or {post,file} runs the demo document through the reader (only the tour's own fictional samples are
   // cached by the server; anything a person pastes or uploads is read once and dropped).
+  // The tour's fixed demo requests ("cache" in the steps file) are also kept by the server for a few hours
+  // (backend/tour_cache.py), so asking for them early makes every later step quick. A few at a time, in step order.
+  var cacheWarmed=false;
+  function warmCache(){
+    if(cacheWarmed)return;cacheWarmed=true;
+    var queue=(DATA.cache||[]).filter(function(u){return !/\{(\w+)\}/.test(u)||u.match(/\{(\w+)\}/g).every(function(m){return caseIds[m.slice(1,-1)]!=null})}).map(fillIds);
+    function next(){var u=queue.shift();if(u)fetch(u,{credentials:'same-origin'}).catch(function(){}).then(next)}
+    for(var k=0;k<3;k++)next();
+  }
   function warm(){
+    warmCache();
     (DATA.warm||[]).forEach(function(w){
       try{
         if(typeof w==='string'){fetch(w,{credentials:'same-origin'}).catch(function(){});return}
@@ -1119,7 +1129,14 @@
   function boot(){
     var wants=new URLSearchParams(location.search).get('tour')==='1';
     if(wants&&!(state&&state.active)){start();return}
-    if(state&&state.active)show(Math.min(state.i||0,STEPS.length-1),state.dir||direction);
+    if(state&&state.active){show(Math.min(state.i||0,STEPS.length-1),state.dir||direction);return}
+    setTimeout(prewarm,2500);                                       // the page with the tour button: get the demo data ready
+  }
+  async function prewarm(){
+    if(!document.querySelector('[data-ilit-tour-start]')||(state&&state.active))return;
+    try{if(sessionStorage.getItem('ilit.tour.warm'))return;sessionStorage.setItem('ilit.tour.warm','1')}catch(e){return}
+    await Promise.all(Object.keys(CASES).map(resolveCase));
+    warmCache();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,30)});
   else setTimeout(boot,30);

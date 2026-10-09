@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 201
+Active scripts documented: 202
 
 ## Catalog
 
@@ -57,6 +57,7 @@ Active scripts documented: 201
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
+| `build_position_layers.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_layers.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
@@ -868,6 +869,20 @@ Active scripts documented: 201
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
+```
+
+## `scripts/build_position_layers.py`
+
+**Purpose:** Build per-paragraph rule-based holder and layer files for the reader preview. Offline: reads two folders of JSON (propositions files for the paragraph numbers, case reports for the text), no database, no model, no network. Output ``data/position_layers/case_<id>.json``: {"case_id": 28105, "source": {...}, "frame": "...", "paragraphs": {"13": {"l": 2, "h": ["respondent"], "law": false, "mixed": false, "c": "explicit"}}} ``l`` is the one layer the reader shows (1 judge, 2 submissions to the court, 3 earlier decision maker, 4 first-instance party as reported, 5 witness or document, 6 legal framework / precedent commentary), the same field name the reader preview uses for a stored layer. ``h`` are the rules' holders, ``law`` marks a paragraph with any layer-6 sentence, ``mixed`` marks two or more of layers 1-4 in the paragraph, ``c`` is how the paragraph layer was decided (explicit cue, lead_in, carried, default). python scripts/build_position_layers.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_layers.py --help
 ```
 
 ## `scripts/build_prototype_cohort.py`

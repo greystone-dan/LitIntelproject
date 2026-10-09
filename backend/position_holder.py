@@ -29,6 +29,7 @@ AUTHORITY = "prior_court_or_authority"
 WITNESS = "witness_or_document"
 
 HOLDERS = (APPLICANT, RESPONDENT, EARLIER, COURT, AUTHORITY, WITNESS)
+RULES_VERSION = "position_holder_v1"
 
 # A judicial review is nested: the judge (1) weighs the parties' submissions to the court (2) to decide whether
 # an earlier decision maker's decision (3) is reasonable, and that decision itself reports the first-instance

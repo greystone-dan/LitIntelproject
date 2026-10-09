@@ -1530,6 +1530,12 @@ def future_features_page() -> HTMLResponse:
 	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/coming-soon-preview", include_in_schema=False)
+def coming_soon_preview_page() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "coming_soon_preview.html"
+	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/coming-soon/{section}", include_in_schema=False)
 def coming_soon_page(section: str) -> HTMLResponse:
 	from .pages.coming_soon_page import render

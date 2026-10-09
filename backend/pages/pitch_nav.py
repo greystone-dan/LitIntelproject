@@ -89,7 +89,7 @@ def _subnav() -> str:
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a><a class="ilit-tour-start alt" href="/coming-soon-preview" id="comingSoonPreview"><span aria-hidden="true">&#9654;</span> Coming soon preview</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>

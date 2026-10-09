@@ -26,6 +26,7 @@ from .routes import router
 from .pages.welcome import welcome_page_html
 from .workbench import router as workbench_router
 from .security_headers import SecurityHeadersMiddleware
+from .tour_cache import TourCacheMiddleware
 
 
 @asynccontextmanager
@@ -38,6 +39,7 @@ app = FastAPI(lifespan=lifespan)
 register_timeout_handlers(app)
 load_shedding.register(app)
 register_degraded_mode(app)
+app.add_middleware(TourCacheMiddleware)   # innermost: inside the access gate, audit and load shedding
 
 
 ACCESS_COOKIE = "caselibrary_access"

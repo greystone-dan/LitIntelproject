@@ -327,6 +327,7 @@ test checks that these paths continue to exist.
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
+| `backend/tour_cache.py` | A short-lived server cache for the site tour's fixed demo requests |
 | `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 | `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/workbench.py` | Workbench: a demo analyst's own space (case list with activity flags, pinned decisions, notes) |

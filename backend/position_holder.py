@@ -247,6 +247,14 @@ _WITNESS = re.compile(
 	r"\b(?:dr|mr|ms|mrs)\.?\s+[A-Z][\w'’-]+\s+(?:opined|opines|testified|reported|concluded|wrote)\b|"
 	r"\bshe\s+(?:testified|swore)\b|\bhe\s+(?:testified|swore)\b", re.I)
 
+# Named earlier decision makers acting on anything ("The RAD did accept...", "The Officer scheduled...").
+_NAMED_EARLIER_ANY = re.compile(
+	r"(?:^|[\s,(\"“])(?:the\s+)((?:visa |immigration |senior immigration |pra?r?a |h&c )?officer|RPD|RAD|IAD|Chair|CNSC|Commission|"
+	r"Appeal Division|General Division|delegate|Minister['’]s delegate)\s+(?:also |then |further |initially |subsequently |did |had |was |were )*[a-z]+(?:ed|d|s)?\b")
+# In a tribunal's own decision the claimant/appellant as sentence subject is the party speaking to this tribunal.
+_CLAIMANT_SUBJECT = re.compile(
+	r"^(?:(?:however|moreover|further|also|in addition|additionally|first|second|third|finally)[, ]+)?"
+	r"the\s+(?:principal |associate |minor |female |male |adult |co-?)*(?:claimants?|appellants?|applicants?)\b(?!['’])", re.I)
 _PRONOUN_PARTY = re.compile(r"^(?:he|she|they|his|her|their|mr\.?|ms\.?|mrs\.?|mx\.?)\b", re.I)
 
 
@@ -486,9 +494,17 @@ def sentence_cue(sentence: str, parties: Parties | None = None, *, index: int = 
 		if vm:
 			add(m.start(1), 5, EARLIER, s[m.start(1): m.end() + len(vm.group(0)) + 1 if vm else m.end()])
 			break
+	if parties.forum not in ("rpd", "rad", "iad"):
+		m = _NAMED_EARLIER_ANY.search(s)
+		if m and not any(h[2] == EARLIER for h in hits):
+			add(m.start(1), 5, EARLIER, m.group(0))
 	m = _EARLIER_POSS.search(s)
 	if m:
 		add(m.start(), 5, EARLIER, m.group(0))
+	if parties.forum in ("rpd", "rad", "iad"):
+		m = _CLAIMANT_SUBJECT.match(s)
+		if m:
+			add(0, 5, APPLICANT, m.group(0))
 	m = _DECISION_UNDER_REVIEW.search(s)
 	if m:
 		add(m.start(), 6, EARLIER, m.group(0))

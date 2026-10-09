@@ -159,15 +159,89 @@ def run(props_dir: str, reports_dir: str, literal: bool = False, use_frame: bool
 	}
 
 
+_SHEET_HOLDERS = {
+	"Applicant / appellant": "applicant", "Respondent / Minister": "respondent",
+	"The Court / decision-maker": "court", "Earlier decision-maker (officer, board, lower court)": "earlier_decision_maker",
+	"Earlier case, statute or text": "prior_court_or_authority",
+}
+
+
+def run_sheet(xlsx_path: str, reports_dir: str) -> dict:
+	"""Score against the review sheet: the AI's holder and level on each of 160 points (not a lawyer's grade
+	until the sheet is filled in; once it is, rows ticked Correct / Wrong holder / Wrong level can be used)."""
+	import openpyxl
+
+	ws = openpyxl.load_workbook(xlsx_path, read_only=True)["Review"]
+	rows = list(ws.iter_rows(min_row=2, values_only=True))
+	frames: dict = {}
+	holder_pairs: Counter = Counter()
+	layer_pairs: Counter = Counter()
+	layer_merge_ok = layer_ok = n = 0
+	misses = []
+	for r in rows:
+		if not r[0]:
+			continue
+		cid = int(str(r[0]).split("-")[0])
+		rp = os.path.join(reports_dir, f"case_{cid}_deterministic.json")
+		if not os.path.exists(rp):
+			continue
+		if cid not in frames:
+			rep = json.load(open(rp, encoding="utf-8"))
+			header = rep["paragraphs"][0]["text"]
+			frame = build_frame(header, "\n".join(p["text"] for p in rep["paragraphs"][1:]))
+			frames[cid] = (parties_from_frame(frame, header.splitlines()[0] if header else ""))
+		sheet_h = _SHEET_HOLDERS.get(r[8])
+		level = int(re.search(r"Level (\d)", r[9]).group(1))
+		sents = split_sentences(r[6])
+		res = tag_paragraph(r[6], frames[cid])
+		i = best_sentence(r[7], sents) if sents else 0
+		if i >= len(res.cues):
+			continue
+		n += 1
+		pred_h, pred_l = res.sentence_holders[i], res.layers[i]
+		holder_pairs[(sheet_h, pred_h)] += 1
+		layer_pairs[(level, pred_l)] += 1
+		layer_ok += pred_l == level
+		layer_merge_ok += (pred_l == level) or ({pred_l, level} <= {5, 6})
+		if sheet_h != pred_h and len(misses) < 12:
+			misses.append({"point": r[0], "ai_holder": sheet_h, "rules_holder": pred_h, "point_text": r[7],
+				"sentence": sents[i][:200] if sents else ""})
+	per = {}
+	for h in set(k[0] for k in holder_pairs) | set(k[1] for k in holder_pairs):
+		sn = sum(v for (a, _), v in holder_pairs.items() if a == h)
+		pn = sum(v for (_, b), v in holder_pairs.items() if b == h)
+		tp = holder_pairs[(h, h)]
+		per[str(h)] = {"sheet": sn, "rules": pn, "agree": tp, "recall": round(tp / sn, 3) if sn else None,
+			"precision": round(tp / pn, 3) if pn else None}
+	lay = {}
+	for lv in sorted(set(k[0] for k in layer_pairs)):
+		sn = sum(v for (a, _), v in layer_pairs.items() if a == lv)
+		lay[f"level_{lv}"] = {"sheet": sn, "rules_agree": layer_pairs[(lv, lv)],
+			"rules_said": {str(b): v for (a, b), v in sorted(layer_pairs.items()) if a == lv}}
+	return {"points_scored": n, "holder_agreement": round(sum(holder_pairs[(h, h)] for h in per) / n, 3) if n else None,
+		"per_holder": per, "layer_agreement_exact": round(layer_ok / n, 3) if n else None,
+		"layer_agreement_5_and_6_merged": round(layer_merge_ok / n, 3) if n else None, "per_level": lay,
+		"holder_disagreement_examples": misses}
+
+
 def main() -> None:
 	ap = argparse.ArgumentParser(description=__doc__)
-	ap.add_argument("--props", required=True)
+	ap.add_argument("--props")
 	ap.add_argument("--reports", required=True)
+	ap.add_argument("--sheet", help="score against the review sheet xlsx instead of the stored propositions")
 	ap.add_argument("--out")
 	ap.add_argument("--no-frame", action="store_true")
 	ap.add_argument("--no-lead", action="store_true")
 	ap.add_argument("--literal", action="store_true", help="treat applicant/respondent as the title says, not as individual/Minister")
 	a = ap.parse_args()
+	if a.sheet:
+		out = run_sheet(a.sheet, a.reports)
+		if a.out:
+			open(a.out, "w", encoding="utf-8").write(json.dumps(out, indent=1, ensure_ascii=False))
+		print(json.dumps({k: v for k, v in out.items() if k != "holder_disagreement_examples"}, indent=1))
+		return
+	if not a.props:
+		ap.error("--props is required unless --sheet is given")
 	out = run(a.props, a.reports, a.literal, not a.no_frame, not a.no_lead)
 	text = json.dumps(out, indent=1, ensure_ascii=False)
 	if a.out:

@@ -122,3 +122,9 @@ def test_rules_export_sets_the_level_and_default_rows_stay_not_detected() -> Non
 	assert {"jr_party", "framework", "unknown"} <= keys
 	assert paragraphs["10"]["layer"]["key"] == "unknown"  # rules decided it by default only
 	assert paragraphs["15"]["layer"]["key"] == "framework" and paragraphs["15"]["framework"] == "yes"
+
+
+def test_reader_script_only_tags_paragraphs_the_page_has() -> None:
+	js = (PAGES / "reader_positions.js").read_text(encoding="utf-8")
+	assert "data.paragraphs[String(p.dataset.para)]" in js  # tags are looked up from the page's own paragraphs
+	assert "real.has(n)" in js  # the legend ignores stored numbers that are not in the decision

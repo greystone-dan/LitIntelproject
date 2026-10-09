@@ -1,0 +1,297 @@
+{
+ "case_id": 7217,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0048476000000000005
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 23,
+   "below": 1,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Yusuff, a Nigerian citizen fearing persecution, challenges the Refugee Appeal Division's (RAD) decision confirming the Refugee Protection Division's (RPD) refusal of refugee protection based on a viable internal flight alternative in Port Harcourt and lack of nexus to a Convention ground. The court reviewed whether the RAD erred in its findings under the reasonableness standard and found no serious errors in the RAD's analysis. Consequently, the court dismissed Mr. Yusuff's judicial review application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and tribunal decisions",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Issues before the court",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 9,
+    "last": 14,
+    "label": "Analysis of nexus to a Convention ground",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 25,
+    "label": "Analysis of internal flight alternative",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 27,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The applicant, Mr. Yusuff, a Nigerian citizen fearing persecution by kidnappers, challenges the RAD's decision confirming the RPD's refusal of refugee protection due to a viable internal flight alternative in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Mr. Yusuff's family faced threats and kidnapping attempts in Nigeria starting July 2016, leading to their separation and his departure to Canada with a visa.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD rejected Mr. Yusuff's refugee claim due to a viable internal flight alternative and lack of nexus to a Convention ground; the RAD dismissed his appeal on the same basis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Mr. Yusuff argues the RAD erred in finding no nexus to a Convention ground and in its internal flight alternative analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court finds Mr. Yusuff has not shown the RAD's decision to be unreasonable and dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The issues are whether the RAD erred in finding no nexus to a Convention ground and in its internal flight alternative analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Both issues are reviewable under the reasonableness standard per Vavilov and related cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Reasonableness is a deferential but robust standard requiring justification, transparency, and intelligibility; the challenger bears the onus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Mr. Yusuff submits the RAD erred in finding no nexus to a Convention ground, arguing he was targeted due to perceived wealth as a social group member, citing Cejudo Hernandez.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Yusuff's argument that IFA analysis is irrelevant without nexus and finds his reliance on Cejudo Hernandez misplaced.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court is not persuaded the RAD erred in finding no nexus to a Convention ground based on perceived wealth, citing consistent case law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The risk to Mr. Yusuff is general criminal targeting due to perceived wealth, not discriminatory persecution; the RAD was not persuaded his business was fundamental to his dignity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court agrees the RAD's nexus finding was not determinative as it also found no serious risk in the internal flight alternative of Port Harcourt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Mr. Yusuff has not shown the RAD's no-nexus finding to be unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Mr. Yusuff alleges multiple errors in the RAD's internal flight alternative analysis, including failure to conduct forward-looking risk analysis and speculative findings.",
+   "ideas": "multiple",
+   "idea_list": [
+    "failure to conduct forward-looking risk analysis",
+    "speculation about kidnappers' means and motivation",
+    "failure to consider kidnappers' ability to find family",
+    "speculation about low profile business",
+    "contradictory logic on business success",
+    "misconstruing country documentation",
+    "speculative analysis of reasonableness"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court is not persuaded by Mr. Yusuff's arguments and notes the burden is on him to show serious shortcomings in the RAD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The alleged errors amount to disagreement with the RAD's findings and a request to reweigh evidence, which the court will not do on judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RAD independently assessed evidence and found no ongoing risk from kidnappers, noting the family was not found in Ibadan for over 20 months and Mr. Yusuff is not nationally high-profile.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD reasonably found Mr. Yusuff's plan for wider marketing speculative and concluded kidnappers unlikely to locate him in Port Harcourt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds no serious error in the RAD's summary of country documentation on kidnappings related to the oil industry, and any error is not serious enough to render the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RAD reasonably found that Mr. Yusuff's non-indigene status would not make relocation to Port Harcourt unreasonable, given his experience and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court notes hardship alone does not meet the high threshold to render an internal flight alternative unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD gave clear reasons why the psychotherapist's report did not establish that Mr. Yusuff's medical condition would make relocation unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD reasonably found state protection was not inadequate despite some corruption, as police responded to complaints.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The RAD reasonably found Mr. Yusuff failed to prove more than a mere possibility of persecution in Port Harcourt and that relocation would not be unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court concludes the RAD's decision is reasonable and dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "No question for certification is proposed or certified by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

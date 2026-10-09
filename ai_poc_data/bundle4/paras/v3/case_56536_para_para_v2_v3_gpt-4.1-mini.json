@@ -1,0 +1,1023 @@
+{
+ "case_id": 56536,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0173388
+ },
+ "verification": {
+  "paragraphs": 115,
+  "summaries": 115,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 97,
+   "below": 12,
+   "other": 6
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the interpretation of Quebec's workplace injury compensation scheme under the Act Respecting Industrial Accidents and Occupational Diseases and whether it incorporates the employer's duty to reasonably accommodate injured workers under the Quebec Charter. The applicant, Quebec's Commission des normes, de l\u2019\u00e9quit\u00e9, de la sant\u00e9 et de la s\u00e9curit\u00e9 du travail (CSST), appeals a decision involving Alain Caron, an injured worker seeking accommodation and reinstatement. The Supreme Court of Canada dismissed the appeal, holding that the employer's duty to accommodate under the Quebec Charter applies alongside the Act, and remitted the case to the Administrative Labour Tribunal for reconsideration.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 20,
+    "label": "Background and issue",
+    "kind": "background"
+   },
+   {
+    "first": 21,
+    "last": 35,
+    "label": "Duty to accommodate under Quebec Charter",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 51,
+    "label": "Interpretation of the Act and accommodation rights",
+    "kind": "analysis"
+   },
+   {
+    "first": 52,
+    "last": 57,
+    "label": "Application to Mr. Caron's case and remedy",
+    "kind": "analysis"
+   },
+   {
+    "first": 58,
+    "last": 64,
+    "label": "Disposition and concurring/dissenting opinions",
+    "kind": "disposition"
+   },
+   {
+    "first": 65,
+    "last": 76,
+    "label": "Factual and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 77,
+    "last": 81,
+    "label": "Jurisdiction and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 82,
+    "last": 93,
+    "label": "Relationship between Act and Quebec Charter",
+    "kind": "analysis"
+   },
+   {
+    "first": 94,
+    "last": 100,
+    "label": "Framework for granting Charter remedies",
+    "kind": "analysis"
+   },
+   {
+    "first": 101,
+    "last": 111,
+    "label": "Tribunal powers and authority to grant remedies",
+    "kind": "analysis"
+   },
+   {
+    "first": 112,
+    "last": 115,
+    "label": "Role of CSST and final disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Act Respecting Industrial Accidents and Occupational Diseases governs Quebec's workplace injury compensation scheme, including benefits and return-to-work rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "An injured worker has the right to be reinstated to pre-injury or suitable employment if unable to return to the original job.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeal concerns whether the CSST and CLP must consider the employer's duty to reasonably accommodate an injured worker in return-to-work decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The CLP's conclusion that employers have no duty of reasonable accommodation under the scheme fails a reasonableness review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Alain Caron injured his elbow at work in 2004, recognized as an employment injury under the Act's definition.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Centre Miriam gave Mr. Caron a temporary night shift team leader role after his injury, involving paperwork and training duties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Centre Miriam ended Mr. Caron's temporary role in 2007, deemed him unable to return to his educator job, and found no suitable employment for him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The CSST and CLP administer the Act; CSST decides questions under the Act, decisions reviewed internally then by CLP on appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The CLP has exclusive appellate jurisdiction and can decide any necessary questions of law or fact and make appropriate orders.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "CSST told Mr. Caron no suitable job existed at Centre Miriam and would pursue rehabilitation elsewhere; Mr. Caron argued for continued rehabilitation with accommodation protections.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "CSST concluded the duty to accommodate under the Quebec Charter does not apply to the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The CLP dismissed Mr. Caron's appeal, ruling the Act's benefits fully define employer's duty to accommodate and his return-to-work right expired.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "Quebec Superior Court set aside the CLP decision and ordered reconsideration incorporating the employer's duty to accommodate under the Quebec Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "Quebec Court of Appeal dismissed the appeal, agreeing the legislation should integrate the employer's duty to accommodate under the Quebec Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Quebec's injured worker legislation reflects a social compromise balancing contradictory interests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The scheme removes work accidents from civil liability, providing fault-free partial compensation shared by workers and employers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "1985 reforms revised compensation but kept principles; CSST has exclusive jurisdiction over matters under the scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "other",
+   "summary": "Section 438 makes the Act an exclusive scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Quebec's legislation prevents unfair treatment of disabled injured workers and protects their rights to avoid workplace discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The issue is whether the employer's duty to reasonably accommodate disabled workers applies under the Act, which does not expressly impose it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "speaker": "other",
+   "summary": "The Quebec Charter imposes a duty to accommodate in sections 10 and 16.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The duty to accommodate disabled employees is fundamental in Canadian and Quebec labour law to prevent unfair exclusion from work.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Employers must accommodate affected groups within standards, assessing individuals by personal abilities, not group characteristics.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Different ways to perform jobs must respect individual skills and contributions as much as possible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The duty to accommodate is limited by reasonable accommodation and undue hardship, which requires exhausting reasonable means before hardship is found.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Employers must arrange workplaces to enable work without undue hardship but need not fundamentally change conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The duty to accommodate requires showing no reasonable alternatives exist to avoid negative impacts on individuals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Accommodation requires individualized assessment considering enterprise characteristics, employee needs, and circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Recent summary: employers need only show no reasonable accommodation possible; duty includes procedural and substantive aspects; undue hardship involves some hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The duty to accommodate is recognized under all Canadian human rights statutes, including the Quebec Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The appeal's core issue is whether the legislative scheme should consider employers' duty to reasonably accommodate under ss. 10 and 16 of the Quebec Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Court relies on Quebec (Commission des droits de la personne) v. Communaut\u00e9 urbaine de Montr\u00e9al to confirm Quebec legislation must be interpreted per Quebec Charter principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Court notes that human rights legislation aids tribunals in interpreting enabling legislation, as seen in Via Rail and Tranchemontagne.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Quebec Court of Appeal in Gauthier v. Demers applied the Quebec Charter's quasi-constitutional status to interpret 'another good and sufficient reason' in injured worker legislation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Since the duty to accommodate is core to the Quebec Charter, it applies when interpreting Quebec's injured worker legislation to protect disabled workers' rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Applying the duty to accommodate under the Quebec Charter does not disrupt the Act's duties but requires a stronger approach to disabled workers' rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Interpreting the Act with reasonable accommodation aligns with its goal to help disabled workers return to work.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The Act entitles injured workers to reinstatement, equivalent employment, or suitable employment under ss. 236 and 239.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Workers able to perform their pre-injury job are entitled to reinstatement or reassignment to equivalent employment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Equivalent employment is defined as similar work in qualifications, wages, benefits, duration, and conditions, even if the original position is eliminated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Workers returning within the stipulated time get their pre-injury job or equivalent with same salary; others get assistance and benefits for up to one year.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Section 239 entitles workers able to perform suitable employment to the first suitable job available, defined by ability, qualifications, and safety.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Workers in suitable employment receive salary and benefits based on seniority, with income replacement for any salary loss.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "If no suitable employment exists, workers can have vocational potential evaluated and receive training and job search assistance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Entitlements to reinstatement, equivalent, or suitable employment ensure workers able to work can do so, consistent with the employer's duty to accommodate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Rehabilitation provisions reflect the duty to accommodate, entitling permanently impaired workers to social and professional reintegration measures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Professional rehabilitation programs aim to reinstate workers or facilitate access to suitable employment, including various supportive measures and position adaptation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The CSST funds rehabilitation costs, collecting money from employers and attributing benefit costs to them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Section 176 allows CSST to reimburse costs of adapting positions to enable disabled workers to perform employment, showing accommodation is envisioned.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The injured worker scheme's objectives overlap with the Quebec Charter's duty to accommodate, requiring broader accommodation than the scheme's provisions alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Workers' rights under the Act must be interpreted with the employer's duty to accommodate, giving CSST and CLP authority to impose reasonable accommodation measures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The Court asks how the duty to accommodate applies in this case's circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Mr. Caron's right to return to suitable employment under s. 239 means the employer must reasonably accommodate him in determining suitable employment availability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Mr. Caron identified two suitable jobs he could perform with reasonable accommodation: his pre-injury educator role and a team leader position.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "CSST and CLP did not consider reasonable accommodation, so no findings were made on whether Mr. Caron was accommodated or if suitable jobs existed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Given the new interpretation, Mr. Caron should have the opportunity to vindicate his rights under the revised approach despite the case's delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The Court would set aside the CLP decision and remit the case to the Administrative Labour Tribunal to consider accommodation and time limits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The appeal is dismissed with costs; reasons of C\u00f4t\u00e9 and Rowe JJ. delivered by Rowe J., introducing the next section.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Rowe J. agrees with Abella J. to remit the matter to ALT for determining if the employer discharged its duty to accommodate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Rowe J. disagrees with Abella J.'s broad interpretation of the duty to accommodate, viewing it as exceeding proper statutory interpretation and Quebec Charter scope.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The Court explains the narrow purpose of the Charter values interpretive principle from Bell ExpressVu, allowing statutes to be read compatibly with the Canadian Charter but not beyond their text.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The Court states that the Quebec Charter, like the Canadian Charter, should not be presumed to conform in a way that frustrates legislative intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The Court notes that the Quebec Charter's s. 53 allows its use only if doubt arises in interpretation, and s. 51 prohibits extending or amending law scope, criticizing a colleague's conflicting approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The Court proposes an analytical approach based on the jurisdiction of the CLP and ALT as administrative tribunals with power to decide law questions and vindicate rights, maintaining distinct regimes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "On October 20, 2004, Mr. Caron developed epicondylitis at work and was temporarily reassigned as night shift team leader due to Centre Miriam's patient transfers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "In 2006, CSST found Mr. Caron's injury consolidated with permanent impairment; in 2007, Centre Miriam ended his reassignment and CSST said he could return to work, but CLP reversed this in 2009.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "In 2010, Centre Miriam told CSST it had no suitable job for Mr. Caron; his union challenged this, citing Quebec Charter duty to accommodate, but CSST sided with Centre Miriam and he was terminated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Mr. Caron contested the CSST decision before the CLP, and this decision is now under judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 69,
+   "speaker": "below",
+   "summary": "The CLP recognized its power to decide legal questions and apply the Quebec Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 70,
+   "speaker": "below",
+   "summary": "The CLP held it was bound by Quebec Court of Appeal jurisprudence that the Act exhausts the duty to accommodate, dismissed Mr. Caron's appeal, and found his right to work expired.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 71,
+   "speaker": "below",
+   "summary": "Dugr\u00e9 J. at Superior Court held the standard of review was reasonableness, focusing on whether the CLP balanced Quebec Charter values and the Act reasonably.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 72,
+   "speaker": "below",
+   "summary": "Dugr\u00e9 J. found the CLP's decision unreasonable for confusing employer's duty under Quebec Charter with Act's compliance, and held CLP must grant remedy if discrimination occurred.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 73,
+   "speaker": "below",
+   "summary": "Dugr\u00e9 J. held CLP's finding that Mr. Caron's right to return expired was unreasonable and ordered rehearing to decide discrimination and Quebec Charter conflict with s. 240 of the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "speaker": "below",
+   "summary": "The Quebec Court of Appeal agreed with Dugr\u00e9 J., applying correctness standard, as applying Quebec Charter is a central legal question beyond tribunal expertise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 75,
+   "speaker": "below",
+   "summary": "The Court of Appeal held CLP can require employer accommodation under Quebec Charter and grant remedies under the Act, recognizing overlapping duties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 76,
+   "speaker": "below",
+   "summary": "The Court of Appeal held the two-year limit in s. 240 is not determinative due to duty to accommodate, requiring individualized assessment and CLP to decide discrimination first.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 77,
+   "speaker": "other",
+   "summary": "The decision introduces the relevant provisions of the Quebec Charter and Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The Court states deference is owed to tribunals interpreting the Quebec Charter within their specialized jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The CLP declined jurisdiction, viewing the Act as exhaustive of accommodation duty, which could warrant reasonableness review under Dunsmuir.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "Alternatively, the CLP's refusal to grant Quebec Charter remedies could be a jurisdiction question reviewed on correctness standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The Court agrees with the Court of Appeal that the question is a general law issue of whether the tribunal must apply the Quebec Charter, reviewed on correctness standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 82,
+   "speaker": "other",
+   "summary": "The Act is described as a no-fault compensation scheme for work injuries, setting out its purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The Court comments the Act is a social compromise establishing a no-fault compensation system as final remedy for work injuries.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "The Act does not impose a duty to accommodate; CSST only asks if suitable employment is available, unlike the Quebec Charter which imposes such a duty.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 85,
+   "speaker": "other",
+   "summary": "The Quebec Charter's overarching goal is to recognize and protect fundamental rights and freedoms.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 86,
+   "speaker": "other",
+   "summary": "Section 10 of the Quebec Charter protects the right to equality and prohibits discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "Section 10 must be attached to another right; in employment, the duty to accommodate derives from sections 10 and 16 together.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "The duty to accommodate requires employer flexibility to enable employees to work without undue hardship, ensuring fair inclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "Section 52 of the Quebec Charter gives its rights primacy over other laws unless expressly derogated; conflicting provisions are inoperative unless justified.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "Section 49 of the Quebec Charter provides remedies for rights infringement, including orders to end interference; Mr. Caron seeks such reasonable accommodation remedy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 91,
+   "speaker": "court",
+   "summary": "The Act compensates employment injuries, while the Quebec Charter protects fundamental rights including equality and accommodation; they are conceptually distinct but can intersect.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "Inflexible employer standards without undue hardship constitute discrimination under the Quebec Charter, which covers disabilities regardless of origin, including workplace accidents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "The CLP wrongly stated the Act fully defines accommodation duties; Mr. Caron's Quebec Charter rights exist alongside his Act rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 94,
+   "speaker": "court",
+   "summary": "The Conway test asks if a tribunal can grant Charter remedies by assessing its jurisdiction to decide law and legislative intent regarding the remedy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "Prompt, efficient resolution in one tribunal favors jurisdiction to grant remedies, avoiding duplicative proceedings and facilitating Charter rights vindication.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 96,
+   "speaker": "court",
+   "summary": "Tribunals can rule on incidental Charter issues unless expressly excluded, as legislatures intend tribunals to apply the Charter when empowered.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "Section 49 of the Quebec Charter lacks express tribunal limits, but tribunals must have authority under ordinary law to grant sought remedies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "The Conway framework for Canadian Charter remedies applies similarly to the Quebec Charter due to their jurisprudential cross-pollination and similar provisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 99,
+   "speaker": "court",
+   "summary": "Quebec courts have applied the Conway framework to Quebec Charter remedies, recognizing grievance arbitrators as competent under both Charters.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "Despite similarities, the Quebec and Canadian Charters may require different approaches depending on context; Conway's framework is not exclusive.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "The decision under review is the CLP's, not the CSST's initial decision; CLP appeals are de novo.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "The CSST exercises administrative, not adjudicative, functions, differing qualitatively from tribunals that decide law in adversarial settings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "The Act grants the CSST exclusive jurisdiction over questions relating to the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "The CLP expressly has the power to decide questions of law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "The CLP (now ALT) has authority to order Centre Miriam to accommodate Mr. Caron; whether to grant the remedy is yet to be decided.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "The CLP's quasi-judicial nature and lack of exclusion in the Act support its authority to grant Quebec Charter remedies efficiently.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "The CLP's broad powers and de novo hearing ability allow it to make suitable orders, including accommodation remedies under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 108,
+   "speaker": "court",
+   "summary": "Section 438 of the Act does not bar the CLP from ordering accommodation under the Quebec Charter, as the remedy is not civil liability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 109,
+   "speaker": "court",
+   "summary": "The CLP erred in denying its authority to grant remedies under the Quebec Charter; its statutory power includes this authority.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "The jurisdictional interplay with grievance arbitrators is noted but irrelevant here; Quebec Charter rights are incorporated in collective agreements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 111,
+   "speaker": "court",
+   "summary": "The duty to accommodate requires considering suitable employment and reasonable accommodation short of undue hardship, not creating new positions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 112,
+   "speaker": "court",
+   "summary": "Though the CSST cannot compel accommodation, it should assist employers in understanding their duties under both the Act and Quebec Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "The duty to accommodate exists independently of CLP involvement, which should be exceptional if employers act in good faith.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "The CLP's jurisdiction to decide law differs from the CSST's administrative role; the legislature may revisit this allocation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "The appeal is dismissed with costs; the matter returns to the ALT to determine accommodation and time limit issues in Mr. Caron's case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

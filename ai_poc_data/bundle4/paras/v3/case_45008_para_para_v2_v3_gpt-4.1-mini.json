@@ -1,0 +1,561 @@
+{
+ "case_id": 45008,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.009711200000000001
+ },
+ "verification": {
+  "paragraphs": 60,
+  "summaries": 60,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 58,
+   "evidence": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves two Sri Lankan citizens, the Principal and Associate Claimants, seeking refugee protection in Canada due to alleged persecution by Sri Lankan forces. The tribunal found significant credibility issues with the Principal Claimant's evidence and determined that the Associate Claimant did not face a serious risk of persecution given improved conditions in Sri Lanka. Consequently, the tribunal rejected their claims, concluding they are neither Convention refugees nor persons in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Issues and Key Findings",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 40,
+    "label": "Credibility Analysis of Principal Claimant",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 42,
+    "label": "Assessment of Principal Claimant's Claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 50,
+    "label": "Country Conditions and Associate Claimant's Risk",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 59,
+    "label": "Assessment of Associate Claimant's Evidence and Risk",
+    "kind": "analysis"
+   },
+   {
+    "first": 60,
+    "last": 60,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Principal and Associate Claimants, both Sri Lankan citizens, seek refugee protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Principal Claimant fears gender-based persecution and harassment by the army in Sri Lanka, leading her to use false documents to come to Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Associate Claimant alleges harassment and detention by Sri Lankan forces, left Sri Lanka in 2010, arrived in Canada in 2012, and sought refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal finds the Claimants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Credibility is the key issue for the Principal Claimant; for the Associate Claimant, credibility and changed circumstances are determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal agrees there is insufficient evidence to exclude the Principal Claimant under section 1E of the Convention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal finds many significant credibility concerns in the Principal Claimant's evidence, casting doubt on her entire claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal outlines several credibility concerns found in the Principal Claimant's evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Principal Claimant's birth certificate has unusual notations raising credibility concerns about its authenticity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The birth certificate has two 2010 dates despite the claimant's 1991 birth, which the tribunal finds not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "evidence",
+   "summary": "The Principal Claimant said she did not know why the 2010 notations were on her birth certificate and confirmed it was issued at birth.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Principal Claimant's explanation for the 2010 notations, finding it undermines her credibility and identity evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Principal Claimant gave inconsistent testimony about her residence before leaving Sri Lanka, conflicting between port of entry and hearing statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "evidence",
+   "summary": "The Principal Claimant explained her port of entry statement about moving often as frequent trips to nearby villages to help her grandmother.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Claimant's explanation unreasonable and that she meant to say she had no permanent residence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Due to inconsistency, the tribunal finds the Principal Claimant failed to establish her residence or that she lived with her grandmother near an army camp.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Claimant's residence evidence central to her claim and that its unreliability undermines her allegations of persecution and internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Principal Claimant's testimony about paying her smuggler is inconsistent between port of entry and hearing statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Claimant's inconsistent testimony about smuggler payment and poor explanation further undermines her credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Principal Claimant gave inconsistent statements about whether she met her smuggler in person.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal finds the inconsistency about meeting the smuggler significant and central, further undermining credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Principal Claimant tried to enter Canada using false documents provided by a smuggler.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Claimant's explanation for not immediately claiming refugee protection at the port of entry unreasonable and that her attempt to mislead officers undermines credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The port of entry officer found documents on the Principal Claimant's phone related to another claimant, which she did not file as evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Principal Claimant filed some photos but not other documents related to XXXX, raising credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Principal Claimant's explanation for not filing documents related to XXXX, finding it unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Claimant's failure to present documents about XXXX after credibility concerns indicates evasiveness and undermines credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Principal Claimant gave inconsistent descriptions of her relationship with XXXX, undermining her credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal finds it implausible that the Principal Claimant lived with her boyfriend's family at 16 and suspects she is concealing the relationship's nature.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Principal Claimant filed untranslated and incomplete European immigration documents about XXXX, indicating evasiveness and concealment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Principal Claimant's testimony about her grandmother's ability to assist her was inconsistent, with some claims of active help like pawning jewelry and notarizing a letter.",
+   "ideas": "multiple",
+   "idea_list": [
+    "grandmother capable of tasks",
+    "grandmother helped with documents"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "At other times, the Principal Claimant said her grandmother was too frail to help, such as obtaining a letter from the Grama Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Principal Claimant said her grandmother sent a notarized letter months before the hearing, but later said relatives likely obtained it due to grandmother's frailty.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal finds it not credible that relatives notarized the letter since the grandmother's fingerprint is on it, implying she met the Justice of the Peace in person.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The grandmother's ability to assist is central to the claim, and the Principal Claimant's inconsistent testimony about this undermines her credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The psychological report from Dr. XXXX is given little weight as it is based solely on the Principal Claimant's account without independent credibility assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The report's recommendations for sensitive questioning were followed, but the report does not explain all credibility concerns, especially as the claimant no longer receives treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Higher courts allow rejecting psychological reports based solely on claimant's account; here, the report does not resolve credibility issues and is given little weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The Principal Claimant presented four inconsistent versions of her story regarding her identity, mistreatment, and living situation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal finds the credibility concerns sufficient to rebut the presumption of truthfulness and rejects the claimant's gender-based persecution claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The documents filed to corroborate the claim, including a notarized letter and a statement from the step-mother, are not reliable enough to overcome credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Principal Claimant has not established gender-based persecution or risk of harm if returned to Sri Lanka due to insufficient credible evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "There is insufficient persuasive evidence that the Associate Claimant faces a serious possibility of persecution or risk of harm if returned to Sri Lanka after almost 8 years abroad.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The tribunal finds UNHCR evidence most persuasive, showing improving conditions and support for Tamil refugees returning to Sri Lanka.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "UNHCR reports indicate increasing peace and stability in Sri Lanka, with Tamil returnees citing safety as their reason for return and no fear for personal safety.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "UNHCR's structured program supports Tamil returnees with assistance, monitoring, and reintegration services upon arrival in Sri Lanka.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "UNHCR monitoring shows 90% of returnees are satisfied with residence, feel secure, and are registered with local government.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Other evidence shows improvements in Sri Lanka, including restored human rights commission, detainee releases, government transparency, and constitutional reforms.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The Associate Claimant's fear of arrest upon return is not supported by UNHCR evidence showing quick re-admission and no ill treatment for most returnees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The tribunal finds a durable, effective, and substantial change in Sri Lanka's circumstances, reducing the risk of persecution for the Associate Claimant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The Associate Claimant's personal evidence of risk relies on his daughter's testimony, a letter from his wife, and his own allegations, which are unpersuasive.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Because the Principal Claimant is not credible, the Associate Claimant's evidence is insufficient to establish a serious possibility of persecution upon return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The Associate Claimant did not initially provide his wife's statement; her letter states the last army incident was in 2010, not recent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The Associate Claimant's vague testimony about army inquiries does not establish continued state interest or persecution risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The Associate Claimant's alleged detention for illegal fishing is not evidence of state suspicion or interest in him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The tribunal finds the detention was informal and opportunistic, not indicating state interest or suspicion of LTTE ties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Based on evidence and country conditions, the tribunal finds it unlikely the state has current interest in the Associate Claimant or that he faces persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "There is insufficient credible evidence that the Associate Claimant faces a serious possibility of persecution if returned to Sri Lanka.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "There is also insufficient credible evidence that the Associate Claimant faces a risk of harm on a balance of probabilities if returned.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The tribunal concludes that the Claimants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

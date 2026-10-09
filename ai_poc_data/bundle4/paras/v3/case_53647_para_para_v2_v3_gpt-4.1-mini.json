@@ -1,0 +1,1549 @@
+{
+ "case_id": 53647,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.026718000000000006
+ },
+ "verification": {
+  "paragraphs": 173,
+  "summaries": 173,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 125,
+   "party": 19,
+   "other": 15,
+   "below": 11,
+   "evidence": 3
+  },
+  "multi_idea_paragraphs": 11,
+  "sections": 14,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the interpretation of 'transmission line' in the Telecommunications Act, specifically whether it includes 5G small cell antennas. The appellant carriers (Telus, Quebecor, Videotron, Rogers) argued for a broad, technologically neutral interpretation to include 5G antennas, while the respondents (Federation of Canadian Municipalities, Electricity Canada, BC) supported a narrow interpretation excluding antennas. The Supreme Court allowed the appeal, holding that 'transmission line' includes 5G small cells, thereby affirming CRTC jurisdiction over such infrastructure access disputes.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 20,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 21,
+    "last": 24,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 25,
+    "last": 47,
+    "label": "Parties' arguments and ordinary meaning of 'transmission line'",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 63,
+    "label": "Contextual and legislative history analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 64,
+    "last": 80,
+    "label": "Technological neutrality and policy considerations",
+    "kind": "analysis"
+   },
+   {
+    "first": 81,
+    "last": 86,
+    "label": "Federalism and legislative review considerations",
+    "kind": "analysis"
+   },
+   {
+    "first": 87,
+    "last": 87,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 88,
+    "last": 94,
+    "label": "Table of contents and background summary",
+    "kind": "other"
+   },
+   {
+    "first": 95,
+    "last": 98,
+    "label": "CRTC and Federal Court of Appeal decisions",
+    "kind": "background"
+   },
+   {
+    "first": 99,
+    "last": 104,
+    "label": "Relevant statutory scheme",
+    "kind": "background"
+   },
+   {
+    "first": 105,
+    "last": 141,
+    "label": "Supreme Court's analysis and interpretation of 'transmission line'",
+    "kind": "analysis"
+   },
+   {
+    "first": 142,
+    "last": 155,
+    "label": "Object and purpose of the Telecommunications Act",
+    "kind": "analysis"
+   },
+   {
+    "first": 156,
+    "last": 171,
+    "label": "Dynamic interpretation and technological neutrality principles",
+    "kind": "analysis"
+   },
+   {
+    "first": 172,
+    "last": 173,
+    "label": "Conclusion and final ruling",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appeal concerns the interpretation of 'transmission line' in ss. 43 and 44 of the Telecommunications Act, which governs carrier access to public property.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant carriers (Telus, Quebecor, Videotron, Rogers) seek to include 5G small cell antennas within 'transmission line' under the Act, urging dynamic and technologically neutral interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court would dismiss the appeal, holding 'transmission line' refers only to wireline infrastructure, consistent with text, context, and purpose of the Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dismiss appeal",
+    "Define 'transmission line' as wireline only",
+    "Reject broader interpretation including antennas",
+    "Respect Parliament's balance",
+    "No absurdity or federalism issues"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The appeal is about the CRTC's power scope, not wireless service importance or technological neutrality; the carriers' view would exceed access regime limits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The CRTC correctly concluded it lacks jurisdiction over 5G small cell antenna access disputes; such access is left to negotiation with public authorities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Canadian carriers are upgrading to 5G networks, described as a major transformation, with spectrum rights acquired for over $11 billion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "5G networks use many low-powered small cell antennas, unlike previous large cell towers; these antennas transmit wirelessly but rely on wireline networks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "5G small cell antennas are mounted on existing public structures, requiring carrier access to public property for deployment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Telecommunications Act is part of a statutory scheme regulating telecommunications infrastructure development in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Section 43 grants carriers qualified access rights to construct and operate transmission lines on public property, with CRTC dispute resolution if consent is withheld.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The full text of the access regime provisions is provided.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Radiocommunication Act governs radio frequency allocation and apparatus operation, complementing the Telecommunications Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Carriers have spectrum licenses but must get Minister of Industry approval for antenna sites, with consultation requirements except for non-tower structures like 5G small cell antennas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Radiocommunication Act does not grant access rights to public property for antennas; access requires negotiation with property owners.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "In 2019, the CRTC initiated a consultation reviewing mobile wireless services and regulatory framework, including infrastructure deployment barriers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The consultation addressed whether the CRTC's jurisdiction extends to 5G small cell antenna installation, raising the meaning of 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The CRTC decided 'transmission line' excludes 5G small cell antennas and wireless infrastructure for two reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The CRTC found 'transmission line' means wireline infrastructure, distinct from the broader 'transmission facility' which includes wireless technologies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ordinary meaning supports wireline only",
+    "Transmission facility is broader",
+    "Dictionary definitions support wireline"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The CRTC held that the Radiocommunication Act's ministerial approval scheme for antenna sites supports excluding antennas from 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Telus appealed the CRTC Decision, challenging the exclusion of wireless infrastructure from 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The Federal Court of Appeal upheld the CRTC's interpretation, dismissing the carriers' appeal after considering statutory context and policy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The Court of Appeal agreed 'line' implies a physical pathway, that 'transmission line' is narrower than 'transmission facility', and that antenna siting is a ministerial issue.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ordinary meaning of 'line'",
+    "Narrower meaning than 'transmission facility'",
+    "Antenna siting is ministerial, not CRTC"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The Court of Appeal held that policy objectives cannot override clear statutory language, leaving antenna access to negotiation with property owners.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The sole issue is whether 'transmission line' includes 5G small cell antennas under ss. 43 and 44 of the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The CRTC Decision is reviewed on correctness standard for statutory interpretation under the appellate standard of review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The carriers argue the CRTC and Court of Appeal's fixed, narrow interpretation frustrates Parliament's intent for technological evolution and orderly infrastructure development.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "Carriers contend that wireless networks depend on wireline connections, so excluding antennas from 'transmission line' leads to absurd results.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The respondents (Federation of Canadian Municipalities, Electricity Canada, BC) support the CRTC and Court of Appeal, opposing expansion of 'transmission line' to antennas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "Respondents argue Parliament deliberately left antenna access unregulated to respect provinces' and municipalities' interests in managing public property.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court affirms the modern approach to statutory interpretation requires considering text, context, and purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The carriers argue for a dynamic interpretation of legislation, while public authorities contend carriers misinterpret this principle.",
+   "ideas": "multiple",
+   "idea_list": [
+    "carriers argue dynamic interpretation",
+    "public authorities counter misinterpretation"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Statutory interpretation focuses on legislative intent at enactment, and courts must avoid exceeding their role by addressing political questions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Courts can apply statutes to new circumstances if legislatures use broad language to cover unforeseen situations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Legislatures may intend provisions to be interpreted dynamically, applying to new sociological or technological contexts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Dynamic interpretation aligns with original intent, allowing statutes to apply to new categories similar to original ones.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Dynamic interpretation is part of the modern approach; the extent of application to new circumstances is an interpretive question.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The parties disagree on Parliament's intended meaning of 'transmission line' and whether it includes 5G small cell antennas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Parliament did not intend to extend access rights to antennas, including 5G small cell antennas, when interpreting 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Since 'transmission line' is undefined, its ordinary meaning is examined first.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "Carriers argue 'transmission line' includes physical or non-physical paths, including wireless antennas as functionally equivalent to wireline.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "The Federation of Canadian Municipalities argues 'line' refers only to a physical linear path, opposing carriers' broader view.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court agrees with the CRTC and Court of Appeal that 'transmission line' ordinarily means wireline infrastructure only.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Ordinary meaning is the natural meaning of a provision, with dictionary definitions as a starting point but not determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "speaker": "below",
+   "summary": "The CRTC found most dictionary definitions of 'line' imply a physical, tangible pathway, supporting a narrow meaning.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The term 'transmission line' implies a physical path, which antennas do not fit as they transmit via electromagnetic waves without a physical guide.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court rejects the carriers' argument that antennas are transmission lines because they are hard-wired to wireline equipment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The ordinary meaning supports a narrow interpretation of 'transmission line' excluding antennas, but context and purpose must also be considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "party",
+   "summary": "The Federation of Canadian Municipalities argues surrounding provisions show 'transmission line' means only wireline infrastructure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Sections 43 and 44 describe physical activities related to transmission lines consistent with wireline infrastructure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Antennas cannot be buried or run along public property, unlike wires, supporting a narrow interpretation of 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Transmission by antennas is incompatible with 'transmission line' in ss. 43 and 44, as radio waves lack a defined path.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The immediate context of 'transmission line' supports the narrower meaning favored by public authorities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "party",
+   "summary": "Telus argues that broad definitions elsewhere in the Act support a broad, technology-neutral interpretation of 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "party",
+   "summary": "Public authorities argue 'transmission line' is narrower than 'transmission facility' and excludes wireless infrastructure like antennas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The presumption of consistent expression suggests 'transmission line' and 'transmission facility' have different meanings, supporting a narrow reading.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The court rejects carriers' argument that 'transmission facility' usage cannot inform 'transmission line' interpretation due to different statutory parts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Legislative history shows antennas and wireless equipment have never been part of the access regime, which distinguishes them from wireline.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "speaker": "below",
+   "summary": "The Court of Appeal and CRTC noted the access regime evolved from 'telegraph or telephone lines' to 'transmission lines'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 59,
+   "speaker": "below",
+   "summary": "The access regime's features, including construction and dispute resolution, were carried over from the Railway Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The Railway Act distinguished wireline access regime from wireless telegraphs, a distinction carried into the current Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Parliament expanded the access regime to include cable companies' wireline infrastructure but not wireless equipment like antennas.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Parliament broadened access regime to cable companies",
+    "Access regime covers wireline equipment including fibre-optic and coaxial cables"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Parliament did not intend to include wireless radiocommunication apparatus like antennas in the access regime, which is technologically neutral only among wireline technologies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Access regime is technologically neutral among wireline technologies",
+    "'Transmission line' does not include wireless equipment like antennas"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "Antennas are regulated by the Radiocommunication Act and were not intended to be included in the access regime, which covers only wireline equipment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Radiocommunication Act regulates antennas",
+    "5G small cell antennas fall under Radiocommunication Act",
+    "Access regime intended for wireline equipment only"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "speaker": "party",
+   "summary": "Carriers argue the Act must be technologically neutral and treat all technologies transmitting intelligence equally, citing the Copyright Act analogy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The Court explains the Copyright Act's technological neutrality principle from Society of Composers, which carriers rely on.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The access regime differs from the Copyright Act as it regulates physical infrastructure, not intangible rights, so antennas and cables are treated differently.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The carriers have not shown that Parliament intended 'transmission line' to include wireless infrastructure like antennas; it refers only to wireline infrastructure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The term 'transmission line' must be interpreted in harmony with Parliament's legislative purposes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 69,
+   "speaker": "party",
+   "summary": "Carriers argue that 'transmission line' should include antennas to facilitate efficient 5G deployment; public authorities argue for a 'hands off' approach to antenna access.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Carriers argue for broad interpretation including antennas",
+    "Public authorities argue for negotiation-based access to antennas"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The Court rejects carriers' argument that general objectives justify broad interpretation of 'transmission line' overriding Parliament's clear intention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Parliament balanced carriers' and public authorities' interests in the access regime, and the Court should respect this balance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Neither interpretation conflicts with the Act's objectives; Parliament intended clear limits on carriers' access rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Different regulations for antennas reflect Parliament's awareness of their unique impacts, supporting a distinction from wireline equipment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "Excluding antennas from the access regime does not frustrate the Act's purposes; technological neutrality applies only to wireline infrastructure.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Excluding antennas does not frustrate Act's purposes",
+    "Technological neutrality applies only to wireline infrastructure"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 75,
+   "speaker": "party",
+   "summary": "Carriers argue that excluding antennas from the access regime leads to absurd results since antennas are necessary for 5G networks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "Consequences of interpretations matter; absurd or unacceptable consequences are presumed unintended by Parliament.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The narrower interpretation is not absurd despite being less favorable to 5G deployment; it is reasonable and consistent with the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The Court defers to the CRTC's finding that municipalities have not systematically interfered with 5G deployment, so differential regulation is not absurd.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "Different treatment of wires and antennas is not absurd due to antennas' unique impacts and risks, supporting the narrower access regime.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "Courts should not make policy choices best left to legislatures, including expanding the access regime by interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 81,
+   "speaker": "party",
+   "summary": "Carriers claim the narrow interpretation improperly delegates federal power to municipalities, urging a broader reading to avoid federalism issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The Court declines to address constitutional disputes not necessary for the appeal and notes proper recourse is to challenge specific provincial or municipal actions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The Court is not persuaded that federalism concerns require a broader interpretation of 'transmission line' to include antennas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "speaker": "other",
+   "summary": "Legislative review reports recommended placing all access matters under CRTC jurisdiction, supporting the narrower meaning of 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "Parliament's inaction on legislative review recommendations does not prove 'transmission line' includes antennas, supporting the narrower interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "The Court concludes 'transmission line' means wireline infrastructure only, excluding antennas and CRTC jurisdiction over antenna access disputes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "The Court dismisses the appeal with costs to the Federation of Canadian Municipalities, Electricity Canada, and British Columbia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 88,
+   "speaker": "other",
+   "summary": "Table of contents listing sections I and II of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "Parliament enacted the Telecommunications and Radiocommunication Acts with technological neutrality to ensure flexibility and certainty for wireless carriers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "The Broadcasting Act, Radiocommunication Act, and Telecommunications Act form an interconnected statutory scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 91,
+   "speaker": "court",
+   "summary": "5G upgrades require installing over 250,000 small cells using low-powered antennas on public structures, unlike existing 13,000 large towers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "The Court must decide if the Telecommunications Act's access regime covers 5G small cells, affecting carriers' ability to install them on public sites.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "The Court disagrees with Moreau J.'s narrow interpretation excluding 5G small cells from the access regime, favoring inclusion based on text and purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 94,
+   "speaker": "other",
+   "summary": "Section heading: Background.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "In 2019, the CRTC initiated a review including the issue of its jurisdiction over access to public sites for 5G small cells under the term 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 96,
+   "speaker": "below",
+   "summary": "The CRTC decided that 'transmission line' does not include small cells or wireless technologies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 97,
+   "speaker": "below",
+   "summary": "The Federal Court of Appeal affirmed the CRTC, defining 'line' narrowly as physical, excluding wireless 5G small cells to avoid conflicts between Acts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "The Supreme Court now examines the issue of whether 5G small cells fall under the access regime.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 99,
+   "speaker": "other",
+   "summary": "Section heading: Relevant Statutory Scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 100,
+   "speaker": "other",
+   "summary": "Section heading: Analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "Sections 43 and 44 of the Telecommunications Act create an access regime allowing carriers to install transmission lines on public property, with CRTC adjudication if consent is refused.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "The access regime facilitates installation of transmission lines, crucial for the 250,000 installations needed for 5G upgrades.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "The Radiocommunication Act regulates radio devices and site approvals but does not govern site access like the Telecommunications Act does.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 104,
+   "speaker": "other",
+   "summary": "Section heading: Analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "The Court uses the Barrie Public Utilities framework considering meaning, context, and policy to interpret ss. 43 and 44 of the Telecommunications Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "Unlike the Federal Court of Appeal, the Court concludes 'transmission line' includes wireless lines like 5G small cells.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "The Court finds 'transmission line' includes 5G small cells, supported by text, context, and technological neutrality principles.",
+   "ideas": "multiple",
+   "idea_list": [
+    "5G small cells included in 'transmission line'",
+    "Text and context support inclusion",
+    "Technological neutrality supports inclusion"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 108,
+   "speaker": "other",
+   "summary": "Subheading: An Interpretation Requiring a Physical Connection Line May Include 5G Small Cells.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 109,
+   "speaker": "other",
+   "summary": "Subheading: The Grammatical and Ordinary Meaning Supports a Broader Interpretation of 'Transmission Line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "Even if 'transmission line' means only wireline, 5G small cells qualify because they are hard-wired and extend existing lines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 111,
+   "speaker": "evidence",
+   "summary": "The Federation of Canadian Municipalities' 2020 guide explains 5G small cells require hard-wired fiber optic cables and power sources to function.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 112,
+   "speaker": "evidence",
+   "summary": "The Federation of Canadian Municipalities stated 5G small cells must be connected by wires and have direct power supplies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "The Court disagrees with Moreau J. that hard-wiring does not make antennas transmission lines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "5G small cells' wired and antenna components are inseparable and essential, unlike a toaster analogy used by Moreau J.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal acknowledged hard-wiring but did not give effect to it in defining 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "The Court applies La Presse principles to interpret 'transmission line' broadly, beyond just wired definitions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 117,
+   "speaker": "other",
+   "summary": "Subheading: Context of the Provision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 118,
+   "speaker": "court",
+   "summary": "Transmission means transmitting intelligence broadly defined, supporting a broad understanding of 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 119,
+   "speaker": "party",
+   "summary": "Rogers argues the CRTC and Federal Court of Appeal relied too heavily on dictionary definitions to limit 'transmission line' to wired lines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "Dictionary definitions provide presumptive meaning but must be verified against context, purpose, and intent of the statute.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 121,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal and CRTC erred by dismissing that 'transmission line' might include wireless lines like 5G technology.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 122,
+   "speaker": "court",
+   "summary": "The Business Council of Canada argues the plain meaning of 'line' in telecom is less conclusive than CRTC's dictionary reliance suggests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "Courts have described radio signal transmission as along a 'line of sight', suggesting a linear telecom transmission even without wires.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 124,
+   "speaker": "court",
+   "summary": "Colloquially, 'line' can mean a connection like being 'online', which may be wireless, supporting a broad meaning of 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The phrase 'transmission line' is ambiguous, requiring analysis of context and purpose in ss. 43 and 44 of the Telecommunications Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 126,
+   "speaker": "other",
+   "summary": "Heading introducing external context: interplay between two statutes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 127,
+   "speaker": "other",
+   "summary": "Heading introducing internal context of the Telecommunications Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 128,
+   "speaker": "court",
+   "summary": "The Telecommunications Act and Radiocommunication Act form an interconnected statutory scheme requiring harmonious interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 129,
+   "speaker": "court",
+   "summary": "Telecommunications Act grants CRTC power to authorize site access for transmission lines; Radiocommunication Act grants Minister site approval for radio apparatus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 130,
+   "speaker": "court",
+   "summary": "Minister's Radiocommunication Act power authorizes site approval but not access; no dispute resolution for access under that Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 131,
+   "speaker": "court",
+   "summary": "In Ch\u00e2teauguay, Minister approved antenna on private property, but case did not address access regime or Minister's access power.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 132,
+   "speaker": "court",
+   "summary": "Minister's Radiocommunication Act power is not to grant access rights; such power would be explicit given Telecommunications Act's access regime.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 133,
+   "speaker": "court",
+   "summary": "Adopting colleague's view would give municipalities veto over access, contrary to Parliament's exclusive telecom jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 134,
+   "speaker": "party",
+   "summary": "Federation of Canadian Municipalities states carriers lack access rights for antennas and must negotiate access case-by-case under Radiocommunication Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 135,
+   "speaker": "party",
+   "summary": "Telus says Minister's site approval power excludes access rights; carriers must obtain access separately; statutes are complementary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 136,
+   "speaker": "court",
+   "summary": "5G small cells are regulated by Radiocommunication Act for antenna licensing, but access negotiation is prerequisite to Minister's authorization.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 137,
+   "speaker": "court",
+   "summary": "CRTC can grant access to 5G small cell sites even without agreement; Minister then authorizes site; statutes operate harmoniously.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 138,
+   "speaker": "court",
+   "summary": "Ministerial authorization addresses antenna risks after access is settled; Radiocommunication Act existence doesn't exclude antennas from access regime.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 139,
+   "speaker": "court",
+   "summary": "Orderly development supports Radiocommunication Act rules for antennas, but excluding 5G small cells from access regime contradicts this objective.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 140,
+   "speaker": "court",
+   "summary": "Colleague's interpretation creates absurdity: wired 5G components get access rights, wireless antenna components do not.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 141,
+   "speaker": "court",
+   "summary": "Access rights will be granted in some form, preventing municipal veto; Parliament intended access regime to cover wireless technology too.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 142,
+   "speaker": "other",
+   "summary": "Heading introducing object and purpose of the Telecommunications Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 143,
+   "speaker": "court",
+   "summary": "Federal Court of Appeal relied on presumption of consistent expression to exclude wireless transmission lines from CRTC jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 144,
+   "speaker": "court",
+   "summary": "'Transmission line' is undefined; 'transmission facility' is broadly defined, leading Federal Court of Appeal to narrow 'transmission line' meaning.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 145,
+   "speaker": "court",
+   "summary": "Presumption of consistent expression means different terms in legislation have different meanings, assumed intentional by Parliament.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 146,
+   "speaker": "court",
+   "summary": "Presumption can be rebutted by other interpretive principles; context affects its strength and application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 147,
+   "speaker": "court",
+   "summary": "Federal Court of Appeal failed to consider factors weakening presumption of consistent expression between 'transmission line' and 'transmission facility'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 148,
+   "speaker": "court",
+   "summary": "'Transmission line' and 'transmission facility' relate to different regimes and purposes in the Act, affecting presumption strength.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 149,
+   "speaker": "court",
+   "summary": "'Transmission facility' was introduced later and relates to ownership/control regime, distinct from access regime involving 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 150,
+   "speaker": "court",
+   "summary": "Though 'transmission facility' is defined early, it appears rarely and is linked to eligibility to operate as a telecommunications common carrier.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 151,
+   "speaker": "court",
+   "summary": "Parliament uses 'transmission facility' in s. 5 and s. 7 of the Act to clarify who is subject to the Act, not in the eligibility provision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 152,
+   "speaker": "court",
+   "summary": "The definition of 'transmission facility' is at the Act's start for clarity, used substantively only in s. 16, and Parliament distinguishes physical lines by using 'wire' or 'cable'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 153,
+   "speaker": "court",
+   "summary": "My colleague notes ss. 43-45 of the Act suggest physical, linear undertakings due to references to property and transmission lines on public infrastructure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 154,
+   "speaker": "court",
+   "summary": "The Act's provisions for physical land changes relate to wireline tech but do not exclude infrastructure like 5G small cells that may not require land breaking.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Act contemplates physical undertakings",
+    "Provisions necessary for wireline connections",
+    "No preclusion of non-land-breaking infrastructure",
+    "5G small cells may require property entry or breaking"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 155,
+   "speaker": "other",
+   "summary": "Section heading: Object and Purpose of the Telecommunications Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 156,
+   "speaker": "court",
+   "summary": "In Edmonton v. 360Networks, the FCA broadly interpreted 'highway or other public place' to avoid thwarting legislation objectives and support telecom network development.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 157,
+   "speaker": "court",
+   "summary": "If the FCA had used a dynamic approach like in 360Networks, it would have included wireless infrastructure in 'transmission line'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 158,
+   "speaker": "court",
+   "summary": "Section 10 of the Interpretation Act supports a dynamic interpretation to apply laws according to their true spirit and evolving circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 159,
+   "speaker": "court",
+   "summary": "Parliament's intent in enacting the Telecommunications Act supports a dynamic interpretation approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 160,
+   "speaker": "court",
+   "summary": "Section 7's objectives reflect a dynamic approach promoting orderly telecom development, reliable services, competitiveness, and responsive regulation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 161,
+   "speaker": "court",
+   "summary": "Interpreting 'transmission line' narrowly contradicts Act objectives by hindering 5G deployment and complicating negotiations without CRTC recourse.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 162,
+   "speaker": "party",
+   "summary": "Telus argues Cabinet directions require CRTC to ensure technological neutrality and improve access to support structures for timely telecom deployment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 163,
+   "speaker": "court",
+   "summary": "My colleague's narrow view of technological neutrality is contradicted by legislative history showing the Act was modernized for new technology.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 164,
+   "speaker": "evidence",
+   "summary": "Minister Perrin Beatty stated Bill C-62 was designed to be flexible and technologically neutral to avoid obsolescence from new technologies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 165,
+   "speaker": "court",
+   "summary": "Parliament left 'transmission line' undefined to allow growth, using broad terms like 'telecommunications service' to cover all technologies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 166,
+   "speaker": "court",
+   "summary": "Parliament's use of 'transmission line' shows commitment to technological neutrality, allowing the statute to cover future technologies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 167,
+   "speaker": "court",
+   "summary": "Since 5G networks serve the same purpose as physical cables, technological neutrality means they should be treated the same under the law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 168,
+   "speaker": "court",
+   "summary": "The principle of technological neutrality in copyright law requires equal application of the law to traditional and advanced technologies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 169,
+   "speaker": "court",
+   "summary": "The 2022 SCC reiterated that the Copyright Act should not favor or discriminate against any technology absent contrary parliamentary intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 170,
+   "speaker": "court",
+   "summary": "Though the Copyright Act differs, Parliament clearly intended the Telecommunications Act to be technologically neutral and adaptable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 171,
+   "speaker": "other",
+   "summary": "Section heading: Conclusion and Overview.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 172,
+   "speaker": "court",
+   "summary": "The Telecommunications and Radiocommunication Acts work together; a broad 'transmission line' definition supports technological neutrality and new technologies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 173,
+   "speaker": "court",
+   "summary": "The appeal is allowed, affirming that 'transmission line' includes 5G small cells.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

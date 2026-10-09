@@ -1,0 +1,413 @@
+{
+ "case_id": 29391,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0070676
+ },
+ "verification": {
+  "paragraphs": 38,
+  "summaries": 38,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 5
+  },
+  "speakers": {
+   "court": 34,
+   "party": 3,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 10,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Kimberley Gillespie seeks judicial review of the Canadian Human Rights Commission's dismissal of her disability discrimination complaint against the Canada Revenue Agency (CRA). The court found the Commission's dismissal unreasonable, particularly due to reliance on internal grievance processes that did not adequately address human rights allegations. The court granted the judicial review, quashed the Commission's decision, and remitted the matter for re-determination with costs awarded to Gillespie.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and outcome",
+    "kind": "other"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "Legal framework for Commission's complaint handling",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 14,
+    "label": "Applicant's background and internal grievance history",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 17,
+    "label": "Commission's dismissal of complaint and report",
+    "kind": "background"
+   },
+   {
+    "first": 18,
+    "last": 23,
+    "label": "Issues and standards of review",
+    "kind": "issue"
+   },
+   {
+    "first": 25,
+    "last": 26,
+    "label": "Respondent's arguments and court's initial findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 29,
+    "label": "Analysis of internal processes and legal doctrines",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 34,
+    "label": "Errors in Commission's reliance on grievance processes",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 41,
+    "label": "Correct legal test and Commission's misapplication",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 44,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Applicant Kimberley Gillespie seeks judicial review of the Canadian Human Rights Commission's dismissal of her complaint against CRA under the Canadian Human Rights Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Applicant argues the Commission's decision was unreasonable and lacked a coherent rationale in dismissing her complaint under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees and grants the application for judicial review for reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Commission may assign an investigator to report on complaints and recommend next steps under the Act's provisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Commission can dismiss complaints if they are trivial, frivolous, vexatious, or made in bad faith under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Commission considers a proceeding vexatious if it has been addressed in another process, citing relevant case law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Since June 2017, the Applicant required accommodations for anxiety and PTSD, with supervisors advised to minimize stress and confrontations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Between June 2017 and February 2018, the Applicant experienced several stressful incidents with supervisors, including being yelled at and public questioning of accommodations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Applicant initiated several grievances and internal processes around this time.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Between 2018 and 2020, the Applicant submitted three grievances under the FPSLRA, two of which are relevant and were denied due to insufficient evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Applicant also initiated two internal CRA processes, both dismissed after reviews by external investigator and DHCE screening.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "By March 2022, the Applicant's relevant grievances and internal processes had been dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "In August 2022, the Applicant filed a complaint with the Commission alleging disability discrimination by the CRA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "In August 2023, a report recommended dismissing the Applicant's complaint as other procedures had addressed the discrimination allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "In October 2023, the Commission dismissed the complaint, finding the internal grievance processes had addressed the complaint's essence; this decision is under review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court frames the issues as whether the dismissal decision was unreasonable and whether procedural fairness was breached.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The parties agree the standard of review for the dismissal decision's substance is reasonableness, which the court accepts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Procedural fairness issues are reviewed on a correctness standard, consistent with Supreme Court precedent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Reasonableness is a deferential but robust standard requiring decisions to be transparent, intelligible, justified, and coherent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "To find unreasonableness, flaws must be central or significant; courts should not reweigh evidence or interfere with factual findings absent exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Correctness review for procedural fairness asks whether the procedure was fair considering all circumstances and relevant factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Respondent argues the dismissal decision was reasonable, that the complaint was addressed in internal and grievance processes, and the plain and obvious test was properly applied.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court finds internal processes lacked independence and failed to address human rights allegations, making the Commission's fairness finding unintelligible.",
+   "ideas": "multiple",
+   "idea_list": [
+    "internal processes lacked independence",
+    "did not address human rights",
+    "Commission's fairness finding unintelligible"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court agrees internal workplace mechanisms generally cannot address human rights issues and finds the Commission erred relying on them to dismiss the complaint.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "Applicant argues the dismissal decision wrongly relies on common law doctrines of issue estoppel and abuse of process, which apply only to judicial proceedings, not internal non-judicial processes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's argument, finding the dismissal decision is rooted in the Commission's discretion to dismiss vexatious complaints, not on issue estoppel or abuse of process doctrines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The legal question was whether the complaint should be dismissed as vexatious; both judicial and non-judicial processes are relevant, but the Commission erred in finding internal processes capable of addressing human rights allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Commission erred by finding the grievance process addressed the complaint, as unions may withdraw grievances for reasons unrelated to merits, and such withdrawals are legally valid.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The duty of fair representation by unions differs from what is required for a human rights complaint to be addressed; the Commission needed to justify its finding that the complaint was addressed through grievances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Commission failed to provide substantive justification for its finding, relying on internal processes rather than grievance process evidence, insufficient given the union's withdrawal of grievances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Commission's cited cases are distinguishable because the grievances here did not proceed to arbitration or similar redress processes.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Commission's jurisprudence distinguishable",
+    "grievances did not proceed to arbitration",
+    "union withdrew grievances despite Applicant's efforts"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court states the correct legal test is whether it is 'plain and obvious' the complaint cannot succeed assuming the facts are true, citing Stukanov and Hicks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds the Commission applied the wrong standard by focusing on whether internal processes addressed the complaint rather than on prima facie discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court finds the Commission's assessment of prima facie discrimination was inadequate and unintelligible, noting it did not apply the 'plain and obvious' standard properly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Commission's reasoning is circular and illogical, and reliance on deficient processes perpetuates flaws.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Commission's reasoning is circular",
+    "Applicant not interviewed by DHCE",
+    "reliance on deficient processes perpetuates flaws"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Dismissal Decision is unreasonable and finds no need to address procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The parties agree on costs of $2,500, which the court finds reasonable and awards to the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court grants the judicial review, quashes the Commission's decision for errors, and remits the matter for re-determination with costs to the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

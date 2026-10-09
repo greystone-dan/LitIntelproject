@@ -1,0 +1,420 @@
+{
+ "case_id": 6625,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0070952
+ },
+ "verification": {
+  "paragraphs": 38,
+  "summaries": 38,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 22,
+   "below": 7,
+   "party": 9
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 10,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves the Applicant, a Jamaican citizen, seeking judicial review of a Senior Immigration Officer's refusal of her second permanent residence application on humanitarian and compassionate grounds under IRPA section 25. The Applicant challenged the Officer's assessment of her establishment in Canada, evidence of front-line work during COVID-19, and procedural fairness regarding the absence of an oral interview. The Federal Court dismissed the judicial review, finding the Officer's decision reasonable and no breach of procedural fairness.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Decision below and Applicant's arguments",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Legal framework for H&C relief",
+    "kind": "other"
+   },
+   {
+    "first": 13,
+    "last": 17,
+    "label": "Assessment of unauthorized work and establishment",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 24,
+    "label": "Assessment of front-line work evidence and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Assessment of financial support and family hardship evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 33,
+    "label": "Applicant's further arguments and Officer's balancing of factors",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 36,
+    "label": "Procedural fairness and oral interview issue",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 38,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, a 60-year-old Jamaican citizen, seeks judicial review of a Senior Immigration Officer's April 30, 2021 refusal of her second permanent residence application on humanitarian and compassionate grounds under IRPA section 25.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Applicant entered Canada in March 2012, overstayed her temporary status, and had a refugee claim refused by the Refugee Protection Division on September 5, 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicant's first H&C application was refused June 21, 2018, her PRRA application refused January 25, 2019, and after failing to appear for removal, a warrant was issued for her arrest on April 17, 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "On September 2, 2020, the Applicant filed a second H&C application citing her front-line work during COVID-19, financial independence, family support, education, community ties, hardships if returned to Jamaica, and impact on her grandchildren.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's second H&C application filed",
+    "Applicant's submissions on work, establishment, family support, education, hardships, grandchildren"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The Officer's April 30, 2021 decision found the Applicant had limited positive establishment, insufficient hardship evidence if returned to Jamaica, and that returning was in her grandchildren's best interests, denying H&C relief.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's findings on establishment",
+    "Officer's findings on hardship",
+    "Officer's findings on grandchildren's best interests",
+    "Officer's denial of H&C relief"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer erred by diminishing establishment due to unauthorized work, undervaluing her affidavit on front-line work, misassessing country conditions, and breaching procedural fairness by a veiled credibility finding without an oral interview.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's error on establishment weight",
+    "Officer's error on affidavit evidence",
+    "Officer's error on country conditions",
+    "Procedural fairness breach claim"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court will dismiss the Applicant's judicial review application for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The issues are whether the Officer's decision was reasonable and whether there was a breach of procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The standard of review is reasonableness; the court must assess if the decision is transparent, intelligible, justified, and based on a rational analysis consistent with facts and law, intervening only for serious shortcomings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Procedural fairness review is non-deferential, focusing on whether the Applicant knew the case to meet and had a full and fair chance to respond.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Section 25(1) IRPA allows discretionary H&C relief by weighing all relevant considerations cumulatively to determine if relief is justified to relieve misfortunes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "H&C exemptions are exceptional and highly discretionary, deserving court deference, with no rigid formula determining outcomes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Applicant contends the Officer unfairly reduced weight on her establishment due to unauthorized work and stay, citing Baeza that steady unauthorized employment should not be penalized in H&C applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer improperly relied on irrelevant factors like unauthorized work and stay, failing to address her submissions against penalizing unauthorized work, rendering the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "Justice McHaffie in Rozgonyi v Canada recently addressed a similar argument regarding unauthorized work and establishment in H&C applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court agrees with Justice McHaffie's reasoning that it was not improper for the Officer to assign negative weight to unauthorized work and stay in Canada in the balancing exercise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Officer reasonably balanced positive and negative elements of the Applicant's establishment, finding only a small amount of positive establishment; the court will not reassess this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Applicant asserts her front-line personal support worker role during COVID-19 should weigh heavily in her favour for permanent residency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicant submitted a sworn affidavit attesting to her employment history, explaining lack of employer documentation due to unauthorized work.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The Officer found little objective evidence beyond the Applicant's affidavit to prove her personal support worker employment and assigned little weight to this factor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Applicant argues her sworn affidavit has high probative value and no further objective evidence was required; the Officer erred by requiring more and not explaining why.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicant asserts the Officer's requirement for more evidence indicates a veiled credibility finding against her.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's claims, stating sworn statements alone don't prove claims without sufficient evidence, and lack of proof doesn't imply disbelief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Officer made no credibility finding but found insufficient objective evidence; such sufficiency findings deserve deference if explained and not disguised credibility findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The Officer noted multiple evidentiary deficiencies, including lack of objective evidence for employment and financial stability, undermining the Applicant's claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The Officer found insufficient evidence that the Applicant was the main financial supporter of her family, despite some letters and one money transfer receipt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The Officer found insufficient evidence that the Applicant's grandchildren would be greatly affected financially by her removal, noting lack of details and objective proof.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The Officer rejected the claim that the Applicant's family would fall into poverty without her Canadian income, finding no evidence all are unemployed or unable to support themselves.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Applicant criticizes the Officer's negative weight on unauthorized work, citing Fidel Baeza where steady employment was not penalized despite lack of work permits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court finds a balance is needed: H&C relief presupposes IRPA non-compliance but establishment evidence, including unauthorized work, may be considered; the Officer reasonably balanced these.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's H&C application emphasized multiple factors, not just COVID-19 frontline work, and the Officer addressed this work appropriately.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's submissions included multiple factors",
+    "Officer addressed COVID-19 work submission"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds no inconsistency in the Officer's view that the Applicant may face employment hardship in Jamaica but has improved prospects due to Canadian education and experience.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds the Officer addressed the Applicant's risk of discrimination and sexual harassment as part of her employment hardship submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court will not consider new hardship arguments raised at the hearing that were not in the Applicant's written submissions, as this is unfair to the Respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer made an adverse credibility finding disguised as insufficiency, requiring an oral interview.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds no credibility finding by the Officer and no breach of procedural fairness in not holding an oral interview, citing relevant case law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No credibility finding by Officer",
+    "No breach of procedural fairness without interview"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court dismisses the judicial review application, finding the Officer's decision reasonable and no procedural fairness breach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court agrees with the parties that no question for certification arises.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

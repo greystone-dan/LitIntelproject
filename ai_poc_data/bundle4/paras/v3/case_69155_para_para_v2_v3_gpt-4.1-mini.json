@@ -1,0 +1,271 @@
+{
+ "case_id": 69155,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0038744000000000005
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 17,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by Iranian appellants against the Refugee Protection Division's (RPD) decision rejecting their refugee claims based on credibility issues and alleged persecution due to Christian conversion. The appellants challenged the hearing process, credibility assessment, and the rejection of new evidence. The Refugee Appeal Division (RAD) dismissed the appeal, confirming the RPD's negative credibility findings and refusal of refugee status.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and appeal context",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 3,
+    "label": "Appellants' arguments",
+    "kind": "issue"
+   },
+   {
+    "first": 4,
+    "last": 7,
+    "label": "Legal framework for new evidence",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 8,
+    "last": 12,
+    "label": "Assessment of new evidence and oral hearing request",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 14,
+    "label": "Credibility findings of the RPD",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 18,
+    "label": "Hearing conduct and interpretation issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 20,
+    "label": "Specific credibility issues on sexual assault claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Principal and Associate Appellants from Iran appeal the RPD's May 16, 2022 decision rejecting their refugee claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Appellants initially claimed persecution from a Sepah member but now allege risk due to Christian conversion, appealing after credibility-based refusal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "initial claim of persecution from Sepah member",
+    "new claim of persecution due to Christian conversion"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred in hearing conduct, credibility assessment, and ignoring supporting evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "hearing conduct error",
+    "credibility assessment error",
+    "failure to consider evidence"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Chairperson's Guideline 4 on gender considerations was applied to the Principal Appellant's allegations and appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Appellants submitted five new pieces of evidence including a church letter, baptism certificates, and photographs dated 2020 and 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Subsection 110(4) IRPA limits new evidence to that arising after claim rejection or not reasonably available before.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The RAD applies adapted Raza factors (excluding materiality) to assess new evidence's credibility, relevance, and newness per Singh.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Photographs from 2020 were before the RPD and thus not new evidence, so they are rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Documents dated June/July 2022 are new but do not raise new issues and thus lack probative value.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The new documents relate to the Appellants' Christian conversion, an issue already before the RPD, so no new argument for acceptance is made.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The documents do not overcome credibility concerns about conversion and are rejected as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "No new evidence admitted, so no oral hearing under subsection 110(6) IRPA is authorized.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD's credibility concerns and confirms the negative credibility determination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The RPD found multiple negative credibility issues including delays, reavailment, changes in claims, omissions, and inconsistent testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with the Appellants' claim that the hearing was one-sided and poorly translated, finding the Member conducted it properly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Member addressed concerns about interpreter paraphrasing and instructed parties to provide short, focused answers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "No prior complaints about interpretation were made; the Member was impartial and sensitive, so allegations of bias and poor interpretation are rejected.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no complaints about interpretation",
+    "Member impartial and sensitive",
+    "allegations of bias rejected"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal independently reviewed the transcript and agrees with the RPD's detailed credibility findings and rejects the Appellants' argument blaming the Member.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agreement with RPD credibility findings",
+    "rejection of Appellants' blame on Member"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The RPD was respectful during questioning on sexual assault, accepted the Principal Appellant was assaulted but not by the alleged person, lacking documentary proof.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respectful questioning on sexual assault",
+    "acceptance of assault victim status",
+    "no proof assault by alleged person"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that documentary evidence was inconsistent and did not overcome credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RAD dismisses the appeal and confirms the RPD's decision that the Appellants are not refugees or persons in need of protection under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,316 @@
+{
+ "case_id": 31262,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0044028
+ },
+ "verification": {
+  "paragraphs": 31,
+  "summaries": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 28,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Jagpreet Singh's judicial review of an immigration officer's refusal of his study permit application for a Project Management certificate at Loyalist College. The court found the officer's decision unreasonable due to lack of proper consideration of evidence and inadequate explanation for refusal. Consequently, the court allowed the application for judicial review and did not address procedural fairness.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 29,
+    "label": "Analysis of officer's decision and respondent's arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 31,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Applicant Jagpreet Singh seeks judicial review of an immigration officer's refusal of his study permit application for a Project Management certificate at Loyalist College.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant identity and application",
+    "Officer's refusal reasons"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court allows the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Applicant is a 26-year-old unmarried Indian citizen with a Bachelor of Technology in Civil Engineering completed in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Applicant applied for study permits to three Canadian programs between 2019-2020, all of which were refused.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Applicant was admitted to Loyalist College for a Project Management certificate starting Winter 2022 and applied for a study permit on August 30, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Officer refused the application due to doubts about Applicant leaving Canada and the reasonableness of proposed studies based on qualifications and other factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Officer's GCMS notes raised concerns about study cost, local options, inconsistent educational goals, prior refusals, and unpaid tuition.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Cost concerns",
+    "Local study options",
+    "Inconsistent applications",
+    "Tuition payment issues"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Issues for review are whether the Decision was reasonable and whether there was a breach of procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Both parties agree the Decision is reviewed for reasonableness, with the presumption of reasonableness not rebutted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Reasonableness requires justification, transparency, and intelligibility; unreasonableness arises from fatal flaws or untenable logic; burden is on challenger.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Because the Decision is found unreasonable, the court does not address procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Officer failed to properly consider or misapprehended evidence; Decision lacks transparency, intelligibility, and justification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Officer did not properly explain rejection of Applicant's study purpose and motivations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Officer failed to justify several grounds and improperly considered Applicant's ability to complete the program, which is not a legal criterion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Officer ignored favorable evidence like tuition paid, acceptance letter, and funds available; no evidence Applicant would disobey law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Officer made erroneous factual findings about IELTS score, tuition payment, and establishment in India; vague references fail reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Concerns about high cost of study lack justification given evidence Applicant can pay tuition fees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Respondent argues Decision was reasonable; Applicant bears burden to prove study plan merits; Officer may refuse without sufficient details.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Respondent contends Applicant provided minimal evidence for not studying in India or choosing Canada; some statements lack support.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Respondent says variability in Applicant's prior applications justifies concern he seeks permanent stay; presumption of immigrant intent not rebutted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court finds Decision unreasonable due to lack of intelligible explanation rejecting Applicant's study purpose; Decision is conclusory and vague.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "No evidence Applicant cannot complete program; Officer should not dispute ability if institution admits Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Officer presumed to consider all evidence, but here ignored favorable evidence of tuition payment and funds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "No evidence Applicant would disobey law; prior refusals reflect diligence, distinguishing this case from Roopchan.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Case distinguished from Charara because Applicant explained course utility despite similarities in program type.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Case distinguished from Ali as Applicant has prior experience and resources unlike Ali's applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Jurisprudence shows Officer should not assess education value; high cost alone does not make enrollment unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Caianda decision states cost of education is not a valid reason to doubt bona fide student status if applicant can afford it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Applicant has proven adequate funds; high education cost is not an obstacle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Judicial review application allowed; Decision lacks intelligibility, transparency, and justification, offering only vague conclusions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court agrees with the parties that no question for certification arises in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  }
+ ]
+}

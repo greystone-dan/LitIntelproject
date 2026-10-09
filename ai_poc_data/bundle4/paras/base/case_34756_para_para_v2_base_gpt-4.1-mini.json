@@ -1,0 +1,180 @@
+{
+ "case_id": 34756,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0024944
+ },
+ "verification": {
+  "paragraphs": 12,
+  "summaries": 12,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 10,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Ms. Nandha's judicial review of a visa officer's decision rejecting her permanent resident visa application due to inconsistent employment information. Ms. Nandha argued the officer ignored her documentary evidence and failed to explain preferring a verification call's contradictory results. The Federal Court found the officer's decision reasonable and dismissed the judicial review application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and Applicant's Arguments",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 3,
+    "label": "Standard of Review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Record and Evidence",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Analysis of Officer's Decision and Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 10,
+    "label": "Additional Findings on Misrepresentation",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Disposition and Certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "An IRCC officer rejected Ms. Nandha's permanent resident visa application due to inconsistent employment information from a verification call.",
+   "ideas": "multiple",
+   "idea_list": [
+    "verification call to hotel",
+    "discrepancies in answers",
+    "rejection of visa application"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. Nandha seeks judicial review, arguing the officer ignored her documentary evidence and failed to explain preferring verification call results; she withdrew a second argument.",
+   "ideas": "multiple",
+   "idea_list": [
+    "judicial review sought",
+    "argument on ignoring evidence",
+    "withdrawn second argument"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court states the reasonableness standard applies to review visa officer decisions, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The officer's GCMS notes detail the interview, verification call discrepancies, Ms. Nandha's unsatisfactory responses, and the officer's decision rejecting eligibility under relevant immigration provisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "GCMS notes content",
+    "discrepancies noted",
+    "officer's decision stated"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The record includes Ms. Nandha's application and documentary evidence like affidavits, employee registers, salary slips, and tax returns supporting her employment claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Ms. Nandha argues the officer ignored or failed to explain preferring verification call contradictions over documentary evidence, citing Rong case law.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court agrees the officer's reasons were scant but finds them sufficiently clear and not ignoring evidence, understanding the officer's conclusion about contradictions undermining documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "officer's reasons scant",
+    "reasons meet reasonableness",
+    "contradictions undermine evidence"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court distinguishes this case from Rong, noting the verification call was with a supervisor whose contradictory answers materially differed from Ms. Nandha's claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "distinction from Rong",
+    "verification call with supervisor",
+    "material contradictions detailed"
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court finds the officer's decision reasonable despite lacking detail, as the contradictory verification call information justified doubt on Ms. Nandha's employment claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision reasonable",
+    "lack of detail acceptable",
+    "contradictory info justified doubt"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court notes no misrepresentation finding was made against Ms. Nandha, though it was raised, and such findings require detailed reasons.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court dismisses Ms. Nandha's judicial review application, finding she did not meet the burden to show unreasonableness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "No question for certification was proposed or found to arise in this matter.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

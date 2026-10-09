@@ -1,0 +1,201 @@
+{
+ "case_id": 35838,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0029952000000000004
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 1,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 1
+  },
+  "speakers": {
+   "court": 12,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review of IRCC decisions finding Mr. Nguyen inadmissible for misrepresentation and refusing his and his dependents' work and study permit applications. Mr. Nguyen challenged the reasonableness and procedural fairness of these decisions, arguing that the Officer unreasonably focused on a single document claiming a degree while ignoring contradictory evidence. The court found the Officer's decisions unreasonable and ordered redetermination of all applications without addressing procedural fairness.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 1,
+    "label": "Introduction and relief sought",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 6,
+    "label": "Applicant's submissions and procedural fairness response",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Decision below and findings of inadmissibility",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 10,
+    "label": "Applicants' challenge to decisions",
+    "kind": "issue"
+   },
+   {
+    "first": 12,
+    "last": 16,
+    "label": "Analysis of reasonableness of Officer's decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 18,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court grants judicial review of IRCC decisions finding Mr. Nguyen inadmissible for misrepresentation and refusing work and study permits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Mr. Nguyen submitted various documents including application forms, CV, education certificates, explanation letter, and venture report for his TFWP application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "On August 28, 2024, IRCC sent a procedural fairness letter expressing concern about possible misrepresentation of Mr. Nguyen's educational credentials.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Officer noted other concerns and gave Mr. Nguyen 30 days to respond to the procedural fairness letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Mr. Nguyen responded explaining he attended University of Waikato for two years without a degree, had a Level 4 automotive engineering certificate, and called the degree claim a 'typo'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "On October 3, 2024, the Officer found Mr. Nguyen inadmissible for misrepresentation and refused his and his dependents' applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Since Mr. Nguyen's refusal was unreasonable, the refusals of his dependents' applications are also unreasonable; the judicial review covers all applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer gave little weight to Mr. Nguyen's 'typo' explanation and found he misrepresented facts inducing an error, leading to inadmissibility for five years.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Applicants challenge the reasonableness and procedural fairness of the Officer's decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Other application documents contradict the venture report's claim of a degree; Mr. Nguyen's forms and CV show only partial studies and a certificate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Officer did not acknowledge the contradictory documents and focused only on the venture report's incorrect degree claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicants that the Officer's focus on the venture report to the exclusion of other documents was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "A reasonable decision must be justified, transparent, and intelligible, especially given the impact on the affected person.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The five-year inadmissibility bar is harsh; the Officer failed to address contradictory evidence or justify the decision, making it unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Because the decisions are unreasonable, the court declines to assess procedural fairness and orders redetermination of all applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "No question for certification arises, and none is proposed by the parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

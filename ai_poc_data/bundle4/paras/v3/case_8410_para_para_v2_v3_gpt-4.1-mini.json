@@ -1,0 +1,278 @@
+{
+ "case_id": 8410,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0035192
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 18,
+   "below": 5,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant, a Palestinian permanent resident convicted of sexual assault and found inadmissible for serious criminality, seeking judicial review of a PRRA decision denying his claim based on risk of reprisal for informing Israeli military. The Respondent, Canada (Citizenship and Immigration), opposes the application. The Federal Court dismissed the application, finding the PRRA decision reasonable and supported by evidence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Introduction and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 3,
+    "last": 9,
+    "label": "Background and tribunal decision",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 14,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 15,
+    "last": 24,
+    "label": "Applicant's arguments and court's analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 26,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review of a March 31, 2020 PRRA decision; the Respondent wants dismissal of the application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks judicial review",
+    "Respondent seeks dismissal"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The application is dismissed for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicant is a Palestinian permanent resident convicted in 2018 of sexual assault and found inadmissible for serious criminality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant applied for a PRRA on June 27, 2019, eligible only under s.97 due to inadmissibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The Decision recognized the Applicant's eligibility for review only under s.97 due to serious criminality inadmissibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Officer acknowledged the Applicant's fear of reprisal for informing Israeli military and noted concerns about leaving his pregnant girlfriend, but dismissed the latter as outside PRRA scope.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer found the Applicant vague on key claim details, including dates, identification of recruiters, and information disclosed to Israeli forces.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer noted inconsistencies about the Applicant's siblings and visa possession, undermining credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer concluded insufficient evidence showed a personalized risk; generalized country conditions do not apply under s.97, so PRRA was refused.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The sole issue is whether the Decision was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Supreme Court in Vavilov confirmed judicial review is presumed to be on the reasonableness standard, with no exceptions here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Under reasonableness review, the Court must not decide the issue anew but assess if the Decision and rationale are unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "A reasonable decision must have a coherent, rational analysis justified by facts and law, and courts must defer to it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Supreme Court said administrative reasons need not be perfect or address every argument explicitly to be reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Applicant argued his risk was never assessed before and all risk evidence submitted was new.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Applicant testified he worked as an Israeli informant from 2008 to 2015 after being recruited by Malik, an Israeli intelligence captain.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant fears for his life due to being accused of collaboration after thwarting an attack in 2014 and hearing rumors from his brother.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Applicant claims the Officer ignored evidence, but Vavilov presumes decision-makers consider all evidence without explicit findings on each element.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Most evidence submitted were general country condition documents about risks to suspected informants in Palestine.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Officer identified three problems with the Applicant's evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "First, the Applicant left family section blank but claimed a brother informed him, raising credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Second, the Applicant's claim that Israelis held his visa conflicts with his travel to Canada using that visa, raising suspicion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Third, no personalized evidence like affidavits supports the Applicant's claim of risk from being an informant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "General country documents show risks to informants but do not support the Applicant's personal informant story, lacking reliable evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "For these reasons, the application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "No serious question of general importance exists for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

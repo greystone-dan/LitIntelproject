@@ -1,0 +1,420 @@
+{
+ "case_id": 70000,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.006193200000000001
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 28,
+   "evidence": 4,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 8,
+  "sections": 10,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the appeal of a Zimbabwean woman whose refugee claim was denied by the Refugee Protection Division (RPD) in 2020. The Refugee Appeal Division (RAD) reviewed errors in the RPD's assessment of her credibility and the internal flight alternative (IFA) risk, ultimately finding that she is a Convention refugee due to credible fear of persecution related to domestic violence and the risk posed by seeking a divorce. The RAD allowed the appeal, set aside the RPD decision, and substituted its own decision granting refugee protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Introduction and appeal summary",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 6,
+    "label": "Applicant's background and arguments",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Standard of review and tribunal's approach",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "RPD's IFA analysis and legal test",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Tribunal's approach to IFA and credibility issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 18,
+    "label": "Credibility findings and rejection of RPD's doubts",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 27,
+    "label": "Analysis of IFA risk related to divorce and persecution",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 30,
+    "label": "Psychological evidence and IFA reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 34,
+    "label": "State protection assessment and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 36,
+    "label": "Final findings and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal of the Zimbabwean Appellant, finding she is a Convention refugee.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Appellant's refugee claim was denied by the RPD in 2020; she appeals errors in credibility and IFA assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "evidence",
+   "summary": "The 58-year-old Appellant fears her husband in Zimbabwe due to decades of violence and fears further harm if returned.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "evidence",
+   "summary": "The Appellant traveled to the US with a visa intending to claim refugee protection in Canada in July 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD sets aside the RPD decision and determines the Appellant is a Convention refugee, allowing the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred on IFA risk, reasonableness of living in Bulawayo, credibility on husband's politics, and failure to analyze abuse and police protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IFA risk assessment error",
+    "Reasonableness of living in Bulawayo",
+    "Credibility on husband's political activities",
+    "Failure to analyze abuse and police protection"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal applies the correctness standard of review to the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal independently reviews evidence, finds RPD erred, accepts Appellant's credibility, rejects IFA in Bulawayo, and finds state protection rebutted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD error found",
+    "Appellant credible",
+    "No IFA in Bulawayo",
+    "State protection rebutted"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD focused on IFA, asking if the Appellant could relocate to Bulawayo to avoid her husband, which she said she could not for multiple reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD focus on IFA",
+    "Appellant's reasons against relocation"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The IFA test requires no serious persecution risk and that relocation be reasonable considering claimant's needs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD failed to consider the Appellant's desire to divorce, which risks persecution, failing the first IFA test prong.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal also finds the Appellant's mental health and psychological assessment make any IFA unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal will first address credibility issues then analyze the RPD's IFA errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant credible on all claim aspects on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RPD accepted credibility on domestic violence but doubted credibility on husband's political involvement, undermining IFA argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with RPD's finding of omission about husband's political activities, finding the Appellant's explanation reasonable and credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal rejects RPD's view that testimony on husband's politics was vague or inconsistent, considering gender guidelines and cultural context.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Considering context, the tribunal accepts the Appellant's testimony on husband's work and political ties, rejecting RPD's inconsistency finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with RPD's IFA risk analysis, finding the Appellant's desire to divorce places her at risk in any IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "evidence",
+   "summary": "The Appellant testified she wants a divorce and that her husband would know her location due to court attendance requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Counsel submits divorce in Zimbabwe alerts husband to location, unlike Canada where police protection and distance exist; divorce carries stigma.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal notes the RPD did not address risks from seeking divorce, despite evidence of threats from husband when separation was raised.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal cites the Universal Declaration of Human Rights affirming the fundamental right to marry and dissolve marriage equally.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal cites CEDAW provisions ensuring women's equal rights in marriage and its dissolution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's desire to divorce is core to self-determination, citing Calderon v. Canada on unreasonable IFA conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal analogizes the Appellant's case to Calderon, finding it unreasonable to expect her not to seek divorce to avoid persecution in IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant has a right to divorce and that any IFA would alert her husband, causing serious persecution risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD failed to consider the psychological assessment showing pervasive fear and impact of abuse, affecting IFA reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal cites Nimako v. Canada on IFA reasonableness in gender violence cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds requiring relocation despite ongoing fear is unreasonable, so the Appellant lacks an IFA and has rebutted state protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Relocation unreasonable due to fear",
+    "No IFA",
+    "State protection rebutted"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "evidence",
+   "summary": "The Appellant testified about reporting domestic violence to police over 38 years, who did nothing, and provided a 2010 police and medical report.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's testimony on police inaction",
+    "2010 police and medical report",
+    "telling family about violence"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds Zimbabwe has domestic violence laws since 2007 but enforcement is weak and police often mishandle or stigmatize victims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Zimbabwe's domestic violence legislation",
+    "Weak enforcement and stigma",
+    "Police misconduct and bribery reports"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The UK Home Office reports domestic violence is illegal in Zimbabwe but considered private, with rare prosecutions and high prevalence among women.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Domestic violence illegal but private matter",
+    "Rare prosecutions",
+    "High prevalence among women"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the Appellant's evidence and objective reports confirm difficulties in obtaining state protection, rebutting the presumption of state protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court finds the Appellant credible, accepts her evidence of abuse and lack of state protection, and allows her appeal as a Convention refugee.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant credibility",
+    "No internal flight alternative",
+    "Rebutted state protection",
+    "Appeal allowed"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court allows the appeal under IRPA and substitutes its own decision that the Appellant is a Convention Refugee, signed by Nadra Qadeer on April 29, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

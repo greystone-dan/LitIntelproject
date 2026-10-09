@@ -1,0 +1,309 @@
+{
+ "case_id": 34410,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0045056
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 4
+  },
+  "speakers": {
+   "court": 20,
+   "below": 4,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application by the Applicant challenging the Officer's refusal to reconsider a humanitarian and compassionate (H&C) application due to inadmissibility linked to membership in a terrorist organization. The Applicant sought reconsideration after the initial refusal, but the Officer denied it, finding the new evidence insufficient to change the decision. The Federal Court dismissed the judicial review, holding that the Officer's refusal was reasonable and did not breach procedural fairness.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Background: H&C application and reconsideration",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Parties' positions",
+    "kind": "other"
+   },
+   {
+    "first": 14,
+    "last": 17,
+    "label": "Legal framework for reconsideration",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 22,
+    "label": "Analysis of reconsideration stage and reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 24,
+    "label": "Review of evidence and prior decision",
+    "kind": "background"
+   },
+   {
+    "first": 25,
+    "last": 29,
+    "label": "Reasonableness of Reconsideration Decision and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 31,
+    "label": "Certification",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court dismisses the judicial review application, finding the Officer's refusal to reconsider the H&C application was not unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The Officer refused the H&C application in 2023, finding the Applicant inadmissible due to self-declared membership in the TM linked to crimes against humanity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer refused H&C application",
+    "Applicant self-declared TM membership",
+    "TM linked to crimes against humanity",
+    "Applicant found complicit under Ezokola test"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The Applicant requested reconsideration of the H&C Decision on November 30, 2023, submitting additional documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Officer denied reconsideration in January 2024, accepting the delay explanation but finding the new evidence insufficient to change the original decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer accepted delay explanation",
+    "New evidence did not change decision",
+    "Original self-declaration heavily weighted",
+    "Reconsideration Decision refused application"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Both parties agree the standard of review is reasonableness, which the court accepts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard requires justification, transparency, and intelligibility, with the challenger bearing the onus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court states procedural fairness breaches are reviewed on correctness, assessing fairness in all circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Applicant contends the Officer breached procedural fairness by relying on RPD evidence different from that in the H&C application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant improperly attacks the H&C Decision in this review and that the Reconsideration Decision is reasonable given new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court introduces the legal framework for reconsideration decisions from prior jurisprudence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Immigration officers may reconsider decisions based on new evidence but have no general obligation; the applicant must justify reconsideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Reconsideration involves two stages: deciding to reopen and then reconsidering the merits if reopened.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The scope and reasons required differ between the first and second stages of reconsideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The parties dispute whether the Officer's decision was a first or second stage reconsideration; the Applicant argues second stage, Respondent first stage.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court finds the Officer engaged only in the first stage, assessing whether to reopen the H&C Decision based on new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "At the first stage, officers must consider submissions about why reconsideration is warranted in the interests of justice or unusual circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Merely mentioning new evidence does not prove a second stage decision; failure to engage with new evidence at first stage raises reasonableness concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The justification required for refusing to reopen depends on case context; here, the Officer's refusal meets the lower threshold for first stage decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The issue of Applicant's TM membership was fully addressed in the H&C application, including procedural fairness letters and consideration of recantation evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The Officer reviewed the Police Security Clearance and additional submissions but maintained the November 3, 2023 decision refusing the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court cites Tanyanyiwa to support that the Officer's brief refusal to reconsider is a logical first stage decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Reconsideration Decision is consistent with other refusals, engaging with submissions and explaining why new evidence was insufficient to reopen.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the Applicant improperly challenges the H&C Decision's merits, which is not the issue here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's argument that the Reconsideration Decision should be more detailed, citing reasonableness review principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Applicant's procedural fairness arguments are more about reasonableness and do not show unfair procedure under the circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "No questions for certification are proposed or arise in this case, as agreed by the parties and the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

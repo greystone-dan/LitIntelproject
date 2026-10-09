@@ -1,0 +1,233 @@
+{
+ "case_id": 7486,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.004160400000000001
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 2,
+   "evidence": 1,
+   "court": 10
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant's request to have his Social Insurance Number (SIN) deregistered under the DESDA, arguing that since he is not currently employed, he should not be required to maintain a SIN. The Respondents, representing the government, contend that the legislation does not allow for SIN rescission and that the SIN remains valid regardless of employment status. The court applied a reasonableness standard of review and ultimately dismissed the Applicant's judicial review application, finding no statutory power for SIN rescission.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Applicant's request for SIN deregistration",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Applicant's history and communications",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 15,
+    "label": "Description of SIN and Respondents' position",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 21,
+    "label": "Standard of review discussion",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 22,
+    "last": 30,
+    "label": "Legislative framework under DESDA",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 36,
+    "label": "Interpretation of DESDA provisions and statutory context",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 124,
+    "label": "Court's conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "party",
+   "summary": "The Applicant seeks to have his SIN deregistered, arguing that since he is not currently employed, he should not be required to have a SIN under s 28.1(1) of DESDA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's claim to deregister SIN",
+    "Reliance on s 28.1(1) DESDA",
+    "Applicant's interpretation of 'employed'"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "evidence",
+   "summary": "The Applicant, self-represented and experienced in litigation, applied for a SIN in 1986, has not been employed since 2009, and was told in 2016 that a SIN is permanent and cannot be disassociated from the individual.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's litigation experience",
+    "Applicant's employment history",
+    "Department's response on SIN permanence"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "party",
+   "summary": "The Applicant engaged in escalating communications demanding SIN rescission, but no unfair treatment is shown; his religious objection was not substantively raised nor a Charter breach alleged.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's communications with Department",
+    "No unfair treatment found",
+    "Religious and Charter issues not substantively raised"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court explains that a SIN identifies individuals for work, taxes, and government services, stored in a Register accessed only for legislated purposes.",
+   "ideas": "single",
+   "idea_list": [
+    "Purpose and use of SIN and Register"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The Respondents list programs requiring SINs, note having a SIN doesn't legally compel participation, and frame the central issue as whether DESDA allows SIN deregistration and if the Court should order it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Programs requiring SIN",
+    "SIN's practical necessity",
+    "Central legal issue"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The Applicant argues for correctness standard of review, Respondents for reasonableness; the court notes only one reasonable conclusion exists, citing Vavilov and Nova Tube cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standards of review debate",
+    "Single reasonable interpretation",
+    "Relevant case law"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court finds the issue is not of central importance warranting correctness standard, notes public impact, and favors reasonableness standard due to Respondents' expertise and broad SIN context.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Issue not central importance",
+    "Public impact noted",
+    "Respondents' expertise supports reasonableness"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The court details DESDA provisions requiring registration of employed persons, maintenance of the Register, assignment of SINs, and contents and issuance of SIN cards.",
+   "ideas": "multiple",
+   "idea_list": [
+    "s 28.1(1) registration requirement",
+    "Register maintenance",
+    "SIN assignment and card issuance"
+   ]
+  },
+  {
+   "para": 25,
+   "last": 27,
+   "speaker": "court",
+   "summary": "The court explains limited circumstances for issuing new SINs and voiding old ones, emphasizing no rescission but only voiding under special conditions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Conditions for new SIN issuance",
+    "Voidance of old SINs",
+    "No rescission power"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 30,
+   "speaker": "court",
+   "summary": "The court notes DESDA is silent on SIN rescission, no statutory power for rescission exists, and rejects Applicant's interpretation of 'is employed' as a continuing condition.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No rescission power in DESDA",
+    "Legislative silence on rescission",
+    "Applicant's interpretation rejected"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's interpretation of registration timing unreasonable, inconsistent with the legislation's scheme, and lacking provisions for rescission or deregistration, considering statutory context and modern interpretation principles.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's interpretation unreasonable",
+    "Legislation's scheme and purpose considered",
+    "No statutory rescission or deregistration provision"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "The court supports the Respondents' interpretation that a SIN, once issued, is not rescinded, aligning with administrative consistency and statutory objectives, and rejects the Applicant's voluntary relationship argument as the registration is compulsory.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondents' interpretation consistent with purpose",
+    "SIN not rescinded once issued",
+    "Registration is statutory and compulsory"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 124,
+   "speaker": "court",
+   "summary": "The court concludes the Respondents lack power and the Applicant lacks right to rescind the SIN, dismisses the judicial review application with costs, and notes that reasonableness review may sometimes reveal a single reasonable statutory interpretation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No power or right to rescind SIN",
+    "Judicial review dismissed with costs",
+    "Reasonableness review may find single reasonable interpretation"
+   ]
+  }
+ ]
+}

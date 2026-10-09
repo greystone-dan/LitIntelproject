@@ -1,0 +1,180 @@
+{
+ "case_id": 69024,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0037992
+ },
+ "verification": {
+  "paragraphs": 24,
+  "summaries": 8,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 5,
+   "mixed": 3
+  },
+  "multi_idea_paragraphs": 8,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by a Ghanaian appellant with US permanent resident status against the Refugee Protection Division's (RPD) decision to exclude him from refugee protection under Article 1E of the IRPA. The appellant argued that the RPD applied the wrong legal test and challenged the finding that he had valid US permanent resident status and no risk or fear in the US. The court reviewed the evidence and legal tests, ultimately dismissing the appeal and agreeing with the RPD that the appellant was properly excluded from refugee protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and appeal overview",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Review of appellant's status and RPD's decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Legal arguments on applicable test",
+    "kind": "issue"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Application of legal test and findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Appellant's evidence on US status",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Evidence on US abandonment rules and legal opinion",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Court's findings on US status and risk",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Conclusion and dismissal of appeal",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The Appellant, a Ghanaian with US permanent resident status, appeals the RPD's exclusion decision under Article 1E; the court applies the Jurisprudential Guide and dismisses the appeal, agreeing the Appellant is excluded from refugee protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's background and claim",
+    "RPD's exclusion decision",
+    "Court's application of Jurisprudential Guide and dismissal"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The court reviews the Appellant's US permanent residence and life events, finds the RPD misapplied jurisprudence but correctly concluded exclusion under Article 1E and IRPA, noting the Appellant admitted no fear in the US.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's US status and personal history",
+    "RPD's risk assessment and exclusion",
+    "Court's agreement with exclusion despite jurisprudence error"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "mixed",
+   "summary": "The court agrees with the RPD that the Appellant had valid US permanent resident status and was excluded under Article 1E; the Appellant argues the RPD applied the wrong legal test, citing Zeng.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court agrees with RPD on status and exclusion",
+    "RPD relied on Shamloo and Wassiq",
+    "Appellant challenges legal test applied"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The Minister relied on Zeng before the RPD but not the RAD; the court finds Zeng is the correct test and applies it, concluding the Appellant has not disproved his valid US status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's intervention using Zeng",
+    "Court adopts Zeng test",
+    "Appellant fails to disprove valid US status"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "mixed",
+   "summary": "The RPD found the Appellant has status similar to nationals in the US; the Appellant denies this; the Appellant testified he never abandoned his green card, was never told he lost status, but did not file US taxes after leaving in 2012.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding on status",
+    "Appellant's denial",
+    "Appellant's testimony on green card and tax filing"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "mixed",
+   "summary": "Evidence shows US authorities would not deny the Appellant entry; a legal opinion states he abandoned his status due to prolonged absence and failure to meet criteria for returning resident visa; US rules on abandonment and re-entry are detailed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "US authorities' confirmation of entry rights",
+    "Legal opinion on abandonment of status",
+    "US Foreign Affairs Manual on maintaining permanent residence"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court finds the Appellant has not abandoned his US permanent resident status, credits US authorities' evidence over conflicting views, and concludes the Appellant had valid status and no risk or fear in the US as admitted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant did not abandon status",
+    "Court favors US authorities' evidence",
+    "Appellant admitted no risk or fear in US"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The Appellant claims the RPD erred by not fully applying the Zeng test; the court finds the RPD did assess risk, correctly concluded no risk or fear existed, and thus exclusion was proper; the appeal is dismissed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's claim of RPD error",
+    "Court finds RPD's risk assessment sufficient",
+    "Appeal dismissed confirming exclusion"
+   ]
+  }
+ ]
+}

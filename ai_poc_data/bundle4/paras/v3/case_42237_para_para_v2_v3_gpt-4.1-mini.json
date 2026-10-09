@@ -1,0 +1,234 @@
+{
+ "case_id": 42237,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0031828
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 2,
+   "court": 19
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves an appeal by Salt River First Nation #195 (SRFN) against a Federal Court decision related to a Special Meeting removing two Councillors, with SRFN seeking a stay and interlocutory injunction against public statements by Heron. The Federal Court had dismissed SRFN's application, and this appeal challenges that dismissal. The Federal Court of Appeal dismissed SRFN's motion for a stay and injunction, finding no irreparable harm demonstrated by SRFN.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and parties' positions",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 9,
+    "label": "Legal framework for stay and injunction",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 11,
+    "label": "Court's preliminary conclusions",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 20,
+    "label": "Analysis of irreparable harm arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The appellant, Salt River First Nation #195, seeks a stay of the Federal Court decision and an interlocutory injunction against certain public statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "This appeal is one of two challenging a single Federal Court decision addressing two judicial review applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "SRFN's application challenged the respondent Heron's decision to call a Special Meeting removing two Councillors; the Federal Court dismissed SRFN's application, now appealed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Heron's applications challenged SRFN's suspensions of her as Chief; the Federal Court granted Heron's application and ordered back pay; this is a separate appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The parties agree on the Federal Courts Act and Rules provisions authorizing this Court to grant a stay pending appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The parties agree the legal test for the stay and injunction follows RJR-MacDonald, requiring serious question, irreparable harm, and balance of convenience.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The threshold for a serious question to be tried is low; the appeal must not be frivolous or vexatious.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Irreparable harm requires clear, compelling, non-speculative evidence that harm cannot be quantified or cured.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Balance of convenience weighs which party suffers greater harm from granting or refusing the injunction pending merits decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "After considering submissions, the Court concludes SRFN's motion should be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court need not decide serious question or balance of convenience because SRFN failed to show irreparable harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "SRFN argues irreparable harm regarding its reputation, critical funding, membership, and Heron's impecuniosity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court will address each irreparable harm argument in turn.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "SRFN claims past political upheavals harmed its reputation and staff, and similar harm is recurring now, taking years to recover.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court finds SRFN's evidence of repeated reputational harm speculative, not compelling, and notes past harm was recoverable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Court doubts the stay or injunction would prevent political turmoil harming SRFN's reputation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "SRFN's argument that critical funding will be jeopardized is speculative and insufficient to prove irreparable harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "SRFN's membership harm argument is not distinct and depends on prior alleged harms, which are unproven as irreparable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "SRFN's claim of Heron's impecuniosity lacks evidence; no proof she cannot repay salary if appeal succeeds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "SRFN's safety concerns for staff rely on inadmissible hearsay evidence, which the Court gives no weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Court dismisses SRFN's motion for lack of irreparable harm; costs will be in the cause.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

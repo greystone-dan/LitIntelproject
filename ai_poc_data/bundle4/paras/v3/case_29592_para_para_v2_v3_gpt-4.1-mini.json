@@ -1,0 +1,324 @@
+{
+ "case_id": 29592,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0054956
+ },
+ "verification": {
+  "paragraphs": 31,
+  "summaries": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 4
+  },
+  "speakers": {
+   "court": 28,
+   "below": 1,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of a decision denying a work permit and finding inadmissibility for misrepresentation due to omission of prior criminal history. The Applicant argued the decision was unreasonable, particularly regarding the innocent error exception and materiality of the omission. The Federal Court dismissed the application, finding the decision reasonable and within the acceptable range under the Vavilov standard.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and overview",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Facts and decision below",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 11,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 13,
+    "last": 22,
+    "label": "Analysis of innocent error exception",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 33,
+    "label": "Analysis of materiality and duty of candour",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 43,
+    "label": "Disposition and concluding remarks",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant was denied a work permit and found inadmissible for misrepresentation by omitting prior criminal history.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review arguing unreasonableness on two grounds; the application is dismissed as the Decision is reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's two grounds of unreasonableness",
+    "Dismissal of application"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "A police clearance certificate revealed the Applicant had four prior convictions from 1996 and 2005.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Reviewing Officer sent a procedural fairness letter expressing concern about the Applicant's truthful disclosure of criminal history.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Applicant submitted a lawyer's letter and personal email explaining his mistaken belief that some convictions were spent and inadvertent error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Applicant stated he did not intend to misrepresent and believed he did not have to mention spent convictions, acknowledging he should have answered 'yes'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Decision-Maker found the Applicant inadmissible for knowingly omitting prior convictions, deeming the omission material and deliberate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Applicant alleges two errors: failure to consider innocent error exception and error in materiality finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The standard of review is reasonableness, requiring decisions to be justified, transparent, and intelligible per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "A narrow innocent error exception exists where an honest and reasonable belief negates withholding material information.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Applicant argues failure to consider innocent error exception; jurisprudence says exception need not be considered if explanation is rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Decision-Maker did not accept the Applicant's explanation for the omission, so the innocent error exception does not apply.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Decision-Maker found it unreasonable that the Applicant would not truthfully answer the criminal history question despite convictions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Decision-Maker concluded the misrepresentation was deliberate and the Applicant knowingly omitted criminal history.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the Decision reasonable and within a range of acceptable outcomes under Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Decision-Maker reasonably rejected the Applicant's misunderstanding of Hong Kong law as justification for omission.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The criminal history question is unambiguous and asks about any prior convictions, arrests, or charges without temporal limit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Though the Decision could be clearer, the reasoning is coherent and reasonable under Vavilov standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Decision is reasonable on the innocent error exception issue as the explanation was not accepted and no analysis was required.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicant argues materiality is undermined because the police clearance certificate disclosed the convictions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's argument that police certificates cure misrepresentation, as it conflicts with section 40's purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Section 40 aims to maintain immigration integrity by deterring misrepresentation; applicants must ensure application accuracy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Applicants have a duty of candour to provide truthful information under IRPA, supporting section 40's interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Accepting the Applicant's view would absolve applicants from duty of candour if police certificates reveal truth later.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Prior cases hold that officials' ability to uncover truth does not make misrepresentation immaterial.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Truth discovered via police certificate does not undermine materiality of misrepresentation under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Applicant argues the Decision-Maker erred by not considering the totality of evidence, emphasizing his compliance with police certificate submission.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds the case similar to Alalami where materiality is unaffected by truth discovered independently, not comparable to direct disclosure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Decision-Maker reasonably concluded the omission was a material misrepresentation under paragraph 40(1)(a) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed; no question for certification arises.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court states that applicants who risk misrepresentation hoping to avoid penalties based on materiality do so at their own risk, and authorities' ability to detect misrepresentation does not affect materiality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

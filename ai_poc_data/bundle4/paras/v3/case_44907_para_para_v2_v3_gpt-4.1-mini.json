@@ -1,0 +1,276 @@
+{
+ "case_id": 44907,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.004162
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 4,
+   "court": 19
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a refugee protection claim by an Iraqi Christian woman fearing persecution due to threats from a man demanding marriage and conversion, and her status as a Christian woman in an Islamic society. The Immigration and Refugee Board panel assessed whether she faced a serious risk of persecution or harm if returned to Iraq and whether an internal flight alternative existed. The panel concluded that relocating to Baghdad was a reasonable option and rejected the claimant's refugee claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and claimant's circumstances",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Panel's acceptance of claimant's identity and initial findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Issue of internal flight alternative and evidence on relocation",
+    "kind": "issue"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Claimant's testimony and panel's assessment of risks in Baghdad",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 16,
+    "label": "Context of risks to women in Iraq and family support in Baghdad",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 22,
+    "label": "Panel's conclusion on internal flight alternative and legal standards",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 23,
+    "label": "Disposition: refugee claim rejected",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant seeks refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The panel considered the Chairperson's Guidelines on gender-related claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant, an Iraqi Christian woman, fears persecution from a man demanding marriage and conversion, and as a Christian woman in an Islamic society.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant lived in northern Iraq, worked with NGOs and security forces, was harassed by a man named XXXX who threatened her and family, leading her to leave Iraq in 2018 fearing for her life.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's background and work",
+    "harassment and threats by XXXX",
+    "claimant's moves to avoid XXXX",
+    "departure from Iraq due to threats"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has not proven a serious possibility of persecution or risk of torture, death, or cruel treatment if returned to Iraq.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The panel accepts the claimant's identity and Iraqi nationality based on her Iraqi passport.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The key issue is whether an internal flight alternative (IFA) exists, requiring the claimant to show it is unreasonable to relocate within Iraq to avoid persecution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of IFA",
+    "two-pronged test for IFA",
+    "onus on claimant to disprove IFA"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel identifies Baghdad as a viable internal flight alternative for the claimant after considering all evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel finds no evidence that the persecutor seeks the claimant outside Kurdistan and that he could not find her or family in Baghdad.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The claimant testified she cannot live in Baghdad as a Christian woman due to safety concerns likened to living in a prison.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel finds the claimant unlikely to be targeted as a Christian in Baghdad given her low religious observance and family presence there.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's low religious observance",
+    "documentary evidence on risks to Christians",
+    "family's residence in Baghdad",
+    "reduced incidents reported"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's fear of harassment in Baghdad as a woman speculative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel notes women in Iraq face legal and social discrimination, including restricted movement, domestic violence, and sexual harassment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel cites UNHCR guidelines noting women without family support are vulnerable to harassment, kidnapping, and exploitation in Iraq.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel finds the claimant would have family support in Baghdad, including a supportive father with a stable job, reducing her vulnerability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel finds the claimant would not face serious persecution in Baghdad due to her supportive male breadwinner despite general risks to women in Iraq.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant would not face serious persecution if she relocated to Baghdad.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal requires high evidence that relocation is unreasonable, not mere inconvenience or dislike, to reject an internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel lists factors relevant to internal relocation to Baghdad, including ID possession, Arabic ability, family support, gender, sponsorship, and minority status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel finds the claimant meets all criteria for relocation to Baghdad, including nationality, language, family support, and education.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel finds it would not be unreasonable for the claimant to relocate to Baghdad given the evidence and legal standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel determines the claimant would not face serious persecution or risk of torture or cruel treatment in Iraq due to the availability of an internal flight alternative in Baghdad.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

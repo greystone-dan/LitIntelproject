@@ -1,0 +1,1403 @@
+{
+ "case_id": 55090,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0252116
+ },
+ "verification": {
+  "paragraphs": 148,
+  "summaries": 148,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 104,
+   "party": 30,
+   "evidence": 2,
+   "below": 10,
+   "other": 2
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the appeal of sexual assault convictions involving respondents G.F. and R.B. and a complainant who was intoxicated during the incident. The Supreme Court clarified the legal relationship between capacity and consent in sexual assault law, holding that capacity is a necessary precondition to subjective consent and that trial judges need not consider them separately or sequentially. The Court allowed the Crown's appeal, reinstated the convictions, and rejected the respondents' arguments, though a dissenting opinion would have ordered a new trial due to trial judge errors.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 14,
+    "label": "Trial evidence and verdict",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 19,
+    "label": "Court of Appeal decision",
+    "kind": "background"
+   },
+   {
+    "first": 20,
+    "last": 24,
+    "label": "Issue: relationship between consent and capacity",
+    "kind": "issue"
+   },
+   {
+    "first": 25,
+    "last": 41,
+    "label": "Legal framework on consent and capacity",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 59,
+    "label": "Court's analysis on capacity as precondition to consent",
+    "kind": "analysis"
+   },
+   {
+    "first": 60,
+    "last": 64,
+    "label": "Application to trial judge's findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 65,
+    "last": 91,
+    "label": "Assessment of trial judge's reasons and credibility findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 92,
+    "last": 101,
+    "label": "Other appeal issues and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 102,
+    "last": 104,
+    "label": "Disposition and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 105,
+    "last": 147,
+    "label": "Dissenting opinion on trial judge's errors and curative proviso",
+    "kind": "analysis"
+   },
+   {
+    "first": 148,
+    "last": 148,
+    "label": "Dissenting disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Justice Karakatsanis states consent is fundamental in Canadian sexual assault law, emphasizing its subjective nature and strict limits on mistaken beliefs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal allows the Court to clarify that capacity and consent are inseparable; subjective consent requires both capacity and actual consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The respondents argue incapacity nullifies subjective consent and that the trial judge erred by mixing consent and capacity assessments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court disagrees, holding that subjective consent must exist or be reasonably doubted before considering vitiation; the trial judge was not obliged to separate these issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The trial judge did not err by not reviewing intoxication jurisprudence; his reasons were sufficient and should be read contextually, discouraging technical error searches.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No error in intoxication jurisprudence review",
+    "Trial judge's reasons sufficient and contextually clear"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court would allow the Crown's appeal and reinstate the convictions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The complainant, aged 16, went camping in 2013 with family and her mother's co-workers, including respondents G.F. and R.B.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "On the last night, respondents had sexual activity with the complainant; the trial issue was consent, with conflicting testimonies from complainant and G.F., and R.B. not testifying.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "The complainant testified she drank heavily, was given alcohol by G.F., became very intoxicated, passed out, was sexually assaulted, resisted, and disclosed the assault the next day.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "evidence",
+   "summary": "G.F. testified the complainant was not very intoxicated, consented to sexual activity, and he received repeated assurances of consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The complainant described extreme intoxication and non-consensual sex; G.F. described a sober, willing participant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The trial Crown argued the case was about credibility, with a clear choice between accepting complainant's evidence of incapacity or G.F.'s evidence of capacity, and that complainant did not consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The respondents argued the complainant was not credible, not as intoxicated, and consented to the sexual activity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The trial judge accepted the complainant's evidence, found G.F.'s evidence inconsistent, and convicted both respondents of sexual assault due to lack of consent and incapacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "G.F. appealed arguing the verdict was unreasonable due to complainant's awareness showing capacity; R.B. raised mistrial and uneven scrutiny grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Court of Appeal rejected G.F.'s unreasonableness argument but ordered a new trial for related reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Court of Appeal found the trial judge erred by equating any intoxication with incapacity and by failing to consider consent separately from capacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Court of Appeal held that consent must be considered first, then capacity as a vitiating factor, following this Court's Hutchinson decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The Court of Appeal found the trial judge failed to follow the two-step process and ordered a new trial; it did not address other grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The appeal raises four issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The primary issue is the relationship between consent and capacity and whether the trial judge erred by addressing them together.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Crown argued that absence of consent was due to both no consent and incapacity, so the trial judge did not err by addressing them together.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The respondents argued incapacity vitiates consent and the trial judge erred by blending consent and capacity assessments instead of following a two-step process.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Court disagrees, holding capacity is a necessary precondition to subjective consent, so the trial judge need not address consent and capacity separately or in order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The actus reus of sexual assault requires touching of a sexual nature without consent, with consent being subjective and mens rea requiring knowledge or recklessness about lack of consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "This appeal concerns the absence of consent element of the actus reus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "speaker": "other",
+   "summary": "Section 273.1(1) of the Criminal Code defines consent as the voluntary agreement of the complainant to the sexual activity in question.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "other",
+   "summary": "Sections 273.1(2) and 265(3) of the Criminal Code list circumstances where no consent is obtained, including unconsciousness and incapacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Consent is a subjective, internal state of voluntary agreement to the sexual act, requiring conscious agreement to the act, its nature, and partner identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Court notes various terms used for consent in jurisprudence, though the Criminal Code uses simply 'consent'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Court explains two aspects of consent in sexual assault: subjective consent (factual agreement) and its absence establishes actus reus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Court prefers the term 'subjective consent' over 'apparent consent' to emphasize the complainant's personal voluntary agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Subjective consent absence establishes actus reus, but presence or doubt doesn't end inquiry; consent must also be legally effective.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Legal effectiveness of subjective consent is a policy matter, sometimes from common law, sometimes codified in Criminal Code provisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Section 265(3) lists four factors (force, threats, fraud, authority) that vitiate subjective consent; abuse of power also vitiates consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "These factors don't prevent subjective consent but render it legally ineffective; distinction between prevention and vitiation is important.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Fraud illustrates the distinction: it can prevent, vitiate, or be irrelevant to subjective consent depending on type.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Fraud preventing subjective consent must relate to conditions of consent, e.g., mistaken identity negates subjective consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Fraud unrelated to consent conditions can vitiate consent if criminally reprehensible; otherwise, it doesn't affect consent legally.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Fraud not linked to consent conditions and not criminally reprehensible doesn't affect legal consent, e.g., lying about profession.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Factors preventing subjective consent must affect consent conditions; others only vitiate consent based on broader policy or not at all.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Court rejects respondents' and intervener's argument that incapacity vitiates rather than prevents subjective consent for three reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "First, capacity logically must precede subjective consent because consent requires conscious agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Second, incapacity as vitiation conflicts with Criminal Code structure; incapacity clarifies consent conditions and prevents subjective consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Third, capacity as a precondition provides certainty, linking directly to subjective consent requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Incapacity as vitiation would cause uncertainty in determining impaired but voluntary consent and mens rea issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Capacity to consent is a precondition; lack of capacity or agreement proves lack of subjective consent and establishes actus reus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Court of Appeal and respondents erred by treating incapacity as vitiation and misreading Hutchinson's two-step consent process.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Paragraph 4 of Hutchinson describes a two-step consent analysis but does not address incapacity or treat it as vitiation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Hutchinson's paragraph 4 summarizes existing law on subjective and effective consent; it does not address incapacity or vitiation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Hutchinson does not require a rigid order in considering capacity and agreement; either can establish lack of subjective consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "No strict order is mandated for considering subjective consent and its legal effectiveness; trial judges have discretion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Subjective consent requires capacity and agreement; absence of either establishes lack of subjective consent; vitiation considered only if consent exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Capacity and vitiation issues depend on case facts; not always relevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Capacity to consent requires understanding the sexual act, its nature, and the partner's identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Capacity also requires understanding the choice to consent or refuse; voluntary agreement means knowing 'No' is an option.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The Court summarizes four requirements for capacity to provide subjective consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Absence of any one capacity factor proves incapacity and lack of subjective consent, negating need to consider vitiation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Respondents erred in arguing trial judge must consider consent and capacity separately and sequentially; Court rejects this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Trial judge properly considered evidence of incapacity and lack of agreement; no error in treatment of consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "speaker": "party",
+   "summary": "The respondents argue the trial judge erred by finding the complainant both incapable of consenting and not agreeing to sexual activity, claiming these findings are mutually exclusive.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The court disagrees, explaining capacity to consent requires more understanding than capacity to withhold consent, so the findings are not mutually exclusive.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The court further explains consent is continuous and can vary during sexual activity, so findings of incapacity and refusal at different times are possible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court holds the trial judge could find both incapacity and non-agreement, as both relate to lack of subjective consent and establish actus reus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The court rejects the respondents' argument that the complainant's memory of the assault disproves incapacity, emphasizing the subjective nature of consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "speaker": "below",
+   "summary": "The Court of Appeal raised concerns that the trial judge equated any alcohol impairment with incapacity and was unclear if non-consent was found regardless of capacity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "equating any alcohol impairment with incapacity",
+    "unclear if non-consent found regardless of capacity"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The court disagrees with the Court of Appeal, finding the trial judge's reasons sufficient given the case context and accepted evidence of incapacity and non-consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The court emphasizes the importance of trial reasons for accountability and appellate review, but reasons must fit the case context, not abstract standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The court stresses appellate review requires a functional, contextual reading of trial reasons to understand decisions and permit effective review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The court notes appellate review includes reviewing the record, and poor reasons alone do not constitute error if the record clarifies the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The court explains factual sufficiency of reasons is a low bar, and appellate courts can clarify findings if the record shows the 'what' and 'why'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 72,
+   "speaker": "below",
+   "summary": "In Sheppard, the trial judge's reasons were minimal, only stating guilt after considering testimony and burden of proof.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The court found Sheppard's reasons factually insufficient because the decision path was unintelligible to parties and courts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "Legal sufficiency requires reasons enabling meaningful appeal, but judges need not explain uncontested law due to presumption of correct application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "More detailed reasons are needed when judges address controversial legal points, but if legal basis is clear from record, reasons suffice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The court notes appellate courts often overly scrutinize trial reasons in sexual assault cases, overturning convictions on imperfect expression rather than legal error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The court notes it recently reinstated sexual assault convictions overturned on appeal, endorsing dissenting reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "In Langan, the court adopted dissenting reasons holding ambiguous text messages did not show error on functional, contextual reading.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The court explains appellants must show error or frustrated review; ambiguous reasons favor presumption of correct application unless unintelligible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "In Kishayinew and Slatter, the court adopted dissenting reasons finding no error in conflating credibility and reliability when complainants were accepted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The court emphasizes deference to trial judges' credibility findings, recognizing difficulty in articulating precise reasons, especially in sexual assault cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The court explains credibility includes truthfulness and accuracy, and trial judges need not explicitly say 'reliable' if they consider these factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The court finds the Court of Appeal failed to read the trial judge's reasons functionally and contextually, assessing them removed from trial issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "The court rejects the Court of Appeal's reading that the trial judge equated any alcohol impairment with incapacity, finding no such error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "The court notes the trial judge referred to intoxication causing incapacity when framing the issue and concluding no consent if intoxicated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "The court explains the trial judge referred to extreme intoxication, not any impairment, consistent with the complainant's evidence of incapacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "The court finds the trial judge's blending of consent and capacity is not an error or insufficient reasons, though clearer identification would be preferable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "The court notes capacity was not the only issue; the trial judge also considered if the complainant agreed to the sexual activity if capable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "The court finds the trial judge's reasons show findings of both incapacity and non-agreement, both legally available and supported by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "The court rejects respondents' claim the Crown disavowed non-consent theory, noting evidence and submissions showed both incapacity and non-consent were live issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 91,
+   "speaker": "court",
+   "summary": "The respondents had a fair trial with proper burden of proof and cross-examination; convictions stand despite trial judge's poor expression.",
+   "ideas": "multiple",
+   "idea_list": [
+    "fair trial",
+    "proper burden of proof",
+    "cross-examination",
+    "trial judge's reasons not erroneous",
+    "convictions stand"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "The Court of Appeal decided appeal on issues not precisely raised by parties, prompting Crown's natural justice breach claim under R. v. Mian.",
+   "ideas": "single",
+   "idea_list": [
+    "Court of Appeal decided on unraised issues"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "The Court finds no breach of Mian; appellate courts may raise issues rooted in parties' arguments without notice, but must give notice if issue is new.",
+   "ideas": "single",
+   "idea_list": [
+    "no breach of Mian",
+    "discretion on notice for rooted issues"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 94,
+   "speaker": "court",
+   "summary": "The Court upholds Court of Appeal's discretion to address consent and capacity issues as not new and central to parties' arguments, so no natural justice breach.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court of Appeal discretion upheld",
+    "issues not new",
+    "no natural justice breach"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "Respondents raise three unaddressed issues: mistrial, honest but mistaken belief in consent, and uneven scrutiny; Court finds no merit in these.",
+   "ideas": "single",
+   "idea_list": [
+    "three unaddressed issues raised and rejected"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 96,
+   "speaker": "court",
+   "summary": "Trial judge found no agreement that R.B.'s counsel would consult her before closing defence; no factual basis for mistrial claim.",
+   "ideas": "single",
+   "idea_list": [
+    "no agreement found",
+    "no mistrial"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "Trial judge rejected G.F.'s consent assurances; no air of reality to honest but mistaken belief in consent argument.",
+   "ideas": "single",
+   "idea_list": [
+    "rejected consent assurances",
+    "no honest but mistaken belief"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "Claim of uneven scrutiny of complainant and G.F.'s evidence is a disguised attempt to re-litigate credibility findings, which Crown opposes.",
+   "ideas": "single",
+   "idea_list": [
+    "uneven scrutiny claim is re-litigation"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 99,
+   "speaker": "court",
+   "summary": "Uneven scrutiny is a common but difficult appeal ground; credibility findings are trial judge's domain and get deference; must show different standards applied.",
+   "ideas": "single",
+   "idea_list": [
+    "uneven scrutiny difficult to prove",
+    "credibility findings deferential"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "Uneven scrutiny focuses on methodology but reversible error in credibility is key; uneven scrutiny overlaps with other appeal grounds.",
+   "ideas": "multiple",
+   "idea_list": [
+    "uneven scrutiny methodological focus",
+    "reversible error key",
+    "overlaps with other grounds"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "Respondents failed to show uneven scrutiny or error affecting guilt; Court declines to reassess credibility findings.",
+   "ideas": "single",
+   "idea_list": [
+    "no uneven scrutiny shown",
+    "no basis to reassess credibility"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "Trial judge's imperfect reasons were sufficient; capacity is precondition to consent and can be considered together; convictions stand.",
+   "ideas": "single",
+   "idea_list": [
+    "imperfect reasons sufficient",
+    "capacity precondition to consent"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "Trial judge did not equate intoxication with incapacity; convictions safe and no error found.",
+   "ideas": "single",
+   "idea_list": [
+    "no error equating intoxication and incapacity",
+    "convictions safe"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "Crown's appeal allowed; Court of Appeal order set aside; respondents' convictions restored.",
+   "ideas": "single",
+   "idea_list": [
+    "appeal allowed",
+    "convictions restored"
+   ],
+   "role": "disposition"
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "Brown and Rowe JJ. agree on capacity as precondition to consent and endorse much of Karakatsanis J.'s reasoning but differ on application to trial judge's reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agree on capacity as precondition",
+    "endorse reasoning",
+    "differ on application"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "Brown and Rowe JJ. find trial judge erred by not explaining incapacity standard or applying it properly, despite convicting on that basis.",
+   "ideas": "single",
+   "idea_list": [
+    "trial judge failed to explain incapacity standard"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "Despite error, evidence of non-consent is overwhelming; curative proviso applies; convictions restored.",
+   "ideas": "single",
+   "idea_list": [
+    "curative proviso applies",
+    "convictions restored"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 108,
+   "speaker": "court",
+   "summary": "Trial judge's reasons must be sufficient to explain verdict, ensure accountability, and allow appellate review; insufficiency is legal error.",
+   "ideas": "single",
+   "idea_list": [
+    "reasons must be sufficient",
+    "insufficiency is error"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 109,
+   "speaker": "court",
+   "summary": "Appellate review requires careful reading of trial reasons to assess if live issues were decided, not just superficial parsing.",
+   "ideas": "single",
+   "idea_list": [
+    "appellate review requires careful reading"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "Convictions must be safe but insufficient reasons prevent appellate review; scrutiny of reasons is necessary and consistent with precedent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "convictions must be safe",
+    "insufficient reasons prevent review",
+    "scrutiny necessary"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 111,
+   "speaker": "court",
+   "summary": "Trial judges presumed to know law but appellate courts must ensure reasons show correct application in each case.",
+   "ideas": "single",
+   "idea_list": [
+    "appellate courts ensure correct application"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 112,
+   "speaker": "court",
+   "summary": "Brown and Rowe JJ. disagree with Karakatsanis J.'s view that ambiguous reasons favor presumption of correctness; this departs from precedent.",
+   "ideas": "single",
+   "idea_list": [
+    "disagree on presumption with ambiguous reasons"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "Accused must know why convicted to decide on appeal; reasons must show foundations for verdict, not just no reasonable doubt.",
+   "ideas": "single",
+   "idea_list": [
+    "reasons must explain verdict foundations"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "Obscure or uncertain reasons are insufficient; appellate courts must hold reasons insufficient if unable to determine error presence.",
+   "ideas": "single",
+   "idea_list": [
+    "obscure reasons insufficient"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "Reasons are insufficient if error possibility exists; presumption of law knowledge cannot justify obscure reasons; accused must know reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "insufficiency with error possibility",
+    "presumption can't justify obscurity",
+    "accused must know reasons"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "Trial judge convicted solely on incapacity due to intoxication but did not explain standard applied; confirmed in mistrial and sentencing reasons.",
+   "ideas": "single",
+   "idea_list": [
+    "convicted on incapacity",
+    "no standard explained"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 117,
+   "speaker": "court",
+   "summary": "Trial judge's omission of incapacity standard was critical as complainant's evidence was unclear and did not necessarily prove incapacity.",
+   "ideas": "single",
+   "idea_list": [
+    "omission critical due to unclear evidence"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 118,
+   "speaker": "court",
+   "summary": "Evidence could support capacity or incapacity; trial judge's reasons ambiguous and may have equated intoxication with incapacity improperly.",
+   "ideas": "single",
+   "idea_list": [
+    "ambiguous reasons",
+    "possible improper equivalence"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 119,
+   "speaker": "court",
+   "summary": "Respondents did not concede incapacity follows from credibility; appellate review must assess proper application of capacity law, not just credibility.",
+   "ideas": "single",
+   "idea_list": [
+    "no concession on incapacity",
+    "appellate review must assess law"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "Despite insufficient reasons, overwhelming evidence of non-consent justifies upholding convictions under curative proviso.",
+   "ideas": "single",
+   "idea_list": [
+    "curative proviso justified"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 121,
+   "speaker": "below",
+   "summary": "The trial judge disbelieved G.F.'s evidence that the complainant consented, and R.B. did not testify, leaving no evidence to raise reasonable doubt about consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 122,
+   "speaker": "party",
+   "summary": "The respondents argue the complainant's evidence about lack of capacity conflicts with her evidence about non-consent and that the trial judge should have analyzed these issues separately.",
+   "ideas": "multiple",
+   "idea_list": [
+    "complainant's conflicting evidence on ability to say stop or scream",
+    "complainant's conflicting evidence on physical resistance",
+    "complainant's conflicting evidence on body movements during sexual activity"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "Reviewing the record as a whole, the complainant's varying awareness during the encounter explains the apparent inconsistencies in her evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 124,
+   "speaker": "court",
+   "summary": "The trial judge's reasons are insufficient for appellate review on capacity, but overwhelming evidence of non-consent means only a guilty verdict was possible; appeal allowed and convictions restored.",
+   "ideas": "multiple",
+   "idea_list": [
+    "insufficient reasons on capacity",
+    "overwhelming evidence of non-consent",
+    "appeal allowed and convictions restored"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 125,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 agrees with colleagues on appellate review law and trial judge's error on incapacity but adds a further error on conflating consent and capacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 126,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 disagrees with majority that trial judge's errors were harmless and would dismiss appeal, ordering a new trial due to credibility issues and insufficient evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 127,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 criticizes Justice Karakatsanis for interpreting the trial judge's reasons as not equating intoxication with incapacity, saying this is unsupported by the record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 128,
+   "speaker": "below",
+   "summary": "The trial judge's only reasoning on incapacity was a statement that s. 273.1(2)(b) applies where a complainant is intoxicated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 129,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 agrees with Brown and Rowe JJ. that the trial judge failed to disclose the standard applied for incapacity, a critical omission given unclear evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 130,
+   "speaker": "party",
+   "summary": "The Crown argued any intoxication equals incapacity, and the trial judge applied this flawed reasoning without assessing intoxication level.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown's submission equating any intoxication with incapacity",
+    "trial judge's flawed application without assessing intoxication level"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 131,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 says trial judges must have intelligible foundations for verdicts and the trial judge's statement suggests a mistaken belief that any intoxication vitiates consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 132,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 rejects majority's conjecture that trial judge meant extreme intoxication, concluding the judge erred by equating any intoxication with incapacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 133,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 says the trial judge wrongly equated consent and capacity, resting his decision on a legally incorrect presumption.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 134,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 outlines the two-step consent analysis from R. v. Hutchinson: first, determine lack of voluntary agreement; second, consider vitiating circumstances like incapacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 135,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 states the Criminal Code, not Hutchinson, establishes the two-step consent analysis including incapacity as a vitiating circumstance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 136,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 explains the statutory framework requires first assessing voluntary agreement, then if needed, whether consent was vitiated by circumstances like incapacity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 137,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 argues s. 273.1(2)(b) shows incapacity vitiates consent and criticizes the majority for rendering this provision redundant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 138,
+   "speaker": "below",
+   "summary": "The trial judge's reasons show he conflated consent and capacity, finding the accused guilty based on intoxication impairing consent without separate analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 139,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 says the trial judge erred by not first determining lack of consent before considering incapacity, making his conviction unclear.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 140,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 notes that while order of findings isn't fatal, the trial judge's lack of analysis prevents meaningful appellate review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 141,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 explains the curative proviso allows dismissing appeals despite errors if no miscarriage of justice, burden on Crown to prove applicability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 142,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 opines this case is not appropriate for the curative proviso after considering seriousness and impact of the trial judge's error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 143,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 agrees the trial judge's error was not minor or irrelevant and that capacity was a live issue requiring full evidence consideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 144,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 finds a reasonable possibility the trial judge would have found the complainant capable of consenting, given mixed evidence and toxicology results.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 145,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 notes that curative proviso is difficult to apply in credibility cases unless the Crown's case is overwhelming, which is not here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 146,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 concludes the trial judge's errors were not harmless or trivial and the convictions cannot be upheld on unclear statements about consent and incapacity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "errors not harmless or trivial",
+    "unclear if conviction based on non-consent alone",
+    "convictions cannot be upheld on current record"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 147,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 says the Crown's case is not overwhelming and the difficult hurdle for curative proviso is not met here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 148,
+   "speaker": "party",
+   "summary": "Justice C\u00f4t\u00e9 would dismiss the appeal and uphold the Court of Appeal's order for a new trial; appeal allowed overall with dissent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

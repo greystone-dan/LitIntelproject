@@ -1,0 +1,463 @@
+{
+ "case_id": 34079,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.009819999999999999
+ },
+ "verification": {
+  "paragraphs": 81,
+  "summaries": 28,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 2,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 2
+  },
+  "speakers": {
+   "court": 22,
+   "mixed": 4,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 25,
+  "sections": 15,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves applicants seeking a mandamus order compelling the Canadian government to process their Temporary Resident Visa (TRV) applications under a specific Ministerial Policy amid a humanitarian crisis in Gaza. The applicants argued they had a legitimate expectation of timely processing based on the Policy and government representations, while the respondent cited security screenings and operational challenges as justifications for delay. The Federal Court dismissed the mandamus claim, finding no clear right to performance, no unreasonable delay, and that the applicants had not met all Policy conditions, particularly biometric submission impeded by border closures.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Mandamus requirements and introduction",
+    "kind": "other"
+   },
+   {
+    "first": 6,
+    "last": 11,
+    "label": "Ministerial Policy and application process",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 18,
+    "label": "Applicants' circumstances and application timeline",
+    "kind": "background"
+   },
+   {
+    "first": 19,
+    "last": 24,
+    "label": "Delays and respondent's position on security screenings",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Statutory exemptions and evidentiary issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 37,
+    "label": "Legal framework for mandamus and legitimate expectation",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 38,
+    "last": 46,
+    "label": "Applicants' arguments on legitimate expectation and respondent's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 47,
+    "last": 55,
+    "label": "Court's analysis of Policy compliance and representations",
+    "kind": "analysis"
+   },
+   {
+    "first": 56,
+    "last": 62,
+    "label": "Court's findings on application status and mandamus order",
+    "kind": "disposition"
+   },
+   {
+    "first": 63,
+    "last": 71,
+    "label": "Further analysis on legitimate expectation and delay reasonableness",
+    "kind": "analysis"
+   },
+   {
+    "first": 72,
+    "last": 77,
+    "label": "Parties' arguments on delay and mandamus requirements",
+    "kind": "analysis"
+   },
+   {
+    "first": 78,
+    "last": 84,
+    "label": "Court's reasoning on delay and alternative remedies",
+    "kind": "analysis"
+   },
+   {
+    "first": 86,
+    "last": 88,
+    "label": "Respondent's arguments on ministerial duty and security",
+    "kind": "analysis"
+   },
+   {
+    "first": 89,
+    "last": 92,
+    "label": "Disposition and refusal of mandamus claim",
+    "kind": "disposition"
+   },
+   {
+    "first": 94,
+    "last": 96,
+    "label": "Rejection of binding representations argument",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 5,
+   "speaker": "court",
+   "summary": "The court explains that mandamus requires a clear right to the requested matter, finds the applicants have not established this right despite sympathy for their situation, and introduces the policy and related cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "mandamus legal requirement",
+    "applicants' situation and policy",
+    "related cases and facts"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 8,
+   "speaker": "court",
+   "summary": "The court details the Policy's eligibility criteria, exemptions, and application stages, explaining the roles of anchors and applicants under the Policy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Policy eligibility conditions",
+    "exemptions from requirements",
+    "application process stages"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 11,
+   "speaker": "court",
+   "summary": "The court describes the application submission steps, including anchor submissions, IRCC review, and biometric collection arrangements involving border crossings.",
+   "ideas": "single",
+   "idea_list": [
+    "application submission and biometric process"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The court describes the applicants' dire living conditions and serious health issues caused by the humanitarian crisis in Gaza, emphasizing the hardship they face.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants' living conditions",
+    "health ailments",
+    "lack of medical care and resources"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The court outlines the timeline of the applicants' submissions and notes the commencement of high priority security screenings for some applicants.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application timeline",
+    "security screening initiation"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court recounts delays due to information requests and corrections, notes ongoing security screenings, and states no decision has yet been made on the applications.",
+   "ideas": "multiple",
+   "idea_list": [
+    "information requests and delays",
+    "correction of documents",
+    "ongoing security screenings and no decision"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The court accepts the respondent's position that security screenings are complex and necessary, finds the processing time not unreasonable, and cites relevant statutory authority for ministerial exemptions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "security screening complexity",
+    "processing time reasonableness",
+    "statutory authority for exemptions"
+   ]
+  },
+  {
+   "para": 25,
+   "last": 28,
+   "speaker": "mixed",
+   "summary": "The court discusses statutory exemptions for biometric data collection, considers admissibility of affidavits and evidence about the Gaza crisis, and notes the applicants withdrew expert status for a law professor's affidavit.",
+   "ideas": "multiple",
+   "idea_list": [
+    "biometric data exemption",
+    "affidavit admissibility",
+    "withdrawal of expert evidence"
+   ]
+  },
+  {
+   "para": 30,
+   "last": 33,
+   "speaker": "court",
+   "summary": "The court sets out the eight-factor test for mandamus from Apotex, notes all must be met, and discusses the legal duty to act under the Policy and IRPA objectives.",
+   "ideas": "multiple",
+   "idea_list": [
+    "mandamus test factors",
+    "legal duty under Policy and IRPA",
+    "IRPA objectives"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 37,
+   "speaker": "court",
+   "summary": "The court agrees there is a legal duty to process applications but not within a set timeframe, recognizes the applicants' legitimate expectation of timely processing, and explains the test for legitimate expectation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legal duty without timeframe",
+    "legitimate expectation",
+    "test for legitimate expectation"
+   ]
+  },
+  {
+   "para": 38,
+   "last": 40,
+   "speaker": "party",
+   "summary": "The Applicants argue their legitimate expectation for timely TRV application decisions is based on compliance with Policy conditions, Minister's representations, government website information, and past emergency policies showing Canada's capacity for rapid processing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "basis for legitimate expectation",
+    "purpose and language of Policy",
+    "government website information",
+    "past temporary policies and expert affidavit"
+   ]
+  },
+  {
+   "para": 41,
+   "last": 43,
+   "speaker": "court",
+   "summary": "The court finds the Applicants' evidence sufficient to support legitimate expectations and agrees s. 12.8 IRPR exemption for biometrics may apply, though it was not raised by Applicants before IRCC and is first raised in court here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "evidence supports legitimate expectations",
+    "s. 12.8 biometric exemption may apply",
+    "s. 12.8 raised first in court"
+   ]
+  },
+  {
+   "para": 44,
+   "last": 46,
+   "speaker": "mixed",
+   "summary": "The Respondent argues prior policies don't establish clear representations and notes disclaimers on the website; the court acknowledges changed operational context after border closure made Policy provisions impossible to fulfill.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent denies clear representations",
+    "website disclaimers noted",
+    "changed context after border closure"
+   ]
+  },
+  {
+   "para": 47,
+   "last": 49,
+   "speaker": "court",
+   "summary": "The court finds the Applicants face a catch-22 due to border closure preventing biometrics collection, rejects strict step-by-step Policy compliance given changed context, and finds no authority supporting rigid adherence to Policy steps.",
+   "ideas": "multiple",
+   "idea_list": [
+    "catch-22 due to border closure",
+    "Applicants' step-by-step approach rejected",
+    "no obligation for strict Policy step compliance"
+   ]
+  },
+  {
+   "para": 50,
+   "last": 52,
+   "speaker": "court",
+   "summary": "The court notes the Applicants' framing of their application seeks complete processing, supports a holistic Policy view, agrees Minister's representations are not binding, and cites Jia to distinguish website statements from Minister's representations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants seek complete processing",
+    "holistic approach favored",
+    "Minister's representations not binding",
+    "website statements distinct from Minister's"
+   ]
+  },
+  {
+   "para": 53,
+   "last": 55,
+   "speaker": "court",
+   "summary": "The court upholds Jia's reasoning, notes no evidence s. 12.8 exemption was before TRV officer, and that s. 12.8 was first raised in Applicants' recent memorandum, correcting a prior reference error.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Jia remains good law",
+    "no s. 12.8 before TRV officer",
+    "s. 12.8 first raised recently"
+   ]
+  },
+  {
+   "para": 56,
+   "last": 58,
+   "speaker": "court",
+   "summary": "The court notes no decision yet on applications, encourages Applicants to raise s. 12.8 with IRCC promptly, and acknowledges ongoing security screening may affect resolution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applications still pending",
+    "Applicants may raise s. 12.8 with IRCC",
+    "security screening ongoing"
+   ]
+  },
+  {
+   "para": 59,
+   "last": 62,
+   "speaker": "court",
+   "summary": "The court accepts Applicants have legitimate expectation for timely processing only after meeting Policy conditions, finds Applicants haven't met biometric submission due to border closure, and declines mandamus order.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legitimate expectation conditional",
+    "Applicants haven't met biometric condition",
+    "mandamus order denied"
+   ]
+  },
+  {
+   "para": 63,
+   "last": 65,
+   "speaker": "court",
+   "summary": "The court supports a holistic approach over step-by-step, agrees with precedent recognizing legitimate expectations from similar policies, but finds no representation about processing times or exit rights was made here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "holistic approach supported",
+    "precedent on legitimate expectations",
+    "no representation on processing time or exit"
+   ]
+  },
+  {
+   "para": 66,
+   "last": 71,
+   "speaker": "court",
+   "summary": "The court agrees Applicants have legitimate expectation for timely processing once Policy requirements met, finds no clear right to performance, and considers delay reasonableness contextually, noting ongoing security screening and relevant case law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "legitimate expectation conditional",
+    "no clear right to performance",
+    "delay reasonableness contextual",
+    "security screening ongoing"
+   ]
+  },
+  {
+   "para": 72,
+   "last": 74,
+   "speaker": "mixed",
+   "summary": "The Applicants argue the delay is longer than necessary given the urgent nature of their humanitarian immigration applications, while the Respondent contends the delay is justified and not unreasonable, a position the Court agrees with.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants argue delay exceeds required time due to urgency",
+    "Respondent argues delay is justified and not excessive",
+    "Court agrees delay is not unreasonable"
+   ]
+  },
+  {
+   "para": 75,
+   "last": 77,
+   "speaker": "mixed",
+   "summary": "Applicants claim they fulfilled all procedural requirements and are not responsible for delay; the Court explains mandamus requires a public duty to act and notes Applicants say Respondent gave no satisfactory delay explanation, while Respondent cites IRPA objectives as justification.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants claim no responsibility for delay",
+    "Court explains mandamus test",
+    "Applicants say no explanation for delay",
+    "Respondent cites IRPA objectives as justification"
+   ]
+  },
+  {
+   "para": 78,
+   "last": 80,
+   "speaker": "court",
+   "summary": "The Court rejects Applicants' argument that unexplained security assessments cause delay, explaining ongoing security screening and operational context justify delay, and adopts Justice Blackhawk's reasoning on multi-departmental and international involvement.",
+   "ideas": "single",
+   "idea_list": [
+    "Court rejects unexplained security assessment argument and adopts prior reasoning"
+   ]
+  },
+  {
+   "para": 81,
+   "last": 84,
+   "speaker": "court",
+   "summary": "The Court finds no unreasonable delay, agrees no alternative remedy exists, notes mandamus would not help due to border closure, but acknowledges section 12.8 IRPR might be relevant though for IRCC to assess.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No unreasonable delay found",
+    "No alternative remedy available",
+    "Mandamus would not have practical effect due to border closure",
+    "Section 12.8 IRPR might be relevant"
+   ]
+  },
+  {
+   "para": 86,
+   "last": 88,
+   "speaker": "party",
+   "summary": "The Respondent argues against granting mandamus, citing the Minister's duty to ensure immigration integrity, pending security assessments, uncollected biometrics, and the Executive's authority over foreign affairs and national interests.",
+   "ideas": "multiple",
+   "idea_list": [
+    "balance of convenience disfavors mandamus",
+    "Minister's duty for careful application review",
+    "pending high priority security screening",
+    "biometrics not collected",
+    "foreign affairs and national interests under Executive, not Courts"
+   ]
+  },
+  {
+   "para": 89,
+   "last": 92,
+   "speaker": "court",
+   "summary": "The Court finds balance of convenience favors Respondent, dismisses Applicants' mandamus claim for failure to meet conditions, declines to certify a question, and notes no costs awarded as Applicants abandoned that request.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Balance favors Respondent",
+    "Mandamus claim dismissed",
+    "No question certified",
+    "No costs awarded"
+   ]
+  },
+  {
+   "para": 91,
+   "last": 92,
+   "speaker": "court",
+   "summary": "The Court emphasizes it cannot rewrite Ministerial Policy as Applicants request, citing recent case law, and finds no binding representations were made to Applicants about processing times or priorities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court cannot rewrite policy",
+    "No binding representations on processing times"
+   ]
+  },
+  {
+   "para": 94,
+   "last": 96,
+   "speaker": "court",
+   "summary": "The Court rejects Applicants' argument that operational instructions and form letters create binding representations, distinguishing these from binding Ministerial statements in prior case law.",
+   "ideas": "single",
+   "idea_list": [
+    "Court distinguishes binding Ministerial statements from non-binding operational documents"
+   ]
+  }
+ ]
+}

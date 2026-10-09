@@ -1,0 +1,247 @@
+{
+ "case_id": 72638,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0036468000000000004
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 5,
+   "below": 1,
+   "court": 15
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by an Egyptian appellant claiming refugee protection in Canada due to fears of persecution based on imputed political opinion and Nubian ethnicity. The Refugee Protection Division (RPD) rejected the claim for lack of credibility, and the appeal tribunal upheld this decision, finding no serious risk of persecution upon return to Egypt. The tribunal also criticized the RPD for inappropriate language but ultimately dismissed the appeal on April 23, 2021.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background: appellant's history and claim",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 3,
+    "label": "Decision below: RPD rejection",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Overview of appeal and tribunal's initial findings",
+    "kind": "other"
+   },
+   {
+    "first": 7,
+    "last": 12,
+    "label": "Analysis: Nubian ethnicity and risk of persecution",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 18,
+    "label": "Analysis: imputed political opinion and risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 20,
+    "label": "Criticism of RPD conduct and final risk conclusion",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition: appeal dismissed",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The appellant from Egypt fears return due to imputed political opinion and Nubian ethnicity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant was persecuted in Egypt in 2006, fled to the US in 2007, lived there 10 years, then arrived in Canada in 2017 claiming refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD rejected the appellant's refugee claim on February 27, 2020, due to lack of credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The appeal is dismissed as the appellant failed to show risk upon return to Egypt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court reviews all evidence and finds the key issue is risk of return; appellant claims RPD erred on credibility and document reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court criticizes the RPD for using a racial slur in its decision, deeming it inappropriate and poor judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The appellant fears persecution upon return because the military regime remains and due to his Nubian ethnicity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RPD found the appellant not credible and added ethnicity to augment claims but failed to explain why he was not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RPD should assess if past events and evidence show risk of persecution for the appellant's Nubian ethnicity; appellant testified of discrimination post-2006.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Documentary evidence shows Nubians face racism and discrimination in Egypt, including forced displacement and cultural marginalization.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appellant's discrimination does not amount to persecution as it lacks serious, repeated violations of core rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The appellant failed to prove persecution or serious risk due to Nubian ethnicity in Egypt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The appellant claims the military regime remains and he is considered a political opponent with an arrest warrant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court rejects the appellant's claim that the current regime views him as a political opponent, noting Mubarak regime ended in 2011.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The appellant alleges police threatened his daughter in 2018 due to his political opposition and Nubian ethnicity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court rejects the daughter's police threat testimony as inconsistent and unsupported by prior evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The appellant did not prove he is a person of interest to Egypt's current government.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The appellant failed to establish a serious risk of persecution due to imputed political opinion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court agrees the RPD's taunts were unwarranted and should have shown restraint.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The appellant did not prove a serious risk of persecution, torture, or cruel treatment if returned to Egypt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The appeal is dismissed by the tribunal on April 23, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

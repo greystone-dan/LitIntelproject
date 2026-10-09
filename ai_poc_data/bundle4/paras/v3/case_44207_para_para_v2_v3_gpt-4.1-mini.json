@@ -1,0 +1,265 @@
+{
+ "case_id": 44207,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0039624
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 16,
+   "other": 1,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Keystone RV Company appealed a Tax Court decision dismissing its motion for judgment based on the Canada Revenue Agency's concession reducing GST/HST reassessments. The Tax Court found that despite the concession, factual disputes remained, requiring a trial to proceed. The Federal Court of Appeal dismissed Keystone's appeal, upholding the Tax Court's rulings and awarding costs to the respondent.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Standard of review and appellate findings",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 11,
+    "label": "Analysis of Rule 170.1 motion and factual disputes",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Additional arguments and legal principles",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 16,
+    "label": "Allegations of improper CRA conduct",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Assessment of respondent's Rule 54 motion and related issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 20,
+    "label": "Costs",
+    "kind": "disposition"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Keystone RV Company appeals a Tax Court interlocutory decision dismissing its Rule 170.1 motion and granting the respondent's Rule 54 motion, with costs awarded to the respondent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal of interlocutory decision",
+    "dismissal of Rule 170.1 motion",
+    "granting of Rule 54 motion",
+    "costs awarded to respondent"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Keystone appeals CRA reassessments dated February 21, 2018, imposing an additional $24,695,247.20 GST/HST for seven monthly periods in 2014.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Respondent conceded in a November 14, 2022 letter that the correct GST/HST adjustment is $4,203,799.29, leading Keystone to bring a Rule 170.1 motion relying on this admission.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's concession letter",
+    "Keystone's Rule 170.1 motion based on concession"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Respondent filed a Rule 54 motion to amend its Reply consistent with the November 14, 2022 letter, including a proposed amended Reply as Schedule A.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The standard of review is palpable and overriding error for fact and mixed questions, and correctness for law, citing Housen and Canadian Imperial Bank of Commerce.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court finds no error of law or palpable and overriding error in the Tax Court's rejection of Keystone's Rule 170.1 motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Rule 170.1 allows a party to apply for judgment on any matter upon any admission in pleadings or documents filed in court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Tax Court correctly applied the principle that Rule 170.1 motions require no controversy on facts or fairly arguable legal issues, citing Georgeson and Iris FCA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Keystone argues the only issue is the correctness of reassessments and that the Minister's November 14, 2022 letter admits the reassessments are incorrect, entitling Keystone to judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court disagrees and finds no palpable and overriding error in the Tax Court's application of the Georgeson test to Keystone's Rule 170.1 motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Tax Court found the Minister's concession did not eliminate controversy; disputes about underreporting and invalid credits remain, so trial must proceed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Keystone argued orally that the November 14 letter and amended Reply show the Minister abandoned prior assumptions, entitling Keystone to judgment under Rule 170.1.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Keystone did not raise this argument in its Rule 170.1 motion or appeal documents, so the court need not address it on appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court finds Keystone's argument unpersuasive and notes no authority limits the Georgeson principle to specific matters or assumptions in reassessments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Keystone submits the Tax Court failed to consider evidence of alleged improper and abusive CRA conduct fabricating reassessment facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The motions judge lacked a factual foundation to assess improper conduct allegations and ruled Rule 170.1 motion was not the proper vehicle; the court agrees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Keystone argues the respondent's Rule 54 motion was an abusive attempt to appeal the Minister's assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court disagrees, finding no reviewable error in granting the Rule 54 motion, which serves justice and allows alternative arguments under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court agrees the Minister's concession reducing the assessed amount is not an appeal of the assessment, consistent with Beaulieu and TPine decisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's concession not an appeal",
+    "reference to Beaulieu and TPine",
+    "amended Reply complies with statutory requirements"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court finds no error in the Tax Court's costs awards and notes Keystone was satisfied with the costs in the Rule 54 motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal with costs, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

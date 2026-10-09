@@ -1,0 +1,432 @@
+{
+ "case_id": 46781,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.006612
+ },
+ "verification": {
+  "paragraphs": 42,
+  "summaries": 42,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 17,
+   "court": 25
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant from Haiti seeking refugee protection in Canada under the Immigration and Refugee Protection Act (IRPA), alleging various risks including family violence, harassment, armed attacks, witchcraft, and sexual violence. The tribunal found the claimant lacked credibility due to inconsistencies and failed to prove a well-founded fear of persecution or personal risk of serious harm. Consequently, the claimant's refugee protection claim was rejected.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and claimant's allegations",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 11,
+    "label": "Credibility and evidentiary framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 12,
+    "last": 20,
+    "label": "Analysis of allegations regarding paternal uncle",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 24,
+    "label": "Analysis of harassment by classmate Boileau",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Analysis of 2006 armed criminals incident",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 32,
+    "label": "Analysis of witchcraft fears",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 39,
+    "label": "Analysis of fear of sexual violence and social group membership",
+    "kind": "analysis"
+   },
+   {
+    "first": 40,
+    "last": 42,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from Haiti seeks refugee protection in Canada under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant alleges being hit and threatened by her paternal uncle living with her family in Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant alleges harassment in secondary school around 2002-2003 by a boy expelled for carrying a weapon in 2004-2005.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant alleges that in 2006, four armed criminals entered her family home and beat her father.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The claimant fears witchcraft practices and rape in Haiti, citing widespread experiences of such atrocities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The claimant left Haiti in 2010 for Mexico, stayed with temporary status until 2017, visited several countries, and returned to Haiti briefly in 2015.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The claimant left Mexico and the US in 2017, then entered Canada to claim refugee protection in 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel finds the claimant failed to prove a well-founded fear of persecution or personal risk of torture, death, or cruel treatment under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The claimant's identity was confirmed by Haitian and Mexican documents; the hearing lasted three sessions with about eight hours of testimony, including issues with the claimant's stutter and counsel's withdrawn recusal request.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Identity established",
+    "Hearing details",
+    "Stutter issue",
+    "Recusal request withdrawn"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "A claimant's sworn allegations are presumed true unless contradicted by inconsistencies, omissions, or implausibilities relevant to the refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The claimant was not credible due to significant omissions, contradictions, and inconsistencies in testimony and documents related to her refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The claimant alleges her paternal uncle was violent, threatening, and abusive, causing her to leave Haiti partly because of him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The claimant says her parents did not move after incidents but only after she left Haiti; her parents now live separately.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The claimant says she lived with her mother in 2015 and met her uncle then, who gave her a 'dirty look' and said 'you came back?'.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The claimant initially said her BOC Form was complete and true but later added the 2015 uncle encounter only after questioning, amending her form in December 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The claimant's family's moves and 2015 residence with her mother are not in the IMM 5669 form, which lists only the family home address.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel finds the claimant embellished her account by adding incidents after questioning, undermining her credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The family's continued residence with the violent uncle until 2010 and no complaints filed undermine the claimant's allegations about the uncle's behavior.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Even if true, the uncle's alleged violence is over ten years old, with no recent threats or complaints, so no serious risk of persecution exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant failed to prove a well-founded fear of persecution or personal risk from her uncle under the Convention or IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The claimant alleges harassment and threats by a classmate named Boileau in secondary school, including a weapon incident and a call after her 2015 return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The claimant adds an incident at a funeral and believes Boileau called her in 2015 but cannot explain how he knew or why he waited 10 years.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The claimant's testimony about the timing of Boileau's threats is inconsistent, but she later accepts the BOC Form dates as correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Due to contradictions and the age of incidents, the panel finds the claimant failed to prove Boileau was or remains a threat.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The claimant alleges four armed criminals entered her home in 2006, beat her father, who reported it to police but no complaint was recorded.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Assuming true, the 2006 incident was an isolated robbery with no evidence criminals targeted the claimant or still pose a threat.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "No evidence shows a current threat from the criminals, especially since the family no longer lives at the attacked location.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The claimant failed to prove the criminals remain a threat to her or her family in Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The claimant fears witchcraft in Haiti but cannot specify any personal experience or details about it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The claimant believes Argentinian pastors' vision that she has a threat over her, but cannot describe the threat.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's religious beliefs are respected but lacks objective evidence for witchcraft acts against her in Haiti.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respect for claimant's beliefs",
+    "lack of objective basis for witchcraft claims"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's allegations vague and fails to prove risk from witchcraft in Haiti on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The claimant alleges fear of rape in Haiti because many women have experienced it there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The panel acknowledges documentation and guidelines noting violence and rape against women in Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's counsel's argument that being a woman in Haiti alone establishes refugee protection claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel states that claimant's profile must show serious risk of rape, not just membership in a social group, citing Federal Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel notes claimant is educated, traveled, maintained family contact in Haiti, and has no dependents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's education and travel",
+    "family contacts in Haiti",
+    "no dependents"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The panel finds claimant failed to prove she is a vulnerable woman at risk of persecution in Haiti based on social group membership.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The panel concludes claimant failed to prove serious risk of sexual violence or rape persecution in Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The panel concludes claimant failed to prove serious risk of persecution, torture, or cruel treatment if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The claimant is not a Convention refugee or person in need of protection under IRPA subsection 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The claimant's refugee protection claim is rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

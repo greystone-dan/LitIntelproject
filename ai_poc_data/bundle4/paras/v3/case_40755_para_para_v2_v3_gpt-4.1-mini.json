@@ -1,0 +1,344 @@
+{
+ "case_id": 40755,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0058204
+ },
+ "verification": {
+  "paragraphs": 32,
+  "summaries": 32,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 3,
+   "court": 27,
+   "other": 1,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Tibetan woman born in India seeking asylum in Canada, fearing persecution by Chinese authorities if returned to India and subsequently deported to China. The Immigration and Refugee Board (IRB) tribunal reviewed her claim, focusing on her citizenship status, credibility, and risk of harm. The tribunal found she is neither a convention refugee nor a person in need of protection and rejected her claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background: claimant and claim",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Procedural history and issues",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Claimant's identity and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 8,
+    "last": 13,
+    "label": "Legal framework on Indian citizenship and country of reference",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 25,
+    "label": "Assessment of claimant's citizenship status and efforts to obtain Indian citizenship",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 30,
+    "label": "Risk of persecution and harm in India and China",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 32,
+    "label": "Disposition: claim rejected",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant seeks protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act (IRPA).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant is a Tibetan woman born in India who sought asylum in the US but was refused; she fears persecution by Chinese authorities if returned to India and deported to China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The claimant's application was initially rejected by the RPD, then returned for re-determination after Federal Court review; this decision is based on all evidence including new submissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "procedural history",
+    "evidence considered"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The key issues are the claimant's countries of reference, ability to acquire Indian citizenship, forward-looking harm, and credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The claimant is found to be neither a convention refugee nor a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The claimant's personal identity as an ethnically Tibetan woman born in India is accepted based on provided identity documents and previous findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The claimant is found to be generally credible and forthcoming in her testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The citizenship laws of India are considered in light of recent Federal Court case law regarding Tibetans' ability to acquire Indian citizenship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Section 3(1) of India's Citizenship (Amendment) Act, 2003, outlines conditions under which persons born in India are citizens by birth.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The claimant, born in India in 1961, meets criteria for Indian citizenship under section 3(1)(a), though Tibetans have faced recognition difficulties; recent legal developments have improved recognition.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Delhi High Court ruled that Tibetans born in India between 1950 and 1987 cannot have their nationality questioned and ordered passport authorities to process their applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal's decision in Tretsetsang guides that a country of nationality includes one where citizenship exists but minor impediments to state protection may exist; the onus is on the claimant to prove impediments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Tretsetsang requires claimants to prove significant impediments to exercising citizenship rights and reasonable unsuccessful efforts to overcome them, with case-by-case assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The claimant has not proven significant impediments to exercising Indian citizenship rights nor made reasonable efforts to overcome them; India is a country of reference and no serious risk of persecution is shown.",
+   "ideas": "multiple",
+   "idea_list": [
+    "impediment not established",
+    "lack of reasonable efforts",
+    "India as country of reference",
+    "no serious risk shown"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The claimant has not made reasonable efforts to apply for an Indian passport, only checking online requirements without actual application attempts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The claimant's minimal efforts to obtain a passport are unreasonable; no attempts to seek assistance from Indian consulate or alternatives were made.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The claimant's personal circumstances do not justify lack of reasonable efforts given her demonstrated capabilities and assistance available.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The claimant has not established significant impediments or made reasonable efforts; the lack of a birth certificate is considered but insufficient to prove impediment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The claimant's belief that her Tibetan birth certificate would be rejected is insufficient evidence of a significant impediment or reasonable efforts to overcome it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The claimant's inability to pursue citizenship through courts is not determinative as she failed to make reasonable preliminary efforts to obtain a passport.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "evidence",
+   "summary": "A legal opinion letter from an Indian lawyer suggests a similar claimant likely would not acquire citizenship based on identity documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The legal opinion letter is insufficient to establish significant impediments or justify lack of efforts as it was not specific to the claimant and lacks definitive conclusions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Indian High Court ordered passport authorities to process eligible Tibetan refugees' applications, making refusals unlikely and unsupported by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "No formal refusal from Indian officials exists; claimant failed to show significant impediment or reasonable efforts; acquiring Indian citizenship is within her control.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "India is found to be a country of reference for the claimant based on the above findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The previous RPD member's reasoning on the claimant's ability to return to India and family connections is adopted; assistance from husband is not improper.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The claimant fears deportation to China if returned to India due to expired Registration Certificate and lack of documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The claimant's fear of deportation to China is not well-founded; Tibetans are not forcibly removed or handed to Chinese authorities in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "No additional risk of harm in India is established; claimant's family lives there without harm despite similar document renewal stress.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "On balance, the claimant will not be persecuted in India and has not shown a well-founded fear of persecution or risk of torture, death, or cruel treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant is neither a convention refugee under section 96 nor a person in need of protection under subsection 97 of the IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claimant's claim, signed by R. Kotovych on August 3, 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

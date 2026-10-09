@@ -1,0 +1,212 @@
+{
+ "case_id": 28771,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0034748
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 3
+  },
+  "speakers": {
+   "court": 9,
+   "evidence": 2,
+   "below": 3,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Kei Wah Carah Law, a Hong Kong citizen, sought judicial review of a Visa Officer's refusal of her open work permit application under the Hong Kong Special Measures program. The court reviewed issues of procedural fairness and the reasonableness of the Officer's findings regarding the legitimacy of the Applicant's educational credentials. The judicial review was dismissed, upholding the Officer's decision as reasonable and procedurally fair.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Introduction and outcome",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Evidence and Officer's findings",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 11,
+    "label": "Standards of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 13,
+    "last": 16,
+    "label": "Procedural fairness analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Assessment of Officer's expertise and decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Kei Wah Carah Law, a Hong Kong citizen, seeks judicial review of a Visa Officer's refusal of her open work permit application under the Hong Kong Special Measures program.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The judicial review is dismissed because the Officer's finding was reasonable and procedurally fair.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "evidence",
+   "summary": "The Applicant submitted an Educational Credential Assessment from WES equating her Q7 credential to a one-year postgraduate diploma and her ARU MBA to a Canadian Master's degree.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "The Officer scheduled an interview and requested various documents related to the Applicant's Q7 and ARU MBA credentials before the interview.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "At the interview, the Officer expressed concerns about the legitimacy of the Applicant's degrees, noting inconsistencies and accusing her of plagiarism.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's concerns about degree legitimacy",
+    "Accusation of plagiarism"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer's GCMS notes detail the assessment, highlighting inconsistencies in the Applicant's enrollment dates, inability to explain completing a course in two weekends, and concluding the diploma was not legitimately earned, leading to a finding of misrepresentation and inadmissibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inconsistencies in enrollment dates",
+    "Inability to explain course completion time",
+    "Finding of misrepresentation and inadmissibility"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The first issue is reviewed on a correctness standard, and procedural fairness is assessed based on all circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The second issue is reviewed for reasonableness, requiring the decision to be transparent, intelligible, justified, and based on a rational analysis of facts and law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "GCMS notes show the Officer asked if the Applicant deliberately gave inaccurate information to WES and whether WES would issue the ECA if it knew she studied only two weeks; the Applicant answered 'I don't know.'",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicant submits it was unfair for the Officer to expect her to speculate on WES's response and that she should have been allowed to follow up with WES.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court finds the Officer's questions fair, as the Applicant was on notice and the questions sought clarification on inconsistencies, not speculation about WES's actions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Considering the circumstances and notice given, the court concludes the Applicant had a fair process and the questions were not unfair.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Applicant relies on Chung v Canada to argue the Officer acted outside his expertise in finding plagiarism.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court distinguishes this case from Chung, noting the Officer's concerns also include the Applicant completing the Q7 credential in two weeks versus the stated timeframe, raising reasonable concerns.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Distinguishing from Chung",
+    "Concerns about credential completion timeframe"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court aligns this case with Kwong, holding that assessing genuine education credentials is within the Officer's purview and finds the Officer's conclusion reasonable based on evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds the Officer's Decision reasonable and sees no grounds to intervene.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

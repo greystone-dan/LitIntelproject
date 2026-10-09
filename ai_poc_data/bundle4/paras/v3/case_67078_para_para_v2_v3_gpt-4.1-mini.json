@@ -1,0 +1,297 @@
+{
+ "case_id": 67078,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0046712
+ },
+ "verification": {
+  "paragraphs": 29,
+  "summaries": 29,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 23,
+   "party": 2,
+   "below": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by an appellant against a Refugee Protection Division (RPD) decision denying refugee status based on an internal flight alternative (IFA) in Kenya. The tribunal reviewed new evidence and found the appellant credible, concluding that the IFA was not reasonable due to ongoing threats from her husband and systemic challenges faced by women in Kenya. The tribunal allowed the appeal and granted the appellant Convention refugee status under IRPA section 96.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "New evidence and credibility assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 9,
+    "last": 15,
+    "label": "RPD decision and internal flight alternative findings",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 27,
+    "label": "Tribunal analysis of IFA and state protection",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 29,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal, finds the RPD erred on IFA, and concludes the appellant is a Convention refugee under IRPA section 96.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal allowed",
+    "RPD erred on IFA",
+    "Appellant is Convention refugee"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal substitutes its own decision that the appellant is a Convention refugee and allows the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal accepts the appellant's credible allegations of domestic violence in a forced marriage to a wealthy Kenyan businessman who threatens her.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal accepts new evidence: a letter from the appellant's sister in Kenya dated 2019 with identity documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal states the legal criteria for accepting new evidence: it must arise after the RPD decision, be unavailable before, or not reasonably expected to be brought earlier.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal must decide if new evidence is credible, relevant, and new before accepting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The appellant submits the letter is admissible as it shows ongoing threatening behavior by her husband after the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal accepts the letter as new, relevant, and probative evidence describing the husband's conduct after the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD found the appellant credible but rejected her claim due to a viable IFA in Nairobi, Kisumu, or Nakuru under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant credible with no inconsistencies in her testimony or Basis of Claim form.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal accepts the appellant's subjective fear of harm and finds an objective basis due to high domestic abuse prevalence in Kenya.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RPD identified three possible internal flight alternative locations in Kenya.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal states the two-pronged IFA test from Rasaratnam: no serious persecution risk and reasonableness of seeking refuge there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RPD found the appellant's fear that her husband could find her in the IFA was vague and speculative with insufficient evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal notes the RPD made no finding on the husband's motivation, but the appellant's family reports ongoing threats from him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal is satisfied the husband maintains interest and likely future abuse, possibly escalating since the appellant left him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RPD found no evidence the husband had means to locate the appellant nationwide or through police or business contacts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD unreasonably expected her to know details of her husband's influence and ignored police corruption and his profile.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal finds it reasonable the appellant lacks details on husband's influence and accepts he has means to find her due to his profile and corruption.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal finds the husband has motivation and means to find and harm the appellant, so the IFA fails the first prong of the test.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal finds the IFA also fails the second prong on reasonableness due to challenges women face in Kenya, even if husband could not find her.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal lists appellant's profile factors making IFA unreasonable: single woman, survivor stigma, uneducated, ethnic discrimination, no family support.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal finds employment precarious for the appellant in IFAs, with risks of discrimination, abuse, and degrading work like street vending.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal finds the high bar for unreasonableness of IFA met due to appellant's hardships and applies Guideline 4 for women claimants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal finds widespread impunity for domestic violence perpetrators in Kenya and obstacles to justice for women survivors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal finds clear evidence rebutting presumption of state protection; adequate protection is not reasonably forthcoming.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal concludes the appellant has a well-founded fear of persecution under IRPA section 96 due to credibility, no protection, and no IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal and substitutes its own decision that the appellant is a Convention refugee, signed March 4, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

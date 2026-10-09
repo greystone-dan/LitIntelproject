@@ -1,0 +1,486 @@
+{
+ "case_id": 69157,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0073988000000000005
+ },
+ "verification": {
+  "paragraphs": 48,
+  "summaries": 48,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 31,
+   "below": 7,
+   "party": 3,
+   "other": 4,
+   "evidence": 3
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by Indian citizens who are permanent residents of the Philippines, challenging the Refugee Protection Division's (RPD) decision to exclude them from refugee protection under section 98 of IRPA and Article 1E of the UN Refugee Convention. The Appellants feared persecution from Abu Sayyaf in the Philippines and a family dispute in India, but the tribunal confirmed the RPD's findings that they had rights similar to nationals in the Philippines and faced no serious risk. The appeal was dismissed, confirming the exclusion and that the Appellants are not refugees or protected persons.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and outcome",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 13,
+    "label": "New evidence and oral hearing requests",
+    "kind": "issue"
+   },
+   {
+    "first": 14,
+    "last": 16,
+    "label": "Role of tribunal and legal framework",
+    "kind": "other"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "RPD findings on risk and exclusion",
+    "kind": "background"
+   },
+   {
+    "first": 20,
+    "last": 25,
+    "label": "Appellants' arguments and procedural compliance",
+    "kind": "issue"
+   },
+   {
+    "first": 26,
+    "last": 31,
+    "label": "Tribunal's independent findings on exclusion and status",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 40,
+    "label": "Evidence and analysis of permanent resident rights",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 45,
+    "label": "Risk assessment and confirmation of RPD findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 48,
+    "label": "Final disposition and confirmation of exclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Appellants, Indian citizens, appeal the RPD's May 31, 2022 decision rejecting their refugee claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Appellants are permanent residents of the Philippines and fear Abu Sayyaf members and an associated individual there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "In India, the Appellants fear the Principal Appellant's brother due to a land dispute.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD rejected the Appellants' refugee claims, excluding them under section 98 IRPA and Article 1E of the UN Refugee Convention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD's exclusion decision under section 98 IRPA and Article 1E is confirmed, so the Appellants are not refugees or protected persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellants submit new evidence items A-G, but items A-E are rejected.",
+   "ideas": "multiple",
+   "idea_list": [
+    "List of new evidence submitted",
+    "Rejection of items A-E"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The law allows accepting new evidence only if it arose after the RPD decision, was unavailable before, or could not reasonably have been brought earlier; it must be new, credible, and relevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Appellants request an oral hearing and submit new evidence but do not explain how the evidence meets the new evidence test.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Items A-E do not meet the new evidence test as they relate to a 2016 land dispute and were available before the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "News articles and reports in items C-E predate the RPD decision and are available; the latest Human Rights Watch report is considered in the assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Items A-E are not accepted as new evidence; items F-G are accepted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejection of items A-E",
+    "Acceptance of items F-G"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Items F-G are accepted as new, credible, relevant evidence arising after the RPD decision, despite no submissions from Appellants on new evidence test.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Appellants' request for an oral hearing is denied as accepted new evidence does not raise serious credibility issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Jurisprudential Guide MB8-00025 confirms that risk in a country of residence is relevant to exclusion under Article 1E of the UN Refugee Convention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal's role is to assess all evidence and decide if the RPD's decision was correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal independently assessed the evidence and finds exclusion under section 98 IRPA and Article 1E determinative of the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants' risk allegations credible in both the Philippines and India.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants excluded under Article 1E as permanent residents of the Philippines with status similar to nationals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants do not face serious persecution or risk in the Philippines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Appellants argue their Special Resident Retiree Visas do not grant rights like citizenship and they are surrendering these visas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RAD Rules require detailed submissions identifying errors and their location in the RPD decision, which the Appellants did not provide.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Appellants' submissions do not comply with RAD Rules as they fail to identify specific errors or problematic sections in the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Jurisprudence holds the RAD is not required to search for or guess errors the RPD may have made.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Federal Court in Dhillon states the RAD is not to search for errors on its own.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Federal Court in Dahal similarly states the RAD should not guess at errors in the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal independently finds the RPD correctly excluded the Appellants under section 98 IRPA and Article 1E for stated reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "other",
+   "summary": "Article 1E of the UN Refugee Convention excludes persons recognized by their country of residence as having rights and obligations of nationals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "other",
+   "summary": "Section 98 of IRPA incorporates Article 1E, excluding persons under sections E or F of Article 1 of the Refugee Convention from refugee status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "other",
+   "summary": "The Federal Court of Appeal in Zeng described the three-part test for exclusion under Article 1E.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "other",
+   "summary": "The Federal Court in Shamlou held that rights under Article 1E include return, work, study, and social services; Appellants have permanent resident status in the Philippines.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rights under Article 1E",
+    "Appellants' permanent resident status"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants had permanent resident status at the RPD hearing and when filing the RAD appeal, despite no evidence of cancellation after 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "evidence",
+   "summary": "At the RPD hearing, the Principal Appellant testified to Philippine permanent residency; Associate Appellant and children have indefinite SRRV status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal sees no error in the RPD's finding that the Appellants had Philippine permanent resident status and confirms it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants' permanent resident status gave them rights similar to Philippine nationals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The Appellants argue they cannot own property in the Philippines, a right they believe nationals have.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal notes the Associate Appellant ran a business and the Principal Appellant was a housewife; they traveled abroad and returned to the Philippines as permanent residents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal states the RAD's general concurrence with RPD findings not challenged on appeal should not lead to judicial review, emphasizing Rule 3(3)(g) requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal notes the property ownership issue was not raised before the RPD and no evidence was provided about home ownership.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal finds no authority supporting property ownership as a right of nationals under Article 1E and Shamlou, which focus on return, work, study, and social services rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants can live, work, study, and travel in the Philippines, so their permanent resident status grants rights like nationals despite no property ownership.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD correctly concluded the Appellants had rights like nationals and face no serious persecution or harm risk in the Philippines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 42,
+   "speaker": "evidence",
+   "summary": "The Principal Appellant was kidnapped by Abu Sayyaf in 2016 and released after ransom; Appellants fear being killed by Abu Sayyaf or an associate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "speaker": "evidence",
+   "summary": "At the RPD hearing, the Associate Appellant testified he reported the kidnapping to police and paid ransom for his wife's release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "speaker": "below",
+   "summary": "The RPD found the risk from Abu Sayyaf decreased since 2016 and no evidence of ongoing threat from the associate; these findings are not challenged.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal independently finds no error in the RPD's risk analysis and confirms no current risk from Abu Sayyaf or the associate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "below",
+   "summary": "The RPD concluded the Appellants are excluded from refugee protection due to safe surrogate protection via permanent resident status with rights like nationals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants excluded from refugee protection under Article 1E and section 98 of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD decision that the Appellants are not Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

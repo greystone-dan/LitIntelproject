@@ -1,0 +1,333 @@
+{
+ "case_id": 34792,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0057348
+ },
+ "verification": {
+  "paragraphs": 31,
+  "summaries": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 6
+  },
+  "speakers": {
+   "court": 24,
+   "other": 6,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Hernandez Delgado seeks judicial review of IRCC's refusal of her permanent resident application on humanitarian grounds after losing her status due to cessation following her return to Cuba. The court finds the Officer's decision unreasonable, citing failures in assessing health conditions, the best interests of the children, and a lack of compassion. The court ultimately rules in favor of Ms. Hernandez Delgado, finding the decision lacks justification and proper consideration of relevant factors.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 1,
+    "label": "Introduction and case overview",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 11,
+    "label": "Factual background and IRCC decision",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 19,
+    "label": "Standard of review and health evidence analysis",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 20,
+    "last": 24,
+    "label": "Best interests of the child principle and its application",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Humanitarian and compassionate grounds legal framework",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 34,
+    "label": "Critique of Officer's reasoning and compassion analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 35,
+    "label": "Certification and general importance",
+    "kind": "other"
+   },
+   {
+    "first": 39,
+    "last": 64,
+    "label": "Further analysis on best interests of the child",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Ms. Hernandez Delgado seeks judicial review of IRCC's November 8, 2024 refusal of her permanent resident application on humanitarian grounds; court finds decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Hernandez Delgado has mental health issues and traveled to Mexico in 2018 on a Cuban passport, unaware it might affect her Canadian status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "In July 2018, she returned to Cuba to be with her dying brother and returned to Canada after his death, remaining there since.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "In October 2018, the Minister applied to cease her refugee protection due to her return to Cuba, which was granted in August 2021, causing loss of permanent resident status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "She applied for permanent resident status on humanitarian grounds in March 2023, citing family ties, hardship, and changed law on cessation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "On November 8, 2024, IRCC rejected her application, accepting some health issues but finding Cuba's health system excellent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Officer found insufficient evidence that her departure would harm grandchildren's best interests, noting parents' care and common childcare challenges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Officer noted daughter's support pledge and acknowledged applicant's concerns but found she would have access to Cuban social systems.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Officer rejected relief from cessation consequences, stating applicant consciously returned to a country she was protected from, showing disrespect for Canadian law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court explains its role is to assess reasonableness of Officer's decision per Vavilov, requiring justification, transparency, and intelligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Officer acknowledged health issues but found conditions managed in Cuba before and Cuban system excellent; court finds problems with this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "No evidence showed current health conditions existed in Cuba; medical notes show worsening health since arrival, making Officer's finding unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Even if conditions existed before, evidence shows Cuban healthcare deteriorated by 2023, contradicting Officer's reliance on outdated reports.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Officer failed to engage with central evidence on healthcare deterioration, unreasonably relying on outdated evidence to exclude current evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "other",
+   "summary": "Supreme Court of Canada explained best interests of child principle in Kanthasamy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 21,
+   "speaker": "other",
+   "summary": "Williams decision cited in Kanthasamy further explains best interests of child analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Applicant argues Officer unreasonably limited best interests analysis to financial dependency, ignoring emotional bonds and separation harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Court agrees Officer's reasoning on children's best interests was deficient and unreasonable, citing prior cases recognizing grandparents' roles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "other",
+   "summary": "Kanthasamy decision explains the compassionate approach required in H&C applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 26,
+   "speaker": "other",
+   "summary": "Kanthasamy cites Chirwa, explaining H&C relief is for facts that excite a reasonable person's desire to relieve misfortunes warranting special relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 27,
+   "speaker": "other",
+   "summary": "Officers must apply compassion and empathy, considering the reality of life if forced to leave Canada, per Damte.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 28,
+   "speaker": "other",
+   "summary": "H&C applications require empathy, as stated in Fernandez.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Officer's decision fails to reflect compassion, dismissing hardship and impact on grandchildren, with two concerning findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Officer's finding that applicant was on an 'extended visit' to Canada is dismissive and inaccurate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Applicant lived in Canada for 16 years as refugee and permanent resident; Officer's 'extended visit' label is demeaning and capricious.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Officer's finding that asylum is a privilege and applicant showed disrespect for law is another failure of required analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Asylum is a right, not a privilege; Officer misunderstood law and wrongly moralized applicant's return to Cuba without legal knowledge.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Compassion requires empathetic approach, imagining oneself in applicant's position with heart and mind engaged.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "No serious question of general importance arises for certification, as agreed by parties and court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Decisions under s. 25(1) are unreasonable if children's interests are not sufficiently considered; these must be well defined and examined carefully.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court explains that the best interest test for a child does not have a minimum needs threshold or a hardship threshold; it focuses on what is in the child's best interests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  }
+ ]
+}

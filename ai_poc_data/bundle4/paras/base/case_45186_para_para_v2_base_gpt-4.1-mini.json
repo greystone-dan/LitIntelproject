@@ -1,0 +1,307 @@
+{
+ "case_id": 45186,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0051772
+ },
+ "verification": {
+  "paragraphs": 32,
+  "summaries": 32,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 4,
+   "other": 1,
+   "court": 25,
+   "evidence": 2
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a 43-year-old Egyptian Christian claimant seeking refugee protection in Canada under IRPA sections 96 and 97(1) due to religious persecution fears if returned to Egypt. The Refugee Protection Division (RPD) processed the claim through an expedited procedure without a hearing and found the claimant credible with a well-established risk of serious harm from radical Islamists and societal discrimination. The tribunal accepted the claim, concluding that state protection and internal flight alternatives in Egypt are inadequate, and granted refugee status.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and Claimant's Profile",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Procedural Framework and Expedited Processing",
+    "kind": "other"
+   },
+   {
+    "first": 9,
+    "last": 17,
+    "label": "Claimant's Allegations and Nexus to Refugee Definition",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 24,
+    "label": "Country of Origin Information on Religious Persecution in Egypt",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 31,
+    "label": "Assessment of State Protection and Internal Flight Alternative",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 32,
+    "label": "Decision and Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant is a 43-year-old married Egyptian male citizen with no other citizenship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant seeks refugee protection under IRPA sections 96 and 97(1) based on his Christian religion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The claimant's refugee protection claim was processed through an expedited procedure.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The IRPA allows the RPD to decide claims without a hearing unless the Minister intervenes, and mandates informal, quick proceedings respecting fairness.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The claimant's case was identified as suitable for expedited processing, with Egyptian claims accepted without a hearing by the RPD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "The RPD received a Certificate of Readiness, File Review Process form signed on 3 December 2019 (Exhibit 4).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "Front End Security Screening (FESS) was received by the RPD on 23 November 2019 for this case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal finds the case meets criteria for expedited determination and decides it without a hearing per RPD instructions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The claimant alleges lifelong religious discrimination, attacks on family and himself, escape from Egypt, arrival in Canada in 2019, and fear of harm if returned due to religion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's religion and discrimination",
+    "Attacks on family and self",
+    "Escape and arrival in Canada",
+    "Fear of harm on return"
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant qualifies as a Convention refugee.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The claimant's Egyptian citizenship is established by a certified true copy of his genuine Egyptian passport (Exhibit 1).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal accepts the claimant's credibility, finding his evidence consistent and not contradicted by country documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal reviewed claimant's BOC, POE forms, and various documents including ID, birth, marriage, medical, baptism certificates, letters, and photos.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The claimant has established a nexus to the refugee definition based on his religion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The claimant has established that the feared harm\u2014physical harm, persecution, and religious practice restrictions\u2014is serious harm.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The agents of harm are identified as radical Islamists and Egyptian society generally.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The claimant has a serious possibility of serious harm if returned to Egypt due to his Coptic Christian identity, supported by neutral country information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The US Department of State 2018 report describes Egypt's political situation, human rights issues, and ongoing state of emergency since 2017 terrorist attacks on Coptic churches.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The report notes the April 2017 terrorist attack on Coptic churches and deadly 2018 attacks on places of worship by terrorist groups in Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The 2018 International Religious Freedom Report notes ongoing lethal violence and discrimination against Christians in Egypt, including attacks on pilgrims and churches.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The 2019 Australian DFAT report details terrorist attacks on Christians and the socio-political status of Christians in Egypt, especially Coptic Orthodox.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The 2019 Freedom House report states Egypt's constitution declares Islam official but guarantees freedom of belief, noting persecution and violence against religious minorities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The 2019 USCIRF report notes some positive official discourse but ongoing widespread religious freedom challenges and anti-Christian violence in rural Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The USCIRF report details sectarian attacks, legal impunity, police negligence, and violence against Christians in 2018, including ISIS attacks and police involvement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal finds the neutral COI supports the claimant's serious possibility of serious harm due to religious identity and past experiences in Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The claimant has established on a balance of probabilities that adequate state protection is not available to him in Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The claimant states he never sought police protection and that Egyptian authorities do not intervene in religious disputes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal notes evidence that societal bigotry and government negligence contribute to communal violence in Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant has clear and convincing evidence that operationally effective state protection is unavailable despite some improvements in Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds no viable internal flight alternative exists for the claimant within Egypt.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal accepts the claimant's allegations that no safe place exists in Egypt due to societal discrimination and violence against Christians.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's fear of Muslim extremists",
+    "neutral COI on violence against Christians",
+    "tribunal accepts lack of viable internal flight alternative"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal determines the claimant is a Convention refugee under section 96 of IRPA and allows his claim, signed by L. Figg on January 2, 2020.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

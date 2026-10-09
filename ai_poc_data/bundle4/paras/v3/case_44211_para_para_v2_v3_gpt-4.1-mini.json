@@ -1,0 +1,156 @@
+{
+ "case_id": 44211,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0023188
+ },
+ "verification": {
+  "paragraphs": 11,
+  "summaries": 11,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 9,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by the appellant challenging a Motions Judge's order striking their judicial review application as moot regarding a parole condition extension. The appellant argues for a merits review due to the ongoing impact of the parole condition, while the respondent supports dismissal. The Federal Court of Appeal found no error in the Motions Judge's discretion, dismissed the appeal, and refused to admit new evidence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and legal framework",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Analysis of mootness and discretion",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 10,
+    "label": "New evidence request",
+    "kind": "other"
+   },
+   {
+    "first": 11,
+    "last": 11,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appeal challenges the Motions Judge's July 6, 2023 order striking the appellant's judicial review application as moot regarding a parole condition extension.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal from Motions Judge order",
+    "judicial review application struck moot",
+    "parole condition extended six months"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant accepts mootness but argues the parole condition's lasting impact justifies a merits review due to ongoing prison authority-inmate relations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "It is established that moot applications may be dismissed and intervention requires palpable or legal error by the Motions Judge in discretion exercise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court finds no error in the Motions Judge's discretion and refuses to adopt the appellant's argument for systematic merits review of moot issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court finds the appellant's claim of future impact speculative and supports assessing renewed parole conditions based on current facts, consistent with Borowski.",
+   "ideas": "multiple",
+   "idea_list": [
+    "future impact speculative",
+    "renewed conditions assessed on current facts",
+    "Borowski precedent cited"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Although the Motions Judge did not explicitly analyze all Borowski criteria, her focus on relevant factors and reference to Adams case justifies no intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The appellant contends Adams concerns mootness jurisdiction, and Najar and Gallone are more relevant precedents for the Motions Judge.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court rejects appellant's argument, noting Adams analyzed mootness discretion independently, providing useful precedent for the Motions Judge.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Najar and Gallone differ factually from this case, justifying the Motions Judge's discretion to not follow them strictly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The appellant's request to introduce new evidence is dismissed as it could have been presented earlier and would not change the outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appeal is dismissed without costs as the respondent does not claim them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

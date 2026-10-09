@@ -1,0 +1,346 @@
+{
+ "case_id": 7486,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.005445600000000001
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 33,
+   "party": 3,
+   "evidence": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Mr. Stanchfield's challenge to the Minister's refusal to delete his Social Insurance Number (SIN) and his claim for mandamus to deregister it, arguing that he is not currently employed and thus should not be registered. The Minister and associated government departments (Respondents) maintain that the SIN is permanent and statutory provisions do not allow for rescission or deregistration. The Federal Court dismissed the judicial review application, finding the Applicant's interpretation unreasonable and upholding the Respondents' position under a reasonableness standard of review.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 15,
+    "label": "Legal context and central issue",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 21,
+    "label": "Standard of review discussion",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 22,
+    "last": 36,
+    "label": "Statutory interpretation and analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 38,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   },
+   {
+    "first": 124,
+    "last": 124,
+    "label": "Additional comment on reasonableness review",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The decision concerns the Minister's refusal to delete the Applicant's SIN and the Applicant's claim for mandamus to deregister it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Section 28.1(1) of DESDA requires persons employed in insurable employment or self-employed under Part VII.1 to be registered with the Commission.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant argues that 'who is employed' means currently employed, so he should be deregistered as he is not employed or intending to be employed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Mr. Stanchfield is self-represented, experienced in litigation, and has previously challenged the Minister of National Revenue unsuccessfully.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "Mr. Stanchfield applied for a SIN at age 15 in 1986 and has not been employed in insurable employment or self-employed since December 31, 2009.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "In May 2016, the Applicant sought to rescind his SIN; the Register Office responded that a SIN is permanent and cannot be disassociated from the individual.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "From February 2017, the Applicant had increasing communications with Department officials demanding rescission, met with negative responses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The interactions add nothing to the issues; no evidence suggests unfair treatment or that the rescission demand was not seriously considered.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Applicant suggested the SIN regime offends his religious beliefs, but this issue and any Charter breach were not substantively raised.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "A SIN is a nine-digit number identifying Canadians and residents who earn money, pay taxes, contribute to pensions, or use government services.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Register is a database storing all SINs issued since 1964 with personal identifying information, updated as needed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Various government departments use SINs for program administration and benefits, accessible only for legislated purposes.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Respondents identified programs requiring SINs, including Canada Pension Plan, Old Age Security, Employment Insurance, and others.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Having a SIN does not legally require participation in government programs, but without one, a person is practically excluded from them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The central issue is whether DESDA allows deregistration of a SIN and if the Court should order deregistration and deletion of personal information.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Applicant asserts correctness as the standard of review; Respondents argue for reasonableness; the Court finds the issue largely immaterial.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "In Vavilov, the Supreme Court held that reasonableness is the presumption for statutory interpretation, but single reasonable interpretations are addressed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Court of Appeal applied reasonableness standard even when only one reasonable interpretation existed in Nova Tube case.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "This case is not of central importance categories attracting correctness standard under Vavilov, such as parliamentary privilege or religious neutrality.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Though the issue affects the public and is of wider concern, that alone does not trigger the correctness standard under Vavilov.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Respondents bring experience and objectivity, supporting a reasonableness standard with only one reasonable interpretation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Section 28.1(1) of DESDA requires employed persons to register with the Commission.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Sections 2 and 3 require maintaining the Register and assigning a SIN to each registered person.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Section 28.2 outlines the Register's contents, including names, SINs, and other identifying information, and issuance of SIN cards.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Sections 28.2(8)-(10) allow new SINs only in limited cases; old SINs are voided, not rescinded, under special circumstances like fraud.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "DESDA grants the Minister broad powers and operational requirements to the Commission under sections 5, 24, 28.1, and 28.2.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Section 28.1 imposes registration on employed persons but is silent on any requirement to continue employment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The legislative scheme is silent on rescission of a SIN, even when voided; old SINs are voided, not deleted or rescinded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "No statutory power authorizes rescission of a SIN; Parliament would have specified such a right if intended.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Applicant's interpretation based on 'is employed' as a continuing condition is not an ordinary meaning interpretation, court finds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's interpretation unreasonable as it ignores timing and consequences of registration changes in employment history.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court must consider s 12 of the Interpretation Act and modern interpretation principles from Rizzo & Rizzo Shoes Ltd.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Applicant's interpretation conflicts with the statutory scheme lacking provisions for rescission or deregistration, only voidability for fraud or error.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Respondents' interpretation aligns with maintaining a single government number and administrative consistency across federal legislation.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The interpretation supports individuals' participation in benefits and efficient monetary collection for programs and entitlements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Applicant's argument of voluntary enfranchisement is rejected; the registration relationship is statutory and compulsory without consent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court concludes the Respondents lack power and the Applicant lacks right to rescind the SIN; mandamus relief submissions are irrelevant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed with costs of $3,500.00 awarded to the Respondents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 124,
+   "speaker": "court",
+   "summary": "A reasonableness review may reveal a single reasonable interpretation of a statutory provision despite not being a de novo analysis.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

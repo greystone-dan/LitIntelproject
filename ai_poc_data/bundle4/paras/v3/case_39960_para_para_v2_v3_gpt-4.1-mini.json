@@ -1,0 +1,222 @@
+{
+ "case_id": 39960,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0031660000000000004
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 4,
+   "court": 14
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant from St. Vincent seeking refugee protection under sections 96 and 97 of IRPA, alleging spousal abuse and threats. The tribunal panel found the claimant's testimony inconsistent and not credible, rejecting the claim due to failure to prove a serious possibility of persecution or risk upon return. The claim was ultimately denied by the panel.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and claimant identity",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Credibility assessment framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Claimant's allegations and testimony",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 15,
+    "label": "Panel's credibility findings and negative inferences",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 17,
+    "label": "Panel's conclusion on refugee protection claim",
+    "kind": "disposition"
+   },
+   {
+    "first": 18,
+    "last": 18,
+    "label": "Final decision and order",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant, a St. Vincent citizen, seeks refugee protection under sections 96 and 97 of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The panel finds the claimant failed to prove a serious possibility of persecution or risk of torture, death, or cruel treatment if returned to St. Vincent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The panel accepts the claimant's identity as a St. Vincent citizen based on her passport, with no evidence to the contrary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The panel notes serious inconsistencies and implausibilities in the claimant's testimony, guided by the Orelien decision on credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The panel considers consistency in the claimant's story, per Dan-Ash, as an important credibility indicator.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The panel applied the Chairperson's Gender Guidelines considering social context, state protection, and country conditions in assessing the claimant's case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The claimant alleges spousal abuse and threats by XXXX, left him in 2006, and he continued threats after returning from Canada in 2009.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The claimant omitted XXXX's name on a form but explained she was not in a relationship; the panel accepts this but draws a negative inference for not mentioning him elsewhere.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's omission of XXXX's name",
+    "Panel accepts explanation but draws negative inference"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The claimant said she fled threats but testified she traveled to Canada in 2009 for a friend's wedding, unable to name the friend.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The panel draws a negative inference from the claimant's inability to name the wedding friend and finds her travel explanation not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The claimant entered Canada with authorization until 2010 but claimed asylum only in 2012, explaining fear and financial barriers; submitted a letter from L.B.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's delay explanation and questions the reliability of the unverified letter from L.B.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Delay explanation rejected",
+    "Letter from L.B. given little weight"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel finds it reasonable to expect asylum claims at earliest opportunity, not two and a half years later after authorization expired.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The claimant's failure to seek asylum or regularize stay shows lack of subjective fear of return to St. Vincent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel finds the spousal abuse allegations not credible and gives little weight to supporting statements from claimant's mother and daughter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The claimant has not met the burden to show a serious possibility of persecution or risk of torture, death, or cruel treatment upon return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant is neither a Convention refugee nor a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The claim is rejected by the panel, signed by F. Mortazavi on December 20, 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

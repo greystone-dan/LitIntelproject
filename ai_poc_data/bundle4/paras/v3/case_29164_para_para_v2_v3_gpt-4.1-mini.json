@@ -1,0 +1,358 @@
+{
+ "case_id": 29164,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0062536000000000015
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 3
+  },
+  "speakers": {
+   "below": 12,
+   "court": 20,
+   "evidence": 1,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 1
+ },
+ "structure": {
+  "overview": "This case involves the judicial review of a decision by a Senior Immigration Officer who refused the applicant El Sadek's visa and work permit application due to misrepresentation of his work experience. The applicant challenged the decision on grounds of procedural fairness and unreasonableness, but the Federal Court found the officer's decision reasonable and the procedural fairness adequate. Consequently, the court dismissed the application for judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Background: refusal and reasons",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 18,
+    "label": "Background: investigation and refusal decision",
+    "kind": "background"
+   },
+   {
+    "first": 20,
+    "last": 31,
+    "label": "Analysis: procedural fairness and reasonableness review",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 37,
+    "label": "Analysis: applicant's arguments and court's rejection",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 39,
+    "label": "Disposition and certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "A Senior Immigration Officer refused the application on March 13, 2023, citing inadmissibility for misrepresentation, failure to prove departure, and inconsistent visit purpose.",
+   "ideas": "multiple",
+   "idea_list": [
+    "refusal reasons: misrepresentation",
+    "failure to prove departure",
+    "inconsistent visit purpose"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "GCMS notes show the sole refusal reason was inadmissibility due to misrepresentation of work experience as a heavy duty equipment operator.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The applicant seeks judicial review alleging procedural fairness breach and unreasonableness in the misrepresentation finding, but the court disagrees and will dismiss the application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's grounds: procedural fairness breach",
+    "applicant's grounds: unreasonableness",
+    "court's conclusion: dismiss application"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "On May 31, 2022, an IRCC staff called the El Sadek company; the applicant answered, confirmed ownership by his wife, and described himself as manager and supervisor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "IRCC assessed the call, doubting the applicant's claim as a heavy equipment operator, suspecting the business was registered just for Canadian work.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "On September 1, 2022, the officer reviewed documents and call info, concluding the employment letter was fraudulent and not an accurate reflection of the applicant's work experience.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The officer's main concern was the accuracy of the applicant's work experience as a heavy duty equipment operator in the employment letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On September 2, 2022, IRCC sent a procedural fairness letter alleging the employment record was fraudulent and requested explanations and agent details.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The letter warned that misrepresentation could lead to inadmissibility under IRPA paragraph 40(1)(a) and subsection 40(2), and gave a response deadline of September 19, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "evidence",
+   "summary": "Applicant's consultant responded with a letter and documents, including a notarized letter affirming all employment letters were genuine, but did not address a discrepancy in Dynamica employment dates.",
+   "ideas": "multiple",
+   "idea_list": [
+    "consultant's response",
+    "applicant's notarized letter",
+    "discrepancy in Dynamica employment"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The officer found the applicant likely worked in a family business since 2020 with sales experience, not as a heavy duty equipment operator as claimed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The officer noted little evidence that the applicant was a heavy duty equipment operator and was not satisfied the applicant worked as such at El Sadek company.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The officer found the applicant's claim of being a heavy duty equipment operator was a false declaration, as his duties were managerial.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The officer found the applicant's inaccurate statements about work experience constituted misrepresentation relevant to eligibility for visa and work permit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The officer refused the application because the applicant was inadmissible under IRPA paragraph 40(1)(a) for misrepresentation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court must independently assess procedural fairness, applying a correctness standard, while substance is reviewed on reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "A reasonable decision is coherent, rational, and justified; the applicant must show serious shortcomings to overturn it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The procedural fairness letter's wording is puzzling but the applicant has not shown it was insufficient for fairness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "letter wording puzzling",
+    "applicant not misled"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Despite unclear wording, the letter identified the issue clearly enough for the applicant to respond meaningfully.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The applicant's response shows he understood the concerns and provided more information than needed, not misleading him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The applicant's affidavit confirms he understood the procedural fairness letter's concerns about his work as a heavy duty equipment operator.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The applicant did not show he would have provided different evidence if he had understood the concerns better; new letter repeats original claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Applicant's evidence suggests he worked in sales, not as a heavy duty equipment operator, confirming officer's concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court rejects the procedural fairness ground of review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The officer reasonably concluded the applicant misrepresented his work experience, which was relevant to his work permit application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The officer's reasons were transparent and supported by evidence, including the applicant's limited proof of heavy duty equipment operator experience.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The officer reasonably found the applicant's claim to be a heavy duty equipment operator was clearly false.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The applicant argues it was unreasonable to rely on his May 31, 2022 statement without speaking to his immediate supervisor, suggesting the IRCC spoke to someone unaware of his duties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's argument, noting no denial he spoke to IRCC and that the argument is new and unsubstantiated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The officer reasonably relied on the applicant's own statement describing himself as supervisor and drew an adverse inference from omission of heavy duty operator duties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's argument that the officer unreasonably focused on his short-term work at El Sadek company instead of longer employment at Dynamica.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant's argument on work experience focus",
+    "court's rejection and reasoning"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court notes the applicant's claim that the officer unreasonably concluded he would not leave Canada, but finds this was not actually part of the officer's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court concludes the officer reasonably found the applicant misrepresented work experience, making him inadmissible and justifying refusal of visa and work permit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court agrees with the parties that no serious question of general importance arises for certification under IRPA paragraph 74(d).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

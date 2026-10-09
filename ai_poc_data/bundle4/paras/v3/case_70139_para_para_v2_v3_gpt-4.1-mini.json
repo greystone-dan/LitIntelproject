@@ -1,0 +1,536 @@
+{
+ "case_id": 70139,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.007911200000000002
+ },
+ "verification": {
+  "paragraphs": 56,
+  "summaries": 56,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 41,
+   "below": 7,
+   "party": 8
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by Mexican citizens against a Refugee Protection Division (RPD) decision denying their refugee claims based on threats and persecution by the CJNG cartel. The tribunal found that the RPD erred in assessing the internal flight alternative, nexus to the Convention, and state protection, ultimately granting refugee status to the Appellant and female minors and recognizing all Appellants as persons in need of protection. The appeal was allowed and the tribunal substituted its own decision in favor of the Appellants.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Initial RPD Decision and Tribunal's Overruling",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 11,
+    "label": "Tribunal's Role and Appeal Outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 12,
+    "last": 20,
+    "label": "Nexus to the Convention and Gender-Based Persecution",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 28,
+    "label": "Credibility and Delay in Claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 47,
+    "label": "Internal Flight Alternative and CJNG Presence",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 53,
+    "label": "State Protection Analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 54,
+    "last": 56,
+    "label": "Final Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Appellants are Mexican citizens, including the main appellant, associate appellant, and minor associates.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Appellants were extorted and threatened by CJNG cartel, including abduction and rape of the Appellant and threats to minors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Appellants relocated within Mexico but were found and threatened; they fled to Canada in 2018 and filed a police report in 2019; refugee claim made in June 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants had a viable internal flight alternative in Campeche and Merida, where CJNG was absent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred; the Appellants lack a viable internal flight alternative and adequate state protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The appeal is allowed by the tribunal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal substitutes its decision that the Appellant and Female Minor Appellants are Convention refugees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal finds all Appellants are persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Appellants requested an oral hearing, but none was held due to no new evidence affecting credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD's decision was correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants did not establish a nexus to the Convention under section 97 IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Appellants' counsel argues the RPD erred by ignoring the gender-based aspect of the Appellant's sexual assault and nexus to the Convention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal agrees the sexual assault and threats are gender-based, establishing a nexus to the Convention for the Appellant and female minors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Counsel cites Gutierrez and Gender Guideline to show sexual assault is a gender-specific crime relevant to refugee claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "In Gutierrez, the Board erred by not considering a sexual assault claim under section 96 and Gender Guidelines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's case comparable to Gutierrez, with sexual assault and threats specifically targeting females.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Applying the Gender Guideline, the tribunal finds gender establishes a nexus to the Convention for the Appellant and daughters.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant and Female Minor Appellants have a nexus to the Convention as women.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal disagrees that the Associate Appellant and male minor should be assessed under section 96 as family members facing persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The risk to the Associate Appellant and male minor is independent from the gender-based risk faced by the female Appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "All Appellants face a personalized risk to their lives from CJNG, not faced generally by the Mexican population.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants' delay in making a refugee claim detracted from their credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RPD ultimately found the Appellants credible and accepted their allegations on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal has no credibility concerns; the Appellants' testimony aligns with documentary evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by not properly considering the Appellants' explanation for delay in context of their personal circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Appellants have low education and no travel history, making it plausible they lacked knowledge of the immigration process.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Considering personal circumstances and explanation, the tribunal does not draw a negative credibility inference from the delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred in its internal flight alternative analysis; Campeche and Merida are not safe for the Appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal notes there are two parts to the legal test for assessing an internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal must be convinced there is no serious risk of persecution or harm in the proposed IFA locations on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Appellant must prove the IFA is unsafe or unreasonable, and the RPD must consider the latest objective evidence in its IFA analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Federal Court criticized selective use of evidence in Castillo Garcia, where the RPD and RAD found an IFA in Cancun unreasonably; this jurisprudence guides this analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "Appellants' Counsel argues the RPD erred by finding no CJNG presence in Campeche and Yucatan, citing evidence of CJNG activity there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "Counsel contends CJNG can track the Appellants nationwide and has shown ongoing interest by attacking the Appellant's mother in 2019 after they moved to Durango.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "Counsel argues the RPD speculated baselessly that CJNG reserves nationwide searches for higher-profile targets, contradicting objective evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal agrees with Counsel's submissions regarding CJNG's presence and motivation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "The RPD reviewed evidence and concluded on a balance of probabilities that CJNG lacked presence in the IFAs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The RPD ignored a key document on CJNG's activities titled 'The Strategic Implications of the C\u00e1rtel de Jalisco Nueva Generaci\u00f3n' in the National Documentation Package.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Though not in the original NDP, the document was in the updated NDP before the RPD's decision; ignoring it was an error given its contradictory evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Evidence shows CJNG is Mexico's largest OCG, present nationwide with resources and state infiltration capacity; RPD accepted some of this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "RPD noted CJNG alliances in Durango and suggested different IFAs; however, it ignored evidence of CJNG alliances in the proposed IFAs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "CJNG has alliances or rivalries with OCGs in Yucatan and Campeche, showing complex relationships across regions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "OCG presence in Mexican states is fluid and changing, so case-specific CJNG motivation to pursue Appellants is important.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "CJNG's past behavior, including threats and attacks on Appellants and their mother, shows motivation to pursue them across states.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "Appellants argue RPD's claim that OCGs only pursue high-profile targets lacks evidence and contradicts their experience with CJNG.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The tribunal finds CJNG has means and motivation to pursue Appellants in IFAs, who face serious risk of gender-based persecution and risk to life.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CJNG's means and motivation",
+    "Appellants face serious persecution and risk"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "below",
+   "summary": "The RPD found insufficient evidence that Appellants lack access to state protection, though it did not consider state protection determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "Appellants' Counsel argues RPD failed to justify its finding on state protection and ignored evidence showing inadequate protection in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "Appellants did not seek protection in Mexico fearing CJNG collusion with police; police report led to threats and assault on Appellant's mother.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Evidence confirms OCGs dominate and collude with Mexican law enforcement, using corrupt agents to obtain information and infiltrate police.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Mexican police lack resources, criminals enjoy impunity, and new security force Guardia Nacional has failed to measurably reduce crime.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The tribunal finds Appellants do not have access to state protection in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The appeal is allowed by the tribunal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The tribunal substitutes its decision that the Appellant and Female Minor Appellants are Convention refugees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The tribunal finds all Appellants are persons in need of protection and signs the decision dated January 21, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

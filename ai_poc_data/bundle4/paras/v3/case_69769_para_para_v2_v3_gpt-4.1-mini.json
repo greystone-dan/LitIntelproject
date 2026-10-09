@@ -1,0 +1,665 @@
+{
+ "case_id": 69769,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.011796400000000002
+ },
+ "verification": {
+  "paragraphs": 61,
+  "summaries": 61,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 43,
+   "party": 11,
+   "below": 2,
+   "evidence": 5
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves an appeal by appellants from Nigeria and Mexico against the Refugee Protection Division's (RPD) decision rejecting their refugee claim. The appellants alleged fear of persecution due to bisexuality and threats from the Sinaloa Cartel, but the tribunal found credibility issues and determined that the appellants have a viable Internal Flight Alternative (IFA) in M\u00e9rida, Mexico. The appeal was dismissed, confirming that the appellants are neither Convention refugees nor persons in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and parties' claims",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "RPD decision and appellants' allegations of procedural fairness breach",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "RAD appeal and outcome",
+    "kind": "disposition"
+   },
+   {
+    "first": 8,
+    "last": 12,
+    "label": "Internal Flight Alternative (IFA) issue and legal test",
+    "kind": "issue"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Appellants' factual background and fear of Sinaloa Cartel",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 35,
+    "label": "Analysis of cartel threat and capability in M\u00e9rida",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 56,
+    "label": "Analysis of fear of persecution due to bisexuality and LGBTQ conditions in Mexico",
+    "kind": "analysis"
+   },
+   {
+    "first": 57,
+    "last": 60,
+    "label": "Reasonableness of relocation to M\u00e9rida for appellants",
+    "kind": "analysis"
+   },
+   {
+    "first": 61,
+    "last": 61,
+    "label": "Final disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Principal and Associate Appellants from Nigeria and Mexico appeal the RPD's August 26, 2021 decision rejecting their refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Mr. XXXX alleges fear of return to Mexico due to participation in anti-corruption protests against the Sinaloa Cartel and fears of retribution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Mr. XXXX fears persecution in Nigeria for bisexuality; Mrs. XXXX fears police harassment and children's safety; they arrived in Canada in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD focused on credibility and state protection, found the Principal Appellant not credible on bisexuality, and did not consider Mexico allegations further.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD focused on credibility",
+    "RPD found no well-founded fear in Nigeria",
+    "RPD did not consider Mexico credibility"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Mr. XXXX alleges RPD breached procedural fairness, was over-zealous, failed to engage evidence on bisexuality, and ignored SOGIE Guidelines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RAD identified a new issue on Internal Flight Alternative in M\u00e9rida and invited submissions; appellants responded on February 25, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the panel was correct that appellants are not refugees or persons in need of protection, for different reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The appellants have a viable Internal Flight Alternative in M\u00e9rida, Yucat\u00e1n, if they return to Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD rejected the claim due to credibility issues including discrepancies, unpersuasive explanations, and inconsistent behavior at entry.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Discrepancies undermined credibility",
+    "Unpersuasive explanation about lawyer",
+    "Inconsistent behavior at entry"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "No new evidence was submitted under IRPA section 110(4), so no oral hearing under section 110(6) can be held.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court will not revisit RPD's credibility finding on bisexuality but finds appellants have a viable IFA in M\u00e9rida, supporting RPD's overall conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court applies the two-prong IFA test: no serious risk of persecution in M\u00e9rida and it is not unreasonable for appellants to seek refuge there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Principal Appellant states he became Mexican through a marriage of convenience, lived in Mexico from 2008 to 2016, and owned a business.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Principal Appellant fears the Sinaloa Cartel due to extortion and protests against their kidnapping of 46 students, reporting to police who refused to act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "After relocating to Mexico City, the cartel allegedly killed a friend who protested, threatening to kill anyone who reports them again; appellants left Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court assesses whether the Sinaloa Cartel has the means and motivation to find and harm appellants in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court finds the Principal Appellant has not established the cartel's motivation or means to find and harm them in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "evidence",
+   "summary": "The Principal Appellant testified the cartel remains upset and powerful, connected to government, and would harm them if found in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court agrees cartels are powerful but finds insufficient evidence they remain motivated to harm appellants years later in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "evidence",
+   "summary": "The Principal Appellant gave vague testimony about cartel's motivation, claiming they don't forget and work with police to find targets.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds insufficient evidence of threats or social media extortion by the cartel against appellants during their stay in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "No police complaint was filed as police refused to register it; thus, insufficient evidence the cartel would be motivated to find appellants in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds the cartel's threat warns against future protests or reports, not past actions, so no credible motivation to find appellants in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "A Wikipedia article shows arrests related to the kidnapping, undermining the claim that the cartel was behind it and motivated to harm appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Principal Appellant fails to credibly establish the cartel's motivation to find and harm appellants in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "evidence",
+   "summary": "The Principal Appellant alleges the cartel can find anyone in Mexico, working with police and military, and used call trackers to locate targets.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "speaker": "evidence",
+   "summary": "The Principal Appellant claims the cartel used a call tracker to find a friend, but he is unsure how it works; cites a report supporting GPS use.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court finds insufficient evidence the cartel would use GPS tracking to find appellants in M\u00e9rida without a personal vendetta or debt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Evidence shows the cartel operates in Mexico City, explaining how they found and killed the friend there, supporting the appellant's claim for that location.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The cartel does not operate in M\u00e9rida, supporting the conclusion they lack means to find and harm appellants if they relocate there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Principal Appellant claims the SC cartel operates everywhere, including M\u00e9rida, with police support and alliances allowing impunity in Mexico and abroad.",
+   "ideas": "multiple",
+   "idea_list": [
+    "SC operates everywhere including M\u00e9rida",
+    "SC has vast resources and alliances",
+    "SC uses affiliations with other cartels"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal disagrees that evidence supports the SC's ability to find and harm the Appellants in M\u00e9rida, noting SC's decline and competition from CJNG.",
+   "ideas": "multiple",
+   "idea_list": [
+    "SC is powerful but under pressure",
+    "SC is in decline due to factions and violence",
+    "CJNG competes with SC and is expanding"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal finds the RIR cited by the Appellant does not support his claims; SC faces enemies and competition and keeps a low profile in Yucat\u00e1n.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RIR shows SC's enemies and competition",
+    "SC and others present in Yucat\u00e1n but low profile",
+    "Yucat\u00e1n not attractive for drug dealing"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal concludes the Principal Appellant failed to prove on balance of probabilities that agents of harm can find and harm them in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The Principal Appellant alleges fear of persecution in Mexico due to bisexuality and suppression of orientation, supported by Counsel's submissions on IFA viability.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Fear of SC and bisexuality",
+    "Suppressed bisexual orientation",
+    "Counsel argues IFA not viable due to concealment"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "Counsel cites country documentation showing machismo culture causes homophobia and violence against LGBTQ individuals, making M\u00e9rida unsafe for the Appellant.",
+   "ideas": "single",
+   "idea_list": [
+    "Machismo causes homophobia and violence"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "Counsel alleges structural discrimination against LGBTQ in Mexico, especially in M\u00e9rida, including police mistreatment, based on RIR sources.",
+   "ideas": "single",
+   "idea_list": [
+    "Structural discrimination and police mistreatment"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal agrees LGBTQ individuals face discrimination and harassment in Mexico and that concealing sexual orientation makes an IFA not viable.",
+   "ideas": "single",
+   "idea_list": [
+    "Discrimination against LGBTQ continues",
+    "Concealment makes IFA not viable"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal finds the Principal Appellant did not credibly establish that discrimination in M\u00e9rida would amount to persecution.",
+   "ideas": "single",
+   "idea_list": [
+    "Discrimination does not rise to persecution"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal explains persecution requires serious, repeated harm causing substantial prejudice, and discrimination alone may not suffice.",
+   "ideas": "single",
+   "idea_list": [
+    "Definition of persecution vs discrimination"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The tribunal finds no serious possibility of persecution in M\u00e9rida for the Principal Appellant's bisexual orientation on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [
+    "No serious possibility of persecution"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The tribunal agrees discrimination and violence against LGBTQ persons exist in Mexico, with police failing to always punish abuses.",
+   "ideas": "single",
+   "idea_list": [
+    "Discrimination and violence against LGBTQ documented"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The tribunal notes progress has been made in protecting LGBTQ rights and social acceptance is improving in Mexico.",
+   "ideas": "single",
+   "idea_list": [
+    "Progress in LGBTQ rights and acceptance"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The tribunal details legal advances in Mexico protecting LGBTQ rights, including constitutional updates and marriage equality in many states.",
+   "ideas": "single",
+   "idea_list": [
+    "Legal protections and marriage equality"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal notes Mexico's participation in international LGBT groups and protocols to ensure non-discriminatory health access.",
+   "ideas": "single",
+   "idea_list": [
+    "International involvement and health protocols"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The tribunal cites societal shifts in Mexico supporting LGBTQ rights, including surveys showing majority support among Catholics.",
+   "ideas": "single",
+   "idea_list": [
+    "Societal support for LGBTQ rights increasing"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The tribunal finds ongoing discrimination against LGBTQ persons but no evidence it cumulatively amounts to persecution.",
+   "ideas": "single",
+   "idea_list": [
+    "Discrimination does not equal persecution"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The tribunal cites studies showing some derogatory comments in healthcare but many LGBTQ persons do not face frequent discrimination there.",
+   "ideas": "single",
+   "idea_list": [
+    "Healthcare discrimination statistics"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The tribunal acknowledges violence and impunity against LGBTQ persons in Mexico but finds statistics do not show discrimination amounts to persecution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Violence and impunity against LGBTQ",
+    "Statistics do not prove persecution"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The tribunal notes judicial progress and police protocol adherence improving LGBTQ rights enforcement in Mexico.",
+   "ideas": "single",
+   "idea_list": [
+    "Judicial progress and police protocols"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The tribunal notes M\u00e9rida has legal and community supports for sexual minorities and no high police discrimination complaints there.",
+   "ideas": "multiple",
+   "idea_list": [
+    "M\u00e9rida has legal supports",
+    "No high police discrimination complaints"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The tribunal finds no connection between country conditions and the Appellant's personal circumstances showing serious discrimination amounting to persecution.",
+   "ideas": "single",
+   "idea_list": [
+    "No link between country conditions and personal risk"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "evidence",
+   "summary": "CBSA notes show the Principal Appellant initially had no fear of returning to Mexico and disclosed bisexuality only later when seeking refugee protection.",
+   "ideas": "single",
+   "idea_list": [
+    "CBSA notes on fear and bisexuality disclosure"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant never alleged fear of persecution in Mexico due to bisexuality in his testimony or written evidence.",
+   "ideas": "single",
+   "idea_list": [
+    "No fear of persecution due to bisexuality alleged"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The tribunal finds no evidence the Appellant faced problems in Mexico due to bisexuality and that concealment was due to family concerns, not fear.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No past problems due to bisexuality",
+    "Concealment due to family, not fear"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The tribunal finds that considering country conditions and personal circumstances, relocating to M\u00e9rida would not expose the Appellant to persecution.",
+   "ideas": "single",
+   "idea_list": [
+    "Relocation to M\u00e9rida not persecution risk"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "The Principal Appellant argues relocation to M\u00e9rida is unreasonable due to Associate Appellant's lack of support, family, skills, language, minority status, and social services.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Associate Appellant is breadwinner",
+    "No family in M\u00e9rida",
+    "Lack of skills and Spanish",
+    "Visible minority",
+    "No social services"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The tribunal finds Associate Appellant is not sole breadwinner, has lived in Mexico before, and challenges in M\u00e9rida would not be worse than before.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Associate not sole breadwinner",
+    "Previous Mexico residence",
+    "Challenges not worse"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The tribunal states the high threshold for unreasonableness of IFA is not met; absence of family or social services does not make M\u00e9rida unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "High threshold for IFA unreasonableness",
+    "Absence of family not enough",
+    "Social services accessible",
+    "No credible minority difficulties"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The tribunal concludes conditions in M\u00e9rida are not objectively unreasonable for the Appellants to seek refuge there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

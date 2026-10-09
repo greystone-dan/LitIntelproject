@@ -1,0 +1,619 @@
+{
+ "case_id": 8528,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0099684
+ },
+ "verification": {
+  "paragraphs": 56,
+  "summaries": 56,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 44,
+   "party": 10,
+   "below": 1,
+   "evidence": 1
+  },
+  "multi_idea_paragraphs": 12,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of the Refugee Appeal Division's (RAD) decision rejecting the Applicant's refugee claim, which was initially denied by the Refugee Protection Division (RPD). The Applicant from China alleged persecution due to political opinion, and the RAD found procedural fairness breaches by the RPD but concluded these were remedied and upheld the negative credibility findings. The Federal Court dismissed the judicial review, finding the RAD's decision reasonable and that the procedural fairness breach was adequately addressed.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and issues",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Standards of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 11,
+    "last": 20,
+    "label": "Procedural fairness breach and remedy arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 32,
+    "label": "Assessment of new evidence and remedy sufficiency",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 47,
+    "label": "Analysis of procedural fairness breach and appellate powers",
+    "kind": "analysis"
+   },
+   {
+    "first": 48,
+    "last": 56,
+    "label": "Credibility findings and alleged evidence misapprehensions",
+    "kind": "analysis"
+   },
+   {
+    "first": 57,
+    "last": 57,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant from China claims persecution due to political opinion; RPD and RAD rejected his refugee claim; this is judicial review of RAD's decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's nationality and claim",
+    "RPD's findings and refusal",
+    "RAD's dismissal and confirmation",
+    "Judicial review of RAD decision"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "RAD accepted new evidence from Applicant not before RPD, considered oral hearing unnecessary under IRPA s.110(6).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "RAD found RPD breached procedural fairness by not hearing wife by teleconference but rejected remitting claim, finding breach remedied by accepting wife's letters which lacked probative value.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Breach of procedural fairness found",
+    "Remedy by accepting new evidence",
+    "New evidence lacked probative value",
+    "Credibility issues with Applicant"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "RAD agreed with RPD that Applicant left China undetected because he was not a person of interest to PSB, despite smuggler assistance argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "RAD found Applicant omitted and embellished PSB visit date, gave conflicting testimony on arrest timing, was evasive about smuggler and visa info, and that summons and documents were likely fraudulent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Omission and embellishment of PSB visit",
+    "Conflicting testimony on arrest timing",
+    "Evasiveness about smuggler and visa",
+    "Summons and documents likely fraudulent"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "RAD upheld RPD's finding that Applicant is not credible and not wanted by PSB for opposing land expropriation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Court reframes issues: whether RAD erred in finding procedural fairness breach remedied and in not remitting, and whether RAD misapprehended evidence making decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Procedural fairness questions reviewed on correctness standard with no deference; court must consider fairness of procedure in all circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Applicant argues RAD erred applying Marin exception on procedural fairness breach remedy; court says key issue is whether breach was remedied, reviewed on correctness standard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's argument on Marin error",
+    "Court's focus on remedy of breach",
+    "Correctness standard applies"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Second issue on evidence misapprehension reviewed on reasonableness standard per Vavilov; decision reasonable if justified, transparent, intelligible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Applicant submits RAD erred rejecting remittal after finding RPD breached procedural fairness by denying wife's teleconference testimony, relying on Marin exception.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicant submits RAD's finding that breach was remedied is incorrect or unreasonable due to lack of justification and transparency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Respondent submits breach of procedural fairness can be overlooked if no material effect; RAD can make credibility findings without hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "RAD found RPD breach did not affect outcome or core claim, applied Marin exception, and remedied breach by accepting Shen Letters.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "Marin case found RAD's procedural fairness breach not material enough to quash decision and remit for redetermination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court agrees Marin means breach not material enough to justify quashing RAD decision; RAD made similar finding here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Even if RAD erred applying Marin, if breach was remedied, no redetermination needed, per McBain FCA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicant cites Ayele where IAD breached fairness by refusing witness; here breach was remedied on appeal unlike Ayele.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Respondent cites Han where breach overlooked as no material effect; original documents would not change outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Real question is whether RPD breach had material effect and whether RAD's acceptance of Shen Letters remedied breach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Shen Letter #1 states wife was ready to testify at RPD hearing; letter irrelevant to remedying procedural fairness breach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Shen Letter #2 describes PSB visits on Sept 30 and Nov 17, 2017, with summons delivery on Nov 17, 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "RAD found Shen Letter #2 lacked detail, conflicted with Applicant's testimony and BOC, and gave it little weight in corroboration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Applicant sought to admit new evidence under IRPA s.110(4) but not oral hearing; RAD found oral hearing not required as criteria not met.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Shen Letter #2 aimed to elaborate incidents; Applicant's wife could have provided more details but did not.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Applicant's BOC omitted Sept 30, 2017 PSB visit; BOC shows events in July and October 2017 but no Sept 30 visit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "evidence",
+   "summary": "Applicant testified he phoned wife on Sept 30, who said PSB had visited home, but date unclear from transcript excerpts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "RAD found omission of Sept 30 visit was embellishment, not translation error, and PSB likely did not visit on that date.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Applicant's submissions on inadequacy of remedy are unpersuasive.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "Applicant argues RAD's remedy was unreasonable due to date discrepancy in wife's letter and summons, possibly a typographic error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's submission speculative and notes inconsistencies in Shen Letter #2 and lack of supporting evidence for typographical errors or additional testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "submission speculative",
+    "Shen Letter #2 inconsistent with testimony",
+    "no evidence of typographical errors",
+    "no evidence wife would provide more info"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The RAD properly assessed Shen Letter #2's credibility and weight, finding it inconsistent with the Applicant's evidence and insufficient to justify an oral hearing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD assessed new evidence",
+    "Shen Letter #2 inconsistent with Applicant's evidence",
+    "did not justify oral hearing",
+    "RAD upheld RPD decision"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court cites McBain FC affirming that procedural fairness breaches can be cured by appeal tribunals in appropriate circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the RPD's refusal to allow the Applicant's wife to testify was a significant procedural fairness breach but the RAD remedied it by considering Shen Letter #2.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD refusal was breach",
+    "RAD considered Shen Letter #2",
+    "no evidence wife would add more",
+    "breach remedied"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Unlike McBain FC with pervasive breaches, here the breach was discrete and remedied by RAD's consideration of the wife's evidence via Shen Letter #2.",
+   "ideas": "single",
+   "idea_list": [
+    "breach discrete and remedied"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court acknowledges the serious consequences for the Applicant as the RPD's refusal was upheld by the RAD.",
+   "ideas": "single",
+   "idea_list": [
+    "serious consequences for Applicant"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The RAD can make independent credibility findings without giving the Applicant an opportunity to respond, so this does not necessarily breach procedural fairness.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD can make credibility findings without response opportunity"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that credibility was the key issue and sufficient reasons existed to dismiss the appeal beyond document inconsistencies.",
+   "ideas": "single",
+   "idea_list": [
+    "credibility determinative",
+    "sufficient reasons to dismiss appeal"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Generally, procedural fairness breaches void decisions, but courts may disregard breaches if the claim is hopeless, citing Mobil Oil and others.",
+   "ideas": "single",
+   "idea_list": [
+    "breach usually voids decision",
+    "exception if claim hopeless"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court lists cases applying the limited exception to disregard procedural fairness breaches when outcomes are inevitable.",
+   "ideas": "single",
+   "idea_list": [
+    "cases applying limited exception"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Even if time stamp issues were a new issue, the court would not remit the matter as the breach was not material enough to quash the RAD's decision.",
+   "ideas": "single",
+   "idea_list": [
+    "time stamp issue not material breach"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The decision would be the same despite time stamp differences; remitting would serve no purpose though notice and opportunity would be preferable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision same despite time stamps",
+    "remitting unnecessary",
+    "preferable to give notice"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The RAD found Shen Letter #2 insufficient to justify an oral hearing under s. 110(6) and made other adverse credibility findings supporting the RPD's decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Shen Letter #2 insufficient for oral hearing",
+    "other adverse credibility findings",
+    "RPD decision upheld"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court finds the RAD remedied the RPD's procedural fairness breach as the wife's testimony would not have materially affected fairness.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD remedied breach",
+    "wife's testimony not material"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Credibility was determinative and sufficient reasons existed to dismiss the appeal without wife's testimony, which would contradict Shen Letter #2.",
+   "ideas": "multiple",
+   "idea_list": [
+    "credibility determinative",
+    "wife's testimony contradicts Shen Letter #2",
+    "appeal dismissal justified"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that appellate tribunals can cure procedural fairness breaches, citing Taiga Works and related jurisprudence.",
+   "ideas": "single",
+   "idea_list": [
+    "appellate tribunals can cure breaches"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court lists factors to consider when deciding if an appeal cured procedural fairness breaches, including gravity, consequences, and appellate powers.",
+   "ideas": "single",
+   "idea_list": [
+    "factors for curative capacity"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "speaker": "party",
+   "summary": "The Applicant submits the RAD wrongly found conflicting evidence about whether he was wanted before or after leaving China, pointing to consistent testimony.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges RAD's adverse credibility finding"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court agrees the RAD's adverse credibility finding on this point is unreasonable but notes the RAD also doubted why the Applicant needed a smuggler, finding evasiveness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's credibility finding unreasonable",
+    "RAD doubts smuggler necessity",
+    "Applicant evasive"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "The Applicant submits the RAD wrongly relied on outdated summons samples from 2013 and 2015 to find his 2017 summons fraudulent.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges summons evidence"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "The Applicant argues outdated foreign document samples cannot be probative, citing Ma v Canada.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant cites Ma on outdated documents"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "The Respondent argues the RAD reasonably found the summons fraudulent due to significant differences and documentary evidence of no variations.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent supports RAD's fraud finding"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The court notes the Applicant's argument matches Lin, where the court found applicants failed to specify errors in RAD's document assessment.",
+   "ideas": "single",
+   "idea_list": [
+    "court compares to Lin case"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The court finds no evidence the summons format changed from 2015 to 2017 and the RAD reasonably relied on the 2015 RIR in the 2017 NDP.",
+   "ideas": "single",
+   "idea_list": [
+    "no evidence summons format changed",
+    "RAD reliance reasonable"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court finds the RAD's error about online summons testimony is not reviewable and the RAD reasonably concluded the summons was fraudulent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD error on online summons minor",
+    "RAD reasonably found summons fraudulent"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The court concludes the alleged misapprehensions do not render the RAD's decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "misapprehensions do not make decision unreasonable"
+   ],
+   "role": "conclusion"
+  }
+ ]
+}

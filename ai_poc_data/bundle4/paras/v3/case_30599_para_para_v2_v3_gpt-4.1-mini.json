@@ -1,0 +1,305 @@
+{
+ "case_id": 30599,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0052724
+ },
+ "verification": {
+  "paragraphs": 29,
+  "summaries": 29,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 5,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 5
+  },
+  "speakers": {
+   "party": 7,
+   "court": 16,
+   "below": 6
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Brand seeks judicial review of the Minister's refusal to grant relief from arrears interest related to undeclared 2019 income. The Federal Court found that the Minister's delegate failed to properly consider CRA errors and Mr. Brand's hardship, rendering the decision unjustified and lacking transparency. The Court granted the review, ordered reconsideration of the denial, and awarded costs to Mr. Brand.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Introduction and overview",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 15,
+    "label": "Factual background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 17,
+    "last": 20,
+    "label": "Legal framework and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Minister's delegate decision and applicant's arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 33,
+    "label": "Court's analysis of errors and hardship",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 35,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Mr. Brand seeks judicial review of the Minister's refusal of his second request for relief from arrears interest for undeclared 2019 income.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Subsection 220(3.1) of the ITA allows the Minister to waive penalties or interest for taxpayers unable to comply due to circumstances beyond their control.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court will grant the review because the CRA's decision failed to address CRA errors and Mr. Brand's hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court commends both parties for their concise and professional arguments and responses.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The CRA issued a notice of assessment for Mr. Brand's 2019 tax year based on his filed return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Certain RBC T5 slips were missing from Mr. Brand's My Account, causing substantial income omission due to a legislative change.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The CRA sent Mr. Brand an unreported income letter requesting tax documents, but the enclosed spreadsheet was not attached or received.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Mr. Brand contacted the CRA, was advised to verify his return against My Account, and confirmed his slips matched his return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The CRA reassessed Mr. Brand's 2019 income including the RBC T5 slips, charging arrears interest but no penalty.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Mr. Brand's first request for interest relief was denied by the Minister on November 23, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Mr. Brand's second request for relief detailed the RBC income nature, CRA's failure to provide slips, and hardship from arrears interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Mr. Brand emphasized no intention to omit the RBC T5 slips in his second request.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Minister's delegate concluded Mr. Brand was not prevented from reporting the income, so relief was denied.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court must assess if the Minister's delegate applied law rationally and transparently, deferring if so, or setting aside if not.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The CRA's administrative guidelines list circumstances warranting relief: extraordinary circumstances, CRA actions, and financial hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The guidelines are not binding; the Minister's delegate may grant relief outside listed categories.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The CRA agent recommended denial because Mr. Brand showed only somewhat reasonable care, had prior omissions, and the slips were available before filing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The Minister's delegate denied relief citing timely availability of slips, no CRA contact, and large omitted income.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Mr. Brand argues the Minister's delegate ignored COVID-19 and CRA errors that compromised his ability to file accurately.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court finds the Minister's delegate erred by not addressing CRA errors and hardship, which are relevant under CRA guidelines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Decision lacks transparency and justification against facts and fairness principles under subsection 220(3.1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The failure to consider CRA errors' impact on Mr. Brand's ability to mitigate income inclusion is a reviewable error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Two CRA errors contributed: missing RBC T5 slips in My Account and no explanation for this omission, requiring balancing of responsibilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "CRA also failed to attach the spreadsheet to the Unreported Income Letter, affecting Mr. Brand's ability to address arrears interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "CRA's omission of the spreadsheet undermines the denial justification, as Mr. Brand acted promptly but lacked knowledge of arrears.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Minister's delegate wrongly faults Mr. Brand for not calling CRA about missing slips he did not know existed; the income was reinvested, not noticed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Minister's delegate did not address Mr. Brand's hardship submissions, contributing to the Decision's lack of justification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The denial must be reconsidered weighing self-assessment against CRA errors, pandemic circumstances, and hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Costs of $500 are awarded to Mr. Brand as agreed by the parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

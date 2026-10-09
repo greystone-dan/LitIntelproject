@@ -1,0 +1,748 @@
+{
+ "case_id": 66062,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.012616400000000002
+ },
+ "verification": {
+  "paragraphs": 84,
+  "summaries": 84,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 61,
+   "party": 19,
+   "below": 4
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The appellant from Afghanistan appeals the Refugee Protection Division's (RPD) rejection of his refugee claim, alleging procedural unfairness and errors in credibility assessment. The Refugee Appeal Division (RAD) reviews new evidence submissions, finds some errors in the RPD's reasoning but upholds significant credibility concerns undermining the appellant's claim. Consequently, the appeal is dismissed, confirming the appellant is not a Convention refugee or person in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Standard of review and new evidence rules",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 48,
+    "label": "Assessment and admissibility of new evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 49,
+    "last": 83,
+    "label": "Credibility findings and analysis of the appellant's claim",
+    "kind": "analysis"
+   },
+   {
+    "first": 84,
+    "last": 84,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appellant from Afghanistan appeals the RPD's rejection of his refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD correctly found the appellant is not a Convention refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The appellant fears the Taliban due to family ties and past threats, fled Afghanistan in 2009, was refused asylum in Belgium, and fears criminals in Belgium linked to the Taliban.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellant left Belgium for the US in 2017 and entered Canada the same year, signing his Basis of Claim form on May 8, 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellant's refugee claim was heard in 2019; the Minister intervened on credibility and exclusion grounds; the RPD rejected the claim; the appellant alleges procedural unfairness and errors in credibility assessment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claim hearing and Minister intervention",
+    "RPD rejection and appellant's procedural fairness and credibility complaints"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RAD applies correctness standard but may defer to RPD on credibility if RPD had meaningful advantage; here, RPD did not have such advantage.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The appellant submits new evidence including affidavits, letters, a photograph, identity documents, a statement, and an article.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The law allows new evidence only if it arose after the RPD decision, was not reasonably available then, or could not reasonably have been expected to be brought before the RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "If evidence meets these requirements, the RAD must decide if it is new, credible, and relevant before accepting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The appellant submits his and another's affidavits postdate the decision and respond to issues he could not have anticipated, so were not reasonably available before the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The appellant submits that the other affidavit clarifies errors in the RPD's reliance on refugee claim documents and explains family threats and difficulties recalling details under stress.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Paragraph 12 of the other affidavit arose after the RPD decision, is relevant to continuing risk, credible, and admitted as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The rest of the other affidavit does not meet new evidence requirements and is rejected as it could have been anticipated before the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Inconsistencies between the appellant's and other BOC narratives were apparent before the RPD and raised by counsel, so could have been anticipated before the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Except for paragraph 12, the other affidavit is not new evidence and is not admitted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The other's wife's BOC narrative does not meet new evidence requirements and lacks specific submissions to justify admission.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The wife's BOC narrative predates the RPD decision, inconsistencies were known, and the appellant is improperly trying to repair the record; it is not admitted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The wife's BOC narrative is not admitted into evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The appellant submits five Taliban letters as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The first Taliban letter from 2011 was not provided to the RPD due to appellant's oversight, which is insufficient to admit it as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Three Taliban letters from 2016 and 2017 are already part of the RPD record and thus not new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The 2019 Taliban letter predates the RPD decision and lacks explanation for non-submission, so is not new evidence and not admitted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The photograph submitted is already part of the RPD record and not new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The appellant submits his and the other affidavit postdate the decision and respond to issues he could not anticipate, clarifying errors and providing new information on Taliban threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Paragraph 25 of the appellant's affidavit arose after the RPD decision, is relevant to continuing risk, credible, and admitted as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The appellant's affidavit repeats prior evidence and outlines misunderstandings by the RPD he only realized after reading the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The appellant's affidavit states the RPD did not ask why he did not request another interpreter in Belgium, explaining his false statement about his family being dead.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court agrees the appellant was not asked about interpreter requests in Belgium and finds this explanation meets new evidence requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Paragraph 24(a) is new, relevant to credibility, and credible, so it is admitted as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The appellant's submission about dates of the other person's US military employment is not new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Appellant's affidavit claims the RPD member did not highlight or question his US military dates or service.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal finds paragraph 24(b) to be submissions, not evidence, and excludes the Appellant's asylum documents from Belgium.",
+   "ideas": "multiple",
+   "idea_list": [
+    "24(b) is submissions not evidence",
+    "Belgium asylum documents not admitted"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal finds paragraph 24(c) to be additional explanations not provided earlier and excludes it as new evidence; however, the Appellant's statement about XXXX is admitted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "24(c) excluded as new evidence",
+    "Appellant's statement about XXXX admitted"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Appellant states the RPD did not ask if he tried to get a letter from XXXX, an undercover officer, and he would have explained XXXX's inability to provide support.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal agrees the Appellant was not asked about obtaining a letter from XXXX and finds the explanation reasonable, admitting paragraph 24(d) as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal finds paragraph 24(d) new, relevant, credible, and meeting jurisprudential requirements for admissibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Paragraph 24(d) and the Appellant's statement about his father's Afghan army service are admitted into evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The Appellant states the RPD did not ask about documents proving his father's Afghan army service, which were destroyed by the Taliban.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal agrees the Appellant was not asked about these documents and finds paragraph 24(e) meets legislative requirements for new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Paragraph 24(e) is new, relevant, credible, and meets jurisprudential requirements for admissibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Paragraph 24(e) and the Appellant's wife's documents are admitted into evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Appellant states his wife left Afghanistan for Tajikistan around 2019 and submits her Tajikistan ID.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The Appellant's wife's documents meet legislative requirements for new evidence as they post-date the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The wife's documents are new, relevant, credible, and admitted into evidence despite limited probative value on reasons for leaving Afghanistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "The Appellant's cousin's letter states the Taliban continue to look for the Appellant and post-dates the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The cousin's letter is new, relevant, credible, and admitted into evidence regarding ongoing risk to the Appellant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The article about the Taliban commander's killing predates the RPD decision and is excluded as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The Appellant does not request an oral hearing; the tribunal finds the new evidence would not justify one under IRPA subsection 110(6).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The tribunal's role is to decide if the RPD made the correct decision; some RPD errors are found but are not determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD's suggestion of unaddressed credibility concerns limits appeal arguments; focus is on addressed concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The tribunal sets aside RPD findings based on discrepancies in the Appellant's original BOC form due to detention and lack of counsel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The tribunal sets aside the RPD's adverse inference about the Appellant's asylum claim in Belgium and interpreter issues as speculative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The tribunal sets aside the RPD's adverse inference about misleading Canadian immigration, accepting the Appellant's fear-based explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The tribunal sets aside the RPD's adverse inference about failure to provide documents on the Appellant's father's Afghan army service.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The tribunal sets aside the RPD's adverse inference about the Appellant's brother's sentence and related testimony as immaterial.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The tribunal sets aside RPD findings that the Appellant's risk in Belgium was unlikely or vague as speculative and erroneous.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The tribunal focuses on the Appellant's risk in Afghanistan, finding significant credibility concerns undermine his claim despite some RPD errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "speaker": "below",
+   "summary": "The RPD found significant inconsistencies between the Appellant's and XXXX's BOC narratives on military service and family events.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by preferring XXXX's evidence and ignoring consistency in his own evidence and corroboration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's argument, finding the RPD reasonably considered discrepancies and XXXX's narrative as part of the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that significant credibility concerns between the Appellant's and XXXX's narratives undermine the Appellant's credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The tribunal independently reviewed the record and agrees with the RPD that inconsistencies between the Appellant's and XXXX's narratives undermine the Appellant's credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The tribunal notes additional discrepancies between the Appellant's and XXXX's narratives about the disappearance and abduction of family members, undermining credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that unexplained discrepancies between the Appellant's and XXXX's narratives undermine the Appellant's credibility and supports an adverse inference from psychiatric report inconsistencies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "speaker": "below",
+   "summary": "The RPD found the psychiatric report inconsistent with other evidence but accepted the PTSD diagnosis, noting contradictions about the Appellant's family situation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 66,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by discounting medical evidence due to minor mistakes, which should not affect the substantive claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's submission, finding the RPD accepted the medical diagnosis and did not discount the medical evidence entirely.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The tribunal finds the medical report's mistakes affect the claim's merits because it contradicts the Appellant's evidence about his father's status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's explanation for the discrepancy about his father's status and finds no reasonable explanation for the contradiction in evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The tribunal accepts the medical report explains the Appellant's behavior but finds a significant unexplained inconsistency about his father, supporting an adverse inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 71,
+   "speaker": "below",
+   "summary": "The RPD found discrepancies in the Appellant's evidence about the number of Taliban threat letters, noting only one letter was filed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 72,
+   "speaker": "party",
+   "summary": "The Appellant submits the RPD ignored evidence and erred by stating only one Taliban letter was filed, as two additional letters were submitted and considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD erred in stating only one letter was filed but finds this error does not affect the outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The tribunal independently finds the Appellant's evidence about the number of Taliban letters inconsistent across interviews, narratives, and testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's evidence about Taliban letters inconsistent and not explained by PTSD, supporting an adverse inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 76,
+   "speaker": "below",
+   "summary": "The RPD drew an adverse inference from the Appellant's failure to provide documents about his asylum claim in Belgium.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 77,
+   "speaker": "party",
+   "summary": "The Appellant submits the RPD erred by expecting documentary evidence without valid reasons to doubt his credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's submission, finding valid reasons to doubt credibility and agrees with the adverse inference from failure to provide Belgian asylum documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The tribunal recounts the Appellant's testimony about his asylum claim in Belgium and his failure to obtain or provide related documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's explanations for not providing or obtaining Belgian asylum documents unreasonable under Rule 11 requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that Belgian asylum documents are important to assess the Appellant's credibility and claim consistency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the adverse inference drawn from the Appellant's failure to provide or obtain Belgian asylum claim documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "Despite some errors, significant credibility issues remain, leading the tribunal to find the Appellant failed to prove his claim on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the Appellant is not a Convention refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

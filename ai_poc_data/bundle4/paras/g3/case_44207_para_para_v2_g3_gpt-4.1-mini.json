@@ -1,0 +1,163 @@
+{
+ "case_id": 44207,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0027532000000000004
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 7,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 6,
+   "mixed": 1
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Keystone RV Company appeals a Tax Court decision that dismissed its motion for judgment on admissions and granted the respondent's motion to amend its Reply. The Federal Court of Appeal reviews the correctness of the Tax Court's application of procedural rules and finds no error. The appeal is dismissed with costs awarded to the respondent.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and appeal summary",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Procedural history and standard of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Rule 170.1 and judgment on admissions",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Disagreement with appellant's submissions and procedural issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "New arguments and allegations of improper conduct",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Proper vehicle for allegations and motion to amend Reply",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Final analysis and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The appellant Keystone RV Company appeals a Tax Court decision dismissing its motion for judgment on admissions and granting the respondent's motion to amend its Reply, with costs awarded to the respondent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant and respondent identified",
+    "Tax Court decision details",
+    "context of underlying appeal and concession"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The respondent moved to amend its Reply consistent with its concession; the standard of review is correctness for law and palpable error for fact; the court finds no error in the Tax Court's rejection of Keystone's motion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's Rule 54 motion",
+    "standard of review explained",
+    "court finds no error in Tax Court decision"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "mixed",
+   "summary": "The court explains Rule 170.1 allowing judgment on admissions, the Tax Court's correct application of the test requiring no controversy, and Keystone's submission that the Minister admitted reassessments were incorrect.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rule 170.1 explained",
+    "Tax Court's application of test",
+    "Keystone's argument on Minister's admission"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court disagrees with Keystone, agreeing with the Tax Court that the Minister's concession did not eliminate disputes, and Keystone's oral argument about changed assumptions was not raised below and thus not addressed on appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court rejects Keystone's argument",
+    "disputes remain despite concession",
+    "argument not raised below"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The court declines to address Keystone's new argument not raised below, finds no authority limiting the Georgeson principle, and notes Keystone's allegation of improper CRA conduct was not considered due to lack of foundation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "new argument not considered",
+    "Georgeson principle applies broadly",
+    "improper conduct allegations not addressed"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The court agrees the Rule 170.1 motion was not the proper vehicle for improper conduct allegations, rejects Keystone's claim that the respondent's Rule 54 motion was abusive, and finds the Tax Court properly granted the motion to amend the Reply.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rule 170.1 motion scope limited",
+    "Rule 54 motion not abusive",
+    "Tax Court's discretion proper"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The court agrees the Minister's concession is not an appeal of assessment, finds no error in the Tax Court's analysis of the Rule 54 motion, sees no error in costs awards, and dismisses the appeal with costs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's concession not an appeal",
+    "no error in Rule 54 motion analysis",
+    "costs awards upheld",
+    "appeal dismissed"
+   ]
+  }
+ ]
+}

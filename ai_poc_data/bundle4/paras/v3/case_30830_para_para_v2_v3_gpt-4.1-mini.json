@@ -1,0 +1,190 @@
+{
+ "case_id": 30830,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0028356
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 13,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Mardani and her husband, Mr. Rasouli, applied for a study permit and a spousal work permit respectively, both of which were denied by an immigration officer due to concerns about insufficient ties to Iran and unclear benefits of the proposed MBA program. They sought judicial review of the refusal, arguing errors in the officer's reasoning and procedural fairness breaches. The Federal Court dismissed their application, finding the officer's decision reasonable and the procedural fairness requirements met.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and judicial review framework",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 11,
+    "label": "Analysis of officer's decision on ties and study plan",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Procedural fairness issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 15,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Ms. Mardani applied for a study permit and her husband for a spousal work permit; both were denied due to insufficient ties to Iran and unclear benefits of the MBA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ms. Mardani's study permit application",
+    "Mr. Rasouli's work permit application",
+    "Visa officer's denial reasons"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Ms. Mardani and Mr. Rasouli seek judicial review, but the court dismisses their application as the officer's decision was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court summarizes the judicial review framework for study permit denials, emphasizing reasonableness, justification, and consideration of 'push' and 'pull' factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The applicants challenge the officer's reasoning on their ties to Iran, quoting the officer's concerns about insufficient family ties and motivation to return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The applicants argue the officer overlooked evidence of ties to Iran, but the court finds the officer's reasoning understandable and presumes consideration of assets.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' argument on overlooked evidence",
+    "Court's acceptance of officer's reasoning and presumption"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Ms. Mardani challenges the officer's view on her study plan, which questioned the benefit of the MBA given her background.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Ms. Mardani argues the officer misunderstood her purpose, stating her employer will promote her after the MBA and she aims to start a consulting business.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court agrees an MBA after a different degree is normal but finds the officer reasonably concluded Ms. Mardani didn't show how the MBA benefits her career.",
+   "ideas": "multiple",
+   "idea_list": [
+    "MBA after different degree is normal",
+    "Officer's reasonable conclusion on insufficient benefit evidence"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court states it is reasonable for officers to inquire about study benefits and finds the officer's conclusion on insufficient evidence reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Ms. Mardani argues the officer overlooked her prepaid tuition, but the court finds this does not prove her intention to study or return to Iran.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Providing required documents does not guarantee approval; applicants must prove substantive requirements like intent to leave Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Ms. Mardani and Mr. Rasouli argue the officer breached procedural fairness in refusing their permits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court explains the minimal procedural fairness duty for study permit refusals and when notice or additional info is required.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Allegations of disregarded evidence or insufficient reasons do not prove procedural fairness breaches but relate to reasonableness of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court dismisses the judicial review application for the reasons given.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

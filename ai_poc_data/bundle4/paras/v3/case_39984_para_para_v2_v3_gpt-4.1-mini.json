@@ -1,0 +1,190 @@
+{
+ "case_id": 39984,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.003068
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 3,
+   "court": 11
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a claimant from China seeking refugee protection in Canada based on alleged persecution for practicing Falun Gong. The tribunal assessed the claimant's credibility and evidence, ultimately finding that he was not a Falun Gong practitioner and was not persecuted by Chinese authorities. The tribunal rejected the refugee claim, concluding the claimant is neither a Convention refugee nor in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and claimant's story",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 9,
+    "label": "Tribunal's credibility findings and analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 13,
+    "label": "Assessment of claimant's knowledge and practice of Falun Gong",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 14,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from China alleges fear of persecution by the Public Security Bureau due to practicing Falun Gong under immigration law sections 96 and 97.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant states he began Falun Gong in 2011, was raided by PSB in 2012, hid, was sought by PSB, then smuggled out to Canada where he claimed refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant is neither a Convention refugee nor in need of protection, noting difficulties but ultimately negative credibility findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal accepts the claimant's identity as a Chinese national based on testimony and documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal finds on a balance of probabilities that the claimant was not a Falun Gong practitioner in China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal reasons the claimant's ability to use a genuine passport and hide undermines his claim of being wanted by PSB; it rejects certain letters as unreliable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant used genuine passport to leave China",
+    "Claimant hid successfully for months",
+    "No summons left by PSB",
+    "Letters given no weight"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal considers jurisprudence and opposing case law about leaving China with a genuine passport, noting bribery and corruption arguments but finds claimant's story inconsistent with national evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Considered jurisprudence on exit controls",
+    "Acknowledged bribery and corruption arguments",
+    "Found claimant's story inconsistent with evidence"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal rejects bribery and corruption arguments due to claimant's lack of credibility, finding it unlikely he was smuggled out and did not leave as described.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal concludes the claimant was never a Falun Gong practitioner nor wanted by Chinese authorities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The claimant testified he practiced Falun Gong in China from 2011 and continued for three months after arriving in Canada in 2012.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant's answers about Falun Gong knowledge and practice incorrect and inconsistent, concluding he never read key texts or practiced exercises.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant incorrectly answered about Falun Gong text",
+    "Unable to name or demonstrate exercises",
+    "Incorrect understanding of principles"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal acknowledges caution in assessing religious knowledge but notes Falun Gong requires objective knowledge, especially of foundational texts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant knows almost nothing about Falun Gong, rejects his explanations for not practicing in Canada, and finds he never practiced in China or Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant lacks knowledge despite claimed practice",
+    "Rejected fear of Chinese spies in Canada",
+    "Rejected explanation for not practicing at home",
+    "Concluded claimant never practiced Falun Gong"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claimant's refugee claim, finding he is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,1582 @@
+{
+ "case_id": 57396,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.029165599999999996
+ },
+ "verification": {
+  "paragraphs": 168,
+  "summaries": 168,
+  "paragraphs_missing": [],
+  "retried": 1,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 127,
+   "evidence": 1,
+   "below": 31,
+   "party": 8,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 30,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the interpretation and application of section 515(10)(c) of the Criminal Code regarding pre-trial detention to maintain public confidence in the justice system. The appellant Crown appealed a Superior Court order releasing the respondent St-Cloud, charged with aggravated assault, arguing detention was necessary. The Supreme Court allowed the appeal, restoring the detention order and clarifying the proper legal test and scope of s. 515(10)(c).",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Introduction and case overview",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 14,
+    "label": "Facts and initial detention hearings",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 23,
+    "label": "Subsequent release application and Superior Court review",
+    "kind": "background"
+   },
+   {
+    "first": 24,
+    "last": 36,
+    "label": "Legislative history and context of s. 515(10)(c)",
+    "kind": "background"
+   },
+   {
+    "first": 37,
+    "last": 53,
+    "label": "Parties' positions and restrictive interpretations of s. 515(10)(c)",
+    "kind": "issue"
+   },
+   {
+    "first": 54,
+    "last": 71,
+    "label": "Interpretation of s. 515(10)(c) factors and balancing test",
+    "kind": "analysis"
+   },
+   {
+    "first": 72,
+    "last": 88,
+    "label": "Definition of 'public' and public confidence test",
+    "kind": "analysis"
+   },
+   {
+    "first": 89,
+    "last": 120,
+    "label": "Review powers of superior courts under ss. 520 and 521 Cr. C.",
+    "kind": "analysis"
+   },
+   {
+    "first": 121,
+    "last": 139,
+    "label": "Criteria for reviewing detention decisions and new evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 140,
+    "last": 158,
+    "label": "Application of law to facts and errors in Superior Court review",
+    "kind": "analysis"
+   },
+   {
+    "first": 159,
+    "last": 167,
+    "label": "Final analysis on detention necessity under s. 515(10)(c)",
+    "kind": "analysis"
+   },
+   {
+    "first": 168,
+    "last": 168,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The criminal justice system's reputation depends on protecting liberty and presumption of innocence, but also on preventing accused from evading justice or harming others pre-trial, as recognized by s. 515(10)(a) and (b) Cr. C.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Parliament added s. 515(10)(c) Cr. C. to allow interim detention to maintain public confidence in justice when release might suggest justice hasn't been done, per R. v. Hall.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "This appeal allows the Court to clarify when pre-trial detention is necessary to maintain public confidence under s. 515(10)(c) Cr. C., which has had varying interpretations since Hall.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Section 515(10)(c) requires balancing accused's rights and community justice needs, adopting the public's perspective, though 'public' is not always clear, causing inconsistent results.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court finds s. 515(10)(c) Cr. C. has been too narrowly interpreted and clarifies 'public' means reasonable, informed community members, not legal experts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court sets limits on reviewing detention decisions under ss. 520 and 521 Cr. C., allowing review only for new evidence, legal error, or clearly inappropriate decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Respondent St-Cloud was charged with aggravated assault; initial and second release applications were denied under s. 515(10)(b) and (c), but Superior Court ordered release; Crown appeals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court will allow the appeal, finding detention necessary to maintain confidence in justice, and will explain why.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "On April 24, 2013, St-Cloud and others violently assaulted a bus driver, causing serious injuries; the assault was video recorded; St-Cloud charged with aggravated assault.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "At the April 26, 2013 release hearing, the appellant opposed release; victim was hospitalized with uncertain prognosis including facial fracture and concussion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "Judge Lavergne found detention necessary under s. 515(10)(b) Cr. C. for public protection after balancing factors, placing onus on prosecutor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "Judge Lavergne also considered s. 515(10)(c) factors: strong prosecution case, gravity of offence, circumstances, and potential lengthy imprisonment with aggravating factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "Judge Lavergne explained s. 515(10)(c) requires assessing if reasonable public expects denial of interim release to maintain confidence, concluding release must be denied.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "Judge Lavergne found Crown met burden under s. 515(10)(c) and ordered respondent's detention until further order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "After preliminary inquiry, respondent applied for release under s. 523(2)(b); Judge Legault said onus on respondent to show new cause and court must show restraint.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "Judge Legault noted evidence was mostly unchanged but new facts included increased financial security and possible employment for respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "Judge Legault found risk of reoffending reduced and respondent credible in commitment to work or study, but victim's condition worsened.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "Judge Legault agreed detention was necessary under s. 515(10)(c) to maintain public confidence, affirming reasonable expectation to deny release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "On July 2, 2013, respondent applied to Superior Court under s. 520 for review of detention order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Martin J. understood Judge Legault found detention unnecessary under s. 515(10)(b) but necessary under s. 515(10)(c) to maintain confidence in justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "Martin J. noted respondent must show reviewable error; citing Hall, s. 515(10)(c) must be used sparingly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "Martin J. stated test: whether a reasonable, disinterested person versed in law would conclude confidence in justice would be undermined by release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "Martin J. found incident heinous but explainable, concluding justices erred in denying release under s. 515(10)(c), and ordered respondent's release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The appeal raises specific questions to be addressed by the Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court will summarize the legislative history of s. 515(10) Cr. C. to aid understanding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Pre-trial release laws date back to 1869, evolving through bail discretion and grounds for refusal, including ensuring attendance and public protection, leading to s. 515(10)(a) and (b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Since 1982 Charter, accused have right to reasonable bail unless just cause shown; s. 11(e) protects this right with two components: quantum and just cause.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "In Morales, Court struck down vague 'public interest' ground in s. 515(10)(b) for pre-trial detention as unconstitutional for being standardless.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "In 1997, Parliament amended s. 515(10), adding para. (c) for detention to maintain confidence in justice, without listing required considerations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "In Hall, Court found 'any other just cause' in s. 515(10)(c) unconstitutional but upheld detention to maintain confidence in justice as constitutional.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Parliament amended s. 515(10)(c) Cr. C. in 2008 to align with Hall, setting factors for detention to maintain confidence in justice, which is central to this appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Parliament amended s. 515(10)(c) in 2008",
+    "Provision aligns with Hall decision",
+    "Provision factors listed",
+    "Provision still in force and at issue"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The central issue in Hall was s. 515(10)(c)'s constitutionality, but the Court also gave interpretive guidance on it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Hall's central issue was constitutionality",
+    "Court provided interpretive guidance",
+    "Subsection (a) basis for s. 515(10)(c)"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "McLachlin C.J. explained bail denial may be necessary to maintain public confidence in justice even without risk of absconding or reoffending.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "McLachlin C.J. clarified s. 515(10)(c) is a distinct ground for detention, not a residual catch-all after other grounds fail.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Chief Justice outlined the narrow, objective test under s. 515(10)(c) focusing on four factors to maintain public confidence in justice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Narrow set of circumstances for bail denial",
+    "Four factors to consider",
+    "Objective appraisal by judge",
+    "No open-ended discretion"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Court will revisit Hall later to consider additional passages not yet discussed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The appellant argues courts wrongly add factors to s. 515(10)(c) to restrict its scope, and this approach should be rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The respondent submits s. 515(10)(c) applies rarely, with factors weighted and focus on whether public confidence would be maintained if accused released.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Some courts apply s. 515(10)(c) strictly, limiting it to rare cases, citing appellate decisions requiring sparing use or 'something more'.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Strict application of s. 515(10)(c) in some courts",
+    "Appellate courts require rare or exceptional circumstances",
+    "'Something more' required beyond four factors",
+    "Some courts interpret 'something more' as sparing use"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Two reasons explain restrictive interpretations: prior legislation's hierarchy of grounds and misinterpretation of Hall.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Prior legislation had hierarchical grounds",
+    "Misinterpretation of Hall by courts"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Previously, s. 515(10) had primary and secondary grounds for detention, with secondary only if primary failed; now no hierarchy exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Some courts prefer Hall dissent's view that s. 515(10)(c) is vague and revives struck-down public interest ground, leading to restrictive interpretations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "below",
+   "summary": "In Hall, the crime was a heinous murder causing public concern, and bail was denied under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Hall described the crime as heinous and unexplained, citing Rondeau on bail concerns for unexplained crimes under prior grounds.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crime described as heinous and unexplained",
+    "Reference to Rondeau on bail concerns",
+    "Rondeau concerned prior secondary ground"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Hall stated that for horrific, inexplicable crimes, inability to detain risks losing public confidence in justice system.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The Court opines some courts misread Hall by treating its factual description of a horrific crime as a prerequisite for s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The Court rejects 'unexplainable' crime as a criterion under s. 515(10)(c) because it is ambiguous, confusing, and not in the provision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Many crimes can be explained by factors like provocation or mental illness, so 'unexplainable' is unhelpful as a criterion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Using 'unexplainable' crime as a criterion risks excusing heinous crimes and undermining public confidence; Hall focused on brutality and fear.",
+   "ideas": "multiple",
+   "idea_list": [
+    "'Unexplainable' criterion risks excusing crimes",
+    "Could undermine public confidence",
+    "Hall focused on brutality and fear"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The Court agrees detention under s. 515(10)(c) may be rare but rarity is a consequence, not a precondition or criterion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Hall supports that although rare, bail denial under s. 515(10)(c) must be available when circumstances arise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "A rarity criterion is vague and unmanageable, risking comparative exercises that undermine individual case analysis and public confidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The Court cites Summers to show Parliament did not limit 'circumstances' to exceptional ones, supporting broad interpretation of s. 515(10)(c).",
+   "ideas": "multiple",
+   "idea_list": [
+    "Summers decision on 'circumstances'",
+    "No limitation to exceptional circumstances",
+    "Parliament's clear wording supports broad scope"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "In conclusion, s. 515(10)(c) applies to any crime type but Crown must prove detention is justified to maintain public confidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Section 515(10)(c) lists four factors a justice must assess and balance to decide if detention is necessary to maintain public confidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "At bail stage, accused is presumed innocent regardless of offence gravity, prosecution strength, or potential sentence length.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Bail hearings are summary with flexible evidence rules, making strength of prosecution's case hard to assess.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Justice must assess prosecution's evidence quality without acting as trial judge, considering physical and circumstantial evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Justice must consider any defence raised, weighing its basis when assessing prosecution's apparent strength.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The court explains that under s. 515(10)(c), the justice must objectively assess the offence's gravity by comparing its maximum and minimum sentences in the Criminal Code.",
+   "ideas": "multiple",
+   "idea_list": [
+    "objective gravity assessment",
+    "comparison with other offences",
+    "use of maximum and minimum sentences"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court lists relevant circumstances under s. 515(10)(c) including violent offences, domestic violence context, victim vulnerability, and extent of accused's participation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "list of relevant circumstances",
+    "examples of victim vulnerability",
+    "participation relevance",
+    "sentencing factors"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Section 515(10)(c) includes as a circumstance the accused's liability for a potentially lengthy imprisonment or minimum three years for firearm offences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The court notes the need for guidance on what constitutes a 'lengthy term of imprisonment' under s. 515(10)(c), despite no strict rule.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court clarifies that 'lengthy term of imprisonment' does not only mean life sentences under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "Justices must consider case circumstances and sentencing principles to assess 'lengthy term' but avoid complex sentencing calculations at bail stage.",
+   "ideas": "multiple",
+   "idea_list": [
+    "consider case circumstances",
+    "avoid complex sentencing calculations",
+    "subjective assessment"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 66,
+   "speaker": "party",
+   "summary": "The appellant argues, citing Mordue, that detention must be ordered if the four s. 515(10)(c) circumstances favor it unless other circumstances justify release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The court disagrees with the appellant's automatic detention argument under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The court explains s. 515(10)(c) requires considering all circumstances, not automatic detention if four factors favor it, citing Hall.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no automatic detention",
+    "must consider all circumstances",
+    "cites Hall decision"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The court rejects automatic detention, emphasizing the balancing exercise and purpose to maintain public confidence under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The court stresses release is the norm and detention the exception, protected by Charter rights, opposing automatic detention under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The court adds personal circumstances of the accused and victim status may be relevant under s. 515(10)(c) beyond the listed factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The court notes the English s. 515(10)(c) lacks 'public' but confirms detention aims to maintain public confidence in justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 73,
+   "speaker": "below",
+   "summary": "The Ontario Court of Appeal in Mordue distinguished public confidence from public safety, requiring separate consideration under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The court defines 'public' as reasonable, informed community members aware of legislative philosophy and case circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 75,
+   "speaker": "below",
+   "summary": "The Quebec Court of Appeal in Lamothe explained public perception must be reasonable and informed, not emotional or negative towards accused.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The court agrees the Lamothe comments on reasonable public perception remain relevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The court explains 'public' means reasonable, informed persons, not legal experts or emotional individuals, preserving legislative intent.",
+   "ideas": "multiple",
+   "idea_list": [
+    "public is reasonable and informed",
+    "not legal experts",
+    "not emotional",
+    "legislative intent"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The court compares public confidence test to s. 24(2) Charter's reasonable person standard in assessing justice administration disrepute.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The court describes the reasonable public as aware of rule of law, presumption of innocence, trial rights, and basic criminal law principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The court clarifies the reasonable person is thoughtful, not emotional, but not a legal expert on complex defences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The court acknowledges judges face difficulty balancing public expectations and avoiding emotional reactions in bail decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The court warns that social media can amplify uninformed or emotional public reactions, requiring judicial caution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The court stresses courts must avoid basing decisions on unrepresentative media reports and protect against mob justice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "avoid media bias",
+    "protect against mob justice",
+    "consider reasonable public perception"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "The court recognizes media opinions can be relevant if admissible and reflect reasonable public views.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "The court declines to comment on Turcotte decision correctness but notes its conclusion must align with outlined principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "The court states public confidence can be undermined by unjustified detention or unjustified release under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "The court summarizes key principles for applying s. 515(10)(c), emphasizing balancing all circumstances and public perspective.",
+   "ideas": "multiple",
+   "idea_list": [
+    "distinct ground for detention",
+    "not narrow application",
+    "non-exhaustive factors",
+    "no automatic detention",
+    "balancing exercise",
+    "public perspective",
+    "ultimate test"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "The court concludes serious, violent crimes with overwhelming evidence and vulnerable victims usually justify pre-trial detention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "The court transitions to consider superior court judges' power to review release or detention orders under ss. 520 and 521 Cr. C.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "Sections 520 and 521 Cr. C. allow accused or prosecutor to apply for review of interim detention or release orders before trial, excluding s. 469 offences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 91,
+   "speaker": "court",
+   "summary": "The Court notes differing views on the nature of review under ss. 520 and 521 Cr. C., ranging from appeal to de novo hearing to hybrid remedy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Different views on review nature",
+    "Some see it as appeal",
+    "Some see it as de novo hearing",
+    "Some see it as hybrid remedy"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "The Court concludes ss. 520 and 521 Cr. C. do not grant open-ended discretion but establish a hybrid remedy with greater scope than an appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No open-ended discretion",
+    "Hybrid remedy",
+    "Greater scope than appeal"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "The Court introduces the text of ss. 520(1) and (7) and 521(1) and (8) Cr. C. that establish the power of review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 94,
+   "speaker": "court",
+   "summary": "The Court states ss. 520 and 521 Cr. C. do not provide for a de novo hearing, unlike the Youth Criminal Justice Act, and reviews are based on transcripts and exhibits.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No de novo hearing under ss. 520 and 521",
+    "Youth Criminal Justice Act provides de novo hearing",
+    "Review based on transcript and exhibits"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "The Court notes ss. 520 and 521 limit review to cases where cause is shown, unlike the Young Offenders Act which used 'discretion' to confer broad review powers.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Review limited to cause shown",
+    "Young Offenders Act used 'discretion'",
+    "Discretion conferred broad review"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 96,
+   "speaker": "court",
+   "summary": "The Court finds the wording of ss. 520 and 521 Cr. C. precludes open-ended discretion but will compare with other provisions to confirm.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Wording precludes open-ended discretion",
+    "Comparison with other provisions needed"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 97,
+   "speaker": "party",
+   "summary": "The appellant argues that the wording difference between ss. 520(7)(e) and 521(8)(e) Cr. C. and other provisions supports greater deference to initial release decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "The Court introduces s. 680(1) Cr. C., which deals with review of release decisions for certain offences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 99,
+   "speaker": "party",
+   "summary": "The appellant concedes case law on s. 680 Cr. C. review is inconsistent, as recognized by some provincial courts of appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "The Court introduces s. 18(2) of the Extradition Act, which allows a judge of the court of appeal to review and vary judicial interim release decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "The Court notes s. 18(2) of the Extradition Act and s. 680(1) Cr. C. do not limit variation of initial decisions to cases where cause is shown, unlike ss. 520 and 521 Cr. C.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 102,
+   "speaker": "below",
+   "summary": "Canadian appellate courts generally hold s. 18(2) of the Extradition Act allows review only for errors in principle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 103,
+   "speaker": "below",
+   "summary": "Only the BC Court of Appeal holds review under s. 18(2) is not de novo but must determine if initial decision is 'correct' with deference to findings of fact.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "The Court states it need not decide validity of appellate positions on s. 680(1) Cr. C. and s. 18(2) Extradition Act but notes their lack of 'cause' requirement suggests ss. 520 and 521 limit discretion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No need to decide validity of other provisions",
+    "Lack of 'cause' in other provisions suggests limitation in ss. 520 and 521"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 105,
+   "speaker": "party",
+   "summary": "The appellant argues interim release decisions should be reviewed like sentencing appeals, only reversing for errors in principle or unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 106,
+   "speaker": "party",
+   "summary": "The respondent argues the differences between sentencing and interim release decisions are too great to apply the same review principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "The Court acknowledges similarities between interim release and sentencing decisions, including discretion, relaxed evidence rules, and available judicial options.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Similar discretionary nature",
+    "Relaxed evidence rules",
+    "Similar judicial options"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 108,
+   "speaker": "court",
+   "summary": "The Court highlights significant differences: interim release hearings are expeditious, informal, and may lack full evidence or counsel, unlike sentencing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Expeditious nature of release hearings",
+    "Informal process",
+    "Limited evidence and counsel time"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 109,
+   "speaker": "court",
+   "summary": "The Court notes the expeditious process protects presumption of innocence but limits accused's preparation and legal representation at release hearings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "The Court notes sentencing judges often preside over trials and have more evidence and familiarity than justices deciding interim release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 111,
+   "speaker": "court",
+   "summary": "The Court notes accused are presumed innocent at release but convicted at sentencing, though sentencing may have longer-term impacts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 112,
+   "speaker": "court",
+   "summary": "The Court concludes that despite similarities, differences between interim release and sentencing decisions prevent equating their review rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "The Court cautions that 'discretionary' must be used carefully since release is the rule and detention the exception under s. 515(10) Cr. C.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "The Court explains that justices must balance factors and make findings to determine if detention is justified, a discretionary assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "The Court reviews sentencing discretion principles, noting appellate courts only interfere if sentences are clearly excessive or inadequate.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Sentencing discretion involves balancing",
+    "Appellate interference only for clear errors"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "The Court notes appellate courts should only interfere with sentences if discretion is exercised unreasonably by misweighing factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 117,
+   "speaker": "court",
+   "summary": "The Court emphasizes the presumption of innocence at release hearings and cautions against open-ended discretion for reviewing judges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 118,
+   "speaker": "court",
+   "summary": "The Court states ss. 520 and 521 do not provide for de novo hearings and reviewing judges are not better positioned than justices to assess detention necessity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No de novo hearing",
+    "Reviewing judge not better positioned"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 119,
+   "speaker": "court",
+   "summary": "The Court sees no justification for allowing reviewing judges to always substitute their assessment for that of the initial justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "The Court concludes ss. 520 and 521 Cr. C. do not grant open-ended review power; reviewing judges must decide if review is appropriate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 121,
+   "speaker": "court",
+   "summary": "The court explains when a reviewing judge can intervene in a detention decision, including errors of law, inappropriate weight, or new evidence showing material change.",
+   "ideas": "multiple",
+   "idea_list": [
+    "intervention for legal error",
+    "intervention for inappropriate decision",
+    "new evidence may vary decision"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 122,
+   "speaker": "other",
+   "summary": "The text of section 520(7) of the Criminal Code is introduced, which allows tendering new evidence or exhibits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "The court poses the question of what qualifies as admissible new evidence in the context of review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 124,
+   "speaker": "party",
+   "summary": "The appellant argues new evidence should be limited to facts truly new since the initial decision to prevent judge shopping.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The court rejects the appellant's strict limitation on new evidence, noting detained persons usually seek release quickly and the appellant misunderstands detention's impact.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 126,
+   "speaker": "court",
+   "summary": "The court notes that further review applications require leave and a 30-day wait, limiting judge shopping concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 127,
+   "speaker": "court",
+   "summary": "The court opines detained persons may not tender all evidence initially due to the expeditious process and lack of representation, so courts should not narrowly view new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 128,
+   "speaker": "court",
+   "summary": "The court recalls Palmer criteria for new evidence on appeal: due diligence, relevance, credibility, and potential to affect result.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 129,
+   "speaker": "court",
+   "summary": "The court finds Palmer criteria relevant but requiring flexibility in bail review due to expeditious nature and relaxed evidence rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 130,
+   "speaker": "court",
+   "summary": "The court explains the due diligence criterion ensures finality but pre-trial detention is often interim, affecting its strictness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 131,
+   "speaker": "court",
+   "summary": "The court states due diligence is less strict in criminal cases and depends on total circumstances, consistent with prior case law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 132,
+   "speaker": "court",
+   "summary": "The court holds reviewing judges may consider truly new evidence or pre-existing evidence not tendered for legitimate reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 133,
+   "speaker": "court",
+   "summary": "The court clarifies new evidence includes evidence disclosed late by the prosecutor, allowing accused to use it later if reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 134,
+   "speaker": "court",
+   "summary": "The court says reviewing judges can refuse new evidence if accused delays or tries judge shopping, balancing integrity and rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 135,
+   "speaker": "court",
+   "summary": "The court modifies Palmer's relevance criterion to the broad relevance required under section 515(10)(c) for detention review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 136,
+   "speaker": "court",
+   "summary": "The court interprets the credibility criterion flexibly, considering relaxed evidence rules at bail stage.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 137,
+   "speaker": "court",
+   "summary": "The court modifies the fourth Palmer criterion to require new evidence be significant enough to affect the detention balancing exercise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 138,
+   "speaker": "court",
+   "summary": "The court instructs reviewing judges to apply the modified Palmer criteria flexibly and expeditiously in the release process.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 139,
+   "speaker": "court",
+   "summary": "The court concludes reviewing judges can intervene for new evidence, legal error, or clearly inappropriate decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 140,
+   "speaker": "below",
+   "summary": "Judge Lavergne found the respondent and co-accused abused and threatened the bus driver, provoking an assault after spitting at him.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 141,
+   "speaker": "below",
+   "summary": "Martin J. found additional incident elements not before Judge Lavergne, including a prior refusal to open bus doors and a physical action by the driver.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 142,
+   "speaker": "court",
+   "summary": "The court notes Judge Lavergne lacked some incident details due to late disclosure of a passenger's statement, which could justify later use.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 143,
+   "speaker": "below",
+   "summary": "At the second hearing, respondent's counsel argued the driver did not stop previously and filed the passenger's statement as evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 144,
+   "speaker": "below",
+   "summary": "Judge Legault noted the young men complained about the driver not stopping and the driver's objection to their spitting and pizza throwing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 145,
+   "speaker": "below",
+   "summary": "Judge Legault upheld detention under section 515(10)(c), citing likelihood of conviction, offence gravity, and accused's significant participation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 146,
+   "speaker": "court",
+   "summary": "The court finds no new facts were presented to Martin J.; Judge Legault had all incident elements and upheld detention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 147,
+   "speaker": "court",
+   "summary": "The court assumes Judge Legault considered the driver's physical action and did not disregard relevant evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 148,
+   "speaker": "court",
+   "summary": "The court holds Martin J. could not review the detention order based on new facts not properly presented.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 149,
+   "speaker": "below",
+   "summary": "Judge Lavergne correctly identified the test under section 515(10)(c) focusing on public confidence in justice administration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 150,
+   "speaker": "below",
+   "summary": "Judge Lavergne stated the public is reasonable and informed, and the prosecutor bears the onus to justify detention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 151,
+   "speaker": "below",
+   "summary": "Judge Lavergne found the prosecution met its burden under s. 515(10)(c), citing factors including the accused's liability for a significant term and the brutal assault captured on video.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Judge Lavergne's finding on burden of proof",
+    "Factors considered under s. 515(10)(b)",
+    "Accused's liability for significant term",
+    "Videotape evidence and likely conviction"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 152,
+   "speaker": "below",
+   "summary": "Judge Lavergne emphasized the assault's brutality, gratuitousness, and inexplicability, noting it weighed against release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 153,
+   "speaker": "court",
+   "summary": "The court states that the unexplainable nature of the offence should not guide analysis under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 154,
+   "speaker": "below",
+   "summary": "Martin J. considered the offence explainable and applied s. 515(10)(c) sparingly, finding Judge Lavergne lacked all circumstances at initial hearing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Martin J.'s view on offence explainability",
+    "Restriction of s. 515(10)(c) scope",
+    "Finding on initial hearing circumstances"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 155,
+   "speaker": "below",
+   "summary": "Martin J. acknowledged the heinous nature of the behaviour but rejected that it was unexplainable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 156,
+   "speaker": "below",
+   "summary": "Martin J. approved the Manitoba Court of Appeal's comparison of the case's brutality to a more severe case in Trout.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 157,
+   "speaker": "court",
+   "summary": "The court finds Martin J. erred by narrowly interpreting s. 515(10)(c), relying on explainability, and not considering all factors, justifying review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Error in narrow interpretation of s. 515(10)(c)",
+    "Error in relying on offence explainability",
+    "Failure to consider four factors",
+    "Justification for review"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 158,
+   "speaker": "court",
+   "summary": "The court notes Martin J. intervened without basis, as no material change or legal error existed, and initial detention was justified under s. 515(10)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 159,
+   "speaker": "court",
+   "summary": "The court states all relevant factors must be balanced to determine if detention is necessary to maintain confidence in justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 160,
+   "speaker": "court",
+   "summary": "The prosecution's case is strong with video and eyewitnesses; respondent lacks a valid defence like self-defence or provocation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Strength of prosecution's case",
+    "Lack of valid defence",
+    "Irrelevance of self-defence and provocation"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 161,
+   "speaker": "court",
+   "summary": "The offence is very serious aggravated assault with a maximum 14-year sentence, among the severest after life imprisonment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 162,
+   "speaker": "court",
+   "summary": "The respondent was an active participant in a brutal assault; prior driver actions are irrelevant and do not favor respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 163,
+   "speaker": "court",
+   "summary": "Given the offence's severity and respondent's role, a significant prison term is likely, satisfying s. 515(10)(c)'s requirement for potential lengthy imprisonment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 164,
+   "speaker": "court",
+   "summary": "The four circumstances in s. 515(10)(c) strongly support the respondent's detention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 165,
+   "speaker": "court",
+   "summary": "The assault on a bus driver, a civil servant, and the injury's severity and impact make the offence more heinous and relevant to detention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 166,
+   "speaker": "court",
+   "summary": "Weighing all circumstances, detention is necessary to maintain confidence in the administration of justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 167,
+   "speaker": "court",
+   "summary": "A reasonable, informed member of the public would support detention given the brutal, videotaped assault and its serious consequences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 168,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the Superior Court erred in restricting s. 515(10)(c) and basing decision on explainability; detention order restored.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

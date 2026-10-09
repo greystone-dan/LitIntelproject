@@ -1,0 +1,166 @@
+{
+ "case_id": 39984,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0027608000000000003
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 3,
+   "court": 11
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a claimant from China seeking refugee protection in Canada based on alleged persecution for practicing Falun Gong. The tribunal assessed the claimant's credibility and evidence, ultimately finding that he was not a genuine Falun Gong practitioner and was not persecuted or wanted by Chinese authorities. The tribunal rejected the refugee claim and protection need under immigration law sections 96 and 97.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and claimant's story",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 9,
+    "label": "Tribunal's credibility and factual findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 13,
+    "label": "Assessment of claimant's Falun Gong practice",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 14,
+    "label": "Decision and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from China alleges persecution by the Communist regime due to his Falun Gong practice under immigration law sections 96 and 97.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant states he began Falun Gong in 2011, was raided by police in 2012, hid, was sought by police, and fled China via a smuggler to Canada in 2012.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant is neither a Convention refugee nor in need of protection, noting difficulties and stress affecting credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal accepts the claimant's identity as a Chinese national based on testimony and documents.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal finds, on balance, that the claimant was not a Falun Gong practitioner in China.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The claimant's ability to use a genuine passport and hide for months, plus lack of summons, undermines his claim of being wanted; letters are given no weight.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant used genuine passport and hid",
+    "No summons left by police",
+    "Letters given no weight"
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal considers case law on China's exit controls and corruption, finding the claimant's account of leaving China inconsistent and vague.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal rejects bribery and corruption arguments due to claimant's lack of credibility, finding it unlikely he was smuggled out and not wanted by authorities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal concludes the claimant was never a Falun Gong practitioner nor wanted by Chinese authorities.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The claimant testifies he practiced Falun Gong in China from 2011 and continued for three months after arriving in Canada in 2012.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant lacks knowledge of Falun Gong basics, indicating he likely never read key texts or practiced exercises.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal notes that unlike general religions, Falun Gong requires knowledge of teachings, which the claimant lacks.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claimant's explanations for poor knowledge and limited practice, finding he is not a Falun Gong practitioner in China or Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant's poor knowledge inconsistent with practice",
+    "Rejected explanations for limited practice",
+    "Finds claimant not a practitioner"
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claimant's refugee claim, finding he is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "case_id": 28105,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0046568
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 1,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 1
+  },
+  "speakers": {
+   "court": 9,
+   "party": 2,
+   "mixed": 2
+  },
+  "multi_idea_paragraphs": 11,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Lemay Co Inc.'s judicial review application challenging the Minister of Canada's refusal to increase Canada Emergency Wage Subsidy (CEWS) amounts for certain periods. Lemay, the applicant and appellant, argues that the Minister's interpretation of the Income Tax Act (ITA) provisions is incorrect and that internal recourse was unavailable, while the respondent, Canada (Attorney General), contends the application is premature and doomed. The Federal Court dismissed the respondent's motion to strike, finding that Lemay's claim is not doomed and that the judicial review is properly before the court.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 11,
+    "label": "Parties' positions on CEWS claims and Minister's refusal",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 19,
+    "label": "Legal standards for motion to strike judicial review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 21,
+    "last": 29,
+    "label": "Arguments on statutory interpretation and claim viability",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 39,
+    "label": "Internal recourse issue and Minister's interpretation",
+    "kind": "analysis"
+   },
+   {
+    "first": 40,
+    "last": 44,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 5,
+   "speaker": "court",
+   "summary": "The court finds the respondent failed to prove the judicial review application is doomed or that internal recourse exists, so the motion to strike is dismissed; facts about Lemay's CEWS claims and Minister's audit are uncontested.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's failure to meet burden",
+    "motion to strike dismissed",
+    "facts about CEWS claims and audit"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 8,
+   "speaker": "party",
+   "summary": "Lemay requested the Minister to apply discretion to increase CEWS amounts for certain periods, which the Minister refused, citing CRA's technical interpretation; Lemay submitted further arguments citing ITA provisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lemay's request for discretion",
+    "Minister's refusal",
+    "Lemay's additional submissions"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 11,
+   "speaker": "party",
+   "summary": "The Minister reaffirmed refusal due to lack of jurisdiction and statutory limits; Lemay applied for judicial review; respondent later informally suggested reconsideration under subsection 125.7(16), contrary to prior decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's refusal and reasons",
+    "Lemay's judicial review application",
+    "respondent's informal position revision"
+   ]
+  },
+  {
+   "para": 12,
+   "last": 16,
+   "speaker": "court",
+   "summary": "Lemay rejected the respondent's informal proposal; respondent moved to strike arguing judicial review is premature and doomed; court outlines legal standards for striking judicial review applications.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lemay rejects proposal",
+    "respondent's motion to strike",
+    "legal standards for striking"
+   ]
+  },
+  {
+   "para": 17,
+   "last": 19,
+   "speaker": "court",
+   "summary": "The court explains the high standard for motions to strike judicial review applications, emphasizing that competing statutory interpretations require dismissal of such motions.",
+   "ideas": "single",
+   "idea_list": [
+    "standard for motions to strike with statutory interpretation"
+   ]
+  },
+  {
+   "para": 21,
+   "last": 23,
+   "speaker": "mixed",
+   "summary": "The respondent argues ITA prohibits paying more than initially claimed, making Lemay's claim doomed; Lemay counters that the ITA allows amended claims and Minister's inherent power supports this, so the claim is not doomed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's argument on ITA limits",
+    "Lemay's counterargument on amendments and Minister's power"
+   ]
+  },
+  {
+   "para": 24,
+   "last": 26,
+   "speaker": "mixed",
+   "summary": "Lemay relies on ITA provisions rejected by the Minister; respondent argues subsection 152(3.4) only addresses overpayments and is limited by subsection 125.7(5), not allowing upward adjustments.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lemay's reliance on ITA provisions",
+    "Minister's rejection",
+    "respondent's interpretation of subsection 152(3.4)"
+   ]
+  },
+  {
+   "para": 27,
+   "last": 29,
+   "speaker": "court",
+   "summary": "The respondent did not fully rebut Lemay's arguments on paragraph 164(1)(b); the court finds multiple reasonable interpretations exist, so it cannot dismiss Lemay's claim on a motion to strike.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's incomplete rebuttal",
+    "court's view on multiple interpretations",
+    "motion to strike inappropriate"
+   ]
+  },
+  {
+   "para": 30,
+   "last": 33,
+   "speaker": "court",
+   "summary": "Respondent failed to prove Lemay's interpretation has no chance of success; application is not doomed; respondent's argument that internal recourse exists under subsection 125.7(16) is based on case law but facts show Minister already ruled against Lemay's claim under that subsection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's failure to meet burden",
+    "application not doomed",
+    "Minister's prior ruling on internal recourse"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "Minister determined no recourse under subsection 125.7(16) exists; respondent now argues this is error and internal recourse is available, effectively challenging Minister's interpretation as unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's decision on recourse",
+    "respondent's contrary argument",
+    "challenge to Minister's interpretation"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 39,
+   "speaker": "court",
+   "summary": "The court finds that although the respondent's interpretation of subsection 125.7(16) ITA is plausible, the Minister rejected it, so Lemay had no internal recourse and properly filed for judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "respondent's interpretation plausible",
+    "Minister rejected interpretation",
+    "no internal recourse for Lemay",
+    "judicial review properly filed"
+   ]
+  },
+  {
+   "para": 40,
+   "last": 43,
+   "speaker": "court",
+   "summary": "The court holds that deciding on the Minister's interpretation and jurisdiction under subsection 125.7(16) is for the trial judge at hearing, not on a motion to strike, so the motion to strike is dismissed and time limits extended.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's decision not for motion to strike",
+    "issue for trial judge at hearing",
+    "motion to strike dismissed",
+    "time limits extended 30 days"
+   ]
+  },
+  {
+   "para": 44,
+   "last": 44,
+   "speaker": "court",
+   "summary": "The parties agreed that costs of $3,285 are payable to Lemay.",
+   "ideas": "single",
+   "idea_list": [
+    "costs payable to Lemay"
+   ]
+  }
+ ]
+}

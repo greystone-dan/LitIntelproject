@@ -1,0 +1,510 @@
+{
+ "case_id": 7724,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.007966800000000001
+ },
+ "verification": {
+  "paragraphs": 55,
+  "summaries": 55,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 44,
+   "party": 7,
+   "evidence": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns judicial review applications by the Canadian Coalition for Firearm Rights challenging the Governor in Council's Regulations that prohibit or restrict certain firearms. The Applicants sought interlocutory injunctions to stay the Regulations and related orders, arguing irreparable harm among other grounds. The Federal Court dismissed the motions for injunctions, finding the Applicants failed to demonstrate clear evidence of irreparable harm.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and context",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 13,
+    "label": "Procedural history and issues raised",
+    "kind": "other"
+   },
+   {
+    "first": 14,
+    "last": 30,
+    "label": "Admissibility of affidavits and expert evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 54,
+    "label": "Analysis of irreparable harm and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 55,
+    "last": 55,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "On May 1, 2020, the Governor in Council promulgated the Regulations Amending the Regulations Prescribing Certain Firearms as Prohibited, Restricted or Non-Restricted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Regulations add certain firearms to prohibited or restricted categories under the Criminal Code, based on the GIC's opinion they are not reasonable for hunting or sporting purposes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Regulatory Impact Analysis Statement states nine principal firearm models are now prohibited due to semi-automatic action, modern design, and large market volume.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court is seized with six judicial review applications challenging the OIC on grounds including Charter violations, ultra vires, bad faith, and statutory breaches.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court seized with six judicial review applications",
+    "Applicants challenge OIC on multiple constitutional and statutory grounds"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "In three applications, the Applicants have brought Motions for interlocutory injunctions under Federal Courts Rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Applicants raised a preliminary objection to expert evidence and affidavit of documents filed by the Respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Applicants seek interlocutory injunctions staying the Regulations and Amnesty Order, which temporarily allows possession and storage of specified firearms until April 30, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Applicants also seek injunctions prohibiting the RCMP from designating firearms as restricted or prohibited in the Firearms Reference Table.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Applicant in file T-735-20 seeks injunction prohibiting Crown from making defamatory public statements about firearm licensees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Court will focus mainly on the Regulations as an injunction would affect the Amnesty Order and Firearms Reference Table.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court concludes Applicants do not meet the test for interlocutory injunction due to lack of clear evidence of irreparable harm if Regulations remain in effect.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Motions raise issues of admissibility of affidavits and whether Applicants meet the tripartite test for interlocutory injunction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court finds the determinative issue is irreparable harm; since Applicants fail this, no need to address other test branches.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Mr. Murray Smith is a forensic scientist and former RCMP employee now consulting for the RCMP's Canadian Firearms Program.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Adrienne Deschamps is legal assistant to counsel for the Attorney General of Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Applicants argue Deschamps affidavit contains inadmissible hearsay as she lacks knowledge of attached articles and they couldn't cross-examine her on them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Applicants argue Smith affidavit is biased due to his RCMP ties and involvement in Regulations and FRT redesignation, exceeding his expertise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Respondent submits Deschamps affidavit is tendered not for truth but to show appended articles are publicly accessible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Respondent contends Smith affidavit meets expert evidence requirements and benefits of admission outweigh risks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Court agrees Deschamps affidavit can be admitted to prove existence of appended articles despite her lack of knowledge of their contents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Most exhibits appended to Deschamps affidavit relate to the first branch of the injunction test, concerning reasons for enacting the Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court assumes Applicants meet low threshold for serious issue to be tried, so does not assess probative value of this evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Four exhibits concern the second branch of the injunction test and come from Applicants or reliable sources, given high probative value.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Court gives high probative value to evidence from Applicants or neutral sources, noting Applicants did not deny their truth.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Parties agree expert evidence must be impartial; Court finds Applicants have not met burden to show Smith is biased or unfair.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Applicants rely on Smith's RCMP employment to argue bias, but Supreme Court says employment alone doesn't render expert inadmissible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Court finds Applicants identified only employment relationship; Smith's consulting role does not mean financial interest in outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Applicants argue Smith exceeded expertise, but Court finds he acknowledged limits and gave impartial evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court finds Applicants' submissions unsupported by Smith's cross-examination and notes Applicants relied on his evidence in submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court concludes Smith's evidence benefits the Court and should be admissible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court states that to get an interlocutory injunction, a party must show clear evidence of irreparable harm before the judicial review is decided.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The Applicants argue irreparable harm from the Regulations, citing affidavits about impacts on firearm ownership including business loss and cultural harms.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court will address each category of alleged harm separately, starting with financial losses.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court explains irreparable harm means harm unquantifiable in damages or unlikely to be compensated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Initially three corporate applicants were involved; Magnum Machine Ltd. discontinued and seeks damages separately.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court will only consider harm to moving parties, excluding evidence about overall economic impact and from Magnum Machine Ltd.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "evidence",
+   "summary": "Mr. Wyatt Signer of Maccabee testified that their business depends on the SLR-Multi firearm, now prohibited, and they fear future designs may also be banned.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "speaker": "evidence",
+   "summary": "Wolverine holds $477,000 in prohibited inventory and expert evidence predicts significant sales and earnings declines.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court notes neither Maccabee nor Wolverine have ceased operations or expect to, and their losses are quantifiable, not irreparable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Applicants provided little direct evidence of financial impact; Wolverine's expert admitted sales decline assumptions may be overstated.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that Applicants failed to prove a real probability of unavoidable irreparable harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court rejects the Applicants' claim that the RIAS admits irreparable harm, noting the government's buy-back program mitigates losses.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "evidence",
+   "summary": "Mr. Laurence Knowles, a Haida First Nation member, testified about the cultural and sustenance importance of hunting with firearms.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "speaker": "evidence",
+   "summary": "Mr. Knowles owns four firearms now prohibited, suited to his environment, and replacing them would cause financial harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "Applicants argue infringement of Aboriginal rights and lack of consultation constitute prima facie irreparable harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court notes the Amnesty Order exception allowing Indigenous use of certain firearms, which Applicants do not address.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court finds Mr. Knowles' need to replace firearms does not amount to irreparable harm, especially with the buy-back program.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The court notes government engagement with Indigenous groups and the Amnesty Order provisions for Indigenous firearm use.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court explains the threshold for expert evidence admissibility, emphasizing fairness and objectivity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court finds loss of specific firearms is not irreparable harm since many non-restricted alternatives exist for hunting and shooting.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The Applicants' claim of loss of gun culture is unsupported and unclear; non-restricted firearms remain available for recreational use.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "Applicants argue law enforcement and military personnel will lose shooting skills without access to prohibited firearms, supported by affidavits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that military and law enforcement have prescribed training and civilian competitions are not required.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "There is no compelling evidence that military or law enforcement shooting skills will decline due to the Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court dismisses the Applicants' motions for interlocutory injunction for failing the irreparable harm test.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

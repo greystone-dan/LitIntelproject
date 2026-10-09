@@ -1,0 +1,277 @@
+{
+ "case_id": 6796,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0041888
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 16,
+   "below": 5,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Ms. Estrada seeks judicial review of the Refugee Appeal Division's (RAD) decision confirming the Refugee Protection Division's (RPD) refusal of her refugee claim based on inadequate state protection in Ecuador. The RAD found that despite issues in Ecuador, the state provides adequate protection, a conclusion the court found reasonable. The court dismissed Ms. Estrada's application for judicial review, upholding the RAD's decision.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Decisions below",
+    "kind": "other"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 13,
+    "last": 19,
+    "label": "Analysis of state protection and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 20,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 21,
+    "last": 23,
+    "label": "Country conditions and state protection evidence",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The applicant, Ms. Estrada, seeks judicial review of the RAD's decision confirming the RPD's refusal of refugee protection, which the court dismisses.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant identity and claim",
+    "decision under review",
+    "court's conclusion"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Ms. Estrada obtained a student loan in 2013, faced loan management issues after government reforms, and was told to start repaying her loan in 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Ms. Estrada protested against IPHT, faced police confrontation, and feared retaliation, so she withheld filing a complaint.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Despite her parents paying the loan, IPHT withdrew funds from Ms. Estrada's account, leading to complaints, threats, and psychiatric help sought.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Ms. Estrada visited Canada in 2016, returned to Ecuador in 2017, was detained, faced ongoing threats, and returned to Canada fearing for her life.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Ms. Estrada returned to Ecuador in October 2017, was approached by police, learned police sought her, and fled back to Canada claiming refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RPD found Ms. Estrada not credible, noted Ecuador's human rights issues but found state protection adequate, and that she did not report threats.",
+   "ideas": "multiple",
+   "idea_list": [
+    "credibility finding",
+    "state protection presumption",
+    "lack of complaint filing"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RAD admitted new evidence but denied Ms. Estrada's request for an oral hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RAD found RPD erred on credibility but agreed Ms. Estrada failed to rebut presumption of adequate state protection in Ecuador.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "Ms. Estrada argued no adequate state protection as the state is the persecutor, but the RAD disagreed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The sole issue is whether the RAD's state protection finding is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court applies the reasonableness standard of review per Vavilov to assess the RAD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Ms. Estrada argues the RAD erred in assessing country conditions and state protection, relying on evidence of police abuse in Ecuador.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court disagrees, noting the RAD found Ecuador is making efforts to hold police accountable and Ms. Estrada's parents filed complaints without retaliation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court rejects applicant's argument",
+    "RAD's findings on state efforts",
+    "parents' complaints without retaliation"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Ms. Estrada claims fear of filing complaints due to past torture of student leaders and ongoing threats, but lacks evidence of police extortion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "fear of filing complaints",
+    "claims of ongoing threats",
+    "lack of evidence for extortion"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court finds no error in the RAD's conclusion that Ms. Estrada failed to rebut the presumption of state protection, citing legal burden and precedent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The RAD noted Ms. Estrada fears persecution from IPHT manager and police due to student protests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds Ms. Estrada failed to show clear evidence of unsuccessful state protection attempts, and subjective fear alone is insufficient.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of clear evidence of failed protection",
+    "subjective fear insufficient",
+    "RAD's conclusion reasonable"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court refuses to reweigh evidence, finds RAD considered all evidence, and sees no unreasonableness in RAD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court dismisses the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Objective evidence shows Ecuador is making efforts to hold police accountable, including a special prosecutorial unit and improved training.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The 2021 NDP confirms Ecuador is democratic with police issues but making efforts to control police misconduct; imperfect protection doesn't rebut presumption.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court rejects the view that state as persecutor means no protection, finding adequate protection given evidence and parents' complaints.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

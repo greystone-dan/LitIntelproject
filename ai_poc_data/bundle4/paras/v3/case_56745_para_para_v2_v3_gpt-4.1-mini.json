@@ -1,0 +1,1136 @@
+{
+ "case_id": 56745,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0218168
+ },
+ "verification": {
+  "paragraphs": 129,
+  "summaries": 129,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 122,
+   "other": 1,
+   "party": 1,
+   "below": 5
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by 1704604 Ontario Ltd. against the Pointes Protection Association regarding the dismissal of 170 Ontario's breach of contract lawsuit under Ontario's anti-SLAPP legislation, section 137.1 of the Courts of Justice Act. The Supreme Court of Canada upheld the Court of Appeal's decision to dismiss the lawsuit, finding that the lawsuit lacked substantial merit and that the public interest favored protecting Pointes Protection's expression related to environmental concerns. The Court emphasized the importance of protecting public participation and expression in matters of public interest, particularly in environmental and tribunal contexts.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and legislative context",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 31,
+    "label": "Interpretation of section 137.1(3) threshold test",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 83,
+    "label": "Interpretation of section 137.1(4) substantive test and application framework",
+    "kind": "analysis"
+   },
+   {
+    "first": 84,
+    "last": 91,
+    "label": "Factual background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 92,
+    "last": 96,
+    "label": "Decisions below",
+    "kind": "other"
+   },
+   {
+    "first": 97,
+    "last": 127,
+    "label": "Supreme Court analysis and application to facts",
+    "kind": "analysis"
+   },
+   {
+    "first": 128,
+    "last": 129,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Court must decide if 170 Ontario's lawsuit against Pointes Protection should be dismissed under s. 137.1 of the Courts of Justice Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "freedom of expression importance",
+    "case about SLAPP and s. 137.1",
+    "decision to dismiss 170 Ontario's lawsuit"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "SLAPPs are lawsuits used to silence public participation by using litigation as a tool to limit expression rather than to vindicate genuine claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Provinces like Ontario have enacted anti-SLAPP laws to mitigate the harmful effects of SLAPPs, as recognized in prior cases and literature.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Ontario Protection of Public Participation Act, 2015, introduced ss. 137.1 to 137.5 into the Courts of Justice Act to address SLAPPs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court will provide background on the legislation, set out the legal framework for s. 137.1 motions, and apply it to this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Statutory interpretation requires reading the statute in context, including legislative background and purpose, to understand s. 137.1.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "In 2010, Ontario's Attorney General created an Anti-SLAPP Advisory Panel to advise on responding to SLAPPs, culminating in a 2010 report.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Anti-SLAPP Advisory Panel recommended Ontario enact legislation to protect public expression and participation on public interest matters.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Panel advocated broad protection for public participation, balancing expression protection with allowing meritorious claims to proceed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Ontario enacted Bill 52 in 2015, introducing ss. 137.1 to 137.5 with purposes to encourage expression and discourage litigation limiting public participation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Panel urged a purpose clause for judicial interpretation, which the legislature included, giving s. 137.1(1) significant interpretative weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Attorney General stated the legislation balances stopping abusive litigation while allowing legitimate claims to proceed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Legislative debates confirmed the Panel's influence and consensus approach, resulting in a test similar to the Panel's proposal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Panel's report is persuasive legislative history, important for statutory interpretation under the modern approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court will interpret s. 137.1(3) and (4) informed by legislative history and purpose, following the modern approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Section 137.1 screens out lawsuits limiting expression on public interest matters, balancing expression protection with allowing meritorious claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Sections 137.1(3) and (4) set out the test for dismissal: expression related to public interest, substantial merit, no valid defence, and balancing harms.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The moving party must show the proceeding arises from expression on public interest; then the plaintiff must show merit and no defence to avoid dismissal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court will explain each step of the s. 137.1 analysis, grounded in statutory text and legislative background.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Section 137.1(3) requires the moving party to satisfy the judge that the proceeding arises from expression related to public interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The moving party must prove on a balance of probabilities that the proceeding arises from expression related to public interest to proceed to s. 137.1(4).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "While 'expression' is defined, other terms in s. 137.1(3) require further explanation to understand the moving party's burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The moving party must satisfy the judge on a balance of probabilities that the proceeding arises from expression related to public interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "'Arises from' implies causality and should be broadly interpreted to include various proceedings related to expression, like breach of contract claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "'Expression' is broadly defined as any communication, verbal or non-verbal, public or private, directed or not.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "'Relates to a matter of public interest' should be broadly interpreted to ensure wide protection of public participation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Grant v. Torstar principles apply: expression assessed as a whole, with genuine community interest in the subject matter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Public interest is broad and not qualitative; expression need only pertain to a matter of public interest, not be desirable or valuable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Expression merely referencing public interest or public curiosity is insufficient to meet the burden under s. 137.1(3).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The inquiry is contextual, focusing on what the expression is really about, interpreted generously to protect public participation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Section 137.1(3) requires the moving party to prove on a balance of probabilities that the proceeding arises from its expression and relates to public interest, triggering s. 137.1(4).",
+   "ideas": "multiple",
+   "idea_list": [
+    "burden on moving party under s. 137.1(3)",
+    "triggering burden shift under s. 137.1(4)"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "speaker": "other",
+   "summary": "Section 137.1(4) states a judge shall not dismiss a proceeding if the responding party shows grounds to believe the proceeding has substantial merit and no valid defence exists, and harm to responding party outweighs public interest in expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The burden is on the responding party (plaintiff) to prove both substantial merit and serious harm; failure on either leads to dismissal, while success allows proceeding to continue.",
+   "ideas": "multiple",
+   "idea_list": [
+    "burden on plaintiff to prove (a) and (b)",
+    "failure on either is fatal",
+    "success allows proceeding"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(a) requires the plaintiff to satisfy the judge there are grounds to believe the proceeding has substantial merit and the defendant has no valid defence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The statutory term 'satisfies' in s. 137.1(4)(a) is defined as 'grounds to believe', requiring analysis of what this standard entails.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "'Grounds to believe' means a basis in the record and law for belief, considering the procedure and timing of the s. 137.1 motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Courts must consider the limited record and early timing of s. 137.1 motions, avoiding too high a standard that pre-judges the outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Section 137.1 motions differ from motions to strike or summary judgment, requiring evidence and limited cross-examination, reflecting a distinct purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "'Grounds to believe' requires a basis in record and law, considering litigation stage, to find the proceeding has substantial merit and no valid defence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The 'grounds to believe' standard requires more than suspicion but less than proof on balance of probabilities, consistent with other legal contexts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The motion judge's subjective assessment is required under s. 137.1(4)(a), rejecting the Court of Appeal's objective 'reasonable trier' approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(a) asks if the motion judge finds a factual and legal basis to support that the plaintiff's claim has substantial merit and no valid defence exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court will now analyze the substantive meaning of s. 137.1(4)(a)(i) and (ii) and how the plaintiff meets its burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(a)(i) concerns whether the underlying proceeding has 'substantial merit', which the court will define.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The legislature's use of 'substantial' as a qualifier to 'merit' must be given effect, with Black's Law Dictionary aiding interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "'Merit' refers to the strength or prospect of success of the claim, balancing protection of expression against legitimate claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Legislative intent shows 'substantial merit' excludes frivolous or merely technical claims, requiring more than mere validity to proceed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "'Substantial merit' does not require a likely to succeed standard, to preserve the public interest weighing under s. 137.1(4)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court concludes 'substantial merit' means a real prospect of success, more than possibility but less than likelihood, based on record and law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The 'substantial merit' standard is more demanding than motions to strike but less than summary judgment, requiring evidence reasonably capable of belief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The standard is less stringent than 'strong prima facie case' or summary judgment, balancing the need for early dismissal with avoiding excessive evidence demands.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Section 137.1 motions occur early with limited evidence; judges should do limited weighing and avoid turning them into summary judgment motions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Even if the claim passes the merits hurdle, it can still be dismissed under the public interest weighing in s. 137.1(4)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "To meet s. 137.1(4)(a)(i), the plaintiff must show grounds to believe the claim is legally tenable and supported by believable evidence with a real prospect of success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(a)(ii) requires the plaintiff to show grounds to believe the defendant has no valid defence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The plaintiff need not anticipate all defences; the defendant must first present defences, then the plaintiff shows grounds to believe they are invalid.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Once the defendant puts a defence forward, the plaintiff must show grounds to believe there is no valid defence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The word 'no' is absolute; if any valid defence exists, the plaintiff fails; the motion judge must assess validity on a limited record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The validity inquiry mirrors the substantial merit inquiry; both assess the strength of claim and defences as part of the overall prospect of success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(a)(ii) shifts burden: defendant presents defences, plaintiff must show none are valid; both prongs assess strength of the proceeding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(b) requires the responding party to show that harm from the moving party's expression is serious enough to outweigh public interest in protecting that expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(b) is the core of s. 137.1, allowing dismissal of meritorious claims if public interest in expression protection outweighs interest in proceeding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "Statutory interpretation requires contextual reading; s. 137.1(4)(b) ensures proportionality and balances public interests in expression and meritorious claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "Legislative history emphasizes balance in s. 137.1, as shown by debates and recommendations during its enactment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The court explains the difference between a weighing exercise and a balancing exercise in s. 137.1(4)(b), raised by an intervener.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The statute requires one consideration to outweigh the other, a stricter standard than mere balancing, illustrated by numerical ratios.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The requirement that one consideration outweigh the other affects the plaintiff's burden under s. 137.1(4)(b) but is not decided for all statutes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Harm is key under s. 137.1(4)(b), requiring proof of harm existence and causation from the moving party's expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "Both monetary and non-monetary harm, including reputational harm, are relevant under s. 137.1(4)(b); harm is not limited to damages alleged.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "No threshold for harm's worthiness exists; magnitude matters only in weighing if harm is sufficiently serious to continue proceeding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Plaintiff need not prove harm or causation definitively but must provide evidence to infer likelihood; no full damages brief required.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Evidence of causation is important, especially if other harm sources exist; causation strength varies case-by-case for motion judges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "After establishing harm and causation, s. 137.1(4)(b) requires weighing harm/public interest in proceeding against public interest in protecting expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "Public interest in s. 137.1(4)(b) differs from s. 137.1(3); it focuses on quality and motivation behind expression, not just relation to public interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "Expression with falsehoods or attacks relates to public interest but has less protection than truthful, respectful expression under s. 137.1(4)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "Not all expression is equally protected; courts must avoid moralistic judgments but recognize differences in expression's value under s. 2(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The s. 137.1(4)(b) weighing can be informed by Charter freedom of expression values, with greater protection for core expression types.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "Four indicia of SLAPP suits may guide weighing: plaintiff's litigation history, power imbalance, punitive purpose, and minimal damages.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "SLAPP indicia are relevant only if tied to s. 137.1(4)(b)'s text focusing on harm, public interest in proceeding, and protecting expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "Additional factors like expression importance, litigation history, chilling effects, and resource disproportion may inform weighing under s. 137.1(4)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "Section 137.1(4)(b) lets courts assess how lawsuits affect freedom of expression and public participation in democracy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The plaintiff must prove on balance of probabilities harm likely suffered from expression and that public interest in proceeding outweighs expression protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The court will apply the s. 137.1 framework to the case facts and conclude Pointes Protection's motion should be granted, dismissing 170 Ontario's action.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "170 Ontario sought to develop a 91-lot subdivision in Sault Ste. Marie, requiring approval from SSMRCA and City Council.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "Pointes Protection Association, a not-for-profit representing residents, opposed 170 Ontario's development on environmental grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "170 Ontario got SSMRCA approval, which Pointes Protection challenged by judicial review; City Council rejected 170 Ontario's application, leading to OMB appeal with Pointes Protection's participation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "While judicial review and OMB appeal were pending, parties settled the judicial review by minutes of settlement (Agreement).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "The Agreement dismissed Pointes Protection's judicial review without costs and imposed limitations on its future conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "At OMB hearing, Pointes Protection's president testified about environmental harm, allowed as relevant to planning, leading to dismissal of 170 Ontario's appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "170 Ontario sued Pointes Protection for breach of contract, alleging testimony breached Agreement and claimed $6 million damages.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 91,
+   "speaker": "party",
+   "summary": "Pointes Protection did not file a defence but moved to dismiss the action under s. 137.1 of the CJA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 92,
+   "speaker": "below",
+   "summary": "The motion judge dismissed Pointes Protection's motion and allowed 170 Ontario's action to proceed, finding Mr. Gagnon's testimony related to a public interest matter and that 170 Ontario met the merits and public interest hurdles.",
+   "ideas": "multiple",
+   "idea_list": [
+    "threshold burden met",
+    "merits and public interest hurdles met"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 93,
+   "speaker": "below",
+   "summary": "The Court of Appeal heard Pointes Protection's appeal with others to consider s. 137.1's interpretation, making its reasons controlling for the framework's analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 94,
+   "speaker": "below",
+   "summary": "The Court of Appeal allowed Pointes Protection's appeal, granted its s. 137.1 motion, and dismissed 170 Ontario's lawsuit, noting no dispute on the threshold burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 95,
+   "speaker": "below",
+   "summary": "Doherty J.A. found 170 Ontario's action lacked substantial merit, criticized the motion judge's approach, and found Pointes Protection had valid defences and the public interest prong unmet.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of substantial merit",
+    "valid defence exists",
+    "public interest prong not met"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 96,
+   "speaker": "below",
+   "summary": "The Court of Appeal set aside the motion judge's order and dismissed 170 Ontario's action.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "The Court agrees with the Court of Appeal that 170 Ontario's action lacks substantial merit and the public interest favors protecting Pointes Protection's expression, reviewing on a correctness standard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agreement with Court of Appeal",
+    "standard of correctness applied"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "Mr. Gagnon's testimony is an expression relating to a matter of public interest, so Pointes Protection meets the threshold burden under s. 137.1(3).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 99,
+   "speaker": "court",
+   "summary": "Mr. Gagnon's testimony qualifies as an 'expression' under the statute as a public verbal communication.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "The evidence shows Mr. Gagnon's testimony relates to a matter of public interest due to its environmental impact and broad local concern.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "The Court agrees with lower courts that Mr. Gagnon's testimony is an expression on a matter of public interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "The breach of contract action arises from Mr. Gagnon's expression, showing a clear nexus between the expression and the proceeding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "On balance, 170 Ontario's breach of contract action arises from an expression relating to a matter of public interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "The burden shifts to 170 Ontario to show its breach of contract action has substantial merit and Pointes Protection has no valid defence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "The Court agrees with the Court of Appeal that 170 Ontario's action lacks substantial merit based on contractual interpretation principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "Contract interpretation must be grounded in the text and entire contract, with surrounding circumstances not distorting explicit language.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "170 Ontario's interpretation distorts the Agreement's plain language beyond appropriate judicial intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 108,
+   "speaker": "court",
+   "summary": "The Agreement limits Pointes Protection's expression only regarding the SSMRCA's decision and judicial review, not the OMB testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 109,
+   "speaker": "court",
+   "summary": "170 Ontario's implied term argument is unreasonable; Pointes Protection preserved its right to participate in the OMB proceeding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "The Court agrees with Doherty J.A.'s characterization of the situation regarding the Agreement's scope.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 111,
+   "speaker": "court",
+   "summary": "170 Ontario's breach of contract action lacks legal tenability and a real prospect of success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 112,
+   "speaker": "court",
+   "summary": "Because 170 Ontario fails on substantial merit, it need not consider defences; failure on merit means Pointes Protection's defences likely valid.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "Even if 170 Ontario's action had merit, the harm and public interest in continuing do not outweigh protecting Pointes Protection's expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "170 Ontario alleges financial harm of $6 million and non-pecuniary harm related to finality of litigation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "170 Ontario provides no theory or evidence linking Mr. Gagnon's testimony to claimed damages.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "It is unlikely Mr. Gagnon's testimony caused the OMB's dismissal; many factors and witnesses contributed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 117,
+   "speaker": "court",
+   "summary": "The Court clarifies it does not affirm the OMB's decision but notes 170 Ontario cannot show significant harm from Mr. Gagnon's expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 118,
+   "speaker": "court",
+   "summary": "Finality in litigation is important but does not weigh heavily here as the Agreement remains binding and does not preclude Mr. Gagnon's testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 119,
+   "speaker": "court",
+   "summary": "The harm to 170 Ontario from Mr. Gagnon's expression is minimal, so the public interest in continuing the proceeding is low.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "The public interest in protecting Mr. Gagnon's expression is significant due to the environmental subject and the form of testimony before a tribunal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "significant public interest in subject matter",
+    "testimony form favors protection"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 121,
+   "speaker": "court",
+   "summary": "The court notes Mr. Gagnon's evidence concerns local ecological matters and s. 137.1 aims to promote public participation in such debates.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 122,
+   "speaker": "court",
+   "summary": "The OMB must consider provincial interests like ecological protection, which overlap with public interest, encouraging public opinion during public deliberations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "Courts protect tribunal participation by granting absolute privilege to testimony to prevent fear of legal retaliation, aligning with s. 137.1's purpose to reduce such risks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 124,
+   "speaker": "court",
+   "summary": "The court finds that protecting Pointes Protection's expression serves the public interest strongly by encouraging truthful, open testimony without fear of retribution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The harm to 170 Ontario is minimal, so the public interest in continuing the proceeding is low, while the public interest in protecting Pointes Protection's expression is high.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 126,
+   "speaker": "court",
+   "summary": "170 Ontario cannot prove the harm from Pointes Protection's expression outweighs the public interest in protecting that expression.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 127,
+   "speaker": "court",
+   "summary": "The court would grant Pointes Protection's s. 137.1 motion because 170 Ontario's action lacks merit and public interest favors protecting expression; the Court of Appeal was correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 128,
+   "speaker": "court",
+   "summary": "The appeal is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 129,
+   "speaker": "court",
+   "summary": "The court orders costs to the respondents under s. 137.1(7) as appropriate, awarding party-and-party costs; appeal dismissed with costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

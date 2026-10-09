@@ -1,0 +1,436 @@
+{
+ "case_id": 39964,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0079292
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 36,
+   "evidence": 3
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves a Hungarian family seeking refugee protection in Canada due to fears of mafia extortion and harm if returned to Hungary. The Immigration and Refugee Board panel found that the family faced only generalized criminal risks without a nexus to protected grounds under the Refugee Convention. Consequently, the panel rejected their refugee claims, concluding they are not persons in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and claim details",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Applicant's evidence and narrative",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Panel's findings on identity and protection status",
+    "kind": "analysis"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Issues and legal framework on Convention grounds",
+    "kind": "issue"
+   },
+   {
+    "first": 12,
+    "last": 13,
+    "label": "Assessment of fear and risk as speculative and generalized",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 18,
+    "label": "Mental health evidence and credibility findings regarding eldest son",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Rejection of broadened social group argument",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Analysis of generalized versus personalized risk from criminals",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 29,
+    "label": "Conclusion on generalized risk and mental health impact",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 35,
+    "label": "Assessment of medical care risk and vulnerability of son",
+    "kind": "analysis"
+   },
+   {
+    "first": 36,
+    "last": 37,
+    "label": "Rejection of further broadened social group claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 39,
+    "label": "Final conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The claimants, a Hungarian family, seek refugee protection fearing mafia extortion and harm if returned to Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The panel heard the claims jointly and appointed the principal claimant as representative for the minor sons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The principal claimant's narrative and PIF form detail fears of mafia extortion affecting the family.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "evidence",
+   "summary": "The principal claimant opened a business in 2010 and was pressured by a mafia-linked man to pay protection money, with threats at home.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "The principal claimant alleges forced bank transfers, police threats, a bounty placed on him, and fleeing to Germany in 2012 before coming to Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "The principal claimant sent a police request, recanted some bank account claims, and reported ongoing mafia threats to family members in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The panel finds no nexus between the claimants' allegations and Convention grounds and that they are not persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel accepts the claimants' identities as Hungarian citizens based on testimony and identity documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The issues are whether the claimants face persecution for a Convention ground and if the risk is personalized or generalized.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The principal claimant fears criminality, which does not establish a Convention ground or particular social group for refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel finds no nexus to torture ground as the state is not persecutor and the fear is not persecution or risk to life or torture.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel finds the principal claimant's fear speculative and implausible given he left Hungary over five years ago and no longer has ties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel accepts crime exists in Hungary but finds the principal claimant's fear speculative and a generalized risk faced by others.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The claimants' eldest son attempted suicide in 2017, allegedly due to fear of returning to Hungary and past events.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The son testified his mental issues stemmed from school pressure in Canada, not from the father's experiences in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Medical evidence shows the son's mental health issues predate Hungary events and relate to anxiety and ADD, not mafia threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel finds the son credible, coherent, and articulate in explaining his mental health issues were due to school pressure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel prefers the son's testimony and medical evidence over the father's claim linking mental health to mafia threats, finding no nexus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The claimants' counsel's submission to broaden social group to business people targeted by criminals is rejected by the panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel cites jurisprudence rejecting protection for general criminality and finds the principal claimant would not be marginalized as a returnee.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel finds a small business owner targeted by criminals in Hungary does not constitute a particular social group under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel examines whether the principal claimant faces a generalized or personalized risk from criminals in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel cites Proph\u00e8te case finding criminal risk in Haiti generalized and applies similar reasoning to Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel concludes the risk from criminals in Hungary is generalized and not personalized for the principal claimant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The panel finds the claimants face a generalized risk from criminals in Hungary and are not persons in need of protection under section 97(1)(b)(ii).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel rejects counsel's submission that the son's mental health risk makes the claim personalized rather than generalized.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel cites Portillo case's two-step test for generalized versus personalized risk and explains its application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The panel finds the son's mental health issues do not demonstrate a personalized risk beyond the generalized risk faced by others in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The panel finds the harm faced by claimants is generalized criminal risk and the son's mental health does not change this assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The panel finds the son's concern about Hungarian health care speculative and notes inadequate care is not a basis for protection under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel finds the risk to XXXX is not due to inadequate medical care in Hungary, referencing Bensaid which found speculative risk from expulsion of a schizophrenic.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Risk not from inadequate medical care",
+    "Reference to Bensaid decision on speculative risk"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel distinguishes general inadequate health care from selective denial, finding no evidence that XXXX will lack adequate care in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The panel finds XXXX's risk arises from his medical condition's vulnerability to instability, but family support in Hungary reduces this risk, unlike Ahmed case.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Risk from medical condition vulnerability",
+    "Family support reduces risk"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The panel accepts XXXX's medical diagnosis but finds no evidence he cannot get adequate care in Hungary or that removal would cause disproportionate hardship.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Medical diagnosis accepted",
+    "No evidence of inadequate care or disproportionate hardship"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Unlike Lohazyak, no psychological evidence was presented; panel finds no personalized risk to XXXX from return to Hungary beyond generalized risk.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No psychological evidence presented",
+    "No personalized risk found"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel finds no persuasive evidence of risk to claimants in Hungary beyond general risk, and expects adjustment hardship but no greater harm to XXXX.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No specific risk in Hungary",
+    "Adjustment hardship expected",
+    "No greater harm to XXXX"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel rejects counsel's broadening of 'particular social group' to include family with mental health issues, giving it no weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The panel concludes claimants are not Convention refugees as they failed to establish nexus to Convention grounds and face only general risk in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The panel rejects the refugee claims of the principal claimant, his wife, and their two sons, finding they are not Convention refugees.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,519 @@
+{
+ "case_id": 44850,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0076876
+ },
+ "verification": {
+  "paragraphs": 56,
+  "summaries": 56,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 41,
+   "evidence": 9,
+   "other": 1,
+   "party": 5
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a refugee claim by a Chinese national who fled to Canada after a fatal vehicular accident in the U.S. The Minister intervened on exclusion grounds under Article 1F(b) of the Refugee Convention, alleging the claimant committed a serious non-political crime. The tribunal found serious reasons to consider the claimant excludable and rejected the refugee claim accordingly.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 9,
+    "label": "Background and Claimant's Allegations",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 17,
+    "label": "Legal Framework and Standard of Proof for Exclusion",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 18,
+    "last": 29,
+    "label": "Facts and Legal Analysis of the Crime",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 50,
+    "label": "Claimant's Account and Minister's Arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 56,
+    "label": "Findings and Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal introduces the refugee claim of XXXX XXXX, a Chinese citizen seeking protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal summarizes the claimant's allegations as detailed in his Basis of Claim form, amended narrative, and oral testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "evidence",
+   "summary": "The claimant and his former common-law partner could not register their marriage due to age restrictions, so they held a traditional ceremony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "evidence",
+   "summary": "The claimant alleges his former partner was forced to abort an unplanned pregnancy; he was arrested, beaten, detained, and fined.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "Family planning officials repeatedly visited the claimant, and he was fired from his job.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "The claimant left China for the U.S. in 2002, had an asylum claim and appeal denied, lived without status, and crossed illegally into Canada in 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "The claimant was arrested by Canadian police in 2017, detained, and then made a refugee protection claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "evidence",
+   "summary": "While in the U.S., the claimant was involved in a fatal vehicular accident, was removed from his Chinese Household Registry, and fears Chinese police if returned.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "The Minister intervened personally on exclusion grounds under Article 1F(b) of the Refugee Convention.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The panel finds serious reasons to consider the claimant excludable under IRPA section 98 and Article 1F(b) for committing a serious non-political crime in the U.S.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel accepts the claimant's identity as a Chinese national based on documents and explanations provided.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The key issue is whether the claimant is excludable under Article 1F(b) for committing a serious non-political crime outside the country of refuge.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel must assess serious reasons for exclusion focusing on facts at the time of the crime, per Supreme Court guidance in Febles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel must consider factors from Jayasekara including nature, prosecution mode, penalty, facts, and mitigating/aggravating circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court notes mitigating factors like duress and aggravating factors like harm or weapons are relevant in assessing crime seriousness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "IRPA section 36(1) defines serious criminality including convictions punishable by 10+ years or over six months imprisonment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Justice Hughes explained that exclusion hearings require serious reasons for considering guilt, not proof beyond reasonable doubt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel reviews evidence that the claimant caused a fatal accident in the U.S., was charged, and a warrant issued after he failed to appear.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Exclusion depends on serious reasons for considering the crime, not on formal charges or convictions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The standard of proof for exclusion is lower than criminal or civil law standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Serious crime is assessed relative to the criminal law system of the country of refuge, not the country of origin.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Minister asserts that Article 1F(b) applies because the claimant committed a serious non-political crime in the U.S.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The claimant was involved in a U.S. vehicular accident causing one death, multiple injuries, and vehicle damage.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Sections 320.13(2) and (3) of the Canadian Criminal Code create a hybrid offence with different penalties depending on prosecution mode.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "A crime outside Canada is serious if it would be punishable by 10+ years imprisonment under Canadian law, making the person inadmissible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel considered UNHCR guidance that all relevant factors, including mitigating circumstances, must be considered in exclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel begins analysis of the Jayasekara factors relevant to the claimant's case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "A maximum sentence of ten years or more strongly indicates the crime is serious.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Section 320.13(3) of the Criminal Code provides for life imprisonment on conviction on indictment for death caused.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The claimant argues the accident was unintentional, caused by inability to brake and distraction, resulting in a fatal four-vehicle collision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "evidence",
+   "summary": "The Claimant testified the accident occurred in early evening when it was dark; he was treated medically, arraigned, bailed, and a bond issued.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "speaker": "evidence",
+   "summary": "Police report states the Claimant's vehicle impact crushed the rear end of the other vehicle causing a fatality; no pre-impact braking evidence; Claimant said it was too late to brake.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The offences of operation causing bodily harm or death are hybrid; Claimant showed no intoxication signs and was charged with operation causing death, an unclassified misdemeanor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "evidence",
+   "summary": "The Claimant testified he was unaware of charges and hired a lawyer to handle matters, including insurance compensation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Claimant moved jurisdictions without notifying authorities or counsel and was unaware of any conditions related to charges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Documents show an outstanding warrant for the Claimant's failure to attend U.S. court and bond violation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Claimant did not attend court and no further documents exist; panel lacks information for further assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Claimant did not dispute accident details; his account aligns with police report.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Primary cause of accident was Claimant's failure to pay full attention; counsel argues accident was unfortunate but accidental.",
+   "ideas": "multiple",
+   "idea_list": [
+    "cause of accident",
+    "counsel's argument"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "Minister argued aggravating circumstances for consideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Minister noted Claimant drove a large vehicle causing one death and injuries to 18 others.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "Claimant's counsel argued it was an unfortunate accident with no evidence of intoxication, supported by police report.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Minister argued that based on police testimony, the 'serious reasons for considering' test is met.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Panel considered Claimant's claim of unawareness of charges or unresolved matter when he moved to New York.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Panel questioned Claimant about contacting his U.S. lawyer or sister after 2017 notice; Claimant said he lacked contact info and sister was busy.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Claimant may have been unaware before 2017 but made no attempts to clear name or face consequences after being advised.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Panel finds facts do not lessen Claimant's responsibility; he should have paid more attention and considered speed given experience.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Panel finds it unlikely lawyer did not advise Claimant of charges; Claimant failed to notify court or lawyer of move; warrant issued for failure to appear.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Panel notes Claimant continues to flee justice by not returning to U.S. to face charges, knowing about warrant since 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Claimant's flight from prosecution is a significant aggravating factor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Panel finds offence serious under Article 1F(b) with burden of proof met, noting maximum Canadian sentence is life imprisonment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Panel finds offence serious for Article 1F(b) exclusion due to disregard for public safety and flight from justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Panel excludes Claimant from refugee protection under section 98 IRPA and Article 1F(b) Refugee Convention for serious non-political crime.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Federal Court ruled merits of refugee claim examined only if not excluded; thus, no inclusion analysis here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Panel finds serious reasons to consider Claimant committed serious non-political crime and excludes him from refugee status under Article 1F(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Claimant's refugee claim is rejected by the panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,479 @@
+{
+ "case_id": 62925,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.006927600000000001
+ },
+ "verification": {
+  "paragraphs": 46,
+  "summaries": 46,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 41,
+   "below": 1,
+   "party": 2,
+   "evidence": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by appellants from Mexico who fear death from the CJNG cartel due to extortion threats and lack of state protection. The Refugee Appeal Division (RAD) reviewed the Refugee Protection Division's (RPD) negative credibility findings and internal flight alternative assessment. The RAD allowed the appeal, finding the appellants credible, at personal risk throughout Mexico, and lacking adequate state protection, thus qualifying as refugees in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Issue: credibility and errors in RPD decision",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 11,
+    "label": "Analysis: credibility assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Analysis: personal risk to appellants",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 18,
+    "label": "Legal framework: internal flight alternative test",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 19,
+    "last": 26,
+    "label": "Analysis: internal flight alternative viability",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 29,
+    "label": "Evidence: country conditions and cartel reach",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 36,
+    "label": "Analysis: cartel's reach and risk to appellants",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 38,
+    "label": "Findings: risk of serious harm and lack of protection",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 45,
+    "label": "Analysis: state protection and collusion with cartels",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 46,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appellants from Mexico fear death from the CJNG cartel due to extortion threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "In 2019, the appellants received extortion threats, reported them, faced attacks, and fled Mexico fearing for their lives.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD found the appellants not credible due to inconsistencies between their testimony and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellants argue the RPD erred by ignoring evidence, applying microscopic analysis, and not presuming their truthfulness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD failed inclusive connection",
+    "Microscopic analysis by RPD",
+    "No presumption of truthfulness",
+    "RPD doubted extortion evidence",
+    "RPD ignored father's letter and photos",
+    "NDP confirms CJNG danger"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and determine if the RPD's decision is correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's credibility assessment problematic and incorrect on fundamental aspects of the appellants' claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RPD's reasons to doubt credibility are minor inconsistencies and contradictions in the appellants' evidence and testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal finds these minor inconsistencies insufficient to rebut the presumption of truthfulness, given explanations provided.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The appellants' testimony was spontaneous, consistent, and they answered all questions with valid explanations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellants credible due to lack of inconsistencies or omissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RPD erred in assessing the male appellant's credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The appellants face a personal risk to their lives in Mexico not faced by other nationals under subsection 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The appellants were specifically targeted with death threats and violence, creating a personal risk to life beyond general risks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The RPD did not opine on internal flight alternative viability but questioned the appellants about it at the hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The legal test for internal flight alternative (IFA) has two prongs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "First prong: appellants must not face personal risk of death, torture, or cruel treatment in another part of Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Second prong: conditions of IFA must be reasonable for appellants to seek refuge there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the first prong of the IFA test is not met for the appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The appellants testified they do not feel safe anywhere in Mexico because criminals can track them down.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The appellants' testimony shows escalating violence and threats, including attacks on the male appellant's father after they left.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The male appellant explained the cartel's motivation to find them is because they reported them and the cartel has connections to track them anywhere.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal presumes sworn refugee claimant facts are true unless valid reasons exist to doubt them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Applying the presumption of truthfulness and evidence, the tribunal finds the appellants' testimony credible about their lack of safety in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The CJNG's motivation to locate the appellants goes beyond money, as they defied the cartel by reporting them, and the cartel has means to find them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Even if motivation were financial, evidence shows the cartel could track debtors outside their area of influence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The appellants argue documentary evidence confirms CJNG's presence, danger, and reach in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "speaker": "evidence",
+   "summary": "The male appellant testified he would not be safe living in M\u00e9rida or Campeche because CJNG can track them anywhere in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "speaker": "evidence",
+   "summary": "Country condition documents show high violence, impunity, and collusion between criminals and authorities in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds it hard to imagine a viable internal flight alternative in Mexico against CJNG given the motivation to track the appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The CJNG cartel is expanding in Mexico, is highly violent, controls large areas, and has international reach, causing significant violence and criminal activity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Documentary evidence shows CJNG is one of Mexico's largest cartels, active in all states through alliances, and extends its reach internationally.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Evidence shows cartels, including CJNG, collude with corrupt police and government, with CJNG powerful enough to challenge the Mexican state.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Evidence confirms criminal organizations access police databases and personal information, with police colluding with cartels leading to executions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal finds, on a balance of probabilities, that CJNG has motivation and means to track the appellants in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal finds the risk of CJNG tracking the appellants continues due to its means and motivation to enforce cooperation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellants' testimony credible, especially their claim of danger throughout Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "On a balance of probabilities, the appellants face serious risks of death, torture, or cruel treatment in Mexico without adequate state protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal considers that the appellants do not have access to adequate protection from the Mexican state despite the presumption otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The appellants' failed police complaints and fear of police-criminal collusion show they do not feel safe or protected in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Objective evidence confirms frequent collusion between Mexican state authorities and criminal groups.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Reports show impunity, low prosecution rates, and ongoing human rights abuses in Mexico, including collaboration between illegal groups and government.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Documentary evidence shows police and state agents' involvement with organized crime in serious human rights violations in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Security forces in Mexico continue extrajudicial killings and torture with impunity, and investigations are often neglected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellants' testimony and evidence sufficient to rebut the presumption of state protection in Mexico.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the tribunal substitutes the RPD's decision and finds the appellants are refugees in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "case_id": 69039,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0037236
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 20,
+   "below": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a Mongolian family's appeal against a Refugee Protection Division (RPD) decision regarding their claim for protection due to fears of harm from a politically connected individual, XXXX. The appellants argued that the RPD erred in finding no likelihood that XXXX could track them in the proposed internal flight alternative (IFA) cities. The tribunal allowed the appeal, finding the appellants credible and that the RPD erred in its assessment of the risk and the IFA analysis, ultimately granting protection to the appellants.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "Tribunal below's decision and initial review",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "New evidence criteria and admissibility",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 20,
+    "label": "Analysis of RPD errors on credibility, risk, and IFA test",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 21,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal for the reasons explained below.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appellants are a Mongolian family consisting of Mr. XXXX, his spouse, and their children.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appellants fear harm from XXXX and his associates due to political conflicts and threats after Mr. XXXX filed a police complaint; they left Mongolia in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD found the appellants credible except on some points, accepted an internal flight alternative in two cities, and found no evidence that XXXX could track them there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal reviews the RPD decision and agrees the RPD erred in finding no likelihood that XXXX could track the appellants in the IFA cities, based on credible parts of their account.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal states the legal criteria for accepting new evidence: it must arise after the RPD decision, be unavailable before, or not reasonably expected to be brought earlier.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "If new evidence meets criteria, the tribunal must assess if it is new, credible, and relevant; appellants must submit detailed admissibility arguments under RAD Rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The appellants submitted an affidavit with documents but failed to argue admissibility as required, so the evidence should be dismissed; counsel also did not rely on it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal does not admit any documents attached to Mr. XXXX's affidavit for the stated reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal agrees the appellants are credible except on some points; it finds the RPD erred in dismissing the likelihood that XXXX has means and motivation to track them in IFA cities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Under the first prong of the IFA test, the RPD must consider if appellants face persecution or harm in the IFA cities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal agrees with appellants' counsel that the RPD erred in finding XXXX lacked means to track them in the IFA cities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RPD rejected Mr. XXXX's reasons for XXXX's ability to track them, including criminal and police connections, but the tribunal finds this was an error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal lists credible findings accepted by the RPD about XXXX's violent and threatening conduct and connections, supporting the claim he could track the appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Given the credible allegations, the tribunal finds the RPD erred in dismissing XXXX's criminal and police connections as means to locate the appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal agrees with counsel that the RPD erred in finding XXXX lacked motivation to track the appellants in the IFA cities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RPD found no motivation because the police complaint was closed without consequences; it did not accept Mr. XXXX's explanation of revenge or extortion motives.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by dismissing revenge motive despite credible ongoing threats and incidents after the complaint closure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred in doubting XXXX's motivation to track the appellants for money, given his connections could enable tracking without personal search.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred in concluding the appellants could live safely in the IFA cities, so it need not consider the second prong of the IFA test.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal grants the appeal and finds the appellants are persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

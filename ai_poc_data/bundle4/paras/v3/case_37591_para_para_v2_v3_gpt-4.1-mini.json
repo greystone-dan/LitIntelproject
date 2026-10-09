@@ -1,0 +1,502 @@
+{
+ "case_id": 37591,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0080404
+ },
+ "verification": {
+  "paragraphs": 51,
+  "summaries": 51,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 25,
+   "below": 25,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves a Chinese family seeking refugee protection in Canada, fearing persecution due to their opposition to land expropriation and participation in protests. The Immigration and Refugee Board panel assessed their credibility, the nature of their fear, and whether they qualify as Convention refugees or persons in need of protection under IRPA. Ultimately, the panel rejected their claims, finding insufficient evidence of persecution or risk upon return to China.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and Claimant's Story",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Initial Panel Findings and Credibility Issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 21,
+    "label": "Recusal Motion and Bias Allegation",
+    "kind": "issue"
+   },
+   {
+    "first": 22,
+    "last": 24,
+    "label": "Credibility Assessment Principles",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 25,
+    "last": 28,
+    "label": "Claimants' Account and Panel's Credibility Concerns",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 30,
+    "label": "Asylum in the U.S. and Entry to Canada",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 42,
+    "label": "Panel's Findings on Travel and Security Measures",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 48,
+    "label": "Assessment of Persecution and Risk of Arrest",
+    "kind": "analysis"
+   },
+   {
+    "first": 49,
+    "last": 51,
+    "label": "Final Determination and Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The principal claimant, his wife, and son from China claim refugee protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The claimants fear arrest due to opposing land expropriation; the principal claimant leased and expanded a fish pond, which the government sought to take in 2012.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Business owners, including claimants, received low compensation offers and unsuccessfully petitioned district, municipal, and provincial governments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "On Feb 21-22, 2012, claimants and others demonstrated at district government; police confronted demonstrators, some detained; principal claimant and wife escaped and hid.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "While claimants hid, PSB visited their home, questioned their son, and threatened him; son later joined parents in hiding; claimants arranged to flee China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "In 2012, claimants arrived in the U.S., then crossed illegally into Canada and filed refugee claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The panel found claimants are neither Convention refugees nor persons in need of protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The panel accepted claimants' Chinese citizenship based on passports and other documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The key issues are claimants' credibility and whether their fear is of prosecution rather than persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "Panel expressed credibility concerns about claimants' claim that PSB repeatedly visited their home without leaving documents from 2012 to 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Claimants' counsel orally applied for panel member's recusal due to apprehension of bias.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "Panel addressed recusal motion at hearing, provided reasons for refusal, and applied bias test.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "Panel considered reasons sufficient but added further explanation in this decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Natural justice principles, including informality and fairness, are recognized in IRPA section 162(2).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Natural justice includes the rule against bias, disqualifying decision-makers with actual or apparent bias.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Supreme Court's test for reasonable apprehension of bias asks if an informed person would think the decision-maker likely would not decide fairly.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The bias test should not be based on an overly sensitive or scrupulous conscience.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Clear evidence is required to prove bias; mere suspicion or conjecture is insufficient.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel finds no reasonable basis for concluding the member would not decide fairly, consciously or unconsciously.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel must follow the Code of Conduct and Conflict of Interest Act and has no evidence of unfairness; member swore to comply with these.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel holds the bias allegation is speculative and unsupported; claimants received a fair hearing despite counsel's recusal application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel considered all evidence, including testimonies and submissions, in making its determination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Credibility presumes truth unless doubted; evidence must be probable and reasonable, assessed on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel recognizes difficulties claimants face, including cultural and stress factors, when assessing credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Claimants' problems began Feb 22, 2012; principal claimant and wife hid, son stayed with grandparents then joined parents; they arranged to flee China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "On Feb 22, 2012, PSB arrested demonstrators; six of eight arrested released, two detained; principal claimant was not among those clashing with PSB.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Principal claimant claims he is an elected representative and would be arrested; panel notes omissions about others fleeing to South America and draws negative inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Claimants allege PSB continued home visits after 2012 but left no summons or warrants; panel finds this not credible and detracts from claimants' credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Claimants traveled through U.S. but did not seek asylum there, crossing illegally into Canada; smuggler advised Canada was better for asylum.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Failure to seek asylum in a safe third country is a factor but not determinative; short stays en route to Canada do not undermine fear of persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The panel accepts claimants hired a smuggler to come to Canada but finds it not credible they did so to flee PSB arrest in China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The panel finds claimants' failure to claim asylum in the U.S. and illegal entry to Canada indicates lack of subjective fear.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "The panel finds it not credible claimants could exit China if truly wanted by PSB and doubts smuggler arranged their evasion of security checks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "Claimants traveled from mainland China to Hong Kong, which Chinese authorities treat as international travel with strict exit controls.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "below",
+   "summary": "Documentary evidence shows China has the Golden Shield Project, a national policing database with extensive tracking and facial recognition technology.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "speaker": "below",
+   "summary": "Documentation states Chinese airport security officials access the PSB's online database to track and detain wanted individuals, including political dissidents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Chinese security officials access PSB database",
+    "Example of political dissident detained at airport"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "An undated Ministry of Public Security article states all police units have access to multiple public security databases including border exit and entry information.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "The Golden Shield system includes real-name registration, GPS, facial recognition, and connects agencies to target political dissidents effectively.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "below",
+   "summary": "The panel finds it reasonable that local authorities would have entered claimants' information into the database if PSB were pursuing them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "below",
+   "summary": "Despite claimants using a smuggler, the panel finds it unlikely they bypassed all Chinese security controls if actively pursued by PSB.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "below",
+   "summary": "The panel may reject evidence inconsistent with probabilities and finds an evidentiary basis for negative credibility findings here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "speaker": "below",
+   "summary": "The panel finds it not credible claimants left China and Hong Kong on their own passports after PSB attention and draws a negative inference on credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "below",
+   "summary": "The panel finds claimants' allegations of persecution due to protest participation not credible and insufficiently proven they are pursued by PSB.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "below",
+   "summary": "Even if PSB seeks claimants for protest participation, evidence is insufficient to find they face persecution by PSB or other Chinese authorities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "below",
+   "summary": "Documentary evidence reports Chinese law criminalizes unauthorized demonstrations with severe penalties and prohibits protests by children, young adults, or foreigners.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "speaker": "below",
+   "summary": "Despite prohibitions, citizens continue protesting evictions, often facing conflict with authorities and administrative detention to intimidate activists.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "speaker": "below",
+   "summary": "The panel finds any PSB interest in claimants would be to prosecute them for illegal participation in anti-government demonstrations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "below",
+   "summary": "The panel finds, on balance, claimants are not being sought for arrest by Chinese authorities as alleged.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "below",
+   "summary": "The panel finds claimants have not established a serious possibility of persecution or risk of cruel treatment or torture upon return to China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The panel finds claimants are neither Convention refugees nor persons in need of protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The claims are rejected by the panel, signed by S.S. Kular on March 27, 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

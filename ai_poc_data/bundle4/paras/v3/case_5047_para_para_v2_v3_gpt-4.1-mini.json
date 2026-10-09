@@ -1,0 +1,340 @@
+{
+ "case_id": 5047,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.006044
+ },
+ "verification": {
+  "paragraphs": 31,
+  "summaries": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 13,
+   "below": 10,
+   "party": 8
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Mr. Shah and his family seek judicial review of a 2019 refusal of their second humanitarian and compassionate (H&C) permanent residence application in Canada, primarily concerning the adequacy of autism services for their son in Bangladesh. The Immigration Officer found that the family was typically established and that autism services were available in Bangladesh, leading to refusal of the exemption. The Federal Court upheld the reasonableness of the decision and dismissed the judicial review application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 10,
+    "label": "Tribunal below's decisions on H&C applications",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Issue and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 13,
+    "last": 19,
+    "label": "Analysis of establishment and application of legal test",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 30,
+    "label": "Analysis of autism services and best interests of the child",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 31,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Mr. Shah, his wife, and son with ASD from Bangladesh seek judicial review of a 2019 refusal of his second H&C permanent residence application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "family background",
+    "application refusal",
+    "Immigration Officer's reasoning"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Mr. Shah's education and work history in Bangladesh and UK, refugee claim in Canada rejected in 2015 for lack of fear and anti-government blogger status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "education and work history",
+    "refugee claim and rejection"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "In 2015, their son was diagnosed with moderate to severe ASD and receives behavioural services and an individual education plan in Toronto.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "First H&C application in 2017 refused due to insufficient hardship evidence and available autism services in Bangladesh; return not against children's best interests.",
+   "ideas": "multiple",
+   "idea_list": [
+    "grounds of first H&C refusal",
+    "assessment of autism services",
+    "best interests of children"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "2018 judicial review dismissed; officer's procedural fairness and assessment of children's best interests upheld.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "Pre-removal risk assessment application also refused in September 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "Second H&C application in 2018 reviewed; Immigration Officer found family's establishment typical and not warranting exemption despite continued presence under removal order.",
+   "ideas": "multiple",
+   "idea_list": [
+    "second H&C application",
+    "assessment of establishment",
+    "continued presence under removal order"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "Immigration Officer acknowledged son's autism challenges but found autism services exist in Bangladesh; girls dependent and with no significant Canadian ties.",
+   "ideas": "multiple",
+   "idea_list": [
+    "best interests of children",
+    "availability of autism services in Bangladesh",
+    "children's ties to Canada"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "Immigration Officer rejected hardship claims about Bangladesh's poor employment and living conditions, viewing reintegration as ordinary consequence of removal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "Immigration Officer gave little or no positive weight to establishment, children's best interests, and country factors, refusing exemption under subsection 25(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Mr. Shah's judicial review issue: whether the Decision was reasonable, focusing on establishment test and assessment of son's services in Bangladesh.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Parties agree standard of review is reasonableness; H&C exemptions are exceptional and discretionary, deserving deference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Mr. Shah argues Immigration Officer wrongly applied an 'exceptional establishment' test, citing several cases against this standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Court finds no impermissible exceptionality test; 'typical level of establishment' used descriptively and consistent with legal standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Mr. Shah contends Immigration Officer failed to assess whether establishment factors warranted humanitarian relief, lacking transparency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court rejects claim of constrained analysis; finds Immigration Officer assessed establishment factors appropriately given limited evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Court finds Immigration Officer considered broader H&C factors and hardship; no reason to disturb typical establishment conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Mr. Shah argues Immigration Officer improperly turned his education and mobility into a negative factor against exemption.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court disagrees; statement about education and mobility relates to country conditions, not establishment, and is not negative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Immigration Officer acknowledged son's care needs but found specialized autism support services available in Bangladesh.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Mr. Shah concedes services exist in Bangladesh but argues they are inferior and availability was not properly assessed by Immigration Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Minister argues best interests of children are not determinative and onus is on applicant to prove basis for positive discretion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "Immigration Officer detailed SWAC school services for autistic children, including individualized instruction and professional staff.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Mr. Shah argues Immigration Officer erred by assuming availability of limited enrolment services and unclear affordability at SWAC.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Court finds Immigration Officer cannot assess accessibility or affordability issues not raised; Mr. Shah did not assert these concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "Immigration Officer reviewed UNICEF report showing governmental and NGO efforts to aid children with ASD in Bangladesh.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "Mr. Shah argues Immigration Officer ignored UNICEF report's contrary evidence about discrimination and inadequate funding for disabled children.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court rejects Mr. Shah's assertions; presumes Immigration Officer reviewed evidence and Mr. Shah failed to prove son's best interests compromised.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court notes desirability of Canada or better services alone insufficient to grant H&C application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court finds Immigration Officer's finding of available autism services in Bangladesh reasonable; no fundamental misapprehension of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court decides to dismiss the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

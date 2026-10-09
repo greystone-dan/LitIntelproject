@@ -1,0 +1,496 @@
+{
+ "case_id": 5085,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0071568
+ },
+ "verification": {
+  "paragraphs": 50,
+  "summaries": 50,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 30,
+   "below": 7,
+   "party": 12,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of the Refugee Protection Division's (RPD) decision rejecting the Applicant, a refugee claimant from Eritrea, on grounds of identity and credibility. The Applicant challenged the RPD's findings regarding her identity documents and credibility, while the Minister (Respondent) argued the claim was fraudulent. The Federal Court dismissed the application, finding the RPD's overall decision reasonable despite some errors regarding the birth certificate.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 14,
+    "label": "Background and factual narrative",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 26,
+    "label": "Tribunal below's findings and decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 34,
+    "label": "Applicant's arguments on review",
+    "kind": "issue"
+   },
+   {
+    "first": 35,
+    "last": 38,
+    "label": "Respondent's submissions and court's assessment of document evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 41,
+    "label": "Applicant's challenge to photo identification and court's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 46,
+    "label": "Applicant's challenge to travel and credibility findings and court's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 47,
+    "last": 47,
+    "label": "Court's conclusion on reasonableness of decision",
+    "kind": "disposition"
+   },
+   {
+    "first": 48,
+    "last": 48,
+    "label": "Certification question",
+    "kind": "other"
+   },
+   {
+    "first": 59,
+    "last": 60,
+    "label": "Final remarks on errors and precedent",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court introduces the judicial review application of the RPD's January 29, 2021 decision rejecting the Applicant's refugee claim and dismisses the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court states the Applicant is a refugee claimant from Eritrea and introduces her claimed narrative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicant left Massawa in 2000 to avoid military service, was detained, released after five days on promise to report, but stayed in hiding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant was caught again in January 2005, imprisoned, beaten, and tortured, resulting in injuries making her unfit for military service.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Despite being unfit for service, the Applicant faced difficulties due to failure to serve and paid bribes for documents including a business license.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "In early 2019, the Applicant helped her half-sister escape Sudan, was detained and beaten, forced to confess to aiding opposition movements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "After release with conditions, fearing re-arrest, the Applicant fled to Sudan, then decided to come to Canada as a refugee.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant arrived in Canada on May 20, 2019, with a smuggler posing as his wife, using a brown passport of unknown country and name.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Upon customs clearance, the smuggler took the Applicant's passport and documents and told her to take a taxi to any Eritrean restaurant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Applicant fears arrest and torture in Eritrea for political opposition, illegal departure, violating release terms, and applying for protection in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Applicant claims no contacts in Eritrea; her mother died in 1990, no contact with father since 1998, and unknown whereabouts of half-sister.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Applicant provided an Eritrean birth certificate, a 2004 business license photocopy, and two letters from Eritrean friends now in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Minister intervened in December 2020 on grounds of identity, credibility, and program integrity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Minister argued the Applicant failed to prove identity, questioned her travel narrative, and suggested she was not Eritrean but from a visa-exempt country.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "On January 9, 2021, the Minister submitted the Applicant was actually Italian national Rahel Mokenen who entered Canada earlier than claimed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Minister submitted a 2018 photo of Ms. Mokenen alongside the Applicant's photo, alleging the claim was fraudulent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Applicant denied being Rahel Mokenen and argued the photos could not conclusively show they were the same person.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RPD reviewed evidence and testimony, noting the Applicant was told by the smuggler to keep quiet and was not questioned on arrival.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Applicant claimed all travel documents were taken by the smuggler; counsel argued the smuggler gave minimal information to protect himself.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The RPD rejected the explanation, finding it reasonable the smuggler would have given more instructions and that the Applicant's failure to provide passport details cast doubt on her identity and credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RPD noted the birth certificate was issued in Asmara, not Massawa, but accepted the Applicant's bribery explanation and gave the certificate no weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The RPD found the business license photo could be the Applicant's but doubted her memory of the business address and gave no weight due to bribery concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RPD found the two letters from Eritrean acquaintances were nearly identical, lacked detail, and assigned them no weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RPD noted no other identification was provided but acknowledged counsel's submission about lack of contacts in Eritrea.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The RPD found on balance of probabilities that the Applicant and Italian national Rahel Mokenen in photos were the same person, noting a distinctive mole.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The RPD found the Applicant falsified her application, rejected her claim, and found no credible basis, barring appeal to the RAD under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Applicant raises two issues: whether the RPD's findings on refugee status and credible basis are reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The parties agree the reasonableness standard from Vavilov applies to this decision review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Applicant argues for heightened reasonableness review due to serious consequences, citing Vavilov para 133 on responsive justification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The Applicant submits the RPD made unreasonable findings on identity documents and notes the Respondent concedes the birth certificate treatment was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Applicant argues the RPD unreasonably found her birth certificate unreliable due to bribery, ignoring widespread corruption in Eritrea.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The Applicant contends it was reasonable to pay a bribe for her business license due to lack of military service proof, so RPD's bribery finding is unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Applicant submits forgetting her business address after 12 years is plausible since she described its district location, countering RPD's criticism.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Applicant argues it is unreasonable to infer negatively from having only two documents, given no family or friends remain in Eritrea to obtain more.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Respondent concedes the RPD erred in dismissing the birth certificate but supports the RPD's reasonable finding on the business license; the court agrees.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent concedes birth certificate error",
+    "Respondent supports business license finding",
+    "Court agrees with Respondent"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds it reasonable to expect the Applicant to recall her business address, justifying the RPD's dismissal of the business license due to bribery and lack of original.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the birth certificate error is not fatal, citing Lin v Canada for support.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds the challenges to the business license and photo identification outweigh any unreasonable decision about the birth certificate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "party",
+   "summary": "The Applicant cites R v Nikolovski to argue that clear video evidence can support identification by a judge alone, highlighting misidentification risks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "The Applicant submits the RPD erred by criticizing only the video quality, not the poor quality of photographs, making identification unreliable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court accepts visual evidence quality matters but finds the RPD's photo comparison reasonable and would likely reach the same conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Applicant argues the RPD unreasonably found her testimony about her passport and arrival in Canada implausible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "The Applicant submits it is erroneous to draw negative inferences for using a false passport or following an agent's instructions, citing case law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "party",
+   "summary": "The Applicant notes she traveled with a smuggler as a couple and suggests family treatment at entry reduces questioning risk, supporting her story.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the RPD can draw credibility inferences from the Applicant's inability to recall travel document details.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court agrees the RPD did not infer adversely from false documents but from implausible testimony and lack of document details, reasonably expecting more info.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court finds the decision reasonable in denying refugee status and protection, and in finding no credible basis for the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 48,
+   "speaker": "other",
+   "summary": "No question was posed for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The court holds that even if the RPD erred on the Occupational Certificate, the overall decision is reasonable based on other credibility findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The court cites precedent supporting upholding decisions despite some errors, noting sufficient other evidence supports the RPD's credibility conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

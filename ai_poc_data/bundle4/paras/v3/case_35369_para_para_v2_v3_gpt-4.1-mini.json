@@ -1,0 +1,341 @@
+{
+ "case_id": 35369,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0050852
+ },
+ "verification": {
+  "paragraphs": 29,
+  "summaries": 29,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 3
+  },
+  "speakers": {
+   "court": 21,
+   "party": 8
+  },
+  "multi_idea_paragraphs": 10,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "Zachary Ian Metz, the Applicant, seeks judicial review authorization and a stay of a Refugee Protection Division (RPD) decision granting refugee status to his children and their mother, alleging he was wrongly identified as the agent of persecution. The Respondent, Canada (Immigration, Refugees and Citizenship), argues that Metz lacks standing as he was not a party to the RPD proceedings and is not directly affected by the decision. The Federal Court struck out Metz's application for judicial review due to lack of standing and dismissed the stay motion as moot.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Introduction and parties",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 10,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 12,
+    "last": 20,
+    "label": "Respondent's arguments on standing and motion to strike",
+    "kind": "issue"
+   },
+   {
+    "first": 21,
+    "last": 27,
+    "label": "Court's analysis on standing",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 31,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   },
+   {
+    "first": 35,
+    "last": 35,
+    "label": "Preliminary ruling on standing determination",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, Zachary Ian Metz from Texas, files a written motion using AI assistance, representing himself under Federal Courts Rules.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant identity and location",
+    "Self-representation",
+    "Use of AI in documents"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Mr. Metz, not a party to the RPD decision of June 4, 2025, seeks authorization under IRPA section 72 to judicially review that decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant was identified as the agent of persecution in the refugee claim; his children and their mother were granted refugee status; he learned of the decision on June 10 but filed for review on August 8.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant identified as agent of persecution",
+    "Children and mother granted refugee status",
+    "Timing of knowledge and filing"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Applicant admits he was not a party to the RPD proceedings; the Respondent argues he lacks standing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant not party",
+    "Respondent challenges standing"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Applicant seeks both authorization to launch judicial review and a stay of the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Applicant disputes the RPD's finding that he is the agent of persecution from whom protection was sought.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "There are related Ontario court proceedings involving the Hague Convention on child abduction, but details are limited and outside federal jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RPD found the claimants to be refugees under IRPA; some findings are raised in various ways.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Respondent opposes the proceedings, arguing the Applicant lacks standing to challenge the refugee status grant, which also negates standing for a stay.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent opposes challenge",
+    "No standing to challenge",
+    "No standing for stay"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Respondent moves to strike the Applicant's challenge, arguing he was not a party, has no obligations, and is not directly affected by the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court cites the test from David Bull Laboratories for motions to strike judicial review applications as clearly improper and without success possibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant lacks standing, citing Canadian Generic Pharmaceutical Association where lack of standing justifies striking judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Courts agree that someone not directly affected by judicial review lacks standing to challenge the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Respondent relies on Federal Courts Act s.18.1(1) and case law requiring direct effect on legal rights or obligations for standing to seek judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Respondent contends any impact on Mr. Metz is indirect and insufficient to meet the directly affected test; refugee proceedings involve only claimants and Minister.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Applicant is not a party and has no legal obligations from the RPD decision; Ontario court proceedings are separate and evidence can be offered there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Respondent denies public interest standing, noting the issue is family law best handled by Ontario courts, not federal judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent concludes the Applicant lacks any right directly affected and thus lacks standing to seek judicial review of a decision he did not participate in.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Applicant replies that family court cannot provide administrative law remedies, but this misses the point about standing to challenge refugee status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant argues family court lacks remedies",
+    "Court notes standing issue is key"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Feeling affected is insufficient; the person must be directly affected by the matter for judicial review standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RPD case concerns refugee status under federal law, not family law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Applicant bears the burden to prove standing; the meaning of directly affected is well established in Federal Courts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court cites Forest Ethics Advocacy Association: relief must affect legal rights, impose obligations, or prejudicially affect directly; adding Applicant as respondent is impossible.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Definition of directly affected",
+    "Applicant cannot be respondent",
+    "Relief won't affect Applicant directly"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Applicant failed to show legal rights affected, obligations imposed, or direct prejudice; his concern is collateral family law impact, not direct effect on refugee status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No legal rights affected",
+    "No obligations imposed",
+    "Concern is collateral family law impact"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Without standing, the application is clearly improper and must be struck out before merits are considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Applicant submitted no argument or evidence showing standing to challenge the refugee status decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The judicial review application is struck out; the stay motion is moot under Federal Courts Act s.18.2.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Application struck out",
+    "Stay motion moot"
+   ],
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "No costs are granted as the Respondent did not seek them; the Applicant lacks standing and the application is struck out.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No costs granted",
+    "Applicant lacks standing",
+    "Application struck out"
+   ],
+   "role": "disposition"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Exceptions allow standing issues to be decided preliminarily if sufficient information exists; here, the record suffices for final standing determination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standing can be decided preliminarily",
+    "Sufficient record exists",
+    "Court of Appeal agreed"
+   ],
+   "role": "law"
+  }
+ ]
+}

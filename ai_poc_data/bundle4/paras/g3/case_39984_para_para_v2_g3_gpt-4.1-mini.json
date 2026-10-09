@@ -1,0 +1,128 @@
+{
+ "case_id": 39984,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0023984
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 5
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant from China seeking refugee protection on the basis of persecution for practicing Falun Gong. The tribunal found the claimant not credible, concluding he was neither a Convention refugee nor in need of protection. The claimant's lack of knowledge and practice of Falun Gong led to the rejection of his refugee claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Claimant's allegations and tribunal's initial findings",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Assessment of claimant's nationality and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Consideration of case law and claimant's account",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Examination of claimant's knowledge and practice of Falun Gong",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 14,
+    "label": "Final conclusions and rejection of refugee claim",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The claimant from China alleges persecution for practicing Falun Gong and seeks refugee protection, but the tribunal finds he is neither a Convention refugee nor in need of protection, noting credibility issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's background and allegations",
+    "claimant's flight and refugee claim",
+    "tribunal's negative credibility finding and decision"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The tribunal finds the claimant is a Chinese national but not a Falun Gong practitioner, doubts his claims about PSB searches and letters, and notes he used a genuine passport to leave China and hid successfully.",
+   "ideas": "multiple",
+   "idea_list": [
+    "identity established",
+    "not a Falun Gong practitioner",
+    "doubts about PSB actions and evidence",
+    "ability to leave China with passport"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The tribunal considers case law on China's exit controls and corruption, finds the claimant's account vague and not credible, and concludes he was not smuggled out or wanted by authorities as a Falun Gong practitioner.",
+   "ideas": "multiple",
+   "idea_list": [
+    "consideration of jurisprudence on exit controls",
+    "assessment of bribery and corruption arguments",
+    "finding claimant's story inconsistent and not credible",
+    "conclusion claimant not wanted or smuggled out"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The tribunal examines the claimant's knowledge and practice of Falun Gong, finds he lacks basic knowledge and cannot demonstrate exercises, and notes that knowledge is essential to Falun Gong practice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's testimony on practice duration",
+    "lack of knowledge about Falun Gong texts and exercises",
+    "importance of knowledge in Falun Gong practice"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 14,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claimant's explanations for not practicing Falun Gong in Canada, finds he should remember more given his claimed practice, and concludes he never practiced Falun Gong in China or Canada, thus rejecting his refugee claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's poor memory and explanations rejected",
+    "fear of Chinese spies in Canada not credible",
+    "conclusion claimant never practiced Falun Gong",
+    "claim rejected by tribunal"
+   ]
+  }
+ ]
+}

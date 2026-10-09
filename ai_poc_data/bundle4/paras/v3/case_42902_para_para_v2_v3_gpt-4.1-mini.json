@@ -1,0 +1,506 @@
+{
+ "case_id": 42902,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.00833
+ },
+ "verification": {
+  "paragraphs": 53,
+  "summaries": 53,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 43,
+   "below": 8,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case is an appeal by Mr. Wall against the Tax Court of Canada's decision dismissing his appeals related to tax reassessments under the Income Tax Act (ITA) and Excise Tax Act (ETA) concerning the sale of three rebuilt houses. The Tax Court found Mr. Wall was carrying on a real estate development business, was not credible in claiming the properties as principal residences, and thus liable for business income and GST/HST as a builder. The Federal Court of Appeal dismissed Mr. Wall's appeal, upholding the Tax Court's findings on credibility, business activity, and tax liability.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 10,
+    "label": "Background and facts",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 19,
+    "label": "Findings of the Tax Court below",
+    "kind": "background"
+   },
+   {
+    "first": 20,
+    "last": 22,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 23,
+    "last": 46,
+    "label": "Analysis of business activity and builder status",
+    "kind": "analysis"
+   },
+   {
+    "first": 47,
+    "last": 51,
+    "label": "Analysis of residence use and exempt supply under ETA",
+    "kind": "analysis"
+   },
+   {
+    "first": 52,
+    "last": 52,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 55,
+    "last": 55,
+    "label": "Definition of palpable and overriding error",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "This appeal challenges the Tax Court of Canada's judgment dismissing Mr. Wall's appeals against tax reassessments under the ITA and ETA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Mr. Wall bought, demolished, rebuilt, and sold three houses from 2004 to 2010, leading to reassessments under ITA and ETA for income and taxable supplies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court will dismiss Mr. Wall's appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Tax Court Judge's detailed evidence summary is not repeated; only key facts are highlighted, with paragraph references to the Tax Court reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Mr. Wall, a licensed Vancouver real estate agent, reported only modest realtor income ($15,000-$20,000) during the years in issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The first property was bought in 2004, demolished, rebuilt, listed, and sold in 2006 for $1,418,000 after obtaining permits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The second property was bought in 2006, demolished, rebuilt, listed before final inspection, and sold in 2008 for $1,951,000.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The third property was bought in 2009, demolished, rebuilt, listed before occupancy permit, and sold in 2010 for $2,265,000.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Mr. Wall testified he bought the properties as residences for himself and his son, occupied them, and did not report gains assuming principal residence exemption and no builder status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Mr. Wall was reassessed for unreported business income and penalties under ITA and ETA related to the property sales.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Tax Court Judge focused on whether Mr. Wall was carrying on a business or adventure in building and selling the houses and found Mr. Wall not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Tax Court Judge's finding on whether Mr. Wall lived in the houses is stated in paragraph 19 of the reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Tax Court Judge found Mr. Wall carried on a real estate development business and earned income from the three houses, requiring inclusion in income.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Tax Court Judge reiterated Mr. Wall was not credible and did not inhabit the houses, so he could not claim principal residence capital gains reductions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court agrees Mr. Wall's testimony was unreliable, self-serving, evasive, lacked documentary support, and contradicted by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Tax Court Judge found the Minister established facts supporting penalties under ITA subsection 163(2) and reassessment after normal period under ITA subparagraph 152(4)(a)(i).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Tax Court Judge found Mr. Wall was a builder under the ETA, so the property sales were taxable supplies, not exempt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The Tax Court Judge found section 3 of Schedule V of the ETA did not exempt the sales because Mr. Wall and his son did not occupy the houses as residences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The Tax Court Judge found on balance of probabilities that Mr. Wall did not live in the houses and his testimony was self-serving and inconsistent with evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Mr. Wall identified issues: whether the trial judge erred in finding he was a builder and in drawing adverse inferences without basis.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Mr. Wall does not challenge ITA issues or penalties; the main ETA issue is whether he was a builder, depending on factual findings about carrying on a business.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The standard of review is correctness for law and palpable and overriding error for fact or mixed fact and law, per Housen v. Nikolaisen.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "If Mr. Wall engaged contractors to build houses in the course of business or adventure, he is a builder under ETA section 123; the definition excludes individuals acting outside business or commercial ventures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The critical issue is whether Mr. Wall was engaged in business or adventure when building the houses; the tests for income vs capital gains are from Happy Valley Farms.",
+   "ideas": "multiple",
+   "idea_list": [
+    "critical issue is business or adventure",
+    "tests for income vs capital gains"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tests focus on taxpayer's intention, as noted in Friesen v. Canada, including intention, business nature, property use, financing, and holding period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Cardella v. Her Majesty the Queen states taxpayer's intention is a factor of utmost importance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Whether Mr. Wall's gains are income or capital depends on his intention in acquiring, demolishing, building, and selling the properties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Mr. Wall argues he was not carrying on a business, but the court will not reweigh evidence contrary to the Tax Court Judge's findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Mr. Wall testified he acquired properties to live in with his son, but the Tax Court Judge doubted his evidence and noted lack of documentation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Supreme Court in MacDonald v. Canada emphasized the importance of taxpayer's stated intentions in determining tax characterizations.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court states Mr. Wall's ex-post testimony on intentions cannot override objective evidence from the record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court summarizes the Tax Court Judge's adverse inference from Mr. Wall's failure to call Ms. Pillon as a witness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds it unnecessary to decide on the adverse inference and upholds the Tax Court Judge's findings on other evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court cites Loving Home Care Services Ltd. on the appropriateness of inferences drawn by trial judges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court notes Mr. Wall's evidence on intention was sparse and outweighed by contradictory evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court notes each house was demolished and rebuilt, then listed for sale before occupancy permits, undermining residence intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds Mr. Wall's explanation for selling houses to pay debts contradicted by incurring more debt after sales.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "Mr. Wall argues his case differs from Lacina and he should not be found a builder due to longer holding periods.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court cites Moss v. Canada where properties sold over four years were found to be income, supporting the builder finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court states holding period is only one factor and must be considered with circumstances, including occupancy intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court notes demolition and construction took about six months, leaving little time for Mr. Wall to occupy the homes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "For the first property, construction and occupancy timing left only four months before listing, with occupancy before permit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court states Mr. MacDonald's ex-post testimony on intentions cannot override objective evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "For the third property, construction left less than seven months for occupancy before listing, also before occupancy permit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The short potential occupancy periods support an inference Mr. Wall intended to build and sell for profit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court upholds the Tax Court Judge's finding that Mr. Wall was carrying on a business and was a builder under ETA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court explains builders may avoid self-supply rules and have sales qualify as exempt supplies under ETA provisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "One condition for self-supply rules is the builder's occupation of the property as a place of residence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Self-supply rules do not apply if the property is used primarily as a place of residence by the individual or related persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Exempt supply under ETA requires the property to be used primarily as a place of residence by the individual or related persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Mr. Wall failed to show error in the finding that properties were not used primarily as residences, so supplies are not exempt.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal with costs fixed at $3,000, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court defines palpable and overriding error as plainly seen and affecting the result, citing Hydro-Qu\u00e9bec v. Matta.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  }
+ ]
+}

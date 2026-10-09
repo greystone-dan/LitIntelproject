@@ -1,0 +1,430 @@
+{
+ "case_id": 5715,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0066752
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 44,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 37,
+   "evidence": 2,
+   "party": 5
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review application by the Applicant challenging the refusal to file medical documents and the refusal of leave to appeal by the Social Security Tribunal Appeal Division. The Applicant, who was self-represented, sought review of decisions made by the Tribunal below, with the Attorney General as the Respondent. The Federal Court found the decisions unreasonable, extended the time for the application, set aside the Tribunal's decisions, and ordered a fresh appeal with inclusion of medical documents, with no costs awarded.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 14,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 15,
+    "last": 29,
+    "label": "Decisions under review and parties' submissions",
+    "kind": "issue"
+   },
+   {
+    "first": 30,
+    "last": 40,
+    "label": "Timeliness and extension of time analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 43,
+    "label": "Reasonableness of decisions and disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 44,
+    "last": 44,
+    "label": "Costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court states the file is in near total disarray.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court blames both parties: the self-represented Applicant and the Attorney General's counsel for the file's poor state.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court notes counsel was recently engaged and did not address record deficiencies until prompted by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court had to spend considerable time understanding the file and events.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "This is a judicial review application under section 18.1 Federal Courts Act, mainly about refusal to file medical documents and also about refusal of leave to appeal by the Social Security Tribunal Appeal Division.",
+   "ideas": "multiple",
+   "idea_list": [
+    "nature of application",
+    "issues with decisions under review"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court addresses issues with the evidence in the Respondent's Record, noting many documents are not properly before the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Certified Tribunal Record lacks most documents before the Appeal Division; some documents are referenced but not included.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Tribunal assumed the Applicant had the documents and did not include them per Federal Courts Rules; a letter dated Feb 12, 2021, explains the index and materials.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "An email dated Jan 23, 2020, to the Applicant references two attachments which are not included in the Certified Tribunal Record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Certified Tribunal Record contains administrative documents related to the Leave Decision, not the Filing Decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The missing 'GD' documents are in the Respondent's Record but not properly evidenced by affidavit; a letter dated Feb 12, 2021, is included as Exhibit A.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Exhibit B is an internal Tribunal email about documents in a shared drive; other documents lack exhibit stamps.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Documents outside the Certified Tribunal Record are not in evidence; only Certified Tribunal Record and Applicant's affidavit exhibits can be relied on.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Applicant was injured playing soccer on July 31, 2010, and claims inability to work since then, applying for CPP Disability Benefits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "A decision by the Social Security Tribunal Appeal Division on Jan 22, 2020, refused the Applicant's leave to appeal the General Division decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "An email dated Jan 23, 2020, to the Applicant lists two attachments related to the appeal, but the attachments are missing from the record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "evidence",
+   "summary": "The Applicant's affidavit states he was unaware of the Appeal Decision until Dec 7, 2020, and details his attempts to add a medical report to his appeal file.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "speaker": "evidence",
+   "summary": "The Filing Decision was sent to the Applicant on Dec 7, 2020, stating his October 23, 2020 correspondence would not be considered and the file was closed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court finds the Filing Decision unintelligible and unreasonable because no correspondence or decision exists dated October 23, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "If the Filing Decision is the decision under review, the application must be allowed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Respondent's counsel's letter suggests the October 28 Letter is the decision under review, but submissions focus on the Leave Decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The October 28, 2020 letter incorrectly states leave was denied on October 23, 2020, possibly misleading the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court will exercise discretion to consider both the Filing Decision and the Leave Decision in this judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Considering both decisions is fair as both parties made submissions on the Leave Decision and the Respondent equivocated on the decision under review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Respondent submits the application should be dismissed due to delay, as the Leave Decision was issued Jan 22, 2020 and communicated Jan 23, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant applied for judicial review after the 30-day deadline without explanation or extension request.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Respondent says the court should consider merit, prejudice, and explanation when deciding on extending time, citing Larkman.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Respondent argues no merit exists due to res judicata, the Crown is prejudiced by delay, and the Applicant offers no explanation for delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Applicant makes no submissions on delay but implies in affidavit he learned of file closure Dec 2, 2020 and Leave Decision Dec 7, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "No evidence shows the Filing Decision was received before Dec 7, 2020; the judicial review filed Jan 6, 2021 is timely regarding the Filing Decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court notes no evidence the Appeal Decision was communicated before October 19, 2020, but accepts the Applicant only learned of denial on December 7, making the review timely.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no evidence of earlier communication",
+    "Applicant learned on Dec 7",
+    "review is timely"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court cites Meeches v Assiniboine confirming the limitation period starts when the applicant knows of the final decision to challenge.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court discusses the October 19 email with the Appeal Decision attached, but accepts the Applicant might not have realized it was final, so communication may not have occurred then.",
+   "ideas": "multiple",
+   "idea_list": [
+    "email sent Oct 19 with attachment",
+    "Applicant unaware attachment was final decision",
+    "email wording could mislead Applicant"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court accepts the Applicant's evidence that the final decision was not communicated until December 7, 2020, due to no cross-examination on this point.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court states it would extend the time for the application even if it were not timely, given the unusual circumstances and lack of explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court outlines the four factors from Larkman for extending time and notes the overriding consideration is the interests of justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds the Applicant had a continuing intention to pursue the application, given a decade-long pursuit of the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds merit in the application because the Respondent's submissions rely on documents not in evidence, making the Leave Decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court acknowledges some prejudice to the Respondent but finds it insignificant compared to cases involving reliance on the decision under review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court concludes the factors favor extending time despite no explanation from the Applicant, as justice demands it given the Respondent's actions and record state.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court finds the Leave Decision unreasonable due to minimal evidence and absence of the General Division decision in the record.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court finds the Filing Decision unintelligible and therefore unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court sets aside both Appeal and Leave Decisions and orders a fresh Appeal Decision by a different member including medical documents from 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court orders no costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

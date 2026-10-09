@@ -1,0 +1,490 @@
+{
+ "case_id": 47991,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0076848
+ },
+ "verification": {
+  "paragraphs": 59,
+  "summaries": 59,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 18,
+   "court": 40,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves a Nigerian claimant seeking refugee protection in Canada, alleging persecution and threats in Nigeria. The tribunal assessed the claimant's credibility, the evidence submitted, and found significant inconsistencies and fraudulent documents central to the claim. Consequently, the tribunal rejected the claim as manifestly unfounded under section 107.1 of IRPA.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 16,
+    "label": "Background and claimant's allegations",
+    "kind": "background"
+   },
+   {
+    "first": 17,
+    "last": 31,
+    "label": "Credibility assessment of claimant's testimony and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 40,
+    "label": "Evaluation of documentary evidence and credibility issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 41,
+    "last": 52,
+    "label": "Assessment of police reports and related documents",
+    "kind": "analysis"
+   },
+   {
+    "first": 53,
+    "last": 55,
+    "label": "Legal framework on fraudulent claims",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 56,
+    "last": 59,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant, a Nigerian citizen, seeks refugee protection under sections 96 and 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal considered and applied the Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant is 34, married in Nigeria, and they have an adopted daughter.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "In 2017, while living in Ekiti State, the claimant received a threatening letter listing her two residence addresses.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The claimant and husband received another threatening letter warning her husband not to be involved in certain matters; claimant hid and reported to police.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Before reporting to police, claimant and husband received a threatening letter with a casket picture warning them against going to police, listing daughter's school.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The claimant and daughter hid in Kogi State in 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "In 2017, claimant received a picture of an axe and red cloth on her door and returned to Ekiti State to report insecurity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Upon return to Ekiti, claimant was grabbed by an officer, lost consciousness, and found herself in the bush, unsure what happened.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Claimant fled to Ondo State with no money after being robbed; a red cloth was placed in her bag.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "In 2017, claimant left daughter with sister in Oyo State, then flew to US and Canada to claim refugee status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "After arriving in Canada in October 2017, claimant's daughter was followed by a strange man who tried to take her away.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Claimant's husband lives as a nomad, constantly changing hiding places.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "In April 2019, claimant alleged she was raped by unknown men in police uniforms and husband received blackmail threatening to publish nude photos.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "In 2018, claimant's husband's brother was assassinated in Lagos with a threatening letter found on the body.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Claimant's husband was attacked and injured by unknown men in 2017 and stopped his work due to threats and insecurity.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds claimant failed to prove a serious possibility of persecution or risk of harm upon return to Nigeria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Claimant completed BOC and testified mostly in English without interpreter, having university education and work experience.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal considered guidelines on women fearing gender-related persecution, including reluctance to disclose sexual violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal accepts claimant's late disclosure of rape as reasonable and that assailants were disguised, not police.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Other inconsistencies in claimant's testimony are not explained by trauma or psychological issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Claimant testified confidently and without hesitation during the hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds claimant's testimony not credible in certain areas, including threats in 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Claimant testified about threats in 2017, but police reports mention threats to husband and family since 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Claimant's explanation for not mentioning threats against her in 2017 is inadequate and weakens her credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal notes police reports mention threats to husband and family in 2017, but claimant did not deny being targeted then.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Husband's affidavit states he received threats in 2017 but initially did not tell claimant to avoid scaring her.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Claimant declared in BOC that after receiving threatening letters in 2017, she informed husband who dismissed them as baseless.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Claimant's explanation for husband's dismissive attitude towards threats contradicts husband's affidavit and weakens credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds claimant's explanation inadequate and notes no affidavit indication husband minimized threats to reassure claimant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The claimant submitted articles about threats to her husband in Nigeria, but failed to prove the magazine's internet availability or credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "submission of articles",
+    "lack of proof of internet availability",
+    "magazine not in National Documentation Package"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The claimant's efforts to prove the publications' credibility and circulation are inadequate, so the documents lack probative value.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The claimant's husband stated in police and affidavit documents that his involvement in XXXX XXXX may explain threats and attacks, supported by news articles.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal asked the claimant about efforts to obtain news articles, but she said her husband was unstable and unable to get them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The claimant's explanation for not obtaining news articles is inadequate and weakens her credibility regarding their existence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The claimant and counsel listed six threatening letters, but only two photocopies were initially received; later six originals were submitted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The claimant could not explain differences between two versions of the same threatening letter submitted as original and photocopy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The claimant said only two letters were initially available and testified that five letters were received plus one found with a dead body, totaling six.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The claimant's explanation for differing threatening letters is inadequate, undermining credibility and indicating submission of a fraudulent document.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Due to fraud in one threatening letter and claimant's general lack of credibility, none of the threatening letters are given probative value.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The tribunal requested and received all pages of police report C-9 after initially only having the last two pages.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The claimant submitted an original police report C-9b that did not match the earlier photocopy C-9a, claiming the original is the true copy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The claimant admitted she should have mentioned earlier that the original police report differed from the photocopy but did not.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The photocopy C-9a's last page is pixelated and differs from the original C-9b, suggesting they are not the same document.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The claimant's inadequate explanation for differences between police reports undermines credibility and indicates submission of a fraudulent document.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The claimant submitted a photocopy of her marriage certificate and wedding photos, with no reason to doubt her marriage claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Documents show the claimant's husband is or was a XXXX in Nigeria, which the tribunal accepts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "A letter attesting the husband's work and threats lacks probative value as it relies solely on the husband's statements, who is not credible.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The husband's affidavit about his brother's assassination lacks probative value due to the husband's unreliability and lack of credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The brother's death certificate and photo lack probative value as they do not prove violent death or aggressors, given claimant's lack of credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "A photo of the husband with an eye injury is not probative evidence of cause due to claimant's lack of credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Since police report C-9 is fraudulent and the same officer signed death report C-2, C-2 is also given no probative value.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The National Documentation Package notes common fraudulent documents in Nigeria, supporting doubt about the claimant's evidence credibility.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 54,
+   "speaker": "other",
+   "summary": "Section 107.1 of IRPA requires stating a claim is manifestly unfounded if clearly fraudulent.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The tribunal interprets 'clearly fraudulent' as deliberate deception with material falsehoods relevant to the claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The claimant is generally not credible and documentary evidence is insufficiently credible to support her harm allegations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The claimant submitted fraudulent documents central to her claim, including threatening letters and police reports, with inadequate explanations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The claimant intentionally attempted to deceive the panel with central documentary evidence, making the claim clearly fraudulent and manifestly unfounded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The tribunal rejects the claim under IRPA sections 96 and 97 and finds it manifestly unfounded under section 107.1.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

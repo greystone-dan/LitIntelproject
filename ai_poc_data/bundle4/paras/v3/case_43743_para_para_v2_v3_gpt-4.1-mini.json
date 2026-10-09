@@ -1,0 +1,148 @@
+{
+ "case_id": 43743,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0025624000000000003
+ },
+ "verification": {
+  "paragraphs": 11,
+  "summaries": 11,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 10,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The City of Laval appealed the Federal Court's decision rejecting its judicial review of Public Services Canada's refusal to pay a tax replacement payment under the relevant Act. The dispute centered on whether a park contribution fee imposed by the City qualifies as a property tax under the Act. The Court of Appeal upheld the Federal Court's decision, finding Public Services Canada's conclusion reasonable and dismissing the City's appeal with costs.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 5,
+    "label": "City's argument on the nature of the fee",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 10,
+    "label": "Court's analysis of the fee and standard of review",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 11,
+    "label": "Disposition and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The City of Laval appeals the Federal Court's decision rejecting its judicial review of Public Services Canada's refusal to pay a tax replacement payment under the relevant Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The federal government owns land in Laval and sought a construction permit, leading the City to request a park contribution fee under Quebec's planning law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "After Public Services Canada refused to pay the tax replacement payment, stating the park contribution fee is not a tax but a unique fee related to permits, the City applied for the payment under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court of Appeal must determine if the Federal Court applied the correct standard of review and focus on the administrative decision under appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The City argues Public Services Canada only declared the park fee is not a property tax without applying the Act's definition and wrongly focused on whether it is a tax.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court disagrees, noting federal Crown properties are constitutionally immune from provincial and municipal taxation, and the Act aims to address lost property tax revenue.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Given the Act's purpose, it is reasonable to determine if the park fee is a tax to conclude it is not a property tax, so the payment conditions are unmet if it is not a tax.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court also disagrees that Public Services Canada limited its analysis to whether the fee is a tax, as it also found the fee is a unique contribution related to permits, a reasonable conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court rejects the City's claim that Public Services Canada should not rely on the planning law to characterize the fee, citing Supreme Court precedent and Quebec Court of Appeal decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Court states it is not for it to decide if the fee is a tax or property tax; that is for Public Services Canada, whose decision was reasonable and clear.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court rejects the City's appeal and orders costs of $9,000 agreed by the parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

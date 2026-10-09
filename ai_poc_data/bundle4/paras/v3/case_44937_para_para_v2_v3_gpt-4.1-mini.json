@@ -1,0 +1,291 @@
+{
+ "case_id": 44937,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0046752
+ },
+ "verification": {
+  "paragraphs": 28,
+  "summaries": 28,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 11,
+   "court": 15,
+   "evidence": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Haitian claimant seeking protection in Canada under the Immigration and Refugee Protection Act, alleging persecution due to political opinion and activities. The tribunal assessed the claimant's credibility, identity, and political profile, ultimately finding significant inconsistencies and implausibilities in his account of attacks and threats. Consequently, the tribunal rejected the claim, concluding the claimant did not establish a well-founded fear of persecution or risk of harm in Haiti.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and claimant's allegations",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Issues and initial credibility findings",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 23,
+    "label": "Detailed credibility analysis of claimant's incidents and threats",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 26,
+    "label": "Objective evidence and overall risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 28,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant, a Haitian citizen, seeks protection in Canada under the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant alleges persecution due to political opinion, detailing his political activities with OPHA and KOPA, including protests and organizing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant alleges threats and violence from PHTK members, including gunfire at a meeting and death threats from known individuals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant received warnings and threatening calls from PHTK members, including anonymous calls and a direct death threat.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "During an October 2017 protest, violence occurred involving PHTK and Platfom Pitit Desalin; a KOPA member was killed and the claimant learned of paid disruptors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The claimant was attacked twice in October 2017, fled to his grandmother's house, and left Haiti for the US but did not claim asylum there due to policy changes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The main issues are the claimant's credibility, identity, and political profile.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The claimant's identity as a Haitian citizen is satisfactorily established by testimony, documents, and biometric information.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The claimant testified straightforwardly but some aspects were found not credible or plausible by the panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The panel found the claimant credible regarding his political profile and membership in KOPA, supported by documents and detailed testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The claimant fears PHTK members due to his political activities, including speaking at rallies and educating voters in Petion-Ville.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The claimant alleges being beaten on October 4, 2017, by PHTK members near his university and treated at home by family.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "On October 10, 2017, the claimant was attacked again, shot at, followed by a brown SUV, fled on foot, and hid at his grandmother's until leaving Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's two major incident accounts not credible or plausible, rebutting the presumption of truthfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The claimant testified about the October 4 attack where he was stopped, beaten, and rescued by students, with injuries treated at home.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The claimant explained the attack involved a barricade blocking the school gate, with others leaving on foot and cars parked.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel finds the barricade explanation implausible as it does not explain how assailants knew when to stop him or how the barricade was unnoticed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel rejects counsel's submission that the barricade issue is peripheral, finding it central and the October 4 attack not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel finds the October 10 attack account not credible because fleeing on foot from a dead-end would expose the claimant to assailants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Given the assailants' familiarity with the neighborhood, the panel doubts the claimant could hide in the garbage dump, rejecting the October 10 attack claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "evidence",
+   "summary": "The claimant submitted photos of his damaged vehicle, which the panel accepts but doubts were damaged as claimed due to credibility issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel finds it implausible that the claimant was hidden under a bed at his grandmother's house, as attackers would likely search there first.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel doubts the alleged death threat to the claimant's parents as it was omitted from the narrative and the explanation was unsatisfactory.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "evidence",
+   "summary": "Objective evidence shows political violence in Haiti has decreased but territorial political violence and risks remain in certain areas.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The panel finds political violence occurs in Haiti but, based on credibility findings, the claimant was not targeted on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant failed to prove a well-founded fear of persecution or risk of harm in Haiti due to political activity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel finds the claimant is neither a Convention refugee nor a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The claim is rejected by the panel, signed by H. Ross on July 25, 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

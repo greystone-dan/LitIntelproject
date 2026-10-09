@@ -1,0 +1,299 @@
+{
+ "case_id": 72039,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0045904
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 20,
+   "evidence": 2,
+   "party": 2,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by a Tunisian citizen and her children against the Refugee Protection Division's (RPD) rejection of their refugee claims based on the existence of an internal flight alternative (IFA) in Bizerte. The appellants argued that the RPD erred by ignoring principles of family reunification, family unity, and indirect persecution. The Refugee Appeal Division (RAD) dismissed the appeal, finding no error in the RPD's decision and confirming that the appellants are neither refugees nor in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Introduction and outcome",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Standard of review and guidelines applied",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "Appellants' claims and RPD findings",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 16,
+    "label": "Legal principles on family and persecution",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 22,
+    "label": "Assessment of internal flight alternative in Bizerte",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 24,
+    "label": "Review and conclusion on RPD decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 25,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 30,
+    "last": 30,
+    "label": "Additional legal context on family unification",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appellants, a Tunisian citizen and her children, appeal the RPD's rejection of their refugee claims due to an internal flight alternative in Bizerte.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "evidence",
+   "summary": "The principal appellant's claim is based on her husband's recognized refugee status due to persecution from his employment, including death threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The principal appellant argues the RPD erred by ignoring family reunification, family unit, and indirect persecution principles, wrongly finding an IFA in Bizerte.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The key question for the RAD is whether the RPD erred in assessing the internal flight alternative in Bizerte.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD answers no and considers the RPD's decision correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD reasonably found the appellants are neither refugees nor in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The RAD reviews all evidence and applies the correctness standard of review based on precedent and its own analysis including the hearing audio.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RAD applied Chairperson's Guidelines 3 and 4 regarding child and women refugee claimants in its reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "At hearing, the principal appellant claimed fears of being tracked in Bizerte and suspicion by authorities due to her job and husband's past, but gave vague answers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD found the fears speculative without evidence, noting the husband no longer worked at the source of threats and the appellants lived briefly in Bizerte.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The principal appellant argues the RPD confused IRPA sections, ignored family targeting and indirect persecution, and failed to consider cultural ties and women's social group claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD confused IRPA sections",
+    "Family targeted and indirect persecution ignored",
+    "Cultural ties and women's social group claims",
+    "No viable IFA in Tunisia"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RAD notes the Akinfolajimi case as relevant before addressing family unity and indirect persecution issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Case law states indirect persecution alone does not constitute persecution under the Convention; claimants must fear persecution themselves.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Family as a social group requires evidence that family membership causes a well-founded fear of persecution, not just family unity principle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "A person cannot claim refugee status solely because a family member is persecuted; claimants must be personally targeted or as community members.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Family reunification is not determinative for refugee status under IRPA; other mechanisms exist since the husband was recognized as refugee.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The principal appellant's claim is based on her husband's recognized refugee status; the key question is whether an IFA exists in Bizerte for all appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The husband is Libyan and recognized as refugee for Libya fears; the principal appellant and children are Tunisian citizens who must show no IFA in Bizerte.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The IFA test requires showing no serious possibility of persecution and that it would be reasonable to seek refuge in the proposed location.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The principal appellant's fear of being tracked in Bizerte is unsupported speculation; husband no longer employed at source of threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The principal appellant's new fear of Tunisian authorities due to resignation lacks detail and is not disputed; the RPD's conclusion is correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The principal appellant's parents live in Bizerte without problems; no evidence shows she cannot live or work there; an IFA exists for the appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RPD noted no link between Tunisia's difficult situation for women and the appellants' personal situation; this conclusion is unchallenged and correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "After reviewing all evidence, the RAD finds no error in the RPD's decision and considers it correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The appeal is dismissed and the RPD's determination that the appellants are neither refugees nor in need of protection is confirmed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Family unification is an IRPA objective but refugee claims must be assessed individually under sections 96 and 97 definitions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  }
+ ]
+}

@@ -1,0 +1,495 @@
+{
+ "case_id": 47964,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.005993200000000001
+ },
+ "verification": {
+  "paragraphs": 52,
+  "summaries": 52,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 20,
+   "court": 24,
+   "evidence": 8
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant from Haiti seeking refugee protection under sections 96 and 97(1) of IRPA, fearing persecution due to her husband's murder and threats from criminals. The tribunal found the claimant not credible regarding her account of the threats, the murder, and her knowledge of the perpetrators, ultimately rejecting her refugee protection claim. The decision was based on inconsistencies in her testimony, failure to correct her statements, and lack of supporting evidence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background: claimant's situation and marriage",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 15,
+    "label": "Background: threats and husband's murder",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 19,
+    "label": "Issue: claimant's credibility and identity",
+    "kind": "issue"
+   },
+   {
+    "first": 20,
+    "last": 33,
+    "label": "Analysis: inconsistencies in claimant's account of threats and car interception",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 46,
+    "label": "Analysis: contradictions and credibility issues regarding criminals' identity and testimony",
+    "kind": "analysis"
+   },
+   {
+    "first": 47,
+    "last": 50,
+    "label": "Analysis: implausibility of claimant's story and evidentiary assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 51,
+    "last": 52,
+    "label": "Disposition: claim rejected",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from Haiti seeks refugee protection under sections 96 and 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The panel finds the claimant did not prove a serious possibility of persecution or risk of torture, death, or cruel treatment if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant married on a specified date in 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant's husband worked as a technician for a subsidiary company named XXXX XXXX.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "In early 2017, the claimant's husband received threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "One night, armed criminals intercepted their car and demanded money.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "On a specified date in 2017, the claimant traveled to the US for a pregnancy check-up.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On August 6, 2017, threats escalated and the husband's car was vandalized.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "On August 7, 2017, an armed group visited their home and extorted money from the husband.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "On August 9, 2017, the claimant last spoke with her husband.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "That day, the husband asked his servant to leave the gate open as he was on his way.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "On a specified date in 2017, the husband died.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "He was already dead upon hospital arrival, with broken arms and bruises over his body.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Two men who took him to hospital were arrested and an investigation is ongoing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The claimant fears return to Haiti as she may be seen as a troublesome witness aiding police against criminals.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The claimant's identity was confirmed by a passport copy entered into evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The key issue is whether the claimant is credible about knowing and identifying her husband's murderers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel finds the claimant not credible for specified reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel notes the claimant is well educated, testified in French, and understood the proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The claimant's BOC Form alleges her husband received anonymous threats in early 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The BOC Form states armed criminals intercepted their vehicle one night and demanded money.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "At hearing, the claimant said the car interception occurred in late 2016 in a specified area.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The claimant explained the BOC Form's timing error was due to shock after her husband's murder.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanation for the timing discrepancy in her account.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The panel reasons the claimant had time and resources to correct her story and draws a negative inference from her sworn statement.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel notes the claimant did not specify the criminals' area in her BOC Form.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The panel acknowledges the claimant was seven months pregnant on arrival but finds this does not explain credibility issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The panel indicates there are further issues regarding the car interception incident.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The claimant was asked to sketch the streets of the alleged car interception and described the situation at a red light.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The claimant explained criminals might have followed them and taken an alternate route to intercept their car.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel rejects the explanation given by the claimant regarding the incident.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The panel does not believe criminals knew exactly when the claimant and her husband would arrive to intercept them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The panel does not believe the claimant and her husband were intercepted by criminals or that criminals seek her as a witness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "evidence",
+   "summary": "The claimant testified about being threatened by criminals in February 2017 while accompanying her husband to work in a dangerous area.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "evidence",
+   "summary": "The claimant explained she did not mention the threats in her BOC Form because she was in shock after her husband's murder.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's shock explanation and draws a negative inference from her failure to amend the BOC Form earlier.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel does not believe the claimant saw the criminals in the dangerous area.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "evidence",
+   "summary": "The claimant testified she did not know if the murderers were from one of two criminal groups.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "speaker": "evidence",
+   "summary": "Later, the claimant testified that the criminals arrested at the hospital were from one specific group.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "speaker": "evidence",
+   "summary": "The claimant stated the first question was unclear when asked about the criminals' identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "speaker": "evidence",
+   "summary": "After a break, the claimant's lawyer revisited the testimony about the criminals' identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 42,
+   "speaker": "evidence",
+   "summary": "The claimant explained she exaggerated her certainty about the criminals' identity to seem more sure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's explanations about her contradictory testimony on the criminals' identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The panel believes the claimant tried to avoid an awkward situation by contradicting herself about the criminals' identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "evidence",
+   "summary": "The claimant said she felt emotional, stressed, and uncomfortable during the hearing when reliving her husband's death.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The panel empathizes with the claimant's feelings but finds the contradiction undermines her credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The panel finds it implausible that criminals linked to the murder would take the body to a hospital and risk arrest.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The panel does not believe the claimant's husband was killed by criminals who threatened him because of his work.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The panel received several documents but finds them insufficient to support the claimant's not credible testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The panel gives no probative value to documents about the husband's death due to the claimant's lack of credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The panel determines the claimant is not a Convention refugee or person in need of protection under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The panel rejects the claimant's refugee protection claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

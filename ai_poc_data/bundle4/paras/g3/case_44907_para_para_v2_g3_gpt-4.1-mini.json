@@ -1,0 +1,176 @@
+{
+ "case_id": 44907,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0030792
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 8,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 8
+  },
+  "multi_idea_paragraphs": 7,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an Iraqi Christian woman seeking refugee protection in Canada, fearing persecution from a man demanding marriage and religious conversion. The Immigration and Refugee Board panel assessed her claim, focusing on gender-related persecution and the availability of an internal flight alternative (IFA) within Iraq. The panel found her credible but concluded that relocation to Baghdad would mitigate her risk, ultimately rejecting her refugee claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and claim overview",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Claimant's allegations and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "Internal flight alternative test and findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Claimant's argument against IFA and panel's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Gender-based persecution and family support assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Ongoing risks for women and mitigation by family support",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 21,
+    "label": "Factors supporting reasonableness of relocation",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 23,
+    "label": "Conclusion and claim rejection",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The claimant, an Iraqi Christian woman fearing persecution from a man demanding marriage and conversion to Islam, claims refugee protection under the Immigration and Refugee Protection Act, with the panel considering gender-related claim guidelines.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's identity and fear",
+    "legal basis for claim",
+    "panel's consideration of guidelines"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The claimant alleges persecution by a man named XXXX in Kurdistan, detailing threats and forced job quits, leading to her departure; the panel finds her identity credible but rejects her claim of serious persecution risk.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's detailed allegations",
+    "panel's findings on identity and risk"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The panel explains the internal flight alternative (IFA) test, finds Baghdad a viable IFA for the claimant, and concludes her persecutor likely cannot find her there.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IFA legal test",
+    "Baghdad as IFA",
+    "persecutor's inability to find claimant in Baghdad"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The claimant argues Baghdad is unsafe as a Christian woman, but the panel finds her Christian profile unlikely to cause targeting there and dismisses her gender-based fears as speculative.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claimant's safety concerns in Baghdad",
+    "panel's findings on religious risk",
+    "panel's findings on gender risk"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "The panel notes women's legal and social discrimination in Iraq but finds the claimant would have family support in Baghdad, reducing her risk of persecution based on gender.",
+   "ideas": "multiple",
+   "idea_list": [
+    "women's discrimination in Iraq",
+    "family support reduces risk",
+    "claimant's father's stable situation"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "Despite ongoing problems for women in Iraq, the panel finds the claimant's family support mitigates risk, and relocation to Baghdad is not unreasonable under the high legal threshold for IFA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ongoing issues for women",
+    "family support importance",
+    "legal standard for unreasonableness"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The panel lists factors relevant to internal relocation, finds the claimant meets all criteria including family support and education, and concludes relocation to Baghdad is reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "criteria for internal relocation",
+    "claimant meets criteria",
+    "panel's conclusion on reasonableness"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 23,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant would not face serious persecution or risks upon return to Iraq due to the viable IFA in Baghdad and therefore rejects her refugee claim.",
+   "ideas": "single",
+   "idea_list": [
+    "claim rejection based on IFA in Baghdad"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,245 @@
+{
+ "case_id": 30776,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0040836
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 3
+  },
+  "speakers": {
+   "court": 16,
+   "evidence": 2,
+   "below": 1,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Zahidul Islam Bhuiyan's judicial review of the Refugee Appeal Division's (RAD) decision rejecting his refugee appeal based on an internal flight alternative (IFA) in Bangladesh. Bhuiyan fled persecution fears from the Jamaat-ul-Mujahideen Bangladesh (JMB) and challenged the RAD's handling of new evidence and its IFA analysis. The Federal Court dismissed the review, finding the RAD's overall decision reasonable despite some errors regarding late evidence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Legal framework for internal flight alternative",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 8,
+    "last": 15,
+    "label": "Applicant's evidence and RAD's handling of new evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 19,
+    "label": "RAD's findings on risk and IFA cities",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 23,
+    "label": "Applicant's hardship arguments and court's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 25,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, Zahidul Islam Bhuiyan, seeks judicial review of the RAD's refugee appeal rejection; the review is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Applicant fled Bangladesh fearing JMB persecution; RPD dismissed his claim, RAD found an internal flight alternative and dismissed his appeal; he seeks judicial review for unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "To find a viable IFA, RAD must be satisfied on balance of probabilities that claimant faces no persecution or risk and relocation is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Once IFA is raised, the claimant must prove no viable IFA by showing risk or unreasonableness of relocation, with a high burden requiring concrete evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Applicant argues RAD unreasonably handled new evidence; the court agrees partially but finds the overall decision reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant argues RAD unreasonably handled new evidence",
+    "Court agrees in part but finds decision reasonable"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "The Applicant tried to file new affidavits and an anonymous threat letter after his RAD memorandum, including from himself, his father, and brother.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "evidence",
+   "summary": "The Applicant's affidavit states his family was contacted by fundamentalists seeking him, with threats received, and affidavits and translations were obtained.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RAD accepted the Applicant's affidavit but rejected the attached exhibits from his family and the anonymous letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RAD erred in rejecting late evidence due to timing and silence in the memorandum, as s.110(4) must be assessed in context.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Despite the error, the RAD's IFA analysis assumed ongoing local risk; the Applicant's partial rejection of evidence was not unreasonable overall.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Applicant's cited cases on credibility errors are misplaced; here, the issue is IFA and the claimant bears the burden to prove no viable IFA with relevant evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The error on late evidence filing is not determinative; the rejected evidence concerned local events, and the RAD's credibility and risk findings are consistent and reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The RAD reasonably found the Applicant lacked a profile for persecution in the IFA cities and that new evidence showed only local interest, so the Applicant failed to meet his burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RAD reasonably rejected the Applicant's Dhaka persecution claim due to contradictions and insufficient evidence, consistent with RPD findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RAD reasonably concluded the Applicant failed to show serious possibility of persecution or personal risk in the IFA cities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD reasonably found no other reason besides fear of fundamentalists preventing relocation to Sylhet or Khul.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant argues he must live in hiding and break family contact if returned, causing undue hardship making IFA unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's argument speculative and unsupported by evidence; RAD reasonably concluded no need to hide from family in IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicant cites A.B. v Canada to argue a refugee should not live in hiding; agents of harm visited family there, but facts differ here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD reasonably concluded the Applicant is not expected to hide in the IFA and family members were not endangered by inquiries.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "No question is certified for appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

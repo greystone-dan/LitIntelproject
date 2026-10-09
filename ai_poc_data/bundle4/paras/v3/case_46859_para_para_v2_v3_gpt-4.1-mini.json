@@ -1,0 +1,273 @@
+{
+ "case_id": 46859,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.004577200000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 23
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves a male claimant, his spouse, and their minor child from Colombia seeking refugee protection in Canada under the Immigration and Refugee Protection Act. The tribunal assessed their claims, finding issues with the credibility of their evidence and concluding they did not establish a serious possibility of persecution or risk. Consequently, the tribunal rejected their refugee protection claims.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and claim summary",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Claim amendment and tribunal's initial decision",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Assessment of identity and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "Concerns about claim similarities and complaints",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 14,
+    "label": "Evaluation of complaint documents and protection system manipulation",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 17,
+    "label": "Assessment of documentary evidence and credibility issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Rejection of claimants' explanations and improbability of incidents",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 22,
+    "label": "Conclusion on refugee status and protection need",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 23,
+    "label": "Disposition: claim rejection",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The male claimant, his spouse, and their minor child from Colombia claim refugee protection under the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The minor and male claimants base their claims on the female claimant's claim, who is the designated representative for the child.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The original Basis of Claim Form facts are summarized in the following paragraphs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Since 2016, the claimants were targeted by Los Urabenos, sought help from authorities, faced assaults and a murder attempt, fled Colombia, and claimed refugee protection in Canada in May 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "In an amendment, claimants allege two men violently warned the female claimant's mother in 2017 that the claimants would be killed if they returned to Colombia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The panel determines the claimants are neither Convention refugees nor persons in need of protection under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The panel is satisfied with the claimants' identities based on submitted identity documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel finds the claimants' testimony credible with no significant contradictions and well-supported by documentary evidence, but cautions about overly seamless narratives.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel raised concerns about similarities with other claims and notified the Minister, who declined to intervene; the panel disregards this concern.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The panel raised concerns about 'inactivo' complaints in the claimants' file, possibly indicating crimes did not occur; the Minister declined to intervene, but the panel remains concerned about the complaints' follow-up.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel finds the complaint document suspicious and the Colombian counsel's vague explanations unconvincing regarding the follow-up to complaints.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel finds the claimants' explanations about the complaint process unsatisfactory and concludes the complaints likely concern fictional events.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel finds it improbable the claimants received no response from the National Protection Unit after 14 months, concluding they are hiding the real outcome to support their refugee claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel concludes the claimants manipulated the Colombian protection system by submitting complaints based on fictitious events and gives no weight to their protection measures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel finds no credible evidence of the claimants' stay in XXXX, noting lack of independent documents and suspicious explanations about the male claimant's driver's licence renewal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel concludes the documents about the driver's licence renewal contain false statements and prefers objective evidence, finding the claimants tried to mislead the panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel gives no weight to other documents from family or influenced persons submitted by the claimants.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel rejects the claimants' explanation that feared group identified as Los Urabe\u00f1os, finding it improbable given documentary evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel finds the claimants' accounts of surviving murder attempts improbable and does not believe these incidents occurred as described.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel concludes the claimants have not credibly established their story, including incidents after April 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel finds the claimants have not established a serious possibility of persecution or risk under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel determines the claimants are neither Convention refugees nor persons in need of protection under the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The claimants' refugee protection claims are rejected by the panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,384 @@
+{
+ "case_id": 42270,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0058516
+ },
+ "verification": {
+  "paragraphs": 38,
+  "summaries": 38,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 7,
+   "court": 29,
+   "other": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant seeking refugee protection in Canada under the Immigration and Refugee Protection Act, alleging persecution due to family planning policy violations and political activities in China. The Refugee Protection Division panel assessed the claimant's credibility, identity documentation, and risk of persecution upon return to China. The panel ultimately found the claimant failed to establish identity and credibility, concluding he is not a Convention refugee and rejecting the claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and claimant's story",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 13,
+    "label": "Panel's initial findings and key issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 18,
+    "label": "Claimant's documentation obligations and legal framework",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 19,
+    "last": 36,
+    "label": "Assessment of identity, credibility, and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 38,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant seeks refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The panel summarizes the claimant's story and timeline from his Personal Information Form.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The claimant alleges he came to the US in 1993, claimed refugee status in 1998 based on family planning policy violation, was denied appeal in 2003 and 2007, and remained in the US despite removal order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant was detained in North Carolina for a period and remained in the US after release.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "In 2009, the claimant joined the China Democracy Party and participated in meetings and promotion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "In November 2010, the claimant began practicing Falun Gong to relieve shoulder pain.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The claimant alleges that in May 2011, many undocumented people in the US were being deported.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The claimant left the US, entered Canada from Seattle, and applied for refugee protection on July 21, 2011.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel finds the claimant would not face serious persecution or risk of cruel treatment if returned to China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant is not a Convention refugee and lacks a well-founded fear of persecution or harm upon return to China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel focused on assessing the credibility of the claimant's allegations about risk upon return to China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel acknowledges difficulties faced by the claimant including cultural, educational, and language barriers, and considered these in its decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel identified key issues including identity, credibility of family planning violation, Falun Gong practice, and sur place claim, and found the claimant not credible on balance of probabilities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "issues identified",
+    "credibility finding"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "At hearing start, the claimant confirmed he had no additional documents to provide beyond those submitted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel finds the claimant failed to provide adequate documentation to establish personal and national identity and did not sufficiently try to obtain such documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel refers to section 106 of the Immigration and Refugee Protection Act regarding credibility and documentation of identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "other",
+   "summary": "The panel cites Rule 11 of the Refugee Protection Division Rules regarding claimant's obligation to provide identity documents or explain their absence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "other",
+   "summary": "Rule 11 requires claimants to provide acceptable identity documents or explain why not and what steps were taken to obtain them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Federal Court requires claimants to establish identity on balance of probabilities and bring all necessary evidence to hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The claimant admitted traveling to the US on a false passport and entering Canada without documents, yet did not make efforts to establish identity despite experienced counsel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel finds the claimant's documents have little probative value and expected more serious efforts to verify identity and nationality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The claimant provided various documents lacking security features; the panel finds he has not established identity on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The claimant did not submit his Resident Identity Card, a critical document for establishing identity and nationality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Resident Identity Card is mandatory for Chinese citizens over 16; the claimant gave his card to a smuggler who never returned it, and made no serious effort to retrieve it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The claimant did not provide a Chinese passport and the panel finds it reasonable to expect him to have one for US travel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel finds the claimant aware of fraudulent documents availability in China, based on his own declaration and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The claimant admitted to using a false passport; Canadian Embassy official confirmed widespread document fraud in China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Expert evidence confirms widespread, easily accessible fraudulent IDs in China, especially in Guangdong and Fujian provinces.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The claimant submitted a photocopy of his family Hukou but the panel finds it unreliable and insufficient to establish national identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The panel notes Hukou documents are easily forged in China and gives little weight to the claimant's Hukou in corroborating residency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel expresses concerns about the claimant's overall credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "If a claimant fails to establish identity, a negative credibility finding usually results and can decide the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "A claimant's sworn facts are presumed true unless doubted; credibility is assessed on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The panel doubts some claimant evidence, noting his affirmation of the Personal Information Form, omission of US entry via Mexico, and his limited education despite competent counsel.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Panel doubts claimant's evidence",
+    "Claimant affirmed PIF accuracy",
+    "Claimant omitted US entry info",
+    "Claimant cited limited education",
+    "Panel notes competent counsel and claimant's complex history"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The panel relies on the People's Republic of China National Documentation Package as reliable and detailed evidence about China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has not established identity, so negative credibility applies and further evidence analysis is unnecessary.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claimant failed to establish identity",
+    "Negative credibility conclusion applies",
+    "No need for further evidence analysis"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The panel finds the claimant failed to prove personal and national identity and thus failed to establish his refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant is neither a Convention refugee nor in need of protection and rejects the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

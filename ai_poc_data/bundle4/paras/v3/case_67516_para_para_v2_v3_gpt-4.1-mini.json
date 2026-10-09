@@ -1,0 +1,239 @@
+{
+ "case_id": 67516,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0039744
+ },
+ "verification": {
+  "paragraphs": 17,
+  "summaries": 17,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 13,
+   "evidence": 1,
+   "below": 2,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by a Chinese citizen against the Refugee Protection Division's (RPD) rejection of his refugee claim based on credibility issues and use of a false passport. The Refugee Appeal Division (RAD) reviewed the evidence and found that the RPD erred in its credibility findings and procedural fairness, ultimately allowing the appeal. The RAD set aside the RPD's decision and recognized the Appellant as a Convention refugee under IRPA 111(1)(b).",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and procedural context",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Issues on appeal and RPD findings",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "Analysis of summons credibility and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 11,
+    "last": 13,
+    "label": "Analysis of punishment decision and related credibility findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Assessment of other evidence and plausibility of exit from China",
+    "kind": "analysis"
+   },
+   {
+    "first": 16,
+    "last": 16,
+    "label": "Risk and protection analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 17,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Appellant, a Chinese citizen, appeals the RPD's May 24, 2018 decision rejecting his refugee claim due to credibility issues and use of a false passport.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's identity and claim",
+    "RPD's rejection reasons"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "evidence",
+   "summary": "The Appellant alleges government expropriation of his farmland, protests, detention by PSB, monthly reporting, hiding, and fleeing China with a false passport in 2017.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's background and protest",
+    "Detention and reporting",
+    "Escape and refugee claim"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Appellant did not seek to submit new evidence under IRPA 110(4) but included two Canadian sample forms to dispute RPD's findings; the tribunal declines to address admissibility as moot.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RPD's negative decision was based on three credibility findings: incorrect legal citation in summons, omission in punishment decision, and implausibility of exiting China with a false passport.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by breaching fundamental justice, misassessing documents, making a blanket implausibility finding about his exit, and ignoring Federal Court jurisprudence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Breach of fundamental justice",
+    "Incorrect document assessment",
+    "Blanket implausibility finding",
+    "Ignoring jurisprudence"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The RPD's finding that the arrest summons was fraudulent was erroneous due to reliance on an incorrect section of the National Documentation Package.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RPD should have relied on the Criminal Procedure Law (2012 Amendment) where article 59 concerns evidence collection, not confiscation; the RPD erred in its finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Although article 59 in earlier law referred to arrest, the summons issued after 1996 reasonably omitted 'arrest' reference; the RPD's concern is misplaced.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The RPD did not give the Appellant a chance to respond to concerns about the summons, breaching procedural fairness; no basis to doubt authenticity or credibility on this point.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Procedural fairness breach",
+    "No basis to doubt summons authenticity"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD negatively inferred credibility from the Administrative Punishment Decision's omission of legal citation, expecting such citation in official documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal agrees the expectation may be reasonable but without giving the Appellant a chance to respond, it cannot impugn credibility; document contents align with testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonable expectation of citation",
+    "No opportunity to respond",
+    "Document consistent with testimony"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Since the RPD's negative credibility findings on the summons and punishment decision are unsustainable, its negative assessment of other documents based on them is also unsustainable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Appellant's other documents and photographs are credible and consistent with his testimony; on balance, he was detained and is wanted for protesting farmland expropriation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Appellant's testimony about exiting China with a smuggler and false passport is plausible; the RPD erred by making a blanket implausibility finding without specific analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's exit testimony",
+    "RPD's blanket implausibility error",
+    "Plausibility found by tribunal"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Appellant is wanted by PSB, cannot seek state protection, has no internal flight alternative, and faces serious persecution risk in China.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the RAD sets aside the RPD's decision and finds the Appellant is a Convention refugee under IRPA 111(1)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

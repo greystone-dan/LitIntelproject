@@ -1,0 +1,295 @@
+{
+ "case_id": 29201,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.004632
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 7,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 7
+  },
+  "speakers": {
+   "court": 17,
+   "party": 5,
+   "below": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the Applicant's judicial review application challenging the refusal of his third humanitarian and compassionate (H&C) application by the immigration Officer. The Applicant, who fled Somalia and had previous refugee claims refused, argued errors in the Officer's assessment of his identity, best interests of the child (BIOC), and establishment in Canada. The Federal Court dismissed the application, finding the Officer's decision reasonable and supported by evidence, including reliance on prior Refugee Protection Division (RPD) findings and proper weighing of affidavits and other factors.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Background: Applicant's history and claims",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 10,
+    "label": "Tribunal below's decision and reasoning",
+    "kind": "other"
+   },
+   {
+    "first": 12,
+    "last": 12,
+    "label": "Applicant's grounds of challenge",
+    "kind": "issue"
+   },
+   {
+    "first": 14,
+    "last": 15,
+    "label": "Legal framework: IRPA and H&C discretion",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 17,
+    "last": 19,
+    "label": "Statutory interpretation of IRPR section 178",
+    "kind": "analysis"
+   },
+   {
+    "first": 20,
+    "last": 23,
+    "label": "Assessment of affidavits and evidence by Officer",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 27,
+    "label": "Officer's reliance on RPD findings and evidence weighing",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 33,
+    "label": "Reasonableness of Officer's findings on identity, BIOC, and establishment",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court dismisses the application for judicial review for reasons discussed later.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant fled Somalia in 2014, was rejected asylum in the US in 2015, then entered Canada where his refugee claim was refused in 2016 and appeal dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant states his work in Canada is critical to his family's well-being in Kenya as he regularly sends income to them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicant's third H&C application was refused; previous two applications in 2017 and 2019 were also refused.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer reviewed immigration history, H&C factors, and evidence, and found no basis for an H&C exemption after a global assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer gave weight to RPD findings that the Applicant was not reliable and the claim was manifestly unfounded, thus affidavits were insufficient to overcome RPD findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer gave some positive weight to establishment and BIOC but found the Applicant's reluctance to provide identity documents outweighed positives.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Applicant asserts three errors making the decision unreasonable: errors on identity presumption, BIOC assessment, and establishment assessment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "error on identity presumption",
+    "error on BIOC assessment",
+    "error on establishment assessment"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "IRPA requires PR applications from abroad; section 25 allows discretionary H&C exemptions from within Canada; courts must not substitute discretion for Officer's.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Section 25(1) IRPA offers equitable relief in exceptional circumstances to relieve misfortunes, per Kanthasamy at para 13.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant relies on IRPR section 178 allowing statutory declarations for identity when documents unavailable, citing Warsame case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Respondent argues section 178 applies only to protected persons seeking PR, which the Applicant is not, and requires credible evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court disagrees with Applicant, agreeing with Respondent that section 178 requires probative value and affidavits need corroboration.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Officer considered all affidavits but gave little weight due to lack of authority, concerns about translations, and similar wording.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds Warsame case irrelevant here as it involved different evidence and the Officer here considered all evidence contextually.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Warsame emphasized considering all evidence with a fresh mind; the Officer here followed that principle.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer did not rely on affidavits alone but considered all evidence before concluding on identity and nationality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Officer noted the Applicant had time in Canada to obtain identity documents but provided no evidence of efforts to do so.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Officer gave weight to RPD's findings that the Applicant was unreliable and claim manifestly unfounded, which can justify rejection of repeated claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court will not reweigh evidence; the Officer was entitled to give more weight to RPD findings than affidavits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Officer's reasons were transparent and justified; it was reasonable to conclude the Applicant did not establish identity or nationality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Officer reasonably found the evidence insufficient to establish identity, children\u2019s identity, or paternity, and BIOC was insufficient to overcome negatives.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Officer's weighing of BIOC and other factors was reasonable given the evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Officer did not require exceptional establishment, gave some weight to establishment, but found it insufficient to grant exemption.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court will not reweigh evidence; it was reasonable for the Officer to find other factors outweighed establishment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

@@ -1,0 +1,247 @@
+{
+ "case_id": 30087,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0056012
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "retried": 3,
+  "dropped_rows": 2,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 2
+  },
+  "speakers": {
+   "court": 10,
+   "mixed": 3
+  },
+  "multi_idea_paragraphs": 13,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves Mr. Polgar's judicial review of a decision by the Immigration Division (ID) regarding his inadmissibility to Canada due to a serious criminal conviction in Hungary. The applicant, Mr. Polgar, challenges the ID's findings on procedural fairness, delay, and the equivalency of his foreign conviction to Canadian law, while the respondent is Canada (Public Safety and Emergency Preparedness). The Federal Court dismissed the application, finding no unreasonableness or procedural unfairness in the ID's decision and upheld the deportation order against Mr. Polgar.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Background and overview",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 14,
+    "label": "Immigration Division proceedings and delay issues",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 24,
+    "label": "Immigration Division's findings on conviction and inadmissibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 27,
+    "last": 29,
+    "label": "Legal standards for review and procedural fairness",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 31,
+    "last": 37,
+    "label": "Court's analysis of expungement, pardon, and procedural fairness claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 38,
+    "last": 44,
+    "label": "Court's analysis of delay, prejudice, and legal application on inadmissibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 46,
+    "last": 49,
+    "label": "Court's conclusion on trial fairness and significance of issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 49,
+    "last": 49,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "last": 5,
+   "speaker": "court",
+   "summary": "The court will dismiss the application after reviewing the decision, evidence, submissions, and law, finding no unreasonableness or procedural unfairness; background facts about Mr. Polgar's conviction in Hungary and refugee claim in Canada are provided.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court dismisses application",
+    "background on Mr. Polgar's conviction",
+    "refugee claim process and suspension"
+   ]
+  },
+  {
+   "para": 6,
+   "last": 8,
+   "speaker": "mixed",
+   "summary": "An Enforcement Officer reported Mr. Polgar's conviction as serious criminality under Canadian law; the Minister's Delegate referred the case to the Immigration Division (ID) for an admissibility hearing, leading to Mr. Polgar's arrest and release on bail.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's report on conviction equivalency",
+    "Minister's Delegate referral to ID",
+    "arrest and bail of Mr. Polgar"
+   ]
+  },
+  {
+   "para": 9,
+   "last": 11,
+   "speaker": "mixed",
+   "summary": "Mr. Polgar moved without notifying the ID, missed a scheduling conference, and only after three years did the ID hold the admissibility hearing following his inquiry.",
+   "ideas": "multiple",
+   "idea_list": [
+    "address change not notified to ID",
+    "missed scheduling conference and failure to appear",
+    "hearing held after three years"
+   ]
+  },
+  {
+   "para": 12,
+   "last": 14,
+   "speaker": "mixed",
+   "summary": "Mr. Polgar applied for a stay of proceedings due to delay prejudice, which the ID denied and later refused to reconsider; the ID's May 26, 2022 decision is under judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "stay of proceedings application",
+    "ID denial and refusal to reconsider",
+    "decision subject to judicial review"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "court",
+   "summary": "The ID refused reconsideration, attributing delay to Mr. Polgar's failure to notify address change and found delays not unfair; it established facts about Mr. Polgar's conviction and found reasonable grounds for equivalency to Canadian assault causing bodily harm.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ID refusal to reconsider",
+    "delay attributed to Mr. Polgar",
+    "conviction facts established",
+    "equivalency to Canadian offense found"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The ID considered Mr. Polgar's arguments about pardon, flawed trial, and seriousness of offense, finding insufficient evidence to equate the Certificate of Good Conduct to a Canadian pardon per Saini test and rejecting his arguments.",
+   "ideas": "multiple",
+   "idea_list": [
+    "arguments on pardon and expungement",
+    "flawed trial argument rejected",
+    "seriousness of offense argument rejected",
+    "application of Saini test"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The ID held it could not revisit the foreign conviction, found no injustice in trial, and determined the offense meets serious criminality criteria under the Immigration Act, issuing a deportation order against Mr. Polgar.",
+   "ideas": "multiple",
+   "idea_list": [
+    "cannot revisit foreign conviction",
+    "no trial injustice shown",
+    "offense meets serious criminality",
+    "deportation order issued"
+   ]
+  },
+  {
+   "para": 27,
+   "last": 29,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard requires coherent, justified decisions and procedural fairness requires fair process and opportunity to respond; it will now consider Mr. Polgar's issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness standard explained",
+    "procedural fairness standard explained",
+    "court to consider issues"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "court",
+   "summary": "The court finds no error in the ID's consideration of whether the conviction was expunged, rejects Mr. Polgar's argument distinguishing expungement from pardon, and dismisses his argument about verb tense in the Immigration Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no error in ID's consideration",
+    "rejection of distinction between expungement and pardon",
+    "dismissal of verb tense argument"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 37,
+   "speaker": "court",
+   "summary": "The court finds the ID considered the Certificate of Good Conduct and did not breach procedural fairness despite Mr. Polgar's claims about delay, address notification, hearing request, prejudice, and psychological trauma; the Minister's response is accepted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ID considered Certificate of Good Conduct",
+    "no procedural fairness breach",
+    "Minister's response accepted",
+    "delay and prejudice arguments rejected"
+   ]
+  },
+  {
+   "para": 38,
+   "last": 41,
+   "speaker": "court",
+   "summary": "The court finds Mr. Polgar did not inform authorities of his address change and that the delay was not unfair; it rejects his claims of prejudice and psychological trauma and upholds the ID's finding of serious criminality inadmissibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "address change not informed",
+    "delay not unfair",
+    "no prejudice from witness death",
+    "no corroborated trauma",
+    "ID's serious criminality finding upheld"
+   ]
+  },
+  {
+   "para": 42,
+   "last": 44,
+   "speaker": "court",
+   "summary": "The court explains Mr. Polgar wrongly conflates inadmissibility under paragraph 36(1)(b) with exclusion under Article 1F(b) and other provisions, and finds the ID correctly applied the law regarding serious criminality and sentence irrelevance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "distinction between inadmissibility and exclusion",
+    "misplaced comparison with other provisions",
+    "sentence abroad irrelevant",
+    "hybrid offenses treated as indictable"
+   ]
+  },
+  {
+   "para": 46,
+   "last": 49,
+   "speaker": "court",
+   "summary": "The court holds the ID reasonably concluded Mr. Polgar's trial was fair, rejects claims of misapprehension of evidence, and finds the raised question is not dispositive or of broad significance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ID not redoing foreign trial",
+    "no failure to engage with evidence",
+    "question not dispositive or broadly significant"
+   ]
+  }
+ ]
+}

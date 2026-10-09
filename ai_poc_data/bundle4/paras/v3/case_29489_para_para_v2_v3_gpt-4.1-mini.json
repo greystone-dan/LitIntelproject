@@ -1,0 +1,230 @@
+{
+ "case_id": 29489,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0044096000000000005
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 3,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 3
+  },
+  "speakers": {
+   "court": 14,
+   "below": 2,
+   "evidence": 2,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves Mr. Verma's application for judicial review of the Refugee Appeal Division's (RAD) decision dismissing his refugee claim, which was initially denied by the Refugee Protection Division (RPD) based on an internal flight alternative. Mr. Verma submitted new evidence that he argued was not considered due to consultant incompetence, but the court found the evidence inadmissible or immaterial and upheld the RAD's decision. Consequently, the court dismissed Mr. Verma's application for judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Background and Tribunal Decisions",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Parties' Arguments on New Evidence and Consultant Competence",
+    "kind": "issue"
+   },
+   {
+    "first": 12,
+    "last": 26,
+    "label": "Court's Analysis and Reasoning on New Evidence and Outcome",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court states that the application must be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD found Mr. Verma had a viable internal flight alternative in Mumbai, Kolkata, or Delhi and denied his refugee claim under IRPA sections 96 and 97.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "Mr. Verma swore an affidavit stating he obtained new evidence including an income tax return, a lawyer's letter, and three affidavits from family and community members.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "Mr. Verma states the translator did not provide the new evidence to the consultant, so it was never filed with the RAD.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RAD dismissed Mr. Verma's appeal, criticizing the consultant's submissions and noting no new evidence was filed and no challenge to the RPD's motivation finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Mr. Verma argues the consultant was incompetent, causing new evidence not to be filed and no arguments made about it before the RAD.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The consultant responded denying receipt of new evidence and stating Mr. Verma never contacted her about it despite her requests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court declines to decide if the consultant was incompetent, finding Mr. Verma failed to show a reasonable probability the new evidence would have changed the RAD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court notes Mr. Verma must show a reasonable probability the outcome would differ but only relies on new documents, not other evidence or arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court states the new evidence must be admissible and material to affect the RAD's decision, citing IRPA s 110(4) and case law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court identifies the new evidence as a tax return, a lawyer's letter, and three affidavits, focusing on the letter and affidavits since the tax return is not relied upon.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The lawyer's letter postdates the RPD hearing but contains general information about tenant registration that could have been obtained earlier and is inadmissible new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The lawyer's letter repeats information already before the RPD and RAD, so it would not affect their conclusions about the tenant registration system.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The neighbour's affidavit postdates the RPD decision but lacks specifics and likely does not constitute admissible new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The neighbour's affidavit repeats evidence already before the RPD and RAD, so it would not change the RAD's decision on internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The parents' affidavit is undated but mainly repeats pre-RPD events and threats similar to Mr. Verma's testimony, so it is not new admissible evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Sarpanch's affidavit is undated and repeats allegations already accepted by the RPD and RAD, so it would not affect the internal flight alternative conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Mr. Verma argues the Sarpanch's statement about the woman's family's wealth and political ties supports his claim about police informing the cousin, but this was already known.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Verma's argument that the affidavits would bolster his credibility, noting neither tribunal questioned his credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Verma's argument that the new evidence would justify an oral hearing before the RAD, as it is not new, admissible, or related to credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court agrees no question for certification arises in this case as neither party proposed one.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

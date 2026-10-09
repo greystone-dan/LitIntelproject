@@ -1,0 +1,185 @@
+{
+ "case_id": 42638,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0028028
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 7,
+   "party": 8
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal from the Federal Court's setting aside of the Refugee Protection Division's cessation decision regarding state protection presumption. The applicant is Canada (Citizenship and Immigration), appealing the Federal Court's decision, and the respondent is Camayo. The Court granted intervener status to UNHCR and CARL but dismissed the motion by JFCY/ICIWG, ultimately focusing on the scope and relevance of submissions to the appeal.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 1,
+    "label": "Background and appeal certification",
+    "kind": "background"
+   },
+   {
+    "first": 2,
+    "last": 3,
+    "label": "Motions to intervene and criteria",
+    "kind": "issue"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "UNHCR's role and intervention",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "CARL's role and intervention",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 14,
+    "label": "JFCY/ICIWG's proposed intervention and issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 15,
+    "label": "Disposition on motions to intervene",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Federal Court set aside the RPD's cessation decision for failing to allow rebuttal of state protection presumption; three questions certified for appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "case background",
+    "Federal Court decision",
+    "certified questions"
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Three motions to intervene are before the Court; UNHCR's motion is unopposed, CARL's opposed by Minister, JFCY/ICIWG opposed; UNHCR and CARL granted, JFCY/ICIWG dismissed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "motions to intervene",
+    "positions of parties",
+    "court's disposition"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The test for leave to intervene focuses on whether the intervener adds useful submissions that further legal issue determination, not new issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "UNHCR is a UN organ protecting refugees, supervising international refugee covenants including the 1951 Convention, which is incorporated into Canadian law by IRPA.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "UNHCR issues interpretive guidelines on refugee law, cited by courts and parties, and has been granted intervener status in high courts.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "UNHCR's experience and responsibilities position it well to assist the Court on the appeal issues; no disqualifying factors found.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "CARL is a national association of legal professionals advocating for refugees and migrants, with extensive public interest litigation experience and prior intervener status.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "CARL's proposed submissions overlap with the respondent's and UNHCR's, leading the Minister to oppose its motion.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Despite overlap, CARL likely offers a distinct perspective useful to the Court; duplication can be managed in oral argument time.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "JFCY promotes children's rights and provides legal services to youth, including those in immigration, with extensive intervener experience.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "ICIWG is a group of legal professionals assisting protected persons with immigration issues, including cessation applications involving passports.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "JFCY and ICIWG have expertise on children and youth but propose new issues that would improperly expand the appeal's scope.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "JFCY/ICIWG argue dependent children should be treated uniquely and generally exempt from cessation, an issue not raised below or in appeal questions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "JFCY/ICIWG also invoke the Convention on the Rights of the Child and Charter rights, and seek evaluation of refugee claims involving children, none raised below or in appeal.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Motions by UNHCR and CARL are granted; motion by JFCY/ICIWG is dismissed as per the accompanying order.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,326 @@
+{
+ "case_id": 33953,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0058536000000000005
+ },
+ "verification": {
+  "paragraphs": 33,
+  "summaries": 33,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 6
+  },
+  "speakers": {
+   "below": 9,
+   "court": 20,
+   "party": 3,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the assessment of legal costs between the Plaintiff and Defendant following a Federal Court judgment. The Defendant initiated the cost assessment, and the Plaintiff disputed the Defendant's position on payment but not the amount claimed. The court ultimately allowed the Defendant's claim with some adjustments, awarding a total of $1,440 in costs.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 9,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 19,
+    "label": "Preliminary issues and role of assessment officer",
+    "kind": "issue"
+   },
+   {
+    "first": 21,
+    "last": 33,
+    "label": "Assessment of costs and application of rules",
+    "kind": "analysis"
+   },
+   {
+    "first": 34,
+    "last": 40,
+    "label": "Final determinations and disposition of costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Defendant initiated the assessment of costs by serving and filing a Bill of Costs, affidavit, and submissions on December 3, 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "Documents were returned to the Plaintiff by the Registry on January 7, 2025, as a payment into Court of costs claimed by the Defendant, despite no Court ruling allowing this.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "A Court Direction on January 10, 2025, confirmed the assessment of costs would proceed under section 406 of the Federal Courts Rules, with timelines restated on January 14.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "On February 6, 2025, the Plaintiff submitted unserved materials, accepted on record except for five pages with unclear public status, which were shared with the Defendant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "Timelines were extended on February 12, 2025, allowing discussion and clarifying payment should be made directly to the Defendant if Plaintiff consents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Defendant filed no new materials after February 12, but the Plaintiff filed supplemental materials on March 31, 2025, which were attached to a July 8 Direction for Defendant's reply.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Defendant replied on July 24, 2025, confirming the assessment was still required and denying effective payment of costs by the Plaintiff.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "A letter from the Plaintiff with questions was placed on record on July 16, 2025, but will not be considered as it lacks submissions or evidence and was untimely.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Before assessing costs, two preliminary issues are addressed: the impact of absence of opposition and the role of the assessment officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The assessment officer cannot certify unlawful items or bind to costs outside legal authority, ensuring claimed services comply with law and judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Plaintiff disputes the Defendant's position that costs have not been extinguished but does not dispute the quantum claimed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Plaintiff's filed documents reference a bill of exchange and remittance as payment for costs, alleging delivery of a bill on March 24, 2025.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The assessment officer's role is not to determine payment validity or receive payment unless instructed by the Court, which is not the case here.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Assessment officers are Registry officers appointed to establish quantum of costs awarded by the Court, distinct from judges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Defendant's argument about Plaintiff's improper actions is not considered as it concerns document validity outside the assessment officer's jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Since the request for assessment remains, the Defendant is entitled to an assessment to establish costs payable by the Plaintiff.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Defendant intended to claim costs based on the low end of Column III per Rule 407, though the Bill of Costs shows some unit discrepancies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The 8 units claimed will be allowed with some adjustments to comply with the Judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "One unit under Item 25 and one unit under Item 6 are allowed as submitted, consistent with the Judgment and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The claim under Item 26 is one unit below the minimum under Column III; the assessment officer cannot contradict the Court's order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "speaker": "other",
+   "summary": "Rule 3 requires Rules to be interpreted to secure a just, expeditious, and least expensive outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "Mitchell decision states discretion in assessment should aim for an equitable result, applying Rule 3 positively.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Two units will be subtracted from Item 5 and reallocated to Item 26 to comply with the Judgment and secure a just outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "After reallocating two units, three units are allowed under Item 5.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Assessment officer may allow costs of assessment; given effort, units should be allowed but must comply with Judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "Carlile decision states taxing zero dollars is improper when full amount is the alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Applying Mitchell, Carlile, and Rule 3, two units moved from Item 5 are added to Item 26, allowing three units total under Column III.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Defendant's allegation of Plaintiff's vexatious conduct and the amount of work done justify allowing three units under Item 26.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The additional unit under Item 27 is denied because it was not included in the Bill of Costs and lacks supporting submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Item 27 compensates counsel for extraordinary assessable services, not for work by assessment officers or judicial resources.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court concludes that compensation for services under Item 27 should instead be claimed under Item 26, as assessment-related work falls under Item 26.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court notes Item 27 applies only to services not covered by Items 1 to 26 and that additional compensation under Item 27 would cause impermissible double payment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court allows 8 units for assessable services, totaling $1,440 in compensation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

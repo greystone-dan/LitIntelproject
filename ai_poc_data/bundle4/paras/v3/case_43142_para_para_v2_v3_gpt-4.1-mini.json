@@ -1,0 +1,209 @@
+{
+ "case_id": 43142,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0027612
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 13,
+   "below": 1,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves an appeal by the appellant against the Tax Court's dismissal of appeals concerning unremitted source deductions and net tax totaling $69,803 related to the appellant's companies. The main issue was whether the appellant exercised due diligence to prevent the failure to remit taxes. The Federal Court of Appeal dismissed the appeal, finding no palpable and overriding error in the Tax Court's conclusion that the appellant failed to prove due diligence.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Background and issue",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 5,
+    "label": "Tribunal below's findings",
+    "kind": "other"
+   },
+   {
+    "first": 6,
+    "last": 6,
+    "label": "Appellant's arguments",
+    "kind": "issue"
+   },
+   {
+    "first": 7,
+    "last": 8,
+    "label": "Standard of review and court's findings",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 9,
+    "last": 13,
+    "label": "Analysis of due diligence and comparison to precedent",
+    "kind": "analysis"
+   },
+   {
+    "first": 14,
+    "last": 14,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 46,
+    "last": 46,
+    "label": "Explanation of standard of review",
+    "kind": "standard_of_review"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appellant appeals the Tax Court's dismissal of appeals regarding unremitted source deductions and net tax totaling $69,803.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appellant owned 6th Street Developments Ltd. and RABB, both construction-related companies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "6th Street failed to remit taxes due to cash flow problems from a non-paying client; appellant sued clients and obtained loans but debts remained.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Tax Court's sole issue was whether the appellant exercised due diligence to prevent 6th Street's failure to remit taxes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The Tax Court found appellant lacked due diligence, delegating remittances without oversight and using FIFO payment method without direction.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of due diligence",
+    "delegation without oversight",
+    "FIFO payment method",
+    "efforts to raise funds not preventive"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The appellant argues the Tax Court erred on FIFO use, QuickBooks ensuring remittances, insufficient consideration of brain injury, and similarity to prior cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "FIFO method error",
+    "QuickBooks evidence",
+    "brain injury consideration",
+    "similarity to precedent cases"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court explains its role is not to retry the case but to intervene only for legal or palpable and overriding factual errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court finds no palpable and overriding error in the Tax Court's conclusion that appellant failed to prove due diligence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The appellant did not clearly distinguish creditor payment methods and confirmed FIFO use and lack of remittance instructions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The appellant did not explain how QuickBooks ensured timely or prioritized remittances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Tax Court accommodated appellant's brain injury but appellant still bore the burden to prove due diligence, which he failed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Based on evidence, the Tax Court reasonably concluded appellant did not act with due diligence to make required remittances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The appellant's case facts differ from Penate and Worrell, where taxpayers had stronger due diligence or external control over remittances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The appeal is dismissed and no costs are awarded, consistent with the Tax Court's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Palpable and overriding error is a deferential standard requiring an obvious error that affects the case outcome fundamentally.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  }
+ ]
+}

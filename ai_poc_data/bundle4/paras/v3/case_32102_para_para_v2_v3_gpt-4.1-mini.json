@@ -1,0 +1,246 @@
+{
+ "case_id": 32102,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.003944400000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 4
+  },
+  "speakers": {
+   "court": 15,
+   "evidence": 2,
+   "below": 4,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Ms. Zhang's challenge to the Canada Revenue Agency's (CRA) decision denying her eligibility for benefits due to insufficient proof and procedural fairness issues. Ms. Zhang, the applicant, argued that the CRA, the respondent, breached procedural fairness by relying solely on telephone contact despite previous failures, instead of using mail. The Federal Court found that a moderate level of procedural fairness was owed and that the CRA breached this by not using alternative contact methods, granting judicial review in favor of Ms. Zhang.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Judicial review granted for procedural fairness breach",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 9,
+    "label": "Background and evidence from CRA and Ms. Zhang",
+    "kind": "background"
+   },
+   {
+    "first": 11,
+    "last": 16,
+    "label": "Admissibility of new evidence and procedural fairness context",
+    "kind": "other"
+   },
+   {
+    "first": 18,
+    "last": 28,
+    "label": "Procedural fairness analysis and breach determination",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court finds procedural fairness was breached because the Second Reviewer used telephone contact, which had failed before, instead of mail, which had succeeded, and grants judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "evidence",
+   "summary": "CRA's June 17, 2024 letter requested additional info; Ms. Zhang uploaded various documents in English and Mandarin on July 23, 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "CRA First Reviewer called Ms. Zhang twice in late October 2024; no response first call, voicemail left second call, no return call.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "On November 5, 2024, CRA found Ms. Zhang ineligible due to insufficient proof of earnings or COVID-related work changes; noted many documents were not in English or French.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "Ms. Zhang disagreed with CRA's decision, prompting a Second Review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "Second Reviewer called Ms. Zhang three times in August 2025 using the same number; no response and no voicemail left.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "Second Reviewer found Ms. Zhang's information insufficient and deemed her ineligible for benefits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Respondent objects to new evidence not before decision maker; court applies Access Copyright principles to resolve admissibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court states procedural fairness issues require assessing fairness of decision-maker's procedure in context.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Reasonableness of decision is assessed under the reasonableness standard from Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "New materials are absent from Certified Tribunal Record, presumed complete; Ms. Zhang gives no details on submission timing or method.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court will disregard Ms. Zhang's new evidence as it does not meet criteria for admission on judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Ms. Zhang argues procedural fairness was denied because CRA failed to try alternative contact methods like mail after phone failed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court must determine the level of procedural fairness owed to Ms. Zhang before assessing breach.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Court applies Baker factors to determine procedural fairness level owed in Ms. Zhang's case.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court finds a moderate level of procedural fairness was owed in the second-level review of Ms. Zhang's eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "First Baker factor: second-level review is administrative, informal, with no counsel right, indicating relaxed fairness standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Second factor: no statutory appeal exists, but judicial review applies; decision's determinative nature supports moderate fairness level.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Third factor: re-determining eligibility after benefit receipt is important, warranting moderate to high fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Fourth factor: Ms. Zhang legitimately expected alternative contact methods since CRA used both mail and phone before.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Fifth factor: CRA's choice to use multiple communication methods shows institutional constraints did not limit fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Previous cases found low procedural fairness owed by CRA, but Baker factors here support moderate fairness owed to Ms. Zhang.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Applying moderate fairness, court finds breach because Second Reviewer persisted with failed phone contact instead of mail, denying Ms. Zhang participatory rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

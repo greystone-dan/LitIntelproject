@@ -1,0 +1,125 @@
+{
+ "case_id": 42638,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0021772
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 5,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 5
+  },
+  "multi_idea_paragraphs": 5,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves an appeal by Canada (Citizenship and Immigration) against a Federal Court decision that set aside the Refugee Protection Division's cessation of the respondent's refugee status. The appeal focuses on the interpretation of refugee cessation provisions under Canadian law and international conventions. The Court granted intervention motions to UNHCR and CARL but denied those of JFCY and ICIWG due to scope and procedural concerns.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and appeal context",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "UNHCR intervention motion",
+    "kind": "other"
+   },
+   {
+    "first": 7,
+    "last": 9,
+    "label": "CARL intervention motion",
+    "kind": "other"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "JFCY and ICIWG intervention motions rejected",
+    "kind": "other"
+   },
+   {
+    "first": 13,
+    "last": 15,
+    "label": "Reasons for intervention decisions",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The appeal concerns the interpretation of refugee cessation provisions; the Federal Court set aside the Refugee Protection Division's decision ceasing the respondent's refugee status and certified questions; motions to intervene are before the Court with mixed opposition.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal context and background",
+    "Federal Court decision and certification",
+    "motions to intervene and positions"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "UNHCR, as a UN organ protecting refugees and supervising international covenants including the 1951 Refugee Convention incorporated into Canadian law, is well-positioned to assist the Court and its motion to intervene is supported.",
+   "ideas": "multiple",
+   "idea_list": [
+    "UNHCR's role and mandate",
+    "legal incorporation of refugee conventions",
+    "UNHCR's suitability to assist the Court"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "CARL, a legal organization advocating for refugees and migrants, seeks to intervene despite some overlap with other parties' submissions; the Court finds CARL likely to provide a useful distinct perspective and grants its motion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CARL's mandate and membership",
+    "overlap with other submissions",
+    "Court's reasoning to grant intervention"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "JFCY and ICIWG, experienced in child and youth immigration issues, seek to intervene but propose new issues beyond the appeal's scope, leading the Court to reject their motion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "JFCY and ICIWG's background",
+    "proposed submissions raising new issues",
+    "Court's view on scope expansion"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "court",
+   "summary": "JFCY and ICIWG's proposed submissions on dependent children and international conventions were not raised below or in certified questions, and the appeal record is unsuitable for these issues; thus, their motion is dismissed while UNHCR and CARL's are granted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "new issues not raised below",
+    "inapplicability of record for new issues",
+    "final disposition of motions"
+   ]
+  }
+ ]
+}

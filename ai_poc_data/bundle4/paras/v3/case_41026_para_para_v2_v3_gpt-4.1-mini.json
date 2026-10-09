@@ -1,0 +1,379 @@
+{
+ "case_id": 41026,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0062472000000000005
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 7,
+   "below": 8,
+   "court": 18,
+   "other": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a principal claimant and her two minor sons seeking refugee protection in Canada, fearing persecution due to their Tibetan origin and lack of valid Indian citizenship. The Refugee Protection Division (RPD) found the claimant lacked credibility, failed to prove a serious risk of persecution, and did not make reasonable efforts to acquire Indian citizenship, ultimately rejecting the refugee claims. The tribunal upheld the decision that the claimant and her children are neither Convention refugees nor persons in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and claimant's circumstances",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 11,
+    "label": "RPD findings on credibility and US residency",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 14,
+    "label": "Panel's assessment of claimant's credibility and delay",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 16,
+    "label": "Legal framework on citizenship and refugee protection",
+    "kind": "other"
+   },
+   {
+    "first": 17,
+    "last": 21,
+    "label": "Indian citizenship law and claimant's arguments",
+    "kind": "analysis"
+   },
+   {
+    "first": 22,
+    "last": 25,
+    "label": "Claimant's efforts to obtain Indian citizenship and RPD's findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 30,
+    "label": "Jurisprudence on citizenship acquisition and claimant's efforts",
+    "kind": "analysis"
+   },
+   {
+    "first": 31,
+    "last": 32,
+    "label": "Panel's conclusions on credibility and document issues",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 34,
+    "label": "Country of reference and final decision",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The principal claimant and her two minor sons seek refugee protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The panel appointed the P.C. as representative for her sons but found no evidence of their US residency, so they are not refugees or protected persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The P.C.'s allegations are summarized from her Personal Information Form.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The P.C. was born in India in 1972, married in 1995, moved to the US in 1998, had two US-born children, and was undocumented after a separation from her husband.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The P.C. fears deportation to Tibet due to lack of valid Indian residence and persecution for her religious beliefs as a follower of the Dalai Lama.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The RPD found the P.C. failed to prove a serious possibility of persecution or risk to life or cruel treatment on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The key issues are credibility, US residency, country of reference, and the P.C.'s efforts to obtain Indian citizenship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RPD had identity concerns but accepted the P.C. is a Tibetan born and residing in India based on documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD considered difficulties in credibility assessment, including time passage and female claimant guidelines, focusing on the P.C.'s US status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The P.C. arrived in the US in 1998 on a visitor visa, told authorities she would tour but intended not to return; her husband followed a year later.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The P.C. delayed refugee claim due to no money, was ineligible, husband got status in 2001, they separated, she claimed in 2005, claim denied in 2007 and appeal dismissed in 2009 for timing and credibility issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "P.C.'s delay and ineligibility",
+    "Husband's status and sponsorship attempt",
+    "Claim denial reasons"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The P.C. said her lawyer advised against sponsorship due to undocumented status, so she came to Canada in 2012.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The panel concludes the P.C. was without US status for 7-8 years, elicited only after prodding, and US court documents question her credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "P.C.'s lack of US status",
+    "Credibility questioned by US court",
+    "Lack of corroborative evidence"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel finds the P.C.'s delay inconsistent with genuine fear, draws adverse inference, and finds her credibility seriously undermined by delay.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Delay inconsistent with fear",
+    "Delay undermines credibility"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "If a claimant can acquire citizenship in a safe country, refugee protection may be denied; the RPD must consider claimant's control over citizenship acquisition.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel reviewed mixed jurisprudence on Indian citizenship for Tibetans born 1950-1987, considering testimony, documents, and Federal Court decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "other",
+   "summary": "Section 3(1) of the Indian Citizenship (Amendment) Act, 2003 defines citizenship by birth for persons born in India between 1950 and 2003 under certain conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The P.C. argues Indian citizenship is not automatic for her due to documentation issues and hindrances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel cites Delhi High Court ruling that a Tibetan born in India is entitled to citizenship by birth and need not apply for it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The P.C. claims she cannot obtain Indian citizenship without proper identity documents like registration and identity certificates.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RPD rejects the P.C.'s argument, finding she is an Indian citizen by birth and that passport difficulties do not prove lack of citizenship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The P.C. testified she never tried to get Indian citizenship before leaving India and only recently tried to get documents in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RPD notes Tibetans born in India get Residency Certificates at 16, and can prove identity with school or police documents if birth certificates are missing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The P.C.'s only attempt to get documents was two months before the hearing; she gave no explanation for the long delay and lacked proof of embassy visit.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The RPD finds the P.C.'s claim that she needs lost certificates for a passport contradicted by official rules allowing other documents; her testimony is unreliable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Contradiction with passport rules",
+    "P.C.'s lack of alternative documents",
+    "RPD prefers documentary evidence"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal in Tretsetsang requires claimants to prove significant impediments to citizenship and reasonable unsuccessful efforts to overcome them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Tretsetsang states failure to confirm citizenship recognition without reasonable explanation is fatal to refugee claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Federal Court in Dakar found the applicant failed to make reasonable efforts to acquire Indian citizenship.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Tretsetsang's analysis aligns with Williams, emphasizing reasonable attempts to acquire citizenship despite obstacles.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The claimant made no attempt to acquire citizenship in India and only recently tried to get documents after 19 years away.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The panel rejects P.C.'s explanations and finds the delay in filing her refugee claim indicates serious credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "P.C.'s lack of credibility with US immigration authorities detracts from her overall credibility, including her document loss and embassy efforts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "The RPD finds India is the country of reference; P.C. fears deportation to China but does not allege persecution under sections 96 or 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The RPD concludes P.C. and her minor children are neither Convention refugees nor persons in need of protection; claims are rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

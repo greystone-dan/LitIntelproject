@@ -1,0 +1,477 @@
+{
+ "case_id": 6435,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0081828
+ },
+ "verification": {
+  "paragraphs": 51,
+  "summaries": 51,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 23,
+   "party": 11,
+   "below": 15,
+   "other": 2
+  },
+  "multi_idea_paragraphs": 10,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves Afghan applicants seeking judicial review of the Refugee Protection Division's (RPD) 2014 decision rejecting their refugee claims due to credibility issues. The applicants alleged procedural fairness breaches and challenged the reasonableness of the RPD's decision, including adverse credibility findings and the application of immigration provisions. The Federal Court dismissed the judicial review application, finding the RPD's decision reasonable and procedurally fair, and rejected the applicants' constitutional arguments.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 8,
+    "label": "Background and factual context",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 23,
+    "label": "RPD's credibility findings and decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 28,
+    "label": "Legal framework and standards of review",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 29,
+    "last": 38,
+    "label": "Applicants' procedural fairness and related claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 39,
+    "last": 46,
+    "label": "Applicants' substantive challenges to RPD findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 47,
+    "last": 47,
+    "label": "Disposition of judicial review application",
+    "kind": "disposition"
+   },
+   {
+    "first": 48,
+    "last": 51,
+    "label": "Charter and statutory interpretation arguments",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicants, Afghan citizens, fled to Pakistan in 1993, later traveled to the USA in 2014, and applied for refugee protection in Canada in July 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The RPD rejected the Applicants' refugee claims in 2014 due to lack of credibility; the Applicants seek judicial review, which the court dismisses.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD decision on credibility",
+    "Judicial review application dismissed"
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Principal Applicant lived in Pakistan 1993-2005 and 2008-2014; other Applicants lived solely in Pakistan 1993-2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Principal Applicant claims persecution fears due to film industry work, including assault in 2005, leading to moves between Pakistan and Afghanistan.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claim of film industry work",
+    "Assault in 2005",
+    "Relocation due to persecution fears"
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Hossai fears Taliban persecution due to FEHRO work and threats from ex-husband's family for seeking asylum in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Principal Applicant's sons successfully claimed refugee protection in Canada in 2014 based on Taliban threats; no asylum claims in Pakistan noted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Applicants were initially ineligible for refugee claims due to a 2004 family sponsorship application; Canada rejected claims due to non-attendance and lack of credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Initial ineligibility under IRPA",
+    "Rejection due to non-attendance and credibility"
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "In 2018, the Minister filed a Notice of Intent to Intervene at the RPD hearing about integrity concerns over discrepancies in Applicants' statements.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD found Applicants lacked credible evidence to prove their allegations on a balance of probabilities, detailing credibility findings.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD noted contradictions between 2007 interviews and Principal Applicant's claims about film work, residence, and assault, undermining credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Contradictions on film industry involvement",
+    "Residence inconsistencies",
+    "Assault not mentioned in 2007 interviews"
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Principal Applicant's handwritten notes contradicted his testimony and forms about residence dates between Kabul and Pakistan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RPD concluded the film industry claims lacked credibility as other Applicants did not mention them in 2007 interviews.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "In 2007 interviews, other Applicants said the Principal Applicant knew about but avoided interviews, preferring to stay in Pakistan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Principal Applicant gave inconsistent reasons for missing 2007 interviews, citing business and roadblocks.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RPD found the Principal Applicant's testimony inconsistent and disbelieved the 2005 assault claim due to non-attendance at interviews.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RPD found submitted film studio documents insufficient and noted lack of knowledge from the Principal Applicant's mother, doubting film industry involvement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Applicants claimed continuous residence in Pakistan, but passports showed multiple returns to Afghanistan between 1993 and 2014.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "Passport entries contradicted claims, including the Principal Applicant's absence from Pakistan 2004-2010 and Hossai's presence in Afghanistan during marriage.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Principal Applicant's passport gaps",
+    "Hossai's passport contradicting marriage location"
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "Applicants explained passport discrepancies by lack of border stamps; RPD accepted possibility but still doubted credibility overall.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The RPD found it reasonable to expect asylum claims in the USA in 2005-2006 given the alleged attack severity, but none were made.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RPD found Hossai's testimony about FEHRO threats unclear and noted her inability to answer questions about FEHRO's programs.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The RPD found Hossai's claim of threats from ex-husband contradicted by his supportive affidavit and progressive attitude.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RPD found insufficient evidence that Hossai would face blackmail or extortion upon return to Pakistan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "other",
+   "summary": "The court identifies two issues: procedural fairness breach and reasonableness of the RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "other",
+   "summary": "The court lists relevant IRPA provisions: sections 96, 97, and 104(1)(d).",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Supreme Court's Vavilov decision confirms reasonableness as the presumptive standard of review for administrative decisions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "A reasonable decision must be coherent, justified by facts and law; serious flaws are needed to overturn; review is holistic, not line-by-line.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Procedural fairness breaches are reviewed on a correctness standard, citing Canadian Pacific Railway v Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "Applicants allege multiple procedural fairness breaches including unnotified interviews, lack of waiver, questioning without notice, counsel incompetence, and delay prejudice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Unnotified brother interview",
+    "No waiver for interviews",
+    "Questioning without notice",
+    "Counsel incompetence",
+    "Delay causing prejudice"
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court rejects all Applicants' claims of procedural fairness or natural justice breaches.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court rejects the applicants' procedural fairness claims about the 2004 asylum claim and 2007 interviews, noting the applicants' improper collateral attack and voluntary absence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "procedural fairness breach claim",
+    "2007 interview irrelevant",
+    "applicants' voluntary absence",
+    "improper collateral attack"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court finds no procedural fairness breach by the RPD questioning Hossai about FEHRO, as she was the best person to answer and documents were not extrinsic evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court dismisses counsel incompetence claims due to applicants' failure to follow required protocol and provide evidence of compliance.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the applicants' unreasonable delay argument meritless, citing lack of evidence of prejudice and established case law on delay thresholds.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court holds the RPD reasonably considered the Minister's evidence in its 2018 intervention, which showed inconsistencies in applicants' claims.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court rejects applicants' issue estoppel argument, explaining the Minister's intervention raised new credibility issues not previously decided.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court disagrees with applicants' claim that passport stamps were unreliable and irrelevant, affirming the RPD's reasonable consideration of them.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court clarifies there is no evidence passports or stamps were fraudulently obtained and the RPD did not discredit other documents on that basis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "party",
+   "summary": "Applicants argue the RPD unreasonably dismissed their sons' successful refugee claims and made adverse credibility findings about Hossai's FEHRO knowledge.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "Applicants claim the RPD ignored evidence about Hossai's husband leaving FEHRO, her detachment, and threatening messages from him.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Applicants contend the RPD unduly focused on passport discrepancies to discredit the Principal Applicant's film industry work claim.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court rejects applicants' invitation to reweigh evidence, noting the RPD considered all evidence and addressed the sons' claims appropriately.",
+   "ideas": "multiple",
+   "idea_list": [
+    "invitation to reweigh evidence rejected",
+    "RPD presumed to consider all evidence",
+    "RPD addressed sons' claims"
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Applicants claim their Charter s.7 rights would be breached if removed, but the court finds this irrelevant as no removal is scheduled and misinterprets prior case law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Charter s.7 rights claim",
+    "court finds claim irrelevant",
+    "applicants misinterpret case law"
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court lists unchallenged negative credibility findings about the applicants' inconsistent statements and knowledge gaps.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court finds cumulative contradictions support negative credibility conclusions and that alleged flaws are peripheral to the decision's merits.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court states lack of credibility is determinative, applicants invite improper reweighing, and administrative decisions presume full evidence consideration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of credibility determinative",
+    "applicants invite reweighing",
+    "presumption of evidence consideration"
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court concludes the RPD's decision was procedurally fair and reasonable and dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 48,
+   "speaker": "party",
+   "summary": "Applicants propose certifying whether s.104(1)(d) IRPA under the Safe Third Country Agreement infringes their Charter s.7 rights.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "Applicants argue s.104(1)(d) IRPA improperly denies RAD appeals to claimants with family in Canada, undermining the Safe Third Country Agreement's purpose.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "Respondent argues s.104(1)(d) IRPA concerns claim suspension if not first claim, unrelated to the Safe Third Country Agreement or appeal denial.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The court agrees with the respondent that s.104(1)(d) IRPA is unrelated to the Safe Third Country Agreement and does not bar appeals.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

@@ -1,0 +1,244 @@
+{
+ "case_id": 34269,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0040452
+ },
+ "verification": {
+  "paragraphs": 22,
+  "summaries": 22,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 4
+  },
+  "speakers": {
+   "court": 7,
+   "evidence": 3,
+   "below": 6,
+   "party": 6
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns a judicial review application challenging the Refugee Appeal Division's (RAD) decision on the Applicant's refugee claim in Canada. The Applicant, who fled Sri Lanka fearing persecution due to alleged connections with Tamil drivers and the LTTE, sought refugee protection, which was ultimately rejected by the RAD. The Federal Court found the RAD's decision reasonable and dismissed the judicial review application.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "Background and Evidence",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 12,
+    "label": "Decisions Below",
+    "kind": "background"
+   },
+   {
+    "first": 14,
+    "last": 21,
+    "label": "Parties' Arguments and Issues",
+    "kind": "issue"
+   },
+   {
+    "first": 22,
+    "last": 27,
+    "label": "Court's Analysis and Conclusion",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court concludes the RAD's decision was reasonable and dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "evidence",
+   "summary": "In December 2018, the Applicant was stopped by men claiming to be CID, accused of illegal taxi activities, and advised to bring vehicle documents to a competitor; police refused his complaint.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "The Applicant resumed his marine career, trained in India in early 2019, and was questioned by immigration and police upon return to Sri Lanka.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "After return, two Tamil drivers were detained on terrorism charges; fearing implication, the Applicant avoided questioning, stayed with a friend, and left Sri Lanka for Canada to claim refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RPD rejected the Applicant's claim, finding no evidence of the rival taxi owner or his army links, and concluded the Tamil employees were not arrested, citing documentary evidence and inconsistencies.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RAD accepted the Applicant and his father operated a taxi company hiring Tamil drivers but found no evidence of authorities' interest in the Applicant for over four and a half years.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RAD noted the Applicant's brief involvement in the taxi business, his father's role in hiring arrested drivers, no problems for his father, and closure of the business after the Applicant left.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RAD agreed the Applicant would not face risk returning as a failed claimant, noting his Sinhalese ethnicity, no LTTE connections, no prior problems, and lack of credible evidence of targeting.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RAD independently assessed evidence, noting most returnees are not monitored, some with LTTE links may be, but the Applicant is not wanted and asylum claims abroad are not offences.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "At hearing, the Applicant abandoned the first issue and pursued only the RAD's sur place assessment, with parties agreeing the standard of review is reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RAD disagreed, rejecting the LTTE supporter perception, noting most returnees are not monitored, and highlighting the Applicant's Sinhalese ethnicity and frequent travel.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant submits the RAD failed to explain the relevance of his identity aspects to risk, making findings unjustified and lacking transparency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD erred by referring to his Sinhalese identity, as evidence does not show being Sinhalese eliminates mistreatment risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicant states his lack of a criminal record is irrelevant to his risk as a failed asylum seeker.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD unreasonably ignored his connection to LTTE through hiring Tamil drivers.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Applicant cites Iyampillai to argue credibility concerns cannot determine risk of persecution as a failed refugee claimant, criticizing the RAD's reliance on disbelief of targeting.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court finds the RAD reasonably assessed the sur place claim based on the Applicant's return as a failed asylum seeker.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court agrees the RAD reasonably found the Applicant's Sinhalese identity does not protect him but he failed to credibly establish LTTE targeting.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds the RAD's consideration of the Applicant's lack of criminal record was relevant and supported by documentary evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court clarifies the RAD accepted hiring Tamil drivers but rejected LTTE affiliation and perceived connection, making its findings consistent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court holds credibility findings about perceived LTTE association are relevant to risk assessment and the RAD did not err relying on them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court states that challenges to the weight of documentary evidence are outside judicial review scope.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

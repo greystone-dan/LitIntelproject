@@ -1,0 +1,372 @@
+{
+ "case_id": 6386,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0049224
+ },
+ "verification": {
+  "paragraphs": 29,
+  "summaries": 29,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 20,
+   "below": 2,
+   "party": 7
+  },
+  "multi_idea_paragraphs": 6,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case involves Iranian mother Vida Honarvar and her daughter Rosha Farnia seeking judicial review of a visa officer's refusal of their temporary resident visa and study permit applications. The Federal Court reviewed the reasonableness of the officer's decision and whether procedural fairness was denied. The court dismissed the judicial review, finding the officer's decision reasonable and no breach of procedural fairness.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Decision below and judicial review application",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 8,
+    "label": "Issues and standard of review",
+    "kind": "issue"
+   },
+   {
+    "first": 9,
+    "last": 25,
+    "label": "Analysis of reasonableness of officer's decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 28,
+    "label": "Procedural fairness analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 29,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Applicants, Iranian mother and daughter, seek judicial review of visa officer's refusal of their temporary resident visa and study permit applications; review dismissed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' identity and applications",
+    "Decision under review",
+    "Outcome of judicial review"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Minor Applicant is 16-year-old Rosha Farnia applying for study permit; Adult Applicant is her mother Vida Honarvar applying for temporary resident visa to accompany her.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' identities and applications"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "Officer denied both applications on July 6, 2021, citing doubts about Applicants leaving Canada based on family ties and visit purpose; study plan vague and financial support insufficient.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Decision date and denial",
+    "Reasons: family ties and purpose",
+    "Study plan and financial concerns"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "Adult Applicant's visa refused due to doubts about leaving Canada, considering family ties, travel history, funds, and Iran's situation; study permit refusal also affected her application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Decision on Adult Applicant",
+    "Reasons for refusal",
+    "Link to Minor Applicant's refusal"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Applicants seek judicial review of the Officer's Decision denying their applications.",
+   "ideas": "single",
+   "idea_list": [
+    "Judicial review sought"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Court frames issues: reasonableness of Officer's conclusion on Applicants leaving Canada and whether procedural fairness was denied.",
+   "ideas": "single",
+   "idea_list": [
+    "Issues for court"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Reasonableness standard applies to first issue; correctness standard applies to procedural fairness issue.",
+   "ideas": "single",
+   "idea_list": [
+    "Standards of review"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Supreme Court's Vavilov decision defines reasonableness as coherent, rational, justified, transparent, and intelligible decision-making.",
+   "ideas": "single",
+   "idea_list": [
+    "Definition of reasonableness"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Applicants argue Officer gave no rationale for concluding they would not leave Canada after their stay.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' challenge to Officer's rationale"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Court finds Officer's reasoning evident from letter and notes, based on study plan, family ties, establishment, and cost; will assess reasonableness of these elements.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's reasoning identified",
+    "Court to assess reasonableness of elements"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Applicants submit Officer disregarded their substantial family ties in Iran, noting large extended family and that father and sibling won't accompany them.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' argument on family ties"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court accepts Adult Applicant's affidavit and letter stating limited stay; family details show mother, brother, son in Iran, deceased spouse, sister in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Affidavit and letter on stay",
+    "Family details in application"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Decision mentions family ties but lacks detailed analysis; failure to consider strong home country ties or explain balancing can be reviewable error.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Decision's treatment of family ties",
+    "Legal standards on family ties"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Court agrees with Respondent that given facts, Decision's treatment of family ties is intelligible despite father's death and limited nuclear family left in Iran.",
+   "ideas": "single",
+   "idea_list": [
+    "Decision intelligible on family ties"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicants argue Officer ignored substantial evidence on study plan, citing case where officer unreasonably acted as career counsellor.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' argument on study plan"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Respondent submits Officer's analysis is intelligible given Minor Applicant's age, study level, mother's letter on interest in biology and Canadian education benefits.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent's defense of Officer's analysis"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Court agrees with Respondent that Officer's reasoning on study plan is intelligible and consistent with information presented.",
+   "ideas": "single",
+   "idea_list": [
+    "Court's acceptance of Officer's reasoning"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Court distinguishes Adom case, finding no general bar on officers assessing study plans; such assessment relevant to determining likelihood of leaving Canada.",
+   "ideas": "single",
+   "idea_list": [
+    "Distinguishing precedent on study plan assessment"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Applicants challenge Officer's conclusion on family's establishment and expense of Canadian study, citing schooling, employment, finances, and property.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' argument on finances and establishment"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Decision lacks detailed financial analysis but absence does not render it unintelligible; aspect is reasonable given information before Officer.",
+   "ideas": "single",
+   "idea_list": [
+    "Court on financial analysis sufficiency"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Officer focused on tuition paid and Adult Applicant's savings; application shows $28,000 cost with $16,000 tuition paid and $63,201 savings.",
+   "ideas": "single",
+   "idea_list": [
+    "Financial facts considered by Officer"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court agrees Officer reasonably questioned if cost of studies was reasonable expense given savings consumed and additional costs for Adult Applicant's stay.",
+   "ideas": "single",
+   "idea_list": [
+    "Court finds Officer's financial concerns intelligible"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Applicants cite Motala case where officer erred focusing on cost when applicant could afford it; argue cost focus here is similarly erroneous.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' reliance on Motala precedent"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Court distinguishes Motala, noting here Officer explained why cost was unreasonable, unlike bald statement in Motala.",
+   "ideas": "single",
+   "idea_list": [
+    "Court distinguishes Motala case"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Court finds no basis to intervene on reasonableness and proceeds to consider procedural fairness argument.",
+   "ideas": "single",
+   "idea_list": [
+    "Court's conclusion on reasonableness"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Applicants argue procedural fairness required Officer to give procedural fairness letter or interview opportunity due to credibility concerns, citing Yaqoob case.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' procedural fairness argument"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Court accepts Yaqoob principle but finds no credibility concerns here; Decision based on statutory requirements, not truthfulness doubts.",
+   "ideas": "single",
+   "idea_list": [
+    "Court rejects procedural fairness claim"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court finds no breach of procedural fairness duty in this case.",
+   "ideas": "single",
+   "idea_list": [
+    "Court's procedural fairness finding"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Judicial review dismissed; no questions for certification proposed or stated.",
+   "ideas": "single",
+   "idea_list": [
+    "Disposition of judicial review"
+   ],
+   "role": "disposition"
+  }
+ ]
+}

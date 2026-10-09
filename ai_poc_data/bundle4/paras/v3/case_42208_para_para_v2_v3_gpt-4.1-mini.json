@@ -1,0 +1,291 @@
+{
+ "case_id": 42208,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0044872
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 26
+  },
+  "multi_idea_paragraphs": 3,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appellant in custody seeking access to legal tools, including the return of a seized laptop, to prepare his appeal against the respondent, Canada. The Court reviewed prior denials of access, the circumstances of the laptop seizure, and procedural issues with the appellant's filings. Ultimately, the motion was dismissed due to lack of new evidence and procedural non-compliance, with limited allowance for the appellant's reply and no costs awarded.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 6,
+    "label": "Background and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 14,
+    "label": "Procedural issues and motion records",
+    "kind": "issue"
+   },
+   {
+    "first": 15,
+    "last": 20,
+    "label": "Evidence regarding laptop seizure and CSC's response",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 23,
+    "label": "Assessment of appellant's allegations and compliance with Court instructions",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 25,
+    "label": "Court's reasoning on motion dismissal and appropriate forum for grievances",
+    "kind": "analysis"
+   },
+   {
+    "first": 26,
+    "last": 26,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Court has a motion from the appellant in custody seeking orders for tools to prepare his appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Previous motions for access to legal tools were denied as the appellant had reasonable access and increased access could compromise prison security.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appellant now moves again because his authorized laptop was seized on November 29, 2022, requesting its return.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The appellant also seeks previously denied access to a hard drive and legal search engines, but without new facts, this is a prohibited disguised appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court gave instructions on November 7, 2022, that only new evidence would be considered and required the appellant to state if he obtained case law from his prior solicitor.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The appellant did not follow the Court's instructions, which affects the motion's outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The only new fact is the laptop seizure; the appellant alleges respondent's solicitor admitted deliberate obstruction and perjury.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New fact: laptop seizure",
+    "Allegation of perjury and obstruction by respondent"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The appellant's complaint extends beyond this appeal to multiple proceedings, lacking specificity about this appeal's preparation needs.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The appellant filed a reply record relying on evidence requiring prior leave, which was not obtained, violating procedural rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Registry did not file the appellant's reply record; the respondent seeks leave to file supplementary affidavits or to strike new allegations without leave.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appellant filed a reply record with new affidavits and exhibits responding to the respondent's motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The respondent should have objected earlier; both parties filed supplementary records causing procedural confusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "To avoid delays, the Court will limit the appellant's reply record by removing evidence and new allegations, granting respondent's alternative relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The appellant's reply record is allowed but limited; respondent's main motion is moot; appellant's reply to respondent's motion is moot.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The seized laptop was loaned during the pandemic; it was seized after a search triggered by the appellant watching unauthorized pornographic video and finding contraband devices.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Laptop loaned during pandemic",
+    "Seizure due to unauthorized video and contraband devices"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "A disciplinary report was dismissed as late, but the laptop remained seized; CSC proposed solutions to recover documents between Dec 2022 and Feb 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The appellant objected to CSC's solutions mainly because CSC refuses to give him a hard drive in his cell, and reiterated accusations of perjury and obstruction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Only 3 inmates at the Institution have laptops in their cells, all involved in ongoing criminal proceedings with constitutional rights to full defence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Evidence shows privacy filters and projects for digital device use in libraries; laptops in cells are rare due to security and operational challenges.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Given security concerns and the search results, CSC's refusal to restore laptop access and proposed alternatives are reasonable despite appellant's dissatisfaction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The appellant's attempt to use acceptance of alternatives to demand a hard drive is a disguised appeal of prior Orders, which is not allowed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Allegations of perjury and obstruction are unsupported; contradictory evidence and appellant's interpretation do not establish these serious claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The appellant ignored the Court's instruction to state if he obtained case law from his prior solicitor, which was relevant to his appeal grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The motion record lacks information on appellant's real needs for this appeal and the laptop seizure's impact, warranting dismissal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court is not the forum to debate the volume of appellant's litigation or access needs; grievances should be pursued under the Corrections Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The motion is dismissed; no costs awarded; appellant's reply allowed in limited form; respondent's alternative motion relief allowed; main motion moot.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Motion dismissed",
+    "No costs awarded",
+    "Reply allowed in limited form",
+    "Respondent's alternative relief allowed",
+    "Main motion moot"
+   ],
+   "role": "conclusion"
+  }
+ ]
+}

@@ -1,0 +1,301 @@
+{
+ "case_id": 69024,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.005005600000000001
+ },
+ "verification": {
+  "paragraphs": 24,
+  "summaries": 24,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 12,
+   "evidence": 5,
+   "below": 3,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 8,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by a Ghanaian appellant with US permanent resident status against the Refugee Protection Division's (RPD) exclusion from refugee protection under Article 1E and IRPA s.98 due to his US status. The tribunal reviewed whether the appellant had valid US status and faced a risk of persecution there, applying the legal test from Zeng (2010 FCA). The appeal was dismissed, confirming the RPD's decision that the appellant is excluded from protection as he has valid US status and no risk of persecution in the US.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Introduction and role of the tribunal",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 8,
+    "label": "Factual background and RPD findings",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 11,
+    "label": "Legal issues and applicable test",
+    "kind": "issue"
+   },
+   {
+    "first": 12,
+    "last": 20,
+    "label": "Analysis of US status and risk of persecution",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 23,
+    "label": "Assessment of risk and application of legal test",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 24,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Appellant, a Ghanaian with US permanent resident status, appeals the RPD's exclusion from refugee protection under Article 1E and IRPA s.98 due to his US status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's identity and status",
+    "RPD's exclusion decision",
+    "Appeal issue"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal applies the new Jurisprudential Guide MB8-00025 and the traditional framework for Article 1E analysis to decide this appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD correctly found the Appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The RAD's role is to review all evidence and determine if the RPD's decision was correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "The Appellant obtained US permanent residence in 2011, lived in Ghana from 2012 to 2018, had complex personal relationships, was charged with sodomy in Ghana, then came to Canada in 2018 and claimed refugee status in 2019.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's US status and timeline",
+    "Personal and family details",
+    "Criminal charges in Ghana",
+    "Entry and refugee claim in Canada"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RPD misapplied jurisprudence but correctly concluded the Appellant is excluded from protection due to valid US status and no risk of persecution there.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's jurisprudence error",
+    "Correct risk assessment",
+    "Exclusion conclusion"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD and Majebi decision that the Appellant had valid US permanent resident status at the hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant excluded under Article 1E because he has US permanent resident status and no well-founded fear of persecution there, relying on Shamloo and Wassiq cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD applied the wrong legal test for exclusion and that the correct test is from Zeng (2010 FCA).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Minister intervened before the RPD relying on Zeng to support exclusion but did not intervene before the RAD.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The RAD finds the correct test is Zeng, applies it, and finds the Appellant has not shown he lacks valid US status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Correct test is Zeng",
+    "Application of test",
+    "Appellant status not disproven"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Appellant had US status at the RPD hearing and has not shown the RPD was wrong in that finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant has status in the US similar to nationals there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Appellant submits he does not have status in the US substantially similar to nationals there.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "speaker": "evidence",
+   "summary": "The Appellant testified he never abandoned his US green card, was never told he lost status, but did not file US taxes after leaving in 2012; border officers told him he had six months to return.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's testimony on status",
+    "No official loss notification",
+    "Tax filing failure",
+    "Border officer's six-month warning"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "evidence",
+   "summary": "US authorities confirmed the Appellant was a permanent resident, never in removal proceedings, and would be allowed entry to the US; Canadian border verified this in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "evidence",
+   "summary": "A legal opinion states the Appellant abandoned US permanent resident status by staying outside over a year without intent to return, thus not eligible for SB-1 visa.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Legal opinion on abandonment",
+    "SB-1 visa criteria",
+    "US Foreign Affairs Manual provisions"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "speaker": "evidence",
+   "summary": "US documentation states LPR status is lost if abandoned, including moving permanently abroad or failing to file US taxes; abandonment can be determined by immigration court.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant has not abandoned US LPR status, weighs evidence favoring his valid status, and rejects his credibility on six-month loss warning.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No abandonment found",
+    "Credibility rejection",
+    "Process to maintain status exists",
+    "Appellant has valid US status"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Since the Appellant has US status similar to nationals, the tribunal finds he faces no risk of persecution or harm in the US and is excluded from protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RPD considered the Appellant's risk or fear in the US and concluded he had none by his own admission.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by not clearly outlining the Zeng test or addressing its later parts.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD did assess risk, correctly concluded no risk existed, and no further analysis was needed under Zeng.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD risk assessment adequate",
+    "No factual risk evidence",
+    "No need for further Zeng steps"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The appeal is dismissed and the RPD's decision excluding the Appellant from refugee protection under Article 1E and IRPA s.98 is confirmed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

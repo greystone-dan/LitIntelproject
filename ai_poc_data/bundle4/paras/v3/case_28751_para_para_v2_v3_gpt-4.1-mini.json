@@ -1,0 +1,395 @@
+{
+ "case_id": 28751,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.007933200000000001
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 6
+  },
+  "speakers": {
+   "court": 29,
+   "evidence": 1,
+   "below": 4,
+   "other": 2,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns the Principal Applicant, an Indian citizen, who applied for permanent residence under the Home Support Worker Class but was refused by IRCC due to not meeting educational credential requirements based on a WES Educational Credential Assessment. The Applicant challenges the refusal on grounds including procedural fairness and reasonableness of the decision, while the court excludes new evidence submitted after the refusal. The court ultimately finds the refusal reasonable and no breach of procedural fairness, aligning with prior similar cases, and dismisses the judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 9,
+    "label": "Background and decision below",
+    "kind": "background"
+   },
+   {
+    "first": 10,
+    "last": 12,
+    "label": "Issues and standards of review",
+    "kind": "issue"
+   },
+   {
+    "first": 13,
+    "last": 21,
+    "label": "New evidence and procedural fairness",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 26,
+    "label": "Procedural fairness analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 44,
+    "label": "Reasonableness analysis and case law",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 46,
+    "label": "Affidavit and evidence principles",
+    "kind": "other"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Principal Applicant and family are Indian citizens; she applied for permanent residence under the Home Support Worker Class requiring educational credential evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "evidence",
+   "summary": "The Principal Applicant submitted a WES Educational Credential Assessment dated April 8, 2020, equating her Indian diploma to three years of hospital training.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "IRCC refused the Principal Applicant's application on January 19, 2024, for not meeting education requirements; spouse and child's applications were also rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Section 14.1 of the Immigration and Refugee Protection Act allows the Minister to establish economic immigration classes and related application procedures.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Immigration and Refugee Protection Regulations define Canadian educational credentials and equivalency assessments for immigration purposes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer found the Principal Applicant did not meet education requirements for applicants with less than 12 months Canadian work experience under the program.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer concluded the WES report did not equate to a completed Canadian one-year post-secondary credential, so the Principal Applicant failed the requirement.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "GCMS notes confirm the Officer refused the application on January 19, 2024, due to the education requirement not being met per the WES report.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The issues are identified as the decision under review, admissibility of new evidence, procedural fairness, and reasonableness of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The standard of review for procedural fairness is correctness, focusing on whether the procedure was fair in all circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The standard of review on the merits is reasonableness, assessing justification, transparency, intelligibility, and relation to facts and law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Respondent notes the decision under review is the January 19, 2024 refusal, but the Applicants made two reconsideration requests afterward.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The first reconsideration was refused and judicially dismissed; the second, with a new IQAS ECA dated May 27, 2024, is pending.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The reconsideration decisions are not under review, but the record includes the IQAS report and an affidavit attaching it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Generally, new evidence not before the decision-maker is inadmissible on judicial review except for limited exceptions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The IQAS report post-dates the decision and is not admissible as it is not background information but relevant to the merits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicants argue the IQAS report reconfirms the WES report and highlights procedural defects, supporting their view on the Officer's misinterpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The IQAS report is evidence relevant to the merits and not admissible; the affidavit and post-decision record content will not be considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The IQAS report does not show procedural unfairness or direct IRCC's choice of ECA; no breach of fairness or admissibility exception arises.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The IQAS report issue should be addressed in the second reconsideration; judicial review can follow if that is unsuccessful.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Officer could not have breached fairness by not addressing IQAS wording differences as that report did not exist at decision time.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Officer did not refuse the application due to wording differences; no procedural fairness breach found.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Operational instructions and guidelines, though not binding, may assist decision-makers and courts in assessing reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Court will address relevant jurisprudence cited by the parties supporting their positions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Ajaz case is similar: WES report showed hospital study equivalency but not a completed Canadian one-year post-secondary credential, leading to refusal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "In Ajaz, the Court rejected the applicant's argument that the WES report showed equivalency to a completed Canadian credential as it did not.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Preeti case also found refusal reasonable where WES report stated credential was not comparable to a completed Canadian credential.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Ajaz and Preeti show WES reports equating to hospital study do not meet the program's requirement for a completed Canadian credential.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Chatha case involved similar facts; the WES report stated the credential was not comparable to a completed education credential.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Chatha distinguished Lakhwinder Kaur and Lakhanpal cases due to differences in WES report content and program requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Justice Fuhrer found the WES report did not show the Indian diploma equaled a one-year Canadian post-secondary credential, making the applicant ineligible under the Home Support Worker Program.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The applicants rely on Lakhwinder Kaur, but Ajaz, Preeti, and Chatha are more factually similar; in Lakhwinder Kaur, the officer's finding was unreasonable due to lack of explanation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants rely on Lakhwinder Kaur",
+    "Ajaz, Preeti, Chatha more similar",
+    "officer's finding unreasonable in Lakhwinder Kaur"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Justice Kane found Kamaljit Kaur factually similar to Lakhwinder Kaur, with a WES report stating five years of professional dentistry study but no equivalency to a Canadian post-secondary credential.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Justice Kane distinguished Preeti and Ajaz because their WES reports stated no equivalence, unlike Kamaljit Kaur where no explanation was given for denying equivalency of a bachelor's degree.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Although the WES report here lacks a remark of non-comparability, like Preeti and Chatha, the applicants failed to prove equivalency to a one-year Canadian credential, so the officer's finding was reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "WES report silent on equivalency",
+    "applicants failed to prove equivalency",
+    "officer's finding reasonable"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "This case aligns with Ajaz where the WES report did not state equivalency to a Canadian credential, justifying the officer's reasonable finding of ineligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "In Lakhwinder Kaur, the officer's unexplained conclusion that a five-year Indian bachelor's was not equivalent was unreasonable due to the WES report's silence on equivalency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The general background exception allows non-argumentative affidavits that neutrally outline procedural history and evidence categories to assist reviewing courts in complex cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Affidavits must not provide evidence on the merits or invade the administrative decision-maker's role as fact-finder and merits-decider.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  }
+ ]
+}

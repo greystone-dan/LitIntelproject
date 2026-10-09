@@ -1,0 +1,429 @@
+{
+ "case_id": 66908,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0066332000000000006
+ },
+ "verification": {
+  "paragraphs": 46,
+  "summaries": 46,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 32,
+   "party": 8,
+   "below": 6
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 11,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by a Jordanian refugee claimant against the Refugee Protection Division's (RPD) negative credibility finding and refusal of protection. The claimant argued that the RPD failed to properly consider his mental health issues and new evidence affecting his credibility. The tribunal allowed the appeal and referred the claim back to the RPD for re-determination by a different panel.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "RPD Decision and Appellant's Arguments",
+    "kind": "background"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "Tribunal's Approach to New Evidence",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 11,
+    "last": 18,
+    "label": "Assessment of New Evidence and Credibility of Documents",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 20,
+    "label": "Admission of New Medical Evidence and Hearing Request",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 22,
+    "label": "Tribunal's Role and Critique of RPD's Credibility Assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 23,
+    "last": 28,
+    "label": "RPD Hearing Details and Treatment of Mental Health Evidence",
+    "kind": "background"
+   },
+   {
+    "first": 29,
+    "last": 34,
+    "label": "Tribunal's Analysis of RPD's Handling of Mental Health Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 35,
+    "last": 41,
+    "label": "Evaluation of Medical and Psychological Evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 42,
+    "last": 44,
+    "label": "Tribunal's Findings on RPD Errors and Counsel's Representation",
+    "kind": "analysis"
+   },
+   {
+    "first": 45,
+    "last": 46,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal and refers the claim back to the RPD for re-determination by a different panel.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Appellant, a 24-year-old Jordanian, fears being killed by his girlfriend's family after her murder by her brother following her pregnancy.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Appellant came to Canada in 2014 to study and claimed refugee protection in December 2017.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant's credibility determinative, noting lack of corroborative evidence and implausibility of his story, and gave no weight to supporting letters.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Appellant argues his counsel lacked time to assess his fitness to testify and that the panel erred by ignoring his mental health and not adjourning the hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellant contends the RPD ignored evidence of unreported honour-based violence and unreasonably dismissed letters and the plausibility of his relationship.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Appellant argues he provided reasonable explanations for his delay in claiming protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Appellant argues there is no state protection or viable internal flight alternative available to him in Jordan.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal states it can only accept evidence that arose after the RPD decision, was not reasonably available then, or could not reasonably have been brought before the RPD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal must decide if new evidence is new, credible, and relevant before accepting it.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Appellant submits various new evidence items including affidavits, assessments, letters, motel receipts, and medication lists for admission.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal treats the Appellant's affidavit as part of his submissions and memorandum.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The 2018 psychological assessment is rejected as it was available before the RPD decision and could have been submitted then.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The motel receipts from 2013-2014 are rejected as they predate the RPD decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Appellant failed to explain why motel receipts were only recently obtained, so they should have been submitted earlier.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's explanation for not obtaining proof of his relationship not credible given his awareness and counsel's involvement.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the motel receipts were reasonably available and should have been presented to the RPD before the claim rejection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the motel receipts not credible as they contradict the Appellant's narrative and are likely not genuine, so they are not admitted.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal admits new medical and psychological evidence arising after the claim rejection as credible and relevant to credibility assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal denies the request for an oral hearing, finding it unnecessary for determination.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal's role is to assess all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD failed to consider the Appellant's psychological and memory impairments in relation to credibility issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "At the hearing, counsel disclosed the Appellant's mental conditions and medication; the RPD noted possible side effects but found no intellectual impairment and allowed accommodations.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The Appellant testified about medication use and side effects; the RPD found his anxiety normal and confirmed he could testify.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "During the hearing, the Appellant had memory issues and a panic attack; the hearing was paused but continued after he indicated he could proceed.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "Post-hearing, the Appellant submitted medical evidence indicating memory struggles in stressful hearings; the RPD allowed time for this evidence and submissions.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by dismissing his anxiety as normal and provides new medical evidence to support this.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The RPD dismissed the medical letter as unhelpful, focusing on lack of evidence and plausibility rather than memory issues.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD did not properly analyze how the Appellant's memory issues affected credibility despite clear hearing difficulties.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal notes that psychological problems alone do not prove the truth of the Appellant's allegations, citing Federal Court.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the XXXX report was submitted to alert the RPD to the Appellant's condition affecting testimony, not to prove past persecution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "purpose of XXXX report",
+    "not a cure-all",
+    "submitted to alert RPD"
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal finds the XXXX letter probative as it was authored by a qualified doctor with a longstanding medical relationship to the Appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by dismissing the XXXX letter due to the Appellant's credibility, warning against circular reasoning.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD was required to clearly explain why the Appellant's XXXX evidence did not affect its conclusions but failed to do so.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal accepts new, more detailed medical and XXXX evidence on appeal and considers its impact on the Appellant's testimony.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal notes the XXXX letter describes severe memory issues affecting the Appellant's ability to recall events but lacks detail on diagnosis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal accepts the Appellant's ongoing pain from the 2018 accident but rejects the XXXX's opinion on XXXX issues as unqualified.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal notes the XXXX assessment by a qualified XXXX indicates trauma but lacks pre-migration trauma details and improperly offers a diagnosis.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal finds the XXXX's memory testing shows weak scores and symptoms of XXXX, with the Appellant irritated and unstable during assessment.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The tribunal finds the medication list shows ongoing medication since before 2018 but is limited as it lacks timing and side effect details.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The tribunal accepts the Appellant suffers pain from the 2018 accident, pre-existing XXXX, and current symptoms or sequelae of XXXX.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred by not assessing the Appellant's testimony in light of trauma, pain, and mental health issues affecting recall.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant failed to mention key health issues at the hearing, indicating inability to articulate evidence that could assist him.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The tribunal criticizes former counsel for poor preparation and inadequate representation of the Appellant at the RPD hearing.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal but finds it cannot determine the claim without hearing the evidence presented to the RPD.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal and refers the Appellant's claim back to the RPD for re-determination by a different panel under IRPA section 111(1)(c).",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

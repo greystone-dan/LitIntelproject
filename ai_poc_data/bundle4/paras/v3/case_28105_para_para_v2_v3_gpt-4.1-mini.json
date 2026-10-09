@@ -1,0 +1,374 @@
+{
+ "case_id": 28105,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0068624
+ },
+ "verification": {
+  "paragraphs": 37,
+  "summaries": 37,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 6,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 6
+  },
+  "speakers": {
+   "court": 31,
+   "party": 6
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 7,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Lemay Co Inc.'s judicial review application challenging the Minister of Canada's refusal to allow an upward adjustment to its Canada Emergency Wage Subsidy (CEWS) claims. Lemay, the applicant, argues that the Minister erred in interpreting the Income Tax Act provisions, while the respondent (Canada) contends the application is doomed and internal recourse exists. The Federal Court dismissed the respondent's motion to strike, finding Lemay's interpretation has a reasonable chance of success and no internal recourse is available, allowing the judicial review to proceed.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 2,
+    "label": "Motion to strike dismissal",
+    "kind": "disposition"
+   },
+   {
+    "first": 4,
+    "last": 12,
+    "label": "Background facts and procedural history",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 21,
+    "label": "Respondent's motion to strike and legal standards",
+    "kind": "issue"
+   },
+   {
+    "first": 16,
+    "last": 21,
+    "label": "Standard for striking judicial review applications",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 21,
+    "last": 30,
+    "label": "Analysis of statutory interpretation and reasonable chance of success",
+    "kind": "analysis"
+   },
+   {
+    "first": 32,
+    "last": 41,
+    "label": "Internal recourse under subsection 125.7(16) and Minister's decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 43,
+    "last": 44,
+    "label": "Order and costs",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The respondent failed to prove the judicial review application is doomed or that internal recourse exists; motion to strike is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Minister audited CEWS, found Lemay overclaimed $311,204 for periods 6,7 and 13-15, and underclaimed for periods 8-12 due to calculation error.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "On March 27, 2023, Minister notified Lemay of intended assessment and adjustments for periods 6,7 and 13-15 where overclaim occurred.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "On May 12, 2023, Lemay requested Minister to apply discretion under ITA subsection 125.7(16) to increase claim for periods 8-12 by $1,715,341.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "On June 22, 2023, Minister confirmed adjustment for overclaimed periods but refused Lemay's upward claim for periods 8-12, citing CRA technical interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "On July 26, 2023, Lemay submitted additional arguments citing ITA provisions allowing Minister to grant CEWS amounts greater than originally claimed for periods 8-12.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "On September 11, 2023, Minister again refused upward adjustment for periods 8-12, stating no jurisdiction to amend claims beyond original amounts filed timely.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "On October 11, 2023, Lemay applied for judicial review of the Minister's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "On October 25, 2023, respondent informally suggested reconsidering subsection 125.7(16) analysis, contrary to Minister's September 11 decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Lemay rejected respondent's proposal as the official decision under review remains the September 11, 2023 letter refusing the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Respondent moved to strike, arguing Lemay's interpretation is doomed and judicial review is premature due to internal recourse under ITA subsection 125.7(16).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Judicial review applications should not be struck before hearing unless clearly improper with no chance of success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The party moving to strike must meet a stringent standard proving the application should be struck.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "When statutory interpretation is disputed, court must find if applicant's interpretation has reasonable chance of success; if so, motion to strike must be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "On motion to strike, court should not make definitive legal rulings if competing credible statutory interpretations exist; must assess if reasonable prospect of success exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Respondent argues ITA paragraph 125.7(5)(a) prohibits Minister from paying subsidy exceeding amount initially claimed; Lemay's claim is doomed to fail.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Lemay argues subsection 125.7(5) does not prevent amending original CEWS application and does not address right to file new form correcting errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Lemay claims Minister has inherent power under ITA subsections 152(3.4) and 164(1)(b) to allow new returns, so application is not doomed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Lemay's argument on ITA paragraphs 164(1)(b) and 152(3.4) was rejected by Minister and is subject of judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Respondent counters subsection 152(3.4) aims to remedy paragraph 152(1)(b) effects and does not allow upward adjustments to original applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Respondent says subsection 152(3.4) is unambiguous and subject to limitation in subsection 125.7(5).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Respondent did not rebut Lemay's argument on paragraph 164(1)(b); court finds subsection 152(4) does not fully address Lemay's position.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Considering ITA subsections 125.7(5), 152(3.4), and paragraph 164(1)(b), it is unclear if Minister cannot admit amended form as Lemay requests.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "On motion to strike, court cannot decide ITA meaning if multiple reasonable interpretations exist; Lemay's interpretation has reasonable chance of success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Respondent failed to prove it is plain and obvious Lemay's interpretation has no chance of success; application is not doomed to fail.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Minister has already ruled that subsection 125.7(16) does not allow Lemay's claim, so internal recourse is not available.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Lemay requested Minister's discretion under subsection 125.7(16) on May 12, 2023; Minister refused on June 22, 2023 citing CRA technical interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Minister determined no recourse exists under subsection 125.7(16) and rejected Lemay's application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "On September 11, 2023, Minister stated subsection 125.7(16) allows original applications but not amendments to prior applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "Respondent now argues Minister's interpretation of subsection 125.7(16) is erroneous and internal recourse does exist.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court notes the respondent's interpretation of subsection 125.7(16) ITA is plausible but the Minister rejected it in the judicial review decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The Minister has concluded there is no internal and effective recourse under subsection 125.7(16) for Lemay to file its application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The respondent cannot claim internal recourse exists when the Minister has rejected it; Lemay properly filed for judicial review instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Deciding the reasonableness of the Minister's interpretation must await a full hearing, not a motion to strike.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "On a motion to strike, the respondent cannot override the Minister's decision and force Lemay to submit a prohibited application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court extends the time limits under Federal Courts Rules by 30 days from this decision date, as requested by the respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The parties agree that costs of $3,285 are payable to Lemay.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

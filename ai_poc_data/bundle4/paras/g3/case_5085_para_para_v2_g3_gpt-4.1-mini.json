@@ -1,0 +1,276 @@
+{
+ "case_id": 5085,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "g3",
+ "run": "bundle4_g3",
+ "usage": {
+  "usd": 0.0047756000000000005
+ },
+ "verification": {
+  "paragraphs": 50,
+  "summaries": 17,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 11,
+   "party": 3,
+   "mixed": 3
+  },
+  "multi_idea_paragraphs": 16,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case involves a judicial review of the Refugee Protection Division's (RPD) decision rejecting the Applicant's refugee claim based on credibility issues related to identity documents and travel narrative. The Applicant fled Eritrea to avoid military service and faced allegations from the Minister challenging her identity and the authenticity of her documents. The Federal Court upheld the RPD's decision as reasonable despite some errors regarding the birth certificate and business license.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 12,
+    "label": "Background and Applicant's narrative",
+    "kind": "background"
+   },
+   {
+    "first": 13,
+    "last": 18,
+    "label": "Minister's challenge and evidence",
+    "kind": "background"
+   },
+   {
+    "first": 19,
+    "last": 27,
+    "label": "RPD's findings and decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 36,
+    "label": "Standard of review and analysis of document reliability",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 37,
+    "last": 48,
+    "label": "Analysis of photo identification and credibility findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 59,
+    "last": 60,
+    "label": "Disposition and conclusion",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "last": 3,
+   "speaker": "court",
+   "summary": "The court introduces the judicial review application of the Refugee Protection Division's decision rejecting the Applicant's refugee claim and summarizes her claimed narrative of fleeing Eritrea to avoid military service.",
+   "ideas": "multiple",
+   "idea_list": [
+    "judicial review application",
+    "Applicant's refugee claim rejected",
+    "Applicant's narrative of fleeing Eritrea"
+   ]
+  },
+  {
+   "para": 4,
+   "last": 6,
+   "speaker": "court",
+   "summary": "The court recounts the Applicant's further narrative of imprisonment, torture, difficulties due to military service evasion, and detention related to helping her half-sister escape.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's imprisonment and torture",
+    "difficulties from evading military service",
+    "detention linked to helping half-sister"
+   ]
+  },
+  {
+   "para": 7,
+   "last": 9,
+   "speaker": "court",
+   "summary": "The court describes the Applicant's release, flight to Sudan and then Canada, her travel with a smuggler using an unknown passport, and loss of travel documents upon arrival.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's release and flight",
+    "travel to Canada with smuggler",
+    "loss of travel documents"
+   ]
+  },
+  {
+   "para": 10,
+   "last": 12,
+   "speaker": "court",
+   "summary": "The court outlines the Applicant's fears of arrest and torture, lack of contacts in Eritrea, and documents submitted with her refugee claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's fears of persecution",
+    "lack of contacts in Eritrea",
+    "documents submitted"
+   ]
+  },
+  {
+   "para": 13,
+   "last": 15,
+   "speaker": "party",
+   "summary": "The Minister intervened, challenging the Applicant's identity and narrative, suggesting she is an Italian national who entered Canada earlier than claimed, and questioned the passport's authenticity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's intervention",
+    "challenge to Applicant's identity",
+    "claim of Italian nationality and earlier entry"
+   ]
+  },
+  {
+   "para": 16,
+   "last": 18,
+   "speaker": "party",
+   "summary": "The Minister submitted photographic evidence alleging fraud, the Applicant denied being the Italian national, and the RPD reviewed the Applicant's testimony and evidence about her travel and smuggler instructions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's photographic evidence",
+    "Applicant's denial",
+    "RPD's review of testimony"
+   ]
+  },
+  {
+   "para": 19,
+   "last": 21,
+   "speaker": "court",
+   "summary": "The RPD rejected the Applicant's explanation about lack of travel documents and found her inability to provide passport details undermined her credibility; it also gave no weight to documents obtained by bribery and letters from friends.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD rejects explanation about documents",
+    "doubts about Applicant's identity",
+    "documents and letters given no weight"
+   ]
+  },
+  {
+   "para": 22,
+   "last": 24,
+   "speaker": "court",
+   "summary": "The RPD found the Applicant's business license unreliable due to memory issues and bribery, gave no weight to letters from friends, but acknowledged difficulty obtaining documents from Eritrea.",
+   "ideas": "multiple",
+   "idea_list": [
+    "business license reliability questioned",
+    "letters given no weight",
+    "acknowledgment of document difficulties"
+   ]
+  },
+  {
+   "para": 25,
+   "last": 27,
+   "speaker": "court",
+   "summary": "The RPD accepted the Minister's photographic evidence as showing the Applicant falsified her application, rejected her claim, and prevented appeal; the Applicant raises issues on reasonableness of these findings.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD accepts photographic evidence",
+    "claim rejected for fraud",
+    "issues on reasonableness raised"
+   ]
+  },
+  {
+   "para": 28,
+   "last": 30,
+   "speaker": "mixed",
+   "summary": "The parties agree on reasonableness standard of review; the Applicant argues for heightened scrutiny due to serious consequences and challenges the RPD's findings on identity documents, with the Respondent conceding the birth certificate treatment was unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review agreed",
+    "Applicant argues heightened scrutiny",
+    "challenge to RPD's findings on documents",
+    "Respondent concedes birth certificate issue"
+   ]
+  },
+  {
+   "para": 31,
+   "last": 33,
+   "speaker": "party",
+   "summary": "The Applicant argues the RPD unreasonably found her birth certificate unreliable due to bribery, contending widespread corruption in Eritrea makes bribery necessary for obtaining documents, and defends her inability to recall her business address as plausible.",
+   "ideas": "multiple",
+   "idea_list": [
+    "birth certificate bribery issue",
+    "business license bribery issue",
+    "business address recall"
+   ]
+  },
+  {
+   "para": 34,
+   "last": 36,
+   "speaker": "court",
+   "summary": "The court accepts the Applicant's point that the birth certificate should not be dismissed due to bribery but agrees with the Respondent that the business license finding and expectation to remember the business address were reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "birth certificate weight",
+    "business license credibility",
+    "business address memory"
+   ]
+  },
+  {
+   "para": 37,
+   "last": 39,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the birth certificate error is not fatal, citing precedent, and finds other issues with the business license and photo identification sufficient to uphold the decision; the Applicant raises concerns about misidentification from photos.",
+   "ideas": "multiple",
+   "idea_list": [
+    "birth certificate error not fatal",
+    "business license and photo issues",
+    "misidentification concerns"
+   ]
+  },
+  {
+   "para": 40,
+   "last": 42,
+   "speaker": "mixed",
+   "summary": "The Applicant argues the RPD erred by not assessing photo quality, making identification unreliable; the Respondent notes the context differs from criminal law, but the court finds the decision on photo comparison reasonable and addresses the Applicant's claim of implausible arrival testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "photo quality and identification",
+    "criminal law context distinction",
+    "plausibility of arrival narrative"
+   ]
+  },
+  {
+   "para": 43,
+   "last": 45,
+   "speaker": "mixed",
+   "summary": "The Applicant contends negative inferences for using false passports or agent instructions are erroneous and argues reduced risk of questioning due to travel circumstances; the Respondent and court find credibility inferences about lack of travel document details reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "false passport negative inference",
+    "travel circumstances reducing risk",
+    "credibility inferences on travel details"
+   ]
+  },
+  {
+   "para": 46,
+   "last": 48,
+   "speaker": "court",
+   "summary": "The court agrees the RPD did not base adverse inference on false documents but on implausible testimony and lack of detail, finds the decision reasonable rejecting the Applicant's refugee claim, and notes no certification question was posed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "basis of adverse inference",
+    "decision reasonableness",
+    "no certification question"
+   ]
+  },
+  {
+   "para": 59,
+   "last": 60,
+   "speaker": "court",
+   "summary": "The court holds that even if the RPD erred regarding the Occupational Certificate, the overall decision is reasonable due to other credibility findings, following established precedent supporting decisions upheld despite some errors.",
+   "ideas": "single",
+   "idea_list": [
+    "overall decision reasonableness despite error"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,201 @@
+{
+ "case_id": 43944,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0035256000000000007
+ },
+ "verification": {
+  "paragraphs": 17,
+  "summaries": 17,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 17
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns the Minister's application to cease the refugee protection of a Cuban citizen who was recognized as a Convention refugee in Canada but allegedly reavailed himself of Cuban protection by obtaining a Cuban passport and returning to Cuba multiple times. The Refugee Protection Division (RPD) allowed the cessation application, deeming the refugee claim rejected under the Immigration and Refugee Protection Act. The tribunal found that the respondent voluntarily reavailed himself of Cuban protection, justifying cessation under section 108(1)(a).",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and Minister's cessation application",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 8,
+    "label": "Procedural history and respondent's absence",
+    "kind": "other"
+   },
+   {
+    "first": 9,
+    "last": 10,
+    "label": "Legal framework and Minister's evidence",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 11,
+    "last": 16,
+    "label": "Respondent's explanation and analysis of reavailment",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 17,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The respondent is a Cuban citizen who came to Canada in 2005, was recognized as a Convention refugee in 2006, and became a permanent resident in 2007.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "This decision concerns the Minister's application to cease the respondent's refugee protection under section 108(2) of the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Minister applied for cessation in May 2015, alleging the respondent obtained a Cuban passport in 2009 and returned to Cuba in 2011, 2013, and 2015, thus voluntarily reavailed himself of Cuban protection under section 108(1)(a).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The RPD allowed the Minister's cessation application and deemed the respondent's refugee claim rejected under section 108(3) of the Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The respondent failed to appear at the February 1, 2018 hearing, which proceeded in his absence due to his returned Notice to Appear and other factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Minister sent cessation documents to the respondent's last known address in May 2015; the respondent acknowledged receipt by requesting a venue change and submitting a contact information form.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The respondent was aware of the cessation application and his duty to update contact info but failed to do so; the RPD tried to locate him without success.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Rule 12 requires the respondent to notify parties of contact changes; the respondent failed this duty, so proceeding without him did not breach procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Section 108(1)(a) states a refugee claim is rejected if the person voluntarily reavailed themselves of their country's protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Minister argues the respondent obtained a Cuban passport after refugee status and returned to Cuba thrice; passport and travel stamps are evidence, and the respondent confirmed this in a sworn statement.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The respondent explained his returns to Cuba were for his father's illness and funeral and his mother's hospitalization; the Minister provided no contradictory evidence, so these reasons are credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The UNHCR Handbook requires voluntariness, intention, and reavailment for cessation; the respondent voluntarily obtained a passport in 2009 before his father's illness, implying intention to seek Cuban protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The UNHCR Handbook presumes obtaining a national passport indicates intent to avail oneself of national protection, normally terminating refugee status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Canadian cases presume reavailment when a refugee obtains a passport; here, the respondent also returned to Cuba three times, reinforcing cessation under the clause.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Although the respondent's reasons for returning are noted, he did not seek Canadian permission or travel documents, and thus his trips with a Cuban passport indicate reavailment of Cuban protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The respondent's reasons do not overcome section 108(1)(a) because he held a Cuban passport long before his parents' illness and traveled with it instead of seeking Canadian travel permission.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Section 108(1)(a) applies; the Minister's cessation application is allowed and the respondent's refugee claim is rejected under section 108(3).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

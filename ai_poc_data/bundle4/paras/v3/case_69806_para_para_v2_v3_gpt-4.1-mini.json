@@ -1,0 +1,330 @@
+{
+ "case_id": 69806,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0071124000000000005
+ },
+ "verification": {
+  "paragraphs": 30,
+  "summaries": 30,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 22,
+   "below": 4,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "sections": 8,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an appeal by a Somali appellant claiming persecution and seeking refugee status in Canada, which was rejected by the Refugee Protection Division (RPD) due to issues with her identity documents and credibility. The Refugee Appeal Division (RAD) reviewed the RPD's decision and upheld it, finding no error in the negative credibility findings and the unreliability of the appellant's identity evidence. Consequently, the appeal was dismissed, and the appellant was not recognized as a Convention refugee or person in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and appellant's claim",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 5,
+    "label": "RPD decision and Minister's evidence",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 7,
+    "label": "Appellant's appeal and tribunal's initial view",
+    "kind": "issue"
+   },
+   {
+    "first": 8,
+    "last": 9,
+    "label": "Standard of review and identity findings",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 17,
+    "label": "Analysis of travel account and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 27,
+    "label": "Analysis of identity documents and supporting evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 28,
+    "last": 29,
+    "label": "Further credibility and evidence assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 30,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Appellant from Somalia claims persecution by Al Shabaab and others, fled to Kenya, then Canada with a false Danish passport; the RPD rejected her claim due to identity issues, which the Appellant contests, but the tribunal upholds the RPD's finding.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's persecution claim and travel history",
+    "RPD's rejection based on identity issues",
+    "Appellant's arguments against RPD's findings",
+    "Tribunal's agreement with RPD"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and upholds the RPD's decision that the Appellant is not a Convention refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Appellant claims persecution in Somalia, including her father's killing by Al Shabaab, threats from her former partner's family, fleeing to Kenya in 2018, and traveling to Canada in 2020 with a false Danish passport to make a refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Minister intervened, providing evidence that no one entered Canada under the name on the false Danish passport or the Appellant's claimed name, suggesting an attempt to mislead authorities and insufficient credible evidence of identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RPD rejected the Appellant's claim on September 27, 2021, finding her Somali passport and ID unreliable, lack of birth certificate, irregular Kenyan visa, and no record of entry under the claimed names, concluding insufficient identity evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellant appeals to the RAD, arguing the RPD erred by not considering Gender Guidelines explaining lack of passport details, asserting Somali passport as prima facie identity evidence, and noting most Somalis lack birth certificates but use guarantors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal finds no error by the RPD and agrees the Appellant has not established her claimed identity or refugee status.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RAD reviews the RPD decision on a correctness standard, finding no advantage in oral evidence assessment for the RPD, and concludes the Appellant has not established her claimed identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Appellant's Somali passport and ID are unreliable, no record of entry under the claimed false Danish passport name exists, and her travel account is not established on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant's travel account not credible due to no record of entry under the claimed names, lack of travel documents, and implausibility of not knowing passport details despite multiple country stops, leading to a negative credibility inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by making a negative inference from her use of a false passport and that she never saw the name on the passport, so the inference is unjustified.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal finds no error by the RPD, agreeing the Appellant's travel account lacks credibility and that the RPD did not make a negative inference solely based on use of a false passport.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Appellant's initial narrative stated she held the Danish passport and knew the name, but only after Minister's evidence did she claim not to have seen the name, showing evolving and less credible evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal finds it implausible the Appellant did not see inside the passport during travel through multiple countries and flights, and that a 29-year-old posing as a 14-year-old would be accepted without question, reducing credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's legal representative asked leading questions about the passport name, reducing the weight of her responses on this issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal summarizes that the Appellant's travel account lacks credibility due to no record of entry, evolving explanations, implausibility, and leading questions reducing evidence weight, further undermining her identity claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD did not err in basing a negative inference on the Appellant's travel account credibility, not on her use of a false passport, and that other identity documents are insufficient.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RPD found the Somali passport and National ID card unreliable due to country conditions, lack of birth certificate, vague testimony on obtaining documents, unknown sender, and irregular Kenyan visa stamp.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Appellant argues the passport should be prima facie evidence, most Somalis lack birth certificates but use guarantors, and the RPD failed to consider Gender Guidelines explaining her lack of knowledge about document details.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Somali passport and National ID card are not reliable evidence of the Appellant's identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD and country evidence that Somali passports are not generally recognized as reliable identity documents internationally, and the Appellant did not challenge this finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that a birth certificate is required for Somali passports, rejects the Appellant's argument about guarantors, and finds no evidence supporting vouching for passport applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's evidence about obtaining a 'Declaration of Nationality' in Brussels inapplicable, as she claims to have applied in Somalia and did not claim such a process or reference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by not considering Gender Guidelines explaining her lack of knowledge about the family friend who helped obtain her passport and the person who sent it to her, due to cultural and gender factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD did not mention Gender Guidelines but finds the vague testimony about assistance minor and not central; the passport remains unreliable due to lack of birth certificate and other issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Appellant's inability to provide details about who sent the passport and ID from Kenya diminishes their credibility, and notes lack of corroboration for her DHL claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal agrees the Kenyan visa is incomplete but accepts it may be an oversight; this is not central and does not affect the overall finding of unreliability of the passport and ID.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The RPD found other evidence, including a letter and identity witness, insufficient to establish identity due to limited knowledge and inconsistencies; the Appellant does not challenge these findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal finds significant credibility issues with the Appellant's travel and identity evidence, concluding her identity documentation and other evidence are insufficient to establish her identity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, finding the Appellant has not established her identity and is not a Convention refugee or person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

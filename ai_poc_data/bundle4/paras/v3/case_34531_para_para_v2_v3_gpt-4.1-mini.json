@@ -1,0 +1,212 @@
+{
+ "case_id": 34531,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0028172
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 8,
+   "below": 2,
+   "evidence": 4,
+   "party": 4
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns Darshan Singh Dhaliwal's judicial review of a decision refusing his permanent residence application on humanitarian and compassionate grounds. The Applicant challenges the reasonableness of the Officer's decision, arguing that the Officer failed to properly consider the family's interdependency and the impact of separation on elderly parents. The Court found the Officer's decision unreasonable due to inadequate consideration of evidence and granted the judicial review application.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 4,
+    "label": "Procedural background and legal framework",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 7,
+    "label": "Applicant's family circumstances and H&C application",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 9,
+    "label": "Legal standard for H&C relief and Court's preliminary view",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 10,
+    "last": 17,
+    "label": "Analysis of Officer's decision and evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 18,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Applicant, Darshan Singh Dhaliwal, seeks judicial review of a June 3, 2024 decision refusing his permanent residence application on humanitarian and compassionate grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Officer found the Applicant failed to show sufficient establishment, hardship, or child best interests impact to warrant relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The issue is whether the Officer's Decision was unreasonable, reviewed on a reasonableness standard per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court must assess reasonableness by justification, transparency, intelligibility, considering legal and factual context, with the challenger bearing the onus.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "speaker": "evidence",
+   "summary": "The Applicant is an Indian citizen who arrived in Canada in May 2019 with family; they live with elderly parents who are permanent residents or citizens.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "evidence",
+   "summary": "The Applicant's family took over responsibilities for his elderly parents after tragic family deaths, moving in to assist them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The H&C application argued the Applicant's family is highly interdependent with his parents, and separation would harm the parents.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "H&C relief depends on case facts; officers must consider all relevant facts and factors substantively.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court agrees with the Applicant that the Officer's reasons do not justify the conclusions, especially given contradictory evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer misunderstood the central point of the H&C application regarding family responsibility versus occasional visits.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "evidence",
+   "summary": "The Applicant works full-time, pays the mortgage, and his wife cares for his parents; the family provides emotional and practical support.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "evidence",
+   "summary": "Statements from the Applicant's sisters say they cannot provide the care the Applicant's family provides, but the Officer concluded otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Officer suggested private home care or social services as alternatives, based on an independent internet search.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicant notes the website states eligibility criteria for care, which were not evidenced, so eligibility is unknown.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The website states fees may apply; the Applicant's parents rely financially on him and cannot afford old age homes, supported by family statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Officer's conclusions about alternatives to family care conflict with evidence of financial limitations and dependence on the Applicant's income.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Officer did not adequately consider the family's interdependency or contradictory evidence, so the Decision lacks a rational analysis chain.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The judicial review application is granted; no certification questions arise or are proposed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

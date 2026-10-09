@@ -1,0 +1,599 @@
+{
+ "case_id": 67032,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0095476
+ },
+ "verification": {
+  "paragraphs": 57,
+  "summaries": 57,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 42,
+   "below": 6,
+   "party": 9
+  },
+  "multi_idea_paragraphs": 8,
+  "sections": 12,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns an Iranian citizen (the Appellant) appealing the Refugee Protection Division's (RPD) refusal of his refugee claim based on alleged persecution for his Christian faith. The Appellant argued errors in the RPD's credibility assessment and sought to admit new evidence, but the tribunal found the new evidence admissible yet ultimately upheld the refusal. The appeal was dismissed, confirming the Appellant is neither a Convention refugee nor a person in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 6,
+    "label": "RPD decision and Appellant's arguments",
+    "kind": "background"
+   },
+   {
+    "first": 7,
+    "last": 10,
+    "label": "New evidence and oral hearing request",
+    "kind": "issue"
+   },
+   {
+    "first": 11,
+    "last": 12,
+    "label": "Tribunal's approach and record",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 13,
+    "last": 16,
+    "label": "RPD's credibility findings and key issue",
+    "kind": "analysis"
+   },
+   {
+    "first": 17,
+    "last": 23,
+    "label": "Assessment of unpaid work and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 24,
+    "last": 32,
+    "label": "Assessment of depression and mental health evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 33,
+    "last": 36,
+    "label": "Church attendance credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 37,
+    "last": 46,
+    "label": "Christian conversion inconsistencies and credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 47,
+    "last": 52,
+    "label": "Appellant's knowledge of Christianity and faith credibility",
+    "kind": "analysis"
+   },
+   {
+    "first": 53,
+    "last": 55,
+    "label": "Risk of persecution in Iran",
+    "kind": "analysis"
+   },
+   {
+    "first": 56,
+    "last": 57,
+    "label": "Disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Appellant, an Iranian citizen, appeals the RPD's December 9, 2019 decision refusing his refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal is dismissed for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Appellant claimed depression from youth incidents, came on a student permit but didn't attend school due to depression, attended church from Dec 2018, returned to Iran and re-entered Canada in 2019, was refused entry, then claimed refugee protection based on Christian faith persecution risk.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's depression and background",
+    "Travel and claim timeline",
+    "Claim basis"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD refused the claim, finding credibility the key issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by ignoring his psychological state, misrepresenting his reasons for coming, focusing too much on church attendance and conversion, and failing to assess his sur place claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Psychological state relevance",
+    "Misrepresentation of reasons",
+    "Church attendance and conversion focus",
+    "Failure to assess sur place claim"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellant did not request an oral hearing but seeks to admit a February 3, 2020 letter as new evidence, which the law limits to evidence arising after the RPD decision or not reasonably available before.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No oral hearing requested",
+    "Request to admit new evidence",
+    "Legal criteria for new evidence"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "If the evidence meets criteria, the tribunal must decide if it is new, credible, and relevant before admitting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Appellant states he did not provide the letter earlier because he did not think it was necessary and could not have foreseen the RPD's concerns about unpaid work evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The letter post-dates the RPD decision, is credible and relevant, so it is admitted as new evidence despite covering a prior period.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The letter does not raise serious credibility issues, so no oral hearing is convened under IRPA subsection 110(6).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal independently assesses the record applying correctness standard, deferring to RPD credibility only if RPD had a particular advantage, which will be explained if found.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal's determination is based on RPD records, the Appellant's records, RPD hearing audio, and Iran's National Documentation Package.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant not credible, feigning Christian conversion to gain status, noting unexplained inconsistencies about reasons for coming to Canada and church attendance, and that depression did not explain these inconsistencies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Not credible and feigned conversion",
+    "Inconsistencies about reasons for coming",
+    "Inconsistencies about church attendance",
+    "Depression did not explain inconsistencies"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Appellant argues that even if conversion was opportunistic, he deserves protection as he would be perceived as Christian in Iran and faces risk as a failed refugee claimant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Protection despite opportunistic conversion",
+    "Risk from perceived Christian faith",
+    "Risk as failed refugee claimant"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The RPD's disbelief in the Appellant's Christianity was based on belief he wouldn't be perceived as Christian in Iran; if genuine, he would face serious persecution risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The key issue is whether the RPD erred in assessing the Appellant's credibility and core claim matters.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal agrees the RPD erred in accepting CBSA's finding that the Appellant entered Canada to work illegally.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RPD's reliance on 'preponderance of evidence' and common sense about unpaid work was misleading and unsupported by objective evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Appellant submits the RPD was irrational in finding he could not volunteer unpaid and that he never volunteered at all, despite his testimony about volunteering for interest and to improve his mental state.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Appellant testified he knew payment was illegal, was interested in the work, and was supported by his brother; the RPD ignored this, but new evidence corroborates his testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's testimony on unpaid work",
+    "RPD ignored testimony",
+    "New evidence corroborates"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The issue of whether the Appellant was paid is immaterial to the core claim of genuine Christian conversion.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RPD's doubt about payment status should not affect credibility since it accepted the Appellant met the person who introduced him to Christianity regardless.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RPD's insistence that payment status was integral to credibility is unsupported by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred in rejecting his testimony about not attending school due to emotional state, deeming depression irrelevant, accusing him of abusing diagnosis, and failing to find if he had depression.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejection of emotional state testimony",
+    "Depression deemed irrelevant",
+    "Accusation of diagnosis abuse",
+    "No explicit depression finding"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The RPD noted the Appellant used depression to explain non-attendance and memory issues but found these did not address inconsistencies about his reasons for coming to Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Appellant's testimony about not attending school due to emotional state was somewhat inconsistent with his Basis of Claim narrative, which did not mention course start timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The BOC narrative that he wanted out of Iran does not contradict his statements to CBSA or RPD; he never attended university but did not mislead about that fact.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Even if the RPD was right that the Appellant misrepresented reasons for being in Canada, this should not undermine his claim's credibility as claimants often must misrepresent to seek protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The RPD asked why the Appellant did not claim protection on April 2, 2019, but did not analyze his explanation or consider timing's impact on credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The RPD erred in drawing a negative inference from possible misrepresentation to obtain visa documents, failing to show relevance to credibility of fear of persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The RPD wrongly rejected the Appellant's psychiatrist and psychologist reports corroborating his depression before and upon arrival in Canada in 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The RPD erred by dismissing the Appellant's mental health evidence as a scapegoat for perceived inconsistencies about his intentions and Christian conversion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD error on mental health evidence",
+    "Dismissal as scapegoat for inconsistencies"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD was overly detailed in assessing his church attendance dates and erred in evaluating a supporting letter against his testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant first attended church on Dec 25, 2018, then not again until April 2019, rejecting his explanation for absence as not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal agrees the Appellant's explanation for not attending church between Dec 2018 and Feb 2019 lacked credibility, especially his claim of unawareness of Bible study classes.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD was justified in questioning the Appellant's credibility about his church attendance gap and did not err in rejecting his explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The Appellant submits the RPD erred in finding inconsistencies about when he converted to Christianity, asserting no such inconsistencies exist.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "The RPD noted the Appellant's narrative and letter suggested conversion shortly after Dec 25, 2018, but his CBSA statements indicated he was not yet Christian.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal accepts the Appellant first expressed desire to convert to Christianity in April 2019 CBSA interviews.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Appellant testified to completing his conversion the day after Christmas 2018 when gifted a Bible by his friend.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The RPD did not cite the Appellant's testimony about conversion date in its credibility finding, focusing only on narrative and letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The tribunal finds neither the supporting letter nor the narrative specify continuous church attendance after Dec 25, 2018, undermining RPD's finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with RPD's finding that the Appellant completed conversion shortly after Dec 25, 2018, based on his narrative expressing ongoing attendance and hope for baptism.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The supporting letter's statement that the Appellant accepted Christian principles 'after a while' is insufficient to infer conversion completion on Dec 25, 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal rejects the RPD's inference that the Appellant's explanation was designed to minimize inconsistencies about his conversion, finding no inconsistency.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD erred in drawing negative credibility inferences from non-existent inconsistencies in the Appellant's conversion evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "party",
+   "summary": "The Appellant submits the RPD failed to give due weight to his knowledgeable testimony about Christianity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The tribunal acknowledges the Appellant spoke knowledgeably about Christianity, including holidays and principles, and his desire for baptism.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The RPD observed the Appellant's Christian faith changed him from a non-religious, depressed person to one with hope and purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's Christian faith and practice unlikely to be perceived as genuine if he returned to Iran, despite his knowledge.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The tribunal gives weight to the RPD's finding that the Appellant's failure to explain his church absence undermines his Christian faith credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The tribunal expected evidence of steps toward baptism after the RPD hearing but finds none, concluding the Appellant is not a genuine Christian convert.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's sporadic Christian practice unlikely to cause serious persecution risk in Iran as a true or opportunistic convert.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The tribunal notes failed refugee claimants may face arrest in Iran, but returnees are mainly targeted if politically active or criminal abroad.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant was not politically active abroad and his sporadic church attendance unlikely to cause Iranian authorities to view him as apostate.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Despite errors by the RPD, the tribunal independently finds the Appellant is neither a Convention refugee nor in need of protection and dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the Appellant is neither a Convention refugee nor a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

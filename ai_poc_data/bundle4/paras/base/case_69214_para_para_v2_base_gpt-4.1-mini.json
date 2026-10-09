@@ -1,0 +1,224 @@
+{
+ "case_id": 69214,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "base",
+ "run": "bundle4_base",
+ "usage": {
+  "usd": 0.0034392
+ },
+ "verification": {
+  "paragraphs": 19,
+  "summaries": 19,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 13,
+   "party": 4,
+   "below": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 9,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns an appeal by an appellant from the Philippines against the Refugee Protection Division's (RPD) rejection of his refugee claim in Canada. The appellant feared harm due to his wife's politically involved family and submitted new evidence and requested an oral hearing. The tribunal dismissed the appeal, finding the RPD's decision correct and that the appellant did not meet the threshold for refugee protection or risk under section 97.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 3,
+    "label": "Background and appellant's claim",
+    "kind": "background"
+   },
+   {
+    "first": 4,
+    "last": 4,
+    "label": "Decision below",
+    "kind": "background"
+   },
+   {
+    "first": 5,
+    "last": 6,
+    "label": "Appellant's arguments and tribunal's initial findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 7,
+    "last": 7,
+    "label": "Disposition",
+    "kind": "disposition"
+   },
+   {
+    "first": 8,
+    "last": 11,
+    "label": "New evidence criteria and assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 12,
+    "last": 12,
+    "label": "Request for oral hearing",
+    "kind": "analysis"
+   },
+   {
+    "first": 13,
+    "last": 14,
+    "label": "Tribunal's review of RPD decision and findings",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 18,
+    "label": "Analysis of risk and credibility of appellant's evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 19,
+    "label": "Final disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal of the appellant from the Philippines.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appellant came to Canada in 2014 on a work visa, stayed after it expired, was rejected for status restoration in 2019, then applied for refugee protection in 2020.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The appellant fears harm due to his wife's politically involved family, citing threats in 2010 and advice from his brothers in 2015 to stay in Canada.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division rejected the claim as not well-founded, finding the appellant's evidence vague and insufficient to prove persecution or risk under section 97.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD erred, citing ongoing electoral violence and risks to his wife's family, submitting two news articles as new evidence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's decision correct, rejecting the appellant's vague evidence and concluding the claim is not well-founded.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, agreeing the appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal outlines the legal criteria for accepting new evidence: it must arise after the RPD decision, be unavailable before, or not reasonably expected to be presented earlier.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal must assess if new evidence is new, credible, and relevant; it admits one news article but rejects the other submitted by the appellant.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal admits the first article dated June 30, 2021, as new, relevant, and credible evidence about political tensions in the Philippines.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal rejects the second article dated May 14, 2018, as it predates the RPD decision and was not explained as unavailable earlier; it adds nothing new.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The appellant requests an oral hearing based on new evidence, but the tribunal rejects it as the evidence does not raise serious credibility issues or meet hearing criteria.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD made the correct decision; here, it finds the RPD's decision correct.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The RPD found the appellant's evidence vague and speculative but accepted some facts; it concluded the risk did not meet the threshold for persecution or section 97 risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The appellant argues electoral violence persists and his wife's family involvement increases his risk, but the tribunal finds these arguments unpersuasive.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal finds no objective evidence that politician family members are often targeted and notes the appellant's article focuses on other regions and general violence.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that electoral violence exists but does not rise to serious persecution risk for the appellant, noting regional differences and lack of evidence of targeting family members.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD correctly concluded the appellant's risk is a mere possibility, not a serious possibility of persecution or section 97 risk.",
+   "ideas": "single",
+   "idea_list": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": []
+  }
+ ]
+}

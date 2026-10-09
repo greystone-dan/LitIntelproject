@@ -1,0 +1,306 @@
+{
+ "case_id": 40956,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0045412000000000004
+ },
+ "verification": {
+  "paragraphs": 30,
+  "summaries": 30,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "party": 9,
+   "court": 21
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a Colombian claimant seeking refugee protection in Canada, alleging threats from the paramilitary group Los Urabe\u00f1os due to his political involvement. The tribunal assessed the claimant's credibility, the risk of persecution, and the viability of an internal flight alternative within Colombia. Ultimately, the tribunal found the claimant was not a Convention refugee nor in need of protection and rejected the claim.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 7,
+    "label": "Background and claimant's history",
+    "kind": "background"
+   },
+   {
+    "first": 8,
+    "last": 12,
+    "label": "Preliminary findings and issues",
+    "kind": "other"
+   },
+   {
+    "first": 13,
+    "last": 14,
+    "label": "Evidence and risk assessment",
+    "kind": "analysis"
+   },
+   {
+    "first": 15,
+    "last": 29,
+    "label": "Internal flight alternative analysis",
+    "kind": "analysis"
+   },
+   {
+    "first": 30,
+    "last": 30,
+    "label": "Decision and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The claimant from Colombia seeks refugee protection under sections 96 and 97(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant has a degree from XXXX University (2004) and worked in his field from 2005-2014 in Santa Marta, Colombia, also involved in local politics since 1997.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "In 2013, the claimant agreed to help his brother with a political position campaign in Santa Marta as his XXXX XXXX.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The claimant learned his brother and four others were massacred by Los Urabe\u00f1os, a paramilitary group, at a farm in Masinga.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "In 2014, two men identifying as Los Urabe\u00f1os threatened the claimant to leave Santa Marta; he filed denunciations but continued receiving threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Police gave the claimant a self-protection document; he sought help from government bodies but received no protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Fearing for his life, the claimant moved within Colombia, then left via the U.S. in 2015; his wife and son are not part of the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel is satisfied the claimant's identity is established by his passport.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel finds the claimant is neither a Convention refugee nor a person in need of protection under IRPA sections 97(1)(a) and (b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The key issues are the claimant's credibility and the viability of an internal flight alternative (IFA).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel acknowledges difficulties claimants face and notes four and a half years have passed since the claimant's arrival in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "No major contradictions found, but lack of evidence about claimant's situation since arriving in Canada is noted.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Corroborative evidence confirms brother's death, but mixed reports exist; claimant failed to provide evidence of ongoing threats or investigation results.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Assuming claimant remains at risk in Santa Marta, the panel examines the viability of an internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel finds a viable internal flight alternative exists in Tunja, Boyac\u00e1, Colombia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The IFA test requires no serious risk of persecution and that relocation is not objectively unreasonable for the claimant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel accepts that Los Urabe\u00f1os are the persecutors threatening the claimant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Tunja is identified as the capital of Boyac\u00e1 department, the proposed IFA location.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The claimant believes his life would be at risk from Urabe\u00f1os in Tunja, saying they have national reach and could track him anywhere in Colombia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The National Documentation Package shows Urabe\u00f1os have no presence in Tunja; ELN was responsible for incidents in Boyac\u00e1, but none in Tunja.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Objective evidence outweighs claimant's testimony; Urabe\u00f1os do not operate in Tunja, and claimant provided no corroboration for contrary claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel rejects claimant's assertion that Urabe\u00f1os would pursue him now, given the time elapsed and lack of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel finds no serious possibility of persecution or risk of harm if the claimant relocates to Tunja.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel finds relocating to Tunja is not unreasonable given the claimant's circumstances and the high threshold for unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The claimant argues moving to Tunja is unreasonable because he cannot practice law there, though he also cannot practice law in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "No evidence shows claimant would have healthcare or support difficulties in Tunja; he is resourceful and family situation changed.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The claimant has not shown serious social, economic, or other barriers to relocating to Tunja; relocation is not unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Insufficient evidence shows Urabe\u00f1os or other hazards make travel within Colombia to Tunja unreasonable; claimant not actively pursued.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has a viable internal flight alternative in Tunja, Colombia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The panel concludes the claimant is neither a Convention refugee nor in need of protection; his claim is rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  }
+ ]
+}

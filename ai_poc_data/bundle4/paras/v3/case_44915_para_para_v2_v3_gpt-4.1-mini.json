@@ -1,0 +1,274 @@
+{
+ "case_id": 44915,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0043812
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 25,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 5,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns stateless Palestinian claimants seeking refugee protection in Canada, fearing persecution in Saudi Arabia and Jordan based on nationality and gender. The Refugee Protection Division panel assessed their claims, considering evidence and legal standards distinguishing persecution from discrimination. Ultimately, the panel rejected the claims, finding no serious possibility of persecution or risk of torture if the claimants were returned to Saudi Arabia.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 5,
+    "label": "Background and claimants' allegations",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 9,
+    "label": "Findings on identity and habitual residence",
+    "kind": "analysis"
+   },
+   {
+    "first": 10,
+    "last": 18,
+    "label": "Assessment of Saudi laws and discrimination claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 19,
+    "last": 24,
+    "label": "Evaluation of claimants' experiences and gender-based claims",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 26,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The principal, associate, and minor claimants seek refugee protection in Canada under the Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The claims were joined per Refugee Protection Division Rules; the principal claimant is the Designated Representative for the minors.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The panel considered the Chairperson's Guidelines on gender-related claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The claimants' allegations are detailed in their Basis of Claim forms and a narrative attached to the principal claimant's BOC.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The claimants are stateless Palestinians born in Saudi Arabia fearing persecution in Saudi Arabia and Jordan based on nationality and gender for females.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The panel finds the claimants have not shown a serious possibility of persecution or risk of torture, life risk, or cruel treatment if returned to their former habitual residence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The panel is satisfied of the claimants' identities as stateless Palestinians based on Jordanian travel documents and testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel finds Saudi Arabia is the only country of former habitual residence for the claimants, who lack nationality.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel finds Jordan is not a country of former habitual residence as the principal claimant's university stay and visits were temporary and short.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The principal claimant alleges Saudi Arabia is oppressive and discriminatory toward stateless Palestinians, detailing various hardships and harassment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The panel considered whether Saudi laws on citizenship, residency, employment, and education constitute discrimination rising to persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The panel explains legal standards distinguishing persecution from discrimination, citing Canadian case law and UNHCR guidance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal states the Board must carefully analyze evidence to distinguish persecution from discrimination or harassment.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Objective evidence shows Palestinians in Saudi Arabia face the same regulations as other foreigners, requiring sponsorship for work and residence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Non-Saudis have limited access to state benefits; citizenship is not granted by birth and social benefits are restricted to citizens.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Non-citizens pay for healthcare and education; after age 18, non-citizens cannot attend schooling beyond high school; employment is restricted by Saudization laws.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The panel finds Saudi Arabia has the sovereign right to enact laws on residency, citizenship, education, employment, and social services as laws of general application.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The panel applies FCA precedent that claimants must show laws of general application are inherently persecutory; finds claimants failed to do so regarding Saudi laws.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel notes claimants attended school and received private healthcare; no evidence of denial of education or medical treatment was found.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The principal claimant worked for the same company from 2014 until departure; employer's unfair treatment does not amount to persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The panel accepts claimants experienced racial discrimination in Saudi Arabia but finds it does not rise to persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Objective evidence shows significant official gender discrimination and restrictions on women in Saudi Arabia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel accepts female claimants faced religious police harassment but finds it does not constitute persecution; CPVPV's powers have been curtailed since 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel finds the claimants' experiences in Saudi Arabia are not serious enough to amount to persecution, individually or cumulatively.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The panel concludes claimants have not established a serious possibility of persecution or risk of torture, life risk, or cruel treatment if returned to Saudi Arabia.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel rejects the claimants' refugee protection claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

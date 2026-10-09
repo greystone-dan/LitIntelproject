@@ -1,0 +1,326 @@
+{
+ "case_id": 33715,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.0049992000000000005
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 2,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 2
+  },
+  "speakers": {
+   "evidence": 9,
+   "below": 1,
+   "court": 12,
+   "party": 3
+  },
+  "multi_idea_paragraphs": 17,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Mr. Dhaliwal's application for Pre-Removal Risk Assessment (PRRA) after being found inadmissible to Canada due to alleged ties to the AISSF and Khalistani Sikh separatist activities. The Federal Court reviewed the PRRA officer's decision denying Mr. Dhaliwal's risk claim, finding it unreasonable due to failure to consider key evidence, and granted judicial review with a remand for redetermination. The Court applied the reasonableness standard and declined to certify any question of general importance.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 14,
+    "label": "Background and Evidence",
+    "kind": "background"
+   },
+   {
+    "first": 16,
+    "last": 18,
+    "label": "Standard of Review and Issues",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 19,
+    "last": 27,
+    "label": "Analysis of PRRA Officer's Decision",
+    "kind": "analysis"
+   },
+   {
+    "first": 29,
+    "last": 29,
+    "label": "Disposition and Certification",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "evidence",
+   "summary": "Mr. Dhaliwal recanted his AISSF membership in 2009 and claimed risk upon return to India due to perceived Khalistani Sikh separatist ties linked to Canada's inadmissibility finding.",
+   "ideas": "multiple",
+   "idea_list": [
+    "recantation of AISSF membership",
+    "asserted risk upon return to India"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The PRRA officer denied Mr. Dhaliwal's PRRA, finding his risk assumptions speculative and lacking sufficient objective evidence of targeting by Indian authorities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "PRRA denial",
+    "lack of evidence for targeting",
+    "speculative assumption"
+   ],
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court finds the PRRA Decision unreasonable due to the Officer's failure to consider key evidence, granting judicial review and remitting for redetermination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Decision unreasonable",
+    "failure to consider key evidence",
+    "judicial review granted",
+    "remittal ordered"
+   ],
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court will outline Mr. Dhaliwal's complex immigration history and then analyze the reasons for granting judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "other"
+  },
+  {
+   "para": 7,
+   "speaker": "evidence",
+   "summary": "Mr. Dhaliwal left India in 1991, sought asylum in the US based on AISSF membership, then came to Canada and abandoned his refugee claim after marrying a Canadian citizen.",
+   "ideas": "multiple",
+   "idea_list": [
+    "travel and asylum claim",
+    "marriage and abandonment of claim"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "evidence",
+   "summary": "Over 20 years, Mr. Dhaliwal received several TRPs, married again, had a spousal sponsorship rejected due to a past conviction, and was found inadmissible in 2006.",
+   "ideas": "multiple",
+   "idea_list": [
+    "TRPs granted",
+    "marriage and sponsorship",
+    "inadmissibility finding"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "speaker": "evidence",
+   "summary": "Mr. Dhaliwal sought Ministerial relief recanting AISSF involvement; relief was rejected, judicial review granted and remitted, but relief refused again on redetermination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ministerial relief sought",
+    "judicial review granted and remitted",
+    "relief refused again"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "evidence",
+   "summary": "Mr. Dhaliwal obtained at least one valid Indian passport from 2009 to 2019 during his time in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "evidence",
+   "summary": "Mr. Dhaliwal's TRP applications were refused in 2012 and 2014, partly due to inadmissibility, but he remained in Canada with work permits.",
+   "ideas": "multiple",
+   "idea_list": [
+    "TRP refusals",
+    "inadmissibility reason",
+    "remained with work permits"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "speaker": "evidence",
+   "summary": "CBSA provided Mr. Dhaliwal with draft negative Ministerial relief recommendations multiple times; the Minister denied relief again in 2025, with a pending judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CBSA draft recommendations",
+    "Minister denial in 2025",
+    "pending judicial review"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "speaker": "evidence",
+   "summary": "Mr. Dhaliwal voluntarily submitted a PRRA application in 2016, but it was not processed as he was not under a removal order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "speaker": "evidence",
+   "summary": "On December 8, 2023, an Exclusion Order was issued against Mr. Dhaliwal, who was then notified of his right to submit a PRRA application; the PRRA rejection is under judicial review now.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Exclusion Order issued",
+    "PRRA entitlement notified",
+    "PRRA rejection under review"
+   ],
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Court confirms the reasonableness standard applies, requiring justification, transparency, and intelligibility; unreasonableness arises if evidence is misapprehended.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review is reasonableness",
+    "criteria for reasonableness",
+    "onus on challenger"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Mr. Dhaliwal frames the issues as whether the Officer ignored his risk profile and failed to assess Indian authorities' likely actions if they found Canada's inadmissibility finding.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer ignored risk profile",
+    "failure to assess Indian authorities' response"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Respondent says the sole issue is the reasonableness of the Decision; the Court agrees and finds the outcome depends on that question.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's position on issue",
+    "Court's agreement",
+    "outcome depends on reasonableness"
+   ],
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Mr. Dhaliwal's counsel argued orally that the Officer failed to mention the CBSA 2023 Dossier, a key piece of evidence relied on in PRRA submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent submits the Officer is presumed to have considered all evidence, noting the CBSA 2023 Dossier was in the tribunal record before the Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Court agrees the Officer need not mention every piece of evidence but notes important unmentioned evidence may indicate an erroneous finding without regard to it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer not required to mention all evidence",
+    "important unmentioned evidence may indicate error"
+   ],
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Officer's Decision lists evidence considered but does not mention the CBSA 2023 Dossier, rebutting the presumption that all evidence was considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Court cites Cepeda to say when an agency details evidence supporting its finding but omits contradictory evidence, it may have overlooked that evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Court agrees the CBSA 2023 Dossier contradicts the Officer's finding of limited evidence of Mr. Dhaliwal's Khalistan involvement and risk of targeting.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CBSA 2023 Dossier contradicts Officer's finding",
+    "Dossier details Mr. Dhaliwal's involvement and recantation"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court infers from the Officer's failure to mention the important CBSA 2023 Dossier that the finding was made without regard to it, supporting unreasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CBSA 2023 Dossier important",
+    "Officer overlooked it",
+    "finding made without regard to evidence"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court notes other cases where omission of reports did not vitiate decisions, but here the Officer did not mention the report, justifying judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "other cases with omissions",
+    "here omission is critical",
+    "judicial review justified"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Officer erred by considering section 96 IRPA instead of limited section 97 risk assessment, which combined with omission supports unreasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "error in applying section 96",
+    "should apply section 97",
+    "combined errors support unreasonableness"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "No serious question of general importance for certification arises in this case, so none is certified.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

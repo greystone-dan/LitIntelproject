@@ -1,0 +1,387 @@
+{
+ "case_id": 30087,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.007372400000000001
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 8,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 8
+  },
+  "speakers": {
+   "court": 29,
+   "below": 9,
+   "party": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "sections": 4,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "This case concerns Mr. Polgar's application for judicial review of a decision by the Immigration Division (ID) finding him inadmissible to Canada for serious criminality based on a 2014 Hungarian conviction. Mr. Polgar challenged the ID's findings on procedural fairness, delay, and the characterization of his conviction, but the Federal Court found the ID's decision reasonable and procedurally fair. Consequently, the court dismissed Mr. Polgar's application for judicial review.",
+  "sections": [
+   {
+    "first": 2,
+    "last": 5,
+    "label": "Background",
+    "kind": "background"
+   },
+   {
+    "first": 6,
+    "last": 24,
+    "label": "Tribunal Below's Decision",
+    "kind": "other"
+   },
+   {
+    "first": 27,
+    "last": 29,
+    "label": "Standard of Review and Issues",
+    "kind": "standard_of_review"
+   },
+   {
+    "first": 31,
+    "last": 49,
+    "label": "Analysis and Disposition",
+    "kind": "analysis"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court will dismiss the application, finding the decision reasonable and procedurally fair after reviewing all materials and law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Mr. Polgar arrived in Canada in December 2016 and claimed refugee protection in January 2018, disclosing his conviction and its erasure.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Mr. Polgar was found eligible for refugee protection referral but his claim was suspended to consider his admissibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "An Enforcement Officer reported Mr. Polgar's 2014 Hungarian conviction equated to a Canadian indictable assault causing bodily harm.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Officer opined Mr. Polgar was inadmissible for serious criminality under the Immigration Act due to his foreign conviction.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Minister\u2019s Delegate found the inadmissibility report well-founded, referred the file to the ID, and Mr. Polgar was arrested and later released on bail.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Mr. Polgar moved to Quebec in September 2018, informed CBSA of his new address, but did not notify the ID or RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The ID sent a Notice to Appear to Mr. Polgar's old address; he did not receive it and failed to appear at the scheduling conference.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Three years later, after Mr. Polgar inquired, the ID sent a second Notice to Appear to his current address and held the admissibility hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "After the hearing, Mr. Polgar applied for a stay of proceedings, arguing delay caused him prejudice.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The ID denied the stay in January 2022, and Mr. Polgar applied for reconsideration in March 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The ID issued the decision under judicial review on May 26, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The ID refused reconsideration, noting no error was argued, Mr. Polgar failed to notify address change to ID, and delays were not unfair enough to justify a stay.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The ID found Mr. Polgar is a Hungarian citizen convicted in 2014 of serious bodily harm under Hungarian law.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The ID found reasonable grounds that Mr. Polgar's conviction equates to Canadian assault causing bodily harm under section 267(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The ID considered Mr. Polgar's arguments: pardon and expungement, flawed trial, and that the offense is hybrid and rarely gets max sentence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The ID found insufficient information to question the validity of Mr. Polgar's Certificate of Good Conduct and noted he had two such certificates.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The ID applied the Saini test and concluded Mr. Polgar did not show his Certificate of Good Conduct equates to a Canadian pardon.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The ID found it could not revisit Mr. Polgar's foreign conviction and he did not show injustice in his trial.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The ID held that maximum sentence potential defines serious criminality, hybrid offenses count as indictable, and refugee exclusion case law is irrelevant here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "max sentence defines serious criminality",
+    "hybrid offenses are indictable",
+    "refugee exclusion law irrelevant"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The ID concluded Mr. Polgar is inadmissible under paragraph 36(1)(b) and issued a deportation order.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Under reasonableness, the court reviews the decision's reasoning and outcome for coherence and justification.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "For procedural fairness, the court assesses if the process was fair and parties had the right to be heard and respond.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court will now consider Mr. Polgar's raised issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds the ID did not err in considering whether the conviction was expunged.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Polgar's distinction between pardon and expungement, noting he used both terms interchangeably and did not raise it before the ID.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no distinction raised before ID",
+    "terms used interchangeably",
+    "Saini test applies"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court rejects Mr. Polgar's verb tense argument under paragraph 36(1)(b) of the Immigration Act as irrelevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the ID did not disregard the Certificate of Good Conduct but assessed it and noted multiple certificates.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Minister argues Mr. Polgar informed CBSA but not ID of address change, the delay was attributable to Mr. Polgar, and the ID's decision on delay was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds the ID did not breach procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds Mr. Polgar did not inform the ID or RPD of his address change and that the ID reasonably concluded the delays were not unfair or detrimental.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mr. Polgar did not inform address change",
+    "ID reasonably concluded delays not unfair"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The ID reasonably concluded no prejudice from the delay despite a witness's death and found no evidence of psychological trauma as alleged by Mr. Polgar.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No prejudice from witness death",
+    "No evidence of psychological trauma"
+   ],
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court finds the ID did not err in its finding that Mr. Polgar was inadmissible for serious criminality under paragraph 36(1)(b) of the Immigration Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court explains that exclusion under Article 1F(b) of the Refugee Convention is distinct from inadmissibility under paragraph 36(1)(b) of the Immigration Act, and the ID correctly distinguished them.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court finds Mr. Polgar wrongly conflates inadmissibility under paragraph 36(1)(b) with other legislative provisions and confirms the ID correctly applied the law focusing on the offense's maximum Canadian sentence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court agrees with the ID that offenses punishable by up to 10 years imprisonment fall under paragraph 36(1)(b) and that the foreign sentence is irrelevant; hybrid offenses are indictable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court finds the ID reasonably concluded Mr. Polgar did not show his trial was unfair and that the ID's role is not to retry the Hungarian trial.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court finds Mr. Polgar has not shown the ID failed to reasonably engage with or misapprehend the evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court finds Mr. Polgar did not show his raised question is dispositive, transcends party interests, or raises an issue of broad significance.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  }
+ ]
+}

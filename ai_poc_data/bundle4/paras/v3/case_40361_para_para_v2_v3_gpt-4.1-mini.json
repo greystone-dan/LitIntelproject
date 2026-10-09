@@ -1,0 +1,280 @@
+{
+ "case_id": 40361,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "para_v2",
+ "variant": "v3",
+ "run": "bundle4_v3",
+ "usage": {
+  "usd": 0.004529600000000001
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "speakers": {
+   "court": 24,
+   "party": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "sections": 6,
+  "section_gap_paragraphs": 0
+ },
+ "structure": {
+  "overview": "The case concerns a claimant seeking protection in Canada under IRPA sections 96 and 97(1), alleging persecution in Hungary due to his Roma ethnicity. The tribunal examined issues of identity, credibility, and state protection, ultimately finding the claimant's testimony inconsistent and not credible regarding alleged attacks and state protection claims. The tribunal concluded that the claimant did not establish persecution or lack of state protection and therefore is not a Convention refugee or person in need of protection.",
+  "sections": [
+   {
+    "first": 1,
+    "last": 2,
+    "label": "Background and claimant's allegations",
+    "kind": "background"
+   },
+   {
+    "first": 3,
+    "last": 5,
+    "label": "Issues and identity findings",
+    "kind": "issue"
+   },
+   {
+    "first": 6,
+    "last": 17,
+    "label": "Credibility assessment of claimant's testimony",
+    "kind": "analysis"
+   },
+   {
+    "first": 18,
+    "last": 20,
+    "label": "Country conditions and discrimination evidence",
+    "kind": "analysis"
+   },
+   {
+    "first": 21,
+    "last": 24,
+    "label": "State protection and claimant's efforts",
+    "kind": "analysis"
+   },
+   {
+    "first": 25,
+    "last": 26,
+    "label": "Conclusion and disposition",
+    "kind": "disposition"
+   }
+  ]
+ },
+ "brief": "",
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The claimant seeks protection in Canada under IRPA sections 96 and 97(1) alleging persecution in Hungary due to his Roma ethnicity.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The claimant alleges discrimination from school segregation, harassment, poor education, unemployment, and police inaction against attacks in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The determinative issues in the hearing are identity, credibility, and state protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The claimant's personal and Hungarian citizenship identity was established by passport and oral testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The claimant's Roma ethnicity was established on a balance of probabilities by a certificate from the Roma Ethnicity Self Government and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The claimant alleges two attacks in Hungary, first in 2010 when five men beat him and police refused to take a report.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The claimant was attacked again in 2011, did not report to police, and decided to leave Hungary for Canada with friends' financial help.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The panel questioned the claimant about his plane ticket bought in Canada, which he could not explain, raising credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The panel inferred the claimant's common-law spouse in Canada likely bought the ticket, undermining his credibility about the trip.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The claimant's testimony conflicted with his narrative about separation from his spouse, further undermining credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The claimant gave inconsistent accounts about losing his front teeth during a fight, showing memory and credibility issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The claimant's oral testimony about the 2010 attack differed fundamentally from his narrative, and he could not clarify which was correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Claimant's counsel tried but failed to get a coherent explanation for inconsistencies about the 2010 attack; claimant cited poor memory.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The panel found the claimant's inconsistent versions of the 2010 attack unexplained and damaging to his credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The panel rejected explanations of claimant's lack of sophistication or translation issues for inconsistencies and rejected the attack claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The panel doubted the claimant's claim about losing front teeth during the attack due to equivocation and lack of medical evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The claimant could not remember the 2011 attack and counsel's submission of cognitive difficulties was rejected for lack of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Country documents show Roma children are disproportionately placed in special schools in Hungary, often due to bias and discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The panel found no evidence that the claimant's placement in a special school reflected intellectual challenges affecting testimony reliability.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The panel is not persuaded the alleged attacks occurred but accepts the claimant may have faced discrimination as a Roma man.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The claimant gave inconsistent reasons for not filing police reports about the attacks, undermining his account of seeking state protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The panel is not persuaded the claimant ever sought or was refused state protection due to lack of credible evidence of attacks.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The panel acknowledges widespread anti-Roma discrimination in Hungary but holds the claimant must prove state protection is unavailable.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The panel finds the claimant has not rebutted the presumption that adequate state protection is available in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The claimant failed to credibly establish persecution or lack of state protection despite widespread discrimination against Roma in Hungary.",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The panel finds the claimant is neither a Convention refugee nor a person in need of protection under IRPA sections 96 and 97(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "role": "disposition"
+  }
+ ]
+}

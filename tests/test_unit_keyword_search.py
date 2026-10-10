@@ -85,10 +85,10 @@ def test_phrase_and_whole_word_scoring():
 
 def test_ranking_puts_numbered_paragraphs_first_and_keeps_case_order_on_ties():
 	rows = [
-		{"paragraph_number": None, "match_score": 6, "case_score": 1.0, "id": "headnote"},
-		{"paragraph_number": 5, "match_score": 4, "case_score": 0.5, "id": "low"},
-		{"paragraph_number": 7, "match_score": 4, "case_score": 0.9, "id": "tie-high"},
-		{"paragraph_number": 9, "match_score": 6, "case_score": 0.1, "id": "best"},
+		{"paragraph_number": None, "match_score": 6, "case_score": 1.0, "role": "overview", "id": "headnote"},
+		{"paragraph_number": 5, "match_score": 4, "case_score": 0.5, "role": "analysis", "id": "low"},
+		{"paragraph_number": 7, "match_score": 4, "case_score": 0.9, "role": "analysis", "id": "tie-high"},
+		{"paragraph_number": 9, "match_score": 6, "case_score": 0.1, "role": "analysis", "id": "best"},
 	]
 	assert [r["id"] for r in unit_search.rank_results(rows)] == ["best", "tie-high", "low", "headnote"]
 
@@ -104,7 +104,7 @@ def test_search_units_filters_by_court_and_limit(monkeypatch):
 		def scalars(self, _):
 			return []
 
-	monkeypatch.setattr(unit_search, "search_paragraph_cases", lambda db, q: [
+	monkeypatch.setattr(unit_search, "search_paragraph_cases", lambda db, q, **kw: [
 		{"case_id": 1, "best_chunk_id": 1, "score": 1.0}, {"case_id": 2, "best_chunk_id": 2, "score": 0.5}])
 	monkeypatch.setattr(unit_search, "_cached_inspect_case", lambda db, cid, chunks: _report())
 	out = unit_search.search_units(DB(), "credibility finding evidence", court="fc, fca")
@@ -116,3 +116,17 @@ def test_search_units_filters_by_court_and_limit(monkeypatch):
 def test_court_filter_accepts_codes_and_full_names():
 	assert unit_search._court_filter("rad, FC") == {"RAD", "REFUGEE APPEAL DIVISION", "FC", "FEDERAL COURT"}
 	assert unit_search._court_filter("") == set()
+
+
+def test_decision_maker_label_is_member_for_tribunals():
+	assert unit_search.decision_maker_label("RAD") == "Member"
+	assert unit_search.decision_maker_label("Refugee Protection Division") == "Member"
+	assert unit_search.decision_maker_label("FC") == "Judge" and unit_search.decision_maker_label("SCC") == "Panel"
+
+
+def test_boilerplate_dispositions_rank_after_analysis():
+	rows = [
+		{"paragraph_number": 5, "match_score": 5, "case_score": 1.0, "role": "disposition", "id": "disp"},
+		{"paragraph_number": 6, "match_score": 4, "case_score": 0.5, "role": "analysis", "id": "analysis"},
+	]
+	assert [r["id"] for r in unit_search.rank_results(rows)] == ["analysis", "disp"]

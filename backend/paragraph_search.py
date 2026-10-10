@@ -94,8 +94,11 @@ def _rollback(db: Any) -> None:
 		pass
 
 
-_RANKED_SQL = sql_text(
-	f"""
+def _ranked_sql(restrict_courts: bool):
+	"""The ranking query; with restrict_courts the court filter is applied before the paragraph cut-off."""
+	court_join = "JOIN cases c ON c.id = p.case_id AND lower(c.court) = ANY(:courts)" if restrict_courts else ""
+	return sql_text(
+		f"""
 	WITH q AS (
 		SELECT to_tsquery('{TS_CONFIG}', :match_query) AS match_q,
 		       to_tsquery('{TS_CONFIG}', :rank_query) AS rank_q,
@@ -104,7 +107,7 @@ _RANKED_SQL = sql_text(
 		SELECT p.chunk_id, p.case_id,
 		       ts_rank_cd(p.tsv, q.rank_q, 32)
 		       + CASE WHEN p.tsv @@ q.phrase_q THEN 1.0 ELSE 0.0 END AS score
-		FROM paragraph_search p, q
+		FROM paragraph_search p {court_join}, q
 		WHERE p.tsv @@ q.match_q
 		ORDER BY score DESC
 		LIMIT :max_paragraphs
@@ -118,11 +121,18 @@ _RANKED_SQL = sql_text(
 	ORDER BY max(score) + 0.05 * least(count(*), 10) DESC, case_id DESC
 	LIMIT :max_cases
 	"""
-)
+	)
 
 
-def search_paragraph_cases(db: Any, query: str) -> list[dict[str, Any]] | None:
-	"""Cases ranked by their best paragraph; None when the index or query is unusable (use older matching)."""
+_RANKED_SQL = _ranked_sql(False)
+_RANKED_COURT_SQL = _ranked_sql(True)
+
+
+def search_paragraph_cases(db: Any, query: str, courts: list[str] | None = None) -> list[dict[str, Any]] | None:
+	"""Cases ranked by their best paragraph; None when the index or query is unusable (use older matching).
+
+	`courts` (lower-case names as stored in cases.court) keeps only those courts before the paragraph cut-off, so a
+	small court is not crowded out of the top results by larger ones."""
 	if not _enabled():
 		return None
 	slots = query_slots(query)
@@ -134,16 +144,16 @@ def search_paragraph_cases(db: Any, query: str) -> list[dict[str, Any]] | None:
 	rows: list[Any] = []
 	try:
 		for match_query in tier_queries(slots):
-			result = db.execute(
-				_RANKED_SQL,
-				{
-					"match_query": match_query,
-					"rank_query": rank_query,
-					"phrase_text": " ".join(query.split()),
-					"max_paragraphs": MAX_PARAGRAPHS,
-					"max_cases": MAX_CASES,
-				},
-			)
+			params = {
+				"match_query": match_query,
+				"rank_query": rank_query,
+				"phrase_text": " ".join(query.split()),
+				"max_paragraphs": MAX_PARAGRAPHS,
+				"max_cases": MAX_CASES,
+			}
+			if courts:
+				params["courts"] = [court.lower() for court in courts]
+			result = db.execute(_RANKED_COURT_SQL if courts else _RANKED_SQL, params)
 			rows = list(result.mappings().all())
 			if sum(int(row["paragraphs"]) for row in rows) >= MIN_PARAGRAPHS:
 				break

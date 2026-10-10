@@ -15,11 +15,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
 from extract_themes_v5 import META, header  # noqa: E402
+from opinion_parts import describe, opinion_parts, part_of  # noqa: E402
 from split_paras import resplit  # noqa: E402
 from summarize_paragraphs import clean  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
-PROMPT_VERSION = "prop_v4"
+PROMPT_VERSION = "prop_v5"  # prop_v4 plus opinion parts (majority / concurrence / dissent) in the prompt
 CHUNK = 20
 HOLDERS = ["court", "applicant", "respondent", "earlier_decision_maker", "witness_or_document", "prior_court_or_authority", "other"]
 KINDS = ["issue", "allegation_or_argument", "finding", "rule_of_law", "fact", "conclusion_or_order", "procedure"]
@@ -48,6 +49,7 @@ SCHEMA_P = {"type": "object", "additionalProperties": False, "required": ["parag
 SYSTEM_B = """You are given, for a Canadian court or tribunal decision, the propositions found in each paragraph (paragraph number, holder, kind, point). Using ONLY these, return:
 - overview: three sentences at most saying what the case is about, who the parties are and how it came out.
 - background_paras and disposition_paras: paragraph ranges as text (for example "1-5, 14-18"; empty when none).
+- If the input says which paragraphs are concurring or dissenting reasons, the overview, court_conclusion and the result come from the MAJORITY paragraphs only; a dissent's view may appear as a position with holder 'other' and text starting 'Dissent:'.
 - blocks: one block per issue the decision actually deals with, in order. Each block: issue (the question in plain words), paras (the range where it is dealt with), positions (each side's or earlier decision-maker's position: holder, text of at most 25 words, paras; write 'not stated' as the text when the propositions do not give that side's position), court_conclusion (at most 30 words, 'not stated' if none), conclusion_paras.
 Do not invent anything the propositions do not support."""
 
@@ -59,9 +61,15 @@ SCHEMA_B = {"type": "object", "additionalProperties": False, "required": ["overv
 			"holder": {"type": "string", "enum": HOLDERS}, "text": {"type": "string"}, "paras": {"type": "string"}}}}}}}}}
 
 
-def render(ch, pre):
+def render(ch, pre, parts=None):
 	lines = []
+	last_part = None
 	for p in ch:
+		part = part_of(parts or [], p["paragraph_index"])
+		if parts and part != last_part:
+			# the chunk crosses into (or starts inside) a concurrence or dissent: say so once
+			lines.append(f"[Opinion part: {part} reasons from here]")
+			last_part = part
 		if p.get("heading_before"):
 			lines.append(f"[Section heading: {p['heading_before']}]")
 		lines.append(f"[{p['paragraph_index']}] {p['text']}")
@@ -71,10 +79,14 @@ def render(ch, pre):
 def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 	paras = resplit([{"paragraph_index": p["paragraph_index"], "text": clean(p["text"])} for p in load_paragraphs(report) if p["paragraph_index"] != 0])
 	head = header(case_id).replace("tribunal_below", "earlier_decision_maker")
+	parts_info = opinion_parts("\n".join(str(p.get("text", "")) for p in report.get("paragraphs", [])))
+	parts_line = describe(parts_info)
 	pre = (head + "\n\n") if head else ""
+	if parts_line:
+		pre += parts_line + "\n\n"
 	est = lambda msgs: int(sum(len(m["content"]) for m in msgs) / 3.2)  # noqa: E731
 	chunks = [paras[i:i + CHUNK] for i in range(0, len(paras), CHUNK)]
-	mk = lambda ch: [{"role": "system", "content": SYSTEM_P}, {"role": "user", "content": render(ch, pre)}]  # noqa: E731
+	mk = lambda ch: [{"role": "system", "content": SYSTEM_P}, {"role": "user", "content": render(ch, pre, parts_info["parts"])}]  # noqa: E731
 	if not send:
 		tin = sum(est(mk(c)) for c in chunks) + 3000
 		tout = 220 * len(paras) + 1500
@@ -110,6 +122,8 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 		ask([p for p in paras if p["paragraph_index"] in set(retried)])
 	missing = sorted({p["paragraph_index"] for p in paras} - set(rows))
 	ordered = [rows[k] for k in sorted(rows)]
+	for r in ordered:
+		r["part"] = part_of(parts_info["parts"], r["para"])  # majority / concurring / dissenting, from the text's own markers
 	listing = "\n".join(f"{r['para']}\t{pp['holder']}/{pp['kind']}\t{pp['text']}" for r in ordered for pp in r["propositions"])
 	msgs = [{"role": "system", "content": SYSTEM_B}, {"role": "user", "content": pre + listing}]
 	stop()
@@ -121,7 +135,7 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 			hold[pp["holder"]] = hold.get(pp["holder"], 0) + 1
 	check = {"paragraphs": len(paras), "rows": len(ordered), "paragraphs_missing": missing, "retried": len(retried), "dropped_rows": dropped, "dropped_why": why, "propositions": sum(len(r["propositions"]) for r in ordered), "holders": hold,
 		"empty_proposition_rows": sum(1 for r in ordered if not r["propositions"]), "blocks": len(blocks["blocks"]), "split_paragraphs": sum(1 for p in paras if "split_from" in p), "headings_before": sum(1 for p in paras if "heading_before" in p)}
-	return {"usd": usd, "paragraphs": ordered, "blocks": blocks, "verification": check, "headings": {p["paragraph_index"]: p["heading_before"] for p in paras if "heading_before" in p}, "split_from": {p["paragraph_index"]: p["split_from"] for p in paras if "split_from" in p}}
+	return {"usd": usd, "paragraphs": ordered, "blocks": blocks, "verification": check, "opinion_parts": parts_info, "headings": {p["paragraph_index"]: p["heading_before"] for p in paras if "heading_before" in p}, "split_from": {p["paragraph_index"]: p["split_from"] for p in paras if "split_from" in p}}
 
 
 def main() -> int:
@@ -151,7 +165,7 @@ def main() -> int:
 		out = run_case(client, ledger, args.run, args.model, cid, json.loads(path.read_text(encoding="utf-8")), args.send, args.stop_file)
 		if out is None:
 			continue
-		(args.out_dir / f"case_{cid}_prop_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({"case_id": cid, "model": args.model, "prompt_version": PROMPT_VERSION, "run": args.run, "usage": {"usd": out["usd"]}, "verification": out["verification"], "headings": out["headings"], "split_from": out["split_from"], "blocks": out["blocks"], "paragraphs": out["paragraphs"]}, indent=1), encoding="utf-8")
+		(args.out_dir / f"case_{cid}_prop_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({"case_id": cid, "model": args.model, "prompt_version": PROMPT_VERSION, "run": args.run, "usage": {"usd": out["usd"]}, "verification": out["verification"], "opinion_parts": out["opinion_parts"], "headings": out["headings"], "split_from": out["split_from"], "blocks": out["blocks"], "paragraphs": out["paragraphs"]}, indent=1), encoding="utf-8")
 		print(json.dumps({"case_id": cid, "model": args.model, "prompt": PROMPT_VERSION, "usd": round(out["usd"], 4), **{k: v for k, v in out["verification"].items() if k != "paragraphs_missing"}, "paragraphs_missing": len(out["verification"]["paragraphs_missing"])}), flush=True)
 	print(json.dumps({"spent_total_usd": round(ledger.total(), 4)}))
 	return 0

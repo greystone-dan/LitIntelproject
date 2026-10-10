@@ -1,0 +1,47 @@
+{
+  "case_id": "MA9_11762",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Identity",
+        "paras": "8",
+        "applicant_position": "Passport issued by Indian authorities establishes identity.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "The panel concludes that this is acceptable documentation establishing identity within the meaning of section 106 of the IRPA."
+      },
+      {
+        "issue": "Credibility of the claimant",
+        "paras": "9",
+        "applicant_position": "Testimony was spontaneous and consistent.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 9,
+        "result_quote": "The panel finds that the claimant is credible."
+      },
+      {
+        "issue": "Internal flight alternative: risk of being found in Mumbai",
+        "paras": "10-22",
+        "applicant_position": "Police would find him in Mumbai through tenant background checks.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Thus, in the panel's opinion, the claimant does not have the profile of a"
+      },
+      {
+        "issue": "Internal flight alternative: whether relocating to Mumbai is objectively unreasonable",
+        "paras": "23",
+        "applicant_position": "Would not easily find a job or relocate; no reasons stated beyond the risk.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The panel concludes that it would not be unreasonable to expect the claimant to move to Mumbai."
+      }
+    ]
+  }
+}

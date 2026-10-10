@@ -1,0 +1,65 @@
+{
+  "case_id": "MB9_30247",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err by drawing an adverse inference from the PA not identifying the assailants or their group?",
+        "paras": "15-17",
+        "applicant_position": "The PA reasonably believed the armed men were from a group active in the region; no adverse inference should be drawn.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The RPD erred by drawing an adverse inference from the fact that the PA was unable to identify the assailants and the name of their organization."
+      },
+      {
+        "issue": "Did the RPD properly draw a credibility inference from omissions in the basis of claim (BOC) narratives?",
+        "paras": "18-20",
+        "applicant_position": "The BOC should include what is important to the claimant; low education and lack of sophistication explain the omissions.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "The RPD did not err in drawing adverse credibility inference from BOC omissions."
+      },
+      {
+        "issue": "Did the RPD err in rejecting the police complaint date and the mother's letter?",
+        "paras": "21-23",
+        "applicant_position": "The mother's letter was supported by the lawyer's records and stamp; the RPD ignored them, and choosing a date was not dishonest.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The RPD erred in drawing an adverse inference from this inconsistency."
+      },
+      {
+        "issue": "Did the RPD err in drawing an adverse inference from the AA's testimony about threatening calls?",
+        "paras": "24-27",
+        "applicant_position": "The AA understood the question about her own experience; her answer was reasonable and low education does not undermine it.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "The RPD's characterization of her testimony is erroneous."
+      },
+      {
+        "issue": "Did the RPD err in disregarding the lawyer's and district leader's letters?",
+        "paras": "28-31",
+        "applicant_position": "The lawyer and district leader letters corroborate the PA; the RPD could not reject them merely because the claimant was not believed.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "The RPD erred by ignoring important third-party documents."
+      },
+      {
+        "issue": "Could the appellants safely relocate within Mexico, and is state protection available?",
+        "paras": "32-36",
+        "applicant_position": "They could be traced anywhere in Mexico through addresses, phones, bank accounts and school records; the cartel is nationwide.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "The risk extends throughout the country."
+      }
+    ]
+  }
+}

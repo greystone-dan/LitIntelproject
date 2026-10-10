@@ -1,0 +1,38 @@
+{
+  "case_id": "TC0_04647",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 29,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard applies to an internal flight alternative (IFA) under section 97: serious possibility or balance of probabilities, and is subjective fear needed?",
+        "paras": "13, 16-17",
+        "applicant_position": "Test should be serious possibility of persecution in the IFA; RPD should have assessed his subjective fear.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Applying the lower threshold of a \"serious possibility\" of persecution for an IFA under section 97 would essentially revise the requirements of section 97."
+      },
+      {
+        "issue": "First prong: could the uncle and his agents locate the applicant in the proposed IFA cities?",
+        "paras": "14, 18-23",
+        "applicant_position": "Uncle has business contacts and associates in the IFA cities who could trace him; RPD demanded too much proof.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "There is no error in the RPD's assessment of the risk in the potential IFA locations."
+      },
+      {
+        "issue": "Second prong: would relocation to the IFA cities be objectively unreasonable (employment and living conditions)?",
+        "paras": "24-27",
+        "applicant_position": "Port Harcourt jobs are mostly oil-sector; without money he would be homeless and unable to pay for medical care.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "Considering the Appellant's personal circumstances, I do not believe his relocation to the proposed IFA locations would be objectively unreasonable."
+      }
+    ]
+  }
+}

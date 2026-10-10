@@ -1,0 +1,38 @@
+{
+  "case_id": "TA7_03188",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 12,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Do the US-citizen co-claimants have a claim, given no fear of returning to the United States?",
+        "paras": "6-7",
+        "applicant_position": "not stated; no evidence of a fear of returning to the United States was put forward.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 7,
+        "result_quote": "As no evidence was put forward with respect to a fear of returning to the United States"
+      },
+      {
+        "issue": "Is the principal claimant a credible political activist at risk for past political involvement?",
+        "paras": "8-10",
+        "applicant_position": "Claimant says she and her brother were pro-Aristide activists in 1991 and faced threats from the Vengeance group; psychological reports support her.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "Overall, the panel does not believe that the claimant was a political activist"
+      },
+      {
+        "issue": "Is there a risk based on gender, or a generalized risk, in Haiti (s.96 and s.97)?",
+        "paras": "11",
+        "applicant_position": "Claimant says she risks violence, kidnapping and rape as a woman in Haiti, citing documentary evidence on violence against women.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "Here, however, the claimant's risk is not a risk based upon her gender but rather a risk that is faced by all Haitian citizens"
+      }
+    ]
+  }
+}

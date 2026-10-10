@@ -1,0 +1,38 @@
+{
+  "case_id": "TB9_28761",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the new evidence (Ministry letter and lawyer's letter on loss of status) admissible under subsection 110(4)?",
+        "paras": "9-15",
+        "applicant_position": "The letters post-date the rejection and could not reasonably have been anticipated, since the RPD raised the status issue.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I disagree with the Appellant's arguments and find that the new evidence does not meet the criteria for acceptance."
+      },
+      {
+        "issue": "Did the RPD err in finding he had not lost his Trinidad and Tobago permanent resident status?",
+        "paras": "16-19",
+        "applicant_position": "Status is lost after one year's absence without exemption under T&T law; the RPD wrongly required proof he could not regain it.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I agree with the Appellant that the RPD erred in its finding that he did not establish that he had lost his status"
+      },
+      {
+        "issue": "Is he excluded under Article 1E of the Refugee Convention (Zeng factors)?",
+        "paras": "17-21",
+        "applicant_position": "The text does not separately state his position on the Zeng factors; he argued that loss of status was established.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 21,
+        "result_quote": "I cannot make my own findings on these factors, as they were not fully canvassed by the RPD"
+      }
+    ]
+  }
+}

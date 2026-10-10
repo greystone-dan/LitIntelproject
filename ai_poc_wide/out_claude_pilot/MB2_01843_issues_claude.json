@@ -1,0 +1,74 @@
+{
+  "case_id": "MB2_01843",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 53,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Credibility of the claimant's testimony",
+        "paras": "18-21",
+        "applicant_position": "Testimony generally credible despite vagueness; little education and time passed.",
+        "respondent_position": "Minister made credibility submissions, which the panel addressed.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "the panel decided to grant the benefit of the doubt as to the truth of the facts in evidence."
+      },
+      {
+        "issue": "Nexus to s.96: membership in the particular social group of the adoptive family",
+        "paras": "22-24",
+        "applicant_position": "Family adopted him at 15; he is a member of their particular social group.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Consequently, membership in the particular social group of the XXXX family does not establish a nexus under section 96 of the Act."
+      },
+      {
+        "issue": "Risk to life under s.97(1)(b)",
+        "paras": "25",
+        "applicant_position": "Threatened, held at gunpoint and kidnapped; fears drug traffickers.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "the evidence shows that he would be personally subjected to a risk to his life because of an existing conflict between high-level drug traffickers and their accomplices."
+      },
+      {
+        "issue": "Whether state protection is available",
+        "paras": "26",
+        "applicant_position": "Police are linked to traffickers; state protection is not safe.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "the panel is of the opinion that the claimant cannot seek state protection without facing a great risk to his life."
+      },
+      {
+        "issue": "Internal flight alternative: whether he faces risk throughout Mexico",
+        "paras": "27",
+        "applicant_position": "Trafficking network operates in all regions, so no safe relocation.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "The panel concludes that the claimant faces a risk throughout the country."
+      },
+      {
+        "issue": "Exclusion under Art. 1F(b): trafficking as such",
+        "paras": "29-30",
+        "applicant_position": "Never possessed or controlled drugs; trafficking exclusion does not apply.",
+        "respondent_position": "Minister referred to trafficking exclusion in submissions.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "the panel cannot conclude that there are serious reasons for considering that the claimant committed outside Canada the offence of trafficking in a substance as such."
+      },
+      {
+        "issue": "Exclusion under Art. 1F(b): conspiracy to traffic (Jayasekara and Ezokola)",
+        "paras": "31-52",
+        "applicant_position": "Exclusion must be read narrowly; he was an unknowing collaborator and not a trafficker.",
+        "respondent_position": "Minister argued exclusion for conspiracy to traffic under Art. 1F(b).",
+        "result": "dismissed_for_applicant",
+        "result_para": 51,
+        "result_quote": "the panel concludes that there are serious reasons for considering that the claimant committed outside Canada the offence of conspiracy to traffic"
+      }
+    ]
+  }
+}

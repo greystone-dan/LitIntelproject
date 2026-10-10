@@ -1,0 +1,38 @@
+{
+  "case_id": "TB9_35354",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the new evidence (photograph of notepad, passport, 2011 news article) be admitted under s.110(4) IRPA?",
+        "paras": "7-15",
+        "applicant_position": "Proposed new evidence is relevant and should be admitted, including the notepad photo, passport and kidnapping article.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "I find that this evidence does not meet the test under subsection 110(4) of the IRPA."
+      },
+      {
+        "issue": "Did the RPD err in its credibility findings (peripheral and Western-lens findings)?",
+        "paras": "17-21",
+        "applicant_position": "RPD findings were peripheral or made through a Western lens, and date errors were minor; the claim should be believed.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 17,
+        "result_quote": "The Appellants have challenged this, and, in part, I agree with their arguments."
+      },
+      {
+        "issue": "Do the appellants face a forward-facing section 96 or section 97 risk?",
+        "paras": "19-22",
+        "applicant_position": "Ex-husband remains angry and a threat; RPD failed to complete a section 96 analysis; well-founded fear established.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I find that they have not established a serious possibility of persecution or a section 97(1) risk, on a balance of probabilities, on a forward-facing basis."
+      }
+    ]
+  }
+}

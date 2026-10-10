@@ -1,0 +1,29 @@
+{
+  "case_id": "TA8_03456",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's account of rape and abuse by her husband credible?",
+        "paras": "11-26",
+        "applicant_position": "Claimant says husband raped and abused her from age 16; a police report and a friend's letter support this.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "The panel simply does not believe, on a balance of probabilities, that any of the significant events that the claimant alleged happened to her"
+      },
+      {
+        "issue": "Is there a well-founded fear or any credible basis for the claim under ss.96, 97 and 107(2)?",
+        "paras": "16-27",
+        "applicant_position": "Claimant fears her husband and says police in Guyana would not protect her; not stated beyond that.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "there was no credible or trustworthy evidence on which a favourable decision could be made and therefore there was no credible basis for the claim"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "case_id": "TC4_62402",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 52,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must the RAD follow the RPD's process to notify other claimants before using their BOCs?",
+        "paras": "7-9",
+        "applicant_position": "Minister asked RAD to use an RPD-style process to put two other claimants' BOCs on the record; later withdrew the request.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 8,
+        "result_quote": "This does not require that the RAD contact the other claimants, as the RAD is not the one sharing the information."
+      },
+      {
+        "issue": "Should the Minister's new evidence (chart of two other BOCs, personal data removed) be admitted?",
+        "paras": "10-12",
+        "applicant_position": "Strikingly similar BOCs from two other claims should be admitted; personal information was removed.",
+        "respondent_position": "Raised no arguments about the disclosure of the other BOCs.",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "For these reasons, I will admit the Minister's evidence."
+      },
+      {
+        "issue": "Are the claimant's BOC and the other BOCs too strikingly similar to be credible?",
+        "paras": "16-25",
+        "applicant_position": "Claimant's BOC is strikingly similar, word for word, to two other BOCs, which undermines its credibility.",
+        "respondent_position": "Claimant says similarities are coincidence, shared community profile, or interpreter template; first-filed BOC is true.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I find that these similarities reduce the credibility of your story."
+      },
+      {
+        "issue": "Are the claimant's allegations credible given inconsistencies, omissions and the documents filed?",
+        "paras": "26-45",
+        "applicant_position": "Visa, counsel-meeting, threat and date accounts are inconsistent or omitted from the BOC; testimony shifted.",
+        "respondent_position": "Threats came after the narrative was filed and claimant did not know he could amend it; says narrative was accurately translated.",
+        "result": "allowed_for_applicant",
+        "result_para": 51,
+        "result_quote": "I find that you have not established your allegations as credible."
+      },
+      {
+        "issue": "Does the failure to claim refugee protection earlier in Japan, the US or Canada affect credibility?",
+        "paras": "46-50",
+        "applicant_position": "Failure to claim at the earliest opportunity in Japan, the US and on arrival in Canada undermines the claim.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 46,
+        "result_quote": "I find that your failure to make a refugee claim at the earliest available opportunity also impacts your credibility."
+      }
+    ]
+  }
+}

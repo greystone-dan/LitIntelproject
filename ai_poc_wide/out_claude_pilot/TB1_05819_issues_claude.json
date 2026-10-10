@@ -1,0 +1,56 @@
+{
+  "case_id": "TB1_05819",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 63,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant is who he says he is (identity)",
+        "paras": "26",
+        "applicant_position": "Supplied documents supporting Sri Lankan citizenship.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I am persuaded on a balance of probabilities that the claimant is who he says he is and is a citizen of Sri Lanka."
+      },
+      {
+        "issue": "Credibility of the claimant's testimony",
+        "paras": "27-30",
+        "applicant_position": "Testimony is true; passport date inconsistencies were minor.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "Overall I found the claimant's testimony more credible than not."
+      },
+      {
+        "issue": "Whether the Sri Lankan government had any interest in the claimant",
+        "paras": "28-37",
+        "applicant_position": "Detained and threatened by Navy and army; fears them as a result.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 37,
+        "result_quote": "I find it reasonable to conclude that the Sri Lankan government had no interest in the claimant"
+      },
+      {
+        "issue": "Sur place claim: whether travel on the Sun Sea makes him a perceived LTTE member (s.96, incl. social group)",
+        "paras": "42-57",
+        "applicant_position": "Sun Sea passage means Sri Lanka perceives him as LTTE-linked; social group argument.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 55,
+        "result_quote": "I find, on a balance of probabilities, that the Sri Lankan government would not perceive the claimant to be a member or supporter of the LTTE"
+      },
+      {
+        "issue": "Risk to life or torture under s.97(1) if returned",
+        "paras": "58-61",
+        "applicant_position": "Army and Karuna group look for him; fears torture or death if returned.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 61,
+        "result_quote": "I rely on my analysis above to find that on a balance of probabilities the claimant does not face a danger of torture or a risk to life"
+      }
+    ]
+  }
+}

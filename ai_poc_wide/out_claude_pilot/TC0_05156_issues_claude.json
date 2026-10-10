@@ -1,0 +1,38 @@
+{
+  "case_id": "TC0_05156",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err in its credibility assessment (corroboration, psychodiagnostic report, misapprehended evidence, failure to put concerns, implausibility findings)?",
+        "paras": "7-19",
+        "applicant_position": "RPD ignored corroborative evidence, misapprehended evidence, failed to put concerns to him, and made unreasonable implausibility findings.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I accordingly find the negative credibility findings made by the RPD are not sustainable in light of my findings above."
+      },
+      {
+        "issue": "Did the RPD apply the correct legal test to the sur place claim?",
+        "paras": "16",
+        "applicant_position": "RPD applied the wrong test to the sur place claim, putting the burden of proof too high on him.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I find the RPD erred by applying the incorrect legal test."
+      },
+      {
+        "issue": "Did the RPD fail to consider the applicant's Oromo ethnicity as a residual profile?",
+        "paras": "17",
+        "applicant_position": "RPD failed to assess his Oromo ethnicity, coupled with political opinion, as a residual profile for protection.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I agree with the Appellant that the RPD failed to consider his Oromo ethnicity as a residual profile upon which to grant protection."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "TB1_17399",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 74,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Do the principal and female claimants have a well-founded fear of persecution or risk in Bangladesh (credibility included)?",
+        "paras": "32-43",
+        "applicant_position": "Fear of AL government targeting and police in Bangladesh; false identity used only from fear of return.",
+        "respondent_position": "Minister raised identity, credibility and program integrity concerns.",
+        "result": "dismissed_for_applicant",
+        "result_para": 43,
+        "result_quote": "did not have a well-founded fear of persecution"
+      },
+      {
+        "issue": "Are the principal and female claimants excluded under Article 1E (permanent residence in the USA)?",
+        "paras": "44-48",
+        "applicant_position": "Principal claimant never had permanent resident status in the USA, so Article 1E does not apply.",
+        "respondent_position": "Minister submitted Article 1E and 1F(b) may affect the principal and female claimants.",
+        "result": "allowed_for_applicant",
+        "result_para": 48,
+        "result_quote": "are not excluded under Article 1(E)"
+      },
+      {
+        "issue": "Are the principal and female claimants excluded under Article 1F(b) for serious non-political crimes (fraudulent identity and documents)?",
+        "paras": "49-72",
+        "applicant_position": "Fraud was done out of fear of return to Bangladesh; section 133 protects refugee claimants from document offences.",
+        "respondent_position": "Minister says fraud in US and Canada is a serious non-political crime; Article 1F(b) applies.",
+        "result": "dismissed_for_applicant",
+        "result_para": 74,
+        "result_quote": "the principal claimant and female claimant are excluded pursuant to Article 1F(b)"
+      },
+      {
+        "issue": "Is the minor claimant (US citizen) a person in need of protection or a refugee?",
+        "paras": "73-74",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 74,
+        "result_quote": "the minor claimant is not a person in need of protection"
+      }
+    ]
+  }
+}

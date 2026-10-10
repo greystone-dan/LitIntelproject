@@ -1,0 +1,38 @@
+{
+  "case_id": "TB1_08763",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 40,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are the claimants at risk for a Convention reason (s.96) given the blood feud, and is a blood-feud family a particular social group?",
+        "paras": "20-23",
+        "applicant_position": "Claimants say the blood feud targets males, and female claimants fear being targeted as family members, a particular social group.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "Accordingly, I find that the claimants do not have a well founded fear of persecution for a Convention ground"
+      },
+      {
+        "issue": "Is the claimants' evidence credible, including the Canadian SIRU response on the blood-feud documents?",
+        "paras": "11-19",
+        "applicant_position": "Counsel says the SIRU response names no source or signatory and should be given no weight.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "From this I draw significant negative findings as to his credibility."
+      },
+      {
+        "issue": "Would the claimants be at risk under s.97 if returned, given whether Albania can provide adequate state protection?",
+        "paras": "24-38",
+        "applicant_position": "Claimants say the blood feud continues and that Albanian authorities cannot give them effective protection.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_quote": "I find that the government of Albania is able and willing to provide adequate state protection and that the claimants have failed to rebut this assumption."
+      }
+    ]
+  }
+}

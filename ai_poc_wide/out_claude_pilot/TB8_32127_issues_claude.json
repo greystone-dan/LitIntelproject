@@ -1,0 +1,29 @@
+{
+  "case_id": "TB8_32127",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the RPD's credibility findings (contradictions, loan agreement, repayment, documents) were erroneous",
+        "paras": "15-43",
+        "applicant_position": "RPD erred in assessing his credibility on the reasons set out in the memorandum.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 43,
+        "result_quote": "I conclude that the appellant failed to establish that the RPD committed errors that would justify the RAD setting aside the determination."
+      },
+      {
+        "issue": "Whether the two handwritten support letters (ex-wife and neighbour) should be admitted as new evidence",
+        "paras": "9-14",
+        "applicant_position": "The two letters should be admitted as new evidence under s. 110(4) IRPA.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I do not accept these two documents as evidence because I find that they do not meet the test for credibility."
+      }
+    ]
+  }
+}

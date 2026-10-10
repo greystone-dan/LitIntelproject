@@ -1,0 +1,38 @@
+{
+  "case_id": "TB0_02327",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 31,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the claimant have a subjective and well-founded fear of persecution by the FSLN?",
+        "paras": "5-19",
+        "applicant_position": "Claimant says FSLN killed relatives and persecuted her, including stone-throwing and threats after her 2009 return.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "this panel finds no basis of a subjective fear in this claim"
+      },
+      {
+        "issue": "Has the claimant rebutted the presumption of state protection in Nicaragua?",
+        "paras": "20-29",
+        "applicant_position": "Claimant says police are the same as the government and she was pregnant and afraid to report the threats.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "the panel finds that the claimant, in the circumstances of this case, has failed to rebut the presumption of state protection"
+      },
+      {
+        "issue": "Does the minor US-citizen co-claimant have a claim?",
+        "paras": "30",
+        "applicant_position": "Counsel did not pursue a claim against the USA for the minor, and no evidence was given for the minor's fear.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "No evidence was provided for the minor who is a USA citizen; therefore, that claim also fails."
+      }
+    ]
+  }
+}

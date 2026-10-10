@@ -1,0 +1,29 @@
+{
+  "case_id": "VA8_02506",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the fear of drug-gang recruitment linked to a Convention ground (section 96)?",
+        "paras": "16-19",
+        "applicant_position": "Gang recruited him to carry drugs after he refused; he fears the gang for refusing and for his grandmother killing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I find, therefore, that he is not a Convention refuge"
+      },
+      {
+        "issue": "Does the claimant face a personal risk to life under section 97, or only a generalized risk of crime?",
+        "paras": "21-29",
+        "applicant_position": "He was targeted personally by the drug organization after refusing; the risk to him is personal, not general.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "the risk which the claimant faced is one faced generally by the population of Guatemala"
+      }
+    ]
+  }
+}

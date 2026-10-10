@@ -90,7 +90,7 @@ _DISPOSITION_RE = re.compile(
     r"|\b(?:application|appeal|motion)s?\s+(?:for judicial review\s+)?(?:is|are)\s+(?:therefore |accordingly )?(?:allowed|dismissed|granted|denied)\b"
     r"|\bin the result\b|\bfor (?:all )?(?:of )?(?:these|the foregoing|the above|those) reasons\b|\bno (?:serious )?question[s]?\b[^.]{0,60}\bcertif|\bcertif(?:y|ied|ication)\b[^.]{0,60}\bquestion"
     r"|^(?:Appeal|Application|Motion)s? (?:allowed|dismissed|granted)\b|\bwith costs\b"
-    r"|\btherefore (?:rejects?|accepts?)\b|\b(?:rejects?|accepts?) the (?:refugee )?(?:claim|appeal)s?\b|\bis neither a convention refugee\b|\bare neither convention refugees\b|\bthat concludes my reasons\b",
+    r"|\btherefore (?:rejects?|accepts?)\b|\b(?:rejects?|accepts?) the (?:refugee )?(?:claim|appeal)s?\b|\b(?:is|are) (?:neither|not) (?:a |an )?[\"“”'‘’]*convention refugees?\b|\bpersons? described in (?:section|article|s\.) (?:98|1F)\b|\bare neither convention refugees\b|\bthat concludes my reasons\b",
     re.I,
 )
 _OVERVIEW_RE = re.compile(

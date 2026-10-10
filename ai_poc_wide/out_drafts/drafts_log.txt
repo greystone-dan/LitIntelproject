@@ -1,0 +1,16 @@
+dry F: {"dry_run": true, "arm": "F", "model": "gpt-4.1-mini", "drafts": 20, "ceiling_usd": 0.095}
+dry N: {"dry_run": true, "arm": "N", "model": "gpt-4.1-mini", "drafts": 20, "ceiling_usd": 0.093}
+dry F41: {"dry_run": true, "arm": "F", "model": "gpt-4.1", "drafts": 20, "ceiling_usd": 0.473}
+== send F 23:05:51
+{"draft": "W04", "usd": 0.0014}
+{"draft": "W05", "usd": 0.0021}
+{"done": true, "arm": "F", "model": "gpt-4.1-mini", "ledger_total_usd": 0.0296}
+== send N 23:06:15
+{"draft": "W04", "usd": 0.0014}
+{"draft": "W05", "usd": 0.0022}
+{"done": true, "arm": "N", "model": "gpt-4.1-mini", "ledger_total_usd": 0.0573}
+== send F41 23:06:39
+{"draft": "W04", "usd": 0.0065}
+{"draft": "W05", "usd": 0.0104}
+{"done": true, "arm": "F", "model": "gpt-4.1", "ledger_total_usd": 0.2154}
+DRAFTS_DONE 23:06:57

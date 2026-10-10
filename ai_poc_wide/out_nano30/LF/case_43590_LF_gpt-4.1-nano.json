@@ -1,0 +1,684 @@
+{
+ "case_id": 43590,
+ "arm": "LF",
+ "model": "gpt-4.1-nano",
+ "usd": 0.0030254,
+ "dropped_rows": 0,
+ "paragraphs_missing": [
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "SOCAN initiated a proceeding before the Copyright Board to establish royalty rates for 2014–2026.",
+     "quote": "The Society of Composers, Authors and Music Publishers of Canada (SOCAN) initiated a proceeding before the Copyright Board seeking an order of the Board establishing the royalty rates.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Copyright Board has authority under the Copyright Act to set such rates.",
+     "quote": "The Copyright Board has the authority to set such rates under the Copyright Act, R.S.C. 1985, c. C-42.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN started a proceeding before the Copyright Board to set royalty rates for 2014–2026, under the authority of the Copyright Act.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Board divided the proceeding into two phases and identified four preliminary issues for Phase I.",
+     "quote": "During case management, the Board decided to divide the proceeding into two phases and identified “four preliminary issues” to be considered in Phase I.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The four issues concern application of the Supreme Court decision, statutory exceptions, interpretation of a paragraph, and rights triggered by offline copies.",
+     "quote": "1. Does the Supreme Court’s decision in CBC v SODRAC, 2015 SCC 57, apply to tariff proceedings before the Board? ... 4. When offline viewing copies are offered, created, and used, which rights are triggered?",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board divided the case into two phases, with four preliminary issues for Phase I, including legal application and interpretation questions.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Board included safeguards allowing reconsideration if Phase II evidence questions Phase I conclusions.",
+     "quote": "if evidence in Phase II significantly throws into doubt a conclusion from Phase I, parties can ask the Board to reconsider that conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The safeguard was summarized in the Phase I Notice and reiterated in the Phase I Ruling.",
+     "quote": "Phase I Notice at para. 23... Phase I Ruling at para. 3.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board's safeguards permit reconsideration of Phase I conclusions if Phase II evidence raises doubts.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Board issued a Phase I Ruling on November 21, 2025, stating it was not final and could be reconsidered.",
+     "quote": "The Board issued a ruling setting out its “conclusions on these preliminary issues” ... the ruling “does not constitute [the Board’s] final determinations.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Board reminded parties of the safeguard for reconsideration if Phase II evidence questions Phase I conclusions.",
+     "quote": "if evidence in Phase II significantly throws into doubt a conclusion from Phase I, parties can ask the Board to reconsider that conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board issued a non-final Phase I ruling and reiterated the safeguard for reconsideration based on Phase II evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SOCAN filed an application for judicial review of the Phase I Ruling.",
+     "quote": "SOCAN filed an application for judicial review of the Phase I Ruling.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN initiated judicial review of the Board's Phase I Ruling.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents moved to strike SOCAN's application, arguing it is interlocutory and not reviewable, and that SOCAN hasn't exhausted remedies.",
+     "quote": "Three respondents ... bring a motion to strike the application ... that the Phase I Ruling is an interlocutory one ... and that SOCAN has not exhausted adequate and effective alternative recourse.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents seek costs, claiming SOCAN's application was inappropriate.",
+     "quote": "They seek lump sum costs of $20,000, or costs on a heightened basis, ... SOCAN’s application should never have been brought.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents moved to strike SOCAN's judicial review application, citing its interlocutory nature and lack of exhaustion of remedies, and seek costs.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SOCAN argues that if the motion succeeds, a higher costs award is not justified, and $5,000 is more appropriate.",
+     "quote": "SOCAN ... contends that ... a $5,000 costs award is more appropriate.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SOCAN has a different view on costs if the motion is successful.",
+     "quote": "SOCAN has a different view of the matter. However, it contends that ... a $5,000 costs award is more appropriate.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN argues that if the motion to strike succeeds, a lower costs award of $5,000 is appropriate.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The motion to strike is granted, and the application for judicial review is dismissed.",
+     "quote": "I would grant the motion to strike and dismiss the application for judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondents are entitled to costs, but SOCAN's suggested amount of $5,000 is more appropriate.",
+     "quote": "While I agree the respondents are entitled to costs, I agree with SOCAN that a costs award of $5,000 is more appropriate.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the motion to strike, dismisses the judicial review, and awards costs of $5,000.",
+   "role": "conclusion"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "To succeed in the motion, respondents must show SOCAN’s application is clearly improper and unlikely to succeed.",
+     "quote": "To succeed in this motion, the respondents must demonstrate that SOCAN’s application for judicial review is “so clearly improper as to be bereft of any possibility of success”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The threshold for a motion to strike is high.",
+     "quote": "This is admittedly a high threshold to meet.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents must prove SOCAN's application is clearly improper; the threshold for a motion to strike is high.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No evidence is admissible on a motion to strike, and facts in the application are presumed true.",
+     "quote": "No evidence is admissible on a motion to strike, and with limited exceptions, we must presume the facts asserted in the notice of application are true.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Documents referred to in the application can be considered.",
+     "quote": "documents referred to in the notice of application or incorporated by reference can be taken into account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Included documents are the Phase I Notice, Phase I Ruling, and an earlier Board ruling.",
+     "quote": "those documents include the Phase I Notice and the Phase I Ruling, as well as an earlier Board ruling, CB-CDA 2025-004.",
+     "answers": 0
+    }
+   ],
+   "summary": "On a motion to strike, facts are presumed true, and relevant documents can be considered; no evidence is admitted.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Parties generally cannot proceed to court until the administrative process is complete, absent exceptional circumstances.",
+     "quote": "Absent exceptional circumstances, parties to an administrative process cannot proceed to the court system until that process has run its course.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This principle applies broadly to all matters before the decision-maker.",
+     "quote": "This principle applies “to all matters that arise” before the administrative decision maker.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Procedural fairness concerns alone do not justify bypassing the process.",
+     "quote": "A procedural fairness concern does not meet the “exceptional circumstances” threshold.",
+     "answers": 0
+    }
+   ],
+   "summary": "Parties generally must wait for the administrative process to finish before seeking judicial review, unless exceptional circumstances exist.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The purpose of the rule is to prevent fragmentation, delays, costs, and waste from premature court proceedings.",
+     "quote": "The purpose of this rule is to prevent “fragmentation of the administrative process and piecemeal court proceedings”, ... and to avoid “the waste associated with hearing an interlocutory judicial review”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Premature judicial review can be wasteful and costly, and may be unnecessary if the applicant succeeds later.",
+     "quote": "the large costs and delays associated with premature forays to court”, and ... waste associated with hearing an interlocutory judicial review when the applicant ... may succeed at the end of the administrative process anyway.",
+     "answers": 0
+    }
+   ],
+   "summary": "The rule aims to avoid fragmentation, delays, costs, and waste from premature court challenges, which may be unnecessary if the applicant succeeds later.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "An interlocutory decision must be so immediate and radical that it questions the rule of law to justify bypassing the process.",
+     "quote": "the consequences of an interlocutory decision [must] be so ‘immediate and radical’ that they call into question the rule of law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Bypassing the process requires a very serious and immediate impact.",
+     "quote": "Indeed, for an applicant to bypass the administrative process, “the consequences of an interlocutory decision [must] be so ‘immediate and radical’ that they call into question the rule of law”.",
+     "answers": 0
+    }
+   ],
+   "summary": "Interlocutory decisions can only be bypassed if they have immediate and radical consequences that threaten the rule of law.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court's view is that SOCAN’s application is premature because the Phase I Ruling is not final and does not affect rights or obligations.",
+     "quote": "I am not persuaded the Phase I Ruling affects legal rights, imposes legal obligations, or causes prejudicial effects to SOCAN that warrant judicial review at this stage.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court notes SOCAN's view that the decision is final in substance, but finds the circumstances are not comparable to cases where decisions are final.",
+     "quote": "SOCAN ... says it is not suggesting that the Board intended to manipulate the prematurity doctrine. Yet, it relies on Federal Court decisions where the relevant administrative decision maker was seen as trying to shield itself from judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court finds the circumstances here are not like those cases where decisions are final and unreviewable.",
+     "quote": "The circumstances at issue here are simply not comparable to those addressed in those cases.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Phase I Ruling is not final and does not affect rights, so judicial review is premature.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SOCAN argues that the Board’s first order in a bifurcated proceeding is reviewable, but the court finds this case is different.",
+     "quote": "SOCAN also submits that this Court has previously recognized a first order of the Board in a bifurcated proceeding as a matter amenable to judicial review. That is true. But I agree with the respondents that Society of Composers, Authors and Music Publishers of Canada v. Canadian Assn. of Internet Providers (C.A.), 2002 FCA 166 [CAIP] is distinguishable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In CAIP, the decision was final in a way that disqualified SOCAN from collecting royalties, and the parties had consented to court jurisdiction.",
+     "quote": "First, the decision under review in CAIP—the Board’s first decision in a bifurcated proceeding—disentitled SOCAN from collecting royalties from an entire class of users and thus was final in that respect: CAIP at paras. 2, 4, 23. Second, the parties consented to the Court’s jurisdiction, and prematurity was not addressed: CAIP at paras. 33–34.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CAIP predates recent case law on prematurity and finality, and is therefore distinguishable.",
+     "quote": "Finally, CAIP predates Democracy Watch, Toronto Port Authority, and Canadian Council for Refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court distinguishes CAIP, noting its decision was final and parties consented, unlike the current case where the decision is interlocutory.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Wilson decision involved a bifurcated proceeding with a clear legal and remedy phase, unlike here.",
+     "quote": "In Wilson the administrative decision maker bifurcated the proceeding into a merits and remedy phase—creating a “natural break between two separate phases of the proceedings”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Bifurcation in Wilson was a key factor in its context, not applicable here.",
+     "quote": "which, in the words of this Court, “often does not cause the ills identified in C.B. Powell”",
+     "answers": 0
+    }
+   ],
+   "summary": "Wilson involved a bifurcated proceeding with a clear legal-remedy separation, unlike the current case.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Here, the Board has not yet applied the legal interpretations from Phase I, so the impact will only be clear after a formal tariff decision.",
+     "quote": "the impact of the Phase I Ruling will crystallize only when a formal decision on the tariffs is made under the Copyright Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Phases I and II concern the merits of the proceeding, not separate issues.",
+     "quote": "In other words, Phase I and Phase II together concern the merits of the proceeding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Phases I and II are about the merits; the legal impact of Phase I will be clear after a formal tariff decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "SOCAN has not exhausted all available alternative remedies, as it can seek reconsideration from the Board.",
+     "quote": "SOCAN has not exhausted the available alternative remedies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Phase I Ruling explicitly states its preliminary nature and the parties' right to ask for reconsideration.",
+     "quote": "The Phase I Ruling explicitly expresses its preliminary nature and acknowledges the parties’ right to ask the Board to reconsider a Phase I conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN has not exhausted remedies; it can seek reconsideration of the Phase I Ruling from the Board.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "SOCAN claims the safeguard is inadequate because legal questions can't be challenged by evidence and conclusions limit evidence in Phase II.",
+     "quote": "SOCAN alleges that the Board’s safeguard is inadequate and ineffective for two reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "SOCAN argues that legal questions are not subject to doubt by evidence and conclusions restrict evidence in Phase II.",
+     "quote": "First, insofar as the Phase I Ruling addresses questions of law, they cannot be thrown into doubt by evidence. Second, the Board’s conclusions will limit the evidence that may be tendered in Phase II.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN argues the safeguard is inadequate because legal questions can't be challenged by evidence and evidence is limited in Phase II.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Board has broad procedural discretion under the Copyright Act and Rules, including case management and variation powers.",
+     "quote": "the Board has broad discretion and powers concerning its processes, including the examination of witnesses and the production of documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Board can vary rules, orders, and amend issues as appropriate.",
+     "quote": "the power to vary the rules governing its practice as appropriate, to vary orders made in a proceeding, and to grant leave to amend a statement of issues",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board has broad procedural powers, including case management, variation, and amendments.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Board bifurcated the proceeding in consultation with the parties as part of its case management.",
+     "quote": "the Board bifurcated the proceeding in consultation with the parties as part of its case management",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Board was empowered to bifurcate the proceeding.",
+     "quote": "as it was empowered to do.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board, empowered to bifurcate, did so in consultation with the parties.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "SOCAN can raise its concerns before the Board during case management or Phase II, so remedies are available and not exhausted.",
+     "quote": "SOCAN has an alternative remedy that it has not exhausted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Board has been transparent, and Phase I conclusions can be revisited if Phase II evidence challenges them.",
+     "quote": "the Board has been consistently transparent with the parties through the Phase I Notice and the Phase I Ruling—Phase I conclusions may be revisited should Phase II evidence significantly throw any one of them into doubt.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN can raise issues during case management or Phase II; remedies are available and not exhausted.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There are no exceptional circumstances justifying early judicial intervention regarding the interlocutory Phase I Ruling.",
+     "quote": "the consequences are not so immediate and radical that they call into question the rule of law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Exceptional circumstances that justify early court intervention are not present here.",
+     "quote": "the circumstances are not analogous to circumstances that could “justify the issuance of a writ of prohibition”",
+     "answers": 0
+    }
+   ],
+   "summary": "No exceptional circumstances justify early judicial review of the interlocutory Phase I Ruling.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Constitutional or jurisdictional questions alone do not justify interlocutory relief, and circumstances here are not exceptional.",
+     "quote": "even constitutional questions or questions qualified as ‘jurisdictional’ questions cannot attract interlocutory relief",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Court has held that non-exceptional circumstances do not warrant interlocutory relief for jurisdictional questions.",
+     "quote": "The same must be said here—the circumstances are not exceptional.",
+     "answers": 0
+    }
+   ],
+   "summary": "Constitutional or jurisdictional questions alone do not justify interlocutory relief; circumstances here are not exceptional.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "SOCAN may succeed in obtaining the tariffs at the end of Phase II, and if not, it can challenge that decision later.",
+     "quote": "at the end of Phase II, SOCAN may succeed in obtaining the tariffs it seeks",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "SOCAN can raise the same issues in judicial review after the Phase II decision if it chooses to challenge it.",
+     "quote": "SOCAN is not precluded from raising the matters raised in its current application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN may succeed in Phase II or challenge the decision later; issues can be raised in judicial review.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "SOCAN should raise issues before the Board if possible, including procedural fairness, to avoid losing the opportunity in judicial review.",
+     "quote": "it is appropriate that it do so. If it does not, but could have, it risks this Court exercising its discretion to not consider the issue",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Issues not raised before the Board may not be considered in judicial review, as per case law.",
+     "quote": "This Court will ordinarily not consider on judicial review an argument that was not made before the administrative decision-maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "SOCAN should raise issues before the Board; failure to do so may prevent consideration in judicial review.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed, but SOCAN can seek review of Phase II later.",
+     "quote": "I would grant the motion to strike and dismiss the application for judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The dismissal is without prejudice, allowing SOCAN to raise issues after Phase II if it chooses.",
+     "quote": "this dismissal is without prejudice to its right to then raise the issues it raises in its application for judicial review of the Phase I Ruling",
+     "answers": 0
+    }
+   ],
+   "summary": "The application is dismissed; SOCAN can seek review of Phase II later.",
+   "role": "disposition"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Costs are awarded to the respondents in the amount of $5,000.",
+     "quote": "I would award costs to the three respondents in the lump sum all-inclusive amount of $5,000.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The reasons are issued by Monaghan J.A., with agreement from Laskin J.A. and Roussel J.A.",
+     "quote": "“K.A. Siobhan Monaghan” J.A. “I agree. J.B. Laskin J.A.” “I agree. Sylvie E. Roussel J.A.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Costs of $5,000 awarded to respondents; reasons by Monaghan J.A., with agreement from others.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,355 @@
+{
+ "case_id": 61784,
+ "arm": "LF",
+ "model": "gpt-4.1-nano",
+ "usd": 0.0022444000000000006,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appeal is from the Refugee Protection Division's decision rejecting the refugee claims for lack of credibility.",
+     "quote": "XXXX XXXX (the principal appellant) and his minor daughter XXXX XXXX XXXX (the associate appellant), citizens of Algeria, are appealing against a decision of the Refugee Protection Division (RPD) rejecting their refugee protection claims because of a lack of credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal challenges the RPD's credibility assessment of the Algerian refugee claimants.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants allege a fear of returning to Algeria due to a complaint filed by the principal appellant against a drug dealer.",
+     "quote": "The appellants allege a fear of returning to Algeria because of a complaint filed by the principal appellant against a drug dealer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants claim they fear returning to Algeria because of a complaint they filed.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The key issue is whether the RPD erred in its credibility assessment.",
+     "quote": "The determinative issue is whether the RPD erred in its assessment of the appellants' credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The main issue is whether the RPD's credibility assessment was correct.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court finds the appellants not credible, agrees with the RPD, and dismisses the appeal.",
+     "quote": "I find that the appellants are not credible, conclude that the RPD's determination is correct and dismiss the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, agreeing with the RPD's credibility finding.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The principal appellant alleged he was assaulted in February 2014 and that his agents of persecution are involved in drug trafficking.",
+     "quote": "The principal appellant alleged that in February 2014, while he was on his way home, strangers approached him from behind and violently assaulted him. He suffered head and back injuries, and a fractured leg. His daughter was traumatized. He alleged that his agents of persecution are involved in drug trafficking.",
+     "answers": 0
+    }
+   ],
+   "summary": "The principal appellant described an assault in 2014 and linked it to agents involved in drug trafficking.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD believed the assault occurred and found the explanation about mistaken identity credible, but questioned the resemblance's impact on threats.",
+     "quote": "The RPD believed that the principal appellant was assaulted on February 13, 2014, and found credible his explanation that the agent of persecution thought he was his brother. However, in the RPD's view, the resemblance between the two brothers could not have resulted in threatening calls made by mistake against the principal appellant rather than against his brother, a XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD accepted the assault but questioned the significance of the resemblance in the threats.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD concluded the evidence did not establish the principal appellant's resemblance posed a perpetual risk.",
+     "quote": "The RPD concluded that, in its opinion, the evidence did not establish that the principal appellant's resemblance to his brother, a XXXX XXXX, poses a perpetual risk to him, as the principal appellant suggested in his Basis of Claim Form.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the resemblance did not create a perpetual risk to the appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred by not considering motives for the assault and the guilty verdicts.",
+     "quote": "In his appeal memorandum, the principal appellant submits that he provided two motives for the assault of February 13, 2014: his resemblance to his brother or revenge against him. He argues that the RPD could therefore not conclude that his fear is no longer justified because the anonymous telephone calls could not be explained away by the resemblance with his brother. The RPD erred in concluding that the withdrawal of the two complaints meant the end of the problems. It failed to consider that although the complaints were withdrawn, the agent of persecution was found guilty and sentenced to two years in prison without parole and a fine. The RPD seems to believe that the agent of persecution is a reasonable man, not a mafia-type criminal seeking revenge. The principal appellant was attacked because his brother, a XXXX XXXX, arrested the agent of persecution. The RPD's conclusions are arbitrary and drawn from the evidence in a capricious manner.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant claims the RPD failed to consider motives and the guilty verdicts, which support his fear.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees the incident may have been due to resemblance and revenge, but finds the RPD's error not fatal due to other credibility findings.",
+     "quote": "I agree with the principal appellant, and I am of the opinion that the incident may have occurred as a result of the resemblence between the principal appellant and his brother (a police officer) and the revenge mentioned in his written account and the letter from his brother. However, I am of the opinion that the RPD's error is not fatal, given its other determinative findings regarding the principal appellant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court acknowledges the possible reasons for the incident but considers the RPD's other findings sufficient.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant testified about a 2014 judgment, but evidence shows the appeal was filed in January 2014, contradicting his testimony.",
+     "quote": "The principal appellant testified that a judgement was issued against him in 2014. When asked whether he attended that hearing, he replied in the affirmative: \"I went to the hearing; I truly did not do anything\". He testified that he appealed this judgment towards the end of 2014. However, I note that the evidence on the record, namely the appeal certificate, shows that the judgment was appealed on January 10, 2014, contrary to the principal appellant's allegations. Moreover, when he was confronted with the judgment by default issued against him, the principal appellant changed his testimony and stated that he did not attend the hearing, which is why a judgment by default was issued. The RPD therefore asked him whether the judgment was indeed issued in 2014 and whether he attended the hearing. The principal appellant replied: \"I did not attend.\" Therefore, I am of the opinion that the principal appellant gave two contradictory versions about his attendance to the panel during the hearing. First, he testified that he attended the hearing because he was innocent; then, he stated that he did not attend. In my opinion, the evidence submitted does not establish the principal appellant's allegations in his written account.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant gave contradictory testimony about attending a 2014 judgment hearing, undermining his credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD noted the lack of evidence about threatening calls and questioned the appellant's failure to claim asylum during travels.",
+     "quote": "The RPD alluded to the lack of evidence about the threatening calls. The RPD believed that the principal appellant travelled to England in XXXX 2017 without claiming asylum there. The RPD noted that the principal appellant did not claim asylum in the United States, although he travelled there twice. In the RPD's opinion, the principal appellant's failure to claim asylum is not the behaviour one would expect from a person whose life is at risk in his country. The RPD believed that the principal appellant's failure to claim asylum on many occasions during his travels abroad, between XXXX 2014 and XXXX 2017, raises serious questions about the credibility of the reasons why he allegedly fears for his life. The RPD concluded that the principal appellant failed to substantiate those reasons and the death threats against him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD questioned the appellant's failure to claim asylum during travels, affecting credibility of his fear.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant claims the RPD failed to consider his explanations and the record evidence.",
+     "quote": "In his appeal memorandum, the principal appellant submits that the RPD failed to consider his explanations and the chronology of events. The RPD reached its conclusions about his behaviour without considering the evidence in the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD did not properly consider his explanations and evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant testified about threats and travel, but his explanations are inconsistent and unconvincing, undermining credibility.",
+     "quote": "As for the death threats by telephone, the principal appellant testified at the hearing that he received a call threatening him and his family in April 2017. He immediately notified his brother who lived in another location. He testified that he travelled to England for business in XXXX 2017. Upon his return, he began to receive many anonymous threatening calls and, in July 2017, he filed complaints at the local police station, but to no avail. When he was asked why he did not claim asylum in England, he replied: \"I thought the threats meant nothing and my family was there\". I must point out that the principal appellant was allegedly the victim of an armed assault on February 13, 2014. He was threatened with death unless he withdrew his complaint. He finally agreed to withdraw the complaints as a result of those threats and his family's recommendations. Following this incident, he allegedly travelled to France three times in 2014; he stayed there for 15 days, 21 days and 2 months, respectively. When he was asked why he did not claim asylum in France, he replied that he believed that the matter had been settled. The principal appellant allegedly travelled to the United States in XXXX and XXXX 2016 in order to work there. He testified at the hearing that he did not feel the need to claim asylum there. In my opinion, the principal appellant's explanations are not convincing, and his behaviour was inconsistent with that of a person fearing for his life. First, in June 2016, he allegedly filed an appeal against the judgment ordering him to pay a fine. His agent of persecution also filed an objection against the judgment sentencing him to two years in prison and a fine. The principal appellant was threatened with death in 2014; however, he did not claim asylum in the United States during his two trips in 2016. He was also allegedly threatened with death in April 2017; however, he did not claim asylum in England during his trip in May 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's inconsistent explanations about threats and asylum claims weaken his credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court agrees the RPD's conclusion about the appellant's failure to claim asylum is correct, based on the evidence and timing of judgments.",
+     "quote": "In his appeal memorandum, the principal appellant provided explanations for his failure to claim asylum in France. I acknowledge that during his first trip in XXXX 2014, he believed that his case was settled because the complaints were withdrawn. He argues that at the time of his second trip in XXXX 2014, the final judgment was not yet rendered against the agent of persecution. With respect, I disagree with the principal appellant, given that the agent of persecution was sentenced on July 13, 2014, as indicated by the judgment entered into evidence. His third trip to France took place in XXXX 2014. The judgment dismissing the principal appellant's objection was rendered on November 23, 2014, i.e., before the principal appellant's trip. In my opinion, the RPD's conclusion about the principal appellant's inconsistent behaviour, namely his failure to claim asylum, is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the RPD correctly concluded the appellant's failure to claim asylum was inconsistent with the timing of judgments.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD concluded the appellant failed to prove the death threats on a balance of probabilities.",
+     "quote": "The RPD concluded that the principal appellant failed to establish, on a balance of probabilities, the truthfulness of his allegations about the anonymous death threats against him and his family that began in April 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant did not prove the death threats were credible.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the evidence about threatening calls is unavailable due to police rules, not lack of threats.",
+     "quote": "In his appeal memorandum, the principal appellant maintains that the anonymous calls cannot be entered into the panel's record as long as there is no evidence about the author of those calls. The objective evidence indicates that the copy of a complaint is available once the court has set up the record. The evidence was not available because of the rules of the Algerian police.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant claims police rules prevented evidence about threatening calls from being available.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant's failure to establish threats after 2017 and inconsistent residence changes weaken credibility.",
+     "quote": "I note that he did not receive any threatening calls between the assault on February 13, 2014, and March 2017. He allegedly received the first threatening call only in March 2017 and, following his return from England, he began to receive many threatening calls, but was unable to identify the callers. He even changed his residence and telephone number; these allegations are not included in his written account. At the hearing, he testified that he changed residence and went to live with his in-laws, after receiving the death threats. However, in reply to Question 2(d) in the BOC Form, \"Did you move to another part of your country to seek safety?\" the principal appellant answered \"no\" and added the following: \"This is due to my financial means because I was living with my mother.\" In my opinion, the principal appellant failed to establish, on a balance of probabilities, that he received threatening calls after April 2017, which forced him to leave his country. The principal appellant filed evidence concerning the assault on February 13, 2014, including a written statement from his brother. The principal appellant claims that it has been impossible for him to obtain a copy of one of the complaints he filed with the police since May 2017. However, I note that the letter from his brother, a police officer, does not mention the threats against the principal appellant, nor the complaints filed by the latter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's failure to prove threats after 2017 and inconsistent residence changes undermine credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD concluded the appellant's fear for his child's safety was not established, citing lower crime rates in Algeria.",
+     "quote": "The evidence before the RPD shows that the rates for kidnappings, assaults and homicides per 100,000 people are lower in Algeria than in Canada. The RPD concluded that it has not been established that the minor child would be personally subjected to a danger of torture, a risk to her life or a risk of cruel and unusual treatment or punishment, if she was to return to Algeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no credible evidence that the child would be at risk if returned to Algeria.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant claims his family has a well-founded fear of persecution, not just him.",
+     "quote": "In his appeal memorandum, the principal appellant submits that the death threats against him also targeted his entire family. He maintains that even if the non-credibility findings are not justified, nevertheless his minor daughter and his entire family have a well-founded fear of persecution by reason of their membership in a particular social group, i.e. the family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues his family also faces persecution, based on threats targeting the family as a social group.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court notes the lack of credibility in the principal appellant's allegations about threats, affecting the claim that the family is persecuted.",
+     "quote": "Although the RPD's conclusion about kidnapping is not challenged by the principal appellant, I wish to point out that the associate appellant's refugee protection claim is based on the allegations in the principal appellant's BOC Form. I cannot accept the principal appellant's argument that his daughter is a member of a particular social group, namely the family, under section 96 of the Immigration and Refugee Protection Act (IRPA), because he was unable to establish the credibility of his allegations about the death threats against him and his family. The principal appellant did not have any problems for approximately three years, between 2014 and 2017. During that period, he travelled several times to various destinations, without his family being targeted by anyone.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the family membership claim unsubstantiated due to the appellant's credibility issues.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's negative credibility finding is correct.",
+     "quote": "I am of the opinion that the RPD's negative finding with respect to the appellants' credibility is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD that the appellants' credibility was not established.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellants failed to prove a serious risk of persecution or need for protection.",
+     "quote": "The RAD confirms the RPD's determination, namely that the appellants failed to establish that there is a serious possibility of persecution on a Convention ground or that, on a balance of probabilities, they would be personally subjected to a risk within the meaning of subsection 97(1) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is dismissed because the appellants did not meet the criteria for refugee protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed and the RPD's decision is confirmed.",
+     "quote": "The RAD dismisses the appeal and confirms the RPD's determination that the appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is dismissed, confirming the RPD's decision.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,559 @@
+{
+ "case_id": 7418,
+ "arm": "LF",
+ "model": "gpt-4.1-nano",
+ "usd": 0.0026630000000000004,
+ "dropped_rows": 0,
+ "paragraphs_missing": [
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Leuga seeks judicial review of a 2020 immigration officer decision refusing his PRRA application.",
+     "quote": "He is seeking judicial review of a decision of a senior immigration officer dated January 16, 2020, refusing his pre-removal risk assessment (PRRA) application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The officer concluded Mr. Leuga failed to prove risks under IRPA if returned to Cameroon.",
+     "quote": "The officer concluded that Mr. Leuga failed to discharge his burden of proving that he would be subjected to the risks provided for in sections 96 and 97 of the Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA), if he returned to Cameroon.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reviews a 2020 decision refusing Mr. Leuga's PRRA application based on risk assessment under IRPA.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Leuga does not challenge the officer’s findings on the merits but claims procedural fairness breaches.",
+     "quote": "Mr. Leuga does not challenge the PRRA officer’s findings on the merits. His application is based on the principles of procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The main issue is Mr. Leuga’s representation at the hearing.",
+     "quote": "However, there is only one determinative issue in this case, namely that of Mr. Leuga’s representation at the hearing convened by the officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The case focuses on procedural fairness, specifically Mr. Leuga’s representation during the hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Leuga demonstrated problems with his representation’s competency, affecting his procedural fairness rights.",
+     "quote": "I find that Mr. Leuga has demonstrated fundamental problems with the competency of his representation in his PRRA process and, therefore, his right to procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court will allow the judicial review application.",
+     "quote": "I will therefore allow this application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that Mr. Leuga’s representation was fundamentally flawed, warranting the review's success.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Leuga is a Cameroonian boxer fearing return due to threats and alleged government persecution.",
+     "quote": "Mr. Leuga alleges that he fears returning to Cameroon because he is reportedly wanted and receiving death threats by the Cameroonian authorities for having complained to the Minister of Sports on a number of occasions about the boxing system in place.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "He experienced an assault in Cameroon and faced police threats when trying to file complaints.",
+     "quote": "Central to his story is an assault that occurred at his home on March 7, 2016, by unknown assailants or thieves. He alleges that he was stabbed during the attack. The next day, Mr. Leuga reportedly tried to file a complaint against the Cameroon Boxing Federation, but the police commissioner told him not to react against decisions made by the government and threatened him with imprisonment if he returned to the police station.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "He left Cameroon for the US in 2016, then moved to Canada in 2019, after asylum and refugee claim attempts.",
+     "quote": "On August 12, 2016, he left Cameroon for the United States, where he claimed asylum. Then, on August 7, 2019, Mr. Leuga arrived in Canada. He filed a claim for refugee protection, but on August 12, 2019, his claim was found to be ineligible under paragraph 101(1)(c.1) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga, a Cameroonian boxer, fears persecution, experienced violence, and moved from Cameroon to the US and then Canada, seeking protection.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The assault occurred at Mr. Leuga's home on March 7, 2016, and he alleges he was stabbed.",
+     "quote": "Central to his story is an assault that occurred at his home on March 7, 2016, by unknown assailants or thieves.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Leuga alleges he was stabbed during the attack.",
+     "quote": "He alleges that he was stabbed during the attack.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "He tried to file a complaint against the Cameroon Boxing Federation but was threatened by police.",
+     "quote": "The next day, Mr. Leuga reportedly tried to file a complaint against the Cameroon Boxing Federation, but the police commissioner told him not to react against decisions made by the government and threatened him with imprisonment if he returned to the police station.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "He left Douala and moved to Bafang for five months before leaving Cameroon.",
+     "quote": "Mr. Leuga allegedly left Douala, the city he was living in, and moved to the city of Bafang for five months before leaving Cameroon.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga reports an assault in Cameroon, police threats, and his subsequent departure from Cameroon.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "He left Cameroon for the US on August 12, 2016, and claimed asylum.",
+     "quote": "On August 12, 2016, he left Cameroon for the United States, where he claimed asylum.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "He arrived in Canada on August 7, 2019, and his refugee claim was found ineligible.",
+     "quote": "Then, on August 7, 2019, Mr. Leuga arrived in Canada. He filed a claim for refugee protection, but on August 12, 2019, his claim was found to be ineligible under paragraph 101(1)(c.1) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga left Cameroon, claimed asylum in the US, then arrived in Canada where his refugee claim was rejected.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Mr. Leuga applied for a PRRA on August 30, 2019, with counsel's assistance.",
+     "quote": "Mr. Leuga applied for a PRRA with the assistance of his counsel, Patrizia Ruscio, on August 30, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga submitted a PRRA application with legal help.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Ruscio was disbarred by the Barreau of Quebec for three months starting October 8, 2019.",
+     "quote": "by a decision of the Disciplinary Council of the Barreau du Québec (Barreau) dated September 4, 2019, Ms. Ruscio was temporarily disbarred by the Barreau for three months, starting on October 8, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Mr. Leuga acknowledged receipt of the disbarment decision on November 18, 2019.",
+     "quote": "Mr. Leuga acknowledged receipt of this decision on November 18, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Ruscio was disbarred temporarily, and Mr. Leuga received this notice on November 18, 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The PRRA officer sent a notice to appear on November 1, 2019, for a hearing on November 20, 2019.",
+     "quote": "On November 1, 2019, the PRRA officer sent a notice to appear to the applicant and his representative. The notice provided that the hearing would be held on November 20, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mr. Leuga picked up his file from the Barreau on November 18, 2019.",
+     "quote": "Mr. Leuga picked up his file from the Barreau on November 18, 2019, the same day he received the notice to appear from the officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Notice issued for hearing on Nov 20, 2019; Mr. Leuga retrieved his file on Nov 18, 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Mr. Leuga met Roland Franklin at Ms. Ruscio’s office after retrieving his file.",
+     "quote": "Mr. Leuga immediately went to Ms. Ruscio’s office where he met Roland Franklin, one of the office staff.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga met staff member Roland Franklin after retrieving his file.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The hearing was held on November 20, 2019, with Mr. Franklin present, but he is not a counsel or immigration consultant.",
+     "quote": "The hearing was held on November 20, 2020. Mr. Leuga was accompanied at the hearing by Mr. Franklin. However, it is important to note that Mr. Franklin is neither a counsel nor an immigration consultant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Hearing held on Nov 20, 2019, with Mr. Franklin present; he is not a legal representative.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The PRRA officer sent a letter on November 29, 2019, stating Ms. Ruscio was not authorized and offering options.",
+     "quote": "On November 29, 2019, the PRRA officer sent a letter to Mr. Leuga in which she indicated that Ms. Ruscio was not an authorized representative and invited Mr. Leuga to proceed without a representative or to select a new authorized representative.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer informed Mr. Leuga that Ms. Ruscio was not authorized and offered options.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The officer issued a negative decision on January 16, 2020, citing inconsistencies and lack of demonstrated risk.",
+     "quote": "On January 16, 2020, the officer issued her negative decision. Briefly, the officer found that Mr. Leuga’s explanation that he was wanted by Cameroonian authorities was not plausible and that his fear was not well-founded. The officer referred to the inconsistencies and contradictions in Mr. Leuga’s evidence and testimony at the hearing. Furthermore, the officer concluded that the applicant had not demonstrated that he would be persecuted in the city of Bafang or that it would be unreasonable for him to live there if he returned to Cameroon.",
+     "answers": 0
+    }
+   ],
+   "summary": "Negative decision issued citing implausible explanations, inconsistencies, and no demonstrated risk of persecution.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Mr. Leuga claims the officer breached procedural fairness by not verifying his representative's qualifications.",
+     "quote": "Mr. Leuga submits that the officer breached his right to a fair hearing and procedural fairness for two reasons, but only one of them allows me to dispose of this application. According to Mr. Leuga, the officer should have exercised due diligence and confirmed the qualifications and competency of his representative, Mr. Franklin, before proceeding with the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "He argues that holding the hearing with an unqualified representative was problematic.",
+     "quote": "Mr. Leuga maintains that holding the hearing while his counsel was suspended was highly problematic and that Mr. Franklin had neither the ability nor the competency to represent him in these proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Leuga argues procedural fairness was breached because the officer did not verify his representative's qualifications.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness is assessed based on all circumstances, not just standard review.",
+     "quote": "Procedural fairness issues do not necessarily lend themselves to a standard of review analysis (Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 (Canadian Pacific)). The role of this Court is to determine whether the procedure is fair considering all the circumstances (Canadian Pacific at paras 54–56; Canadian Association of Refugee Lawyers v Canada (Immigration, Refugees and Citizenship), 2020 FCA 196 at para 35).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that procedural fairness is judged by all circumstances, not a standard of review.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Franklin failed to explain his presence at the hearing and did not mention Ms. Ruscio's disbarment or his late involvement.",
+     "quote": "He failed to mention that Ms. Ruscio had been disbarred and that he did not become involved in the case until two days before the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Transcript suggests Mr. Franklin told the officer Ms. Ruscio was unavailable and that he was filling in.",
+     "quote": "the transcript suggests that Mr. Franklin informed the officer that Ms. Ruscio was [translation] “unavailable” and that he was filling in for her.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Franklin did not explain his late involvement or disbarment, and indicated he was filling in for Ms. Ruscio.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On November 29, 2019, the officer sent a letter to Mr. Leuga about representation issues.",
+     "quote": "the officer sent the Letter to Mr. Leuga.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The letter stated Ms. Ruscio was not authorized and Mr. Leuga could proceed alone or designate another representative.",
+     "quote": "The Letter, the officer noted that Ms. Ruscio was not an authorized representative and could not, therefore, advise or represent him in his PRRA application at that time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer sent a letter informing Mr. Leuga about representation issues, stating Ms. Ruscio was unauthorized.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The officer's email to Mr. Leuga was incorrect, and Mr. Leuga was unaware of the letter due to a typographical error.",
+     "quote": "Mr. Leuga filed a supplementary affidavit... informing the Court of this typographical error.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "As a result, Mr. Leuga did not receive the letter before the negative decision and was unaware of the opportunity to review representation issues.",
+     "quote": "he did not receive the Letter prior to the issuance of the officer’s negative decision and was unaware of the opportunity to review the issue of representation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The respondent does not dispute these facts.",
+     "quote": "The respondent does not dispute these facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "Due to an email error, Mr. Leuga did not receive the letter about representation before the decision, and the respondent agrees.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Leuga's PRRA file was poorly prepared, with limited submissions and handwritten notes indicating inconsistencies.",
+     "quote": "The record showed a lack of competent representation... handwritten notes that the officer considered as being different versions of his story.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Leuga believes competent representation should have included written submissions to clarify his story.",
+     "quote": "a competent representative ought to have filed written submissions in the days following the hearing to ensure that there were no inconsistencies or contradictions in the main aspects of his story.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga's PRRA record was poorly prepared, with limited submissions and handwritten notes suggesting inconsistencies.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court reviewed the submissions and evidence, supporting Mr. Leuga’s claim of inadequate representation.",
+     "quote": "I have read the submissions provided by Ms. Ruscio and the evidence filed as part of the PRRA application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The record supports the argument that Mr. Leuga had inadequate representation.",
+     "quote": "In my view, the state of the record supports Mr. Leuga’s argument that he had inadequate representation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the record supports Mr. Leuga’s argument of inadequate representation.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Representation at PRRA hearings is important, especially for Mr. Leuga, whose application was his only chance to present his case.",
+     "quote": "The Guide recognizes the robust role for representation at PRRA hearings... his PRRA application was his only chance to present his experiences in Cameroon and his fear of returning there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Leuga expected competent representation when pursuing his application with counsel.",
+     "quote": "In my view, he could have expected that he would have competent representation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Representation at PRRA hearings is crucial; Mr. Leuga expected to have competent counsel for his only opportunity to present his case.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Leuga arrived with an unprepared file and a representative unfamiliar with his case, who did not disclose his unauthorized status.",
+     "quote": "Mr. Leuga arrived at the hearing with a file that was not properly prepared and a representative who was not very familiar with the particulars of his case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The officer failed to identify the problem because Mr. Franklin did not inform him of the unauthorized status.",
+     "quote": "Mr. Franklin did not apprise the officer of the situation, and the officer failed to follow the instructions in the Guide, which would have made it possible to identify the problem immediately.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Misunderstandings persisted after the hearing, with the officer trying to inform Mr. Leuga of the unauthorized representation.",
+     "quote": "the misunderstandings or mishaps continued in the days following the hearing, when the officer attempted, in good faith, albeit unsuccessfully, to inform Mr. Leuga of Ms. Ruscio’s unauthorized representative status and to invite him to appoint another representative.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Leuga's unprepared file and unqualified representative, combined with officer oversight, led to ongoing misunderstandings affecting his case.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The circumstances of the hearing are described as a series of unfortunate events that affected Mr. Leuga’s right to a fair process.",
+     "quote": "the circumstances of the hearing in this case as a series of unfortunate events that significantly affected Mr. Leuga’s right to a fair hearing and PRRA process.",
+     "answers": 0
+    }
+   ],
+   "summary": "The hearing circumstances are characterized as a series of unfortunate events impacting Mr. Leuga’s fair hearing rights.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court concludes Mr. Leuga’s procedural fairness rights were violated, and his judicial review application is allowed.",
+     "quote": "I find that Mr. Leuga’s right to procedural fairness has been violated. His application for judicial review is therefore allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a procedural fairness violation and allows the judicial review application.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees there are no questions of general importance to certify, and the application is allowed.",
+     "quote": "The parties have not proposed any questions for certification, and I agree that there are none. JUDGMENT in IMM-3081-20 THIS COURT’S JUDGMENT is as follows: The application for judicial review is allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "No questions of general importance; the court allows the application for judicial review.",
+   "role": "disposition"
+  }
+ ]
+}

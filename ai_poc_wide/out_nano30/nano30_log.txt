@@ -1,0 +1,11 @@
+dry LF: {"dry_run": true, "arm": "LF", "model": "gpt-4.1-nano", "cases": 30, "ceiling_usd": 0.194, "typical_usd": 0.146, "ledger_now": 0.0}
+== send LF 00:18:10
+{"case_id": 74424, "arm": "LF", "model": "gpt-4.1-nano", "usd": 0.0020816999999999997, "dropped_rows": 0, "paragraphs_missing": 0}
+{"case_id": 50400, "arm": "LF", "model": "gpt-4.1-nano", "usd": 0.0013044, "dropped_rows": 0, "paragraphs_missing": 0}
+{"done": true, "arm": "LF", "ledger_total_usd": 0.1081}
+dry issues: {"dry_run": true, "task": "issues", "model": "gpt-4.1-nano", "cases": 30, "ceiling_usd": 0.039}
+== send issues 00:21:47
+{"case_id": 74424, "usd": 0.0003}
+{"case_id": 50400, "usd": 0.0003}
+{"done": true, "task": "issues", "ledger_total_usd": 0.1183}
+NANO30_DONE 00:22:00

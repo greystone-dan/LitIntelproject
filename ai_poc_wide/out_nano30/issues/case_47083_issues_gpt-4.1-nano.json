@@ -1,0 +1,73 @@
+{
+ "case_id": 47083,
+ "task": "issues",
+ "model": "gpt-4.1-nano",
+ "usd": 0.00023620000000000005,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 11,
+  "12": 12,
+  "13": 13,
+  "14": 14,
+  "15": 15,
+  "16": 16,
+  "17": 17,
+  "18": 18,
+  "19": 19,
+  "20": 20,
+  "21": 21,
+  "22": 21,
+  "23": 22,
+  "24": 22,
+  "25": 23,
+  "26": 23,
+  "27": 24,
+  "28": 24,
+  "29": 25,
+  "30": 26,
+  "31": 26,
+  "32": 27,
+  "33": 28,
+  "34": 28,
+  "35": 29,
+  "36": 29,
+  "37": 30,
+  "38": 31,
+  "39": 31,
+  "40": 32,
+  "41": 32
+ },
+ "result": {
+  "order_para": 30,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the male claimant a Convention refugee or person in need of protection?",
+    "paras": "21-23, 30",
+    "applicant_position": "Claimant's explanations about incidents are not credible; he is not recognized as refugee.",
+    "respondent_position": "The panel finds the male claimant not credible and rejects his claim.",
+    "result": "dismissed_for_applicant",
+    "result_para": 30,
+    "result_text": "The male claimant's claim is rejected; he is not recognized as a refugee."
+   },
+   {
+    "issue": "Is the female claimant a Convention refugee or person in need of protection?",
+    "paras": "25-31",
+    "applicant_position": "She is credible and her experiences amount to persecution.",
+    "respondent_position": "The panel finds her credible and recognizes her as a refugee.",
+    "result": "allowed_for_applicant",
+    "result_para": 31,
+    "result_text": "The female claimant's refugee claim is allowed; she is recognized as a refugee."
+   }
+  ]
+ }
+}

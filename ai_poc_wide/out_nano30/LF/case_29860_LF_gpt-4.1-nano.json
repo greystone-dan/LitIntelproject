@@ -1,0 +1,466 @@
+{
+ "case_id": 29860,
+ "arm": "LF",
+ "model": "gpt-4.1-nano",
+ "usd": 0.0028596000000000003,
+ "dropped_rows": 0,
+ "paragraphs_missing": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  26,
+  27,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49
+ ],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The court reviews whether the decision to refuse the H&C application was unreasonable.",
+     "quote": "",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant argues that the decision is unreasonable.",
+     "quote": "",
+     "answers": 0
+    }
+   ],
+   "summary": "The court is asked to determine if the refusal of the H&C application was reasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The application for judicial review is allowed; the matter is remitted to a different immigration officer.",
+     "quote": "the application for judicial review is allowed. The matter is remitted to a different immigration officer for reconsideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the judicial review and orders remittance for reconsideration.",
+   "role": "disposition"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness of a decision can be compromised if the decision-maker misapprehends evidence or exhibits logical fallacies.",
+     "quote": "the reasonableness of a decision may be jeopardized where the decision maker has fundamentally misapprehended or failed to account for the evidence before it and the internal rationality of a decision may be called into question if the reasons exhibit clear logical fallacies",
+     "answers": 0
+    }
+   ],
+   "summary": "The paragraph discusses how a decision's reasonableness depends on proper evidence consideration and logical reasoning.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Decision-makers must consider all relevant evidence and explain why contradicting evidence is not sufficient to change the outcome.",
+     "quote": "a decision maker cannot selectively choose evidence and ignore contradicting facts... demonstrate that all of the evidence was considered and weighed, as well as explain why evidence that would be contrary to the result was not sufficient to justify a different conclusion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Failure to discuss critical contradicting evidence suggests the decision-maker did not meaningfully consider key issues.",
+     "quote": "overturning a decision because the reasons did not discuss critical contradicting evidence is not 'disguised correctness'... it is a conclusion that the decision maker may not have meaningfully grappled with key issues and evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The paragraph emphasizes the importance of considering all relevant evidence and addressing contradictions to ensure reasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer turned positive humanitarian and compassionate factors into negative ones, which is unreasonable.",
+     "quote": "the Officer turned positive H&C factors into negative ones, contrary to the rule established by jurisprudence",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the Officer improperly reversed positive factors into negative ones.",
+   "role": "other"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer ignored relevant evidence contradicting the conclusion that the applicant was not at risk if removed.",
+     "quote": "the Officer ignored relevant evidence that contradicted their decision that the Applicant was unable to demonstrate a risk if removed",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant claims the Officer failed to consider evidence showing potential risks upon removal.",
+   "role": "other"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer copied the PRRA analysis into the H&C decision but excluded relevant sections, ignoring differences between the tests.",
+     "quote": "the Officer excluded the sections of the PRRA analysis that were in fact more relevant to an H&C analysis... and instead completely ignored them for the purposes of the H&C application",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer failed to consider relevant evidence of discrimination, militarization, and adverse conditions, applying PRRA standards instead of H&C.",
+     "quote": "by applying the more onerous PRRA standards and dismissing relevant evidence of discrimination, militarization, and adverse country conditions that will directly impact the Applicant, the Officer failed to consider relevant factors otherwise necessary under the H&C lens",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant criticizes the Officer for improperly excluding relevant evidence and misapplying standards.",
+   "role": "other"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer reasonably assessed the level of discrimination faced by the applicant, finding it did not amount to hardship.",
+     "quote": "the Officer turned their mind to whether the level of discrimination faced by the Applicant amounted to a hardship that justified a positive H&C, finding that there was insufficient evidence that his family in Sri Lanka was facing difficulties",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the Officer reasonably concluded the discrimination did not constitute hardship.",
+   "role": "other"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer’s overall assessment was reasonable based on the evidence, considering the current situation of the applicant’s family.",
+     "quote": "the Officer’s overall assessment was reasonable based on the evidence that was before them... found that it didn’t rise to the level where H&C relief was warranted",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent defends the reasonableness of the Officer’s evidence-based assessment.",
+   "role": "other"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer reasonably considered the applicant’s establishment factors independently and gave them negative weight within the overall context.",
+     "quote": "the Officer reasonably considered the Applicant’s establishment factors independently from the assessment of the hardship in Sri Lanka and gave it negative weight within the context of his whole immigration history",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent claims the Officer properly weighed establishment factors separately and reasonably.",
+   "role": "other"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 25(1) of IRPA grants the Minister discretionary power to grant permanent residence based on humanitarian and compassionate considerations.",
+     "quote": "subsection 25(1) of the IRPA provides the Minister with the discretionary power to exempt a foreigner from having to meet any criteria or obligation of the IRPA and to grant him/her permanent resident status, if the Minister is of the opinion that it is justified by humanitarian and compassionate considerations",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 25(1) of IRPA allows the Minister to grant permanent residence based on humanitarian and compassionate grounds.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants bear the burden to prove that H&C considerations justify granting relief.",
+     "quote": "applicants who apply for H&C considerations bear the onus of satisfying the decision maker that the granting of permanent resident status or an exemption from any applicable criteria or obligations of the IRPA is justified by H&C considerations",
+     "answers": 0
+    }
+   ],
+   "summary": "The paragraph states that applicants must prove their case for H&C relief.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The test for H&C relief requires establishing circumstances that evoke a desire to relieve another’s misfortunes, beyond mere hardship.",
+     "quote": "the test for H&C relief... applicants bear the onus of establishing circumstances that 'would excite in a reasonable [person] in a civilized community a desire to relieve the misfortunes of another'",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants must demonstrate circumstances that are exceptional relative to other applicants.",
+     "quote": "applicants for H&C relief must 'establish exceptional reasons as to why they should be allowed to remain in Canada' or obtain H&C relief from abroad",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "All relevant facts and factors must be considered and weighed when assessing H&C considerations.",
+     "quote": "in assessing whether an applicant has established sufficient H&C considerations to warrant a favourable exercise of discretion... all of the relevant facts and factors... must be considered and weighed",
+     "answers": 0
+    }
+   ],
+   "summary": "The paragraph explains the legal standards and burden of proof for H&C relief.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants only need to show likely discrimination, which can be inferred, not necessarily proven directly.",
+     "quote": "the applicant only needs to show that it is likely that discrimination will occur, and that such a conclusion may be inferred",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Discrimination can be systemic or isolated, and multiple discriminatory events should be considered cumulatively.",
+     "quote": "discrimination can be inferred where an applicant shows that he or she is a member of a group that is discriminated against... could manifest in isolated incidents or permeate systemically",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants need only show likelihood of discrimination, not direct evidence of personal targeting.",
+     "quote": "applicants need only show that they would likely be affected by adverse conditions such as discrimination... reasonable inferences can be drawn from those experiences",
+     "answers": 0
+    }
+   ],
+   "summary": "The paragraph discusses how likelihood and inference are sufficient to establish discrimination for H&C purposes.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Court cited Shackleford to support that H&C applications should only be granted in exceptional circumstances.",
+     "quote": "the Respondent cited Shackleford v Canada (Citizenship and Immigration)... relying on Kanthasamy... in which the Court opined that an H&C application should only be granted in exceptional circumstances",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues H&C relief is only for exceptional cases, citing relevant case law.",
+   "role": "other"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer unreasonably turned positive establishment factors into negative ones, which is contrary to jurisprudence.",
+     "quote": "the Officer relied on specific factors that could demonstrate that the Applicant met the H&C factors and, instead of weighing those factors in favour of granting the application, used them against the Applicant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer used the applicant’s resilience and skills as reasons to conclude he could re-establish in Sri Lanka, which is unreasonable.",
+     "quote": "the Officer noted that the Applicant was “resilient” and had obtained “work skills in Canada that could be transferrable in Sri Lanka”... this demonstrated that the Applicant could re-establish in Sri Lanka",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Turning positive factors into negative ones is unreasonable, as established in jurisprudence.",
+     "quote": "Instead of considering those factors as relevant to his H&C application, the Officer instead opined that this demonstrated that the Applicant could re-establish in Sri Lanka",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer unreasonably reversed positive factors into negative ones, contrary to case law.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer’s consideration of establishment factors was unreasonable because it turned positive factors into negatives.",
+     "quote": "the Officer reasonably considered the Applicant’s establishment factors independently and gave it a negative weight within the context of the Applicant’s past immigration history... I disagree.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the Officer improperly considered establishment factors as negatives.",
+   "role": "other"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer unreasonably turned positive establishment factors into negatives, which is contrary to jurisprudence.",
+     "quote": "the Officer is not allowed to turn positive factors that weigh in favour of granting an exemption into a justification for denying it... using the positive establishment attributes to attenuate future hardship",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer’s reasoning in using positive attributes against the applicant was unreasonable and cautioned against by jurisprudence.",
+     "quote": "the Officer committed this error by applauding the Applicants’ successful ability to assimilate to the Canadian milieu, but then using those positive skills to their detriment, by asserting the ability to adapt and assimilate to the Indian milieu",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The conclusion that resilience and skills indicate re-establishment in Sri Lanka is unintelligible and unreasonable.",
+     "quote": "the Officer accepts that the Applicant is “resilient” and has “work skills,” but then states that the Applicant could use those attributes to reintegrate himself in Sri Lanka. This conclusion is unintelligible",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer’s reversal of positive factors into negatives was unreasonable and unsupported.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer ignored relevant contradictory evidence.",
+     "quote": "the Officer ignored relevant contradictory evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant claims the Officer failed to consider relevant evidence that contradicted the decision.",
+   "role": "other"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Officers ruling on both PRRA and H&C applications at the same time risk confusing the analyses and should exercise extra care.",
+     "quote": "officers who rule on both types of applications at the same time are “at risk of confusing the two separate and distinct analyses required by these procedures”",
+     "answers": 0
+    }
+   ],
+   "summary": "The paragraph emphasizes the need for careful separation of PRRA and H&C analyses when conducted simultaneously.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer ignored relevant evidence in the H&C decision that contradicted findings made in the PRRA analysis.",
+     "quote": "the Officer considered some evidentiary elements in making their findings on the PRRA application, but then ignored some of the same relevant evidence in the H&C decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Ignoring contradictory evidence in the H&C decision is unreasonable.",
+     "quote": "the omission to consider relevant objective evidence that is contradictory to the findings is unreasonable (Vavilov at para 128).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Decision makers must explain why they disregard contradictory evidence.",
+     "quote": "The decision maker is not allowed to choose the evidence that fits its rationale, but ignore existing evidence that point to a contradictory conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Decision makers must justify why they assign little or no weight to contradicting evidence.",
+     "quote": "Instead, the decision maker must explain why little or no weight had to be assigned to the contradicting evidence and why it preferred, in light of the contradicting evidence, to dismiss the application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer ignored relevant contradictory evidence in the H&C analysis, which is unreasonable and requires explanation.",
+   "role": "analysis"
+  }
+ ]
+}

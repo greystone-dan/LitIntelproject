@@ -54,6 +54,10 @@ def research_page_html() -> str:
 			background: linear-gradient(135deg, var(--accent), #14867a); color: #fff;
 		}
 		button:disabled { opacity: 0.55; cursor: not-allowed; }
+		textarea:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible {
+			outline: 3px solid var(--accent-2);
+			outline-offset: 2px;
+		}
 		.grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
 		.grid3 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 1fr; }
 		.answer-box {
@@ -98,12 +102,13 @@ def research_page_html() -> str:
 		.token-info { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
 		@media (max-width: 640px) {
 			.grid2, .grid3 { grid-template-columns: 1fr; }
+			textarea, input, select, button { min-height: 44px; }
 		}
 	</style>
 </head>
 <body>
-	<div class="wrap">
-		<nav>
+	<main class="wrap">
+		<nav aria-label="Prototype navigation">
 			<a href="/prototype">Prototype Explorer</a>
 			<a href="/testing">API Tester</a>
 		</nav>
@@ -152,7 +157,7 @@ def research_page_html() -> str:
 		<div class="disclaimer">
 			Research aid only - not legal advice. Sources are unofficial copies; verify against authoritative records.
 		</div>
-	</div>
+	</main>
 
 	<script>
 		function esc(value) {

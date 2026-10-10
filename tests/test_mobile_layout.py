@@ -47,6 +47,17 @@ def test_search_form_stacks_on_phones():
     assert "html,body{overflow-x:hidden}" in block
 
 
+def test_research_tabs_wrap_and_mobile_controls_meet_touch_target_minimum():
+    block = _phone_block(MOBILE_CSS)
+    assert ".view-tabs{display:flex!important;flex-wrap:wrap!important;overflow:visible!important" in block
+    assert ".view-tabs .tab{flex:0 1 auto!important;min-height:44px;white-space:normal" in block
+    assert "#searchPanel .search-examples button{min-height:44px}" in block
+    assert ".qf-chip{min-height:44px" in block
+    assert ".qf-link{min-height:44px}" in block
+    assert "#searchPanel .sp-pick-list button{min-height:44px}" in block
+    assert "#searchPanel .sp-more{min-height:44px}" in block
+
+
 def test_reader_is_not_fixed_height_or_overlapping_on_phones():
     block = _phone_block(MOBILE_CSS)
     assert ".inline-case-reader{height:auto!important" in block

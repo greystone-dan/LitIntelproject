@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -66,6 +67,44 @@ SCHEMA_B = {"type": "object", "additionalProperties": False, "required": ["overv
 		"issue": {"type": "string"}, "dissent_view": {"type": "string"}, "paras": {"type": "string"}, "court_conclusion": {"type": "string"}, "conclusion_paras": {"type": "string"},
 		"positions": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["holder", "text", "paras"], "properties": {
 			"holder": {"type": "string", "enum": HOLDERS}, "text": {"type": "string"}, "paras": {"type": "string"}}}}}}}}}
+
+
+def _paras_of(text: str) -> list[int]:
+	out: list[int] = []
+	for a, b in re.findall(r"(\d+)(?:\s*[-–]\s*(\d+))?", text or ""):
+		lo, hi = int(a), int(b) if b else int(a)
+		if hi - lo < 400:
+			out.extend(range(lo, hi + 1))
+	return out
+
+
+def _ranges(nums: list[int]) -> str:
+	out, i = [], 0
+	nums = sorted(set(nums))
+	while i < len(nums):
+		j = i
+		while j + 1 < len(nums) and nums[j + 1] == nums[j] + 1:
+			j += 1
+		out.append(str(nums[i]) if i == j else f"{nums[i]}-{nums[j]}")
+		i = j + 1
+	return ", ".join(out)
+
+
+def keep_dissent_out(blocks: dict, parts: list[dict]) -> dict:
+	"""Code check after the blocks call: dissent paragraphs never stay in a block's paras or conclusion_paras, and a court
+	conclusion left with no majority or concurring paragraph is replaced by 'not stated' (the dissent's view is in dissent_view)."""
+	dissent = {n for p in parts if p["kind"] == "dissenting" for n in range(p["start"], p["end"] + 1)}
+	if not dissent:
+		return blocks
+	for b in blocks["blocks"]:
+		had = _paras_of(b["conclusion_paras"])
+		b["paras"] = _ranges([n for n in _paras_of(b["paras"]) if n not in dissent])
+		b["conclusion_paras"] = _ranges([n for n in had if n not in dissent])
+		for pos in b["positions"]:
+			pos["paras"] = _ranges([n for n in _paras_of(pos["paras"]) if n not in dissent])
+		if had and not b["conclusion_paras"]:
+			b["court_conclusion"] = "not stated (only the dissent reaches this issue)"
+	return blocks
 
 
 def render(ch, pre, parts=None):
@@ -148,6 +187,7 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 	stop()
 	blocks, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="blocks", schema=SCHEMA_B, max_output_tokens=4000, est_input_tokens=est(msgs), label=f"blocks case {case_id}")
 	usd += u["usd"]
+	blocks = keep_dissent_out(blocks, parts_info["parts"])
 	hold = {}
 	for r in ordered:
 		for pp in r["propositions"]:

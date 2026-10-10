@@ -403,17 +403,19 @@ def test_unit_roles_come_from_stored_paragraph_text_and_skip_reports_without_it(
 
     report = {
         "paragraphs": [
-            {"paragraph_index": 0, "text": "[1] This is an application for judicial review of a RAD decision."},
-            {"paragraph_index": 1, "text": "[2] I find that the RAD erred."},
-            {"paragraph_index": 2, "text": "[3] For these reasons, the application is allowed."},
+            {"paragraph_index": 0, "text": "Smith v. Canada (Citizenship and Immigration) Federal Court Decisions"},
+            {"paragraph_index": 1, "text": "[1] This is an application for judicial review of a RAD decision."},
+            {"paragraph_index": 2, "text": "[2] I find that the RAD erred."},
+            {"paragraph_index": 3, "text": "[3] For these reasons, the application is allowed."},
         ],
         "discussion_units": [
             {"start_paragraph": 0, "end_paragraph": 0},
             {"start_paragraph": 1, "end_paragraph": 1},
             {"start_paragraph": 2, "end_paragraph": 2},
+            {"start_paragraph": 3, "end_paragraph": 3},
         ],
     }
-    assert reader_service._unit_roles(report) == ["overview", "analysis", "disposition"]
+    assert reader_service._unit_roles(report) == ["metadata", "overview", "analysis", "disposition"]
     assert reader_service._unit_roles({"discussion_units": report["discussion_units"]}) == []
 
 

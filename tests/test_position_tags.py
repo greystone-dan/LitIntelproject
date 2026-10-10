@@ -23,8 +23,8 @@ def _blocks(text: str) -> list[dict]:
 	return format_blocks_for_text(text)
 
 
-def test_stored_data_covers_the_100_decisions_with_the_reserved_citation_slot() -> None:
-	assert len(stored_case_ids()) == 100
+def test_stored_data_covers_the_665_decisions_with_the_reserved_citation_slot() -> None:
+	assert len(stored_case_ids()) == 665
 	data = case_positions(28105)
 	assert data["available"] and data["preview"] and data["mode"] == "stored"
 	assert "not yet checked by a lawyer" in data["notice"]
@@ -128,3 +128,23 @@ def test_reader_script_only_tags_paragraphs_the_page_has() -> None:
 	js = (PAGES / "reader_positions.js").read_text(encoding="utf-8")
 	assert "data.paragraphs[String(p.dataset.para)]" in js  # tags are looked up from the page's own paragraphs
 	assert "real.has(n)" in js  # the legend ignores stored numbers that are not in the decision
+
+
+def test_lf_builder_derives_a_reader_level_from_holder_and_kind() -> None:
+	from scripts.build_position_preview_lf import compact_case, point_layer
+
+	assert point_layer({"holder": "court", "kind": "rule_of_law"}) == 6
+	assert point_layer({"holder": "applicant", "kind": "allegation_or_argument", "layer": 2}) == 2
+	assert point_layer({"holder": "applicant", "kind": "allegation_or_argument", "layer": 4}) == 4
+	raw = {"case_id": 1, "paragraphs": [{"para": 3, "summary": "s", "role": "analysis", "propositions": [
+		{"holder": "respondent", "kind": "allegation_or_argument", "layer": 2}, {"holder": "court", "kind": "finding", "layer": 1}, {"holder": "respondent", "kind": "fact", "layer": 2}]}]}
+	row = compact_case(raw)["paragraphs"]["3"]
+	assert row["h"] == ["respondent", "court"] and row["l"] == "jr_party"
+
+
+def test_new_stored_decisions_load_from_the_same_reader_path() -> None:
+	for case_id in sorted(stored_case_ids())[::40]:
+		data = case_positions(case_id)
+		assert data["available"] and data["paragraphs"]
+		row = next(iter(data["paragraphs"].values()))
+		assert row["positions"][0]["key"] in POSITION_LABELS and row["layer"]["key"] in {"judge", "jr_party", "earlier_decision", "first_instance", "framework", "source", "unknown"}

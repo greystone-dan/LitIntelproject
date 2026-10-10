@@ -1,0 +1,47 @@
+{
+  "case_id": "2026_FCA_137",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 113,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the stay motion moot because CBSA deferred the removal to August 15, 2026?",
+        "paras": "26-27",
+        "applicant_position": "Despite the short deferral, a live issue remains: whether removal should be stayed until the appeal is determined.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I rendered a ruling from the bench that the matter is not moot."
+      },
+      {
+        "issue": "Has the applicant shown a serious issue to be determined in the underlying appeal (first prong)?",
+        "paras": "33-37",
+        "applicant_position": "The certified questions are neither frivolous nor vexatious, so a serious issue exists.",
+        "respondent_position": "Federal Court decision complies with established Charter s.7 and appellate law; no serious issue despite the certified questions.",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "I am satisfied that the underlying appeal raises at least one issue that is neither frivolous nor vexatious."
+      },
+      {
+        "issue": "Has the applicant shown irreparable harm if removed before the appeal is decided (second prong)?",
+        "paras": "38-98",
+        "applicant_position": "Removal will cause irreparable harm: health care unavailable given Roma ethnicity, loss of family support, and mental health harm.",
+        "respondent_position": "Risks were already rejected in the PRRA; family separation and health concerns are inherent consequences of removal; evidence falls short.",
+        "result": "dismissed_for_applicant",
+        "result_para": 98,
+        "result_quote": "the evidence does not demonstrate the existence of a real, definite, and unavoidable harm."
+      },
+      {
+        "issue": "Does the balance of convenience favour a stay of removal (third prong)?",
+        "paras": "99-111",
+        "applicant_position": "Little or no prejudice to respondents if removal is deferred until the appeal is decided; he poses no danger and reports as required.",
+        "respondent_position": "Public interest in enforcing immigration law and public confidence outweighs his harm; a stay would undermine system integrity.",
+        "result": "dismissed_for_applicant",
+        "result_para": 107,
+        "result_quote": "I find that the balance of convenience weighs in favour of the respondents."
+      }
+    ]
+  }
+}

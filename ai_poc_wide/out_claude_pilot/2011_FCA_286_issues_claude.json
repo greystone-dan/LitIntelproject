@@ -1,0 +1,47 @@
+{
+  "case_id": "2011_FCA_286",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 52,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to an enforcement officer's refusal to defer removal?",
+        "paras": "26-28",
+        "applicant_position": "The officer's deferral decision is reviewable for reasonableness, with questions of law on correctness; the Judge did not state the standard.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "is reviewable on a standard of reasonableness because it involves either the exercise of discretion"
+      },
+      {
+        "issue": "Did the officer err in law about return to Canada after a successful PRRA, given the possible mootness under Perez?",
+        "paras": "29-33",
+        "applicant_position": "The officer's statement was elliptical rather than an error, and any error was not material to the refusal.",
+        "respondent_position": "The officer misstated the law on return after a successful PRRA, overlooking Perez, so the refusal is flawed.",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I see no error in this statement of the law."
+      },
+      {
+        "issue": "Does the potential mootness of PRRA litigation on removal, by itself, warrant deferral of removal?",
+        "paras": "34-40",
+        "applicant_position": "Potential mootness does not itself warrant deferral; the Federal Court is better placed to decide a judicial stay.",
+        "respondent_position": "Potential mootness of PRRA litigation justifies deferral, since removal would defeat judicial review under section 18.1.",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "In my view, the answer to this question is no."
+      },
+      {
+        "issue": "Must an enforcement officer consider risk to the applicant if removal is not deferred, and what risk counts?",
+        "paras": "41-51",
+        "applicant_position": "Officer may defer only for risk arising after the PRRA; pre-PRRA risk already assessed does not warrant deferral.",
+        "respondent_position": "Officers must be able to defer where a judicial review was made in good faith, since removal makes review moot.",
+        "result": "allowed_for_applicant",
+        "result_para": 42,
+        "result_quote": "In my view, this is an accurate statement of the law."
+      }
+    ]
+  }
+}

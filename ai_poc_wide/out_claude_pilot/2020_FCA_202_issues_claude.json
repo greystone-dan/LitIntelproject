@@ -1,0 +1,38 @@
+{
+  "case_id": "2020_FCA_202",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 63,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does subsection 25(1) of the IRPA, as amended by Bill C-43, bar an H&C application by a person already found inadmissible under section 37?",
+        "paras": "25-36",
+        "applicant_position": "Is inadmissible in s.25(1) does not bar H&C review of a prior s.37 finding; the bar should be read narrowly.",
+        "respondent_position": "Section 25(1) is an absolute bar; a prior s.37 inadmissibility finding precludes H&C consideration and cannot be revisited.",
+        "result": "dismissed_for_applicant",
+        "result_para": 61,
+        "result_quote": "There is no authority in that legislation which allows an officer to exempt foreign nationals from the requirements of the IRPA on H&C considerations"
+      },
+      {
+        "issue": "Can the prior inadmissibility finding be revisited under issue estoppel, given the change in the law from B010?",
+        "paras": "47-52",
+        "applicant_position": "Issue estoppel's interests-of-justice exception allows revisiting the finding after the B010 change in the law.",
+        "respondent_position": "Issue estoppel does not apply; H&C officers have no authority to re-determine an ID inadmissibility finding.",
+        "result": "dismissed_for_applicant",
+        "result_para": 49,
+        "result_quote": "the doctrine of issue estoppel (or res judicata) has been displaced by the clear language of subsection 25(1) of the IRPA"
+      },
+      {
+        "issue": "Does the bar apply to applicants in Canada, or does the Minister keep residual discretion for in-Canada applications?",
+        "paras": "53-59",
+        "applicant_position": "The bar only removes the mandatory duty for in-Canada applicants, leaving residual discretion to consider the application.",
+        "respondent_position": "The bar applies equally inside and outside Canada; no residual discretion remains for in-Canada applicants.",
+        "result": "dismissed_for_applicant",
+        "result_para": 56,
+        "result_quote": "the amendment was not intended to give the Minister any discretion to process in-Canada applications any differently from those made outside of Canada"
+      }
+    ]
+  }
+}

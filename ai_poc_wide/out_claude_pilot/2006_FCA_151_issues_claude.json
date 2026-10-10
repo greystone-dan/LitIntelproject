@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FCA_151",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the delegate's reasons adequate to discharge the duty to give reasons for a subsection 115(2) danger opinion?",
+        "paras": "13-30",
+        "applicant_position": "Reasons adequately show the delegate found danger from criminality; the Judge set too high a standard of adequacy.",
+        "respondent_position": "Reasons are inadequate: no clear rationale for danger, and the conclusion suggests a relative concept of danger.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I am not persuaded that the delegate's reasons are legally inadequate"
+      },
+      {
+        "issue": "Were the reasons defective because the delegate considered risk of persecution before deciding danger?",
+        "paras": "31-32",
+        "applicant_position": "The order of risk and danger is not legally required; it is a matter of elegance, so the reasons are not defective.",
+        "respondent_position": "Considering risk before danger risks a relative concept of dangerousness, so the danger opinion is flawed.",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "this is more a matter of elegance than substance and does not rise to the level of a legal requirement"
+      }
+    ]
+  }
+}

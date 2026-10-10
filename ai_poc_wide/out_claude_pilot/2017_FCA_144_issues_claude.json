@@ -1,0 +1,38 @@
+{
+  "case_id": "2017_FCA_144",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Federal Court fail to exercise its jurisdiction or consider constitutional questions, so that an exception to the bar applies?",
+        "paras": "12-17",
+        "applicant_position": "Says the Federal Court failed to exercise jurisdiction and failed to consider the constitutional questions placed before it.",
+        "respondent_position": "Says the s.82.3 bar applies and no recognized exception is engaged; the appeals should be removed under Rule 74.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I see no failure on its part to consider the questions placed before it."
+      },
+      {
+        "issue": "Do 'jurisdictional' matters or alleged errors of law escape the s.82.3 bar?",
+        "paras": "18-21",
+        "applicant_position": "Says the matters decided by the Federal Court were jurisdictional, which is a recognized exception to statutory bars.",
+        "respondent_position": "Says mere errors of law, even important ones, do not get around the statutory bar in s.82.3.",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "The bar in section 82.3 of the Act applies."
+      },
+      {
+        "issue": "Can constitutional rulings of the Federal Court be appealed despite the bar, and is the certified question requirement constitutional?",
+        "paras": "22-24",
+        "applicant_position": "Emphasizes that the Federal Court's rulings on constitutional questions are constitutional in nature and should be appealable.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "This Court has never held that the Federal Court’s rejection of constitutional arguments can be appealed in the face of the bar against appeals."
+      }
+    ]
+  }
+}

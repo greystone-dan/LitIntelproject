@@ -1,0 +1,29 @@
+{
+  "case_id": "2008_FCA_171",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the fresh affidavit meet the rule 351 special-circumstances tests (reasonable diligence, credibility, practically conclusive)?",
+        "paras": "8-16",
+        "applicant_position": "Crown says the affidavit on post-hearing US terrorism-waiver changes answers Phelan J.'s finding and should be admitted.",
+        "respondent_position": "Respondents say the material could have been raised earlier, is incomplete, and is not practically conclusive of the appeal.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I am not persuaded that the fresh evidence is “practically conclusive” of the appeal"
+      },
+      {
+        "issue": "Should the evidence be admitted in the interests of justice even if the tests are not met?",
+        "paras": "17-18",
+        "applicant_position": "Crown says the affidavit merely updates evidence already before Phelan J. and bears on the Article 33 question.",
+        "respondent_position": "Respondents say admitting it would require cross-examination, more evidence and an adjournment, making the Court a fact-finder.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "The interests of justice would not be served by further complicating an already complex record"
+      }
+    ]
+  }
+}

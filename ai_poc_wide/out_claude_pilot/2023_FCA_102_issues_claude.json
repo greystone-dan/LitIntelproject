@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FCA_102",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the IAD's decision is reviewed on correctness or reasonableness (whether a jurisdictional question arose)",
+        "paras": "8-9",
+        "applicant_position": "Appellant: the IAD's jurisdiction question is jurisdictional, so the Federal Court should have applied correctness.",
+        "respondent_position": "Not stated in the reasons.",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "the applicable standard of review of the IAD decision is reasonableness"
+      },
+      {
+        "issue": "Whether the IAD unreasonably held that subsection 63(2) requires a valid PR visa when the removal order is issued",
+        "paras": "10-11",
+        "applicant_position": "Appellant: a visa valid at arrival or at the s. 44 report suffices; IAD misread Ismail and should have applied McLeod.",
+        "respondent_position": "Not stated; IAD and Federal Court held the visa must be valid when the removal order is issued.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I disagree largely for the reasons given by the Federal Court, before which the appellant advanced these same arguments."
+      },
+      {
+        "issue": "Whether the IAD failed to carry out a textual, contextual and purposive analysis of subsection 63(2)",
+        "paras": "12-17",
+        "applicant_position": "Appellant: the IAD had to undertake its own textual, contextual and purposive analysis.",
+        "respondent_position": "Not stated in the reasons.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "it was reasonable for the IAD not to undertake its own statutory interpretation analysis"
+      }
+    ]
+  }
+}

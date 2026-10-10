@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FCA_192",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 40,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Can the Court hear this appeal of a Federal Court order amended under Rule 397(1)(a), with no certified question?",
+        "paras": "35-39",
+        "applicant_position": "The Federal Court judge was functus officio and had no jurisdiction to amend the order under Rule 397(1)(a).",
+        "respondent_position": "The February order was a slip; amending it under Rule 397(1)(a) to match the reasons was proper.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "This ground does not fall within the well-defined, narrow circumstances in which this Court will entertain an appeal."
+      },
+      {
+        "issue": "Should the notice of appeal be removed from the court file under Rules 72 and 74 for want of jurisdiction?",
+        "paras": "19-40",
+        "applicant_position": "The appeal should proceed on its only ground: the judge lacked jurisdiction under Rule 397(1)(a).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 40,
+        "result_quote": "For the above reasons, I would order that the notice of appeal be removed from the Court file. The appeal cannot proceed."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2006_FCA_124",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 71,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the lead case circumstances give rise to a reasonable apprehension of bias or lack of independence on the hearing panel?",
+        "paras": "43-65",
+        "applicant_position": "Appellants say the lead case was designed to reduce positive Roma decisions, and Bubrin's role made the panel biased and not independent.",
+        "respondent_position": "Minister says the lead case was a Board initiative for consistency, not CIC-driven, and gave no reasonable apprehension of bias.",
+        "result": "allowed_for_applicant",
+        "result_para": 60,
+        "result_quote": "would think that the hearing panel was biased and was not acting independently"
+      },
+      {
+        "issue": "Did the appellants waive the bias objection by their counsel's conduct?",
+        "paras": "66-68",
+        "applicant_position": "Appellants say they could not know of the lead case planning or Bubrin's role, so counsel's knowledge should not bar relief.",
+        "respondent_position": "Minister says counsel Wuebbolt knew of and helped plan the lead cases, so the bias objection was waived by not raising it earlier.",
+        "result": "allowed_for_applicant",
+        "result_para": 68,
+        "result_quote": "in the circumstances of this case it does not serve the interests of justice to apply this general rule"
+      },
+      {
+        "issue": "Should the Applications Judge's award of costs to the appellants be set aside?",
+        "paras": "69-70",
+        "applicant_position": "Appellants say the novel lead case gave special reasons, so the Judge's award of costs should stand.",
+        "respondent_position": "Minister challenges the costs award, arguing the judicial review was dismissed and costs need special reasons.",
+        "result": "allowed_for_applicant",
+        "result_para": 70,
+        "result_quote": "I am not persuaded that, on the unusual facts of this case, the Judge erred in principle in awarding costs to the appellants"
+      }
+    ]
+  }
+}

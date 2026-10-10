@@ -1,0 +1,47 @@
+{
+  "case_id": "2008_FCA_326",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 66,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the H&C officer could decide that removal would breach Canadian law, as the judge suggested",
+        "paras": "63",
+        "applicant_position": "Minister: the s. 25 officer's jurisdiction is limited to H&C considerations, not validity of removal.",
+        "respondent_position": "Officer must consider the ICCPR and other international law arguments in the H&C application.",
+        "result": "allowed_for_applicant",
+        "result_para": 63,
+        "result_quote": "is limited to decide whether H&C considerations justify exempting the respondent"
+      },
+      {
+        "issue": "Whether the officer dealt adequately with the ICCPR-based family and child interests in the H&C decision",
+        "paras": "46-60",
+        "applicant_position": "Minister: officer addressed the substance of the child and family interests; judge should not have intervened.",
+        "respondent_position": "Officer had to consider the ICCPR family and child arguments; refusing to do so breached fairness.",
+        "result": "allowed_for_applicant",
+        "result_para": 60,
+        "result_quote": "it is clear that she addressed in substance the different and important interests at stake"
+      },
+      {
+        "issue": "Whether the officer's refusal to consider the ICCPR arguments denied the respondent a fair hearing",
+        "paras": "31, 60",
+        "applicant_position": "Minister: no unfairness; officer's reasons addressed the substance of the issues.",
+        "respondent_position": "Officer had to consider all arguments; refusing some breached audi alteram partem.",
+        "result": "not_decided",
+        "result_para": 60,
+        "result_quote": "it becomes unnecessary to address the Applications Judge"
+      },
+      {
+        "issue": "Whether the certified question (jurisdiction to consider ICCPR breach under s. 25) should be answered",
+        "paras": "62-65",
+        "applicant_position": "Minister: question is irrelevant and not dispositive of the appeal.",
+        "respondent_position": "Proposed a narrower certified question on family-life and child guarantees in the ICCPR.",
+        "result": "not_decided",
+        "result_para": 65,
+        "result_quote": "The certified question being irrelevant and not dispositive of this appeal"
+      }
+    ]
+  }
+}

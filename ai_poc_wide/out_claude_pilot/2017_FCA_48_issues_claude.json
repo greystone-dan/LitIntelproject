@@ -1,0 +1,29 @@
+{
+  "case_id": "2017_FCA_48",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the redetermining PRRA officer was bound by the Federal Court's earlier findings of fact and documentary-evidence comments (Yansane 2 and 3)",
+        "paras": "13-23",
+        "applicant_position": "Minister: earlier findings of fact and comments were not binding on the officer; only explicit judgment directions bind.",
+        "respondent_position": "Not stated; the Federal Court held the earlier findings of fact and directions had to be followed.",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "It was clearly an obiter dictum and not binding."
+      },
+      {
+        "issue": "Whether directions in the earlier judgment bind the officer, as in Burton, absent explicit wording in the formal judgment",
+        "paras": "24-25",
+        "applicant_position": "Minister: Burton is distinguishable because Shore J. made no risk finding and only specified evidence to be obtained.",
+        "respondent_position": "Not stated in the reasons; the Federal Court relied on Burton to find the officer bound.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "cannot bind the administrative decision-maker unless it is explicitly part of the formal judgment"
+      }
+    ]
+  }
+}

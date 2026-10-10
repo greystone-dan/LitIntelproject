@@ -1,0 +1,29 @@
+{
+  "case_id": "2004_FCA_85",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 63,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does 'granted a stay under the former Act' in IRPA s.196 include the automatic stay that arose on filing an appeal under IA para 49(1)(b)?",
+        "paras": "18-56",
+        "applicant_position": "Minister says 'granted a stay' means only IAD stays under IA 73(1)(c), so Medovarski's appeal was properly discontinued.",
+        "respondent_position": "Medovarski says the stay arising on filing her appeal counts, so her appeal continues under the former Act.",
+        "result": "allowed_for_applicant",
+        "result_para": 52,
+        "result_quote": "section 196 discontinues appeals only when a stay has been granted on the disposition of an appeal under IA, paragraph 73(1)(c)"
+      },
+      {
+        "issue": "Does discontinuing the appeal under s.196 breach s.7 of the Charter?",
+        "paras": "57-62",
+        "applicant_position": "Minister says there is no fundamental justice breach: no misleading conduct, no legitimate expectation, and risk and H&C reviews remain.",
+        "respondent_position": "Medovarski says removal without an appeal breaches s.7, since she was misled and may be removed before an H&C decision.",
+        "result": "allowed_for_applicant",
+        "result_para": 62,
+        "result_quote": "I am not persuaded that it would be a breach of section 7 to apply section 196 to Ms. Medovarski"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2005_FCA_91",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the appeal moot, and should the Court answer the certified question anyway?",
+        "paras": "9-11",
+        "applicant_position": "Says the question is not moot: answering it would require the Board to reconsider the claims under a different framework.",
+        "respondent_position": "Says the appeal is moot: no answer to the certified question could change the outcome, so it should not be answered.",
+        "result": "moot_or_procedural",
+        "result_para": 11,
+        "result_quote": "I am prepared to give the appellants the benefit of the doubt, and answer the certified question."
+      },
+      {
+        "issue": "Does paragraph 45 of the UNHCR Handbook create a rebuttable legal presumption that past persecution means a well-founded fear?",
+        "paras": "12-25",
+        "applicant_position": "Says Handbook para 45 creates a rebuttable presumption of law from past persecution, so the Board cannot put the onus on the claimant.",
+        "respondent_position": "Says no such presumption exists in law; past persecution is only evidence, and the claimant must prove a well-founded fear.",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "does not establish a presumption of law or a rebuttable presumption of law that must be applied in determining refugee claims"
+      }
+    ]
+  }
+}

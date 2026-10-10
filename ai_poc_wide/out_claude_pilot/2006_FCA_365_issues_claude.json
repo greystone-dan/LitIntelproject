@@ -1,0 +1,38 @@
+{
+  "case_id": "2006_FCA_365",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 63,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does s.97(1)(b)(iv) exclude a risk to life caused by Mexico's inability to provide dialysis, and did the judge err in applying it?",
+        "paras": "19-46",
+        "applicant_position": "Exclusion covers only genuine inability, not unwillingness, to provide care; the appellants' risk to life falls within s.97.",
+        "respondent_position": "Exclusion should be read broadly to cover virtually any risk from health care needs; no inability/unwillingness distinction.",
+        "result": "dismissed_for_applicant",
+        "result_para": 46,
+        "result_quote": "Therefore, this ground of the appeal should fail."
+      },
+      {
+        "issue": "Does a PRRA officer have implied jurisdiction to decide constitutional questions?",
+        "paras": "47-57",
+        "applicant_position": "PRRA officers have implied jurisdiction to decide questions of law, including declaring IRPA provisions inoperative under the Charter.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 57,
+        "result_quote": "Accordingly, this issue in the appeal should fail."
+      },
+      {
+        "issue": "Should the court answer the certified question on whether the s.97(1)(b)(iv) exclusion infringes the Charter, given the lack of evidence?",
+        "paras": "58-62",
+        "applicant_position": "Section 97(1)(b)(iv) exclusion infringes fundamental justice and cannot be justified under s.1 of the Charter.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 62,
+        "result_quote": "For these reasons, I decline to answer the certified question."
+      }
+    ]
+  }
+}

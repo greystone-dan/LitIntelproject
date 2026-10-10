@@ -1,0 +1,47 @@
+{
+  "case_id": "2015_FCA_237",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 95,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court decide the Minister's new argument that the issues can be re-argued before the ID, so the appeal is premature?",
+        "paras": "32-33",
+        "applicant_position": "Minister argued late that the appeal should not be decided because the issues can be re-argued at the ID; did not press it at hearing.",
+        "respondent_position": "Tran says the new argument is surprising, since the Minister sought an expedited hearing, and that he already incurred legal costs.",
+        "result": "moot_or_procedural",
+        "result_para": 33,
+        "result_quote": "after careful consideration, I have concluded that it would be inappropriate to do so in this somewhat exceptional case"
+      },
+      {
+        "issue": "Is the Minister's interpretation of s.36(1)(a) (maximum punishment assessed objectively, under the law in force when admissibility is decided) reasonable?",
+        "paras": "34-60",
+        "applicant_position": "Minister says the maximum punishment is assessed objectively under the law in force at admissibility, which fits the statute's text and purpose.",
+        "respondent_position": "Tran says the maximum must be assessed for him personally under Charter s.11(g) and (i) (7 years); otherwise the result is retrospective and absurd.",
+        "result": "allowed_for_applicant",
+        "result_para": 60,
+        "result_quote": "I cannot conclude that the interpretation adopted by the Minister’s delegate is unreasonable"
+      },
+      {
+        "issue": "Is a conditional sentence a 'term of imprisonment' under s.36(1)(a)?",
+        "paras": "61-88",
+        "applicant_position": "Minister says conditional sentences are generally imprisonment under the Criminal Code, and the wording and history of s.64 support including them.",
+        "respondent_position": "Tran says the words mean only carceral jail time, given Proulx, the 2007 and 2012 limits on conditional sentences, and its serious-criminality purpose.",
+        "result": "allowed_for_applicant",
+        "result_para": 88,
+        "result_quote": "may reasonably be construed as a term of imprisonment under paragraph 36(1)(a) of the IRPA"
+      },
+      {
+        "issue": "Was the delegate's decision to refer Tran to an admissibility hearing reasonable, given its reliance on arrests and unproven charges?",
+        "paras": "89-94",
+        "applicant_position": "Minister says the referral was reasonable: the officer knew arrests are not convictions and could weigh them for credibility and rehabilitation.",
+        "respondent_position": "Tran says the delegate treated arrests and unproven charges as proof of past criminal conduct, so the decision is unreasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 94,
+        "result_quote": "The decision to refer Mr. Tran to the ID was within the range of outcomes defensible on the law and the facts."
+      }
+    ]
+  }
+}

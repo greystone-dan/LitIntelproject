@@ -1,0 +1,47 @@
+{
+  "case_id": "2021_FCA_131",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the appeal moot, given Abel's acquired permanent resident status?",
+        "paras": "9-12",
+        "applicant_position": "Abel says the appeal is live: the issue recurs in many claims, and refugee status gives benefits his permanent residence does not.",
+        "respondent_position": "Minister says the appeal is moot: Abel has permanent residence and cannot be deported, so no practical effect and no reason to hear it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I have arrived at the conclusion that the appeal has become moot"
+      },
+      {
+        "issue": "Is there still an adversarial relationship between the parties (Borowski factor 1)?",
+        "paras": "14-17",
+        "applicant_position": "Abel says the interveners present opposing views and refugee status carries benefits, so the dispute is still adversarial.",
+        "respondent_position": "Minister says no live controversy remains between the parties, so the appeal is moot.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I find that the dispute has lost its adversarial nature."
+      },
+      {
+        "issue": "Should the Court hear the moot appeal anyway, given judicial economy and its law-making role (Borowski factors 2 and 3)?",
+        "paras": "18-22",
+        "applicant_position": "Abel says many similar refugee claims and the RAD's practice make the questions important and recurring, so the Court should decide.",
+        "respondent_position": "Minister says the appeal should be dismissed as moot, with no grounds to exercise discretion to hear it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "argue in favour of refusing to decide the appeal on the merits"
+      },
+      {
+        "issue": "Should the Court answer the certified question on Majebi and RAD review of post-hearing facts, or the Minister's rephrased question?",
+        "paras": "20-26",
+        "applicant_position": "Abel says the RAD was not bound by Majebi because loss of status after the RPD hearing is new, and the question should be answered.",
+        "respondent_position": "Minister asks the Court to broaden the certified question and decide when the RAD may consider post-hearing new facts.",
+        "result": "not_decided",
+        "result_para": 20,
+        "result_quote": "I consider it more prudent to leave it to the RAD to decide on this question"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FCA_70",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the ID's interpretation of paragraph 34(1)(a) of IRPA?",
+        "paras": "19-21",
+        "applicant_position": "Reasonableness is the standard, as the parties agreed.",
+        "respondent_position": "Reasonableness is the standard, as the parties agreed.",
+        "result": "moot_or_procedural",
+        "result_para": 21,
+        "result_quote": "I agree with the parties that the Federal Court correctly identified reasonableness as the standard to be applied"
+      },
+      {
+        "issue": "Was the ID's reading of 'contrary to Canada's interests' in paragraph 34(1)(a) reasonable, or does the espionage need a nexus to Canada's security (including international law constraints)?",
+        "paras": "5, 22-24, 28",
+        "applicant_position": "Espionage need not have a nexus to Canada's national security to be contrary to Canada's interests; the ID's broader reading should stand.",
+        "respondent_position": "Phrase requires a nexus to Canada's national security or security interests; the ID's finding was unreasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "It follows that the decision of the ID was unreasonable, and that the Federal Court did not err in setting that decision aside."
+      },
+      {
+        "issue": "Should the case be remitted to the ID for redetermination?",
+        "paras": "25-27",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "there is no need to remit this case to the ID for redetermination."
+      }
+    ]
+  }
+}

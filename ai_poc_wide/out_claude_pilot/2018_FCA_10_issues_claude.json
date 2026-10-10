@@ -1,0 +1,38 @@
+{
+  "case_id": "2018_FCA_10",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 52,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the proper standard of review on appeal from a Federal Court judicial review under the Access to Information Act?",
+        "paras": "9-17",
+        "applicant_position": "not stated",
+        "respondent_position": "Information Commissioner argues Merck's distinct appellate standard for Access Act reviews applies, not the general Agraira standard.",
+        "result": "moot_or_procedural",
+        "result_para": 16,
+        "result_quote": "the standard of review in this Court must be the one used generally in appeals of judicial review proceedings."
+      },
+      {
+        "issue": "Are the names and titles of Husky's employees, in the context of the requested records, personal information under s.19(1) of the Access Act?",
+        "paras": "18-46",
+        "applicant_position": "Names and titles in these records are personal information; the Privacy Act has no exemption for private sector employees.",
+        "respondent_position": "Records are business-related and reveal nothing intimate about the employees; names are not personal information, following NavCanada.",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I am unable to find that the names and titles of Husky personnel, in the context of the requested records, meet the definition"
+      },
+      {
+        "issue": "Did the Board err in finding the information publicly available and in exercising its s.19(2) discretion to disclose it?",
+        "paras": "47-52",
+        "applicant_position": "The names in the context of these records were not publicly available; disclosure reveals more than what is already online.",
+        "respondent_position": "Board reasonably found the information publicly available; Husky bore the onus and filed no evidence on the employees' internet postings.",
+        "result": "dismissed_for_applicant",
+        "result_para": 50,
+        "result_quote": "In my opinion, Husky has not shown any reason why this exercise of discretion was unreasonable."
+      }
+    ]
+  }
+}

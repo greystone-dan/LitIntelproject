@@ -1,0 +1,38 @@
+{
+  "case_id": "2019_FCA_64",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the alleged reasonable apprehension of bias by Phelan J. justify an appeal without a certified question?",
+        "paras": "5-16",
+        "applicant_position": "Phelan J. found in 2008 that he contributed to war crimes and reached the same conclusion in 2018, so he has prejudged the issue.",
+        "respondent_position": "Prior adverse findings alone do not show bias; the allegation is not tenable or credible, so no appeal lies.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "They lead to the conclusion that the allegation does not meet the required threshold of being tenable or credible."
+      },
+      {
+        "issue": "Does using a reasonableness standard to review the Governor in Council's decision amount to a jurisdictional error?",
+        "paras": "17",
+        "applicant_position": "Applying reasonableness to the Governor in Council's revocation decision is a jurisdictional error.",
+        "respondent_position": "The attorney general objects that no recognized exception is made out; a wrong standard is not jurisdictional error.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Choice of the wrong standard of review is an error of law, but it does not fall within the narrow category of jurisdictional error"
+      },
+      {
+        "issue": "Does the bar on appeals without a certified question in paragraph 22.2(d) violate Charter sections 6 and 7?",
+        "paras": "18",
+        "applicant_position": "The certified-question bar in paragraph 22.2(d) of the Citizenship Act violates Charter sections 6 and 7.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "This too does not raise a question which justifies filing a notice of appeal."
+      }
+    ]
+  }
+}

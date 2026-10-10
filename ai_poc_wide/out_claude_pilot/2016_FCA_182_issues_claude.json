@@ -1,0 +1,56 @@
+{
+  "case_id": "2016_FCA_182",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 59,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Federal Court err in law in holding that Mr. Zaghbib’s complaint about the CBSA’s failure to investigate was not justiciable or reviewable?",
+        "paras": "26-35",
+        "applicant_position": "The complaint is justiciable and amenable to judicial review because the CBSA’s failure to investigate affects his rights.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "In my view, the Federal Court erred in law when it concluded that Mr. Zaghbib’s application for mandamus was not justiciable."
+      },
+      {
+        "issue": "Was the application for mandamus rendered moot by the Martin Letter and Affidavit recording a decision to close the investigation?",
+        "paras": "36-43",
+        "applicant_position": "Says the Martin Letter is not a genuine decision, so the mandamus application is not moot.",
+        "respondent_position": "Did not expressly plead mootness in the Federal Court; focused on the conditions for mandamus.",
+        "result": "dismissed_for_applicant",
+        "result_para": 43,
+        "result_quote": "Mr. Zaghbib’s application for an order of mandamus is moot in light of the decision recorded in the Martin Letter and Affidavit."
+      },
+      {
+        "issue": "Was the CBSA’s decision recorded in the Martin Letter and Affidavit made in bad faith to defeat the mandamus application?",
+        "paras": "44-47",
+        "applicant_position": "The Martin Letter was dated after leave was granted and the decision was made in bad faith solely to end the application.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 47,
+        "result_quote": "I find that the respondent’s decision with respect to Mr. Zaghbib’s complaint was not made in bad faith."
+      },
+      {
+        "issue": "Can any relief, such as a new investigation or return of the matter for reconsideration of the decision, be granted within this application?",
+        "paras": "48-54",
+        "applicant_position": "Seeks a new investigation or return to the officer’s superior as alternative relief in this application.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 54,
+        "result_quote": "I am unable to see how we might provide Mr. Zaghbib with relief within the framework of the application which was before the Federal Court."
+      },
+      {
+        "issue": "Is the certified question (whether mandamus can compel an investigation of a marriage fraud complaint) a legitimate question that gives this Court jurisdiction to hear the appeal?",
+        "paras": "55-58",
+        "applicant_position": "not stated",
+        "respondent_position": "Seeks a negative answer to the certified question on the conditions for mandamus.",
+        "result": "moot_or_procedural",
+        "result_para": 57,
+        "result_quote": "this Court has no jurisdiction to hear this appeal"
+      }
+    ]
+  }
+}

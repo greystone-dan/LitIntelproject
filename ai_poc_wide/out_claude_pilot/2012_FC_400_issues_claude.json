@@ -1,0 +1,29 @@
+{
+ "case_id": "2012_FC_400",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 12,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the visa officer's refusal of the study permit reasonable?",
+    "paras": "4-11",
+    "applicant_position": "Seeks review of the refusal; the specific arguments are not set out in the text.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 11,
+    "result_quote": "Taken together they amply support the Officer’s conclusion and the outcome falls within the acceptable range in light of the circumstances."
+   },
+   {
+    "issue": "Was the finding that no proof of funds was provided a reasonable basis for the refusal?",
+    "paras": "12-12",
+    "applicant_position": "No proof of funds was wrongly found; father's letter and bank statement showed the expenses could be paid.",
+    "respondent_position": "not stated",
+    "result": "partly_allowed",
+    "result_para": 12,
+    "result_quote": "this error does not render the Officer’s conclusion unreasonable"
+   }
+  ]
+ }
+}

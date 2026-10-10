@@ -1,0 +1,29 @@
+{
+  "case_id": "2018_FC_1001",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD ignore evidence of his mother's illness and his timing in applying for permanent residence?",
+        "paras": "10-15",
+        "applicant_position": "IAD ignored evidence he began the immigration process in 2008, before his mother's illness, and her later health problems and siblings' inability to help.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I find it was reasonable for the IAD to conclude that Mr. Gao’s mother’s illness was not sufficient to warrant special relief"
+      },
+      {
+        "issue": "Did the IAD ignore evidence of his establishment and ties in Canada, including businesses, memberships, his 2014 changes and his daughter's plans?",
+        "paras": "16-22",
+        "applicant_position": "IAD failed to address his farm business, second company, memberships, 2014 change in circumstances and daughter's plan to relocate.",
+        "respondent_position": "Establishment and the 2014 changes are matters of weight for the IAD; the evidence was considered and reasonably weighed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I do not find that the IAD erred in its assessment of Mr. Gao’s degree of establishment by overlooking evidence."
+      }
+    ]
+  }
+}

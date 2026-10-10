@@ -1,0 +1,38 @@
+{
+  "case_id": "2010_FC_1079",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 54,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD breach procedural fairness by deciding the appeal in writing without a hearing?",
+        "paras": "9-20",
+        "applicant_position": "A hearing was needed to explain contradictions in the judgment and Civil Code; IAD could not interpret Cameroonian law without witnesses.",
+        "respondent_position": "Applicant had ample chance to argue in writing and bore the burden of evidence; no hearing was needed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "no unfairness resulted from the IAD’s decision to proceed in writing"
+      },
+      {
+        "issue": "Did the IAD err in finding the children's adoption was not valid under Cameroonian law and the Regulations?",
+        "paras": "21-45",
+        "applicant_position": "Full adoption exists in Cameroonian law and the adoption was valid; IAD misread the Civil Code and the legal opinions.",
+        "respondent_position": "IAD was entitled to assess the foreign-law evidence and weigh the opinions, which lacked expert backing.",
+        "result": "allowed_for_applicant",
+        "result_para": 53,
+        "result_quote": "the errors committed by the IAD are determinative because they completely vitiate its reasoning"
+      },
+      {
+        "issue": "Did the adoption sever the pre-existing parent-child relationships with the biological parents?",
+        "paras": "46-52",
+        "applicant_position": "The homologation judgment applied article 352 and severed the pre-existing parent-child relationships.",
+        "respondent_position": "Adoption did not sever the pre-existing parent-child relationships with the biological parents, so it is not an adoption under the Regulations.",
+        "result": "allowed_for_applicant",
+        "result_para": 51,
+        "result_quote": "the effect of this adoption was that set out in that article, namely, that the adoptees would cease to be members of their biological families"
+      }
+    ]
+  }
+}

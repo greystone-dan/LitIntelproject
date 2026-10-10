@@ -1,0 +1,47 @@
+{
+  "case_id": "2011_FC_971",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the removal orders validly made, given who signed them and when the delegate's review happened?",
+        "paras": "10-29",
+        "applicant_position": "Removal orders were invalid: signed without proper authority, and the delegate's review happened three months later.",
+        "respondent_position": "Officer Sunger and Acting Chief Leger both had power to sign, so who signed was of no consequence.",
+        "result": "allowed_for_applicant",
+        "result_para": 4,
+        "result_quote": "the Court finds that the tribunal’s conclusion in this regard is both contrary to law and unreasonable"
+      },
+      {
+        "issue": "Did the tribunal breach procedural fairness by failing to summon Officer Sunger?",
+        "paras": "3-4, 23",
+        "applicant_position": "Tribunal should have summoned Officer Sunger to testify on who reviewed the removal orders.",
+        "respondent_position": "Not stated in the decision.",
+        "result": "not_decided",
+        "result_para": 4,
+        "result_quote": "it will not be necessary to examine the two other grounds of attack raised by the applicants"
+      },
+      {
+        "issue": "Did the tribunal fail to properly assess the best interests of the child?",
+        "paras": "4, 30",
+        "applicant_position": "Tribunal unreasonably failed to properly assess the child's best interests.",
+        "respondent_position": "Respondent asks the Court to dismiss the application.",
+        "result": "not_decided",
+        "result_para": 4,
+        "result_quote": "it will not be necessary to examine the two other grounds of attack raised by the applicants"
+      },
+      {
+        "issue": "Should the matter be referred back to the tribunal, or should the removal orders be declared null and void?",
+        "paras": "28-33",
+        "applicant_position": "Court should simply declare the removal orders illegal and null and void.",
+        "respondent_position": "Application should be dismissed because the result would be the same.",
+        "result": "allowed_for_applicant",
+        "result_para": 33,
+        "result_quote": "it is proper to make a declaration that the removal orders are null and void"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+ "case_id": "2022_FC_1536",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 32,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the RAD's finding that the applicant is not a genuine Sufi reasonable, given its own findings?",
+    "paras": "17-25",
+    "applicant_position": "RAD found he was not a Sufi yet accepted he practised secretly on return trips; reasoning is inconsistent.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 22,
+    "result_quote": "I do agree that there is one fatal flaw in the RAD’s analysis on this issue"
+   },
+   {
+    "issue": "Did the RAD fail to assess the applicant's moral, ethical and political objection to conscription?",
+    "paras": "26-29",
+    "applicant_position": "RAD dealt only with the religious objection and ignored his separate moral and political grounds.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 29,
+    "result_quote": "the RAD failed to discuss an essential element of one of the two main bases for the Applicant’s refugee claim. That is unreasonable."
+   },
+   {
+    "issue": "Did the RAD breach procedural fairness by making adverse credibility findings on new issues without a chance to respond?",
+    "paras": "17-18",
+    "applicant_position": "RAD made adverse credibility findings on new issues without giving him a chance to respond.",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 18,
+    "result_quote": "the determinative issues in this case are the reasonableness of the RAD’s treatment of the Applicant’s religion claim"
+   }
+  ]
+ }
+}

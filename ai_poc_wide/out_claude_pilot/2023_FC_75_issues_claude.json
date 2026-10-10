@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_75",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 60,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court consider the Subpoena arguments that the applicants never made to the RAD?",
+        "paras": "16-21",
+        "applicant_position": "Court may address the Subpoena issue on judicial review because the RAD assessed it and it was central to the decision.",
+        "respondent_position": "Applicants ignored the RAD's invitation to file submissions; Zeng already addressed the Subpoena issue and is not binding.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "Nevertheless, I conclude that I should consider the Applicants’ submissions on the Subpoena issue."
+      },
+      {
+        "issue": "Did the RAD unreasonably find the court-issued Subpoena fraudulent?",
+        "paras": "22-52",
+        "applicant_position": "Subpoena is genuine; RAD's finding rested on immaterial format and translation differences and was unreasonable.",
+        "respondent_position": "Finding was reasonable: discrepancies were significant, fraudulent documents are common in China, and the claimant did not explain them.",
+        "result": "allowed_for_applicant",
+        "result_para": 52,
+        "result_quote": "I find that the RAD’s focus on the microscopic differences between the 2021 NDP sample and the Subpoena is unreasonable."
+      },
+      {
+        "issue": "Did the Subpoena finding unreasonably taint the RAD's other findings (FG knowledge, sur place claim, support letter, other evidence)?",
+        "paras": "53-58",
+        "applicant_position": "The Subpoena finding infected the FG knowledge, sur place, support letter and other evidence findings.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 58,
+        "result_quote": "As I find the RAD’s finding with regard to the Subpoena unreasonable, all of the findings flowing from this erroneous finding are also unreasonable."
+      }
+    ]
+  }
+}

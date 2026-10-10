@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_762",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 70,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the application be dismissed because the applicant does not have clean hands?",
+        "paras": "37-44",
+        "applicant_position": "not stated",
+        "respondent_position": "Applicant wilfully evaded removal for nearly three years and lacks clean hands, so relief should be refused.",
+        "result": "allowed_for_applicant",
+        "result_para": 44,
+        "result_quote": "I am not persuaded that Ms. Alexander’s misconduct warrants either not considering her application for judicial review on its merits or dismissing it"
+      },
+      {
+        "issue": "Did the Officer breach procedural fairness by not holding an oral hearing before making adverse credibility findings?",
+        "paras": "45-53",
+        "applicant_position": "Officer made adverse credibility findings without first giving her an oral hearing.",
+        "respondent_position": "Decision was fair; no hearing was required because the Officer did not make veiled credibility findings.",
+        "result": "dismissed_for_applicant",
+        "result_para": 52,
+        "result_quote": "Doing so did not trigger the right to a hearing as a matter of procedural fairness."
+      },
+      {
+        "issue": "Was the PRRA decision unreasonable (mental health, state protection, Family Court Protection Order, children's affidavits)?",
+        "paras": "54-67",
+        "applicant_position": "Officer erred on the Protection Order, the children's affidavits, mental health and state protection; decision unreasonable.",
+        "respondent_position": "Decision is fair and reasonable; the officer's assessment of the evidence and state protection was sound.",
+        "result": "dismissed_for_applicant",
+        "result_para": 67,
+        "result_quote": "Consequently, neither of these errors renders the decision as a whole unreasonable or otherwise warrants setting the decision aside."
+      }
+    ]
+  }
+}

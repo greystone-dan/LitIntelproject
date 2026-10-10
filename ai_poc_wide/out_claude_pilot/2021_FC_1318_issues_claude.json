@@ -1,0 +1,38 @@
+{
+ "case_id": "2021_FC_1318",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 24,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Should the court consider RPD-level issues on a judicial review of the RAD decision?",
+    "paras": "13-14",
+    "applicant_position": "Raised five issues, several of which concern the RPD decision.",
+    "respondent_position": "Those issues arise from the RPD decision and were not before the RAD, so they are not properly before the court.",
+    "result": "moot_or_procedural",
+    "result_para": 14,
+    "result_quote": "these issues are not properly before the Court on judicial review of the RAD decision"
+   },
+   {
+    "issue": "Did the RAD err in its credibility finding?",
+    "paras": "16-20",
+    "applicant_position": "Inconsistencies were minor or elaborative, were reasonably explained, and were overemphasized.",
+    "respondent_position": "Respondent says court intervention is not warranted; no specific credibility submission is recorded.",
+    "result": "dismissed_for_applicant",
+    "result_para": 20,
+    "result_quote": "I find no fault with the RAD’s finding that the claim demonstrated an overall lack of credibility rebutting the presumption of truthfulness"
+   },
+   {
+    "issue": "Did the RAD unreasonably treat the lack of original corroborating documents?",
+    "paras": "21-23",
+    "applicant_position": "Explanation for not producing original campaign and state-protection documents was unreasonably discounted.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 23,
+    "result_quote": "In the absence of such evidence, the RAD did not err in finding the evidence fell below the standard expected by Rule 11"
+   }
+  ]
+ }
+}

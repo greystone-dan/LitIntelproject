@@ -1,0 +1,65 @@
+{
+ "case_id": "2020_FC_203",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 60,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was admitting the Garson affidavit, filed after the decision, proper?",
+    "paras": "26-28",
+    "applicant_position": "Applicant sought to file counsel's affidavit on CSC disclosure, investigations and the May 2019 reclassification.",
+    "respondent_position": "Respondent objected that paragraph 10 of the affidavit was speculative.",
+    "result": "partly_allowed",
+    "result_para": 28,
+    "result_quote": "The remainder of the affidavit, in particular the attached exhibits, is helpful to the Court and admissible in these proceedings"
+   },
+   {
+    "issue": "Did the Delegate's reliance on CSC allegations still under investigation breach procedural fairness?",
+    "paras": "29-30",
+    "applicant_position": "Allegations were unfounded and still under investigation, so relying on them breached an elevated duty of fairness.",
+    "respondent_position": "Delegate was entitled to accept the CSC allegations as credible; unproven evidence goes to weight, not admissibility.",
+    "result": "dismissed_for_applicant",
+    "result_para": 30,
+    "result_quote": "In the particular circumstances of this matter it was not procedurally unfair of the Delegate to accept the CSC allegations as credible and trustworthy"
+   },
+   {
+    "issue": "Did the Delegate make credibility findings on sexual orientation without an oral interview, breaching procedural fairness?",
+    "paras": "31-34",
+    "applicant_position": "Delegate made credibility findings on her sexual orientation without an interview or notice, a breach of fairness.",
+    "respondent_position": "No credibility finding was made; Delegate only found insufficient evidence she would pursue same-sex relationships after release.",
+    "result": "allowed_for_applicant",
+    "result_para": 34,
+    "result_quote": "The failure to convoke an interview in these circumstances constituted a breach of procedural fairness."
+   },
+   {
+    "issue": "Did the Delegate apply the correct legal test for assessing risk under s. 115(2)(a) and s. 7 of the Charter?",
+    "paras": "36-45",
+    "applicant_position": "Delegate erred by focusing only on persecution, excluding other risks such as torture and mistreatment.",
+    "respondent_position": "Generic country evidence of human rights conditions cannot alone establish that the person faces a substantial risk.",
+    "result": "allowed_for_applicant",
+    "result_para": 42,
+    "result_quote": "The Delegate erred, in my view, in not considering the evidence of “pervasive and systemic human rights abuses in Iran”"
+   },
+   {
+    "issue": "Were the Delegate's conclusions on the applicant's risk in Iran and on her child's best interests reasonable?",
+    "paras": "43-53",
+    "applicant_position": "Delegate ignored LGBTQ country evidence and wrongly held she could hide her sexuality; the risk was particularized.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 53,
+    "result_quote": "The Delegate’s failure to adequately address the Applicant’s personal risk factors leads me to conclude that the Decision is not justified"
+   },
+   {
+    "issue": "Should the proposed certified question on investigations pending at the time of the danger decision be certified?",
+    "paras": "55-60",
+    "applicant_position": "Question transcends the parties, is of general importance and would be dispositive, so it should be certified.",
+    "respondent_position": "Respondent opposed certification and proposed no alternative question.",
+    "result": "dismissed_for_applicant",
+    "result_para": 60,
+    "result_quote": "In my view the law on the proposed question is settled"
+   }
+  ]
+ }
+}

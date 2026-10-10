@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_1268",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer misunderstand central facts about the arrest warrants and how warrants are issued in Iraq?",
+        "paras": "7-13",
+        "applicant_position": "Officer conflated two arrest warrants and misconstrued country documents on how warrants are issued in Iraq.",
+        "respondent_position": "Officer understood all allegations; any warrant error was immaterial; reading of country evidence was open to the Officer.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "Mr. Abdullah has not established an error in the Officer’s interpretation of country condition documentation"
+      },
+      {
+        "issue": "Did the Officer fail to justify its finding that letters from friends, a co-worker, a brother and the Major General have little probative value?",
+        "paras": "14-25",
+        "applicant_position": "Low probative value was in effect an unexplained credibility finding; letters were not vague, and the Major General letter was wrongly discounted.",
+        "respondent_position": "No credibility finding was made; Officer found insufficient evidence of a s. 97 risk, and the letters lacked detail of the charges.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "I agree with Mr. Abdullah that the Officer failed to justify, with transparent and intelligible reasoning, the finding that the letters from his friends"
+      }
+    ]
+  }
+}

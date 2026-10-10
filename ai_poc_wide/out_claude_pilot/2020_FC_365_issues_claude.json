@@ -1,0 +1,29 @@
+{
+  "case_id": "2020_FC_365",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer fail to provide adequate reasons for finding the marriage not genuine and entered into for immigration purposes?",
+        "paras": "15-28",
+        "applicant_position": "Decision has no analysis or reasons on genuineness or bad faith; it summarizes the interview and then reaches an abrupt conclusion.",
+        "respondent_position": "Reasons read as a whole explain the refusal and show the reasoning; the Officer need not mention every piece of evidence.",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "In my view, the Officer failed to provide adequate reasons and properly consider the evidence in the decision regarding the genuineness of marriage."
+      },
+      {
+        "issue": "Did the Officer ignore or fail to consider directly relevant evidence on the home, the land registration, and the couple's age and cultural context?",
+        "paras": "23-34",
+        "applicant_position": "Officer ignored the land registration application, photos, banking and other records, and the couple's age and cultural context on finances.",
+        "respondent_position": "Officer weighed all the evidence and found a lack of cohabitation and interdependency; applicant is asking the Court to reweigh the evidence.",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "the Officer made findings of fact on the financial interdependency between the Applicant and Ms. Chung without regard to the evidence"
+      }
+    ]
+  }
+}

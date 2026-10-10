@@ -1,0 +1,29 @@
+{
+  "case_id": "2019_FC_905",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 51,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Which serious-issue threshold applies to the Minister's motion to stay an order releasing a detainee?",
+        "paras": "7-38",
+        "applicant_position": "Minister says the usual low threshold applies: one non-frivolous issue is enough, since a stay only preserves the status quo.",
+        "respondent_position": "Asante says the elevated strong prima facie threshold applies because a stay effectively decides the review and liberty is at stake.",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "For the reasons explained above, that is not a position I accept"
+      },
+      {
+        "issue": "Has the Minister shown a serious issue with the Member's release decision, including the alternative-to-detention finding?",
+        "paras": "42-50",
+        "applicant_position": "Minister says the Member ignored evidence, gave no reason to depart from earlier detention and bondsperson findings, and misread the Guidelines.",
+        "respondent_position": "Asante says the Member's reasons are intelligible and transparent and justify the alternative to detention; the Minister's grounds are frivolous.",
+        "result": "dismissed_for_applicant",
+        "result_para": 50,
+        "result_quote": "one must conclude, as I have, that while facially they seem to be serious issues, in reality they are frivolous or vexatious"
+      }
+    ]
+  }
+}

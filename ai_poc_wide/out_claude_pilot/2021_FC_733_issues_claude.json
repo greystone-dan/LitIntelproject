@@ -1,0 +1,47 @@
+{
+  "case_id": "2021_FC_733",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 73,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer reasonably assess Mr. Evans' establishment in Canada?",
+        "paras": "9-10, 27-28, 50-57",
+        "applicant_position": "Officer measured establishment against an unstated expected level and ignored friendships and his cognitive limits.",
+        "respondent_position": "Officer reasonably found establishment minimal; the conclusion is supported by the evidence, or lack of it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 56,
+        "result_quote": "The Officer did not ignore any relevant evidence regarding establishment."
+      },
+      {
+        "issue": "Did the Officer reasonably assess the hardship to the wife and the impact of removal on her care?",
+        "paras": "12, 58-62",
+        "applicant_position": "Officer ignored Dr. Davis's evidence that the wife would decline without him; a support worker cannot replace him.",
+        "respondent_position": "Officer considered the wife's hardship, including Dr. Davis's report and letters, and reasonably weighed it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 72,
+        "result_quote": "there are no serious flaws in the decision"
+      },
+      {
+        "issue": "Did the Officer properly consider the effect of removal on Mr. Evans' mental health (Kanthasamy)?",
+        "paras": "63-66",
+        "applicant_position": "Officer ignored the effect of removal on his mental health and focused on UK treatment, contrary to Kanthasamy.",
+        "respondent_position": "Officer considered mental-health effects and reasonably found supports were available in the UK.",
+        "result": "dismissed_for_applicant",
+        "result_para": 65,
+        "result_quote": "The Officer did not run afoul of the Supreme Court’s guidance in Kanthasamy"
+      },
+      {
+        "issue": "Did the Officer give unreasonable weight to the serious criminality behind the inadmissibility?",
+        "paras": "18-19, 67-71",
+        "applicant_position": "Serious criminality cannot eclipse other H&C factors; the officer relied on old reports over recent low-recidivism evidence.",
+        "respondent_position": "Officer considered the low-recidivism opinion and reasonably weighed other evidence; criminality carried significant weight.",
+        "result": "dismissed_for_applicant",
+        "result_para": 67,
+        "result_quote": "I do not agree that this consideration eclipsed all others"
+      }
+    ]
+  }
+}

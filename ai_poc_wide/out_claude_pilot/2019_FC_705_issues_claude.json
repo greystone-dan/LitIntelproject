@@ -1,0 +1,29 @@
+{
+ "case_id": "2019_FC_705",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the PRRA officer required to hold a hearing because the decision turned on veiled credibility findings?",
+    "paras": "11",
+    "applicant_position": "Decision turned on veiled credibility findings, so refusing a hearing breached procedural fairness.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 11,
+    "result_quote": "In my view, however, the officer made no such findings."
+   },
+   {
+    "issue": "Was the officer's finding that the applicant faced only generalized risk, with no link to the New Jersey events, reasonable?",
+    "paras": "12-16",
+    "applicant_position": "Officer wrongly found only generalized risk and rejected any link between the New Jersey events and the shootings.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_quote": "it was altogether reasonable for the officer to conclude that, in the absence of sufficient evidence of a link"
+   }
+  ]
+ }
+}

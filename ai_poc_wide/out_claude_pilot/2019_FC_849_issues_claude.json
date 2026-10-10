@@ -1,0 +1,56 @@
+{
+  "case_id": "2019_FC_849",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 80,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the collateral attack doctrine bar the MD from referring Ms. Liu to an admissibility hearing?",
+        "paras": "33-42",
+        "applicant_position": "Liu says the Minister should have directly attacked her Spousal Application approval earlier, so the referral is a collateral attack.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 41,
+        "result_quote": "the MD was not barred by the doctrine of collateral attack from referring Ms. Liu to an admissibility hearing"
+      },
+      {
+        "issue": "Does res judicata (issue estoppel) bar the referral because the Spousal Application was granted without any finding on misrepresentation?",
+        "paras": "43-54",
+        "applicant_position": "Liu says an explicit or implicit finding of no misrepresentation was made in granting the Spousal Application, so issue estoppel applies.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 51,
+        "result_quote": "I am satisfied that no decision had previously been taken with respect to whether Ms. Liu was inadmissible to Canada"
+      },
+      {
+        "issue": "Is the referral an abuse of process, given finality, consistency and judicial economy?",
+        "paras": "55-56",
+        "applicant_position": "Liu says referral after years of settled status disrupts her life and is an abuse of process, since the misrepresentation was once excused.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 56,
+        "result_quote": "I disagree. For the reasons that I have explained, Ms. Liu was never excused for misrepresenting her work history"
+      },
+      {
+        "issue": "Was it unreasonable for the MD to conclude the misrepresentation could have induced an error in administering the Act?",
+        "paras": "57-63",
+        "applicant_position": "Liu says her false work history could not induce error because her CEC application was refused on language grounds regardless.",
+        "respondent_position": "Minister's delegate says the misrepresentation could have induced an error in the administration of the Act.",
+        "result": "dismissed_for_applicant",
+        "result_para": 63,
+        "result_quote": "it was not unreasonable for the MD to conclude that the requirements of paragraph 40(1)(a) had been met"
+      },
+      {
+        "issue": "Was it unreasonable for the MD to find the misrepresentation serious under the Ribic-based factors?",
+        "paras": "65-75",
+        "applicant_position": "Liu says the misrepresentation is not serious: it could not affect the CEC outcome, and the Spousal Application found no misrepresentation.",
+        "respondent_position": "Minister's delegate says the misrepresentation was serious: H&C factors do not outweigh it, given its sophistication and repetition in the Spousal Application.",
+        "result": "dismissed_for_applicant",
+        "result_para": 74,
+        "result_quote": "I have no hesitation whatsoever in concluding that conclusion reached by the MD"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+ "case_id": "2010_FC_716",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 43,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Should the court hear the application even though it is more than two years old and the outcome is moot?",
+    "paras": "4-4",
+    "applicant_position": "Agreed at the hearing that a live issue remains and the court should hear the case.",
+    "respondent_position": "Agreed at the hearing that a live issue remains and the court should hear the case.",
+    "result": "moot_or_procedural",
+    "result_para": 4,
+    "result_quote": "there remains a live issue underlying this application and that I should exercise my discretion and hear the case"
+   },
+   {
+    "issue": "Did the officer breach procedural fairness by refusing without interviewing the applicant or addressing his explanations?",
+    "paras": "24-32",
+    "applicant_position": "Denied a chance to answer concerns and was judged on credibility without an interview.",
+    "respondent_position": "Applicant knew the concern from earlier interviews; his refusal, not credibility, drove the decision.",
+    "result": "dismissed_for_applicant",
+    "result_para": 32,
+    "result_quote": "not providing a further interview to the applicant is not a breach of procedural fairness by Counsellor Dupuis in the circumstances of this case"
+   },
+   {
+    "issue": "Did the officer err in applying s.40(1)(a) by not finding the withheld information was material?",
+    "paras": "33-41",
+    "applicant_position": "Refusal to discuss DIO work would not yield material facts; no materiality analysis was done.",
+    "respondent_position": "Refusal to answer is a withholding that could induce an error; materiality is clear from the concerns.",
+    "result": "dismissed_for_applicant",
+    "result_para": 41,
+    "result_quote": "the materiality of the questions regarding his activities at DIO is without doubt"
+   }
+  ]
+ }
+}

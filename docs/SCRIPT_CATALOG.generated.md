@@ -3077,7 +3077,7 @@ Active scripts documented: 208
 
 ## `scripts/train_learned_roles.py`
 
-**Purpose:** Train the learned paragraph-role weights used by backend/contextual_authority/learned_roles.py. Training data: the Haiku draft labels in data/eval/case_structure/haiku_drafts_v1.json (decision text from the core_300_run reports). The hand-labelled decisions are NOT used, so evaluate_case_structure.py scores them as a clean hold-out. Needs scikit-learn (training only; the site runs numpy only). Run: python scripts/train_learned_roles.py [--c 1.0]
+**Purpose:** Train the learned paragraph-role weights used by backend/contextual_authority/learned_roles.py. Training data (Haiku labels, never the hand-labelled decisions, so evaluate_case_structure.py scores those as a clean hold-out): - data/eval/case_structure/haiku_drafts_v1.json (text from the core_300_run reports) - data/eval/case_structure/haiku_labels_export_v1.json, "train" split only (text from --export-dir, a folder of case_<id>.json files with a "paragraphs" list). Without --export-dir only the drafts are used. Stage 1 is a word + position model; stage 2 is trained on stage-1 log-probabilities from 5-fold (by decision) cross-fitting. Needs scikit-learn (training only; the site runs numpy only). Run: python scripts/train_learned_roles.py [--export-dir PATH] [--c 1.0]
 
 **Operational class:** Utility
 

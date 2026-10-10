@@ -134,13 +134,21 @@ def get_index(db: Session) -> IssueIndex:
 		return _cache["index"]
 
 
+def _display_citation(citation: str | None) -> str | None:
+	"""Some stored rows keep the file spelling (2017_FC_1067, MB0_00148); show court citations with spaces and tribunal ids with a dash."""
+	if not citation or "_" not in citation:
+		return citation
+	parts = citation.split("_")
+	return " ".join(parts) if len(parts) == 3 and parts[1].isalpha() else citation.replace("_", "-")
+
+
 def _card(row: IssueRow) -> dict[str, Any]:
 	note = row.soften
 	if not note and (not row.result_para or row.result == "not_decided"):
 		note = "No paragraph states a result for this issue."
 	return {
 		"case_id": row.case_id,
-		"citation": row.citation,
+		"citation": _display_citation(row.citation),
 		"court": row.court,
 		"issue": row.issue,
 		"result": row.result,

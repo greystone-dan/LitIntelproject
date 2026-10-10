@@ -372,6 +372,11 @@ class CaseSubThemeSummaryResponse(BaseModel):
 	evidence: list[CaseEvidenceSpanResponse] = Field(default_factory=list)
 
 
+class CaseUnitPartyArgumentResponse(BaseModel):
+	paragraph_index: int
+	party: str  # "applicant" or "respondent"
+
+
 class CaseDiscussionUnitSummaryResponse(BaseModel):
 	discussion_unit_id: str
 	unit_index: int
@@ -381,6 +386,8 @@ class CaseDiscussionUnitSummaryResponse(BaseModel):
 	subthemes: list[CaseSubThemeSummaryResponse] = Field(default_factory=list)
 	# Experimental, rule-based role (metadata, overview, facts, issues, analysis, disposition); see role_note.
 	role: str | None = None
+	# Experimental, rule-based: paragraphs in this unit that report a party's argument; see party_note.
+	party_arguments: list[CaseUnitPartyArgumentResponse] = Field(default_factory=list)
 
 
 class CaseEvidenceSummaryResponse(BaseModel):
@@ -391,6 +398,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
 	role_note: str | None = None
+	party_note: str | None = None
 
 
 class CaseSummarySectionItemResponse(BaseModel):

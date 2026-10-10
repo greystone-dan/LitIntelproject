@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 205
+Active scripts documented: 206
 
 ## Catalog
 
@@ -59,6 +59,7 @@ Active scripts documented: 205
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_position_layers.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_layers.py --help` |
 | `build_position_preview.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview.py --help` |
+| `build_position_preview_lf.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
@@ -900,6 +901,20 @@ Active scripts documented: 205
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_position_preview.py --help
+```
+
+## `scripts/build_position_preview_lf.py`
+
+**Purpose:** Build "whose position" preview files from the proof-of-concept labelling runs (arm LF, one JSON per decision). Input: folders of ``case_<id>_LF_<model>.json`` files (paragraphs with propositions: holder, layer, kind, text, quote). Output: ``data/position_preview/case_<id>.json`` in the format the reader already loads (see ``build_position_preview.py``), plus a paragraph level ``l`` derived the way the proof of concept found most reliable: a rule-of-law point about the law is the legal framework, otherwise the level follows the holder (the model's own layer answers were less reliable). Offline: no database, no model, no network. Decisions that already have a file are left alone. python scripts/build_position_preview_lf.py --src ai_poc_wide/out/LF --src ai_poc_wide/out_wave2/LF --src ai_poc_wide/out_wave3_300/LF
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help
 ```
 
 ## `scripts/build_prototype_cohort.py`

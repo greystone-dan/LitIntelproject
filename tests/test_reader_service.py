@@ -415,3 +415,20 @@ def test_unit_roles_come_from_stored_paragraph_text_and_skip_reports_without_it(
     }
     assert reader_service._unit_roles(report) == ["overview", "analysis", "disposition"]
     assert reader_service._unit_roles({"discussion_units": report["discussion_units"]}) == []
+
+
+def test_unit_party_arguments_flag_only_paragraphs_that_report_a_party():
+    from backend import reader_service
+
+    report = {
+        "paragraphs": [
+            {"paragraph_index": 0, "text": "[1] This is an application for judicial review of a RAD decision."},
+            {"paragraph_index": 1, "text": "[2] The applicant argues that the RAD ignored the evidence."},
+            {"paragraph_index": 2, "text": "[3] The respondent submits that the decision was reasonable."},
+            {"paragraph_index": 3, "text": "[4] I find that the RAD did not err."},
+        ]
+    }
+    assert reader_service._unit_party_arguments(report, "Smith v. Canada (Citizenship and Immigration)") == {
+        1: "applicant", 2: "respondent",
+    }
+    assert reader_service._unit_party_arguments({"paragraphs": []}, "") == {}

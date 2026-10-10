@@ -1,0 +1,29 @@
+{
+  "case_id": "MB2_04966",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's account of arrest, detention and torture credible?",
+        "paras": "10-16",
+        "applicant_position": "Says he was arrested at a 2011 protest, tortured for three months, and escaped from hospital.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the tribunal concludes that the claimant's narrative is a fabrication, and doubts that he was ever detained for having taken part in the demonstration"
+      },
+      {
+        "issue": "Would he face persecution or a section 97 risk if returned to Angola?",
+        "paras": "17-18",
+        "applicant_position": "Fears persecution as a perceived political opponent of the Angolan government.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "there is no reasonable chance or a serious possibility that he would be persecuted should he return to Angola"
+      }
+    ]
+  }
+}

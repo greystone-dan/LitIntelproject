@@ -1,0 +1,38 @@
+{
+  "case_id": "TA9_17752",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Has the claimant rebutted the presumption of state protection in Colombia?",
+        "paras": "6-24",
+        "applicant_position": "Did not trust the police; says Colombian state protection is inadequate against FARC-linked threats.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "the principal claimant has failed to rebut the presumption of state protection with clear and convincing evidence"
+      },
+      {
+        "issue": "Did the claimant take reasonable steps to seek state protection?",
+        "paras": "9-12",
+        "applicant_position": "Did not report the calls to police because he feared the authorities; filed a denunciation before leaving.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "By leaving the country four days after filing the denunciation, the principal claimant failed to give the authorities adequate time and opportunity to investigate the crime."
+      },
+      {
+        "issue": "Do the co-claimant's and minor claimants' claims succeed?",
+        "paras": "27-28",
+        "applicant_position": "Their claims rest on the principal claimant's evidence, with nothing to differentiate them.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "Therefore, the Refugee Protection Division rejects their claims."
+      }
+    ]
+  }
+}

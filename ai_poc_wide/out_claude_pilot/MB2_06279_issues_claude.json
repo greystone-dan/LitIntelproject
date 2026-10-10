@@ -1,0 +1,56 @@
+{
+  "case_id": "MB2_06279",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's identity established?",
+        "paras": "6-31",
+        "applicant_position": "Says she is a Guinean citizen; her passport, national ID card and birth certificates prove identity.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "the panel finds that it is not satisfied as to the claimant's identity"
+      },
+      {
+        "issue": "Does her account of how and when she entered Canada hold up?",
+        "paras": "8-12",
+        "applicant_position": "A smuggler arranged a French passport for her; she did not know the name on it.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "The panel is unable to assess when she actually entered Canada or her route"
+      },
+      {
+        "issue": "Do her identity documents (passport, national ID card, birth certificates) have probative value?",
+        "paras": "13-21",
+        "applicant_position": "Explained the passport extension and second national ID card; said she submitted both birth certificates.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "the panel attaches no probative value to the claimant's three identity documents"
+      },
+      {
+        "issue": "Do her educational documents have probative value?",
+        "paras": "22-29",
+        "applicant_position": "Said the signature on the student cards was the issuer's and the internship was extended by the director.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "Therefore, the panel attaches no probative value to all the educational documents provided by the claimant."
+      },
+      {
+        "issue": "Does she have a well-founded fear of persecution or a personal risk if returned to Guinea?",
+        "paras": "32-33",
+        "applicant_position": "Fears return to Guinea after a forced marriage and beatings by her husband.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 32,
+        "result_quote": "the panel will not address the other aspects of her claim for refugee protection"
+      }
+    ]
+  }
+}

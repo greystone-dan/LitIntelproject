@@ -1,0 +1,38 @@
+{
+  "case_id": "VA6_03145",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 1,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's claim that he is gay credible?",
+        "paras": "13-16",
+        "applicant_position": "Says he is gay, joined EGALE and gay groups, and fears how gays are treated in Nigeria.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "The panel also found the claimant not to be credible regarding his alleged homosexuality."
+      },
+      {
+        "issue": "Does his conduct (not claiming in Portugal, omissions at intake) show subjective fear?",
+        "paras": "9-12",
+        "applicant_position": "Could not claim in Portugal due to language and not knowing where to go; was ashamed to tell intake officer he was gay.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "finds it is further evidence of a lack of subjective fear"
+      },
+      {
+        "issue": "Is his fear of his ex-girlfriend's father credible?",
+        "paras": "4-5, 17",
+        "applicant_position": "His girlfriend's father threatened him and is looking for him.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "the panel does not believe the claimant's story of fear of his ex-girlfriend's father"
+      }
+    ]
+  }
+}

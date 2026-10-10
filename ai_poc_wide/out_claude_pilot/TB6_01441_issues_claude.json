@@ -1,0 +1,47 @@
+{
+  "case_id": "TB6_01441",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 43,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the respondent voluntarily return to Pakistan?",
+        "paras": "11-22",
+        "applicant_position": "Returned on his Pakistani passport and stayed 172 days; the trip was his own choice, not forced by his father's surgery.",
+        "respondent_position": "Returned only to accompany his sick father for surgery; felt obliged, had no choice, and other family could help.",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Whether arranged or not, the panel finds persuasive all of the evidence that indicates that the respondent's return to Pakistan was a voluntary one."
+      },
+      {
+        "issue": "Did the respondent intend to re-avail himself of Pakistan's protection?",
+        "paras": "23-28",
+        "applicant_position": "Applied for and obtained a replacement Pakistani passport in Pakistan, showing intent to use its protection.",
+        "respondent_position": "Never intended to re-avail; relied on Canadian PR status; replacement passport needed after documents were lost.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the Board finds that the respondent intended to re-avail himself of the protection of Pakistan by obtaining a valid, replacement travel document"
+      },
+      {
+        "issue": "Did the respondent actually obtain Pakistan's protection (reavailment)?",
+        "paras": "33-36",
+        "applicant_position": "Entry on a valid Pakistani passport and issue of a replacement passport show actual protection from Pakistan.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "The Board finds convincing proof before it that the respondent reavailed himself of the protection of Pakistan."
+      },
+      {
+        "issue": "Should the application be dismissed for delay (abuse of process), or should disclosure be ordered?",
+        "paras": "39-42",
+        "applicant_position": "Minister's counsel chose not to make post-hearing submissions on delay or disclosure.",
+        "respondent_position": "Asked for dismissal for delay as abuse of process and for disclosure orders; counsel missed the filing deadline.",
+        "result": "moot_or_procedural",
+        "result_para": 42,
+        "result_quote": "failing to meet the due date of September 5, 2019, the Board made its decision on the information and evidence before it"
+      }
+    ]
+  }
+}

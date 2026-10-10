@@ -1,0 +1,65 @@
+{
+ "case_id": "TB9_20159",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 28,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Whether the RPD breached procedural fairness by raising change of circumstances without advance notice",
+    "paras": "7-10",
+    "applicant_position": "Should have had advance notice of the change-of-circumstance issue and time for post-hearing submissions.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 10,
+    "result_quote": "I disagree, given the Board's clear guidelines on this topic."
+   },
+   {
+    "issue": "Whether new evidence is admitted and whether an oral hearing is held",
+    "paras": "4-6",
+    "applicant_position": "Sought admission of several new documents on appeal; hearing position not stated.",
+    "respondent_position": "not stated",
+    "result": "partly_allowed",
+    "result_para": 6,
+    "result_quote": "I have admitted several pieces of new evidence in this appeal, but I decline to hold an oral hearing."
+   },
+   {
+    "issue": "Whether the Appellants' identities are established",
+    "paras": "11-17",
+    "applicant_position": "Identities were established by documents and identity witness; RPD erred in finding otherwise.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 17,
+    "result_quote": "As a result of the above, I find that, on a balance of probabilities, the Appellants' identities are established."
+   },
+   {
+    "issue": "Whether the Appellants are credible",
+    "paras": "18-22",
+    "applicant_position": "Narratives are credible and the presumption of truthfulness applies.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 22,
+    "result_quote": "The Appellants' presumption of truthfulness with respect to their narratives has not been rebutted and I therefore find that they are, on a balance of probabilities, credible."
+   },
+   {
+    "issue": "Whether the change in Ethiopia's conditions is durable",
+    "paras": "23-25",
+    "applicant_position": "Improvements are not durable; the RPD erred in finding them durable.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 25,
+    "result_quote": "the evidence also indicates that significant challenges remain, and that the changes implemented cannot yet be described as durable."
+   },
+   {
+    "issue": "Whether state protection is available and whether an IFA exists",
+    "paras": "26",
+    "applicant_position": "No state protection is available and no safe IFA exists since agents are state actors.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 26,
+    "result_quote": "I find that there is no reasonable apprehension of adequate state protection and no safe internal flight alternative in this case."
+   }
+  ]
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "case_id": "MB7_24427",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 44,
+  "overall_result": "partly_allowed",
+  "issues": [
+   {
+    "issue": "Whether the RPD should have held an oral hearing on appeal",
+    "paras": "3",
+    "applicant_position": "Asked for an oral hearing before the RAD.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 3,
+    "result_quote": "Given that no new evidence was filed, the request for an oral hearing is denied."
+   },
+   {
+    "issue": "Whether the RPD conducted a proper section 97 risk analysis before turning to the IFA",
+    "paras": "21, 29-31",
+    "applicant_position": "The RPD skipped a proper s. 97 analysis and misread the risk, which is about retaliation for leaving the PCC area.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 29,
+    "result_quote": "Counsel submits that the RPD failed to conduct a proper section 97 analysis. I agree."
+   },
+   {
+    "issue": "Whether the PCC could find the Appellants in Rio or Brasilia (geographic reach of the PCC)",
+    "paras": "22, 32",
+    "applicant_position": "The PCC can easily locate them through police, judiciary and databases; RPD ignored this.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 32,
+    "result_quote": "I agree with counsel that the RPD ignored the geographical reach of the PCC."
+   },
+   {
+    "issue": "Whether relocation to Rio or Brasilia would be reasonable",
+    "paras": "20, 34",
+    "applicant_position": "Risk exists in the proposed IFA areas, so relocation is not viable.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 34,
+    "result_quote": "The RPD did not err on this question, given that the applicable test has two prongs."
+   },
+   {
+    "issue": "Whether the Appellants were personally targeted by the PCC, and whether the RPD wrongly found a chance encounter",
+    "paras": "37-40",
+    "applicant_position": "The female Appellant was targeted at home, so the PCC would find them elsewhere.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 40,
+    "result_quote": "The matter must be sent back to the RPD for a proper assessment of their risk profile before a determination can be made."
+   },
+   {
+    "issue": "Whether the RPD erred in excluding the principal Appellant under Article 1E yet applying s. 97 with Brazil as country of reference",
+    "paras": "41",
+    "applicant_position": "Brazil should not have been used as his country of reference for s. 97.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 41,
+    "result_quote": "The RPD erred by failing to explain why it interpreted article 1E and its applicable jurisprudence in this way."
+   }
+  ]
+ }
+}

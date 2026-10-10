@@ -130,8 +130,23 @@ def rank_results(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
 	return sorted(results, key=lambda r: (r["paragraph_number"] is None, -r["match_score"], -r["case_score"]))
 
 
+COURT_NAMES = {
+	"FC": "FEDERAL COURT",
+	"FCA": "FEDERAL COURT OF APPEAL",
+	"SCC": "SUPREME COURT OF CANADA",
+	"RAD": "REFUGEE APPEAL DIVISION",
+	"RPD": "REFUGEE PROTECTION DIVISION",
+}
+
+
 def _court_filter(court: str) -> set[str]:
-	return {value.strip().upper() for value in (court or "").split(",") if value.strip()}
+	"""Courts asked for, as the short code and the full name (the library stores either spelling)."""
+	wanted: set[str] = set()
+	for value in (court or "").split(","):
+		code = value.strip().upper()
+		if code:
+			wanted.update({code, COURT_NAMES.get(code, code)})
+	return wanted
 
 
 def _case_meta(case: Case) -> dict[str, Any]:

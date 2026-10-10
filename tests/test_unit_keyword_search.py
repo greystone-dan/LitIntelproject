@@ -111,3 +111,8 @@ def test_search_units_filters_by_court_and_limit(monkeypatch):
 	assert [r["case_id"] for r in out["results"]] == [2]
 	assert out["results"][0]["judge"] == "J" and out["results"][0]["outcome"] == "allowed"
 	assert unit_search.search_units(DB(), "credibility finding evidence", limit=1)["results"][0]["case_id"] in {1, 2}
+
+
+def test_court_filter_accepts_codes_and_full_names():
+	assert unit_search._court_filter("rad, FC") == {"RAD", "REFUGEE APPEAL DIVISION", "FC", "FEDERAL COURT"}
+	assert unit_search._court_filter("") == set()

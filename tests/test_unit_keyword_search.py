@@ -71,3 +71,43 @@ def test_endpoint_404_when_flag_off(monkeypatch):
 		assert client.get("/unit-search", params={"q": "credibility finding evidence"}).status_code == 404
 	finally:
 		app.dependency_overrides.pop(get_db, None)
+
+
+def test_phrase_and_whole_word_scoring():
+	query = "internal flight alternative reasonable"
+	terms = _term_sets(query)
+	pairs = unit_search._query_pairs(query, terms)
+	phrase = unit_search._piece_score("The internal flight alternative was reasonable.", terms, pairs)
+	scattered = unit_search._piece_score("Internal affairs; the flight was an alternative that seemed reasonable.", terms, pairs)
+	off_topic = unit_search._piece_score("International carriers and flight delays were not reasoned.", terms, pairs)
+	assert phrase > scattered > off_topic
+
+
+def test_ranking_puts_numbered_paragraphs_first_and_keeps_case_order_on_ties():
+	rows = [
+		{"paragraph_number": None, "match_score": 6, "case_score": 1.0, "id": "headnote"},
+		{"paragraph_number": 5, "match_score": 4, "case_score": 0.5, "id": "low"},
+		{"paragraph_number": 7, "match_score": 4, "case_score": 0.9, "id": "tie-high"},
+		{"paragraph_number": 9, "match_score": 6, "case_score": 0.1, "id": "best"},
+	]
+	assert [r["id"] for r in unit_search.rank_results(rows)] == ["best", "tie-high", "low", "headnote"]
+
+
+def test_search_units_filters_by_court_and_limit(monkeypatch):
+	cases = {1: SimpleNamespace(id=1, court="SCC", title="a", citation="x", date=None, metadata_json={}),
+		2: SimpleNamespace(id=2, court="FC", title="b", citation="y", date=None, metadata_json={"reader_extracted": {"judge": "J", "decision outcome": "allowed"}})}
+
+	class DB:
+		def get(self, model, key):
+			return cases.get(key) if model is unit_search.Case else SimpleNamespace(chunk_index=2)
+
+		def scalars(self, _):
+			return []
+
+	monkeypatch.setattr(unit_search, "search_paragraph_cases", lambda db, q: [
+		{"case_id": 1, "best_chunk_id": 1, "score": 1.0}, {"case_id": 2, "best_chunk_id": 2, "score": 0.5}])
+	monkeypatch.setattr(unit_search, "_cached_inspect_case", lambda db, cid, chunks: _report())
+	out = unit_search.search_units(DB(), "credibility finding evidence", court="fc, fca")
+	assert [r["case_id"] for r in out["results"]] == [2]
+	assert out["results"][0]["judge"] == "J" and out["results"][0]["outcome"] == "allowed"
+	assert unit_search.search_units(DB(), "credibility finding evidence", limit=1)["results"][0]["case_id"] in {1, 2}

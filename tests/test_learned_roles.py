@@ -31,3 +31,13 @@ def test_flag_selects_learned_labeller(monkeypatch):
 
 def test_empty_input():
     assert lr.label_paragraph_roles([]) == [] and cs.label_paragraph_roles([]) == []
+
+
+def test_second_stage_weights_loaded_and_probabilities_normalised():
+    import numpy as np
+
+    paragraphs = ["1. The applicant is a citizen of Iran.", "2. The issue is whether the decision was reasonable.", "3. The application is dismissed."]
+    emissions = cs._emissions(paragraphs)
+    log_p = lr.stage_two(lr.log_probabilities(paragraphs, emissions), emissions)
+    assert log_p.shape == (3, len(cs.ROLES))
+    assert np.allclose(np.exp(log_p).sum(axis=1), 1.0, atol=0.01)

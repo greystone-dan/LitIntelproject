@@ -2,8 +2,10 @@
 
 Deterministic and offline: the weights are a fixed file (learned_roles_weights.npz) trained by
 scripts/train_learned_roles.py from labelled decisions. Reading a decision runs only numpy; no model call is made.
-The model's per-paragraph log-probabilities are added to the rule scores inside the same ordered (Viterbi)
-labeller that `case_structure.label_paragraph_roles` uses.
+Two stages: a word + position model gives per-paragraph log-probabilities; a second small model reads those
+together with the neighbouring paragraphs' log-probabilities, the rule scores and the position, and its
+log-probabilities are added to the rule scores inside the same ordered (Viterbi) labeller that
+`case_structure.label_paragraph_roles` uses.
 """
 
 from __future__ import annotations
@@ -21,8 +23,8 @@ from backend.contextual_authority import case_structure as cs
 WEIGHTS_PATH = Path(__file__).with_name("learned_roles_weights.npz")
 HASH_BUCKETS = 1 << 15
 TEXT_LIMIT = 500
-ALPHA = 0.5  # weight of the learned log-probabilities
-BETA = 1.0  # weight of the rule scores
+ALPHA = 1.0  # weight of the learned log-probabilities
+BETA = 0.5  # weight of the rule scores
 _TOKEN_RE = re.compile(r"[a-z0-9’']+")
 _DIGITS_RE = re.compile(r"\d+")
 _FLOOR = np.log(1e-4)
@@ -69,7 +71,8 @@ def _weights():
     if not WEIGHTS_PATH.exists():
         return None
     data = np.load(WEIGHTS_PATH)
-    return data["sparse"].astype(np.float32), data["dense"].astype(np.float32), data["bias"].astype(np.float32)
+    stage2 = tuple(data[k].astype(np.float64) for k in ("s2_coef", "s2_bias", "s2_mean", "s2_scale"))
+    return data["sparse"].astype(np.float32), data["dense"].astype(np.float32), data["bias"].astype(np.float32), stage2
 
 
 def available() -> bool:
@@ -78,7 +81,7 @@ def available() -> bool:
 
 def log_probabilities(paragraphs: Sequence[str], emissions: list[dict[str, float]]) -> np.ndarray:
     """n x len(cs.ROLES) matrix of log-probabilities, columns in cs.ROLES order."""
-    sparse, dense_w, bias = _weights()  # type: ignore[misc]
+    sparse, dense_w, bias, _ = _weights()  # type: ignore[misc]
     texts, dense = feature_matrix(paragraphs, emissions)
     scores = dense @ dense_w.T + bias
     for i, feats in enumerate(texts):
@@ -91,6 +94,33 @@ def log_probabilities(paragraphs: Sequence[str], emissions: list[dict[str, float
     return np.maximum(log_p, _FLOOR)
 
 
+def stack_features(log_p: np.ndarray, emissions: list[dict[str, float]]) -> np.ndarray:
+    """Second-stage inputs: own and neighbouring log-probabilities, rule scores, position, length of the decision."""
+    n = len(log_p)
+    scores = np.array([[row[s] for s in cs._STATES] for row in emissions], dtype=np.float64)
+    pos = np.arange(n) / max(1, n - 1)
+    parts = [log_p, scores, pos[:, None], np.full((n, 1), n / 100.0)]
+    for shift in (-2, -1, 1, 2):
+        moved = np.roll(log_p, shift, axis=0)
+        if shift > 0:
+            moved[:shift] = _FLOOR
+        else:
+            moved[shift:] = _FLOOR
+        parts.append(moved)
+    parts.append(np.cumsum(log_p, axis=0) / np.arange(1, n + 1)[:, None])
+    return np.hstack(parts)
+
+
+def stage_two(log_p: np.ndarray, emissions: list[dict[str, float]]) -> np.ndarray:
+    """Second-stage log-probabilities (n x len(cs.ROLES))."""
+    coef, intercept, mean, scale = _weights()[3]  # type: ignore[index]
+    x = (stack_features(log_p, emissions) - mean) / scale
+    scores = x @ coef.T + intercept
+    scores -= scores.max(axis=1, keepdims=True)
+    out = scores - np.log(np.exp(scores).sum(axis=1, keepdims=True))
+    return np.maximum(out, _FLOOR)
+
+
 def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
     """Same ordered labeller as the rules, with the learned log-probabilities added to each paragraph's scores."""
     if not paragraphs:
@@ -98,7 +128,7 @@ def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
     if not available():
         return cs.label_paragraph_roles_rules(paragraphs)
     emissions = cs._emissions(paragraphs)
-    log_p = log_probabilities(paragraphs, emissions)
+    log_p = stage_two(log_probabilities(paragraphs, emissions), emissions)
     combined = []
     for i, row in enumerate(emissions):
         combined.append({s: BETA * row[s] + ALPHA * float(log_p[i][cs.ROLES.index(cs._STATE_ROLE.get(s, s))]) for s in cs._STATES})

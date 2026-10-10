@@ -199,8 +199,11 @@ def _emissions(paragraphs: Sequence[str]) -> list[dict[str, float]]:
             pass  # an unnamed heading keeps whatever section it sits in
         # content cues
         sample = body[:900]
-        if _DISPOSITION_RE.search(sample) and pos > 0.45:
-            weight = 3.0 if (pos > 0.7 or i >= last_numbered - 2) else 1.2
+        # position within the reasons (first to last numbered paragraph), so a long counsel/footer block after
+        # the reasons does not push a short decision's order out of the disposition window
+        body_pos = min(1.0, max(0.0, (i - first_body) / max(1, last_numbered - first_body)))
+        if _DISPOSITION_RE.search(sample) and max(pos, body_pos) > 0.45:
+            weight = 3.0 if (max(pos, body_pos) > 0.7 or i >= last_numbered - 2) else 1.2
             score["disposition"] += weight
             if len(body) < 400:
                 score["disposition"] += 0.8

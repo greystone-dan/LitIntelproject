@@ -25,6 +25,8 @@ HASH_BUCKETS = 1 << 15
 TEXT_LIMIT = 500
 ALPHA = 1.0  # weight of the learned log-probabilities
 BETA = 0.5  # weight of the rule scores
+FALLBACK_WINDOW = 3  # paragraphs back from the last numbered one searched for an order cue
+FALLBACK_MIN_SCORE = 2.5
 _TOKEN_RE = re.compile(r"[a-z0-9’']+")
 _DIGITS_RE = re.compile(r"\d+")
 _FLOOR = np.log(1e-4)
@@ -50,12 +52,27 @@ def text_features(text: str) -> dict[int, float]:
     return {k: v / norm for k, v in counts.items()} if norm else {}
 
 
+def body_positions(paragraphs: Sequence[str]) -> np.ndarray:
+    """n x 2: position within the reasons (first to last numbered paragraph, clipped to 0..1) and a tail flag.
+
+    A long counsel/solicitor block after the reasons makes plain position misleading for short decisions."""
+    n = len(paragraphs)
+    numbered = [i for i, text in enumerate(paragraphs) if cs._strip_number(text)[0] is not None]
+    first = numbered[0] if numbered else min(n - 1, 2)
+    last = numbered[-1] if numbered else n - 1
+    idx = np.arange(n)
+    pos = np.clip((idx - first) / max(1, last - first), 0.0, 1.0)
+    return np.stack([pos, (idx > last).astype(np.float64)], axis=1)
+
+
 def dense_features(paragraphs: Sequence[str], emissions: list[dict[str, float]]) -> np.ndarray:
     n = len(paragraphs)
+    body = body_positions(paragraphs)
     rows = []
     for i, text in enumerate(paragraphs):
         pos = i / max(1, n - 1)
         row = [pos, pos * pos, float(cs._strip_number(text)[0] is not None), min(len(text), 1500) / 1500]
+        row += [body[i][0], body[i][0] ** 2, body[i][1]]
         row += [emissions[i][state] for state in cs._STATES]
         row += [float(k / 10 <= pos < (k + 1) / 10) for k in range(10)]
         rows.append(row)
@@ -94,12 +111,12 @@ def log_probabilities(paragraphs: Sequence[str], emissions: list[dict[str, float
     return np.maximum(log_p, _FLOOR)
 
 
-def stack_features(log_p: np.ndarray, emissions: list[dict[str, float]]) -> np.ndarray:
+def stack_features(log_p: np.ndarray, emissions: list[dict[str, float]], paragraphs: Sequence[str]) -> np.ndarray:
     """Second-stage inputs: own and neighbouring log-probabilities, rule scores, position, length of the decision."""
     n = len(log_p)
     scores = np.array([[row[s] for s in cs._STATES] for row in emissions], dtype=np.float64)
     pos = np.arange(n) / max(1, n - 1)
-    parts = [log_p, scores, pos[:, None], np.full((n, 1), n / 100.0)]
+    parts = [log_p, scores, pos[:, None], np.full((n, 1), n / 100.0), body_positions(paragraphs)]
     for shift in (-2, -1, 1, 2):
         moved = np.roll(log_p, shift, axis=0)
         if shift > 0:
@@ -111,10 +128,10 @@ def stack_features(log_p: np.ndarray, emissions: list[dict[str, float]]) -> np.n
     return np.hstack(parts)
 
 
-def stage_two(log_p: np.ndarray, emissions: list[dict[str, float]]) -> np.ndarray:
+def stage_two(log_p: np.ndarray, emissions: list[dict[str, float]], paragraphs: Sequence[str]) -> np.ndarray:
     """Second-stage log-probabilities (n x len(cs.ROLES))."""
     coef, intercept, mean, scale = _weights()[3]  # type: ignore[index]
-    x = (stack_features(log_p, emissions) - mean) / scale
+    x = (stack_features(log_p, emissions, paragraphs) - mean) / scale
     scores = x @ coef.T + intercept
     scores -= scores.max(axis=1, keepdims=True)
     out = scores - np.log(np.exp(scores).sum(axis=1, keepdims=True))
@@ -128,8 +145,24 @@ def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
     if not available():
         return cs.label_paragraph_roles_rules(paragraphs)
     emissions = cs._emissions(paragraphs)
-    log_p = stage_two(log_probabilities(paragraphs, emissions), emissions)
+    log_p = stage_two(log_probabilities(paragraphs, emissions), emissions, paragraphs)
     combined = []
     for i, row in enumerate(emissions):
         combined.append({s: BETA * row[s] + ALPHA * float(log_p[i][cs.ROLES.index(cs._STATE_ROLE.get(s, s))]) for s in cs._STATES})
-    return cs._viterbi_roles(combined)
+    roles = cs._viterbi_roles(combined)
+    return _ensure_disposition(roles, paragraphs, emissions)
+
+
+def _ensure_disposition(roles: list[str], paragraphs: Sequence[str], emissions: list[dict[str, float]]) -> list[str]:
+    """Every decision ends in an order. When the blend found none, take the last strong order cue in the final reasons."""
+    if "disposition" in roles:
+        return roles
+    numbered = [i for i, text in enumerate(paragraphs) if cs._strip_number(text)[0] is not None]
+    if not numbered:
+        return roles
+    last = numbered[-1]
+    window = [i for i in range(max(0, last - FALLBACK_WINDOW), last + 1) if emissions[i]["disposition"] >= FALLBACK_MIN_SCORE]
+    if not window:
+        return roles
+    start = window[0]
+    return [("disposition" if start <= i <= last else role) for i, role in enumerate(roles)]

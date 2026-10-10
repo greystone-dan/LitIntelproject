@@ -51,7 +51,7 @@ def case_matrix(paragraphs):
         for k, v in feats.items():
             rows.append(i), cols.append(k), vals.append(v)
     sparse = csr_matrix((vals, (rows, cols)), shape=(len(paragraphs), lr.HASH_BUCKETS))
-    return hstack([sparse, csr_matrix(dense)]).tocsr(), emissions
+    return hstack([sparse, csr_matrix(dense)]).tocsr(), emissions, paragraphs
 
 
 def full_log_p(model, x):
@@ -69,31 +69,31 @@ def main(argv=None) -> int:
     parser.add_argument("--c", type=float, default=1.0)
     parser.add_argument("--export-dir", type=Path)
     args = parser.parse_args(argv)
-    cases = []  # (matrix, emissions, label indices)
+    cases = []  # (matrix, emissions, paragraphs, label indices)
     drafts = json.loads(DRAFTS.read_text())["cases"]
     for case_id, item in drafts.items():
         paragraphs = [p["text"] for p in json.loads((REPORTS / f"case_{case_id}_deterministic.json").read_text())["paragraphs"]]
         roles = roles_from_runs(item["runs"], len(paragraphs))
-        matrix, emissions = case_matrix(paragraphs)
-        cases.append((matrix, emissions, np.array([cs.ROLES.index(r) for r in roles])))
+        matrix, emissions, paragraphs = case_matrix(paragraphs)
+        cases.append((matrix, emissions, paragraphs, np.array([cs.ROLES.index(r) for r in roles])))
     if args.export_dir:
         labels = json.loads(EXPORT_LABELS.read_text())
         for case_id in labels["split"]["train"]:
             paragraphs = [p["text"] for p in json.loads((args.export_dir / f"case_{case_id}.json").read_text())["paragraphs"]]
             roles = roles_from_runs(labels["cases"][case_id], len(paragraphs))
-            matrix, emissions = case_matrix(paragraphs)
-            cases.append((matrix, emissions, np.array([cs.ROLES.index(r) for r in roles])))
+            matrix, emissions, paragraphs = case_matrix(paragraphs)
+            cases.append((matrix, emissions, paragraphs, np.array([cs.ROLES.index(r) for r in roles])))
 
     def fit(subset):
-        return LogisticRegression(C=args.c, max_iter=3000).fit(vstack([c[0] for c in subset]), np.concatenate([c[2] for c in subset]))
+        return LogisticRegression(C=args.c, max_iter=3000).fit(vstack([c[0] for c in subset]), np.concatenate([c[3] for c in subset]))
 
     folds = 5
     stage2_x, stage2_y = [], []
     for fold in range(folds):
         model = fit([c for i, c in enumerate(cases) if i % folds != fold])
         for i in range(fold, len(cases), folds):
-            stage2_x.append(lr.stack_features(full_log_p(model, cases[i][0]), cases[i][1]))
-            stage2_y.append(cases[i][2])
+            stage2_x.append(lr.stack_features(full_log_p(model, cases[i][0]), cases[i][1], cases[i][2]))
+            stage2_y.append(cases[i][3])
     x2, y2 = np.vstack(stage2_x), np.concatenate(stage2_y)
     scaler = StandardScaler().fit(x2)
     model2 = LogisticRegression(C=1.0, max_iter=3000).fit(scaler.transform(x2), y2)

@@ -87,7 +87,30 @@ def normalize_footer(starts: list[int], roles: list[str], paragraphs: list[str])
     return new_starts, new_roles, sorted(set(changed))
 
 
+def apply_convention(case: Case) -> Case:
+    """Labelling convention v3: every paragraph before the first printed paragraph number is metadata.
+
+    The 2001-04 labels called that block 'overview' and the newer labels called it 'metadata'.
+    """
+    cut = next((i for i, text in enumerate(case.paragraphs) if case_structure._strip_number(text)[0] is not None), None)
+    if not cut:
+        return case
+    roles = case.paragraph_roles()
+    roles = ["metadata"] * cut + roles[cut:]
+    starts, run_roles = [], []
+    for i, role in enumerate(roles):
+        if i == 0 or role != roles[i - 1]:
+            starts.append(i)
+            run_roles.append(role)
+    case.starts, case.roles = starts, run_roles
+    return case
+
+
 def load_cases(gold_dir: Path = GOLD_DIR, reports_dir: Path = REPORTS_DIR) -> list[Case]:
+    return [apply_convention(case) for case in _load_cases(gold_dir, reports_dir)]
+
+
+def _load_cases(gold_dir: Path = GOLD_DIR, reports_dir: Path = REPORTS_DIR) -> list[Case]:
     cases: list[Case] = []
     old = json.loads((gold_dir / "gold_fc_2001_2004_v2.json").read_text())
     hold = set(old["hold_out"])

@@ -108,13 +108,9 @@ def detect_forum(header: str) -> str:
 		return "iad"
 	if re.search(r"\bID File|dossier de la SI\b|Immigration Division", h):
 		return "id"
-	if re.search(r"Federal Court of Appeal", h):
-		return "fca"
-	if re.search(r"Federal Court Decisions", h):
-		return "fc"
-	if re.search(r"Supreme Court", h):
-		return "scc"
-	return ""
+	courts = [(m.start(), key) for key, pat in (("fca", r"Federal Court of Appeal"), ("fc", r"Federal Court Decisions"), ("scc", r"Supreme Court"))
+		for m in [re.search(pat, h)] if m]
+	return min(courts)[1] if courts else ""
 
 
 _TRIBUNAL_AUTHOR = re.compile(r"^(?:the\s+)?(?:panel|member|division|board|tribunal|chair|rpd|rad|iad|id|appeal division|immigration division)\b", re.I)
@@ -138,7 +134,9 @@ def parse_parties(title: str) -> Parties:
 _ARGUE = (r"(?:submit|argu(?:e)?|contend|raise|say|said|told|state|allege|claim|assert|maintain|emphasi[sz]e|stress|point out|"
 	r"suggest|dispute|object|respond|reply|insist|plead|urge|add|reassert|seek|opine|make the point|makes the point|"
 	r"take the position|takes the position|"
-	r"concede|acknowledge|admit|also submit|further submit|contest|complain|testif|swear|swore|rely|relies)")
+	r"concede|acknowledge|admit|also submit|further submit|contest|complain|testif|swear|swore|rely|relies|"
+	r"take issue|takes issue|challeng(?:e)?|alleg(?:e)?|ask(?:s|ed)? the (?:court|panel|division|board|member)|maintain|"
+	r"urg(?:e)?|focus(?:e)?(?:s|ed)? (?:on|in)|note|disagree|request)")
 _ARGUE_RE = re.compile(r"(?!submit(?:s|ted)?\s+(?:an?|his|her|their|the|its|three|two|four|\d+)\s+(?:\w+\s+)?"
 	r"(?:application|request|grievance|claim|appeal|document|evidence|form|letter|response|motion|notice|"
 	r"complaint|affidavit|package|submissions?\s+to)\b)(?:%s)(?:s|es|ed|d|ted|ting|ied|ies|ing)?\b" % _ARGUE, re.I)
@@ -255,8 +253,15 @@ _WITNESS = re.compile(
 
 # Named earlier decision makers acting on anything ("The RAD did accept...", "The Officer scheduled...").
 _NAMED_EARLIER_ANY = re.compile(
-	r"(?:^|[\s,(\"“])(?:the\s+)((?:visa |immigration |senior immigration |pra?r?a |h&c )?officer|RPD|RAD|IAD|Chair|CNSC|Commission|"
-	r"Appeal Division|General Division|delegate|Minister['’]s delegate)\s+(?:also |then |further |initially |subsequently |did |had |was |were )*[a-z]+(?:ed|d|s)?\b")
+	r"(?:^|[\s,(\"“])(?i:the)\s+((?i:(?:visa |immigration |senior immigration |pra?r?a |h&c )?officer)|RPD(?: Panel| member)?|RAD|IAD|Chair|CNSC|Commission|"
+	r"Appeal Division|General Division|(?i:delegate)|Minister['’]s delegate)\s+(?:also |then |further |initially |subsequently |did |had |was |were )*[a-z]+(?:ed|d|s)?\b")
+_LOWER_SUBJ = (r"(?:(?i:the)\s+)?(?:(?:Federal )?Court of Appeal(?: for [A-Z][\w']*(?: [A-Z][\w']*)*)?|Federal Court(?: judge)?|"
+	r"(?:Ontario |Quebec |Alberta |British Columbia )?(?:Superior|Provincial|Tax|Divisional) Court|Court of (?:King|Queen)['’]s Bench|"
+	r"(?:trial|motion|application|chambers|sentencing|reviewing|bail|preliminary inquiry|appeal) judge|"
+	r"(?:Judge|Justice) [A-Z][\w'’-]+|[A-Z][\w'’-]+,? (?:J\.A\.|J\.|C\.J\.[A-Z]?\.?)|CRTC|(?:the )?(?:Tribunal|Board|Commission)|"
+	r"majority (?:of the Court of Appeal|below|in the court below)|(?:court|courts) below)")
+_LOWER_COURT_ACT = re.compile(r"(?:^|[\s,(\"“])(%s)(?:[^.;]{0,40}?)\b%s" % (_LOWER_SUBJ, _EARLIER_VERB.pattern.replace("(?:", "(?:", 1)))
+_OTHER_CASE = re.compile(r"\bv\.?\s+[A-Z]|\b(?:19|20)\d{2}\s+(?:SCC|FCA|FC|ONCA|BCCA|ABCA|QCCA|SKCA|MBCA|NSCA|NBCA)\b|\[(?:19|20)\d{2}\]\s+\d")
 # In a tribunal's own decision the claimant/appellant as sentence subject is the party speaking to this tribunal.
 _CLAIMANT_SUBJECT = re.compile(
 	r"^(?:(?:however|moreover|further|also|in addition|additionally|first|second|third|finally)[, ]+)?"
@@ -504,6 +509,12 @@ def sentence_cue(sentence: str, parties: Parties | None = None, *, index: int = 
 		m = _NAMED_EARLIER_ANY.search(s)
 		if m and not any(h[2] == EARLIER for h in hits):
 			add(m.start(1), 5, EARLIER, m.group(0))
+	if parties.forum in ("scc", "fca"):
+		# in an appeal decision the courts and tribunals below are the earlier decision makers, unless the sentence is
+		# about some other case ("In R. v. X, the Court of Appeal held")
+		m = _LOWER_COURT_ACT.search(s)
+		if m and not _OTHER_CASE.search(s[:m.start()]):
+			add(m.start(1), 6, EARLIER, m.group(0)[:60])
 	m = _EARLIER_POSS.search(s)
 	if m:
 		add(m.start(), 5, EARLIER, m.group(0))
@@ -763,8 +774,24 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 	res.layers = [c.layer for c in res.cues]
 	res.mixed_layers = len({l for l in res.layers if l <= LAYER_FIRST_INSTANCE}) > 1
 	res.has_framework = LAYER_FRAMEWORK in res.layers
-	if AUTHORITY not in res.sentence_holders and _CITES.search(text or ""):
+	if AUTHORITY not in res.sentence_holders and any(
+			h == COURT and _CITES.search(s) for h, s in zip(res.sentence_holders, sentences)):
+		# a citation in the court's own sentence is the authority it relies on; a citation inside a party's or the
+		# earlier decision maker's sentence supports that holder's point, not a statement of law
 		res.sentence_holders_extra = [AUTHORITY]
+	for s in sentences:
+		# "I agree with the Respondent that ...": the evaluation is the court's, the position it endorses is the party's
+		m = _AGREES_WITH.search(s)
+		if m:
+			side = _side_of_noun(m.group(1), parties)
+			if side is None:
+				rx_first, rx_second = _party_regexes(parties)
+				if rx_first and rx_first.search(m.group(1)):
+					side = APPLICANT if not parties.minister_first else RESPONDENT
+				elif rx_second and rx_second.search(m.group(1)):
+					side = RESPONDENT if not parties.minister_first else APPLICANT
+			if side and side not in res.sentence_holders and side not in res.sentence_holders_extra:
+				res.sentence_holders_extra.append(side)
 	order: list[str] = []
 	for h in res.sentence_holders + list(res.sentence_holders_extra):
 		if h not in order:
@@ -781,6 +808,11 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 	return res
 
 
+_AGREES_WITH = re.compile(
+	r"\b(?:I|we)\s+(?:also |generally |largely |fully |respectfully |therefore |do |would )*(?:agree|accept|concur|disagree|share)\b"
+	r"[^.;,]{0,20}?\b(?:with|that)\s+(?:the\s+)?((?:principal |associate |co-?)?(?:applicants?|appellants?|claimants?|respondents?|"
+	r"minister(?: of [A-Z][\w ,&-]+?)?|attorney general|crown|defendants?|plaintiffs?|[A-Z][a-z]+(?: [A-Z][a-z]+)?)(?:['’]s?)?)",
+	re.I)
 _PARA_NUM = re.compile(r"(?:(?<=\n)|(?<=\s)|^)\[(\d{1,4})\]\s")
 
 
@@ -795,11 +827,30 @@ def split_numbered_paragraphs(text: str) -> dict[int, str]:
 		if n > prev and (n - prev == 1 or (n - prev <= 3 and at_line_start)):
 			keep.append((pos, n))
 			prev = n
+	if len(keep) < 3:
+		# memoranda, factums and some pasted judgments number their paragraphs "1." at the start of a line
+		keep = _line_start_numbers(text) or keep
 	out: dict[int, str] = {}
 	for i, (pos, n) in enumerate(keep):
 		end = keep[i + 1][0] if i + 1 < len(keep) else len(text)
 		out[n] = text[pos:end].strip()
 	return out
+
+
+_LINE_NUM = re.compile(r"^[ \t]*(\d{1,4})[.)][ \t]+(?=\S)", re.M)
+
+
+def _line_start_numbers(text: str) -> list[tuple[int, int]]:
+	"""Paragraph markers written ``12.`` at the start of a line. They must climb from 1 by one (a numbered list inside a
+	paragraph restarts at 1 and is skipped), and at least three are needed before the text counts as numbered."""
+	keep: list[tuple[int, int]] = []
+	want = 1
+	for m in _LINE_NUM.finditer(text or ""):
+		n = int(m.group(1))
+		if n == want:
+			keep.append((m.start(), n))
+			want += 1
+	return keep if len(keep) >= 3 else []
 
 
 def tag_decision(paragraphs: list[str], title: str = "", frame=None) -> list[Result]:

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 204
+Active scripts documented: 206
 
 ## Catalog
 
@@ -93,6 +93,7 @@ Active scripts documented: 204
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
 | `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
+| `eval_position_rules.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_position_rules.py --help` |
 | `evaluate_case_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_case_structure.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
@@ -119,6 +120,7 @@ Active scripts documented: 204
 | `fc_activity_laptop.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
+| `fetch_position_texts.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help` |
 | `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
 | `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
@@ -1377,6 +1379,20 @@ Active scripts documented: 204
 .\venv\Scripts\python.exe scripts\eval_models.py --help
 ```
 
+## `scripts/eval_position_rules.py`
+
+**Purpose:** Score the deterministic whose-position rules against graded labels, with a fixed train / held-out split. Offline, no model. Inputs: --gold one or more JSON files {case_id: {para: {"h": [holders], "l": [layers], "src": ...}}} (reader grades: data/eval/position_gold_reader.json; AI tags: data/eval/position_gold_ai.json; both hold labels only) --texts folder of case_<id>.json or <id>.json files holding {"title", "court", "full_text"} (``scripts/fetch_position_texts.py`` writes them from the public pages; nothing is stored in the database) The split is by decision (sha1 of the case id), so a decision is never in both sets. Develop on ``train``; ``test`` is the held-out set and is reported, never tuned on. Metrics are per paragraph: the set of holders the rules found against the set the label says. Layers are compared with the one layer the reader shows for the paragraph (``paragraph_layer``) and count as right when it is among the labelled layers.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\eval_position_rules.py --help
+```
+
 ## `scripts/evaluate_case_structure.py`
 
 **Purpose:** Score deterministic case-structure labelling against hand-labelled decisions. Gold: 22 Federal Court decisions from 2001-2004 (data/eval/case_structure/gold_fc_2001_2004_v2.json, paragraphs from the stored reports), 30 more hand-labelled FC / FCA / SCC decisions (gold_new_cases.json) and 18 RPD decisions (gold_rpd_labels.json, text read from an extract that is not in the repository). Each case has a 'dev', 'holdout' or 'holdout2' split. Only dev cases may be used for tuning; the holdouts are scored at declared checkpoints. Approaches (all offline, no database, network or AI): main the segmentation on main (continuity + boundary rules) with deterministic unit role labels structure paragraph role labelling by cues + ordered skeleton, units from role changes structure+h the same plus a split at each major heading inside the analysis Run: python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdout holdout2]
@@ -1739,6 +1755,20 @@ Active scripts documented: 204
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help
+```
+
+## `scripts/fetch_position_texts.py`
+
+**Purpose:** Fetch decision texts for the position-rule scorer from the public pages of the live site. Read-only: one GET per decision on the public ``/cases/<id>`` page, no database and no login. Writes ``<out>/<id>.json`` with title, court, citation and full_text, the folder ``scripts/eval_position_rules.py --texts`` reads. python scripts/fetch_position_texts.py --gold data/eval/position_gold_reader.json --gold data/eval/position_gold_ai.json --out position_texts
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help
 ```
 
 ## `scripts/fingerprint_pilot.py`

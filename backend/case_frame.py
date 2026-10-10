@@ -187,7 +187,12 @@ def _label(key: str) -> str:
 
 def _detect_court(header: str, docket: str) -> FrameField:
 	h = header[:700]
-	for key, pat in (("fca", r"Federal Court of Appeal"), ("fc", r"Federal Court Decisions"), ("scc", r"Supreme Court"),
+	# the court's own name comes first in the header; "On appeal from the Federal Court of Appeal" comes later
+	courts = [(m.start(), key) for key, pat in (("fca", r"Federal Court of Appeal"), ("fc", r"Federal Court Decisions"), ("scc", r"Supreme Court"))
+		for m in [re.search(pat, h)] if m]
+	if courts:
+		return FrameField(min(courts)[1], "header", "high")
+	for key, pat in (
 			("rpd", r"\bRPD File|dossier de la SPR"), ("rad", r"\bRAD File|dossier de la SAR"),
 			("iad", r"\bIAD File|dossier de la SAI"), ("id", r"\bID File|dossier de la SI\b")):
 		if re.search(pat, h):

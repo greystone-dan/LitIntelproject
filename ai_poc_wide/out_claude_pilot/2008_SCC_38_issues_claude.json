@@ -1,0 +1,56 @@
+{
+ "case_id": "2008_SCC_38",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 78,
+  "overall_result": "partly_allowed",
+  "issues": [
+   {
+    "issue": "Does CSIS have a duty to retain its operational notes, and is the OPS-217 destruction policy consistent with s. 12 of the CSIS Act?",
+    "paras": "37-46",
+    "applicant_position": "Section 12 requires CSIS to retain operational notes; destroying them under OPS-217 misreads the statute.",
+    "respondent_position": "Section 12 requires only minimal retention of information, so the destruction policy is valid.",
+    "result": "allowed_for_applicant",
+    "result_para": 42,
+    "result_quote": "We therefore conclude that there is a duty to retain information."
+   },
+   {
+    "issue": "Does CSIS have a duty to disclose all information it holds to the ministers, the designated judge and the named person?",
+    "paras": "47-64",
+    "applicant_position": "CSIS must disclose all information it holds, as s. 7 of the Charter requires, to the ministers and the judge.",
+    "respondent_position": "The proceeding is administrative, so no s. 7 duty to disclose applies, as the Federal Court of Appeal held.",
+    "result": "allowed_for_applicant",
+    "result_para": 62,
+    "result_quote": "CSIS should be required to retain all the information in its possession and to disclose it to the ministers and the designated judge."
+   },
+   {
+    "issue": "Was the late disclosure of the interview summary and new allegations a breach that required a remedy?",
+    "paras": "65-67",
+    "applicant_position": "Late disclosure of the CSIS interview summary and new allegations breached procedural fairness and needs a remedy.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 67,
+    "result_quote": "the designated judge granted the appropriate remedy for the late disclosure of the interview summary"
+   },
+   {
+    "issue": "May the designated judge admit new evidence after the security certificate was issued?",
+    "paras": "68-73",
+    "applicant_position": "The judge may consider only evidence the ministers had when issuing the certificate, so new evidence must be excluded.",
+    "respondent_position": "Ministers may submit fresh information under s. 78(e) IRPA, as the designated judge held.",
+    "result": "dismissed_for_applicant",
+    "result_para": 73,
+    "result_quote": "In short, the ministers may submit new evidence at any point in the process"
+   },
+   {
+    "issue": "Is a stay of proceedings the appropriate remedy?",
+    "paras": "74-77",
+    "applicant_position": "The certificate proceedings should be stayed because of the destroyed notes and late disclosure.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 77,
+    "result_quote": "A stay would be an inappropriate remedy here."
+   }
+  ]
+ }
+}

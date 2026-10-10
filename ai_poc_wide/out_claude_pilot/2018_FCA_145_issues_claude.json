@@ -1,0 +1,29 @@
+{
+  "case_id": "2018_FCA_145",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the judge have certified whether paragraph 37(1)(a) needs the acts to be offences where they occurred (certified question)?",
+        "paras": "21-29",
+        "applicant_position": "Paragraph 37(1)(a) requires acts to correspond to an offence in foreign law; the earlier ruling was wrong.",
+        "respondent_position": "Question was not argued below, was already decided in the first judicial review, and should not be certified.",
+        "result": "moot_or_procedural",
+        "result_para": 29,
+        "result_quote": "Consequently, I find that the question the judge certified should not have been certified."
+      },
+      {
+        "issue": "Was the officer's organized-criminality finding reasonable, and was the appellant denied a right to be heard?",
+        "paras": "19",
+        "applicant_position": "Judge erred in upholding the officer's finding as reasonable and in finding no denial of right to be heard.",
+        "respondent_position": "Appeal should be dismissed on the certification ground alone.",
+        "result": "not_decided",
+        "result_para": 30,
+        "result_quote": "there is no need to address the other questions raised by the appellant."
+      }
+    ]
+  }
+}

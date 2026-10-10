@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FCA_225",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the Court of Appeal have jurisdiction to hear an appeal from an interlocutory Federal Court order in this immigration matter?",
+        "paras": "15-18",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "In my view, the case at bar exemplifies this second exception."
+      },
+      {
+        "issue": "Did the Federal Court exceed its jurisdiction or err by raising on its own motion an unpleaded s. 15 Charter gender-pronoun issue and granting an interim stay on it?",
+        "paras": "18-31",
+        "applicant_position": "Minister: seeks to quash the order; the judge raised a new Charter issue with no pleadings, evidence or record.",
+        "respondent_position": "Ewen: the judge was managing the proceeding to treat him fairly and equally as a self-represented litigant.",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "The Federal Court exceeded its jurisdiction by unilaterally raising a new Charter issue that did not stem from the issues as framed by the parties"
+      },
+      {
+        "issue": "Should the stay motion be referred back to the Federal Court for decision?",
+        "paras": "31-37",
+        "applicant_position": "Minister: the stay motion is moot after the removal was cancelled and should not proceed.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 37,
+        "result_quote": "I would not refer the underlying stay motion back to the Federal Court, as this would serve no useful purpose."
+      }
+    ]
+  }
+}

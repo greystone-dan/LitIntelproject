@@ -1,0 +1,38 @@
+{
+  "case_id": "2006_FCA_217",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 60,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court answer the first certified question on whether the lock-in principle applies to family members of skilled worker applicants?",
+        "paras": "17",
+        "applicant_position": "Minister: visa officers decide on the facts as they exist when they assess an application, unless the statute clearly displaces that.",
+        "respondent_position": "Hamids: the lock-in principle should guide interpretation of the Regulations, so eligibility is fixed at the date of application.",
+        "result": "not_decided",
+        "result_para": 17,
+        "result_quote": "In order to decide this appeal it is not necessary to answer the first and more general question"
+      },
+      {
+        "issue": "Must a child aged 22 or over meet the dependent-child criteria of financial dependence and full-time study when the visa officer assesses the application, not only when it was made?",
+        "paras": "18-39",
+        "applicant_position": "Minister: the dependent-child criteria must be met when the visa application is assessed, so the officer correctly removed the sons.",
+        "respondent_position": "Hamids: the sons qualified when the application was made, and later loss of student status should not defeat their eligibility.",
+        "result": "allowed_for_applicant",
+        "result_para": 60,
+        "result_quote": "cannot be included as part of his or her parent's application for permanent residence in Canada."
+      },
+      {
+        "issue": "Does the lock-in principle require student status to be fixed at the date of the visa application?",
+        "paras": "41-56",
+        "applicant_position": "Minister: lock-in does not extend to student status; age is locked in only as a policy exception and the other criteria are not.",
+        "respondent_position": "Hamids: student status should be locked in like age, since there is no rational basis for treating the two differently.",
+        "result": "allowed_for_applicant",
+        "result_para": 52,
+        "result_quote": "it is not anomalous to interpret sections 84 and 85 as requiring that a child aged 22 or over is financially dependent and a student"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+ "case_id": "2024_SCC_38",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 120,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Crown withdraw its argument that the trial judge erred on the legal effect of his factual findings?",
+    "paras": "40",
+    "applicant_position": "Crown first argued the judge erred on the legal effect of his findings, then withdrew that argument before the hearing.",
+    "respondent_position": "not stated",
+    "result": "moot_or_procedural",
+    "result_para": 40,
+    "result_quote": "the Crown withdrew its arguments supporting the second question regarding the legal effect of the trial judge’s factual findings"
+   },
+   {
+    "issue": "Did the trial judge fail to consider all the evidence, including the Craigslist ads?",
+    "paras": "44-50",
+    "applicant_position": "Judge piecemealed the evidence under the criminal standard and ignored the Craigslist ads and other witnesses.",
+    "respondent_position": "Judge properly considered the other witnesses' evidence and all documentary evidence, so there is no error.",
+    "result": "dismissed_for_applicant",
+    "result_para": 49,
+    "result_quote": "I see no error that warrants our intervention on this issue."
+   },
+   {
+    "issue": "Did the trial judge assess the violence evidence on a wrong legal principle, misapprehending the evidence?",
+    "paras": "50-113",
+    "applicant_position": "Judge wrongly treated the other witnesses' evidence of violence as past discreditable conduct, though it is relevant to actus reus and exploitation.",
+    "respondent_position": "Mischaracterization did not taint the analysis: the judge admitted the violence evidence and considered it.",
+    "result": "allowed_for_applicant",
+    "result_para": 109,
+    "result_quote": "I conclude that the trial judge committed an error of law when he held that the evidence of regular violence and threats of violence"
+   },
+   {
+    "issue": "Might the error of law have had a material bearing on the acquittals?",
+    "paras": "114-119",
+    "applicant_position": "The error could have changed the verdict, since the judge's reasonable doubt and credibility findings rested on that evidence.",
+    "respondent_position": "Error did not affect the actus reus analysis, since the judge admitted the violence evidence and it was relevant.",
+    "result": "allowed_for_applicant",
+    "result_para": 119,
+    "result_quote": "This error can reasonably be thought, in the concrete reality of the case at hand, to have had a material bearing on the acquittals"
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2019_FCA_202",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review on appeal of a section 87 IRPA non-disclosure decision?",
+        "paras": "17-21",
+        "applicant_position": "AG: the general Housen appellate standard applies: correctness for law, palpable and overriding error for fact and mixed questions.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "The Court agrees."
+      },
+      {
+        "issue": "Did the Judge apply the wrong test under s. 87 IRPA by importing a balancing exercise or relevance considerations?",
+        "paras": "22-27",
+        "applicant_position": "AG: the Judge added a balancing of injury against the respondent's interests and irrelevant relevance considerations to the s. 87 test.",
+        "respondent_position": "Amicus: s. 87 allows no balancing to release injurious information, but fairness and the respondent's knowledge of the case must be considered.",
+        "result": "partly_allowed",
+        "result_para": 27,
+        "result_quote": "the Judge’s references to the relevance of the redacted information or its usefulness to the respondent were indeed inappropriate"
+      },
+      {
+        "issue": "Did the Judge err in finding that information withheld under s. 87 would not be injurious to national security if disclosed?",
+        "paras": "28-37",
+        "applicant_position": "AG: the Judge made no definite injury findings for some pages, found contradictory injury results, and placed undue reliance on inadvertent disclosure.",
+        "respondent_position": "Amicus: the Judge gave general reasons and a detailed schedule for each page, and the findings were not significantly inconsistent.",
+        "result": "partly_allowed",
+        "result_para": 33,
+        "result_quote": "In our view, this type of discrepancy warrants this Court’s intervention."
+      }
+    ]
+  }
+}

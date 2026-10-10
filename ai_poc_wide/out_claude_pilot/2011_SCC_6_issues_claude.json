@@ -1,0 +1,56 @@
+{
+  "case_id": "2011_SCC_6",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 81,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must notice of a s. 38 proceeding be given to the criminal trial judge?",
+        "paras": "36-40",
+        "applicant_position": "not stated",
+        "respondent_position": "Trial judge needs notice and information to protect the accused's fair trial rights.",
+        "result": "partly_allowed",
+        "result_para": 39,
+        "result_quote": "Although the determination whether to give notice to a criminal trial judge is not discretionary, the content of that notice remains at the discretion of the designated judge."
+      },
+      {
+        "issue": "Must the trial judge get enough information on withheld material to exercise s. 38.14 remedies, with a stay if not?",
+        "paras": "41-53",
+        "applicant_position": "Division of responsibility rests on Federal Court expertise in national security matters.",
+        "respondent_position": "Without seeing withheld material, the defence cannot show prejudice and the trial judge cannot fashion a remedy.",
+        "result": "partly_allowed",
+        "result_para": 51,
+        "result_quote": "If no (or inadequate) additional information can be provided to the trial judge, a stay of proceedings will be the presumptively appropriate remedy."
+      },
+      {
+        "issue": "Does s. 38 of the Canada Evidence Act infringe ss. 96 and 101 of the Constitution Act, 1867?",
+        "paras": "54-65",
+        "applicant_position": "Section 38 does not infringe s. 96: Crown disclosure claims were unreviewable at Confederation and are not core jurisdiction.",
+        "respondent_position": "Federal Court control over disclosure removes superior court jurisdiction in breach of s. 96.",
+        "result": "allowed_for_applicant",
+        "result_para": 64,
+        "result_quote": "s. 38 of the CEA does not violate s. 96 of the Constitution Act, 1867"
+      },
+      {
+        "issue": "Does s. 38 infringe s. 7 of the Charter by dividing disclosure and trial responsibilities?",
+        "paras": "66-80",
+        "applicant_position": "Section 38 does not infringe s. 7; trial judges keep s. 38.14 remedies to protect fair trial.",
+        "respondent_position": "Trial judge cannot assess disclosure impact under the division, so s. 7 is infringed, as Dawson J. held.",
+        "result": "allowed_for_applicant",
+        "result_para": 66,
+        "result_quote": "the respondents’ s. 7 challenge to the legislation must also fail."
+      },
+      {
+        "issue": "Is any s. 7 infringement a reasonable limit under s. 1 of the Charter?",
+        "paras": "81",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 81,
+        "result_quote": "It is not necessary to answer this question."
+      }
+    ]
+  }
+}

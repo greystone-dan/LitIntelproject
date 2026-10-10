@@ -1,0 +1,65 @@
+{
+  "case_id": "2005_FCA_148",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 50,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a serious issue to be tried on the appeal (whether the IAD refusal to reopen should be set aside)?",
+        "paras": "11-12",
+        "applicant_position": "Appeal raises a serious issue on whether the IAD refusal to reopen should be set aside.",
+        "respondent_position": "Common ground that a serious issue is raised.",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "It is common ground that, in view of the grant of leave by the Supreme Court of Canada in Medovarski, Mr. Tesoro's appeal raises a serious issue"
+      },
+      {
+        "issue": "Would removal before the appeal is decided cause irreparable harm?",
+        "paras": "13-45",
+        "applicant_position": "Removal would cause irreparable harm: loss of IAD jurisdiction, a weakened case, and family separation.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I am not persuaded that Mr. Tesoro's removal pending the disposition of his appeal will so disrupt his family relationships"
+      },
+      {
+        "issue": "Does the IAD lose jurisdiction to reopen the appeal if the appellant is removed?",
+        "paras": "14-23",
+        "applicant_position": "Under s.71 IRPA the IAD loses jurisdiction once the appellant leaves under a removal order.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "the IAD does not lose jurisdiction over an application for the reopening of an appeal because the applicant"
+      },
+      {
+        "issue": "Would removal weaken his case before the IAD, so as to cause irreparable harm?",
+        "paras": "24-29",
+        "applicant_position": "Removal would weaken his hardship case before the IAD, relying on Melo and Owusu.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "it is speculative to assert that, if Mr. Tesoro is removed from Canada, his case for obtaining a stay"
+      },
+      {
+        "issue": "Does family separation from removal amount to irreparable harm here?",
+        "paras": "30-45",
+        "applicant_position": "Family separation cannot be quantified in money and is irreparable harm.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I am not persuaded that Mr. Tesoro's removal pending the disposition of his appeal will so disrupt his family relationships"
+      },
+      {
+        "issue": "Balance of convenience.",
+        "paras": "46-47",
+        "applicant_position": "Conceded that a stay cannot be granted on balance of convenience if irreparable harm is not shown.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 46,
+        "result_quote": "I need therefore say no more about this factor."
+      }
+    ]
+  }
+}

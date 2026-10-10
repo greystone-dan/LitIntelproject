@@ -1,0 +1,38 @@
+{
+  "case_id": "2007_FCA_385",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review applicable to the PRRA officer's decision?",
+        "paras": "3",
+        "applicant_position": "Did not challenge the standard of review applied below.",
+        "respondent_position": "Did not challenge the standard of review applied below.",
+        "result": "not_decided",
+        "result_para": 3,
+        "result_quote": "In my view, nothing in this appeal turns on the standard of review."
+      },
+      {
+        "issue": "What is 'new evidence' under paragraph 113(a) IRPA: can documents created after the RPD decision, or evidence on the same risk issue, be rejected?",
+        "paras": "12-17, 20-21",
+        "applicant_position": "Evidence on the same risk issue cannot be rejected on that basis alone.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 17,
+        "result_quote": "I agree. However, a PRRA officer may properly reject such evidence if it cannot prove that the relevant facts"
+      },
+      {
+        "issue": "Was the PRRA officer's finding that the post-RPD documents only repeated the RPD evidence reasonable?",
+        "paras": "18-19",
+        "applicant_position": "Documents created after the RPD decision should have been accepted as new evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "The documents are not capable of establishing that state protection in Pakistan, which had been found by the RPD to be adequate, was no longer adequate"
+      }
+    ]
+  }
+}

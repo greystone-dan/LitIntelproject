@@ -1,0 +1,38 @@
+{
+  "case_id": "2017_SCC_50",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 55,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is a conditional sentence a term of imprisonment under s. 36(1)(a) of the IRPA?",
+        "paras": "23-34",
+        "applicant_position": "A conditional sentence is not a term of imprisonment under s. 36(1)(a), so Tran was not inadmissible on that ground.",
+        "respondent_position": "Minister says a conditional sentence counts as a term of imprisonment, relying on rejected amendments to exclude it.",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "the phrase “term of imprisonment” in s. 36(1) (a) of the IRPA cannot, by either standard of review, be understood to include conditional sentences."
+      },
+      {
+        "issue": "Is the maximum punishable term assessed at the time the offence was committed, or at sentencing or admissibility?",
+        "paras": "35-53",
+        "applicant_position": "The maximum is fixed at the time of the offence; Tran could not have known of the later increase.",
+        "respondent_position": "The maximum is measured when admissibility is assessed, under the law in force then, reflecting current views of seriousness.",
+        "result": "allowed_for_applicant",
+        "result_para": 53,
+        "result_quote": "refers to the maximum sentence that the accused person could have received at the time of the commission of the offence."
+      },
+      {
+        "issue": "Can the delegate's decision to refer the report for an admissibility hearing stand?",
+        "paras": "54",
+        "applicant_position": "The referral rested on an untenable reading of s. 36(1)(a), so it cannot stand.",
+        "respondent_position": "Referral was a reasonable interpretation within the range defensible on the law.",
+        "result": "allowed_for_applicant",
+        "result_para": 54,
+        "result_quote": "Because that opinion was premised on an untenable interpretation of the grounds for inadmissibility under s. 36(1)(a), his decision to refer the Report cannot be sustained."
+      }
+    ]
+  }
+}

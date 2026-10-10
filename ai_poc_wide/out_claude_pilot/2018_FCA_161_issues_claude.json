@@ -1,0 +1,47 @@
+{
+  "case_id": "2018_FCA_161",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 66,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the appeal moot, and should the court decide the jurisdictional question anyway?",
+        "paras": "15-17",
+        "applicant_position": "Asks the court to exercise residual discretion and decide the jurisdictional question despite mootness.",
+        "respondent_position": "Amicus agrees the jurisdictional question is important enough to decide.",
+        "result": "moot_or_procedural",
+        "result_para": 17,
+        "result_quote": "I am of the view that the issue raised in this appeal is of sufficient importance such that this Court should decide the matter notwithstanding its mootness."
+      },
+      {
+        "issue": "Can a designated judge require evidence for a s.18.1 CSIS Act privilege claim where no s.18.1(4) application was brought?",
+        "paras": "19-39",
+        "applicant_position": "No: a s.18.1(4) application is the condition precedent to any judicial inquiry into the privilege claim.",
+        "respondent_position": "Judge has residual power to test privilege claims; absence of prohibitive wording means no ouster.",
+        "result": "allowed_for_applicant",
+        "result_para": 39,
+        "result_quote": "subsection 18.1(4) of the CSIS Act restricts a designated judge’s ability to require evidence in support of a section 18.1 privilege claim where no application has been brought."
+      },
+      {
+        "issue": "May the judge instead order justification to decide whether to appoint an amicus or special advocate?",
+        "paras": "41-47",
+        "applicant_position": "The Order had no useful purpose; the judge cannot compel justification absent a s.18.1(4) application.",
+        "respondent_position": "Judge should have jurisdiction to order justification to decide whether an amicus is needed.",
+        "result": "allowed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I do not agree."
+      },
+      {
+        "issue": "Does the court have implied jurisdiction or plenary powers to make the order?",
+        "paras": "64-65",
+        "applicant_position": "Implied jurisdiction test is stringent; the judge's wish to test the claim is not enough.",
+        "respondent_position": "Overbroad privilege claims are an abuse of process the judge may address with plenary powers.",
+        "result": "not_decided",
+        "result_para": 65,
+        "result_quote": "Accordingly, there is no need to expand on that matter."
+      }
+    ]
+  }
+}

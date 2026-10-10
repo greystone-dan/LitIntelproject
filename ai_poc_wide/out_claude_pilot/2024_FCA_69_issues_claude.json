@@ -1,0 +1,47 @@
+{
+  "case_id": "2024_FCA_69",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 127,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the Federal Court's review of the ID's interpretation of paragraph 34(1)(a)?",
+        "paras": "27-29",
+        "applicant_position": "Agrees reasonableness is the standard applied by the Federal Court.",
+        "respondent_position": "Agrees reasonableness is the standard applied by the Federal Court.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "I agree with the parties that the Federal Court correctly identified reasonableness as the standard to be applied"
+      },
+      {
+        "issue": "Must the ID consider Canada's international obligations (non-refoulement under the Refugee Convention) when interpreting paragraph 34(1)(a)?",
+        "paras": "33-64",
+        "applicant_position": "Mason's international-law discussion is obiter; non-refoulement need not be weighed at the admissibility stage.",
+        "respondent_position": "Not stated on international law; contends 'Canada's interests' is limited to national security or security interests.",
+        "result": "dismissed_for_applicant",
+        "result_para": 64,
+        "result_quote": "This makes the ID’s decision in this case unreasonable."
+      },
+      {
+        "issue": "Does 'contrary to Canada's interests' in paragraph 34(1)(a) require a nexus to Canada's national security or security interests?",
+        "paras": "84-119",
+        "applicant_position": "'Canada's interests' is broad, covering Charter values and the democratic character of Canada; no security nexus needed.",
+        "respondent_position": "'Canada's interests' is limited to national security or security interests, so a nexus is required.",
+        "result": "dismissed_for_applicant",
+        "result_para": 118,
+        "result_quote": "permanent residents or foreign nationals may only be found to be inadmissible to Canada under paragraphs 34(1)(a) and 34(1)(f) of IRPA"
+      },
+      {
+        "issue": "Should the case be remitted to the ID for redetermination?",
+        "paras": "120-127",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 127,
+        "result_quote": "there is no need to remit this case to the ID for redetermination"
+      }
+    ]
+  }
+}

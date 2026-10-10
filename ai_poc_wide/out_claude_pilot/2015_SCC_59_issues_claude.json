@@ -1,0 +1,56 @@
+{
+  "case_id": "2015_SCC_59",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 86,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the legislative purpose of s. 117 of the IRPA (people smuggling offence)?",
+        "paras": "31-70",
+        "applicant_position": "Purpose is narrow: it targets organized smuggling, not humanitarian, mutual or family assistance.",
+        "respondent_position": "Purpose is to catch all acts that in any way assist entry of undocumented migrants.",
+        "result": "allowed_for_applicant",
+        "result_para": 70,
+        "result_quote": "the purpose of s. 117 is to criminalize the smuggling of people into Canada in the context of organized crime"
+      },
+      {
+        "issue": "Does s. 117 violate s. 7 of the Charter because it is overbroad?",
+        "paras": "71-77",
+        "applicant_position": "Section 117 reaches humanitarian, mutual and family aid outside its purpose, so it is overbroad under s. 7.",
+        "respondent_position": "Attorney General consent under s. 117(4) screens out improper prosecutions, so no overbreadth.",
+        "result": "allowed_for_applicant",
+        "result_para": 77,
+        "result_quote": "I conclude that s. 117 of the IRPA is overbroad."
+      },
+      {
+        "issue": "Does s. 117 violate s. 7 through gross disproportionality, vagueness or inequality?",
+        "paras": "78",
+        "applicant_position": "Section 117 is grossly disproportionate, vague and unequal, contrary to the principles of fundamental justice.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 78,
+        "result_quote": "In view of my conclusion that s. 117 is overbroad, I find it unnecessary to consider these arguments."
+      },
+      {
+        "issue": "Is the s. 7 infringement justified under s. 1 of the Charter?",
+        "paras": "79-82",
+        "applicant_position": "The overbreadth is not a reasonable limit; the Crown has not shown a demonstrable justification.",
+        "respondent_position": "Objective is pressing; law is minimally impairing because no better alternative existed.",
+        "result": "allowed_for_applicant",
+        "result_para": 82,
+        "result_quote": "The Crown has not satisfied its burden under s. 1 ."
+      },
+      {
+        "issue": "What is the appropriate remedy for the unconstitutional s. 117: strike down or read down?",
+        "paras": "83-86",
+        "applicant_position": "Strike down s. 117 in its entirety as unconstitutional.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 85,
+        "result_quote": "I conclude that the preferable remedy is to read down s. 117 as not applicable to persons who give humanitarian, mutual or family assistance."
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+ "case_id": "2018_SCC_25",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 40,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was Mr. Wong's guilty plea informed, given he did not know of the immigration consequences?",
+    "paras": "4, 36",
+    "applicant_position": "Wong did not know his plea carried immigration consequences, so the plea was uninformed.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 4,
+    "result_quote": "His guilty plea was therefore uninformed."
+   },
+   {
+    "issue": "What must an accused show to withdraw an uninformed plea: subjective prejudice or a modified objective test?",
+    "paras": "5-35",
+    "applicant_position": "not stated",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 6,
+    "result_quote": "In our view, the accused should be required to establish subjective prejudice."
+   },
+   {
+    "issue": "Must an accused who seeks to withdraw a plea show a viable defence or route to acquittal?",
+    "paras": "23",
+    "applicant_position": "Accused need not show a viable defence to withdraw an uninformed plea on procedural grounds.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 23,
+    "result_quote": "the accused need not show a viable defence to the charge in order to withdraw a plea on procedural grounds"
+   },
+   {
+    "issue": "Does the ineffective assistance of counsel framework apply to withdrawing an uninformed plea?",
+    "paras": "24",
+    "applicant_position": "Framed as an ineffective assistance of trial counsel claim in the Court of Appeal.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 24,
+    "result_quote": "the ineffective assistance of counsel framework has no relevance to this case"
+   },
+   {
+    "issue": "Has Wong shown prejudice, i.e. that he would have proceeded differently had he been informed?",
+    "paras": "36-39",
+    "applicant_position": "His main concern was avoiding deportation, so he would have proceeded differently; his submissions suggest this.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 39,
+    "result_quote": "he has not established prejudice giving rise to a miscarriage of justice"
+   }
+  ]
+ }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2008_FCA_40",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 53,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a serious issue to be tried (the certified questions and other issues on appeal)?",
+        "paras": "18-22",
+        "applicant_position": "Certified questions raise serious issues; other fact-based issues are also arguable.",
+        "respondent_position": "Accept that the certified questions raise serious issues; dispute the further issues the appellant raises.",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_quote": "The issues raised on appeal are not frivolous or vexatious. Therefore, the applicant has satisfied the first stage of the three-fold test for a stay."
+      },
+      {
+        "issue": "Would the applicant suffer irreparable harm if the stay is refused?",
+        "paras": "23-30",
+        "applicant_position": "Suspension of the STCA would cause an influx of refugees and burden border services (Bowles affidavit).",
+        "respondent_position": "Administrative inconvenience is not irreparable harm; the public interest groups suffer no personal harm.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I am satisfied that the applicant for a stay has satisfied the second requirement of the three-stage test."
+      },
+      {
+        "issue": "Does the balance of convenience favour a stay (public interest presumption in the STCA regulations)?",
+        "paras": "31-51",
+        "applicant_position": "The public interest presumption favours keeping the STCA regulations in place pending constitutional review.",
+        "respondent_position": "The Phelan judgment displaces the presumption; offers exemption for vulnerable groups as an alternative.",
+        "result": "allowed_for_applicant",
+        "result_para": 51,
+        "result_quote": "I find that the balance of convenience favours granting the stay pending the appeal from the judgment of the Federal Court."
+      },
+      {
+        "issue": "Should the appeal be expedited?",
+        "paras": "54",
+        "applicant_position": "Requests that the appeal be expedited.",
+        "respondent_position": "Agrees the appeal should be expedited.",
+        "result": "allowed_for_applicant",
+        "result_para": 54,
+        "result_quote": "The respondents agree with the appellant that it would be in the interest of justice to expedite this appeal and the Court so orders."
+      }
+    ]
+  }
+}

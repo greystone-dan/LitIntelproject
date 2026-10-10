@@ -41,3 +41,10 @@ def test_second_stage_weights_loaded_and_probabilities_normalised():
     log_p = lr.stage_two(lr.log_probabilities(paragraphs, emissions), emissions, paragraphs)
     assert log_p.shape == (3, len(cs.ROLES))
     assert np.allclose(np.exp(log_p).sum(axis=1), 1.0, atol=0.01)
+
+
+def test_a_decision_without_a_predicted_order_gets_one_from_the_last_cue():
+    paragraphs = ["Title", "[1] The motion is brought by X.", "[2] The test is well known.", "[3] Accordingly, I would dismiss the motion without costs."] + ["Counsel line"] * 30
+    emissions = cs._emissions(paragraphs)
+    roles = lr._ensure_disposition(["metadata", "overview", "analysis", "analysis"] + ["metadata"] * 30, paragraphs, emissions)
+    assert roles[3] == "disposition" and roles[4] == "metadata"

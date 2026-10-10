@@ -25,6 +25,8 @@ HASH_BUCKETS = 1 << 15
 TEXT_LIMIT = 500
 ALPHA = 1.0  # weight of the learned log-probabilities
 BETA = 0.5  # weight of the rule scores
+FALLBACK_WINDOW = 3  # paragraphs back from the last numbered one searched for an order cue
+FALLBACK_MIN_SCORE = 2.5
 _TOKEN_RE = re.compile(r"[a-z0-9’']+")
 _DIGITS_RE = re.compile(r"\d+")
 _FLOOR = np.log(1e-4)
@@ -147,4 +149,20 @@ def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
     combined = []
     for i, row in enumerate(emissions):
         combined.append({s: BETA * row[s] + ALPHA * float(log_p[i][cs.ROLES.index(cs._STATE_ROLE.get(s, s))]) for s in cs._STATES})
-    return cs._viterbi_roles(combined)
+    roles = cs._viterbi_roles(combined)
+    return _ensure_disposition(roles, paragraphs, emissions)
+
+
+def _ensure_disposition(roles: list[str], paragraphs: Sequence[str], emissions: list[dict[str, float]]) -> list[str]:
+    """Every decision ends in an order. When the blend found none, take the last strong order cue in the final reasons."""
+    if "disposition" in roles:
+        return roles
+    numbered = [i for i, text in enumerate(paragraphs) if cs._strip_number(text)[0] is not None]
+    if not numbered:
+        return roles
+    last = numbered[-1]
+    window = [i for i in range(max(0, last - FALLBACK_WINDOW), last + 1) if emissions[i]["disposition"] >= FALLBACK_MIN_SCORE]
+    if not window:
+        return roles
+    start = window[0]
+    return [("disposition" if start <= i <= last else role) for i, role in enumerate(roles)]

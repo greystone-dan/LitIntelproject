@@ -61,9 +61,34 @@ def resolve_case_ids(session, rows: list[dict]) -> dict[str, int | None]:
 		else:
 			resolved[key] = None
 	for key, citation in unresolved.items():
-		ids = list(session.execute(select(Case.id).where(Case.citation == citation).limit(2)).scalars())
-		resolved[key] = ids[0] if len(ids) == 1 else None
+		resolved[key] = _match_citation(session, citation)
 	return resolved
+
+
+def _match_citation(session, citation: str) -> int | None:
+	"""One library case for a citation. File keys use underscores (2022_FC_728, MB0_00148); the library uses
+	spaces for court citations and dashes for tribunal ids, so those spellings are tried too."""
+	for candidate in dict.fromkeys([citation, citation.replace("_", " "), citation.replace("_", "-")]):
+		ids = list(session.execute(select(Case.id).where(Case.citation == candidate).limit(2)).scalars())
+		if len(ids) == 1:
+			return ids[0]
+	return None
+
+
+def relink(session, apply: bool = False) -> dict[str, int]:
+	"""Fill case_id on stored issues that have none, by citation. Only fills empty links; never changes or deletes."""
+	todo = list(session.execute(select(IssueMap).where(IssueMap.case_id.is_(None))).scalars())
+	found = {}
+	for citation in {row.citation for row in todo if row.citation}:
+		case_id = _match_citation(session, citation)
+		if case_id:
+			found[citation] = case_id
+	fixable = [row for row in todo if row.citation in found]
+	if apply:
+		for row in fixable:
+			row.case_id = found[row.citation]
+		session.commit()
+	return {"unlinked": len(todo), "linkable": len(fixable), "decisions_linkable": len(found)}
 
 
 def load(session, rows: list[dict], apply: bool = False) -> dict[str, int]:
@@ -107,9 +132,16 @@ def load(session, rows: list[dict], apply: bool = False) -> dict[str, int]:
 def main() -> None:
 	parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 	parser.add_argument("--apply", action="store_true", help="Write the missing rows.")
+	parser.add_argument("--relink", action="store_true", help="Only fill missing case links on stored issues (use with --apply to write).")
 	parser.add_argument("--file", default=str(DEFAULT_FILE), help="Issue-map file (jsonl, gzip).")
 	args = parser.parse_args()
 
+	if args.relink:
+		with SessionLocal() as session:
+			stats = relink(session, apply=args.apply)
+		print(f"stored issues without a link: {stats['unlinked']}; can be linked: {stats['linkable']} ({stats['decisions_linkable']} decisions)")
+		print("linked." if args.apply else "dry run: nothing written. Re-run with --apply to write.")
+		return
 	rows = read_rows(Path(args.file))
 	with SessionLocal() as session:
 		stats = load(session, rows, apply=args.apply)

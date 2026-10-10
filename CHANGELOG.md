@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Find decided issues: new `python scripts/load_issue_maps.py --relink [--apply]` links the stored issues that have no library case by citation (file keys use underscores, the library uses spaces or dashes). Only fills empty links. Checked against the live site: all 112 unlinked decisions are in the library.
 - Live Analysis "Find decided issues": result wording now says who won ("The applicant won on this issue." / "The respondent won on this issue (the applicant lost).") instead of only "the court agreed/rejected".
 - Live Analysis: new "Find decided issues" search, off by default (set `CASELIBRARY_ISSUE_MATCHES_ENABLED=1` to show it). Paste one argument from a draft and get up to three decided issues with similar wording, who won, and the result paragraph, as keyword matches to check. It uses plain keyword search over stored issue maps and stored questions (no AI at use, nothing stored or logged). Needs `alembic upgrade head` and `python scripts/load_issue_maps.py --apply` (tables `issue_maps`, `issue_map_questions`; undo is dropping them). Measured about 75% useful in the top three on topics the library was not grown for.
 - Workbench: the page now runs the full width of the window like the Research page (it was held to a narrow centred column). Pinned decisions are tighter, with one-line titles and a fixed-height list that scrolls on its own. The Case list and Deadlines cards carry the yellow-and-black Coming soon tape, and a Shared Team Space card (also Coming soon) is added. Layout only; no data change.

@@ -12,7 +12,7 @@ from backend import issue_match, routes
 from backend.database import Base, Case, IssueMap, IssueMapQuestion, get_db
 from backend.main import app
 from backend.pages.live_analysis import live_analysis_page_html
-from scripts.load_issue_maps import DEFAULT_FILE, load, read_rows
+from scripts.load_issue_maps import DEFAULT_FILE, load, read_rows, relink
 
 
 @pytest.fixture
@@ -103,3 +103,13 @@ def test_shipped_issue_map_file_is_well_formed():
 	allowed = set(issue_match.RESULT_LABELS)
 	assert all(r["result"] in allowed and r["issue"] and r["text"] for r in rows)
 	assert len({(r["source_key"], r["issue_no"]) for r in rows}) == len(rows)
+
+
+def test_relink_fills_missing_links_by_underscore_citation(db):
+	db.add(IssueMap(source_key="2025_FC_1210", issue_no=1, case_id=None, citation="2025_FC_1210", court="FC", issue="x", text="x", result="allowed_for_applicant"))
+	db.commit()
+	assert relink(db)["linkable"] == 1
+	assert db.execute(select(IssueMap.case_id)).scalar_one() is None
+	relink(db, apply=True)
+	assert db.execute(select(IssueMap.case_id)).scalar_one() == 7
+	assert relink(db)["unlinked"] == 0

@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_843",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 44,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's identity finding, based on comparing photographs of the applicant and Mr Dukow, reasonable given responsive-reasons requirements?",
+        "paras": "22-37",
+        "applicant_position": "RPD's photo comparison ignored the scar and other distinguishing features; reasons were not responsive, so the decision is unreasonable.",
+        "respondent_position": "RPD reasonably compared the photos, addressed the applicant's points, relied on in-person observation and the passports.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I conclude that the RPD’s decision was unreasonable."
+      },
+      {
+        "issue": "Did the rest of the RPD's analysis, including the Kenyan passport, independently support the identity finding?",
+        "paras": "38-39",
+        "applicant_position": "not stated",
+        "respondent_position": "The RPD's analysis of the Kenyan and Somali passports, besides the photos, supported the conclusion.",
+        "result": "allowed_for_applicant",
+        "result_para": 38,
+        "result_quote": "I do not agree with the respondent’s submission that the rest of the RPD’s analysis supported its conclusion on the photograph comparison."
+      },
+      {
+        "issue": "Was the RPD required to expressly account for additional evidence of the applicant's Somali identity and presence in Somalia in 2017?",
+        "paras": "40-41",
+        "applicant_position": "RPD should have accounted for additional evidence of his Somali identity and presence in Somalia in 2017.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 40,
+        "result_quote": "the RPD was not constrained to account expressly for the summary references to that evidence"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_369",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the RAD's brief reasons adequate, and did they show an independent assessment of the evidence?",
+        "paras": "23-35",
+        "applicant_position": "Reasons too brief; no evidence of independent assessment; a full and complete analysis is required when the RAD grants protection.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "In my opinion, despite the brevity of the RAD reasons, they have allowed this Court to understand how they came to the decision they did."
+      },
+      {
+        "issue": "Did the RAD properly review the RPD's credibility findings rather than simply deferring to them?",
+        "paras": "26-30",
+        "applicant_position": "The RAD showed no independent assessment of the evidence, so its reasoning cannot support overturning the RPD's credibility findings.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I accept that the RAD decision was correcting a flawed credibility determination, and the reasons show both why and how the RAD Member came to that decision"
+      }
+    ]
+  }
+}

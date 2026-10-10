@@ -1,0 +1,38 @@
+{
+  "case_id": "2019_FC_1028",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's credibility assessment reasonable?",
+        "paras": "21-23",
+        "applicant_position": "RPD's credibility doubts were unreasonable: short answers on the gangster attack were no valid reason to doubt him, and he was presumed truthful.",
+        "respondent_position": "Credibility findings were reasonable and clearly reasoned; the applicant's submissions merely disagree with the weight given to the evidence.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The RPD’s assessment of the Applicant’s credibility was reasonable and it provided clear reasons for finding the Applicant was not credible."
+      },
+      {
+        "issue": "Did the RPD apply the correct section 96 test for political opinion?",
+        "paras": "24",
+        "applicant_position": "RPD applied a narrow reading of political opinion and ignored the broad jurisprudential test, so its section 96 analysis was wrong.",
+        "respondent_position": "RPD applied the correct section 96 test and did not read political opinion narrowly; it found the political activities not credible.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I disagree with the Applicant that the RPD applied an incorrect legal test for assessing his risk of persecution based on his political opinion"
+      },
+      {
+        "issue": "Was the RPD required to conduct a separate section 97 analysis?",
+        "paras": "25",
+        "applicant_position": "RPD had to do a separate section 97 analysis even if he was not a leader, and it failed to do so.",
+        "respondent_position": "No separate section 97 analysis was required; the RPD considered the risk anyway, having found the allegations not credible.",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I also disagree with the Applicant that the RPD was required to conduct a separate analysis under section 97 of the IRPA."
+      }
+    ]
+  }
+}

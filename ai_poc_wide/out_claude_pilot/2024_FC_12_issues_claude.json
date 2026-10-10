@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FC_12",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD breach procedural fairness or show bias in assessing the two Congolese notices to appear?",
+        "paras": "20-24",
+        "applicant_position": "RAD was biased and relied on nonexistent evidence; it wrongly found differences between the copies and originals of identical notices.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Given the evidence before the RAD and the incomplete explanations provided by Ms. Munyandamusa, I cannot find anything unreasonable in this analysis."
+      },
+      {
+        "issue": "Did the RAD apply the wrong standard of proof under s. 96 by discounting her Lucha membership as a political profile?",
+        "paras": "25-28",
+        "applicant_position": "Lucha membership itself can open the door to persecution for political opinion, even without participating in demonstrations.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "It was open to the RAD to find that the political involvement entered into evidence did not establish that Ms. Munyandamusa had a well-founded prospective fear of persecution"
+      },
+      {
+        "issue": "Did the RAD have to give a s. 24 Rules notice before rejecting the notices on specialized knowledge?",
+        "paras": "29-35",
+        "applicant_position": "Rejecting the notices on specialized knowledge without a s. 24 notice breached procedural fairness (Abdelrahman, Torishta).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "the failure to give a notice did not constitute a breach of the requirements of procedural fairness"
+      }
+    ]
+  }
+}

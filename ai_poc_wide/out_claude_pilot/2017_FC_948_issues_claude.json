@@ -1,0 +1,38 @@
+{
+  "case_id": "2017_FC_948",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 14,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was an oral hearing required under s. 167 IRPR because the Officer implicitly made credibility findings?",
+        "paras": "5-6",
+        "applicant_position": "The Officer implicitly made adverse credibility findings, so an oral hearing was required under s. 167 IRPR.",
+        "respondent_position": "No credibility findings were made; the Officer only weighed the evidence, so no oral hearing was needed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "I agree with the respondent that an oral hearing was not required."
+      },
+      {
+        "issue": "Did the Officer unreasonably assess personalized risk, ignoring evidence or analysing country conditions selectively?",
+        "paras": "7-11",
+        "applicant_position": "Officer ignored relevant evidence and gave insufficient reasons on personalized risk; country conditions were analysed selectively.",
+        "respondent_position": "Officer considered all relevant evidence and gave sufficient reasons; applicant offered insufficient evidence of personalized risk.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "The Officer could very well accept that the evictions occurred, and yet still reject the fact the applicant was personally targeted."
+      },
+      {
+        "issue": "Did the Officer reasonably find that state protection was available and the presumption of protection was not rebutted?",
+        "paras": "12-13",
+        "applicant_position": "The Officer's finding that adequate state protection was available is speculative and not supported by the evidence on record.",
+        "respondent_position": "Officer considered the evidence and reasonably found the applicant had not rebutted the presumption of state protection.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "the Officer could reasonably conclude that the applicant did not rebut the presumption of adequate state protection in Hungary"
+      }
+    ]
+  }
+}

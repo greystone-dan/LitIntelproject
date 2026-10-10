@@ -1,0 +1,65 @@
+{
+  "case_id": "2022_FC_1324",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 40,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the new affidavit and exhibit filed on judicial review admissible on review of the IAD decision?",
+        "paras": "10",
+        "applicant_position": "Filed a new affidavit and Exhibit A on judicial review and relied on that new material.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "As such, the new material in the affidavit and the Exhibit A are not admissible and I have not taken them into account."
+      },
+      {
+        "issue": "Did the IAD unreasonably assess establishment in Canada?",
+        "paras": "17-19",
+        "applicant_position": "Says he was caregiver to his children and so could not work for twelve years; this explains his establishment.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I am not persuaded that its analysis on establishment is unreasonable."
+      },
+      {
+        "issue": "Did the IAD unreasonably assess his reasons for staying abroad and whether he tried to return at the first opportunity?",
+        "paras": "20-26",
+        "applicant_position": "Could not return in April 2020 because of COVID-19 and no flights; the pandemic should count as force majeure.",
+        "respondent_position": "Point never raised before IAD and unsupported by evidence; court should not take judicial notice of lack of flights.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I am not persuaded that the IAD’s findings are unreasonable"
+      },
+      {
+        "issue": "Did the IAD unreasonably weigh his family in Canada?",
+        "paras": "27-30",
+        "applicant_position": "IAD minimized his large family in Canada and ignored family unity in international instruments and the Charter.",
+        "respondent_position": "No Charter right to family unity; courts have declined to recognize one (Begum).",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I am not persuaded that the IAD erred."
+      },
+      {
+        "issue": "Did the IAD unreasonably assess the best interests of his grandchildren?",
+        "paras": "31-34",
+        "applicant_position": "IAD was not alert to the grandchildren's interests; it is in their interest to have their grandparent in their lives.",
+        "respondent_position": "Best interests are not determinative; no evidence of his role in the grandchildren's lives.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "I agree with the Respondent. The IAD’s analysis is reasonable in light of the record before it."
+      },
+      {
+        "issue": "Did the IAD unreasonably assess hardship to him if the appeal is dismissed?",
+        "paras": "35-38",
+        "applicant_position": "Loss of permanent resident status causes administrative difficulties, such as financing, which the IAD failed to consider.",
+        "respondent_position": "Applicant has not shown the decision on this hardship point is unreasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_quote": "The Applicant has failed to persuade me that this analysis is unreasonable."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2019_FC_42",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 43,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the application be dismissed because the applicant does not come with clean hands?",
+        "paras": "16-22",
+        "applicant_position": "Despite ignoring her removal order, the court should hear the merits given the strength of her case and her life-and-death risk.",
+        "respondent_position": "Failure to report for removal was very serious and ongoing; deterrence is needed and the case lacks merit.",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_quote": "In her unique circumstances and in the interests of finality, I will exercise my discretion and consider this application on its merits."
+      },
+      {
+        "issue": "Was the officer's finding that Mr. King's continued intention to harm her was not shown reasonable?",
+        "paras": "23-32, 37",
+        "applicant_position": "Officer ignored daughter's consistent evidence and her view of the father's intent; the finding was perverse and capricious.",
+        "respondent_position": "Officer considered all the evidence and was not satisfied Mr. King had an ongoing interest in harming her.",
+        "result": "dismissed_for_applicant",
+        "result_para": 37,
+        "result_quote": "I conclude that the Officer’s finding that the Applicant’s evidence was insufficient to establish an ongoing threat of violence was reasonable and intelligible"
+      },
+      {
+        "issue": "Was an oral hearing required because the officer made a veiled credibility finding?",
+        "paras": "33-36",
+        "applicant_position": "Officer's treatment of the daughter's affidavits was a veiled credibility finding, requiring an oral hearing.",
+        "respondent_position": "Officer made no credibility findings and assessed the evidence only for weight and sufficiency.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "As credibility was not in issue, no oral hearing was required pursuant to paragraph 113(b) of the IRPA and section 167 of the Regulations."
+      },
+      {
+        "issue": "Was the officer's state protection finding reasonable, given the Shadow Report on violence against women?",
+        "paras": "38-41",
+        "applicant_position": "Officer ignored the Shadow Report showing the state is unable or unwilling to protect domestic violence victims.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 41,
+        "result_quote": "I find that the Officer was not required to reference the Shadow Report in the Decision"
+      }
+    ]
+  }
+}

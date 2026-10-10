@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FC_863",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer err in assessing the applicant's establishment and integration in Canada, including adequacy of reasons?",
+        "paras": "15-26",
+        "applicant_position": "Reasons calling his establishment not unusual are inadequate; officer ignored his personal circumstances.",
+        "respondent_position": "Reasons are clear and intelligible; officer considered his circumstances, and establishment is only one hardship factor.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I agree with the Respondent. The Officer’s reasons with respect to establishment and integration are clear and cogent."
+      },
+      {
+        "issue": "Did the officer err in assessing hardship if the applicant returned to India?",
+        "paras": "27-30",
+        "applicant_position": "Officer ignored evidence that he cannot find work as a chef in India or make a living farming.",
+        "respondent_position": "Officer did not ignore evidence; savings and land income would sustain him while he looks for work.",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "Although the Applicant disagrees with the Officer’s assessment, he has not shown it to be unreasonable."
+      },
+      {
+        "issue": "Did the officer breach natural justice by deciding on updated submissions alone, after the original submissions were lost?",
+        "paras": "25-33",
+        "applicant_position": "Officer decided on updated submissions alone because CIC misplaced the original file; this breached natural justice.",
+        "respondent_position": "Original submissions were not before the officer, but there was no prejudice, so no reviewable error (Yassine).",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "The Applicant’s right to procedural fairness has been breached."
+      }
+    ]
+  }
+}

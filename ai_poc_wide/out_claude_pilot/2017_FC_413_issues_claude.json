@@ -1,0 +1,29 @@
+{
+  "case_id": "2017_FC_413",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the IAD's stay decision internally consistent with its own finding that a significant humanitarian and compassionate showing was needed?",
+        "paras": "11-15, 25",
+        "applicant_position": "IAD's conclusion that a two-year stay was warranted contradicts its finding that Hassan needed a significant H&C showing; decision is unreasonable.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "its conclusion is incompatible with its initial finding that a significant degree of humanitarian and compassionate consideration is required"
+      },
+      {
+        "issue": "May the IAD base a stay on Hassan's potential future establishment in Canada rather than his actual establishment?",
+        "paras": "20-25",
+        "applicant_position": "Only actual establishment at the time of decision is a relevant H&C factor; potential future establishment is not contemplated by the IRPA.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "it relies on Mr. Hassan’s potential future establishment instead of his actual establishment"
+      }
+    ]
+  }
+}

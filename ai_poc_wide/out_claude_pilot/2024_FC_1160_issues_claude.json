@@ -1,0 +1,47 @@
+{
+  "case_id": "2024_FC_1160",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 48,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Officer's best interests of the children (BIOC) analysis reasonable?",
+        "paras": "21-26",
+        "applicant_position": "BIOC analysis used an adaptability approach, assessed only basic needs rather than best interests, and relied on family reunification; it was unreasonable.",
+        "respondent_position": "BIOC was a robust assessment; the Officer was alert, alive and sensitive to the children's best interests, and the applicants' submissions were block quotes.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "the errors identified in the Officer’s BIOC analysis are sufficient to render the Officer’s decision unreasonable as a whole"
+      },
+      {
+        "issue": "Did the Officer meaningfully consider the principal applicant's work as a support worker during the pandemic?",
+        "paras": "27",
+        "applicant_position": "Officer ignored the principal applicant's pandemic work as a personal support worker, a key submission in the H&C application.",
+        "respondent_position": "Establishment submissions amount to a request to reweigh the evidence, which the Officer reasonably assessed.",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I find that the Officer’s failure to meaningfully grapple with this key submission is an error"
+      },
+      {
+        "issue": "Was the Officer's establishment analysis reasonable?",
+        "paras": "28",
+        "applicant_position": "Officer wrongly called the family's establishment typical and treated the principal applicant's resourcefulness as a negative factor.",
+        "respondent_position": "Establishment submissions amount to a request to reweigh the evidence, which the Officer reasonably assessed.",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "This Court has recently found this approach to establishment analyses to be an error"
+      },
+      {
+        "issue": "Must H&C relief under subsection 25(1) be justified by exceptional circumstances?",
+        "paras": "29-47",
+        "applicant_position": "H&C relief does not require circumstances to be exceptional; the Officer wrongly required exceptionality by calling s. 25 an extraordinary remedy.",
+        "respondent_position": "The onus is on the applicant to establish exceptional circumstances, including establishment, for a s. 25(1) exemption to be warranted.",
+        "result": "allowed_for_applicant",
+        "result_para": 47,
+        "result_quote": "It is an error to require that one’s circumstances are so."
+      }
+    ]
+  }
+}

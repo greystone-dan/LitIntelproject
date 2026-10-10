@@ -1,0 +1,38 @@
+{
+  "case_id": "2018_FC_367",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer unreasonably assess persecution, including past violence and forward-looking risk?",
+        "paras": "14-17",
+        "applicant_position": "Officer accepted past violence but did not weigh it in the forward-looking risk; ignored cumulative discrimination.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 17,
+        "result_quote": "Therefore, the determinative issue before me is that of adequate state protection."
+      },
+      {
+        "issue": "Did the officer apply the correct state protection test, focusing on operational adequacy rather than state efforts?",
+        "paras": "18-29",
+        "applicant_position": "Officer relied on Hungary's efforts and initiatives instead of whether protection was operationally adequate; wrong test.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "Here, the Officer relied on Hungary’s various efforts and initiatives to conclude that state protection was adequate. That is not the test"
+      },
+      {
+        "issue": "Did the officer unreasonably fail to analyse whether her efforts to test state protection met her burden?",
+        "paras": "30-36",
+        "applicant_position": "Her reports to police and the attacks show she sought protection; officer did not assess whether her efforts met the burden.",
+        "respondent_position": "Relies on Poczkodi: belief that police will not help does not alone rebut the presumption; she must take reasonable steps.",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "the Officer then unreasonably failed to analyze whether Ms. Lakatos’ efforts to test state protection met the evidentiary burden in her circumstances"
+      }
+    ]
+  }
+}

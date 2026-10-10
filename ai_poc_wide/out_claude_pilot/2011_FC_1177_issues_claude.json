@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FC_1177",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a serious issue to be tried on the review of the Immigration Division's release order?",
+        "paras": "21-25",
+        "applicant_position": "Member failed to explain departure from the prior detention decision; the respondent is a danger to the public, so a serious issue exists.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "In the face of overwhelming evidence, the Respondent is a danger to the public and a serious issue has been raised"
+      },
+      {
+        "issue": "Would the applicant suffer irreparable harm if the stay were refused?",
+        "paras": "26-30",
+        "applicant_position": "Release would be contrary to IRPA objectives of protecting public safety, and release would moot the judicial review, causing irreparable harm.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "The Applicant will suffer irreparable harm if the Respondent is released from detention."
+      },
+      {
+        "issue": "Does the balance of convenience favour granting the stay?",
+        "paras": "31-35",
+        "applicant_position": "The public interest in applying the IRPA outweighs the respondent's inconvenience of continued detention pending review.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "insofar as the balance of convenience favours the Applicant."
+      }
+    ]
+  }
+}

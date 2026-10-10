@@ -1,0 +1,38 @@
+{
+  "case_id": "2022_FC_397",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 59,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer fail to consider the past spousal abuse as predictive of future harm to the family in Israel?",
+        "paras": "18-39",
+        "applicant_position": "Officer should have treated the past intimate partner abuse as predicting future harm and accepted the unsworn statement as true.",
+        "respondent_position": "Insufficient evidence of ongoing threats; the Officer's reasons turned on sufficiency of evidence, not credibility.",
+        "result": "dismissed_for_applicant",
+        "result_para": 39,
+        "result_quote": "In sum, in these circumstances, I do not agree with the Applicants that the Officer erred"
+      },
+      {
+        "issue": "Was the Officer's establishment assessment reasonable?",
+        "paras": "40-48",
+        "applicant_position": "Officer failed to address how the abuse affected establishment and did not say what establishment would be sufficient.",
+        "respondent_position": "Establishment was reasonably assessed; the misrepresentation properly reduced it and the applicants knew their status could be revoked.",
+        "result": "dismissed_for_applicant",
+        "result_para": 48,
+        "result_quote": "I find no error in the Officer’s assessment of the Applicants’ establishment."
+      },
+      {
+        "issue": "Was the Officer's best interests of the children analysis reasonable?",
+        "paras": "49-59",
+        "applicant_position": "Officer ignored alleged abuse of the children, speculated about reunification with the father, and weighed the parents' misrepresentation against the children.",
+        "respondent_position": "Best interests were considered sufficiently under Kanthasamy; the applicants gave little information to support them.",
+        "result": "dismissed_for_applicant",
+        "result_para": 55,
+        "result_quote": "I am satisfied that the Officer’s best interests of the children analysis was reasonable."
+      }
+    ]
+  }
+}

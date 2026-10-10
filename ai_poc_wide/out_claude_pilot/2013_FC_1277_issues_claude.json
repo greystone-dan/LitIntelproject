@@ -1,0 +1,29 @@
+{
+  "case_id": "2013_FC_1277",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Officer required to ask the applicant to update his H&C application?",
+        "paras": "19-23",
+        "applicant_position": "Officer should have given him a chance to update his H&C application; failing to do so breached natural justice.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "There is little merit in this argument"
+      },
+      {
+        "issue": "Do the Officer's inadequate reasons on establishment in Canada justify setting aside the decision?",
+        "paras": "24-29",
+        "applicant_position": "Officer's reasons did not explain the evidence relied on to reject his establishment; inadequate reasons warrant setting aside.",
+        "respondent_position": "Respondent's counsel acknowledges establishment was the main reason for rejection.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "I am satisfied that the Officer’s decision meets the exigencies of reasonableness and falls within a range of possible, acceptable outcomes"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_8",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 42,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's finding that Mexico City was a viable internal flight alternative (IFA) reasonable?",
+        "paras": "17-27",
+        "applicant_position": "Cartel still has motive and means to find them; monitoring and threats show Mexico City is not safe.",
+        "respondent_position": "Cartel lost interest after February 2017 with no evidence of means or motive; high threshold to show IFA unreasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "the Applicants have failed to meet this high threshold and the RAD reasonably found that Mexico City was a viable IFA"
+      },
+      {
+        "issue": "Was the RAD's assessment of the minor applicant's risk (disability, education, health care, livelihood) reasonable?",
+        "paras": "28-40",
+        "applicant_position": "RAD misstated evidence on abuse of disabled children; she faces personalized risk, including from state's unwillingness to provide care.",
+        "respondent_position": "Respondent noted the livelihood evidence concerns institutionalized persons, not the minor applicant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "The RAD concluded, and I agree, that the Applicants did not sufficiently establish an objective basis for the Minor Applicant’s claim."
+      }
+    ]
+  }
+}

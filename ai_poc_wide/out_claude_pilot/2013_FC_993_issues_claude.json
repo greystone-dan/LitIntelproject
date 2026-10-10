@@ -1,0 +1,29 @@
+{
+  "case_id": "2013_FC_993",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer err in the best interests of the children (BIOC) analysis, by applying the wrong test or failing to assess the children's interests in removal or non-removal?",
+        "paras": "11-24",
+        "applicant_position": "The officer never stated what the children's best interests were regarding removal or non-removal, and applied the wrong BIOC test.",
+        "respondent_position": "Relies on the Williams formulation of the BIOC test (para 31); no separate merits position stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "The officer’s decision could therefore not be based on a proper analysis and was unreasonable."
+      },
+      {
+        "issue": "Did the officer err in assessing the Applicants' degree of establishment in Canada?",
+        "paras": "26-29",
+        "applicant_position": "Officer gave favourable evidence (employment, no social assistance, leases, church and family support) no real analysis and no reason to reject it.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "Accordingly I also find that this aspect of the decision lacks the necessary justification, transparency and intelligibility"
+      }
+    ]
+  }
+}

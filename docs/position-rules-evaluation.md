@@ -17,6 +17,20 @@ Metric: per paragraph, the set of holders the rules found against the labelled s
 
 **The gain is shown on the training decisions only. On the held-out decisions it is flat (no measurable gain, no measurable loss).** The held-out set happens to hold only 3 Supreme Court decisions (114 AI-labelled paragraphs against 1,150 in train), and the biggest fix below is for appeal courts, so it could not show there. Where the held-out set has appeal-court decisions it moves the right way: Federal Court of Appeal non-court F1 0.354 to 0.396 (AI tags) and 0.595 to 0.632 (reader grades). Federal Court reader grades dip (0.684 to 0.615 on 6 decisions, within noise; the AI tags show 0.538 to 0.532 on 9). RPD and RAD are unchanged because none of the changes target them. A fresh held-out set with more Supreme Court and Federal Court of Appeal decisions graded by readers is what would settle it.
 
+## Fresh held-out set (never tuned on)
+After the first round the held-out set was found too thin on appeal courts, so 16 more Supreme Court and Federal Court of Appeal decisions (not in any earlier set) were labelled blind: 183 randomly picked paragraphs, two independent Haiku readers, a Sonnet reader for the 36 paragraphs they disagreed on (holder-set agreement between the two first readers 79%). Labels: `data/eval/position_gold_fresh.json` (also in the shared folder `position-rules-heldout/`); readers are models, not lawyers.
+
+| | Main (before) | This PR (after) |
+|---|---|---|
+| Decisions the rules can read at all | 12 of 14 | 14 of 14 (two Supreme Court decisions numbered "1." were skipped before) |
+| Non-court F1, the 12 decisions both read | 0.562 | 0.560 (diff -0.002, 95% CI -0.057 to +0.066) |
+| Micro F1, same 12 | 0.718 | 0.716 |
+| Earlier decision maker F1 | 0.520 | 0.595 |
+| Respondent F1 | 0.609 | 0.667 |
+| Authority F1 | 0.596 | 0.550 |
+
+So on fresh data the earlier-decision-maker fix holds (+0.075) and two more decisions become readable, but the authority tag lost a little and the overall score is unchanged. The overall gain seen on the training decisions is not confirmed.
+
 ## What changed
 
 1. **Courts below are earlier decision makers (Supreme Court and Federal Court of Appeal decisions).** "The Federal Court of Appeal found", "Gagnon J.A. concluded", "the trial judge accepted" were read as an authority. Now they are the earlier decision maker unless the sentence is about another case ("In R. v. X, 2020 SCC 34, the Court of Appeal held"). Earlier decision maker F1 on the train AI tags 0.442 to 0.534, on the reader grades 0.521 to 0.582.

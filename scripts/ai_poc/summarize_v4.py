@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -20,8 +21,9 @@ from split_paras import resplit  # noqa: E402
 from summarize_paragraphs import clean  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
-PROMPT_VERSION = "prop_v5"  # prop_v4 plus opinion parts (majority / concurrence / dissent) in the prompt
+PROMPT_VERSION = "prop_v6"  # prop_v5 plus QA prompt fixes: court evaluations of the tribunal, agreement with a party, sides, headings
 CHUNK = 20
+REUSE_PROPS: Path | None = None  # --reuse-props DIR: reuse the stored propositions of the same prompt version and rerun only the blocks call
 HOLDERS = ["court", "applicant", "respondent", "earlier_decision_maker", "witness_or_document", "prior_court_or_authority", "other"]
 KINDS = ["issue", "allegation_or_argument", "finding", "rule_of_law", "fact", "conclusion_or_order", "procedure"]
 ROLES = ["facts", "procedural_history", "issue", "law", "analysis", "conclusion", "disposition", "other"]
@@ -35,6 +37,12 @@ SYSTEM_P = """You read numbered paragraphs of a Canadian court or tribunal decis
   answers = when this point answers or rejects an earlier point in the SAME paragraph, the 1-based position of that point in this paragraph's list; otherwise 0.
 - summary: ONE plain sentence, at most 25 words, saying what the paragraph says and who makes each point. Use only the paragraph text.
 - role: facts, procedural_history, issue, law, analysis, conclusion, disposition or other: the job the paragraph does in the decision.
+Rules learned from grading:
+- When the decision-maker evaluates an earlier decision ("the RAD did not err", "the officer reasonably found", "it is clear from the decision that", "failed to consider", "the analysis was unreasonable"), the evaluation is the COURT's point (holder court, kind finding). Only the earlier decision-maker's own reported finding or reasoning is holder earlier_decision_maker; write the two as separate propositions.
+- "I agree with the Respondent that X", "the Minister is correct that X", "I accept the Applicant's submission that X": X is the court's finding (holder court) AND the party's argument (holder respondent or applicant, kind allegation_or_argument), as two propositions, the second naming who argued it. Never reduce it to only the party's submission.
+- Sides come from who brings the proceeding, not from the order of the names. When the Minister, the Crown or a public body is the appellant or applicant, it is 'applicant'; the individual is then 'respondent'. 'Counsel' or 'counsel for the appellants' is the appellants' side. When a party says it told an earlier decision-maker something ("in his PRRA submissions", "before the RAD the applicant argued"), keep the party as holder and say in the text that it was said to the earlier decision-maker.
+- Do not reconstruct an argument from the court's numbered rebuttals ("First... Second..."). Report only what the paragraph states, and mark the court's rebuttal as the court's.
+- "[Section heading: ...]" lines and issue questions in a decision are the court's structure, not any party's position.
 A line "[Section heading: ...]" before a paragraph is context only: do not summarize it. Ignore footnote numbers. Do not merge paragraphs and do not skip any."""
 
 SCHEMA_P = {"type": "object", "additionalProperties": False, "required": ["paragraphs"], "properties": {"paragraphs": {"type": "array", "items": {
@@ -49,16 +57,54 @@ SCHEMA_P = {"type": "object", "additionalProperties": False, "required": ["parag
 SYSTEM_B = """You are given, for a Canadian court or tribunal decision, the propositions found in each paragraph (paragraph number, holder, kind, point). Using ONLY these, return:
 - overview: three sentences at most saying what the case is about, who the parties are and how it came out.
 - background_paras and disposition_paras: paragraph ranges as text (for example "1-5, 14-18"; empty when none).
-- If the input says which paragraphs are concurring or dissenting reasons, the overview, court_conclusion and the result come from the MAJORITY paragraphs only; a dissent's view may appear as a position with holder 'other' and text starting 'Dissent:'.
+- The propositions of dissenting reasons, when there are any, are listed after a line "=== DISSENT (not the Court's) ===". The overview, positions, court_conclusion, conclusion_paras and paras of every block come from the majority and concurring propositions ONLY. Never use a dissent paragraph in paras or conclusion_paras. If the majority and concurring propositions do not decide an issue, its court_conclusion must be exactly 'not stated by the majority' with empty conclusion_paras; never fill it with the dissent's view. Put what the dissent said on the same issue in that block's dissent_view (at most 30 words, with its paragraph numbers; empty text when the dissent does not address the issue).
 - blocks: one block per issue the decision actually deals with, in order. Each block: issue (the question in plain words), paras (the range where it is dealt with), positions (each side's or earlier decision-maker's position: holder, text of at most 25 words, paras; write 'not stated' as the text when the propositions do not give that side's position), court_conclusion (at most 30 words, 'not stated' if none), conclusion_paras.
-Do not invent anything the propositions do not support."""
+Do not invent anything the propositions do not support. When a party's position is stated in the propositions only as an agreement by the court ("agree with the Respondent"), still give that party's position from the matching proposition instead of 'not stated'."""
 
 SCHEMA_B = {"type": "object", "additionalProperties": False, "required": ["overview", "background_paras", "disposition_paras", "blocks"], "properties": {
 	"overview": {"type": "string"}, "background_paras": {"type": "string"}, "disposition_paras": {"type": "string"},
-	"blocks": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["issue", "paras", "positions", "court_conclusion", "conclusion_paras"], "properties": {
-		"issue": {"type": "string"}, "paras": {"type": "string"}, "court_conclusion": {"type": "string"}, "conclusion_paras": {"type": "string"},
+	"blocks": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["issue", "paras", "positions", "court_conclusion", "conclusion_paras", "dissent_view"], "properties": {
+		"issue": {"type": "string"}, "dissent_view": {"type": "string"}, "paras": {"type": "string"}, "court_conclusion": {"type": "string"}, "conclusion_paras": {"type": "string"},
 		"positions": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["holder", "text", "paras"], "properties": {
 			"holder": {"type": "string", "enum": HOLDERS}, "text": {"type": "string"}, "paras": {"type": "string"}}}}}}}}}
+
+
+def _paras_of(text: str) -> list[int]:
+	out: list[int] = []
+	for a, b in re.findall(r"(\d+)(?:\s*[-–]\s*(\d+))?", text or ""):
+		lo, hi = int(a), int(b) if b else int(a)
+		if hi - lo < 400:
+			out.extend(range(lo, hi + 1))
+	return out
+
+
+def _ranges(nums: list[int]) -> str:
+	out, i = [], 0
+	nums = sorted(set(nums))
+	while i < len(nums):
+		j = i
+		while j + 1 < len(nums) and nums[j + 1] == nums[j] + 1:
+			j += 1
+		out.append(str(nums[i]) if i == j else f"{nums[i]}-{nums[j]}")
+		i = j + 1
+	return ", ".join(out)
+
+
+def keep_dissent_out(blocks: dict, parts: list[dict]) -> dict:
+	"""Code check after the blocks call: dissent paragraphs never stay in a block's paras or conclusion_paras, and a court
+	conclusion left with no majority or concurring paragraph is replaced by 'not stated' (the dissent's view is in dissent_view)."""
+	dissent = {n for p in parts if p["kind"] == "dissenting" for n in range(p["start"], p["end"] + 1)}
+	if not dissent:
+		return blocks
+	for b in blocks["blocks"]:
+		had = _paras_of(b["conclusion_paras"])
+		b["paras"] = _ranges([n for n in _paras_of(b["paras"]) if n not in dissent])
+		b["conclusion_paras"] = _ranges([n for n in had if n not in dissent])
+		for pos in b["positions"]:
+			pos["paras"] = _ranges([n for n in _paras_of(pos["paras"]) if n not in dissent])
+		if had and not b["conclusion_paras"]:
+			b["court_conclusion"] = "not stated (only the dissent reaches this issue)"
+	return blocks
 
 
 def render(ch, pre, parts=None):
@@ -90,6 +136,8 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 	if not send:
 		tin = sum(est(mk(c)) for c in chunks) + 3000
 		tout = 220 * len(paras) + 1500
+		if REUSE_PROPS and (REUSE_PROPS / f"case_{case_id}_prop_{PROMPT_VERSION}_{model}.json").exists():
+			tin, tout = 40000, 2000  # blocks call only
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "paragraphs": len(paras), "calls": len(chunks) + 1, "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
 		return None
 
@@ -115,8 +163,13 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 				dropped += 1
 				why["duplicate" if r["para"] in rows else "not_in_chunk"] += 1
 
-	for ch in chunks:
-		ask(ch)
+	stored = REUSE_PROPS / f"case_{case_id}_prop_{PROMPT_VERSION}_{model}.json" if REUSE_PROPS else None
+	if stored is not None and stored.exists():
+		for r in json.loads(stored.read_text(encoding="utf-8"))["paragraphs"]:
+			rows[r["para"]] = {k: r[k] for k in ("para", "propositions", "summary", "role")}
+	else:
+		for ch in chunks:
+			ask(ch)
 	retried = sorted({p["paragraph_index"] for p in paras} - set(rows))
 	if retried:
 		ask([p for p in paras if p["paragraph_index"] in set(retried)])
@@ -124,11 +177,17 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 	ordered = [rows[k] for k in sorted(rows)]
 	for r in ordered:
 		r["part"] = part_of(parts_info["parts"], r["para"])  # majority / concurring / dissenting, from the text's own markers
-	listing = "\n".join(f"{r['para']}\t{pp['holder']}/{pp['kind']}\t{pp['text']}" for r in ordered for pp in r["propositions"])
+	row = lambda r: [f"{r['para']}\t{pp['holder']}/{pp['kind']}\t{pp['text']}" for pp in r["propositions"]]  # noqa: E731
+	listing_lines = [ln for r in ordered if r["part"] != "dissenting" for ln in row(r)]
+	dissent_lines = [ln for r in ordered if r["part"] == "dissenting" for ln in row(r)]
+	if dissent_lines:
+		listing_lines += ["", "=== DISSENT (not the Court's) ==="] + dissent_lines
+	listing = "\n".join(listing_lines)
 	msgs = [{"role": "system", "content": SYSTEM_B}, {"role": "user", "content": pre + listing}]
 	stop()
 	blocks, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="blocks", schema=SCHEMA_B, max_output_tokens=4000, est_input_tokens=est(msgs), label=f"blocks case {case_id}")
 	usd += u["usd"]
+	blocks = keep_dissent_out(blocks, parts_info["parts"])
 	hold = {}
 	for r in ordered:
 		for pp in r["propositions"]:
@@ -150,7 +209,10 @@ def main() -> int:
 	ap.add_argument("--meta-csv", type=Path, action="append")
 	ap.add_argument("--cap-usd", type=float, default=None)
 	ap.add_argument("--stop-file", type=Path, default=None)
+	ap.add_argument("--reuse-props", type=Path, default=None)
 	args = ap.parse_args()
+	global REUSE_PROPS
+	REUSE_PROPS = args.reuse_props
 	for m in args.meta_csv or []:
 		for row in csv.DictReader(m.open(encoding="utf-8-sig")):
 			META[int(float(row["case_id"]))] = row

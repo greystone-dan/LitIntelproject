@@ -1,0 +1,3104 @@
+{
+ "case_id": 56715,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v6",
+ "run": "bundle6_prop",
+ "usage": {
+  "usd": 0.0424324
+ },
+ "verification": {
+  "paragraphs": 131,
+  "rows": 131,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 317,
+  "holders": {
+   "court": 199,
+   "respondent": 11,
+   "earlier_decision_maker": 19,
+   "prior_court_or_authority": 34,
+   "applicant": 2,
+   "other": 52
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 17
+ },
+ "opinion_parts": {
+  "held": "Held (Abella, Moldaver, C\u00f4t\u00e9 and Brown JJ. dissenting): The appeal should be allowed, the order of the Federal Court of Appeal set aside and the order of the Federal Court striking the Company\u2019s notice of application reinstated.",
+  "parts": [
+   {
+    "kind": "majority",
+    "label": "Reasons for Judgment",
+    "start": 1,
+    "end": 72
+   },
+   {
+    "kind": "dissenting",
+    "label": "Joint Dissenting Reasons",
+    "start": 73,
+    "end": 121
+   },
+   {
+    "kind": "dissenting",
+    "label": "Dissenting Reasons",
+    "start": 122,
+    "end": 131
+   }
+  ]
+ },
+ "headings": {
+  "5": "II. Facts",
+  "14": "III. Statutory Provisions",
+  "24": "V. Analysis",
+  "25": "A. Essential Nature of the Company\u2019s Claim",
+  "31": "B. Overview of the Role and Jurisdiction of the Federal Court",
+  "34": "C. The ITO Test for Jurisdiction",
+  "36": "D. ITO Part 1: Statutory Grant of Jurisdiction",
+  "66": "E. ITO Part 2: Federal Law Essential to Disposition",
+  "70": "F. Power to Make Constitutional Declarations",
+  "72": "VI. Disposition",
+  "77": "I. The Federal Court\u2019s Jurisdiction Should Be Construed Broadly",
+  "80": "II. Identifying the Essential Nature of the Case Is Not Necessary",
+  "89": "III. The ITO Test Is Met",
+  "91": "A. Section 23(c) of the Federal Courts Act Grants Jurisdiction",
+  "105": "B. The CTC Act Plays an Essential Role in the Outcome of the Case",
+  "116": "C. The CTC Act Is Valid Federal Law",
+  "118": "IV. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns whether the Federal Court has jurisdiction to decide if the Canadian Transit Company must comply with City of Windsor by-laws and repair orders related to properties it owns near the Ambassador Bridge. The Canadian Transit Company (applicant) sought declarations in Federal Court, while the City of Windsor (respondent) argued only the Ontario Superior Court has jurisdiction. The Supreme Court majority allowed the appeal, holding the Federal Court lacks jurisdiction and reinstated the order striking the Company's Federal Court application.",
+  "background_paras": "1-13",
+  "disposition_paras": "72, 131",
+  "blocks": [
+   {
+    "issue": "Does the Federal Court have jurisdiction under s. 23(c) of the Federal Courts Act to hear the Canadian Transit Company's application regarding municipal by-laws and repair orders?",
+    "paras": "3-4, 16-24, 29-30, 37-48, 52-65, 81-98, 103, 105-117",
+    "court_conclusion": "The Federal Court lacks jurisdiction under s. 23(c) because the Company does not seek relief under federal law as required; the appeal is allowed and the Federal Court's order striking the application is reinstated.",
+    "conclusion_paras": "4, 65, 72",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Section 23(c) grants Federal Court jurisdiction over its application; relief sought under CTC Act and constitutional doctrines.",
+      "paras": "2, 37, 49, 50, 56, 57, 58, 112"
+     },
+     {
+      "holder": "respondent",
+      "text": "Only Ontario Superior Court has jurisdiction; Federal Court lacks jurisdiction under s. 23(c).",
+      "paras": "3, 4, 12, 47, 59"
+     },
+     {
+      "holder": "court",
+      "text": "Federal Court jurisdiction requires relief sought under federal law; constitutional law is not federal law under s. 23(c); Company does not meet this requirement.",
+      "paras": "16-24, 29-30, 37-48, 52-65, 81-98, 103, 105-117"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Federal Court of Appeal found Federal Court has jurisdiction under s. 23(c) applying ITO test; Federal Court struck application for lack of jurisdiction.",
+      "paras": "18, 19, 20, 22, 23, 37, 45, 52, 60, 68, 118"
+     }
+    ]
+   },
+   {
+    "issue": "What is the proper interpretation and application of the ITO test for Federal Court jurisdiction in this case?",
+    "paras": "19, 24-27, 31-36, 39-41, 44, 46, 49-51, 53-55, 59-64, 66-70, 79-84, 89-92, 94-98, 105-117",
+    "court_conclusion": "The ITO test requires a statutory grant of jurisdiction, federal law essential to disposition, and valid federal law; the Company fails the first requirement as relief is not sought under federal law.",
+    "conclusion_paras": "65, 72",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "ITO test requires statutory grant, federal law essential to disposition, and valid federal law; Company fails statutory grant as relief is not under federal law.",
+      "paras": "19, 24-27, 31-36, 39-41, 44, 46, 49-51, 53-55, 59-64, 66-70, 79-84, 89-92, 94-98, 105-117"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Federal Court of Appeal applied ITO test and found all three parts met, granting Federal Court jurisdiction.",
+      "paras": "19, 22, 23, 37, 45, 52, 60, 68, 118"
+     },
+     {
+      "holder": "other",
+      "text": "Dissent: ITO test met; Federal Court has jurisdiction; statutory grant and federal law essentiality satisfied.",
+      "paras": "73-80, 122"
+     }
+    ]
+   },
+   {
+    "issue": "Should the Federal Court exercise or decline jurisdiction in favour of the Ontario Superior Court?",
+    "paras": "119-121, 124-131",
+    "court_conclusion": "Not necessary to decide as Federal Court lacks jurisdiction; dissent would remit to Federal Court to consider jurisdiction exercise or stay proceedings.",
+    "conclusion_paras": "131",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Federal Court may decline jurisdiction under s. 50(1) if Superior Court is adequate forum; Superior Court proceedings ongoing and adequate.",
+      "paras": "119-121"
+     },
+     {
+      "holder": "other",
+      "text": "Dissent: Would dismiss appeal and remit to Federal Court to consider whether to exercise jurisdiction or stay proceedings.",
+      "paras": "73, 122-131"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Canadian Transit Company owns and operates the Canadian half of the Ambassador Bridge connecting Windsor and Detroit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company purchased over 100 residential properties in Windsor intending to demolish them for bridge maintenance and expansion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Most homes are vacant and in disrepair, and the City issued over 100 repair orders against these properties.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Company owns the Canadian half of the Ambassador Bridge, bought over 100 properties to demolish for bridge use, and the City issued repair orders due to disrepair.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company has not complied with repair orders, claiming federal jurisdiction exempts it from City by-laws.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The parties have ongoing proceedings in Ontario Superior Court about the repair orders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company has sought declarations from the Federal Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Company claims federal jurisdiction exempts it from repair orders, with ongoing Ontario court proceedings and Federal Court declarations sought.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The appeal concerns whether the Federal Court has jurisdiction to decide if the Company must comply with City by-laws and repair orders.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The City argues only the Ontario Superior Court has jurisdiction to decide this issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is Federal Court jurisdiction over compliance with City by-laws, with the City arguing only Ontario Superior Court has jurisdiction.",
+   "role": "issue",
+   "part": "majority"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Federal Court does not have jurisdiction to decide if City by-laws apply to the Company's properties.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal should be allowed in favor of the City.",
+     "answers": 1
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The City says the Federal Court lacks jurisdiction and the Ontario Superior Court must decide the issue.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds Federal Court lacks jurisdiction over City by-laws application and would allow the appeal for the City, agreeing with the City's argument.",
+   "role": "conclusion",
+   "part": "majority"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Canadian Transit Company was incorporated in 1921 by a special Act of Parliament (CTC Act).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The CTC Act empowers the Company to construct and operate the Ambassador Bridge and acquire lands for it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The CTC Act declares the Company's works to be for Canada's general advantage, triggering federal jurisdiction under the Constitution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Company was incorporated by a 1921 Act empowering it to operate the bridge and triggering federal jurisdiction.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Ambassador Bridge opened in 1929.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "As of July 2010, about one quarter of all surface trade between Canada and the US passed over it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Ambassador Bridge opened in 1929 and handles about 25% of Canada-US surface trade as of 2010.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Between 2004 and 2013, the Company purchased 114 residential properties west of the bridge intending to demolish them for bridge use.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Company bought 114 residential properties near the bridge intending to demolish them for bridge expansion.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The purchases caused tension; the City believes the Company abandoned and neglected the properties, creating a neighborhood blight.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the City believes the Company neglected the properties, causing neighborhood blight and tension.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In September 2013, the City issued repair orders against all 114 properties under its Property Standards By-law.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Property Standards Committee allowed demolition of 83 homes but deferred decision on 31 properties pending negotiation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "On further appeal, the Committee upheld the City's original repair orders for the 31 properties.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court states the City issued repair orders; the Committee allowed demolition of 83 homes but upheld repair orders for 31 after appeal.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Both the Company and the City appealed the Committee's decisions to the Ontario Superior Court of Justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states both parties appealed the Committee's decisions to the Ontario Superior Court.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company applied to the Federal Court for declarations that its rights under the CTC Act supersede the By-law and repair orders.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Company sought Federal Court declarations that its CTC Act rights override City by-laws and repair orders.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The City moved to strike the Company's Federal Court application for lack of jurisdiction under Federal Courts Rules.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the City moved to strike the Company's Federal Court application for lack of jurisdiction.",
+   "role": "procedural_history",
+   "part": "majority"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Ontario Superior Court appeals have been held in abeyance pending the Federal Court motion to strike determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Ontario Superior Court appeals are on hold pending the Federal Court's jurisdiction motion outcome.",
+   "role": "procedural_history",
+   "part": "majority"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Federal Court was established by Parliament under s. 101 of the Constitution Act, 1867.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Federal Court was established under s. 101 of the Constitution Act, 1867.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parliament created the Federal Court in 1971 for better administration of Canadian laws under the Federal Court Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Federal Court jurisdiction is now governed by the Federal Courts Act, R.S.C. 1985, c. F-7.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Parliament created the Federal Court in 1971 and its jurisdiction is governed by the Federal Courts Act.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 23(c) of the Federal Courts Act is central to the appeal and relied on by the Company to establish Federal Court jurisdiction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s. 23(c) of the Federal Courts Act is central and relied on by the Company for Federal Court jurisdiction.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Federal Courts Act defines 'relief' broadly to include declarations and other remedies (s. 2).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Federal Courts Act defines 'relief' broadly, including declarations.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Shore J. found the Company seeks a legal opinion, not a challenge to a federal body's decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Shore J. concluded the Federal Court lacks authority to grant purely declaratory remedies under s. 23(c).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Shore J. struck the Company's notice of application for want of jurisdiction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports Shore J. found the Company seeks a legal opinion, the Federal Court lacks authority for declarations, and struck the application.",
+   "role": "procedural_history",
+   "part": "majority"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal applied the ITO test for Federal Court jurisdiction from this Court's precedent.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The ITO test requires a statute granting jurisdiction, federal law nourishing jurisdiction, and constitutional validity of that law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the Federal Court of Appeal applied the ITO test requiring statutory grant, federal law nourishment, and constitutional validity.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal concluded s. 23(c) grants Federal Court jurisdiction to seek declarations about works extending beyond a province.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company seeks declarations about the Ambassador Bridge, which extends beyond Ontario.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the Federal Court of Appeal found s. 23(c) grants jurisdiction for declarations about the Ambassador Bridge extending beyond Ontario.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Sufficient federal law is at issue because the Federal Court must determine if residential properties are part of works regulated by the CTC Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds sufficient federal law is at issue as the Federal Court must determine if residential properties are regulated by the CTC Act.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The CTC Act is constitutionally valid",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal concluded all three parts of the ITO test are met and the Federal Court has jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the CTC Act constitutionally valid and reports the Federal Court of Appeal concluded the ITO test is met and Federal Court has jurisdiction.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal raised whether the Federal Court has remedial power to declare laws inapplicable or inoperative under constitutional doctrines",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal concluded the Federal Court has power to make constitutional declarations about validity, applicability and operability of legislation",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal raised and concluded the Federal Court has remedial power to declare laws inapplicable or inoperative constitutionally.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the Federal Court has jurisdiction under the ITO test to hear the Company\u2019s application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If it is plain and obvious the Federal Court lacks jurisdiction, the motion to strike must succeed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court will identify the essential nature of the claim, review Federal Court jurisdiction, then apply the ITO test",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Given conclusion that Federal Court lacks jurisdiction, it is unnecessary to address declining jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is Federal Court jurisdiction under the ITO test and will analyze claim nature, jurisdiction, and apply the test, concluding no jurisdiction.",
+   "role": "issue",
+   "part": "majority"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To decide Federal Court jurisdiction, determine the essential nature of the claim",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "JP Morgan and Sifto Canada require determining claim's essential nature for jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 23(c) grants jurisdiction only when claim or remedy is under an Act of Parliament or otherwise",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Jurisdiction depends on claim's nature, not piecemeal or issue-by-issue assessment",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains jurisdiction requires determining the claim's essential nature, per prior cases, and s. 23(c) grants jurisdiction only for claims under federal law.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Essential nature of claim is determined by realistic appreciation of practical result sought (Domtar)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Statement of claim must not be read blindly at face value (Roitman)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Court must look beyond words, facts, remedy to ensure claim is not disguised attempt to reach Federal Court result otherwise unreachable (Roitman, Canadian Pacific Railway, Verdicchio)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites prior authorities that the claim's essential nature is the practical result sought, not just the face of the statement of claim.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Genuine strategic choices are not artful pleading; jurisdiction is over the claim brought, not a similar claim respondent prefers",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states genuine strategic choices are valid and jurisdiction is assessed on the claim brought, not alternatives suggested by respondent.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company seeks specific relief in Federal Court pleadings",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Company seeks specific relief in its Federal Court pleadings.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Company's main claim is immunity from the By-law; the third declaration sought is the essence of the claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Other declarations are only valuable to establish that the By-law is inapplicable or inoperative",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Essentially, the Company claims it is not required to comply with the By-law and repair properties as ordered by the City",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Company's claim essentially seeks immunity from the By-law and not to comply with City's repair order.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the Federal Court has jurisdiction to decide if a municipal by-law is constitutionally inapplicable or inoperative to a federal undertaking",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is whether Federal Court has jurisdiction to decide if a municipal by-law is constitutionally inapplicable or inoperative to a federal undertaking.",
+   "role": "issue",
+   "part": "majority"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 96 recognizes provincial superior courts of general jurisdiction existing at Confederation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 101 empowers Parliament to establish additional courts for better administration of Canadian laws",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parliament created the Exchequer Court in 1875, which became the Federal Court",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Federal Court plays important role in interpreting and developing federal law within its jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains constitutional provisions creating provincial superior courts and Parliament's power to create Federal Court for federal law administration.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Provincial superior courts have prime constitutional importance and jurisdiction except where removed by statute",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 96 protects essential nature and powers of provincial superior courts from legislative incursion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Provincial superior courts are provincially administered and federally appointed, weaving provincial and federal concerns",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states provincial superior courts have constitutional protection and general jurisdiction, administered provincially and federally appointed.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Federal Court has only jurisdiction conferred by statute and is a statutory court created under s. 101",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Federal Court lacks inherent jurisdiction unlike provincial superior courts",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court Act language is determinative of Federal Court's jurisdiction (Roberts v. Canada)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Federal Court is a statutory court without inherent jurisdiction, limited to statutory powers under s. 101.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "ITO test requires statutory grant of jurisdiction and constitutional limits under s. 101 for Federal Court jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parliament established Federal Court under s. 101 to administer federal law",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "ITO test ensures Federal Court does not exceed role of administering federal law",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the ITO test requires statutory jurisdiction and constitutional limits to ensure Federal Court administers federal law only.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "First part of ITO test addresses statutory grant of jurisdiction; second and third parts address constitutional limits under s. 101",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the ITO test parts: first statutory grant, second and third constitutional limits under s. 101.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "First part of ITO test requires a federal statute to grant jurisdiction to the Federal Court",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first ITO test part requires a federal statute granting Federal Court jurisdiction.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court of Appeal found s. 23(c) of Federal Courts Act grants jurisdiction over Company's application",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Company submits s. 23(c) grants jurisdiction over its application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees that s. 23(c) grants jurisdiction over the Company's application",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal and Company say s. 23(c) grants jurisdiction, but the court disagrees.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 23(c) text is quoted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court quotes the text of s. 23(c).",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 23(c) grants jurisdiction only if three criteria are met: no special assignment, claim under Act of Parliament or otherwise, claim related to work connecting provinces",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains s. 23(c) grants jurisdiction only if three criteria are met, including claim under federal law and relation to interprovincial work.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Only the second criterion of s. 23(c) is at issue in this appeal",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Quebec North Shore interpreted 'under an Act of Parliament or otherwise' to mean under federal law statute, regulation or common law",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 23 requires claim for relief be sought under federal law",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Laskin C.J. reasoned Federal Court Act provisions should not be interpreted to exceed Parliament's competence under s. 101",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states only the second s. 23(c) criterion is at issue, citing Quebec North Shore that it means claim under federal law, consistent with s. 101 limits.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Section 23 grants Federal Court jurisdiction only when claimant seeks relief under federal law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claimant's cause of action must be created or recognized by federal statute, regulation, or common law on federal subject matter to seek relief under s. 23.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 23 grants Federal Court jurisdiction only if relief is sought under federal law, meaning the cause of action arises from federal statute, regulation, or common law.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Roberts paraphrased Quebec North Shore: cause of action must be founded on existing federal law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If cause of action is not created or recognized by federal law, s. 23 does not confer Federal Court jurisdiction.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court cites Roberts paraphrasing Quebec North Shore that cause of action must be founded on federal law; otherwise s. 23 does not confer jurisdiction.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Quebec North Shore, s. 23 did not confer jurisdiction because claimants sought relief under Quebec contract law, not federal law.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Norrail Transport, s. 23 did not confer jurisdiction because causes of action were under Quebec contract and fault law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports Quebec North Shore and Norrail Transport found s. 23 did not confer jurisdiction as claims were under Quebec law, not federal law.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Prudential Assurance, s. 23 conferred jurisdiction for damages claim under federal Carriage by Air Act.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Bensol Customs Brokers, s. 23 conferred jurisdiction for damages under Carriage by Air Act but not for tort claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Prudential Assurance and Bensol Customs Brokers held s. 23 conferred jurisdiction for claims under federal Carriage by Air Act.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court of Appeal did not consider if Company sought relief under federal law or refer to Quebec North Shore.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court of Appeal paraphrased s. 23(c) as jurisdiction if subject matter is extra-provincial undertaking, ignoring requirement relief be sought under federal law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Federal Court of Appeal failed to consider if relief was sought under federal law and misinterpreted s. 23(c) as jurisdiction based only on subject matter.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The phrase 'under an Act of Parliament or otherwise' in s. 23 cannot be ignored or rendered superfluous.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If Parliament intended jurisdiction whenever relief is sought in relation to extra-provincial undertaking, it would not have added the qualifier 'under an Act of Parliament or otherwise'.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Explicit language of s. 23 requires relief be sought under federal law, not merely in relation to it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "French version of s. 23 also requires relief be sought under federal law or other rule of law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the phrase 'under an Act of Parliament or otherwise' in s. 23 requires relief be sought under federal law, not merely related to it, supported by French version.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Federal Court of Appeal said broad Federal Court jurisdiction promotes consistency in federal law interpretation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective of consistency does not justify departing from explicit language of s. 23.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Jurisdiction under s. 23 is concurrent with provincial superior courts; litigants can choose forum.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the Federal Court of Appeal's argument that broad jurisdiction promotes consistency, noting jurisdiction is concurrent and litigants can choose forum.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Requiring relief to arise directly from federal law clarifies Federal Court's concurrent jurisdiction scope.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Giving effect to s. 23 wording minimizes jurisdictional disputes and unnecessary litigation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds requiring relief to arise from federal law clarifies jurisdiction and minimizes disputes and unnecessary litigation.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Company said it seeks relief 'in relation to' the CTC Act and alternatively under s. 23(c) itself or the CTC Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Company argues it seeks relief in relation to the CTC Act and alternatively under s. 23(c) or the CTC Act.",
+   "role": "issue",
+   "part": "majority"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Company stresses Federal Courts Act defines 'relief' to include declarations, so s. 23(c) allows declarations about extra-provincial undertakings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Company argues s. 23(c) allows declarations about extra-provincial undertakings because 'relief' includes declarations.",
+   "role": "issue",
+   "part": "majority"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Definition of 'relief' does not change meaning of s. 23 words.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that the definition of 'relief' does not alter the meaning of s. 23's wording.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Words 'is sought under an Act of Parliament or otherwise' in s. 23 must be given effect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If Parliament intended Federal Courts Act to grant jurisdiction for any relief related to s. 23 subjects, it would have said so.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Shore J. found s. 23 confers jurisdiction but not right to make claims; right must come from other federal law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 23 requires relief be sought under federal law; Shore J. found s. 23 grants jurisdiction but not right to claim.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Prudential Assurance, cause of action created by federal Carriage by Air Act gave right to seek damages.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Type of relief (damages or declarations) does not affect jurisdictional analysis; key is relief sought under federal law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Prudential Assurance shows cause of action under federal law matters, not type of relief, for jurisdiction under s. 23.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Other federal causes of action satisfying s. 23 include Radiocommunication Act s. 18(1) and Canada Transportation Act s. 116(5).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds other federal causes of action under Radiocommunication and Canada Transportation Acts may satisfy s. 23.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "When relief is sought under such federal provisions, s. 23 may grant Federal Court jurisdiction if other requirements met.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "A party cannot seek relief under s. 23 itself; it confers jurisdiction but creates no right of action.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 23 grants jurisdiction for relief sought under federal law but does not create a right of action itself.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Company submits Strickland requires s. 23 to be read as conferring right to seek relief.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Strickland assumed s. 18 conferred right to seek declaration; issue was remedial discretion, not s. 18 or s. 23 interpretation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Strickland concerned remedial discretion assuming right to seek relief, not interpretation of s. 23 as conferring such right.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Company alternatively submits it seeks relief under the CTC Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CTC Act confers rights and powers but does not give Company right of action or right to seek relief sought.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the CTC Act does not give the Company a right of action or right to seek the relief it seeks.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Company's position is By-law is inapplicable or inoperative by interjurisdictional immunity or paramountcy doctrines, seeking relief under constitutional law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Constitutional law confers right to seek declaration that law is inapplicable or inoperative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Company seeks relief under constitutional law doctrines that confer right to seek declarations of inapplicability or inoperability.",
+   "role": "facts",
+   "part": "majority"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Relief sought under constitutional law is not relief 'under an Act of Parliament or otherwise' within s. 23 meaning.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "City and interveners argue constitutional law is not federal law for s. 23 purposes.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Authors Hogg and Saunders et al. support constitutional law not being federal law for s. 23.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with City and interveners that constitutional law is not federal law under s. 23, supported by legal authors.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court of Appeal concluded Constitution is among 'Laws of Canada' in s. 101, including constitutional doctrines.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On this logic, doctrines of interjurisdictional immunity and paramountcy would qualify as federal law for s. 23.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Federal Court of Appeal concluded constitutional law is 'Laws of Canada' under s. 101, implying constitutional doctrines qualify as federal law for s. 23.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Constitution Act, 1867 is not a 'law of Canada' under s. 101 as it was not enacted by the Parliament of Canada",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Northern Telecom Canada Ltd. v. Communication Workers of Canada states the Constitution Act, 1867 is not a 'law of Canada' under s. 101",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The passage in Northern Telecom is obiter but authoritative guidance accepted by this Court",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Constitution Act, 1867 is not a 'law of Canada' under s. 101, relying on Northern Telecom as authoritative guidance.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Constitution did not become a 'law of Canada' after 1982 despite patriation by the Canada Act 1982",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal reasoned the Constitution became 'Laws of Canada' after 1982 due to patriation and enactment provisions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Constitution did not become a 'law of Canada' after 1982, rejecting the Federal Court of Appeal's reasoning that it did.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "'Canada' has two meanings: the country as a whole and the federal level within it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In s. 1 of the Canada Act 1982 and s. 52 of the Constitution Act, 1982, 'Canada' means the country as a whole",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In s. 101 of the Constitution Act, 1867, 'Canada' means only the federal level",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "This Court confirmed the federal meaning of 'Canada' in s. 101 in Thomas Fuller, Quebec North Shore, and Consolidated Distilleries",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interpreting 'Canada' in s. 101 as the whole country would conflict with provincial superior courts' jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "After patriation, the Constitution is a law of Canada the country, not a federal law under s. 101",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds 'Canada' means federal level in s. 101, so the Constitution is not a federal law under s. 101 after patriation.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interjurisdictional immunity and paramountcy doctrines arise from s. 91 and affect federal and provincial legislation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Constitutional law is neither federal nor provincial but precedes that distinction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds constitutional doctrines affect both federal and provincial laws and constitutional law precedes federal-provincial distinction.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Company is not seeking relief under federal law as required by s. 23(c) of the Federal Courts Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Section 23(c) does not grant jurisdiction to the Federal Court; the first part of the ITO test is not met",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Federal Court lacks jurisdiction; no need to consider second and third parts of the ITO test",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no statutory grant of jurisdiction under s. 23(c), so the Federal Court lacks jurisdiction and need not consider further ITO parts.",
+   "role": "conclusion",
+   "part": "majority"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal's approach to the second part of the ITO test merits comment",
+     "answers": 0
+    }
+   ],
+   "summary": "The court comments on the Federal Court of Appeal's approach to the second part of the ITO test.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The second part of the ITO test requires federal law be essential to disposition and nourish jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Involvement of rights and obligations conferred by federal law is relevant to this question",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "This requirement reflects the constitutional status and role of the Federal Court under s. 101",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the second ITO part requires federal law essential to disposition, reflecting Federal Court's constitutional role under s. 101.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal concluded the second ITO part is met due to sufficient federal law for jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal cited articulations of the test from Bensol Customs Brokers and Montreal Urban Community Transit Commission",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal found the second ITO part met, citing prior cases on federal law's role in jurisdiction.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The articulations cited should not lower the high threshold of the ITO test",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal law must be essential to disposition and nourish the grant of jurisdiction, not just a necessary component",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds federal law must be essential to disposition and nourish jurisdiction, not merely a necessary component.",
+   "role": "law",
+   "part": "majority"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Since the ITO test is not met, it is unnecessary to consider the Federal Court of Appeal's holding on remedial power",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There is a distinction between constitutional findings binding only parties and formal constitutional declarations applying generally",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cases like R. v. Lloyd, Douglas/Kwantlen Faculty Assn., and R. v. Big M Drug Mart illustrate this distinction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no need to consider remedial power since ITO test fails and distinguishes between constitutional findings and formal declarations.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Federal Court can make constitutional findings with no force beyond the proceeding when ITO test is met",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal held the Federal Court can make formal, generally binding constitutional declarations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court declines to tacitly approve the Federal Court of Appeal's analysis on formal constitutional declarations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court can make constitutional findings but declines to approve Federal Court of Appeal's view on formal declarations.",
+   "role": "analysis",
+   "part": "majority"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The ITO test is not met; the application has no possibility of success",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "JP Morgan and David Bull Laboratories support that lack of jurisdiction means no success",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Federal Court lacks jurisdiction; Shore J. did not err in striking the notice of application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Federal Court of Appeal should not have intervened; appeal allowed; order reinstated; costs awarded to City",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Federal Court lacks jurisdiction, upholds striking the application, sets aside Federal Court of Appeal, and awards costs to City.",
+   "role": "disposition",
+   "part": "majority"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "allegation_or_argument",
+     "text": "Dissent: s. 23(c) of the Federal Courts Act provides statutory grant of jurisdiction and federal law is essential",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "conclusion_or_order",
+     "text": "Dissent: would dismiss appeal and remit to Federal Court to consider jurisdiction exercise",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting judges argue s. 23(c) grants jurisdiction and federal law is essential, so they would dismiss appeal and remit to Federal Court.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Federal Court's jurisdiction is circumscribed by s. 101 but recognizing jurisdiction here is consistent with its purpose",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: case involves federal company created under federal statute operating a federal undertaking",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: claim focuses on right to carry out statutory mandate free from unconstitutional municipal bylaws",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent finds recognizing Federal Court jurisdiction consistent with its purpose given federal company and claim about statutory mandate.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: distinction between having jurisdiction and taking jurisdiction is central",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Federal Court should consider declining jurisdiction but that is separate from having jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent emphasizes distinction between having and taking jurisdiction, suggesting Federal Court may decline but does have jurisdiction.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 76,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Federal Court clearly has jurisdiction based on history, irrelevance of claim essence, and ITO test application",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: s. 23(c) grants jurisdiction; CTC Act essential to outcome; CTC Act is valid federal law",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent finds Federal Court has jurisdiction based on history, claim irrelevance, and ITO test with s. 23(c) and CTC Act.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 77,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Exchequer Court created in 1875 with limited jurisdiction over certain claims",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Exchequer Court jurisdiction expanded over 20th century to address national matters",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: litigation of national matters in provincial courts caused confusion and expense",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent recounts Exchequer Court's limited jurisdiction and expansion to address national matters and reduce confusion.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 78,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Parliament replaced Exchequer Court with Federal Court in 1970 and expanded jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Minister of Justice stated Federal Court aims to provide national court for national matters and convenient forum",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent notes Parliament replaced Exchequer Court with Federal Court to provide national jurisdiction and convenient forum.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 79,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Federal Court's jurisdiction should be broadly construed to serve its purposes",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Federal Court jurisdiction constrained by constitutional limits and provincial competence",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "rule_of_law",
+     "text": "Dissent: ITO test ensures constitutional limits are respected",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: broad interpretation of s. 23 does not risk exceeding constitutional constraints",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "issue",
+     "text": "Dissent: main issue is whether Federal Court has jurisdiction over Canadian Transit Company's application",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent argues Federal Court jurisdiction should be broadly construed within constitutional limits, focusing on Canadian Transit Company's application.",
+   "role": "issue",
+   "part": "dissenting"
+  },
+  {
+   "para": 80,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: characterizing essential nature of case is unnecessary preliminary step",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "rule_of_law",
+     "text": "Dissent: ITO test provides comprehensive framework for Federal Court jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: characterizing essential nature of case does not help answer jurisdiction question",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "issue",
+     "text": "Dissent: only statutory grant, federal law essentiality, and valid federal law matter for jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent finds characterizing case nature unnecessary; ITO test suffices to determine Federal Court jurisdiction.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 81,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Identifying the essential character of a claim differs from the second step of the ITO test about federal law's role in disposition",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The essential nature of the claim concerns the ultimate outcome sought by the claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Whether federal law is essential to disposition concerns how the case will be decided and what law applies",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The two questions may yield different answers and should be kept distinct",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that the essential character of a claim differs from the ITO test's second step about federal law's role and should be kept distinct.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Characterization exercise is unnecessary and does not belong in the ITO test",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The character of the case is relevant to whether the Federal Court should exercise jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "TeleZone stated the Federal Court has discretion to stay claims that are essentially judicial review in nature",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "TeleZone's statement concerns whether to exercise jurisdiction, not whether jurisdiction exists",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds characterization is unnecessary for the ITO test and relevant only to whether the Federal Court should exercise jurisdiction, citing TeleZone.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 83,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal Court must decide if it has jurisdiction and if so, whether to exercise it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statutory grant of jurisdiction depends on federal law's essential role in the case",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal Court exists to administer laws of Canada and should handle claims where federal law is essential",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Federal Court must decide jurisdiction and exercise, with jurisdiction depending on federal law's essential role.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if federal law is essential, Federal Court may decline jurisdiction based on claim's essential character",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claim's essential character is a factor in deciding whether to exercise jurisdiction, not in determining jurisdiction's existence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claim's essential character may affect exercising jurisdiction but not its existence, even if federal law is essential.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 85,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Company's relief claims four declarations related to the Ambassador Bridge and its authority under CTC Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Two points follow from the nature of these declarations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Company seeks four declarations about the Ambassador Bridge and its authority under the CTC Act, leading to two points.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 86,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Focusing on only one declaration is a mistake as all four are essential to the application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Each declaration plays a central role and cannot be ignored in discerning the claim's essence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The essence of a claim has no relevance to Federal Court's jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds all four declarations are essential and the claim's essence is irrelevant to jurisdiction.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 87,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The colleague implicitly questions the Company's motives by focusing on one declaration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The City does not allege the application is frivolous or an abuse of process",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The City's motion to strike alleges plain and obvious lack of Federal Court jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Company's motives are irrelevant in the jurisdiction inquiry context",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the colleague questions the Company's motives, but the City does not allege abuse, and motives are irrelevant to jurisdiction.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 88,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court will now apply the ITO test to this case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it will now apply the ITO test to the case.",
+   "role": "other",
+   "part": "dissenting"
+  },
+  {
+   "para": 89,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The ITO test has three branches: statutory grant, federal law essential, and valid federal law",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the ITO test has three branches: statutory grant, federal law essential, and valid federal law.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 90,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court will first address statutory grant under s. 23(c) of the Federal Courts Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal law (CTC Act) is essential to the Company's application disposition",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CTC Act is valid federal law, so the third ITO branch is met",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will address statutory grant under s. 23(c), finds federal law essential, and CTC Act valid, meeting ITO test.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 91,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The colleague concludes no valid statutory grant of jurisdiction exists under first ITO branch",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees and finds Company pleaded sufficient jurisdictional facts for relief under an Act of Parliament",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Section 23(c) of the Federal Courts Act provides the necessary statutory grant of jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with the colleague and finds s. 23(c) provides statutory jurisdiction grant as Company pleaded sufficient facts.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 92,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Three elements for s. 23(c) jurisdiction: claim for relief, relief under Act of Parliament, claim relates to works connecting provinces",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "City does not contest claim for relief and relation to interprovincial work (Ambassador Bridge)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Only issue is whether claim was made under an Act of Parliament relating to the international work",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Company's claim satisfies the requirement of being under an Act of Parliament",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s. 23(c) requires three elements, City contests only the second, and finds Company's claim satisfies it.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 93,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleague concludes s. 23(c) only confers jurisdiction if claimant seeks relief under federal law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleague says no jurisdiction if cause of action not created or recognized by federal law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees with such a narrow reading",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with the colleague's narrow reading that s. 23(c) requires relief under federal law for jurisdiction.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 94,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "A federal statute need not expressly create a cause of action for s. 23(c) jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claim is under an Act of Parliament if statute is source of plaintiff's right (Bensol Customs Brokers)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Relief sought must be intimately related to rights and obligations conferred by an Act of Parliament",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If claim relates to federal work and rights arise from Act of Parliament, s. 23(c) confers jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 23(c) jurisdiction does not require express cause of action creation, only that claim relates to federal rights.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 95,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Canadian Pacific Ltd. found s. 23 satisfied for labour claims under Canada Labour Code",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Bensol Customs Brokers found s. 23 satisfied where liability source was federal statute despite provincial law cause of action",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Federal Court found jurisdiction where Act of Parliament confers right or obligation and enforcement sought",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites cases where s. 23 jurisdiction was found despite cause of action not expressly created by federal law.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 96,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Requiring express cause of action creation for s. 23 jurisdiction is unduly narrow and inconsistent with Parliament's intent",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "All laws define enforceable rights and obligations regardless of detail in remedies (Scott article)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court has jurisdiction to enforce federally created rights in claims related to international works",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Jurisdiction does not hinge on express language conferring remedies",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds requiring express cause of action for s. 23 jurisdiction is narrow and inconsistent with Parliament's intent.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 97,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Broad interpretation of s. 23 aligns with Parliament's purpose to provide a national forum for national issues",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Narrow interpretation frustrates purpose by forcing claimants to provincial courts for some federal rights",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds broad s. 23 interpretation aligns with Parliament's purpose and narrow reading frustrates it.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 98,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleague asserts broad s. 23 reading would increase jurisdictional litigation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees and finds broad reading avoids jurisdictional disputes by allowing overlap",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Narrow reading leads to complex litigation and multiple courts, as in Pacific Western Airlines case",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "s. 23 should be construed broadly to allow claimants to approach Federal Court for federal works claims",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with colleague that broad s. 23 reading increases disputes, finding it avoids complexity and supports access.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 99,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The rights the Company seeks to enforce come from two Acts of Parliament essential to relief sought",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Company's rights arise from two Acts of Parliament essential to the relief sought.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 100,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "First declaration seeks to establish Ambassador Bridge as federal work or undertaking",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CTC Act and International Bridges and Tunnels Act are source of Company's right",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "CTC Act s. 2 declares Company's works for general advantage of Canada",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "International Bridges and Tunnels Act s. 5 declares international bridges and tunnels as works for general advantage of Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the first declaration seeks to establish the Ambassador Bridge as federal work, rights sourced in CTC and International Bridges Acts.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 101,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The second and fourth declarations relate to the Company's power to purchase, lease, and maintain land for the Ambassador Bridge under s. 8(e) of the CTC Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the second and fourth declarations concern the Company's land powers under s. 8(e) of the CTC Act.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 102,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The third declaration seeks to establish municipal bylaws are inapplicable to the impugned properties, based on interjurisdictional immunity and federal statutes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Company's right to relief is tied to the CTC Act and the International Bridges and Tunnels Act, which establish the Ambassador Bridge as a federal work or undertaking.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the third declaration's basis in interjurisdictional immunity and federal statutes including the CTC Act and International Bridges and Tunnels Act.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 103,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "All four declarations sought by the Company are sufficiently tied to federal statutes to meet s. 23(c) requirement that relief be brought under an Act of Parliament.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "There is no basis to strike the claim for lack of being brought under an Act of Parliament.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds all declarations meet s. 23(c) and thus the claim should not be struck for that reason.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 104,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties also discussed the 'or otherwise' portion of s. 23, interpreted by Laskin C.J. in Quebec North Shore Paper Co. as requiring applicable and existing federal law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The subsisting authority of Quebec North Shore on this point is not obvious due to changes in the ITO test and amendments to the French version of s. 23.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "It is not necessary to decide if 'or otherwise' provides an additional basis for jurisdiction here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the 'or otherwise' part of s. 23 was discussed but finds Quebec North Shore's authority unclear and does not decide on its application here.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 105,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The second step of the ITO test is satisfied if an existing body of federal law is essential to the case and nourishes the statutory grant of jurisdiction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The CTC Act plays a central role in this case's disposition, so the Federal Court has jurisdiction.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states the second ITO test step requires essential federal law, finds the CTC Act plays that role, granting jurisdiction.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 106,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Different courts have used various expressions to determine if federal law supports federal jurisdiction, summarized by Stratas J.A.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court must determine if federal law plays a primary role in the case outcome; provincial law may be applied incidentally.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts various formulations of the federal law role test, emphasizing federal law's primary role and incidental provincial law application.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 107,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not all disputes involving federal undertakings fall under Federal Court jurisdiction; minor provincial offences on the bridge do not qualify.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The present dispute is not tangentially related but centrally involves federal law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that minor provincial offences on the bridge are not federal jurisdiction, but this dispute centrally involves federal law.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 108,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Two key questions tied to the CTC Act: whether properties are part of the federal work and whether they are immune from municipal bylaws under interjurisdictional immunity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies two central questions tied to the CTC Act about the properties' federal status and immunity from bylaws.",
+   "role": "issue",
+   "part": "dissenting"
+  },
+  {
+   "para": 109,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The scope of federal jurisdiction over federal works and undertakings will resolve the first question.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The second question involves interjurisdictional immunity, making federal law essential to the case disposition.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds federal jurisdiction law resolves the first question and interjurisdictional immunity makes federal law essential for the second.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 110,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Interjurisdictional immunity protects federal powers from provincial interference affecting their core, precluding provincial laws impairing federal works.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states interjurisdictional immunity protects federal powers from provincial laws impairing their core.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 111,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The CTC Act is essential to the case disposition and central to the constitutional claim, satisfying the second ITO test requirement.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the CTC Act essential and central to the constitutional claim, meeting the second ITO test requirement.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 112,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The CTC Act is the Company's constituent statute, determining its rights and obligations, especially ss. 2 and 8.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 2 declares the Company's works for Canada's general advantage; s. 8 grants powers to operate the bridge and acquire land.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 5 of the International Bridges and Tunnels Act declares international bridges as works for Canada's general advantage.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Company relies on these sections to found its claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the CTC Act and International Bridges and Tunnels Act grant the Company key powers; the Company relies on these for its claim.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 113,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The declarations concern the CTC Act and federal jurisdiction over works under s. 92(10)(a) and (c) of the Constitution Act, 1867.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The first declaration concerns the scope of the federal undertaking; the second concerns land acquisition rights under the CTC Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The third concerns municipal bylaw applicability; the fourth concerns necessity of properties for bridge operation and maintenance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Determining declarations requires interpreting the CTC Act and constitutional claims; the bylaw is subsidiary unless properties are part of the federal undertaking.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The CTC Act plays an essential role in the case outcome; the bylaw plays a subsidiary or incidental role.",
+     "answers": 4
+    }
+   ],
+   "summary": "The court explains the declarations relate to the CTC Act and federal jurisdiction; the CTC Act is essential, bylaws incidental.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 114,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Rhine v. The Queen supports that claims governed by federal statutes can be heard in Federal Court even if source is provincial law contracts.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Similarly, here the relief source is constitutional law but the CTC Act provides the governing framework for rights and obligations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Rhine v. The Queen to support that federal statutes govern claims even if relief source is provincial or constitutional law.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 115,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The dispute relies principally on federal law, though constitutional and municipal law also apply.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The CTC Act is essential and nourishes the Federal Court's jurisdiction, satisfying the second ITO test step.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the dispute mainly involves federal law, with the CTC Act essential and satisfying the second ITO test step.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 116,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The CTC Act is valid federal law, undisputed here, satisfying the third branch of the ITO test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the CTC Act is valid federal law, meeting the third ITO test branch.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 117,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The third ITO test element overlaps with the second, both addressing Federal Court's constitutional jurisdiction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The first and second elements do the main work; future simplification of the test may be considered but is unnecessary here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the third ITO test overlaps with the second; simplification may be possible but is unnecessary here.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 118,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The case involves a federal company created by a federal statute to operate a federal undertaking and seek declaratory relief against municipal bylaws.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court of Appeal concluded the Federal Court has jurisdiction to hear the Company's application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The ITO test is met: statutory jurisdiction under s. 23(c) and valid federal law essential to the case disposition.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal should be dismissed with costs to the Company.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Federal Court has jurisdiction under the ITO test and would dismiss the appeal with costs to the Company.",
+   "role": "conclusion",
+   "part": "dissenting"
+  },
+  {
+   "para": 119,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Federal Court must decide whether to exercise jurisdiction or decline in favour of the Superior Court under s. 50(1) of the Federal Courts Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Superior Court also has jurisdiction to decide these issues; this was not disputed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Federal Court must decide whether to exercise jurisdiction or defer to the Superior Court, which also has jurisdiction.",
+   "role": "procedural_history",
+   "part": "dissenting"
+  },
+  {
+   "para": 120,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Federal Court should consider Strickland factors in deciding to exercise jurisdiction, including adequacy of alternative forum, expeditiousness, and judicial economy.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The applications judge found the Superior Court offered an adequate alternative forum where proceedings were already commenced.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Attorney General of Canada submitted that multiple proceedings seeking identical relief are not in the interests of justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Superior Court may be a more effective forum due to its institutional experience with municipal law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines factors for the Federal Court to consider in exercising jurisdiction, noting the Superior Court may be more effective.",
+   "role": "procedural_history",
+   "part": "dissenting"
+  },
+  {
+   "para": 121,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court may decline to hear the Company's application due to delay and increased litigation cost",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Federal Court may decline to hear the Company's application due to delay and increased litigation cost.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 122,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Abella J. agrees with Justice Karakatsanis on Federal Court's role and jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Abella J. finds the ITO test has been met for the Canadian Transit Company's application",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: The application is grounded in a federal Act, satisfying the first branch of the ITO test",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Interpretation of the federal law is essential to the case, satisfying the second branch",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: The Act is a law of Canada, satisfying the third branch of the ITO test",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. agrees Federal Court's role and finds the ITO test met as the application involves federal law essential to the case.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 123,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Abella J. would not remit the matter to Federal Court to decide on jurisdiction exercise",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. would not remit the matter to Federal Court to decide whether to exercise jurisdiction.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 124,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "rule_of_law",
+     "text": "Dissent: Stay authorized under s. 50(1) Federal Courts Act where claim proceeds elsewhere or in interests of justice",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "rule_of_law",
+     "text": "Dissent: Discretion guided by just, expeditious, least expensive determination principle (Federal Courts Rules)",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: On facts, a stay is the inevitable conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. states stay is authorized under law and guided by principles, concluding a stay is inevitable on these facts.",
+   "role": "law",
+   "part": "dissenting"
+  },
+  {
+   "para": 125,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: On Oct 9, 2013, Canadian Transit Company appealed City repair orders to Property Standards Committee",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Appeal scheduled for Oct 28, 2013",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: On Oct 15, 2013, Canadian Transit Company filed declaratory relief application at Federal Court",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Company continued participating in Property Standards Committee appeal proceedings",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. recounts Canadian Transit Company's appeals and Federal Court application dates and participation.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 126,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Nov 1, 2013, Property Standards Committee modified 83 repair orders to permit demolition",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Nov 14, 2013, City appealed demolition orders",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Committee deferred hearing appeals on remaining 31 properties pending settlement talks",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Settlement discussions between Company and City were unsuccessful",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. describes Committee's modification, City's appeal, deferred hearings, and failed settlement talks.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 127,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Jan 28, 2014, Committee upheld original repair orders for 31 properties",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Feb 10, 2014, Canadian Transit Company appealed Committee's decision on 31 repair orders",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. notes Committee upheld repair orders and Company appealed that decision.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 128,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Both Company's appeal of 31 repair orders and City's appeal of 83 demolition orders were to Ontario Superior Court",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Appeals scheduled for April 7 and 8, 2014",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. states both appeals were scheduled for hearing in Ontario Superior Court in April 2014.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 129,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Dissent: Rather than wait for Superior Court outcome, Company sought Federal Court intervention from Oct 15, 2013",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. notes Company sought Federal Court intervention instead of waiting for Superior Court appeals.",
+   "role": "facts",
+   "part": "dissenting"
+  },
+  {
+   "para": 130,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Issues in Federal Court application can be resolved in Superior Court litigation",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Jurisdictional diversion causes expense and delay, avoiding merits determination",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Jurisdictional diversion has caused three years delay",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: No basis to further delay Superior Court proceedings",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Federal Court rules require just and expeditious proceedings, not complicating and extending them",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissent: Remitting matter to Federal Court to decide stay adds expense and delay",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. finds Federal Court issues resolvable in Superior Court; diversion causes delay, expense, and is unjustified.",
+   "role": "analysis",
+   "part": "dissenting"
+  },
+  {
+   "para": 131,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "conclusion_or_order",
+     "text": "Dissent: Would dismiss appeal in part and direct stay of Federal Court proceedings",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed with costs, Abella, Moldaver, C\u00f4t\u00e9 and Brown JJ. dissenting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Solicitors for appellant, respondent, and interveners listed",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting Abella J. would dismiss appeal in part and stay Federal Court proceedings; court allows appeal with dissent noted.",
+   "role": "disposition",
+   "part": "dissenting"
+  }
+ ]
+}

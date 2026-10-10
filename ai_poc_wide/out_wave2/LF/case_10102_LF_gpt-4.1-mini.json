@@ -1,0 +1,439 @@
+{
+ "case_id": 10102,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0084028,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants are Nigerian citizens and a Canadian born son, challenging removal scheduled for March 24, 2016.",
+     "quote": "The Applicants are citizens of Nigeria, Tega Odugba, Elohor Odugba, Orezi Odugba (minor), Oreva Odugba (minor) and a Canadian born son Jayden Odugba. The Applicants challenge an officer’s refusal to defer the Applicants’ removal from Canada to Nigeria that was scheduled for March 24, 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicants are Nigerian citizens and a Canadian born son, challenging removal scheduled for March 24, 2016, says the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Justice Campbell granted a stay of removal until this application was determined on March 23, 2016.",
+     "quote": "By a stay dated March 23, 2016, Mr. Justice Campbell granted the stay until this application was determined.",
+     "answers": 0
+    }
+   ],
+   "summary": "Justice Campbell granted a stay of removal until this application was determined on March 23, 2016, says the court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants applied for refugee status, were rejected by Refugee Protection Division on April 10, 2015, appeal denied, and judicial review refused by Federal Court.",
+     "quote": "The Applicants had applied for refugee status in Canada and after a hearing before the Refugee Protection Division, were rejected on April 10, 2015. Their appeal to the Refugee Appeal Division was denied and leave to judicially review that decision was refused by the Federal Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants applied for refugee status, were rejected, appeal denied, and judicial review refused, says the court.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants requested deferral because their Canadian born son Jayden had roseola and Orezi was mid-academic year, endangering children.",
+     "quote": "The Applicants have asked for the deferral because their Canadian born son Jayden, then 7 months old, suffered from a viral condition with a rash and a fever called roseola. The child Orezi would also be in the middle of her academic year so a delay to allow her to finish school was reasonable in the Applicants’ deferral request. The Applicants say that the children were endangered even though the officer said she was alive and alert and sensitive to the children’s interests, she was not.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue deferral needed due to son's illness and child's schooling, alleging officer was not sensitive to children's interests.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants were given direction to report and filed a Humanitarian and Compassionate application.",
+     "quote": "Soon after, the Applicants were given the direction to report. They filed an H&C application (Humanitarian and Compassionate).",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants were directed to report and filed a Humanitarian and Compassionate application, says the court.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The issue is whether the officer’s decision was reasonable.",
+     "quote": "The issue to determine is whether the officer’s decision was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The issue is whether the officer’s decision was reasonable, says the court.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Judicial review standard is reasonableness for mixed fact and law issues, per Dunsmuir v New Brunswick.",
+     "quote": "On Judicial Review, I must determine if the officer’s decision with respect to issues of mixed fact and law is reasonable (confirmed in Dunsmuir v New Brunswick, 2008 SCC 9 [Dunsmuir]). That was the standard I was reviewing it at.",
+     "answers": 0
+    }
+   ],
+   "summary": "Judicial review standard is reasonableness for mixed fact and law issues, per Dunsmuir, says the court.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Deferral of removal should be reserved for risk of death, extreme sanction or inhumane treatment, per Wang v Canada.",
+     "quote": "The boundaries of an enforcement officer’s discretion to defer a removal is circumscribed by the Court in Wang v Canada (Minister of Citizenship and Immigration), 2001 FCT 148 [Wang], where Justice Pelletier found that “deferral should be reserved for those applications or processes where the failure to defer will expose the applicant to the risk of death, extreme sanction or inhumane treatment in circumstances”.",
+     "answers": 0
+    }
+   ],
+   "summary": "Deferral should be reserved for risk of death, extreme sanction or inhumane treatment, per Wang v Canada, says the court.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Immigration officers must enforce removals as soon as possible; discretion to defer is limited, per Baron v Canada.",
+     "quote": "Subsection 48(2) of the Immigration and Refugee Protection Act, S.C. 2001, c. 27, requires officers to enforce removals “as soon as possible”. Removal officers have limited discretion in assessing requests to defer removal (Baron v Canada (Minister of Public Safety and Emergency Preparedness), 2009 FCA 81).",
+     "answers": 0
+    }
+   ],
+   "summary": "Officers must enforce removals promptly; discretion to defer is limited, per statute and Baron v Canada, says the court.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applying principles and officer’s thorough analysis, the decision was reasonable; insufficient evidence before officer.",
+     "quote": "Applying these principles to the case at hand, in combination with the thorough analysis by the officer of all the relevant facts, I conclude her decision was reasonable. It is not for me to re-weigh the evidence and arrive at a different conclusion. The onus is on the Applicants to provide the evidence. I find at the core of this decision that there is insufficient evidence before the officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer’s decision was reasonable given principles and evidence; insufficient evidence before officer, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue officer unreasonably treated medical evidence about Jayden.",
+     "quote": "The Applicants argue the decision was not reasonable because the officer unreasonably treated the medical evidence regarding Jayden.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue officer unreasonably treated medical evidence about Jayden.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants say officer failed to consider medical letters as a whole and found insufficient evidence on Nigerian health care.",
+     "quote": "The Applicants say that the officer unreasonably treated letters from Dr. Saito dated March 15, 2016, and Dr. Lui dated January 15, 2016. The Applicants characterized that the “Officer failed to look at the matter commutatively or as a whole but went on a voyage of technicality to claim that the Canadian-born was well and fit to travel.” Further the Applicants argued that the officer was unreasonable to have found that there was insufficient evidence regarding the Nigerian health care system.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants say officer failed to consider medical letters as a whole and found insufficient evidence on Nigerian health care.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "After review, court disagrees; Dr. Lui’s letter is brief and does not support unreasonableness of decision.",
+     "quote": "I cannot agree after reviewing the medical doctors’ letters. The letter from Dr. Lui is three sentences and says that he is Jayden’s doctor for regular baby checkups and “provide assessment and management of his acute health concerns.” This letter provides no evidence that would make the determination that the child can fly unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disagrees; Dr. Lui’s letter is brief and does not support unreasonableness of decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dr. Saito’s letter says travel is unadvisable but does not say child cannot travel; officer’s conclusion reasonable.",
+     "quote": "Further a review of the letter from Dr. Saito of a different medical centre after stating his qualifications says “Jayden Odugba was examined on March 15, 2016. He recently suffered a viral illness (roseola). He had a fever for the past few days with a rash characteristic of roseola. It is unadvisable for him to travel by plane for the next three weeks. He needs to convalesce at home.” The officer reasonably concluded that though unadvisable the doctor did not say the child could not travel and it does not appear any follow up was needed for the viral illness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Dr. Saito’s letter says travel unadvisable but not impossible; officer’s conclusion reasonable, says court.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No reference to tests or follow-up treatment in medical reports; cumulatively, decision not unreasonable.",
+     "quote": "The doctor ordered tests apparently but it’s not referenced in the letter, nor is there any reference to any follow up medical treatment being needed in any of the two medial reports that was found. Cumulatively, I do not see this rendering the decision unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "No tests or follow-up referenced; cumulatively, decision not unreasonable, says court.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Officer’s assessment of Nigerian health care system was reasonable; Applicants failed to provide specific evidence.",
+     "quote": "I do not find the officer was unreasonable in his assessment regarding the Nigerian health care system. Again, the onus is on the Applicants to present the evidence. Given what the officer had, it was a reasonable decision that the child “would be denied medical care or treatment needed would not be available for the child in Nigeria.” Without the Applicants providing further specific evidence regarding either the child medical condition or that it was not available, specifically the treatment in Nigeria, we cannot ask the officer to speculate.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer’s assessment of Nigerian health care was reasonable; Applicants failed to provide specific evidence, says court.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer considered impact on Orezi’s schooling and parental support; no evidence Orezi could not continue schooling in Nigeria.",
+     "quote": "The officer fully considers the impacts of disrupting Orezi’s schooling. She notes that there is no evidence that Orezi could not continue schooling in Nigeria. Further, the officer puts great weight on the love and support of her parents to help through the difficult transition back to Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer considered Orezi’s schooling and parental support; no evidence Orezi couldn’t continue schooling in Nigeria, says court.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court must consider only evidence before officer, not evidence before stay judge.",
+     "quote": "Orally, and in the written material filed, it was argued that it was unreasonable for the officer to not defer given Jayden did not have a visa and it was not within the Applicants. I must only consider the evidence that was before the officer and not what might have been before the stay judge.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court must consider only evidence before officer, not evidence before stay judge, says court.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer’s note on Jan 23, 2016: removal ready, 7 month old Canadian born son, removal booked for March 24, 2016, visa needed for son.",
+     "quote": "In the Certified Tribunal Record at page 23, the officer’s note of January 23, 2016 says: - Removal ready - Inform me they have a 7 month old CC son - Booked removal for 24 Mar 2016 for the 4 of them, call in notice for 2 FEB to provide proof that passport applied for CC son. Inform they must get appropriate visa from Nigeria High Comm. - They will inform me if they want CBSA to purchase tkt for CC son.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer’s note on Jan 23, 2016 records removal ready, 7 month old Canadian born son, removal booked, visa needed, says earlier decision-maker.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer’s note on Jan 31, 2016: client confirmed passport application for son, requested CBSA purchase ticket due to affordability.",
+     "quote": "Then on January 31, 2016, the note to file indicates: spoke to client on phone this morning. He confirms PPT application for CC son will be submitted as directed and he will receive in 10 days. He asked that CBSA purchase ticket for him as he cannot afford...",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer’s note on Jan 31, 2016 records client confirmed passport application and requested CBSA purchase ticket, says earlier decision-maker.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The father called on February 18 to note that a PPT has been applied for the CC son and notification will be given when in.",
+     "quote": "there is a note that the father called in on February 18 “PPT has been applied for CC son – will notify when in”",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker noted the father called on February 18 about a PPT application for the son and notification to follow.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On March 16, the father declared Jayden lacks a visa to go to Nigeria due to delays in document validation by Nigerian officials.",
+     "quote": "Again on March 16, statutory declaration of the father at paragraph 8: Furthermore, Jayden does not currently have a visa to go to Nigeria. They delay resulted from the fact that I only recently (late last week) received Jayden’s Canadian passport. I have contacted the Nigerian High Commission, Ottawa and have applied for Jayden’s visa. The Nigerian officials have informed me that they need to validate my own documents from Nigeria before they can issue Jayden a visa and they have not finalized that process.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker recorded the father's March 16 declaration about visa delays for Jayden due to document validation.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I do not agree with the Applicant’s argument that it was an error to consider them removal ready because the visa was expected before travel.",
+     "quote": "I do not agree with the Applicant’s arguments that it was an error they were removal ready because Mr. Tega Odugba told the removal officer that the visa would be issued before the family traveled back to Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given the timelines and evidence before the deferral officer, it was not unreasonable to not defer removal as Jayden was expected to have a visa.",
+     "quote": "Given the timelines which I have just read and what was before the deferral officer, I do not find it unreasonable, that he would not defer when the evidence was that Jayden would have a visa to travel with the family.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court disagrees with the applicant that removal readiness was an error, finding it reasonable given evidence that Jayden would have a visa.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Nigerian High Commission required documentation, but it was reasonable for the officer to proceed based on evidence in the Certified Tribunal Record.",
+     "quote": "The Nigerian High Commission did require the documentation to be provided, given all the evidence that was before, it was still reasonable that the officer would continue on.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The material considered was in the Certified Tribunal Record, not post-record events.",
+     "quote": "Again, this is the material that was in the Certified Tribunal Record, in the evidence, not what was transpired post the Certified Tribunal Record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it reasonable the officer proceeded based on Certified Tribunal Record evidence, not post-record events, despite documentation requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires justification, transparency, intelligibility, and defensibility in fact and law (Dunsmuir and Khosa).",
+     "quote": "Reasonableness requires that the decision must exhibit justification, transparency and intelligibility within the decision-making process and also that the decision must be within the range of possible, acceptable outcomes, defensible in fact and law (Dunsmuir, above, and Canada (Citizenship and Immigration) v Khosa, 2009 SCC 12).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the reasonableness standard requires justification, transparency, intelligibility, and defensibility in fact and law.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Viewing the decision as a whole, it is not reviewable and the application is dismissed.",
+     "quote": "Viewing the decision as a whole, I cannot find that it is a reviewable decision and will dismiss the application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the decision is not reviewable and dismisses the application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question is certified for appeal as none was presented or arose.",
+     "quote": "No question was presented for certification and none arose so none will be certified.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is dismissed and no question is certified in judgment.",
+     "quote": "THIS COURT’S JUDGMENT is that: 1. This application is dismissed. 2. No question is certified.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court dismisses the application and certifies no question for appeal.",
+   "role": "disposition"
+  }
+ ]
+}

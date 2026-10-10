@@ -1,0 +1,648 @@
+{
+ "case_id": 43266,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.010886400000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Between Dec 2016 and Jan 2017, appellant imported OCTG 22 times, subject to anti-dumping duties under SIMA.",
+     "quote": "Between December 2016 and January 2017, the appellant, Prairies Tubulars (2015) Inc., imported oil country tubular goods (OCTG), types of pipe used in the oil industry, 22 times.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CBSA issued DAS imposing duties totaling $18,829,412.40 on these importations.",
+     "quote": "the Canada Border Services Agency issued Detailed Adjustment Statements (DAS) in respect of the importations, which imposed duties totalling $18,829,412.40.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states appellant imported OCTG 22 times and CBSA imposed duties totaling over $18 million under SIMA.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant sought judicial review of DAS but application dismissed due to SIMA's internal appeal procedure excluding Federal Court jurisdiction.",
+     "quote": "its application was dismissed because an internal statutory appeal procedure exists under the SIMA, which excludes the jurisdiction of the Federal Court",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant acknowledges statutory appeal procedure but claims inability to invoke it due to prerequisite of paying outstanding duties.",
+     "quote": "The appellant acknowledged the existence of the statutory appeal procedure but claimed it was not able to invoke it because it could not meet the prerequisite of paying the outstanding duties.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant views Appeal Payment Provisions as 'pay-to-play' blocking impecunious parties from pursuing appeals and court access.",
+     "quote": "The appellant is of the view that these provisions operate as “pay-to-play” provisions and, for impecunious parties who cannot pay the duties, this means that they cannot pursue their administrative appeals and, ultimately, access the Federal Court on review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision dismissed judicial review; appellant argues pay-to-play provisions block appeals and court access for those unable to pay duties.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court found it could not address appellant's inability to pay argument due to SIMA ousting its jurisdiction.",
+     "quote": "The Federal Court found (at paras. 39 and 46) that it could not address the appellant’s argument based on its inability to pay the duties because the SIMA ousted the Federal Court’s jurisdiction to review the issuance of the DAS.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Appellant was directed to challenge SIMA on constitutional grounds, which it had not done.",
+     "quote": "Instead, the appellant was directed to challenge the SIMA on constitutional grounds, which it had not done.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found it lacked jurisdiction to consider inability to pay and directed appellant to raise constitutional challenge, which it had not done.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant amended application to challenge constitutionality of Appeal Payment Provisions on three grounds: sections 96-101 Constitution Act, section 12 Charter, and subsection 1(a) Bill of Rights.",
+     "quote": "The appellant argued that the provisions in issue are invalid on three grounds: They violate sections 96 to 101 of the Constitution Act, 1867... They violate section 12 of the Canadian Charter... They violate subsection 1(a) of the Canadian Bill of Rights...",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant amended application to challenge Appeal Payment Provisions as unconstitutional under Constitution Act, Charter, and Bill of Rights.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court considered these arguments but dismissed appellant's application (2021 FC 36).",
+     "quote": "The Federal Court considered each of these arguments but dismissed the appellant’s application (2021 FC 36, per Ahmed J.).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "That Federal Court decision is under appeal here.",
+     "quote": "That decision is under appeal here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court dismissed appellant's constitutional arguments; that decision is now under appeal before this court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant no longer pursues Charter section 12 argument but pursues arguments under sections 96-101 Constitution Act and Bill of Rights.",
+     "quote": "The appellant no longer pursues the argument that the Appeal Payment Provisions violate section 12 of the Charter, but it does pursue arguments that rely on violations of (i) sections 96 to 101 of the Constitution Act, 1867, and (ii) the Bill of Rights.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant abandons Charter section 12 claim but continues constitutional challenges under Constitution Act and Bill of Rights.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Standard of review is correctness on law questions, palpable and overriding error on fact or mixed fact and law without extricable legal issue.",
+     "quote": "the standard of review is as outlined in Housen v. Nikolaisen... correctness on questions of law, and palpable and overriding error on questions of fact or of mixed fact and law",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review as correctness for law and palpable and overriding error for fact or mixed fact and law.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Sections 96-101 Constitution Act prevent legislatures from blocking court access for judicial review of administrative decisions.",
+     "quote": "sections 96 to 101 of the Constitution Act, 1867... prevent the provincial and federal legislatures from blocking access to the courts by parties seeking judicial review of administrative decisions",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Dunsmuir v. New Brunswick states access to courts is essential to rule of law.",
+     "quote": "see Dunsmuir v. New Brunswick... there cannot be a rule of law without access",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "B.C.G.E.U. v. British Columbia affirms rule of law requires access to justice, not rule of men deciding access.",
+     "quote": "“[t]here cannot be a rule of law without access, otherwise the rule of law is replaced by a rule of men and women who decide who shall and who shall not have access to justice.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues sections 96-101 Constitution Act protect court access for judicial review; prior cases affirm rule of law requires access to justice.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court erred on constitutional right to access courts for judicial review.",
+     "quote": "The appellant argues that the Federal Court erred in relation to the constitutional right to access the courts for judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "It is sufficient to address the Federal Court's reasons without addressing all appellant's arguments.",
+     "quote": "It is not necessary to address all of these arguments. It is sufficient to address the reasons provided by the Federal Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant claims Federal Court erred on constitutional access right; court will focus on Federal Court's reasons only.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court found rule of law as unwritten constitutional principle cannot alone invalidate legislation.",
+     "quote": "the rule of law, as an unwritten constitutional principle, is not capable, by itself, of invalidating legislation",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Toronto v. Ontario supports that rule of law is not equivalent to written constitutional provision.",
+     "quote": "see also Toronto (City) v. Ontario (Attorney General)... To find otherwise would give rise to the danger... that the rule of law would assume the same authority as a written constitutional provision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Rule of law is logic underlying Constitution, not the Constitution itself.",
+     "quote": "the rule of law is “the logic underlying the Constitution – not the Constitution itself.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court found rule of law alone cannot invalidate legislation; it underlies but is not the Constitution itself.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant relies on Trial Lawyers decision that court fees do not interfere with sections 96-101 unless they cause undue hardship depriving access.",
+     "quote": "the Supreme Court of Canada found that court hearing fees did not interfere with the Court’s jurisdiction under sections 96 to 101... unless they deprived litigants of access to the courts... when the hearing fees in question cause undue hardship",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Undue hardship means hardship beyond legitimate purposes of the provision.",
+     "quote": "By “undue hardship”, I understand hardship over and above the legitimate purposes of the provision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant relies on Trial Lawyers case that court fees interfere with court access only if causing undue hardship beyond legitimate purposes.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Key question is whether pay-to-play requirement caused undue hardship to appellant.",
+     "quote": "a key question in this case is whether the pay-to-play requirement caused an undue hardship to the appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court found duties are remedial, proportionate, returnable if successful, appellant knew obligations, and appellant's hardship evidence unpersuasive.",
+     "quote": "The Federal Court noted the following: - The duties are remedial... - They are proportionate... - They would be returnable... - The appellant chose to import... - The appellant’s evidence concerning hardship was unpersuasive",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies key issue as undue hardship; Federal Court found duties remedial, proportionate, returnable, known, and hardship evidence unpersuasive.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No error in Federal Court's analysis; appellant's evidence was insufficient, not confused gross with net earnings.",
+     "quote": "I see no error in the Federal Court’s analysis in this regard... The Federal Court expressed that the appellant’s evidence was insufficient.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no error in Federal Court's analysis; appellant's evidence was insufficient, no confusion of earnings.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court erred by drawing adverse inference from refusal to allow principal's cross-examination on finances.",
+     "quote": "The appellant argues that the Federal Court erred by drawing an adverse inference against the appellant because of its refusal to permit its principal... to answer questions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court sees no indication Federal Court drew such adverse inference.",
+     "quote": "I see no indication that the Federal Court drew such an inference.",
+     "answers": 1
+    }
+   ],
+   "summary": "Appellant alleges adverse inference from refusal to cross-examine principal; court finds no such inference was drawn.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court erred by disregarding late affidavit of Flora Lee solely due to lateness.",
+     "quote": "The appellant also argues that the Federal Court erred by disregarding the affidavit of Flora Lee on the sole basis that it was submitted after the deadline",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds no error; affidavit was late and no motion to excuse lateness was made; content unclear for court argument.",
+     "quote": "I see no error here either. The affidavit was late, and the appellant never made a motion to have its lateness excused.",
+     "answers": 1
+    }
+   ],
+   "summary": "Appellant claims error in disregarding late affidavit; court finds no error as affidavit was late and no excusal motion made.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Appeal Payment Provisions should be struck under reasonable hypothetical doctrine for foreseeable undue hardship scenarios.",
+     "quote": "the Appeal Payment Provisions should have been struck under the “reasonable hypothetical doctrine”... appellant does not explain this argument in sufficient detail",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds appellant did not explain any reasonably foreseeable scenario causing undue hardship under this doctrine.",
+     "quote": "the appellant does not explain this argument in sufficient detail to establish any particular reasonably foreseeable scenario that would give rise to undue hardship.",
+     "answers": 1
+    }
+   ],
+   "summary": "Appellant argues for striking provisions under reasonable hypothetical doctrine; court finds argument insufficiently explained.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant's failure to prove hardship suffices to dismiss sections 96-101 argument; no need to address respondents' two arguments.",
+     "quote": "The discussion above is sufficient to dismiss the appellant’s argument based on sections 96 to 101 of the Constitution Act, 1867.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents argue sections 96-101 concern court access, SIMA limits administrative tribunal access, so Trial Lawyers does not apply.",
+     "quote": "The first argument is that sections 96 to 101 concern access to the courts, whereas the SIMA limits access to an administrative tribunal.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents argue partial restriction on judicial review access is allowed; only complete immunization is forbidden.",
+     "quote": "our law does not forbid partial restrictions on access to courts for judicial review... law forbids only complete immunization",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Partial restrictions on judicial review access are common and lawful; only complete ouster is forbidden.",
+     "quote": "There are certainly many partial restrictions on access to courts for judicial review... law forbids only complete immunization",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses appellant's sections 96-101 claim; respondents argue partial restrictions allowed, only complete ouster forbidden.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Due to insufficient evidence of hardship, court need not decide if pay-to-play respects Trial Lawyers methodology.",
+     "quote": "Because of the failure of the appellant to adduce sufficient evidence to establish hardship or impecuniosity, it is also unnecessary to opine definitively",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Pay-to-play provisions serve important purpose: ensuring duties are paid in advance to prevent collection issues with foreign importers.",
+     "quote": "the pay-to-play provisions do fulfil one very important purpose: to ensure that the duties that may be owing be paid in advance to prevent collection issues later",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds insufficient hardship evidence; notes pay-to-play provisions serve important purpose of securing duties in advance.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant relies on Bill of Rights subsections 1(a) and 2(e) guaranteeing life, liberty, property, and fair hearing rights.",
+     "quote": "The appellant relies on subsections 1(a) and 2(e) of the Bill of Rights. Subsection 1(a) guarantees... Subsection 2(e) provides...",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant relies on Bill of Rights provisions guaranteeing life, liberty, property, and fair hearing rights.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues it was denied fair hearing because pay-to-play regime blocked access to SIMA adjudicative process.",
+     "quote": "The appellant argues that it was denied a fair hearing in that an adjudicative process is provided for in the SIMA, but it could not access that process... because of the pay-to-play regime.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues pay-to-play regime denied fair hearing by blocking access to SIMA adjudicative process.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant concedes it is not an individual and lacks subsection 1(a) Bill of Rights guarantee",
+     "quote": "The appellant concedes that it is not an “individual”, and therefore it does not benefit from the guarantee contemplated in subsection 1(a) of the Bill of Rights.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues for public interest standing to challenge Appeal Payment Provisions under Bill of Rights",
+     "quote": "The appellant argues instead that the Federal Court should have granted it public interest standing to argue that the Appeal Payment Provisions violate the Bill of Rights.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court rejected public interest standing as serious justiciable issue factor weighed against appellant",
+     "quote": "the third (a serious justiciable issue) weighed strongly against granting public interest standing.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court found Bill of Rights does not create self-standing right to fair hearing absent statutory adjudicative process",
+     "quote": "the Bill of Rights clearly does not create a self-standing right to a fair hearing where the law does not otherwise allow for an adjudicative process.",
+     "answers": 3
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I agree with Federal Court that Bill of Rights offers protection only if a hearing is held",
+     "quote": "It merely offers protection if and when a hearing is held. I agree.",
+     "answers": 4
+    }
+   ],
+   "summary": "The appellant admits it is not an individual under Bill of Rights subsection 1(a) but seeks public interest standing; the Federal Court rejected this and the panel agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues subsection 1(a) should grant quasi-constitutional access to federal tribunals",
+     "quote": "The appellant argues that subsection 1(a) of the Bill of Rights should afford an individual quasi-constitutionally protected access to statutorily created federal tribunals",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant seeks to give subsection 1(a) substantive effect like section 96 does for courts",
+     "quote": "Thereby, the appellant seeks to give subsection 1(a) “substantive teeth”.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant acknowledges subsection 1(a) has never been given substantive teeth but argues it should be",
+     "quote": "It acknowledges that subsection 1(a) “has never been given substantive teeth,” but goes on to argue what subsection 1(a) should do",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree with Federal Court and respondents that adding substantive effect requires compelling reasons not present here",
+     "quote": "I agree with the Federal Court and the respondents that “adding teeth” as the appellant seeks would require compelling reasons, which are not present in this case.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Extreme caution is required in importing substance into Bill of Rights due process guarantees",
+     "quote": "Extreme caution should be exercised in importing substance into the due process guarantees of the Bill of Rights: Curr v. The Queen",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Bill of Rights procedural protections protect procedure, not substance",
+     "quote": "It has been held generally that the procedural protections of the Bill of Rights, such as subsection 2(e), protect only matters of procedure, not substance",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues subsection 1(a) should grant substantive tribunal access rights; the court agrees with others that this requires compelling reasons absent here.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No error in Federal Court’s analysis of alleged Bill of Rights violation by Appeal Payment Provisions",
+     "quote": "I see no error in the Federal Court’s analysis of the question of the alleged violation of the Bill of Rights by the Appeal Payment Provisions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in the Federal Court’s analysis of the Bill of Rights violation claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Subsection 57(1) Federal Courts Act requires notice to Attorney General(s) before ruling on constitutional validity",
+     "quote": "subsection 57(1) of the Federal Courts Act ... requires as follows: If the constitutional validity ... of an Act of Parliament ... is in question ... notice has been served on the Attorney General of Canada and the attorney general of each province",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Subsection 57(2) requires notice at least 10 days before constitutional question argument unless court orders otherwise",
+     "quote": "Subsection 57(2) requires that the contemplated notice be served “at least 10 days before the day on which the constitutional question is to be argued, unless the Federal Court of Appeal ... orders otherwise.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Federal Courts Act subsections 57(1) and (2) require notice to Attorney Generals before constitutional questions are argued.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No notice of constitutional question was served for this appeal though it was served at Federal Court",
+     "quote": "though a notice of constitutional question was served when the matter was before the Federal Court, no such notice was served concerning the appeal to this Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Notice omission was addressed by ordering notice be served after hearing; hearing adjourned for possible interventions",
+     "quote": "This omission was addressed by directing that the notice be served after the hearing. The hearing took place as planned and was then adjourned in case any attorney general opted to intervene",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No attorney general intervened within the 10-day period after hearing",
+     "quote": "None did.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no constitutional notice was served on appeal but was remedied post-hearing; no attorney general intervened.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed with costs",
+     "quote": "For the reasons set out above, I would dismiss the appeal with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal with costs.",
+   "role": "disposition"
+  }
+ ]
+}

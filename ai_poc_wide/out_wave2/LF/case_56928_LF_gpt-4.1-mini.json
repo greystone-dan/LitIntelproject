@@ -1,0 +1,1519 @@
+{
+ "case_id": 56928,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.027177200000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Appeal concerns hotel liability for guest car theft and insurance exclusion clause applicability.",
+     "quote": "This appeal concerns both a hotel establishment’s civil liability for the theft of cars belonging to its guests and the applicability of an exclusion clause in its liability insurance policy in this situation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states the appeal concerns hotel liability for guest car theft and insurance exclusion clause applicability.",
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge is a park and fly hotel near Montréal airport.",
+     "quote": "Éconolodge Aéroport (“Éconolodge”) is a park and fly hotel located near Montréal–Pierre Elliott Trudeau International Airport.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Two guests had cars stolen from the hotel parking lot in winters 2005 and 2006 while abroad.",
+     "quote": "During the winters of 2005 and 2006, two of Éconolodge’s guests had their cars stolen from the hotel’s parking lot while they were abroad.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Insurers AXA and Promutuel compensated owners and sued Éconolodge to recover compensation.",
+     "quote": "The owners were compensated for their losses by their respective insurers, AXA Insurance Inc. (now Intact Insurance Company) (“Axa”) and Promutuel Insurance Portneuf‑Champlain (“Promutuel”). Since each insurer was subrogated to the rights of its insured, it brought an action against Éconolodge to recover the amount of compensation paid to its client.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Promutuel sued Éconolodge’s insurer Lombard directly; Éconolodge impleaded Lombard in warranty in Axa case.",
+     "quote": "Promutuel also brought a direct action against Éconolodge’s insurer, Lombard General Insurance Company of Canada (now Northbridge General Insurance Corporation) (“Lombard”). In the case between Éconolodge and Axa, Éconolodge itself impleaded its insurer, Lombard, in warranty.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court explains Éconolodge is a park and fly hotel; two guests had cars stolen; insurers compensated and sued Éconolodge and its insurer Lombard.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The two theft actions were joined and heard together in Court of Québec.",
+     "quote": "The actions concerning the two thefts were joined and were heard together in the Court of Québec.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge found Éconolodge liable for theft in Axa case; Court of Appeal upheld this.",
+     "quote": "In the case between Éconolodge and Axa, the trial judge found Éconolodge liable for the theft of the car and the Court of Appeal upheld that finding.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Éconolodge’s liability accepted in Promutuel case due to default judgment.",
+     "quote": "In the case between Éconolodge and Promutuel, Éconolodge’s liability was accepted, since a default judgment had been rendered in that case against the hotel operator.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge was owned by two entities at theft times: 3091‑5177 Québec inc. and A.M.A. Investments inc.",
+     "quote": "It should be noted that, at the times the thefts occurred, Éconolodge was owned successively by two different entities, 3091‑5177 Québec inc. (theft from Axa’s insured) and A.M.A. Investments inc. (theft from Promutuel’s insured).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states the theft actions were joined; trial judge and Court of Appeal found Éconolodge liable; ownership changed between two entities.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge held exclusion clause did not apply; Lombard had to compensate insured and Promutuel.",
+     "quote": "The judge also held that the standard care, custody or control exclusion clause in Éconolodge’s liability insurance policy did not apply in these cases, with the result that Lombard had to compensate its insured in the first case and Promutuel in the second.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge found hotel did not have custody or control despite key handover for snow removal.",
+     "quote": "The fact that the keys had been left at the front desk so that the parking lot could be cleared of snow did not have the effect of transferring custody of the cars to Éconolodge.",
+     "answers": 1
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Court of Appeal found trial judge made palpable and overriding error; exclusion clause applied.",
+     "quote": "However, the Court of Appeal found that the judge had made a palpable and overriding error in this regard; in its view, the clause applied in the circumstances and the stolen cars were therefore excluded from Éconolodge’s insurance coverage.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Court of Appeal held possession of keys meant Éconolodge had custody, so exclusion clause applied.",
+     "quote": "The central point on which the courts below were divided was how the guests’ handover of car keys to the hotel operator affected the determination of who had custody of the vehicles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court reports trial judge found exclusion clause inapplicable; Court of Appeal reversed, holding key handover gave custody and exclusion applied.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Two issues: Éconolodge’s liability for theft (Axa case) and applicability of exclusion clause in both cases.",
+     "quote": "This Court is called upon to decide two issues in this context. First, in the case involving Axa only, it must be decided whether Éconolodge is liable for the theft of the car because it did not take reasonable steps to secure its parking lot. Second, in both cases, it must be determined whether the clause in Éconolodge’s insurance contract excluding coverage for property damage (loss of use or physical injury) to personal property in the care, custody or control of the insured applies on the facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states it must decide Éconolodge’s liability for theft (Axa case) and whether the exclusion clause applies in both cases.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court of Appeal erred; Court of Québec judgment should be restored.",
+     "quote": "With respect, I am of the view that the Court of Appeal erred in intervening and that the judgment of the Court of Québec should be restored.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss appeal of 3091‑5177 Québec inc. against Axa; allow appeal against Lombard and Promutuel’s appeal against Lombard.",
+     "quote": "I would therefore dismiss the appeal of 3091‑5177 Québec inc. against Axa in the first file (37421), but I would allow its appeal in the same file against its insurer, Lombard, as well as Promutuel’s appeal against the same insurer in the second file (37422).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court concludes Court of Appeal erred and restores Court of Québec judgment, dismissing some appeals and allowing others.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge was owned by two entities in 2005 and 2006, with same promotional strategy.",
+     "quote": "In the two cases before us, Éconolodge was owned successively in 2005 and 2006 by 3091‑5177 Québec inc. (theft from Axa’s insured) and A.M.A. Investments inc. (theft from Promutuel’s insured). Under both of those companies, Éconolodge adopted the same promotional strategy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge invited travellers to stay, leave cars in parking lot, and use shuttle to airport.",
+     "quote": "Capitalizing on its convenient location a few minutes from the site of the airport, the hotel invited travellers to sleep in its rooms, leave their car in its parking lot while travelling and use its shuttle service to get to the airport.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states Éconolodge was owned by two entities with same strategy: invite travellers to stay, park cars, and use shuttle.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge’s parking lot was open, unfenced, unattended, accessible to guests and others.",
+     "quote": "Éconolodge’s parking lot was located behind the hotel. It was an open, unfenced and unattended lot that was freely accessible to guests of the hotel, clients of the neighbouring office building and restaurant and others who were passing by.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Guests kept keys after parking, except in winter when keys were handed to front desk for snow removal.",
+     "quote": "Éconolodge’s guests kept their car keys after parking. However, during the winter, guests who left their car in the hotel’s parking lot while travelling had to hand over their keys at the front desk so that their car could be moved if necessary for snow removal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Guests filled registration form identifying car; form did not indicate expected pickup date.",
+     "quote": "They filled out a registration form to enable the hotel staff to identify their car. The form did not indicate the date when the vehicle was expected to be picked up.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court describes the open parking lot, key handover in winter for snow removal, and registration form without pickup date.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In January 2005, a guest discovered his car stolen; Axa compensated and sued Éconolodge; Éconolodge impleaded Lombard.",
+     "quote": "On returning from a trip in January 2005, a first guest of Éconolodge discovered that his car was no longer in the parking lot. He turned to his insurance company, Axa, which compensated him for his loss. As Axa was subrogated to the rights of its insured, it sued Éconolodge (3091‑5177 Québec inc.) to recover the amount of compensation it had paid. Éconolodge impleaded its insurer, Lombard, in warranty.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states a 2005 guest’s car was stolen; Axa compensated and sued Éconolodge; Éconolodge impleaded Lombard.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In March 2006, second guest’s car stolen; Promutuel compensated and sued Éconolodge and Lombard directly.",
+     "quote": "In March 2006, a second guest of Éconolodge made the same discovery. His insurance company, Promutuel, also compensated him and became subrogated to his rights. It instituted proceedings both against Éconolodge (A.M.A. Investments inc.) and against Lombard directly.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states a 2006 guest’s car was stolen; Promutuel compensated and sued Éconolodge and Lombard.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Both theft victims handed over keys at front desk before leaving; keys remained with hotel when theft discovered.",
+     "quote": "Both victims of the thefts in question had handed over their keys at the hotel’s front desk before leaving. Éconolodge was not aware that their cars had been stolen from its parking lot until they informed it. The keys were, at that point, still in the same place and in the hotel operator’s possession.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge had Lombard property and liability insurance policies with exclusion clause for property in care, custody or control.",
+     "quote": "At the time of the thefts, Éconolodge held property and liability insurance policies issued by Lombard. Two successive policies, which were identical with respect to the issues in these cases, were therefore in effect during the relevant period. Both of them contained a clause excluding liability insurance coverage for property damage to personal property in the care, custody or control of the insured.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states victims handed keys to hotel; keys remained with hotel; Lombard insurance had exclusion clause for property in care, custody or control.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Actions by Axa and Promutuel were joined and heard together by Judge Chalifour in Court of Québec.",
+     "quote": "The actions brought by Axa and Promutuel were joined and were heard together by Judge Chalifour of the Court of Québec.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Quantum of damages was agreed in both cases.",
+     "quote": "In both cases, the quantum of damages was agreed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states Axa and Promutuel actions were joined and heard together; damages quantum was agreed.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Éconolodge’s liability accepted in Promutuel case due to default judgment.",
+     "quote": "In the case between Éconolodge and Promutuel, Éconolodge’s liability for the theft of the car was accepted, since a default judgment had been rendered against A.M.A. Investments inc.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge found Éconolodge liable for theft in Axa case, viewing contract as service contract with obligation of prudence and diligence.",
+     "quote": "The judge found that the hotel operator was also liable for the theft of the car insured by Axa. Refusing to separate the various services offered through Éconolodge’s park and fly system, the judge found the contractual relationship between Éconolodge and its guests to be a contract for services that included an obligation to look after the guests’ interests with prudence and diligence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Failure to take reasonable steps to secure parking lot was fault engaging liability.",
+     "quote": "In light of its business model, the hotel operator’s failure to take reasonable steps to secure its parking lot was a fault that engaged its liability.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court reports trial judge accepted liability in Promutuel case and found liability in Axa case due to failure to secure parking lot.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge found thefts covered by liability insurance; exclusion clause did not apply as hotel lacked custody or control.",
+     "quote": "In her view, the exclusion clause relied on by Lombard did not apply in these cases because Éconolodge had neither custody nor real control or care of its guests’ cars.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Key handover for snow removal did not transfer custody to Éconolodge.",
+     "quote": "The fact that the keys had been left at the front desk so that the parking lot could be cleared of snow did not have the effect of transferring custody of the cars to Éconolodge.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applying exclusion clause here would produce absurd results.",
+     "quote": "The judge noted that applying the exclusion clause in such a manner would produce absurd results.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court reports trial judge found insurance covered thefts; exclusion clause did not apply as hotel lacked custody; key handover did not transfer custody.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Lombard appealed on exclusion clause applicability; Éconolodge appealed on liability finding.",
+     "quote": "Lombard filed an appeal against Éconolodge and Promutuel on the issue of the applicability of the care, custody or control exclusion clause. Éconolodge appealed the judge’s finding concerning its liability for the theft of the car insured by Axa.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states Lombard appealed exclusion clause applicability; Éconolodge appealed liability finding.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal affirmed liability but reversed on exclusion clause application.",
+     "quote": "The Court of Appeal affirmed the trial judge’s judgment with respect to Éconolodge’s liability. However, it came to a different conclusion on the application of the exclusion clause.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal found trial judge erred by ignoring evidence of key handover.",
+     "quote": "In its view, the judge had made a reviewable error by failing to consider the evidence concerning the handover to the hotel operator of the keys to the stolen cars.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal held possession of keys meant Éconolodge had custody; insurance coverage excluded.",
+     "quote": "The Court of Appeal found that possession of the keys meant that Éconolodge had custody of the cars and that the insurance coverage was therefore inapplicable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal rejected single solution for all cases; found it incongruous to have prudence obligation without custody.",
+     "quote": "It added that the judge had been wrong to [translation] “try to come up with a single solution applicable to every case” (para. 22 (CanLII)). The Court of Appeal stated that it would be incongruous for the hotel operator to have an obligation of prudence and diligence without having custody of its guests’ vehicles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court reports Court of Appeal affirmed liability but reversed on exclusion clause, finding key possession gave custody and exclusion applied.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Courts below did not err finding Éconolodge liable for theft insured by Axa.",
+     "quote": "To begin with, I am of the view that the courts below did not err in finding Éconolodge liable for the theft of the car insured by Axa.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Éconolodge’s liability for theft insured by Promutuel is undisputed before this Court.",
+     "quote": "I note that Éconolodge’s civil liability is in issue only in the case between it and Axa. The hotel operator’s liability for the theft of the car insured by Promutuel is not disputed by anyone before this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds no error in lower courts’ liability finding for Axa case; liability in Promutuel case is undisputed.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Contract characterization is mixed fact and law question, entitled to deference on appeal.",
+     "quote": "As the Court of Appeal stated, the characterization of the contractual relationship between Éconolodge and its guests is a question of mixed fact and law (para. 17).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Characterizing a contract involves determining its purpose or essential prestation.",
+     "quote": "Characterizing a contract involves determining the purpose of the contract or the essential prestation that is central to it (D. Lluelles and B. Moore, Droit des obligations (2nd ed. 2012), at No. 1733).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Characterization requires considering parties’ common intention, making it mixed question.",
+     "quote": "However, the characterization of a contract is not a pure question of law when this determination makes it necessary, as it does here, to consider the evidence of the parties’ common intention (Uniprix inc. v. Gestion Gosselin et Bérubé inc., 2017 SCC 43, [2017] 2 S.C.R. 59, at para. 42; Station Mont‑Tremblant v. Banville‑Joncas, 2017 QCCA 939, at paras. 63‑64 (CanLII); Montréal, Maine & Atlantique Canada Cie (Montreal, Maine & Atlantic Canada Co.) (MMA), Re, 2014 QCCA 2072, 49 R.P.R. (5th) 210, at para. 20).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Mixed questions of fact and law are entitled to deference on appeal.",
+     "quote": "As a mixed question, the trial judge’s characterization of the contract is therefore entitled to deference on appeal (Housen v. Nikolaisen, 2002 SCC 33, [2002] 2 S.C.R. 235, at para. 32).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court explains contract characterization is a mixed fact and law question, requiring deference on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge properly considered full range of Éconolodge services as a package, not separately.",
+     "quote": "In characterizing the contract, the trial judge properly considered the full range of services offered by Éconolodge. As a park and fly hotel, Éconolodge offered its guests a number of services, including accommodation, parking and a shuttle service. It is not appropriate to separate these services given that a package of services is what was considered by guests and advertised by Éconolodge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Guests reasonably expected Éconolodge to look after their interests and take necessary security measures.",
+     "quote": "In fact, Éconolodge encouraged its guests — mainly travellers — to leave their vehicle in its parking lot while they were away. In doing so, the guests were reasonably entitled to expect that Éconolodge would look after their interests and take such security measures as were necessary in the circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds trial judge properly considered Éconolodge’s services as a package and guests’ reasonable security expectations.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Holistic contract approach aligns with owner testimony, contract prestations, and park and fly case law.",
+     "quote": "This holistic approach to the contract between Éconolodge and its guests is consistent with the testimony given by the owner of the car insured by Axa, the prestations provided for in the contract and the case law on park and fly hotels (Groupe Ledor inc., mutuelle d’assurances v. 7041730 Canada inc. (Éconolodge Aéroport (TM)), 2014 QCCQ 2920, at paras. 41‑43 (CanLII); Tremblay v. 4328175 Canada inc. (Marriott Fairfield Inn & Suites Montréal Aéroport), 2017 QCCQ 13774, at paras. 14‑15 (CanLII)).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds the holistic contract approach consistent with testimony, contract terms, and park and fly case law.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge characterized contract as contract for services under art. 2098 C.C.Q.",
+     "quote": "the trial judge characterized the contract between Éconolodge and its guests as a contract for services within the meaning of art. 2098 of the Civil Code of Québec",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Under art. 2100 C.C.Q., Éconolodge had obligation to act with prudence and diligence for clients' best interests.",
+     "quote": "Under art. 2100 C.C.Q., Éconolodge therefore had an obligation “to act in the best interests of [its] client[s], with prudence and diligence”",
+     "answers": 0
+    }
+   ],
+   "summary": "The trial judge found the contract was for services under art. 2098 C.C.Q. and Éconolodge had an obligation of prudence and diligence under art. 2100 C.C.Q.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Québec and Court of Appeal found Éconolodge breached prudence and diligence by failing to secure parking lot.",
+     "quote": "Both the Court of Québec and the Court of Appeal found that Éconolodge had breached its obligation of prudence and diligence by failing to take reasonable steps to secure its parking lot",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Evidence showed Éconolodge took no minimal steps to monitor parking lot.",
+     "quote": "The evidence before the trial judge showed that Éconolodge was not taking even minimal steps to watch over or monitor the parking lot",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge viewed discrepancy between guests' expectations and Éconolodge's attitude as possible deception.",
+     "quote": "the discrepancy between the guests’ reasonable expectations and Éconolodge’s nonchalant attitude toward the security of its parking lot was such that the hotel operator could be found to have deceived its guests",
+     "answers": 0
+    }
+   ],
+   "summary": "The courts below found Éconolodge breached its duty by failing to secure the parking lot and possibly deceived guests.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Determination of fault is mixed fact and law, entitled to deference on appeal.",
+     "quote": "This determination of fault is a finding of mixed fact and law ... It is entitled to deference on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No error justifies reversing trial judge's finding on fault.",
+     "quote": "there is no error that would justify reversing the trial judge’s finding on this point",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states fault determination is mixed fact and law and defers to trial judge's finding, finding no error to reverse.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge found clear causal connection between fault and damage.",
+     "quote": "the causal connection between this fault and the damage is clear",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Causation is a factual question not open to appellate review absent palpable and overriding error.",
+     "quote": "the determination of causation is a question of fact that is not open to review by an appellate court unless a palpable and overriding error has been made",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Parties do not challenge judge's finding on causation.",
+     "quote": "the parties are not challenging the judge’s finding on this point",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found clear causation; this factual finding is not challenged and not open to appellate review absent error.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court of Appeal was correct to uphold Éconolodge’s liability for theft; no grounds for intervention on this issue.",
+     "quote": "The Court of Appeal was therefore right to uphold Éconolodge’s liability for the theft of the car insured by Axa. There are no grounds for this Court’s intervention on this first issue",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court agrees with the Court of Appeal that Éconolodge is liable for the theft and declines intervention on this issue.",
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Court must decide if Court of Appeal erred in finding handover of keys did not trigger care, custody or control exclusion clause.",
+     "quote": "this Court must decide whether the Court of Appeal was correct in stating that the trial judge had made a reviewable error by finding that the handover of keys did not trigger the application of the care, custody or control exclusion clause",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Issue relates to Lombard’s defence to direct action by Promutuel and Éconolodge’s warranty action against Axa.",
+     "quote": "This issue relates to Lombard’s defence both to the direct action brought against it by Promutuel and to Éconolodge’s action in warranty in the case between it and Axa",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court must decide if the Court of Appeal erred on the handover of keys triggering the exclusion clause, relevant to Lombard's defences.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Lombard argues it need not compensate Éconolodge because guests' property is excluded under care, custody or control clause.",
+     "quote": "Lombard argues that it does not have to compensate Éconolodge for the theft of its guests’ cars because that property is excluded from its liability insurance coverage",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Lombard relies on care, custody or control exclusion clause in its insurance policies.",
+     "quote": "Lombard relies on the care, custody or control exclusion clause in its insurance policies",
+     "answers": 0
+    }
+   ],
+   "summary": "Lombard argues it is not liable due to the care, custody or control exclusion clause excluding guests' property.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Party relying on exclusion clause must prove it applies on facts (Ledcor, American Home).",
+     "quote": "It is well established that the party relying on an exclusion clause in an insurance policy has the onus of proving that the clause applies on the facts of the case",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Lombard must establish vehicles were in Éconolodge’s care, custody or control; custody transferred by handing over keys.",
+     "quote": "Lombard submits that custody of a vehicle is necessarily transferred by handing over the keys",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states Lombard must prove the exclusion applies; Lombard argues custody transfers by handing over keys.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Québec judge found exclusion clause inapplicable; Éconolodge lacked care, custody or control of vehicles.",
+     "quote": "The Court of Québec judge found the exclusion inapplicable because Éconolodge did not have care, custody or control of its guests’ vehicles",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal found Éconolodge had real power of preservation, safekeeping, direction and physical control over guests’ cars.",
+     "quote": "The Court of Appeal was rather of the view that Éconolodge had “a real power of preservation, safekeeping, direction and physical control over its guests’ cars while they were travelling”",
+     "answers": 0
+    }
+   ],
+   "summary": "The lower courts were divided: trial judge found no custody; Court of Appeal found Éconolodge had real control over vehicles.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Custody is a mixed fact and law question; trial judge’s answer entitled to deference on appeal.",
+     "quote": "whether Éconolodge had custody of the vehicles is, once again, a question of mixed fact and law; the trial judge’s answer to this question is entitled to deference on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Custody depends on specific circumstances of each case (Baudouin et al.).",
+     "quote": "custody is a highly factual question that “depends on the specific circumstances of each case” (J.‑L. Baudouin, P. Deslauriers and B. Moore)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Applicability of care, custody or control clause is largely a question of fact (Arkwright, Guay).",
+     "quote": "The applicability of the care, custody or control clause is therefore “largely a question of fact” (Arkwright‑Boston Manufacturers Insurance Co. v. Zurich Insurance Co.; Guay inc. v. I.C.I. Canada inc.)",
+     "answers": 0
+    }
+   ],
+   "summary": "Custody is mixed fact and law; trial judge’s finding deserves deference; applicability of exclusion is largely factual.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Interpretation of standard form contracts is law subject to correctness review only if precedential and not fact-based (Ledcor).",
+     "quote": "this Court established in Ledcor that the interpretation of a standard form contract is a ques­tion of law subject to correctness review where the interpretation is of precedential value and is not based on any meaningful factual matrix",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Here, issue is application of clause to facts, not interpretation; no ambiguity in clause.",
+     "quote": "There is no ambiguity in the care, custody or control clause that needs to be resolved through the interpretation process. Rather, what is in issue is the application of the clause to the facts",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Application of clause to facts is factual question (Guardian Insurance).",
+     "quote": "the issue before us is whether the clause applies in a factual context in which guests handed over the keys to their vehicle at the hotel’s front desk",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court explains the issue is factual application of the clause, not interpretation, so no correctness review applies here.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Trial judge’s mixed fact and law finding on custody not open to appellate review absent palpable and overriding error.",
+     "quote": "trial judge’s finding of mixed fact and law with regard to custody of the stolen vehicles was not open to appellate review unless a palpable and overriding error had been made",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court of Appeal’s intervention was unwarranted for three reasons.",
+     "quote": "the Court of Appeal’s intervention was unwarranted, for three reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court holds the trial judge’s custody finding is entitled to deference and Court of Appeal’s intervention was unwarranted.",
+   "role": "conclusion"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judge considered handover of keys but found it insufficient alone to transfer custody.",
+     "quote": "she found that, in the circumstances, it was not sufficient in itself to transfer custody of the vehicles to Éconolodge",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Record did not permit Court of Appeal to review judge’s finding on guests’ reasons for handing over keys.",
+     "quote": "the record did not permit the Court of Appeal to review the judge’s finding on the reason why the guests handed over their keys to the hotel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No inconsistency between judge’s finding of prudence obligation and finding cars not in care, custody or control.",
+     "quote": "there is no contradiction or inconsistency in law between the judge’s finding that Éconolodge had an obligation of prudence and diligence and her finding that the stolen cars were not in its care, custody or control",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court gives three reasons why Court of Appeal’s intervention was unwarranted regarding custody and handover of keys.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court of Appeal said trial judge failed to consider handover of keys evidence.",
+     "quote": "the judgment of the Court of Québec “contains an overriding error in that it fails to take into account the specific circumstances in which the two losses occurred. The judge had to consider the evidence concerning the handover of keys by the guests”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge specifically considered handover of keys and rejected Lombard’s argument that winter handover triggers exclusion.",
+     "quote": "She specifically considered the handover of keys at paras. 38 and 39 of her judgment: Counsel for Lombard argues that the handover of keys during the winter months is fatal to the insured; the exclusion then becomes applicable. Had the theft occurred in the summer, Lombard could not have relied on the exclusion. The Court cannot accept this argument",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court notes the Court of Appeal criticized the trial judge for ignoring handover of keys, but the judge did consider and reject Lombard’s argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge found handover of keys insufficient alone to transfer custody, based on full evidence assessment.",
+     "quote": "she found that it was insufficient in itself to transfer custody of the car to Éconolodge in the circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No palpable and overriding error in judge’s finding on limited effect of handover of keys; appellate intervention unjustified.",
+     "quote": "In my view, the judge did not make a palpable and overriding error on this point...this did not justify appellate intervention",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds no error in the trial judge’s limited effect finding on handover of keys and rejects appellate intervention.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Care, custody or control exclusion prevents liability coverage becoming property coverage; insurer not liable for property loss risk.",
+     "quote": "Its purpose is to prevent liability coverage from being transformed into property coverage...An insurer does not want to cover a risk that is unrelated to the purpose for which coverage is purchased",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Exclusion attaches to property, not to insured’s acts (Baudouin et al., Massé, Bouchard et Blanchette Marine, Guay).",
+     "quote": "the exclusion attaches to certain property, not to the acts of the insured",
+     "answers": 0
+    }
+   ],
+   "summary": "The exclusion clause aims to exclude property coverage risk, attaching to property, not insured’s acts, per authorities.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Clause is clear but examining meaning of French terms helps assess application to facts.",
+     "quote": "While the clause in the instant cases is clear and does not need to be interpreted, it is helpful to consider the meaning given by the authorities to the words used in the original French",
+     "answers": 0
+    }
+   ],
+   "summary": "Though clear, examining French terms' meaning helps assess clause application to facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Custody relates to control, supervision, direction over property (Karim, Baudouin et al., Massé).",
+     "quote": "the custodian of a thing is the person that exercises a power of supervision, control or direction...custody is assessed directly by reference to the power of control, supervision and direction",
+     "answers": 0
+    }
+   ],
+   "summary": "Authorities define custody as power of supervision, control and direction over property.",
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Indemnity Insurance Co. v. Excel requires control and responsibility transfer to change legal custody.",
+     "quote": "this Court interpreted the clause...as requiring that control and responsibility for the preservation of the property be transferred sufficiently to change legal custody",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Arkwright: clause applies only if insured exercises real power of preservation, safekeeping, direction and physical control.",
+     "quote": "this clause “will apply only if the insured exercises a real power of preservation, safekeeping, direction and physical control over the property”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Guay: custody is relationship based on power of supervision, control and direction enabling damage prevention.",
+     "quote": "Custody is...the relationship between the person responsible and the object, a relationship based on a power of supervision, control and direction that enables the former to prevent the damage",
+     "answers": 0
+    }
+   ],
+   "summary": "Precedents require transfer of control and responsibility to change custody; custody involves power to prevent damage.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Handover of keys is relevant to custody as keys provide vehicle access.",
+     "quote": "there is no doubt that the handover of keys is a relevant fact in determining custody of the property, since the keys provide access to the vehicle",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Custody is not automatically transferred by handing over keys; determination is contextual.",
+     "quote": "I cannot accept Lombard’s argument that custody is transferred automatically when the keys to a vehicle are handed over",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cases show custody not transferred despite key handover when power is limited or keys given for access only.",
+     "quote": "Superior Court held custody of a boat had not been transferred despite the handover of keys...keys had been handed over solely to provide access and to accommodate the insured",
+     "answers": 0
+    }
+   ],
+   "summary": "Keys are relevant but do not automatically transfer custody; custody depends on context and limited powers.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To determine transfer of custody and control, a court must consider all circumstances including reason for handover of keys.",
+     "quote": "To determine whether there has been a transfer of custody and thus control of property, a court must consider all the circumstances, including the reason for any handover of keys.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge properly considered these factors in this case.",
+     "quote": "This is precisely what the trial judge did in the instant cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court of Appeal erred in intervening on this point.",
+     "quote": "This brings me to the second error in the Court of Appeal’s intervention.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states custody transfer requires considering all circumstances including key handover reason; trial judge did so; Court of Appeal erred in intervening.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal found Éconolodge responsible for vehicles when guests hand over keys, not only for snow buildup but for any event affecting vehicles.",
+     "quote": "The Court of Appeal found that, when guests hand over their car keys at the front desk, Éconolodge “is then responsible for looking after the vehicles, not only when there is a build‑up of snow, but also if anything at all occurs that may affect them while they are parked in its lot”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court of Appeal unjustifiably overturned trial judge's finding that keys were handed over solely for snow removal.",
+     "quote": "the Court of Appeal unjustifiably overturned the trial judge’s finding of fact that the keys were handed over solely for the purpose of snow removal in the parking lot",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court views Court of Appeal's intervention as unwarranted.",
+     "quote": "I am of the view that this intervention was unwarranted.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court of Appeal found Éconolodge responsible for vehicles generally; court rejects this, upholding trial judge's finding keys were for snow removal only.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reason for key handover distinguishes custody from mere physical holding of vehicles.",
+     "quote": "The reason the guests handed over their keys is important because it distinguishes custody from mere physical holding of the vehicles.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Custody requires general power over property; limited power is mere holding, not custody.",
+     "quote": "A holder of property does not have custody of it where the holder is able to exercise only a limited, and not a general, power over the property (Baudouin, Deslauriers and Moore, at No. 1‑962).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains custody differs from physical holding; custody requires general power over property, citing authority.",
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Contractual relationship requires examining agreement to determine custody transfer.",
+     "quote": "Where a contractual relationship exists, as in the instant cases, “reference must be made to the obligational content of the agreement to determine whether custody has been transferred” (Baudouin, Deslauriers and Moore, at No. 1‑964).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Excel Cleaning held limited permission to handle property for service does not transfer custody.",
+     "quote": "in Excel Cleaning, Estey J. noted that the owner of the property had given the service provider permission to deal with the property only to the extent necessary to perform the service.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Limited permission to handle property for service is insufficient to transfer custody.",
+     "quote": "mere permission to handle a rug in order to clean it did not give rise to an obligation to keep it intact and to preserve it generally (p. 179).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states custody transfer depends on contract terms; Excel Cleaning held limited permission insufficient for custody transfer.",
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge's finding keys were handed over solely for snow removal is supported by evidence including testimony of car owner and hotel owner.",
+     "quote": "the trial judge’s finding that the keys were handed over solely for the purpose of snow removal in the parking lot is supported by the evidence concerning the parties’ intention, particularly the testimony given by the owner of one of the stolen cars and by the first owner of the hotel.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Éconolodge required keys only in winter when guests left cars while away, supporting limited power finding.",
+     "quote": "Éconolodge required keys to be handed over only during the winter by guests who left their car in the hotel parking lot while they were away supports the finding that the handover of keys gave the hotel operator only a limited, clearly circumscribed power.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judge properly concluded power to move vehicles only for snow buildup was insufficient to transfer custody.",
+     "quote": "It was therefore open to the judge to conclude from her analysis of the evidence heard that Éconolodge had the power to move vehicles only when there was a build‑up of snow and that this was not sufficient in itself to transfer custody of the stolen cars.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Lombard argues handover of keys automatically transfers custody regardless of circumstances.",
+     "quote": "Contrary to what Lombard argues, the handover of keys does not automatically transfer custody regardless of the circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds trial judge's limited power finding supported by evidence; rejects Lombard's argument that key handover automatically transfers custody.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court of Appeal's statement that key handover could serve other purposes was unsupported by evidence and not a palpable overriding error by trial judge.",
+     "quote": "the Court of Appeal’s statement that the handover of keys could serve other purposes was not based on the facts in evidence, let alone on an improper assessment of that evidence by the trial judge that could be characterized as a palpable and overriding error.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Court of Appeal's claim of other purposes for key handover unsupported and not a palpable overriding error.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court of Appeal erred in suggesting inconsistency in trial judge's findings on prudence obligation and lack of custody.",
+     "quote": "I am of the view that the Court of Appeal erred in suggesting that there was an inconsistency in the findings of the trial judge, who recognized both that Éconolodge had an obligation of prudence and diligence and that the cars were not in its care, custody or control.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Court of Appeal erred in alleging inconsistency in trial judge's findings on prudence and custody.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Arkwright rejected equating contractor's prudence obligation with power of control under care, custody and control exclusion.",
+     "quote": "the Quebec Court of Appeal specifically rejected the idea of equating a contractor’s obligation of prudence with a power of direction or management under a care, custody and control exclusion clause in a liability insurance policy",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites Arkwright rejecting equating prudence obligation with control power under exclusion clause.",
+   "role": "law"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Obligation of prudence and diligence arises from contract for services and relates to service performance, distinct from care, custody or control clause which excludes coverage for property control.",
+     "quote": "Éconolodge’s obligation of prudence and diligence originates in art. 2100 C.C.Q., which governs contracts for services... care, custody or control clause excludes coverage for property over which the insured exercises certain powers; it does not attach to the insured’s acts.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Breach of prudence duty does not necessarily mean legal custody of property; control and preservation obligation must be found.",
+     "quote": "The fact that the insured breached its duty of prudence and diligence in performing a service does not mean that it necessarily had legal custody of the property in question; it must still be found that the insured had control over the property and an obligation to preserve it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains prudence obligation differs from custody; breach of prudence does not imply legal custody without control and preservation obligation.",
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Excel Cleaning emphasized distinction between service obligation and proprietary control over property for exclusion clause application.",
+     "quote": "Clearly custody [of the property] was not transferred; the only care called for was in the execution of the service, not toward the property as such; and no control [over the property in question], in a proprietary sense, was intended",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Quebec Court of Appeal reiterated not to confuse insured's service obligations with obligations toward property under exclusion clause.",
+     "quote": "the courts were specifically considering the application of the exclusion clause at issue here.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites Excel Cleaning and Quebec Court of Appeal emphasizing distinction between service obligations and property control under exclusion clause.",
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge properly distinguished prudence obligation from custody of cars.",
+     "quote": "In her judgment, the trial judge properly distinguished Éconolodge’s obligation of prudence and diligence from custody of the cars.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Obligation to secure parking lot does not ipso facto change custody of vehicles.",
+     "quote": "The hotel operator’s obligation to take reasonable steps to secure its parking lot ... did not ipso facto lead to a change in custody of the vehicles left in the lot.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No inconsistency in judge’s findings; holding vehicle physically with prudence obligation does not imply legal custody.",
+     "quote": "There was no inconsistency in the judge’s findings in this regard. Éconolodge could very well have been merely holding a vehicle physically and been subject to an obligation of prudence and diligence in performing a service.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Prudence obligation alone does not imply sufficient transfer of control or responsibility to change legal custody.",
+     "quote": "In itself, this obligation does not imply a sufficient transfer of control and of responsibility for the preservation of the vehicle to result in a change in legal custody.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds trial judge correctly distinguished prudence obligation from custody; prudence duty alone does not transfer legal custody.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Trial judge’s judgment contains no error warranting appellate intervention on Éconolodge’s liability insurance coverage.",
+     "quote": "I therefore conclude that the trial judge’s judgment contained no error warranting appellate intervention as regards Éconolodge’s liability insurance coverage.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Conclusion supported by two additional considerations.",
+     "quote": "My conclusion is also supported by two additional considerations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes trial judge made no error on liability coverage; conclusion supported by two further considerations.",
+   "role": "conclusion"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Care, custody or control exclusion should not render insurer coverage ineffective; courts reluctant to exclude coverage for insured's main activities.",
+     "quote": "The care, custody or control exclusion clause should not be applied in such a way that the coverage offered by the insurer becomes ineffective... courts have therefore been reluctant to exclude coverage for the main activities engaged in by an insured",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "This approach balances insured coverage and policy exclusions and promotes sensible commercial results.",
+     "quote": "This approach helps to maintain some balance between the coverage taken out by an insured and the exclusions in the policy ... and promotes a sensible commercial result",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states exclusion clause should not negate coverage; courts balance coverage and exclusions to promote sensible commercial results.",
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Exclusion clause aims to prevent insurer's obligation tied to insured's initiatives storing unrelated third-party items.",
+     "quote": "one rationale for the care, custody or control exclusion clause is to prevent the insurer from tying its obligation to pay compensation to uncertainties resulting from initiatives that may be taken by an insured who agrees to store items that belong to third parties",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Parking was key service offered by Éconolodge as park and fly hotel; excluding liability for guests' cars would undercut coverage usefulness.",
+     "quote": "parking was a key component of the package of services offered by Éconolodge as a park and fly hotel. Excluding liability for its guests’ cars from its insurance coverage would have undercut the usefulness of the coverage for one of its main activities.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge found Lombard knew Éconolodge's business model and insured it with full knowledge.",
+     "quote": "The trial judge found that Lombard was well aware of Éconolodge’s business model and had chosen to insure it with full knowledge of the situation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Lombard was not surprised by claims in issue.",
+     "quote": "Lombard is not taken by surprise by the claims in issue",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes exclusion clause rationale; parking key service; trial judge found insurer aware and not surprised by claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Lombard conceded exclusion clause inapplicable in summer when keys not held by Éconolodge.",
+     "quote": "Lombard’s senior analyst conceded that the exclusion clause was inapplicable in the summer, since Éconolodge did not have the keys to parked vehicles in its possession during that time.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exclusion clause applicability would depend on season or precipitation amount, leading to incongruous results.",
+     "quote": "in the same year of coverage, the applicability of the exclusion clause would depend on the season or even on the amount of precipitation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Insurance would cover theft if owner stayed but not if owner left keys for snow removal, an absurd result.",
+     "quote": "the insurance policy would cover the theft of a car during the winter if its owner remained at the hotel, but not the contemporaneous theft of the car next to it whose owner went abroad and handed over the keys at the front desk in case the parking lot needed to be cleared of snow.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Importance of considering all relevant facts, not presumptively giving decisive weight to one fact.",
+     "quote": "it is to emphasize the importance of considering all the relevant facts and not presumptively giving decisive weight to a particular fact without factoring in all the relevant circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Lombard's argument leads to absurd seasonal results; stresses importance of considering all relevant facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Courts below found Éconolodge liable for theft of car insured by Axa.",
+     "quote": "The finding by the courts below that Éconolodge is liable for the theft of the car insured by Axa",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No intervention warranted; dismiss appeal of 3091-5177 Québec inc. against Axa with costs.",
+     "quote": "does not warrant any intervention by this Court. I would therefore dismiss the appeal of 3091‑5177 Québec inc. against Axa in file 37421, with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court declines to intervene on Axa liability finding; dismisses appellant's appeal with costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge made no palpable overriding error finding keys handed over solely for snow removal and insufficient to transfer custody.",
+     "quote": "trial judge did not make any palpable and overriding error ... that the keys were handed over solely for the purpose of snow removal in the parking lot and that this was insufficient to transfer custody and control to Éconolodge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Exclusion clause in Éconolodge’s liability policy inapplicable; allow appeals against Lombard and Promutuel with costs; restore trial judge’s order for damages.",
+     "quote": "I would allow the appeal of 3091‑5177 Québec inc. against Lombard ... as well as Promutuel’s appeal ... I would thus restore the trial judge’s decision ordering Lombard to pay damages, interest and the additional indemnity",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no error in trial judge on key handover; allows appeals against Lombard and Promutuel; restores damages order.",
+   "role": "disposition"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Parties agreed on Lombard paying Éconolodge’s extrajudicial defence costs; no need to address this issue.",
+     "quote": "the parties have agreed on terms for the payment by Lombard of Éconolodge’s extrajudicial defence costs ... It is therefore unnecessary for me to deal with this aspect of the case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes parties agreed on defence costs payment; no need to address further.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Justice Rowe agrees with Justice Gascon’s analysis and result.",
+     "quote": "I agree with my colleague Justice Gascon in his analysis and in the result.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Characterization of contract is mixed fact and law when extrinsic evidence is needed; otherwise a question of law.",
+     "quote": "characterization of the contract ... is a mixed question. By contrast, where having regard to extrinsic evidence is not needed, characterization remains a question of law",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Trial judge found extrinsic evidence necessary to ascertain contract nature.",
+     "quote": "As the trial judge found it necessary to have regard to extrinsic evidence in order to ascertain the true nature of the contract",
+     "answers": 0
+    }
+   ],
+   "summary": "Justice Rowe concurs, adding contract characterization is mixed question when extrinsic evidence needed, citing trial judge’s finding.",
+   "role": "analysis"
+  }
+ ]
+}

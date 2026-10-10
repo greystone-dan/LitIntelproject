@@ -1,0 +1,362 @@
+{
+ "case_id": 39360,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.006923200000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an appeal from a Federal Court decision dismissing as moot a motion to set aside a Prothonotary's order for document production.",
+     "quote": "This is an appeal from a decision of the Federal Court (2014 FC 825), in which Justice Brown dismissed as moot a motion to set aside an order of Prothonotary Milczynski dated July 14, 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "The Prothonotary ordered the appellants to produce certain documents to the respondents.",
+     "quote": "In that decision, the Prothonotary ordered the production of certain documents by the appellants to the respondents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this appeal challenges a Federal Court decision dismissing as moot a motion to set aside a Prothonotary's document production order.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The appellants appealed the Prothonotary's order but did not seek a stay pending appeal and produced most documents before the Federal Court hearing.",
+     "quote": "The appellants appealed the Prothonotary’s order to the Federal Court. They did not seek to stay the order pending a decision by the Federal Court on their appeal. Rather, the appellants produced to the respondents documents falling within the ambit of the Prothonotary’s order such that, by August 12, 2014 when the matter was heard before the Federal Court, the appellants had disclosed the vast majority of documents contemplated in the order.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Justice Brown described production as about 99.9% complete with only one class of documents in dispute.",
+     "quote": "Justice Brown characterized the production to that date as being of “some 99.9% with discussions only as to the extent of compliance with one class of documents to be produced” (at para 4).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "By the appeal hearing, all documents had been disclosed and production was complete.",
+     "quote": "By the time of the hearing of this appeal, all documents had been disclosed and production pursuant to the order was complete.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found appellants produced nearly all documents before the Federal Court hearing and completed production by appeal hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Justice Brown found the appeal moot because the order was substantially complied with and no adversarial relationship remained.",
+     "quote": "Justice Brown decided that the appeal was moot on the ground that the order had been substantially complied with. Applying the factors laid down by the Supreme Court of Canada in Borowski v Canada (Attorney General), [1989] 1 SCR 342 [Borowski], he also decided not to exercise his discretion to hear the appeal notwithstanding that it was moot. He determined that there was no longer an adversarial relationship between the parties with respect to the issue of production.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "He found the issue was common in litigation and raised no unique legal or public importance.",
+     "quote": "He also determined that the issue in dispute was relatively commonplace in litigation and raised no unique legal point or question of public importance.",
+     "answers": 0
+    }
+   ],
+   "summary": "Justice Brown found the appeal moot due to substantial compliance and no adversarial dispute, and declined to hear it as it raised no unique legal or public issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Borowski sets a two-step test for mootness: whether a live controversy exists and whether to exercise discretion to hear a moot case.",
+     "quote": "In Borowski the court set forth the approach to be taken in case in which mootness is an issue. At paragraph 16, Sopinka J stated: The approach in recent cases involves a two step analysis. First it is necessary to determine whether the required tangible and concrete dispute has disappeared and the issues have become academic. Second, if the response to the first question is affirmative, it is necessary to decide if the court should exercise its discretion to hear the case.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A case is moot if it fails the live controversy test, but courts may hear moot issues if circumstances warrant.",
+     "quote": "In the interest of clarity, I consider that a case is moot if it fails to meet the \"live controversy\" test. A court may nonetheless elect to address a moot issue if the circumstances warrant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Borowski's two-step mootness test and that courts may hear moot cases if warranted.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Neither party disputes the Borowski statement of law on mootness.",
+     "quote": "Neither of the parties takes issue with this statement of the law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no party disputes the Borowski mootness test.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The court will now consider whether the appeal is moot.",
+     "quote": "I turn to the question of whether the appeal was moot.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it will consider whether the appeal is moot.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Federal Court judge made no reviewable error in finding the appeal moot because the appellants complied with the order and success on appeal would have no practical effect.",
+     "quote": "In my view, the Federal Court judge made no reviewable error in concluding that the matter was moot. The appellants had asked the Judge to set aside the order and “hold that Apotex need not produce documents falling in the above noted categories.” However, the appellants had complied with the order; they had done what the order required them to do. Setting aside all or portions of the order would not have undone the documentary production in question. Since the documents were already produced, success on appeal would have no practical effect on the parties.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the appeal is moot as appellants complied and success on appeal would not undo production.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Pharmascience and Smith cases support that document production renders an appeal moot.",
+     "quote": "Support for this conclusion can be found in the decision of this Court in Pharmascience Inc. v Canada (Minister of Health), 2003 FCA 333, at paras 28-29 [Pharmascience], where the Court found that, production of documents having been made, the appeal was moot. The British Columbia Court of Appeal reached the same conclusion in Smith (Guardian ad litem of) v Funk, 2003 BCCA 449.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Pharmascience is distinguishable because it involved third-party production.",
+     "quote": "I do not find compelling the appellants’ argument that this case is distinguishable on the basis that it involved production by third parties.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Pharmascience and Smith support mootness after production and rejects appellants' argument distinguishing Pharmascience.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants rely on Dywidag to argue production does not render an appeal moot.",
+     "quote": "The appellants have raised the decision in Dywidag Systems International, Canada, Ltd. v Garford Pty Ltd., 2010 FCA 232 [Dywidag], in support of their argument that compliance with production requirements do not render an appeal from a production order moot.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Dywidag involved a motion to stay a Federal Court order setting aside a prothonotary’s bifurcation order in a patent case.",
+     "quote": "Dywidag is a dismissal of a motion to stay, pending appeal, an order of the Federal Court setting aside a prothonotary’s order bifurcating a patent infringement action into liability and damages portions.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant in Dywidag argued irreparable harm from disclosure and mootness if documents produced before appeal.",
+     "quote": "The appellant complained that it would suffer irreparable harm from the disclosure of confidential business documents relating to the issue of damages. It also contended that if the order of the Federal Court was not stayed, its appeal seeking the reinstatement of the prothonotary’s bifurcation order would be moot because documents relevant to the damages phase would have already been produced.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants cite Dywidag where a motion to stay was dismissed despite document production and irreparable harm concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Dywidag did not hold mootness depends solely on document production; it noted other practical consequences and possibility of returning documents.",
+     "quote": "I am unable to see where Justice Stratas, in Dywidag, either explicitly or implicitly, accepted that the mootness of the appeal would be determined solely on the fact that documents had been produced, as is the case before this Court. He observed that restoration of a bifurcation order would have many practical consequences, of which the production of documents was but one. He rejected the appellant’s argument on mootness, noting that documents could be returned to the disclosing party if the appeal was allowed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Dywidag noted no evidence of irreparable harm was led and did not cite Pharmascience, focusing narrowly on bifurcation mootness.",
+     "quote": "He also noted that the appellants had failed to lead any evidence speaking to the irreparable harm that would arise from disclosure. Importantly, Pharmascience was not cited by the Court in Dywidag, reinforcing the conclusion that the focus of that decision on the issue of mootness was the narrow question of whether an appeal relating to a bifurcation order would be rendered moot by the production of documents relating to the damages phase.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds Dywidag did not decide mootness solely on production and lacked evidence of irreparable harm, unlike Pharmascience.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue continuing obligation to produce documents means order is not spent and relevance remains live.",
+     "quote": "The appellants contend that, as they are under a continuing obligation to produce documents, the order is not spent and the underlying question of relevance remains a live issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Continuing disclosure obligation arises from rules and jurisprudence and cannot revive a spent order; appellants gave no specific issue or documents to test relevance.",
+     "quote": "In my view, however, the continuing disclosure obligation arises by operation of the Federal Courts Rules (SOR/98-106) and related jurisprudence. A continuing obligation to disclose cannot resurrect a spent order. Further, the appellants have made this argument in the absence of any context – they have not identified any specific issue, document, or class of documents against which this argument may be tested.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Relevance is always in issue in litigation until trial judge decides, so this does not distinguish the case.",
+     "quote": "An assertion that there is an on-going issue of relevance does not distinguish this from other cases dealing with production. Relevance is always in issue in litigation, right up until the moment a trial judge makes a determination.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court rejects appellants' argument that continuing disclosure obligation and relevance keep the order live without specific issues identified.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants produced documents without prejudice to their right to appeal.",
+     "quote": "The appellants point to the fact that they produced the documents to Pfizer without prejudice to their right to appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Producing documents without prejudice does not prevent mootness; obligation to produce was unchanged by 'without prejudice' letter.",
+     "quote": "The appellants were under an obligation to produce the documents in question, a fact that was not altered by transmitting them under cover of a “without prejudice” letter. A unilateral assertion by one party that it is complying with an order without prejudice to its right to appeal does not preclude an argument that an appeal is moot.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds producing documents without prejudice does not prevent mootness as the production obligation remained.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue upholding mootness will cause many stay applications pending appeals from production orders.",
+     "quote": "Finally, counsel for the appellants contend that to uphold the Federal Court judge’s decision will spawn a host of stay applications pending appeals from interlocutory production orders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "While concern is worthy, agreements allowing appeals despite compliance are common and encouraged to move litigation forward.",
+     "quote": "While worthy of concern, the prospect is unlikely. In the ordinary course of litigation, counsel on occasion reach an agreement allowing an appeal to proceed notwithstanding full or partial compliance with a production order. This is done because counsel recognize their responsibility to move litigation forward and that an appeal may meet with partial or no success.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No such agreement was reached in this case.",
+     "quote": "Unfortunately, in this case, no such agreement was reached.",
+     "answers": 2
+    }
+   ],
+   "summary": "Appellants warn of many stay applications, but the court notes agreements to proceed despite compliance are common though none here.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If no agreement, stay applications may be inevitable but courts should not foreclose remedies out of fear of more work.",
+     "quote": "If there is no agreement, a stay application may be the inevitable consequence. This is, however, the work of the Court. The Court will not foreclose remedies open to the parties simply out of fear that it might generate more work.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states stay applications may be inevitable but courts should not deny remedies due to workload concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court judge properly exercised discretion not to hear moot appeal after considering Borowski criteria.",
+     "quote": "I turn to the question whether the Federal Court judge erred in the exercise of his discretion not to hear the appeal notwithstanding its mootness. In paragraphs 13 to 16 of his reasons, the Federal Court judge considered each of the Borowski criteria; existence of an adversarial context, judicial economy, the likelihood of the question reoccurring, and the absence of any public importance with respect to the production of documents dispute. I find no reviewable error in his decision to decline to hear the appeal having regard to his consideration of these criteria in the context of the case before him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in the Federal Court judge's discretion to decline hearing the moot appeal after Borowski analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed with costs in the cause.",
+     "quote": "For these reasons the appeal should be dismissed, with costs in the cause.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal with costs in the cause.",
+   "role": "disposition"
+  }
+ ]
+}

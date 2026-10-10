@@ -1,0 +1,1615 @@
+{
+ "case_id": 43099,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.028226400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Appellants appeal Federal Court decision declaring Canadian Patent No. 2,661,422 invalid for obviousness.",
+     "quote": "the appellants (Janssen Inc., Janssen Oncology, Inc. and BTG International Ltd.) appeal a decision of the Federal Court ... that declared Canadian Patent No. 2,661,422 ... invalid for obviousness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Decision ordered removal of the 422 Patent from the Patent Register under the Regulations.",
+     "quote": "The Decision ... also ordered that the 422 Patent be removed from the Patent Register defined in the Regulations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states appellants appeal Federal Court decision invalidating the 422 Patent for obviousness and ordering its removal from the Patent Register.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Separate appeal challenges orders permitting late addition of expert report addendum and counterclaim amendment by Apotex.",
+     "quote": "the appellants take issue with a pair of Orders ... which permitted (i) the late addition by Apotex of an addendum to the report of its expert Robert Nam, and (ii) a corresponding amendment to its counterclaim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "That appeal was heard same day and addressed in separate decision (2022 FCA 185).",
+     "quote": "That appeal was heard on the same day as the others and is addressed in a separate decision (2022 FCA 185).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes a separate appeal about late expert report additions was heard same day and decided separately.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A prior similar dispute about the 422 Patent's obviousness was decided by Justice Phelan in 2019 NOC proceeding.",
+     "quote": "a similar dispute ... was heard and decided previously by Justice Phelan (see 2019 FC 1355, the 2019 NOC proceeding).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "2019 NOC proceeding found allegations of invalidity including obviousness were not justified.",
+     "quote": "found that allegations by Apotex that the 422 Patent is invalid (on several grounds, including obviousness) were not justified.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Apotex appealed 2019 NOC decision to this Court, which dismissed the appeal, leaving patent validity intact.",
+     "quote": "Apotex appealed to this Court, which dismissed the appeal (2021 FCA 45), leaving the validity of the 422 Patent untainted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Prior findings from 2019 NOC proceeding are not binding in current Decision due to different evidentiary record and live testimony.",
+     "quote": "there is no dispute that ... the Federal Court’s prior findings were not binding ... The 2019 NOC proceeding involved a different evidentiary record, and the witnesses’ testimony ... was adduced by transcript rather than live in court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains a prior 2019 proceeding found the patent valid, but those findings are not binding here due to different evidence and live testimony.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 422 Patent concerns methods and compositions for treating prostate cancer by co-administering abiraterone acetate and prednisone.",
+     "quote": "The 422 Patent ... claims concern the treatment of prostate cancer ... the co-administration of abiraterone acetate (AA) and prednisone (PN).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the 422 Patent claims treatment of prostate cancer by co-administering AA and PN.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Prostate cancer is common and deadly; metastatic cancer treated by androgen deprivation therapy (ADT).",
+     "quote": "Prostate cancer ... is the most commonly diagnosed cancer in men ... Most men with metastatic prostate cancer are treated with androgen deprivation therapy [ADT] ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "ADT suppresses androgen production but residual androgens remain from adrenal gland.",
+     "quote": "Patients treated with ADT still had some residual androgens in their system because the adrenal gland produces 10% of circulating androgens in men.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Castration-resistant prostate cancer (CRPC) progresses after ADT; metastatic CRPC is mCRPC.",
+     "quote": "When the prostate cancer begins to progress after ADT, it is referred to as “castration-resistant prostate cancer” [CRPC] ... if the cancer has metastasized, it is referred to as mCRPC.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Before 2007, aminoglutethimide and ketoconazole were used but had serious side effects and no survival benefit.",
+     "quote": "Before 2007, aminoglutethimide and ketoconazole were used ... but neither improved survival. They were understood to be non-specific inhibitors ... and had serious side effects ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Prednisone (PN) was used to palliate prostate cancer patients and alleviate side effects, with some anti-cancer effects but no approved survival benefit.",
+     "quote": "PN, a glucocorticoid, was used to palliate prostate cancer patients ... PN did offer palliation ... and some anti-cancer effects ... but not an established survival benefit. PN had not been approved as an anti-cancer drug.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "AA is a CYP17 inhibitor shown useful in treating prostate cancer; CYP17 enzyme has two activities affecting steroid synthesis.",
+     "quote": "As disclosed in the 422 Patient, CYP17 inhibitors, of which AA is one, had been shown to be useful in treating prostate cancer. ... The CYP17 enzyme ... has two activities ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker describes prostate cancer treatment history, PN use, and AA as a CYP17 inhibitor useful for prostate cancer.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Inhibition of cortisol production by CYP17 enzyme's 17α hydroxylase activity can cause glucocorticoid deficiency side effect.",
+     "quote": "It is the inhibition of cortisol production by 17α hydroxylase activity of the CYP17 enzyme that could lead to the side effect of glucocorticoid deficiency.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker notes CYP17 inhibition can cause glucocorticoid deficiency side effects.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The 422 Patent defines 'treat' and related terms as including eradication, control, or delay of cancer spread, excluding palliation or survival benefits.",
+     "quote": "Paragraph 22 of the 422 Patent describes these terms as including “the eradication, removal, modification, management or control of a tumor ... and the minimization or delay of the spread of cancer.” Notably, this definition does not mention palliation ... neither does it mention survival benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker explains the 422 Patent's definition of treatment excludes palliation and survival benefits.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Decision addressed multiple invalidity grounds but only obviousness is discussed here, citing Patent Act section 28.3.",
+     "quote": "The Decision dealt with a number of grounds of invalidity, but the only ground requiring discussion here is obviousness. On that issue, the Federal Court cited section 28.3 of the Patent Act ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "The four-step obviousness framework from Sanofi SCC 2008 is applied: identify skilled person, common knowledge, inventive concept, differences, and obviousness of differences.",
+     "quote": "the four-step framework for the assessment of obviousness as set out by the Supreme Court of Canada in Apotex Inc. v. Sanofi-Synthelabo Canada Inc., 2008 SCC 61 ... at paragraph 67: (1) (a) Identify the notional “person skilled in the art”; (b) Identify the relevant common general knowledge ... (2) Identify the inventive concept ... (3) Identify differences ... (4) Viewed without any knowledge ... do those differences constitute steps which would have been obvious ...?",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker applies the Patent Act and Sanofi's four-step obviousness test to the case.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Where advances involve experimentation, an 'obvious to try' test may be appropriate at the fourth step of obviousness analysis.",
+     "quote": "where advances are often won by experimentation, an “obvious to try” test might be appropriate to address at the fourth step.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker notes an 'obvious to try' test may apply at the fourth step of obviousness analysis.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Little disagreement on first step: skilled person and common general knowledge accepted.",
+     "quote": "At paragraph 138 of the Decision, it noted that there was little disagreement on the first step.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellants' expert Rettig accepted facts previously denied: AA, aminoglutethimide, ketoconazole known CYP17 inhibitors treating mCRPC.",
+     "quote": "The appellants’ expert Matthew Rettig accepted the following facts that he had denied in his testimony in the 2019 NOC proceeding: Aminoglutethimide, ketoconazole and AA were all known CYP17 androgen inhibitors ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Aminoglutethimide and ketoconazole known to have anti-cancer effects in prostate cancer patients.",
+     "quote": "Aminoglutethimide was known to have anti-cancer treatment effects ... Ketoconazole was known to have anti-cancer treatment effects ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Androgen inhibitors affect steroid pathways and cortisol production, requiring glucocorticoid replacement with PN, a common clinical practice.",
+     "quote": "Androgen inhibitors were known to affect multiple steroid production pathways and compromise cortisol production, thus requiring glucocorticoid replacement ... Glucocorticoid replacement with PN was a common clinical practice ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "PN was known to treat prostate cancers; AA shown useful in treatment and acknowledged in 422 Patent.",
+     "quote": "PN was known to treat prostate cancers ... AA, a CYP17 inhibitor, had been shown to be useful in the treatment of prostate cancer ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "O’Donnell 2004 paper noted AA suppressed testosterone below castration levels.",
+     "quote": "A paper called O’Donnell 2004 ... noted that AA resulted in the suppression of testosterone below castration levels ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Need for glucocorticoid replacement when administering AA was recognized.",
+     "quote": "The need for glucocorticoid replacement when administering AA was recognized ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "AA was more selective than other CYP17 inhibitors, making it a clear target therapy.",
+     "quote": "AA was more selective than the other two known CYP17 inhibitors ... AA’s more selective quality made it a clear target therapy ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Combination use of anti-cancer agents was well accepted; no serious concern PN would interfere with AA's anti-cancer activity.",
+     "quote": "The use of anti-cancer agents in combination was well accepted; and there was no serious concern that glucocorticoids (and PN in particular) would cancel out or interfere with the anti-cancer activity of CPY17 inhibitors like AA ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the state of the art included known CYP17 inhibitors, PN use, AA's selectivity, and accepted combination therapy.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Inventive concept identified as use of therapeutically effective amounts of AA and PN to treat prostate cancer and refractory forms in humans.",
+     "quote": "the Federal Court defined the inventive concept ... as the use of the combination of therapeutically effective amounts of AA and PN in the treatment of prostate cancer ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker identifies the inventive concept as the combination use of AA and PN to treat prostate cancer.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Differences between inventive concept and state of the art not material; combining AA and PN was a logical step in treatment progression.",
+     "quote": "The Federal Court addressed the differences ... found that they were not so material ... The only part of the puzzle missing ... is a person actually combining AA and PN ... to do so was a logical step ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker finds combining AA and PN was an obvious logical step, not materially different from prior art.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "At step 4, the Federal Court concluded the claimed combination was obvious to try.",
+     "quote": "At step 4, the Federal Court considered obviousness to try, concluding that the claimed combination was obvious to try ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker concluded the combination was obvious to try at the final step of obviousness analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court erred in finding AA known to treat prostate cancer, in gap identification, patent invalidity declaration, and removal order.",
+     "quote": "They argue only the following as errors by the Federal Court: Finding that AA was known to be a prostate cancer treatment; Identifying and applying the gap ...; Declaring that the 422 Patent is invalid; and Ordering the removal ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the Federal Court erred on AA's known use, gap identification, patent invalidity, and removal order.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants focus on specific points within the above issues, to be discussed in analysis.",
+     "quote": "Within the above-noted issues, the appellants focus on specific points. These are discussed in the analysis below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants focus on specific points within their issues, which will be analyzed below.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Standard of review is correctness for legal questions; palpable and overriding error required to overturn factual or mixed findings.",
+     "quote": "the standard of correctness applies to extricable questions of law, but absent an error ... this Court will not interfere with ... findings on questions of fact or of mixed fact and law absent a palpable (obvious) and overriding ... error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review: correctness for law, palpable and overriding error for fact or mixed findings.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeals are dismissed on all issues for reasons discussed below.",
+     "quote": "For the reasons discussed below, I would dismiss the appeals on all issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would dismiss the appeals on all issues for reasons discussed below.",
+   "role": "disposition"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court erred in concluding AA was known to treat prostate cancer based on two erroneous findings.",
+     "quote": "The appellants argue that the Federal Court reached its conclusion that AA was known to treat prostate cancer based on two erroneous findings ...",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "First, appellants say admission in 422 Patent is not binding; second, that O’Donnell 2004 paper did not report AA treatment results.",
+     "quote": "(i) that an admission in the 422 Patent to this effect was binding on the appellants, and (ii) that the results of a study of AA as a treatment for prostate cancer (the 001 Study) were reported in the prior art O’Donnell 2004 paper.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Neither argument can alter the Federal Court’s conclusion; each will be addressed in turn.",
+     "quote": "In my view, neither of these arguments can alter the Federal Court’s conclusion. I will address each in turn.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue two errors on AA's known use; the court rejects these arguments and will address them.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 35 of 422 Patent states CYP17 inhibitors including AA shown useful in prostate cancer treatment, citing US Patent 5,604,213.",
+     "quote": "Paragraph 35 of the 422 Patent states that CYP17 inhibitors, of which AA is one, have been shown to be useful in the treatment of prostate cancer. The paragraph cites US Patent No. 5,604,213 ...",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue 213 Patent only disclosed in vitro and rodent studies, no human studies, so cannot support statement in 422 Patent.",
+     "quote": "The appellants note that the 213 Patent disclosed in vitro and rodent studies, but did not disclose any human studies. They argue that it cannot therefore support the statement in the 422 Patent that AA had been shown to be useful in treating prostate cancer.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court erred treating paragraph 35 of 422 Patent as binding admission.",
+     "quote": "The appellants also argue that the Federal Court erred by treating paragraph 35 of the 422 Patent as a binding admission.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue paragraph 35 of 422 Patent citing 213 Patent is not binding admission as 213 Patent lacks human studies.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Paragraph 115 of Decision states 422 Patent admits AA was known prostate cancer treatment; defendants contend this is binding admission.",
+     "quote": "[115] The Patent states that AA was already known as a treatment for prostate cancer. The Defendants contend that this is an “admission binding on Janssen” ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Plaintiffs do not dispute this fact nor the common general knowledge evidence supporting it.",
+     "quote": "There appears to be no dispute from the Plaintiffs on this fact nor given the CGK evidence, could there be.",
+     "answers": 1
+    }
+   ],
+   "summary": "The earlier decision-maker found the 422 Patent admits AA was known treatment and plaintiffs do not dispute this fact or CGK evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court did not necessarily accept respondents' argument that admission was binding",
+     "quote": "It does not appear that the Federal Court necessarily accepted the respondents’ argument that the admission was binding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court relied on absence of dispute that AA was known to treat prostate cancer and common general knowledge",
+     "quote": "The Federal Court appears instead to have relied on (i) an absence of dispute on whether AA was already known to treat prostate cancer ... and (ii) common general knowledge supporting the admission.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue there was dispute on whether AA was known to treat prostate cancer",
+     "quote": "though the appellants argue that there was dispute on the point",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court did not accept binding admission but relied on absence of dispute and common knowledge; appellants argue there was dispute.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Whether an admission in a patent is binding on the patentee is not decided here",
+     "quote": "It is not necessary to decide here whether, to what extent, and under what circumstances an admission in a patent will be binding on the patentee.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court relied on prior art evidence of AA as treatment for prostate cancer, not on admission as binding",
+     "quote": "The Federal Court did not say that it was treating the admission as binding. Instead, it stated that it was relying on prior art evidence of AA as a treatment for prostate cancer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There was evidence supporting Federal Court's conclusion, including Dr. Nam's expert report",
+     "quote": "There was evidence on which the Federal Court was entitled to rely that supported this conclusion. For example, paragraph 305 of Dr. Nam’s expert report discusses prior art references that describe the use of AA to treat prostate cancer.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants have not persuaded that Federal Court made palpable and overriding error in factual conclusion",
+     "quote": "The appellants have not persuaded me that the Federal Court made a palpable and overriding error in reaching this factual conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court relied on prior art, not binding admission, and appellants failed to show palpable error.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court's reliance on absence of dispute relates to idea of using AA, not actual instance",
+     "quote": "I understand this to be with regard to the idea, rather than an actual instance, of using AA as a treatment for prostate cancer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court did not err relying on absence of actual prior art study of AA as prostate cancer treatment",
+     "quote": "The Federal Court did not err in this regard.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue AA had not actually been studied as prostate cancer treatment in prior art",
+     "quote": "Though the appellants may be right that AA had not actually been studied in the prior art as a prostate cancer treatment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "AA had been proposed for prostate cancer treatment on expectation of effectiveness",
+     "quote": "it had certainly been proposed for that purpose on the expectation that it would be effective.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court correctly relied on absence of dispute about idea of AA use; appellants argue no actual prior art study existed.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Decision paragraph 100 incorrectly states 001 Study results reported in O’Donnell 2004",
+     "quote": "Paragraph 100 of the Decision states that the results of the 001 Study were reported in O’Donnell 2004.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Parties agree 001 Study began after O’Donnell 2004 publication, so results not reported there",
+     "quote": "The parties agree that this statement is incorrect. The 001 Study did not begin until after the publication of O’Donnell 2004, and therefore its results could not have been reported in O’Donnell 2004.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "001 Study was not part of prior art",
+     "quote": "Moreover, the 001 Study was not part of the prior art.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court's error is palpable",
+     "quote": "The appellants argue that this error by the Federal Court is palpable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Decision wrongly states 001 Study results reported in O’Donnell 2004; appellants say this is palpable error.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue error likely impacted Federal Court's finding that AA was known as prostate cancer treatment",
+     "quote": "the error is also overriding in that it “likely had an impact on the [Federal Court’s] finding that AA was known as a prostate cancer treatment as it narrowed the gap between the art and the inventive concept.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue the error likely impacted Federal Court's finding on AA as known prostate cancer treatment.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court not persuaded Federal Court believed 001 Study was part of prior art or misunderstood state of art",
+     "quote": "I am not persuaded that the Federal Court actually believed that the 001 Study was mentioned in the prior art, or otherwise misunderstood the state of the art.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court's description of prior art evidence was detailed and without obvious error",
+     "quote": "The Federal Court’s description of the evidence related to the prior art was otherwise detailed and without obvious error.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court likely made a slip of the pen, intending to say O’Donnell 2004 results were reported in 001 Study",
+     "quote": "I agree with the respondents’ argument that the Federal Court’s erroneous statement was a slip of the pen, and that it likely intended to say that the results of O’Donnell 2004 were reported in the 001 Study, which is correct.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents argue Federal Court's erroneous statement was a slip of the pen",
+     "quote": "I agree with the respondents’ argument that the Federal Court’s erroneous statement was a slip of the pen",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court likely made a slip of the pen about 001 Study; respondents say so too.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue correction should have been subject of motion to reconsider under Rule 397(1)",
+     "quote": "The appellants argue that this correction should have been the subject of a motion to reconsider under Rule 397(1) of the Federal Courts Rules",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court error does not fit Rule 397(1) as it is not discord between reasons and judgment or overlooked matter",
+     "quote": "the Federal Court’s error here does not fit within Rule 397(1) because it does not concern either a discord between the reasons and the resulting Judgment, or a matter that was overlooked.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Rule 397(2) allows clerical errors to be corrected at any time by the Court",
+     "quote": "Rule 397(2) provides that clerical errors “may at any time be corrected by the Court.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court error not subject to Rule 397(1) but clerical errors may be corrected anytime under Rule 397(2).",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue two errors under heading of gap between state of art and inventive concept",
+     "quote": "The appellants argue two errors under this heading, which I address in turn.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue two errors about gap between state of art and inventive concept.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Claims require each of AA and PN to contribute individually to combination treatment",
+     "quote": "The appellants note that the accepted construction of the claims requires not just that the combination of AA and PN treat prostate cancer, but also that each of the two compounds contribute individually to the combination treatment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Proper obviousness finding requires conclusion AA contributed independently to cancer treatment",
+     "quote": "The appellants argue that a proper finding of obviousness of the 422 Patent would require a conclusion that it was obvious that AA contributed to the treatment of cancer independent of PN.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Federal Court's obviousness analysis flawed for not explaining how skilled person would understand AA's independent contribution",
+     "quote": "The appellants note that the Federal Court’s obviousness analysis was flawed in that it never explained how a skilled person would have come to understand that AA contributed to anti-cancer effects independent of PN.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Dr. Nam's evidence says understanding AA's independent effect requires monotherapy study, no evidence skilled person did such study",
+     "quote": "They cite the evidence of Dr. Nam, speaking to the issue of utility, to the effect that such an understanding would have required a study of AA as a monotherapy for comparison with combination therapy. They argue that there is no evidence that a skilled person would have done such a study.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue claims require AA's independent contribution, Federal Court failed to explain this, citing Dr. Nam's evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Obviousness to try differs from utility assessment; key is expectation of success",
+     "quote": "The respondents note that assessment of obviousness to try is different from assessment of utility whereby the usefulness of the invention must have been demonstrated prior to the filing date, failing which the disclosure must include information that supports a sound prediction of utility. They argue that it is inherent in the concept of obviousness to try that the invention has not been tried, and that there is some uncertainty as to whether it will work. The key is the expectation of success.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents argue obviousness to try differs from utility; key is expectation of success despite uncertainty.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Federal Court found AA and PN known to treat prostate cancer, motivation to combine, and expectation of no interference",
+     "quote": "The respondents note that the Federal Court made the following findings of fact that are relevant to the obviousness to try analysis: AA was known to be useful to treat prostate cancer (paragraph 145 of the Decision); PN was known to be useful to treat prostate cancer (paragraphs 27 and 156 of the Decision); There was motivation to combine AA and PN in the treatment of prostate cancer for several reasons, including their separate anti-cancer effects (paragraph 185 of the Decision); and The skilled person would expect that AA and PN would work together without interfering with one another (paragraphs 157 and 185 of the Decision).",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents note Federal Court found AA and PN known treatments, motivation to combine, and expectation of no interference.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Findings of fact support Federal Court's conclusion that invention was obvious to try",
+     "quote": "I agree with the respondents that these findings of fact, which are not palpably wrong, are sufficient to support the Federal Court’s conclusion that the invention of the 422 Patent was obvious to try.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Whether skilled person knew AA's independent anti-cancer effects is not critical to obviousness to try",
+     "quote": "Whether or not the skilled person trying the invention would immediately know that AA had anti-cancer effects independent of the combination is not critical.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No inventiveness required to confirm AA and PN contribute independently when combined",
+     "quote": "there is no suggestion that any inventiveness would be required to confirm that each of AA and PN contributes independently to the treatment of prostate cancer when they are administered in combination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It suffices that skilled person would expect each of AA and PN to contribute",
+     "quote": "It is enough that a skilled person would have expected that each of AA and PN would contribute.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Federal Court's findings support obviousness to try; independent knowledge of AA's effect not critical.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Federal Court did not err in assessing AA's contribution regarding obviousness to try",
+     "quote": "In my view, the Federal Court did not err in its assessment of the contribution of AA as it concerns obviousness to try.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes Federal Court did not err in assessing AA's contribution for obviousness to try.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Federal Court failed to consider treatment of refractory prostate cancer in obviousness analysis",
+     "quote": "The appellants argue that the Federal Court then failed to consider treatment of refractory prostate cancer in its obviousness analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Federal Court stated combining AA and PN to treat CRPC patients excluding refractory patients was reasonable to expect success",
+     "quote": "They point to paragraph 184 of the Decision, which states as follows: “Given the success of other combinations, it was reasonable to expect success in anti-cancer treatment to combine AA and PN to treat CRPC patients excluding those being refractory patients.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue Federal Court failed to consider refractory prostate cancer treatment, citing paragraph 184 excluding refractory patients.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Word 'excluding' in paragraph 184 is a slip of the pen, intended to be 'including'",
+     "quote": "I agree with the respondents that this appears to be another slip of the pen, in which the word “excluding” was intended to be “including”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reading Decision as whole, Federal Court recognized importance of refractory cancers and included them in analysis",
+     "quote": "Reading the Decision as a whole, I can see no other explanation for the Federal Court recognizing the importance of addressing refractory cancers, and then appearing to exclude them from consideration with no rationale being offered for doing so.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Paragraph 173 includes refractory prostate cancer in analysis",
+     "quote": "I note that paragraph 173 of the Decision, quoted at paragraph 12 above, includes refractory prostate cancer in the analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Error in paragraph 184 is palpable and unfortunate but appears clerical",
+     "quote": "Although the error in paragraph 184 is palpable and unfortunate, it does indeed appear to be simply a clerical error.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Word 'excluding' in paragraph 184 should be read as 'including'",
+     "quote": "I read the word “excluding” in paragraph 184 as “including”.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents argue this is a slip of the pen",
+     "quote": "I agree with the respondents that this appears to be another slip of the pen",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds 'excluding' in paragraph 184 is clerical error, should read 'including' refractory prostate cancer.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellants' arguments on invalidity and removal linked to separate appeal on addendum and counterclaim amendment",
+     "quote": "The appellants’ arguments on the issues of declaring the 422 Patent invalid and of ordering its removal from the Patent Register are linked to the separate appeal in Court File A-267-20 mentioned above.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Separate appeal concerns propriety of late addendum to expert report and amendment to counterclaim",
+     "quote": "That appeal concerns the propriety of permitting (i) a late addendum to an expert report, and (ii) an amendment to the counterclaim to reflect the issues addressed in that addendum.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Addendum concluded non-asserted claims similar to asserted claims and Dr. Nam's opinion applied equally",
+     "quote": "The addendum was short, and essentially concluded that these non-asserted claims were similar to the asserted claims (adding only uninventive limitations), and that Dr. Nam’s opinion on obviousness (as well as some other issues) applied equally to them.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court allowed addendum as in interests of justice and observed amendment to counterclaim advisable",
+     "quote": "The Federal Court allowed the addendum on the basis that it was in the interests of justice to do so. The Federal Court also observed that an amendment to the counterclaim might be advisable to clarify that the obviousness of the non-asserted claims was in issue.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Federal Court later permitted amendment to counterclaim",
+     "quote": "In a later Order, the Federal Court permitted such an amendment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes appellants' invalidity arguments linked to separate appeal on addendum and counterclaim amendment allowed by Federal Court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue addendum and amendment should not have been allowed and non-asserted claims validity not properly in dispute",
+     "quote": "The appellants argue that neither the addendum nor the amendment should have been allowed, and that the validity of the non-asserted claims was not properly in dispute.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "conclusion_or_order",
+     "text": "If so, non-asserted claims remain valid and 422 Patent not subject to removal",
+     "quote": "It would follow from this that the non-asserted claims of the 422 Patent would remain valid, and therefore the 422 Patent would not be subject to removal from the Patent Register.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue addendum and amendment should not be allowed; non-asserted claims remain valid and patent not removable.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Separate appeal on pre-trial orders addressed in separate decision; discussion proceeds assuming appeal dismissed and addendum and amendment remain",
+     "quote": "As indicated above, the appeal of the Federal Court’s pre-trial orders is addressed in a separate decision. The discussion below proceeds on the basis that the separate appeal is dismissed, and the addendum and amended counterclaim are left in place.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court proceeds assuming separate appeal dismissed and addendum and amendment remain in place.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Federal Court agreed non-asserted claims are essentially the same as asserted claims",
+     "quote": "The Federal Court clearly agreed with Dr. Nam’s view on the similarity of the asserted and non-asserted claims. At paragraph 118 of the Decision, it stated that “[t]he non-asserted claims are essentially the same” as the asserted claims.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants do not take issue with this conclusion",
+     "quote": "The appellants do not take issue with this conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court found non-asserted claims essentially same as asserted; appellants do not dispute this.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue validity of non-asserted claims should not have been addressed",
+     "quote": "it remains necessary to address the appellants’ argument that the validity of the non-asserted claims should not have been addressed in the Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Regulations do not permit counterclaim for invalidity of claims not asserted against defendant",
+     "quote": "An important basis for this argument is the appellants’ position that the Regulations do not permit a defendant in an action under subsection 6(1) thereof to counterclaim for a declaration of invalidity of claims that are not asserted against it.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "rule_of_law",
+     "text": "Appellants rely on paragraph 6(3)(a) of Regulations limiting counterclaims to claims asserted in action",
+     "quote": "In support of this argument, it points to paragraph 6(3)(a) of the Regulations, which provides as follows: 6 (3) The second [here, Apotex] person may bring a counterclaim for a declaration 6 (3) La seconde [ici, Apotex] personne peut faire une demande reconventionnelle afin d’obtenir une déclaration : (a) under subsection 60(1) or (2) of the Patent Act in respect of any patent claim asserted in the action brought under subsection (1); or [emphasis added]",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue Regulations prohibit counterclaim for invalidity of non-asserted claims, citing paragraph 6(3)(a).",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The wording of paragraph 6(3)(a) is specific to asserted claims; no basis exists to counterclaim on non-asserted claims.",
+     "quote": "The appellants argue that the wording is specific to asserted claims, and there is no basis to counterclaim in respect of non-asserted claims.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 6(3)(a) is permissive and does not limit claims in a counterclaim under subsection 6(1).",
+     "quote": "For their part, the respondents argue that paragraph 6(3)(a) is permissive, and does not limit the claims that can be included in a counterclaim in an action under subsection 6(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue paragraph 6(3)(a) limits counterclaims to asserted claims; respondents say it is permissive and not limiting.",
+   "role": "issue"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Pre-trial Orders concerned extension of time for expert evidence and amended pleading, touching only incidentally on paragraph 6(3)(a) interpretation.",
+     "quote": "The Orders issued before trial concerned, first, whether an extension of time should be granted to Apotex for the submission of expert evidence, and second, whether an amended pleading should be allowed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Before trial, the Federal Court was not tasked with deciding admissibility of expert evidence.",
+     "quote": "Before trial, the Federal Court was not tasked with deciding the admissibility of such expert evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes pre-trial orders concerned expert evidence timing and amended pleading, not paragraph 6(3)(a) interpretation or evidence admissibility.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Plaintiffs objected to counterclaim on non-asserted claims, citing s 6(3) restriction to asserted claims.",
+     "quote": "The Plaintiffs object to the Defendants bringing a counterclaim in respect to the non-asserted claims on the basis that the right to bring a counterclaim is restricted under s 6(3) to counterclaims in respect of “asserted claims”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Counterclaim issue has no particular relevance except for appellate comment in this case.",
+     "quote": "In the context of the present case, this counterclaim issue appears to have no particular relevance except for appellate comment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Plaintiffs argue s 6.01 limits action under s 6(1) to asserted claims; counterclaim under s 6(3) limited to asserted claims.",
+     "quote": "The Plaintiffs argue that s 6.01 limits an action under s 6(1) to asserted claims although those terms are not used. It says that a counterclaim under s 6(3) is specifically limited to asserted claims.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Plaintiffs consented to counterclaim delivery without reservations.",
+     "quote": "The first is that the Plaintiffs consented to the delivery of a counterclaim without reservations at the time.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "A defendant may only claim invalidity on grounds related to specific asserted claims in an NOC action.",
+     "quote": "The second is that a defendant may not be able to claim invalidity of a patent on grounds but only as it relates to specific claims asserted in an NOC action.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "NOC Regulations are not a complete code; s 6(3) confirms right to counterclaim exists but restricted to asserted claims.",
+     "quote": "The NOC Regulations are not a complete code but the purpose of s 6(3) must be to confirm that the right to bring a counterclaim in the NOC action exists; but it is restricted to the claims asserted in the action.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Counterclaim is a separate action; s 6(3) allows convenience of challenging patent validity in NOC action for asserted claims.",
+     "quote": "A counterclaim is a separate action. Section 6(3) merely allows a party the convenience of bringing a challenge to a patent in the context of an NOC action in respect of asserted claims.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "issue",
+     "text": "Whether a separate invalidity claim could be consolidated with an NOC action remains open.",
+     "quote": "Whether a separate claim of invalidity could be consolidated with a NOC action remains an open question.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Plaintiffs consented to a more expeditious way to deal with non-asserted claims, which do not impact the Judgment.",
+     "quote": "Given the consent of the Plaintiffs in this case, the parties found a more expeditious way to deal with non-asserted claims, none of which impact the Judgment in this case.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "A thorough analysis of s 6(3) impact should await better record and fuller legal argument.",
+     "quote": "A more thorough analysis of the overall impact of s 6(3) of the NOC Regulations should await a better record and more fulsome legal argument.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found plaintiffs consented to counterclaim on non-asserted claims; s 6(3) restricts counterclaims to asserted claims but full analysis deferred.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court concluded it did not have to decide subsection 6(3) interpretation because appellants agreed without reservations to address non-asserted claims validity.",
+     "quote": "it appears that the Federal Court concluded that it did not have to decide on the proper interpretation of subsection 6(3) of the Regulations because the appellants had already agreed “without reservations” to address the validity of non-asserted claims in the counterclaim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Federal Court avoided deciding subsection 6(3) interpretation due to appellants' unreserved agreement on non-asserted claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Federal Court is a statutory court with only legislated jurisdiction; parties or court cannot extend it.",
+     "quote": "The appellants argue that the Federal Court is a statutory court having only the jurisdiction that is provided to it by legislation, and that neither parties to litigation nor the Federal Court itself have the power to agree to extend that jurisdiction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court accepts Federal Court's limited statutory jurisdiction but notes appellants criticize it for not considering jurisdiction over non-asserted claims validity.",
+     "quote": "This much, I accept. However, the appellants go on to criticize the Federal Court for failing to consider its jurisdiction to rule on the validity of the non-asserted claims of the 422 Patent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue Federal Court's jurisdiction is limited by statute and cannot be extended by agreement; court accepts but notes criticism of Federal Court's jurisdiction consideration.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Whether Regulations permit counterclaim on non-asserted claims in subsection 6(1) action, by right or with leave, is to be considered.",
+     "quote": "it is necessary to consider whether the Regulations permit, in the context of an action under subsection 6(1) thereof, a counterclaim on claims not asserted in the action, whether by right or with leave of the Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court will address whether such counterclaim is permitted with leave, leaving right to another day.",
+     "quote": "I will address the question of whether such a counterclaim is permitted with leave. As did the Federal Court, I will leave for another day, the question of whether a defendant in an action under subsection 6(1) may make such a counterclaim by right.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will consider if Regulations allow counterclaims on non-asserted claims with leave, deferring the question of right to another day.",
+   "role": "issue"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court's jurisdiction to address patent validity counterclaims is clear from Patent Act and Federal Courts Rules.",
+     "quote": "The jurisdiction of the Federal Court to address a challenge to the validity of a patent, whether by counterclaim in the context of a patent infringement action or otherwise, is already clear from the Patent Act and the Federal Courts Rules, S.O.R./98-106.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Question is whether Regulations limit Federal Court's jurisdiction by prohibiting parties' agreement or court order to address non-asserted claims validity.",
+     "quote": "The question for this Court is whether the Regulations limit that jurisdiction by prohibiting either (i) parties from agreeing to address the validity of non-asserted claims in proceedings thereunder, or (ii) the Federal Court from so ordering.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court's jurisdiction to address patent validity is clear; question is if Regulations limit jurisdiction to address non-asserted claims validity.",
+   "role": "issue"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Paragraph 6(3)(a) is permissive, allowing asserted claims in counterclaim but not explicitly prohibiting anything.",
+     "quote": "it is indeed permissive. It provides that asserted claims can be included in a counterclaim, but it does not explicitly prohibit anything.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue prohibition on non-asserted claims is implicit in mention of asserted claims and silence on non-asserted claims.",
+     "quote": "The appellants argue that the prohibition is implicit in the mention of asserted claims, and the corresponding silence on non-asserted claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Implicit limitation would require support from context or purpose of Regulations.",
+     "quote": "any such implicit limitation would have to be supported by the context and/or the purpose of the Regulations.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds paragraph 6(3)(a) permissive; appellants argue implicit prohibition on non-asserted claims; implicit limits require contextual support.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants note 2017 amendments simplify proceedings to ensure decisions within 24 months, limiting joined actions and requiring cooperation.",
+     "quote": "The appellants note provisions introduced with 2017 amendments that are designed to simplify proceedings to ensure that they can readily proceed to a decision following trial within the 24-month period contemplated therein.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Section 6.02 limits joining other actions during 24-month period; section 6.09 requires reasonable cooperation to expedite proceedings.",
+     "quote": "For example, section 6.02 provides that, with limited exceptions, no other action may be joined to an action under subsection 6(1) of the Regulations during the 24-month period. In addition, section 6.09 requires parties to reasonably cooperate in expediting proceedings under subsections 6(1) and 6(3).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Apotex argues mandatory provisions use explicit words; if non-asserted claims were prohibited, subsection 6(3) would say so.",
+     "quote": "On the other side of the debate, Apotex notes that many provisions of the Regulations that are intended to be mandatory say so explicitly (with words like “shall” and “must”); no inference is necessary. Apotex suggests that, if the intention had been to prohibit non-asserted claims in a counterclaim, subsection 6(3) could have said so.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants cite 2017 amendments limiting joined actions and requiring cooperation; Apotex argues prohibitions are explicit, none here for non-asserted claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Apotex argues limiting counterclaims to asserted claims may increase proceedings, court resource use, and inconsistent decisions.",
+     "quote": "Apotex also argues that limiting counterclaims under subsection 6(3) to asserted claims would not necessarily be more expeditious.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Separate action needed for invalidity declaration on non-asserted claims could cause unnecessary proceedings and inconsistent decisions.",
+     "quote": "Requiring a second person (a defendant) in proceedings under the Regulations to pursue another action separately to obtain a declaration of invalidity (or non-infringement) concerning non-asserted claims could result in unnecessary additional proceedings and an increase in the use of court resources, as well as a risk of inconsistent decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Not all Regulations provisions limit scope; subsection 6(3) permits counterclaim, which may avoid additional proceedings and inconsistent decisions.",
+     "quote": "Moreover, not all provisions of the Regulations are intended to limit the scope of proceedings under section 6. Subsection 6(3) itself is an excellent example: it permits the introduction of a counterclaim.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Invalidity as a defence suffices; counterclaim avoids need for additional proceedings and inconsistent decisions, arguably applying to non-asserted claims.",
+     "quote": "Invalidity merely as a defence would be sufficient to decide the action under subsection 6(1). An important reason to permit a counterclaim (for a formal declaration of invalidity) is to avoid the potential need for additional legal proceedings (by the same defendant or another person) to obtain such a declaration.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Objectives of Regulations include overall efficiency, not just expediting individual proceedings.",
+     "quote": "Arguably, these goals apply equally to non-asserted claims. It is also arguable that the objective of the Regulations is overall efficiency rather than expediting each individual proceeding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Apotex argues limiting counterclaims to asserted claims may cause more proceedings and inconsistent decisions; counterclaims promote efficiency and avoid extra litigation.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "RIAS for 2017 amendments mentions 'overall efficiency' multiple times and flexibility for impacted parties.",
+     "quote": "The RIAS explicitly mentions the aim of “overall efficiency” three times...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Plaintiff's agreement to address counterclaim on non-asserted claims suggests acknowledgement of efficiency, especially as claims are similar.",
+     "quote": "A plaintiff’s agreement to address a counterclaim alleging invalidity of non-asserted claims in the context of its action under subsection 6(1) suggests its acknowledgement of the efficiency of addressing these issues in the same proceeding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "RIAS highlights objectives of flexibility, choice, expediting proceedings, and court discretion to manage proceedings case-by-case.",
+     "quote": "Under the heading “Objectives”... the RIAS highlights the aim of “provid[ing] impacted parties with some flexibility and choice.”... the RIAS recognizes... “leaving the Court broad discretion to manage proceedings.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes RIAS emphasizes overall efficiency, flexibility, and court discretion; plaintiff's agreement to address non-asserted claims shows efficiency recognition.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "RIAS objective includes eliminating costly dual litigation and separate proceedings for all claims in a patent.",
+     "quote": "One of the objectives mentioned in the RIAS is the elimination of the “costly and inefficient practice of dual litigation”...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Addressing validity of non-asserted claims with asserted claims may gain same benefit of avoiding separate proceedings.",
+     "quote": "This same benefit may be gained by addressing the validity of non-asserted claims at the same time as the validity of asserted claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "RIAS aims to eliminate dual litigation; addressing non-asserted claims validity with asserted claims achieves this benefit.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "RIAS passage on subsection 6(3) states a second person may commence counterclaim seeking to invalidate the patent, not limited to asserted claims.",
+     "quote": "the passage in the RIAS that appears to address subsection 6(3) directly... states that “a second person may commence a counterclaim seeking to invalidate the patent.”",
+     "answers": 0
+    }
+   ],
+   "summary": "RIAS states a second person may commence a counterclaim to invalidate the patent, without focusing on asserted claims only.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Regulations intend to leave Federal Court discretion to permit counterclaim including non-asserted claims under subsection 6(3).",
+     "quote": "In my view, the intention of the Regulations is to leave to the Federal Court the discretion to permit a counterclaim under subsection 6(3) that includes non-asserted claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Federal Court exercised discretion properly; court will not interfere with finding of invalidity of all claims and order to remove patent.",
+     "quote": "The Federal Court exercised that discretion, and provided the reasons quoted at paragraph 43 above. I would not interfere with this exercise of discretion. I would also not interfere with the finding of invalidity of all claims of the 422 Patent, and the Order to remove it from the Patent Register.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Regulations allow Federal Court discretion to permit counterclaims on non-asserted claims and will not interfere with Federal Court's invalidity finding and order.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court found 422 Patent obvious and invalid, dismissed appellants' action, but also stated counterclaim would be dismissed, causing confusion.",
+     "quote": "The Federal Court reached a confusing conclusion... The counterclaim will likewise be dismissed. The invention is obvious/obvious to try. The 422 Patent is and has been invalid.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "It is unclear why counterclaim was dismissed despite invalidity finding supporting counterclaim grant.",
+     "quote": "it is not clear why the Federal Court stated that the counterclaim would be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found the patent invalid and dismissed the action but confusingly also dismissed the counterclaim, which is unclear.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court issued Judgments declaring 422 Patent invalid and ordering removal, but also dismissed action and counterclaim against Apotex.",
+     "quote": "The Federal Court issued separate Judgments... declared that the 422 Patent is invalid for obviousness, and ordered that it be removed from the Patent Register... also adjudged that the action and the counterclaim were dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Dismissal of counterclaim conflicts with invalidity finding and removal order, causing difficulty in understanding basis for removal order.",
+     "quote": "Given the finding of invalidity of the 422 Patent, it is difficult to understand the dismissal of the counterclaim. Further, given the dismissal of the counterclaim, it is difficult to understand the basis for ordering that the 422 Patent be removed from the Patent Register.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court's dismissal of the counterclaim conflicts with its invalidity finding and removal order, causing confusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Neither appellants nor Apotex sought clarification of confusing statements in Federal Court Decision and Judgment.",
+     "quote": "neither the appellants nor Apotex took any steps before the Federal Court to clarify these confusing statements...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "At hearing, both sides accepted dismissal of counterclaim was deliberate, not a mistake.",
+     "quote": "both sides appeared prepared to accept that the dismissal of the counterclaim was deliberate, and not a mistake.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds no reason Federal Court would dismiss counterclaim; concludes dismissal was a slip of the pen and counterclaim should be granted.",
+     "quote": "In my view, the only reasonable conclusion is that the Federal Court intended to find in favour of the respondents on both the main claim and the counterclaim, and grant the counterclaim. Treating the dismissal of the counterclaim as yet another slip of the pen clears up the confusion...",
+     "answers": 0
+    }
+   ],
+   "summary": "Neither party sought clarification of confusing dismissal; court concludes dismissal was a slip and counterclaim should be granted.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Reading Federal Court's conclusion as granting counterclaim requires amending Apotex Judgment to dismiss action and grant counterclaim with costs.",
+     "quote": "Making the Judgment that the Federal Court should have made, I would amend paragraph 3 thereof to read as follows: The action is dismissed, and the counterclaim is granted, with costs to the Defendant...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would amend the Judgment to dismiss the action and grant the counterclaim with costs to the defendant.",
+   "role": "disposition"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeals are dismissed with costs; Judgment involving Apotex is amended as indicated.",
+     "quote": "I would dismiss the appeals with costs, and amend the Judgment involving Apotex... as indicated in the preceding paragraph.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeals with costs and amends the Apotex Judgment accordingly.",
+   "role": "disposition"
+  }
+ ]
+}

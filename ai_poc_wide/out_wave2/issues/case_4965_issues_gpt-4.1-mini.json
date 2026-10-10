@@ -1,0 +1,42 @@
+{
+ "case_id": 4965,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0006896,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 7,
+  "9": 8,
+  "10": 8,
+  "11": 8,
+  "12": 9,
+  "13": 9,
+  "14": 10,
+  "15": 10,
+  "16": 11,
+  "17": 12,
+  "18": 12,
+  "19": 13
+ },
+ "result": {
+  "order_para": 13,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the Officer's refusal of the employer-specific work permit reasonable and supported by adequate reasons?",
+    "paras": "3,4,8-13",
+    "applicant_position": "The Officer's reasons are inadequate, unreasonable, confused, lacking explanation, and should have requested missing information or relied on prior permit issuance.",
+    "respondent_position": "The decision is reasonable and the reasons are sufficient and adequate.",
+    "result": "dismissed_for_applicant",
+    "result_para": 9,
+    "result_text": "The court agrees the decision is reasonable and reasons adequate."
+   }
+  ]
+ }
+}

@@ -1,0 +1,623 @@
+{
+ "case_id": 50206,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0100084,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Reject the refugee claims of the claimant, a 53 year old Colombian citizen.",
+     "quote": "These are the reasons I reject the refugee claims of XXXX XXXX XXXX XXXX XXXX, (herein known as the claimant) a 53 year old citizen of Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the refugee claims of the 53 year old Colombian claimant.",
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Reject the joined claims of the claimant's family members, all Colombian citizens.",
+     "quote": "I reject the joined claims of his 24 year old son, XXXX XXXX XXXX XXXX, his 52 year old wife, XXXX XXXX XXXX XXXX XXXX, and his three daughters, 27 year old XXXX XXXX XXXX XXXX, 23 year old XXXX XXXX XXXX XXXX and 21 year old XXXX XXXX XXXX XXXX, all citizens of Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the refugee claims of the claimant's family members, all Colombian citizens.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges problems with paramilitary groups AUC and Black Eagles while working for certain employers.",
+     "quote": "The claimant alleges that while he worked for a XXXX XXXX XXXX and also as an XXXX XXXX, he had problems with the paramilitary group AUC and its successor the Black Eagles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges problems with paramilitary groups AUC and Black Eagles during employment.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Claimant fled Colombia in 2008 after refusing extortion demands; family left later and made refugee claims in Canada.",
+     "quote": "After refusing to pay the extortion demands the claimant fled Colombia in XXXX 2008. The rest of his family left Colombia in XXXX 2008. After short stays in the United States (US), the family came to Canada and made refugee claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant fled Colombia in 2008 after extortion demands; family followed and made refugee claims in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant found not credible; all claims relying on him fail.",
+     "quote": "I found the claimant to be not a credible witness. Since all the claims rely on the case of the claimant, all the claims fail.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant not credible and all claims fail as they rely on him.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant said problems with paramilitaries began in 2006 with demands for equipment but no other demands then.",
+     "quote": "When questioned as to when his problems with the paramilitaries began the claimant responded in XXXX 2006 he had to leave the area. Orally, he spoke of the group asking him to provide vehicles and road building machinery.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant did not mention money demands in oral evidence though report mentions it; claimant gave no explanation.",
+     "quote": "The claimant was asked why the report states they demanded money in XXXX 2006 and this was not mentioned in his oral evidence. The claimant did not provide an explanation but instead spoke of being an employee and not handling money for the company.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant said not all info was in report because of uncertainty about who was listening.",
+     "quote": "The claimant responded that not all the information was put in the report since you do not know who you are speaking with.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said problems began in 2006 with equipment demands but no money demands orally; no explanation for report's money demand mention.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Expect consistency between claimant's oral evidence, PIF narrative, and police report about 2006 problems.",
+     "quote": "If the claimant's problems began in XXXX 2006 when the groups demanded he lend the equipment as he stated orally, then I would expect this to be consistent in both his Personal Information Form (Exhibit C-1) narrative and in the police report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court expects consistency between claimant's oral evidence, PIF narrative, and police report about 2006 problems.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Original PIF narrative lacks mention of report to Attorney General; claimant said he focused on 2008 events.",
+     "quote": "In the original PIF narrative there is no mention of a report to the Attorney General. When asked to explain the claimant stated he was concentrating on the events of XXXX 2008.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "PIF instructions require including all efforts to seek protection; claimant signed it as complete.",
+     "quote": "The instructions for the preparations of the narrative are clear that all efforts to seek protection are to be included. Since the claimant signed the first copy of his PIF that he understood it and it was complete...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If report was made in 2006, it should have been included in PIF then, not amended 10 months later.",
+     "quote": "if there was a report made in XXXX 2006 it should have been included a that time. It should not have been necessary to make an amendment 10 months later.",
+     "answers": 0
+    }
+   ],
+   "summary": "The original PIF lacks mention of 2006 report; claimant focused on 2008 events; PIF instructions require all protection efforts included; report should have been included earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Report mentions equipment repair and money demands not in oral evidence; report likely created to advance claim.",
+     "quote": "The report speaks of repairing equipment and demands for money, since neither of these were indicated in oral evidence I am satisfied that the account of problems with the groups and the account of making a report was created to advance his refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the report's content inconsistent with oral evidence and likely created to advance the refugee claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant initially said next problems were in 2008; later recalled a 2007 message from Black Eagles without contact info.",
+     "quote": "The claimant initially testified that his next problems occurred in 2008. When questioned directly, regarding 2007, he remembered that a message was left with a worker on a project at the beginning of 2007, that they wanted to speak to me.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant explained message was normal, no instructions given, expected to find them by asking locally.",
+     "quote": "The claimant explained that to contact them they would come back. He was not to do anything and this is normal, they just indicate they want to talk to someone.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant's explanation for no contact details was that he was expected to find Black Eagles by asking in their area.",
+     "quote": "He explained he believed he was expected to ask in the area where the Black Eagles were located and how to contact them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said next problems were in 2008 but recalled a 2007 message from Black Eagles without contact info, explaining he was to find them locally.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is implausible claimant got a message from Black Eagles with no contact info and no follow-up attempt; explanation not reasonable.",
+     "quote": "I find, on a balance of probabilities, it is implausible that the claimant would be given a message that the Black Eagles wanted to talk to him and yet provide no way to contact them nor was there any attempt from the Black Eagles to contact the claimant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant's explanation that he should find Black Eagles by asking in community is not reasonable; account not credible.",
+     "quote": "His explanation that he would be expected to find the Black Eagles by asking in the community where they lived is not reasonable. It assumes people know who the Black Eagles are and the claimant would approach them. I am satisfied, on a balance of probabilities, this account of a message from the Black Eagles is again, not credible.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the claimant's story about a message from Black Eagles without contact info not credible and unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "2008 report states claimant was attacked by armed men in 2006; claimant initially evaded question, then said attack was in 2008.",
+     "quote": "The XXXX, 2008 report, Exhibit C-13, item 3, states the claimant was attacked by armed men in XXXX 2006. When asked if this happened the claimant initially evaded the question by responding if it says that, it must have happened. The claimant then stated this was in 2008.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant suggested report word should be 'approached' not 'attacked' to explain discrepancy.",
+     "quote": "The claimant suggested that perhaps the word in the report should have been \"approached\" not attacked.",
+     "answers": 0
+    }
+   ],
+   "summary": "The 2008 report says claimant was attacked in 2006; claimant evaded and then said attack was in 2008, suggesting 'approached' was correct word.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Date of 2008 attack in report is April; claimant amended PIF to say it was May, blaming nervousness for error.",
+     "quote": "In addition, the date of the 2008 attack is reported as XXXX, 2008 in the report. In his amended PIF he indicates it should have been XXXX and the error was due to nervousness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant amended PIF to correct 2008 attack date from April to May, blaming nervousness for error.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court does not accept claimant's explanations about report discrepancies.",
+     "quote": "I don't accept these explanations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant wrote report in Spanish on April 2 and delivered it April 4 to Attorney General before leaving Colombia.",
+     "quote": "The original report filed with the Attorney General just prior to leaving Colombia, according to the claimant's latter evidence was written by the claimant, in Spanish, on April 2 and delivered to the Attorney General on April 4.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects claimant's explanations; claimant wrote and delivered report to Attorney General in early April before leaving Colombia.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Report info inconsistent with oral and written evidence; claimant created report to advance refugee claim.",
+     "quote": "Since the information in the report is inconsistent with his oral and written evidence, on a balance of probabilities, I am satisfied the claimant created the information in the report to the Attorney General filed prior to leaving Colombia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant willing to create and swear to false evidence in Colombia to advance claim in Canada.",
+     "quote": "Again, the actions show a willingness to create evidence in Colombia and swear to its truthfulness to advance his refugee claim in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant created inconsistent report and was willing to create false evidence to advance refugee claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant said purpose of April report was to leave record and seek protection though he knew protection unlikely.",
+     "quote": "When questioned as to the purpose of the April report, the claimant testified he wanted to leave a record that something was happening to me. He claimed that he wanted protection but knew he was not going to get protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Report dated April 2, 2008, received by Attorney General April 4 at 3:40 pm; claimant cleared airport security at 10 pm same day.",
+     "quote": "The claimant explained the report is dated April 2, 2008 and was not taken to the Attorney General Office until April 4. The evidence, as pointed out in the hearing room, is that the report was received by the Attorney General at 3:40 pm on April 4. The claimant's passport shows he cleared security at the airport at 10 pm that same day.",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimant said April report aimed to seek protection; report received April 4 afternoon; claimant cleared airport security same day at 10 pm.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Report's final sentence is a clear request for help due to life risk.",
+     "quote": "The final sentence of the report is a clear request for help. The claimant asks the assigned prosecutor to advise him what he should do since his life and the lives of his family members are at risk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If claimant was truly fearful, he would not have waited a month after attack and made report just 6 hours before airport exit control.",
+     "quote": "If the claimant was truly asking for help and was fearful for his life, I am satisfied he would not have waited a month after the attack, and then make a report just 6 hours before clearing exit control at the airport to catch a 12:00 flight to Toronto, Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On balance, claimant was not fearful for his life when leaving Colombia.",
+     "quote": "On a balance of probabilities, I am satisfied the claimant was not fearful for his life when he left Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's report was a clear help request but timing shows he was not fearful when leaving Colombia.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant's third amended PIF says a man asked vendor about wife's relatives; claimant said vendor was asked if she saw family members.",
+     "quote": "The claimant, in his third amended PIF, exhibit C-14, outlines that a man asked for information about his wife's relatives from a woman who sold phone cards near his mother- in-law's home. In his oral evidence, the claimant stated that the vendor was asked if she had seen people who looked like members of the claimant's family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant could not explain how vendor knew family or was shown pictures; said Black Eagles have people everywhere.",
+     "quote": "The claimant spoke of the Black Eagles having people all over and the vendors of phone cards see people. The claimant never answered how the vendor was to know what the family looked like or even that the armed person asked by name.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant's wife said vendor told her sister about being approached; claimant contradicted himself about men being armed.",
+     "quote": "When I asked the claimant how he knew armed men had questioned the vendor in the phone card booth, he had not indicated the vendor had told his sister-in-law, the claimant attempted to correct me by stating he had not said the men were armed. His earlier evidence was that the men were armed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes inconsistencies and lack of explanation about vendor being questioned by armed men about family.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Information about vendor being approached should have been provided in oral evidence when asked for details.",
+     "quote": "All this information as to how the family knew of the vendor being approached should have been provided in oral evidence when the claimant was asked for details.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If claimant's wife was told about vendor being approached, this should have been in her amended PIF.",
+     "quote": "If it was the claimant's wife who was told about the vendor being approached, this information should have been provided in her amended PIF.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that details about vendor being approached should have been provided in oral evidence or wife's amended PIF.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Not plausible that armed men would question vendor about family near mother-in-law unless they already knew relatives' location.",
+     "quote": "It is not plausible that armed men would suddenly start questioning a vendor about the family in the area of the claimant's mother-in-law unless they already knew that was where his relatives lived.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If men knew relatives' location, they would know mother-in-law's address and not need to question vendor.",
+     "quote": "If they had that information, they would know the mother-in-law's address and there would be no reason to question the vendor.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds it implausible armed men would question vendor about family near mother-in-law unless they already knew relatives' location.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The story of stopping the nephew is problematic and lacks explanation on how the Black Eagles found him.",
+     "quote": "The story of stopping the nephew is equally problematic. Counsel questioned how they, the Black Eagles, could find the nephew?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The account that the Black Eagles asked a woman selling phone cards about the family is unexplained and implausible without showing photos.",
+     "quote": "The response was they asked a woman who sells phone cards about the family. It was never explained to me how this would allow the representatives of the Black Eagles to connectt any one to the family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence exists that photos of the claimant were shown to the vendor to identify the family.",
+     "quote": "The only way this account could possibly make any sense would be if they showed the vendor photos of claimant and there is no evidence this occurred.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I am satisfied on a balance of probabilities that this account was created for the hearing to advance the claimant's refugee claim.",
+     "quote": "Hence I am satisfied, on a balance of probabilities; this account again has been created for this hearing to advance the claimant's refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the story about stopping the nephew problematic, implausible, and likely fabricated to advance the claimant's refugee claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The 2006 report is inconsistent with the claimant's other evidence.",
+     "quote": "The XXXX 2006 report is inconsistent with the claimant's other evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The claimant initially omitted that the Black Eagles wanted to speak to him from his oral evidence.",
+     "quote": "The claimant's evidence that the Black Eagles wanted to speak to him was initially omitted from his oral evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The claim that the Black Eagles wanted to speak to him is implausible since no contact method was provided.",
+     "quote": "and is implausible since no contact method was provided.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 2006 report inconsistent and the claimant's evidence about the Black Eagles wanting to speak to him implausible and initially omitted.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The April 2008 report is inconsistent with the claimant's oral and written statements.",
+     "quote": "The April 2008 report is not consistent with the oral and written statements of the claimant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the April 2008 report inconsistent with the claimant's statements.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The account of the vendor being approached for family information is inconsistent about whether the person was armed.",
+     "quote": "The account of the vendor being approached for family information is inconsistent as to whether the person was armed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The account is implausible on its face.",
+     "quote": "and is implausible on its face.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the vendor approach account inconsistent and implausible.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I find the claimant was not a credible witness.",
+     "quote": "I find the claimant was not a credible witness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Many credibility concerns arise from the claimant's supporting documents.",
+     "quote": "Since many of his credibility concerns occur due to his supporting documents,",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I give the claimant's supporting documents insufficient weight to advance the claim on their own.",
+     "quote": "I give these documents insufficient weight to advance the claim on their own.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant not credible and gives insufficient weight to his supporting documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "All related claims rely on the claimant's evidence.",
+     "quote": "All the related claims rely on the evidence of the claimant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The claimants failed to establish a serious possibility of persecution or serious harm if returned to Colombia today.",
+     "quote": "I am satisfied the claimants failed to establish there is a serious possibility they will be persecuted or suffer other forms of serious harm should they return to Colombia today.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimants failed to prove a serious possibility of persecution or harm upon return to Colombia.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Refugee Protection Division rejects the claims under sections 96 and 97 of the Immigration and Refugee Protection Act.",
+     "quote": "The Refugee Protection Division rejects the claims pursuant to both sections 96 and 97 of the Immigration and Refugee Protection Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Refugee Protection Division rejects the claims under sections 96 and 97 of the IRPA.",
+   "role": "disposition"
+  }
+ ]
+}

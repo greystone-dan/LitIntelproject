@@ -1,0 +1,64 @@
+{
+ "case_id": 66645,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0010923999999999999,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 7,
+  "9": 8,
+  "10": 9,
+  "11": 9,
+  "12": 10,
+  "13": 11,
+  "14": 12,
+  "15": 12,
+  "16": 13,
+  "17": 13,
+  "18": 14,
+  "19": 15,
+  "20": 15,
+  "21": 16,
+  "22": 17,
+  "23": 18
+ },
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD err in finding that the appellant's past bullying did not amount to persecution?",
+    "paras": "2,3,8,9,10",
+    "applicant_position": "Appellant alleges years of bullying amounting to persecution and argues cumulative acts entitle him to protection.",
+    "respondent_position": "RPD found discrimination did not threaten fundamental rights and was not persecution.",
+    "result": "not_decided",
+    "result_para": 10,
+    "result_text": "Court did not decide if past events were persecution, focusing on forward-looking risk instead."
+   },
+   {
+    "issue": "Does the appellant face a forward-looking risk of persecution or harm if returned to South Korea?",
+    "paras": "4,5,7,10,11,16,17",
+    "applicant_position": "Appellant argues he will face continued persecution as a high school student on return.",
+    "respondent_position": "RPD and court find no forward-looking risk; appellant will be an adult with no evidence of bullying continuing.",
+    "result": "dismissed_for_applicant",
+    "result_para": 5,
+    "result_text": "Court finds no forward-looking risk of persecution or harm in South Korea."
+   },
+   {
+    "issue": "Is the appellant entitled to education free from abuse and persecution upon return?",
+    "paras": "9,12,13,14,15,16,17",
+    "applicant_position": "Appellant claims right to education free from abuse and persecution as a high school student.",
+    "respondent_position": "Court finds appellant will have completed high school in Canada and be an adult; no evidence of adult bullying.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_text": "Court disagrees; appellant will be adult with no evidence of bullying extending to adults."
+   }
+  ]
+ }
+}

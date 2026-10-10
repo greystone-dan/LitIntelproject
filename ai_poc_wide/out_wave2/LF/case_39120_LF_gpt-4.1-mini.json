@@ -1,0 +1,1280 @@
+{
+ "case_id": 39120,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.022652,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This is an appeal from a Federal Court decision allowing judicial review of CATSA's contract award to Smiths.",
+     "quote": "This is an appeal from a decision of Mr. Justice Annis of the Federal Court (the judge) dated January 21, 2014. The judge allowed the judicial review application made by the respondent, Rapiscan Systems Inc. (Rapiscan), of a decision of the Canadian Air Transport Security Authority (CATSA) to award a procurement contract to Smiths Detection Montreal Inc. (Smiths)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this appeal arises from a Federal Court decision allowing Rapiscan's judicial review of CATSA's contract award to Smiths.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the judge erred in finding CATSA's Board decision flawed.",
+     "quote": "The Attorney General of Canada (the appellant) now appeals the judge’s decision essentially arguing that the judge erred in finding that the decision of CATSA’s Board of Directors (CATSA’s Board) was flawed.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Rapiscan argues the procurement process was unfair and anti-competitive and seeks declaratory relief.",
+     "quote": "In response, Rapiscan maintains that the procurement process at issue was unfair and anti-competitive and seeks declaratory relief to that effect.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the judge erred; the respondent contends the procurement was unfair and seeks relief.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed for the reasons that follow.",
+     "quote": "For the reasons that follow, I would dismiss the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will dismiss the appeal for the reasons that follow.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CATSA is a Crown corporation created in 2002 to oversee airport security screenings and purchase related equipment.",
+     "quote": "CATSA, a Crown corporation, was created in 2002 pursuant to the Canadian Air Transport Security Authority Act, S.C. 2002, c. 9, s. 2 [CATSA Act]. As part of its mandate, CATSA oversees passenger and baggage screenings at airports across Canada for security purposes. To this end, CATSA purchases the equipment required to conduct such screenings, including replacement equipment when necessary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains CATSA's creation and mandate to oversee airport security and procure screening equipment.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2009, CATSA awarded a sole-source procurement to Smiths and assured the Board future purchases would be open.",
+     "quote": "In September 2009, CATSA announced that it awarded a non-competitive sole-source procurement to Smiths for the purchase of multi-view x-ray equipment used to screen passengers’ baggage at security checkpoints in airports across Canada. CATSA’s management assured CATSA’s Board that this non-competitive approach remained an exception and future purchases would be done using an open procurement process",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found CATSA awarded a sole-source contract to Smiths in 2009 but promised future open procurements.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In August 2010, CATSA initiated a Request for Submission (RFS) for multi-view x-ray screening equipment.",
+     "quote": "About a year later, on August 16, 2010, CATSA initiated another procurement process in the form of a Request for Submission (RFS) in order to purchase multi-view x-ray screening equipment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RFS was posted on MERX inviting suppliers to submit product information and pricing.",
+     "quote": "The RFS was posted on MERX, an electronic tendering service, inviting prospective suppliers to submit information on their respective products, including pricing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found CATSA posted an RFS on MERX in 2010 inviting submissions for x-ray equipment.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RFS was multi-phased: RFI could lead to SOA, further phase, or cancellation.",
+     "quote": "The RFS at issue was designed as a multi-phased process, the first being a Request for Information (RFI) which could lead to either (i) entering directly into a Standing Offer Agreement (SOA) with one or more suppliers, or (ii) a further phase allowing suppliers to present their proposed equipment or (iii) the cancellation of the RFS.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker described the RFS as multi-phased, possibly leading to SOA, further phase, or cancellation.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Rapiscan was invited later to participate; four suppliers submitted including Smiths and Rapiscan.",
+     "quote": "Rapiscan was not amongst the list of suppliers who initially responded to the posting on MERX but was later invited by CATSA to participate in the RFS. In total, CATSA received submissions from four (4) suppliers in response to its RFS, including submissions from Smiths and Rapiscan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found Rapiscan was later invited and four suppliers submitted including Smiths and Rapiscan.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On October 4, 2010, CATSA’s Board awarded the SOA exclusively to Smiths on management's recommendation.",
+     "quote": "On October 4, 2010, CATSA’s Board awarded the SOA exclusively to Smiths. It did so on the recommendation of CATSA’s management, which had determined that Smiths was the only supplier able to perform the contract for the required multi-view x-ray screening equipment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found CATSA’s Board awarded the SOA exclusively to Smiths on management's recommendation.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Rapiscan filed judicial review application on November 5, 2010, with hearings in 2013 after document disputes.",
+     "quote": "Unsatisfied with CATSA’s handling of the procurement process, Rapiscan filed an application in the Federal Court on November 5, 2010 seeking judicial review of CATSA’s Board’s decision to award the SOA to Smiths. Following, inter alia, protracted exchanges over document production, the hearing took place on June 12 and 13, 2013 and July 26, 2013.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found Rapiscan filed judicial review in 2010; hearings occurred in 2013 after document disputes.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The judge reviewed facts including CATSA’s mandate, policies, procurement background, and purchase history.",
+     "quote": "As part of his decision, the judge provided a detailed review of the facts at issue including a description of CATSA’s mandate, its Contracting Policy and Procedures, the background leading to the 2010 procurement process and the Board’s decision. The judge also noted CATSA’s equipment purchase history from Rapiscan’s main competitor, Smiths.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge determined the applicable standard of review was reasonableness in procurement cases.",
+     "quote": "On the standard of review applying to procurement cases such as the one at issue, he determined that the applicable standard was reasonableness (judge’s reasons at paras. 47 and 127).",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge reviewed facts and found reasonableness was the applicable standard of review in procurement cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "issue",
+     "text": "Whether the case falls within public law for judicial review purposes.",
+     "quote": "The first issue considered by the judge was whether the present case could fall within the purview of public law.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge viewed the case as turning on good governance issues permitting public law remedy.",
+     "quote": "The judge expressed the view that this case “turns on whether there are sufficiently significant issues pertaining to the good governance of CATSA to permit a public law remedy in respect of those issues in a matter that is based on a commercial procurement contract”",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge considered if the case involved public law issues permitting judicial review for good governance concerns.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The judge referred to Irving Shipbuilding FCA decision about public law and procurement.",
+     "quote": "In this regard, the judge referred to our Court’s decision in Irving Shipbuilding Inc. v. Canada (Attorney General), 2009 FCA 116, [2010] 2 F.C.R. 488 at paragraph 1 [Irving Shipbuilding], noting that “Public contracts lie at the intersection of public law and private law”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge distinguished Irving Shipbuilding because it involved sub-contractors, not direct suppliers.",
+     "quote": "In Irving Shipbuilding, our Court refused in principle the application of public law over a procurement decision. In the present case, the judge distinguished this finding on the basis that the issue in Irving Shipbuilding was the availability of judicial review for sub-contractors in a public procurement process whereas this case relates to direct suppliers (bidders).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "The judge concluded public law could apply in this procurement context.",
+     "quote": "On the basis of that distinction, the judge concluded that public law could apply in the present procurement context.",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge distinguished Irving Shipbuilding and concluded public law could apply to direct suppliers in procurement.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge applied Air Canada factors to find a public element and usefulness of public law remedy.",
+     "quote": "The judge then turned his mind to the “public-private” factors set out by this Court in Air Canada v. Toronto Port Authority Et Al, 2011 FCA 347, [2013] 3 F.C.R. 605 and concluded that they applied “to colour the present matter with a public element” and, as such, bring the matter within the purview of public law and that a “public law remedy would be useful”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Relying on TeleZone, the judge added setting fair process requirements as a factor for public law remedies.",
+     "quote": "Relying further on Canada (Attorney General) v. TeleZone Inc., 2010 SCC 62, [2010] 3 S.C.R. 585, the judge added the additional factor of “setting the requirements for a fair process in the future” in determining whether public law remedies should apply in this case",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found public law applied using Air Canada and TeleZone factors to ensure fairness and public element.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge accepted Rapiscan’s claim that CATSA’s Board was significantly misled undermining procurement integrity.",
+     "quote": "Ultimately, the judge accepted Rapiscan’s contention that CATSA’s Board was so significantly misled by CATSA’s management that it undermined the integrity of the government procurement process.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "This mislead was sufficient to ground a public law remedy.",
+     "quote": "This, in itself, he held, would be sufficient to ground a public law remedy.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RFS ousted usual contractual remedies, allowing fairness complaints in public law.",
+     "quote": "He also added that the RFS explicitly ousted the usual contractual remedies contained in “Contract A”, thus opening the door to grounding a complaint about the fairness of CATSA’s procurement process in public law",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found CATSA’s Board was misled, justifying public law remedy and that RFS ousted usual contractual remedies.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge found CATSA’s Board failed to consider relevant factors making the RFS unfair.",
+     "quote": "Specifically, the judge found that in making its procurement decision, CATSA’s Board failed to consider relevant factors, namely: that the RFS was not an open process; neither was it authorized by CATSA’s Contracting Policy and Procedures; that the requirement that the equipment have a minimum of three view generators was not disclosed in the RFS, and that Rapiscan’s model costs significantly less than Smiths’.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge found CATSA acted in bad faith due to management deliberately misleading the Board.",
+     "quote": "Moreover, given his finding that CATSA’s management deliberately misled the Board on these factors, the judge further concluded that CATSA acted in bad faith.",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found CATSA’s Board ignored key factors and that management deliberately misled the Board, acting in bad faith.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "The judge allowed judicial review and declared CATSA’s Board decision unlawful and unfair.",
+     "quote": "Accordingly, the judge allowed the application for judicial review in public reasons issued on February 6, 2014, subject to receiving submissions on the appropriate remedy in order to avoid jeopardizing CATSA’s operational requirements. On April 4, 2014, the judge issued his Order and declared that the decision of CATSA’s Board dated October 4, 2010 awarding the SOA to Smiths was “procedurally unlawful and unfair”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge allowed judicial review and declared CATSA’s Board decision unlawful and unfair.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "There are three substantive issues and one procedural issue regarding affidavit admissibility.",
+     "quote": "There are three substantive issues before this Court, as well as one preliminary procedural issue regarding the admissibility of an affidavit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issues: affidavit admissibility, Contracting Procedures compliance, procedural fairness breach, bad faith.",
+     "quote": "These issues are as follows: Is the Affidavit of Mr. Peter Kant admissible? Did CATSA fail to follow its Contracting Procedures? Did CATSA breach a duty of procedural fairness? Did CATSA act in bad faith?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies issues: affidavit admissibility, Contracting Procedures, procedural fairness, and bad faith.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "On appeal from judicial review, court must check if judge identified and applied correct standard of review.",
+     "quote": "In an appeal from a judicial review decision, the role of this Court is to determine first, whether the judge identified the appropriate standard of review and, second, whether he applied it correctly",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to check if the judge identified and applied the correct standard of review on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge correctly identified reasonableness as the standard of review in procurement cases.",
+     "quote": "In the present case, the judge correctly identified the standard of review when he found that “[i]n review of procurement cases, deference is owed to the decision-maker other than on questions of jurisdiction; the appropriate standard of review is thus reasonableness”",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge correctly identified reasonableness as the standard of review in procurement cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge made many findings of fact, unusual in judicial review, reviewable for palpable and overriding error.",
+     "quote": "the judge also made a large number of findings of fact which is unusual in a judicial review application. Findings of fact and of mixed fact and law of the judge are reviewable under the standard of palpable and overriding error",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge made many findings of fact in judicial review, reviewable for palpable and overriding error, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Rapiscan served and filed Kant affidavit in 2012 as part of judicial review record.",
+     "quote": "Rapiscan served upon the appellant an affidavit from Mr. Peter Kant, a Rapiscan executive, (the Kant affidavit) on May 23, 2012 and subsequently filed it with the Court as part of its application record on August 31, 2012",
+     "answers": 0
+    }
+   ],
+   "summary": "Rapiscan served and filed the Kant affidavit in 2012 as part of the judicial review record, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Admissibility of Kant affidavit was challenged before judge; counsel discussed procedure for challenge.",
+     "quote": "Before the judge, the admissibility of the Kant affidavit was challenged. An exchange ensued between counsel as to whether the proper procedure would be to bring a separate motion prior to the hearing",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's counsel said judge could look at Kant affidavit and give it little or no weight.",
+     "quote": "Counsel for the appellant stated that “we are content that you [the judge] look at it [Kant affidavit] and give it little or no weight”",
+     "answers": 0
+    }
+   ],
+   "summary": "Before the judge, admissibility of Kant affidavit was challenged; appellant's counsel said judge could consider it with little or no weight.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Judge accepted appellant's suggestion to consider Kant affidavit and agreed to rule on it later.",
+     "quote": "The suggestion by counsel for the appellant was accepted by the judge ... who then proceeded with counsel for the parties to consider the affidavit ... the judge agreed to do so",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Affidavit was considered as part of the record at hearing's end.",
+     "quote": "At that point, the affidavit could accordingly be considered as forming part of the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "Judge accepted appellant's suggestion to consider Kant affidavit and agreed to rule on it; affidavit became part of record.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits judge erred by not ruling on Kant affidavit and it should be inadmissible.",
+     "quote": "The appellant submits that the judge erred in failing to make any determination regarding the Kant affidavit and it should accordingly be found inadmissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant submits judge erred by not ruling on Kant affidavit and it should be inadmissible, appellant argues.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant had ample time to challenge Kant affidavit but did not; thus cannot now claim inadmissibility.",
+     "quote": "Had the appellant wished to challenge the Kant affidavit, it had ample time to do so by filing a proper motion ... In failing to bring such a motion, I am of the view that it is not open to the appellant to argue that the affidavit should now be deemed inadmissible",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellant had ample time to challenge Kant affidavit but did not, so cannot now claim inadmissibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Although preferable to address Kant affidavit expressly, judge did not err in this regard.",
+     "quote": "although it would have been preferable for the judge to expressly address the Kant affidavit in his decision, I am satisfied that ... the judge did not err in any way in this regard.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes judge did not err by not expressly addressing Kant affidavit, though preferable to do so.",
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Central substantive issue: Did CATSA fail to follow its Contracting Procedures?",
+     "quote": "I now turn to the first substantive issue which I consider to be central in this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies central substantive issue: whether CATSA failed to follow its Contracting Procedures.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CATSA's mandate includes passenger and baggage screening and equipment procurement at airports.",
+     "quote": "In essence, the mandate of CATSA is to conduct passenger and baggage screenings at airports for security purposes and to purchase the equipment necessary to do so.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states CATSA's mandate includes airport screening and equipment procurement.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 8(5) of CATSA Act requires CATSA to establish procurement policies promoting transparency, fairness, value for money.",
+     "quote": "The Authority must establish policies and procedures for contracts for services and for procurement that ensure ... transparency, openness, fairness and value for money in purchasing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites CATSA Act s.8(5) requiring procurement policies promoting transparency, fairness, and value for money.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CATSA has a statutory duty to establish procurement policies promoting transparency, openness, fairness, and value for money.",
+     "quote": "This provision thus expressly imposes upon CATSA a statutory duty to establish policies and procedures ... that promote transparency, openness, fairness and value for money in purchasing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds CATSA has statutory duty to establish procurement policies promoting transparency, fairness, and value for money.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CATSA adopted Contracting Policy July 1, 2009 and Contracting Procedures December 22, 2009; issue concerns Procedures.",
+     "quote": "In accordance with subsection 8(5) of the CATSA Act, CATSA’s Contracting Policy was adopted on July 1, 2009 and its Contracting Procedures were adopted on December 22, 2009. The central issue raised by this appeal concerns the latter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states CATSA adopted Contracting Policy and Procedures; issue concerns Procedures.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Court reproduces relevant portions of CATSA Contracting Policy and Procedures regarding procurement processes and exceptions.",
+     "quote": "For the purpose of this appeal, the relevant portions of CATSA’s Contracting Policy and Procedures are reproduced here: ...",
+     "answers": 0
+    }
+   ],
+   "summary": "Court reproduces relevant CATSA Contracting Policy and Procedures provisions on procurement.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Rapiscan alleges CATSA did not adhere to its Contracting Procedures in awarding contract to Smiths via RFS.",
+     "quote": "In bringing its application for judicial review, Rapiscan maintained, as it does on appeal, that CATSA did not adhere to its Contracting Procedures in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Rapiscan alleges CATSA did not follow Contracting Procedures in awarding contract via RFS, appellant argues.",
+   "role": "issue"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Rapiscan notes CATSA Contracting Procedures define various authorized procurement vehicles including RFI, RFQ, RFP, RFSO, tender, Third Party Standing Offer.",
+     "quote": "Rapiscan emphasizes that CATSA’s Contracting Procedures provide for a number of authorized procurement vehicles. For instance, “Open Procurement Process” is defined as ...",
+     "answers": 0
+    }
+   ],
+   "summary": "Rapiscan notes CATSA Contracting Procedures define authorized procurement vehicles like RFI, RFQ, RFP, tender.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge found RFS procurement process was not authorized under CATSA Contracting Procedures.",
+     "quote": "The judge to find that “[t]he RFS did not comply from its very conception with any authorized procurement process under the Contracting Procedures. An “RFS” was not included among the several authorized procurement processes",
+     "answers": 0
+    }
+   ],
+   "summary": "Judge found RFS procurement process was not authorized under CATSA Contracting Procedures.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RFS was a combined process of RFI and directed contract, thus proper procurement vehicle.",
+     "quote": "the appellant submits that the RFS was in fact a combined procurement process first made of an RFI and followed by a directed contract",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues RFS was a combined RFI and directed contract, thus a proper procurement vehicle.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds appellant's submissions about RFS unconvincing.",
+     "quote": "With respect, I find the appellant’s submissions unconvincing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellant's submissions about RFS unconvincing.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant gave no explanation why RFS, not in Procedures, was chosen or authorized; judge noted confusion on RFS origin.",
+     "quote": "The appellant has provided no explanation as to why the RFS procurement vehicle ... was chosen ... Nor is there any explanation as to why the RFS procedure was required or on what basis it was authorized.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge noted Mr. Corrigan did not know how RFS label was assigned to procurement process.",
+     "quote": "The judge noted ... Mr. Corrigan ... admitted in cross-examination that “he did not know how the [procurement] process came to carry the RFS label”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Combination of RFI and directed contract is not contemplated by Contracting Procedures.",
+     "quote": "this combination is also not contemplated by the Contracting Procedures.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no explanation why RFS was chosen; judge noted confusion; combination not contemplated by Procedures.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If RFS merges RFI and directed contract, evaluation criteria required by Procedures to ensure openness and validity.",
+     "quote": "If the RFS consists in fact of a merging of an RFI and a directed contract ... evaluation criteria would have been required pursuant to the Contracting Procedures",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 5.3 of Contracting Procedures requires evaluation criteria established prior to approval and results made available to Approval Authority.",
+     "quote": "Section 5.3 of the Contracting Procedures which states that “Evaluation Criteria in any procurement shall be established prior to seeking the applicable approval to proceed with a procurement",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states if RFS merges RFI and directed contract, evaluation criteria required by Procedures per section 5.3.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evaluation criteria were in the RFS, making it hard for suppliers to meet CATSA's needs, especially Rapiscan.",
+     "quote": "evaluation criteria were nowhere to be found in the RFS. Absent evaluation criteria, it would be difficult, if not impossible, for suppliers to know and satisfy the needs of CATSA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CATSA management could pick suppliers based on undisclosed requirements known only to officers.",
+     "quote": "CATSA’s management was thus in a position to pick and choose which suppliers met its needs and eliminate suppliers who failed to meet undisclosed requirements known only by its officers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no evaluation criteria in the RFS, disadvantaging suppliers, and CATSA management could select suppliers using undisclosed requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CATSA's Board was misled to believe the procurement was open, but it was a directed contract process.",
+     "quote": "the information – or lack thereof – conveyed by CATSA’s management to CATSA’s Board could reasonably have led it to believe that CATSA’s management ran an open procurement process when, in fact, CATSA’s management never did and ultimately proceeded by way of directed contract.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge found no indication the Board knew the process was not open or transparent, lacked evaluation criteria, or exempted CATSA from fair treatment duties.",
+     "quote": "There is no indication that the Board was aware that management had conducted a procurement process that did not fall within the definition of an open procurement process or come close to replicating the detailed procedures for an open, transparent, competitive and fair procurement process which are described in the [Contracting] Procedures.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CATSA's Board was misled to believe the procurement was open; the judge found no indication the Board knew otherwise.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A mere reference to section 6.6 in the Approval Request was insufficient for the Board to understand the procurement process.",
+     "quote": "I remain unconvinced by the appellant’s argument that a mere reference to section 6.6 of the Contracting Policy in the Approval Request submitted to the Board was sufficient to allow the Board to reasonably understand how the procurement process was defined prior to providing its approval",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CATSA management failed to inform the Board that Smiths’ equipment costs were substantially higher than Rapiscan’s.",
+     "quote": "CATSA’s management also failed to inform the Board that Smiths’ equipment costs were substantially higher than Rapiscan’s equipment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge agreed the Board lacked information to exercise its oversight function and could not reach a reasonable conclusion.",
+     "quote": "I agree with the judge that the Board was not provided with the information allowing it to exercise “its oversight function”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Board was not properly informed about procurement details or cost differences, agreeing with the judge on oversight failure.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Contracting Procedures require flexibility and CATSA needs freedom to manoeuvre due to evolving standards.",
+     "quote": "the appellant insists that the Contracting Procedures need to be applied with flexibility and that CATSA requires a “freedom to manoeuvre”. That is so, argues the appellant, because CATSA’s screening equipment must constantly adjust to meet evolving international standards.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant contends judge's approach was too rigid regarding procurement flexibility.",
+     "quote": "The appellant contends that the judge’s approach, in that respect, was too rigid.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues for flexibility in Contracting Procedures and criticizes the judge's rigid approach.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CATSA's argument defeats the purpose of Contracting Procedures and ignores its duty for transparency, fairness, and value for money.",
+     "quote": "CATSA’s submissions on this point defeat the very purpose of implementing the Contracting Procedures...flies in the face of CATSA’s duty to promote transparency, fairness or value for money pursuant to CATSA Act and CATSA’s Contracting Policy and Procedures",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Rapiscan argues CATSA's ignoring rules is contrary to common sense and its statutory duties.",
+     "quote": "I can only agree with Rapiscan that such a result is contrary to common sense and flies in the face of CATSA’s duty to promote transparency, fairness or value for money",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with Rapiscan that CATSA's ignoring rules contradicts its duties and the purpose of Contracting Procedures.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues no three view generators requirement existed when RFS went to market and judge erred in finding otherwise.",
+     "quote": "the appellant submits that the judge erred when (i) he found that the RFS contained an undisclosed requirement that the x-ray equipment sought by CATSA have three view generators and (ii) that this requirement was known to CATSA at the time that the RFS went out to suppliers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the judge erred in finding a three view generators requirement existed in the RFS.",
+   "role": "issue"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2009, three view generators was a requirement; Rapiscan was eliminated for lacking it.",
+     "quote": "when CATSA approved a non-competitive award of a contract to Smiths for the purchase of multi-view x-ray screening equipment in 2009, “three view generators” was a requirement. Rapiscan was eliminated in the 2009 process because its equipment model (620 DV-AT) failed to meet the minimum requirement of “three view generators”",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found that in 2009 three view generators was a requirement and Rapiscan was eliminated for not meeting it.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2010 RFS, no minimum view generators requirement was stated; Rapiscan submitted two view generator equipment but was eliminated for requiring three or more.",
+     "quote": "when the RFS was issued in 2010, it did not contain any requirement of a minimum number of view generators...Rapiscan’s submission was eliminated on the basis that CATSA required three or more view generators",
+     "answers": 0
+    }
+   ],
+   "summary": "The 2010 RFS lacked a stated minimum view generator requirement, but Rapiscan was eliminated for not having three or more.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge found three view generators was still a minimum requirement in 2010, relying on two Board Briefing Notes.",
+     "quote": "The judge found that since the three view generators was a requirement in 2009...the three view generators requirement was still a minimum requirement for the procurement process in 2010...relied on two documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found the three view generators requirement persisted in 2010, based on Board Briefing Notes.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant admits 2009 requirement but denies judge had basis to infer same in 2010.",
+     "quote": "appellant admits that equipment with three view generators was a minimum requirement in the 2009 procurement process...it maintains that the judge had no basis for inferring that the same minimum requirement was also adopted during the 2010 RFS procurement process.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant admits the 2009 requirement but denies the judge could infer it applied in 2010.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court disagrees with appellant, defers to lower court's factual findings per Housen.",
+     "quote": "In light of the deference which this Court owes to a lower court’s findings of fact in accordance with Housen, I disagree with the appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court defers to the lower court's factual findings and disagrees with the appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "2010 Briefing Note refers to 2009 requirement of three or more views as a factor in 2010 evaluation.",
+     "quote": "The 2010 Briefing Note refers back to the 2009 procurement process and states that “For this requirement [in 2009], the multi-view X-ray machines required 3 or more views which is again a factor in this year’s evaluation”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the 2010 Briefing Note references the 2009 three or more views requirement as a factor in 2010.",
+   "role": "facts"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge's interpretation that three view requirement was a critical factor in 2010 is reasonable and not a palpable error.",
+     "quote": "The judge’s preference for the latter interpretation does not, in my view, amount to a palpable and overriding error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the judge's interpretation of the three view requirement as critical in 2010 reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge found CATSA management's representations about Smiths' technology unjustified and failed to inform Board of Rapiscan's lower costs.",
+     "quote": "judge found that CATSA’s management’s representations regarding Smiths’ products and its high performing technology could not be reasonably justified and that CATSA had further failed to inform the Board that Rapiscan’s equipment’s costs were substantially less",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found CATSA management unjustified in representations and failed to inform Board of Rapiscan's lower costs.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge's conclusion that Board was unaware of management's procurement process and thus could not exercise oversight was open and error-free.",
+     "quote": "judge came to the conclusion that the Board was not aware that management conducted the procurement process the way it did...he did not commit any error which would warrant the intervention of this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the judge's conclusion on Board's lack of awareness and oversight was open and without error.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "CATSA's decision was flawed due to flawed process, warranting dismissal of appeal.",
+     "quote": "because I find that CATSA’s decision was reached through a flawed process, I can only conclude that CATSA’s decision derived from that process is equally flawed and unreasonable...dismiss the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court will briefly address two remaining issues despite dismissal being sufficient.",
+     "quote": "I feel it necessary however to briefly address the two remaining issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes CATSA's decision was flawed and dismisses the appeal but will address two remaining issues.",
+   "role": "disposition"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Contract A arises when a bidder submits a tender, creating implied rights and obligations distinct from Contract B.",
+     "quote": "An important feature in a procurement process is the established and notional contract known as “Contract A” that is created when a bidder responds to the purchaser’s tender call and submits a tender...distinct from the contract to be awarded at the conclusion of the bidding process (“Contract B”).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Contract A arises on tender submission, creating implied rights distinct from Contract B.",
+   "role": "law"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Contract A creation depends on parties' intention and tender terms; if none, traditional contract law applies.",
+     "quote": "the Supreme Court of Canada established that upon submission of a tender, “Contract A” will not necessarily arise...creation of a “Contract A” will depend on the intention of the parties...and the terms and conditions established in the tendering documents",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If no Contract A, parties governed by traditional contract law without implied Contract A rights.",
+     "quote": "In the event that no “Contract A” is created, it follows that, in principle, the parties are governed by the traditional law of contracts and the rights and obligations implied in a “Contract A” do not arise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Contract A depends on intention and terms; absent it, traditional contract law applies without implied rights.",
+   "role": "law"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge noted RFS excluded Contract A, denying duty of fair and equal treatment to bidders.",
+     "quote": "the RFS explicitly excluded “Contract A”. In his opinion, the result of this exclusion was to deny “any duty of fair and equal treatment owed to the bidding parties”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge found a public law remedy for breach of procedural fairness was warranted despite traditional contract remedies.",
+     "quote": "he nonetheless felt compelled given the circumstances of the case, to find a public law remedy for breach of procedural fairness",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge concluded CATSA breached procedural fairness duty to Rapiscan and remedy was warranted to maintain procurement integrity.",
+     "quote": "he concluded that CATSA had breached its duty of procedural fairness vis-à-vis Rapiscan and a remedy was accordingly warranted to maintain the integrity of the governmental procurement process.",
+     "answers": 0
+    }
+   ],
+   "summary": "The judge found RFS excluded Contract A, but nonetheless found CATSA breached procedural fairness and a remedy was warranted.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge conflated fairness breach with unreasonableness of CATSA's decision in his reasoning.",
+     "quote": "the judge seems to have conflated the issue of whether CATSA’s decision was reasonable with the issue of whether CATSA breached a duty of procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge described CATSA’s decision as unfair, unreasonable, arbitrary and made in bad faith, joining fairness and reasonableness issues.",
+     "quote": "issues of fairness and reasonableness are expressly joined together where he describes CATSA’s decision as “unfair, unreasonable, arbitrary and made in bad faith”",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the judge conflated fairness and reasonableness issues, joining them in describing CATSA's decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge relied on GDC Gatineau test that tendering decision is unreasonable if unfair, unreasonable, arbitrary, irrelevant or in bad faith",
+     "quote": "The root of the judge’s reasoning can be found in his reliance on GDC Gatineau Development Corp v. Canada ... which stands for the questionable proposition that a tendering decision is unreasonable where “tendering authority acted in an unfair, unreasonable or arbitrary manner, based its decision on irrelevant considerations, or acted in bad faith.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "GDC Gatineau test wrongly mixes fairness into reasonableness, conflicting with established law separating substantive review and procedural fairness",
+     "quote": "By proposing that reasonableness should be measured in part in terms of fairness, the GDC Gatineau test clearly runs contrary to the well-established distinction between substantive review and procedural fairness and the resulting rule that procedural fairness is reviewed separately on a correctness standard",
+     "answers": 1
+    }
+   ],
+   "summary": "The judge relied on GDC Gatineau test that mixes fairness into reasonableness, which the court finds conflicts with established law separating substantive and procedural review.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Irving Shipbuilding restricts public law remedies to grave misconduct like fraud, bribery or corruption",
+     "quote": "in Irving Shipbuilding, our Court restricted access to public law remedies to situations involving grave misconduct such as fraud, bribery or corruption (at para. 62).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge inferred Irving Shipbuilding's grave misconduct threshold applies only to subcontractors, not direct bidders",
+     "quote": "The judge, at paragraph 115 of his reasons, inferred that the threshold of grave misconduct referred to in Irving Shipbuilding “must have been directed at the particular situation involving subcontractor’s rights” as opposed to direct bidders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court is not prepared to distinguish Irving Shipbuilding on that ground",
+     "quote": "A priori, I am not prepared to distinguish Irving Shipbuilding on this ground.",
+     "answers": 2
+    }
+   ],
+   "summary": "Irving Shipbuilding limits remedies to grave misconduct; judge wrongly limited this to subcontractors; court rejects that distinction.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Bad faith was mentioned at hearing but Rapiscan did not allege Board acted in bad faith",
+     "quote": "Although the issue of bad faith was mentioned at the hearing before the judge, Rapiscan did not suggest that the Board acted in bad faith",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Rapiscan confirmed it did not press bad faith argument before the judge",
+     "quote": "Before our Court, Raspican further confirmed that it did not “press” the bad faith argument before the judge.",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant did not deny Rapiscan's position on bad faith argument",
+     "quote": "This was not denied by the appellant.",
+     "answers": 1
+    }
+   ],
+   "summary": "Bad faith was mentioned but Rapiscan did not allege or press it before judge; appellant did not deny this.",
+   "role": "facts"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge found CATSA acted in bad faith despite no party pressing that argument",
+     "quote": "Despite Rapiscan’s position, the judge nonetheless embarked on an analysis which led him to find that CATSA acted in bad faith.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge inferred bad faith without evidence, relying on reasonable inference",
+     "quote": "In reaching this conclusion, the judge inferred that CATSA acted in bad faith but failed to ground his finding in the evidence. Not only did the judge find bad faith on a “reasonable inference”",
+     "answers": 1
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Judge questioned his own inference about bad faith intention but noted the result was unfair evaluation",
+     "quote": "he further questioned his own inference at paragraph 94 of his reasons: In the circumstances, including CATSA’s tendering history, it would appear to be a reasonable inference that the minimum requirement was adopted to prevent the Board from carrying out a fair and a proper evaluation ... Whether or not that was the intention, that was the result.",
+     "answers": 1
+    }
+   ],
+   "summary": "Judge found CATSA acted in bad faith on reasonable inference without evidence, but questioned that inference himself.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge’s bad faith finding was unsupported and improper",
+     "quote": "In light of the foregoing, I can only observe that the judge’s finding on bad faith was unsupported and improper.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds judge’s bad faith finding unsupported and improper.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Board’s decision is unreasonable and unlawful; appeal dismissed with costs",
+     "quote": "For the above reasons, I find that the Board’s decision is unreasonable and unlawful. I would accordingly dismiss the appeal with costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Declare CATSA failed to follow Contracting Procedures in 2010 procurement awarding contract to Smiths; vary judge’s order",
+     "quote": "I would also declare that CATSA failed to follow its Contracting Procedures enacted pursuant to the CATSA Act with respect to the 2010 procurement process which awarded the contract to Smiths and I would vary the judge’s order accordingly.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Board’s decision unreasonable and unlawful, dismisses appeal, declares CATSA failed procedures, and varies judge’s order.",
+   "role": "disposition"
+  }
+ ]
+}

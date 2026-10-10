@@ -1,0 +1,76 @@
+{
+ "case_id": 67653,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0012720000000000001,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 1,
+  "4": 1,
+  "5": 2,
+  "6": 2,
+  "7": 2,
+  "8": 3,
+  "9": 3,
+  "10": 4,
+  "11": 5,
+  "12": 5,
+  "13": 5,
+  "14": 6,
+  "15": 6,
+  "16": 7,
+  "17": 8,
+  "18": 9,
+  "19": 10,
+  "20": 10,
+  "21": 11,
+  "22": 12,
+  "23": 12,
+  "24": 13,
+  "25": 14,
+  "26": 14,
+  "27": 15,
+  "28": 15,
+  "29": 16,
+  "30": 17,
+  "31": 17,
+  "32": 17,
+  "33": 17,
+  "34": 18,
+  "35": 19
+ },
+ "result": {
+  "order_para": 19,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the Appellant's claim credible and does he have a serious possibility of persecution on a Convention ground?",
+    "paras": "2,4-14,18",
+    "applicant_position": "The Appellant alleges fear of return due to conflict with a BJP leader and fears police and BJP in India.",
+    "respondent_position": "The RPD found the Appellant's allegations not credible with discrepancies and contradictions undermining the claim.",
+    "result": "dismissed_for_applicant",
+    "result_para": 2,
+    "result_text": "The appeal is dismissed due to lack of credibility and no serious possibility of persecution."
+   },
+   {
+    "issue": "Did the RPD err in assessing the Internal Flight Alternative (IFA) given the Appellant's claim?",
+    "paras": "2,14-15",
+    "applicant_position": "The Appellant argues the IFA analysis was faulty because the BJP has national reach as ruling party in India.",
+    "respondent_position": "The IFA analysis was unnecessary due to determinative lack of credibility; no failure to assess under section 97(1) IRPA.",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_text": "IFA analysis was unnecessary given lack of credibility; no error found."
+   },
+   {
+    "issue": "Did the RPD fail to properly assess the claim under section 97(1) IRPA?",
+    "paras": "16-17",
+    "applicant_position": "The Appellant asserts the RPD failed to assess his claim under section 97(1) IRPA and made a reviewable error.",
+    "respondent_position": "The RPD referenced section 97 and was satisfied no risk of torture, death, or cruel treatment exists; no separate analysis required.",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "No missing section 97 analysis; no risk found due to lack of credibility."
+   }
+  ]
+ }
+}

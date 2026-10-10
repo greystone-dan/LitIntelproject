@@ -1,0 +1,867 @@
+{
+ "case_id": 65794,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0146728,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant appeals the RPD decision rejecting his refugee claim.",
+     "quote": "XXXX XXXX XXXX XXXX1, who purports to be a citizen of Senegal, appeals the decision of the Refugee Protection Division (RPD) rejecting his claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant requests to submit new evidence and have an oral hearing.",
+     "quote": "The Appellant requests to submit new evidence and to have an oral hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant requests the RAD to set aside the RPD decision and return the matter to a differently constituted panel.",
+     "quote": "The Appellant requests that the Refugee Appeal Division (RAD) set aside the decision of the RPD and return the matter to the RPD for re-determination by a differently constituted panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant appeals the RPD decision, requests new evidence submission, oral hearing, and a new panel for re-determination.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Minister intervened at the RPD and in the Appeal.",
+     "quote": "The Minister intervened at the RPD and in the Appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister intervened at the RPD and in the Appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD decision under section 111(1)(a) of IRPA.",
+     "quote": "Pursuant to section 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the decision of the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant failed to establish his identity.",
+     "quote": "The Appellant has failed to establish his identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant is neither a Convention refugee nor a person in need of protection under IRPA sections 96 and 97.",
+     "quote": "The Appellant is neither a Convention refugee under section 96 of IRPA nor a person in need of protection under section 97 of IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision; appellant failed to establish identity and is not a refugee or person in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is dismissed.",
+   "role": "disposition"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The appellant alleges risk of harm or imprisonment in Senegal due to being gay.",
+     "quote": "The Appellant alleges that if he is returned to Senegal, he may be harmed or imprisoned because he is a gay man.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD gave reasons on 13 April 2016 after hearings on 8 January and 15 March 2016.",
+     "quote": "The RPD gave its reasons on 13 April 2016, following appearances on 8 January and 15 March 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD did not consider the merits of the refugee claim in those reasons.",
+     "quote": "The merits of the refugee claim were not considered in those reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges risk if returned; RPD gave reasons without considering refugee claim merits.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant failed to establish identity.",
+     "quote": "The RPD determined that the Appellant had failed to establish his identity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "The RPD applied section 106 of IRPA and Rules 7(3) and 7(4) of the RPD Rules regarding burden of proof for identity documents.",
+     "quote": "The RPD observed that the documents submitted by the Appellant as evidence of identity were not sufficient to meet the burden of proof in accordance with section 106 of IRPA and Rule 7(3) and 7(4) of the RPD Rules.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The appellant failed to reasonably explain absence and irregularities of some identity documents.",
+     "quote": "Furthermore, the Appellant failed to give reasonable explanations for the absence of some documents and the irregularities in others.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant failed to establish identity and did not reasonably explain document issues.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred by misapprehending evidence and ignoring exceptions and written submissions.",
+     "quote": "The Appellant submits that the RPD erred by misapprehending the evidence, by failing to consider that there can be exceptions to rules, and failing to consider the evidence and arguments submitted in writing by Counsel on 16 March 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues RPD erred by misapprehending evidence and ignoring exceptions and submissions.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant requests the RAD grant the appeal and order a new hearing before a different RPD panel.",
+     "quote": "For these reasons, the Appellant requests that the RAD grant the appeal and order a new hearing before a differently constituted panel of the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant requests the RAD grant appeal and order a new hearing before a different panel.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant submitted a 2016 Senegalese passport as new evidence on appeal.",
+     "quote": "In light of the RPD's negative credibility finding, the Appellant submitted as new evidence on appeal a Senegalese passport in his name, numbered XXXX, and issued on XXXX XXXX 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant submitted a 2016 Senegalese passport as new evidence on appeal.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) of IRPA sets the test for admissibility of new evidence on appeal.",
+     "quote": "The test for admissibility of new evidence is provided in section 110(4) of IRPA, which states that the person who is the subject of the appeal (here, the Appellant) may present only evidence that arose after the rejection of their claim, or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection. In addition, the evidence must be new, credible and relevant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 110(4) of IRPA sets the test for admissibility of new evidence on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant claims Senegalese birth in his Basis of Claim form.",
+     "quote": "In his Basis of Claim form, the Appellant claims that he is Senegalese by birth.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the 2016 passport is new evidence not existing at hearing or claim rejection.",
+     "quote": "The Appellant argues the 2016 Passport is new evidence which did not exist at the time of the hearing or when claim was rejected.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Rule 3(g)(iii) of RAD Rules requires full submissions on how evidence meets section 110(4) of IRPA.",
+     "quote": "Rule 3(g)(iii) of the RAD Rules requires the Appellant to include in his record \"full and detailed submissions\" regarding how any documentary evidence meets the requirements of section 110(4) of IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant claims Senegalese birth and argues the 2016 passport is new evidence; RAD rules require detailed submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's Memorandum does not explain why the passport was not obtained before claim rejection.",
+     "quote": "However, the Memorandum of Argument does not explain why this passport was not obtained before the rejection of the Appellant's claim.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister points out the appellant was on notice from December 2015 that identity was important.",
+     "quote": "As the Minister points out, the Appellant was on notice from December 2015 that his identity was an important issue in this case.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant alleges he approached the Senegalese Embassy in Canada in December 2015 for a Consular Card.",
+     "quote": "At that time, the Appellant alleges he approached the Senegalese Embassy in Canada to obtain a Consular Card, dated XXXX XXXX 2015.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In January 2016, the RPD asked the appellant to obtain further identity documents.",
+     "quote": "In January 2016, the RPD asked him to obtain further documents to establish his identity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In February 2016, the appellant received a Document Analysis Report concluding his previous passport was altered.",
+     "quote": "Moreover, some time in February 2016, the Appellant received a copy of the Document Analysis Report, which concluded that the passport he presented previously had been altered.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant should have known the truth of his 2014 passport was seriously questioned.",
+     "quote": "He should reasonably have known that the truth of the contents in his 2014 Passport was in serious question.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant did not explain why the passport was not obtained earlier; Minister and RPD noted identity issues and altered passport concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The 2016 passport is not new evidence under section 110(4) of IRPA.",
+     "quote": "I find that the additional passport presented by the Appellant is not new evidence within the meaning of section 110(4) of IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The passport was reasonably available and could have been presented before claim rejection.",
+     "quote": "Although it was created after the rejection of the Appellant's claim, it is based on information that was reasonably available to the Appellant and that he could reasonably have been expected in the circumstances to have presented in this form.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant applied for the 2016 passport on XXXX XXXX 2016 and it was issued within one week.",
+     "quote": "He appears to have applied for the 2016 passport on XXXX XXXX 2016, and it allegedly was issued to him within one week.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant submitted no evidence or argument to counter this finding.",
+     "quote": "The Appellant has submitted neither evidence nor argument to counter this finding.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court has repeatedly found evidence is not new simply because created after claim rejection.",
+     "quote": "The Federal Court repeatedly has found that evidence is not new simply because it is created after the rejection of a refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The 2016 passport is not new evidence; it was reasonably available and could have been presented earlier; Federal Court supports this view.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "No need to analyze further criteria since passport fails statutory criteria for new evidence.",
+     "quote": "Since the 2016 passport does not meet the statutory criteria, it is not necessary for me to pursue a further analysis of the jurisprudential criteria that the additional evidence be new, credible and relevant.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister observes the 2016 passport purports to renew a passport not previously presented or mentioned.",
+     "quote": "However, the Minister observes that the 2016 passport purports to be a renewal of a passport numbered XXXX, which is not the passport previously presented by the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant never presented or mentioned the prior passport to authorities, impugning credibility of passport and appellant.",
+     "quote": "The Appellant has never presented passport XXXX to the Canadian immigration authorities nor has he presented or even mentioned this passport to either the RPD or the RAD. This fact impugns the credibility of both the 2016 passport and the Appellant himself.",
+     "answers": 0
+    }
+   ],
+   "summary": "No further analysis needed; Minister notes passport renewal of unpresented passport, impugning appellant's and passport's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appellant's request to adduce new evidence is denied.",
+     "quote": "The Appellant's request to adduce new evidence is denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's request to adduce new evidence is denied.",
+   "role": "disposition"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD must proceed without a hearing based on RPD record unless section 110(6) conditions for oral hearing are met.",
+     "quote": "The general rule is that the RAD must proceed without a hearing, on the basis of the record of the proceedings of the RPD. The RAD only has discretion to hold an oral hearing when there is additional documentary evidence and all of the conditions in section 110(6) are met.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The new document does not meet section 110(6) criteria; RAD has no discretion to hold oral hearing.",
+     "quote": "I have held that the new document proposed by the Appellant does not meet the statutory criteria in section 110(6), and therefore the RAD does not have discretion to hold an oral hearing in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD must proceed without hearing unless section 110(6) conditions met; new document fails criteria, so no oral hearing discretion.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appellant's request for an oral hearing is denied.",
+     "quote": "The Appellant's request for an oral hearing is denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's request for an oral hearing is denied.",
+   "role": "disposition"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD must carefully consider the RPD decision and conduct its own analysis to determine if RPD erred.",
+     "quote": "The RAD is required to consider carefully the decision of the RPD and to carry out its own analysis of the record to determine whether, as submitted by the Appellant, the RPD erred.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The RAD's process is a hybrid appeal, distinct from judicial review, with correctness standard for law and fact without credibility issues.",
+     "quote": "The process before the RAD is a \"hybrid appeal,\" which differs from a judicial review. The Federal Court of Appeal has explicitly distinguished the RAD's review of the RPD from the high level of deference afforded by appellate courts to lower courts. The standard of review for questions of law is correctness. The standard of review for findings of fact and findings of mixed fact and law is also correctness, where those findings raise no issue of credibility of oral evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD must carefully analyze the RPD decision; the process is a hybrid appeal with correctness standard for law and fact without credibility issues.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "For credibility assessments, RAD considers if RPD had meaningful advantage and whether to defer to RPD findings.",
+     "quote": "For findings that require an assessment of the credibility or weight to be given to oral evidence, the RAD should determine whether the RPD benefited from a meaningful advantage over the RAD, and whether the RAD should therefore give deference to a particular finding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Whether to accord deference depends on case circumstances; this will be addressed in Analysis section.",
+     "quote": "Whether deference should be accorded will be determined based on the circumstances of each case. In this case, I will address deference in the Analysis section.",
+     "answers": 0
+    }
+   ],
+   "summary": "For credibility findings, RAD assesses RPD's advantage and deference; deference depends on circumstances and will be addressed later.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "After analysis, RAD may confirm, set aside, or substitute RPD decision.",
+     "quote": "Having made its own analysis of the record, the RAD may either confirm the decision of the RPD, or set it aside and substitute its own decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD must provide final determination unless oral evidence hearing is necessary; then may refer back to RPD.",
+     "quote": "The RAD must provide a final determination unless it cannot do so without hearing the oral evidence presented to the RPD. Only in cases where it cannot make a final determination, the RAD may refer the matter back to the RPD for re-determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD may confirm, set aside, or substitute RPD decision; must finalize unless oral evidence hearing needed, then may refer back.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "I have listened to the RPD hearing recording and reviewed the record independently, considering all parties' submissions.",
+     "quote": "I have listened to the recording of the hearing before the RPD and made an independent assessment of the RPD Record. I have considered all the arguments of the Appellant, including the written submissions dated 16 March 2016, and 27 May 2016, and undated submissions received by the RAD on 23 June 2017. I have also considered all of the Minister's submissions, including the intervention dated 31 May 2017, and the reply dated 28 June 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court independently reviewed the RPD hearing and record, considering all appellant and Minister submissions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant used false French and Spanish passports to enter Canada and later presented a 2014 Senegalese passport.",
+     "quote": "The Appellant states he used French and Spanish passports with false identities to come to Canada on 3 October 2015. He later presented a Senegalese passport, the 2014 Passport.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant testified he applied for the 2014 Passport using birth registration, photocopy of lost ID card, and certificate of loss.",
+     "quote": "At the RPD, the Appellant testified that he applied for the 2014 Passport using his birth registration, a photocopy of a lost national identity card, and a certificate of loss for the national identity card.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Appellant claimed 2014 Passport was his only passport and denied having previous passports.",
+     "quote": "He claimed that this was the only passport he had and that he had no previous passport.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Minister's Representative referred to Appellant's prior testimony that 2014 Passport was his second Senegalese passport.",
+     "quote": "When the Minister's Representative referred the Appellant to his previous testimony, on 8 January 2016, that the 2014 passport was his second Senegalese passport, the Appellant said he had been mistaken.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant had no comment on alteration of biographical page in 2014 Passport.",
+     "quote": "When asked for his comments about the alteration of the biographical information page in the 2014 Passport, the Appellant stated he had nothing to add.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant admitted using false passports, claimed the 2014 Passport was his only one, but contradicted this and did not explain alterations.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD correctly gave no probative value to the 2014 Passport due to alterations and lack of explanation.",
+     "quote": "In my view, the RPD was correct to afford this document no probative value. An officer analysed it and found the biographical information page to have been altered. The Appellant furnished no explanation for the alteration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "2014 Passport was obtained without proper documentation and appellant contradicted himself about its status.",
+     "quote": "Moreover, this passport allegedly was established without the appropriate documentation (i.e. a valid national identity card). Finally, the Appellant contradicted himself about whether the 2014 Passport was his first or only passport.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argued foreign documents are presumed authentic and true.",
+     "quote": "Counsel is correct that documents purporting to be issued by a foreign jurisdiction benefit from a presumption that they are authentic and that their contents are true.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Presumption of validity rebutted by alterations and irregular obtaining of 2014 Passport.",
+     "quote": "However, the presumption of validity is rebutted in this case by the alterations made to the biographical information page of the 2014 Passport and the irregular manner in which it was obtained.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds the 2014 Passport not credible due to alterations, irregular obtaining, and contradictions, rebutting presumption of authenticity.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant testified mother obtained birth registration and national identity card for him.",
+     "quote": "The Appellant testified that his mother applied for and obtained both his birth registration, issued on XXXX XXXX 2015, and his national identity card, issued on XXXX XXXX 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found birth registration tainted by use of altered passport and rejected Attestation from Direction de l'Automatisation des Fichiers.",
+     "quote": "The RPD found that the birth registration was tainted by the use of the altered passport to support the application. For the same reason, the RPD rejected the Attestation issued on 9 December 2015 by the Direction de l'Automatisation des Fichiers.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with RPD's rejection of birth registration and Attestation due to altered passport.",
+     "quote": "I agree. The RPD also found that the national identity card was obtained in an irregular manner, since Senegalese procedures clearly require the applicant to appear in person, both to make the application, and to pick up the card.",
+     "answers": 1
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found national identity card obtained irregularly, as Senegalese rules require personal appearance.",
+     "quote": "The RPD also found that the national identity card was obtained in an irregular manner, since Senegalese procedures clearly require the applicant to appear in person, both to make the application, and to pick up the card.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argued difficult circumstances may justify exceptions to rules.",
+     "quote": "Counsel argues that difficult circumstances can give rise to exceptions to rules.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds counsel's argument speculative and unsupported by evidence of exceptions to Senegalese rules.",
+     "quote": "With respect, that argument is purely speculative. Moreover, the Appellant alleges that the 2014 passport was also one of the documents supporting the application for the national identity card. Since no independent evidence was adduced to show that there can be exceptions to the Senegalese rules for obtaining a national identity card, and since the passport that supported the application was altered, the RPD was correct to rely on the documentary evidence about application procedures, and to impugn the credibility of the national identity card.",
+     "answers": 4
+    }
+   ],
+   "summary": "The court agrees with RPD that birth registration and national identity card are tainted or irregular, rejecting counsel's speculative exceptions argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected Consular Card as proof of identity because embassy website states it is not for that purpose.",
+     "quote": "The RPD considered and rejected the Consular Card as proof of the Appellant's identity because the website of the Senegalese Embassy in Canada states clearly that it is not to be used for this purpose.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Document Analysis Report was inconclusive on Consular Card authenticity, noting lack of security features and ease of fabrication.",
+     "quote": "In addition, the Document Analysis Report was inconclusive as to the authenticity of the Consular Card, noting that it did not have any security features and would be very possible to fabricate illegitimately.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court would give low weight to Consular Card but defers to RPD's finding due to RPD's advantage of original and questioning.",
+     "quote": "I might have given this document low weight in light of these limitations. However, the RAD must give deference to this RPD finding. The RAD received a black and white photocopy of only one side of the Consular Card. The RPD had the meaningful advantage of being able to view both sides of the original card and to question the Appellant about it.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Consular Card's purpose is to show residence in Canada and was obtained using the altered 2014 Passport, tainting its veracity.",
+     "quote": "Even if it is true that the Appellant obtained the card from the Senegalese Embassy in Ottawa, it is clear that the purpose of the card is to show residence in Canada. Furthermore, according to the documentary evidence, the Appellant would have had to present the impugned 2014 Passport to obtain this Consular Card, which taints its veracity.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court defers to RPD's rejection of the Consular Card as identity proof due to its purpose, lack of security, and taint from altered passport.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD assigned no probative value to school ID and screen printout due to contradictions in appellant's evidence.",
+     "quote": "The RPD assigned no probative value to the following additional documents submitted by the Appellant: a school identity card, and a screen printout of personal information issued on 9 December 2015. The RPD made these findings because of contradictions in the Appellant's evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court independently reviewed contradictions and agrees with RPD's findings.",
+     "quote": "I made an independent review of the several contradictions as to dates and addresses and I agree with the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Screen printout records country of birth as Senegal, contradicting appellant's testimony, diminishing credibility.",
+     "quote": "In particular, I note that the screen printout records the Appellant's country of birth as Senegal, which contradicts his testimony, further diminishing his credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "These documents might support name and residence claims but not citizenship, essential for refugee status determination.",
+     "quote": "I also note that at best, the documents in this category might support a claim about name and residence, but could not prove citizenship, which is essential to establish the country of reference in refugee status determination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was correct to question credibility of appellant and his identity documents seriously.",
+     "quote": "The RPD was correct to seriously question the credibility of both the Appellant and his documentation submitted as proof of identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that additional documents lack probative value due to contradictions and do not prove citizenship.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues RPD failed to consider an Affidavit confirming appellant's identity, causing prejudice.",
+     "quote": "Counsel argues that this represents a failure to take into account all the relevant evidence, and that there was detriment and prejudice to the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court presumes RPD considered all evidence but more important evidence should be mentioned.",
+     "quote": "There is a presumption that RPD has considered all the evidence and arguments. However, the more important a piece of evidence is as a contradiction RPD's conclusions, the more important it is to mention it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Affidavit contradicts RPD but has no probative value due to lack of information about deponent and no cross-examination opportunity.",
+     "quote": "In this case, while the Affidavit does contradict the RPD's conclusions, I find that it has no probative value. The deponent does not state whether or how he knows the Appellant, nor does he state when he came to know either the Appellant or his family members. Since the Affidavit was submitted following the hearing, the RPD had no opportunity to ask the Appellant about the deponent, nor to cross-examine that person.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court rejects counsel's argument, finding the Affidavit lacks probative value and RPD did not err in not mentioning it.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Affidavits are for exceptional cases where a person lacks passports or travel documents with reasonable explanation.",
+     "quote": "Moreover, affidavits are meant to be used in exceptional cases where a person does not hold a passport or travel document.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant made no argument of inability to obtain identity documents and produced non-credible documents.",
+     "quote": "The Appellant has made no argument that he is unable to obtain identity documents, and in fact, he purports to have done so both before and after the RPD decision. It is simply that the identity documents he has produced are not credible or probative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No prejudice to appellant from RPD's failure to mention Affidavit; RPD did not err.",
+     "quote": "There was no prejudice to the Appellant from the RPD's failure to mention the Affidavit. The RPD did not err.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains affidavits are exceptional, finds appellant produced non-credible documents, and no prejudice from RPD's omission.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant lacks credibility due to contradictions and irregular document obtaining.",
+     "quote": "Having made my own analysis, I find that the Appellant lacks credibility. Due to multiple contradictions in his testimony and documents, and the irregular manner in which many of the documents were obtained, the Appellant has not established his identity on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant failed to prove he is a citizen of Senegal.",
+     "quote": "For all of the foregoing reasons, the Appellant has failed to show that he is XXXX XXXX XXXX XXXX, a citizen of Senegal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant lacks credibility and failed to prove Senegalese citizenship on a balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA section 111(1)(a), RAD confirms RPD decision; appellant is not a Convention refugee or person in need of protection.",
+     "quote": "Pursuant to section 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the decision of the RPD. The Appellant is not a Convention refugee under section 96 of IRPA or a person in need of protection under section 97 of IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision that the appellant is not a Convention refugee or person in need of protection under IRPA.",
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

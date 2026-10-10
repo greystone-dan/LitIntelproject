@@ -1,0 +1,72 @@
+{
+ "case_id": 11612,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.001144,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 1,
+  "4": 2,
+  "5": 2,
+  "6": 2,
+  "7": 2,
+  "8": 3,
+  "9": 4,
+  "10": 5,
+  "11": 6,
+  "12": 6,
+  "13": 6,
+  "14": 7,
+  "15": 8,
+  "16": 8,
+  "17": 9,
+  "18": 9,
+  "19": 9,
+  "20": 10,
+  "21": 11,
+  "22": 12,
+  "23": 13,
+  "24": 13,
+  "25": 13,
+  "26": 14,
+  "27": 15,
+  "28": 15,
+  "29": 16,
+  "30": 17,
+  "31": 18
+ },
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RAD err in concluding the Applicant was not a Convention refugee or person in need of protection based on risk related to her Alevi faith?",
+    "paras": "6-8,12-14",
+    "applicant_position": "Applicant argued risk of persecution based on religion and submitted evidence of poor situation for religious minorities.",
+    "respondent_position": "RAD found insufficient evidence Applicant would be prevented from practicing Alevi faith; NDP documents did not mention Alevis.",
+    "result": "dismissed_for_applicant",
+    "result_para": 14,
+    "result_text": "Court finds RAD's conclusion on insufficient evidence about Alevi faith risk reasonable."
+   },
+   {
+    "issue": "Did the RAD err in rejecting the Applicant's claim of risk of harassment as a woman married to a foreign national?",
+    "paras": "9,15",
+    "applicant_position": "Applicant claimed risk of harassment as woman married to foreigner; husband testified about stops and questioning.",
+    "respondent_position": "RAD found harassment did not amount to persecution; no documentary evidence supported risk as woman married to foreigner.",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_text": "Court finds RAD reasonably concluded harassment evidence did not amount to persecution."
+   },
+   {
+    "issue": "Did the RAD err in rejecting the Applicant's claim of risk of human rights violations due to lack of evidence about her living circumstances in Turkmenistan?",
+    "paras": "10,16",
+    "applicant_position": "Applicant alleged human rights concerns and criticized RAD's treatment of evidence.",
+    "respondent_position": "RAD rejected human rights concerns due to lack of specifics about Applicant's plans or lifestyle in Turkmenistan.",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "Court finds RAD decision reasonable and dismisses judicial review application."
+   }
+  ]
+ }
+}

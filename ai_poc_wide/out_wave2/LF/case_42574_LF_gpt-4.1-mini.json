@@ -1,0 +1,1339 @@
+{
+ "case_id": 42574,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.024464,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This is an assessment of costs pursuant to a Federal Court of Appeal Judgment dated November 29, 2019, dismissing the Appellant's appeal with costs.",
+     "quote": "This is an assessment of costs pursuant to a Judgment of the Federal Court of Appeal (“the Court”) dated November 29, 2019, wherein the Appellant’s appeal proceeding was “dismissed with costs.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this proceeding is an assessment of costs following the dismissal of the Appellant's appeal with costs on November 29, 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Costs will be assessed according to Rule 407 of the Federal Courts Rules, which mandates party-and-party costs per Tariff B column III unless ordered otherwise.",
+     "quote": "costs will be assessed in accordance with Rule 407 of the Federal Courts Rules, SOR/98-106 (FCR), which states: 407. Assessment according to Tariff B - Unless the Court orders otherwise, party-and-party costs shall be assessed in accordance with column III of the table to Tariff B.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states costs assessment follows Rule 407 of the Federal Courts Rules, using Tariff B column III unless the Court orders otherwise.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On March 24, 2021, the Respondent filed written representations and an affidavit initiating the request for assessment of costs.",
+     "quote": "On March 24, 2021, the Respondent filed Written Representations and an Affidavit of Disbursements of Danika Tondreau, affirmed on March 22, 2021, with the Respondent’s Bill of Costs attached at Exhibit “B”. The filing of these documents initiated the Respondent’s request for an assessment of costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Respondent filed documents on March 24, 2021, initiating the request for assessment of costs.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A direction was issued on March 26, 2021, regarding conduct and filing of documents for cost assessment.",
+     "quote": "On March 26, 2021, a direction was issued to the parties regarding the conduct and filing of documents for the assessment of costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Subsequently, the Appellant filed representations and affidavit on May 28, 2021; the Respondent filed amended bill, reply submissions, and supplementary affidavit on June 18, 2021.",
+     "quote": "Subsequent to this direction, the following documents were filed by the parties, on May 28, 2021, the Appellant filed Representations on Costs and an Affidavit of Marie Eve Brule (no date); and on June 18, 2021, the Respondent filed an Amended Bill of Costs, Reply Submissions and a Supplementary Affidavit of Danika Tondreau, affirmed on June 18, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a direction was issued on March 26, 2021, and parties filed further documents on May 28 and June 18, 2021.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Respondent’s Amended Bill of Costs filed June 18, 2021, will be used for this assessment.",
+     "quote": "The Respondent’s Amended Bill of Costs, filed on June 18, 2021, will be used for this assessment of costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will use the Respondent's Amended Bill of Costs filed June 18, 2021, for the assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Respondent delayed over one year before submitting a bill of costs without explanation.",
+     "quote": "there is no explanation as to why the respondent took over 1 year before putting together a bill of costs",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Federal Court Rules lack a time limit for cost assessment, but Supreme Court of Canada’s 4-month deadline is a reasonable measure for delay.",
+     "quote": "the Federal Court Rules do not appear to have a time limit to seek assessment ... Supreme Court of Canada’s 4-month deadline ... reasonable time frame",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent implicitly acquiesced to a non-cost disposition due to unreasonable delay in claiming costs.",
+     "quote": "Respondent “implicitly acquiesced to a non-cost disposition” due to the unreasonable delay",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the Respondent delayed over a year unreasonably, suggesting a 4-month limit and implied acquiescence to no costs.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent’s request for cost assessment is not unreasonably delayed; no limitation period applies under Federal Courts Rules.",
+     "quote": "The Respondent’s Assessment Request is not unreasonably delayed ... Federal Courts Rules ... do not specify a limitation period",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "In Gagné v Canada, limitation periods in Federal Courts Act and Crown Liability Act do not apply to cost assessments.",
+     "quote": "limitation periods ... do not apply to an assessment of the costs awarded in a judgment",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues no unreasonable delay occurred and no limitation period applies to cost assessments, citing Gagné v Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "In Gagné, only units for assessment services were reduced, remainder assessed per Rules and Court record.",
+     "quote": "Assessment Officer ... only reduced the number of units ... but assessed the remainder ... in accordance with the Rules and the Court record.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent delayed cost request due to Appellant’s Supreme Court leave application to limit resource expenditure.",
+     "quote": "Respondent delayed requesting an assessment of costs to limit ... resources ... in case the award of costs was reversed.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant’s Supreme Court leave application was dismissed October 29, 2020; Respondent sought payment December 22, 2020 and January 27, 2021.",
+     "quote": "Appellant’s application ... was dismissed on October 29, 2020 ... Respondent sought payment ... December 22, 2020, and ... January 27, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent explains delay by pending Supreme Court application, which was dismissed, then sought payment in late 2020 and early 2021.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent’s delay in requesting cost assessment was not excessive due to related Supreme Court proceeding.",
+     "quote": "Respondent’s delay ... was not excessive, as there was a related legal proceeding initiated by the Appellant in the Supreme Court of Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent’s justification for delay is reasonable; Supreme Court decision did not affect costs award.",
+     "quote": "Respondent submitted ... reasonable justification for delaying ... Supreme Court of Canada’s decision ... did not affect the Respondent’s award of costs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent contacted Appellant about costs December 22, 2020 and followed up January 27, 2021; cost assessment filed March 24, 2021.",
+     "quote": "Respondent initially contacted the Appellant ... December 22, 2020 ... e-mail ... January 27, 2021 ... request for an assessment of costs was filed ... March 24, 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Timeline between judgment and cost request is reasonable; delay will not adversely impact cost assessment.",
+     "quote": "timeline ... to be reasonable ... issue of delay is not a factor that will adversely impact my assessment of the Respondent’s costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Respondent’s delay reasonable due to related Supreme Court proceedings and will not reduce costs for delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "COVID-19 pandemic affected Appellant’s finances, funds redirected to help affected people.",
+     "quote": "COVID-19 pandemic has affected the Appellant’s finances, which “have been relocated to help people affected by COVID-19.”",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Costs are a matter of equity; Court did not explicitly order Appellant to pay Respondent’s costs.",
+     "quote": "costs are “inherently and historically a matter of equity ... Court did not explicitly state ... Appellant had to pay the Respondent’s costs.”",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Assessment of costs should consider fairness, equity, and parties’ financial capacity; non-payment may cause Appellant to dissolve.",
+     "quote": "assessment of costs should be fair and equitable ... court should also consider the financial capacity ... appellant is likely to shut down and dissolve.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues COVID-19 affected finances, costs are equitable, and financial capacity should influence cost assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Court’s Judgment did not designate payor or recipient of costs.",
+     "quote": "Courts Judgment “did not designate which party was the payor and which party was the recipient of the costs award.”",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "General rule is costs follow the cause; Appellant provided no evidence to deny Respondent’s entitlement to costs.",
+     "quote": "costs are based on the principles of indemnity such that costs follow the cause ... no evidence ... to support ... Respondent is not entitled to her costs.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Jurisprudence is clear that inability to pay costs is not a factor for assessment officers.",
+     "quote": "a party’s “inability to pay costs is not a factor to be considered by an assessment officer.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues costs follow the cause, no evidence denies entitlement, and inability to pay is irrelevant to assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court’s Judgment did not explicitly state costs payable by Appellant to Respondent.",
+     "quote": "Court’s Judgment dated November 29, 2019, did not explicitly state that the costs awarded were payable by the Appellant to the Respondent.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Little Sisters Book and Art Emporium v. Canada confirms costs awards are discretionary but generally follow the cause, with policy and indemnity rationales co-existing.",
+     "quote": "the Supreme Court of Canada stated ... costs awards can be used ... policy goals ... general rule ... costs follow the cause ... policy and indemnity rationales can co-exist",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the judgment did not specify payor; Supreme Court confirms costs awards generally follow the cause with policy considerations.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Thibodeau v. Air Canada states costs provide partial compensation, assessed under Tariff B column III for average complexity cases.",
+     "quote": "The purpose of awarding costs is limited to providing the party receiving them with partial compensation ... assessed in accordance with Column III of the table in Tariff B ... average or usual complexity",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Thibodeau confirming costs provide partial compensation and are assessed under Tariff B column III for average complexity.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant is unsuccessful party; Respondent is successful party entitled to costs under Court’s Judgment and FCR limits.",
+     "quote": "Appellant ... dismissed ... unsuccessful party ... Respondent ... successful party ... entitled to costs ... pursuant the Court’s Judgment dated November 29, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant unsuccessful and the Respondent entitled to costs under the judgment and Federal Courts Rules.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Leuthold v. CBC states impecunious claimants should not be prevented from claims by costs orders, but impecuniosity is irrelevant after judgment for cost assessment.",
+     "quote": "impecunious claimant ... should not be prevented ... by an order for security for costs ... once a matter has proceeded to trial and judgment ... impecuniosity is not a relevant factor in the assessment of costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Leuthold that impecuniosity is irrelevant to cost assessment after judgment is rendered.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Latham v. Canada states financial hardship and capacity to pay are irrelevant to cost assessment; assessment officers have no jurisdiction to interfere.",
+     "quote": "capacity to pay ... are irrelevant in the determination of issues of an assessment of costs ... I have no jurisdiction to interfere with the exercise of the Court's Rule 400(1) discretion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Latham confirming financial hardship and capacity to pay are irrelevant to cost assessment and officers lack jurisdiction to interfere.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Carlile v. Canada states Taxing Officers must balance indemnification of successful litigants and avoiding unnecessary costs to unsuccessful litigants, using balance of probabilities standard.",
+     "quote": "Taxing Officers ... must be careful ... to not penalize successful litigants ... denial of indemnification ... standard of proof ... balance of probabilities ... zero dollars at taxation would be absurd",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Carlile that Taxing Officers must balance indemnification and fairness, applying balance of probabilities standard.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Assessment Officers cannot consider impecuniosity or financial hardship in cost assessments; reductions based on incapacity to pay are not allowed.",
+     "quote": "Assessment Officers cannot consider the impecuniosity of a party ... Any possible reduction ... will not be based on the Appellant’s possible incapacity to pay",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Assessment will ensure Respondent is indemnified for real costs without burdening Appellant with unreasonable costs.",
+     "quote": "assessment ... will not penalize the Respondent by the “denial of indemnification ... but will also ensure that the Appellant is “not burdened with unnecessary or unreasonable costs”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds financial hardship cannot be considered; costs will indemnify Respondent without imposing unreasonable burden on Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges Respondent’s Bill of Costs item numbers are unintelligible and unclear how hours claimed were calculated.",
+     "quote": "“The information provided in the “Item No.” on respondent’s bill is not intelligible.” ... “not clear how the respondent arrived at the number of hours claimed for each fee item.”",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent did not address these issues but stated Bill of Costs was prepared per FCR and used average units from Tariff B column III.",
+     "quote": "Respondent’s Bill of Costs was prepared in accordance with the FCR and that an average number of units were selected “from column III of Tariff B in the calculation of fees.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant challenges clarity of Respondent’s Bill of Costs; Respondent says it complies with Rules using Tariff B column III units.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Review found Tariff B column III indicated in Bill of Costs; units claimed fall within column III parameters; details satisfactory.",
+     "quote": "there is a “(III)” before all of the Item numbers ... number of units claimed ... fell within the parameters of column III ... details ... were all satisfactory.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent’s Bill of Costs complies with Federal Courts Rules and requires no further consideration in this assessment.",
+     "quote": "Respondent’s Bill of Costs was submitted in accordance with the FCR and is not an issue that will require further consideration in this assessment of costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Respondent’s Bill of Costs complies with the Rules and will not be further considered in this assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Affidavit of Disbursements lacks personal knowledge statement and contains inadmissible hearsay, so should not be admitted.",
+     "quote": "The affiant, Ms. Tondreau, failed to state in her affidavit whether she has personal knowledge of the matters deposed to therein, or how she acquired knowledge of the matters deposed to therein and whether she believes them to be true.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Affidavit has little value and should not be admitted as evidence.",
+     "quote": "there is little value in that affidavit, and it should not be admitted as evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Affidavit has two deficiencies: not entirely in first person and missing attestation statement, but reasonableness of expenses is for court to decide.",
+     "quote": "The Affidavit of Disbursements was not entirely drafted in the first person as required by Rule 80. The Affidavit of Disbursements is also missing an attestation statement. However, the Appellant’s additional complaint that the affiant does not “tell us whether any of the expenses were justified or reasonable” is misguided.",
+     "answers": 1
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Supplementary Affidavit should address Appellant's concerns about affidavit deficiencies.",
+     "quote": "In any event, the Supplementary Affidavit should relieve the Appellant’s concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues affidavit lacks personal knowledge and is hearsay; Respondent admits deficiencies but says reasonableness is court's role and supplementary affidavit helps.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Affidavit of Disbursements is useful but given limited weight due to missing attestation and non-first person statements.",
+     "quote": "I have determined that limited weight will be given to the affidavit because it is missing an attestation statement from the affiant and because some statements in the affidavit are not in the first person.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Invoices attached meet evidence requirements of Tariff B section 1(4) and will be considered in cost assessment.",
+     "quote": "I have found that the attachment of invoices to the Affidavit of Disbursements ... have met the evidence requirement specified at section 1(4) of Tariff B, and that they will be considered in the assessment of the Respondent’s costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Supplementary Affidavit of Danika Tondreau resolves irregularities found in March 22, 2021 affidavit.",
+     "quote": "Respondent has filed a Supplementary Affidavit of Danika Tondreau ... which has resolved the irregularities that were found in the Affidavit of Disbursements ...",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds affidavit useful but gives limited weight due to deficiencies; invoices meet evidence requirements; supplementary affidavit resolves issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's Representations on Costs not signed as required by Rule 66 of Federal Courts Rules.",
+     "quote": "Representations on Costs was not signed by the solicitor or the party that filed it pursuant to Rule 66 of the FCR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Reviewed Rule 66 and June 15, 2020 Notice specifying signature requirements during COVID-19 pandemic.",
+     "quote": "I reviewed Rule 66 and the Federal Court of Appeal’s Notice to the Parties and the Profession, dated June 15, 2020, which specified some of the filing requirements for documents during the COVID-19 pandemic.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent alleges Appellant's cost documents lack required signature; court reviews relevant rule and notice on signature requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Summerbell decision states only the filed document must be signed, not the served copy.",
+     "quote": "Dealing with the question of unsigned documents, the document which is required to be signed is the document which is filed. A copy has been served on the Plaintiff and there is no requirement that, that copy be signed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Summerbell decision clarifies only filed documents must be signed, not served copies, per court's statement.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's served Representations on Costs met Rule 66 requirements; filed copy lacked signature but had other identifying info.",
+     "quote": "Appellant’s Representations on Costs that was served on the Respondent met the requirements for Rule 66 of the FCR. ... my review of the court record found that it did not have a scanned or electronic signature ... included the date ... name and address ... e-mail address.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "It would be unfair to exclude Appellant's Representations on Costs solely due to missing signature; they will be considered in cost assessment.",
+     "quote": "I have found that it would be procedurally unfair to not consider the Appellant’s Representations on Costs for the assessment of costs solely based on the absence of a scanned or electronic signature.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds served cost documents met requirements; filed copy lacked signature but will be considered to avoid unfairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's affidavit did not meet May 12, 2020 Notice requirements for remote sworn affidavits during COVID-19.",
+     "quote": "Affidavit did not meet the requirements of the Federal Court of Appeal’s Notice to the Parties and the Profession, dated May 12, 2020 ... allows parties to file affidavits sworn or affirmed remotely ... Appellant did not provide authority for undated affidavit.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent will not take position on admissibility of Appellant's affidavit supporting financial circumstances.",
+     "quote": "Respondent would not be taking a position regarding the admissibility of the Appellant’s affidavit.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues Appellant's affidavit lacks proper authority and is undated but declines to contest admissibility regarding financial support.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's affidavit is undated and lacks indication of sworn or affirmed status and commissioner of oaths.",
+     "quote": "court record’s copy of the affidavit is undated. I also found that there was no indication in the affidavit as to whether the affiant’s statements were sworn or affirmed at all, and if so, who the commissioner of oaths was.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Affidavit supports Appellant's financial submissions, but financial circumstances cannot be considered in cost assessment.",
+     "quote": "balance of the Affidavit ... appears to be in support of the Appellant’s submissions regarding its financial circumstances. ... I am unable to consider the financial circumstances of a party in an assessment of costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Statements about quantum of costs in affidavit duplicate Appellant's Representations on Costs and need not be considered separately.",
+     "quote": "paragraphs 7 and 8 ... contain statements regarding the quantum of costs claimed ... similar to some of the submissions contained in the Appellant’s Representations on Costs ... will not need to be considered in the assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant's affidavit undated and lacking oath info; financial circumstances not considered; overlapping statements need not be considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent claims 15.5 units for assessable services.",
+     "quote": "The Respondent has claimed 15.5 units for assessable services.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent claims 15.5 units for assessable services.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent's Amended Bill of Costs claims 1 unit for Item 18, preparation of Appeal Book, not claimed earlier.",
+     "quote": "1 unit was claimed for Item 18, for the preparation of the Appeal Book ... Item 18 was not claimed in this document.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Amended Bill of Costs served on Appellant as reply document; no opportunity to respond to new claim.",
+     "quote": "Amended Bill of Costs ... was served on the Appellant, but it was part of the Respondent’s reply costs documents and there was no opportunity for the Appellant to respond to the new claim for Item 18.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Kawasaki Kisen Kaisha Ltd. decision allows amended bills if opposing party can respond.",
+     "quote": "a request from a taxing party to amend his Bill of Costs ... may be allowed if the opposing party is given the opportunity to defend against any changes made.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent's amended bill adds Item 18 without Appellant's chance to respond; Kawasaki decision requires opportunity to respond to amendments.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Considering Kawasaki decision, it would be unfair to consider Respondent's new claim for Item 18 without Appellant's response opportunity; Item 18 disallowed.",
+     "quote": "it would be procedurally unfair to the Appellant to consider the Respondent’s new claim for Item 18 ... Item 18 must be disallowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disallows Respondent's new Item 18 claim due to procedural unfairness without Appellant's response opportunity.",
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent claims 5 units for Item 19, preparation and filing of Memorandum of Fact and Law.",
+     "quote": "Respondent has claimed 5 units for the preparation and filing of the Respondent’s Memorandum of Fact and Law.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits 5 units is reasonable for Item 19 claim.",
+     "quote": "5 units is a reasonable amount for the Respondent to claim for Item 19.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees 5 units for Item 19 is reasonable and allows claim as filed.",
+     "quote": "I am in agreement with the Appellant that the Respondent’s claim for 5 units for the preparation and filing of the Respondent’s Memorandum of Fact and Law is reasonable.",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent claims 5 units for Item 19; Appellant agrees; court allows claim as reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent claims 4.5 units for Item 22(a), counsel attendance at appeal hearing.",
+     "quote": "Respondent has claimed 4.5 units for Item 22(a) for counsel’s attendance at the appeal hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits claim is excessive and should be reduced to 1 hour at 2 units.",
+     "quote": "Respondent’s claim is “excessive ... should be reduced to 1 hour and multiplied by 2 units ...",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits claim for 1.5 hours is supported by court record.",
+     "quote": "claim for assessable counsel fees for 1.5 hours on hearing ... is supported by the Court record.",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent claims 4.5 units for hearing attendance; Appellant says excessive; Respondent says 1.5 hours supported by record.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Court record shows hearing lasted 1 hour 35 minutes per Abstract of Hearing.",
+     "quote": "Court Registrar ... recorded ... appeal hearing was from 9:30 am to 11:05 am, which was a duration of 1 hour and 35 minutes.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Apotex decision states Abstract of Hearing is useful guide for attendance time but not absolute.",
+     "quote": "abstract of hearing is a useful, but not absolute, guide for attendance at hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Apotex decision found 8.5 hours at 3 units per hour reasonable for Item 22 in that case.",
+     "quote": "claim of 8 1/2 hours at 3 units per hour is reasonable for item 22 in these circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes hearing lasted 1h35m; Apotex decision says Abstract is useful guide; prior case found 8.5 hours reasonable.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's proposal to limit claim to oral argument duration unsupported by jurisprudence.",
+     "quote": "Appellant did not provide any jurisprudence to support this proposal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court judgment does not reduce Respondent's costs due to oral argument length.",
+     "quote": "Court’s Judgment ... did not reveal that Respondent’s costs ... should be reduced due to the duration of the Respondent’s oral arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent entitled to claim full attendance duration, not just time speaking, for Item 22(a).",
+     "quote": "Respondent was entitled to claim the entire duration of their attendance at the appeal hearing and not just for the time that the Respondent spoke at the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects limiting claim to oral argument time; Respondent entitled to full attendance duration claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Item 22(a) range is 2-3 units; court finds medium complexity and 3 units reasonable.",
+     "quote": "Item 22(a) has a range of 2 – 3 units ... I have found the Appellant’s appeal proceeding to be of medium complexity and the Respondent’s selection of 3 units ... to be reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent's counsel attendance at hearing necessary; claim for 4.5 units allowed.",
+     "quote": "I have determined that the Respondent’s counsel’s attendance at the appeal hearing was necessary and that it is reasonable to allow the Respondent’s claim for Item 22(a) at 4.5 units.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds medium complexity and allows Respondent's 4.5 units claim for counsel attendance at hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent claims 1 unit for Item 25, services after judgment.",
+     "quote": "Respondent has claimed 1 unit for Item 25 for services performed after judgment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits services performed unknown and Item 25 should not be allowed.",
+     "quote": "services performed by the Respondent are unknown and therefore Item 25 should not be allowed.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits services included client letter, recordkeeping, Bill of Costs preparation, and file closing.",
+     "quote": "services performed by the Respondent were “the preparation of a client reporting letter and paper, electronic recordkeeping, preparation of the Bill of Costs, and file closing.”",
+     "answers": 1
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Halford decision routinely allows Item 25 unless counsel did not review judgment and explain implications.",
+     "quote": "I routinely allow item 25, notwithstanding the absence of evidence, unless I think that responsible counsel did not, in fact, review the judgment and explain associated implications to the client.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent claims 1 unit for post-judgment services; Appellant objects; Respondent explains services; Halford allows Item 25 routinely.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Services after judgment were necessary; 1 unit for Item 25 allowed.",
+     "quote": "I have determined that the services performed by the Respondent were necessary and that it is reasonable to allow 1 unit for the Respondent’s services performed after the final judgment was rendered by the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows 1 unit for Respondent's necessary post-judgment services.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent's Amended Bill of Costs claims 4 units for Item 26, assessment of costs, increased from 3 units earlier.",
+     "quote": "4 units were claimed for Item 26 ... only 3 units were claimed for Item 26.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Amended Bill served on Appellant as reply document; no opportunity to respond to increased units claim.",
+     "quote": "Amended Bill of Costs ... was served on the Appellant, but ... no opportunity for the Appellant to respond to the increased amount of units for Item 26.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent amended claim to reflect time to amend Bill and prepare reply submissions; clerical error in reply submissions noted.",
+     "quote": "Respondent has amended its Bill of Costs to increase the number of units ... to reflect the Respondents’ time to amend its Bill of Costs and prepare these reply submissions. ... clerical error ... 4 units ... not 6 units.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent increased Item 26 claim from 3 to 4 units without Appellant's chance to respond; Respondent explains amendment and clerical error.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Following Kawasaki decision, it would be unfair to consider increased Item 26 claim without Appellant's response; Item 26 considered at 3 units.",
+     "quote": "it would be procedurally unfair to the Appellant to consider the Respondent’s claim for Item 26 at 4 units ... Item 26 will be considered at 3 units.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disallows increased Item 26 claim due to procedural unfairness; considers Item 26 at 3 units.",
+   "role": "disposition"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits Respondent's assessment services would not require more than 2 hours; only 2 units should be allowed for Item 26.",
+     "quote": "Respondent’s services for the assessment of costs “would not reasonably have required more than 2 hours” and that only 2 units should be allowed for Item 26.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent's assessment services were necessary; 3 units for Item 26 allowed as reasonable.",
+     "quote": "I have determined that the Respondent’s services were necessary and that it is reasonable to allow 3 units for the Respondent’s claim for Item 26.",
+     "answers": 1
+    }
+   ],
+   "summary": "Appellant argues for 2 units for assessment services; court finds services necessary and allows 3 units as reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "13.5 units allowed for Respondent's assessable services totaling $2,025.00",
+     "quote": "A total of 13.5 units have been allowed for the Respondent’s assessable services for a total dollar amount of $2,025.00.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds 13.5 units allowed for Respondent's services totaling $2,025.00.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent claimed $1,665.73 for disbursements, starting with in-house photocopying",
+     "quote": "The Respondent has claimed $1,665.73 for disbursements. A. In-house photocopying.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Respondent claimed $1,665.73 for disbursements, beginning with in-house photocopying.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent claims $432.00 for in-house photocopying of 6 copies each of Appeal Book and Memorandum",
+     "quote": "The Respondent has claimed $432.00 for the in-house photocopying of 6 copies of the Appeal Book, filed on May 8, 2019, and for 6 copies of the Respondent’s Memorandum of Fact and Law, filed on July 23, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Respondent cannot claim Appeal Book photocopying costs per Rule 343(4) and no written agreement for reimbursement",
+     "quote": "the respondent cannot claim disbursements for the appeal book because Rule 343(4) states that the appeal book is the responsibility of the appellant...no written agreement between the parties for the reimbursement of any printing costs for this item.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent replies Appellant agreed to have Respondent prepare and file Appeal Book due to filing difficulties",
+     "quote": "[t]he Appellant’s representative encountered difficulties with respect to the Court’s filing requirements and agreed to have the Respondent prepare and file the appeal book on its behalf.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent claims $432 for photocopying; Appellant objects citing Rule 343(4) and no agreement; Respondent replies Appellant agreed to Respondent preparing Appeal Book.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits no written agreement for Respondent reimbursement of Appeal Book photocopying costs",
+     "quote": "The Appellant has submitted that there was no written agreement between the parties for the Respondent to be reimbursed for the photocopying costs of the Appeal Book.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No written agreement found either for or against Respondent reimbursement for Appeal Book photocopying",
+     "quote": "there was also no written agreement between the parties that the Respondent would not be reimbursed for the photocopying costs of the Appeal Book.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent filed Appeal Book with no indication of Appellant disapproval",
+     "quote": "there was no indication on the court record that the Respondent prepared and filed the Appeal Book without the approval of the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "In absence of evidence, it was reasonable for Respondent to include photocopying claim in Bill of Costs",
+     "quote": "I have determined that in the absence of any evidence regarding the reimbursement of the photocopying costs for the Appeal Book that it was reasonable for the Respondent to include this claim in the Bill of Costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant says no agreement for reimbursement; court finds no agreement against reimbursement; Respondent filed Appeal Book with Appellant's apparent approval; court finds claim reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "In Inverhuron decision, evidence for in-house photocopying claims was thin and lacked cost details",
+     "quote": "The evidence produced in support of these claims is thin. It does not provide any information as to how they arrived at the amount of $0.25/page.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Photocopy disbursement allowed only if essential; charge must reflect actual cost, not arbitrary rate",
+     "quote": "The Item of photocopies is an allowable disbursement only if it is essential to the conduct of the action...The 25 charge by the office of plaintiffs' counsel is an arbitrary charge and does not reflect the actual cost of the photocopy.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Party claiming photocopy costs must satisfy taxing officer as to actual cost of essential photocopies",
+     "quote": "A law office is not in the business of making a profit on its photocopy equipment. It must charge the actual cost and the party claiming such disbursements has the burden to satisfy the taxing officer as to the actual cost of the essential photocopies.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision found photocopy claims lacked cost details; photocopy costs allowed only if essential and reflect actual cost; claimant must prove actual cost.",
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Assessment Officers have limited material and must exercise discretion to determine reasonable expenses",
+     "quote": "determining what expenses are “reasonable” is often likely to do no more than rough justice between the parties and inevitably involves the exercise of a substantial degree of discretion on the part of assessment officers.",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior court states assessment officers must exercise discretion to determine reasonable expenses with limited material.",
+   "role": "law"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent's evidence for photocopying cost thin, no info on $0.25/page rate",
+     "quote": "I have found that the Respondent’s “evidence produced in support of” this claim to be thin, as “[i]t does not provide any information as to how they arrived at the amount of $0.25/page.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appeal Book and Memorandum electronically served; 6 hard copies reasonable for court and parties",
+     "quote": "My review of the court record found that the Appeal Book and the Respondent’s Memorandum of Fact and Law were both electronically served on the Appellant...Respondent was entitled to photocopy 1 copy for its own use, for a total of 6 copies for each document.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "It was reasonable for Respondent to claim 6 copies of each document for photocopying",
+     "quote": "Therefore, I have found that it was reasonable for the Respondent to submit claims for 6 copies of each document.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Respondent's photocopying evidence thin; notes electronic service and 6 hard copies reasonable; allows claim for 6 copies each.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent's in-house photocopying claim necessary and reasonable; $261 allowed",
+     "quote": "I have determined that the Respondent’s claim for in-house photocopying was necessary and that it is reasonable to allow $261.00 for these disbursements.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows $261 for Respondent's necessary and reasonable in-house photocopying claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent claims $1,225.38 for out-sourced printing of Certified Tribunal Record and Joint Book of Authorities",
+     "quote": "The Respondent has claimed $1,225.38 for the out-sourced printing of 3 copies of the Certified Tribunal Record, filed on March 11 2019, and 6 copies of the parties’ Joint Book of Authorities, filed on July 23, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits documents could be served electronically; printing invoices excessive and lack details",
+     "quote": "the aforementioned documents could have been served electronically and that the out-sourced printing invoices “appear to be excessive” and lack adequate details.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent replies consents to electronic service do not bind parties to file paper copies; no reply on invoice details",
+     "quote": "the consents to electronic service do not bind the parties to also file paper copies of these documents with the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent claims $1,225.38 for out-sourced printing; Appellant objects on electronic service and invoice details; Respondent replies consent doesn't bind paper filing.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Invoices lack printing price per page but detail volumes, documents, and specifications",
+     "quote": "my review of the Respondent’s invoices...did show an absence of detail regarding the printing price charged per page...provided details regarding the number of volumes contained in each document, the number of documents that were printed, and details regarding the various specifications",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Size of Certified Tribunal Record (1 volume) and Joint Book of Authorities (3 volumes) justify out-sourced printing",
+     "quote": "I have found that with the size of the Certified Tribunal Record, being one volume, and the size of the Joint Book of Authorities, being 3 volumes, that it was reasonable for these documents to be out-sourced for printing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds invoices lack per page price but detail volumes and specs; size of documents justifies out-sourced printing.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Consent to Electronic Service does not require all documents to be served electronically",
+     "quote": "my review of Rule 141 of the FCR did not reveal that if parties consent to electronic service that it means that all documents must be served in that manner.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Certified Tribunal Record served before Consent to Electronic Service filed",
+     "quote": "Certified Tribunal Record that was filed on March 11 2019, was served on the Appellant before the parties’ Consent to Electronic Service was filed with the court registry on March 25, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent could serve and file hard copies; no imperative to serve electronically despite consent",
+     "quote": "it was open to the Respondent to serve and file hard copies...no imperative requirement to serve and file these documents electronically because the parties had consented to electronic service.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Consent to Electronic Service provides an additional option but does not compel electronic service of all documents",
+     "quote": "The filing of a Consent to Electronic Service, provides a party with an additional option for the service of documents but a party is not compelled to serve all of their documents electronically because a Consent to Electronic Service has been filed on the court record.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds consent to electronic service does not compel electronic filing; Respondent could serve hard copies; record shows service before consent filed.",
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Certified Tribunal Record: 3 hard copies filed and served; Joint Book of Authorities: 6 copies filed and used",
+     "quote": "for the Certified Tribunal Record, 1 hard copy was filed with the court registry, 1 hard copy was for the Appellant, and 1 hard copy was for the Respondent...for the Joint Book of Authorities, 5 hard copies were filed with the court registry, and the Respondent was entitled to print 1 copy for its own use, for a total of 6 copies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent's out-sourced printing claims necessary and reasonable; $1,225.38 allowed",
+     "quote": "I have determined that Respondent’s claims for out-sourced printing...were necessary and...the out-sourced printing amounts are reasonable...Respondent’s out-sourced printing disbursements for $1,225.38 is allowed as claimed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds number of copies filed and used reasonable; allows Respondent's out-sourced printing claim of $1,225.38.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Respondent claims $5.35 for courier service of Certified Tribunal Record to Appellant",
+     "quote": "The Respondent has claimed $5.35 for the courier service of the Certified Tribunal Record on the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Invoice from Purolator shows delivery to Appellant on March 8, 2019",
+     "quote": "Attached...is a copy of an invoice from Purolator, showing that a delivery was made to the Appellant on March 8, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Fee charged for courier service reasonable and necessary for appeal proceeding",
+     "quote": "I have found that the fee charged for the service of Certified Tribunal Record on the Appellant was reasonable and that it was necessary for the Appellant to receive a copy of this document...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent's courier service claim of $5.35 allowed as claimed",
+     "quote": "Therefore, I have determined that the Respondent’s claim for $5.35 for the courier service disbursement is allowed as claimed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent claims $5.35 courier fee; court finds invoice and fee reasonable and necessary; claim allowed.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Total amount allowed for disbursements is $1,491.73",
+     "quote": "The total amount allowed for disbursements is $1,491.73.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows total disbursements of $1,491.73.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Respondent's Amended Bill of Costs allowed in total $3,516.73 payable by Appellant; Certificate of Assessment to be issued",
+     "quote": "the Respondent’s Amended Bill of Costs, filed on June 18, 2021, is assessed and allowed in the total amount of $3,516.73, payable by the Appellant to the Respondent. A Certificate of Assessment will also be issued.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows Respondent's Amended Bill of Costs of $3,516.73 payable by Appellant; Certificate of Assessment to issue.",
+   "role": "disposition"
+  }
+ ]
+}

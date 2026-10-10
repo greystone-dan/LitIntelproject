@@ -1,0 +1,1164 @@
+{
+ "case_id": 66801,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.020114,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "XXXX XXXX XXXX XXXX is a Colombian citizen appealing the RPD's rejection of his asylum claim",
+     "quote": "XXXX XXXX XXXX XXXX is a citizen of Colombia appealing against the decision of the Refugee Protection Division (RPD) that rejected his claim for asylum.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that XXXX XXXX XXXX XXXX, a Colombian citizen, appeals the RPD's rejection of his asylum claim.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "XXXX XXXX XXXX fears for his life due to extortion by two men claiming to be FARC members since 2014",
+     "quote": "XXXX XXXX XXXX fears for his life because he was being extorted by two men who identified themselves as members of the Revolutionary Armed Forces of Colombia (FARC), beginning in 2014.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant fears for his life because two men claiming to be FARC members extorted him starting in 2014.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD accepted applicant's allegations but found a viable internal flight alternative (IFA) in Barranquilla",
+     "quote": "The RPD accepted XXXX XXXX XXXX allegations, but found that he had a viable internal flight alternative (IFA) in Barranquilla.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "No evidence that the two men threatening applicant were still FARC members or another armed group",
+     "quote": "There was no evidence that the two men who threatened XXXX XXXX XXXX were still members of the FARC, or another armed group,",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The men only approached applicant in person in XXXX XXXX XXXX XXXX and made phone calls in 2016 which stopped after phone number change",
+     "quote": "they only approached him in person in XXXX XXXX XXXX XXXX. He did receive phone calls in 2016, but these stopped after he changed his phone number.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD concluded the men lacked means or motivation to pursue applicant to Barranquilla",
+     "quote": "The RPD concluded that the two men who had extorted XXXX XXXX XXXX did not have the means or the motivation to pursue XXXX XXXX XXXX to Barranquilla.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD accepted the applicant's allegations but found an IFA in Barranquilla, noting no evidence the men were still armed group members and they lacked means to pursue him there.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RPD erred in finding IFA and did not apply proper test",
+     "quote": "In appeal, XXXX XXXX XXXX argues that the RPD erred in finding that he had an IFA and did not apply the proper test.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RPD member was not sufficiently knowledgeable about Colombia's country conditions",
+     "quote": "XXXX XXXX XXXX submits that the RPD member was not sufficiently knowledgeable about the country conditions in Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RPD erred in finding an IFA and lacked sufficient knowledge of Colombia's country conditions.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD member was correct in determining applicant had an IFA in Barranquilla",
+     "quote": "The RPD member was correct in her determination that XXXX XXXX XXXX had an IFA in Barranquilla.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court confirms RPD's determination and dismisses the appeal",
+     "quote": "I confirm the RPD's determination and dismiss this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD was correct on IFA and dismisses the appeal.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant intended to submit new evidence including affidavit and employer letter after appeal record was perfected",
+     "quote": "Within XXXX XXXX XXXX appeal record, he stated that he intended on submitting new evidence that included an affidavit from a co-worker stating that men went to look for him and a letter from his employer referring to the reasoning for relocation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "RAD contacted applicant in January 2021 about new evidence, which was submitted on January 27, 2021 after appeal perfection without submissions",
+     "quote": "In January 2021, the Refugee Appeal Division (RAD) contacted XXXX XXXX XXXX to ask if he still intended on producing this evidence, and XXXX XXXX XXXX did so on January 27, 2021. This new evidence was submitted after the appeal was perfected, with no submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant intended and submitted new evidence after appeal perfection; RAD contacted him and received it on January 27, 2021.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Three documents submitted as new evidence: Exhibit A (news articles), Exhibit B (employer statement), Exhibit C (sworn statement by co-worker)",
+     "quote": "The following are the documents that were submitted: * Exhibit A: A Word document dated XXXX 2021 and entitled \"Case Update News XXXX XXXX\" listing six articles and reports, with internet links to the documents. * Exhibit B: A written statement from the XXXX XXXX XXXX XXXX, signed by the leader of payroll and compensation, dated XXXX XXXX XXXX 2021, translated. * Exhibit C: A sworn statement by XXXX XXXX XXXX XXXX, dated XXXX XXXX XXXX 2021, translated.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists three new evidence documents submitted: Exhibit A news articles, Exhibit B employer statement, Exhibit C sworn statement by co-worker.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Under IRPA s.110(4), new evidence admitted only if it arose after RPD rejection, was not reasonably available, or could not reasonably have been presented then",
+     "quote": "Subsection 110(4) of the Immigration and Refugee Protection Act (IRPA) states that new evidence will only be admitted where that evidence: 1) arose after the rejection of the claim by the RPD; 2) was not reasonably available; or 3) the appellant could not reasonably have been expected in the circumstances to have presented the evidence, at the time of the rejection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRPA s.110(4) requires new evidence to meet one of three criteria to be admitted.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If new evidence meets criteria, court must assess if it is credible, relevant, and new",
+     "quote": "If the new evidence meets one of the above requirements, I must then assess whether the evidence is credible, relevant, and new.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must assess credibility, relevance, and novelty of new evidence if it meets IRPA criteria.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "In deciding admissibility, court considers factors including RAD Rule 29(4): relevance, probative value, novelty, and whether applicant could have provided it earlier",
+     "quote": "With respect to the new evidence submitted after the perfection of the appeal, in deciding whether to admit it, I must consider any relevant factors, including those listed in Rule 29(4) of the RAD Rules, such as (i) the document's relevance and probative value and (ii) whether it contains new evidence and (iii) whether XXXX XXXX XXXX, with reasonable effort, could have provided the document with his appeal record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considers RAD Rule 29(4) factors including relevance, novelty, and whether applicant could have submitted evidence earlier.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Exhibits A (in part) and B are inadmissible; Exhibit C is admissible",
+     "quote": "I find that Exhibits A (in part) and B are inadmissible, and that Exhibit C is admissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Exhibits A (part) and B inadmissible, but Exhibit C admissible.",
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Exhibit A is a list of articles mostly in Spanish, untranslated, except one English article dated Feb 18, 2020",
+     "quote": "Exhibit A is a list of articles and reports that have not been translated into English. Within the list, the titles of the articles and reports were translated into English; however, the text of all the articles, except one, were in Spanish. The one article that is in English is titled \"Overview of Violence Against Social Leaders in Colombia\", published by InSight Crime, and is dated February 18, 2020, which post-dates the rejection of XXXX XXXX XXXX claim by the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "Exhibit A mostly contains untranslated Spanish articles except one English article dated February 18, 2020.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Spanish articles in Exhibit A inadmissible for lack of translation per RAD Rule 28(1)",
+     "quote": "As such, the items in Spanish are inadmissible because they do not respect RAD Rule 28(1).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "English article post-dates RPD rejection, is new, relevant, credible, and could not have been provided earlier",
+     "quote": "The one article in English post-dates the rejection of XXXX XXXX XXXX claim by the RPD. Thus, it meets one of the criteria of subsection 110(4) of the IRPA. The content of this article is new, not only because it post-dates the rejection of XXXX XXXX XXXX claim, but because it adds information about criminal gangs and violence against social leaders in Colombia that was not part of the RPD record. This topic is relevant to XXXX XXXX XXXX basis of fear of criminal gangs, and the article comes from a credible and independent source that is verifiable. Given the date of the article, XXXX XXXX XXXX, even with reasonable effort, could not have provided it with his appeal record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Spanish articles inadmissible for lack of translation but the English article admissible as new, relevant, credible, and not previously available.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Part of Exhibit A (the English article) is admissible; rest of Exhibit A is inadmissible",
+     "quote": "For these reasons, I conclude that part of Exhibit A, a media article titled \"Overview of Violence Against Social Leaders in Colombia\", published by InSight Crime, dated February 18, 2020, is admissible. The rest of Exhibit A is inadmissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court admits only the English article part of Exhibit A and excludes the rest.",
+   "role": "conclusion"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit B post-dates RPD rejection but its content was reasonably available before",
+     "quote": "Exhibit B is a written declaration by the person responsible for payroll for XXXX XXXX XXXX former employer. It post-dates the rejection of XXXX XXXX XXXX claim; however, its content does not.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit B states applicant worked at three locations and was transferred for security reasons due to threats",
+     "quote": "The document states that XXXX XXXX XXXX worked at three different locations and provides the dates up to XXXX XXXX XXXX 2018. It also states that the \"reason for his transfer was for security reasons of the employee due to constant threats against him.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Information in Exhibit B was reasonably available and applicant could have presented it before RPD rejection",
+     "quote": "In my opinion, this information was reasonably available before, and XXXX XXXX XXXX could reasonably have been expected in the circumstances to have presented this evidence before the time of the rejection of his claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Exhibit B does not meet IRPA s.110(4) criteria and is inadmissible",
+     "quote": "Thus, it does not meet the criteria of subsection 110(4) of the IRPA. For these reasons, Exhibit B is inadmissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Exhibit B's content was reasonably available before and inadmissible under IRPA s.110(4).",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit C is a signed statement, not a sworn affidavit, post-dating RPD rejection",
+     "quote": "Exhibit C is a written declaration by XXXX XXXX XXXX former co-worker. It is called a sworn statement, yet it is not actually in the form of a sworn affidavit, before a notary or a commissioner of oaths, it is merely signed by the person making the statement. It post-dates the rejection of XXXX XXXX XXXX claim, and the information contained in it also does.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit C states men looked for applicant in 2020 and warned him they are armed group members involved in extortion and kidnapping",
+     "quote": "The author states that over the course of 2020, she heard on more than one occasion that a group of men were looking for XXXX XXXX XXXX and that she warned him to be cautious in XXXX of 2020 because according to authorities in the area they are members of an armed group dedicated to extortion and kidnapping.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Information in Exhibit C was not reasonably available before and applicant could not have presented it earlier",
+     "quote": "In my opinion, this information was not reasonably available before and XXXX XXXX XXXX could not reasonably have been expected in the circumstances to have presented this evidence before the time of the rejection of his claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit C meets IRPA s.110(4) criteria",
+     "quote": "Thus, it does meet the criteria of subsection 110(4) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Exhibit C is a signed statement with new information not reasonably available before and meets IRPA criteria for admissibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit C's content is new, relevant to applicant's fear, and from a credible, verifiable source",
+     "quote": "The content of this declaration is new, not only because it post-dates the rejection of XXXX XXXX XXXX claim, but because it adds information about the people that XXXX XXXX XXXX fears that was not part of the RPD record. This information is relevant to XXXX XXXX XXXX continued basis of fear of these persons, and although it is not truly a sworn statement, the declaration seems to come from a credible source that is verifiable, with an identification number.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant could not have provided Exhibit C earlier despite reasonable effort due to timing",
+     "quote": "Given the date of the declaration, and the timeline of the information in its contents, XXXX XXXX XXXX XXXX even with reasonable effort, could not have provided it with his appeal record, which was perfected in XXXX of 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Exhibit C's content new, relevant, credible, and not reasonably available earlier despite effort.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Exhibit C is admissible for the reasons stated",
+     "quote": "For these reasons, Exhibit C is admissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court admits Exhibit C as new evidence.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "On review, court independently assesses all evidence and alleged errors; defers to RPD only if it had meaningful advantage with reasons",
+     "quote": "When reviewing the RPD decision, I am required to independently assess all the evidence and determine whether the RPD was correct in relation to each alleged error of law, fact or mixed fact and law. I may defer to the RPD in the exceptional situation that I find that it had a meaningful advantage in the circumstances, and reasons will be provided in that situation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This case is not one where deference to RPD is appropriate",
+     "quote": "To be clear, this is not the situation in this case.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states it independently reviews all evidence and errors and will not defer to RPD here.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD made no specific credibility findings and accepted applicant's allegations except in IFA analysis",
+     "quote": "The RPD did not make any findings specifically on credibility and accepted XXXX XXXX XXXX allegations, except those issues specifically identified in the IFA analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD accepted the applicant's allegations without specific credibility findings except regarding IFA.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No reason to interfere with the RPD finding; it is correct.",
+     "quote": "I see no reason to interfere with this RPD finding and conclude that it is correct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in assessing the viability of an IFA in Barranquilla.",
+     "quote": "The RPD did not err in assessing the viability of an IFA in Barranquilla",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no reason to interfere with the RPD finding and concludes it is correct; the RPD did not err in assessing IFA viability in Barranquilla.",
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The availability of an IFA in Barranquilla was the determinative issue in the claim.",
+     "quote": "The RPD found that the availability of an IFA in Barranquilla was the determinative issue in this claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "The IFA issue was explored during the hearing with questions and written submissions from the lawyer.",
+     "quote": "This was explored during the hearing. XXXX XXXX XXXX was asked questions about the topic and his lawyer provided submissions on it in writing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found IFA availability in Barranquilla was determinative and explored it during the hearing with questions and submissions.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD member was correct in her IFA assessment.",
+     "quote": "It is my opinion that the RPD member was correct in her IFA assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court opines the RPD member was correct in her IFA assessment.",
+   "role": "conclusion"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant has an IFA in Barranquilla because he will not be at risk from the criminals who extorted him in XXXX XXXX XXXX XXXX.",
+     "quote": "XXXX XXXX XXXX does have an IFA in Barranquilla, because, in my opinion, he will not be at risk from the criminals who were extorting him in XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant has an IFA in Barranquilla as he will not be at risk from his extorters there.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The IFA assessment uses a two-prong test with onus on the claimant to prove risk and unreasonableness of conditions in the IFA.",
+     "quote": "This IFA assessment is based on a two-prong test. Once the IFA has been raised, the onus of proof is on XXXX XXXX XXXX to establish that 1) there is a serious possibility that he will be persecuted... 2) the conditions... must be such that it would be objectively unreasonable or unduly harsh...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the two-prong test for IFA assessment with onus on the claimant to prove risk and unreasonableness of conditions.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2014, appellant was extorted by men identifying as FARC at his workplace in XXXX XXXX XXXX XXXX; he reported to police and moved to Bogota.",
+     "quote": "XXXX XXXX XXXX was first approached in XXXX XXXX XXXX XXXX in XXXX of 2014 at his place of employment by individuals who identified themselves as members of the FARC... He gave them money, but he also reported this extortion to the police... XXXX XXXX XXXX resigned from his job and moved to Bogota, where he is originally from.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant was extorted in 2014 by men identifying as FARC, reported police, and moved to Bogota.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2015 appellant relocated to XXXX XXXX XXXX XXXX for work; in 2016 he was threatened again by same men and transferred near Bogota.",
+     "quote": "XXXX XXXX XXXX was then hired by another company in XXXX of 2015 who asked him to relocate to XXXX XXXX XXXX XXXX... In XXXX of 2016, he was once again threatened by the same individuals... He gave them money again and soon transferred to an office near Bogota.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant relocated for work in 2015, was threatened again in 2016 by same men, and transferred near Bogota.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Starting 2016, appellant received unknown calls; one caller knew his name and threatened him; he changed number and calls stopped.",
+     "quote": "Starting in XXXX of 2016, he began to receive calls from unknown numbers... In XXXX of 2016 he answered a call... The caller said XXXX XXXX XXXX owed them a lot of money and threatened him... he changed his number and did not receive any further calls.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant received threatening calls in 2016, changed number, and calls stopped.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2018, two men sought appellant at his office; he reported to authorities and left Colombia later that year.",
+     "quote": "In XXXX of 2018, XXXX XXXX XXXX learned... that two men had gone to the office looking for him... XXXX XXXX XXXX reported this incident to the authorities in XXXX of 2018 and eventually left Colombia on XXXX XXXX XXXX 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found in 2018 men sought appellant at work; he reported and left Colombia that year.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "While in Canada, appellant cooperated with Colombian police investigating his complaint; a FARC leader was arrested in 2015 linked to his 2014 report.",
+     "quote": "While in Canada, XXXX XXXX XXXX was contacted by the police in Colombia... The investigator told XXXX XXXX XXXX... a FARC financial leader member had been arrested in 2015, and that XXXX XXXX XXXX report from 2014 was one of those complaints.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant cooperated with Colombian police; a FARC leader was arrested in 2015 linked to his 2014 complaint.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant was asked if he could live in Barranquilla and said he feared for his safety there.",
+     "quote": "XXXX XXXX XXXX was asked by the RPD if there was any reason why he could not relocate and live in Barranquilla, and he answered that he would fear for his safety there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant feared for his safety if he relocated to Barranquilla.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant testified he did not know how persecutors could find him in Barranquilla but assumed they had influence nationwide.",
+     "quote": "XXXX XXXX XXXX testified that he did not know how he could be found in Barranquilla but that he assumed that his persecutors had influence throughout the entire country...",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant testified he assumed persecutors had nationwide influence though he did not know how they'd find him in Barranquilla.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant testified he did not know if his persecutors were still FARC members after 2016 demobilization or part of another group.",
+     "quote": "XXXX XXXX XXXX also testified that despite the two men identifying themselves as FARC members the first time he saw them in 2014, he did not know if they still were, after the demobilization of the FARC in 2016, or if they were part of another armed group.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant testified he did not know if persecutors remained FARC or joined another group after 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD acknowledged armed groups had contacts with police and politicians but noted no evidence appellant's persecutors still belonged to such groups.",
+     "quote": "The RPD acknowledged that there were criminal organizations... but noted that XXXX XXXX XXXX did not know if his persecutors were still part of an armed group and there was no evidence of this.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD acknowledged armed groups' influence but found no evidence appellant's persecutors still belonged to such groups.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "No persuasive evidence agents of persecution could locate or pursue appellant outside XXXX XXXX XXXX XXXX for several reasons.",
+     "quote": "The RPD concluded that there was no persuasive evidence that the agents of persecution had the ability to locate and pursue XXXX XXXX XXXX outside of XXXX XXXX XXXX XXXX for the following reasons: * XXXX XXXX XXXX had only ever been approached in person in XXXX XXXX XXXX XXXX...",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no persuasive evidence persecutors could locate or pursue appellant outside XXXX XXXX XXXX XXXX for listed reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded persecutors' motivation was financial and they would not pursue appellant to Barranquilla to extort more money.",
+     "quote": "The RPD concluded that XXXX XXXX XXXX agents of persecution's motivation was simply financial, and that they would not be motivated to pursue him to Barranquilla, simply to further extort him, for the following reasons: * XXXX XXXX XXXX was initially approached for extortion...",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD concluded persecutors were motivated by money and would not pursue appellant to Barranquilla for extortion.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found FARC's disarmament in 2016 reduced its attack ability outside controlled areas; no evidence of FARC dissidents in Barranquilla.",
+     "quote": "Finally, the RPD referred to the country conditions documentary evidence about the FARC and the peace accord that was signed in 2016, concluding that the recent disarmament of the FARC would have significantly impacted its ability to carry out attacks outside areas of its control... The RPD also found that there was no evidence that there was any significant presence of FARC dissidents in Barranquilla or the surrounding areas.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found FARC's 2016 disarmament reduced attack ability and no evidence of FARC dissidents in Barranquilla.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD did not properly identify the IFA test and made findings without proper risk analysis, a reviewable error.",
+     "quote": "In appeal, XXXX XXXX XXXX argues that the RPD did not properly identify the test for IFA and quoted a lengthy citation from the Velasquez decision. XXXX XXXX XXXX also argues that the RPD's IFA findings were made without proper analysis of the risk he would face, which constitutes a reviewable error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD misidentified the IFA test and failed proper risk analysis, constituting a reviewable error.",
+   "role": "issue"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD contradicted itself by accepting appellant's credibility and evidence of criminal organizations but still finding Barranquilla safe.",
+     "quote": "XXXX XXXX XXXX submits that the RPD went against her own findings by first accepting his allegations as credible, then acknowledging that there was evidence of criminal organizations... but still concluding that Barranquilla was a safe place for him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD contradicted itself by accepting his credibility and evidence but still finding Barranquilla safe.",
+   "role": "issue"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Jurisprudence holds that distance alone does not make an IFA viable without more evidence.",
+     "quote": "XXXX XXXX XXXX also cites jurisprudence that stands for the principle that the fact that a proposed IFA was far away would not, without more, constitute a viable IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant cites jurisprudence that distance alone does not make an IFA viable without more evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Sending him to a place with potential armed groups could be deadly.",
+     "quote": "XXXX XXXX XXXX argues that sending him to a place where potentially there could be a fraction of armed groups could be deadly.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "There is confusion over which FARC subgroup his persecutors belonged to.",
+     "quote": "He also refers to the confusion over which Front or subgroup of the FARC his agents of persecution said they were members of.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted the distinction regarding the discrepancy in FARC subgroup identification.",
+     "quote": "the lawyer made submissions on this discrepancy and the RPD noted the distinction.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The police report from 2014 refers to a different FARC subgroup than the claimant's narrative.",
+     "quote": "the police report from 2014 refers to the XXXX XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues that sending him to areas with armed groups is dangerous and notes confusion about his persecutors' FARC subgroup; the RPD noted this discrepancy.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred in identifying the FARC Front group, showing insufficient country knowledge for IFA assessment.",
+     "quote": "XXXX XXXX XXXX submits that the RPD made a mistake about which FARC Front group was in question and that this shows she did not have sufficient knowledge about the country conditions in Colombia to make a proper IFA assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "According to UNHCR, there is no XXXX XXXX XXXX but a 40th Front exists.",
+     "quote": "according to the UNHCR, there is no XXXX XXXX XXXX but there is a 40th.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RPD erred on the FARC Front group and lacked sufficient country knowledge, citing UNHCR on FARC fronts.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's assessment of the FARC Front discrepancy was not an error and was properly based on objective evidence.",
+     "quote": "it was not the RPD's error and, in my opinion, the RPD provided a proper assessment of the country conditions specific to the FARC based on the objective documentary evidence available to her.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err and properly assessed the FARC Front discrepancy using objective evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Because armed groups operate countrywide, Barranquilla is not a viable IFA for him.",
+     "quote": "XXXX XXXX XXXX is arguing that because armed groups, including FARC dissidents, operate all over the country, Barranquilla cannot be a viable IFA for him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues Barranquilla is not a viable IFA due to widespread armed group presence.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "A former co-worker heard in 2020 that men looking for the applicant were armed group members involved in extortion and kidnapping.",
+     "quote": "during 2020, she heard on more than one occasion that a group of men were looking for XXXX XXXX XXXX and that in XXXX of 2020 she warned him to be cautious because according to the authorities in the area they were members of an armed group dedicated to extortion and kidnapping.",
+     "answers": 0
+    }
+   ],
+   "summary": "A former co-worker testified that men looking for the applicant in 2020 were armed extortion and kidnapping group members.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is insufficient evidence that the extorting men were still FARC members after 2016 peace accord.",
+     "quote": "there was insufficient evidence that the two men that extorted XXXX XXXX XXXX were still members of a FARC group, especially after the 2016 peace accord.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Insufficient evidence exists that the men could locate the applicant outside his home area after 2014.",
+     "quote": "there was insufficient evidence that the two men could locate XXXX XXXX XXXX outside of XXXX XXXX XXXX XXXX based on how he was contacted after 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant was accosted once in 2016 and received phone calls that stopped after changing his number.",
+     "quote": "He was accosted once in person in 2016, in XXXX XXXX XXXX XXXX, and he received phone calls. These phone calls stopped after he changed his phone number.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The only later inquiry about the applicant was by armed extortion group members in XXXX XXXX XXXX XXXX XXXX.",
+     "quote": "The only time anyone asked about XXXX XXXX XXXX since was in XXXX XXXX XXXX XXXX XXXX and the local authorities say that the persons asking were members of an armed group dedicated to extortion and kidnapping.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence that the extorting men remained FARC members or could locate the applicant outside his home after 2014.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Latest evidence confirms men seeking the applicant are interested only in extortion in his home area.",
+     "quote": "this latest evidence confirms that the men looking for XXXX XXXX XXXX are only interested in extortion, and only in the area of XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the men looking for the applicant seek only extortion in his home area.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant's wife was never contacted by the extorting men and family in Colombia not harassed.",
+     "quote": "XXXX XXXX XXXX wife...was never contacted by the two men, and has never been asked about XXXX XXXX XXXX...XXXX XXXX XXXX family still in Colombia has not been contacted or harassed in any way.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant unsure if others who complained to police about extortion were asked about his whereabouts.",
+     "quote": "XXXX XXXX XXXX testified that he was not sure if anyone he worked with in the past had been asked about his whereabouts, and he did not know if anything happened to the other people who made complaints to the police about being extorted in XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant's wife and family were not contacted or harassed, and applicant is unsure about others' involvement.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The extorting men only wanted money and never mentioned police complaints or FARC arrests.",
+     "quote": "the two men only ever indicated that they wanted money. Not once did they refer to his complaint to the police, or to another FARC member being arrested.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "On balance, it is not established that the extorting men would pursue the applicant to Barranquilla.",
+     "quote": "on a balance of probabilities, it has not been established that the two men who extorted him would go all the way to Barranquilla to further extort him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the extorting men sought only money and likely would not pursue the applicant to Barranquilla.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Objective evidence shows little or no FARC dissident presence in Barranquilla area.",
+     "quote": "the objective documentary evidence shows that there is not a significant, if any, presence of FARC dissidents in the Barranquilla area.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes objective evidence shows little or no FARC dissident presence in Barranquilla.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Agrees with RPD that insufficient evidence exists that extorting criminals would seek applicant in Barranquilla; Barranquilla is reasonable IFA.",
+     "quote": "I agree with the RPD for the same reasons, and conclude that it is correct to say that that there is insufficient evidence that the criminals who extorted XXXX XXXX XXXX in XXXX XXXX XXXX XXXX would have the means and the motivation to seek him out in Barranquilla. Second prong-Barranquilla is reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD that criminals would not seek the applicant in Barranquilla and that Barranquilla is a reasonable IFA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant must show the IFA is objectively unreasonable or unduly harsh.",
+     "quote": "XXXX XXXX XXXX has the onus of demonstrating that the IFA is objectively unreasonable or unduly harsh.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant bears the burden to prove the IFA is objectively unreasonable or unduly harsh.",
+   "role": "law"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Ranganathan sets a high threshold for IFA being unduly harsh: conditions jeopardizing life or safety in relocating.",
+     "quote": "Case law has established a very high threshold when determining whether the proposed IFA is unduly harsh. In Ranganathan, the Federal Court of Appeal states the following: It requires nothing less than the existence of conditions which would jeopardize the life and safety of a claimant in travelling or temporarily relocating to a safe area.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Ranganathan that an IFA is unduly harsh only if conditions jeopardize life or safety in relocating.",
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant testified no reason besides fear of extorting men prevents living in Barranquilla.",
+     "quote": "XXXX XXXX XXXX testified that besides his fear for his safety from the two men who extorted him, there was no other reason why he could not live in Barranquilla.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant testified only fear of extorting men prevents him from living in Barranquilla.",
+   "role": "facts"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD noted applicant's education and employment experience and residence in various Colombian cities including Barranquilla.",
+     "quote": "The RPD noted that XXXX XXXX XXXX was educated and had significant employment experience in Colombia. Also, XXXX XXXX XXXX has resided in various locations in Colombia, including Bogota and XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD noted Barranquilla is a large city with 2 million people.",
+     "quote": "The RPD also noted that Barranquilla is a large metropolitan city with a population of 2 million people.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted the applicant's education, work experience, and that Barranquilla is a large city of 2 million.",
+   "role": "facts"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found it speculative that applicant would be targeted by other criminal groups in Barranquilla.",
+     "quote": "The RPD acknowledged that there are some criminal groups in Barranquilla but found that it was speculative to suggest that XXXX XXXX XXXX would become a target of a different criminal organization if he were to return to Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found it speculative that the applicant would be targeted by other criminal groups in Barranquilla.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "RPD concluded applicant did not prove Barranquilla was unreasonable to relocate to.",
+     "quote": "As such, the RPD concluded that XXXX XXXX XXXX had not met his burden of proving that Barranquilla was an unreasonable place to relocate to.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD concluded the applicant failed to prove Barranquilla was an unreasonable relocation place.",
+   "role": "conclusion"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant did not argue the second prong of the IFA test on appeal.",
+     "quote": "XXXX XXXX XXXX did not make arguments about the second prong of the IFA test in appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant did not argue the second prong of the IFA test on appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the RPD and will not interfere with the conclusion on the second prong.",
+     "quote": "I agree with the RPD for the same reasons and see no reason to interfere with this conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD and will not interfere with the second prong conclusion.",
+   "role": "conclusion"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Considering personal situation, the RPD was correct; applicant failed to prove relocation to Barranquilla is objectively unreasonable.",
+     "quote": "I have considered XXXX XXXX XXXX personal situation and find that the RPD was correct. XXXX XXXX XXXX failed to prove that it would be objectively unreasonable for him to relocate to Barranquilla.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD was correct that the applicant failed to prove relocation to Barranquilla is objectively unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Pulido has a safe and viable IFA in Barranquilla",
+     "quote": "Having found that Mr. Pulido has a safe and viable IFA in Barranquilla",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Confirm the RPD decision that the appellant is neither a Convention refugee nor a person in need of protection",
+     "quote": "I confirm the decision of the RPD that XXXX XXXX XXXX XXXX is neither a \"Convention refugee\" nor a \"person in need of protection\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. Pulido has a safe and viable IFA in Barranquilla and confirms the RPD decision rejecting refugee status and protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed",
+     "quote": "The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,244 @@
+{
+ "case_id": 42067,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.004980000000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Janine Jeffers applied for maternity and parental benefits under the Employment Insurance Act; child born March 31, 2021; parental benefits started July 25, 2021.",
+     "quote": "Janine Jeffers applied for both maternity benefits and parental benefits under the Employment Insurance Act, S.C. 1996, c. 23. Her child was born on March 31, 2021 and her parental benefits commenced July 25, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Janine Jeffers applied for maternity and parental benefits; her child was born March 31, 2021; benefits started July 25, 2021.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Employment Insurance Act requires claimants to irrevocably elect maximum weeks of parental benefits at application; Jeffers chose standard benefits.",
+     "quote": "The Employment Insurance Act states that a claimant for parental benefits “shall elect” the maximum number of weeks of benefits, being 35 weeks for standard and 61 weeks for extended parental benefits, and that the election is irrevocable once benefits are paid: subsections 23(1.1) and (1.2). Ms. Jeffers chose standard parental benefits in her application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Act requires an irrevocable election of parental benefits weeks; Jeffers chose standard benefits.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In October 2021, Jeffers asked the Commission to change to extended benefits; Commission refused, citing irrevocability; Jeffers requested reconsideration, refused again.",
+     "quote": "In October 2021, Ms. Jeffers contacted the Canada Employment Insurance Commission (Commission) and asked to change her choice to extended parental benefits. The Commission refused that request and advised her that the election is irrevocable once benefits are paid. Ms. Jeffers asked the Commission to reconsider, but it maintained its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Jeffers requested to change to extended benefits in October 2021; Commission refused and upheld refusal on reconsideration.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The General Division found Jeffers' initial election was a placeholder; actual choice made five months later when she called to change election.",
+     "quote": "It decided that her election of standard parental benefits at the time she made her application was a “placeholder” and that she made her choice five months later when she finally decided on extended leave and called the Commission to change her election.",
+     "answers": 0
+    }
+   ],
+   "summary": "The General Division found Jeffers' initial election was a placeholder; actual choice made five months later when she called to change election.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commission appealed, arguing the General Division erred in law by not applying subsection 23(1.2) and exceeded jurisdiction by changing election after benefits paid.",
+     "quote": "The Commission appealed that decision to the Appeal Division of the Tribunal, arguing that the General Division made errors of law in not applying subsection 23(1.2) of the Employment Insurance Act and that it exceeded its jurisdiction in changing Ms. Jeffers’ election after benefits had been paid.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission appealed, arguing the General Division erred legally and exceeded jurisdiction by changing election after benefits paid.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division found the General Division erred in calling Jeffers' application a placeholder; application clearly chose standard option.",
+     "quote": "The Appeal Division agreed that the General Division made a serious mistake when it found the election Ms. Jeffers made in her application was a placeholder. It found that her “application form clearly communicates to the Commission that she was choosing the standard option.”",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Jeffers asserted in April 2021 the Commission told her she could change her election anytime.",
+     "quote": "However, Ms. Jeffers had asserted that in April 2021 the Commission had told her that her she could change her election at any time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found the General Division erred; Jeffers' application clearly chose standard option; Jeffers asserted Commission told her she could change anytime.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division concluded Jeffers' election was invalid due to misleading Commission information; allowed her to choose standard or extended benefits.",
+     "quote": "The Appeal Division concluded Ms. Jeffers’ election was invalid because she made it based on misleading information provided by the Commission. Thus, said the Appeal Division, Ms. Jeffers could now choose between the standard and extended options.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appeal Division rescinded Commission's decision to pay standard benefits and dismissed Commission's appeal, favoring Jeffers' extended option.",
+     "quote": "As she had made clear in the proceedings she wanted the extended option, the Appeal Decision, in a decision dated March 25, 2022 (file number AD-21-437), rescinded the Commission’s decision to pay standard parental benefits and dismissed the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found Jeffers' election invalid due to misleading info; rescinded standard benefits payment and dismissed Commission's appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The issue is whether the Appeal Division's decision is reasonable, citing relevant case law.",
+     "quote": "The question before us is whether the Appeal Division’s decision is reasonable: Stavropoulos v. Canada (Attorney General), 2020 FCA 109 at para. 11; Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 at paras. 83 and 86 [Vavilov]; Stojanovic v. Canada (Attorney General), 2020 FCA 6 at para. 34.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "If the decision is reasonable, the judicial review application must be dismissed.",
+     "quote": "If it is, we must dismiss the application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is whether the Appeal Division's decision is reasonable; if so, judicial review must be dismissed.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Jeffers was served notice but did not file appearance or participate in judicial review hearing.",
+     "quote": "Although the notice of application and other materials were served on Ms. Jeffers in accordance with the Federal Courts Rules, S.O.R./98-106, she did not file a notice of appearance or participate in the judicial review hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Jeffers was served but did not participate in the judicial review hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A reasonable decision must be defensible on facts and law; statutory scheme limits administrative decision-makers' authority.",
+     "quote": "To be reasonable, a decision must be “defensible in respect of the facts and law”; the “governing statutory scheme will always operate as a constraint on administrative decision makers and as a limit on their authority”: Vavilov at paras. 86 and 68.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a reasonable decision must be defensible on facts and law; statutory scheme constrains administrative decision-makers.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Subsections 23(1.1) and (1.2) allow only one interpretation: election means choice on application form; election irrevocable once payments start.",
+     "quote": "This Court has held that subsections 23(1.1) and 23(1.2) of the Employment Insurance Act allow for only one interpretation. The word “elect” means “what a claimant indicates as their choice on the application form” and “once payments of those benefits have started, it is impossible for the claimant, the Commission, the General Division or the Appeal Division to revoke, alter or change the election”: Canada (Attorney General) v. Hull, 2022 FCA 82 at paragraphs 62-64 [Hull].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states subsections 23(1.1) and (1.2) allow only one interpretation: election is choice on application form; irrevocable once payments start.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appeal Division's decision is unreasonable per Hull; change before payment allowed, after payment prohibited by statute.",
+     "quote": "Although the Appeal Division delivered its decision before this Court’s decision in Hull, that decision is nonetheless unreasonable for the reasons given in Hull. Had Ms. Jeffers asked to change her election following her April call with the Commission but before payment of parental benefits commenced, the Commission had the power to make the change. However, once payment of parental benefits commenced, the governing statutory scheme precluded her, the Commission, or the Social Security Tribunal from changing her election.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division's decision unreasonable per Hull; changes allowed before payment, prohibited after payment starts.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Attorney General's application for judicial review should be allowed; remitting to administrative decision-maker unnecessary if outcome inevitable.",
+     "quote": "Accordingly, I would allow the Attorney General of Canada’s application for judicial review. Although courts should generally respect Parliament’s intention to entrust matters to administrative decision-makers, it may be appropriate to decline to remit a matter to an administrative decision-maker where it is evident to the Court that a particular outcome is inevitable: Canada (Attorney General) v. Burke, 2022 FCA 44 at paras. 115-117.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would allow the Attorney General's judicial review application; remitting unnecessary if outcome inevitable.",
+   "role": "conclusion"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No useful purpose in remitting to Tribunal; only one reasonable conclusion; set aside Appeal Division decision and allow Commission's appeal.",
+     "quote": "In my view, given the law and the findings of fact in this case, no useful purpose would be served by remitting the matter back to the Social Security Tribunal (Appeal Division) for redetermination because only one reasonable conclusion would be open to it. Counsel for the applicant agrees. Accordingly, I would set aside the decision of the Social Security Tribunal (Appeal Division) dated March 25, 2022 and, giving the order it should have given, allow the Commission’s appeal of the decision of the Social Security Tribunal (General Division), all without costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds remitting to Tribunal pointless; sets aside Appeal Division decision and allows Commission's appeal.",
+   "role": "disposition"
+  }
+ ]
+}

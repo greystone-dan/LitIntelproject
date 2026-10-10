@@ -1,0 +1,40 @@
+{
+ "case_id": 42067,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0006384,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 6,
+  "8": 7,
+  "9": 7,
+  "10": 8,
+  "11": 8,
+  "12": 9,
+  "13": 10,
+  "14": 11,
+  "15": 12,
+  "16": 13,
+  "17": 14
+ },
+ "result": {
+  "order_para": 14,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the Appeal Division's decision to allow Jeffers to change her election for parental benefits reasonable?",
+    "paras": "6-12",
+    "applicant_position": "The Commission argued the General Division erred and the election is irrevocable once payments start.",
+    "respondent_position": "Jeffers argued she was misled and should be allowed to change election after initial choice.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_text": "Appeal Division's decision unreasonable; election irrevocable after payments start per statute."
+   }
+  ]
+ }
+}

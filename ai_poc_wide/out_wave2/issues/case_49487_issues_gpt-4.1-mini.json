@@ -1,0 +1,73 @@
+{
+ "case_id": 49487,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0011332,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 10,
+  "12": 11,
+  "13": 12,
+  "14": 13,
+  "15": 14,
+  "16": 15,
+  "17": 16,
+  "18": 17,
+  "19": 17,
+  "20": 18,
+  "21": 18,
+  "22": 19,
+  "23": 20,
+  "24": 21,
+  "25": 21,
+  "26": 22,
+  "27": 22,
+  "28": 22,
+  "29": 23,
+  "30": 23,
+  "31": 24,
+  "32": 25
+ },
+ "result": {
+  "order_para": 25,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the claimant prove a serious possibility of persecution if returned to Mexico?",
+    "paras": "5-11",
+    "applicant_position": "Claimant alleges persecution by Mara Salvatrucha gang members.",
+    "respondent_position": "No nexus to a Convention ground; no state involvement; claim rejected under IRPA 96 and 97(1)(a).",
+    "result": "dismissed_for_applicant",
+    "result_para": 10,
+    "result_text": "Claimant failed to prove serious possibility of persecution; claim rejected."
+   },
+   {
+    "issue": "Is the claimant a person in need of protection under IRPA 97(1)(b)?",
+    "paras": "12-20",
+    "applicant_position": "Claimant fears Mara Salvatrucha and cannot safely relocate within Mexico.",
+    "respondent_position": "Claimant was victim of generalized crime; safe internal flight alternatives exist; fears are implausible.",
+    "result": "dismissed_for_applicant",
+    "result_para": 24,
+    "result_text": "Claimant and family not persons in need of protection; internal flight alternative exists."
+   },
+   {
+    "issue": "Is the internal flight alternative to Yucatán or Zacatecas reasonable and available to the claimant?",
+    "paras": "18,21-23",
+    "applicant_position": "Claimant fears Mara Salvatrucha and cannot relocate safely within Mexico.",
+    "respondent_position": "Burden on claimant to prove unreasonableness; claimant failed to meet burden; relocation reasonable.",
+    "result": "dismissed_for_applicant",
+    "result_para": 23,
+    "result_text": "Claimant failed to prove internal flight alternative unreasonable; relocation expected."
+   }
+  ]
+ }
+}

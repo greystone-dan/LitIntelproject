@@ -1,0 +1,70 @@
+{
+ "case_id": 51329,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0010908,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 3,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 6,
+  "9": 6,
+  "10": 6,
+  "11": 7,
+  "12": 7,
+  "13": 7,
+  "14": 8,
+  "15": 9,
+  "16": 9,
+  "17": 10,
+  "18": 10,
+  "19": 11,
+  "20": 12,
+  "21": 13,
+  "22": 14,
+  "23": 15,
+  "24": 16,
+  "25": 16,
+  "26": 17,
+  "27": 17,
+  "28": 18,
+  "29": 19
+ },
+ "result": {
+  "order_para": 19,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the claimant a Convention refugee under Section 96 of IRPA due to a well-founded fear of persecution?",
+    "paras": "7,9,18-19",
+    "applicant_position": "Claimant fears persecution due to political affiliation and threats from criminal elements in Mexico.",
+    "respondent_position": "Claimant's evidence is not credible; no well-founded fear of persecution established.",
+    "result": "dismissed_for_applicant",
+    "result_para": 7,
+    "result_text": "Claimant is not a Convention refugee due to no well-founded fear of persecution."
+   },
+   {
+    "issue": "Is the claimant in need of protection under Section 97 of IRPA because removal would pose a personal risk to life or risk of cruel treatment?",
+    "paras": "7,18-19",
+    "applicant_position": "Claimant fears personal risk if returned to Mexico due to threats and attacks.",
+    "respondent_position": "No personal risk to life or cruel treatment on balance of probabilities; claim not established.",
+    "result": "dismissed_for_applicant",
+    "result_para": 7,
+    "result_text": "Claimant is not in need of protection under Section 97."
+   },
+   {
+    "issue": "Is the claimant's evidence credible and consistent enough to support the refugee claim?",
+    "paras": "9-17",
+    "applicant_position": "Claimant provided evidence and explanations for inconsistencies, including political documents and threats.",
+    "respondent_position": "Claimant's evidence contains significant unexplained inconsistencies and omissions; credibility concerns remain.",
+    "result": "dismissed_for_applicant",
+    "result_para": 9,
+    "result_text": "Claimant's evidence lacks credibility due to inconsistencies and omissions."
+   }
+  ]
+ }
+}

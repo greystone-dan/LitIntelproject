@@ -1,0 +1,1331 @@
+{
+ "case_id": 39283,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.025388400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CP and P&H disagreed on grain car transportation price from Milk River to Coutts, Alberta.",
+     "quote": "Canadian Pacific Railway Company (CP) and Parrish & Heimbecker (P&H) were unable to agree on a price for the transportation of P&H’s grain cars from the latter’s terminal at Milk River, Alberta to the Burlington Northern and Santa Fe Railway (BNSF) at the Canada-United States (US) border at Coutts, Alberta.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "P&H applied to the Agency for an interswitching order to require CP to haul cars at statutory rate $315 instead of $1,373 per car.",
+     "quote": "P&H applied to the Canadian Transportation Agency (the Agency) for an interswitching order which, if granted, would require CP to haul P&H’s cars from Milk River to Coutts for the statutory rate of $315 per car instead of CP’s commercial rate of $1,373 per car, a substantial difference.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP and P&H disagreed on grain car transport price; P&H applied to Agency for interswitching order to require CP to haul at statutory rate.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Agency made the interswitching order in Decision No. 165-R-2013.",
+     "quote": "The Agency considered the matter and, in Decision No. 165-R-2013 (the Decision), made the interswitching order.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "CP was given leave to appeal the Agency’s decision to this Court under section 41 of the Canada Transportation Act, limiting appeals to law and jurisdiction questions.",
+     "quote": "CP was given leave to appeal the Agency’s decision to this Court pursuant to section 41 of the Canada Transportation Act, S.C. 1996, c.10 (the Act), which limits appeals to questions of law and jurisdiction.",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency made interswitching order; CP given leave to appeal to this Court under section 41 limiting appeals to law and jurisdiction.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP argued Agency erred because the condition of an interchange was not met.",
+     "quote": "CP argued that the Agency erred in making an interswitching order because one of the conditions for the making of such an order, the presence of an interchange, was not satisfied.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP argued no interchange at Coutts because BNSF had no railway line connecting with CP’s line in Canada subject to Agency jurisdiction.",
+     "quote": "CP argued that there was no interchange at Coutts, Alberta because BNSF did not have a line of railway there which connected with CP’s railway in Canada so as to be subject to the Agency’s jurisdiction.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argued Agency erred as no interchange existed; BNSF had no connecting railway line in Canada subject to Agency jurisdiction.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed with costs to P&H.",
+     "quote": "For the reasons which follow, I would dismiss the appeal with costs to P&H.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is dismissed with costs to P&H.",
+   "role": "disposition"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "P&H’s terminal at Milk River is served by a siding connecting to CP’s Montana Subdivision at mileage 12.61.",
+     "quote": "P&H has a terminal at Milk River, Alberta, from which it exports grains to the US. Its terminal is served by a siding which connects (at mileage 12.61) to CP’s Montana Subdivision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A subdivision is a portion of a rail line; Montana Subdivision runs north from US border to near Lethbridge connecting to Taber Subdivision.",
+     "quote": "A subdivision, in this context, simply refers to a portion of a rail line. For example, the Montana Subdivision runs north from the US border to a point southeast of Lethbridge, Alberta where it connects with CP’s Taber Subdivision (Decision at paragraph 5).",
+     "answers": 0
+    }
+   ],
+   "summary": "P&H’s Milk River terminal connects via siding to CP’s Montana Subdivision, a rail line portion running north from US border to near Lethbridge.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The nature of the connection between CP’s Montana Subdivision and BNSF’s track at the US border is in issue.",
+     "quote": "CP’s Montana Subdivision connects with BNSF’s track at the US border. The nature of that connection is in issue in these proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The nature of the connection between CP’s Montana Subdivision and BNSF’s track at the US border is in issue.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Each railway has storage tracks on its side of the border: CP’s Coutts Yard and BNSF’s Sweet Grass Yard.",
+     "quote": "Each railway company has storage tracks on its side of the border. CP operates three storage tracks (the Coutts Yard), which connect with the Montana subdivision approximately 350 yards from the border . BNSF’s storage tracks are known as the Sweet Grass Yard.",
+     "answers": 0
+    }
+   ],
+   "summary": "Each railway has storage tracks at the border: CP’s Coutts Yard and BNSF’s Sweet Grass Yard.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CP and BNSF have exchanged traffic at the border location for many years, exchanging 90,945 cars in 2012.",
+     "quote": "CP and BNSF have exchanged traffic at this location for many years. In 2012, they exchanged 90,945 cars.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Agency described transfer mechanics: northbound cars parked in Sweet Grass Yard, CP crosses border to pick up and deliver to Coutts Yard; southbound cars parked in Coutts Yard, BNSF crosses border to pick up and deliver to Sweet Grass Yard.",
+     "quote": "The mechanics of this transfer of traffic were described by the Agency as follows: -Northbound traffic destined for Canada is parked in the Sweet Grass Yard for pick up by CP. CP enters into the United States, hooks onto the northbound rail cars and brings them across the international boundary into the Coutts Yard for delivery. -Southbound traffic destined for the United States is parked on a CP track in the Coutts Yard for pick up by BNSF. BNSF enters into Canada, hooks onto the southbound rail cars and brings them across the international boundary into the Sweet Grass Yard for delivery. (Decision at paragraph 9).",
+     "answers": 0
+    }
+   ],
+   "summary": "CP and BNSF have long exchanged traffic at border; Agency described northbound and southbound transfer mechanics.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "CP and BNSF’s interchange governed by agreement since 1928, revised in 2005 as Interchange Agreement granting BNSF rights to use CP tracks at Coutts Yard subject to CP rules.",
+     "quote": "The conduct of business between CP and BNSF at this location has been governed by agreement since 1928. The original agreement was revised in 2005 and is now known as the Interchange Agreement, the material portions of which provide as follows: [BNSF has] the right to use, for purposes contemplated within this Agreement, subject to CPR’s safety and operating rules, regulations and supervision the CPR Lead tracks identified between points “A” and “C” on Exhibit #1 [...] In addition to the CPR Lead, CPR grants to BNSF the right to place and pull Interchange Cars at locations designated from time to time by local CPR operating officers at CPR’s Coutts Yard, collectively referred to as CPR owned trackage. … The parties when conducting contemplated interchange shall operate over trackage owned by CPR (CPR Lead) between BNSF/CPR connection at the international border and the CPR connection with their yard located in Coutts, Alberta [...] CPR grants to BNSF the right to use, for purposes contemplated within this Agreement, subject to CPR’s safety and operating rules, regulations and supervision the CPR Lead tracks [...] In addition to the CPR Lead, CPR grants to BNSF the right to place and pull Interchange Cars at locations designated from time to time by local CPR operating officers at CPR’s Coutts Yard, collectively referred to as CPR owned trackage. (Decision at paragraphs 13-14).",
+     "answers": 0
+    }
+   ],
+   "summary": "CP and BNSF’s interchange governed by 1928 agreement revised 2005 granting BNSF rights to use CP tracks at Coutts Yard under CP rules.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Agency explained interswitching in Decision No. 35-R-2009 began early 1900s to limit railway line proliferation and monopolistic rates in urban manufacturing areas.",
+     "quote": "In an earlier decision, Decision No. 35-R-2009, the Agency explained that interswitching of rail traffic between railway companies has existed in Canada since the early 1900s. Interswitching was introduced to limit the proliferation of railway lines in urban areas serving manufacturing-based industries where each railway constructed its own lines to its own customer’s door. These customers then became captives of that railway, which created an opportunity for monopolistic service and rate situations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency explained interswitching began early 1900s to limit railway line proliferation and monopolistic rates in urban manufacturing areas.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Parliament introduced measures including interswitching, competitive line rates, and running rights to provide shippers competitive alternatives.",
+     "quote": "Parliament introduced a number of measures to deal with these issues, including interswitching (s. 127 of the Act), competitive line rates (s. 129) and orders granting running rights (s. 138). All of these measures were intended to provide shippers with access to competitive alternatives.",
+     "answers": 0
+    }
+   ],
+   "summary": "Parliament introduced interswitching, competitive line rates, and running rights to provide shippers competitive alternatives.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Interswitching defined in section 111 of the Act as transfer of traffic from one railway company’s lines to another’s per regulations under section 128.",
+     "quote": "Interswitching is defined at section 111 of the Act: “interswitch” means to transfer traffic from the lines of one railway company to the lines of another railway company in accordance with regulations made under section 128; « interconnexion » Le transfert du trafic des lignes d’une compagnie de chemin de fer à celles d’une autre compagnie de chemin de fer conformément aux règlements d’application de l’article 128.",
+     "answers": 0
+    }
+   ],
+   "summary": "Interswitching defined in section 111 as transfer of traffic between railway companies per regulations under section 128.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 128 authorizes the Agency to make regulations regarding interswitching.",
+     "quote": "Section 128 authorizes the Agency to make regulations with respect to interswitching.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 128 authorizes Agency to make regulations on interswitching.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 127(1) allows application for interswitching order if one railway line connects with another.",
+     "quote": "127. (1) If a railway line of one railway company connects with a railway line of another railway company, an application for an interswitching order may be made to the Agency by either company, by a municipal government or by any other interested person.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 127(2) allows Agency to order reasonable facilities for convenient interswitching at an interchange between connecting railway lines.",
+     "quote": "127. (2) The Agency may order the railway companies to provide reasonable facilities for the convenient interswitching of traffic in both directions at an interchange between the lines of either railway and those of other railway companies connecting with them.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 127(3) prohibits transfer at interchange within prescribed distance except per regulations.",
+     "quote": "127. (3) If the point of origin or destination of a continuous movement of traffic is within a radius of 30 km, or a prescribed greater distance, of an interchange, a railway company shall not transfer the traffic at the interchange except in accordance with the regulations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 127 authorizes interswitching orders if railway lines connect, allows Agency to order facilities at interchange, and restricts transfers within prescribed distance.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Existence of an interchange is key in interswitching; defined as place where one railway line connects with another and cars may be stored until delivery or receipt.",
+     "quote": "As set out in subsections 127(2) and (3), the existence of an interchange is an important factor in the interswitching scheme. An interchange is defined at section 111 of the Act: “interchange” means a place where the line of one railway company connects with the line of another railway company and where loaded or empty cars may be stored until delivered or received by the other railway company; « lieu de correspondance » Lieu où la ligne d’une compagnie de chemin de fer est raccordée avec celle d’une autre compagnie de chemin de fer et où des wagons chargés ou vides peuvent être garés jusqu’à livraison ou réception par cette autre compagnie.",
+     "answers": 0
+    }
+   ],
+   "summary": "Interchange is key in interswitching; defined as place where railway lines connect and cars may be stored until delivery or receipt.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Interswitching requires two connecting railway lines with an interchange where cars can be stored until picked up by other railway.",
+     "quote": "To summarize, interswitching involves the transfer of traffic from one line of railway to another which requires that there be two lines of railway which connect with the each other. In addition, that connection must include an interchange, that is a place where the cars of one railway company can be stored until they are picked up by the other railway company.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "If origin or destination is within prescribed distance from interchange, transfer must be at prescribed rates.",
+     "quote": "Finally, if the point of origin (or destination) of a continuous movement of traffic is within the prescribed distance from an interchange, a railway shall not exchange traffic at that interchange except at the prescribed rates.",
+     "answers": 0
+    }
+   ],
+   "summary": "Interswitching requires two connecting railway lines with an interchange for car storage; transfers within prescribed distance must be at prescribed rates.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Since Milk River is within prescribed distance from Coutts Yard, issue is whether configuration at Canada-US border is an interchange.",
+     "quote": "Since Milk River is within the prescribed distance from the Coutts Yard, the only issue before the Agency and now, before this Court, is whether the configuration at the Canada-US border is an interchange.",
+     "answers": 0
+    }
+   ],
+   "summary": "Issue is whether Canada-US border configuration is an interchange since Milk River is within prescribed distance from Coutts Yard.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Agency examined whether BNSF had a railway line at Coutts after preliminary question.",
+     "quote": "After disposing of a preliminary question, the Agency examined the question of whether BNSF had a line of railway at Coutts.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "CP argued it owned all land on Canadian side so BNSF did not own any installation there; connection was simple end-to-end track at border forming continuous track.",
+     "quote": "CP’s position was that it owned all the land on the Canadian side of the border so that it, and not BNSF, owned any installation on that land. Beyond that, CP characterized the connection itself as a simple end to end connection of its track with BNSF’s track at the international border so that there was simply a single continuous track running from the Canadian side of the border to the American side.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "CP argued BNSF had no railway line in Canada at Coutts, only a continuous track connection at border.",
+     "quote": "CP’s position was that it owned all the land on the Canadian side of the border so that it, and not BNSF, owned any installation on that land. Beyond that, CP characterized the connection itself as a simple end to end connection of its track with BNSF’s track at the international border so that there was simply a single continuous track running from the Canadian side of the border to the American side.",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency examined if BNSF had railway line at Coutts; CP argued it owned Canadian land and connection was simple continuous track at border.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Agency focused on physical connection of railway tracks, quoting earlier decision that connection point is 2-4 metres and should not be interpreted literally.",
+     "quote": "The Agency dealt with this issue in five short paragraphs. It focused on the nature of a railway track’s physical connection. It quoted a passage from an earlier decision (Decision No. 35-R-2009) in which it noted an intervener’s description of a railway line connection: The actual connection point of rail lines occurs in a two to four metre space and it is unreasonable to interpret Section 111 to literally define the interchange as having to occur within these actual two to four metres. (Decision at paragraph 61).",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency focused on physical connection of railway tracks, quoting earlier decision that connection point is 2-4 metres and not literal.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency held connecting railway lines do not abut but join to form continuous line.",
+     "quote": "The Agency then held that “connecting railway lines do not abut; each railway track joins together with the other track to form a continuous line” (Decision paragraph 62).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency concluded BNSF’s railway line extends beyond border into Canada at Coutts, so BNSF has a railway line for interswitching purposes.",
+     "quote": "…the physical connection of the lines of railway of BNSF and CP is wider than, and extends beyond, the international boundary into Canada at Coutts. Therefore, BNSF has a line of railway which extends beyond the international boundary into Canada. The Agency therefore finds that BNSF has a line of railway for the purpose of the interswitching provision of the CTA. (Decision at paragraph 63).",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency found connecting lines form continuous line; BNSF’s railway line extends into Canada at Coutts, qualifying for interswitching.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency's second reason: BNSF's rights under Interchange Agreement give it sufficient interest in CP's Coutts Yard tracks for a line of railway in Canada",
+     "quote": "The Agency then turned to its second reason for holding that BNSF has a line of railway in Canada, namely that its rights under its Interchange Agreement with CP give it a sufficient interest in CP’s tracks at the Coutts Yard for BNSF to have a line of railway in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found BNSF's Interchange Agreement rights give it sufficient interest in CP's Coutts Yard tracks for a railway line in Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Interchange Agreement authorizes BNSF to use CP's infrastructure for interchange activities, including placing and pulling rail cars",
+     "quote": "The Agency noted that the Interchange Agreement authorized BNSF to use CP’s infrastructure for the specific purpose of interchange activities between the two. The rights conferred by the Interchange Agreement include the right to use CP’s tracks and to “place and pull rail cars interchanged with CP” (Decision at paragraph 65).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Interchange Agreement requires terminal management decisions to be non-discriminatory, giving BNSF and CP equal status in dispatching traffic at Coutts",
+     "quote": "Furthermore, the Interchange Agreement provides that terminal management decisions must be made in a non-discriminatory manner so that “... BNSF and CP have equal status with respect to the dispatching of traffic interchanged on CP’s premises at Coutts” (Decision at paragraph 66).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found the Interchange Agreement authorizes BNSF to use CP's tracks for interchange and requires non-discriminatory terminal management at Coutts.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "BNSF's rights under the Interchange Agreement exceed mere running rights, allowing full operations to interchange traffic with CP",
+     "quote": "The Agency found that the rights acquired by BNSF pursuant to the Interchange Agreement were more than running rights which would simply enable the latter to travel over CP’s tracks. BNSF’s contractual rights allowed it to perform all necessary operations in order to interchange traffic with CP (Decision at paragraph 69).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found BNSF's contractual rights allow full interchange operations, not just running rights, over CP's tracks.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Agency concluded BNSF has sufficient rights in CP's Coutts Yard tracks to have a railway line under the Act",
+     "quote": "As a result, the Agency concluded that BNSF had a sufficient rights ;in CP’s tracks at the Coutts Yard for BNSF to have a railway line within the meaning of the Act in relation to those tracks.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency concluded BNSF has sufficient rights in CP's Coutts Yard tracks to be considered a railway line under the Act.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "issue",
+     "text": "Whether Coutts Yard is a place for storing loaded or empty cars until delivery or receipt under section 111 of the Act",
+     "quote": "The Agency then considered whether the Coutts Yard was a place “where loaded or empty cars may be stored until delivered or received by the other railway company” within the meaning of section 111 of the Act.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Since CP's and BNSF's lines connect, only storage tracks issue remains to satisfy interchange definition",
+     "quote": "The Agency observed that since it had already concluded that the CP’s and BNSF’s lines of railway connected, the only element left to be satisfied in the definition of an interchange was the issue of storage tracks.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency considered if Coutts Yard qualifies as a storage place under section 111, with only storage tracks issue left after finding lines connect.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Evidence showed Coutts Yard is a place where CP stores cars until BNSF picks them up",
+     "quote": "The Agency reviewed the evidence which showed that the Coutts Yard was a place where CP could place cars until they were picked up by BNSF.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Existence of interswitching facilities on other side of border does not exclude Coutts Yard from interchange definition",
+     "quote": "The fact that facilities for the interswitching of traffic in the other direction existed on the other side of the international boundary did not remove the Coutts Yard from the definition of an interchange.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found Coutts Yard stores cars for BNSF pickup and border facilities do not exclude it from interchange definition.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Agency concluded 'place' in interchange definition includes entire Coutts Yard area accessible to BNSF under Interchange Agreement",
+     "quote": "The Agency concluded that, in this case, the “place” referred to in the definition of interchange “includes the entire area from the railway line connection to the end of the Coutts Yard storage tracks to which BNSF has access under the Interchange Agreement, all of which is entirely in Canada” (Decision at paragraph 82).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency's comment addressed CP's argument that Act was given extra-territorial application",
+     "quote": "This last comment was directed to CP’s argument that the Agency was giving the Act extra-territorial application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency concluded the interchange 'place' includes all Coutts Yard accessible to BNSF, addressing CP's extra-territoriality argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Milk River Siding is within 20 km of Coutts Yard, thus within statutory radius for mandatory interswitching at statutory rates",
+     "quote": "Finally, the Agency concluded that the Milk River Siding, the point of origin of P&H’s southbound traffic, was within the statutory radius for interswitching at statutory rates since it was 20 kilometres from the Coutts Yard.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Subsection 127(3) of the Act mandates interswitching at statutory rates if traffic origin is within 30 km of an interchange",
+     "quote": "It will be recalled that subsection 127(3) of the Act imposes mandatory interswitching at statutory rates where the point of origin of the traffic is within 30 kilometres (or prescribed greater distance) of an interchange.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found Milk River Siding within 20 km of Coutts Yard, triggering mandatory interswitching under subsection 127(3).",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "P&H succeeded; CP required to interswitch P&H's grain cars at statutory rate; CP seeks to set decision aside",
+     "quote": "As a result, P&H was successful in its application and CP was required to interswitch P&H’s grain cars at the statutory rate. CP now seeks to set this decision aside.",
+     "answers": 0
+    }
+   ],
+   "summary": "P&H won; CP must interswitch grain cars at statutory rate; CP seeks to overturn decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issues raised: standard of review; whether Agency erred or exceeded jurisdiction on BNSF's railway line in Canada; whether Agency erred on BNSF's interest in Coutts Yard",
+     "quote": "The following issues are raised by this appeal: A. The standard of review of the Agency’s decision; B. Whether the Agency erred in law or exceeded its jurisdiction in finding that BNSF’s line of railway extended into Canada? C. Whether the Agency erred in law in finding that BNSF had a sufficient interest in CP’s Coutts Yard for it to be treated as part of BNSF’s line of railway?",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal raises issues on standard of review, Agency's finding on BNSF's railway line in Canada, and BNSF's interest in Coutts Yard.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Agency's interpretation of its home statute is reviewed on reasonableness standard",
+     "quote": "Both parties are agreed that the general rule is that the Agency’s interpretation of the Act, its home statute, is to be reviewed on a standard of reasonableness: Canadian National Railway Company v. Canadian Transportation Agency, 2010 FCA 65, [2011] 3 F.C.R. 264, at paragraphs 27-29, Canadian National Railway Company v. Transportation Agency, 2010 FCA 166, [2010] F.C.J. No. 815 [Fort Rouge], at paragraphs 19-21.",
+     "answers": 0
+    }
+   ],
+   "summary": "Both parties agree Agency's interpretation of the Act is reviewed on a reasonableness standard.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP argues Agency's finding that BNSF's railway line extends into Canada is a jurisdictional question reviewed on correctness standard",
+     "quote": "CP argues, however, that the Agency’s determination that BNSF has a line of railway which extends into Canada such that the Agency has authority over BNSF is a true question of jurisdiction, in respect of which the standard of review is correctness. Putting the argument another way, CP says that the Agency has no jurisdiction to apply the Act extra-territorially.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues the Agency's finding on BNSF's railway line extension is jurisdictional and reviewed on correctness, denying extra-territorial jurisdiction.",
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No extra-territoriality issue; Agency's order requires CP, not BNSF, to interswitch P&H's cars; BNSF certificate of fitness issue deferred",
+     "quote": "There is no issue of extra-territoriality in this case. The Agency’s order requires CP, not BNSF, to interswitch P&H’s cars at the regulated rate. The question of whether BNSF required a certificate of fitness for its operations in Alberta, the preliminary issue referred to earlier was deferred to another decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Agency asserts jurisdiction over BNSF only regarding its operations at Coutts Yard",
+     "quote": "To the extent that the Agency asserts jurisdiction over BNSF, it does so with respect to its operations at the Coutts Yard.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no extra-territoriality issue; Agency's jurisdiction over BNSF limited to Coutts Yard operations.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No jurisdictional question exists to trigger correctness standard of review",
+     "quote": "As a result, there is no question of jurisdiction to which the correctness standard could apply.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes no jurisdictional question exists for correctness standard to apply.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP challenges Agency's finding that railway line connection cannot occur on an international boundary, calling it an 'impossibly thin membrane'",
+     "quote": "CP attacked the Agency’s finding that a connection between railway lines cannot take place on an international boundary which was described as an “impossibly thin membrane, phenomenal in length and height but with no width” (Decision at paragraph 60).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency found BNSF's railway line extends into Canada at connection point",
+     "quote": "As a result, the Agency found that BNSF’s line of railway necessarily extended into Canada at the point of connection.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP challenges Agency's finding that railway lines cannot connect on boundary; Agency found BNSF's line extends into Canada at connection.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP points out it owns all land on Canadian side, so anything beyond boundary is CP's property, not BNSF's",
+     "quote": "CP pointed out that it owned all the land on the Canadian side of the international boundary so that if anything supplied by BNSF extended beyond the boundary, it would be CP’s property as opposed to BNSF’s.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues it owns Canadian land beyond boundary, so BNSF's extension would be CP's property.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP says all material shows railway line at boundary as a single seamless track",
+     "quote": "Furthermore, all the material provided to the Agency by CP showed the railway line at the point where it crossed the international boundary as a “single and seamless line of track” (CP’s Memorandum of Fact and Law at paragraph 65).",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues evidence shows railway line at boundary is a single seamless track.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP criticizes Agency's reliance on an intervener's brief from another proceeding about railway line connection",
+     "quote": "Finally, CP was particularly critical of the Agency’s apparent reliance on a passage taken from an intervener’s brief in another proceeding, which I quoted earlier in these reasons, describing the intervener’s view of a connection between railway lines.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP criticizes Agency's reliance on an intervener's brief from another case about railway line connection.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP infers Agency's citation is evidentiary basis for statement that connecting railway lines do not abut, alleging factual and legal error",
+     "quote": "Since this passage is immediately followed by the Agency’s affirmation that “connecting railway lines do not abut”, CP infers that the citation is the evidentiary foundation for the Agency’s statement. CP alleges that this is factually incorrect and an error in law to the extent that it purports to describe all railway line connections.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP alleges Agency's statement that connecting railway lines do not abut is factually incorrect and legally erroneous.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Agency's conclusion on railway line connection is a pure question of fact about physical layout",
+     "quote": "The Agency’s conclusion on this point is a finding of fact. It is a finding as to the physical layout of the tracks, a pure question of fact.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court must give wide deference to Agency's factual findings under subsections 41(1) and (3) of the Act",
+     "quote": "The wide berth which this Court must give to such findings is illustrated by subsections 41(1) and (3) of the Act: 41 (1) An appeal lies from the Agency to the Federal Court of Appeal on a question of law or a question of jurisdiction on leave to appeal being obtained from that Court …. 41 (1) Tout acte — décision, arrêté, règle ou règlement — de l’Office est susceptible d’appel devant la Cour d’appel fédérale sur une question de droit ou de compétence, avec l’autorisation de la cour… … […] 3) An appeal shall be heard as quickly as is practicable and, on the hearing of the appeal, the Court may draw any inferences that are not inconsistent with the facts expressly found by the Agency and that are necessary for determining the question of law or jurisdiction, as the case may be. (3) L’appel est mené aussi rapidement que possible; la cour peut l’entendre en faisant toutes inférences non incompatibles avec les faits formellement établis par l’Office et nécessaires pour décider de la question de droit ou de compétence, selon le cas. [my emphasis.] [mon soulignement.]",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Agency's conclusion on railway line connection is factual and entitled to wide deference under the Act.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "There is no right of appeal from a finding of fact.",
+     "quote": "There is no right of appeal from a finding of fact.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states there is no right of appeal from a finding of fact.",
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Is a conclusion of fact without evidentiary basis an error of law?",
+     "quote": "the question was asked whether a conclusion of fact for which there was no evidentiary basis was an error of law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A conclusion of fact without evidence would be unreasonable and reviewable as an error of law.",
+     "quote": "Such an error would necessarily be unreasonable - how could it be reasonable to draw conclusions of fact on no evidence? - and therefore reviewable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If only evidence was a passage from Decision 35-R-2009, there would be no evidence to support the Agency's conclusion.",
+     "quote": "If the only evidence in support of the Agency’s conclusion was the passage it quoted from Decision 35-R-2009, I would be inclined to the view that there was no evidence to support its conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Agency was entitled to rely on its institutional knowledge to conclude on the connection between the two railways.",
+     "quote": "The response from counsel for P&H was that the Agency was entitled to rely on its institutional knowledge in concluding as it did as to the nature of the connection between the two railways.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court questions if a fact conclusion without evidence is an error of law; respondent argues the Agency can rely on institutional knowledge.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Supreme Court upheld labour boards' right to rely on expert knowledge in labour relations.",
+     "quote": "the Supreme Court has upheld the right of labour relations boards to rely on their expert knowledge of the field of labour relations",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Supreme Court cases Royal Oak Mines and International Longshoremen's support expert knowledge reliance by labour boards.",
+     "quote": "see Royal Oak Mines Inc. v. Canada (Labour Relations Board), [1996] 1 S.C.R. 369 at paragraph 57, International Longshoremen's and Warehousemen's Union, Ship and Dock Foremen, Local 514 v. Prince Rupert Grain Ltd., [1996] 2 S.C.R. 432, at paragraph 37.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No Supreme Court case holds a tribunal may resolve disputed facts solely on institutional knowledge.",
+     "quote": "I am unaware of any case in which the Supreme Court has held that a tribunal may resolve disputed questions of fact solely on the basis of its institutional knowledge of relevant facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Supreme Court allows expert knowledge reliance but not resolving disputed facts solely on institutional knowledge.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is unnecessary to decide the extent tribunals can rely on their own knowledge to resolve disputed facts here.",
+     "quote": "it is not necessary, in this case, to determine the extent to which an administrative tribunal can rely on its own knowledge to resolve disputed questions of fact if indeed that is what happened here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If tribunals rely on institutional knowledge for disputed facts, they should exercise reserve and transparency.",
+     "quote": "one would expect a tribunal to exercise a certain reserve in invoking its institutional knowledge to supply facts which are in dispute between the parties and that, when it did invoke such knowledge, it would do so in as transparent a way as possible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court declines to decide tribunal reliance on own knowledge but expects reserve and transparency if done.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Agency departed from its jurisprudence and misinterpreted Fort Rouge by holding contractual rights gave BNSF sufficient interest in Coutts Yard.",
+     "quote": "CP’s position is that the Agency departed from its own jurisprudence and misinterpreted this Court’s decision in Fort Rouge when it held that the mere contractual rights... gave BNSF a sufficient interest in the Coutts Yard",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues the Agency misinterpreted Fort Rouge by treating contractual rights as sufficient interest in Coutts Yard.",
+   "role": "issue"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "In Celgar, Agency decided mere running rights insufficient for a railway to treat another's tracks as its own line.",
+     "quote": "According to CP, in Decision No. 439-R-1989 [Celgar] the Agency decided that mere running rights were an insufficient basis",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Celgar involved CP and BN agreement allowing BN to use CP's track and facilities for interswitching traffic.",
+     "quote": "In that case, there was an agreement between CP and another railway company, BN, which allowed BN to travel over CP’s track... and to joint usage of CP’s track and facilities at Nelson for interswitching traffic.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency found BN did not have a line of railway at Nelson merely by agreement with CP.",
+     "quote": "In this case, the Agency finds that there is only one railway line from Troup Junction to Nelson, that of CP. BN does not have a \"line of railway\" at Nelson merely by virtue of its agreement with CP.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP says Celgar held mere running rights insufficient for line of railway; Agency found BN lacked line at Nelson by agreement alone.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Celgar implies 'having' a line of railway means 'owning' it.",
+     "quote": "It is implicit in the Agency’s decision in Celgar that it treated “having” a line of railway as meaning “owning” a line of railway.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues Celgar implies having a line of railway means owning it.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Ottawa Valley Partnership confirmed ownership interest required for line of railway.",
+     "quote": "CP argues that the requirement that a railway company own a line of railway was confirmed in a subsequent decision of the Agency, Decision 798-R-1993 [Ottawa Valley Partnership].",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "CN and CP consolidated rail services into Partnership Line with shared ownership interests.",
+     "quote": "CN and CP consolidated rail services in the Ottawa valley into a single railway line (the Partnership Line).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency held ownership interest sufficient for each partner to have a line of railway and interchanges at storage yards.",
+     "quote": "The Agency is satisfied that the ownership interest that each Partner has in the Partnership Line is sufficient to conclude that each Partner has a \"line of railway\"",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency distinguished Celgar where second railway had only running rights, not ownership interest.",
+     "quote": "The present application is different from that related to the Celgar Pulp Company in which the second railway company had only joint trackage usage and running rights over a line of railway and not an ownership interest in the line of railway.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues Ottawa Valley Partnership confirmed ownership interest required for line; Agency distinguished Celgar by ownership vs running rights.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Agency misinterpreted Fort Rouge as establishing new test for line of railway based on contractual rights.",
+     "quote": "CP argues, on the basis of this jurisprudence that the Agency misinterpreted this Court’s decision in Fort Rouge as establishing a new test",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues Agency misinterpreted Fort Rouge as new test for line of railway based on contractual rights.",
+   "role": "issue"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Fort Rouge facts: CN and BNSF exchanged traffic at CN's F Yard since 1913 under agreement.",
+     "quote": "CN and BNSF (or their predecessors) have exchanged traffic at CN’s F Yard since 1913 pursuant to an agreement",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Agreement provided for two lines of track at F Yard, with BNSF paying half construction, maintenance, and land rental costs.",
+     "quote": "The Agreement contemplated the construction of two lines of track at CN's F Yard... BNSF would pay CN one half the cost of construction... one half the cost of the maintenance... one half of the rental value of the land",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Upon termination, BNSF entitled to half the materials or depreciated value; CN could alter tracks at own expense.",
+     "quote": "Upon the termination of the Agreement, BNSF was entitled to one half of the material... CN could... change or alter the location or construction of the transfer tracks... at its own expense",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes Fort Rouge facts about CN and BNSF's 1913 agreement for F Yard tracks and obligations.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2003, CN relocated joint facilities from F Yard to Fort Rouge Yard, raising interswitching issues.",
+     "quote": "In 2003, CN reconfigured its tracks... relocated the joint facilities... to the new Fort Rouge Yard.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issue was whether interswitching existed at Fort Rouge Yard since all tracks owned by CN, so no transfer between lines.",
+     "quote": "the relevant issue was whether there was interswitching at the Fort Rouge Yard since all the track at that location was owned by CN.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes CN relocated facilities to Fort Rouge Yard, raising issue of interswitching with CN-owned tracks.",
+   "role": "facts"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency concluded BNSF had sufficient ownership interest in Fort Rouge transfer track to have a line of railway.",
+     "quote": "The Agency... concluded that “BNSF has a sufficient ownership interest in the transfer track at Fort Rouge Yard to have a line of railway",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency supported decision by reference to ownership prominence in Ottawa Valley Partnership.",
+     "quote": "The Agency supported its decision by reference to the prominence given to ownership of property in the Ottawa Valley Partnership decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found BNSF had sufficient ownership interest in Fort Rouge Yard and relied on Ottawa Valley Partnership.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "This Court upheld Agency's decision in Fort Rouge appeal.",
+     "quote": "On appeal, this Court upheld the Agency’s decision.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Court restated issue as whether BNSF's rights allowed treating parts of yards as part of its line of railway.",
+     "quote": "What the CTA did have to decide was whether BNSF's rights... were such as to allow it to treat portions of those yards as part of BNSF's line of railway.",
+     "answers": 0
+    }
+   ],
+   "summary": "This Court upheld Agency's Fort Rouge decision, restating issue as BNSF's rights to treat yards as its line.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Agency found Transfer Track Agreement gave BNSF more than running rights; rights sufficient for line of railway.",
+     "quote": "In this case, the Transfer Track Agreement clearly gave BNSF something more than running rights... sufficient to find that BNSF had a line of railway",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found BNSF's Transfer Track Agreement rights exceeded running rights and sufficed for line of railway.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP cites Fort Rouge passages to support that line of railway requires ownership interest for interswitching.",
+     "quote": "CP cites both of these passages in support of its position that... a railway company has a line of railway when it has an ownership interest",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues Fort Rouge supports that line of railway requires ownership interest for interswitching.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds CP misreads Fort Rouge; issue was whether BNSF's rights allowed treating yards as its line of railway.",
+     "quote": "With respect, this is a misreading of this Court’s position. The question before the Agency was whether BNSF’s rights... were such as to allow the Agency to treat portions of those yards as parts of BNSF’s line of railway.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CP misreads Fort Rouge; issue was BNSF's rights to treat yards as its line, not ownership.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Agency explicitly adopted reasoning from this Court's Fort Rouge decision.",
+     "quote": "In this case, the Agency explicitly adopted the reasoning which flowed from this Court’s decision in Fort Rouge.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Agency explicitly adopted reasoning from Fort Rouge.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP points out differences between BNSF's rights under Transfer Track and Interchange Agreements; no financial obligations under Interchange Agreement.",
+     "quote": "CP... points out the differences in BNSF’s rights and obligations under the Transfer Track Agreement... and the Interchange Agreement... no financial obligations under the Interchange Agreement.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP says BNSF's Interchange Agreement rights resemble BN's rights in Celgar, which were insufficient for line of railway.",
+     "quote": "CP says that BNSF’s rights under the Interchange Agreement are more like BN’s rights under the agreement in issue in Celgar.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "CP argues if BN's rights in Celgar insufficient for line of railway, BNSF's rights here should also be insufficient.",
+     "quote": "if these rights were not sufficient to support a finding that BN had a line of railway in Celgar, then they should not be sufficient to support the conclusion that BNSF has a line of railway in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "CP argues BNSF's Interchange Agreement rights lack financial obligations and resemble insufficient Celgar rights.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Agency's Celgar decision is difficult to reconcile with its decision in this case.",
+     "quote": "It is true that it is difficult to reconcile the Agency’s decision in Celgar with its decision in this case.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Stare decisis does not apply to tribunal decisions but arbitral precedents shape reasonable decisions.",
+     "quote": "the doctrine of stare decisis does not apply to tribunal decisions... arbitral precedents in previous cases shape the contours of what qualifies as a reasonable decision",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Departing from prior arbitral jurisprudence requires reasonable basis.",
+     "quote": "where an arbitration panel departs from prior arbitral jurisprudence, it must set out a reasonable basis for doing so",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No distinction between arbitration panels and administrative tribunals for this principle.",
+     "quote": "For present purposes, there is no distinction between arbitration panels and administrative tribunals.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Celgar decision hard to reconcile but arbitral precedents shape reasonableness and require basis for departure.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Agency's reasonable basis was reliance on this Court's Fort Rouge decision.",
+     "quote": "The reasonable basis, in this case, was the Agency’s reliance on this Court’s decision in Fort Rouge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Fort Rouge recognized factors short of ownership can support sufficient interest for line of railway.",
+     "quote": "while the factors referred to by the Agency fell short of creating an ownership interest, they were nonetheless capable of supporting the Agency’s conclusion that BNSF had a sufficient interest",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Agency reasonably relied on Fort Rouge, which recognized sufficient interest can fall short of ownership.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency recognized the critical factor was the right to perform all necessary operations to interchange traffic",
+     "quote": "the Agency recognized that the critical factor was the right “to perform all necessary operations in order to interchange traffic” (see Decision at paragraph 69)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "This position is consistent with this Court’s decision in Fort Rouge",
+     "quote": "a position consistent with this Court’s decision in Fort Rouge",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency identified rights allowing BNSF to have sufficient interest in Coutts Yard to treat it as part of BNSF’s railway line",
+     "quote": "The rights which it identified allowed the Agency to consider that BNSF had a sufficient interest in the Coutts Yard for it to be treated as part of BNSF’s line of railway",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Agency refined its view of when a railway company 'has' a line of railway from ownership to functional integration",
+     "quote": "The Agency has thus refined its view of when a railway company “has” a line of railway, moving away from a strictly ownership position, as in Celgar, to a more nuanced position based on functional integration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This refinement aligns with Canada’s national transportation policy favoring competition and discouraging undue obstacles to traffic movement",
+     "quote": "This refinement is in keeping with the Canada’s national transportation policy which favours competition and market forces, and discourages rates and conditions which are an undue obstacle to the movement of traffic",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is within the Agency’s mandate to refine its approach to what constitutes an interchange",
+     "quote": "It is entirely within the Agency’s mandate to refine its approach to the issue of what constitutes an interchange",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency recognized the right to perform necessary operations to interchange traffic, refined its view of railway ownership to functional integration, consistent with policy and mandate, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Agency’s decision on this issue is reasonable",
+     "quote": "I find that the Agency’s decision on this issue is reasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Once Agency concluded BNSF had a line of railway at Coutts Yard, issues of interchange and interswitching resolved in P&H’s favour",
+     "quote": "Once the Agency concluded that BNSF had a line of railway at the Coutts Yard, then the issues of the existence of an interchange and the availability of interswitching resolved themselves in P&H’s favour",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency’s decision reasonable and that BNSF’s line at Coutts Yard resolves interchange and interswitching issues favoring P&H.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal with costs to P&H",
+     "quote": "I would dismiss the appeal with costs to P&H",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal with costs awarded to P&H.",
+   "role": "disposition"
+  }
+ ]
+}

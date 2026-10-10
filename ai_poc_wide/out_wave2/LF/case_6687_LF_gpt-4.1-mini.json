@@ -1,0 +1,455 @@
+{
+ "case_id": 6687,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0079468,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an application for judicial review of a RAD decision confirming an RPD decision denying refugee status.",
+     "quote": "This is an application for judicial review of a Refugee Appeal Division (RAD) decision dated December 18, 2020, which confirmed a decision by the Refugee Protection Division (RPD) that the Applicant is neither a Convention refugee nor a person in need of protection pursuant to paragraph 111(1)(a) of the Immigration and Refugee Protection Act, SC 2001, c27.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review of a RAD decision confirming an RPD decision denying refugee status to the applicant.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant is a Pakistani citizen fearing persecution as a Shia Muslim by Sunni militants, police, and extremist relatives.",
+     "quote": "The Applicant is a citizen of Pakistan who fears persecution as a Shia Muslim. The Applicant states the persecutors are an extremist Sunni militant group, Lashkar-e-Jhangvi (“LeJ”), the Pakistani police and the extremist relatives of the Sunni woman, Fouzia, with whom he had a secret romantic relationship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant says he fears persecution in Pakistan as a Shia Muslim from militants, police, and extremist relatives.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is granted because the RAD failed to conduct an independent analysis of the Applicant’s claim.",
+     "quote": "For the reasons that follow, this application is granted as the RAD failed to conduct their own independent analysis of the Applicant’s claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the application because the RAD failed to independently analyze the applicant's claim.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is from a prominent Shia family and met Fouzia in early 2017.",
+     "quote": "The Applicant, who is from a prominent Shia family, met Fouzia in early 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant is from a prominent Shia family and met Fouzia in early 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Fouzia told Applicant her family is politically active and related to prominent politicians.",
+     "quote": "Eventually Fouzia told the Applicant that her father and brothers were very active politically and that she was related to a member of the National Assembly and the Pakistan Muslim league Nawaz and the former Minister of State for Parliamentary Affairs.",
+     "answers": 0
+    }
+   ],
+   "summary": "Fouzia told the applicant her family is politically active and related to prominent politicians.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and his brother were attacked by Fouzia’s brother and friends; police report was refused due to political power of attacker’s uncle.",
+     "quote": "In July 2017, the Applicant and his brother were attacked by Fouzia’s brother, Sajid, and three of his friends. The Applicant reported this incident to the police, but refused to file a report because Sajid’s uncle (Muhsin) was too politically powerful to take action against him.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant and brother were attacked by Fouzia's brother; police report refused due to attacker's powerful uncle.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant was arrested for sexual harassment, beaten, told he had no right to pursue relationship with Sunni; arrest ordered by Muhsin.",
+     "quote": "On October 18, 2017, the Applicant was arrested by the police for sexual harassment. He was beaten and told he had no right to pursue a relationship with a Sunni. He learned at the police station that Muhsin had ordered his arrest. The Applicant was released on October 21, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant was arrested, beaten, and told he had no right to pursue a Sunni relationship; arrest ordered by Muhsin.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Fouzia fled her cousin’s wedding; she and Applicant moved to Gujranwala; Fouzia’s family threatened Applicant’s family.",
+     "quote": "In December 2017, Fouzia fled from her cousin’s wedding and she and the Applicant moved together to Gujranwala. Fouzia’s family went to the Applicant’s mother’s house where they beat the Applicant’s brother, threatened the lives of his family and said they would kill the Applicant because he had dishonoured them.",
+     "answers": 0
+    }
+   ],
+   "summary": "Fouzia fled a wedding; she and applicant moved; Fouzia’s family threatened applicant’s family.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Sunni extremists learned Applicant lived with Sunni woman; they threatened to kill him for illegal activity.",
+     "quote": "Sunni extremists in the area learned that the Applicant had been living with a Sunni woman outside of marriage. On January 4, 2018, they went to the Applicant’s home and spoke with his brother. They said they were from LeJ and were going to kill the Applicant for engaging in an illegal activity.",
+     "answers": 0
+    }
+   ],
+   "summary": "Sunni extremists threatened to kill applicant for living with Sunni woman outside marriage.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant was attacked by Fouzia’s brothers; fled and police did not assist after complaint.",
+     "quote": "On January 10, 2018, the Applicant was attacked by Fouzia’s three brothers while on his way home. He fled and lodged a complaint with the police who did not assist him.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant was attacked by Fouzia’s brothers; police did not assist after complaint.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant received study permit, arrived in Canada, and claimed refugee protection.",
+     "quote": "Having received a study permit on August 28, 2018, the Applicant left Pakistan and arrived in Canada on September 14, 2018. He made a claim for refugee protection on December 3, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant arrived in Canada on study permit and claimed refugee protection.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found the key issue was whether Applicant had an Internal Flight Alternative (IFA) in Pakistan.",
+     "quote": "The RAD found the determinative issue on appeal was whether the Applicant had an Internal Flight Alternative (IFA) in Pakistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the key issue was whether the applicant had an Internal Flight Alternative in Pakistan.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Legal test for IFA requires no serious possibility of persecution and it must be reasonable to seek refuge there.",
+     "quote": "The RAD laid out the legal test for determining whether there is a viable IFA: (1) that there is no serious possibility the Applicant will be persecuted or, on a balance of probabilities, incur a section 97 risk in the IFA location; and, (2) it would not be unreasonable to seek refuge there in the IFA location.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD stated the legal test for IFA involves no serious risk and reasonableness to seek refuge there.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed with RPD that Hyderabad was a reasonable IFA, listing seven supporting findings.",
+     "quote": "The RAD determined that the RPD was correct that Hyderabad was an IFA for the Applicant under each prong of the test. In support of making that determination the RAD set out, in point form, seven findings made by the RPD supporting the IFA location. The RAD found the RPD was correct in determining that Hyderabad was a reasonable IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agreed Hyderabad was a reasonable IFA, citing seven RPD findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found Applicant did not prove risk of being located in Hyderabad through police, Mushin, LeJ, or tenant registration.",
+     "quote": "The RAD found the Applicant had not established, on a balance of probabilities, that he would be located in Hyderabad through the police, Mushin, the LeJ or the tenant registration system.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the applicant did not prove risk of being located in Hyderabad through various means.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The only issue is whether the Decision is reasonable.",
+     "quote": "The only issue is whether the Decision is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the only issue is whether the decision is reasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Supreme Court established reasonableness as presumptive standard for judicial review of administrative decisions.",
+     "quote": "The Supreme Court of Canada has established that when conducting judicial review of the merits of an administrative decision, other than a review related to a breach of natural justice and/or the duty of procedural fairness, the presumptive standard of review is reasonableness: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 23 [Vavilov]. While this presumption is rebuttable, none of the exceptions to the presumption are present here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Supreme Court established reasonableness as the presumptive standard for judicial review here.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review focuses on decision and reasoning; courts review but generally do not decide issues themselves.",
+     "quote": "The focus of reasonableness review must be on the decision actually made by the decision maker, including both the decision maker’s reasoning process and the outcome. The role of courts in these circumstances is to review, and they are, at least as a general rule, to refrain from deciding the issue themselves: Vavilov at para 83.",
+     "answers": 0
+    }
+   ],
+   "summary": "Reasonableness review focuses on the decision and reasoning; courts review but generally do not decide issues themselves.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "To set aside a decision, court must find serious shortcomings beyond superficial flaws.",
+     "quote": "To set a decision aside, a reviewing court must be satisfied that there are sufficiently serious shortcomings in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency. Any alleged flaws or shortcomings must be more than merely superficial or peripheral to the merits of the decision: Vavilov at para 100.",
+     "answers": 0
+    }
+   ],
+   "summary": "To set aside a decision, court must find serious shortcomings beyond superficial flaws.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Determinative issue is RAD’s treatment of Applicant’s risk of being found in Hyderabad via tenant registration system.",
+     "quote": "I find the determinative issue in this application is the RAD’s treatment of the Applicant’s risk of being found in Hyderabad through the tenant registration system.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the key issue is RAD’s treatment of risk of being found in Hyderabad via tenant registration system.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD's analysis of tenant registration system risk is found in two paragraphs summarizing RPD's consideration and findings.",
+     "quote": "The RAD’s entire analysis of the tenant registration system risk is found in two paragraphs",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD asked Appellant about relocation and tenant registration system; found Appellant did not establish risk on balance of probabilities.",
+     "quote": "The RPD also considered the Appellant’s testimony regarding the tenant registration system. At the hearing, the RPD asked the Appellant whether he could relocate to avoid his agents of persecution, to which he responded that he would be located through the tenant registration system. The RPD considered the Appellant’s testimony and the documentary evidence and found that the Appellant had not established, on a balance of probabilities, that he would be located through the tenant registration system.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found RPD properly considered evidence and risks; findings correct and based on record evidence.",
+     "quote": "Considering the foregoing, I find that the RPD properly considered the Appellant’s evidence and specific risks. The above-noted findings are correct and based on the evidence in the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the RAD's analysis of tenant registration risk relied on RPD's findings that the Appellant did not establish risk on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD failed to conduct an independent assessment of Applicant's risk in the IFA and did not explain why RPD's finding was correct.",
+     "quote": "the RAD failed to conduct an independent assessment of the Applicant’s risk of being located in the IFA and it did not explain why the RPD finding was correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD failed to independently assess the Applicant's risk and did not explain why it agreed with the RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review focuses on the decision made, including reasoning and outcome, per Vavilov at para 83.",
+     "quote": "the focus of reasonableness review is to be on the decision actually made by the decision maker, including both the decision maker’s reasoning process and the outcome: Vavilov at para 83.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that reasonableness review requires examining the decision maker's reasoning and outcome, citing Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On the critical issue of risk in the IFA, the RAD showed no reasoning process or explanation for its conclusion.",
+     "quote": "the RAD displayed no reasoning process. The RAD did not explain how or why it came to the conclusion it did.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Saying RPD was correct 'based on the evidence in the record' is not an independent reasoning process or analysis and lacks transparency.",
+     "quote": "Saying that the RPD was correct “based on the evidence in the record” is not an independent reasoning process or analysis. It is a phrase that is devoid of both transparency and any useful analytical information.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the RAD gave no reasoning on risk and merely endorsed RPD's finding without transparency or analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD's lack of independent analysis and absence of reasons on this critical issue is a serious shortcoming undermining justification and transparency.",
+     "quote": "I find the lack of independent analysis by the RAD and the absence of reasons by the RAD on this critical issue is a sufficiently serious shortcoming such that the Decision cannot be said to exhibit the requisite degree of justification, intelligibility and transparency.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This shortcoming directly affects Applicant's safety in the IFA and is more than superficial or peripheral to the merits, citing Vavilov para 100.",
+     "quote": "As it speaks directly to the safety of the Applicant in the IFA, I also find that this shortcoming is much more than merely superficial or peripheral to the merits of the decision: Vavilov at para 100.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD's failure to provide reasons is a serious flaw affecting the Applicant's safety and the decision's merits.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Decision is unreasonable and must be sent back for redetermination by a different RAD member.",
+     "quote": "I find for the reasons set out above that the Decision is unreasonable. It must be sent back for redetermination by a different member of the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Decision is unreasonable and remits it for redetermination by a different RAD member.",
+   "role": "disposition"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is granted, the Decision set aside, and the matter remitted for redetermination by a different RAD member.",
+     "quote": "The application is granted and the Decision is set aside. The matter is remitted for redetermination by a different member of the RAD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance exists for certification on these facts.",
+     "quote": "There is no serious question of general importance for certification.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the application, sets aside the Decision, remits for redetermination, and finds no serious question of general importance.",
+   "role": "disposition"
+  }
+ ]
+}

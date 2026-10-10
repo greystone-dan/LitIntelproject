@@ -1,0 +1,917 @@
+{
+ "case_id": 74182,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0157316,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants are Hungarian citizens appealing an RPD decision rejecting their refugee claim.",
+     "quote": "XXXX XXXX (the Principal Appellant), XXXX XXXX (the Co-Appellant) and XXXX XXXX XXXX (the Minor Appellant), citizens of Hungary, appeal a decision of the Refugee Protection Division (RPD) which rejected their refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Principal Appellant is the designated representative of the Minor Appellant.",
+     "quote": "The Principal Appellant was appointed the designated representative of the Minor Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants do not submit new evidence or request an oral hearing.",
+     "quote": "The Appellants are not submitting new evidence nor are they requesting an oral hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is not allowed for the reasons that follow.",
+     "quote": "For the reasons which follow, the appeal is not allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellants are Hungarian citizens appealing an RPD refugee claim rejection, with no new evidence or hearing requested, and denies the appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants allege persecution and discrimination due to their Roma ethnicity.",
+     "quote": "The appellants allege persecution and discrimination on account of their Roma ethnicity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants allege persecution and discrimination based on Roma ethnicity.",
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The standard of correctness applies to questions of fact, law, and mixed fact and law, per Huruglica.",
+     "quote": "For questions of fact, law, and mixed fact and law, I will apply the standard of correctness, as per Huruglica.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will apply the standard of correctness to fact, law, and mixed questions, citing Huruglica.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court will conduct its own analysis of the Record to determine if the RPD erred.",
+     "quote": "Accordingly, I will conduct my own analysis of the Record to determine if the RPD erred.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will independently analyze the record to assess RPD error.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded the appellants failed to rebut the presumption of state protection.",
+     "quote": "The RPD concluded that the Appellants had failed to rebut the presumption of state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants submit the RPD erred in its state protection analysis.",
+     "quote": "The Appellants submit that the RPD erred in its state protection analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellants failed to rebut state protection presumption; appellants argue RPD erred in that analysis.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "State protection analysis must relate to the appellant's particular facts and situation.",
+     "quote": "A state protection analysis is not carried out in a factual vacuum. It must be analyzed in relation to the particular facts and situation of the appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD reached its state protection conclusion after reviewing documentary evidence and appellants' allegations.",
+     "quote": "In this particular appeal, the RPD reached its state protection conclusion after having canvassed the documentary evidence and considered the allegations of the Appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states state protection analysis depends on appellant's facts; the RPD considered evidence and allegations before concluding.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Mudrak confirms the claimant bears the onus to rebut the presumption of state protection.",
+     "quote": "The Federal Court of Appeal's decision of Mudrak upheld the principle that the onus rests on the claimant to rebut the presumption of state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded appellants failed to rebut the presumption after analyzing their interactions with authorities.",
+     "quote": "In this particular appeal, the RPD concluded that the Appellants had failed to rebut the presumption of state protection. It analyzed the particular circumstances of the Appellants with respect to their interaction with the authorities.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mudrak confirms claimant's onus to rebut state protection presumption; RPD found appellants failed after analyzing their authority interactions.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The court is guided by Supreme Court, Federal Court of Appeal, and Federal Court jurisprudence on state protection.",
+     "quote": "In assessing the issue of state protection, I am guided by the jurisprudence from the Supreme Court of Canada, the Federal Court of Appeal and the Federal Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The court will apply established principles relating to state protection to this appeal.",
+     "quote": "The courts have established a number of principles relating to state protection, and I will apply those principles to the appeal at hand.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will apply established Supreme Court and Federal Court principles on state protection to this appeal.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Ward decision articulates presumption of state protection and burden of proof for inability to protect.",
+     "quote": "The presumption of state protection was articulated by the Supreme Court of Canada in the Ward decision, where the Court stated: The issue that arises, then, is how, in a practical sense, [an Appellant] makes proof of a state's inability to protect its nationals as well as the reasonable nature of the [Appellant's] refusal actually to seek out this protection. On the facts of this case, proof on this point was unnecessary, as representatives of the state authorities conceded their inability to protect Ward. Where such an admission is not available, however, clear and convincing confirmation of a state's inability to protect must be provided. For example, [an Appellant] might advance testimony of similarly situated individuals let down by the state protection arrangement or the [Appellant's] testimony of past personal incidents in which state protection did not materialize. Absent some evidence, the claim should fail, as nations should be presumed capable of protecting their citizens. Security of nationals is, after all, the essence of sovereignty. Absent a situation of complete breakdown of state apparatus, such as that recognized in Lebanon in Zalzali, it should be assumed that the state is capable of protecting [an Appellant].",
+     "answers": 0
+    }
+   ],
+   "summary": "Ward decision sets presumption of state protection and requires clear evidence to prove state's inability to protect.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Ward established appellants must produce clear and convincing evidence that state cannot protect.",
+     "quote": "Ward has established that the onus is on the Appellants to produce clear and convincing evidence that the state cannot provide protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ward requires appellants to produce clear and convincing evidence that state protection is unavailable.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "There is a presumption that states, except in complete breakdown, can protect their citizens.",
+     "quote": "There is a presumption that, except in situations where the state is in complete breakdown, the state is capable of protecting its citizens.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "International protection applies only when no other recourse is available to the refugee claimant.",
+     "quote": "The presumption that a state is capable of protecting its citizens underscores the principle that international protection comes into play only when a refugee claimant has no other recourse available.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states states are presumed capable of protection except in breakdown; international protection applies only if no other recourse exists.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Refugee protection is surrogate protection invoked when home state protection is unavailable.",
+     "quote": "Refugee protection is meant to be a form of surrogate protection to be invoked in those situations where the refugee claimant has unsuccessfully sought the protection of their home state.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Appellant must seek state protection if reasonably available.",
+     "quote": "The onus is on the appellant to approach the state for protection in situations where state protection might be reasonably forthcoming.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "To qualify, claimant must show they sought or objectively could not get protection from home state.",
+     "quote": "To qualify for refugee status, a claimant must satisfy the Board that he or she sought, but was unable to obtain, protection from their home state or, alternatively, that their home state, on an objective basis, could not be expected to provide protection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Failure to pursue state protection is usually fatal to claim if state is functioning democracy with protection apparatus.",
+     "quote": "In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.",
+     "answers": 0
+    }
+   ],
+   "summary": "Refugee protection is surrogate; appellants must seek state protection if available; failure to do so usually fatal if state is functioning democracy.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To rebut presumption, appellant must provide clear and convincing evidence state protection is inadequate.",
+     "quote": "To rebut the presumption of state protection, the Appellant must provide \"clear and convincing\" confirmation of the state's inability to protect its citizens.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Evidence must be reliable, probative, and satisfy balance of probabilities that protection is inadequate.",
+     "quote": "The evidence that state protection is inadequate must not only be reliable and probative, it must also satisfy me, on a balance of probabilities, that state protection is inadequate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "State's imperfect protection efforts do not rebut presumption if state controls territory and makes serious efforts.",
+     "quote": "Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact that the state's efforts are not always successful will not rebut the presumption of state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Subjective reluctance to engage state does not rebut presumption in functioning democracy.",
+     "quote": "An appellant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Doubting state protection effectiveness without testing it does not rebut presumption.",
+     "quote": "Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant must provide clear, convincing, reliable evidence that state protection is inadequate; mere subjective reluctance or imperfect protection insufficient.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Appellant's burden increases with level of democracy in state.",
+     "quote": "An appellant's burden of proof is directly proportional to the level of democracy in the state in question; the more democratic the state's institutions, the more the appellant must have done to exhaust all courses of action open to them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "In functioning democracies, appellant must exhaust all domestic recourses before claiming refugee status.",
+     "quote": "In a functioning democracy, an appellant will have a heavy burden when attempting to show that he/she should not have been required to exhaust all of the recourses available to him/her domestically before claiming refugee status.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Hungary is a democracy with effective control, functioning security forces, and fair elections.",
+     "quote": "Having canvassed the country condition documents in the National Documentation Package (NDP), I find that Hungary is a democracy in effective control of its territory, has in place a functioning security force to uphold the laws and constitution of the country, and there are fair and free elections.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "In Hungary, appellant must take all reasonable steps to seek protection considering context and interactions with authorities.",
+     "quote": "Therefore, in countries such as Hungary, an appellant must do more than merely show that he/she went to see members of the police force and that those efforts were unsuccessful. An appellant must show that he/she has taken all reasonable steps in the circumstances to seek protection, taking into account the context of the country of origin, the steps taken, and the appellant's interactions with the authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Local failures do not mean state fails to protect unless part of broader pattern of inability or refusal.",
+     "quote": "Local failures by authorities to provide protection does not mean that the state as a whole fails to protect its citizens, unless the failures form part of a broader pattern of the state's inability or refusal to provide protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "No government guarantees perfect protection; less-than-perfect protection insufficient to find state unwilling or unable.",
+     "quote": "No government is expected to guarantee perfect protection to all of its citizens at all times, and the fact that a state is not always successful in protecting its citizens is not enough to justify a claim, especially where a state is in effective control of its territory, has military, police, and civil authorities in place, and is making serious efforts to protect its citizens.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Less-than-perfect protection is not a basis to find state unwilling or unable to offer reasonable protection.",
+     "quote": "Less-than-perfect protection is not a basis to determine that a state is either unwilling or unable to offer reasonable protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Hungary a democracy; appellants must exhaust all reasonable protection steps; local failures or imperfect protection insufficient to rebut presumption.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Recent Federal Court decisions question availability of state protection for Roma returning to Hungary.",
+     "quote": "recent decisions by the Federal Court have questioned whether state protection is available to members of the Roma community, if they were to return to Hungary, and have thrown some uncertainty as to the manner in which this Board is to conduct a state protection analysis with respect to Roma citizens of Hungary.",
+     "answers": 0
+    }
+   ],
+   "summary": "Recent Federal Court decisions question state protection availability for Roma returning to Hungary and create uncertainty in analysis.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Federal Court is divided on how to analyze state protection for Hungarian Roma claimants.",
+     "quote": "The Federal Court is divided as to how best this analysis should take place. The Court itself acknowledged this diverse opinion in the Mudrak decision where the Court stated, \"It is well recognized that there is a division in the ranks of judges of the Federal Court on the issue of state protection, particularly as it applies to claimants from the Hungarian Roma community.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mudrak decision highlights divergent Federal Court opinions on state protection for Roma.",
+     "quote": "The Court went on to highlight this division by quoting decisions from the Federal Court which provided divergent opinions on state protection for members of the Roma community.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Two decisions best illustrate the Federal Court's divided legal mindset on this issue.",
+     "quote": "There are two decisions which best illustrate the divided legal mindset of the Federal Court on this issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Federal Court division on state protection analysis for Hungarian Roma, highlighted in Mudrak and illustrated by two decisions.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Moczo decision involved a Hungarian Roma family alleging discrimination and persecution including attacks on their home.",
+     "quote": "The applicants are an extended family from Hungary. In 2010, they sought refugee protection in Canada based on their experiences of discrimination and persecution as members of the Roma community. In particular, they allege that their home was attacked by a group that pushed a concrete wall onto its roof. Later, someone threw bricks at the house.",
+     "answers": 0
+    }
+   ],
+   "summary": "Moczo involved a Hungarian Roma family alleging discrimination and persecution including attacks on their home.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Federal Court in Moczo disagreed with Board that applicants failed to seek state protection reasonably.",
+     "quote": "In allowing the appeal, the Court did not agree with the Board's conclusion that the applicants had not made reasonable efforts to seek state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Applicants approached police twice; police did not report or act, saying nothing could be done.",
+     "quote": "The Board failed to take account of evidence showing that two of the applicants had approached the police on separate occasions to complain about bricks being thrown at their house. The police did not make a report; they simply said there was nothing they could do.",
+     "answers": 0
+    }
+   ],
+   "summary": "In Moczo, the Federal Court found applicants reasonably sought state protection but police failed to act or report.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Federal Court concluded state protection was unavailable due to police discrimination and failure to investigate violence against Roma.",
+     "quote": "The Court also concluded that state protection was unavailable to the applicants: ...the Board concentrated on evidence relating to improvements not yet realized to the exclusion of the documentary evidence showing that Hungarian police often discriminate against and fail to investigate crimes of violence against the Roma.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court found state protection unavailable due to police discrimination and failure to investigate violence against Roma in Moczo.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Csaba Racz decision involved a Roma family attacked with stones and assaulted; police took limited action and did not take a report.",
+     "quote": "...were at home when stones were thrown through their windows. Denes Csaba Racz, the father in the applicant family, ran out of the house to see what had happened but he was immediately kicked in his stomach and assaulted. By the time Timea Raczne Marodi, the mother in the applicant family, went outside, her husband was on the ground and his attackers were fleeing in a car. They were shouting that \"this is not over\" and that the applicants would die. Mr. Racz called the police. When they arrived, he showed them the broken windows and where he was kicked and punched. The police asked if he saw the perpetrators, and Mr. Racz replied that he did not because he was kicked very suddenly. Ms. Marodi did not get the license plate. The police said that there was not much they could do, but that they would patrol the area more often. They left without taking a report. They patrolled one more time that night but no additional patrols were made. The applicants also asked the Mayor of their village to help them but he said the police would take care of things.",
+     "answers": 0
+    }
+   ],
+   "summary": "Csaba Racz involved a Roma family attacked; police took limited action, did not take report, and mayor deferred to police.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court agreed with respondent that Board must focus on clear and convincing evidence of inadequate state protection at operational level",
+     "quote": "I agree with the submission of the respondent that the Board's examination must focus on whether these persons, on clear and convincing evidence, have established that there is not adequate state protection at the operational level.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Federal Court found Board's decision that applicants did not establish inadequacy of state protection was not unreasonable",
+     "quote": "I am unable to find, based on their submissions in this application, that the Board's decision that they did not establish the inadequacy of state protection is unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Police response to applicants' complaints was adequate and comparable to Canadian police response",
+     "quote": "the response of the police to the applicants' complaints, given the specific circumstances of the assaults taken to the police, appears to have been adequate and in keeping with what Canadian police forces would be likely to do.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court agreed with the respondent that the Board's decision on state protection was reasonable and police response was adequate, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Must conclude on state protection for Roma in Hungary given divergent views on clear and convincing evidence",
+     "quote": "I must attempt to come to some form of conclusion with respect to state protection for Roma in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court in Sztojka decision explained clear and convincing evidence standard for state protection",
+     "quote": "The question of what is clear and convincing evidence was addressed by the Federal Court in the Sztojka decision.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Applicant bears evidentiary and legal burden to prove inadequate state protection on balance of probabilities with relevant, reliable, convincing evidence",
+     "quote": "An applicant bears both an evidentiary and legal burden; she must introduce evidence of inadequate state protection and must convince the trier of fact that the evidence adduced establishes that the state protection is inadequate. The evidence will have sufficient probative value if it convinces the trier of fact on the balance of probabilities that the state protection is inadequate. Therefore the evidence must be relevant, reliable and convincing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court must conclude on state protection for Roma; Sztojka decision explains applicant's burden to prove inadequate protection with clear, convincing evidence.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "State protection need not be perfect to be adequate",
+     "quote": "The first principle is that protection provided by the state is not perfect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Police are primarily responsible for state protection against violent attacks",
+     "quote": "The second legal principle which aids me in determining whether clear and convincing evidence of a lack of state protection has been presented is that the police are primarily responsible for state protection against violent attacks.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Failure of one police officer or department to investigate does not alone prove no state protection",
+     "quote": "The failure of one police officer or one police department to investigate a crime does not, by itself, determine that there is no state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Police not apprehending assailants or less diligent complaint pursuit does not mean state protection is inadequate",
+     "quote": "Just because the police did not apprehend the assailants in a particular incident, or that the Appellants' complaint was not pursued with the diligence that the Appellants would have preferred, does not mean that state protection in their home country is not adequate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Many factors may explain police failures; adequacy is assessed reasonably given circumstances",
+     "quote": "There may be many factors that could contribute to this, including lack of physical evidence, lack of suspects, higher priorities for the police, and lack of witnesses. It is open to the Panel to determine if the state was unable to protect them, not in the absolute sense, but rather to a degree that was reasonable having regard for the circumstances of the Appellants.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court has stated local police failures do not indicate no protection in country as a whole",
+     "quote": "As the Federal Court has stated on numerous occasions, failures by local police to provide protection is not indicative of the fact that there is no protection in the country as a whole.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states state protection need not be perfect; police primarily responsible; isolated police failures do not prove inadequate protection, court explains.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Will now consider specific allegations of the Appellants",
+     "quote": "I will now consider specific allegations of the Appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court will now consider specific allegations of the Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Appellant was physically assaulted twice in 2010",
+     "quote": "The Principal Appellant stated that he had been physically assaulted on two different occasions in 2010.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Appellant did not report assaults to police when asked",
+     "quote": "The RPD asked him if he had reported the incidents to the police, and he replied that he had not.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Appellant produced no reliable evidence of denial of protection due to Roma ethnicity",
+     "quote": "The Principal Appellant produced no reliable evidence that he had been denied protection due to his Roma ethnicity.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found Principal Appellant assaulted twice in 2010 but did not report to police and gave no reliable evidence of ethnic-based denial of protection.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant failed to report assaults to authorities",
+     "quote": "Based on the written and oral evidence of the Principal Appellant, I conclude that he failed to report these two incidents to the authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court stated adequacy of state protection cannot be assessed on applicant's failure or reluctance to seek it",
+     "quote": "The adequacy of state protection ... cannot be assessed on the basis of the Applicant's reluctance or failure to seek it.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If state can objectively provide adequate protection, applicant's subjective fears do not rebut presumption of protection availability",
+     "quote": "She may well have subjective fears in this regard, but if the state can, objectively speaking, provide adequate protection for women in her position then she has not rebutted the basic presumption that state protection is available to her.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Principal Appellant failed to report assaults; Federal Court law says protection adequacy not assessed on applicant's failure to seek it.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant gave no sound rationale for failing to report assaults, inconsistent with well-founded fear or genuine attempt to get protection",
+     "quote": "I find that the Principal Appellant has provided no sound rationale for his failure to report these incidents, which is not consistent with either a well-founded fear or indicative of any genuine attempt to obtain state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Appellant must show they sought but could not obtain protection or state could not reasonably be expected to provide it",
+     "quote": "To qualify for refugee status, an appellant must satisfy the Board that he or she sought, but was unable to obtain, protection from their home state or, alternatively, that their home state, on an objective basis, could not be expected to provide protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Failure to pursue state protection without compelling explanation usually fatal to appeal if state is functioning democracy with protection apparatus",
+     "quote": "In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to the appeal, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Principal Appellant gave no good reason for not reporting assaults; failure to seek protection usually fatal absent compelling explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD analyzed Appellants' housing, education, employment circumstances and found difficulties but not persecution",
+     "quote": "the RPD analyzed the specific circumstances of the Appellants in these areas. The Panel concluded that, although the Appellants did face difficulties and discrimination in these areas, it did not rise to the level of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found Appellants faced difficulties in housing, education, employment but not persecution.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with RPD that Appellants did not suffer persecution in housing, education, employment",
+     "quote": "I agree with the RPD that the Appellants did not suffer persecution in these areas.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees with RPD that Appellants did not suffer persecution in housing, education, employment.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD carried out fair and independent analysis of state protection documents",
+     "quote": "I conclude that the RPD carried out a fair and independent analysis of the state protection documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD conducted fair and independent analysis of state protection evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants repeat allegations and rely on law and documents to argue no state protection if returned to Hungary",
+     "quote": "the Appellants repeat their allegations and rely on principles of general law and on the documentary evidence to submit that there is no state protection for them if they were to return to Hungary.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue no state protection if returned to Hungary, relying on law and documentary evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Acknowledges documentation shows widespread intolerance, discrimination, persecution of Roma in Hungary",
+     "quote": "there is information in the documentation, both the Board's own documentation and the arguments submitted by the Appellants including the new evidence, to indicate that there is widespread reporting of incidents of intolerance, discrimination, and persecution of Romani individuals in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD conducted proper analysis of documentary evidence and relevant factors on Roma treatment in Hungary",
+     "quote": "The RPD conducted a proper analysis of the documentary evidence and considered all of the relevant factors with respect to the treatment of Roma in Hungary.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court acknowledges evidence of widespread Roma discrimination but finds RPD properly analyzed all relevant factors.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reviewed oral and documentary evidence; RPD reached conclusion on state protection after lengthy, fair analysis",
+     "quote": "A reading of the RPD's decision indicates that the RPD reached its conclusion on state protection after a lengthy and fair analysis of all of the documentary evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with RPD's conclusion on state protection after reviewing evidence including Appellants' submissions",
+     "quote": "I have reviewed the documentary evidence, including that submitted by the Appellants in this appeal, and I agree with the RPD in its conclusion with respect to state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees with RPD's conclusion on state protection after thorough review of evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants submit RPD should have done separate section 97 analysis",
+     "quote": "The Appellants submit that the RPD should have carried out a separate section 97 analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court in Cortes decision held negative credibility findings can foreclose s 97 analysis if no objective evidence of personalized risk",
+     "quote": "Negative credibility findings are sufficient to foreclose an analysis under s 97 if there is no objective evidence to support the conclusion that an applicant faces a personalized risk.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If evidentiary basis for both claims is same and no further s 97 info, no need for separate s 97 analysis",
+     "quote": "if the evidentiary basis for both claims is the same, and if the claimant has not provided further information in relation to s 97, then there is no need to conduct a separate s 97 analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue for separate s 97 analysis; Federal Court law says no need if no objective evidence or new info on personalized risk.",
+   "role": "issue"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants produced no evidence of personalized risk if returned to Hungary",
+     "quote": "the Appellants did not produce any evidence that they would face a personalized risk if they were to return to Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was not required to conduct separate section 97 analysis due to lack of evidence",
+     "quote": "Since the Appellants did not provide any evidence with respect to section 97, the RPD was not required to conduct a separate section 97 analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellants gave no evidence of personalized risk; RPD not required to do separate s 97 analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Agrees with RPD that Appellants have not rebutted presumption of state protection",
+     "quote": "I agree with the RPD that the Appellants have not rebutted the presumption of state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees with RPD that Appellants failed to rebut presumption of state protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD confirms RPD's determination that Appellants are neither Convention refugees nor persons in need of protection; appeal dismissed",
+     "quote": "the RAD confirms the determination of the RPD that the Appellants are neither Convention refugees nor persons in need of protection. The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD confirms RPD's decision denying refugee status; appeal dismissed by court.",
+   "role": "disposition"
+  }
+ ]
+}

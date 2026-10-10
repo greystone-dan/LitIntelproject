@@ -1,0 +1,214 @@
+{
+ "case_id": 39172,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0038964,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an application for judicial review of the Board's decision certifying UFCW Local 175 as bargaining agent for Northern Air employees.",
+     "quote": "This is an application for judicial review of a decision of the Canadian Industrial Relations Board (the “Board”), dated February 10, 2015 and cited as 2015 CIRB 773, granting the application by United Food and Commercial Workers International Union, Local 175 for certification as the bargaining agent for certain employees of Northern Air Solutions Inc. (“Northern Air” or the “Applicant”).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application of the Board's certification decision for UFCW Local 175 as bargaining agent for Northern Air employees.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Northern Air provides interprovincial and international air ambulance and charter airline services and holds relevant operating certificates.",
+     "quote": "Northern Air provides interprovincial and international air ambulance and charter airline services to the public. It holds a Transport Canada air operating certificate and an Ontario Ministry of Natural Resources air ambulance operating certificate.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Northern Air provides air ambulance and charter services and holds required operating certificates.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Board found it had jurisdiction over Northern Air's employees under section 4 of the Canada Labour Code as they worked in a federal undertaking.",
+     "quote": "The Board found that it had jurisdiction over the certification application in respect of Northern Air’s employees in both its air charter and air ambulance services, under section 4 of the Canada Labour Code, R.S.C. 1985, c L-2 (the “Code”), on the basis that such employees were employed in a federal work, undertaking or business as defined in section 2 of the Code.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board found jurisdiction over Northern Air employees under the Canada Labour Code as they worked in a federal undertaking.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Northern Air asserts the Board erred in determining it had jurisdiction over the certification application.",
+     "quote": "In this appeal, Northern Air asserts that the Board erred in its determination that it had jurisdiction over the certification application.",
+     "answers": 0
+    }
+   ],
+   "summary": "Northern Air argues the Board erred in its jurisdictional determination.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Standard of review for constitutional interpretation is correctness; factual findings underpinning it are reviewed for reasonableness.",
+     "quote": "The standard of review with respect to matters of constitutional interpretation is correctness. However, factual findings that underpin the constitutional analysis are reviewed on the deferential standard of reasonableness. See Consolidated Fastfrate Inc. v. Western Canada Council of Teamsters, 2009 SCC 53, [2009] 3 S.C.R. 407, at paragraph 26, where Justice Rothstein states “… factual findings regarding the operations and organizational structure of Fastfrate merit deference.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review: correctness for constitutional issues, reasonableness for factual findings.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant asserts Board erred by not finding whether Northern Air had one or two businesses, misapplying the functional test from Tessier Ltée.",
+     "quote": "In this Court, the Applicant asserts that the Board erred by failing to make any finding as to whether Northern Air had a single business or two separate businesses, an airline business and an air ambulance business, thereby erring in its application of the functional test as enunciated in Tessier Ltée v. Quebec (Commission de la santé et de la sécurité du travail), [2012] 2 SCR 3.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues the Board erred by not deciding if Northern Air had one or two businesses, misapplying the functional test.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Board examined employer's operations, not employee roles, and found aircraft used in all services including air ambulance.",
+     "quote": "While the Board did not explicitly state that Northern Air operated a single business, no other conclusion can be discerned from its reasons: • At paragraph 32, the Board stated that it was to examine the nature of the employer’s operations, not the role of any specific employees in those operations. • At paragraph 33, the Board determined that aircraft were used in providing all of its services, including air ambulance services.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Board found air ambulance's unique character is patient transportation by airplane.",
+     "quote": "• At paragraph 37, the Board found that the unique character of the air ambulance services is transportation of patients by airplane.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Board found Northern Air's habitual activity is air transportation regardless of passenger circumstances.",
+     "quote": "• At paragraph 38, the Board found that the habitual activity of Northern Air is air transportation and that the circumstances of its passengers – holiday goers or sick people – does not alter the conclusion that it is in the business of providing air transportation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board found Northern Air operated a single business of air transportation, using aircraft for all services including air ambulance.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Board concluded Northern Air had a single business of air transportation.",
+     "quote": "These portions of the Board’s reasons show that it reached the conclusion that Northern Air had a single business of air transportation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Board concluded Northern Air had a single air transportation business.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Board's factual conclusion was open on the evidence; no reviewable error found.",
+     "quote": "This factual conclusion on the part of the Board was open to it on the evidence in the record before it. As such, we can discern no reviewable error on the part of the Board in reaching this conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no reviewable error in the Board's factual conclusion on Northern Air's business.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant asserts Board erred in finding aircraft use was determinative of the functional test.",
+     "quote": "The Applicant also asserts that the Board erred in finding that the use of aircraft was determinative of the functional test.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds Board made factual findings on aircraft role, not determinative findings, which were open on the evidence.",
+     "quote": "In our view, the Board made no such finding. Rather, its conclusions with respect to the role of aircraft in the operations of Northern Air were factual findings that were open to it. Indeed, it is hard to quarrel with a finding that one cannot operate an air ambulance service without an airplane.",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicant argues Board erred on aircraft use; court finds Board made factual findings open on evidence, not determinative errors.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Board's finding that employees were employed in a federal undertaking under the Code is supportable on the record.",
+     "quote": "In conclusion, it is our view that the Board’s finding that the employees engaged in its charter airline and air ambulance services were employed in the operation of a federal work, undertaking or business, within the meaning of section 2 of the Code, is supportable on the basis of the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Board's finding of federal jurisdiction over employees is supportable on the record.",
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed with costs.",
+     "quote": "For these reasons, the application for judicial review is dismissed with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application with costs.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,963 @@
+{
+ "case_id": 72299,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0170468,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss this appeal.",
+     "quote": "I dismiss this appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellants are citizens of Mexico appealing a negative RPD decision from June 18, 2021, after a virtual hearing on March 16, 2021.",
+     "quote": "XXXX XXXX XXXX XXXX (Appellant) and XXXX XXXX XXXX XXXX (Co-Appellant) are citizens of Mexico. They are appealing a negative decision issued by the Refugee Protection Division (RPD) on June 18, 2021, after a virtual hearing that took place on March 16, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and states the appellants are Mexican citizens appealing a June 18, 2021 RPD decision after a March 16, 2021 hearing.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants fear the Co-Appellant's ex-boyfriend and his father who have criminal ties.",
+     "quote": "The Appellants fear the Co-Appellant's ex-boyfriend (XXXX or agent of harm) and his father who have ties to criminals.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Co-Appellant met the agent of harm in 2016, became his girlfriend in 2017, and the relationship ended in 2017 with the father's intervention.",
+     "quote": "They allege that the Co-Appellant met XXXX sometime in XXXX of 2016, and that they became boyfriend and girlfriend in XXXX of 2017. The relationship ended in XXXX 2017, with the intervention of XXXX father.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Co-Appellant alleges the agent of harm was controlling and abusive throughout the relationship.",
+     "quote": "The Co-Appellant alleges that the agent of harm was controlling, as well as physically and emotionally abusive throughout the relationship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants allege fear of the Co-Appellant's ex-boyfriend and his father, describing a controlling and abusive relationship ending in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The agent of harm stalked and harassed the Co-Appellant, issuing death threats in 2019 and threatening her with a weapon.",
+     "quote": "They allege that the agent of harm started stalking the Co-Appellant and harassing her over the phone. On XXXX XXXX, 2019, XXXX called the Co-Appellant and issued death threats if she were to be with another man. The same day, he waited for her to return to her house and threatened her with a weapon.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant reported the incident to police in Morelos in 2019, but the agent of harm claimed police worked for him.",
+     "quote": "The Appellant reported the incident to the police on XXXX XXXX, 2019, in Morelos. However, the agent of harm, through email, told them that he knew about the denunciation and that the police worked for him.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants moved to Mexico City in 2019 and received further death threats by email from the agent of harm.",
+     "quote": "The Appellants moved to Mexico City on XXXX XXXX, 2019. On XXXX XXXX, 2019 the Co-Appellant received another email from XXXX, telling her that he knew they had now moved to Mexico City and issued death threats.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The emails were not from an email address with the agent of harm's name.",
+     "quote": "Those emails were not sent from an email address carrying his name.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant's sister suggested fleeing to Canada for protection; they left in 2019 and claimed refugee status.",
+     "quote": "The Appellant's sister suggested they leave Mexico for Canada where they could ask for protection. They left on XXXX XXXX, 2019, and claimed refugee status on XXXX XXXX, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants allege stalking, death threats, police corruption, relocation to Mexico City, further threats, and fleeing to Canada for protection in 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found both Appellants not credible and their allegations unfounded; credibility was the determinative issue.",
+     "quote": "The determinative issue before the RPD was credibility: both Appellants were found to be not credible and their allegations were, therefore, unfounded.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Before the RAD, the determinative issue remains credibility.",
+     "quote": "Before the Refugee Appeal Division (RAD), the determinative issue remains the one of credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellants not credible; credibility remains the key issue before the RAD, per the court.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I conclude the RPD correctly found the appellants failed to establish their allegations on a balance of probabilities and would not face persecution based on gender if returned to Mexico.",
+     "quote": "I conclude that the RPD correctly found that the Appellants failed to establish their allegations on a balance of probabilities, and, therefore, that they would face a serious possibility of persecution based on their gender if they were to return to Mexico today.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RPD correctly found the appellants failed to prove their allegations and would not face persecution if returned to Mexico.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal and find the RPD was correct that the appellants are neither Convention refugees nor persons in need of protection.",
+     "quote": "I dismiss the appeal. The RPD was correct in finding that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, agreeing the RPD correctly found the appellants are not refugees or in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "My role is to review all evidence including the RPD hearing recording and decide if the RPD made the correct decision.",
+     "quote": "My role is to look at all the evidence, including the recording of the RPD hearing, and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review all evidence and decide if the RPD decision was correct.",
+   "role": "other"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellants not credible and that psychological reports and gender guidelines did not resolve evidence discrepancies.",
+     "quote": "The RPD found that the Appellants were overall not credible and that neither the psychological reports nor the gender guidelines could provide a basis to resolve the discrepancies identified in the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellants not credible and psychological reports and gender guidelines did not resolve evidence discrepancies.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD erred by disregarding psychological reports and conducting microscopic evidence analysis.",
+     "quote": "The Appellants submit that the RPD erred in its credibility assessment by disregarding the XXXX reports and conducted a microscopic analysis of the evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They argue the tribunal misapplied the gender guidelines.",
+     "quote": "They also argue that the tribunal misapplied the gender guidelines.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD erred by disregarding psychological reports and misapplying gender guidelines.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found insufficient trustworthy evidence that the agent of harm existed, citing lack of real name, photos, unreliable Facebook, and uncorroborated threats before 2019.",
+     "quote": "The RPD found that there was insufficient trustworthy evidence that XXXX existed. In reaching this finding, it considered that: (i) the police investigation file does not include the agent of harm's real name; (ii) no pictures of the agent of harm were submitted into evidence; (iii) Facebook is an untrustworthy source to confirm the agent of harm's identification; (iv) evidence of threats came from emails dated XXXX 2019, after their departure from Mexico, while no evidence was filed to corroborate alleged threats of 2017, which undermined their credibility as to having received threats and been harassed since XXXX 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found insufficient credible evidence the agent of harm existed, noting missing real name, photos, unreliable Facebook, and uncorroborated threats before 2019.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Co-Appellant's sworn declaration says she destroyed all pictures and messages from the agent of harm due to trauma.",
+     "quote": "In her XXXX XXXX, 2021, sworn declaration, the Co-Appellant argues that she had destroyed all pictures, texts and messages from the agent of harm, as she wanted nothing to do with him anymore that could remind her of him.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD erred by not considering this trauma-related testimony and by treating lack of a picture as implausibility ignoring trauma.",
+     "quote": "The Appellants contend that the RPD's finding about not providing a picture of the agent of harm to the Board to amount to an implausibility finding, ignoring the abused woman's perspectives and trauma.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They argue omitting the agent of harm's name in the police report was due to trauma, not appreciated by the panel.",
+     "quote": "They argue that omitting the name of the agent of harm in the police report was due to trauma, which was not duly appreciated by the panel.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They argue the tribunal erred by not analyzing psychological reports corroborating abuse allegations in their Basis of Claim forms.",
+     "quote": "Both Appellants argue that the tribunal further erred by not engaging into an analysis of the XXXX reports that corroborates the abuses they suffered as alleged in their Basis of Claim forms (BOC).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They submit the reports are objective, independent, third-party evidence that the RPD dismissed without reasoned opinion.",
+     "quote": "They submit that those reports are objective, independent and third-party evidence that the RPD could not just dismiss without providing a reasoned opinion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They contend the tribunal scrutinized their testimonies microscopically and the psychological reports could explain inconsistencies.",
+     "quote": "They contend that the tribunal instead looked at their testimonies with a magnifying glass to find microscopic contradictions. They maintain that the psychological reports could explain the inconsistencies found by the panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD erred by ignoring trauma-related testimony, dismissing psychological reports, and scrutinizing their testimonies microscopically.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants submit the panel was cold and insensitive to gendered issues, violating Gender Guidelines.",
+     "quote": "The Appellants also submit that the panel appeared cold and insensitive to gendered issues, contrary to what is required by the Gender Guidelines.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They reproach the RPD for not considering their social, cultural, religious, economic background per Gender Guidelines and National Documentation Package.",
+     "quote": "They reproached the RPD of not having considered their social, cultural, religious, and economic background in light of both the Gender Guidelines and the objective evidence of the National Documentation Package (NDP).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They stress studies show memories are unreliable and people remember events differently.",
+     "quote": "They stressed that the studies show that memories are unreliable to report the facts, as two people can remember events differently.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD should recognize barriers to testimony including intimidation, trauma, cultural and language obstacles.",
+     "quote": "The RPD also ought to recognize the barriers to deliver a testimony in unfamiliar surroundings, intimidated by people in authority, while facing psychological difficulties and traumas, as well as cultural and language obstacles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD was cold and insensitive, failed to consider their background and barriers to testimony per Gender Guidelines and studies on memory.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "After hearing the recording, I find the RPD member showed respect and empathy, acknowledging trauma, and dismiss the appellants' argument of coldness violating Gender Guidelines.",
+     "quote": "After having listened to the recording of the hearing, I find that the RPD member at all times adopted an appropriate tone with the Appellants, showing respect and empathy in light of the abuse allegations and acknowledging possible trauma. I therefore dismiss the Appellants' argument to the effect that the panel appeared cold or inappropriate, in violation of the Gender Guidelines.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD member showed respect and empathy, dismissing the appellants' claim of coldness violating Gender Guidelines.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD mentioned and considered the psychological reports in its decision and hearing.",
+     "quote": "As for the XXXX reports (Reports), the RPD mentioned them both in the decision and at the hearing, and specified having read and taken them into consideration.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Psychological reports based on claimant's reported facts are not independent evidence; if facts are not credible, expert opinion is less valuable.",
+     "quote": "The problem with this kind of evidence, whether from psychologists, anthropologists or specialists in other disciplines, is that it depends on the facts reported by the person concerned. If the facts are not found to be credible, as in this case, the expert's view, however competent and well-intentioned, is generally no more valuable (Jele v Canada (Immigration, Refugees and Citizenship), 2017 FC 24 at para 50; Hajikhanov v Canada (Citizenship and Immigration), 2018 FC 1249 at para 15; Moussounda v Canada (Citizenship and Immigration), 2018 FC 506 at para 8).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD considered psychological reports, but expert opinions based on non-credible facts are less valuable, citing Federal Court cases.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The reports show appellants suffer from PTSD but have normal memory and coherent thinking.",
+     "quote": "As noted by the RPD, the Reports reveal that the Appellants suffer from symptoms of XXXX XXXX XXXX XXXX XXXX(XXXX), but they also state that their long-term and short-term memories did not seem impacted by the events and that their \"thinking processes\" were normal and coherent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Though the RPD could have cited more of the reports, appellants did not specify which parts were not considered; the RPD acknowledged trauma diagnosis.",
+     "quote": "Though the RPD could have cited more of the reports, the Appellants did not indicate which part of the professional opinion had not been duly considered by the member who underlined her acknowledgement of the trauma diagnosis in the course of the proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The reports show PTSD but normal memory and thinking; the RPD acknowledged trauma and appellants did not specify unconsidered report parts.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD correctly found the absence of the agent of harm's real name in the police report undermined credibility.",
+     "quote": "I believe that the RPD correctly found that the absence of the agent of harm's real name in the Police Report undermined the Appellants' credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellants gave contradictory explanations for omitting the agent of harm's real name: known only to close ones or to avoid problems due to police connections.",
+     "quote": "I observe that, during the hearing, the Appellants submitted two contradictory explanations to justify this situation: (1) XXXX real name was known only by those closest to him; (2) using his real name would have brought them problems due to his connections with the police.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Using the alias would not avoid problems compared to using the real name, which was not public.",
+     "quote": "I struggle to understand how, by using his alias under which he was generally known, it would have avoided them potential problems, as opposed to using his real name that he allegedly did not use publicly.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If appellants sought state protection, authorities should know the agent of harm's identity.",
+     "quote": "Also, as pointed out by the RPD, if the Appellants were really looking for state protection, the authorities ought to know the identity of the agent of harm.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD correctly concluded the absence of the agent of harm's real name in police report undermined credibility, noting contradictory explanations.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Gender Guidelines explain trauma can cause inconsistent, vague, or omitted testimony affecting memory and coherence.",
+     "quote": "I take note of points 7.4, 7.5 and 8.5.2 of the new Gender Guidelines stating that XXXX can explain why the Appellants would be unable to provide a \"chronological or coherent\" testimony or that it could have an impact on memory, producing inconsistencies, omissions, and vagueness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The reports do not indicate appellants had memory or coherence difficulties from diagnosis; testimonies showed no such problems.",
+     "quote": "However, as observed before, the Reports do not point at any difficulties the Appellants could face in this regard as a result of the diagnosis. Also, during the testimonies, they never reported having problems remembering details of the events or reporting them in a chronological manner. I was unable to observe any either.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Gender Guidelines on trauma affecting testimony but finds reports and testimonies show no memory or coherence difficulties for appellants.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "On appeal, appellants say omitting the agent of harm's real name was due to trauma impairing rational thinking.",
+     "quote": "On appeal, the Appellants now submit that their omission from using the agent of harm's real name was due to trauma that impeded on their ability to think rationally.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I reject trauma as a reasonable justification; appellants adjust position to address tribunal concerns using trauma as cover-all.",
+     "quote": "I cannot accept this justification as reasonable. It seems that the Appellants adjust their position to address the concerns raised by the tribunal and use trauma as a cover-all justification.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reports state appellants had no issues in thinking or memory despite diagnosis; I dismiss this argument and uphold RPD's credibility finding.",
+     "quote": "Also, as I already noted, the Reports stated that neither Appellants faced issues in their thinking patterns or memories, in spite of the XXXX diagnosis. I therefore dismiss this argument and rule that the RPD correctly concluded that the absence of the agent of harm's real name from the police report undermined their credibility regarding his existence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects appellants' trauma justification for omitting the agent of harm's real name and upholds the RPD's credibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Co-Appellant testified she never had photos of the agent of harm, contradicting her sworn declaration claiming she destroyed them.",
+     "quote": "I note that in her testimony, the Co-Appellant testified that she never had any photos of the agent of harm, not that she destroyed them because she did not want to have anything to do with him anymore, as reported in the RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD erred by misquoting the record but not for reasons advanced by appellants; the sworn declaration contradicts testimony, undermining credibility.",
+     "quote": "I therefore agree that the RPD erred, but for misquoting the record, not for the reasons advanced by the Appellants. During the hearing, the member specifically asked whether the Co-Appellant destroyed the pictures of the agent of harm or whether she ever had any, and she confirmed the latter. The Co-Appellant's sworn declaration therefore contradicts her own testimony on this issue, which, in my view, further undermines her credibility regarding the very existence of the agent of harm.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Co-Appellant's sworn declaration contradicts her testimony about photos, undermining credibility and noting RPD misquoted the record.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is difficult to accept the Co-Appellant could not recover a photo of the agent of harm via media or friends despite trauma; counsel could have helped.",
+     "quote": "I agree with the RPD reasoning that, in the world we live today, it is difficult to accept that the Co-Appellant, despite her seemingly legitimate wish not to be in contact with the agent of harm, was unable to recover a picture of him through different media platforms available either publicly or through her friends.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss this argument and uphold the RPD's finding that absence of such evidence further undermines appellants' credibility.",
+     "quote": "This argument is therefore dismissed, and I rule that the RPD correctly found that the absence of such evidence, in light of the circumstances prompting doubts as to the truthfulness of this allegation, further undermines the Appellants' credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the argument that the Co-Appellant could not recover a photo and upholds the RPD's finding that absence of evidence undermines credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD gave no probative value to threatening Facebook messages",
+     "quote": "the RPD gave no probative value to those documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree with RPD's position on Facebook messages",
+     "quote": "I agree with this position",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Co-Appellant testified she blocked agent of harm on social media",
+     "quote": "the Co-Appellant testified to having blocked the agent of harm from contacting her on social media",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Question how agent could message Co-Appellant despite blocking and privacy features",
+     "quote": "It is thus questionable as to how, even under a new Facebook account, XXXX was able to message her directly using Facebook Messenger",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Facebook privacy features prevent contact from non-friends without permission",
+     "quote": "Facebook offers a series of features to protect one's privacy. One of them prevents from being directly contacted by outsiders (not listed as one's Facebook friends), without an express permission from the owner of the account",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Agent tried several times to contact Co-Appellant but she did not immediately block him",
+     "quote": "the alleged agent of harm would have tried several times to contact her using the same account. While she did not respond, she did not immediately block him either",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "It is puzzling agent used full last name and had a mutual friend with Co-Appellant",
+     "quote": "This becomes even more puzzling when he was using his full last name \"XXXX XXXX\" and with whom she had \"1 friend in common: XXXX XXXX XXXX\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Co-Appellant's name does not appear on Facebook Messenger screenshots dated after arrival in Canada",
+     "quote": "I find suspicious that the Co-Appellant's name does not appear on the Facebook Messenger screenshots. Since they are all dated after her arrival in Canada, she must have received them on her new Facebook account that is still in use",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Questions about Facebook evidence were not directly put to Co-Appellant at hearing",
+     "quote": "I understand that those questions were not directly put to the Co-Appellant at the hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Considering Co-Appellant's education, age, Facebook experience, concerns about Facebook evidence add to RPD's concerns",
+     "quote": "considering her high level of education, her young age, the fact that she had been a Facebook user for years, and that the credibility of those documents were already at stake in this appeal, I believe that those concerns, without being determinative, add to those already raised by the RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reasonable to expect Co-Appellant would know Facebook privacy features to protect herself",
+     "quote": "I believe that it was reasonable to expect that the Co-Appellant, fearing for her life and of being located by the agent of harm even in Canada, would have known or learned how to use the Facebook privacy features so as to protect herself from potential security threats",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Co-Appellant used technological awareness to download panic button app as per paragraph 30 of narrative",
+     "quote": "she had used in the past her technological awareness to download an application conceived to alert the authorities through a panic button, as it is described in paragraph 30 of her narrative",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that Facebook messages lack probative value and finds inconsistencies and suspicious facts about Co-Appellant's Facebook use and privacy knowledge.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree with RPD that lack of evidence on social media harassment undermines Appellants' credibility",
+     "quote": "I agree with the RPD that, in the circumstances of this case, the lack of evidence to support the Appellants' allegations regarding the harassment through, inter alia, social media, undermines their credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Co-Appellant testified she could not submit earlier messages as she shut down Facebook account before coming to Canada",
+     "quote": "the Co-Appellant testified that she had been unable to submit into evidence earlier messages that she would have received from the agent of harm as she shut down her Facebook account before coming to Canada",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Co-Appellant could not retrieve messages as she forgot recovery email or password",
+     "quote": "she could not retrieve the messages since she was unable to remember her \"other email or password\" to recover the account",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that lack of evidence on social media harassment undermines credibility; Co-Appellant testified she shut Facebook and forgot recovery info.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant alleged daughter was harassed through social media, friends, and messages, not necessarily emails",
+     "quote": "in her BOC, the Appellant alleged that her daughter was harassed through social media, her friends and messages, all of which does not necessarily correspond to emails",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Emails filed to support harassment allegations were forwarded to counsel in 2019",
+     "quote": "the emails filed into evidence to support the allegations of harassment were forwarded to her counsel in XXXX 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Questionable that Co-Appellant could not remember info to recover Facebook account when gathering evidence in 2019",
+     "quote": "it is questionable that the Co-Appellant, when she was gathering the evidence in support of her refuge claim in XXXX 2019, was unable to remember the information that would allow her to recover highly relevant evidence from her former Facebook account she had just closed a few months before",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I do not believe Co-Appellant's testimony that she closed Facebook before arriving or could not reopen it",
+     "quote": "I am unable to give credence to this part of her testimony, either that she closed her Facebook account before arriving in Canada, or that she was unable to re-open it to gather the necessary evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Such evidence could have been provided by sworn declarations of friends or family",
+     "quote": "such evidence could have been conveyed through other means, such as sworn declarations of friends or family members, like her aunt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD correctly found Appellants' credibility undermined by lack of evidence of threats since 2017",
+     "quote": "I am therefore of the opinion that the RPD correctly found that the Appellants' credibility was undermined by the lack of evidence regarding the alleged threats they faced from XXXX 2017 onwards",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Co-Appellant's testimony about Facebook account closure and recovery not credible and agrees RPD found credibility undermined by lack of evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected evidence linking agent of harms to drug traffickers due to lack of submitted internet research",
+     "quote": "The RPD also rejected the evidence linking the agent of harms to drug traffickers because the Appellant failed to submit the results of her Internet research of 2017",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD identified inconsistency between police file stating threats for past 3 years and Co-Appellant's testimony of threats since 2017 (2 years)",
+     "quote": "panel also identified an inconsistency between the police investigation file dated XXXX 2019 in which the Co-Appellant declared having received death threats for the past three years, while testifying having received those threats since XXXX 2017, so only two years prior",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted inconsistency between Appellants' BOC narratives about 2017 event leading to breakup",
+     "quote": "RPD noted an inconsistency between the BOC narratives of the Appellants regarding the XXXX 2017 event that led to the breakup",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected Co-Appellant's explanation that differences were due to translation mistake",
+     "quote": "The panel rejected the explanation provided by the Co-Appellant to the effect that the differences between her version and her mother's was due to a mistake in the translation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "These inconsistencies undermined Appellants' credibility about 2017 events",
+     "quote": "This undermined the Appellants' credibility to the effect that the XXXX 2017 events ever happened",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found inconsistencies and rejected evidence linking agent of harms to drug traffickers, undermining Appellants' credibility about 2017 events.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Co-Appellant argues differing memories of 2017 events is normal",
+     "quote": "In her sworn declaration, the Co-Appellant argues that she and her mother remember the XXXX 2017 events differently, which is normal in her opinion",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant re-explained internet research about agent's father detained in Venezuela but could not find it again in Canada",
+     "quote": "In the Appellant's sworn declaration submitted on appeal, she re-explained that \"[she] had seen on the Internet about XXXX father having been detained in Venezuela\", but could not find it again when she arrived in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants say RPD erred by dissecting testimonies for errors instead of focusing on what happened and psychological report",
+     "quote": "They repeat that the RPD erred in dissecting their testimonies to find errors as opposed to concentrating on what happened to them in light of their background and psychological report",
+     "answers": 0
+    }
+   ],
+   "summary": "Co-Appellant and Appellant argue differing memories are normal and RPD erred by focusing on errors rather than their background and psychological report.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Co-Appellant testified to 2017 events as stated by mother in BOC",
+     "quote": "during her testimony, the Co-Appellant reported the XXXX 2017 events as stated by her mother in her BOC",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Co-Appellant's written BOC version differs from testimony about 2017 events",
+     "quote": "this stands in contrast with her recollection of the event as she described in her own BOC",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Dismiss argument that differing memories explain inconsistency between written narrative and testimony",
+     "quote": "I dismiss the argument to the effect that the Appellants simply remembered the events differently than her mother, as it is irrelevant to the inconsistency between her written narrative and her testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Co-Appellant adjusted response to fit Tribunal concerns, never mentioned before appeal",
+     "quote": "I find that the Co-Appellant is, again, adjusting her response to fit the concerns raised by the Tribunal, as she never mentioned anything to that effect prior to this appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Co-Appellant seemed upset during hearing but that does not explain memory differences in 2019",
+     "quote": "I understand that the Co-Appellant seemed very upset during this portion of the hearing, however, this cannot explain why she would remember the events so differently in XXXX 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Co-Appellant amended BOC part prior to RPD hearing",
+     "quote": "she took the opportunity to amend this part of her BOC prior to the RPD hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Co-Appellant's testimony inconsistent with written narrative and dismisses explanation of differing memories as irrelevant and adjusted to Tribunal concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant testified agent's father arrested in Colombia, not Venezuela as claimed on appeal",
+     "quote": "Appellant testified to the effect that she found out on the Internet that XXXX father had been arrested in Colombia, not Venezuela as per her argument on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Possible info no longer available but weak evidence to support drug trafficker allegation",
+     "quote": "it is possible that the same information was no longer available a few years later, if XXXX family member was so prominent in the drug trafficking world that he had been arrested internationally, it is reasonable to expect that other sources of information would be available today",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mistaking Venezuela for Colombia is not determinative but evidence is too weak to support allegation",
+     "quote": "While having mistaken Venezuela for Colombia is not determinative in and of itself, the evidence as a whole is too weak to support the allegation that the agents of harms were related to international drug traffickers",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes appellant's inconsistent testimony on arrest location and finds evidence too weak to support drug trafficker allegation.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Inconsistency in police report about years of threats is additional credibility concern",
+     "quote": "As for the inconsistency in the police report regarding the number of years the Co-Appellant received threats from the agent of harms, as pointed out by the RPD, it is only an additional inconsistency in light of the other credibility concerns raised",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if inconsistency argument granted on appeal, it would not affect result",
+     "quote": "Even if this argument on appeal is granted, it will not affect the result",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds police report inconsistency is an additional credibility concern and would not change the result if accepted.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD correctly found Appellants not credible and central allegations not established on balance of probabilities",
+     "quote": "I find that the RPD correctly found that the Appellants were not credible and that therefore their central allegations to the claim had not been established on a balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Conclusion considers diagnosis in XXXX reports and Gender Guidelines",
+     "quote": "This conclusion takes into account the diagnosis elaborated in the XXXX reports, as well as the Gender Guidelines",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "NDP extracts cited by Appellants do not assist evidentiary basis for allegations",
+     "quote": "I would like to note that the extracts of the NDP cited by the Appellants do not assist in providing an evidentiary basis to the allegations submitted in the refugee claim",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD correctly found Appellants not credible and allegations unproven, considering reports and guidelines; NDP extracts unhelpful.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RPD correctly concluded Appellants would not face serious persecution or risk of torture, death, or cruel treatment if returned to Mexico",
+     "quote": "I find that the RPD correctly concluded that the Appellants would not face a serious possibility to be persecuted or that, on a balance of probabilities, that they would be personally subjected to a danger of torture or face a risk to life or a risk of cruel and unusual treatment or punishment if they were to return to Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes RPD correctly found no serious risk of persecution or harm if Appellants returned to Mexico.",
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal and confirm RPD decision that Appellants are neither Convention refugees nor persons in need of protection",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellants are neither Convention refugees nor persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses appeal and confirms RPD decision denying refugee or protection status to Appellants.",
+   "role": "disposition"
+  }
+ ]
+}

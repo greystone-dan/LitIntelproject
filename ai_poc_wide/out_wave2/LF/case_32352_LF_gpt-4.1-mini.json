@@ -1,0 +1,798 @@
+{
+ "case_id": 32352,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0124664,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Applicant seeks judicial review of CBSA decision refusing grievance for salary protection at FB-07 pay rate.",
+     "quote": "The Applicant, Julie Préfontaine [Applicant], seeks judicial review of a decision by the Canadian Border Services Agency [CBSA, or employer] refusing her grievance requesting salary protection at an FB-07 rate of pay.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Employer concluded grievance was untimely, filed outside 25-day limit.",
+     "quote": "The employer concluded that the grievance was untimely, as it was filed outside of the 25-day limit to file a grievance.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Employer found grievance unfounded as Applicant ceased role linked to FB-07 pay.",
+     "quote": "The grievance was also not founded, as the employer could not pay the Applicant at an FB-07 level after she ceased to exercise the role to which the pay was associated [Decision].",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of CBSA decision refusing grievance as untimely and unfounded, employer found no pay after role ceased.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is self-represented and expressed frustration at hearing.",
+     "quote": "I am mindful that the Applicant is self-represented and understand the frustration that she expressed at the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court cannot grant judicial review for reasons that follow.",
+     "quote": "However, from a legal perspective, I cannot grant this judicial review, for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Applicant is self-represented and frustrated but cannot grant judicial review for reasons explained.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court's role on judicial review is to examine decision-maker's reasons, not re-hear merits.",
+     "quote": "the role of the Court on judicial review is to examine the reasons provided in the Decision and to seek to understand the reasoning process followed by the decision-maker to arrive at its conclusion. It is not a new or de novo hearing where the Court determines the merits of the Applicant’s grievance.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains judicial review role is to examine decision-maker's reasons, not re-hear merits.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits applicable standard of review is reasonableness.",
+     "quote": "The Respondent submits, and I agree, that the applicable standard of review is reasonableness (Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 25 [Vavilov]).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees standard of review is reasonableness.",
+     "quote": "The Respondent submits, and I agree, that the applicable standard of review is reasonableness (Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 25 [Vavilov]).",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent submits and Court agrees standard of review is reasonableness under Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review assesses decision's outcome and process against factual and legal constraints.",
+     "quote": "The Supreme Court of Canada instructs that a reviewing court conducting a reasonableness review starts with the reasons and assesses whether the decision is reasonable in the outcome and process, in relation to the factual and legal constraints that bear upon the decision-maker (Vavilov at paras 81, 83, 87, 99).",
+     "answers": 0
+    }
+   ],
+   "summary": "Vavilov instructs reasonableness review assesses decision's outcome and process against constraints.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reviewing courts should not substitute their own view or seek correct solution, only assess reasonableness.",
+     "quote": "Reviewing courts should not ask how they themselves would have resolved an issue. Instead, the Court should focus on whether the decision made by the administrative decision-maker — including both the rationale for the decision and the outcome to which it led — was unreasonable (Vavilov at paras 75, 83). A reviewing court should not create its “own yardstick and then use [it] to measure what the [administrative decision-maker] did”, ask what decision it would have made instead or try to determine the “correct” solution to the problem (Vavilov at para 83).",
+     "answers": 0
+    }
+   ],
+   "summary": "Vavilov says courts must not substitute own view or seek correct solution, only assess reasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Applicant must show decision is unreasonable with central or significant flaws to succeed.",
+     "quote": "The party challenging the decision, here, the Applicant, must satisfy the Court that the decision is unreasonable, and that the identified shortcomings or flaws in the decision are sufficiently central or significant to render it unreasonable (Vavilov at para 100).",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant must prove decision unreasonable with significant flaws to succeed under Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant was Manager, Regional Programs (MRP) with CBSA from 2008 to 2013, classified as FB-06.",
+     "quote": "From 2008 to 2013, the Applicant was a Manager, Regional Programs [MRP] with the CBSA. During this time, her position was classified as FB-06.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On May 6, 2013, Applicant deployed to FB-06 Senior Program Advisor position in another city.",
+     "quote": "On May 6, 2013, the Applicant deployed to an FB-06 Senior Program Advisor position with the CBSA in another city.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant was MRP classified FB-06 from 2008-2013, then deployed to FB-06 Senior Program Advisor in 2013.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2007, CBSA MRP employees filed classification grievances under Public Service Labour Relations Act.",
+     "quote": "In 2007, a number of CBSA employees in MRP positions filed grievances of their employment classification under paragraph 208(1)(b) of the Public Service Labour Relations Act, SC 2003, c 22.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2012, Classification Grievance Committee recommended MRP position be FB-07.",
+     "quote": "In 2012, a Classification Grievance Committee [Committee] recommended that the MRP position be given an FB-07 classification.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CBSA President refused recommendation in 2013; decision subject to three judicial review cycles.",
+     "quote": "This recommendation was refused by the President of the CBSA in 2013. This decision was the subject of three cycles of judicial review, where the Federal Court quashed the refusals by the President of the CBSA and remitted the matter back for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "CBSA MRP employees filed classification grievances; Committee recommended FB-07 in 2012; President refused in 2013; judicial reviews followed.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Federal Court of Appeal in Wilkinson (2020) found prior CBSA decisions lacked intelligible, transparent, justified reasoning.",
+     "quote": "The Federal Court of Appeal found that none of the previous CBSA decisions had the characteristics of an intelligible, transparent and justified decision.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Wilkinson sent decision back to CBSA with instructions to accept Committee recommendation.",
+     "quote": "The Federal Court of Appeal sent the decision back to the CBSA for redetermination, with the instructions that the President ought to accept the Committee recommendation (Wilkinson at para 70).",
+     "answers": 0
+    }
+   ],
+   "summary": "Wilkinson FCA found prior CBSA decisions lacked justification and ordered acceptance of Committee recommendation.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant filed first grievance in 2021 requesting Wilkinson be applied to reclassify MRP as FB-07 with retroactive pay.",
+     "quote": "On February 15, 2021, the Applicant filed her first grievance [2021 Grievance], requesting that Wilkinson be applied to her situation, meaning that the position of MRP be re-classified as FB-07 for the periods she occupied it, and that she be compensated retroactively from September 2008 to present.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant raised she accepted lateral move to FB-06 in 2013 and would not have if FB-07.",
+     "quote": "She also raised that in May 2013, she accepted a lateral move to a non-managerial FB-06, and that had she been an FB-07, she would not have accepted a position at the FB-06 level.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant requested return to FB-07 assignment.",
+     "quote": "She requested that she be returned to an FB-07 assignment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant filed 2021 grievance seeking reclassification to FB-07 with retroactive pay and return to FB-07 assignment.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CBSA assessed whether Wilkinson remedy applied to other MRP holders; Applicant agreed to put grievance in abeyance.",
+     "quote": "After the issuance of the Wilkinson decision, the CBSA assessed whether the remedy ordered would be extended to other MRP position-holders, who were not the applicants in Wilkinson. The Applicant agreed to put her grievance in abeyance while the CBSA assessed the situation.",
+     "answers": 0
+    }
+   ],
+   "summary": "CBSA assessed extending Wilkinson remedy to other MRP holders; Applicant agreed to hold grievance in abeyance.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CBSA concluded Wilkinson reclassification applied to all MRP holders; Applicant informed entitled to retroactive pay for 2008-2013.",
+     "quote": "After review, the CBSA concluded that Wilkinson and the ensuing reclassification would apply to all MRP position holders. On June 28, 2022, the Applicant was informed that she was entitled to retroactive pay for the years she occupied the MRP position from 2008 to 2013.",
+     "answers": 0
+    }
+   ],
+   "summary": "CBSA applied Wilkinson reclassification to all MRP holders; Applicant informed of retroactive pay for 2008-2013.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "2021 grievance granted in part; retroactive pay at FB-07 for 2008-2013 awarded.",
+     "quote": "In 2023, the Applicant received a response to her 2021 Grievance, granting her grievance in part. The decision-maker acknowledged that she would be paid retroactively at a FB-07 level for the years 2008 to 2013.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Decision-maker found Applicant's 2013 decision to leave MRP was voluntary and based on known information.",
+     "quote": "However, the decision-maker found that it is impossible to overturn the Applicant’s decision to leave the MRP position in 2013, as it was done of her own volition and based on the information she knew at the time.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "MRP position reviewed and classified as FB-06 in 2022; no longer an FB-07 MRP position.",
+     "quote": "Moreover, the decision indicated that the MRP position was reviewed and classified at the FB-06 level in 2022—accordingly, there no longer existed an MRP position in the FB-07 group.",
+     "answers": 0
+    }
+   ],
+   "summary": "2021 grievance granted in part with retroactive pay; decision to leave MRP voluntary; MRP reclassified FB-06 in 2022.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant acknowledged not seeking judicial review of 2021 grievance refusal decision.",
+     "quote": "The Applicant acknowledged at the hearing that she did not seek judicial review of the decision refusing her 2021 Grievance.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant acknowledged not seeking judicial review of 2021 grievance refusal.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant filed second grievance in 2024, believing CBSA would understand and decide favorably.",
+     "quote": "Instead, on January 24, 2024, she filed a second grievance [2024 Grievance]. It was her understanding at that time that with the right argument, the CBSA would understand her point of view and reach a favourable conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued she would not have accepted FB-06 lateral move if she had known MRP should be FB-07 in 2013.",
+     "quote": "The Applicant asserted in this grievance, that had she known that her MRP position should have been an FB-07 position in 2013, she would have never accepted an FB-06 position when seeking a lateral assignment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant claimed she lacked information about Committee's FB-07 recommendation when changing positions.",
+     "quote": "Moreover, the Applicant claimed that she did not have all the information available when she changed positions, as she did not know that the Classification Grievance Committee had recommended reclassifying her MRP position to an FB-07 position (as described in Wilkinson).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant requested salary adjustment to FB-07 and retroactive pay from 2013 to present.",
+     "quote": "The Applicant requested that her salary be adjusted to the FB-07 level and requested retroactive pay at the FB-07 level from 2013 to present.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant filed 2024 grievance arguing she lacked info and would not have accepted FB-06 lateral move; requested FB-07 pay adjustment and retroactive pay.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "2024 grievance refused as filed out of time beyond 25-day limit under Collective Agreement.",
+     "quote": "The 2024 Grievance was refused, first, on the basis that it was filed out of time. The Decision cited that the Border Services Collective Agreement provides a 25-day time limit to file a grievance.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Events giving rise to grievance occurred in 2013 and 2021; grievance filed beyond time limits.",
+     "quote": "The events which gave rise to the Applicant’s grievance occurred in 2013, when she deployed to a different position, and in 2021, when she learned about the Wilkinson decision. Accordingly, the 2024 Grievance was filed beyond the appropriate time limits.",
+     "answers": 0
+    }
+   ],
+   "summary": "2024 grievance refused as untimely; events occurred in 2013 and 2021; grievance filed beyond 25-day limit.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "On merits, Applicant treated within Wilkinson intent with retroactive pay for MRP period.",
+     "quote": "Second, the employer found that on the merits, the Applicant had been treated within the intent of the Wilkinson decision, as she was provided retroactive pay for the period during which she occupied the MRP position.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicant's lateral move decision was based on information known at the time; MRP position classified FB-06 then.",
+     "quote": "The Applicant made the decision to make a lateral move based on what she knew at the time. Additionally, when she made the decision to accept the deployment, her MRP position was still classified as FB-06.",
+     "answers": 0
+    }
+   ],
+   "summary": "Employer found Applicant treated per Wilkinson with retroactive pay; lateral move based on known info; MRP classified FB-06 then.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "2024 grievance is subject of this judicial review application.",
+     "quote": "The 2024 Grievance is the subject of this application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "2024 grievance is subject of this judicial review application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Decision is not unreasonable for reasons that follow.",
+     "quote": "For the following reasons, I do not conclude that the Decision is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes decision is not unreasonable for reasons explained below.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court cannot conduct a new or de novo analysis or reweigh evidence on judicial review.",
+     "quote": "the Court cannot conduct a new, or de novo analysis of the Applicant’s grievance or consider the same evidence to arrive at a different conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it cannot reweigh evidence or conduct a new analysis on judicial review.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "On judicial review, court must assess the decision's reasoning using a reasons-first approach and check for rationality and justification.",
+     "quote": "the Court must assess the assessment of the 2024 Grievance, beginning with what the Decision says, using a “reasons-first” approach to seek to understand the reasoning that led to the Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains it must assess the decision's reasoning for rationality and justification using a reasons-first approach.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Employer reasonably concluded grievance was filed outside relevant time limits.",
+     "quote": "the employer and reasonably concluded that the grievance was filed outside of the relevant time limit delays",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker reasonably concluded the grievance was filed late.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant did not challenge 25-day time limit and argued ongoing violations support timeliness.",
+     "quote": "the Applicant has submitted both to the Court and in the 2024 Grievance that she experiences “continuous and ongoing violations with every day that she is not an FB-07” to support the timeliness of her 2024 Grievance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant did not challenge the 25-day time limit in the collective agreement.",
+     "quote": "The Applicant did not challenge that the applicable Border Services Collective Agreement provides a 25-day time limit to file a grievance",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues ongoing violations support timeliness; court notes applicant did not challenge 25-day time limit.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Events at grievance's heart occurred in 2013 and 2021, justifying timeline computation based on these events.",
+     "quote": "it is clear that the events at the heart of the grievance occurred in 2013 and 2021",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Decision-maker reasonably grounded timeline in 2013 and 2021 events and considered similar 2021 grievance.",
+     "quote": "it is not unreasonable for the decision-maker ... to ground their computation of the applicable timelines in the finding that the Applicant’s grievance was based on these two events and consider the similar nature of the 2021 Grievance as well",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds grievance events in 2013 and 2021 justify timeline calculation by decision-maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant did not challenge 2021 grievance by judicial review.",
+     "quote": "The Applicant did not challenge the 2021 Grievance through judicial review",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant reframes 2024 grievance as ongoing violation.",
+     "quote": "Applicant reframes her 2024 Grievance and explains that she suffers an “ongoing violation”",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits essence of both grievances is the same.",
+     "quote": "I agree with the Respondent’s submissions that the essence of both grievances was the same",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant reframes grievance as ongoing violation; respondent says both grievances have same essence; applicant did not challenge 2021 grievance.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Cannot find decision-maker's conclusion that 2024 grievance stems from 2013 and 2021 events unreasonable.",
+     "quote": "I cannot find the decision-maker’s conclusion that her 2024 Grievance stems from these two events to be unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Decision-maker was entitled to consider these dates in time limit calculation and conclude grievance was filed out of time.",
+     "quote": "it was open for the decision-maker to consider these two dates in calculating the time limit to file a grievance",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds decision-maker reasonably concluded grievance was filed late based on 2013 and 2021 events.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Employer's assessment of grievance merits is not unreasonable given legal and factual constraints.",
+     "quote": "I also cannot find the employer’s assessment of the merits of the 2024 Grievance to be unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Judicial review assesses if outcome falls within range of reasonable outcomes, not what court would decide.",
+     "quote": "The question is not what decision the Court would have made instead of the decision-maker, but rather, to assess whether the outcome falls within the range of expected outcomes",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds employer's merits assessment reasonable; judicial review checks if outcome is within reasonable range.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues different decisions would have been made if 2012 Committee Recommendation accepted.",
+     "quote": "Applicant’s view ... had the CBSA President reasonably accepted the Committee Recommendation in 2012, she would have made different decisions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Decision addressed applicant's argument and found retroactive pay consistent with Wilkinson.",
+     "quote": "The Decision addressed this submission ... retroactive pay that the Applicant benefited from was consistent with the intention of Wilkinson",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant's argument is disagreement with decision-maker's factual assessment.",
+     "quote": "Applicant’s arguments ... is essentially a disagreement with the decision-maker’s assessment of the facts",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues different decisions would result if 2012 recommendation accepted; court finds this is factual disagreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Wilkinson case was known to applicant and CBSA at relevant times.",
+     "quote": "Wilkinson case was known to the Applicant (and was widely known at the time within CBSA) at the relevant times",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's move was based on personal reasons and advice from manager about keeping position.",
+     "quote": "Applicant’s decision to move was also based on personal reasons, and that she received advice from her manager about keeping her position",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent notes FB-07 MRP position no longer exists.",
+     "quote": "The Respondent has also correctly underlined that the FB-07 MRP position no longer exists",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Decision's reference to move based on known information is not unreasonable.",
+     "quote": "Decision’s reference that her decision to move into a FB-06 was based on the information that she knew at the time is not unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Wilkinson known, move based on personal reasons and advice, FB-07 position no longer exists, decision reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant vehemently disagrees with Decision due to events after move.",
+     "quote": "Applicant vehemently disagrees with the Decision, given events that arose after her move",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court cannot disturb findings by reweighing evidence or substituting its own findings on judicial review.",
+     "quote": "disturbing the findings in the Decision would require me to review the same evidence and argument ... I cannot do so on judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant disagrees with Decision; court cannot reweigh evidence or substitute findings on review.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant did not identify central errors or misapprehensions in Decision.",
+     "quote": "Applicant did not identify errors that were central or determinative to the Decision, or that the decision-maker misapprehended (or ignored) her evidence or arguments",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues her interpretation of facts should have led to different outcome.",
+     "quote": "Applicant’s arguments attempt to demonstrate that her interpretation of the facts should have led to another outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant did not identify central errors but argues facts should have led to different outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Same facts can lead to multiple reasonable outcomes; another reasonable outcome does not make decision unreasonable.",
+     "quote": "the same set of facts can lead to more than one reasonable outcome ... does not necessarily render the Decision unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Disagreement or dislike of decision does not make it unreasonable.",
+     "quote": "while the Applicant disagrees with or may not like the conclusion in the Decision, this also does not forcibly make the Decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states multiple reasonable outcomes possible; disagreement does not make decision unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review recognizes legitimacy of multiple outcomes; evidence can be reasonably assessed differently.",
+     "quote": "reasonableness review recognizes the legitimacy of multiple possible outcomes, even where they are not the court’s preferred solution",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites authority that reasonableness review allows multiple legitimate outcomes and reasonable evidence assessments.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Decision meets hallmarks of reasonableness: coherent, rational, intelligible, transparent, justified.",
+     "quote": "Decision meets the hallmarks of reasonableness, being coherent and rational in its analysis of the evidence and arguments provided",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes decision is reasonable, coherent, rational, intelligible, transparent, and justified.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is dismissed without costs; respondent not seeking costs.",
+     "quote": "The application for judicial review is dismissed, without costs",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses judicial review application without costs as respondent does not seek costs.",
+   "role": "disposition"
+  }
+ ]
+}

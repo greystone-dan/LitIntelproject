@@ -1,0 +1,45 @@
+{
+ "case_id": 50729,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0007352000000000001,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 7,
+  "9": 8,
+  "10": 9,
+  "11": 10,
+  "12": 11,
+  "13": 12,
+  "14": 13,
+  "15": 13,
+  "16": 14,
+  "17": 15,
+  "18": 16,
+  "19": 17,
+  "20": 18,
+  "21": 19,
+  "22": 20
+ },
+ "result": {
+  "order_para": 20,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the claimant excluded from refugee protection under Article 1(f) for committing serious non-political crimes before admission?",
+    "paras": "3,4,6,7,10,12-18,19,20",
+    "applicant_position": "Claimant alleges well-founded fear of persecution and explains circumstances of crimes and sentence served.",
+    "respondent_position": "Minister alleges claimant should be excluded for serious non-political crimes committed outside country of refuge before admission.",
+    "result": "dismissed_for_applicant",
+    "result_para": 20,
+    "result_text": "Claimant excluded under Article 1(f)(b) for serious non-political crimes; serving sentence does not remove exclusion."
+   }
+  ]
+ }
+}

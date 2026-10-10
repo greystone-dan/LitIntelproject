@@ -1,0 +1,17 @@
+== dry LF
+{"dry_run": true, "arm": "LF", "model": "gpt-4.1-mini", "cases": 167, "ceiling_usd": 4.273, "typical_usd": 3.21, "ledger_now": 0.0}
+== send LF 23:23:30
+{"case_id": 74796, "arm": "LF", "model": "gpt-4.1-mini", "usd": 0.018327200000000002, "dropped_rows": 0, "paragraphs_missing": 0}
+{"case_id": 75194, "arm": "LF", "model": "gpt-4.1-mini", "usd": 0.0216332, "dropped_rows": 0, "paragraphs_missing": 0}
+{"case_id": 75515, "arm": "LF", "model": "gpt-4.1-mini", "usd": 0.0162748, "dropped_rows": 0, "paragraphs_missing": 0}
+{"done": true, "arm": "LF", "ledger_total_usd": 2.8794}
+LF_EXIT 0  (files: 167)
+== dry issues
+{"dry_run": true, "task": "issues", "model": "gpt-4.1-mini", "cases": 167, "ceiling_usd": 0.935}
+== send issues 00:02:37
+{"case_id": 74796, "usd": 0.002}
+{"case_id": 75194, "usd": 0.002}
+{"case_id": 75515, "usd": 0.0016}
+{"done": true, "task": "issues", "ledger_total_usd": 0.2789}
+ISS_EXIT 0  (files: 167)
+WAVE2_DONE 00:04:33

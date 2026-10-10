@@ -1,0 +1,65 @@
+{
+ "case_id": 49699,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.000894,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 2,
+  "5": 3,
+  "6": 3,
+  "7": 3,
+  "8": 4,
+  "9": 4,
+  "10": 4,
+  "11": 4,
+  "12": 4,
+  "13": 5,
+  "14": 5,
+  "15": 6,
+  "16": 6,
+  "17": 6,
+  "18": 7,
+  "19": 7,
+  "20": 7,
+  "21": 7,
+  "22": 8,
+  "23": 8,
+  "24": 8,
+  "25": 9,
+  "26": 9,
+  "27": 9,
+  "28": 10,
+  "29": 11,
+  "30": 11,
+  "31": 11,
+  "32": 11,
+  "33": 12
+ },
+ "result": {
+  "order_para": 12,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Refugee Protection Division fail to observe a principle of natural justice in the applicant's withdrawal and reinstatement application?",
+    "paras": "5-7",
+    "applicant_position": "Applicant implies natural justice breach due to lack of counsel and information before withdrawal.",
+    "respondent_position": "No natural justice breach; applicant voluntarily withdrew and is responsible for consequences.",
+    "result": "dismissed_for_applicant",
+    "result_para": 6,
+    "result_text": "No natural justice breach found; applicant voluntarily took steps to return to Colombia."
+   },
+   {
+    "issue": "Is it in the interests of justice to reinstate the applicant's refugee claim?",
+    "paras": "7-12",
+    "applicant_position": "Applicant seeks reinstatement despite delay and failure to send retraction note promptly.",
+    "respondent_position": "Application delayed nearly three months; applicant's actions inconsistent with fear claim; reinstatement not in interests of justice.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_text": "Evidence does not establish interests of justice to reinstate claim; application dismissed."
+   }
+  ]
+ }
+}

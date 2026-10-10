@@ -1,0 +1,73 @@
+{
+ "case_id": 69457,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0011164,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 1,
+  "4": 1,
+  "5": 1,
+  "6": 1,
+  "7": 1,
+  "8": 1,
+  "9": 2,
+  "10": 3,
+  "11": 3,
+  "12": 3,
+  "13": 4,
+  "14": 4,
+  "15": 5,
+  "16": 5,
+  "17": 5,
+  "18": 6,
+  "19": 6,
+  "20": 7,
+  "21": 7,
+  "22": 7,
+  "23": 7,
+  "24": 8,
+  "25": 8,
+  "26": 8,
+  "27": 8,
+  "28": 8,
+  "29": 8,
+  "30": 8,
+  "31": 9,
+  "32": 10,
+  "33": 11,
+  "34": 12,
+  "35": 13,
+  "36": 14,
+  "37": 15,
+  "38": 16,
+  "39": 17,
+  "40": 18,
+  "41": 19
+ },
+ "result": {
+  "order_para": 19,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Refugee Appeal Division err in finding that the appellants had a viable internal flight alternative (IFA) within Mexico?",
+    "paras": "1, 6-7, 12-17",
+    "applicant_position": "RPD erred by not considering objective country documentation supporting appellants' credible testimony; no viable IFA exists.",
+    "respondent_position": "Not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 7,
+    "result_text": "Appellants do not have an IFA; objective evidence shows likely harm anywhere in Mexico."
+   },
+   {
+    "issue": "Are the appellants persons in need of protection due to risk of harm from cartel linked to Los Zetas?",
+    "paras": "1, 3, 5, 10-18",
+    "applicant_position": "Appellants face personalized risk due to extortion attempt, threats, and reporting; risk is personal and ongoing.",
+    "respondent_position": "Not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 18,
+    "result_text": "Appellants face personalized risk and cannot access state protection; they are persons in need of protection."
+   }
+  ]
+ }
+}

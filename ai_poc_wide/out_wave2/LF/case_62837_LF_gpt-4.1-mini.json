@@ -1,0 +1,710 @@
+{
+ "case_id": 62837,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0115176,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I allow the appeal.",
+     "quote": "I allow the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a Mexican citizen fearing for his life after reporting gang members who killed his brother in 2015.",
+     "quote": "The appellant, XXXX XXXX XXXX, is a citizen of Mexico. The appellant fears for his life in his country of origin after he reported members of a street gang who killed his brother in 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant is a Mexican citizen fearing for his life after reporting gang members who killed his brother in 2015.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the appellant's claim because he did not establish his brother died at the hands of a gang punishing him for leaving, concluding the risk is generalized.",
+     "quote": "The Refugee Protection Division (RPD) rejected the appellant's refugee protection claim because he did not establish that his brother had died at the hands of a criminal gang that had punished him for wanting to leave the gang. The RPD concluded that the risk the appellant would face if he returned to Mexico is generalized.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the appellant's claim, finding no proof his brother died due to gang punishment and concluding the risk is generalized.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred by not finding him credible and failing to assess his subjective fear and prospective risk individually.",
+     "quote": "On appeal, the appellant submits that the RPD erred by not finding him credible and that it made a number of errors in its analysis of his situation, in particular by neglecting to perform an individualized assessment of his subjective fear and his prospective risk in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred by not finding him credible and failing to assess his fear and risk individually.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The determinative issue is the prospective risk.",
+     "quote": "The determinative issue in this appeal is the prospective risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the determinative issue as the prospective risk.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Under the Immigration and Refugee Protection Act, only evidence arising after the RPD decision, not reasonably available before, or not reasonably expected to be presented, may be accepted.",
+     "quote": "In accordance with the Immigration and Refugee Protection Act,1 I may accept only evidence i. that arose after the RPD rendered its decision, ii. that was not reasonably available at the time of the decision, or iii. that the person could not reasonably have been expected in the circumstances to have presented to the RPD before the decision was rendered.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal rule for accepting new evidence under the Immigration and Refugee Protection Act.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If evidence meets requirements, the court must decide if it is new, credible and relevant before acceptance.",
+     "quote": "If the evidence satisfies one or more of these requirements, I must decide whether it is new, credible and relevant before I can accept it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must decide if new evidence is new, credible, and relevant before accepting it.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's counsel states no new evidence is presented but memorandum includes three new articles about Mexican criminal groups.",
+     "quote": "Although the appellant's counsel states in his notice of appeal that new evidence is not being presented, paragraph 50 of the memorandum announces the inclusion of three new items of documentary evidence concerning criminal groups in Mexico: - An article from Le Journal Lutte OuvriÒre entitled, \"Mexique : narcotrafic et dÕliquescence de l'ètat\" [Mexico: drug trafficking and failure of the state], dated October 23, 2019. - An article from Le Journal de MontrÕal entitled, \"Mexique : neuf morts dans une fusillade entre gangs dans le sud\" [Mexico: 9 dead in a gang shooting in the south], dated October 24, 2019. - An article from LibÕration entitled, \"Mexique, une ville terrorisÕe par un cartel, qui libÒre un fils d'El Chapo\" [Mexico, a city terrorized by a cartel releases one of El Chapo's sons], dated October 18, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's counsel says no new evidence, but the memorandum includes three new articles about Mexican criminal groups.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The new evidence is accepted because the articles were published after the RPD decision and were unavailable before.",
+     "quote": "This new evidence is accepted since the articles were all published after the RPD rendered its decision on October 7, 2019. As a result, they were not available at the time of the decision and they could not have been presented before the RPD rendered its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the new evidence as it was published after the RPD decision and unavailable before.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "My role is to examine all evidence and determine whether the RPD's decision is correct.",
+     "quote": "My role is to examine all of the evidence and determine whether the RPD's decision is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to examine all evidence and decide if the RPD's decision is correct.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant's brother was beaten by gang members in 2015 for wanting to leave, hospitalized, and died from injuries.",
+     "quote": "The appellant states that on XXXX XXXX, 2015, his brother was beaten by members of a street gang because he no longer wanted to be part of this criminal gang. The appellant's brother's injuries included XXXX XXXX XXXX and he was hospitalized, but he never regained consciousness. On XXXX XXXX, 2015, the appellant's brother died of his injuries.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant reported the perpetrators but his mother stopped the investigation out of fear of gang reprisals.",
+     "quote": "On XXXX XXXX XXXX 2015, the appellant reported the perpetrators of the assault against his brother, but his mother had the investigation stopped because she was too afraid that the pandillas would seek revenge.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant moved several times fearing reprisals and left Mexico for Canada in 2017.",
+     "quote": "The appellant then moved several times to different states in Mexico because he feared reprisals from the street gangs for reporting them and because individuals were looking for him. On XXXX XXXX XXXX 2017, the appellant left Mexico for Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant states his brother was beaten and died in 2015, he reported it, his mother stopped the investigation, he moved fearing reprisals, and left Mexico in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant credible about his brother's death but not about a personalized prospective risk; testimony is corroborated by sister and documents.",
+     "quote": "The RPD found the appellant credible regarding his brother's death but concluded that he had not established a personalized prospective risk. The appellant's testimony is corroborated by testimony from his sister and by several exhibits on the appellant's record, including his brother's death certificate and the report on the collection of the body issued by Mexico's Secretariat of Health.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant credible about his brother's death but not about personalized prospective risk; testimony corroborated by sister and documents.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Maldonado states a claimant's sworn facts create a presumption of truth unless valid doubt exists.",
+     "quote": "The Federal Court of Appeal, in Maldonado,4 states that when a refugee protection claimant swears to the truth of certain facts, this creates a presumption that they are true unless there is a valid reason to doubt their truthfulness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD found the appellant credible and this was considered in the internal flight alternative analysis.",
+     "quote": "The RPD found the appellant credible, and I took this into consideration in my analysis of the internal flight alternative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Maldonado that sworn facts are presumed true unless doubted; the RPD found appellant credible and this was considered in analysis.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD drew negative credibility inferences because the appellant could not name the gang that killed his brother, suggesting embellishment.",
+     "quote": "The RPD drew negative inferences with regard to the appellant's credibility because he could not identify, by name, the gang that killed his brother. For the panel, [translation] \"The claimant's inability to identify a particular gang, one he fears and that was responsible for his brother death, instead suggests that the claimant wanted to embellish his story to obtain refugee protection.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD negatively inferred appellant's credibility because he could not name the gang, suggesting embellishment.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given appellant's credible, corroborated, detailed testimony, I find him credible regarding his fear in Mexico.",
+     "quote": "In my view, given that the appellant is credible with regard to his brother's death, that this testimony is corroborated by considerable evidence and that the appellant gave spontaneous and very detailed testimony,5 I find the appellant credible with regard to his fear in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant credible regarding his fear in Mexico based on corroborated, detailed testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant clearly stated he fears the street gangs involved in his brother's death and identified the agent of harm contrary to the RPD's conclusion.",
+     "quote": "At the hearing, the appellant clearly stated that he feared the street gangs involved in his brother's death. Moreover, contrary to what the RPD indicates in its decision, the appellant identified the agent of harm.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant clearly stated fear of the gangs involved and identified the agent of harm, contrary to RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant stated the gangs work for CJNG or Familia Michoacana cartels and fears these cartels and two individuals.",
+     "quote": "The appellant stated, several times,6 that the street gangs in the Federal District work for the Jalisco Nueva Generaciµn (CJNG) or the Familia Michoacana cartels and that he fears these cartels. In addition, the appellant stated that he fears two individuals in particular that belong to these cartels.7",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not consider this part of the appellant's testimony.",
+     "quote": "The RPD did not consider this part of the appellant's testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant's Basis of Claim Form indicates fear of specific individuals who forced his brother to go out with them.",
+     "quote": "The appellant's Basis of Claim Form also clearly indicates that the appellant fears specific individuals, namely the individuals who forced his brother to go out with them every night when he wanted to leave the gang.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant stated gangs work for CJNG or Familia Michoacana cartels and fears them and two individuals; RPD ignored this; Basis of Claim shows fear of specific individuals.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Medical report states appellant's brother's death resulted from a crime; police complaint confirms circumstances.",
+     "quote": "The circumstances of the appellant's brother's death are corroborated by the medical report submitted in evidence, which clearly states that the death of the appellant's brother is the result of a crime. The appellant's detailed complaint to the police also confirms the circumstances of his brother's death.",
+     "answers": 0
+    }
+   ],
+   "summary": "Medical report and police complaint corroborate appellant's brother's death as resulting from a crime.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD erred in concluding the appellant did not identify the agent of harm.",
+     "quote": "The RPD erred in concluding that the appellant did not identify the agent of harm.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred in concluding the appellant did not identify the agent of harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant tried to relocate in Mexico but left after feared individuals were still looking for him and found a family member.",
+     "quote": "The appellant attempted to relocate elsewhere in Mexico prior to claiming refugee protection in Canada. However, he left his country after the individuals he fears were still looking for him and had located one of his family members.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "At hearing, appellant testified he does not know names of feared individuals but they can identify each other; he fears for his life everywhere in Mexico.",
+     "quote": "At the hearing, the appellant testified that he does not know the names of the two individuals he fears but that he could identify them and vice versa. He also testified that he fears for his life everywhere in Mexico.8",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant tried to relocate but left Mexico after feared individuals found family; he fears for his life everywhere in Mexico though he does not know their names.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony is credible, including his claim of danger in Mexico",
+     "quote": "I find the appellant's testimony credible, including as it relates to his claim that he would be in danger in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's testimony credible, including his claim of danger in Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant has established a prospective risk if returned to Mexico",
+     "quote": "The appellant has established a prospective risk should he return to Mexico.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant has no internal flight alternative in Mexico",
+     "quote": "The appellant has no internal flight alternative in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant faces a prospective risk and has no internal flight alternative in Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Documentary evidence states organized crime is present throughout Mexico",
+     "quote": "the documentary evidence states that organized crime is present throughout Mexico.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG and Familia Michoacana cartels have presence everywhere in Mexico",
+     "quote": "the CJNG and Familia Michoacana cartels have a presence everywhere in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes documentary evidence that organized crime and CJNG and Familia Michoacana cartels are present throughout Mexico.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "US Library of Congress study states CJNG is expanding and one of largest, most violent cartels",
+     "quote": "A recent study by the United States Library of Congress states that the CJNG is expanding in Mexico and is one of the largest and most violent cartels.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mexican government declared CJNG one of most dangerous cartels with extensive reach in 2015",
+     "quote": "In 2015, the Mexican government declared CJNG one of the most dangerous cartels in the country and one of two with the most extensive reach.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "US Treasury described CJNG as one of world's most prolific and violent drug trafficking organizations in 2016",
+     "quote": "In October 2016, the U.S. Department of the Treasury echoed the Mexican government when it described the group as one of the world's \"most prolific and violent drug trafficking organizations.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG has operations throughout Americas, Asia, Europe distributing cocaine and methamphetamine",
+     "quote": "According to some analysts, CJNG has operations throughout the Americas, Asia, and Europe. The group allegedly is responsible for distributing cocaine and methamphetamine along \"10,000 kilometres of the Pacific Coast in a route that extends from the Southern Cone to the border of the United States and Canada.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG presence expanded in Mexico to nearly half the country in 2016 and further into several states",
+     "quote": "In 2016, many analysts maintained the cartel had presence throughout the country in a combined area that made up nearly half of Mexico. Recent reports indicate the group has pushed further into Aguas Calientes, San Luis Potosi, and Zacatecas states.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG battled other cartels in various Mexican states and caused high violence in Ciudad Juarez and Tijuana",
+     "quote": "The group has battled Los Zetas and Gulf Cartel factions in Tabasco, Veracruz, and Guanajuato, and it has battled the Sinaloa federation in the Baja peninsulas and Chihuahua. CJNG's ambitious expansion campaign has led to high levels of violence, particularly in Ciudad Juarez and Tijuana, where it has clashed with the Sinaloa federation for control of the lucrative heroin trade and corresponding smuggling routes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG linked to mass graves and shot down army helicopter in 2015",
+     "quote": "The group has also been linked to several mass graves in southwestern Mexico and was responsible for shooting down an army helicopter in 2015, the first successful takedown of a military asset of its kind in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes documentary evidence on CJNG's expansion, violence, and international operations.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG has strong presence in 24 Mexican states and all 32 with cartel alliances",
+     "quote": "the CJNG has a strong presence in 24 of the 32 Mexican states, and in all 32 states when alliances with other cartels are included.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG allies with La Familia cartel",
+     "quote": "The evidence also states that the CJNG allies with the La Familia cartel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes CJNG's strong presence in most Mexican states and alliance with La Familia cartel.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's family contacted and feared individuals have motivation and ability to find him",
+     "quote": "Considering that members of the appellant's family have been contacted and that the individuals he fears have looked for him, it can be concluded that they have the motivation and the ability to find him.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant can identify his brother's killers and vice versa, motivating cartels to track him",
+     "quote": "The fact that the appellant can identify the individuals who killed his brother, and vice versa, is another reason that could motivate the cartels to track him down.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On balance of probabilities, CJNG has means and motivation to locate appellant due to reputation",
+     "quote": "on a balance of probabilities, this is still a possibility because the CJNG still has the means to locate the appellant and the motivation to do so, since its reputation depends in part on its ability to make people like the appellant's brother, who refuse to work for the cartel, disappear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds cartels have motivation and means to find appellant, who can identify his brother's killers.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony credible that he would be at risk everywhere in Mexico",
+     "quote": "I find the appellant's testimony credible, including as it relates to his claim that he would be at risk everywhere in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant's testimony credible that he faces risk throughout Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, serious possibility appellant would be persecuted or at risk of torture or cruel treatment in Mexico",
+     "quote": "there is a serious possibility that the appellant would be persecuted and/or subjected to a risk to his life or to a risk of torture or cruel and unusual treatment or punishment in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes there is a serious possibility appellant faces persecution or risk of torture in Mexico.",
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "States presumed capable of protecting citizens but appellant lacks access to adequate state protection in Mexico",
+     "quote": "While states are presumed capable of protecting their citizens, I am of the opinion that the appellant does not have access to adequate state protection in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant lacks access to adequate state protection in Mexico despite presumption states can protect citizens.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant left Mexico believing state authorities could not protect him from feared individuals",
+     "quote": "The appellant left Mexico because he believed that the state authorities would not be able to protect him from the individuals he fears.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes appellant left Mexico believing state authorities could not protect him.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Documentary evidence refers to ties between CJNG members and corrupt Mexican authorities",
+     "quote": "The documentary evidence refers to ties between CJNG members and corrupt Mexican authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Documentary evidence confirms state authorities often collude with cartels",
+     "quote": "The documentary evidence confirms that state authorities are often in collusion with the cartels.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes documentary evidence of ties and collusion between CJNG and corrupt Mexican authorities.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "US Department of State reports police, military, government officials sometimes involved with criminal organizations in serious crimes",
+     "quote": "The United States Department of State reports that police, military and other government officials are sometimes involved with criminal organizations in murders, disappearances, torture and arbitrary detentions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes US Department of State reports of government officials' involvement with criminal organizations in serious crimes.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG has power to corrupt or confront Mexican state with impunity",
+     "quote": "A recent study states that the CJNG has sufficient power to corrupt or even confront the Mexican state with impunity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CJNG engages in large-scale corruption, e.g. half Guadalajara municipal police on CJNG payroll",
+     "quote": "The same document reports that the CJNG engages in large-scale corruption. For example, one sources states that half the Guadalajara municipal police force is on the CJNG's payroll.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes CJNG's power to corrupt Mexican state and large-scale corruption including police on payroll.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony and documentary evidence rebut presumption of state protection",
+     "quote": "I consider the appellant's testimony and the documentary evidence sufficient to rebut the presumption of state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant's testimony and evidence rebut the presumption of state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, appellant faces personalized risk to life in Mexico and cannot avail state protection",
+     "quote": "On a balance of probabilities, I conclude that the appellant would be personally subjected to a risk to his life in Mexico. I conclude that he cannot avail himself of Mexico's protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant faces personalized risk to life in every part of Mexico",
+     "quote": "The appellant faces a personalized risk to his life in every part of Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant faces personalized risk to life everywhere in Mexico and lacks state protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed; RPD's determination substituted with finding appellant is person in need of protection",
+     "quote": "The appeal is allowed. I substitute the RPD's determination with my own determination that the appellant is a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and finds the appellant is a person in need of protection, substituting the RPD's decision.",
+   "role": "disposition"
+  }
+ ]
+}

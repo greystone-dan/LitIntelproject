@@ -1,0 +1,61 @@
+{
+ "case_id": 12237,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0009028,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 2,
+  "5": 2,
+  "6": 3,
+  "7": 4,
+  "8": 4,
+  "9": 5,
+  "10": 5,
+  "11": 6,
+  "12": 7,
+  "13": 7,
+  "14": 8,
+  "15": 9,
+  "16": 9,
+  "17": 10,
+  "18": 11,
+  "19": 12,
+  "20": 13,
+  "21": 13,
+  "22": 14,
+  "23": 14,
+  "24": 15,
+  "25": 15,
+  "26": 15,
+  "27": 16,
+  "28": 17,
+  "29": 18
+ },
+ "result": {
+  "order_para": 18,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD err in its credibility and implausibility findings regarding the applicants' refugee claim?",
+    "paras": "4-7,9-16",
+    "applicant_position": "Applicants argue RPD erred in using 'conclusive evidence' term and failed to properly assess credibility and implausibility.",
+    "respondent_position": "RPD found applicants' conversion narrative and PSB pursuit story not credible or plausible, accepted some facts but not faith claim.",
+    "result": "allowed_for_applicant",
+    "result_para": 10,
+    "result_text": "Decision quashed due to inadequate articulation of implausibility findings and unreasonable reasoning."
+   },
+   {
+    "issue": "Did the RPD properly consider the persecution risk to house church members and the sur place claim?",
+    "paras": "7,15-16",
+    "applicant_position": "Applicants claim persecution risk as house church members and sur place claim based on faith practice in Canada.",
+    "respondent_position": "RPD acknowledged house churches could be persecuted but found applicants not seriously at risk; gave cursory sur place consideration.",
+    "result": "allowed_for_applicant",
+    "result_para": 15,
+    "result_text": "RPD failed to consider persecution risk adequately and gave cursory consideration to sur place claim."
+   }
+  ]
+ }
+}

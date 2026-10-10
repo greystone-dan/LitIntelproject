@@ -1,0 +1,486 @@
+{
+ "case_id": 41891,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.009808,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Appellants appeal Federal Court decision dismissing judicial review of Onion Lake Cree Nation Appeals Tribunal decision.",
+     "quote": "The appellants, Darryl W. Whitstone and Delores Chief, appeal a decision of the Federal Court (2022 FC 399, per Justice Henry S. Brown), which dismissed their application for judicial review of a decision of the Onion Lake Cree Nation Appeals Tribunal (the Tribunal).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Tribunal granted in part respondent Blois's appeal and nullified 2018 elections of appellants to four-year terms as Councillors.",
+     "quote": "On August 12, 2021, the Tribunal had granted (in part) an appeal by the respondent Florence Blois, and nullified the June 18, 2018 elections of Mr. Whitstone and Ms. Chief to four-year terms as Onikaniwak (Councillors) of the Onion Lake Cree Nation (OLCN), the other respondent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states appellants appeal Federal Court dismissal of judicial review of Tribunal decision nullifying their 2018 elections as Councillors.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Tribunal found Ms. Chief unqualified due to monetary obligations violating subsection 10.6(c) of OLCN Election Law.",
+     "quote": "In its decision, the Tribunal found that Ms. Chief was not qualified as a candidate because of monetary obligations that contravened subsection 10.6(c) of the Wicekaskosiw Sakahikan Wiyaskonitowin Wiyasiwewin Onion Lake Election Law (OLCN Election Law).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Tribunal found Mr. Whitstone violated subsection 5.1(e) of OLCN Election Law by engaging in libel and slander instead of ethical campaigning.",
+     "quote": "The Tribunal also found that Mr. Whitstone had violated subsection 5.1(e) of the OLCN Election Law, which requires that candidates campaign “ethically, focusing on political issues and candidate platforms, instead of engaging in libel and slander.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Tribunal cited Whitstone's discussion of news article as likely intended to libel or slander incumbent council and possibly affected election outcome.",
+     "quote": "The Tribunal cited Mr. Whitstone’s discussion of a particular news article, and found (i) that the only plausible reason to have done so “would be to attempt to libel or slander the incumbent council,” and (ii) that such discussion might have affected the outcome of the election.",
+     "answers": 0
+    }
+   ],
+   "summary": "Tribunal found Chief unqualified due to monetary obligations and Whitstone violated ethical campaigning rules by libel/slander affecting election outcome.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court erred in allowing Blois's appeal despite OLCN Appeals Regulation non-compliance.",
+     "quote": "Allowing Ms. Blois’s appeal to proceed despite failures to comply with certain requirements of the OLCN Appeals Regulation.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court erred in finding Whitstone engaged in libel and slander violating subsection 5.1(e).",
+     "quote": "Finding that Mr. Whitstone had engaged in libel and slander in contravention of subsection 5.1(e) of the OLCN Election Law.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue Federal Court erred in finding Whitstone's contravention might have affected election outcome.",
+     "quote": "Finding that Mr. Whitstone’s alleged contravention of the OLCN Election Law might have affected the outcome of the election.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue Federal Court erred on Blois's appeal compliance, Whitstone's libel/slander, and effect on election outcome.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "OLCN supports appellants on first argument about Appeals Regulation compliance but not on other two issues.",
+     "quote": "The OLCN supports the appellants’ position on the first argument concerning failures to comply with the OLCN Appeals Regulation. The OLCN takes no position on the other two issues raised by the appellants.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "OLCN opposes appellants' request to declare them duly elected and entitled to benefits retroactive to removal date.",
+     "quote": "Further, the OLCN opposes the appellants’ request that this Court declare that they were duly elected and entitled to all benefits and entitlements as OLCN Councillors retroactive to their date of removal from office.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Blois opposes appellants on all issues raised.",
+     "quote": "For her part, Ms. Blois opposes the appellants on all of the issues they raise.",
+     "answers": 0
+    }
+   ],
+   "summary": "OLCN supports appellants on Appeals Regulation compliance only; opposes retroactive benefits; Blois opposes appellants on all issues.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "None of the parties addressed mootness despite June 2022 election of new Council; Court directed parties to address mootness at hearing.",
+     "quote": "Interestingly, none of the parties’ memoranda of fact and law addresses the question of mootness in view of the June 2022 election of a new Onikaniwak (OLCN Council). Prior to the hearing of this appeal, the parties were directed as follows: “At the hearing of the appeal on April 19, 2023, the parties should be prepared to address the question of whether the appeal is moot and, if so, whether this Court should decide the appeal despite its mootness.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes parties did not address mootness; directed them to address mootness at hearing due to new Council election.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "At hearing, all parties agreed appeal is moot; appellants requested Court discretion to hear appeal for reputational and financial reasons.",
+     "quote": "At the hearing of the appeal, all of the parties addressed the issue of mootness, but none argued that the appeal is not moot: even the appellants limited their arguments to requesting that the Court exercise its discretion to hear the appeal if it was found to be moot. The appellants mainly focus on the benefit that this Court’s decision could bring to their reputation. They also note that they seek salary and benefits lost in the period from October 2021, when their salary was stopped, to June 2022, when the new Council was elected.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "OLCN has no strong view on Court exercising discretion to hear appeal; Blois opposes hearing appeal.",
+     "quote": "The OLCN has no strong view on whether the Court should exercise its discretion to hear this appeal, but Ms. Blois argues that the Court should not.",
+     "answers": 0
+    }
+   ],
+   "summary": "At hearing, all parties agree appeal is moot; appellants seek discretion to hear for reputation and lost salary; OLCN neutral; Blois opposes.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appeal is moot because new Council elected in June 2022; no live controversy remains.",
+     "quote": "In my view, the present appeal is indeed moot. The June 2022 OLCN election resulted in a new Council, meaning that the Councillor positions from which the appellants were removed can no longer be restored.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Borowski requires a live controversy for a case to be justiciable.",
+     "quote": "Therefore, there is no longer a live controversy between the parties as contemplated in Borowski v. Canada (Attorney General), 1989 CanLII 123 (SCC), [1989] 1 S.C.R. 342 (Borowski).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if appeal allowed, Court would only remit matter to Tribunal; not to decide merits or award remedies.",
+     "quote": "Even if we were to agree with the appellants on the issues they raise and allow the appeal, we would go no further than remitting the matter to the Tribunal for a new determination on Ms. Blois’s appeal. It is not this Court’s role to decide the Tribunal’s appeal on its merits or to award remedies in relation thereto.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Unreasonable tribunal decisions are to be remitted to tribunal for reconsideration (Vavilov).",
+     "quote": "The appellants’ arguments do not justify any exception to the general rule that unreasonable tribunal decisions are to be remitted to the tribunal for reconsideration: see Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653 at paragraph 141.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appeal moot due to new Council; no live controversy; would only remit to Tribunal; cites Borowski and Vavilov.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Since appellants' four-year term expired, Tribunal's new determination would have no direct effect on appellants' positions.",
+     "quote": "In any case, since the four-year term for which the appellants were elected has now expired, a new determination by the Tribunal could not have any effect that is contemplated in the OLCN Appeals Regulations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Tribunal's new task would be to decide whether to consider Blois's appeal and if so, whether evidence supports setting aside appellants' elections.",
+     "quote": "The Tribunal’s task on a new determination would be (i) to decide whether Ms. Blois’s appeal should be considered, and (ii) if so, to hear the appeal and determine whether the evidence and information gathered supports the appeal such that the election of either or both of the appellants should be set aside.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Setting aside elections after term end would have no direct effect; appellants' councillor positions would not be restored.",
+     "quote": "Setting aside those elections after the end of their term would have no direct effect. The Tribunal might decide either not to consider the appeal or that the evidence did not justify setting aside the 2018 elections in issue. Alternatively, the Tribunal might consider the appeal and decide that it merited setting aside the 2018 elections. Either way, the appellants’ positions as councillors would not be restored.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Tribunal's new determination after term expiry would not restore appellants' positions or have direct effect.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court would not exercise discretion to hear appeal despite mootness for reasons below.",
+     "quote": "I would also not exercise this Court’s discretion to hear this appeal despite its mootness, for the reasons set out below.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states it would not exercise discretion to hear moot appeal for reasons to follow.",
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Criteria to consider in discretion to hear moot case are from Doucet-Boudreau citing Borowski: adversarial context, judicial economy, sensitivity to Court's role.",
+     "quote": "The parties appear to agree that the criteria for consideration in the exercise of discretion to hear a moot case are as set out in Doucet-Boudreau v. Nova Scotia (Minister of Education), 2003 SCC 62, [2003] 3 S.C.R. 3 at para. 18 (Doucet-Boudreau), citing Borowski at 358-363: (1) the presence of an adversarial context; (2) the concern for judicial economy; and (3) the need for the Court to be sensitive to its role as the adjudicative branch in our political framework.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states criteria for discretion to hear moot case from Doucet-Boudreau and Borowski: adversarial context, judicial economy, Court's role sensitivity.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court will address each criterion in turn.",
+     "quote": "I will address each of these criteria in turn.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court will address each criterion for discretion to hear moot case in turn.",
+   "role": "other"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court accepts adversarial context criterion is satisfied; all parties made vigorous arguments; no dispute on this point.",
+     "quote": "I accept that there is an adversarial context in this case. All sides have made their arguments with vigour. No party disputes that this first criterion is satisfied.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds adversarial context criterion satisfied; all parties argued vigorously; no dispute.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Judicial economy criterion requires considering practical effect, recurring nature, and public importance (Borowski).",
+     "quote": "The second criterion, the concern for judicial economy, requires consideration of the following factors: (i) whether the court’s decision will have some practical effect on the rights of the parties, (ii) whether the issues in dispute are of a recurring nature but brief duration, which may be evasive of review, and (iii) the public importance of resolving the debate between the parties. (Borowski at 360-362)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states judicial economy criterion requires considering practical effect, recurring nature, and public importance per Borowski.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants' practical effects concern reputation repair and lost salary; Court's decision would only notionally repair reputation.",
+     "quote": "As alluded to above, the “practical effects” cited by the appellants concern the hope of repairing their respective reputations and recovering lost salary and benefits. However, the repair that this Court could make to the appellants’ respective reputations is notional at best.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court would only remit matter to Tribunal; not reweigh merits of Blois's appeal or replace Tribunal's findings affecting appellants' reputations.",
+     "quote": "As indicated above, it is not this Court’s role to reweigh the merits of Ms. Blois’s appeal, and we would do no more than remit the matter to the Tribunal for a new determination. Further, if this Court were to allow the present appeal on the basis that Ms. Blois’s appeal should not have been considered in the first place, it is unlikely that this Court would consider the Tribunal’s findings that have reputational effects on the appellants (the allegations of monetary obligations and libel/slander).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given passage of time, OLCN or Tribunal unlikely to devote resources to appeal with no direct governance effect; Tribunal's findings unlikely replaced.",
+     "quote": "Moreover, given the passage of time, it is difficult to imagine that either the OLCN (as the funding source) or the Tribunal would want to devote resources to an appeal that could have no direct effect on the governance of the OLCN. Accordingly, regardless of the merits of the present appeal, it is unlikely that the Tribunal’s findings that concern the appellants would be replaced.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants' practical effects are only notional reputation repair and lost salary recovery unlikely; Tribunal unlikely to revisit findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants unlikely to recover lost salary and benefits; Federal Courts Act does not allow such relief in judicial review.",
+     "quote": "It is also unlikely that the appellants could recover lost salary and benefits. As the Federal Courts Act, R.S.C. 1985, c. F-7, does not contemplate relief of this nature in judicial review, it is not within this Court’s jurisdiction to order such recovery: Canada (Attorney General) v. TeleZone Inc., 2010 SCC 62, [2010] 3 S.C.R. 585 at para. 52.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Tribunal unlikely to deal with lost salary and benefits matter.",
+     "quote": "Moreover, as discussed in the previous paragraph, the Tribunal is unlikely to deal with the matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants unlikely to recover lost salary; Federal Courts Act disallows such relief; Tribunal unlikely to address matter.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Marginal positive effects for appellants outweighed by issues not being recurring but brief; term was four years, not brief.",
+     "quote": "Though I acknowledge that there remains a possibility that a decision by this Court in the present appeal could have marginal positive reputational or financial effects for the appellants, I find that those effects are outweighed by the consideration of whether the issues in dispute are of a recurring nature but brief duration, which may be evasive of review. The term of the elections in issue was four years, and hence not of brief duration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Delays in Blois's appeal due to OLCN Chief and Council's effort to stop process and COVID-19 pandemic, unlikely to recur.",
+     "quote": "Several events contributed to the delays that resulted in Ms. Blois’s appeal taking over three years to decide, and the present appeal being held after the next OLCN Council election had taken place. Key among these events were (i) the effort by the OLCN Chief and Council in January 2019 (later reversed: see Blois v. Onion Lake Cree Nation, 2020 FC 953) to stop the process, which delayed the matter for over 20 months until October 2020, and (ii) the COVID-19 pandemic, which significantly constrained many activities from March 2020 onward. These two events explain most of the delay in the Tribunal’s work and are unlikely to recur.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Issues raised are not evasive of review.",
+     "quote": "The issues the appellants seek to raise in this appeal are not evasive of review.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds marginal positive effects outweighed by issues not being brief or recurring; delays unlikely to recur; issues not evasive of review.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Legal issues relate to governance and are of public importance.",
+     "quote": "I accept that the legal issues the parties address in the present appeal, which relate to governance, are of public importance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "OLCN Election Law and Appeals Regulation intend issues be decided within OLCN community, not by Court; Court's role is supervisory.",
+     "quote": "That said, I am mindful that the OLCN Election Law and the OLCN Appeals Regulation intend that these issues be decided within the OLCN community and not by this Court. This Court serves merely a supervisory role.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Indigenous self-government matters are to be decided within community; Court's role is limited and deferential (Pastion, Porter).",
+     "quote": "This fact is particularly important in this case, which concerns indigenous self-government: see Pastion v. Dene Tha’ First Nation, 2018 FC 648, [2018] 4 F.C. 467 at paras. 22-23, cited in Porter v. Boucher-Chicago, 2021 FCA 102 at para. 27.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This consideration does not support hearing moot appeal.",
+     "quote": "This consideration does not assist the argument for hearing this moot appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds governance issues are public important but meant to be decided within OLCN community; Court's role supervisory; does not support hearing moot appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Hearing appeal would not take Court outside adjudicative role but Court should hesitate in indigenous self-government matters.",
+     "quote": "I accept that hearing the present appeal would not necessarily take this Court outside of its adjudicative role. However, as discussed in the previous paragraph, I believe that this Court should hesitate before becoming involved in a matter of indigenous self-government where the intent of the governing legislation is that the dispute should be dealt with by the Tribunal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Tribunal's role is to interpret and apply OLCN Election Law and Appeals Regulation; Court's role is deferential and limited to fairness and reasonableness review.",
+     "quote": "It is the Tribunal’s role to interpret and apply the applicable provisions of the OLCN Election Law and the OLCN Appeals Regulation. This Court’s role should be deferential and limited to determining whether such interpretation and application was fair and reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds hearing appeal fits adjudicative role but Court should hesitate in indigenous self-government; Tribunal interprets law; Court reviews fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Criteria weigh against exercising discretion to hear moot appeal; appeal dismissed on that basis.",
+     "quote": "I conclude that the applicable criteria weigh against the exercise of discretion to hear the present appeal despite its mootness. I would dismiss the appeal on that basis.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes criteria weigh against hearing moot appeal and dismisses appeal on that basis.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court would not award costs as no conclusion reached on substantive issues and decision based on unargued basis discussed at hearing.",
+     "quote": "I would not award costs in the present appeal. I am mindful that I have reached no conclusion on the substantive issues argued by the parties, and I would decide this appeal on a basis that was not argued in the parties’ memoranda of fact and law, and was discussed at the hearing only at the request of the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court would not award costs as no substantive conclusion reached and decision based on unargued basis discussed at hearing.",
+   "role": "disposition"
+  }
+ ]
+}

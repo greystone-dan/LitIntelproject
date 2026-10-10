@@ -1,0 +1,66 @@
+{
+ "case_id": 46494,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0009972000000000002,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 3,
+  "5": 4,
+  "6": 4,
+  "7": 5,
+  "8": 6,
+  "9": 6,
+  "10": 7,
+  "11": 7,
+  "12": 8,
+  "13": 9,
+  "14": 9,
+  "15": 10,
+  "16": 10,
+  "17": 10,
+  "18": 11,
+  "19": 12,
+  "20": 12,
+  "21": 13,
+  "22": 13,
+  "23": 13,
+  "24": 14,
+  "25": 14,
+  "26": 14,
+  "27": 15,
+  "28": 16,
+  "29": 16,
+  "30": 17,
+  "31": 17,
+  "32": 17,
+  "33": 17,
+  "34": 18
+ },
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "What is the standard and criteria for granting leave to appeal interlocutory orders under the Patented Medicines Regulations?",
+    "paras": "7-16",
+    "applicant_position": "Applicant argues for leave to appeal based on grounds raised in motions.",
+    "respondent_position": "Respondent argues leave should be granted only if fairly arguable and impact case outcome.",
+    "result": "allowed_for_applicant",
+    "result_para": 14,
+    "result_text": "Applicant must show more than arguability; appeal must directly impact case success or failure due to 2017 amendments."
+   },
+   {
+    "issue": "Do the two motions for leave to appeal meet the standard and criteria for granting leave?",
+    "paras": "17-18",
+    "applicant_position": "Applicant contends motions raise valid issues warranting leave to appeal.",
+    "respondent_position": "Respondent contends motions fail fairly arguable test and lack impact on case outcome.",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "Both motions fail fairly arguable test; no legal issues or impact on case success; leave denied."
+   }
+  ]
+ }
+}

@@ -1,0 +1,568 @@
+{
+ "case_id": 38807,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.013949200000000002,
+ "dropped_rows": 1,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The sole issue is when interest accrues after a GAAR-based reassessment: after the balance-due date or after reassessment date.",
+     "quote": "The sole issue in this appeal is related to the accrual of interest when a reassessment is issued as a result of the application of the general anti-avoidance rule (GAAR) in section 245 of the Income Tax Act, R.S.C. 1985, c. 1 (5th Supp.) (Act). The question is whether interest commences to accrue following the balance-due date for the particular year for which taxes are reassessed or following the date of such reassessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is when interest starts accruing after a GAAR reassessment: balance-due date or reassessment date.",
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This appeal arises from a Tax Court determination under Rule 58 on whether interest can accrue after balance-due date but before reassessment under GAAR.",
+     "quote": "This appeal arises as a result of a determination by the Tax Court of Canada under Rule 58 of the Tax Court of Canada Rules (General Procedure), SOR/90-688a (Rules) of the following question: If, as here, the Minister of National Revenue has relied upon section 245 of the Income Tax Act (Canada) (\"Act\") to deny capital losses when reassessing the Appellant's income tax for a taxation year, can arrears interest payable under subsection 161(1) of the Act apply to accrue in respect of any period of time after the taxpayer's balance-due day for that year and before the issuance of such reassessment?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the appeal arises from a Tax Court question on interest accrual timing after GAAR reassessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Tax Court found interest accrues after balance-due date and before reassessment issuance under GAAR.",
+     "quote": "The Tax Court answered this question in the affirmative and therefore found that interest accrued in respect of the period of time after a taxpayer’s balance-due date and before the issuance of the reassessment arising as a result of the application of GAAR.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Tax Court found interest accrues after balance-due date and before reassessment under GAAR.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Quinco Financial Inc. appeals the Tax Court determination and the appeal is dismissed.",
+     "quote": "Quinco Financial Inc. (Quinco) has appealed this determination. For the reasons that follow, I would dismiss this appeal. In these reasons any reference to a reassessment should be read as including an assessment and vice versa.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Quinco appeals but the appeal will be dismissed.",
+   "role": "disposition"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The parties agreed facts show the case involves two predecessor corporations that amalgamated to form Quinco in 2004.",
+     "quote": "The parties submitted an agreed statement of facts to the Tax Court which reveals that this matter relates to two predecessor corporations who amalgamated with certain other corporations to form Quinco on August 27, 2004. The two predecessor corporations that are affected in this case are Brick Warehouse Corporation/Entrepôt Brick Corporation (BWC) and Landex Investments Limited (LIL).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states agreed facts show two predecessor corporations amalgamated to form Quinco in 2004.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "BWC and LIL reported capital gains and losses for the year before amalgamation as stated in the table.",
+     "quote": "In filing their tax returns for the taxation year that ended immediately before the amalgamation, BWC and LIL reported income based on the following capital gains, capital losses, net capital gain and net capital loss: Blank BWC LIL Capital gain $536,693,764 $79,719,764 Capital loss ($540,011,434) ($32,684,977) Net Capital Gain (Net capital loss) ($3,317,670) $47,034,730",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states BWC and LIL reported capital gains and losses for the year before amalgamation as shown.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The agreed facts do not describe the transactions that resulted in the capital losses.",
+     "quote": "There is no description in the agreed statement of facts of the transaction or series of transactions which resulted in the capital losses referred to above.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the agreed facts do not describe the transactions causing the capital losses.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Initial assessments were as filed; reassessments adjusted capital gains and losses as shown in the table.",
+     "quote": "The returns were initially assessed as filed. Reassessments were subsequently issued to adjust the amounts to the following: Blank BWC LIL Capital gain $534,068,193 $77,162,757 Capital loss ($538,653,363) ($29,266,139) Net Capital Gain (Net capital loss) ($4,585,170) $47,896,618",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states initial assessments were as filed; reassessments adjusted capital gains and losses as shown.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Further reassessments denied capital losses under GAAR, increasing tax liability and interest charged after balance-due date, prompting the Rule 58 question.",
+     "quote": "By further notices of reassessment dated April 7, 2009 the total amount of the capital losses claimed by each of BWC and LIL were denied on the basis that GAAR applied to the transactions that resulted in these losses. As a result, the allowable capital losses were reduced to nil. Since there were then significant taxable capital gains, the Part I tax liability of BWC and LIL was determined to be substantially more than had previously been assessed. Interest was charged in relation to the increased Part I tax liability for the period commencing immediately after the balance-due date for each of BWC and LIL. It is this assessment for interest that prompted the Rule 58 question in issue in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states reassessments denied capital losses under GAAR, increasing tax and interest after balance-due date, prompting the question.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Tax Court Judge found GAAR reassessment does not create tax liability upon issuance; interest starts accruing after balance-due date.",
+     "quote": "The Tax Court Judge reviewed the nature of an assessment based on GAAR and completed a textual, contextual and purposive analysis of sections 245 and 161 of the Act. He concluded that a reassessment based on GAAR does not create a tax liability upon the issuance of such reassessment and that interest, as with any other reassessment that is issued in relation to Part I tax liability, commences to accrue immediately following the balance-due date for the particular year.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Tax Court found GAAR reassessment does not create tax liability on issuance; interest starts after balance-due date.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The issue is whether the Tax Court Judge was correct that interest from GAAR reassessment starts after balance-due date for that year.",
+     "quote": "The issue in this appeal is whether the Tax Court Judge was correct in his interpretation of the relevant provisions of the Act in determining that interest arising as a result of a reassessment based on GAAR commences to accrue immediately following the balance-due date for the particular year to which the reassessment relates.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is whether the Tax Court was correct that interest starts after balance-due date for GAAR reassessment.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The standard of review for this legal issue is correctness, per Housen v. Nikolaisen.",
+     "quote": "As the issue in this case relates to a question of law, the standard of review is correctness (Housen v. Nikolaisen, 2002 SCC 33, [2002] 2 S.C.R. 235).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is correctness for this legal issue.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Copthorne Holdings explains GAAR lets courts look beyond text to object, spirit or purpose to deny tax benefits.",
+     "quote": "In Copthorne Holdings Ltd. v. The Queen, 2011 SCC 63, [2011] 3 S.C.R. 721 (Copthorne), the Supreme Court of Canada provided the following general overview of GAAR: 66 The GAAR is a legal mechanism whereby Parliament has conferred on the court the unusual duty of going behind the words of the legislation to determine the object, spirit or purpose of the provision or provisions relied upon by the taxpayer. While the taxpayer's transactions will be in strict compliance with the text of the relevant provisions relied upon, they may not necessarily be in accord with their object, spirit or purpose. In such cases, the GAAR may be invoked by the Minister. The GAAR does create some uncertainty for taxpayers. Courts, however, must remember that s. 245 was enacted \"as a provision of last resort\" (Trustco, [Canada Trustco Mortgage Co. v. The Queen, 2005 SCC 54, [2005] 2 S.C.R. 601] at para. 21).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Copthorne explaining GAAR lets courts look beyond text to object, spirit or purpose to deny tax benefits.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "GAAR is last resort invoked by Minister when transactions comply with text but not object, spirit or purpose; courts decide GAAR applicability on appeal.",
+     "quote": "GAAR is a provision of last resort that is invoked by the Minister when transactions are in strict compliance with the text of the provisions of the Act but, in the Minister’s view, the transactions are not in accord with the object, spirit or purpose of the relevant provisions. If a reassessment based upon the application of GAAR is appealed to the courts, the question of whether GAAR applies will be determined by the courts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states GAAR is last resort invoked by Minister when transactions comply with text but not purpose; courts decide GAAR applicability.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Tax Court Judge analyzed GAAR jurisprudence and said taxpayers can anticipate and apply GAAR, and appeal reassessments.",
+     "quote": "In this case, the Tax Court Judge commenced his analysis with a general discussion of the jurisprudence and the role of GAAR within the Act. As part of this analysis the Tax Court Judge addressed the issue of whether GAAR should be anticipated and considered by taxpayers. His analysis of that issue consisted of the following paragraphs: 41 In short, the Appellant, in the present case as a taxpayer possibly subject to GAAR, could have filed by deducting the future-impugned capital loss, but applying GAAR for the purposes of calculating tax payable. Upon assessment under GAAR, interest would not accrue. Moreover, thereafter the Appellant could have objected and appealed. The Court would then determine the application of the GAAR, in the first instance and the reasonableness (including timing) of the reasonable tax consequences as determined by the Minister. To suggest such an option is unavailable or dissimilar from such an option with non-GAAR provisions is not correct. 42 Implicit within this conclusion, is this Court's determination of GAAR's clear intent and inference that all taxpayers, who are directly subject to GAAR assessments, that is, non-third parties, are required to consider and apply GAAR. Taxpayers who are directly or may be directly subject to the nullification of a tax benefit need not ask the Minister for permission to apply GAAR (STB Holdings Ltd. at paragraph 23). 43 In conclusion, while not simple or uncomplicated, a taxpayer is able to approach, anticipate and account for GAAR as a taxpayer is obligated to do with all other taxing sections of the Act to which GAAR, by necessity, must correlate. If the Minister reassesses, nothing precludes a taxpayer's appeal to this Court. (emphasis added)",
+     "answers": 0
+    }
+   ],
+   "summary": "The Tax Court found taxpayers can anticipate and apply GAAR and appeal reassessments.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is more accurate that taxpayers contemplating tax benefits should consider GAAR risk; filing accepting risk Minister may apply GAAR and interest if unsuccessful.",
+     "quote": "Although he states in paragraph 42 that “all taxpayers, who are directly subject to GAAR assessments, that is, non-third parties, are required to consider and apply GAAR”, in my view it is more accurate to state that all taxpayers who are contemplating a transaction or series of transactions that would result in a tax benefit should consider the risk that GAAR will apply to deny the tax benefit. If a taxpayer completes a transaction or series of transactions that results in a tax benefit and the taxpayer files a tax return on the basis that such tax benefit is available to the taxpayer, then that taxpayer is accepting the risk that the Minister may disagree and apply GAAR. As with any other filing position that may result in a dispute with the Minister, if the taxpayer is ultimately unsuccessful following the resolution of all objections and appeals, then that taxpayer will be required to pay the additional tax together with interest.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds taxpayers contemplating tax benefits should consider GAAR risk and accept interest risk if unsuccessful.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 161(1) of the Act sets out interest liability when tax payable exceeds amounts paid after balance-due day.",
+     "quote": "The liability to pay interest is set out in section 161 of the Act. Subsection 1 of this section provides that: 161(1) Where at any time after a taxpayer’s balance-due day for a taxation year 161(1) Dans le cas où le total visé à l’alinéa a) excède le total visé à l’alinéa b) à un moment postérieur à la date d’exigibilité du solde qui est applicable à un contribuable pour une année d’imposition, le contribuable est tenu de verser au receveur général des intérêts sur l’excédent, calculés au taux prescrit pour la période au cours de laquelle cet excédent est impayé : (a) the total of the taxpayer’s taxes payable under this Part and Parts I.3, VI and VI.1 for the year a) le total des impôts payables par le contribuable pour l’année en vertu de la présente partie et des parties I.3, VI et VI.1; exceeds (b) the total of all amounts each of which is an amount paid at or before that time on account of the taxpayer’s tax payable and applied as at that time by the Minister against the taxpayer’s liability for an amount payable under this Part or Part I.3, VI or VI.1 for the year, the taxpayer shall pay to the Receiver General interest at the prescribed rate on the excess, computed for the period during which that excess is outstanding. b) le total des montants représentant chacun un montant payé au plus tard à ce moment au titre de l’impôt payable par le contribuable et imputé par le ministre, à compter de ce moment, sur le montant dont le contribuable est redevable pour l’année en vertu de la présente partie ou des parties I.3, VI ou VI.1. (emphasis added) (soulignement ajouté)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 161(1) sets interest liability when tax payable exceeds amounts paid after balance-due day.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Quinco argues interest accrues only from reassessment date, not from balance-due date.",
+     "quote": "Quinco’s argument focused on the latter part of this section and in particular “the period during which that excess is outstanding”. Quinco’s argument is that this excess is only outstanding from the date that the reassessment based on GAAR is issued and not from the balance-due date of the taxpayer for the particular taxation year for which the reassessment is issued.",
+     "answers": 0
+    }
+   ],
+   "summary": "Quinco argues interest accrues only from reassessment date, not balance-due date.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Canada Trustco sets interpretive approach: read words in context, ordinary meaning, harmoniously with Act's scheme, object, and purpose.",
+     "quote": "The Supreme Court of Canada has set out the approach to be used in interpreting provisions such as the one in issue in this appeal in Canada Trustco Mortgage Co. v. The Queen, 2005 SCC 54, [2005] 2 S.C.R. 601 (Canada Trustco), at para. 10: 10 It has been long established as a matter of statutory interpretation that \"the words of an Act are to be read in their entire context and in their grammatical and ordinary sense harmoniously with the scheme of the Act, the object of the Act, and the intention of Parliament\": see 65302 British Columbia Ltd. v. Canada, [1999] 3 S.C.R. 804, at para. 50. The interpretation of a statutory provision must be made according to a textual, contextual and purposive analysis to find a meaning that is harmonious with the Act as a whole. When the words of a provision are precise and unequivocal, the ordinary meaning of the words play a dominant role in the interpretive process. On the other hand, where the words can support more than one reasonable meaning, the ordinary meaning of the words plays a lesser role. The relative effects of ordinary meaning, context and purpose on the interpretive process may vary, but in all cases the court must seek to read the provisions of an Act as a harmonious whole.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Canada Trustco for the interpretive approach: read words in context, ordinary meaning, harmoniously with Act's scheme and purpose.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Quinco argues reassessment date is relevant because Minister determines reasonable tax consequences and burden to identify abused provisions.",
+     "quote": "In relation to how “the period during which that excess is outstanding” should be interpreted when an increase in the tax liability of a taxpayer arises as a result of the application of GAAR, Quinco submitted that the date of reassessment is the relevant date because the Minister is to determine the reasonable tax consequences for the purposes of GAAR and because the Minister has the burden to identify the provisions of the Act that are allegedly being abused and the object, spirit and purpose of these provisions.",
+     "answers": 0
+    }
+   ],
+   "summary": "Quinco argues reassessment date is relevant because Minister determines reasonable tax consequences and burden to identify abused provisions.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Minister's role in determining reasonable tax consequences under GAAR is essentially the same as in any reassessment under the Act",
+     "quote": "While the Minister determines the reasonable tax consequences in relation to a GAAR reassessment, in my view, this is essentially the same role that the Minister fulfills whenever a reassessment is issued under the Act whether it is based on GAAR or any other provision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Quinco argues it could not know reasonable tax consequences under GAAR due to undisclosed transactions causing large capital losses",
+     "quote": "Although Quinco submitted that it could not know what reasonable tax consequences would be determined by the Minister under GAAR, since in this case BWC and LIL had completed certain transactions (that have not been disclosed) that resulted in very large capital losses",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was foreseeable that if GAAR applied, capital losses would be denied, despite complexity of further consequences",
+     "quote": "it is not at all clear why it could not have anticipated that if GAAR applied these capital losses would be denied. There may be further resulting consequences ... they are still capable of being determined.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds the Minister's role in GAAR reassessments is like any reassessment; Quinco argues uncertainty about tax consequences due to undisclosed transactions; court finds denial of capital losses foreseeable.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Quinco cites Canada Trustco to argue Minister must identify object, spirit or purpose of provisions frustrated by GAAR",
+     "quote": "Quinco referred to the following excerpt from Canada Trustco: ... The Minister is to identify the object, spirit or purpose of the provisions that are claimed to have been frustrated or defeated",
+     "answers": 0
+    }
+   ],
+   "summary": "Quinco argues, citing Canada Trustco, that the Minister must identify the object, spirit or purpose of provisions frustrated by GAAR.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Supreme Court in Copthorne sets out criteria for abusive tax avoidance and Minister's burden to demonstrate abuse",
+     "quote": "Similar comments are also made by the Supreme Court of Canada in Copthorne: ... The Minister must clearly demonstrate that the transaction is an abuse of the Act, and the benefit of the doubt is given to the taxpayer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Supreme Court in Copthorne explains abusive tax avoidance criteria and Minister's burden to prove abuse, with benefit of doubt to taxpayer.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Quinco argues liability for GAAR reassessment arises only after Minister issues reassessment identifying abuse",
+     "quote": "Quinco’s argument is that since the Minister must “identify the object, spirit or purpose of the provisions ... any liability ... can only arise once the Minister has issued this reassessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Quinco argues that liability from GAAR reassessment arises only after Minister issues reassessment identifying abuse.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Supreme Court statements only set Minister's responsibility to identify abuse when GAAR reassessment is issued",
+     "quote": "these statements from the Supreme Court of Canada only set out the responsibility of the Minister to identify the abuse that is alleged when a reassessment based on GAAR is issued.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Supreme Court statements only address Minister's responsibility to identify abuse when GAAR reassessment is issued.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Canada Trustco sets out three requirements for GAAR application and burden of proof allocation",
+     "quote": "In Canada Trustco, the Supreme Court of Canada set out the responsibilities ... 1. Three requirements must be established ... 2. The burden is on the taxpayer to refute (1) and (2), and on the Minister to establish (3).",
+     "answers": 0
+    }
+   ],
+   "summary": "Canada Trustco sets three requirements for GAAR and allocates burden of proof between taxpayer and Minister.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Supreme Court addressed burden of proof, not timing of tax liability arising from GAAR reassessment",
+     "quote": "This excerpt makes it clear that the Supreme Court of Canada was only addressing the issue of the burden ... The Supreme Court was not addressing the issue of when liability ... arises.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Supreme Court addressed burden of proof but not timing of tax liability arising from GAAR reassessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Minister's burden to establish abuse under GAAR does not mean tax liability arises only when reassessment issued",
+     "quote": "the requirement that the Minister in GAAR cases must establish that a tax benefit is not consistent ... cannot justify a finding that any liability ... would only arise once that reassessment is issued.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Quinco distinguishes GAAR reassessment from normal reassessment, arguing interest starts only at reassessment date",
+     "quote": "Quinco did not suggest that interest in that situation would only commence when the reassessment is issued but rather sought to distinguish that situation ... and not a “GAAR reassessment”.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects that Minister's burden means tax liability arises only at reassessment; Quinco distinguishes GAAR from normal reassessment interest timing.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Subsections 245(2) and (5) of the Act set out consequences of GAAR application including denial of tax benefits",
+     "quote": "Subsections 245(2) and (5) of the Act set out the consequences that arise if GAAR is applied: ... any deduction ... may be allowed or disallowed ... tax effects ... may be ignored ... to deny a tax benefit.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains subsections 245(2) and (5) of the Act set consequences of GAAR including denial of tax benefits.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "GAAR denial of tax benefit increases taxes payable for the year; no Act provision limits liability arising only at reassessment date",
+     "quote": "When GAAR is applied, a tax benefit is denied ... There is nothing in the Act that stipulates that the increased liability ... only arises when the reassessment is issued.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Question is when tax liability is payable to determine interest period under subsection 161(1)",
+     "quote": "the question is what is the date that such liability was payable (which would determine the period during which the excess referred to in subsection 161(1) of the Act was outstanding)?",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds GAAR denial increases taxes payable immediately; issue is when liability is payable for interest calculation.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 157 of the Act requires taxes for a year to be paid by the balance-due date",
+     "quote": "Section 157 of the Act (which is in Part I) provides that all taxes for a particular year are payable on the balance-due date: 157(1) Subject to subsections ... every corporation shall ... pay ... on or before its balance-due day for the year.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states section 157 requires taxes for a year to be paid by the balance-due date.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reassessments denied capital losses for 2004 year, increasing Part I taxes payable, which were due by balance-due date",
+     "quote": "In this case the reassessments that were issued denied the allowable capital losses ... As the Part I taxes were payable for the year ended August 27, 2004, these taxes were payable under section 157 by the balance-due date for that year.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Taxes were outstanding immediately after balance-due date and interest started then, not at reassessment date",
+     "quote": "Therefore, they were outstanding immediately following that date and interest commenced to accrue immediately following the balance-due date and not from the date that the reassessment was actually issued.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds reassessed taxes for 2004 were due by balance-due date; interest started immediately after, not at reassessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court in Simard-Beaudry confirmed assessment confirms existence of tax debt, does not create it",
+     "quote": "the Federal Court also confirmed that “the assessment does not create the debt, but is at most a confirmation of its existence”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This principle applies equally to GAAR reassessments confirming tax debt for a year",
+     "quote": "This comment is equally applicable to a reassessment arising as a result of the application of GAAR as such reassessment simply confirms the tax debt that is owing for a particular taxation year.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court cites Simard-Beaudry that assessment confirms tax debt existence; applies equally to GAAR reassessments.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal is dismissed with costs",
+     "quote": "As a result I would dismiss this appeal, with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses the appeal with costs.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "case_id": 61455,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0011516,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 5,
+  "7": 5,
+  "8": 6,
+  "9": 6,
+  "10": 7,
+  "11": 8,
+  "12": 9,
+  "13": 10,
+  "14": 11,
+  "15": 12,
+  "16": 13,
+  "17": 14,
+  "18": 15,
+  "19": 15,
+  "20": 16,
+  "21": 17,
+  "22": 17,
+  "23": 18,
+  "24": 19,
+  "25": 20
+ },
+ "result": {
+  "order_para": 20,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Board err in finding that the grievance procedure was not properly followed and that constructive dismissal did not allow direct referral to the Board?",
+    "paras": "3-5, 15",
+    "applicant_position": "Mr. Verhagen argues the Board erred in finding he did not follow grievance procedure and that constructive dismissal allowed direct referral.",
+    "respondent_position": "The employer argued the collective agreement required grievance presentation at each level, so the Board lacked jurisdiction due to failure to follow procedure.",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_text": "Board reasonably treated First Decision as conclusive; grievance procedure was not followed and extension of time was needed."
+   },
+   {
+    "issue": "Did the Board err in denying Mr. Verhagen's application for an extension of time to transmit the grievance to the third level?",
+    "paras": "6-12, 16",
+    "applicant_position": "Mr. Verhagen argued grievance was timely or alternatively requested extension of time in interest of fairness.",
+    "respondent_position": "The employer objected to referral based on untimely grievance transmittal among other grounds.",
+    "result": "dismissed_for_applicant",
+    "result_para": 16,
+    "result_text": "Extension of time is discretionary; Board did not misapprehend evidence or unreasonably depart from precedent."
+   },
+   {
+    "issue": "Should the court intervene and allow the grievance to be heard on the merits based on the claim of constructive dismissal?",
+    "paras": "17",
+    "applicant_position": "Mr. Verhagen insists he was constructively dismissed and grievance should be heard on merits.",
+    "respondent_position": "Not stated.",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "Unless Board's decision is unreasonable, court cannot intervene."
+   }
+  ]
+ }
+}

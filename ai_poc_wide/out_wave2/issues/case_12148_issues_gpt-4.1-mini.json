@@ -1,0 +1,85 @@
+{
+ "case_id": 12148,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0014256,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 4,
+  "7": 5,
+  "8": 6,
+  "9": 7,
+  "10": 7,
+  "11": 8,
+  "12": 9,
+  "13": 10,
+  "14": 11,
+  "15": 12,
+  "16": 13,
+  "17": 14,
+  "18": 15,
+  "19": 16,
+  "20": 17,
+  "21": 17,
+  "22": 18,
+  "23": 18,
+  "24": 19,
+  "25": 19,
+  "26": 20,
+  "27": 21,
+  "28": 21,
+  "29": 21,
+  "30": 22,
+  "31": 22,
+  "32": 23,
+  "33": 23,
+  "34": 23,
+  "35": 23
+ },
+ "result": {
+  "order_para": 23,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RAD err in applying the 'palpable and overriding error' standard to review the RPD's credibility findings?",
+    "paras": "9,19-20",
+    "applicant_position": "RAD erred by applying 'palpable and overriding error' standard to RPD's conclusions.",
+    "respondent_position": "'Palpable and overriding error' is the correct standard for RAD to review credibility findings; RAD may intervene beyond that if error is non-obvious.",
+    "result": "dismissed_for_applicant",
+    "result_para": 19,
+    "result_text": "Court holds 'palpable and overriding error' is correct standard; no error in RAD's approach."
+   },
+   {
+    "issue": "Did the RAD fail to independently assess the genuineness of the police letter, thereby tainting credibility findings?",
+    "paras": "10-12,16-17",
+    "applicant_position": "RAD should have independently assessed genuineness of police letter; failure tainted credibility findings.",
+    "respondent_position": "RAD independently assessed police report and found RPD's concerns reasonable; no error in credibility assessment.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_text": "RAD independently assessed police letter and found RPD's concerns reasonable."
+   },
+   {
+    "issue": "Did the RAD err by not detailing its independent conclusions on the police letter and credibility findings?",
+    "paras": "13-16",
+    "applicant_position": "RAD should have provided more detailed reasons on personalized documents and country conditions.",
+    "respondent_position": "RAD not required to detail all independent conclusions if RPD's findings are numerous, obvious, and well-articulated.",
+    "result": "dismissed_for_applicant",
+    "result_para": 16,
+    "result_text": "RAD shared RPD's concerns; no need to repeat RPD's words in detail."
+   },
+   {
+    "issue": "Did the RAD err by not intervening in the RPD's negative credibility findings despite applicants' arguments?",
+    "paras": "17-18,21-22",
+    "applicant_position": "RAD should have been less deferential and recognized errors in RPD's credibility findings.",
+    "respondent_position": "RPD's credibility conclusions warrant deference; no reviewable error in RAD's decision not to intervene.",
+    "result": "dismissed_for_applicant",
+    "result_para": 22,
+    "result_text": "No reviewable error; RAD properly deferred to RPD's credibility findings."
+   }
+  ]
+ }
+}

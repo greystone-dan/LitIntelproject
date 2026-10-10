@@ -1,0 +1,1466 @@
+{
+ "case_id": 57410,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0264828,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The case originated from a new drug application to the FDA by a Montreal pharmaceutical company.",
+     "quote": "The genesis of this case was a new drug application to the U.S. Food and Drug Administration (FDA) by a pharmaceutical research and development company based in Montréal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA referred questions about the drug's side effects to an expert Advisory Committee and made these questions public.",
+     "quote": "the FDA referred a number of questions about this drug to an expert Advisory Committee, including questions about the drug’s potential side effects. The FDA also made these questions public as part of a package of briefing materials on its website.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Stock quotation enterprises publicizing these questions caused the company's share price to drop sharply.",
+     "quote": "When the questions were publicized by stock quotation enterprises, the price of the company’s shares dropped sharply.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the case began with an FDA drug application, publicized side effect questions, and a resulting sharp share price drop.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A holding company that sold shares during this period sought court authorization to bring a class action for damages under s. 225.4 of the Securities Act.",
+     "quote": "A holding company that sold its shares during this period sought authorization to bring a class action for damages under s. 225.4 of the Securities Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The class action alleged breach of statutory disclosure obligations.",
+     "quote": "alleging a breach of statutory disclosure obligations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a holding company sought authorization for a class action alleging breach of disclosure obligations.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2007, the Securities Act was amended to create a new statutory cause of action for investors against reporting issuers breaching disclosure obligations.",
+     "quote": "In 2007, changes to the Securities Act created a new statutory cause of action that enabled investors to bring claims against reporting issuers who breach their obligation to disclose material facts and changes to their shareholders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Actions for damages require prior court authorization under s. 225.4.",
+     "quote": "Actions for damages may not be brought without the prior authorization of the court pursuant to s. 225.4.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court grants authorization if it deems the action in good faith and with reasonable possibility of success for the plaintiff.",
+     "quote": "A court will grant authorization “if it deems that the action is in good faith and there is a reasonable possibility that it will be resolved in favour of the plaintiff”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The issue is whether there was a reasonable possibility of success under s. 225.4.",
+     "quote": "The issue in this appeal is whether there was a “reasonable possibility” of success within the meaning of this provision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the 2007 Securities Act amendment requires court authorization based on good faith and reasonable possibility of success, which is the issue here.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The threshold in s. 225.4 requires more than a mere possibility of success.",
+     "quote": "the threshold set out in s. 225.4 for authorization requires more than a mere possibility of success",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court disagrees with the Court of Appeal's conclusion that the threshold was met in this case.",
+     "quote": "do not share its conclusion that the threshold was met in this case.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the threshold requires more than a mere possibility but disagrees the threshold was met here.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Theratechnologies Inc. is a Montreal-based pharmaceutical company listed on the Toronto Stock Exchange.",
+     "quote": "Theratechnologies inc. (Thera) is a pharmaceutical research and development company based in Montréal and listed on the Toronto Stock Exchange.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "121851 Canada Inc. is a holding company with Roger St-Germain as sole shareholder and director, holding 190,000 Thera shares.",
+     "quote": "121851 Canada inc. is a holding company. Roger St-Germain is its sole shareholder and director. At the relevant time, 121851 Canada inc. had 190,000 Thera shares.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Theratechnologies is a Montreal pharmaceutical company and 121851 Canada Inc. is a holding company owning 190,000 shares.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On June 1, 2009, Thera filed a new drug application with the FDA for tesamorelin to reduce abdominal fat in HIV patients.",
+     "quote": "On June 1, 2009, Thera filed a new drug application with the FDA for tesamorelin, a drug to reduce excess abdominal fat among HIV patients.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA's Center for Drug Evaluation and Research reviews new drug applications to decide if benefits outweigh risks for approval.",
+     "quote": "Its role is to decide whether the studies submitted by the drug’s sponsoring company — typically, its manufacturer — show the new drug to be safe and effective. If the sponsoring company demonstrates that the drug’s benefits outweigh its known risks, the FDA will approve it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Thera filed a drug application for tesamorelin and the FDA evaluates safety and efficacy for approval.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA often convenes an expert Advisory Committee to evaluate drug safety and efficacy.",
+     "quote": "As part of its usual process of evaluating the safety and efficacy of a drug, the FDA will often convene a meeting of an expert Advisory Committee.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA provides two briefing packages to the Advisory Committee: one from the FDA and one from the sponsoring company.",
+     "quote": "The FDA provides this Advisory Committee with two packages of briefing materials in advance of the meeting, one containing information prepared by the FDA and the other containing information prepared by the sponsoring company.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA's package includes a background memorandum with questions for the Advisory Committee to answer.",
+     "quote": "The FDA’s package includes a background introductory memorandum that sets out the crucial considerations associated with the application, and questions the FDA wishes to submit to its Advisory Committee to answer upon review of the Briefing Package.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Advisory Committee may recommend approval or disapproval; the FDA generally follows but is not bound by this advice.",
+     "quote": "Based on the information in the Briefing Package, an Advisory Committee may decide to recommend approval or disapproval of a new drug application. The FDA generally follows the advice of the Advisory Committee, but is not bound to do so.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the FDA's Advisory Committee process and briefing materials for drug approval recommendations.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera regularly updated shareholders and the Quebec securities commission about the FDA application process.",
+     "quote": "As its application proceeded through this FDA process, Thera regularly updated its shareholders and the Commission des valeurs mobilières du Québec about developments in the application process.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera issued press releases on Nov 5, 2009, Jan 18, 2010, Jan 25, 2010, Feb 25, 2010, and Mar 22, 2010 about the Advisory Committee meeting dates and postponements.",
+     "quote": "On November 5, 2009, Thera issued a press release announcing that the FDA had requested an opinion from its Endocrinologic and Metabolic Drugs Advisory Committee about Thera’s application. On January 18, 2010, Thera announced that the Advisory Committee would meet on February 24, 2010 to discuss its application. On January 25, 2010, Thera issued another press release indicating that the Advisory Committee meeting had been postponed. And on February 25, 2010, it announced that the meeting had been rescheduled for May 27, 2010. On March 22, 2010, it issued a press release confirming this date.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Thera regularly updated shareholders and issued press releases about the Advisory Committee meeting schedule.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Between 2005 and 2008, Thera conducted two phase-three clinical trials testing tesamorelin's safety and efficacy in HIV patients.",
+     "quote": "Between 2005 and the end of 2008, as part of its efforts to gain FDA approval for tesamorelin, Thera undertook two “phase-three” clinical trials of the drug that aimed to test its safety and efficacy among HIV patients.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Phase-three trials are large randomized tests of drug safety and therapeutic effect.",
+     "quote": "A phase-three clinical trial is a randomized, relatively large-scale test of a drug’s safety and therapeutic effect on patients.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Because growth hormone is linked to diabetes risk, trials measured blood sugar levels to evaluate side effects.",
+     "quote": "Because the growth hormone that tesamorelin triggers is associated with increased risk of diabetes, the clinical trials measured the blood sugar levels of participating patients to evaluate potential side effects of the drug.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Thera conducted phase-three trials measuring blood sugar due to diabetes risk from growth hormone.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera regularly disclosed clinical trial progress to shareholders during this period.",
+     "quote": "Throughout this period, Thera regularly disclosed information about the progress of its clinical trials to its shareholders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In its 2008 Annual Notice, Thera reported a good safety profile and planned to study glucose intolerance effects.",
+     "quote": "In its 2008 Annual Notice, Thera commented on the results of its studies showing a “good safety profile”, and indicated it would study tesamorelin’s effects related to glucose intolerance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Thera regularly disclosed trial progress and reported a good safety profile in 2008.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On Nov 11, 2009, Thera announced combined phase-three trial results indicating no clinically significant blood sugar side effects.",
+     "quote": "In a press release on November 11, 2009, Thera announced the combined results of its phase-three clinical trials, which indicated that possible side effects of the drug on blood sugar were not clinically significant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On Mar 1, 2010, Thera announced publication of these results concluding benefits were achieved without significant glucose side effects.",
+     "quote": "On March 1, 2010, Thera announced the publication of these results in an article in the Journal of Acquired Immune Deficiency Syndromes, concluding that the benefits of the drug were “achieved without significant side effects or perturbation of glucose”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Thera announced trial results showing no significant blood sugar side effects and published these findings.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In April 2010, Thera provided the FDA with a Briefing Package summarizing tesamorelin and clinical study results already disclosed to investors.",
+     "quote": "In April 2010, Thera provided the FDA with a Briefing Package that contained a description of tesamorelin and a summary of the results from the different clinical studies that Thera had already disclosed to its investors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA traditionally makes such Briefing Packages public when publishing its own briefing materials.",
+     "quote": "This Briefing Package is traditionally made public by the FDA when it publishes its own briefing materials.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera's Briefing Package explained theoretical safety concerns about glycemic parameters but concluded no major safety concerns and manageable glycemic changes.",
+     "quote": "In its Briefing Package, Thera explained that [t]he effect of tesamorelin administration on glycemic parameters was a theoretical safety concern because of well known diabetogenic effect of GH [growth hormone]. In the Phase 3 studies, no clinically significant differences were observed over 52 weeks between tesamorelin 2 mg and placebo for changes from baseline in FBG, insulin, HOMA-IR, and HbA1c. With regard to FBG shifts and changes in glucose categories, as well as shifts in HbA1c categories, greater differences from baseline occurred in the tesamorelin group. Nevertheless, there was some reversal of these effects after the first 26 weeks. Overall, the data suggest no major safety concerns with regard to glucose homeostasis and that any glycemic changes can be managed in clinical practice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Thera's April 2010 FDA Briefing Package summarized clinical results and concluded no major glycemic safety concerns.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On May 11, 2010, the FDA sent Thera a briefing document for the Advisory Committee meeting including a Background Introductory Memorandum with questions about side effects.",
+     "quote": "On May 11, 2010, the FDA sent Thera a briefing document it had prepared for the Advisory Committee meeting, including a copy of a Background Introductory Memorandum which contained questions about tesamorelin’s side effects.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "FDA policy is to publish all materials for new drug applications at least 48 hours before Advisory Committee meetings.",
+     "quote": "FDA policy was to publish on its website all the materials assembled for the new drug application at least 48 hours before an Advisory Committee meeting.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On May 25, 2010, the FDA published the compiled information about tesamorelin including briefing materials from Thera and the FDA.",
+     "quote": "In accordance with its policy, on May 25, the FDA published the information it had compiled about tesamorelin, including the briefing materials compiled by both Thera and the FDA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the FDA sent briefing documents with side effect questions and published them online before the Advisory Committee meeting.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The FDA's Background Introductory Memorandum attracted attention from stock quotation enterprises like Dow Jones.",
+     "quote": "The FDA’s Background Introductory Memorandum attracted the attention of stock quotation enterprises, including Dow Jones",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Dow Jones issued press releases highlighting both the drug's efficacy and potential increased diabetes risk based on FDA questions.",
+     "quote": "Dow Jones who, on the basis of the questions that the FDA had asked its Advisory Committee, expressed concern that tesamorelin could increase the risk of diabetes. At about 9 a.m. on May 25, for example, Dow Jones issued a press release that said: “FDA: Theratechnologies Drug Cuts Abdominal Fat In HIV Patients”. A minute later, it issued a second press release: “FDA: Proposed Theratechnologies Drug Might Increase Diabetes Risk”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Dow Jones' article noted increased diabetes risk but did not specify that clinical results showed minor, transitory, and manageable effects.",
+     "quote": "The article did not specify that Thera’s clinical results had concluded that the effects of tesamorelin on the glycemic parameters of these patients were minor, transitory, and easily clinically managed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Dow Jones publicized FDA questions raising diabetes risk concerns but omitted clinical results showing manageable effects.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera did not respond publicly, believing its prior disclosures sufficiently addressed the FDA's questions.",
+     "quote": "Thera did not react publicly because it believed the briefing documents it had already provided to the FDA and the clinical results it had already made public to its investors offered a comprehensive response to the specific questions the FDA had posed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Thera chose not to respond publicly, believing prior disclosures were comprehensive.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. St-Germain sold his Thera shares on May 25, 2010, incurring a net loss of $271,752 from May 21 value.",
+     "quote": "When Mr. St-Germain became aware of the Dow Jones press releases on May 25, he decided to sell his company’s shares of Thera, resulting in a net loss of $271,752 from the shares’ value on May 21, 2010.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera's shares traded extensively and dropped 58% over the next two days; trading was halted on May 27, 2010.",
+     "quote": "For the next two days, Thera’s shares were traded extensively and their price dropped by 58 percent. On May 27, 2010, the Toronto Stock Exchange stopped all transactions of Thera’s shares.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On May 27, 2010, the Advisory Committee unanimously voted to approve tesamorelin; Thera announced this that afternoon.",
+     "quote": "The same day, the Advisory Committee unanimously voted in favour of approving Thera’s new drug application for tesamorelin. Thera announced this news by press release late that afternoon.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On May 28, 2010, trading resumed and Thera's share price recovered; FDA approved the drug on Nov 10, 2010.",
+     "quote": "On May 28, when trading of Thera’s stock resumed, its share price recovered. The FDA approved the new drug application on November 10, 2010.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts Mr. St-Germain's share sale, share price drop and halt, Advisory Committee approval, and FDA approval dates.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "121851 sought court authorization under s. 225.4 to launch a class action claiming the diabetes side effect information was a material change triggering disclosure obligations.",
+     "quote": "121851 sought judicial authorization under s. 225.4 of the Securities Act to launch a class action proceeding for damages, claiming that the information that diabetes was among the potential side effects of tesamorelin and the FDA’s questions about those side effects amounted to a material change in Thera’s business, operations or capital, triggering timely disclosure obligations in the form of a reassuring press release under s. 73 of the Securities Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 73 requires reporting issuers to provide timely disclosure of material changes and other prescribed disclosures.",
+     "quote": "73. A reporting issuer shall provide periodic disclosure about its business and internal affairs, including its governance practices, timely disclosure of a material change and any other disclosure prescribed by regulation in accordance with the conditions determined by regulation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 225.4 requires prior court authorization for damages actions, with notice and facts stated, and grants authorization if in good faith and reasonable possibility of success.",
+     "quote": "225.4 No action for damages may be brought under this division without the prior authorization of the court. The request for authorization must state the facts giving rise to the action. It must be filed together with the projected statement of claim and be notified by bailiff to the parties concerned, with a notice of at least 10 days of the date of presentation. The court grants authorization if it deems that the action is in good faith and there is a reasonable possibility that it will be resolved in favour of the plaintiff.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains 121851 sought authorization for a class action alleging failure to disclose a material change under s. 73 and s. 225.4.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Motions Judge found s. 225.4 imposes a higher threshold than art. 1003 C.C.P. for class action authorization.",
+     "quote": "The Motions Judge concluded that the authorization mechanism in s. 225.4 of the Securities Act imposed a higher threshold than art. 1003 of the Code of Civil Procedure, CQLR, c. C-25 (C.C.P.), which deals with the authorization of class actions generally",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Motions Judge found sufficient evidence to conclude 121851’s action had a reasonable possibility of success.",
+     "quote": "but found sufficient evidence to support the conclusion that 121851’s action had a reasonable possibility of success.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Motions Judge found s. 225.4 sets a higher threshold than general class action authorization but found reasonable possibility of success.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court of Appeal dismissed Thera's appeal and agreed s. 225.4 requires more than a mere possibility of success.",
+     "quote": "An appeal by Thera to the Court of Appeal was dismissed. The Court of Appeal agreed with the Motions Judge that the screening mechanism under s. 225.4 was more stringent than for the authorization of a class action under art. 1003 of the Code of Civil Procedure and required more than a mere possibility of success.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court of Appeal noted the legislative intention was to make s. 225.4 a more robust screening mechanism.",
+     "quote": "It noted that the legislative intention behind s. 225.4 was to make the provision a more robust screening mechanism.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court of Appeal dismissed the appeal, agreeing s. 225.4 requires more than mere possibility and is a robust screening mechanism.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Based on evidence and testimony, the Court of Appeal found a reasonable possibility the action would succeed in favor of 121851.",
+     "quote": "Based on documentary evidence and Mr. St-Germain’s testimony, the Court of Appeal was of the view that there was a reasonable possibility that the action would be resolved in his company’s favour.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "The Court of Appeal upheld the order authorizing the damages action.",
+     "quote": "As a result, it upheld the order authorizing an action for damages.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court of Appeal found reasonable possibility of success and upheld authorization for the damages action.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 225.4 of the Securities Act addresses breaches of disclosure obligations in the secondary market.",
+     "quote": "Section 225.4 of the Securities Act is part of a new regime of statutory civil liability to address breaches of disclosure obligations in the secondary market",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Two criteria for authorization of damages action: good faith and reasonable possibility of success.",
+     "quote": "This provision sets out two substantive criteria for the authorization of an action for damages: the action must be brought in good faith and there must be a reasonable possibility that it will be resolved in favour of the claimant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No dispute that 121851’s action is brought in good faith.",
+     "quote": "There is no dispute that 121851’s action is brought in good faith.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The case turns on interpretation of 'reasonable possibility' of success.",
+     "quote": "This case turns then on the interpretation of “a reasonable possibility” that 121851’s action will be resolved in its favour.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "History and objectives of authorization mechanism assist interpretation.",
+     "quote": "The history and objectives of the authorization mechanism set by s. 225.4 in the context of the Securities Act as a whole assist in this exercise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains s. 225.4 sets two criteria for damages actions: good faith and reasonable possibility of success; here, good faith is undisputed, so interpretation of reasonable possibility is key.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Quebec’s Securities Act requires companies with publicly traded shares to disclose information regularly to security holders and regulator.",
+     "quote": "Quebec’s Securities Act requires companies whose shares are traded in the secondary market to regularly disclose certain information to their security holders and the provincial securities regulator",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Quebec’s Securities Act mandates regular disclosure to security holders and regulators for publicly traded companies.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Continuous disclosure obligations include periodic disclosure through regular documents.",
+     "quote": "Periodic disclosure must be made at regular intervals, typically through the regular provision of documents such as proxy circulars, financial statements and insider trading reports.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Companies must disclose all material facts in periodic disclosures, defined as facts likely to affect market price or value.",
+     "quote": "companies must disclose all material facts — that is, anything “that may reasonably be expected to have a significant effect on the market price or value of securities issued”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains periodic disclosure requires regular documents disclosing all material facts affecting securities' market value.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Timely disclosure obligations arise only upon material changes in issuer’s affairs and must be disclosed when they occur.",
+     "quote": "Timely disclosure obligations, on the other hand, are imposed only when there has been a material change in the issuer’s affairs... must be disclosed at the time they occur",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Material changes arise from changes in business, operations or capital.",
+     "quote": "Material changes, which arise from changes in the issuers’ business, operations or capital, must be disclosed at the time they occur",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states timely disclosure is required for material changes in business, operations or capital, disclosed as they occur.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Disclosure obligations aim to create a level playing field where all investors have equal information.",
+     "quote": "Continuous disclosure is designed to create a “level playing field” where all investors have access to the same information",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Ensuring a level playing field is the fundamental principle of securities regulation.",
+     "quote": "the policy of ensuring this “level playing field” reified in statutory continuous disclosure obligations has been called “the most fundamental principle of securities regulation”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains disclosure obligations ensure fairness by providing equal information to all investors, a fundamental securities principle.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Disclosure supports capital market efficiency by helping investors and enhancing management accountability.",
+     "quote": "Disclosure also supports capital market efficiency by helping investors target the most deserving securities and enhancing the accountability of corporate management",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Increased investor confidence leads to more efficient markets.",
+     "quote": "As investors realize that they have the necessary information, they become more confident in the securities market, and their consequent increased participation leads to more efficient markets",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states disclosure improves market efficiency by aiding investors and increasing confidence and participation.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 225.4 arose from efforts to provide investors statutory recourse for disclosure breaches.",
+     "quote": "Section 225.4 emerged directly out of Canada-wide efforts to develop a more meaningful and accessible form of recourse for investors.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Historically, investors lacked statutory cause of action for continuous disclosure breaches and had to prove reliance under tort of negligent misrepresentation.",
+     "quote": "Canadian investors in the secondary trading market did not have access to a statutory cause of action... had to rely on the tort of negligent misrepresentation, which required... prove that they had relied on the misinformation",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Proving reliance was difficult, making redress inaccessible for many harmed by disclosure breaches.",
+     "quote": "Because it was extremely difficult to prove such reliance when securities were purchased in the secondary market, this requirement put meaningful redress out of reach",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains s. 225.4 was created because investors historically lacked statutory remedies and proving reliance was difficult.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In Quebec, claimants had to prove fault, prejudice, and causal link including reliance to establish civil liability under Civil Code.",
+     "quote": "investors faced a similarly heavy burden under the Civil Code... required to prove a fault... prejudice; and that there was a causal link between the fault and the prejudice — that is, that they had relied on the misinformation",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Demonstrating causal link was particularly onerous in securities context.",
+     "quote": "Demonstrating the requisite causal link proved to be particularly onerous in the securities context",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Quebec law required proving fault, prejudice, and reliance, which was onerous in securities cases.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 1990s, Toronto Stock Exchange's Allen Committee found existing sanctions inadequate and remedies for investors impractical.",
+     "quote": "the Allen Committee concluded that the “current sanctions and funding available to regulators ... are inadequate” and “the remedies available to investors... are so difficult to pursue that they are... largely hypothetical”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Allen Committee recommended statutory civil liability regime for investors to sue issuers, directors, officers for disclosure breaches.",
+     "quote": "It recommended the creation of a statutory civil liability regime that would help investors sue issuers, directors, and officers who violated their statutory disclosure obligations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the Allen Committee's findings that sanctions were inadequate and recommended statutory civil liability for disclosure breaches.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Canadian Securities Administrators adopted Allen Committee recommendations and proposed implementation across Canada.",
+     "quote": "The Canadian Securities Administrators... adopted most of the Committee’s recommendations and began developing proposals to implement them across Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "To discourage strike suits, a screening mechanism was recommended to allow only claims with reasonable chance of success.",
+     "quote": "the new liability regime should include a “screening mechanism” to ensure that only claims with a reasonable chance of success would be brought",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Screening mechanism aims to minimize unmeritorious litigation and early dismissal of such claims.",
+     "quote": "This screening mechanism is designed not only to minimize the prospects of an adverse court award... but... to try to ensure that unmeritorious litigation... is avoided or brought to an end early",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Screening mechanism offers defendants expectation that unmeritorious actions will be denied leave to proceed, deterring strike suits.",
+     "quote": "By offering defendants the reasonable expectation that an unmeritorious action will be denied the requisite leave to be commenced, the 2000 Draft Legislation should better enable defendants to fend off coercive efforts by plaintiffs to negotiate the cash settlement that is often the real objective behind a strike suit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Canadian Securities Administrators recommended a screening mechanism to prevent unmeritorious claims and strike suits.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ontario implemented the new liability regime with a screening mechanism requiring good faith and reasonable possibility of success.",
+     "quote": "Ontario became the first province to implement... including a screening mechanism that limited actions... to those instituted in good faith with “a reasonable possibility” of being resolved at trial in favour of the plaintiff",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ontario first implemented the liability regime with a screening mechanism requiring good faith and reasonable possibility of success.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Quebec implemented similar regime through Bill 19, harmonized with Ontario's but adjusted for civil law.",
+     "quote": "The recourse proposed in Bill 19 is highly harmonized with that in place in Ontario... Only the necessary adjustments were made to reflect civil law notions and vocabulary",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Quebec adopted a similar regime to Ontario's, adjusted for civil law, via Bill 19.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Under the regime, value fluctuation of security at time of false declaration is presumed attributable to that fault.",
+     "quote": "when a security is acquired or transferred at the time of a false declaration or omission... the fluctuation in the value of the security is presumed to be attributable to that fault",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Investors are relieved from proving market price variation linkage and personal reliance on misinformation.",
+     "quote": "Investors were thereby released from the heavy burden of demonstrating that the variation in the market price... and from demonstrating that they personally relied on that information",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the regime presumes value fluctuation is due to false declaration, relieving investors from proving reliance.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The scheme establishes an authorization mechanism permitting only good faith actions with reasonable possibility of success.",
+     "quote": "The scheme also establishes an authorization mechanism to permit only actions in good faith with a “reasonable possibility of success”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Quebec’s regime balances preventing unmeritorious litigation and ensuring meaningful remedies for investors.",
+     "quote": "Quebec’s new regime therefore reflected an attempt to strike a balance between preventing unmeritorious litigation and strike suits and... ensuring that investors have a meaningful remedy",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Quebec’s regime balances preventing unmeritorious suits and ensuring meaningful investor remedies.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reasonable possibility standard under s. 225.4 is higher than class action authorization under art. 1003 C.C.P.",
+     "quote": "the “reasonable possibility” of success required under s. 225.4 sets out a different and higher standard than the general threshold for the authorization of a class action under art. 1003 of the C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Art. 1003 C.C.P. requires only a good colour of right, a low threshold for class action authorization.",
+     "quote": "Under art. 1003, the court seeks only to identify whether “the facts alleged seem to justify the conclusions sought” — that is, whether the applicant has established “a good colour of right”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Low threshold reflects class action objectives of deterrence and compensation.",
+     "quote": "the low threshold for authorizing a class action under art. 1003 of the C.C.P. reflects the “twin objectives of deterrence and compensation that animate the class action system”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 225.4’s reasonable possibility standard is higher than the low threshold for class action authorization under art. 1003 C.C.P.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Quebec legislature created a more meaningful screening mechanism in s. 225.4 to prevent strike suits and unmeritorious claims.",
+     "quote": "The Quebec legislature used different language in s. 225.4 to create a more meaningful screening mechanism in the securities context so that costly strike suits and unmeritorious claims would be prevented.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Courts have gatekeeping role to preliminarily assess if action has reasonable possibility of success.",
+     "quote": "Courts are given an important gatekeeping role, which requires them to conduct a preliminary examination... to assess whether it could be said to have a reasonable possibility of success",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Question is whether screening is a minimal filter or a preliminary merits test with more bite.",
+     "quote": "Is this simply a screening mechanism to keep out “strike suits” that are plainly unmeritorious and have no chance of success? Or, is this a preliminary merits test that should have more bite?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 225.4 creates a meaningful screening mechanism with courts gatekeeping to assess reasonable possibility of success.",
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ontario and BC courts have discussed threshold balancing preventing unmeritorious cases and encouraging meritorious ones.",
+     "quote": "there has been some discussion in the Ontario and British Columbia courts about what the threshold is, all seeking to find a balance between preventing cases without a realistic prospect of success but encouraging those with a likelihood of success",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Ontario and BC courts have debated the threshold balancing unmeritorious and meritorious cases.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Threshold should be more than a 'speed bump'; courts must reasonedly consider evidence to ensure some merit.",
+     "quote": "the threshold should be more than a “speed bump”... courts must undertake a reasoned consideration of the evidence to ensure that the action has some merit",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Threshold requires reasonable or realistic chance of success to promote deterrent screening mechanism.",
+     "quote": "the threshold requires that there be a reasonable or realistic chance that the action will succeed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the threshold requires reasoned evidence consideration and a reasonable chance of success to deter unmeritorious suits.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonable possibility requires plausible legislative analysis and credible evidence supporting claim.",
+     "quote": "A case with a reasonable possibility of success requires the claimant to offer both a plausible analysis of the applicable legislative provisions, and some credible evidence in support of the claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Authorization stage is not a mini-trial; full evidence analysis is unnecessary.",
+     "quote": "the authorization stage under s. 225.4 should not be treated as a mini-trial. A full analysis of the evidence is unnecessary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Evidentiary requirements should not replicate trial demands to avoid undermining screening mechanism.",
+     "quote": "To impose such a requirement would undermine the objective of the screening mechanism, which is to protect reporting issuers from unsubstantiated strike suits and costly unmeritorious litigation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Sufficient evidence must persuade court of reasonable possibility of claimant’s success.",
+     "quote": "What is required is sufficient evidence to persuade the court that there is a reasonable possibility that the action will be resolved in the claimant’s favour",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rules reasonable possibility requires plausible analysis and credible evidence but not full trial-level proof.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "121851 alleges Thera breached s. 73 obligation to timely disclose material changes.",
+     "quote": "121851 alleges that Thera breached its obligation under s. 73 of the Securities Act to provide timely disclosure of material changes to its investors",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 5.3 defines material change as change in business, operations or capital expected to affect market price or value.",
+     "quote": "Section 5.3 of the Securities Act defines a “material change” as a change in the business, operations or capital of the issuer that would reasonably be expected to have a significant effect on the market price or value",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Material change has two components: change in business, operations or capital and materiality affecting securities' value.",
+     "quote": "a material change has two components. There must be a change in the business, operations or capital of the issuer and the change must be material",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Both elements are required to trigger timely disclosure obligation.",
+     "quote": "Both elements are required to trigger an obligation of timely disclosure",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states 121851 alleges breach of timely disclosure; material change requires business change and material effect on securities value.",
+   "role": "issue"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "A material change occurred on May 11, 2010, when Thera received FDA briefing materials including a memorandum on glucose intolerance and diabetes risks.",
+     "quote": "121851 argues that a material change occurred on May 11, 2010, when Thera received the FDA briefing materials, which included a Background Introductory Memorandum asking the Advisory Committee to comment on “the findings of glucose intolerance and development of diabetes associated with Egrifta [tesamorelin] therapy and its impact on longterm cardiovascular risk”.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "This information was made public on May 25, 2010, when FDA posted the memorandum and briefing materials on its website.",
+     "quote": "This information was made public on May 25, 2010, when the FDA posted the memorandum, alongside all the briefing materials it had generated on tesamorelin, on its website.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues a material change occurred May 11, 2010, when FDA briefing materials on diabetes risks were received and made public May 25, 2010.",
+   "role": "issue"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "121851 has not shown evidence of a material change in Thera’s operations, capital or business under s. 5.3 of the Securities Act.",
+     "quote": "121851 has not pointed to any evidence that could qualify as a material change in Thera’s operations, capital or business as described in s. 5.3 of the Securities Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Without evidence of a material change meeting statutory requirements, 121851’s action cannot reasonably succeed.",
+     "quote": "And without some evidence of a material change that corresponds to the statutory requirements, 121851’s action cannot reasonably hope to succeed.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds no evidence of material change under statute; thus 121851’s action cannot reasonably succeed.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Tesamorelin activates growth hormone, linked to diabetes risk in other contexts.",
+     "quote": "Tesamorelin operates by activating a growth hormone, which, in other contexts, has been associated with an increased risk of diabetes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera’s phase-three trials measured blood sugar to evaluate diabetes risk from tesamorelin.",
+     "quote": "Thera’s phase-three clinical trials measured the blood sugar levels of participating patients to evaluate the risk associated with this potential side effect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Trials compared five glycemic parameters between tesamorelin and placebo patients, showing no clinically significant glucose effect.",
+     "quote": "The trials compared five glycemic parameters recognized by the scientific community and the American Diabetes Association in patients taking tesamorelin and patients taking a placebo, and revealed that tesamorelin did not have a clinically significant effect on the glucose levels of patients.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states tesamorelin activates growth hormone; trials showed no significant glucose effect compared to placebo.",
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Clinical trial results were disclosed to shareholders as available, including November 2008 Annual Notice summarizing results and safety profile.",
+     "quote": "The results of the clinical trials were disclosed to shareholders as they became available. In its November 2008 Annual Notice, for example, Thera summarized its clinical results to date and noted that the administration of [the hormone] is not indicated for glucose-intolerant patients, a condition often observed in these patients.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera decided to study tesamorelin’s effect on glucose intolerance, highlighting good safety and fat composition effects.",
+     "quote": "Consequently, Theratechnologies decided to study the effect of tesamorelin in the treatment of this condition. Highlights of the study included a good safety profile, a clear effect on body composition and a clinically relevant reduction in visceral fat while subcutaneous fat was preserved.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes clinical trial results and safety profile were disclosed, including study on tesamorelin’s effect on glucose intolerance.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On Nov 11, 2009, Thera presented combined phase-three trial results at European AIDS Conference, disclosed via press release.",
+     "quote": "On November 11, 2009, Thera, in collaboration with two external experts, presented the combined results of its two phase-three clinical trials at the 12th European AIDS Conference. The fact of this presentation and its content were disclosed to investors via a press release, which stated that “[n]o clinically important changes in glucose parameters were observed after treatment with tesamorelin . . . .”",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Thera presented combined trial results in 2009, disclosed by press release noting no important glucose changes.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On March 1, 2010, Thera issued press release about study publication showing tesamorelin reduces visceral fat without significant glucose side effects.",
+     "quote": "On March 1, 2010, Thera issued a press release announcing the publication of a study detailing its combined clinical results in the publicly available Journal of Acquired Immune Deficiency Syndromes. The press release provided a link to the study, which included an abstract highlighting the clinical results and concluding that the potential side effects of tesamorelin were not significant: Tesamorelin reduces visceral fat by approximately 18% and improves body image distress in HIV-infected patients with central fat accumulation. These changes are achieved without significant side effects or perturbation of glucose.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes March 2010 press release on study showing tesamorelin reduces visceral fat without significant glucose side effects.",
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Thera disclosed monitoring of tesamorelin’s side effects including blood sugar, with no false or misleading reports.",
+     "quote": "Through these press releases, Thera disclosed to its shareholders that it was monitoring tesamorelin’s side effects, including on patients’ blood sugar levels. It provided both summaries and full studies detailing the results of its clinical trials. There is no allegation that any of these reports were either false or misleading.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A reasonable investor would know blood sugar issues were potential side effects and trials found them not clinically significant.",
+     "quote": "A reasonable investor who read Thera’s news releases would have known that blood sugar issues and diabetes were potential side effects of the drug, and that Thera’s clinical trials had found they were not clinically significant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Thera disclosed side effect monitoring truthfully; reasonable investors knew blood sugar issues were potential but not significant.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This case differs from Pezim where drilling results were material changes affecting assets.",
+     "quote": "this case can be distinguished from Pezim v. British Columbia (Superintendent of Brokers), [1994] 2 S.C.R. 557, in which the Court held that information contained in drilling results regarding a mining company’s exploration site could constitute a material change in the “business, operations, assets or ownership of the issuer”, since they could reasonably be expected to significantly affect the company’s assets.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Tesamorelin side effects were disclosed before FDA published briefing materials; no new info required timely disclosure May 11, 2010.",
+     "quote": "Unlike the drilling results at issue in Pezim, the potential side effects of tesamorelin had already been disclosed to shareholders well before the FDA published its questions and the rest of its briefing materials. There was no new information about the side effects of tesamorelin that required timely disclosure as of May 11, 2010.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court distinguishes this case from Pezim; tesamorelin side effects were disclosed before FDA briefing, so no new timely disclosure needed.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "121851’s argument is like Kerr v. Danier Leather where intra-quarterly results were alleged withheld to ensure IPO success.",
+     "quote": "121851’s argument is more analogous to the claim in Kerr v. Danier Leather Inc., [2007] 3 S.C.R. 331. The company, which was making an initial public offering (IPO) of its shares, had issued preliminary prospectuses which included a sales forecast for the fourth quarter of the fiscal year to its potential investors. Unseasonably warm weather, however, knocked the company’s sales forecasts off track as the quarter progressed. After its IPO had closed, the company disclosed its intra-quarterly results in a press release, triggering a sharp drop in its share value. Although the company ultimately realized its initial sales forecasts, the claimants launched a class action, alleging that the company had withheld the intra-quarterly results to ensure the success of its IPO.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent compares argument to Kerr v. Danier Leather where intra-quarterly results were alleged withheld to ensure IPO success.",
+   "role": "issue"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Intra-quarterly results are not changes in business, operations or capital; fluctuations may be external and not material changes.",
+     "quote": "This Court held that the intra-quarterly results did not constitute a material change to the business, operations or capital of the company because the warm weather that triggered the drop in sales was external to the company and its business: . . . a change in intra-quarterly results is not itself a change in the issuer’s business, operations or capital and, for that matter, does not necessarily signal that a material change has occurred.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Poor intra-quarterly results may reflect material change if caused by restructuring, but the results themselves do not trigger disclosure obligation.",
+     "quote": "It almost goes without saying that poor intra-quarterly results may reflect a material change in business operations. A company that has, for example, restructured its operations may experience poor intra-quarterly results because of this restructuring, but it is the restructuring and not the results themselves that would amount to a material change and thus trigger the disclosure obligation.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Disclosure obligation triggered by change in business, operations or capital, not by results themselves; results may motivate change.",
+     "quote": "Additionally, poor intra-quarterly results may motivate a company to implement a change in its business, operations or capital in an effort to improve performance. Again, though, the disclosure obligation would be triggered by the change in the business, operations or capital, and not by the results themselves.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites Kerr: intra-quarterly results alone are not material changes; disclosure triggered by business changes, not results themselves.",
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "FDA’s concerns about side effects represent a material change in Thera’s operations, business or capital.",
+     "quote": "121851 argues that the FDA’s preoccupation with the side effects represents a material change in Thera’s operations, business or capital.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence FDA’s questions or briefing package departed from routine FDA drug approval process or reflected new undisclosed info.",
+     "quote": "But it has not pointed to any evidence to suggest that the questions the FDA posed to its Advisory Committee about these side effects, or the contents of its Briefing Package more generally, departed in any way from the regular and routine process through which the FDA assesses whether a drug should be approved. Nor is there any evidence that the questions reflected new and undisclosed information about tesamorelin.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "FDA policy is to prepare and post briefing materials two days before Advisory Committee meetings as routine step.",
+     "quote": "In fact, the evidence on the record suggests the opposite. It is FDA policy to prepare briefing materials for an Advisory Committee, including information compiled by both the FDA and the sponsoring company, and to post those materials two days before an Advisory Committee meeting.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "FDA questions to Advisory Committee about side effects are routine, not indication of drug approval outcome or material change.",
+     "quote": "Questions from the FDA to its expert Advisory Committee about the side effects of a drug do not constitute a departure from the normal FDA process, or, necessarily an indication of whether the drug will be approved. Rather, they are a routine step in the FDA’s work to determine whether a drug’s benefits outweigh its risks.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "FDA questions are not a change to Thera’s business, operations, or capital requiring public reassurance.",
+     "quote": "As such, it is difficult to characterize these questions as any kind of change to Thera’s business, operations, or capital requiring a reassuring public response from Thera.",
+     "answers": 4
+    }
+   ],
+   "summary": "Respondent argues FDA concerns are material change; court finds FDA questions routine, not new info or material change requiring disclosure.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Market reaction shows FDA concerns about side effects are material change affecting company’s resources, technology, products or markets.",
+     "quote": "121851 argues that the market’s reaction demonstrates that the FDA’s concerns about side effects constitute a material change. It points out that the Canadian Securities Administrators’ “National Policy 51-201 Disclosure Standards” includes among its list of potentially “material” information “any development that affects the company’s resources, technology, products or markets”: Article 4.3.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues market reaction shows FDA concerns are material change per CSA National Policy 51-201.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CSA policy section deals with market impact, not whether event is material fact or material change.",
+     "quote": "This section of the policy, however, deals with the market impact of events, not whether they are best characterized as material facts or material changes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Adopting CSA list as dispositive would collapse material facts and changes distinction, expanding disclosure beyond statute.",
+     "quote": "To adopt this list as dispositive of whether there was a change in the business, operations or capital of a reporting issuer would collapse the distinction between material facts and material changes, significantly expanding timely disclosure obligations beyond what is required by statute.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "CSA policy cannot amend Quebec securities legislation per Pezim ruling.",
+     "quote": "This would, in effect, allow the Canadian Securities Administrators’ policy to amend Quebec’s securities legislation, contrary to this Court’s ruling in Pezim.",
+     "answers": 2
+    }
+   ],
+   "summary": "Court finds CSA policy addresses market impact, not material change; adopting it would improperly expand disclosure obligations.",
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Thera disclosed routine FDA process aspects but FDA questions do not meet statutory material change definition.",
+     "quote": "It is true that Thera had sometimes disclosed routine aspects of the FDA process in press releases to its shareholders in the months leading up to the Advisory Committee meeting, but this does not bring the FDA’s questions to its Advisory Committee within the statutory definition of a material change.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Thera’s duty is to disclose material changes timely, not to reassure investors at every FDA approval stage.",
+     "quote": "Thera had a statutory duty to disclose material changes in its operations, capital or business in a timely manner, not to reassure its investors at every stage of the FDA approval process.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds FDA questions do not constitute material change; Thera must disclose material changes timely, not reassure investors at every FDA step.",
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if Thera issued May 11, 2010 press release, unclear what reassurance could be given given FDA process uncertainty.",
+     "quote": "Finally, even if Thera had issued a press release on May 11, 2010 after it received the FDA’s briefing materials, it is not clear what reassurance Thera could have provided at this stage, given that the outcome of the FDA process, as every reasonable investor would have known and as Thera repeatedly made clear, is always uncertain.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Excessive disclosure risks burying shareholders in trivial information, hindering informed decisionmaking (TSC Industries v. Northway).",
+     "quote": "As the U.S. Supreme Court acknowledged in TSC Industries, Inc. v. Northway, Inc., 426 U.S. 438 (1976), there are risks of excessive disclosure, which could “simply . . . bury the shareholders in an avalanche of trivial information — a result that is hardly conducive to informed decisionmaking”: pp. 448-49, cited in Cornish, at para. 41.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes uncertain FDA process limits reassurance from press release; excessive disclosure risks overwhelming shareholders.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No credible evidence of material change triggering disclosure; 121851’s action under s. 73 cannot succeed; appeal allowed with costs.",
+     "quote": "Because the evidence does not credibly point to a material change that could have triggered timely disclosure obligations, there is no reasonable possibility that 121851’s action under s. 73 of the Securities Act could succeed. I would allow the appeal with costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed with costs; solicitors for parties named.",
+     "quote": "Appeal allowed with costs. Solicitors for the appellants: Fasken Martineau DuMoulin, Montréal. Solicitors for the respondent: Savonitto & Ass. inc., Montréal. Solicitors for the intervener: Siskinds, Desmeules, avocats, Québec; Siskinds, London.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes no material change evidence; 121851’s action fails; appeal allowed with costs; solicitors named.",
+   "role": "disposition"
+  }
+ ]
+}

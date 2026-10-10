@@ -1,0 +1,73 @@
+{
+ "case_id": 65110,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0010912,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 7,
+  "9": 8,
+  "10": 9,
+  "11": 10,
+  "12": 11,
+  "13": 12,
+  "14": 13,
+  "15": 14,
+  "16": 15,
+  "17": 16,
+  "18": 17,
+  "19": 18,
+  "20": 19,
+  "21": 20,
+  "22": 21,
+  "23": 22,
+  "24": 22,
+  "25": 23,
+  "26": 23,
+  "27": 24,
+  "28": 25,
+  "29": 26,
+  "30": 27,
+  "31": 27,
+  "32": 28,
+  "33": 28,
+  "34": 29,
+  "35": 29,
+  "36": 30,
+  "37": 31,
+  "38": 31,
+  "39": 32,
+  "40": 33,
+  "41": 34
+ },
+ "result": {
+  "order_para": 34,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD err in applying Article 1E exclusion due to appellant's permanent resident status in Brazil?",
+    "paras": "7,8,12-20",
+    "applicant_position": "Appellant argues Haitians face hostile conditions unlike nationals, so Article 1E should not apply.",
+    "respondent_position": "RPD found permanent resident status grants rights similar to nationals, triggering Article 1E exclusion.",
+    "result": "dismissed_for_applicant",
+    "result_para": 13,
+    "result_text": "RAD finds no error in RPD's conclusion on appellant's status and Article 1E application."
+   },
+   {
+    "issue": "Did the RPD err in assessing the appellant's fear of returning to Brazil as a fear of persecution?",
+    "paras": "21-31",
+    "applicant_position": "Appellant claims RPD failed to consider racism endured and particular circumstances causing fear of persecution.",
+    "respondent_position": "RPD found isolated incidents not linked to race or nationality; no well-founded fear of persecution shown.",
+    "result": "dismissed_for_applicant",
+    "result_para": 29,
+    "result_text": "RAD finds appellant has not established a well-founded fear of persecution or serious rights violations in Brazil."
+   }
+  ]
+ }
+}

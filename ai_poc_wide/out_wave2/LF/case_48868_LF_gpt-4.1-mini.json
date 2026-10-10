@@ -1,0 +1,1196 @@
+{
+ "case_id": 48868,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.024476800000000003,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent was convicted of indecent assault after a trial held 30 years post acts, with credibility of witnesses being key.",
+     "quote": "The respondent was convicted of indecently assaulting the complainant. His trial was held more than 30 years after the impugned acts. ... The credibility of the witnesses was determinative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the respondent was convicted of indecent assault after a trial held 30 years later, with witness credibility being determinative.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Complainant testified abuse occurred at respondent's residence and in his car when he drove her home.",
+     "quote": "According to the complainant, the abuse had occurred when she went to babysit the children of her sister and the respondent, and it had taken place in their residence on some occasions and in their car at other times when the respondent drove her home.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Respondent denied the abuse occurred as described by the complainant.",
+     "quote": "The respondent denied this.",
+     "answers": 0
+    }
+   ],
+   "summary": "The complainant testified abuse occurred at respondent's residence and car; the respondent denied this, as reported by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge did not believe respondent or his wife, found respondent's daughter's testimony irrelevant, and accepted complainant's and police testimony.",
+     "quote": "The trial judge analysed the evidence systematically. He did not believe the respondent. Neither the respondent’s testimony nor that of his wife raised a reasonable doubt. The trial judge found that the testimony of the respondent’s daughter had no impact on the verdict. He set out numerous reasons to explain why he considered the complainant’s testimony credible. He accepted the police officers’ testimony concerning an interrogation to which the respondent had submitted.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Trial judge held evidence did not raise reasonable doubt and proved guilt beyond reasonable doubt.",
+     "quote": "The trial judge held that the evidence as a whole did not raise a reasonable doubt as to the respondent’s guilt and that the prosecution had proved beyond a reasonable doubt that the offence had been committed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The trial judge found respondent and wife not credible, accepted complainant and police testimony, and held evidence proved guilt beyond reasonable doubt.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Court of Appeal majority found trial judge erred in assessing respondent’s wife’s credibility and entered acquittal after own evidence analysis.",
+     "quote": "The majority of the Court of Appeal found that the trial judge had erred in assessing the credibility of the respondent’s wife. They undertook their own analysis of the evidence, concluded that the verdict was unreasonable and entered an acquittal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "One dissenting judge found no palpable or overriding error in trial judge’s assessment and verdict was not unreasonable.",
+     "quote": "One judge dissented, stating that the trial judge “did not commit any palpable and overriding error in his assessment of the evidence and that the verdict handed down was not unreasonable” (2010 QCCA 2237 (CanLII), at para. 178).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court of Appeal majority found trial judge erred on credibility and acquitted; one dissent found no error and verdict reasonable.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Whether a verdict is unreasonable is a question of law.",
+     "quote": "Whether a verdict is unreasonable is a question of law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Because of dissent, appeal comes before Supreme Court as of right.",
+     "quote": "Because of the dissent on this question, the appeal comes before this Court as of right.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that unreasonableness of verdict is a legal question and appeal comes as of right due to dissent.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues trial judge did not err on credibility and verdict was not unreasonable; Court of Appeal should not have interfered.",
+     "quote": "The appellant argues that the trial judge did not err in assessing the credibility of the witnesses and that the verdict was not unreasonable. She submits that the Court of Appeal should not have interfered.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the trial judge did not err and the verdict was reasonable; Court of Appeal should not have interfered.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Respondent relied on s. 686(1)(a)(i) Criminal Code allowing appeal if verdict unreasonable or unsupported by evidence.",
+     "quote": "In the Court of Appeal, the respondent relied on s. 686(1) (a)(i) of the Criminal Code, R.S.C. 1985, c. C‑46 , which is also central to the appeal to this Court. It reads as follows: 686. (1) On the hearing of an appeal against a conviction or against a verdict that the appellant is unfit to stand trial or not criminally responsible on account of mental disorder, the court of appeal (a) may allow the appeal where it is of the opinion that (i) the verdict should be set aside on the ground that it is unreasonable or cannot be supported by the evidence,",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent relied on Criminal Code s. 686(1)(a)(i) allowing appeal if verdict is unreasonable or unsupported by evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issue is whether Court of Appeal correctly applied relevant principles.",
+     "quote": "The issue here is whether the Court of Appeal correctly applied the relevant principles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is whether the Court of Appeal correctly applied the relevant principles.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To decide unreasonableness, appellate court asks if a properly instructed jury or judge could reasonably have rendered verdict.",
+     "quote": "To decide whether a verdict is unreasonable, an appellate court must, as this Court held in R. v. Yebes, [1987] 2 S.C.R. 168, and R. v. Biniaris, 2000 SCC 15, [2000] 1 S.C.R. 381, at para. 36, determine whether the verdict is one that a properly instructed jury or a judge could reasonably have rendered.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Verdict may be unreasonable if trial judge made essential factual finding plainly contradicted by evidence or incompatible with uncontradicted evidence.",
+     "quote": "The appellate court may also find a verdict unreasonable if the trial judge has drawn an inference or made a finding of fact essential to the verdict that (1) is plainly contradicted by the evidence relied on by the trial judge in support of that inference or finding, or (2) is shown to be incompatible with evidence that has not otherwise been contradicted or rejected by the trial judge (R. v. Sinclair, 2011 SCC 40, [2011] 3 S.C.R. 3, at paras. 4, 16 and 19‑21; R. v. Beaudry, 2007 SCC 5, [2007] 1 S.C.R. 190).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains appellate review of unreasonableness and when verdict may be unreasonable due to contradictory or incompatible findings.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Whether verdict is reasonable is law; whether witness is credible is fact; appellate court cannot interfere with credibility unless no reasonable view supports it.",
+     "quote": "Whereas the question whether a verdict is reasonable is one of law, whether a witness is credible is a question of fact. A court of appeal that reviews a trial court’s assessments of credibility in order to determine, for example, whether the verdict is reasonable cannot interfere with those assessments unless it is established that they “cannot be supported on any reasonable view of the evidence” (R. v. Burke, [1996] 1 S.C.R. 474, at para. 7).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states verdict reasonableness is law, credibility is fact, and appellate court cannot interfere unless no reasonable view supports credibility.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court of Appeal majority substituted own credibility assessment for trial judge’s and found verdict unreasonable, entering acquittal.",
+     "quote": "In the case at bar, the majority of the Court of Appeal reached their conclusions by substituting their own assessment of the credibility of the witnesses for that of the trial judge. They were not persuaded by the reasons the trial judge had given for not believing the respondent; they found that he had incorrectly assessed the significance of the testimony of the respondent’s wife, and that the defence’s theory of confabulation was not frivolous. In their view, the trial judge had erred in accepting the complainant’s testimony. After undertaking their own assessment of the witnesses’ credibility, they concluded that his verdict was unreasonable and entered an acquittal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Court of Appeal majority substituted their own credibility assessment and entered acquittal as verdict was unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Verdict was one a judge could reasonably render; trial judge did not err in fact-finding or credibility assessment; Court of Appeal intervention unjustified.",
+     "quote": "However, that verdict was clearly one a judge could reasonably render (Yebes, Biniaris). Unlike my colleague Fish J., I do not find that the trial judge drew an inference or made a finding of fact that was plainly contradicted by the evidence or was incompatible with evidence that was not otherwise contradicted or rejected (Sinclair). Furthermore, the trial judge’s assessment of the witnesses’ credibility was reasonable (Burke). For all these reasons, I find that the intervention of the Court of Appeal cannot be justified in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the verdict was reasonable, trial judge did not err, and Court of Appeal intervention was unjustified.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Where trial judge gives detailed reasons aware of problems, Court of Appeal brings no special insight; doubt by appeal judge insufficient to overturn verdict.",
+     "quote": "In R. v. A.G., 2000 SCC 17, [2000] 1 S.C.R. 439, Arbour J. made an observation that applies in the instant case (para. 29): . . . where a judge gives detailed reasons for judgment and when, as in this case, the reasons reveal that he or she was alive to the recurrent problems in this field of adjudication, the court of appeal brings no special insight to the assessment of the evidence. As this Court’s s. 686(1) (a)(i) jurisprudence makes very clear, the fact that an appeal court judge would have had a doubt when the trial judge did not is insufficient to justify the conclusion that the trial judgment was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites precedent that detailed trial reasons and awareness of problems mean appeal court brings no special insight; doubt alone insufficient to overturn verdict.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Trial lasted five days; court will not review evidence but agrees with dissenting judge’s review; addresses dissenting judge Fish J.'s comments.",
+     "quote": "The trial in the case at bar lasted five days. I will not review the evidence. Thibault J.A., the dissenting judge in the Court of Appeal, did so and I agree with her reasons. However, I will address certain comments made by Fish J., who, like the majority of the Court of Appeal, reassesses the testimonial evidence. He focusses on specific excerpts from that evidence and says that he is not convinced by the reasons the trial judge gave for accepting the complainant’s version of the facts and rejecting the testimony of the respondent’s wife.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes trial lasted five days, agrees with dissenting judge’s review, and addresses Fish J.'s reassessment of evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge did not disregard complainant’s testimony flaws or err in considering age, time elapsed, or respondent’s wife’s testimony.",
+     "quote": "With respect, it is my view that the trial judge did not disregard the flaws in the complainant’s testimony, nor did he err either in taking into account her age and the time elapsed since the incidents in question or in assessing the testimony of the respondent’s wife.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Trial judge’s role is to assess and weigh evidence, not accept or reject prosecution theory entirely.",
+     "quote": "The trial judge was not required to accept all aspects of the prosecution’s theory or to reject it in its entirety any more than this Court is. His role as the trier of fact was to assess and give due weight to the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge did not err in assessing testimony flaws and explains trial judge’s role to assess and weigh evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge acknowledged complainant’s inconsistencies on secondary details but found them not affecting general credibility given time elapsed and age.",
+     "quote": "The trial judge was fully aware of the limitations of the complainant’s testimony. He considered them, quite appropriately, in the analysis that led him to conclude that he believed the complainant: [translation] . . . the cross‑examination of the complainant showed that she had been mistaken, contradicted herself or been inconsistent on, or had no recollection of, many details of secondary importance: times, places, duration, first disclosure, frequency, divulgation, context, her personal situation or those of other people. She readily recognized this. All these flaws relating to secondary matters cannot affect her general credibility in light of the whole of the evidence. Many of the incidents in question took place thirty‑four (34) years before she testified, at a time when she was only thirteen (13) years old in traumatic circumstances. The words of the Supreme Court that I quoted above are entirely relevant here. [A.R., vol. I, at pp. 77‑78]",
+     "answers": 0
+    }
+   ],
+   "summary": "The trial judge found complainant’s secondary inconsistencies did not affect general credibility given age and time elapsed.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge considered weaknesses but found them not determinative given 34 years elapsed and complainant’s age at incidents.",
+     "quote": "It is clear from this quotation that the trial judge took into account the weaknesses of the complainant’s testimony, including the passages referred to by Fish J., but found that this evidence was not determinative, especially given that the incidents in question had taken place 34 years before she testified, at a time when she was only 13 years old.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Judge who sees and hears witness determines effect of time passage and witness vulnerability.",
+     "quote": "It is up to the judge who sees and hears a witness to determine what effect the passage of time might have had and how vulnerable the witness was in light of his or her age and the factual context.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge considered weaknesses but found them not determinative and explains judge’s role in assessing witness vulnerability.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge did not fault respondent’s wife for being both precise and general; found she had only general recollection of events 30 years earlier.",
+     "quote": "As for the testimony of the respondent’s wife, I will merely note that the trial judge did not, as my colleague states, fault this witness for being both too precise and too general. Nor did he find that there were no contradictions whatsoever in the complainant’s testimony. Rather, he found it unlikely that the respondent’s wife could remember details of daily life where there was no reason for them to have been [translation] “fixed” in her memory. This very contrast between the fact that she testified about specific details while at the same time having recourse to general expressions supports the trial judge’s finding that the witness did not really remember the specific details. In sum, the trial judge found that the respondent’s wife had only a general recollection of what had happened to her 30 years earlier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge found respondent’s wife’s testimony did not interfere with complainant’s as it admitted occasions alone with accused; respondent did not deny being alone with complainant.",
+     "quote": "His comments on the complainant’s testimony and that of the respondent’s wife explain his conclusion that the determinative aspects of their testimony could be reconciled. In his view, the testimony of the respondent’s wife [translation] “does not, having regard to the evidence as a whole, interfere with that of the complainant, since it also admits of occasions when she was alone with the accused” (A.R., vol. I, at p. 73). The trial judge also noted that the respondent had not denied being alone with the complainant in the house or in his car when he drove her home at night.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Trial judge’s approach was coherent, supported by evidence, and did not justify Court of Appeal intervention.",
+     "quote": "The trial judge’s approach was coherent and was also supported by the evidence. It did not justify the intervention of the Court of Appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge reasonably assessed respondent’s wife’s testimony and that it did not justify Court of Appeal intervention.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with dissenting judge Thibault J.A. that trial judge did not err in assessing evidence.",
+     "quote": "I agree with Thibault J.A., for the reasons set out above and for the reasons she gave, that the trial judge did not err in assessing the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with dissenting judge that trial judge did not err in assessing evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed and trial judge’s verdict restored.",
+     "quote": "For these reasons, I would allow the appeal and restore the trial judge’s verdict.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and restores the trial judge’s verdict.",
+   "role": "disposition"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This appeal by the Crown comes to us as of right on the strength of a dissent in the Court of Appeal.",
+     "quote": "This appeal by the Crown comes to us as of right on the strength of a dissent in the Court of Appeal (2010 QCCA 2237 (CanLII)).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Crown appeals as of right based on a dissent in the Court of Appeal, says the court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Justice Deschamps would allow the appeal and restore the respondent’s conviction because the majority impermissibly substituted its own findings of fact.",
+     "quote": "Justice Deschamps would allow the appeal and restore the respondent’s conviction at trial on the ground that the majority in the Court of Appeal impermissibly substituted its own findings of fact ― including its own opinion as to the credibility of witnesses ― for the findings and opinion of the trial judge.",
+     "answers": 0
+    }
+   ],
+   "summary": "Justice Deschamps would allow the appeal, restoring conviction, because the majority wrongly substituted its own findings for the trial judge's, reports the Court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I have a different view from Justice Deschamps.",
+     "quote": "With respect, I am of a different view.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it holds a different view from Justice Deschamps.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Pelletier J.A. reviewed the evidence in detail and committed no error in doing so.",
+     "quote": "I agree that Pelletier J.A., delivering the reasons of the majority, reviewed the evidence in detail. He committed no error in that regard.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reviewing courts must articulate precisely what features support a conclusion that a verdict is unreasonable.",
+     "quote": "It is well established that reviewing courts, in concluding that a verdict is unreasonable, must articulate as precisely as possible what features of the case support that conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees Pelletier J.A. properly reviewed evidence; reviewing courts must precisely articulate why a verdict is unreasonable, citing authority.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A reviewing court must re-examine the entire evidentiary record and identify concerning evidence or lack thereof.",
+     "quote": "a reviewing court must re-examine the entire evidentiary record at trial, consider the effect of its salient elements, and specifically identify aspects of the evidence ― or lack of evidence ― that are of particular concern",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A court of appeal must re-examine and reweigh evidence to determine if a verdict is reasonable beyond a reasonable doubt.",
+     "quote": "a court of appeal, in determining whether the trier of fact could reasonably have reached the conclusion that the accused is guilty beyond a reasonable doubt, must re-examine, and to some extent at least, reweigh and consider the effect of the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that appellate courts must re-examine and reweigh evidence to assess verdict reasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Justice Pelletier fulfilled his duty to defer to the trial judge but also scrutinized findings including witness credibility.",
+     "quote": "Justice Pelletier did in this case. He took care, repeatedly and expressly, to recognize his duty as an appellate judge to show due deference to the trial judge’s findings of fact. But due deference does not preclude detailed scrutiny of the trial judge’s findings, even as to the credibility of witnesses",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "An appellate court may overturn a verdict based on credibility findings if the verdict is unreasonable after full consideration of evidence and deference.",
+     "quote": "as a matter of law it remains open to an appellate court to overturn a verdict based on findings of credibility where, after considering all the evidence and having due regard to the advantages afforded to the trial judge, it concludes that the verdict is unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Pelletier properly deferred to the trial judge but scrutinized credibility; appellate courts may overturn unreasonable verdicts based on credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court of Appeal majority did not reject conviction due to complainant's insincerity but because the trial judge ignored critical evidence.",
+     "quote": "the majority in the Court of Appeal did not set aside the respondent R.P.’s conviction because it found the complainant insincere or mendacious. Its decision rests instead on a meticulous demonstration that the trial judge ignored or disregarded critical features of the evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court says the majority overturned conviction due to trial judge ignoring critical evidence, not complainant insincerity.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A trial judge making findings contrary to evidence engages in illogical reasoning inviting appellate intervention.",
+     "quote": "where a trial judge draws inferences or makes findings of fact that are contrary to the evidence, he or she engages in an “illogical or irrational reasoning process” that invites appellate intervention",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that illogical findings contrary to evidence justify appellate intervention.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Pelletier J.A. found the trial judge's finding of no inconsistency between G.L. and M.L. unreasonable and contrary to evidence.",
+     "quote": "Pelletier J.A. considered unreasonable, because it was contrary to the evidence, the trial judge’s finding that there was no inconsistency between the testimony of G.L. and M.L.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports Pelletier J.A. found the trial judge's no-inconsistency finding unreasonable and contrary to evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The trial judge wrongly excused inconsistency by applying child witness standards though complainant was a teenager and adult at trial.",
+     "quote": "The trial judge appears to have excused this inconsistency, at least in part, on the strength of jurisprudence which holds that child witnesses... are not held to the same standard... The complainant... was a teenager and not a child of tender years at the time of the alleged offences.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Memory gaps may excuse hazy recollection but not precise allegations directly contradicted as here.",
+     "quote": "childhood and the passage of time may well excuse memory gaps or hazy recollection, but not precise allegations that are directly contradicted ― as in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge erred applying child witness standards to a teenage complainant and memory gaps don't excuse contradicted precise allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The trial judge erred rejecting G.L.'s evidence for unsustainable reasons and ignored M.L.'s confirming evidence supporting G.L.'s testimony.",
+     "quote": "the trial judge erred as well in rejecting G.L.’s evidence for unsustainable reasons. He also ignored M.L.’s own evidence confirming important aspects of G.L.’s testimony",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge erred rejecting G.L.'s evidence and ignored M.L.'s confirming testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The trial judge’s reasons do not withstand scrutiny even with deference; no fact-finder could reasonably convict R.P. beyond reasonable doubt.",
+     "quote": "the trial judge’s reasons do not resist scrutiny, even when viewed through the mandatory lens of deference. I agree as well that... no trier of fact could reasonably conclude that R.P. is guilty beyond a reasonable doubt",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the trial judge's reasons fail scrutiny and no reasonable fact-finder could convict R.P. beyond reasonable doubt.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I would dismiss the Crown’s appeal.",
+     "quote": "In the result, I would dismiss the Crown’s appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would dismiss the Crown's appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "R.P. was convicted of indecent assault under s. 149 Criminal Code for alleged abuse from 1974-1979 when complainant was 13-17 and R.P. 27-32.",
+     "quote": "R.P. was convicted of indecent assault under what was s. 149 of the Criminal Code at the time of the alleged offences... The complainant, M.L., testified that R.P. had sexually abused her on regular and frequent occasions between 1974 and 1979, when she was between 13 and 17 and he was between 27 and 32.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states R.P. was convicted of indecent assault for alleged abuse from 1974-79 when complainant was 13-17.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Crown called four witnesses including complainant and police; defence called R.P., G.L., and daughter; evidence was entirely testimonial with no material evidence.",
+     "quote": "The Crown called four witnesses: M.L., the police officer who took her complaint, and the two officers who interrogated R.P. R.P., his wife G.L. ― the complainant’s sister ― and their daughter C.P. testified for the defence. ... the evidence in the case was entirely testimonial ― the Crown adduced no material evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the witnesses and notes the evidence was entirely testimonial with no material evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The complainant testified abuses occurred in four situations involving babysitting at R.P. and G.L.'s home.",
+     "quote": "The complainant testified that the abuses occurred in four different situations, all involving her visits to the home of R.P. and his wife G.L. to babysit their children.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the complainant testified to abuse in four babysitting situations at R.P. and G.L.'s home.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "First, M.L. alleged assaults during G.L.'s hospital births; M.L. later conceded uncertainty about babysitting during those times.",
+     "quote": "First, M.L. alleged that R.P. assaulted her sexually during the two occasions when G.L. was in the hospital giving birth... M.L. later conceded that she could not remember whether she ― or someone else ― had in fact babysat when her sister went to the hospital to give birth.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes M.L. alleged assaults during hospital births but later conceded uncertainty about babysitting then.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Second, M.L. alleged assaults while G.L. was home with bedroom door open; M.L. confirmed apartment layout and door was never closed.",
+     "quote": "Second, M.L. testified that R.P. assaulted her regularly while his wife was home as well... M.L. confirmed the evidence of G.L. regarding the layout of the apartment. Moreover, M.L. could not recall the bedroom door ever being closed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states M.L. alleged assaults while G.L. was home with door open and confirmed apartment layout.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Third, M.L. alleged assaults when R.P. came home before G.L. during babysitting; evidence showed R.P. rarely came home before G.L.",
+     "quote": "Third, M.L. testified that R.P. often assaulted her sexually when he returned home before his wife while M.L. was babysitting... the uncontradicted evidence... is that R.P. rarely came home before his wife.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes M.L. alleged assaults when R.P. came home before G.L., but evidence showed this was rare.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Finally, M.L. alleged assaults in R.P.'s car after babysitting; M.L. lived nearby and usually walked home.",
+     "quote": "Finally, M.L. testified that R.P. would sometimes assault her in his car while driving her home after babysitting... M.L. lived nearby and generally walked home on her own.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states M.L. alleged assaults in R.P.'s car but usually walked home as she lived nearby.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "I turn now to a closer look at each of the four “scenarios” alleged by the Crown.",
+     "quote": "I turn now to a closer look at each of the four “scenarios” alleged by the Crown.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court begins detailed examination of the four abuse scenarios alleged by the Crown.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "An integral element of the complainant’s narrative is that R.P. sexually assaulted her while his wife G.L. was about to leave for the hospital or was in hospital giving birth to their second and third children.",
+     "quote": "An integral element of the complainant’s narrative is that R.P. sexually assaulted her while his wife G.L. was about to leave for the hospital to give birth to their second child, while G.L. was in fact in the hospital on that occasion, and again when G.L. was in the hospital giving birth to their third child.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the complainant alleges assaults occurred while G.L. was about to or was in hospital giving birth to second and third children.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The first incident of abuse allegedly occurred the night before G.L. entered hospital to give birth to second child, with M.L. babysitting.",
+     "quote": "According to M.L., the very first incident of abuse occurred on the night just prior to G.L. entering the hospital to give birth to her second child. M.L. testified that she was asked to stay over that night because G.L. was scheduled to go to the hospital early the next morning and someone had to look after the first child.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "M.L. emphasized this timing in her trial evidence and in two letters to G.L. before police involvement.",
+     "quote": "She highlighted this element of her narrative not only in her evidence at trial but also in two letters she wrote to G.L. before going to the police: [TRANSLATION] Like I said, it all started when I was babysitting, until what Age? And when I say that it happened when you were going to the hospital to have a baby, I remember very Well, because I was sleeping on the SOFA on [. . .] Street. I don’t give a DAMN whether you BELIEVE me or not, because it’s the TRUTH. And again: Like I said, it started on [. . .] Street. I know this will be painful for you. You had [C.] and you were ABOUT to have your 2nd baby. You had me COME OVER that NIGHT to sleep there, because you were going to the hospital the next day to have the baby, and to babysit the kid. This will hurt you, because he TOOK ADVANTAGE while you were SLEEPING and each time you went to the hospital to have a baby.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts M.L.'s claim that the first abuse was the night before G.L. went to hospital, emphasized in trial and letters to G.L.",
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "G.L. testified M.L. did not babysit on either occasion when G.L. went to hospital to give birth.",
+     "quote": "G.L. testified, however, that M.L. had in fact not babysat on either of the occasions she mentioned.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On the eve of second child's birth, G.L. left first child with her mother; during third child's birth, mother and brother cared for other children.",
+     "quote": "On the eve of her entering the hospital to give birth to her second child, said G.L., she brought her first child to stay with her mother. During the birth of her third child, it was both her mother and her brother who cared for the other two.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports G.L.'s testimony that M.L. did not babysit on those occasions; children were cared for by family members.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "M.L. did not contradict G.L. on who babysat; repeatedly said she had no idea or did not remember.",
+     "quote": "Confronted with this evidence on cross-examination, M.L. did not contradict G.L. She could only say, repeatedly, [TRANSLATION] “I have no idea. I don’t know”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Trial judge did not mention M.L.'s admission of not remembering who babysat on those occasions.",
+     "quote": "In his reasons for judgment, the trial judge did not mention at all M.L.’s admission that she had “no idea” and “did not remember” who had babysat on those occasions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes M.L. admitted not remembering who babysat, and the trial judge did not mention this admission.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Without M.L.'s concession of not remembering, trial judge might have rejected G.L.'s evidence and accepted M.L.'s earlier evidence.",
+     "quote": "But for M.L.’s repeated concession that she could not remember who babysat on either occasion when G.L. went to the hospital to give birth, it was perhaps open to the trial judge to reject the evidence of G.L. and to accept the earlier evidence of M.L.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge could not rationally reject or disregard G.L.'s evidence for reasons he gave.",
+     "quote": "In my respectful view, however, the judge could not rationally have rejected or disregarded G.L.’s evidence for the reasons he gave ― a matter to which I shall later return.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge could not reasonably conclude G.L.'s evidence was consistent with M.L.'s earlier abuse allegations given M.L.'s lack of memory.",
+     "quote": "Nor could he have reasonably concluded, as he did, that G.L.’s evidence ― uncontradicted in light of M.L.’s evidence that she did not remember ― was consistent with M.L.’s earlier allegations of abuse on both occasions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge erred in rejecting G.L.'s evidence and concluding it was consistent with M.L.'s allegations given M.L.'s lack of memory.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Trial judge specified second scenario of abuse occurred regularly when G.L. was asleep.",
+     "quote": "Regarding the second situation — the abuses that occurred at the house when G.L. was asleep — the trial judge himself specified that this scenario occurred [TRANSLATION] “regularly” (A.R., vol. I, at p. 56).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "G.L. testified R.P. almost always went to bed before her because of early work start; she was a late sleeper.",
+     "quote": "However, G.L. testified that R.P. almost always went to bed before her because he started work early and she, a housewife, was a late-to-bed type, generally turning in between 11:30 p.m. and 1:00 a.m.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the trial judge found second abuse scenario occurred regularly, but G.L. testified R.P. usually went to bed before her.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "G.L. always kept bedroom door open to hear children; M.L. confirmed door was never closed.",
+     "quote": "Moreover, G.L. testified that she always kept her bedroom door open in order to hear if the children woke up. M.L. confirmed G.L.’s evidence in this regard and could not recall the bedroom door ever being closed while she was there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "M.L. testified abuses mostly occurred on living room couch; bedroom faced living room and G.L. could see couch from bed.",
+     "quote": "Consider also that M.L. testified that, save for one exception she could remember, the abuses always occurred on the couch in the living room. In their home from 1974-1977, the bedroom faced directly on the living room and, lying in her bed, G.L. said she could actually see the living room couch.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In next home, bathroom was directly in front of bedroom; M.L. did not deny this when cross-examined.",
+     "quote": "In the couple’s next home, where they lived from 1977-1978, the evidence of G.L. indicated that one had to pass directly in front of the bedroom in order to get to the bathroom, a fact M.L. did not deny when cross-examined in this regard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes home layout and testimony showing G.L. kept bedroom door open and could see living room couch where abuses occurred.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "One would expect G.L., a light sleeper, to have heard or seen alleged frequent abuses nearby, but she did not.",
+     "quote": "One would expect that G.L., a light sleeper suffering from insomnia, would at some point have heard or seen what M.L. alleged was happening, regularly and frequently, a few feet away, within her direct view.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "M.L. confirmed G.L. never heard or saw the abuses and they were never interrupted due to fear of discovery.",
+     "quote": "But M.L. confirmed that this had never occurred. Nor, according to M.L., were the frequent abuses over a period of almost five years ever once suddenly interrupted because of apprehended discovery.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes G.L. never heard or saw the frequent abuses, which M.L. confirmed were never interrupted for fear of discovery.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Third scenario alleges abuses on babysitting nights when R.P. returned home before G.L., but G.L. testified this was very rare.",
+     "quote": "The third circumstance in which the abuses were alleged to have occurred was on babysitting nights when R.P. would return home before G.L. G.L.’s testimony is inconsistent with M.L.’s allegations of regular abuse in this circumstance because R.P. returned home before G.L. very rarely.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states G.L. testified R.P. rarely returned home before her on babysitting nights, contradicting M.L.'s abuse allegations.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "M.L. corroborated G.L. that babysitting was only needed when G.L. played bingo or saw her mother, and R.P. was out working as usher.",
+     "quote": "M.L. corroborated G.L.’s assertion that the only two reasons for which M.L. was called upon to babysit (unless G.L. and R.P. went out together, in which case the abuse would fall under the second circumstance) was when G.L. was playing bingo or seeing her mother. On these evenings, a babysitter was necessary when R.P. was also out, working as an usher ― which M.L. confirmed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "G.L. testified R.P. worked late until 10:45-11:00 p.m.; M.L. confirmed G.L.'s mother went to bed early, so R.P. likely home before G.L.",
+     "quote": "G.L. testified that R.P. worked late, usually until 10:45-11:00 p.m. Regarding the nights when G.L. was seeing her mother, M.L. confirmed G.L.’s evidence that their mother always went to bed early, around 9:30-10:00 p.m. To this extent, M.L. again lent support to G.L.’s evidence that she was likely to get home before R.P. on those nights.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Bingo nights ended around 10:30 p.m. and G.L. took 15 minutes to walk home.",
+     "quote": "Bingo nights, according to G.L., always ended around 10:30 p.m. and it took her 15 minutes to walk home.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts evidence that babysitting nights mostly had R.P. out late, making it likely he arrived home before G.L. rarely.",
+   "role": "facts"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "G.L. was adamant R.P. rarely arrived home before her; her evidence is uncontradicted.",
+     "quote": "In general, G.L. was adamant that only rarely did R.P. arrive home before her. Her evidence, once again, stands uncontradicted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes G.L.'s uncontradicted testimony that R.P. rarely arrived home before her.",
+   "role": "facts"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Fourth scenario alleges sexual assaults in car when R.P. drove M.L. home; for first five years M.L. mostly walked home due to short distance.",
+     "quote": "Finally, we are left with the fourth circumstance ― sexual assaults alleged by M.L. to have occurred in the car when R.P. drove her home. According to both G.L. and M.L., for the first five years covered by the indictment, 1974-1978, M.L. almost always walked home because the distance was very short.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "From 1978-1979, couple lived 20-minute drive from M.L.'s residence; M.L. babysat infrequently then.",
+     "quote": "From 1978-1979, the couple lived in a home that was a 20-minute drive from M.L.’s residence. During that period, however, M.L. testified that she babysat relatively infrequently.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the fourth scenario of car assaults, noting M.L. mostly walked home early on and babysat infrequently later.",
+   "role": "facts"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge rejected or disregarded G.L.'s testimony for unsustainable reasons.",
+     "quote": "To the extent that the trial judge rejected or disregarded the testimony of G.L., he did so for unsustainable reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge's reasons for rejecting G.L.'s testimony unsustainable.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge faulted G.L. for suspiciously precise recollection of dates and times, but G.L. used general terms in evidence.",
+     "quote": "First, the trial judge faulted G.L. for being suspiciously precise in her recollection of dates and times. It was, he said, [TRANSLATION] “unlikely that she could remember, thirty (30) years later, so many specific details about the comings and goings of the accused and herself and the times at which they got home” (A.R., vol. I, at p. 73). In fact, nowhere in her evidence does G.L. purport to recall the “specific details” imputed to her by the trial judge. In fact, as the trial judge himself recognized, G.L. repeatedly used terms like “generally, almost always, most of the time, maybe, I don’t remember and approximately” (A.R., vol. I, at p. 73). In short, the trial judge appears to have given no weight to G.L.’s testimony for one reason unsupported by the record, and a second reason that contradicts the first: That she was too general ― and too precise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge's criticism of G.L.'s memory as both too precise and too general unsupported and contradictory.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge rejected G.L.'s evidence because she believed R.P. as his wife, ignoring her relation to complainant as sister.",
+     "quote": "Second, the trial judge found that G.L. had chosen to believe R.P. because she is [TRANSLATION] “related” to her husband (A.R., vol. I, at p. 73), disregarding the fact that she was also closely related to the complainant, her sister.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Rejecting G.L.'s evidence on relationship grounds is unacceptable as she was the only witness besides complainant and accused who could testify to key facts.",
+     "quote": "It seems to me unacceptable as well to reject on the ground of relationship the evidence of the only person who could ― other than the complainant or the accused ― testify to the layout of their previous homes, to R.P.’s daily schedules and routines, and to the circumstances surrounding her giving birth.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Complainant confirmed much of G.L.'s evidence on home layout, schedules, and birth circumstances.",
+     "quote": "And I recall here once again that the complainant confirmed much of G.L.’s evidence in each of these regards.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unacceptable to reject G.L.'s evidence due to relationship bias, noting complainant confirmed much of G.L.'s testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Trial judge disregarded G.L.'s testimony as not inconsistent with M.L.'s, but this contradicts Crown's case and record.",
+     "quote": "The final reason the trial judge gave for disregarding G.L.’s testimony was that it was not inconsistent with M.L.’s. This conclusion, as we have seen, is plainly incompatible with the Crown’s case against the accused, with the record as a whole and, more particularly, with M.L.’s own evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Trial judge viewed G.L.'s testimony as not interfering with complainant's because it admitted occasions when she was alone with accused.",
+     "quote": "In [the trial judge’s] view, the testimony of the respondent’s wife [translation] “does not, having regard to the evidence as a whole, interfere with that of the complainant, since it also admits of occasions when she was alone with the accused” . . . . The trial judge also noted that the respondent had not denied being alone with the complainant in the house or in his car when he drove her home at night. [para. 18]",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge's reason that G.L.'s testimony was not inconsistent with M.L.'s contradicts the Crown's case and record.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Crown's case is that abuses were numerous and routine, not isolated occasions when accused was alone with complainant.",
+     "quote": "But this was not the Crown’s case against the respondent at trial. Nor is it the Crown’s position in this Court. On the contrary, the Crown insists that [TRANSLATION] “the instances of abuse were numerous and occurred routinely” (transcript, at p. 16) and were not isolated “occasions when she was alone with the accused”, either in the respondent’s home or in his car.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Crown argues abuses were numerous and routine, not isolated occasions as trial judge suggested.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Complainant testified she babysat twice a week and abuse occurred practically every time.",
+     "quote": "The complainant herself testified that she babysat the children of G.L. and R.P. twice a week during most of the relevant period. Asked whether the abuse [TRANSLATION] “was repeated practically every time”, she replied: “That’s right” (A.R., vol. II-A, at p. 159).",
+     "answers": 0
+    }
+   ],
+   "summary": "The complainant testified she babysat twice weekly and abuse occurred practically every time.",
+   "role": "facts"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Complainant testified abuse occurred while babysitting during births and practically every babysitting time over five years.",
+     "quote": "In short, the complainant testified that she was abused by R.P. while babysitting when G.L. was in the hospital giving birth to their second and third children. ... The complainant’s evidence was that R.P. again abused her [TRANSLATION] “practically every time” she babysat during the five years covered by the indictment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "G.L. testified complainant did not babysit during births and R.P. was rarely home without her, with unobstructed view of alleged abuse scenes.",
+     "quote": "G.L. testified that the complainant did not babysit on either occasion. ... G.L. testified that R.P. was rarely home without her and that, when home, she had an unobstructed view of the scene of the alleged abuse during much of the relevant period.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court contrasts complainant's testimony of frequent abuse with G.L.'s testimony denying babysitting during births and stating R.P. was rarely home alone.",
+   "role": "facts"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is unreasonable to find that G.L.'s testimony does not interfere with or contradict M.L.'s evidence",
+     "quote": "It thus seems to me unreasonable, if I may say so with respect, to find that G.L.’s testimony does not [TRANSLATION] “interfere with” ― or tend to contradict or render implausible ― the evidence of the complainant, M.L. IV",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds it unreasonable to say G.L.'s testimony does not interfere with M.L.'s evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the Crown's appeal and affirm the respondent's acquittal by the Court of Appeal",
+     "quote": "For all of these reasons, as stated at the outset, I would dismiss the Crown’s appeal and affirm the respondent’s acquittal by the Court of Appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed, LeBel and Fish JJ. dissenting",
+     "quote": "Appeal allowed, LeBel and Fish JJ. dissenting.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Solicitor for the appellant is Poursuites criminelles et pénales du Québec, Québec",
+     "quote": "Solicitor for the appellant: Poursuites criminelles et pénales du Québec, Québec.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Solicitors for the respondent are Savard, Pigeon, Lévis",
+     "quote": "Solicitors for the respondent: Savard, Pigeon, Lévis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court dismisses the Crown's appeal, affirms acquittal, notes dissent, and identifies solicitors for both parties.",
+   "role": "disposition"
+  }
+ ]
+}

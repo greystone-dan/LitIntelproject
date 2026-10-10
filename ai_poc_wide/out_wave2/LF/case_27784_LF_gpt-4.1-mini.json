@@ -1,0 +1,491 @@
+{
+ "case_id": 27784,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0115616,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an application for judicial review of a RAD decision rejecting refugee claims for the Applicants due to lack of credibility.",
+     "quote": "This is an application for judicial review of a Refugee Appeal Division [RAD] decision that rejected refugee protection claims for Batool Zehra Moosvi [Principal Applicant] and Syed Askari Moosvi [Associate Applicant], [collectively, Applicants], under either section 96 or 97 of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA] because the RAD confirmed the Refugee Protection Division’s [RPD] finding that the Applicants lacked credibility [Decision].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review of a RAD decision rejecting the Applicants' refugee claims for lack of credibility.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants are Pakistani Shia Muslims fearing persecution by Sunni extremists and Pakistani police.",
+     "quote": "The Applicants are citizens of Pakistan and Shia Muslims who claim to fear persecution by Sunni extremists, including the Lashkar-e-Jhangvi [LeJ] particularly, because of the Applicants’ prominence in practicing the Shia faith and activities. They also fear the Pakistani police.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicants are Pakistani Shia Muslims fearing persecution by Sunni extremists and police.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants married in 2003; Principal Applicant moved to UAE in 2015 to join husband and practiced Shia activities secretly.",
+     "quote": "The Applicants married in 2003. In July 2015, the Principal Applicant moved to the United Arab Emirates [UAE] to join her husband, the Associate Applicant, who was employed there. The Principal Applicant began to partake in Shia activities in the UAE, although secretly, and attended Imam Bargah. On occasion, Shia women attended the Principal Applicant’s residence for small religious gatherings. The Principal Applicant returned to Pakistan periodically.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicants married in 2003; the Principal Applicant moved to UAE in 2015 and practiced Shia activities secretly.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD relied on minor, immaterial inconsistencies and erred by analyzing only 3 of 13 alleged attacks.",
+     "quote": "The Applicants argued on appeal before the RAD that the RPD relied on minor and immaterial inconsistencies between the Basis of Claim narrative and amendment [BOC] and the Principal Applicant’s testimony, and erred in reaching its findings through an analysis of only three of an alleged thirteen attacks.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD analyzed only 3 attacks where Principal Applicant was present and could testify first-hand.",
+     "quote": "the three analyzed by the RPD were the ones in which the Principal Applicant was present and could provide first-hand testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "There were marked inconsistencies between BOC and testimony on these 3 attacks, which were specific and material.",
+     "quote": "The inconsistencies were neither minor nor immaterial because they were specific details, such as the sound of a gunshot or distinguishing one single shot and four men firing wildly in the air, which a first-hand witness would be able to recount accurately.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Inconsistencies, omissions, and discrepancies undermined Principal Applicant’s accounts and attacks were not established.",
+     "quote": "The inconsistencies, omissions, and discrepancies between the BOC and the Principal Applicant’s testimony undermined her accounts of all three attacks, and the RAD found that the Principal Applicant had not established these attacks took place as alleged.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RPD erred relying on minor inconsistencies and analyzing only 3 attacks; RAD found inconsistencies were material and undermined credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant’s returns to Pakistan undermined her fear claim due to lack of reasonable explanation.",
+     "quote": "The RAD also found that the Principal Applicant’s reavailments of Pakistan undermined her alleged subjective fear of the LeJ because she offered no reasonable explanation of the reavailments in the face of alleged risks of violence or death at the hands of militants.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "First return to Karachi in 2019 was unreasonable despite threat and belief of informants.",
+     "quote": "The RAD found that, under these alleged risks and beliefs, it was unreasonable for the Principal Applicant to return to Karachi in September 2019 even if the reason assigned was to visit her mother.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Second return justification inconsistent: BOC said ceremony attendance; testimony said to not abandon mother.",
+     "quote": "However, in her testimony before the RPD, the Principal Applicant said she had to go because she could not abandon her mother. When asked by the RPD why she had not mentioned this in the BOC, the Principal Applicant stated the importance of the ceremony.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found justifications inconsistent and unreasonable given alleged attacks and police refusal to help.",
+     "quote": "The RAD found these justifications were inconsistent and found that, if the Principal Applicant had indeed been the subject of at least five separate attacks and knew the police refused to help her, it was unreasonable to return to Pakistan simply to attend a ceremony at the Imam Bargah.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found Principal Applicant’s returns to Pakistan unjustified and inconsistent, undermining her fear claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD accepted RPD’s treatment of documentary evidence: Maulana’s affidavit not supportive; police complaints unverified; family affidavits credible but insufficient.",
+     "quote": "The Maulana’s affidavit could offer no support to the attacks because they were not a witness. The police complaints are indeed records of statements, but there was no verification that the events alleged in the complaints actually happened. The affidavits from the Applicants’ family members were credible, but did not overcome the inconsistencies, contradictions, discrepancies, and omissions that the RAD found to undermine the Principal Applicant’s credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD accepted RPD’s treatment of documentary evidence as insufficient to overcome credibility issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issue is whether RAD reasonably agreed with RPD that Applicants lacked credibility and failed to establish subjective fear based on three attacks and two returns to Pakistan.",
+     "quote": "The only issue before the Court is whether it was reasonable for the RAD to agree with the RPD that the Applicants lacked credibility and failed to establish subjective fear through their analysis of the three (out of thirteen) alleged attacks and the two reavailments to Pakistan from the UAE.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states issue is whether RAD reasonably found Applicants lacked credibility and failed to establish subjective fear.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Parties agree the applicable standard of review is reasonableness.",
+     "quote": "As a starting point, the parties agree that the applicable standard of review is reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states parties agree the standard of review is reasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Two key issues: RAD’s credibility findings and the two reavailments to Pakistan; credibility is determinative.",
+     "quote": "There are two key issues before the Court: the RAD’s credibility findings, and the two reavailments to Pakistan. At the hearing, the Applicants in reply insisted (and I agree) that the issue of credibility is determinative in this matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies two key issues: credibility findings and reavailments; credibility is determinative.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue inconsistencies were minor and not core to refugee claim.",
+     "quote": "The Applicants maintain that whatever inconsistencies there were in the evidence were minor in nature and not core to the Applicants' refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue inconsistencies were minor and not core to their claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Akhigbe sets presumption of claimant’s credibility rebuttable by implausibilities, inconsistencies, omissions with clear reasons.",
+     "quote": "In Akhigbe v Canada (Minister of Citizenship and Immigration), 2002 FCT 249 (CanLII), [2002] FCJ No 332 (FCTD) [Akhigbe], Dawson J set out certain principles governing the treatment to be given to evidence, which I consolidate as a presumption of the claimant’s credibility that is rebuttable by findings of implausibilities, common sense, rationality, inconsistencies, or omissions, provided the decision-maker provides clear reasons and a basis in the evidence for their findings and inferences (Akhigbe at para 12).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Presumption that refugee claimant’s sworn testimony is truthful unless reason to doubt it (Konya, Diaz Pinzon).",
+     "quote": "To begin an analysis, there exists a presumption that a refugee claimant’s sworn testimony is truthful unless there is a reason to doubt it (Konya v Canada (Citizenship and Immigration), 2013 FC 975 [Konya] at para 16, citing Diaz Pinzon v Canada (Citizenship and Immigration), 2010 FC 1138 [Diaz Pinzon] at para 5).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites Akhigbe and others for presumption of claimant credibility rebuttable by inconsistencies with clear reasons.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Key credibility findings on three attacks: October 6 gun presence inconsistency; October 17 gunshot inconsistency; January 2020 attack timing and gun omission inconsistencies.",
+     "quote": "There are a few key credibility findings at the core of this matter: October 6 attack: there was nothing in the evidence concerning the assailants being armed, but at the hearing, the Principal Applicant testified there was a pistol. When confronted by the panel on this omission from her BOC, she explained she cannot tell the difference between guns. A negative credibility finding was drawn as this was found to be an unreasonable explanation for the omission. October 17 incident: While the Principal Applicant was not an eyewitness to this incident being inside the house, her original evidence was that five armed men confronted her uncle outside his home. At the hearing, she testified that there were only four men, and one of these armed men fired a gunshot in the air. When confronted by the panel on this omission from her BOC, she explained she was only recollecting from what her uncle told her. The panel did not accept this and the RAD agreed with the RPD that she would have heard a gunshot from inside the house, drawing a negative credibility finding. To the RAD, the Applicants submitted that instead of one man firing a single gunshot, all four men were firing wildly in the air. Without any evidence to support this version of events, and after changing the story of this incident twice, the RAD drew a negative credibility finding. January 2020 attack: The BOC states that the LeJ attacked the Principal Applicant and her cousin on their way home from the Imam Bargah, but her testimony was that it took place on the way to the Imam Bargah. Conversely, the BOC mentioned a gun in this attack, but the Principal Applicant did not mention one in her testimony until the panel asked her why she failed to mention the gun from her BOC in her testimony. This omission from her testimony also led to a negative credibility finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker found key credibility issues on three attacks involving inconsistent firearm and timing details.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Inconsistencies in attacks share common element: presence and use of firearms.",
+     "quote": "Oddly, these inconsistencies share a common element: the presence and use of firearms.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes inconsistencies share common element of firearms presence and use.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD’s finding that Principal Applicant’s explanation for October 6 attack inconsistency was insufficient is reasonable.",
+     "quote": "With respect to the October 6 attack, the RAD’s finding that the Principal Applicant’s explanation for the inconsistency in the evidence was insufficient is reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Whether Principal Applicant can identify firearms is irrelevant; original evidence had no weapon, later evidence had weapon.",
+     "quote": "As the Respondent pointed out, whether or not the Principal Applicant is adept at identifying firearms is irrelevant; the original evidence was this incident had no weapon, and her subsequent evidence was that there was a weapon (however so identified).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably rejected Principal Applicant’s explanation for October 6 attack inconsistency; Respondent argues firearm ID skill irrelevant.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably found presence of guns material and gave little weight to FIR and cousin’s affidavit as corroboration.",
+     "quote": "The RAD considered the Applicants’ submission that this was a minor inconsistency and reasonably found it was not because the presence of guns was material to the allegation and spoke to the level of violence and danger. The RAD also reasonably considered the corroborative evidence submitted in respect of the October 6 attack. They gave little weight to the First Information Report [FIR] because it only contained a recounting of what the Principal Applicant told the police, there was no investigation or follow up. The RAD is entitled to require some corroborating evidence as long as the decision-maker is able to articulate why they are suspicious of an omission in the original recounting (such as in a BOC) or subsequent testimony of an event, or an inconsistency between them (see Konya at paras 16 and 18, citing Diaz Pinzon at para 5 and Mohideen Osman v Canada (Minister of Citizenship and Immigration), 2008 FC 921 at paras 36-39). While the Applicants contend the cousin’s affidavit is corroborative evidence, the RAD gave it little weight because it specifically has no mention of weapons, reinforcing the original version of this attack and undermining the Principal Applicant’s credibility. In this respect, the RAD’s credibility finding was reasonable because the Applicants offered no evidence that corroborated their latest version of this event.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably treated gun presence as material and gave little weight to FIR and cousin’s affidavit as corroboration.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD’s negative credibility findings on October 17 incident were reasonable and cautious given inconsistencies and explanations.",
+     "quote": "I believe this is the penultimate example of why the RAD’s negative credibility findings were reasonable. The Principal Applicant’s evidence throughout the versions was that she was not an eye-witness, hiding inside her uncle’s house and listening to the incident. While the RAD is entitled to make negative or adverse inferences regarding an Applicant’s recounting of events, it must do so “with caution and not simply on the basis that it is unlikely that events happened as the Applicant said they did” (Aliserro v Canada (Citizenship and Immigration), 2022 FC 412 [Aliserro] at para 31, citing Zaiter v Canada (Citizenship and Immigration), 2019 FC 908 at paras 8-9). The RAD is not holding against the Principal Applicant her ability to recount the quantity of assailants, and I accept that the amount of armed men, being either four or five, is immaterial to the terror of the circumstances. However, it stands to reason that anyone within earshot would amply be able to discern the difference between no gunshot, a single gunshot from a single firearm, and four men simultaneously firing automatic weapons wildly in the air. Unless the Principal Applicant left out that she was hiding in a completely soundproof bunker, I cannot accept that she does not distinctly remember whether there were no gunshots, a single gunshot, or countless gunshots from several firearms simultaneously. The Principal Applicant’s inconsistency on this issue justifies that the RAD’s credibility finding here was done with caution. The sound of the gunshots, or lack thereof, is the only first-hand evidence the Principal Applicant could offer on this incident because her remaining evidence was hearsay from what her uncle had told her. Between the various changes to the recounting of this incident and the entirely insufficient explanation for those inconsistencies, I find the negative credibility findings were reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD’s negative credibility findings on October 17 incident reasonable and cautious given inconsistencies.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD’s negative credibility findings on January 2020 attack reasonable as cousin’s affidavit undermines Principal Applicant’s version.",
+     "quote": "Likewise, with respect to the January 2020 attack, the cousin’s affidavit that the Principal Applicant submitted to support her claim does nothing but undermine her credibility. Not only does the Principal Applicant offer nothing in the evidence to support her latest version of events, but the only thing her documentary evidence corroborates is that her latest version of events is likely not the real version of events.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Not all inconsistencies support negative credibility; findings must be based on clear evidentiary basis (Lawani, Aliserro).",
+     "quote": "This Court has previously held that “not all inconsistencies and implausibilities will support a negative finding of credibility; such findings should not be based on “microscopic” examination of issues irrelevant to the case or peripheral to the claim” (Lawani v Canada (Citizenship and Immigration), 2018 FC 924 [Lawani] at para 23). Alleged errors surrounding a negative finding of credibility should be based on whether the finding was drawn “from a clear evidentiary basis” (Aliserro at para 30).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD’s negative credibility findings were justified based on Applicants’ own evidence.",
+     "quote": "Insofar as the RAD was justified on the basis of the Applicants’ own evidence, I find the negative credibility findings made by the RAD were reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD’s negative credibility findings on January 2020 attack reasonable and justified by Applicants’ own evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Applicant returned twice to Pakistan despite fear; alleges subsequent persecution undermines reavailment argument.",
+     "quote": "The Principal Applicant returned to Pakistan twice between 2019 and 2020, despite alleging a fear of persecution and risk to her safety and that of her family. The justification for the first return to Pakistan was to visit her ailing mother, and for the second return, was to attend the Imam Burgah ceremony. The Principal Applicant maintained that she feared for her safety and that of her family while she was in Pakistan (both prior to and during her reavailments). She testified that she faced subsequent persecution upon return to Pakistan, and alleges this subsequent persecution undermines the reavailment issue.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsequent persecution after reavailment does not preclude refugee claim (Gurusamy, Prapaharan).",
+     "quote": "Subsequent persecution after reavailment does not preclude a person from making a claim for refugee status without being faced with the reavailment argument (Gurusamy v Canada (Citizenship and Immigration), 2011 FC 990 at para 40, citing Prapaharan v Canada (Minister of Citizenship and Immigration), 2001 FCT 272 at para 17).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Principal Applicant’s returns to Pakistan despite fear; subsequent persecution does not preclude claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reavailment seriously undermines subjective fear absent compelling reason (Obozuwa).",
+     "quote": "A refugee claimant’s reavailment to the jurisdiction in which they fear persecution or a type of harm contemplated by s. 97 of the IRPA seriously undermines allegations of subjective fear, particularly in the absence of a compelling reason for reavailment (Obozuwa v Canada (Citizenship and Immigration), 2019 FC 1007 at para 25).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Applicant’s two justifications for second return were considered by RAD; Applicants abandoned one at hearing.",
+     "quote": "The Principal Applicant originally offered two justifications for the second return to Pakistan: to attend the Imam Bargah ceremony, and to again visit her ailing mother. At the hearing, the Applicants abandoned this second justification, but I cannot ignore the fact that these justifications were made to the RAD and the RAD made their determinations after considering both these justifications.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Decision-maker must explain why reavailment explanation was unacceptable (Shabab).",
+     "quote": "When a decision-maker does not accept an explanation for a reavailment and how it relates to subjective fear, they have to provide an explanation of why it was not acceptable (Shabab v Canada (Citizenship and Immigration), 2016 FC 872 at para 49).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found returns exposed Applicant and family to grave danger if allegations true.",
+     "quote": "As the RAD pointed out, the Principal Applicant’s two returns to Pakistan, if all was true as she alleged, would have materially exposed not only herself but her ailing mother and the rest of her family to grave danger.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites law that reavailment undermines fear absent compelling reason; notes RAD considered and rejected Applicant’s justifications.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD did not err in finding first return undermined subjective fear given safety measures and belief of informants.",
+     "quote": "Considering her justification for the 2019 return to Pakistan was to visit her ailing mother, and in light of her evidence that she took several measures to avoid detection in Pakistan because she felt unsafe, and considering her evidenced belief that the LeJ had a broad network of informants throughout Pakistan, I find the RAD did not err in determining this reavailment undermined the Principal Applicant’s subjective fear of the LeJ.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Importance of Shia ceremony does not mitigate alleged fear of attack upon return.",
+     "quote": "Regarding the Shia ceremony, despite the Principal Applicant’s insistence of its importance both personally to her and to her community in Pakistan, importance of an event alone fails to mitigate her alleged fear that the LeJ would attack or kill her upon discovering her return, and certainly upon discovering she returned to attend a ceremony at the core of one of their alleged reasons for persecuting her in the first place.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Returning to Pakistan to attend ceremony and visit mother exposed Applicant and family to heightened danger.",
+     "quote": "Regarding her still-ailing mother, I reiterate my reasons above in respect of the first return to Pakistan, amplified by the circumstances of the Shia ceremony and the heightened concern of the LeJ if they discovered the Principal Applicant had returned.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably concluded first return undermined fear; ceremony importance insufficient to mitigate risk; return exposed family to danger.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD’s finding that the Principal Applicant’s reavailments undermined and were dispositive of her subjective fear of the LeJ were reasonable",
+     "quote": "the RAD’s finding that the Principal Applicant’s reavailments undermined and were dispositive of her subjective fear of the LeJ were reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD’s conclusion that the Principal Applicant’s reavailments undermined her subjective fear of the LeJ was reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This judicial review is dismissed",
+     "quote": "This judicial review is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review.",
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "There were no questions for certification",
+     "quote": "There were no questions for certification",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This application for judicial review is dismissed and no questions are certified",
+     "quote": "This application for judicial review is dismissed. No questions are certified",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states no questions are certified and dismisses the judicial review application.",
+   "role": "disposition"
+  }
+ ]
+}

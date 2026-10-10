@@ -1,0 +1,80 @@
+{
+ "case_id": 50430,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0011868,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 2,
+  "5": 3,
+  "6": 3,
+  "7": 4,
+  "8": 4,
+  "9": 4,
+  "10": 4,
+  "11": 5,
+  "12": 6,
+  "13": 7,
+  "14": 8,
+  "15": 9,
+  "16": 10,
+  "17": 11,
+  "18": 12,
+  "19": 12,
+  "20": 12,
+  "21": 12,
+  "22": 13,
+  "23": 13,
+  "24": 14,
+  "25": 15,
+  "26": 16,
+  "27": 16,
+  "28": 17,
+  "29": 17,
+  "30": 17,
+  "31": 17,
+  "32": 18,
+  "33": 18,
+  "34": 18,
+  "35": 19,
+  "36": 20,
+  "37": 20,
+  "38": 21,
+  "39": 21
+ },
+ "result": {
+  "order_para": 21,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the claimant a Convention refugee under section 96 IRPA due to persecution by the M-18 gang?",
+    "paras": "8-11",
+    "applicant_position": "Claimant fears M-18 gang targeting business people for protection fees and was assaulted by them.",
+    "respondent_position": "Claimant is a victim of crime, which does not establish nexus to a Convention refugee ground.",
+    "result": "dismissed_for_applicant",
+    "result_para": 10,
+    "result_text": "Claimant is a victim of crime, not a Convention refugee under section 96 IRPA."
+   },
+   {
+    "issue": "Did the claimant fail to claim asylum in the USA for a valid reason?",
+    "paras": "12",
+    "applicant_position": "Claimant feared deportation in USA and learned about Canada's refugee system from sister.",
+    "respondent_position": "Board accepts claimant's explanation for not claiming asylum in USA and coming to Canada instead.",
+    "result": "allowed_for_applicant",
+    "result_para": 12,
+    "result_text": "Board accepts claimant's explanation for not claiming asylum in USA."
+   },
+   {
+    "issue": "Is the claimant a person in need of protection under section 97 IRPA due to generalized risk from M-18 gang extortion and violence?",
+    "paras": "13-21",
+    "applicant_position": "Claimant fears extortion threats and violence from M-18 gang; no one is safe in Honduras.",
+    "respondent_position": "Risk of extortion and violence is generalized and widespread; claimant's risk is not personalized.",
+    "result": "dismissed_for_applicant",
+    "result_para": 20,
+    "result_text": "Risk faced by claimant is generalized and not personalized; claimant is not a person in need of protection."
+   }
+  ]
+ }
+}

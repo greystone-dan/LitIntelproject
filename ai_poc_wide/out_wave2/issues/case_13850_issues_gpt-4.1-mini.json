@@ -1,0 +1,59 @@
+{
+ "case_id": 13850,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0008408000000000001,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 2,
+  "5": 3,
+  "6": 3,
+  "7": 4,
+  "8": 5,
+  "9": 5,
+  "10": 6,
+  "11": 7,
+  "12": 8,
+  "13": 9,
+  "14": 9,
+  "15": 10,
+  "16": 11,
+  "17": 11,
+  "18": 12
+ },
+ "result": {
+  "order_para": 12,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the Board's credibility finding unreasonable?",
+    "paras": "6",
+    "applicant_position": "Applicant challenges weight given to evidence by Board",
+    "respondent_position": "Respondent argues Board's credibility findings are reasonable",
+    "result": "dismissed_for_applicant",
+    "result_para": 6,
+    "result_text": "Court not persuaded Board's credibility findings are unreasonable under reasonableness standard"
+   },
+   {
+    "issue": "Did the Board err in its findings on Internal Flight Alternative and state protection?",
+    "paras": "7-8",
+    "applicant_position": "Applicant challenges Board's findings on IFA and state protection",
+    "respondent_position": "Board considered relevant principles and evidence properly",
+    "result": "dismissed_for_applicant",
+    "result_para": 7,
+    "result_text": "No reviewable error; Board's conclusions reasonable and justified"
+   },
+   {
+    "issue": "Did the Board breach procedural fairness by not considering second post-hearing submissions?",
+    "paras": "9-11",
+    "applicant_position": "Applicant alleges breach of procedural fairness for ignoring second submissions",
+    "respondent_position": "Board not obliged to consider non-compliant submissions",
+    "result": "dismissed_for_applicant",
+    "result_para": 11,
+    "result_text": "Board did not breach procedural fairness by refusing to consider non-compliant second submissions"
+   }
+  ]
+ }
+}

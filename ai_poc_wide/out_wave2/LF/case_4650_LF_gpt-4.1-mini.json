@@ -1,0 +1,635 @@
+{
+ "case_id": 4650,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0110952,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant applied for permanent residence on humanitarian and compassionate grounds under s. 25(1) of the IRPA.",
+     "quote": "Mr. Michael Vuu [Applicant] applied for permanent residence on humanitarian and compassionate grounds [H&C application] under s. 25(1) of the Immigration and Refugee Protection Act, SC 2001, c 27.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "procedure",
+     "text": "Applicant seeks judicial review of refusal of his H&C application by a Senior Officer.",
+     "quote": "He seeks judicial review of the refusal of this application [the Decision] by a Senior Officer [Officer] of Immigration, Refugees and Citizenship Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant applied for permanent residence on humanitarian and compassionate grounds and seeks judicial review of refusal by a Senior Officer.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court allows the application, finding the Officer made an unreasonable assessment of Applicant's establishment in Canada.",
+     "quote": "For the reasons that follow, I allow this application as I find the Officer has made an unreasonable assessment of the Applicant’s establishment in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows the application, finding the Officer made an unreasonable assessment of Applicant's establishment in Canada.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is an Australian citizen in his late thirties with a history of family violence, depression, and suicide attempt.",
+     "quote": "The Applicant is a citizen of Australia in his late thirties. Growing up, he experienced family violence and depression, to the point of running away from his home and living on the streets. At one point, he attempted suicide.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant arrived in Canada on a working holiday visa in 2010, extended to 2017, and has been in Canada since except a 13-day Europe trip.",
+     "quote": "Frequent phone calls and FaceTime calls with his aunt and cousins in Canada gave him encouragement to come here, and he arrived on a working holiday visa in 2010. The visa was then extended to 2017. Aside from a 13-day trip to Europe, he has been in Canada since 2010.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is an Australian citizen with difficult background who arrived in Canada in 2010 and has mostly stayed since.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant worked as hairdresser from 2010 to 2016, then supported himself through savings after work visa expired.",
+     "quote": "From 2010 to 2016, he worked as a hairdresser in Canada. Since that time, he has supported himself through savings – as he was unable to work legally after his work visa expired.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's H&C application included many letters of support from family, friends, and colleagues.",
+     "quote": "His H&C application contained numerous letters of support from his aunt, nephew, cousins, former customers turned friends, and colleagues.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant worked as hairdresser until 2016, then lived on savings; submitted many support letters with H&C application.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer refused Applicant's H&C application on January 7, 2021.",
+     "quote": "By a decision dated January 7, 2021, the Officer refused the Applicant’s H&C application.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found Applicant's personal circumstances and establishment insufficient for H&C exemption.",
+     "quote": "The Officer found the personal circumstances of the Applicant and his establishment in Canada not sufficient to warrant an exemption on H&C grounds",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found insufficient objective evidence of interdependent relationships with family and friends.",
+     "quote": "Applicant had submitted “insufficient objective evidence to demonstrate an interdependent relationship” between the Applicant and his family and friends",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found it not uncommon for individuals in Canada to be employed, pay taxes, and form community connections.",
+     "quote": "it was not “uncommon for individuals in Canada to be employed, pay taxes and form connections and friendships within their community”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found Applicant could successfully continue his career in Australia.",
+     "quote": "Applicant “can successfully continue his career in Australia.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer refused Applicant's H&C application, finding insufficient evidence of interdependent relationships and that establishment was not uncommon.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer unreasonably assessed interdependence with family and friends.",
+     "quote": "the Officer unreasonably assessed his interdependence with family and friends in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer unreasonably used adaptability to discount establishment.",
+     "quote": "the Officer unreasonably used his adaptability to discount his establishment",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer unreasonably discounted establishment as common.",
+     "quote": "the Officer unreasonably discounted his establishment on the basis that it was common",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues Officer unreasonably assessed interdependence, adaptability, and discounted establishment as common.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Parties agree standard of review is reasonableness per Vavilov, 2019 SCC 65.",
+     "quote": "The parties agree that the standard of review is reasonableness, in accordance with Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov].",
+     "answers": 0
+    }
+   ],
+   "summary": "Parties agree standard of review is reasonableness under Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness is deferential but robust; decision must be transparent, intelligible, justified.",
+     "quote": "Reasonableness is a deferential, but robust, standard of review: Vavilov, at paras 12-13. The reviewing court must determine whether the decision under review, including both its rationale and outcome, is transparent, intelligible and justified: Vavilov, at para 15.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonable decision has coherent, rational analysis justified by facts and law.",
+     "quote": "A reasonable decision is one that is based on an internally coherent and rational chain of analysis and that is justified in relation to the facts and law that constrain the decision-make: Vavilov, at para 85.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness depends on administrative context, record, and impact on affected persons.",
+     "quote": "Whether a decision is reasonable depends on the relevant administrative setting, the record before the decision-maker, and the impact of the decision on those affected by its consequences: Vavilov, at paras 88-90, 94, 133-135.",
+     "answers": 0
+    }
+   ],
+   "summary": "Vavilov explains reasonableness as deferential, requiring transparent, coherent, justified decisions considering context and impact.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "To show unreasonableness, applicant must prove central or significant flaws in decision.",
+     "quote": "For a decision to be unreasonable, the applicant must establish the decision contains flaws that are sufficiently central or significant: Vavilov, at para 100.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Onus is on Applicant to demonstrate decision is unreasonable.",
+     "quote": "The onus is on the Applicant to demonstrate that the decision is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant must prove central flaws to show unreasonableness; onus is on Applicant.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees Officer unreasonably discounted establishment as 'not uncommon' without justification.",
+     "quote": "I agree with the Applicant that the Officer unreasonably discounted his establishment on the basis that it was “not uncommon”, without providing any justification for their conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees Officer unreasonably discounted establishment as 'not uncommon' without justification.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Officer repeatedly used phrase 'not uncommon' to describe Applicant's establishment in Decision.",
+     "quote": "The Officer used the phrase “not uncommon” several times in the Decision, stating that “it is not uncommon for an individual who has resided in Canada for a total of approximately 10 years to form connections within his community”, “it is not uncommon for an individual residing in Canada for a lengthy period to form these types of relationships”, and “it is not uncommon for individuals who reside in Canada to be employed, pay taxes and form connections and friendships within their community.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer repeatedly described Applicant's establishment as 'not uncommon' in Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues his circumstances are not common due to difficulties, long residence, employment, income, authorized work, interdependent family and friendships.",
+     "quote": "The Applicant argues that his circumstances are not common: he faced significant difficulty in Australia, he has resided in Canada for 10 years, he was gainfully employed, he earned a high income, he did not work without authorization, he has close family members with which he shares an interdependent relationship, and he forged many friendships which can also be described as interdependent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues his circumstances are not common due to difficulties, long residence, employment, income, authorized work, and interdependent relationships.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant relies on Joseph, 2013 FC 993, where officer failed to explain why 10 years residence and close family did not show sufficient establishment.",
+     "quote": "The Applicant relies on Joseph v Canada (Citizenship and Immigration), 2013 FC 993 [Joseph] at para 29, in which Justice Annis found that the officer had not explained “why ten years of residence in Canada, successful employment, multiple close Canadian family members, and deep involvement in the community did not constitute sufficient establishment to render removal an unusual and undeserved or disproportionate hardship.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant cites Joseph where officer failed to explain why 10 years residence and close family did not show sufficient establishment.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant relies on Jamrich, 2003 FCT 804, where officer unreasonably found establishment no more than expected of any refugee.",
+     "quote": "In addition, the Applicant relies on Jamrich v Canada (Minister of Citizenship and Immigration), 2003 FCT 804 at para 29, in which Justice Blais found that it was unreasonable for the officer to conclude that establishment was “no more than is expected of any refugee who is given similar opportunities in Canada” and could not be considered “so different and significant that it differs from what is expected from any other person who resides in Canada while undergoing the refugee determination process.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant cites Jamrich where officer unreasonably found establishment no more than expected of any refugee.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits Officer's conclusion on establishment lacked justification; Respondent has not shown justification in Decision.",
+     "quote": "In short, the Applicant submits that the Officer’s conclusion on establishment was lacking in justification, and that the Respondent has not shown where the justification has appeared in the Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submits Officer's conclusion lacked justification; Respondent has not shown justification in Decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues H&C assessment is discretionary and not an alternative immigration stream, citing Kanthasamy and Meniuk.",
+     "quote": "The Respondent reiterates that an H&C assessment is highly discretionary and an H&C exemption is not an alternative stream for immigration to Canada, citing Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61 [Kanthasamy] at paras 23 and 25; Meniuk v Canada (Citizenship and Immigration), 2021 FC 1374 at para 43.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues H&C assessment is discretionary and not an alternative immigration stream, citing Kanthasamy and Meniuk.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer gave some positive weight to establishment but qualified it repeatedly as 'not uncommon' without elaboration.",
+     "quote": "As a starting point, I note that while the Officer indicated that they have given “some positive weight” to the Applicant’s establishment, the Officer qualified their assessment by pointing out repeatedly that the establishment is “not uncommon”, without elaborating why that is the case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer gave some positive weight but repeatedly qualified establishment as 'not uncommon' without elaboration.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer errs by listing establishment factors then concluding establishment is not significant or extraordinary without stating norms or expectations.",
+     "quote": "As I have recently found in Quiros v Canada (Citizenship and Immigration), 2021 FC 1412 at paras 18-21 [Quiros], an H&C officer errs when the officer simply lists the applicant’s establishment factors before concluding that their establishment is not significant or extraordinary presumably due to a certain “norm” or “expectation”, without stating what these norms or expectations are.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Same error found here substituting 'not uncommon' for 'not significant or extraordinary'.",
+     "quote": "The same error, in my view, can be found in this case by substituting the words “not significant or extraordinary” with the words “not uncommon.”",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds Officer erred by concluding establishment 'not uncommon' without stating norms, same as error in Quiros.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Error is more pronounced here given substantial evidence of Applicant's close relationships and past adversities.",
+     "quote": "The error is even more pronounced in this case, as compared to Quiros, given the substantial amount of evidence submitted by the Applicant not only about the close relationships he has built with families, friends, former clients and colleagues in Canada, but also about the past adversities that the Applicant has personally overcome.",
+     "answers": 0
+    }
+   ],
+   "summary": "Error is more pronounced here given substantial evidence of Applicant's close relationships and adversities.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant submitted support letters from family and friends describing close, interdependent relationships and his helpful role.",
+     "quote": "Starting with the relationships with families and friends, there is a support letter from his cousin T. Phuong, a single mother with a disability and three children, whom he helps with practical tasks. Her letter stated: “it would be devastating to see [the Applicant] leave our lives.” Another letter is from the Applicant’s friend M. Lynn, who describes him as an “essential” presence in their family and a mentor to her children. She states that the Applicant supported one of her sons through a mental breakdown. Additionally, a letter from the Applicant’s friend D. Pilz describes the Applicant as part of the family: his children refer to the Applicant as “uncle”, the Applicant takes the children to their after school programs, and the Applicant vacations and spends holidays with the family. Finally, there are other support letters from friends describing the Applicant as part of the family.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted support letters showing close, interdependent family and friend relationships and his helpful role.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found insufficient evidence of interdependence between Applicant and families and friends",
+     "quote": "The Officer reviewed these letters and concluded there was insufficient evidence of interdependence between the Applicant and his families and friends.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer did not explain why such relationships are 'not uncommon' for long-term residents",
+     "quote": "the Officer never explained why it is “not uncommon for an individual residing in Canada for a lengthy period to form these types of relationships”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer's characterization of Applicant's bonds as 'common' was unreasonable given compelling evidence",
+     "quote": "the Officer’s characterization of the bonds that the Applicant has created between him and these individuals as “common” – in the face of the compelling evidence suggesting otherwise – was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found insufficient interdependence evidence and did not explain 'not uncommon' relationships; the court finds this unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer did not question Applicant's claims of abuse, violence, depression, homelessness, and suicide attempt",
+     "quote": "the Officer did not question the Applicant’s claim that he has experienced abuse, violence, depression, living on the streets and a suicide attempt.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer did not explain why it is 'not uncommon' for someone with Applicant's past to rebuild life and form community connections",
+     "quote": "Yet nowhere in the Decision did the Officer explain why it is “not uncommon” for someone like the Applicant, given his past experience, to be able to rebuild his life to such an extent to “be employed, pay taxes and form connections and friendships within their community.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker did not question Applicant's traumatic past; the court finds lack of explanation for 'not uncommon' rebuilding unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Officer reviewed all evidence and found exemption not warranted",
+     "quote": "the Officer in this case reviewed all the evidence and found that in the circumstances an exemption was not warranted.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant's establishment in Canada does not necessarily justify exemption as evidence did not show extraordinary establishment",
+     "quote": "merely because the Applicant was established in Canada did not necessarily justify an exemption, as the evidence did not demonstrate a level of establishment that was beyond ordinary.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "rule_of_law",
+     "text": "Cites De Sousa and Thiyqgarasa cases supporting that ordinary establishment does not justify exemption",
+     "quote": "Citing De Sousa v Canada... and Thiyqgarasa v Canada... the Respondent submits that merely because the Applicant was established in Canada did not necessarily justify an exemption, as the evidence did not demonstrate a level of establishment that was beyond ordinary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the Officer properly found exemption unwarranted as Applicant's establishment was not beyond ordinary, citing case law.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Agrees with respondent that establishment alone does not justify exemption on H&C grounds",
+     "quote": "establishment, in and of itself, would not justify the granting of an exemption on H&C grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "H&C relief depends on whether circumstances would excite reasonable desire to relieve misfortunes, assessed by hardship",
+     "quote": "whether the “equitable relief” of H&C should be granted depends on whether the circumstances “would excite in a reasonable [person] in a civilized community a desire to relieve the misfortunes of another”, which is done by an “assessment of hardship”: Kanthasamy, at paras 21-22.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees establishment alone does not justify exemption; H&C relief depends on hardship assessment per Kanthasamy.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Decision is unreasonable if officer fails to consider applicant's particular circumstances in exemption determination",
+     "quote": "a decision becomes unreasonable when an officer fails to grapple with the particular circumstances of an applicant in determining whether an exemption is justified: Zhang v Canada... at para 24.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a decision is unreasonable if the officer fails to consider applicant's particular circumstances, citing Zhang.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Zhang cautions against comparative standard in H&C relief assessment; relief is for personal circumstances, not relative misfortunes",
+     "quote": "There is a significant difference between observing that this exceptional relief is provided for because the personal circumstances of some are such that deportation falls with more force on them than others, and stating that the relief is available only to those who demonstrate the existence of misfortunes or other circumstances that are exceptional relative to others.",
+     "answers": 0
+    }
+   ],
+   "summary": "Zhang case law cautions against comparative standards in H&C relief; relief depends on personal circumstances, not relative hardship.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Issue is whether Applicant's particular circumstances warrant equitable relief, not whether establishment is 'common' or 'ordinary'",
+     "quote": "the issue is not so much whether the Applicant’s establishment is “not common”, or “not ordinary”, but whether the particular circumstances of the case... warrant granting equitable relief on H&C grounds.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the issue is whether Applicant's circumstances warrant equitable relief, not if establishment is common or ordinary.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer erred by failing individualized assessment, using undefined 'common' standard, and discounting Applicant's establishment without justification",
+     "quote": "by failing to conduct an individualized assessment... by evaluating... against an unspecified and undefined standard of a “common” level of establishment, and by failing to provide justification... the Officer has thus erred by discounting the Applicant’s establishment in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer erred by failing individualized assessment and discounting Applicant's establishment without justification.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Having found the Decision unreasonable on this basis, other Applicant arguments need not be addressed",
+     "quote": "As I have found the Decision to be unreasonable on this basis, I need not address the other arguments raised by the Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes it need not address other Applicant arguments after finding the Decision unreasonable on this basis.",
+   "role": "conclusion"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review application is allowed and matter referred back for redetermination by different decision maker",
+     "quote": "The application for judicial review is allowed and the matter is referred back for redetermination by a different decision maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the judicial review and refers the matter back for redetermination by a different decision maker.",
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment: judicial review allowed, matter referred back, no question for certification",
+     "quote": "THIS COURT’S JUDGMENT is that: The application for judicial review is allowed. The matter is referred back for redetermination by a different decision maker. There is no question for certification.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Judgment dated February 3, 2022, heard via videoconference on January 18, 2022, appearances and solicitors recorded",
+     "quote": "PLACE OF HEARING: HELD VIA VIDEOCONFERENCE DATE OF HEARING: January 18, 2022 JUDGMENT AND reasons: GO J. DATED: February 3, 2022 APPEARANCES: Dov Maierovitz For The Applicant Margherita Braccio For The Respondent SOLICITORS OF RECORD: Dov Maierovitz Barrister & Solicitor Toronto, Ontario For The Applicant Attorney General of Canada Toronto, Ontario For The Respondent",
+     "answers": 0
+    }
+   ],
+   "summary": "The court issues judgment allowing review, referring matter back, no certification; records hearing date, appearances, and solicitors.",
+   "role": "disposition"
+  }
+ ]
+}

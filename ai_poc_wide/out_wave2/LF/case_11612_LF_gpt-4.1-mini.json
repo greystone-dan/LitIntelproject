@@ -1,0 +1,384 @@
+{
+ "case_id": 11612,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0060852,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant applied for judicial review of RAD decision dated July 5, 2017",
+     "quote": "Ms. Bagtygul Ozjan [the Applicant] has applied for judicial review of a decision of the Refugee Appeal Division [RAD], dated July 5, 2017 [the Decision].",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "RAD concluded Applicant is neither Convention refugee nor person in need of protection",
+     "quote": "The RAD concluded that the Applicant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Application brought pursuant to subsection 72(1) of IRPA",
+     "quote": "This application is brought pursuant to subsection 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [the IRPA].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant applied for judicial review of the RAD decision denying refugee status under IRPA.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is 33-year-old Turkmenistan citizen who married Turkish Kurdish Alevi man in 2010",
+     "quote": "The Applicant is a 33 year-old citizen of Turkmenistan. In 2010 she married Mr. Ozcan, a citizen of Turkey, who is of Kurdish ethnicity and is of the Alevi faith.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant converted from Sunni Muslim to Alevi upon marriage",
+     "quote": "When she married, the Applicant became Alevi. She had previously been a Sunni Muslim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and husband fled Turkey due to his pro-Kurdish activities",
+     "quote": "The Applicant lived with Mr. Ozcan in Turkey until they were forced to flee due to his pro-Kurdish activities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "At RAD decision time, Applicant and husband had one Turkish citizen daughter; Applicant later had second daughter in Canada",
+     "quote": "At the time of the RAD decision, the Applicant and Mr. Ozcan had one child, a three year-old daughter, who is also a Turkish citizen. Since the RAD’s Decision, the Applicant has given birth to a second daughter in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes Applicant's background: Turkmen citizen, married Turkish Kurdish Alevi, fled Turkey, has two daughters.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Mr. Ozcan and Turkish daughter are Convention refugees",
+     "quote": "In a decision dated February 1, 2017, the Refugee Protection Division concluded that Mr. Ozcan and his Turkish daughter are Convention refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the husband and daughter to be Convention refugees.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD denied Applicant's refugee claim as she is Turkmen citizen and could return to Turkmenistan",
+     "quote": "However, the Applicant is a citizen of Turkmenistan and not Turkey. The RPD concluded that she did not make a claim against Turkmenistan and denied her refugee claim on the basis that she could return to Turkmenistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD denied Applicant's claim because she is Turkmen and could return there.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued before RAD she advanced claim against Turkmenistan despite Basis of Claim form error",
+     "quote": "Before the RAD, the Applicant argued that she had in fact advanced a claim against Turkmenistan at the RPD. The Applicant submitted that although she mistakenly made a claim against Turkey in her Basis of Claim form, and relied on her husband’s narrative about his risks in Turkey, she also notified the RPD that the country of reference for her claim was Turkmenistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues she did advance a claim against Turkmenistan despite form errors and reliance on husband's narrative.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found RPD erred in concluding Applicant did not advance claim against Turkmenistan",
+     "quote": "As a result, the RAD found the RPD erred in finding the Applicant did not advance a claim against Turkmenistan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD acknowledged counsel's letter and husband's testimony about risks in Turkmenistan",
+     "quote": "The RAD acknowledged that the Applicant’s counsel provided a letter to the RPD clearly indicating that her claim was against Turkmenistan and that her husband testified before the RPD about the risks she faces in Turkmenistan as an Alevi and as the wife of a foreigner.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "RAD decided to conduct its own risk analysis for return to Turkmenistan",
+     "quote": "The RAD therefore decided to conduct its own analysis about whether the Applicant would be at risk if she returned to Turkmenistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found RPD erred on claim country and conducted its own risk analysis for Turkmenistan.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD considered husband's testimony, Applicant's submissions, and NDP on Turkmenistan including human rights violations",
+     "quote": "The RAD considered the following evidence: her husband’s testimony before the RPD about the risks she would face upon return to Turkmenistan, the Applicant’s submissions to the RAD, and the National Documentation Package [NDP] on Turkmenistan which included material on human rights violations such as trafficking, forced labour, rape and domestic violence.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD considered husband's testimony, Applicant's submissions, and NDP evidence on Turkmenistan human rights.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant claimed risk of persecution based on religion, marriage to foreigner, and human rights concerns",
+     "quote": "The Applicant advanced her religion and her marriage to a foreign national as well as concerns about human rights violations as her grounds for fearing persecution in Turkmenistan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD recognized poor situation for religious minorities but found insufficient evidence Applicant would be prevented from practicing Alevi faith",
+     "quote": "However, the RAD found that there was insufficient documentary evidence to support the Applicant’s submission that she would be prevented from practicing as an Alevi.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleged persecution risks; RAD found insufficient evidence to support religious practice risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submitted risk of harassment as woman married to foreign national",
+     "quote": "The RAD also considered the Applicant’s submission that she would face harassment as a woman married to a foreign national.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Husband testified Applicant was stopped and questioned about marriage to foreigner",
+     "quote": "The RAD noted that during Mr. Ozcan’s testimony to the RPD, he explained that the Applicant has been stopped and questioned in the past about her marriage to a foreigner.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found harassment did not amount to persecution and no documentary evidence supported risk as woman married to foreigner",
+     "quote": "However, the RAD determined that the Applicant did not establish that that harassment amounted to persecution. The RAD also noted she did not submit any documentary evidence to support her argument that she would be at risk as a woman married to a foreign national.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant claimed harassment risk; RAD found it not persecution and unsupported by evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD rejected human rights concerns due to lack of specifics about Applicant's plans or lifestyle in Turkmenistan",
+     "quote": "Lastly, the RAD rejected the concerns based on human rights violations on the basis that no specifics were provided about the Applicant’s plans or prospective lifestyle in Turkmenistan to show that she could potentially experience the problems described in the documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD rejected human rights concerns for lack of specifics about Applicant's lifestyle plans in Turkmenistan.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant criticizes RAD for errors in treatment of documentary evidence on religion, gender, and overall evidence",
+     "quote": "It is suggested that the RAD: erred in concluding that the evidence failed to show that she was at risk as an Alevi; erred in ignoring relevant evidence in Item 5.1 of the NDP, entitled “Turkmenistan: Social Institutions and Gender Index 2014” published by the Organization for Economic Co-operation and Development, which highlights the situation of women in Turkmenistan; and erred in failing to consider the documentary evidence as a whole.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD erred in assessing documentary evidence on religion, gender, and overall.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant did not testify about Alevis experiencing problems practicing faith; NDP documents do not mention Alevis",
+     "quote": "The Applicant did not testify that she or any other Alevis had experienced problems practicing their faith in Turkmenistan and the documents in the NDP made no reference to Alevis.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Applicant gave no testimony about Alevis' problems and NDP lacks mention of Alevis.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD reviewed US DOS 2013 Report noting Sunni majority, conflicting religious freedom laws, poor government respect",
+     "quote": "The RAD looked at the US DOS 2013 Report on Religious Freedoms and noted that, Sunni Muslim is the majority religion and that there were conflicting laws and policies about religious freedom. However, the report also acknowledged that the government’s overall respect for religious freedom was poor.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Report noted some difference in treatment of registered/unregistered religions but no mention of Alevis",
+     "quote": "There was some difference noted in the treatment of “some” registered and unregistered religions but there was no mention of the Alevis and no description of whether or not they had registration or had been victims of restrictive practices.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Jehovah’s Witnesses and Protestants identified as at risk in report",
+     "quote": "In contrast, Jehovah’s Witnesses and Protestants were identified as being at risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD considered US DOS report showing poor religious freedom but no mention of Alevis, unlike other groups.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds RAD's conclusion on insufficient evidence about Alevi faith risk reasonable",
+     "quote": "In my view, the RAD’s conclusion that “there is insufficient evidence in the National Documentation Package that supports the Applicant’s allegation that she would be prevented from practicing her Alevi faith” is reasonable, in the absence of any reference to Alevis in the NDP and in the absence of any first hand evidence from the Applicant or her husband about mistreatment they or other Alevis experienced.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD's conclusion on insufficient evidence about Alevi faith risk reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds RAD reasonably concluded harassment evidence did not amount to persecution",
+     "quote": "In my view, the RAD reasonably concluded that the Applicant’s evidence of harassment did not rise to the level of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "NDP documents made no reference to harassment of women married to foreigners",
+     "quote": "The documents in the NDP made no reference to harassment of women married to foreigners in Turkmenistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably concluded harassment did not amount to persecution; NDP lacks harassment evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found Applicant failed to show risk of human rights violations due to lack of evidence about living circumstances",
+     "quote": "On the question of human rights violations, the RAD noted that the Applicant failed to show that she was at risk. The RAD’s analysis was hampered by the Applicant’s failure to provide any evidence about the circumstances in which she expected to live in Turkmenistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found Applicant failed to show human rights risk due to lack of evidence about living circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds RAD decision reasonable and dismisses judicial review application",
+     "quote": "The Decision is reasonable and the Application for judicial review will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD decision reasonable and dismisses judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question certified for appeal; judicial review application dismissed",
+     "quote": "No question was posed for certification for appeal. JUDGMENT THIS COURT’S JUDGMENT is that the Application for judicial review is hereby dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states no question certified for appeal and dismisses judicial review application.",
+   "role": "disposition"
+  }
+ ]
+}

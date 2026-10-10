@@ -1,0 +1,744 @@
+{
+ "case_id": 64175,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.016013600000000003,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. XXXX is a 51-year-old registered Palestinian Refugee and permanent resident/passport holder of Syria appealing an RPD decision rejecting his refugee claim.",
+     "quote": "Mr. XXXX XXXX XXXX XXXX is a 51-year-old registered Palestinian Refugee and permanent resident/passport holder of Syria. He is appealing a decision of the Refugee Protection Division (RPD) rejecting his claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant has not presented new evidence or requested an oral hearing; RAD requested additional submissions on Syria country conditions received March 15, 2015.",
+     "quote": "The Appellant has not presented new evidence and has not requested an oral hearing. The RAD requested additional submissions related to the issue of country conditions in Syria which were received on March 15, 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant is a 51-year-old Palestinian refugee from Syria appealing an RPD rejection without new evidence or oral hearing; RAD received additional submissions on Syria.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD identified credibility as determinative and did not believe appellant met burden to prove risk of persecution under IRPA ss. 96 or 97.",
+     "quote": "the RPD did not believe that the Appellant was at risk of persecution under IRPA s. 96 or at risk for a IRPA s. 97 reason because it concluded that the Appellant did not meet his burden of establishing that his story was true on a balance of probability.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court identifies a determinative issue on country conditions: appellant not eligible as he failed to establish persecution or personalized risk if returned to Syria in civil war.",
+     "quote": "I must also identify a determinative issue related to country conditions, which is to say, that the Appellant is not eligible for Canada's protection because he has not established that he faces persecution or a personalized risk, if he returns to Syria, which is in a civil war situation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD confirms RPD's determination that appellant is neither a Convention Refugee under s. 96 nor a person in need of protection under s. 97, but for different reasons.",
+     "quote": "the Refugee Appeal Division (RAD) confirms the determination of the RPD, namely, that Mr. XXXX XXXX XXXX XXXX is neither a \"Convention Refugee\" pursuant to s. 96 of IRPA nor a \"person in need of protection\" pursuant to s. 97 of IRPA, but for different reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant not credible and not at risk under IRPA; the court confirms RPD's decision but for different reasons including country conditions.",
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges if forced to return to Syria, he will be forced to join militants or Syrian army and be tortured or killed for not taking sides.",
+     "quote": "The Appellant alleges that if he is forced to return to Syria, he will be forced to \"join either the militants or the Syrian army (RPD Record, p. 11). The Appellant alleges that Syria is now hell and if he returns there, he will be forced to take sides but because he does not take sides, he will be tortured and/or killed (RPD Record, p. 17).",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges forced return to Syria would compel him to join militants or army and face torture or death for neutrality.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant born in Damascus with Palestinian refugee card and Syrian passport, status comparable to citizenship.",
+     "quote": "The Appellant was born in Damascus and has a Palestinian refugee card and Syrian Passport, and according to the documentation, this status is comparable to that of citizenship.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant moved to UAE in 1987, resident there, returned annually to Syria, and on this trip to Canada stayed due to sick mother.",
+     "quote": "The Appellant states that he moved to United Arab Emirates (UAE) in 1987 and had been resident there ever since although he states he returned to Syria annually. The Appellant, who has traveled to Canada to visit family on prior occasions, alleges that on this trip to Canada, he felt obligated to remain with his sick and dying mother.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant lost job in UAE, lost right to return there, and must now leave UAE to travel to Syria with family amid civil war.",
+     "quote": "As a result, the Appellant alleges that he has now lost his job in UAE and as a consequence, he has lost his right of returning to UAE and he and his family of a wife and five children must now leave UAE to travel to Syria, which is in the midst of a civil war.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant was born in Damascus, lived in UAE since 1987, lost his job and right to return there, and must return to Syria with family amid civil war.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Appellant made protection claim in Canada May 2014; RPD denied claim August 8, 2014; appeal received by RAD August 26, 2014.",
+     "quote": "After alleging a realization that his situation of having lost his job with no hope of finding another one was clear, the Appellant made a protection claim in Canada in May 2014. The RPD denied this claim in a decision dated (notice of decision) August 8, 2014, whereupon this decision was appealed by submitting a Notice of Appeal, which was received by the RAD on August 26, 2014.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant filed a protection claim in May 2014, denied by RPD in August 2014, and appealed to RAD later that month.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in credibility analysis; testimony coherent and timelines credible; RPD should accept appellant's predicament.",
+     "quote": "The Appellant argues that the RPD erred in its analysis of the Appellant's credibility because the Appellant's testimony was sufficiently coherent and the provided time lines, in terms of the description of events, approximate what should be considered credible. Therefore, the RPD should have accepted the Appellant's understanding of his own predicament.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues documentation shows he cannot return to UAE and RPD should accept this.",
+     "quote": "The Appellant also argues that the documentation is such that the RPD should accept that Appellant cannot return to UAE.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred in credibility and should accept his coherent testimony and documentation showing he cannot return to UAE.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant seeks recognition as Convention refugee or person in need of protection from this appeal.",
+     "quote": "In terms of an outcome from this appeal, the Appellant seeks to be recognized as a Convention refugee or a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant seeks recognition as a Convention refugee or person in need of protection.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD must review all aspects of RPD decision and independently assess refugee or protection status, per Federal Court guidance in Huruglica.",
+     "quote": "Justice Phelan in Huruglica states that the RAD \"must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection\".",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD need not enunciate a standard of review; may show deference on credibility but not on country conditions assessment.",
+     "quote": "there is no need for the RAD to enunciate a 'standard of review' and suggests that while the RAD might show some deference on a credibility assessment and/or where the RPD enjoys a particular advantage in reaching such a conclusion, in other areas, such as an assessment of country conditions evidence, the RAD need not be deferential.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains RAD must independently assess RPD decisions, showing some deference on credibility but not on country conditions, per Huruglica.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Njeukam says RAD must not defer to RPD evidence analysis except when credibility is critical or RPD has particular benefit.",
+     "quote": "Justice Locke references Huruglica and suggests that \"Except in cases where the credibility of a witness is critical or determinative or when the RPD has a particular benefit from the RAD to draw a specific conclusion, the RAD must not give any deference to the analysis of the evidence made by the RPD\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Njeukam that RAD must not defer to RPD evidence analysis except on critical credibility or where RPD has advantage.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD must defer to RPD on credibility assessments but independently assess country conditions evidence without deference.",
+     "quote": "where in this appeal the issue turns on a question of fact, specifically the RPD's assessment of the credibility of the Appellant when applied to the specific situation of the Appellant, the RPD's determinative credibility assessment must be granted deference and I must provide my own assessment of the evidence. I conclude that in issues which turn on a question of mixed law and fact, specifically the RPD's assessment of country conditions in Syria, I must reach my own conclusion based on my own assessment of the evidence and I do not need to show deference to the RPD's conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will defer to RPD on credibility but independently assess country conditions evidence without deference.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred by focusing on appellant's UAE situation; appellant's UAE status expired January 2015; only status is Palestinian refugee in Syria.",
+     "quote": "the RPD has erred because it focused on the Appellant's situation in the UAE. The Appellant does not have a permanent status in UAE and the temporary status that he had expired on January XXXX, 2015. Put simply, I am unable to speculate or determine the Appellant's current or potential status in UAE. It is possible that the Appellant may be able to return to UAE by application or by some personal appeal. At this point (March 2015), however, the Appellant's only applicable status relates to the fact that he is a registered Palestinian refugee in Syria, which is his country of habitual permanent residence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred by focusing on UAE status, which expired; appellant's only status is Palestinian refugee in Syria.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with RPD that appellant chose to fall out of status in UAE and forced risk of return to Syria; appellant's family risk not relevant.",
+     "quote": "I am in agreement with the RPD's conclusion on the Appellant's credibility. This is to say, that the Appellant chose to fall out of status in UAE, assuming he has fallen out of status, and forced this situation where he places himself at risk of return to Syria. I note that the Appellant makes arguments that his family, who live in UAE, is likewise at risk. Again, I must conclude that these are the Appellant's decisions and the RAD cannot analyze or speculate on the disposition of the Appellant's family nor can their fate be a factor in this decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees appellant chose to fall out of UAE status, creating risk of return to Syria; family risk is not a factor.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found appellant misrepresented risk by applying for protection before confirming job loss; appellant hoped for best and had not confirmed job loss.",
+     "quote": "the RPD finds that the Appellant misrepresents his risk in the sense that he applied for Canada's protection before he had confirmed that he had lost his job. In fact, the RPD shows that the Appellant is applying for protection during a period when, during testimony, he likely still had his job. Specifically, the Appellant stated that he last talked with his boss in early May 2014, and was told that he \"might be losing his job\", if he did not return (Oral Hearing at minute 1:03). The Appellant was asked if he knew he had lost his job at that point and the Appellant stated that he was \"hoping for the best\" and that he had not spoken to his boss after this occasion (Oral Hearing at minute 1:06).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant misrepresented risk by applying for protection before confirming job loss, as he hoped for best and had not confirmed loss.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found appellant's testimony on job loss timing contradictory and not credible; wife did not obtain proof due to fear of consequences.",
+     "quote": "The RPD states that: You testified that you applied for refugee protection after finding out that you had lost your job in the UAE because you believed at that point you were in danger of having to return to Syria. I did not find your evidence pertaining to you losing your job in the UAE as credible. You initially testified that you found out you had lost your job in early June despite the fact that your Basis of Claim Form (BOC) was signed on May 20, 2014. Your testimony on this subject changed. Later in your testimony you stated that you came to believe that you had lost your job after speaking with your friend XXXX between the dates of May 20 and May 26, 2014. Your explanation for this contradiction was that early June was when you had sent your wife to your employer to obtain documents proving you had lost your job for you to show it to your lawyer. You testified that your wife did not perform this task because when she contacted your employer she was requested to bring the family passports with her to that office so that the residency permits could be cancelled. She was, scared of the consequences of this and therefor did not attend as your employer had requested. You testified that it was the date on which your wife had contacted your employer in early June as when you became one hundred percent sure that you had lost your job (RPD Decision, p. 2).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant's testimony on job loss timing contradictory and not credible; wife did not get proof due to fear.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD concluded appellant could still travel to UAE and was likely still employed, making claim fraudulent.",
+     "quote": "The basic RPD conclusion is that the Appellant could still travel to UAE (RPD decision dated in late July 2014) and perhaps seek a new job or perhaps get his old job back. The RPD goes on to conclude that the Appellant was \"likely still\" employed, which would make the Appellant's claim for Canada's protection a fraudulent effort to secure a status in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD concluded appellant could still travel to UAE and was likely still employed, making his claim fraudulent.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD should not view timeline as negative; he may have known he lost job before May 20, 2014 claim.",
+     "quote": "The Appellant reviews the testimony to argue that the RPD should not take this perspective because it is possible that in this time line the Appellant did in fact become certain that he had lost his job prior to making a protection claim (i.e., prior to signing forms on May 20, 2014) (Appellant's Memorandum of Argument, paragraph 6).",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues he may have known he lost his job before making the protection claim, so RPD's negative view is wrong.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD should consider his lower education and different culture; adverse credibility is unwarranted microscopically inspecting evidence.",
+     "quote": "The Appellant also argues that the RPD should take into consideration that the Appellant has a lower education and that he comes from a different culture and that it would be microscopically inspecting the evidence, and thus unwarranted, to reach an adverse credibility conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues RPD should consider his lower education and culture; adverse credibility is unwarranted.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court rejects appellant's argument; appellant could have tried to regain job or find another; his actions and lack of proof are not credible.",
+     "quote": "I cannot accept this argument. Setting aside the basic reality that the Appellant could have returned to UAE and gone directly to the 'general administration' of his employer to try and get his job back or perhaps gone and secured another job, the Appellant is 51, which is not old by any criteria. Given what is at stake, the actions of the Appellant are not credible. In addition, the efforts of the Appellant to secure proof of his dismissal, as noted by the RPD, are not credible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's open communication with wife and co-worker but failure to follow up or produce evidence undermines credibility.",
+     "quote": "The Appellant states he is in contact with his wife daily (via VIBER - Oral Hearing at minute 1:09) and has contacted a co-worker, identified as 'XXXX, on several occasions. The Appellant alleges that he phoned this co-worker to find out his status and this co-worker relayed the information that he was told that the Appellant's immediate supervisor could do nothing and that this co-worker should \"go to the general administration\" to find out more or make representation on the Appellant's behalf (Oral Hearing at minute 1:14). At this point, the Appellant alleges that he \"gave up\" and \"did not follow up\" (Oral Hearing at minute 1:15). As a result, the Appellant can produce no supporting evidence of being terminated by his employer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects appellant's argument, finding his actions and failure to produce proof of dismissal not credible despite open communications.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was within discretion to find appellant's evidence lacking credibility given communication and importance of dismissal proof.",
+     "quote": "I must conclude that the RPD is well within its area of discretion to view all this as lacking in credibility given the open communications lines to his wife and co-worker, the potential to secure documents by electronic means and the alleged manifest importance of being dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD was within discretion to find appellant's evidence not credible given communications and importance of dismissal proof.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees appellant's claim of hopeless UAE situation was not credible at RPD decision time but time has passed and appellant may have lost capacity to return to UAE.",
+     "quote": "Although I am in agreement with the RPD that at the time of its decision the Appellant's allegation, that his situation for remaining in UAE was hopeless such that return was impossible, was not credible, I must also recognize that time has now passed and that perhaps the Appellant now has lost the capacity to return to UAE.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant manufactured risk of return to Syria (self-induced refugee status), incompatible with Canada's refugee protection principles.",
+     "quote": "This being the case, I must conclude that the Appellant has manufactured this risk of return to Syria (self-induced refugee status) and this initiative is incompatible with principles of Canada's refugee protection regime.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Valentin bars self-induced refugee status where claimant overstays valid exit visa and relies on self-created overstay as persecution ground.",
+     "quote": "The Federal Court of Appeal decision in Valentin, above, is directly applicable to this application. Valentin bars self-induced refugee status. It starts from the premise that a claimant has a valid exit visa. It then bars the claimant from overstaying the visa and relying on the self-created overstay as a ground of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Jassi and Zandi cases confirm self-induced refugee status barred under s. 96 or s. 97 claims when claimant creates own risk by violating exit visa.",
+     "quote": "Valentin has been consistently followed in this Court where the facts are similar to those before me; see for example, Jassi v. Canada (Minister of Citizenship and Immigration), 2010 FC 356, [2010] F.C.J No. 412 (QL). ... In Zandi v. Canada (Minister of Citizenship and Immigration), 2004 FC 411, [2004] F.C.J. No. 503 (QL), Justice Kelen considered the situation of an Iranian who defected to Canada while here for an athletic competition.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A defector cannot gain legal status by creating a need for protection by violating home country exit visa laws.",
+     "quote": "To paraphrase the Federal Court of Appeal in Valentin, supra, a defector cannot gain legal status in Canada under IRPA by creating a \"need for protection\" under section 97 of IRPA by freely, of their own accord and with no reason, making themselves liable to punishment by violating a law of general application in their home country about complying with exit visas, i.e. returning.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant who failed to renew valid exit visa cannot rely on punishment risk as grounds for protection under s. 96 or s. 97.",
+     "quote": "The jurisprudence is clear that the Applicant, who failed to renew her valid exit visa, cannot rely on the possibility of punishment under Cuba's Criminal Code as grounds for protection under s. 96 or s. 97.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees appellant manufactured risk of return to Syria (self-induced refugee status), citing Valentin and related cases barring such claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The next element of analysis is the risk the Appellant faces in Syria.",
+     "quote": "The next element of analysis must be the risk that the Appellant faces in Syria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD erred in its substantive conclusion about the risk in Syria.",
+     "quote": "I find the RPD erred in its substantive conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded the Appellant would face more than a mere possibility of persecution in Syria due to Palestinian nationality.",
+     "quote": "Based on my readings of the country condition documents, I am satisfied that if you were to be returned to Syria you would face more than a mere possibility of being persecuted due to your Palestinian nationality.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found a well-founded fear of persecution if the UAE returned the Appellant to Syria.",
+     "quote": "Accordingly, if I were to find that the Government of the UAE were to send you back to Syria, you would have a well founded fear of persecution in that country as well (RPD Decision, p. 2).",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds the RPD erred in concluding the Appellant faces persecution risk in Syria due to Palestinian nationality, citing the RPD's own conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not provide substantive analysis to support its conclusion on risk in Syria.",
+     "quote": "I note that the RPD did not provide any substantive analysis to support this conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Syria's civil war makes the country dangerous but does not mean the Appellant faces personalized persecution risk.",
+     "quote": "this does not mean that the Appellant himself is at risk of persecution or faces a personalized risk of being harmed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD gave no substantive analysis and that general danger in Syria does not equal personalized persecution risk for the Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Palestinian refugees in Syria are not aligned with any side in the civil war and try to avoid involvement.",
+     "quote": "Palestinian refugees in Syria are not aligned with any side in the civil war. In fact, they are viewed as have made efforts to avoid getting involved.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Sources indicate most Palestinians try to avoid conflict but neutrality is pressured; some support government, some opposition.",
+     "quote": "Sources indicate that most Palestinians tried to avoid engaging in the conflict (AP 26 July 2012; UN [June 2013], 3), but this neutrality has \"come under huge pressure with the conflict increasingly penetrating their communities\" (ibid.). According to media sources, some Palestinians are supporting the government and some are supporting the opposition (Le Monde 3 Jan. 2013; Le Figaro 17 Dec. 2012).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Palestinians in Syria try to stay neutral in the civil war, supported by sources noting divided support and pressured neutrality.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant confirms he tried to stay neutral in the Syrian civil war.",
+     "quote": "the Appellant himself confirms this interpretation when asked if he had taken a side in the Syrian civil war, he responded that he had tried to \"stay neutral\" (Oral Hearing at minute 1:33).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant completed mandatory military service in 1987 and is not currently required to serve.",
+     "quote": "in his BOC, the Appellant notes that he did his 'mandatory' military service in the infantry, completed in 1987 (RPD Record, p. 46). I do not see any allegation or mention during the hearing that he might be required to serve in the military.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "At 51 years old with many children, the Appellant is not normally required to serve in the military and no evidence suggests otherwise.",
+     "quote": "At 51 years old, with many children, this is not normally an age where individuals are required to serve and I see no evidence of men of a similar profile as the Appellant being pressed into service by any group.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant tried to stay neutral, completed military service long ago, and is not currently required to serve.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant built a home in XXXX, Syria, which shows damage from conflict in a major battle zone since February 2014.",
+     "quote": "the Appellant identifies having built a home in XXXX, Syria, and that these photos show damage (RPD Record, p. 112). This is obviously not good because beginning in February 2014, this whole area became a major battle zone where the Syrian army has fought pitched battles with such groups as Jabhat Al-Nusra and Ahrar Al Sham.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Appellant's home in Syria shows damage from conflict in a major battle zone since 2014.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant identifies Syria as dangerous with camps hit and friends killed, consistent with general insecurity documentation.",
+     "quote": "the risk identified by the Appellant is that Syria is simply dangerous and that \"camps are hit\" and that he has friends that were killed in the violence. I must conclude that this is consistent with the documentation on general state of insecurity and risk that exists in Syria.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "A Professor stated Palestinians in Syria are targeted by both sides in the conflict.",
+     "quote": "The Professor of Middle Eastern History stated that Palestinians in Syria are targeted by both sides in the conflict (19 June 2013).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "An Irish Times article reports Palestinians allege attacks and arrests by both Free Syrian Army and regime forces, including bombing of a mosque.",
+     "quote": "An article in the Irish Times... cites Palestinians living in Syria who allege that Free Syrian Army fighters attack, rob, and arrest them at checkpoints, and that the regime's army also arrest them at checkpoints and that the government bombed a mosque in Yarmouk in December 2012 (ibid. 21 May 2013).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's risk claim matches general insecurity; sources report Palestinians targeted by both sides and bombings in Syria.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant does not mention a specific refugee Convention risk or agent of persecution in Syria.",
+     "quote": "the Appellant at no time in his answers to questions related to facing a risk in Syria mentions a specific refugee Convention related risk or a specific agent of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant notes Syria was accommodating with free education and healthcare and had just built a house there.",
+     "quote": "The Appellant notes... that he had just completed building a house in Syria and that education was free and healthcare was free and that overall it was accommodating and easy to live there (Oral Hearing at minute 48).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant did not allege specific persecution risk and described Syria as accommodating with free services.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appellant faces a generalized risk from civil war, not a targeted persecution risk under the Refugee Convention.",
+     "quote": "I must conclude that this is a situation of civil war and that in this case, the Appellant does not have a profile of belonging to a group of people or being an individual who have been targeted for one of the criteria identified in the Refugee Convention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appellant would be caught in cross-fire but is not known or targeted individually in Syria.",
+     "quote": "the Appellant is simply an individual who would be caught in the cross-fire of a wide spread, dangerous and destructive civil war, if he were to return to Syria. The Appellant is not known as an individual who is sought or targeted in Syria.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Palestinians as a group might be targeted for criminal reasons but have not picked sides in the conflict.",
+     "quote": "The Appellant is a Palestinian, which is a group whose members might be a targeted for essentially criminal reasons (e.g., robbery) but which, as a group, has not picked sides nor is perceived to have picked sides in this conflict.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concludes the Appellant faces generalized civil war risk, not targeted persecution, and Palestinians have not taken sides in the conflict.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Palestinians in Syria face persecution based on race and ethnic background, with disproportionate home destruction and victimization in neighboring countries.",
+     "quote": "the Appellant argues that the plight of Palestinians in Syria should be viewed as persecution based on 'race and ethnic background': National Documentation Package 13.2 further states on Page 7 that \"displaced Palestinians have experienced a disproportionate levels of destruction of Palestinian homes\"... Palestinians seeking assistance for refugee protection in neighboring countries have also become victims of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues Palestinians face persecution based on race and ethnicity, with disproportionate harm and victimization in neighboring countries.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The article cited by the Appellant does not support his argument of persecution based on race and ethnicity.",
+     "quote": "I must conclude that this article does not support the logic advanced by the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "The article states Palestinians displaced within Syria stay near pre-existing communities and have disproportionate home destruction in strategic areas.",
+     "quote": "According to an UNRWA needs assessment... Damascus city and suburbs host the largest number of displaced Palestinians and has experienced disproportionate levels of destruction of Palestinian homes... Palestinians displaced within Syria traditionally stay in or near pre-existing Palestinian communities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the article cited does not support persecution claims but notes Palestinians displaced stay near communities with disproportionate home destruction.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The article shows Palestinians' vulnerability and exposure to generalized danger and deteriorated conditions, not targeted persecution.",
+     "quote": "these are conditions related to a generalized risk for any and every one in Syria at this time.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Palestinians' difficulties in surrounding countries are irrelevant as Canada will not return the Appellant there.",
+     "quote": "With respect to the treatment of Palestinians in the surrounding countries, this is not an issue because Canada is not going to return the Appellant to any surrounding country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Palestinians face generalized risk and vulnerability, not persecution, and surrounding countries' treatment is irrelevant here.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The conclusion of generalized risk is based on Chairperson's Guidelines on civilian non-combatants and the IRPA's 'Person in Need of Protection' category.",
+     "quote": "My conclusion that the Appellant faces a generalized risk... is reached after considering the Chairperson's Guidelines concerning Civilian Non-Combatants Fearing Persecution in Civil War Situations and... the new category of \"Person in Need of Protection\" in IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court bases its generalized risk conclusion on Chairperson's Guidelines and IRPA's 'Person in Need of Protection' category.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court confirms the RPD's determination but for different reasons, concluding no risk under s. 96 or s. 97 IRPA.",
+     "quote": "I confirm the determination of the RPD, but for different reasons. I conclude the appellant is not at risk in Syria under s. 96 or s. 97 of IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appellant cannot return to the UAE and is neither a Convention refugee nor a person in need of protection.",
+     "quote": "I also conclude the Appellant cannot return to the UAE. I conclude Mr. XXXX XXXX XXXX XXXX is neither a \"Convention refugee\" nor a \"person in need of protection\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the RPD's decision for different reasons, finding no risk in Syria and that the Appellant is neither a Convention refugee nor in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "Therefore, the appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

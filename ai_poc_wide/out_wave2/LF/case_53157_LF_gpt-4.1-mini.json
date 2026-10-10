@@ -1,0 +1,427 @@
+{
+ "case_id": 53157,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.007419600000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Court unanimously dismissed the appeal without costs and will provide reasons.",
+     "quote": "At the hearing, the Court unanimously dismissed the appeal, without costs, with reasons to follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court unanimously dismissed the appeal without costs and will provide reasons, the Court states.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "During wrongful conviction proceedings, an accused sought to introduce an affidavit about a witness's death.",
+     "quote": "During wrongful conviction proceedings before the Court of Appeal of Manitoba, an accused sought to introduce as new evidence an affidavit sworn by his lawyer concerning the death of a witness involved in those proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On May 28, 2018, the Court of Appeal issued a publication ban over the affidavit.",
+     "quote": "On May 28, 2018, the Court of Appeal issued a publication ban over the affidavit.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court of Appeal ordered the publication ban remain in effect in its 2018 judgment.",
+     "quote": "In its reasons for judgment on the appeal, the court ordered that the publication ban remain in effect (2018 MBCA 125, 369 C.C.C. (3d) 139 (“2018 Publication Ban Judgment”)).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "The CBC filed a motion to set aside the publication ban.",
+     "quote": "The appellant, the Canadian Broadcasting Corporation (“CBC”), filed a motion to set aside the publication ban.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "In 2019, the Court of Appeal held it lacked jurisdiction to hear the motion as it was functus officio.",
+     "quote": "In 2019, the Court of Appeal held that it did not have jurisdiction to hear the motion to set aside the publication because it was functus officio (2019 MBCA 122 (“2019 Jurisdiction Judgment”)).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "The CBC sought and obtained leave to appeal both judgments to this Court.",
+     "quote": "The CBC sought and obtained leave to appeal both judgments to this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court of Appeal issued a publication ban in 2018; CBC sought to set it aside but was denied jurisdiction in 2019; CBC appealed both judgments.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "In 2021, this Court heard appeals from the 2018 and 2019 judgments together.",
+     "quote": "In 2021, this Court heard the appeals from the 2018 Publication Ban Judgment and the 2019 Jurisdiction Judgment together.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court allowed the appeal from the 2019 Jurisdiction Judgment and remanded the motion to set aside the publication ban to the Court of Appeal.",
+     "quote": "The Court allowed the appeal from the 2019 Jurisdiction Judgment and remanded to the Court of Appeal the motion to have the publication ban set aside.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Court adjourned the appeal of the 2018 Publication Ban Judgment sine die.",
+     "quote": "It also adjourned the appeal of the 2018 Publication Ban Judgment sine die (see 2021 SCC 33, which sets out the procedural background in fuller detail).",
+     "answers": 0
+    }
+   ],
+   "summary": "In 2021, the Court allowed the 2019 appeal, remanded the motion to set aside the ban, and adjourned the 2018 appeal sine die, the Court states.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On January 23, 2023, the Manitoba Court of Appeal dismissed the CBC’s motion to reconsider the publication ban.",
+     "quote": "On January 23, 2023, the Manitoba Court of Appeal rendered judgment on the CBC’s remanded motion to have the publication ban set aside (2023 MBCA 6, [2023] 9 W.W.R. 210 (“Judgment on Remand”)). The Court of Appeal dismissed the motion to reconsider the publication ban.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court of Appeal denied CBC standing to bring the motion as it had notice of the ban.",
+     "quote": "First, the Court of Appeal denied the CBC standing to bring the motion as it had notice of the ban.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court declined to hear the motion due to CBC's failure to act with due dispatch.",
+     "quote": "Second, the Court of Appeal declined to hear the motion as the CBC failed to act with due dispatch in seeking to set the ban aside.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Even if standing or delay were wrong, the Court would still refuse to reconsider the ban applying Sherman Estate test.",
+     "quote": "In addition, the Court of Appeal wrote that in the event that it was wrong to deny standing to the CBC or to decline to hear the motion because of the delay, it would nonetheless have refused to reconsider the ban. Applying the test in Sherman Estate v. Donovan, 2021 SCC 25, the Court of Appeal was of the view that the ban was necessary to prevent a serious risk to privacy, and in particular to dignity, an important public interest.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court found the benefits of the publication ban outweigh any negative effects on court openness.",
+     "quote": "Moreover, the benefits of the publication ban outweigh any negative effects on court openness.",
+     "answers": 0
+    }
+   ],
+   "summary": "In 2023, the Court of Appeal dismissed CBC's motion for lack of standing and delay, but would have upheld the ban applying Sherman test, the Court of Appeal found.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court has considered the Court of Appeal’s reasons on remand in making its decision.",
+     "quote": "While the Judgment on Remand has not been appealed to this Court, in coming to our decision we have had the benefit of the Court of Appeal’s reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court of Appeal’s reasons explain why the publication ban was justified despite the open court principle, applying Sherman.",
+     "quote": "Those reasons explain why, in light of the principles set forth in Sherman, the publication ban was justified notwithstanding the open court principle.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court has considered the Court of Appeal’s reasons explaining why the publication ban was justified under Sherman despite the open court principle.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "The CBC calls on this Court to decide the appeal of the 2018 Publication Ban Judgment, for which leave was granted in 2020 and adjourned in 2021.",
+     "quote": "The CBC now calls upon this Court to decide the appeal of the 2018 Publication Ban Judgment for which leave was granted in 2020 and which was adjourned sine die in 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The parties were invited to provide additional written submissions and a new hearing was held to address Sherman implications.",
+     "quote": "The parties were invited to provide additional written submissions and a new hearing was held to address the implications of Sherman, which was decided after the initial hearing of the two appeals before this Court in 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "CBC requests this Court decide the 2018 appeal; parties provided new submissions and a hearing addressed Sherman implications, the Court states.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Court unanimously dismisses the appeal from the 2018 Publication Ban Judgment.",
+     "quote": "For the reasons that follow, we are unanimously of the view that the appeal from the 2018 Publication Ban Judgment should be dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court of Appeal did not err in issuing and maintaining the publication ban in 2018.",
+     "quote": "The Court of Appeal did not commit a reversible error in issuing the publication ban and ordering that it remain in effect in 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court unanimously dismisses the 2018 appeal and finds no reversible error by the Court of Appeal in issuing the publication ban.",
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Under Sherman, the party seeking to limit open court must prove three branches: serious risk to public interest, necessity, and proportionality.",
+     "quote": "Under Sherman, “the person asking a court to exercise discretion in a way that limits the open court presumption must establish that: (1) court openness poses a serious risk to an important public interest; (2) the order sought is necessary to prevent this serious risk to the identified interest because reasonably alternative measures will not prevent this risk; and (3) as a matter of proportionality, the benefits of the order outweigh its negative effects” (para. 38).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Each branch of the Sherman test deserves comment.",
+     "quote": "Each branch of the test is deserving of comment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states the Sherman test requires proving serious risk, necessity, and proportionality to limit open court, and each branch deserves comment.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court agrees there is a strong public interest in protecting the witness’s spouse’s privacy to prevent affront to dignity.",
+     "quote": "We agree with the view that, under the first branch of the Sherman test, there is a strong public interest in protecting the privacy of the witness’s spouse with respect to the witness’s death in order to prevent an affront to the spouse’s dignity (see Judgment on Remand, at para. 77).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Personal information in the affidavit directly affronts the spouse’s dignity.",
+     "quote": "We agree that personal information in the affidavit is a direct affront to the dignity of the spouse in her own right.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court of Appeal said the information goes to the core of the witness and spouse as vulnerable human beings.",
+     "quote": "In the words of the Court of Appeal, the information “goes to the core of both the witness and the spouse as human beings at their most vulnerable” (para. 77).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Disclosure would reveal highly sensitive personal information engaging the spouse’s dignity interest.",
+     "quote": "In this case, disclosure of the affidavit would reveal highly sensitive and acutely personal information that would directly engage the spouse’s dignity interest.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court agrees the affidavit’s personal information threatens the witness’s spouse’s dignity and privacy, citing the Court of Appeal’s reasoning.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It suffices that the spouse’s dignity is compromised; it is unnecessary to decide if the deceased witness has a dignity interest.",
+     "quote": "For the purposes of measuring the relevant dignity interest, it is sufficient to observe that the dignity of the witness’s spouse is compromised. It is not necessary to decide the question of whether there is a dignity interest for the deceased witness to justify the publication ban here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The first branch of the Sherman test is satisfied because court openness poses a serious risk to the spouse’s dignity.",
+     "quote": "The first branch of the Sherman test is satisfied because court openness would pose a serious risk to the spouse’s dignity as an important public interest.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds the first Sherman branch satisfied by risk to the spouse’s dignity, without deciding on the deceased witness’s dignity interest.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The publication ban is necessary to prevent serious risk to the spouse’s dignity and is not overbroad or vague; it should be permanent.",
+     "quote": "We also agree that the publication ban is necessary to prevent a serious risk to the important public interest of protecting the dignity of the witness’s spouse (see Judgment on Remand, at para. 78); that the ban was not overbroad or vague, and should be permanent (para. 80);",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There was no reasonable alternative to the publication ban’s terms.",
+     "quote": "and that there was no reasonable alternative to the terms of the publication ban (para. 83).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Court of Appeal noted disclosing parts of the affidavit would identify the witness, making the ban moot.",
+     "quote": "In particular, as the Court of Appeal noted in 2023, it would be easy to identify the witness if parts of the affidavit were to be disclosed. In the circumstances, the Court of Appeal was entitled to conclude in 2018 that publishing details of the affidavit without the witness’s name would risk associating the information with the witness and making the publication ban moot (see Judgment on Remand, at para. 81).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The second branch of the Sherman test is satisfied.",
+     "quote": "The second branch of the test is therefore satisfied.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court agrees the ban is necessary, not overbroad, with no reasonable alternative, satisfying Sherman’s second branch, citing the Court of Appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The benefits of the publication ban outweigh its minimal negative effect on free expression and open court principle.",
+     "quote": "Finally, as to the third branch, we agree with the Court of Appeal in the Judgment on Remand that the benefits of the 2018 publication ban significantly outweigh its minimal deleterious effect on the right of free expression and, by extension, the principle of open and accessible court proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The affidavit did not relate to the wrongful conviction or legitimacy of the accused’s appeal and was not admitted as evidence.",
+     "quote": "The affidavit did not relate to the wrongful conviction or the legitimacy of the accused’s appeal before the Court of Appeal in 2018. As the Court of Appeal observed in the Judgment on Remand, the affidavit was “capable of proving nothing” (para. 91). Here, the affidavit was not admitted as evidence in the wrongful conviction proceedings and, therefore, did not play a role in determining that a wrongful conviction had occurred.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds the ban’s benefits outweigh minimal harm to expression; the affidavit was irrelevant and not admitted as evidence, the Court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No reversible error was made in issuing or maintaining the 2018 publication ban; it should not be rescinded or varied.",
+     "quote": "In light of the foregoing, no reversible error was made in issuing the 2018 publication ban or ordering it remain in effect and it should not be rescinded or varied in the circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court concludes no reversible error occurred in issuing or maintaining the 2018 publication ban and it should remain in effect.",
+   "role": "conclusion"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "None of the parties sought an order for costs.",
+     "quote": "None of the parties sought an order for costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court notes no party sought costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed without costs.",
+     "quote": "For the foregoing reasons, we dismissed the appeal without costs. Appeal dismissed without costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Court lists solicitors for the appellant, respondents, and interveners.",
+     "quote": "Solicitors for the appellant: MLT Aikins, Winnipeg; Canadian Broadcasting Corporation, Toronto. Solicitor for the respondent His Majesty The King: Department of Justice Manitoba, Constitutional Law Section, Winnipeg. Solicitors for the respondents B.B., spouse of the late M.D., and J.D., in his capacity as executor of the estate of the late M.D.: Robert Gosman Law Corporation, Winnipeg. Solicitor for the intervener the Attorney General of Ontario: Crown Law Office — Criminal, Ministry of the Attorney General, Toronto. Solicitor for the intervener the Attorney General of British Columbia: Attorney General of British Columbia, Prosecution Service, Victoria. Solicitors for the interveners the Centre for Free Expression, the Canadian Association of Journalists, News Media Canada and Communications Workers of America/Canada: Stockwoods, Toronto. Solicitors for the intervener Ad Idem/Canadian Media Lawyers Association: Linden & Associates, Toronto.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court dismisses the appeal without costs and lists solicitors for all parties and interveners.",
+   "role": "disposition"
+  }
+ ]
+}

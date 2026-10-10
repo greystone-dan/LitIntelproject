@@ -1,0 +1,72 @@
+{
+ "case_id": 27784,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0010904,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 4,
+  "6": 4,
+  "7": 4,
+  "8": 5,
+  "9": 5,
+  "10": 5,
+  "11": 5,
+  "12": 6,
+  "13": 7,
+  "14": 8,
+  "15": 9,
+  "16": 10,
+  "17": 11,
+  "18": 11,
+  "19": 12,
+  "20": 13,
+  "21": 14,
+  "22": 14,
+  "23": 15,
+  "24": 16,
+  "25": 17,
+  "26": 17,
+  "27": 17,
+  "28": 18,
+  "29": 18,
+  "30": 19,
+  "31": 19,
+  "32": 19,
+  "33": 19,
+  "34": 20,
+  "35": 20,
+  "36": 20,
+  "37": 21,
+  "38": 22,
+  "39": 23,
+  "40": 23
+ },
+ "result": {
+  "order_para": 23,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RAD reasonably find that the Applicants lacked credibility based on inconsistencies in their accounts of three alleged attacks?",
+    "paras": "4, 12-17",
+    "applicant_position": "Inconsistencies were minor and immaterial, not core to refugee claim.",
+    "respondent_position": "Inconsistencies were marked, specific, material, undermining credibility.",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "RAD's negative credibility findings were justified and reasonable based on clear evidentiary basis."
+   },
+   {
+    "issue": "Did the RAD reasonably find that the Applicants' two returns to Pakistan undermined their subjective fear of persecution?",
+    "paras": "5, 18-21",
+    "applicant_position": "Subsequent persecution undermines reavailment argument; justifications for returns were valid.",
+    "respondent_position": "Returns were inconsistent, unreasonable, and exposed Applicants to danger, undermining subjective fear.",
+    "result": "dismissed_for_applicant",
+    "result_para": 21,
+    "result_text": "RAD reasonably found reavailments undermined and were dispositive of subjective fear."
+   }
+  ]
+ }
+}

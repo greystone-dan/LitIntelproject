@@ -1,0 +1,1324 @@
+{
+ "case_id": 42057,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0244912,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an appeal of a Federal Court judgment dismissing in part AGC applications under section 38.04 of the Canada Evidence Act.",
+     "quote": "This is an appeal of a judgment of the Federal Court (per Justice Fothergill) (the application judge), dated July 16, 2021, dismissing in part applications by the Attorney General of Canada (the AGC), made pursuant to section 38.04 of the Canada Evidence Act, R.S.C. 1985, c. C-5 (the Act) for an order prohibiting disclosure of potentially injurious information in relation to two proceedings currently before the Federal Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this appeal challenges a Federal Court judgment partially dismissing AGC applications under section 38.04 of the Canada Evidence Act.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The relevant proceedings are two Federal Court files involving Mr. Hutton's civil action and judicial review application.",
+     "quote": "The relevant proceedings are those related to Files Nos. T-268-17 and T-1143-19. They were described as follows by the application judge: i)“Court File No. T-268-17 is a civil action commenced by Mr. Hutton [the respondent] in which he alleges that two named Defendants are, or were previously, undisclosed intelligence agents of [His] Majesty the [King] and have caused him harm”; ii)“Court File No. T-1143-19 is an application for judicial review commenced by Mr. Hutton of the [Office of the Communications Security Establishment Commissioner]’s dismissal of his complaint that the Communications Security Establishment [CSE] intercepted and manipulated his electronic communications”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the two underlying Federal Court proceedings involving Mr. Hutton's civil action and judicial review application.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "The application judge applied the Ribic tripartite test to decide on confidentiality of the information.",
+     "quote": "Applying the tripartite test set out in Canada (Attorney General) v. Ribic, 2003 FCA 246, [2005] 1 F.C.R. 33 (Ribic) to determine whether he should maintain the confidentiality of the information the AGC seeks to protect",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge found the information relevant and its disclosure injurious to national security.",
+     "quote": "the application judge found that the information was relevant to the underlying proceedings and that its disclosure would be injurious to national security.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge concluded the public interest in disclosure of a public summary outweighed non-disclosure.",
+     "quote": "he concluded that the public interest in disclosure in the form of a public summary (the Public Summary) outweighed the public interest in non-disclosure of the information.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "He also concluded disclosure of redacted OCSEC Note portions was favoured.",
+     "quote": "He also concluded that the balancing of these interests favoured the disclosure of the redacted portions of the conclusion of a Note to File, dated May 30, 2019, prepared by the Office of the Communications Security Establishment Commissioner (the OCSEC) regarding Mr. Hutton’s complaint against the CSE (the OCSEC Note).",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier judge applied the Ribic test, found the information relevant and injurious, but favoured disclosure of a public summary and redacted OCSEC Note portions.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge held public interest in disclosure included value of accurate information on Mr. Hutton’s allegations.",
+     "quote": "the application judge held that the public interest in disclosure encompassed “the value of providing the parties with accurate information regarding Mr. Hutton’s unfounded and harmful allegations”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "He was satisfied disclosure would not set a general precedent due to unique case circumstances.",
+     "quote": "he was satisfied that the disclosure of the Public Summary and of the conclusion of the OCSEC Note (together, the Information at Issue) would not serve as a general precedent in other cases due to the unique circumstances of the case.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "He granted AGC’s applications in all other respects and declined disclosure.",
+     "quote": "In all other respects, he granted the AGC’s applications and declined disclosure.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier judge found public interest in disclosure included accurate information and unique circumstances justified limited disclosure; other disclosure was denied.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC contends the application judge failed to properly balance public interests in the Ribic test’s third step.",
+     "quote": "The AGC contends that the application judge failed to consider and balance the proper public interests in the third step of the Ribic test.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC submits the judge failed to appreciate the Information at Issue would be of little assistance to parties.",
+     "quote": "He also submits that the application judge failed to appreciate that the Information at Issue would be of little, if any, assistance to the parties, including Mr. Hutton.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC claims the judge did not analyze if the Information at Issue would establish a crucial fact in proceedings.",
+     "quote": "he claims that the application judge did not provide any analysis of whether the Information at Issue would establish a fact crucial to either of the underlying proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC argues this failure led to not limiting injury to national security as required by subsection 38.06(2).",
+     "quote": "This, according to the AGC, led to the application judge’s failure to limit the injury to national security resulting from the disclosure of the Information at Issue, contrary to what was required of him by subsection 38.06(2) of the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The AGC argues the application judge failed to properly balance public interests and analyze the Information’s relevance, thus not limiting national security injury.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Hutton agrees with summary disclosure but requests more disclosure of redacted information.",
+     "quote": "Although he agrees with the “summary disclosure” ordered by the application judge and recognizes that he did not file a cross-appeal against that part of the application judge’s decision allowing the AGC’s applications, Mr. Hutton nevertheless requests from this Court “as much and bona fide disclosure” of the remaining redacted information to support his claims in both underlying proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Hutton urges the Court to fix the application judge’s reasons, which he finds miscast and contrary to law.",
+     "quote": "he urges the Court “to fix the \"reasons\"” for the application judge’s decision, which he finds “overtly miscast, chaotic, contrary to law and not supported on a balance and pragmatic review of the evidence”.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Hutton agrees with summary disclosure but seeks more redacted information and urges the Court to fix the application judge’s reasons.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The appeal was heard on public and confidential records with oral submissions from parties and amicus curiae.",
+     "quote": "This appeal is brought on both a public and a confidential record. It was heard on January 30, 2023. The hearing proceeded first in public, with the Court hearing oral submissions from both sides. Then, the Court moved to its secure location to hold an ex-parte, in camera hearing where it heard oral submissions from the AGC as well as from Mr. Anil Kapoor, the amicus curiae (the Amicus) appointed by Order of this Court dated November 18, 2021 (the Appointing Order). Both the AGC and the Amicus had previously filed confidential written submissions. The Amicus did not file public written submissions nor make oral submissions at the public phase of the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the appeal hearing process including public and confidential phases with submissions from parties and amicus curiae.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Before addressing merits, the Court must decide two motions brought by Mr. Hutton.",
+     "quote": "Before addressing the merits of this appeal, the Court must address two motions brought by Mr. Hutton ahead of the hearing of the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it must first address two preliminary motions by Mr. Hutton before the appeal merits.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The first motion seeks to vary the Appointing Order to disclose all classified material or a summary.",
+     "quote": "The first motion is a motion to vary the terms of the Appointing Order to permit the production and disclosure of all the classified material filed by the AGC in this appeal, or of a summary thereof (the Motion for Disclosure).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the first motion as seeking variation of the Appointing Order to disclose classified material or summary.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The second motion seeks leave to file fresh evidence, now only the September 25 Letter.",
+     "quote": "The second motion is a motion for leave to file fresh evidence (the Motion for Fresh Evidence). This evidence originally consisted of two documents, namely: (i) the transcript of the hearing held before the application judge on April 29, 2021 and (ii) a letter dated September 25, 2022 “that encloses a \"consent\" to the disclosure of specifically tailored and limited \"personal information\" from fellow licenced lawyers (and allegedly self-admitted undisclosed employees of the Security Apparatus) […] under the Privacy Act […] and a sworn Affirmation that these lawyers are not subject to any provisions of the Security Information Act […] or hold any \"security clearances\" with any Institution or Department with the Government” (the September 25 Letter). Mr. Hutton is now only seeking production of the September 25 Letter as the transcript is already on record and accessible to him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the second motion as seeking leave to file fresh evidence, now only the September 25 Letter.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The motions were heard orally and dismissed from the bench; these are the reasons.",
+     "quote": "These motions were heard orally at the outset of the public phase of the hearing of this appeal. After considering the parties’ motion records and oral submissions, the Court dismissed the motions from the bench, with reasons to follow. These are the reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it dismissed the motions from the bench and now provides reasons.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Motion for Disclosure shows a profound misunderstanding of section 38 scheme and must be dismissed.",
+     "quote": "The Motion for Disclosure, to the extent it seeks disclosure of the classified record filed by the AGC in this appeal, denotes a profound misunderstanding of the scheme set out in section 38 of the Act and must therefore be dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 38 scheme protects information threatening national security but allows conditional disclosure (R. v. Ahmad; Khawaja).",
+     "quote": "As is well settled, that scheme was designed to protect from disclosure information that would, if disclosed, pose a threat to national security, national defence or international relations, while at the same time permitting conditional, partial and restricted disclosure in appropriate circumstances (R. v. Ahmad, 2011 SCC 6, [2011] 1 S.C.R. 110 at para. 44; Canada (Attorney General) v. Khawaja, 2007 FCA 388, [2008] 4 F.C.R 3 at para. 4 (Khawaja)).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the Motion for Disclosure as misunderstanding section 38’s protective scheme, citing precedent on conditional disclosure.",
+   "role": "disposition"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Designated Federal Court judges balance secrecy and disclosure interests under section 38 with special confidentiality rules.",
+     "quote": "The task of striking the proper balance, in any given case, between the public interest in secrecy and the public interest in disclosure, when a section 38.04 application is being considered, has been entrusted to designated judges of the Federal Court and is subject to special rules intended to protect potentially injurious information filed in the course of such proceedings from being disclosed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Subsections 38.11(1) and (2) require ex-parte, private hearings when AGC requests.",
+     "quote": "In particular, according to subsections 38.11(1) and (2) of the Act, ex-parte and private hearings are to be held by the designated judge whenever the AGC so requests.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Records of ex-parte hearings contain info on injury to national security and are confidential under subsection 38.12(2).",
+     "quote": "As for the records relating to ex-parte hearings held in connection with a section 38.04 application, they contain documents and information explaining why the information that is the subject of said application would, if disclosed, cause injury to national security. Pursuant to subsection 38.12(2), these records are confidential.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "fact",
+     "text": "AGC provides documents understanding they will be kept confidential.",
+     "quote": "As the AGC appropriately points out, he provides the documents and information that are to form part of these records on the understanding that they will be kept confidential.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains section 38’s confidentiality rules, ex-parte hearings, and AGC’s provision of confidential documents.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Disclosure of classified material sought by Mr. Hutton would reveal sensitive information and defeat appeal’s purpose.",
+     "quote": "I agree with the AGC that the disclosure of the classified material, as sought by Mr. Hutton, would result in the disclosure of additional sensitive or potentially injurious information, including the Information at Issue. This would not only run contrary to the purpose of section 38 of the Act, which is to protect that material from disclosure, but it could also defeat the very purpose of the present appeal, which is to determine whether the application judge erred in ordering the disclosure of the Information at Issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds disclosing classified material would reveal sensitive info and defeat the appeal’s purpose.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Neither the Appointing Order nor plenary powers justify the Motion for Disclosure.",
+     "quote": "Neither the Appointing Order nor the Court’s plenary powers provide a valid basis for the Motion for Disclosure, contrary to Mr. Hutton’s claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appointing Order appoints the Amicus and allows variation on notice but not to defeat section 38 scheme.",
+     "quote": "The Appointing Order is just that: an Order appointing Mr. Kapoor as the Amicus in this appeal and providing case-management directions to the parties in this respect. The Appointing Order’s last paragraph, indicating that the parties “may apply to the Court, on notice to the other parties and the amicus curiae, to vary the terms of this Order”, cannot possibly have meant what Mr. Hutton suggests: that is, to allow the parties to seek variation of said Order in a manner that would run contrary to the elaborate scheme set out in section 38 of the Act and defeat the purpose of the present appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Plenary powers assist court management but do not provide unavailable remedies.",
+     "quote": "Mr. Hutton’s reliance on this Court’s plenary powers is also entirely misplaced. These powers are meant to assist the Court in managing its own proceedings, such as to summarily dismiss, of its own motion, proceedings that are doomed to fail or are an abuse of the process of the Court (Dugré v. Canada (Attorney General), 2021 FCA 8 at para. 20; Coote v. Canada (Human Rights Commission), 2021 FCA 150 at para. 16). These powers were never intended to provide a party before the Court with a remedy that is not legally available.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds neither the Appointing Order nor plenary powers justify the Motion for Disclosure as claimed by Mr. Hutton.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Plenary powers are for court management, not to grant unavailable remedies.",
+     "quote": "These powers are meant to assist the Court in managing its own proceedings, such as to summarily dismiss, of its own motion, proceedings that are doomed to fail or are an abuse of the process of the Court (Dugré v. Canada (Attorney General), 2021 FCA 8 at para. 20; Coote v. Canada (Human Rights Commission), 2021 FCA 150 at para. 16). These powers were never intended to provide a party before the Court with a remedy that is not legally available.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains plenary powers assist court management but do not grant unavailable remedies.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Hutton relies on CBC case to argue Court can order disclosure to ensure open court principle.",
+     "quote": "Mr. Hutton relies heavily on Canadian Broadcasting Corp. v. Manitoba, 2021 SCC 33 (CBC) for the proposition that this Court retains the authority to order disclosure of the classified material filed by the AGC in this appeal so as to ensure compliance with the constitutionally protected open court principle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The CBC case is about jurisdiction to vary ancillary orders after judgment and is not helpful here.",
+     "quote": "That case raised the issue of whether a court retains jurisdiction to render, vary or vacate ancillary orders, such as sealing orders or publication bans, after it has decided the merits of a case and entered its formal judgment. It is of no assistance to Mr. Hutton as it was decided in a wholly different context.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Hutton relies on CBC case for disclosure authority, but the court finds it irrelevant here.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 38 provisions allow ex-parte hearings and confidentiality, balancing open court and secrecy interests, and are constitutionally valid.",
+     "quote": "The relevant context is different here. It is informed by the provisions of section 38 of the Act allowing for ex-parte hearings and ensuring the confidentiality of the material filed for the purposes of such hearings. These provisions have been found to strike a proper balance between the need to ensure compliance with the open court principle and the public interest in secrecy and were held, therefore, to be constitutionally valid (Khawaja at 4; Toronto Star Newspapers Ltd. v. Canada, 2007 FC 128, [2007] 4 F.C.R. 434 at paras. 83, 86 and 90-91).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains section 38’s confidentiality provisions balance open court and secrecy and are constitutionally valid.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Supreme Court recognizes national security can limit disclosure to affected individuals (Charkaoui).",
+     "quote": "the Supreme Court of Canada has “repeatedly recognized that national security considerations can limit the extent of disclosure of information to the affected individual” (Charkaoui v. Canada (Citizenship and Immigration), 2007 SCC 9, [2007] 1 S.C.R. 350 at para. 58).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Supreme Court authority recognizing national security can limit disclosure to affected individuals.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CBC case and Federal Courts Rules confidentiality regime are not applicable to section 38 national security information.",
+     "quote": "Again, the CBC matter is of no assistance whatsoever to Mr. Hutton. The same is true of the analogy Mr. Hutton is attempting to make with the confidentiality regime set out in sections 151 and 152 of the Federal Courts Rules, SOR/98-106 (the Rules). This regime is entirely different than the one set out in section 38 of the Act, which was designed to deal specifically with the protection and disclosure of information that is potentially injurious to national security, national defence and international relations and which sets out, to that end, its own - and unique - procedural and analysis frameworks. The Rules’ confidentiality regime has no application to this type of information and is therefore not a valid comparator.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CBC case and Federal Courts Rules confidentiality regime do not apply to section 38 national security information.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Mr. Hutton’s Motion for Disclosure has no basis in law and is dismissed.",
+     "quote": "Mr. Hutton’s Motion for Disclosure has no basis in law and, as the Court indicated at the public phase of the hearing of this appeal, it is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses Mr. Hutton’s Motion for Disclosure as having no legal basis.",
+   "role": "disposition"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Motion for Fresh Evidence seeking the September 25 Letter is dismissed as both legal bases lack traction.",
+     "quote": "The Motion for Fresh Evidence, which seeks the production of the September 25 Letter, is based on subsection 38.06(3.1) of the Act. Alternatively, production is being sought through a variation of the Appointing Order. Neither has any traction in law and both can be briefly disposed of.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the Motion for Fresh Evidence seeking the September 25 Letter on both legal grounds as lacking merit.",
+   "role": "disposition"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Subsection 38.06(3.1) empowers only designated Federal Court judges to receive evidence under section 38.04 applications.",
+     "quote": "subsection 38.06(3.1) is of no assistance to Mr. Hutton in this Court. That provision empowers the designated judge seized of an application under section 38.04 of the Act to “receive into evidence anything that, in the opinion of the judge, is reliable and appropriate...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The term 'judge' means Chief Justice or designated Federal Court judge under section 38.04.",
+     "quote": "For the purposes of that provision, the term “judge” is defined in the definitions’ provision of section 38 as “the Chief Justice of the Federal Court or a judge of that Court designated by the Chief Justice to conduct hearings under section 38.04”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This Court has no authority under subsection 38.06(3.1) to receive evidence on appeal of disclosure orders under section 38.04.",
+     "quote": "This Court, therefore, has no authority under subsection 38.06(3.1) to receive evidence in the context of an appeal of a disclosure order issued in relation to an application made pursuant to section 38.04 of the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains subsection 38.06(3.1) limits evidence reception to designated Federal Court judges, not this Court on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "This Court’s authority to grant leave for fresh evidence on appeal rests with section 351 of the Rules.",
+     "quote": "this Court’s authority to grant leave to a party to file fresh evidence on appeal rests with section 351 of the Rules.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Fresh evidence must be relevant to a decisive or potentially decisive issue on appeal (Coady v. Canada; Palmer v. The Queen).",
+     "quote": "one of the conditions to be satisfied in order for such leave to be granted is that the fresh evidence sought to be adduced be relevant, in that it bears on a decisive or potentially decisive issue on appeal (Coady v. Canada (Royal Mounted Police), 2019 FCA 102 at para. 3; Palmer v. The Queen, 1979 CanLII 8 (SCC), [1980] 1 S.C.R. 759 at 775).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states fresh evidence on appeal requires leave under section 351 Rules and must be relevant to a decisive issue, citing precedent.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Assuming relevance, Mr. Hutton failed to show the September 25 Letter bears on a decisive or potentially decisive issue on appeal.",
+     "quote": "Even assuming, without deciding it, that the September 25 Letter is relevant to the merits of the underlying two proceedings, Mr. Hutton has failed to establish that the September 25 Letter bears on a decisive or potentially decisive issue on appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Nothing in this appeal turns on the September 25 Letter.",
+     "quote": "In other words, nothing in this appeal turns on it.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds Mr. Hutton failed to show the September 25 Letter is decisive to the appeal; it does not affect the appeal outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Adducing the September 25 Letter via variation of the Appointing Order is not available to Mr. Hutton.",
+     "quote": "Adducing the September 25 Letter through a request for the variation of the Appointing Order is not an avenue open to Mr. Hutton either.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if available, the September 25 Letter lacks relevance to the issues on appeal.",
+     "quote": "Mr. Hutton would still face the insurmountable problem of the September 25 Letter’s total lack of relevancy for the disposition of the issues on appeal in this matter.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds variation of the Appointing Order is not an option and the September 25 Letter is irrelevant to the appeal issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "These reasons support dismissing the Motion for Fresh Evidence.",
+     "quote": "These are the reasons supporting the dismissal of the Motion for Fresh Evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states these reasons justify dismissing the Motion for Fresh Evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Costs on these motions will be awarded to the successful party, as is generally the case.",
+     "quote": "Both parties are seeking their costs on these motions. As is generally the case, I would award costs to the successful party.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will award costs on these motions to the successful party, as usual.",
+   "role": "disposition"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "AGC filed applications under subsection 38.04 of the Act in two underlying proceedings: civil action and judicial review of OCSEC decision.",
+     "quote": "the AGC filed an application under subsection 38.04 of the Act in each of the two underlying proceedings, the civil action (Court File No. T-268-17) and the judicial review application of the OCSEC decision dismissing Mr. Hutton’s complaint",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states AGC filed subsection 38.04 applications in two related proceedings involving Mr. Hutton.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Both applications concern the OCSEC Note and were consolidated into a single proceeding by order dated March 25, 2021.",
+     "quote": "Because they are so closely related, the two applications were consolidated and continued as a single proceeding by Order of the application judge dated March 25, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the two applications about the OCSEC Note were consolidated into one proceeding by order.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Ribic test under subsection 38.06(2) governs such applications with three questions: relevance, injury, and public interest balance.",
+     "quote": "such applications are determined on the basis of the Ribic test, which is further detailed by subsection 38.06(2) of the Act. This test requires the designated judge to address the following three questions: (a)Is the information sought to be protected relevant to the underlying proceeding? (b)If so, is that information injurious to national security, national defence or international relations? (c)If the answer to (a) and (b) are both “yes”, does the public interest in non-disclosure outweigh the public interest in disclosure?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Ribic test requires assessing relevance, injury, and balancing public interests under subsection 38.06(2).",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If public interest favors disclosure, the judge must consider forms and conditions limiting injury, including public summaries.",
+     "quote": "If the designated judge concludes that the public interest in disclosure outweighs the public interest in secrecy, he or she must, before ordering disclosure, consider, as required by subsection 38.06(2) of the Act, the form of, and any potential conditions on, the disclosure that are most likely to limit the injury to national security, national defence or international relations. A public summary of the information sought to be kept secret is one such form contemplated by that provision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that if disclosure is ordered, the judge must consider forms and conditions to limit injury, including public summaries.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge found the information sought to be protected was relevant and its disclosure injurious to national security.",
+     "quote": "the application judge concluded, based on Ribic, that the information the AGC sought to protect from disclosure was relevant to the two underlying proceedings and that its disclosure would be injurious to national security",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Disclosure would reveal investigative subjects, confidential techniques, procedures, methodologies, and employees’ names.",
+     "quote": "“insofar as it tends to reveal: (i) subjects of investigative interest to CSE; (ii) confidential techniques and capabilities; and (iii) confidential procedures, methodologies and employees’ names”",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge found the information relevant and its disclosure injurious to national security revealing sensitive details.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge found public interest in disclosure of a public summary and redacted conclusion outweighed secrecy.",
+     "quote": "he held that the public interest in disclosure of a public summary of the information and of the redacted portions of the conclusion to the OCSEC Note outweighed the public interest in secrecy",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Disclosure would provide meaningful information while limiting injury to national security.",
+     "quote": "this information would “provide meaningful disclosure to the parties while limiting or minimizing the injury to national security that would result from full disclosure of the information the AGC seeks to protect”",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge balanced interests and favored disclosure of a public summary and redacted conclusion to limit injury.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge found CSE and CSIS made an unusual public confirmation of no investigative interest in Mr. Hutton.",
+     "quote": "The application judge’s finding that CSE and the Canadian Security Intelligence Service (the CSIS) had made an “unusual” public confirmation of their lack of investigative interest in Mr. Hutton (the Confirmation finding) was key to this determination.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "OCSEC independently investigated, verified CSE’s holdings, questioned employees, and concluded CSE’s activities were lawful.",
+     "quote": "OCSEC, that it independently investigated the matters raised in this complaint, verified CSE’s holdings, questioned CSE employees and concluded that CSE’s activities were lawful",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "CSE stated it never employed named individuals and never targeted Canadians or persons in Canada.",
+     "quote": "CSE, that it never employed the individuals named in his complaint and never directed its activities at Canadians or any persons in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "CSIS reviewed allegations, conducted inquiries, and concluded it was not involved and named individuals were not employees or contractors.",
+     "quote": "CSIS, that it carefully reviewed his allegations, conducted the appropriate internal inquiries and concluded that it was not involved in the circumstances alleged by Mr. Hutton and that none of the individual alleged by Mr. Hutton to work for it were in fact employees or contractors of CSIS",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge found key public confirmations from OCSEC, CSE, and CSIS denying investigative interest in Mr. Hutton.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Disclosure would occur in unique circumstances and not set a general precedent.",
+     "quote": "any disclosure resulting from the AGC’s applications would therefore “occur in the unique circumstances of this case” and would not “serve as a general precedent for disclosure in other cases”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Public interest in disclosure includes providing accurate information about Mr. Hutton’s unfounded and harmful allegations.",
+     "quote": "the public interest in disclosure encompassed “the value of providing the parties with accurate information regarding Mr. Hutton’s unfounded and harmful allegations”",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge found disclosure unique to this case and valuable to counter Mr. Hutton’s unfounded allegations.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC contends the application judge erred in balancing step, as disclosure would undermine the 'never confirm or deny' principle and not affect outcomes.",
+     "quote": "The AGC contends that the application judge erred in applying the third step of the Ribic test. He claims that the disclosure of the Information at Issue would undermine the “never confirm or deny principle” which has been consistently applied by Canadian intelligence agencies...",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC insists preserving the 'never confirm or deny' principle is important and should not be easily discarded.",
+     "quote": "He insists that preserving that principle “is important and should not be easily discarded”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The AGC argues the application judge erred by disregarding the 'never confirm or deny' principle and that disclosure would not impact outcomes.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC contends the public summary issued does not limit injury to national security as required by subsection 38.06(2).",
+     "quote": "The AGC further contends that the application judge erred in issuing a public summary that does not limit the injury to national security, as mandated by subsection 38.06(2) of the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The AGC argues the public summary fails to limit injury to national security as required by law.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The appellate standard of review is palpable and overriding error for legal test application or discretion.",
+     "quote": "It is not disputed that the appellate standard of review set out in Housen v. Nikolaisen... applies to this appeal as it involves either the application of a legal test to a set of facts or the exercise of discretion...",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC concedes the standard of palpable and overriding error applies.",
+     "quote": "This engages, as conceded by the AGC, the standard of palpable and overriding error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is palpable and overriding error, which the AGC concedes applies.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Palpable error is plainly seen without reconsidering all evidence; overriding error affects the result.",
+     "quote": "“An error is palpable if it is plainly seen and if all the evidence need not be reconsidered in order to identify it, and is overriding if it has affected the result”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The entire case must fail to establish palpable and overriding error, not just parts (Canada v. South Yukon Forest Corporation).",
+     "quote": "“When arguing palpable and overriding error, it is not enough to pull all leaves and branches and leave the tree standing. The entire tree must fall.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains palpable and overriding error requires a clear error affecting the result, citing precedent that the entire case must fail.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The standard of palpable and overriding error applies to underlying facts and inference-drawing process.",
+     "quote": "the Supreme Court of Canada reaffirmed that “[t]he standard of palpable and overriding error applies with respect to the underlying facts relied upon by the trial judge to draw an inference, and to the inference-drawing process itself”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Appellate courts should not second-guess evidence weight or make alternative findings.",
+     "quote": "and cautioned appellate courts from “second-guess[ing] the weight to be assigned to the various items of evidence” and making “alternative findings based on different ascriptions of weight”",
+     "answers": 0
+    }
+   ],
+   "summary": "The Supreme Court of Canada stated palpable and overriding error applies to facts and inferences; appellate courts must not second-guess evidence weight or make alternative findings.",
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No basis to interfere with the application judge’s decision after considering parties' and Amicus' submissions.",
+     "quote": "I see no basis upon which to interfere with the application judge’s decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "After considering submissions, the court finds no basis to interfere with the application judge’s decision.",
+   "role": "conclusion"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Application judge found information sought was relevant and disclosure would injure national security.",
+     "quote": "Having determined that the information the AGC sought to prevent disclosure of was relevant to the underlying proceedings and that disclosure would injure national security",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Application judge balanced secrecy and disclosure interests, influenced by the Confirmation finding.",
+     "quote": "he appeared to be largely influenced by the Confirmation finding",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC disputes the Confirmation finding as crucial to the case's uniqueness and precedential value.",
+     "quote": "The AGC disputes that crucial finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge found the information relevant and injurious to national security, balanced interests influenced by the Confirmation finding, which AGC disputes.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Confirmation finding could be inferred from the entire record before the application judge.",
+     "quote": "the Confirmation finding could be inferred from the entire record that was before the application judge",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This inference was available to the application judge.",
+     "quote": "this inference was, in my view, available to the application judge",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the Confirmation finding could be inferred from the record and was available to the application judge.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Investigation principle lacks class protection unlike human sources privilege; discretion is case-by-case.",
+     "quote": "the Investigation principle the AGC seeks to protect ... does not benefit from a class protection ... Weighing the interest ... remains a case-by-case exercise of discretion",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC agrees discretion applies but insists the Investigation principle should not be easily discarded.",
+     "quote": "The AGC does not appear to dispute this, but insists that the principle itself “should not be easily discarded”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Human sources privilege is set out in section 18.1 of the Canadian Security Intelligence Service Act.",
+     "quote": "human sources privilege set out in section 18.1 of the Canadian Security Intelligence Service Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Investigation principle lacks class protection and discretion applies; AGC agrees but urges it not be easily discarded.",
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Appellate courts must not reassess evidence or make own findings under palpable and overriding error standard.",
+     "quote": "this is not the test applicable in a palpable and overriding error analysis, as our role as an appellate court is not to reassess the evidence and come up with our own findings",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC urges the court to reassess evidence and make alternative findings.",
+     "quote": "Ultimately, this is what the AGC is urging this Court to do",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court declines to reassess evidence and leaves the Confirmation finding undisturbed.",
+     "quote": "we therefore must decline that invitation and leave the application judge’s Confirmation finding undisturbed",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states it must not reassess evidence; AGC urges it, but the court declines and leaves the Confirmation finding undisturbed.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC challenges application judge’s finding that disclosure order is unique and not precedent, alleging insufficient reasons.",
+     "quote": "The AGC also takes issue with the application judge’s determination that this disclosure order ... “will not serve as a general precedent for future cases” ... failed to articulate sufficient reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "AGC challenges the application judge’s finding that the disclosure order is unique and not precedent, alleging insufficient reasons.",
+   "role": "issue"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Application judge noted AGC’s proposal for public summary and strict conditions to minimize injury if disclosure ordered.",
+     "quote": "the application judge noted the AGC’s proposal that ... injury may be minimized by disclosure of a public summary and the imposition of strict conditions",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge noted AGC’s proposal for a public summary and strict conditions to minimize injury if disclosure ordered.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Public summary states CSE never discloses identifying info to protect operations and national security.",
+     "quote": "CSE’s consistent practice is to never disclose information that would identify or tend to identify CSE techniques, targets, and capabilities, as such disclosure would be injurious both to CSE’s operations and national security",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Public summary recognizes the case’s uniqueness and that it would not set precedent.",
+     "quote": "CSE, however, recognizes the uniqueness of the instant case before the Court, and the fact that the uniqueness of this matter would not present a precedent going forward",
+     "answers": 0
+    }
+   ],
+   "summary": "The public summary states CSE never discloses identifying info to protect security and recognizes this case’s uniqueness and non-precedential nature.",
+   "role": "facts"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The public summary was prepared by AGC and amended as proposed by the Amicus.",
+     "quote": "These paragraphs were included in the Public Summary, which is the “summary prepared by the AGC, as amended in the manner proposed by the [Amicus]”",
+     "answers": 0
+    }
+   ],
+   "summary": "The public summary was prepared by AGC and amended as proposed by the Amicus.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application judge cannot be faulted for endorsing AGC’s and Amicus’ position without further elaboration.",
+     "quote": "the application judge can hardly be faulted for not expanding further on this point as he appears to have simply endorsed the AGC’s (and the Amicus’) position",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the application judge cannot be faulted for endorsing AGC’s and Amicus’ position without further elaboration.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC claims disclosure would not establish meaningful fact or impact outcome of underlying proceedings.",
+     "quote": "The AGC further claims that the application judge erred in ordering disclosure ... because that information ... would not establish a meaningful fact or otherwise impact the outcome",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court disagrees with AGC’s claim about disclosure’s lack of impact.",
+     "quote": "I disagree",
+     "answers": 1
+    }
+   ],
+   "summary": "AGC claims disclosure lacks meaningful impact; the court disagrees.",
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Application judge considered public interest in disclosure related to both underlying proceedings and accurate information on Hutton’s allegations.",
+     "quote": "the application judge considered that the public interest in disclosure related to both of the underlying proceedings and encompassed the value of providing the parties with accurate information regarding Mr. Hutton’s allegations",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge found public interest in disclosure related to both proceedings and accurate information on Hutton’s allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Application judge noted Amicus’ position that disclosure was needed to answer three key questions for fair resolution.",
+     "quote": "the application judge noted the Amicus’ position that the public interest required disclosure of the answers to the following questions, in order “to permit the fair and just resolution [of that proceeding]”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The three questions relate to OCSEC’s investigation, findings, and response to Hutton’s complaint.",
+     "quote": "(a)what did OCSEC do to investigate Mr. Hutton’s complaint? (b)what did OCSEC learn about the matters complained of? (c)what is OCSEC’s particular response to the matters raised by Mr. Hutton",
+     "answers": 0
+    }
+   ],
+   "summary": "The application judge noted Amicus’ position that disclosure was needed to answer three questions about OCSEC’s investigation and response.",
+   "role": "facts"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review considers both reasoning process and outcome.",
+     "quote": "A reviewing court performing a reasonableness analysis is interested in both the reasoning process and the outcome",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No palpable and overriding error in ordering disclosure as it answers key questions, provides meaningful disclosure, and impacts judicial review outcome.",
+     "quote": "I see no palpable and overriding error on the part of the application judge in ordering disclosure ... (i)would go some distance in answering these three questions; (ii)would therefore provide meaningful disclosure to the parties; and (iii)would ensure ... the judicial review application proceeds with accurate information, which could impact the outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no palpable and overriding error in ordering disclosure as it answers key questions and impacts the judicial review outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Same conclusion applies to civil action as allegations and investigation are central to both proceedings.",
+     "quote": "I reach the same conclusion regarding the civil action, since many of the same allegations form the basis of both proceedings, with CSE’s alleged conduct – and OCSEC’s investigation thereof – being central to both",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies the same conclusion to the civil action due to overlapping allegations and investigation.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "AGC has not succeeded in overturning the application judge’s decision despite possible alternative conclusions.",
+     "quote": "the AGC, despite his best efforts, has not succeeded in bringing the “tree” down",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes AGC has not succeeded in overturning the application judge’s decision despite possible alternatives.",
+   "role": "conclusion"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "AGC submits Public Summary does not minimize injury to national security.",
+     "quote": "the AGC submits that the Public Summary does not minimize injury to national security",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No palpable and overriding error in application judge’s conclusion that disclosure provides meaningful info while minimizing injury to national security.",
+     "quote": "I see no palpable and overriding error in the application judge’s conclusion that the Information at Issue “will provide meaningful disclosure to the parties while limiting or minimizing the injury to national security",
+     "answers": 0
+    }
+   ],
+   "summary": "AGC submits Public Summary fails to minimize injury; court finds no palpable and overriding error in judge’s conclusion it does.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No error in judge’s conclusion that no conditions on Hutton’s use of information were needed given prior unconditional disclosure.",
+     "quote": "I see no such error either with respect to the application judge’s conclusion that there was no need to impose conditions upon Mr. Hutton regarding the disclosure",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This determination was available to the application judge given case circumstances.",
+     "quote": "This determination, I find, was also available to the application judge in light of the particular circumstances of the case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in judge’s conclusion that no conditions on Hutton’s use were needed given prior unconditional disclosure and case circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Hutton asks court to fix reasons and order more disclosure but concedes fixing reasons is not a standalone ground and did not cross-appeal.",
+     "quote": "he asks this Court to “fix the reasons” ... has conceded that “fixing the reasons for judgment” is not a stand alone ground of appeal and he did not also cross-appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal confined to palpable and overriding error; no basis to entertain Hutton’s requests.",
+     "quote": "There is, as a result, no basis upon which this Court can entertain these two requests",
+     "answers": 0
+    }
+   ],
+   "summary": "Hutton requests fixing reasons and more disclosure but concedes no cross-appeal; court confines appeal to palpable error and denies requests.",
+   "role": "disposition"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal and make no order as to costs since neither side sought costs",
+     "quote": "I would therefore dismiss the appeal. Neither side has sought costs, as is usually the case in such matters. There will be, as a result, no order as to costs with respect to the merits of the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and orders no costs as neither party sought costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Public reasons were first released on a classified basis on February 15, 2023 to comply with national security requirements",
+     "quote": "These public reasons were first released on a classified basis on February 15, 2023 to ensure compliance with national security requirements prior to public release.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The judgment was authored by LeBlanc J.A. and concurred by de Montigny J.A. and Laskin J.A.",
+     "quote": "\"René LeBlanc\" J.A. \"I agree. Yves de Montigny J.A.\" \"I agree. J.B. Laskin J.A.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The hearing took place in Ottawa, Ontario on January 30, 2023",
+     "quote": "PLACE OF HEARING: Ottawa, Ontario DATE OF HEARING: January 30, 2023",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Counsel and solicitors of record for the appellant and respondent are listed",
+     "quote": "APPEARANCES: Nicole Jedlinski Jacques-Michel Cyr For The Appellant Kristin Ernest Hutton SELF REPRESENTED Jack Lloyd FOR THE RESPONDENT (LIMITED-SCOPE REPRESENTATION – MOTION) Anil Kapoor AMICUS CURIAE SOLICITORS OF RECORD: Shalene Curtis-Micallef Deputy Attorney General of Canada For The Appellant Hutton Law For The Respondent",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the public reasons were first classified, names the judges, hearing details, and counsel appearances.",
+   "role": "facts"
+  }
+ ]
+}

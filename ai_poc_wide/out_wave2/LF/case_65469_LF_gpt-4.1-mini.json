@@ -1,0 +1,596 @@
+{
+ "case_id": 65469,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011114,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. XXXX XXXX, a 50-year-old Serbian citizen, appeals the RPD decision rejecting her refugee claim.",
+     "quote": "Ms. XXXX XXXX, who is a 50-year-old citizen of Serbia, is appealing a decision of the Refugee Protection Division (RPD) rejecting her claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Appellant has not requested new evidence or an oral hearing.",
+     "quote": "The Appellant has not requested to present new evidence and has not requested an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant is a 50-year-old Serbian citizen appealing the RPD's rejection of her refugee claim and has not requested new evidence or oral hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RAD reviewed the IRB Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution before deciding.",
+     "quote": "the Refugee Appeal Division (RAD) carefully reviewed the IRB Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD reviewed relevant IRB Chairperson's Guidelines before rendering its decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded the Appellant faces less than a serious risk of persecution if she returns to Serbia, seeks state protection, and lives apart from her husband.",
+     "quote": "the RPD concluded that the Appellant would faces less than a serious risk of persecution if she were to return to Serbia, seek state protection and live apart from her husband.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD agrees with the RPD's assessment and confirms the RPD's determination that the Appellant is neither a Convention Refugee nor a person in need of protection under IRPA.",
+     "quote": "I am in agreement with this assessment, therefore, pursuant to ss. 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the determination of the RPD, namely, that Ms. XXXX XXXX is neither a \"Convention Refugee\" pursuant to s. 96 of IRPA nor a \"person in need of protection\" pursuant to s. 97 of the IRPA.",
+     "answers": 1
+    }
+   ],
+   "summary": "The earlier decision-maker found the appellant faces less than serious risk if returning; the court agrees and confirms no refugee or protection status under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant alleges risk of attack or death by her husband because she left him and he seeks her return and has threatened her.",
+     "quote": "The Appellant, who was born, raised and lived in XXXX XXXX, Serbia, alleges that she is at risk of being attacked and potentially killed by her husband, identified as Mr. XXXX XXXX, because the Appellant has left this relationship and MrXXXX XXXX allegedly seeks her return and has allegedly threatened her over the phone.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges risk of attack or death by her husband who seeks her return and has threatened her.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant alleges regular violence and control by her husband after marriage; their son also suffered abuse.",
+     "quote": "The Appellant alleges that after marrying Mr. XXXX the violence and controlling aspects of the relationship were regular occurrences. The Appellant and Mr. XXXX had a son, identified as XXXX, who was born in 1998 and who has also suffered at the hands of Mr. XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges regular violence by her husband and abuse of their son.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Appellant arrived in Canada in 2013 on a visitor visa and applied for protection in November 2013; the RPD denied the claim in February 2014.",
+     "quote": "The Appellant arrived in Canada in XXXX 2013 on a visitor's visa and applied for Canada's protection in November 2013. The RPD first heard and denied this claim in February 2014",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found Mr. XXXX was not interested in pursuing or harming the Appellant after she left him.",
+     "quote": "the RPD determined based on testimony that Mr. XXXX was not interested in pursuing the Appellant and specifically that the evidence showed that Mr. XXXX \"is not seeking to stop her from leaving him and would not seek to harm her in the future\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the appellant arrived in 2013, applied for protection, and denied the claim, finding the husband not pursuing or harming her.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant appealed focusing on domestic abuse, arguing the RPD erred in concluding the danger of persecution had largely disappeared.",
+     "quote": "The Appellant appealed to the RAD focusing on the domestic abuse issue identifying new evidence...this \"is not at all sufficient basis upon which to conclude that the danger of persecution has largely disappeared\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred in concluding the danger of persecution had largely disappeared despite new evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found prior abuse and unpredictable behavior could establish serious possibility of future persecution but noted credibility issues and required state protection review, allowing appeal and returning case to RPD.",
+     "quote": "The RAD concludes that prior abuse and unpredictable behaviour on Mr. XXXX part could establish the serious possibility of future persecution...the appeal was allowed and the case was returned to the RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found prior abuse could indicate future risk but noted credibility issues and returned the case to RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD heard the returned claim in September 2015 and denied it in an oral decision; the RAD received the appeal notice in November 2015.",
+     "quote": "The RPD heard the returned claim in September 2015 and denied the claim in an oral decision. This decision was appealed by submitting a Notice of Appeal, which was received by the RAD on November 3, 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker heard and denied the claim in 2015; the RAD received the appeal notice later that year.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred in its analysis that she could re-establish herself in Serbia without difficulty and in its state protection analysis.",
+     "quote": "The Appellant in its appeal focuses on the issue of domestic violence and argues that the RPD's analysis includes errors related to its determination that the Appellant \"could re-establish herself in Serbia without difficulty\". The Appellant also argues that the Appellant erred in its state protection analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred in assessing her ability to re-establish in Serbia and in state protection analysis.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant seeks to have the RAD set aside the RPD decision or alternatively return the file for hearing and redetermination by a different panel.",
+     "quote": "the Appellant seeks to have the RAD 'set aside' the RPD decision and recognize the Appellant as requiring Canada's protection. Alternatively, the Appellant seeks to have the file returned to the RPD for a 'hearing and redetermination' by a different panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant seeks the RAD to set aside the RPD decision or return the file for redetermination by a different panel.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The RAD must apply the correctness standard in reviewing RPD decisions but may show deference on credibility assessments due to RPD's oral hearing advantage.",
+     "quote": "the RAD must apply the correctness standard in its review of RPD decisions. At the same time, in the area of a credibility assessment in which RPD had the advantage of an oral hearing, the RAD may show deference to the conclusion of the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The core issue is whether the RPD erred in determining the Appellant faces less than serious risk if returning to Serbia, seeking state protection, and living apart from her husband.",
+     "quote": "Core Issue: Did the Board err in its determination that the Appellant would face less than a serious risk of persecution if she were to return to Serbia, seek state protection and live apart from her husband?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD's standard of review and frames the core issue about risk if the appellant returns to Serbia and lives apart from her husband.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD determined the Appellant could return to Serbia, seek state protection, live in a shelter, and find employment to re-establish herself.",
+     "quote": "it would be possible for the Appellant to return to XXXX XXXX, seek state protection and perhaps initially live in a shelter before securing employment towards re-establishing herself at a separate residence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the appellant could return, seek protection, live in a shelter, and find employment to re-establish herself.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is 50, her husband 58, and their son is now 18 and not part of the determination.",
+     "quote": "she is a 50 year old woman who alleges a risk at the hands of her 58 year old husband. Her son is now 18 years old (born in XXXX 1998) and no longer factors into this determination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant's son may provide future support; the RPD found she could find employment and support from family including in Canada.",
+     "quote": "the Appellant notes that her son is athletic...perhaps in time he could become an aid to his mother...The thrust of the RPD decision is that the Appellant could find employment and live with the support of those around her including her brother in XXXX XXXX and with the aid of others including her family in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the appellant's age, husband's age, son's non-involvement, and potential support and employment prospects per RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD's analysis is erroneous and absurd because state protection in Serbia is inadequate and Mr. XXXX may persecute her if she returns.",
+     "quote": "The Appellant's core argument is that the RPD analysis is \"erroneous and absurd\" because state protection in Serbia is inadequate and there is a serious possibility that Mr. XXXX will seek to persecute the Appellant should she return.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Returning the Appellant to Serbia would return her to the man who terrorized her for twenty years.",
+     "quote": "\"...returning the Applicant to XXXX XXXX would simply return her to the man who has terrorized her life for the past twenty years\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD's analysis is erroneous because Serbia's protection is inadequate and returning her means returning to her persecutor.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Canada's protection is surrogate, invoked after determining the country cannot provide adequate protection, assessing individual circumstances and objective risk.",
+     "quote": "Canada's international commitment to protect those fleeing persecution is surrogate protection. Canada's responsibility can be evoked after it is determined that the Appellant county of origin cannot provide adequate protection. To reach this determination, the individual circumstances of the Appellant must be assessed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The key issue is the objective risk from Mr. XXXX, the Appellant's circumstances, and adequacy of state protection in Serbia.",
+     "quote": "In this case the key issue is the objective risk presented by Mr. XXXX...the specific circumstances of the Appellant and the adequacy of the instruments of state protection in XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Canada's surrogate protection and key issue: objective risk from Mr. XXXX, appellant's circumstances, and Serbia's state protection adequacy.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. XXXX is 58, university educated, formerly a high school teacher, with no criminal record; domestic abuse did not escalate to police or hospitalization.",
+     "quote": "Mr. XXXX is identified as a 58 year old man who is university educated, until recently employed as a high school teacher and who does not have a criminal record...domestic abuse and violence did not escalate in the past to the point where the police were ever called or the Appellant required \"hospitalization\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "There appears to be an evolution in risk; initially Mr. XXXX was disinterested and not opposed to the Appellant leaving; domestic violence was hidden and no threats noted after departure before first RPD decision.",
+     "quote": "there appears to be an evolution in the risk...Mr. XXXX was disinterested in the Appellant and was not opposed to the Appellant moving out...domestic violence was kept relatively hidden...no threats against the Appellant were noted by the Appellant after the Appellant left Serbia but prior to the first RPD decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. XXXX's profile and notes evolving risk, initial disinterest, hidden domestic violence, and no threats after departure before first RPD decision.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Evidence shows the son is regularly beaten and Mr. XXXX is abusive and demands the Appellant return home.",
+     "quote": "evidence is cited which sets out that the Appellant's son is being regularly beaten and Mr. XXXX is now being abusive and demands that the Appellant 'return home'",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The latest RPD decision notes Mr. XXXX has threatened the Appellant in phone calls.",
+     "quote": "with the latest RPD decision (September 2015) it is noted that Mr. XXXX has since threatened the Appellant in phone calls",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The RPD must balance Mr. XXXX's potential actions against state protection instruments if the Appellant lives apart from him.",
+     "quote": "The task becomes, therefore, for the RPD to balance the potential actions of Mr. XXXX compared to instruments of state protection in XXXX XXXX a situation where the Appellant would not be living with Mr. XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant reports ongoing abuse and threats; the RPD must balance risk against state protection if living apart.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Mr. XXXX was twice married before and abusive, but did not pursue or persecute ex-wives after breakups.",
+     "quote": "Mr. XXXX was twice married in the past and was abusive each time. When there was a breakup, however, Mr. XXXX did not pursue or persecute these woman.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found Mr. XXXX was abusive in prior marriages but did not persecute ex-wives after breakups.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues Mr. XXXX's past non-pursuit of ex-wives is not predictive because one left the country and the other remarried with a protective husband.",
+     "quote": "the Appellant argues that this should not be taken as an indicator of the future behaviour of Mr. XXXX because, in one case, the ex-wife left the country. With respect to the second ex-wife, the Appellant argues that she remarried and the new husband \"could logically deter\" Mr. XXXX \"as that woman's husband would have protected her\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues Mr. XXXX's past non-pursuit of ex-wives is not predictive due to their changed circumstances.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. XXXX can be deterred from persecution by a husband if the Appellant remarried, but the Appellant would return alone and be at risk even in a shelter",
+     "quote": "Mr. XXXX can be deterred from causing persecution by a husband if the Appellant were to remarry but in this case the Appellant would be returning to XXXX XXXX as a woman alone, although some level of support might be expected from her 'sick' brother, therefore she would be at risk, even in a woman's shelter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. XXXX could be deterred if the Appellant remarried, but she would return alone and remain at risk even in a shelter.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant's argument sets a low risk threshold because deterrence by police applies equally to ex-wife and Appellant",
+     "quote": "I must conclude that the logic of the Appellant's argument in this case establishes a fundamentally low threshold of risk because the same deterrence is operative in both cases (ex-wife and Appellant).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Deterrence faced by Mr. XXXX relates to police intervention, not active husband defense",
+     "quote": "the deterrence faced by the agent of persecution is not some active and vigilant defence of the wife by the husband, but being arrested, charged and punished by mechanisms of state security.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's risk threshold is low since deterrence by police applies equally to ex-wife and Appellant, not active husband defense.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. XXXX did not assault the second ex-wife; Appellant argues serious risk despite living apart nearly three years and shelter availability",
+     "quote": "Mr. XXXX did not assault the ex-wife but the Appellant is arguing that now, in the case of the Appellant, there is a serious possibility that Mr. XXXX will attack the Appellant even though they have now lived apart for nearly three years...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence shows Mr. XXXX has not acted violently outside marriage and has never been arrested",
+     "quote": "the evidence of past action shows that outside of the confines of the Appellant home and marriage, Mr. XXXX has not acted in a 'violent and unpredictable' manner because he did not attack his ex-wives and has never been arrested.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. XXXX did not assault the second ex-wife and has no violent history outside marriage; Appellant argues serious risk despite separation and shelter.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. XXXX showed indifference by not assaulting or restraining Appellant before her 2013 departure, though he allegedly made threats later",
+     "quote": "there is evidence of indifference to the part of Mr. XXXX towards the Appellant in that he did not assault or restrain the Appellant prior to her departure from Serbia in 2013 although as noted above, Mr. XXXX has allegedly since made threats.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. XXXX was indifferent before 2013 departure but allegedly made threats afterward.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Long-term domestic abuse inside the home shows serious possibility Mr. XXXX will risk arrest to attack Appellant",
+     "quote": "within the home, long term domestic abuse is evidence for a serious possibility that Mr. XXXX will risk arrest and sanction to somehow attack the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues long-term domestic abuse shows serious risk Mr. XXXX will attack despite arrest risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant speculates on Mr. XXXX's behavior and state security inadequacy",
+     "quote": "I conclude that it is the Appellant who is speculating on the behaviour of Mr. XXXX and the inadequacy of state security in her specific circumstances.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Police intervene and abusers are arrested but system is too lenient",
+     "quote": "while the sources do identify that police intervene and abusers are arrested and found guilty, the concern of advocates is that the system is \"too lenient\" (Appellant's Memorandum, paragraph 42).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Family problem framing does not apply because Appellant is willing to report and press charges",
+     "quote": "sources which speak to the 'private problem - family matter' of the problem which would not apply to the Appellant because in this case she is now in a situation that establishes a willingness to report problems to the police and press charges.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant speculates on Mr. XXXX and state security; Appellant argues police intervene but system is lenient and she is willing to report abuse.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD reasoned that Mr. XXXX's profile and state support mechanisms provide adequate protection",
+     "quote": "the RPD has reached its conclusion through reasoned inference based on the available evidence including the profile of the agent of persecution... and the availability of state support mechanisms...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD considered police approach less than optimal but still adequate protection",
+     "quote": "This also takes into consideration the perhaps less than optimal approach of the police in not severely punishing domestic abusers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Mr. XXXX's profile and state support provide adequate protection despite police's less than optimal approach.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant bears burden to show serious possibility of persecution by Mr. XXXX",
+     "quote": "the burden is on the Appellant to show that her risk of persecution at the hands of Mr. XXXX is a serious possibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found state protection in XXXX XXXX adequate and police responsive in past unrelated incidents",
+     "quote": "the RPD has reviewed the literature on state protection in XXXX XXXX and finds that it is adequate... police have had active interaction with the Appellant in the past... and have been responsive...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds RPD's analysis of state protection and support mechanisms persuasive and no error in determination",
+     "quote": "I find the analysis of the RPD with respect to the mechanisms of state protection as they apply to the specific circumstances of the Appellant persuasive... I conclude that the RPD did not err in its determination and I agree with the conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant must show serious risk; RPD found state protection adequate and police responsive; court agrees with RPD's analysis and conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Confirm RPD's determination that Ms. XXXX XXXX is neither a Convention refugee nor a person in need of protection",
+     "quote": "I confirm the determination of the RPD, namely, that Ms. XXXX XXXX is neither a \"Convention refugee\" nor a \"person in need of protection\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the RPD's determination that Ms. XXXX XXXX is neither a Convention refugee nor in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal",
+     "quote": "Therefore, the appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

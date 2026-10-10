@@ -1,0 +1,573 @@
+{
+ "case_id": 32237,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.010646,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicant Shivanshu is an Indian citizen who came to Canada on a study permit to attend Conestoga College.",
+     "quote": "The Applicant Shivanshu is a citizen of India, who initially came to Canada on a study permit to attend Conestoga College.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that the Applicant Shivanshu is an Indian citizen who came to Canada on a study permit to attend Conestoga College.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The PGWP application was refused due to fraudulent documents from Canadore College, leading to a five-year inadmissibility for misrepresentation under IRPA.",
+     "quote": "The PGWP application was refused because fraudulent documentation was provided to support the Applicant’s application, specifically, a fraudulent transcript and completion of studies letter from Canadore College, a different college than the one he attended.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the PGWP application was refused due to fraudulent documents from Canadore College, resulting in a five-year inadmissibility for misrepresentation.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant argues the inadmissibility finding was unreasonable and that the Officer ignored evidence and gave insufficient explanation.",
+     "quote": "The Applicant seeks judicial review of the Decision, arguing that the inadmissibility for misrepresentation finding was unreasonable. He asserts that the immigration officer [Officer] ignored evidence that he provided in his response to the procedural fairness letter he received from Immigration, Refugees and Citizenship Canada [IRCC], and that the Officer provided insufficient explanation of their Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the inadmissibility finding was unreasonable, claiming the Officer ignored evidence and gave insufficient explanation.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Respondent argues the Decision is reasonable and responsive to the Applicant’s evidence despite the harsh outcome.",
+     "quote": "The Respondent counters that the Decision is responsive to the Applicant’s evidence and is reasonable in light of the applicable case law and the evidentiary record. Although the result for the Applicant will be disappointing and the outcome harsh, I agree with the Respondent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the Respondent that the Decision is reasonable.",
+     "quote": "Although the result for the Applicant will be disappointing and the outcome harsh, I agree with the Respondent.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Respondent argues the Decision is reasonable and responsive; the court agrees with the Respondent.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Applicant has not met the burden to show the Decision is unreasonable; the judicial review application will be dismissed.",
+     "quote": "Having considered the parties’ written material and oral submissions, I find that the Applicant has not satisfied his burden of showing that the Decision is unreasonable. For the reasons that follow, this judicial review application will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicant has not shown unreasonableness and dismisses the judicial review application.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Respondent submits the Applicant failed to follow the Allegations Protocol and did not notify counsel of fraud allegations, so the Court should not examine the allegation.",
+     "quote": "The Respondent submits that the Applicant did not follow the Allegations Protocol or give counsel notice that an allegation of fraud was going to be put before the Court. According to the Respondent, the Court ought not to examine the allegation because the Applicant has not met the initial burden of putting former counsel on notice: Cromhout v Canada (Citizenship and Immigration), 2009 FC 1174 at para 30, citing Shirvan v Canada (Minister of Citizenship and Immigration), 2005 FC 1509 at paras 31-32.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Respondent’s counsel did not make further oral submissions and relied on written submissions on this point.",
+     "quote": "At the hearing of this matter, Respondent’s counsel did not make further submissions on this point, advising instead that the Respondent would rely on their written submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues the Applicant failed to follow the Allegations Protocol and did not notify counsel, so the Court should not examine the allegation; Respondent relies on written submissions.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant argues the Allegations Protocol does not apply because he is not alleging procedural unfairness due to former counsel but challenges the Officer’s failure to consider his response and innocent mistake exception.",
+     "quote": "The Applicant submits that he was not required to follow the Allegations Protocol because he is not advancing that the decision is unreasonable or procedurally unfair because of his former counsel’s actions. Instead, the Applicant’s submissions relate to the Officer’s failure to engage meaningfully with his response to the PFL and to consider the applicability of the innocent mistake exception to misrepresentation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the Allegations Protocol does not apply as he challenges the Officer’s failure to consider his response and innocent mistake exception, not former counsel.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court is not persuaded the Allegations Protocol applies because the Applicant does not seek a finding against former counsel’s conduct.",
+     "quote": "I am not persuaded the Allegations Protocol applies in the circumstances. The jurisprudence on which the Respondent relies is distinguishable because it relates to situations where the applicant asked the Court to make a finding that former counsel’s conduct rendered the decision procedurally unfair. This is not the case here; the Applicant does not seek from this Court a direct finding regarding former counsel’s conduct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court is not persuaded the Allegations Protocol applies as the Applicant does not seek a finding against former counsel’s conduct.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court notes it has not required applicants to follow the Allegations Protocol in similar cases, citing Chaichi Maleki v Canada.",
+     "quote": "Further, the Court has not required applicants to follow the Allegations Protocol when they advance similar arguments to those advanced by the Applicant here: see, for example, Chaichi Maleki v Canada (Citizenship and Immigration), 2025 FC 850 at paras 27-32.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes it has not required applicants to follow the Allegations Protocol in similar cases, citing precedent.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court exercises discretion to not name the consultant due to reputational impact and inability to respond before the Officer.",
+     "quote": "Mindful of the reputational impact that the facts alleged in this application could have on the consultant, however, and given their inability to respond to the allegations made against them before the Officer, I have exercised my discretion to not mention the consultant by name in these reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court exercises discretion to not name the consultant due to reputational impact and inability to respond before the Officer.",
+   "role": "other"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The presumptive reasonableness standard applies to this judicial review.",
+     "quote": "There is no disagreement that the presumptive review standard of reasonableness applies to the matter presently before the Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Decision shows justification, intelligibility, transparency, and a logical chain of analysis per Vavilov and Komolafe.",
+     "quote": "I find that, contrary to the Applicant’s submissions, the Decision bears the hallmarks of justification, intelligibility and transparency, with a logical chain of analysis and sufficiently coherent reasons that permit the Court to “to connect the dots on the page where the lines, and the direction they are headed, may be readily drawn”: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at para 97, citing Komolafe v Canada (Minister of Citizenship and Immigration), 2013 FC 431 at para 11.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the reasonableness standard applies and the Decision is justified, intelligible, transparent, and logically reasoned.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Officer’s reasons are not to be judged by perfection and must be considered in institutional and procedural context per Vavilov.",
+     "quote": "I also note that the Court must not assess the Officer’s reasons against the standard of perfection, and that judicial review of the Decision cannot be divorced from either the institutional context in which it was made or the history of the proceedings: Vavilov, above at para 91.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Officer’s reasons are not to be judged by perfection and must be considered in context per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "An alternative inference by the Officer does not mean the evidentiary assessment was flawed per Yilmaz.",
+     "quote": "In addition, the fact that it was open to the Officer here to draw another inference on the evidence does not mean that the evidentiary assessment was flawed: Yilmaz v Canada (Citizenship and Immigration), 2026 FC 625 at paras 21-23.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Yilmaz that an alternative inference does not mean the evidentiary assessment was flawed.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 40 IRPA is to be interpreted broadly to promote immigration integrity; section 16 IRPA requires truthful answers and evidence.",
+     "quote": "With these judicial review principles in mind, I turn next to the applicable statutory scheme. Section 40 of the IRPA is to be interpreted broadly so as to fulfill its purpose of promoting the integrity of the immigration system: Wang v Canada (Citizenship and Immigration), 2018 FC 368 [Wang] at para 15. Section 16 of the IRPA also imposes a duty on an applicant to answer truthfully all questions put to them for the examination of their application and to produce all evidence reasonably required to determine their application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 40 IRPA is broadly interpreted to promote integrity; section 16 IRPA requires truthful answers and evidence.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Misrepresentation requires a misrepresentation and that it could induce an error; intent or awareness is not required.",
+     "quote": "Two factors must be present for a misrepresentation to lead to an inadmissibility finding: 1) there must be a misrepresentation, and 2) the misrepresentation could have induced an error in the administration of the IRPA: Malik v Canada (Citizenship and Immigration), 2021 FC 1004 at para 11. There is no requirement that an applicant intended to misrepresent, or that the applicant was even aware of the misrepresentation: Vahora v Canada (Citizenship and Immigration), 2022 FC 778 at para 31.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states misrepresentation requires a misrepresentation that could induce error; intent or awareness is not required.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A narrow exception to section 40 IRPA applies only in extraordinary circumstances of honest and reasonable belief and lack of control over knowledge.",
+     "quote": "There exists a narrow exception to section 40 of the IRPA, which will apply only in “truly extraordinary circumstances where an applicant honestly and reasonably believed that they were not misrepresenting a material fact and knowledge of the misrepresentation was beyond the applicant’s control”: Wang, above at para 17.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a narrow exception to section 40 IRPA applies only in extraordinary circumstances of honest and reasonable belief and lack of control.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The test for innocent misrepresentation has subjective and objective components per Munoz Gallardo.",
+     "quote": "The test for innocent misrepresentation or mistake involves both a subjective component, where the decision-maker considers whether the person honestly believed that they were not making a misrepresentation, and an objective component, where the decision-maker next considers whether, in the circumstances, it was reasonable that the person believed they were not making a misrepresentation: Munoz Gallardo v Canada (Citizenship and Immigration), 2022 FC 1304 at para 19.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the test for innocent misrepresentation involves subjective and objective components per Munoz Gallardo.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Decision-makers need not consider innocent misrepresentation if applicant failed due diligence to confirm authenticity, capturing all types of misrepresentations.",
+     "quote": "That said, a decision-maker is not required to consider an assertion of innocent misrepresentation or mistake where an applicant has not conducted due diligence to confirm that the information submitted in their application was authentic, including representations made directly (by the applicant) and indirectly (by others, such as immigration consultants); this captures “misrepresentations that were deliberate, negligent, intentional, unintentional or without the Applicant’s knowledge”: Falsafi v Canada (Citizenship and Immigration), 2024 FC 1458 [Falsafi] at paras 29-30.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states decision-makers need not consider innocent misrepresentation if applicant failed due diligence, covering all misrepresentation types.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Decision reasons are in GCMS notes showing verification revealed documents were not genuine and a procedural fairness letter was issued.",
+     "quote": "The reasons for the Decision are contained in the Global Case Management System [GCMS] notes. The GCMS notes describe that a verification process was conducted on the transcript and completion of studies letter submitted with the PGWP application, which revealed that the documents are not genuine. The notes also indicate that the Applicant requested the withdrawal of the application, several months after the verification process was completed. Because the verification results were received prior to the withdrawal request, however, the Officer expressed concerns in the GCMS notes that fraudulent documentation was provided to IRCC to support the PGWP application. A procedural fairness letter thus was issued to the Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Decision reasons in GCMS notes show verification revealed documents were not genuine and a procedural fairness letter was issued.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The GCMS notes acknowledge and summarize the Applicant’s response to the procedural fairness letter.",
+     "quote": "The GCMS notes acknowledge and summarize the Applicant’s response, a brief overview of which is provided below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the GCMS notes acknowledge and summarize the Applicant’s response to the procedural fairness letter.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant studied at Conestoga College then a private college before marriage and wanted a spousal open work permit",
+     "quote": "he studied at Conestoga College before moving to a private college. He described that when he married, he wanted to apply for a spousal open work permit",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Consultants told Applicant spousal open work permit was not possible because wife lacked full-time job",
+     "quote": "he was informed by every consultant he consulted that it was not possible because his wife did not have a full-time job",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant found a consultant who said he could get a 3-year work permit, paid $2,000 cash, and consultant applied for him",
+     "quote": "he finally found a consultant who told him that he could get a work permit for three years. The Applicant provided the consultant with documentation, paid him $2,000 in cash, and the consultant applied for the Applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant says he studied at two colleges, wanted a spousal work permit but was told it was impossible, then paid a consultant $2,000 to apply for a 3-year permit.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant waited long with no response, visited consultant with spouse, argued, paid another $2,000, got login credentials",
+     "quote": "after a lengthy period with no response, visiting the consultant with his spouse. After an argument with the consultant and paying him another $2,000, the Applicant says that he was given login credentials and gained access to his online account",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant unaware of what was included in the application filed",
+     "quote": "He still was unaware, however, of what was included in the application that was filed",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant waited long, argued with consultant, paid $2,000 more, got login credentials but did not know what was filed in application.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant lost contact with consultant, tried WhatsApp but messages disappear after 24 hours",
+     "quote": "he lost contact with the consultant for a long time. He tried messaging the consultant on WhatsApp but they have disappearing messages on",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Applicant included undated WhatsApp screenshots where consultant claims only filed documents given by Applicant and wife",
+     "quote": "The Applicant included WhatsApp screenshots with some of the consultant’s responses...the purported consultant claims that they only filed the documents that the Applicant and his wife had given them",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant lost contact with consultant, tried WhatsApp with disappearing messages, included screenshots where consultant claims only filed given documents.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant denies studying at Canadore College and submitting fraudulent documents",
+     "quote": "The Applicant ended his response by stating that he did not study at Canadore College and did not submit the fraudulent documents",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant withdrew application due to frustration over delay, wanted to apply with wife who was extending her work permit",
+     "quote": "He indicated that he withdrew his application because of frustration that it was taking more than a year. The Applicant also stated that he wanted to apply with his wife who was applying for her own work permit extension",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant attached all documentation and offered to attend an interview",
+     "quote": "He attached all of his and his wife’s documentation and offered to come in for an interview",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant denies studying at Canadore, denies fraud, withdrew application due to delay, attached documents, offered interview.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues decision is unreasonable as Officer only reiterated Applicant's response and ignored innocent misrepresentation exception",
+     "quote": "The Applicant argues that the decision is unreasonable because the Officer only reiterated what was explained in the Applicant’s response and gave no consideration to the innocent misrepresentation exception",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court disagrees with Applicant's argument",
+     "quote": "I disagree",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicant argues decision unreasonable for ignoring innocent misrepresentation; court disagrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer notes consultant did not provide application details and Applicant should have questioned consultant more",
+     "quote": "the Officer acknowledges that the consultant did not provide the Applicant with any application details...Applicant should have initially questioned the consultant for more information",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "No representative form on file; Applicant responsible to verify consultant's integrity",
+     "quote": "there is no use of representative form on file and states that it was the Applicant’s responsibility to determine the consultant’s integrity and genuineness",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Unverified documents could induce error in IRPA administration; Applicant inadmissible under IRPA 40(1)(a) on balance of probabilities",
+     "quote": "if the documents had not been verified, they could have induced an error in the administration of the IRPA and concludes...Applicant is inadmissible under paragraph 40(1)(a) of the IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds nothing unreasonable in Officer's determinations given Applicant's circumstances",
+     "quote": "I find nothing unreasonable in these determinations in the Applicant’s circumstances",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found Applicant failed to verify consultant, no representative form, documents could induce error, Applicant inadmissible; court finds no unreasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer's reasons highlight Applicant's lack of due diligence in retaining consultant and reviewing submissions",
+     "quote": "the Officer’s reasons highlight the Applicant’s lack of due diligence in retaining the consultant and in reviewing what was submitted to IRCC",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits multiple consultants advising no permit increased need for Applicant's due diligence",
+     "quote": "I agree with the Respondent’s submission that because the Applicant consulted multiple consultants who advised him that it was not possible to obtain the work permit he sought, this compounded the need for due diligence on his part",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant's lack of due diligence means Officer not required to address innocent misrepresentation or mistake",
+     "quote": "The Applicant’s lack of due diligence means that the Officer was not required to address the Applicant’s asserted innocent misrepresentation or mistake: Falsafi, above at paras 29-30",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicant lacked due diligence; Respondent agrees; court says Officer not required to consider innocent misrepresentation.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court not persuaded Decision is unreasonable and dismisses judicial review application",
+     "quote": "I am not persuaded that the Decision is unreasonable. The judicial review application therefore will be dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses judicial review application, finding Decision not unreasonable.",
+   "role": "disposition"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance for certification arises",
+     "quote": "Neither party proposed a serious question of general importance for possible certification. I find that none arises in the circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment: Applicant's judicial review dismissed; no question for certification",
+     "quote": "THIS COURT’S JUDGMENT is that: The Applicant’s judicial review application is dismissed. There is no question for certification",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no serious question for certification; dismisses judicial review and denies certification.",
+   "role": "disposition"
+  }
+ ]
+}

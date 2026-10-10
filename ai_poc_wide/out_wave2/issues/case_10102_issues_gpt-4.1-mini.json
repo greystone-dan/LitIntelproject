@@ -1,0 +1,62 @@
+{
+ "case_id": 10102,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0009620000000000002,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 11,
+  "12": 12,
+  "13": 13,
+  "14": 14,
+  "15": 15,
+  "16": 16,
+  "17": 17,
+  "18": 18,
+  "19": 19,
+  "20": 20,
+  "21": 21,
+  "22": 22,
+  "23": 23,
+  "24": 23,
+  "25": 24,
+  "26": 24,
+  "27": 25,
+  "28": 26,
+  "29": 27,
+  "30": 27
+ },
+ "result": {
+  "order_para": 27,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the officer's decision to deny deferral of removal reasonable?",
+    "paras": "6,7,10-18,23-25",
+    "applicant_position": "Officer unreasonably treated medical evidence and failed to consider Nigerian health care evidence properly.",
+    "respondent_position": "Officer's decision was reasonable, based on thorough analysis and insufficient evidence from applicants.",
+    "result": "dismissed_for_applicant",
+    "result_para": 10,
+    "result_text": "Decision was reasonable; insufficient evidence before officer to find otherwise."
+   },
+   {
+    "issue": "Did the officer err in considering the applicants removal ready despite visa issues for the Canadian born son?",
+    "paras": "19-24",
+    "applicant_position": "Visa delays meant removal was not ready; removal should have been deferred.",
+    "respondent_position": "Visa was expected before travel; reasonable to consider removal ready and not defer.",
+    "result": "dismissed_for_applicant",
+    "result_para": 23,
+    "result_text": "It was not unreasonable to consider removal ready as visa was expected before travel."
+   }
+  ]
+ }
+}

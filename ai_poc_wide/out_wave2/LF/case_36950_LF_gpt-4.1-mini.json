@@ -1,0 +1,462 @@
+{
+ "case_id": 36950,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0079392,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Arkipelago appeals Federal Court order dismissing its appeal from a CEEO protective order.",
+     "quote": "The appellant, Arkipelago Architecture Inc. (Arkipelago), appeals from an order of the Federal Court (2018 FC 37 per Roussel J.) dismissing Arkipelago’s appeal from a “counsel’s and expert’s eyes only” protective order (the CEEO Order) granted by Prothonotary Aylen acting as the Case Management Judge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Under the CEEO Order, Arkipelago’s president Mr. O’Hara cannot access information designated as highly confidential by respondents.",
+     "quote": "Under the CEEO Order, Arkipelago’s president and sole employee, Mr. O’ Hara would not have access to any information designated by the respondents as “counsel’s and expert’s eyes only – highly confidential information”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Arkipelago appeals a Federal Court order dismissing its appeal from a CEEO order denying Mr. O'Hara access to highly confidential information.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "We would dismiss the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondents requested the CEEO Order after Arkipelago sought access to confidential information including source code and financial data.",
+     "quote": "The respondents’ request for the CEEO Order came in response to a motion by Arkipelago requesting access to certain confidential information, including computer source code, client information and agreements, and financial information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes respondents requested the CEEO Order after Arkipelago sought access to confidential information.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Case Management Judge found the information highly sensitive and a real risk of inadvertent misuse by Mr. O’Hara.",
+     "quote": "The Case Management Judge concluded that the information at issue was highly sensitive in nature and warranted protection by way of a CEEO order. She was satisfied that the prospect of Mr. O’Hara subconsciously or inadvertently using the confidential information obtained in the proceeding in future business activities represented a real and substantial risk that was grounded in the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Case Management Judge found the information highly sensitive and a real risk of inadvertent misuse by Mr. O'Hara.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The judge rejected Arkipelago’s claim that Mr. O’Hara needed access to instruct counsel, finding experts could access information instead.",
+     "quote": "The Case Management Judge was also unpersuaded by Arkipelago’s “bald assertions” that Mr. O’Hara’s access to the information was necessary to allow him to effectively instruct counsel, concluding that any disadvantage caused by Arkipelago’s lack of in-house counsel was mitigated by Mr. O’Hara’s ability to retain experts who would themselves have access to the confidential information.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Mr. O’Hara could share information with experts to assist their analysis.",
+     "quote": "It also remained open to Mr. O’Hara to share information with experts which could assist them in their analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Case Management Judge found Mr. O’Hara did not need access to instruct counsel; experts could access information and be assisted by him.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Justice Roussel found the Case Management Judge applied correct legal principles and balanced interests properly.",
+     "quote": "On appeal to the Federal Court, Justice Roussel found that the Case Management Judge had articulated the correct legal principles governing the issuance of CEEO orders and applied them properly.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Justice Roussel saw no palpable and overriding error in the order or reasons.",
+     "quote": "She saw no palpable and overriding error warranting intervention.",
+     "answers": 0
+    }
+   ],
+   "summary": "Justice Roussel found the Case Management Judge applied correct legal principles and saw no palpable error.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court used incorrect standard for granting CEEO order.",
+     "quote": "The appellant raised two arguments before us. It contended that he Federal Court adopted the incorrect standard for granting a CEEO order;",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court erred in its treatment of evidence supporting the CEEO Order.",
+     "quote": "and, second that it erred in its treatment of the evidence when concluding that the CEEO Order should stand.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the Federal Court used the wrong standard and erred in its evidence assessment for the CEEO Order.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Whether the Federal Court articulated the correct standard is a question of law reviewable for correctness.",
+     "quote": "The question whether the Federal Court Judge articulated the correct standard in granting a CEEO Order is an extricable question of law reviewable for correctness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Whether the evidence satisfies that standard is a mixed fact and law question reviewable for palpable and overriding error.",
+     "quote": "The second question whether the evidence satisfies that standard is clearly a question of mixed fact and law reviewable for palpable and overriding error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard question is reviewable for correctness; evidence application is reviewable for palpable error.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues subconscious or inadvertent misuse risk alone is insufficient to justify CEEO order; unusual circumstances required.",
+     "quote": "Arkipelago argues that the Federal Court, in accepting that subconscious or inadvertent misuse is sufficient to justify a CEEO order, adopted a lower standard of risk than is required or alone is insufficient to justify such an order.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant cites Bard case requiring unusual circumstances for CEEO orders.",
+     "quote": "Rather, the evidence must establish the existence of “unusual circumstances” that would warrant the extraordinary order of disclosure on a “counsel's eyes only” basis: Bard Peripheral Vascular Inc. v. WL Gore & Associates, Inc., 2017 FC 585 at para. 15 [Bard].",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues subconscious misuse risk is insufficient; unusual circumstances per Bard are required for CEEO orders.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents argue mere risk suffices if real and substantial, not generalized concern.",
+     "quote": "The respondents, for their part, argue that mere risk can be sufficient provided the evidence establishes that the risk is real and substantial and does not simply amount to generalized concern: Rivard Instruments Inc. v. Ideal Instruments Inc., 2006 FC 1338 at paras. 1-2 [Rivard]; Lundbeck Canada Inc. v. Canada, 2007 FC 412 at para. 19 [Lundbeck].",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents argue a real and substantial risk suffices for a CEEO order, not just generalized concern.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "CEEO orders only granted in unusual circumstances; no comprehensive definition exists; decided case-by-case.",
+     "quote": "The case law is clear that such orders should only be granted in unusual circumstances: Bard at para 15; Lundbeck at para 14; Rivard at para 37; Angelcare Development Inc. v. Munchkin, Inc., 2018 FC 447 at 21-22.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "In commercial harm context, CEEO order warranted where disclosure presents a serious, real, substantial, evidence-grounded threat.",
+     "quote": "In the context of harm to a commercial business interest, a CEEO order is warranted where the disclosure of the confidential information at issue presents a “serious threat” that is “real, substantial, and grounded in the evidence”: Bard at para. 16; Sierra Club of Canada v. Canada (Minister of Finance), 2002 SCC 41 [2002] S.C.R. 522 at para. 54 [Sierra Club]).",
+     "answers": 0
+    }
+   ],
+   "summary": "Case law requires unusual circumstances for CEEO orders; serious, real, substantial threat needed in commercial harm context.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Federal Court and Case Management Judge applied correct legal standard for CEEO orders.",
+     "quote": "Based on the foregoing authorities, we are not persuaded that the decision of the Federal Court Judge can be construed as a departure from earlier case law and as setting a different standard of proof.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The judges independently articulated the correct legal standard for CEEO orders.",
+     "quote": "On the contrary, both the Federal Court and the Case Management Judge independently articulated the correct legal standard applicable to the issuance of a CEEO order.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Federal Court and Case Management Judge applied the correct legal standard for CEEO orders.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant’s reliance on Pharmascience is misplaced; it aligns with respondents’ position on real, substantial risk.",
+     "quote": "Furthermore, we also agree with the respondents that the appellant’s reliance on Pharmascience is misplaced.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits Pharmascience holds risk or potential misuse alone insufficient for CEEO order.",
+     "quote": "The appellant submits that this decision stands for the proposition that a “risk of or potential for misuse” is not sufficient.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Pharmascience states CEEO orders should not be granted simply on concern for risk or potential misuse; risk must be real and substantial.",
+     "quote": "However, the decision stated that a CEEO order should not be granted “simply on the basis of a concern for the risk of or potential for misuse” (Pharmascience at para. 1).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pharmascience supports that risk must be real, substantial, and evidence-grounded, consistent with respondents and authorities.",
+     "quote": "When read in its proper context, this decision accords with the respondents’ position, and with the above authorities, that mere concern is not enough – the risk must be real and substantial and grounded in the evidence.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds Pharmascience supports respondents’ view that risk must be real and substantial, not mere concern.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The court now considers whether the Federal Court erred in its treatment of evidence for the CEEO order standard.",
+     "quote": "We now turn to whether the Court erred in its treatment of the evidence in finding that this standard had been made out.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "This is a mixed fact and law question reviewable for palpable and overriding error.",
+     "quote": "As noted above, this is a question of mixed fact and law reviewable for palpable and overriding error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considers if the Federal Court erred in evidence treatment, a mixed fact and law question.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues subconscious or inadvertent misuse risk is insufficient and would allow CEEO orders in all IP cases.",
+     "quote": "The appellant argues that the risk presented by the subconscious or inadvertent misuse of the confidential information is insufficient to warrant a CEEO order. In the appellant’s view, such a risk is inherent to virtually all intellectual property litigation and, if deemed sufficient, would open the door to granting CEEO orders in all such cases.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court ignored evidence on need for Mr. O’Hara’s access to instruct counsel and participate in litigation.",
+     "quote": "The appellant further argues that the Federal Court ignored its evidence on the need for access to the confidential information to allow Mr. O’Hara to make informed decisions and to properly instruct counsel.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant stresses importance of solicitor-client relationship and party’s right to participate in litigation.",
+     "quote": "On this point, the appellant stresses overarching concern for the importance of the solicitor-client relationship and the inherent rights of a party to participate in the litigation process.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues subconscious misuse risk is insufficient, Federal Court ignored need for access, and stresses solicitor-client relationship importance.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No palpable and overriding error found in Federal Court’s treatment of evidence or conclusions on risk and necessity.",
+     "quote": "We see no palpable and overriding error that would warrant this Court’s intervention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant’s failure to particularize necessity supports judge’s conclusion that assertions are bald and speculative.",
+     "quote": "The judge's observation that the appellant’s failure to particularize why the respondents’ confidential information is necessary to instruct counsel supports the conclusion that its assertions are, at this stage, bald and speculative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judge reasonably concluded risk of inadvertent use by Mr. O’Hara was real and substantial given his role and market context.",
+     "quote": "Similarly, the judge’s conclusion that the risk posed by access to the information is real and substantial was both reasonable and open to the judge and the evidence before her. The judge noted that Mr. O’Hara was the sole employee of the appellant and the driving mind behind its product development and business decisions. The judge had a well-founded concern that it would be difficult, if not altogether artificial, to expect Mr. O’Hara to completely divorce his mind from that information. Given the small and highly competitive market in which the parties both operate, this would have obvious and significant consequences for the respondents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no palpable error; judge reasonably found risk real and appellant’s assertions bald and speculative.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues CEEO order interferes with solicitor-client relationship and should never be granted.",
+     "quote": "Finally, there is no merit to the appellant’s argument that the orders interferes with the solicitor-client relationship. Taken to its logical conclusion, the appellant’s position would mean no CEEO orders would ever be granted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court rejects appellant’s argument; challenge mechanism in CEEO Order mitigates concerns about counsel’s access.",
+     "quote": "In any event, we are satisfied that any concern for counsel’s ability to adequately deal with the confidential information is mitigated by the challenge mechanism included in the CEEO Order in circumstances where counsel believes it necessary to disclose a particular document or information to Mr. O’Hara.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects appellant’s solicitor-client interference argument and notes challenge mechanism mitigates concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Federal Court erred by not considering that respondents would have no interest in confidential info if they win copyright infringement claim.",
+     "quote": "Before concluding, the appellant has raised a new argument before us to the effect that the Federal Court erred by failing to consider that, if successful in the underlying action for copyright infringement, then the respondents will have no legitimate interest in the confidential information at issue as it would no longer compete in the industry.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues granting CEEO Order presupposes respondents’ program is non-infringing, which is undetermined.",
+     "quote": "The appellant argues that granting the CEEO Order presupposes that the respondents’ computer program is non-infringing, a matter which has yet to be determined.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents submit no reason to accept appellant’s presumption.",
+     "quote": "The respondents submit that there is no reason why this Court should accept this presumption, and the appellant advances none.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the Federal Court erred by not considering respondents’ lack of interest if they win; respondents reject this presumption.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with respondents that appellant’s argument presupposes infringement and is equally forceful in opposite direction.",
+     "quote": "We agree with the respondents. Indeed, we note that the appellant’s argument operates with equal force in the opposite direction – that is, to accept their submission would require this Court to presuppose that the respondents’ program is infringing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with respondents that appellant’s argument presupposes infringement and is equally forceful oppositely.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed with costs.",
+     "quote": "We would therefore dismiss the appeal with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal with costs.",
+   "role": "disposition"
+  }
+ ]
+}

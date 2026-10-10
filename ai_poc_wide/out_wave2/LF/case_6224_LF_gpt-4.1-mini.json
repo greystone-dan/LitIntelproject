@@ -1,0 +1,522 @@
+{
+ "case_id": 6224,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.009854000000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants are Ms. Brown, her husband, and minor child; Ms. Brown's father was a murdered Jamaican police officer.",
+     "quote": "The Applicants are Chantelle Alici Brown (“Ms. Brown”), her husband, and their minor child. Ms. Brown’s father was a senior officer of the Jamaican police.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Brown's father was murdered in 2004; murder remains unsolved; family received threats to stop investigating.",
+     "quote": "In February 2004, he was murdered. His murder remains unsolved. Following the death of Ms. Brown’s father, Ms. Brown and her family received anonymous threats calling on the family to stop their investigations into his murder.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Brown and husband moved to US; minor child born there in 2009; Ms. Brown alleges continued investigations and threats in US.",
+     "quote": "Ms. Brown and her husband went to the United States, where the minor Applicant was born in 2009. Ms. Brown alleges that she continued her investigations into her father’s unresolved murder while in the United States and continued to receive threatening phone calls.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicants' identities, Ms. Brown's father's murder and threats, and Ms. Brown's continued investigations in the US.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants came to Canada in 2019, claimed refugee protection; RPD dismissed claims in 2020; Applicants appealed to RAD.",
+     "quote": "After approximately 15 years in the United States, the Applicants came to Canada in June 2019 and made a claim for refugee protection. The Refugee Protection Division [RPD] dismissed their refugee claims in February 2020. The Applicants appealed this determination to the Refugee Appeal Division [RAD].",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD breached procedural fairness by drawing negative credibility inference from Ms. Brown's inability to detail investigations.",
+     "quote": "Part of their argument on appeal was that the RPD breached procedural fairness by drawing a negative credibility inference from Ms. Brown’s inability to provide details of her continued investigations into her father’s murder.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD never asked Ms. Brown to provide details or explain lack of corroborative evidence; she would have provided details if asked.",
+     "quote": "The Applicants argue that the RPD never asked Ms. Brown to provide these details, nor to explain the reason for her lack of corroborative evidence in support of her investigations. The Applicants say that had the RPD asked Ms. Brown, she would have provided these details as she has done in the affidavit she filed on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicants' refugee claim history and their argument that the RPD breached procedural fairness by not asking Ms. Brown for investigation details.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's breach of procedural fairness is determinative; Ms. Brown's inability to describe investigations was key to credibility discount and risk finding.",
+     "quote": "I find the RPD’s breach of procedural fairness determinative. Ms. Brown’s inability to describe her ongoing investigations into her father’s death was a key basis to discount her credibility and to find she had not established ongoing risk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This breach suffices to set aside RAD's decision; no need to address other grounds RAD relied on.",
+     "quote": "Given the centrality of this finding, it is a sufficient basis for setting aside the RAD’s decision. As such, it is unnecessary to address the other grounds the RAD relied upon to dismiss Ms. Brown’s appeal, many of which the Applicants challenge on judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD's procedural fairness breach determinative and sets aside RAD's decision without addressing other grounds.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review is granted based on reasons below.",
+     "quote": "Based on the reasons below, I grant the judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the judicial review.",
+   "role": "disposition"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Determinative issue is RPD's alleged procedural fairness breach by impugning Ms. Brown's credibility despite narrow examination.",
+     "quote": "As I have noted above, the determinative issue on this judicial review relates to the RPD’s alleged breach of procedural fairness by impugning Ms. Brown’s credibility in relation to her investigation efforts despite the narrow examination of this issue at the refugee hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the key issue as RPD's alleged procedural fairness breach regarding Ms. Brown's credibility.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Both parties argue presumption of reasonableness does not apply to procedural fairness issue.",
+     "quote": "Both parties argued that the presumption of reasonableness does not apply to this issue as it deals with procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court notes different approaches to standard of review for procedural fairness breaches considered by RAD.",
+     "quote": "this Court has taken different approaches where the alleged breach of fairness relates to the RPD’s procedure and the RAD has considered the alleged breach in its reasons, as is the case here.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Some cases apply reasonableness standard to RAD's fairness breach reasons; others do not.",
+     "quote": "This Court has found in a number of cases that the RAD’s reasons related to the breach of fairness ought to be evaluated on the reasonableness standard ... There are other decisions where the Court did not apply a reasonableness standard",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes parties' argument that reasonableness standard does not apply and reviews case law on standards for procedural fairness breaches.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No need to decide standard of review as determination does not turn on it.",
+     "quote": "given that neither party made extensive submissions addressing this point and that my determination does not turn on the standard of review, I need not decide this issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD hearing procedure was unfair; RAD's consideration of issue on appeal was unreasonable.",
+     "quote": "I am satisfied that the hearing procedure at the RPD ... was not fair in all the circumstances ... I am also satisfied that the RAD’s consideration of this issue on appeal was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court declines to decide standard of review but finds RPD hearing unfair and RAD's consideration unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue it is unfair for RPD to impugn Ms. Brown's credibility based on narrow examination of investigation issue.",
+     "quote": "The Applicants’ procedural fairness argument on appeal relies on comparing the RPD’s finding about Ms. Brown’s investigation ... and the RPD’s examination of this issue at the hearing. The Applicants’ position is that it is unfair for the RPD to impugn Ms. Brown’s credibility based on its narrow examination.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RPD unfairly impugned Ms. Brown's credibility based on narrow examination.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Transcript shows limited exchange about Ms. Brown's investigation efforts at RPD hearing.",
+     "quote": "There is no dispute between the parties that the only relevant section in the transcript of the RPD hearing is the following exchange: ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court presents the limited transcript exchange about Ms. Brown's investigations at the RPD hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not accept Ms. Brown's evidence of continued investigations; found no specifics or corroborative evidence.",
+     "quote": "The RPD did not accept Ms. Brown’s evidence that she continued her investigations after leaving Jamaica and made the following findings ... no names of persons she contacted and no corroborative notes, emails or letters ...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD drew negative credibility inference and found Ms. Brown did not continue investigations as alleged.",
+     "quote": "The panel draws a negative inference as [to] the claimant’s overall credibility because of the failure ... The panel finds that the claimant has not continued investigations into her father’s death since leaving Jamaica, as alleged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Ms. Brown lacked specifics and drew negative credibility inference, concluding she did not continue investigations.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue RPD did not ask Ms. Brown specific questions about investigation details, so impugning credibility was unfair.",
+     "quote": "The Applicants take issue with the RPD’s statement that Ms. Brown “was asked about the nature of her investigation ...” They argue ... it is unfair to impugn her credibility based on her inability to answer questions not posed to her.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RPD unfairly impugned credibility without asking specific questions about investigations.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD and Respondent do not dispute RPD did not ask for elaboration or explanation for lack of corroborative evidence.",
+     "quote": "Neither the RAD, nor the Respondent on judicial review, dispute that the RPD did not ask Ms. Brown specific questions ... nor does the RAD or the Respondent argue that the RPD asked for an explanation for the lack of corroborative evidence ...",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD and Respondent say it was unnecessary for RPD to ask for elaboration or explanation.",
+     "quote": "Their position is that it was unnecessary for the RPD to do so.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD and Respondent agree RPD did not ask for details but say it was unnecessary to do so.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD says details of Ms. Brown's investigations were key to risk and should be in BOC or elicited by counsel or submitted post-hearing.",
+     "quote": "The RAD begins with the premise that the details of Ms. Brown’s investigation efforts were key to establishing her risk and therefore should have been included in her refugee narrative as part of her Basis of Claim form [BOC]. And further, if not included there, Ms. Brown’s counsel should have elicited this specific information during his examination at the hearing or made submissions on it or attempted to file post-hearing submissions or evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found investigation details key to risk and should have been included or elicited or submitted post-hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court disagrees with RAD; omissions should not impugn credibility unless material and significant to claim.",
+     "quote": "I do not agree. First, on the issue of what must be included in the BOC, this Court has repeatedly found that an “omission should not be used to impugn [a claimant’s] credibility unless it was material and significant to the claim”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with RAD, holding omissions should not impugn credibility unless material and significant.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "BOC instructions say to include everything important; views on materiality differ; BOC often a general summary.",
+     "quote": "The RAD relies on the statement in the BOC instructions which the RAD notes are written in bold print: “INCLUDE EVERYTHING THAT IS IMPORTANT FOR YOUR CLAIM.” ... a very general summary of the central aspects of [the] claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes BOC instructions and differing views on materiality; BOC is often a general summary.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD's concern is not inconsistency or omission of central allegation but lack of details about investigation methods.",
+     "quote": "The RAD’s concern is not that Ms. Brown provided inconsistent evidence or even that she omitted the central allegation ... It is that she failed to include details about how she conducted her investigation – whom she contacted and when – in her BOC.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD concerned about lack of details on investigation methods, not central allegation omission.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Details of Ms. Brown's investigations are not material allegations of persecution; absence is ancillary, not grounds for negative credibility inference.",
+     "quote": "It is inaccurate to find, as the RAD has done, that the details of Ms. Brown’s investigations are “material allegations of persecution.” They are not. ... the absence of collateral detail ought not to have concerned the Board.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds investigation details are not material allegations and absence should not cause negative credibility inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD finds no breach because counsel could have elicited investigation details during reverse-order questioning at hearing.",
+     "quote": "Second, the RAD also finds no breach of procedural fairness because Ms. Brown’s counsel could have elicited details of the investigation from Ms. Brown during counsel’s examination at the RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "In reverse-order questioning, Board asks claimant first, counsel questions after; Board must ensure determinative issues are raised.",
+     "quote": "As Justice de Montigny noted in Sarker ... in refugee hearings conducted by way of reverse-order questioning, “the person with the onus is no longer in control of the process and there is an increased burden on the Board to ensure that issues which are determinative of the claim are raised at the hearing.”",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD says counsel could have elicited details; court notes reverse-order questioning increases Board's burden to raise determinative issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Fairness question: would interaction fairly put claimant on notice that absence of explanation would prejudice claim?",
+     "quote": "As Justice Pelletier observed in Veres ... the question to ask is: “Would the interaction which occurred fairly put the claimant on notice that the absence of further explanation would be prejudicial to his/her cause?”",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites fairness test whether claimant was fairly put on notice that lack of explanation would prejudice claim.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD did not indicate concern about lack of investigation evidence; did not ask for details or explanation; counsel could not be expected to elicit specifics.",
+     "quote": "Here, the RPD did not state at the outset of the hearing nor prior to hearing counsel’s submissions that it was concerned by the lack of evidence about the investigation. ... The RPD did not ask for details about the specifics of the investigation, nor for an explanation for the lack of corroborative evidence. In these circumstances, counsel could not have been expected to proactively elicit those specifics because it was not at all clear that there was any concern with Ms. Brown’s evidence on this issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD did not express concern or ask for details, so counsel could not be expected to elicit specifics.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD understood lack of specificity and corroborative evidence needed to be canvassed with claimant before negative credibility finding",
+     "quote": "The RPD itself seemed to have understood that the lack of specificity and corroborative evidence of the investigation needed to be canvassed with the claimant prior to making a negative finding about her credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD stated it asked claimant about nature of her investigations",
+     "quote": "The RPD stated that it had asked the claimant about the nature of her investigations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue RPD said it asked claimant for details but in fact did not",
+     "quote": "Though the RAD frames it differently, the heart of the Applicants’ appeal is really that the RPD said it asked the claimant for details but in fact it did not.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD understood it needed to canvass claimant about evidence before negative credibility finding, said it asked claimant, but applicants argue it did not.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD asked if claimant had corroborative evidence but did not ask why none was available",
+     "quote": "Though the RPD asked whether Ms. Brown had any corroborative evidence (notes or recordings) of her investigations, it did not ask her to explain why such evidence was not available.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RPD required to give claimant opportunity to explain lack of corroborative evidence",
+     "quote": "The RPD was required to give Ms. Brown an opportunity to explain the lack of corroborative evidence (see discussion in Senadheerage v Canada (Minister of Citizenship and Immigration), 2020 FC 968 at paras 23-40).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD asked about corroborative evidence but not why none existed; RPD was required to allow explanation of lack of evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues RPD procedural fairness breach is not determinative due to other RAD findings on credibility",
+     "quote": "The Respondent argues that even if the RPD breached procedural fairness, given the other findings by the RAD impugning the Applicants’ credibility, the breach is not determinative of the claim and therefore should not be a basis to set aside the decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not accept claimant continued investigations after leaving Jamaica, significant for ongoing risk",
+     "quote": "The RPD did not accept that Ms. Brown had continued her investigations into her father’s murder after she left Jamaica. This was a significant finding in relation to her ongoing risk.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD used this finding as one of two grounds for negative credibility inference",
+     "quote": "This finding served as one of the two grounds relied on by the RPD to draw a negative inference as to Ms. Brown’s overall credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found RPD’s credibility assessment was correct",
+     "quote": "The RAD found that the RPD’s credibility assessment was correct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Cannot conclude procedural fairness breach has no impact; matter must be redetermined",
+     "quote": "In these circumstances, I cannot confidently conclude that the breach of procedural fairness has no impact on the decision (Sarker at paras 16-17; Mobil Oil Canada Ltd v Canada-Newfoundland Offshore Petroleum Board, 1994 CanLII 114 (SCC)). Accordingly, the matter has to be sent back to be redetermined.",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent says procedural fairness breach is not determinative; RPD and RAD found claimant lacked ongoing risk evidence; court finds breach impacts decision, remands matter.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises",
+     "quote": "Neither party raised a question for certification and I agree that none arises.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review allowed; RAD decision set aside; matter remanded to different RAD member; no serious question certified",
+     "quote": "The judicial review is allowed; The decision of the RAD dated March 23, 2021 is set aside; The matter is sent back to be redetermined by a different member of the RAD; and No serious question of general importance is certified.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no certification question; allows judicial review, sets aside RAD decision, remands to different RAD member, no serious question certified.",
+   "role": "disposition"
+  }
+ ]
+}

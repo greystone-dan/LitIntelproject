@@ -1,0 +1,649 @@
+{
+ "case_id": 61472,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.015567200000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "BCMEA applies for judicial review to set aside CIRB decision in ILWU and BCMEA CIRB 2025.",
+     "quote": "In this application for judicial review, the applicant, British Columbia Maritime Employers Association (the BCMEA), seeks to set aside the decision of the Canada Industrial Relations Board (the CIRB or the Board) in International Longshore and Warehouse Union‐Canada and British Columbia Maritime Employers Association, 2025 CIRB 1190 [ILWU and BCMEA CIRB 2025].",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "CIRB determined no collective agreement was in force during ILWU illegal strike on July 18-19, 2023.",
+     "quote": "There, the CIRB determined that no collective agreement was in force between the BCMEA and the International Longshore & Warehouse Union-Canada (the ILWU) when members of the ILWU engaged in an illegal strike on July 18 and 19, 2023.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "BCMEA contends CIRB's determination was unreasonable and opposite conclusion was reasonable.",
+     "quote": "The BCMEA contends that this determination was unreasonable and asks this Court to find that the only reasonable conclusion open to the Board was the opposite one.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court disagrees and will dismiss the judicial review application.",
+     "quote": "For the reasons that follow, I disagree and would accordingly dismiss this application for judicial review.",
+     "answers": 3
+    }
+   ],
+   "summary": "BCMEA seeks judicial review to set aside CIRB decision that no collective agreement was in force during ILWU illegal strike; court disagrees and will dismiss application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Background is necessary to understand the Board's decision in ILWU and BCMEA CIRB 2025.",
+     "quote": "To put the Board’s decision in ILWU and BCMEA CIRB 2025 into context, some background is necessary.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states background is necessary to understand the Board's decision.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "BCMEA is non-accredited bargaining agent for marine employers in BC; ILWU is bargaining agent for west coast longshore employees.",
+     "quote": "The BCMEA is the non-accredited bargaining agent for employers involved in national and international marine transportation in British Columbia. The ILWU is the bargaining agent for longshore employees who work in the ports on the Canadian west coast.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "BCMEA and ILWU had a collective agreement that expired March 31, 2023; BCMEA gave notice to bargain on Nov 30, 2022 but no renewal was negotiated.",
+     "quote": "The BCMEA and the ILWU were parties to a collective agreement that expired on March 31, 2023. The BCMEA provided the ILWU notice to bargain for the renewal of the collective agreement on November 30, 2022, but the parties were unable to negotiate a renewal agreement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "ILWU acquired legal right to strike after cooling-off period and members struck legally July 1-13, 2023.",
+     "quote": "The ILWU acquired the right to legally strike following the expiration of the statutory cooling-off period, and its members engaged in a legal strike from July 1 to July 13, 2023.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains BCMEA and ILWU's bargaining roles, expired collective agreement, and ILWU's legal strike July 1-13, 2023.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Collective agreement prohibited strikes, had no bridging clause, and expired March 31, 2023 after notice to bargain.",
+     "quote": "The collective agreement between the parties contained a provision prohibiting strikes. It did not contain a bridging clause, but rather, provided for its expiry on March 31, 2023 if notice to bargain were given.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Agreement provided it remained in force from April 1, 2018 to March 31, 2023 and thereafter yearly unless notice to terminate or renew given four months prior.",
+     "quote": "This Agreement shall be effective from April 1, 2018 and shall remain in force and effect until March 31, 2023, and from year to year thereafter unless either Party gives notice in writing to the other Party not less than four months prior to March 31, 2023, or December 31 in any subsequent year, to terminate or to renew this Agreement or to negotiate a renewal thereof.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states collective agreement prohibited strikes, had no bridging clause, and expired March 31, 2023 after notice to bargain.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "By Code provisions, collective agreement continued during statutory freeze period.",
+     "quote": "By virtue of paragraph 50(b) and subsections 67(4) to 67(6) of the Canada Labour Code, R.S.C. 1985, c. L-2 (the Code), the parties’ collective agreement continued in force during the statutory freeze period provided by those provisions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Judicial review turns on meaning the Board gave to paragraph 50(b) and subsections 67(4) to (6) of the Code.",
+     "quote": "This application for judicial review turns on the meaning the Board gave to paragraph 50(b) and subsections 67(4) to 67(6) of the Code.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Paragraph 50(b) and subsections 67(4) to (6) of the Code provide duty to bargain and continuation of arbitration provisions after agreement termination.",
+     "quote": "They provide as follows: Duty to bargain and not to change terms and conditions Obligation de négocier et de ne pas modifier les modalités 50 Where notice to bargain collectively has been given under this Part, 50 Une fois l’avis de négociation collective donné aux termes de la présente partie, les règles suivantes s’appliquent : … […] (b) the employer shall not alter the rates of pay or any other term or condition of employment or any right or privilege of the employees in the bargaining unit, or any right or privilege of the bargaining agent, until the requirements of paragraphs 89(1)(a) to (d) have been met, unless the bargaining agent consents to the alteration of such a term or condition, or such a right or privilege. b) tant que les conditions des alinéas 89(1)a) à d) n’ont pas été remplies, l’employeur ne peut modifier ni les taux des salaires ni les autres conditions d’emploi, ni les droits ou avantages des employés de l’unité de négociation ou de l’agent négociateur, sans le consentement de ce dernier. … […] Provision for settlement of differences to remain in force Règlement des désaccords 67(4) Notwithstanding anything contained in a collective agreement, the provision required to be contained therein by subsection 57(1) shall remain in force after the termination of the collective agreement and until the requirements of paragraphs 89(1)(a) to (d) have been met. 67(4) Malgré toute disposition contraire de la convention collective, la clause obligatoire visée au paragraphe 57(1) demeure en vigueur après l’expiration de la convention tant que n’ont pas été remplies les conditions énoncées aux alinéas 89(1)a) à d). Power of arbitrator where agreement terminates Pouvoirs de l’arbitre à l’expiration de la convention 67(5) Where a difference between the parties to a collective agreement relating to a provision contained in the collective agreement arises during the period from the date of its termination to the date the requirements of paragraphs 89(1)(a) to (d) have been met, 67(5) Les cas de désaccords portant sur une disposition de la convention collective et survenant dans l’intervalle qui sépare l’expiration de celle-ci et l’accomplissement des conditions énoncées aux alinéas 89(1)a) à d) : (a) an arbitrator or arbitration board may hear and determine the difference; and a) peuvent être soumis à un arbitre ou un conseil d’arbitrage; (b) sections 57 to 66 apply to the hearing and determination. b) sont assujettis, pour leur règlement, aux articles 57 à 66. Powers of arbitrator when conditions of paragraphs 89(1)(a) to (d) have been met Pouvoirs de l’arbitre lorsque les co",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains collective agreement continued during statutory freeze under Code provisions; judicial review turns on interpretation of these provisions.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 57(1) of the Code requires mandatory arbitration provision in every collective agreement.",
+     "quote": "Subsection 57(1) of the Code requires that every collective agreement contain a provision providing for mandatory arbitration of all differences concerning the interpretation, application, administration or alleged contravention of a collective agreement.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states subsection 57(1) of the Code requires mandatory arbitration provision in collective agreements.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 89(1) of the Code sets preconditions for legal strike or lockout, listing requirements (a) to (e).",
+     "quote": "Subsection 89(1) of the Code sets out the pre-conditions for acquiring the right to engage in a legal strike or lockout. It reads as follows: No strike or lockout until certain requirements met Conditions relatives aux grèves et lock-out 89(1) No employer shall declare or cause a lockout and no trade union shall declare or authorize a strike unless 89(1) Il est interdit à l’employeur de déclarer ou de provoquer un lock-out et au syndicat de déclarer ou d’autoriser une grève si les conditions suivantes ne sont pas remplies : (a) the employer or trade union has given notice to bargain collectively under this Part; a) l’un ou l’autre a adressé un avis de négociation collective en application de la présente partie; (b) the employer and the trade union b) les deux : (i) have failed to bargain collectively within the period specified in paragraph 50(a), or (i) soit n’ont pas négocié collectivement dans le délai spécifié à l’alinéa 50a), (ii) have bargained collectively in accordance with section 50 but have failed to enter into or revise a collective agreement; (ii) soit ont négocié collectivement conformément à l’article 50, sans parvenir à conclure ou réviser la convention collective; (c) the Minister has c) le ministre a : (i) received a notice, given under section 71 by either party to the dispute, informing the Minister of the failure of the parties to enter into or revise a collective agreement, or (i) soit reçu l’avis mentionné à l’article 71 et l’informant que les parties n’ont pas réussi à conclure ou à réviser la convention collective, (ii) taken action under subsection 72(2); (ii) soit pris l’une des mesures prévues par le paragraphe 72(2); (d) twenty-one days have elapsed after the date on which the Minister d) vingt et un jours se sont écoulés depuis la date à laquelle le ministre, selon le cas : (i) notified the parties of the intention not to appoint a conciliation officer or conciliation commissioner, or to establish a conciliation board under subsection 72(1), (i) a notifié aux termes du paragraphe 72(1) son intention de ne pas nommer de conciliateur ou de commissaire-conciliateur, ni de constituer de commission de conciliation, (ii) notified the parties that a conciliation officer appointed under subsection 72(1) has reported, (ii) a notifié aux parties le fait que le conciliateur nommé aux termes du paragraphe 72(1) lui a fait rapport des résultats de son intervention, (iii) released a copy of the report to the parties to the dispute pursuant to paragraph 77(a), or (iii) a mis à la disposition des parties, conformément à l’alinéa 77a), une copie du rapport qui lui a été remis, (iv) is deemed to have been reported to pursuant to subsection 75(2) or to have received the report pursuant to subsection 75(3); (iv) est réputé avoir été informé par le conciliateur des résultats de son intervention, en application du paragraphe 75(2), ou avoir reçu le rapport, en application du paragraphe 75(3); (e) the Board has determined any referral made",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states subsection 89(1) of the Code sets preconditions for legal strike or lockout, listing requirements (a) to (e).",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "During ILWU legal strike, parties agreed to mediator's settlement proposal; ILWU members returned to work July 13, 2023.",
+     "quote": "During the legal strike of the ILWU members in the present case, at the urging of the federal Minister of Labour, the parties agreed to recommend terms of settlement proposed by a federal mediator to their principals for acceptance, and the ILWU members returned to work on July 13, 2023, while the proposal was being considered.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "ILWU internal committee rejected settlement; strike resumed July 18, 2023 without fresh 72-hour strike notice.",
+     "quote": "When an internal ILWU committee turned down the settlement proposal, ILWU members recommenced their strike on July 18, 2023. However, the ILWU did not provide a fresh 72-hour strike notice.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "CIRB found resumption of strike illegal due to lack of fresh strike notice under section 87.2 and paragraph 89(1)(f) of the Code.",
+     "quote": "In British Columbia Maritime Employers Association v. International Longshore and Warehouse Union-Canada, 2023 CIRB 1088 [ILWU and BCMEA CIRB 2023], the CIRB found that the resumption of the strike was illegal because a fresh strike notice was required in the circumstances under section 87.2 and paragraph 89(1)(f) of the Code.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "This Court upheld CIRB's decision in ILWU and BCMEA FCA 2024.",
+     "quote": "This Court upheld that decision in International Longshore and Warehouse Union-Canada v. British Columbia Maritime Employers Association, 2024 FCA 142 [ILWU and BCMEA FCA].",
+     "answers": 2
+    }
+   ],
+   "summary": "Court recounts ILWU strike resumption without fresh notice found illegal by CIRB, upheld by this Court.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This Court decided to hear judicial review of CIRB decision despite mootness due to potential impact on BCMEA grievance and civil action.",
+     "quote": "In ILWU and BCMEA FCA, this Court determined it would decide the judicial review application taken from the Board’s decision in ILWU and BCMEA CIRB 2023, even though it was moot, because the outcome could affect an outstanding grievance the BCMEA had commenced seeking damages for the illegal strike or a civil action BCMEA stated it intended to commence in the event its grievance were found to be inarbitrable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court decided to hear judicial review despite mootness due to potential impact on BCMEA grievance and civil action.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "BCMEA grievance for illegal strike referred to labour arbitrator; ILWU requested arbitrator refer question of collective agreement existence to CIRB.",
+     "quote": "The BCMEA’s grievance seeking damages for the illegal strike was referred to a labour arbitrator, and in the context of that arbitration, the ILWU requested that the arbitrator refer to the CIRB the question of whether or not a collective agreement was in force on July 18 and 19, 2023, when the illegal strike occurred.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 65(1) of the Code authorizes arbitrator to refer questions about collective agreement existence to CIRB.",
+     "quote": "The authority of a labour arbitrator to refer a question of this nature to the CIRB for determination is contained in subsection 65(1) of the Code, which provides: Questions may be referred to Board Renvoi au Conseil 65(1) Where any question arises in connection with a matter that has been referred to an arbitrator or arbitration board, relating to the existence of a collective agreement or the identification of the parties or employees bound by a collective agreement, the arbitrator or arbitration board, the Minister or any alleged party may refer the question to the Board for determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains BCMEA grievance referred to arbitrator who referred collective agreement existence question to CIRB under Code s 65(1).",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Labour arbitrator referred question to CIRB; CIRB decided no collective agreement was in force during illegal strike July 18-19, 2023.",
+     "quote": "The labour arbitrator referred the question to the CIRB, and as noted, in ILWU and BCMEA CIRB 2025 the Board determined that no collective agreement was in force during the illegal strike that occurred on July 18 and 19, 2023.",
+     "answers": 0
+    }
+   ],
+   "summary": "Labour arbitrator referred question to CIRB, which decided no collective agreement was in force during illegal strike.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "CIRB concluded no collective agreement in force during illegal strike based on paragraph 50(b) and subsections 67(4) to (6) of the Code.",
+     "quote": "The Board reasoned that this conclusion was mandated by the wording of paragraph 50(b) and subsections 67(4) to (67(6) of the Code.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "CIRB held prior decisions (City of Yellowknife, Intek, Canada Post) support conclusion that no collective agreement is in force after requirements of paragraphs 89(1)(a) to (d) met without bridging clause.",
+     "quote": "The CIRB also held that its prior decisions in Yellowknife Firefighters, Local 2890 of the International Association of Fire Fighters v. City of Yellowknife, 2012 CIRB 661 [City of Yellowknife] at para. 56; Communications. Energy and Paperworkers Union of Canada v. Intek Communications Inc., 2013 CIRB 683 [Intek] at para. 363; and Canadian Union of Postal Workers v. Canada Post Corporation, 2012 CIRB 627 [Canada Post] at para. 49 all reached the same conclusion and held that, in the absence of a bridging clause, no collective agreement is in force after the requirements of paragraphs 89(1)(a) to (d) of the Code have been met.",
+     "answers": 0
+    }
+   ],
+   "summary": "CIRB concluded no collective agreement in force during illegal strike based on Code provisions and prior decisions without bridging clause.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "CIRB disagreed with BCMEA that Supreme Court decision in Paccar mandates different result.",
+     "quote": "The Board further disagreed with the BCMEA that the decision of the Supreme Court of Canada in Caimaw v. Paccar of Canada Ltd., 1989 CanLII 49 (SCC), [1989] 2 S.C.R. 983 [Paccar] would mandate a different result",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "CIRB interpreted Justice La Forest's comments in Paccar as referring to employer-employee relationship after agreement ends, not preservation of collective agreement after statutory freeze.",
+     "quote": "these comments are to be understood as referring to the “employer-employee relationship in the context where an employer offers work and the employees accept to work under the employer’s offer, when the collective agreement is no longer in force and effect” (at para. 89).",
+     "answers": 0
+    }
+   ],
+   "summary": "CIRB disagreed with BCMEA that Paccar mandates different result, interpreting Justice La Forest's comments as about employment relationship after agreement ends.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Standard of review for CIRB decisions is reasonableness, per ILWU and BCMEA FCA and Watson v. CUPE.",
+     "quote": "It is well-settled that the applicable standard of review this Court is to apply to the review of CIRB decisions is reasonableness: ILWU and BCMEA FCA at para. 77; Watson v. Canadian Union of Public Employees, 2023 FCA 48 at para. 16.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court may set aside CIRB decision only if unreasonable, per Heatley v. IAMAW.",
+     "quote": "Therefore, this Court may set aside the CIRB’s decision in the present case only if it is unreasonable: Heatley v. International Association of Machinists and Aerospace Workers, District Lodge 14, 2025 FCA 188 at para. 3.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states standard of review for CIRB decisions is reasonableness; may set aside only if decision is unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds nothing unreasonable in CIRB decision, which provided thorough and intelligible reasons supported by Code and case law.",
+     "quote": "I see nothing unreasonable in the CIRB’s decision. The Board provided thorough and intelligible reasons for its decision. Moreover, the conclusion it reached is supported by a reasonable interpretation of the applicable provisions in the Code and by the relevant case law.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds CIRB decision reasonable, well-reasoned, and supported by law.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reasonable to conclude Code provisions maintain expired collective agreement only until requirements of paragraphs 89(1)(a) to (d) met.",
+     "quote": "More specifically, it is reasonable to conclude that the combined effect of paragraph 50(b) and subsections 67(4) to (6) of the Code is to maintain the provisions of an expired collective agreement in force (other than those that allow for arbitration of dismissal or discharge grievances), once the collective agreement expires, only until the requirements of paragraphs 89(1)(a) to (d) of the Code are met.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "After that, subsection 67(6) provides arbitration only for dismissal/discharge grievances, not grievances like BCMEA's.",
+     "quote": "Thereafter, subsection 67(6) of the Code provides for the arbitration only of dismissal and discharge grievances but not for grievances like the one filed by the BCMEA in this case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Requirements for strike notice, vote, or maintenance issues before legal strike are in paragraphs 89(1)(e) and (f), not (a) to (d).",
+     "quote": "The requirements for a strike notice, strike vote, or to settle maintenance of activities issues before a legal strike may occur are set out in paragraphs 89(1)(e) and (f) of the Code and not in paragraphs 89(1)(a) to (d).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds reasonable that Code maintains expired collective agreement only until requirements (a) to (d) met; arbitration limited thereafter.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "At time of illegal strike, requirements (a) to (d) had been met and collective agreement expired; strike illegal due to lack of second strike notice.",
+     "quote": "In the present case, the requirements of paragraphs 89(1)(a) to (d) had been met when the illegal strike occurred and the collective agreement had expired. The strike was found to have been illegal only because the ILWU did not provide a second strike notice the CIRB found it was required to provide.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reasonable for CIRB to find no collective agreement in force during illegal strike under Code provisions.",
+     "quote": "In the circumstances, it was reasonable for the CIRB to find that the combined effect of the relevant provisions in the Code meant that there was no collective agreement in force when the illegal strike occurred.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds it reasonable CIRB concluded no collective agreement in force during illegal strike as requirements (a) to (d) met and strike notice lacking.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CIRB's finding accords with its prior decisions in City of Yellowknife, Intek, and Canada Post.",
+     "quote": "This finding also accords with the CIRB’s previous decisions in City of Yellowknife, Intek, and Canada Post, upon which the CIRB relied.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "BCMEA submits Supreme Court decision in Paccar mandates different result.",
+     "quote": "Contrary to what the BCMEA submits, I do not see that the decision of the Supreme Court of Canada in Paccar mandates a different result",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court does not see Paccar as mandating different result because issues and legislation differ, as CIRB noted.",
+     "quote": "because the issues in that case were different and it arose under different legislation, as the CIRB noted.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds CIRB's decision consistent with prior decisions; rejects BCMEA's argument that Paccar mandates different result.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Paccar concerned unilateral alteration of terms after agreement termination under different legislation without statutory freeze.",
+     "quote": "In Paccar, the Supreme Court was concerned with whether an employer could unilaterally alter terms and conditions of employment following the termination of a collective agreement under a legislative scheme that did not contain a statutory freeze.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Paccar did not address whether collective agreement remains in force after statutory freeze expiry.",
+     "quote": "The Court was not required to determine whether a collective agreement remained in force following the expiry of a statutory freeze period.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Justice La Forest's comments in Paccar about terms continuing to govern employment do not imply indefinite continuation of collective agreement.",
+     "quote": "Nor do Justice La Forest’s comments, that the terms and conditions formerly contained in a collective agreement may be presumed to continue governing the employment relationship, imply that the collective agreement itself continues in force indefinitely.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CIRB reasonably observed La Forest's comments address employment relationship after agreement ceased, subject to statutory scheme.",
+     "quote": "As the CIRB reasonably observed, those comments addressed the continuing employment relationship after the collective agreement had ceased to operate and were expressly made subject to the requirements of the governing statutory scheme.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Code limits continuation of expired collective agreement terms to period prescribed by paragraph 50(b) and subsection 67(6).",
+     "quote": "Here, the Code provides a specific answer to the question before the CIRB by limiting the continuation of the terms of an expired collective agreement to the period prescribed by paragraph 50(b) and the circumstances detailed in subsection 67(6).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "CIRB entitled to conclude Paccar does not undermine its interpretation or conclusion that no collective agreement was in force during illegal strike.",
+     "quote": "The CIRB was therefore entitled to conclude that Paccar did not undermine its interpretation of the Code or its conclusion that no collective agreement was in force when the illegal strike occurred.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains Paccar's limited relevance and affirms CIRB's interpretation limiting collective agreement continuation under Code.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "BCMEA asserts return-to-work Order implies collective agreement remained in force during illegal strike.",
+     "quote": "Similarly, contrary to what the BCMEA asserts, I see nothing in the return-to-work Order the Board issued in ILWU and BCMEA CIRB 2023 that could be interpreted as a finding that the collective agreement remained in force during the illegal strike.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds return-to-work Order directed employees to work under terms of collective agreement, not that agreement remained in force for other purposes.",
+     "quote": "Rather, the Board merely directed that employees would be required to work under the terms and conditions in the collective agreement, a conclusion similar to that reached in Paccar.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This differs from finding collective agreement remained in force for arbitration beyond requirements (a) to (d) of the Code.",
+     "quote": "This is different from a finding that the collective agreement remained in force for purposes other than accessing arbitration to settle dismissal or discipline grievances after the requirements of paragraphs 89(1)(a) to (d) of the Code had been met.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects BCMEA's argument that return-to-work Order means collective agreement remained in force during illegal strike.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "BCMEA’s grievance for damages due to illegal strike might be inarbitrable as no collective agreement was in force then",
+     "quote": "the BCMEA’s grievance, seeking damages for the illegal strike, might well be inarbitrable as no collective agreement was in force when the illegal strike occurred",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds BCMEA’s grievance for illegal strike damages might be inarbitrable as no collective agreement was in force then.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review assesses if decision falls within acceptable outcomes, not if court agrees with it",
+     "quote": "reasonableness review is concerned with whether the decision-maker’s interpretation falls within a range of acceptable outcomes and is justified in light of the relevant legal and factual constraints, not with whether a reviewing court would have reached the same conclusion",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Vavilov explains reasonableness review focuses on justification within legal and factual constraints",
+     "quote": "As the Supreme Court explained in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 [Vavilov], reasonableness review is concerned with whether the decision-maker’s interpretation falls within a range of acceptable outcomes and is justified in light of the relevant legal and factual constraints",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Mason confirms court must assess reasonableness of decision-maker’s interpretation, not correct interpretation",
+     "quote": "the Supreme Court reiterated in Mason v. Canada (Citizenship and Immigration), 2023 SCC 21 [Mason] that a reviewing court is not to undertake a de novo analysis of the statutory scheme or determine for itself the “correct” interpretation of the legislation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Even if BCMEA’s interpretation is possible, CIRB’s reasonable interpretation must stand",
+     "quote": "even if the BCMEA’s proposed interpretation of the interaction between sections 50, 67 and 89 of the Code were a possible one, that would not justify setting aside the CIRB’s decision so long as the interpretation adopted by the Board is itself reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains reasonableness review defers to CIRB’s interpretation if reasonable, citing Vavilov and Mason.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "In prior case, court upheld CIRB’s interpretation of strike notice provisions as reasonable",
+     "quote": "the Court accordingly upheld the CIRB’s determination that a new 72-hour notice was required before strike activity could recommence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Deferential approach applies: court reviews if Board’s conclusion is reasonably drawn from Code’s text, context, and purpose",
+     "quote": "The same deferential approach governs here. The issue before us is not whether we would have reached the same conclusion as the Board regarding the continued force of the expired collective agreement, but rather whether the conclusion the Board reached is one that can reasonably be drawn from the text, context, and purpose of the relevant provisions of the Code",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes prior deferential review upheld CIRB’s strike notice interpretation and applies same approach here.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CIRB’s interpretation meets reasonableness standard; it considered submissions and gave rational, coherent reasons",
+     "quote": "the CIRB’s interpretation easily meets that standard... the Board carefully considered the competing submissions, explained why it preferred one interpretation over the other, and reached a conclusion that is rational and internally coherent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Vavilov requires courts to refrain from substituting their view for reasonable decision-maker’s interpretation",
+     "quote": "Vavilov teaches that a reviewing court must refrain from substituting its own view of the preferable outcome for that of the decision-maker",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Deference owed to CIRB’s reasonable interpretation in this case as in prior case",
+     "quote": "deference must also be afforded to the Board’s reasonable interpretation in the present case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CIRB’s interpretation reasonable and defers to it, per Vavilov, as in prior case.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application dismissed; no order as to costs as parties agreed",
+     "quote": "I would dismiss this application... no order is required to address costs. I would accordingly make no order as to costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application and makes no order as to costs by agreement of parties.",
+   "role": "disposition"
+  }
+ ]
+}

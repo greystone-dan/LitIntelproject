@@ -1,0 +1,744 @@
+{
+ "case_id": 43651,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.014168400000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Mr. Tasaka seeks judicial review of a Social Security Tribunal decision denying employment insurance fishing benefits.",
+     "quote": "Mr. Tasaka seeks judicial review of a decision of the Social Security Tribunal of Canada (Appeal Division) finding that he did not qualify for employment insurance fishing benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The Court must determine if the statutory interpretation decision was reasonable.",
+     "quote": "This Court’s task is to determine whether the decision, which involved the exercise of statutory interpretation, was reasonable",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness standard from Vavilov and Hull governs review of statutory interpretation decisions.",
+     "quote": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 at paras. 23, 83, 86, and 115; Canada (Attorney General) v. Hull, 2022 FCA 82 at para. 12.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The legislative regime is complex, so legislative background is provided first.",
+     "quote": "This task is made more difficult by the complexity of the legislative regime involved. Therefore, these reasons begin by providing some legislative background.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of a Social Security Tribunal decision; court must assess reasonableness of statutory interpretation under Vavilov and Hull; legislative background follows.",
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Employment Insurance Act Part I provides income support to eligible unemployed persons.",
+     "quote": "Part I of the Employment Insurance Act, S.C. 1996, c. 23 establishes a scheme pursuant to which eligible unemployed persons may obtain income support, known as employment insurance benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 153 allows regulations for self-employed fishers differing from other employees.",
+     "quote": "Section 153 of the Employment Insurance Act allows for the making of regulations establishing a scheme of employment insurance for self-employed persons engaged in fishing that differs from the scheme established in the Employment Insurance Act for other employees.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Fishing Regulations set framework for fisher qualification and benefit rates.",
+     "quote": "The resulting regulations—the Employment Insurance (Fishing) Regulations, SOR/96-445 (the Fishing Regulations)—provide a framework for determining when a fisher qualifies for employment insurance benefits (EI Fishing Benefits) and the rate of those benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains Employment Insurance Act and Fishing Regulations framework for fisher benefits and eligibility.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "To qualify for EI Fishing Benefits, a fisher must not qualify for regular benefits and must have $2,500 insurable earnings in qualifying period.",
+     "quote": "To qualify for EI Fishing Benefits under the Fishing Regulations, a fisher must prove that (a) they do not qualify for regular benefits and (b) they have accumulated, since the beginning of the qualifying period, the minimum amount of insurable earnings from fishing employment set out in the schedule: subsection 8(2). In the present case, this amount is $2,500.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Qualifying period is 31 weeks before application.",
+     "quote": "The “qualifying period” during which the earnings must be accumulated is the 31-week period before the fisher applied for EI Fishing Benefits: subsection 8(4).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "If qualified, a benefit period is established and benefits are paid based on earnings and regional unemployment rate.",
+     "quote": "If a fisher proves the two aforementioned elements, a “benefit period” will be established (subsection 8(1)) and the fisher will receive EI Fishing Benefits during that period. The fisher’s rate of weekly benefits will be based on their earnings as a fisher during the qualifying period and the regional rate of unemployment: section 8.1.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court describes qualification criteria and benefit calculation for EI Fishing Benefits under Fishing Regulations.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2020, the Employment Insurance Act was amended to mitigate COVID-19 economic effects, adding provisions on EI Fishing Benefits.",
+     "quote": "In 2020, the Employment Insurance Act was amended for the stated purpose of mitigating the economic effects of COVID-19: Interim Order No. 10 Amending the Employment Insurance Act (Employment Insurance Emergency Response Benefit), Canada Gazette, Part II, Vol. 154, No. 21, S.O.R./2020-208. The amendments included four new provisions that concern EI Fishing Benefits: sections 153.1922 to 153.1925.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states 2020 amendments added COVID-19 related provisions on EI Fishing Benefits.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 153.1922 allows fishers not meeting earnings conditions to receive benefits if they received them during certain periods.",
+     "quote": "Section 153.1922 reads: 153.1922 A fisher who does not meet the conditions under paragraph 8(2)(b) of the [Fishing Regulations] may receive benefits under section 8.1 of those Regulations if the fisher has received such benefits during any of the periods referred to in subparagraphs 153.1923(1)(a)(ii) or (iii) …",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains section 153.1922 allows some fishers without sufficient earnings to receive benefits if previously received during specified periods.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 153.1923(1)(a) sets weekly benefit rate using highest of specified earnings for initial claims.",
+     "quote": "Paragraph 153.1923(1)(a) reads: 153.1923 (1) The rate of weekly benefits under section 8.1 of the [Fishing Regulations] shall be calculated using the highest of the following earnings: ...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Earnings considered include those used for current claim and prior benefit periods in 2019-2020 and 2018-2019.",
+     "quote": "(i) if applicable, the earnings that would be used to calculate the fisher’s rate of weekly benefits, (ii) the earnings that were used to calculate the fisher’s rate of weekly benefits for the benefit period ... 2019 and ending on June 20, 2020, and (iii) the earnings that were used to calculate the fisher’s rate of weekly benefits for the benefit period ... 2018 and ending on June 15, 2019;",
+     "answers": 0
+    }
+   ],
+   "summary": "Court details section 153.1923(1)(a) specifying earnings used to calculate weekly benefit rate including prior years' earnings.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Subsection 153.1923(2), called the One-Time Only Rule, limits benefit period establishment under paragraph 153.1923(1)(a) to once.",
+     "quote": "The provision in issue in this appeal is subsection 153.1923(2). Mr. Tasaka refers to it as the “One-Time Only Rule”. It reads: 153.1923 (2) A fisher may have a benefit period established once under paragraph (1)(a) …",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies subsection 153.1923(2) as the One-Time Only Rule limiting benefit period establishment to once under paragraph 153.1923(1)(a).",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Section 153.1924 defines earnings under subsection 153.1923(1) as insurable earnings for qualifying period.",
+     "quote": "Finally, section 153.1924 provides: 153.1924 For the purposes of the [Fishing Regulations] the earnings determined under subsection 153.1923(1) are the insurable earnings for the qualifying period.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains section 153.1924 defines earnings under 153.1923(1) as insurable earnings for qualifying period.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Tasaka is a fisher.",
+     "quote": "Mr. Tasaka is a fisher.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Mr. Tasaka is a fisher.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Tasaka's insurable earnings were $18,305.78 in 2018, $2,987.66 in 2019, and $5,756.81 in 2020.",
+     "quote": "During the 2018, 2019 and 2020 summer fishing seasons, he had insurable earnings of $18,305.78; $2,987.66; and $5,756.81, respectively.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Mr. Tasaka's insurable earnings for 2018, 2019, and 2020 fishing seasons.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2020, Mr. Tasaka had earnings above $2,500 threshold and did not need to use section 153.1922 to qualify for EI Fishing Benefits.",
+     "quote": "In 2020, when Mr. Tasaka applied for EI Fishing Benefits, he had accumulated earnings above the $2,500 threshold required to establish a benefit period under subsection 8(2) of the Fishing Regulations. Thus, he did not need to resort to section 153.1922 of the Employment Insurance Act, which offers an alternative way of qualifying for EI Fishing Benefits to claimants without sufficient earnings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Mr. Tasaka qualified for EI Fishing Benefits in 2020 without using alternative section 153.1922.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission found Mr. Tasaka eligible for 2020 EI Fishing Benefits and calculated weekly rate using 2018 earnings under subsection 153.1923(1).",
+     "quote": "The Canada Employment Insurance Commission determined that Mr. Tasaka was eligible for EI Fishing Benefits for 2020. As for the weekly rate of these benefits, the Commission determined it by relying on subsection 153.1923(1) of the Employment Insurance Act. More precisely, the Commission used Mr. Tasaka’s earnings from his 2018 summer fishing season—the highest of the earnings in subparagraphs 153.1923(1)(a)(i) to (iii).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Using 2018 earnings resulted in a higher benefit rate than using 2020 earnings.",
+     "quote": "This resulted in a higher benefit rate than would have resulted from a calculation using Mr. Tasaka’s fishing earnings from the 2020 summer fishing season.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission found Mr. Tasaka eligible in 2020 and used 2018 earnings to calculate a higher benefit rate.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2021, Mr. Tasaka had no insurable earnings and applied for EI Fishing Benefits using COVID-19 measures.",
+     "quote": "The following year, 2021, Mr. Tasaka had no insurable earnings from fishing and so he could not qualify for EI Fishing Benefits using the regular rules set out in the Fishing Regulations. On the understanding that he could use the COVID-19 measures to qualify, he applied for EI Fishing Benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission denied 2021 claim, applying the One-Time Only Rule because Mr. Tasaka had benefited from paragraph 153.1923(1)(a) in 2020.",
+     "quote": "The Commission denied his application based on its view that the One-Time Only Rule barred the claim. Put differently, the Commission took the position that because Mr. Tasaka had benefited from paragraph 153.1923(1)(a) in 2020, subsection 153.1923(2) prevented him from benefiting from this paragraph again in 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "In 2021, Mr. Tasaka's claim was denied by the Commission applying the One-Time Only Rule.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Mr. Tasaka appealed unsuccessfully to the Social Security Tribunal General and Appeal Divisions; now seeks judicial review.",
+     "quote": "Mr. Tasaka unsuccessfully appealed the Commission’s decision to the Social Security Tribunal’s General Division (GE-22-1179) and to the Social Security Tribunal’s Appeal Division: 2024 SST 970 (Decision). As mentioned, Mr. Tasaka seeks judicial review of the Appeal Division’s decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Tasaka unsuccessfully appealed and now seeks judicial review of the Appeal Division's decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Tasaka argues the One-Time Only Rule does not apply because 2020 benefit period was not established under paragraph 153.1923(1)(a).",
+     "quote": "The crux of Mr. Tasaka’s argument is that, because he had sufficient earnings in 2020, the benefit period for his 2020 claim was not established under the COVID-19 measure found in paragraph 153.1923(1)(a) of the Employment Insurance Act.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commission used paragraph 153.1923(1)(a) only to determine benefit rate in 2020, so subsection 153.1923(2) should not bar 2021 claim.",
+     "quote": "Rather, the Commission relied on paragraph 153.1923(1)(a) to determine the benefit rate for his 2020 claim. Consequently, the One-Time Only Rule in subsection 153.1923(2), which provides that “a fisher may have a benefit period established once under paragraph 153.1923(1)(a)”, does not apply to deny his 2021 claim (emphasis added).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Therefore, the Appeal Division's contrary decision is unreasonable.",
+     "quote": "Thus, the Appeal Division’s decision concluding otherwise is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues the One-Time Only Rule does not apply because 2020 benefit period was not established under paragraph 153.1923(1)(a), so Appeal Division's decision is unreasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court disagrees with Mr. Tasaka's argument.",
+     "quote": "I disagree.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disagrees with Mr. Tasaka's argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division considered Mr. Tasaka’s argument but found it inconsistent with text, context, and purpose of the provisions.",
+     "quote": "The Appeal Division carefully considered Mr. Tasaka’s argument but found that it does not accord with the text, context and purpose of the relevant statutory and regulatory provisions.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appeal Division found Mr. Tasaka's argument inconsistent with statutory text, context, and purpose.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Paragraph 153.1923(1)(a) applies to calculate weekly benefit rate regardless of qualification method.",
+     "quote": "With respect to text, the Appeal Division noted that the language of paragraph 153.1923(1)(a), particularly the word “shall”, makes clear that this provision applies to calculate the rate of weekly benefits regardless of whether a claimant qualifies for EI Fishing Benefits under the regular rules in subsection 8(2) of the Fishing Regulations or the alternative way in section 153.1922 of the Employment Insurance Act: Decision at paras. 29, 31–35.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Subsection 153.1923(2) plainly means paragraph 153.1923(1)(a) can only be used once to establish a benefit period.",
+     "quote": "The Appeal Division further noted that the plain meaning of subsection 153.1923(2) is that paragraph 153.1923(1)(a) can only be used once to establish a benefit period: Decision at para. 41.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Mr. Tasaka’s 2020 benefit period was established using paragraph 153.1923(1)(a) with 2018 earnings, explaining the higher benefit rate.",
+     "quote": "The Appeal Division found that Mr. Tasaka’s 2020 benefit period was established using paragraph 153.1923(1)(a) since it was established using his earnings from 2018. This explains why his benefit rate for 2020 was higher than it would have been without this provision: Decision at para. 20.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Therefore, Mr. Tasaka could not use paragraph 153.1923(1)(a) again in 2021.",
+     "quote": "Thus, based on the plain meaning of the provisions, Mr. Tasaka could not benefit from paragraph 153.1923(1)(a) again in 2021: Decision at para. 41.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appeal Division found paragraph 153.1923(1)(a) applies to all claimants, subsection 153.1923(2) limits use to once, and Mr. Tasaka's 2020 benefit period was established under it.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Context and purpose of provisions confirm the Appeal Division's plain meaning conclusion.",
+     "quote": "The Appeal Division opined that the context and purpose of the relevant provisions confirmed its conclusion following the plain meaning analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appeal Division found context and purpose support its plain meaning interpretation.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "If One-Time Only Rule was meant to limit only alternative claimants, it would be in section 153.1922, not 153.1923.",
+     "quote": "Regarding purpose, the Appeal Division first observed—although under its plain meaning analysis—that if the COVID-19 measures had been intended to limit the use of an earlier period’s earnings to claimants who needed the alternative way in section 153.1922 to qualify for EI Fishing Benefits, the One-Time Only Rule would have been set out in section 153.1922, not in section 153.1923: Decision at para. 39.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "COVID-19 measures intended to assist fishers by allowing use of prior earnings for higher benefit rate, but subsection 153.1923(2) limits paragraph 153.1923(1)(a) use to once.",
+     "quote": "The Appeal Division further observed that the COVID-19 measures were intended to assist fishers whose earnings had been impacted by the pandemic by allowing them—through paragraph 153.1923(1)(a)—to use their previous years’ earnings to receive a higher rate of weekly benefits. Regardless of whether paragraph 153.1923(1)(a) was used to calculate the rate of weekly benefits for a fisher who qualified under the regular rules in subsection 8(2) of the Fishing Regulations or for a fisher who qualified under the alternative measure in section 153.1922 of the Employment Insurance Act, subsection 153.1923(2) provides that paragraph 153.1923(1)(a) can only be used once: Decision at paras. 42–45.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appeal Division found One-Time Only Rule applies broadly and COVID-19 measures assist fishers but limit paragraph 153.1923(1)(a) use to once.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appeal Division referred to section 153.1924 about earnings for qualifying period under Fishing Regulations",
+     "quote": "the Appeal Division referred to section 153.1924, which says that for purposes of the Fishing Regulations, the earnings determined under subsection 153.1923(1) are the insurable earnings for the qualifying period",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "If previous earnings are higher than current year’s, those earnings become earnings for qualifying period under subsection 153.1923(1)",
+     "quote": "if the previous earnings are higher than the current year’s, those earnings become the earnings for the qualifying period under subsection 153.1923(1)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Qualifying period establishes benefit period once under subsection 8(2) of Fishing Regulations, so subsection 153.1923(1) cannot be used again",
+     "quote": "subsection 153.1923(1) is used to establish a benefit period once, with the consequence that it cannot be used again",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found section 153.1924 defines earnings for qualifying period and that subsection 153.1923(1) establishes benefit period once only.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Appeal Division concluded subsection 153.1923(2) prevents using prior years' earnings to establish another benefit period after 2018 earnings used in 2020",
+     "quote": "Appeal Division concluded that because Mr. Tasaka’s 2018 earnings were used to establish his benefit period in 2020 pursuant to subsection 153.1923(1), subsection 153.1923(2) prevents him from using earnings from prior years to establish another benefit period",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division concluded subsection 153.1923(2) bars using prior years' earnings for another benefit period after 2018 earnings used in 2020.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appeal Division’s reasons are transparent, intelligible, justified, coherent, rational, and within range of possible outcomes",
+     "quote": "The Appeal Division’s reasons are transparent, intelligible and justified in light of the facts and the law. The decision is also supported by an internally coherent and rational chain of analysis, and it is within the range of possible outcomes",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness standard from Vavilov applies to Appeal Division’s decision",
+     "quote": "Vavilov at paras. 15, 85–86, 90 and 99–107",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal Division’s decision is reasonable",
+     "quote": "As a result, the Appeal Division’s decision is reasonable",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Appeal Division’s decision reasonable and supported by law and facts, citing Vavilov.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Tasaka resists the conclusion relying on three arguments",
+     "quote": "Mr. Tasaka resists this conclusion, essentially relying on three arguments",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Tasaka opposes the conclusion with three main arguments.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appeal Division failed to follow or explain departure from Social Security Tribunal jurisprudence supporting Mr. Tasaka",
+     "quote": "Mr. Tasaka’s first argument is that the Appeal Division failed to follow jurisprudence from the Social Security Tribunal which supports his position or to explain its departure from this jurisprudence",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Tasaka argues the Appeal Division failed to follow or explain departure from supporting Social Security Tribunal jurisprudence.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This argument cannot succeed",
+     "quote": "This argument cannot succeed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects Mr. Tasaka’s first argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appeal Division considered Mr. Tasaka’s cited decision but found it irrelevant as it lacked COVID-19 analysis",
+     "quote": "The Appeal Division did consider the decision that Mr. Tasaka brought to its attention. However, it found the decision not relevant to the matter as it did not contain any analysis of the COVID-19 measures",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appeal Division noted it was not bound by the cited decision because it was from the General Division",
+     "quote": "The Appeal Division further noted that it was not bound by the decision because it was issued by the General Division",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division considered but found Mr. Tasaka’s cited decision irrelevant and not binding as it was from the General Division.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Additional jurisprudence cited by Mr. Tasaka suffers same flaws and cannot support his position",
+     "quote": "The additional jurisprudence that Mr. Tasaka brought to this Court’s attention suffers from the same flaws and cannot support his position",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds additional jurisprudence cited by Mr. Tasaka flawed and unhelpful to his case.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appeal Division’s interpretation leads to absurd result preventing fisher from claiming EI Fishing Benefits in both 2020 and 2021",
+     "quote": "Mr. Tasaka’s second argument is that the Appeal Division’s interpretation of section 153.1924 leads to an absurd result as it would prevent a fisher from claiming EI Fishing Benefits both in 2020 and 2021",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Example: fisher with $50,000 earnings in 2020 and 2021 would be barred from claiming benefits in 2021 under Appeal Division’s interpretation",
+     "quote": "To illustrate his point, Mr. Tasaka gives the example of a fisher having $50,000 of earnings in both 2020 and 2021...the Appeal Division’s interpretation would lead to the absurd conclusion that the One-Time Only Rule in subsection 153.1923(2) prevents the fisher from claiming EI fishing Benefits in 2021",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Tasaka argues the Appeal Division’s interpretation absurdly bars a fisher from claiming benefits in consecutive years.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appeal Division concluded COVID-19 measures allow subsequent claims under regular rules, not reusing paragraph 153.1923(1)(a)",
+     "quote": "the Appeal Division concluded that while the COVID-19 measures were in effect, a claimant who had a benefit period established once using section 153.1923...would have to qualify under the regular rules found in the Fishing Regulations for subsequent claims",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "In example, fisher would qualify for EI Fishing Benefits in 2021 under subsection 8(2) without reusing paragraph 153.1923(1)(a)",
+     "quote": "In Mr. Tasaka’s example, the fisher would not rely on paragraph 153.1923(1)(a) a second time in 2021 but would nonetheless qualify for EI Fishing Benefits under subsection 8(2) of the Fishing Regulations",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found claimants can qualify for subsequent benefits under regular rules without reusing paragraph 153.1923(1)(a).",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is nothing absurd in the Appeal Division’s result",
+     "quote": "There is nothing absurd in this result",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no absurdity in the Appeal Division’s interpretation result.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appeal Division’s interpretation renders “if applicable” in subparagraph 153.1923(1)(a)(i) meaningless",
+     "quote": "Mr. Tasaka argues that the Appeal Division’s interpretation renders the words “if applicable” in subparagraph 153.1923(1)(a)(i) of the Employment Insurance Act meaningless",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Only way to give meaning to “if applicable” is to apply paragraph 153.1923(1)(a) only when claimant has benefit period under section 153.1922",
+     "quote": "To Mr. Tasaka, the only way to give meaning to the words “if applicable” is to interpret paragraph 153.1923(1)(a) as applying only when a claimant has a benefit period established under the alternative way provided by section 153.1922",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Tasaka argues the Appeal Division’s interpretation makes “if applicable” meaningless and should apply only with benefit period under section 153.1922.",
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Tasaka’s interpretation renders subparagraph 153.1923(1)(a)(i) meaningless",
+     "quote": "With respect, Mr. Tasaka’s interpretation itself renders subparagraph 153.1923(1)(a)(i) meaningless",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Qualifying under section 153.1922 means claimant lacked sufficient current earnings but had sufficient prior earnings",
+     "quote": "Qualifying under section 153.1922 necessarily entails that a claimant did not meet the conditions to qualify for EI Fishing Benefits under the regular rules...but that they had sufficient earnings to qualify for benefits in previous years",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Current year’s earnings become “applicable” only when claimant qualifies under regular Fishing Regulations rules",
+     "quote": "the current year’s earnings become “applicable” and are considered in determining the claimant’s highest year of income under paragraph 153.1923(1)(a) only when the claimant qualifies for benefits under the regular rules set out in the Fishing Regulations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If paragraph 153.1923(1)(a) applied only when relying on section 153.1922, subparagraph 153.1923(1)(a)(i) would be unnecessary",
+     "quote": "if paragraph 153.1923(1)(a) only applied when a claimant relied on section 153.1922 to qualify—as Mr. Tasaka suggests—there would be no need for subparagraph 153.1923(1)(a)(i) of the Employment Insurance Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. Tasaka’s interpretation self-defeating and inconsistent with the statutory scheme.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the application for judicial review",
+     "quote": "I would dismiss the application for judicial review",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Attorney General does not seek costs; no costs awarded",
+     "quote": "The Attorney General does not seek costs and so I would not award costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application and declines to award costs as the Attorney General does not seek them.",
+   "role": "disposition"
+  }
+ ]
+}

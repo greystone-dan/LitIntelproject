@@ -1,0 +1,64 @@
+{
+ "case_id": 34759,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0010836,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 9,
+  "11": 10,
+  "12": 10,
+  "13": 11,
+  "14": 12,
+  "15": 13,
+  "16": 14,
+  "17": 15,
+  "18": 15,
+  "19": 16,
+  "20": 17,
+  "21": 17,
+  "22": 18,
+  "23": 19,
+  "24": 19,
+  "25": 20,
+  "26": 21,
+  "27": 21,
+  "28": 21,
+  "29": 21,
+  "30": 22,
+  "31": 22,
+  "32": 22
+ },
+ "result": {
+  "order_para": 22,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the Applicant provided a procedurally fair opportunity to respond to the Officer's concerns?",
+    "paras": "9,11-12,17",
+    "applicant_position": "Procedural fairness denied due to only 15 days and 50-word limit with no upload ability.",
+    "respondent_position": "Applicant had opportunity to respond comprehensively; no further explanation or evidence needed.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_text": "Applicant had opportunity to respond; no further procedural fairness obligation arose beyond PFL."
+   },
+   {
+    "issue": "Was the finding of misrepresentation under IRPA paragraph 40(1)(a), including materiality, unreasonable?",
+    "paras": "9,13-16,18-21",
+    "applicant_position": "Finding was disproportionate and harsh; Officer ignored or failed to explain rejection of disclosed US refusals.",
+    "respondent_position": "Disclosure after PFL does not affect materiality or reasonableness; Officer considered explanation and rejected it as not credible.",
+    "result": "dismissed_for_applicant",
+    "result_para": 22,
+    "result_text": "Decision is reasonable; Officer considered and rejected Applicant's explanation; erroneous info does not undermine reasonableness."
+   }
+  ]
+ }
+}

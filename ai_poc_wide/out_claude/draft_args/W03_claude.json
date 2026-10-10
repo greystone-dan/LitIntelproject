@@ -1,0 +1,102 @@
+{
+ "draft_id": "W03",
+ "arm": "claude",
+ "result": {
+  "arguments": [
+   {
+    "issue": "Did the Officer unreasonably reject the new evidence under paragraph 113(a)?",
+    "claim": "The warrant post-dates the RAD decision and is new; the Officer gave no direction on authentication and ignored the affidavit.",
+    "paras": [
+     22,
+     23
+    ],
+    "quote": "The Officer’s concern was authentication. But the Officer did not say what further proof was needed, and did not engage with the Applicant’s affidavit.",
+    "support": [
+     {
+      "kind": "statute_or_regulation",
+      "ref": "IRPA para 113(a)"
+     },
+     {
+      "kind": "case_law",
+      "ref": "Raza v Canada, 2007 FCA 385 at para 13"
+     },
+     {
+      "kind": "case_law",
+      "ref": "Vavilov at para 128"
+     },
+     {
+      "kind": "record_evidence",
+      "ref": "Applicant's affidavit on the warrant"
+     }
+    ],
+    "weak_spot": "The Officer may say an unauthenticated warrant with no explained source can be given little weight."
+   },
+   {
+    "issue": "Did the Officer unreasonably dismiss the colleague's letter?",
+    "claim": "A one-sentence dismissal of the colleague's letter as self-serving is inadequate, given the corroborating news reports.",
+    "paras": [
+     23
+    ],
+    "quote": "The Officer’s one-sentence dismissal of the colleague’s letter as “self-serving” also is not an adequate basis",
+    "support": [
+     {
+      "kind": "record_evidence",
+      "ref": "Two news reports on the colleague's detention"
+     },
+     {
+      "kind": "decision_under_review",
+      "ref": "Officer's finding that the letter was self-serving"
+     }
+    ],
+    "weak_spot": "Letters from interested persons can be given less weight, and the news reports do not mention the Applicant."
+   },
+   {
+    "issue": "Did the Officer breach fairness by making credibility findings without a hearing?",
+    "claim": "Finding the warrant could not be authenticated is in substance a credibility finding, so the section 167 factors apply and are all met, requiring a hearing.",
+    "paras": [
+     25,
+     26
+    ],
+    "quote": "All three of the section 167 factors are met.",
+    "support": [
+     {
+      "kind": "statute_or_regulation",
+      "ref": "IRPA para 113(b)"
+     },
+     {
+      "kind": "statute_or_regulation",
+      "ref": "IRPR s 167"
+     },
+     {
+      "kind": "case_law",
+      "ref": "Singh v Canada, 2016 FCA 96 at paras 49-54"
+     }
+    ],
+    "weak_spot": "The Officer assessed sufficiency of proof, not credibility, so no hearing was required."
+   },
+   {
+    "issue": "Did the Officer fail to assess the section 96 and 97 risk separately?",
+    "claim": "The Officer assessed neither test separately and treated the matter as one of credibility.",
+    "paras": [
+     28
+    ],
+    "quote": "The Officer did not assess either test separately and treated the question as one of credibility.",
+    "support": [
+     {
+      "kind": "case_law",
+      "ref": "Adjei v Canada, [1989] 2 FC 680 (CA)"
+     },
+     {
+      "kind": "case_law",
+      "ref": "Li v Canada, 2005 FCA 1"
+     },
+     {
+      "kind": "case_law",
+      "ref": "Canada v Ward, [1993] 2 SCR 689"
+     }
+    ],
+    "weak_spot": "If the evidence was rightly discounted, no risk was shown and no separate analysis was needed."
+   }
+  ]
+ }
+}

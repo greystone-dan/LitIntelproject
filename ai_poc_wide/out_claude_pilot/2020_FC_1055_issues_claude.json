@@ -1,0 +1,38 @@
+{
+  "case_id": "2020_FC_1055",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 60,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the PRRA officer's adverse credibility findings reasonable?",
+        "paras": "15-51",
+        "applicant_position": "Findings were unexplained, microscopic, speculative and ignored corroborative evidence; the credibility conclusion cannot stand.",
+        "respondent_position": "Minister argued the credibility findings were a broader finding that the applicant's story was not believed, not needing specificity.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "In my view, the credibility findings of the PRRA officer cannot be considered reasonable in light of the evidentiary record in this matter."
+      },
+      {
+        "issue": "Were the other grounds (country conditions, UNHRC decisions, Charter, unrecorded hearing) well founded?",
+        "paras": "52-56",
+        "applicant_position": "Officer failed to consider Pakistan country conditions and two UNHRC decisions, breached Charter and fairness, and the hearing was unrecorded.",
+        "respondent_position": "Minister noted the Charter arguments were previously rejected by this Court; other respondent positions not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 52,
+        "result_quote": "I do not find these allegations persuasive"
+      },
+      {
+        "issue": "Should the Court substitute its own decision and direct that the PRRA application be granted (indirect substitution)?",
+        "paras": "57-59",
+        "applicant_position": "Given the quashed first refusal and the strength of the application, the Court should direct approval rather than remit.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 59,
+        "result_quote": "I cannot conclude that this is an exceptional case that warrants a remedy of indirect substitution."
+      }
+    ]
+  }
+}

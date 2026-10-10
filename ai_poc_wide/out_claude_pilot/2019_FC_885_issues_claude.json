@@ -1,0 +1,56 @@
+{
+  "case_id": "2019_FC_885",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer breach fairness by proceeding on a poison pen call that the applicant says was raised?",
+        "paras": "16, 21-24",
+        "applicant_position": "The officer raised a poison pen call without details; his sworn evidence should prevail over incomplete notes.",
+        "respondent_position": "Officer's affidavit attests no poison pen call was received; the notes are consistent with that.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "Where the evidence conflicts, I prefer the Officer’s version of events."
+      },
+      {
+        "issue": "Did the interpretation problems breach fairness?",
+        "paras": "17, 23-25",
+        "applicant_position": "Interpreter misinterpreted his statements and the officer prevented him correcting them.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I am also unable to conclude that the alleged inadequacy of the interpretation establishes a breach of fairness."
+      },
+      {
+        "issue": "Was the officer required to ask for proof of the source of funds in the spouse's account?",
+        "paras": "18, 26",
+        "applicant_position": "Officer should have asked for proof of source of funds; the couple was discouraged from providing it.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "Nor does the Officer’s failure to ask the applicant to provide proof of the source of funds in Ms. Khatib’s account constitute a breach of fairness."
+      },
+      {
+        "issue": "Does the absence of photos referred to in the officer's decision from the CTR breach fairness?",
+        "paras": "19, 28-29",
+        "applicant_position": "Photos missing from the CTR breach fairness, as in Akram.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "Mr. Waked has not demonstrated any disadvantage or prejudice and therefore no breach of fairness."
+      },
+      {
+        "issue": "Was the officer's finding that the marriage was not genuine unreasonable?",
+        "paras": "30-34",
+        "applicant_position": "Officer over-weighted finances and ignored the relationship's development, knowledge of each other and cohabitation.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "this is not sufficient to render the decision unreasonable"
+      }
+    ]
+  }
+}

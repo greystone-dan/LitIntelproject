@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_306",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the IAD's section 71 reopening decision a final decision that the Court can review?",
+        "paras": "7-15",
+        "applicant_position": "Reopening decision is final and judicially reviewable; Minister should not be barred from reviewing it.",
+        "respondent_position": "Decision is not final or reviewable; it is interlocutory and the Minister can contest the merits later.",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "is a final decision and is subject to judicial review by the Court"
+      },
+      {
+        "issue": "Did the IAD justify reopening under section 71 by applying the natural justice test and the counsel incompetence test (Yang)?",
+        "paras": "19-25",
+        "applicant_position": "IAD made no finding of a natural justice breach or counsel incompetence and did not apply the Yang factors.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "is not justified against the statutory and jurisprudential scheme within which it was required to exercise its discretion"
+      },
+      {
+        "issue": "Was the IAD's reopening reasoning reasonable given the 2017 medical evidence it ignored?",
+        "paras": "26-31",
+        "applicant_position": "IAD ignored Dr. Tran's contemporaneous 2017 medical notes and judged counsel using 2019 evidence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I find that this omission is a determinative error"
+      }
+    ]
+  }
+}

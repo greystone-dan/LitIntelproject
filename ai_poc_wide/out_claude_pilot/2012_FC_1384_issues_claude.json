@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FC_1384",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the PRRA officer reasonably assess medical availability in Pakistan under s. 97(1)(b)(iv)?",
+        "paras": "13-22",
+        "applicant_position": "PRRA officer ignored the medical evidence and did not assess the risk of losing medical care in Pakistan.",
+        "respondent_position": "Officer clearly understood the medical documents; need not cite each one; s. 97(1)(b)(iv) excludes risk from inadequate health care.",
+        "result": "partly_allowed",
+        "result_para": 23,
+        "result_quote": "The decision was not unreasonable in the particular context of paragraph 97(1)(b) of the IRPA."
+      },
+      {
+        "issue": "Did the PRRA officer err by not treating the political and medical risks together and by weighing the RPD credibility findings?",
+        "paras": "16-19, 23",
+        "applicant_position": "Officer failed to consider the combined political and medical risk and the totality of the evidence.",
+        "respondent_position": "Risks were presented and considered as two separate grounds; officer need not mention each piece of evidence; RPD credibility weight was not undue.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The applicant has not shown how the PRRA decision was flawed otherwise."
+      }
+    ]
+  }
+}

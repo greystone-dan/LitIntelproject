@@ -1,0 +1,29 @@
+{
+  "case_id": "2010_FC_466",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the decision procedurally unfair because the applicant was not given a chance to address concerns about the brother-in-law's residence in Canada (adaptability points)?",
+        "paras": "8-13",
+        "applicant_position": "Officer doubted the brother-in-law's status and expired card without asking him for more evidence, denying him any chance to respond.",
+        "respondent_position": "Minister argued it would have been difficult for the officer to verify the brother-in-law's status through government channels.",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "it was procedurally unfair for the Visa Officer to render her decision without bringing these concerns to Mr. Gill’s attention"
+      },
+      {
+        "issue": "Did the officer mischaracterize the legal duty on arranged employment, and was that decision reasonable?",
+        "paras": "14-16",
+        "applicant_position": "not stated",
+        "respondent_position": "Minister said the HRDC opinion is only a condition precedent; the visa officer must assess the applicant's ability to do the job de novo.",
+        "result": "not_decided",
+        "result_para": 14,
+        "result_quote": "I need not consider the arranged employment offer because it is moot."
+      }
+    ]
+  }
+}

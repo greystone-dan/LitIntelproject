@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_551",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 44,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD unreasonably refuse to admit Ms. Williams' 2019 affidavit as new evidence?",
+        "paras": "19-28",
+        "applicant_position": "The affidavit answered unanticipated RPD findings, so the RAD should have admitted it under s.110(4).",
+        "respondent_position": "The affidavit repeats her RPD testimony and addresses matters the RPD already weighed, so it is not new evidence.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I am not persuaded by Ms. Williams’ submissions and find that the RAD committed no reviewable error in refusing to admit her affidavit as new evidence."
+      },
+      {
+        "issue": "Did the RAD reasonably assess the identity and motivation of the alleged agents of persecution?",
+        "paras": "30-35",
+        "applicant_position": "The RAD wrongly insisted the agents' identities were not established and ignored her evidence on criminal connections.",
+        "respondent_position": "Ms. Williams gave only general statements about the family, so the RAD's findings on the agents were comprehensive and reasonable.",
+        "result": "partly_allowed",
+        "result_para": 35,
+        "result_quote": "I find that the RAD’s insistence that the identities of Ms. Williams’ alleged agents of persecution had not been established is a reviewable error."
+      },
+      {
+        "issue": "Did the RAD reasonably assess whether the agents could track her to Freeport, given the Bahamas' small size and the Reports it relied on?",
+        "paras": "36-42",
+        "applicant_position": "The RAD ignored evidence on the small, connected population and relied on the inadmissible 2014 Report instead of the admitted 2018 Report.",
+        "respondent_position": "The 2014 and 2018 Reports use similar language, so relying on the 2014 Report was not significant.",
+        "result": "allowed_for_applicant",
+        "result_para": 42,
+        "result_quote": "I find that, having admitted the Report, the RAD was required to engage with its information regarding the nature of the Bahamian community"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "case_id": "2012_FC_529",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 72,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer breach procedural fairness by relying on extrinsic evidence (English skills an advantage in Korea) without letting the applicants respond?",
+        "paras": "33-34, 45, 53-54",
+        "applicant_position": "Officer relied on undisclosed extrinsic evidence that English skills would help the children, without putting it to the applicants.",
+        "respondent_position": "Officer's English-skills point was common-sense opinion, not extrinsic evidence, and was not used against the applicants.",
+        "result": "allowed_for_applicant",
+        "result_para": 54,
+        "result_quote": "The Officer was required to put whatever information she relied on for this conclusion to the Applicants and to give them an opportunity to respond."
+      },
+      {
+        "issue": "Did the officer apply the wrong best-interests-of-the-child test for the minor applicants?",
+        "paras": "26-32, 41-44, 61-71",
+        "applicant_position": "Officer asked only whether the children could readjust to Korea, not what was in their best interests, and ignored their time in Canada.",
+        "respondent_position": "Officer applied the correct test; children are now adults, so a best-interests analysis was immaterial and no error arises.",
+        "result": "allowed_for_applicant",
+        "result_para": 70,
+        "result_quote": "In this case, the Officer focused on whether Min Ji would be able to adjust to life in South Korea without applying the appropriate test for her best interests."
+      },
+      {
+        "issue": "Did the officer apply an incorrect H&C test, treating the children's situation as a hardship test?",
+        "paras": "36, 47, 59",
+        "applicant_position": "Officer assessed the hardship the children would face on removal and blamed them for the family's status, which is inappropriate.",
+        "respondent_position": "Officer applied both the best-interests test and the usual unusual, undeserved or disproportionate hardship test, which is reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 59,
+        "result_quote": "Nor do I think the Officer, as alleged by the Applicants, blames the children for this situation and subjects them to an unusual and undeserved or disproportionate hardship test."
+      },
+      {
+        "issue": "Was the officer's establishment analysis unreasonable (positive factors not set out, status and work counted against them)?",
+        "paras": "37-39, 56-58, 60",
+        "applicant_position": "Officer did not set out positive establishment factors and treated them as negatives, failing to weigh relative gain.",
+        "respondent_position": "Officer gave appropriate weight to all factors; applicants merely disagree with the weighting, which the Court should not reweigh.",
+        "result": "dismissed_for_applicant",
+        "result_para": 58,
+        "result_quote": "concludes, reasonably in my view, that a return to South Korea will not subject them to unusual and undeserved or disproportionate hardship."
+      },
+      {
+        "issue": "Was the officer's finding that the minor applicants could return to Canada on student visas unreasonable?",
+        "paras": "35, 46, 55",
+        "applicant_position": "Return on student visas is uncertain because of removal orders; officer ignored this and the likelihood of obtaining a visa.",
+        "respondent_position": "Reasonable finding; the applicants can apply for a study permit at any time.",
+        "result": "allowed_for_applicant",
+        "result_para": 55,
+        "result_quote": "the Officer was wrong to say they could return to Canada in this way."
+      }
+    ]
+  }
+}

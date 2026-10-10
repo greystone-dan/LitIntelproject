@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_987",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's credibility assessment of the Principal Applicant reasonable?",
+        "paras": "18-21",
+        "applicant_position": "Inconsistencies were minor and tangential; the Principal Applicant was very nervous while testifying.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I am satisfied that the RAD’s determination regarding the credibility of the Principal Applicant was reasonable"
+      },
+      {
+        "issue": "Did the RAD unreasonably ignore the plausibility of an oral loan and the landlord's corroboration?",
+        "paras": "22",
+        "applicant_position": "RAD neglected the plausibility of an oral loan agreement and under-weighed the landlord's corroborating evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Contrary to the assertion of the Applicants, the RAD did consider the plausibility of an oral agreement and rejected it"
+      },
+      {
+        "issue": "Did the RAD fail to conduct its own independent assessment of the record?",
+        "paras": "23",
+        "applicant_position": "RAD failed to conduct its own independent assessment of the record.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "I find that the Applicants’ assertion that the RAD failed to conduct an independent assessment is without merit."
+      }
+    ]
+  }
+}

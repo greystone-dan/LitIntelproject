@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_629",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 13,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must the redacted Certified Tribunal Record information be withheld under s. 87 of IRPA?",
+        "paras": "2-13",
+        "applicant_position": "Redactions should be rejected given the Applicant's significant interests in the proceedings.",
+        "respondent_position": "Disclosure would harm national security or endanger persons; s. 87 has no public-interest balancing test.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "the Court must prohibit the disclosure of the redacted information in this case"
+      },
+      {
+        "issue": "Should a Special Advocate be appointed to represent the Applicant's interests?",
+        "paras": "6-12",
+        "applicant_position": "A Special Advocate should be appointed to protect his interests in ex parte, in camera hearings.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "First, I am persuaded that this matter does not call for the appointment of a Special Advocate."
+      },
+      {
+        "issue": "Should the redaction at the bottom of page 156 remain?",
+        "paras": "5",
+        "applicant_position": "All proposed redactions should be rejected.",
+        "respondent_position": "Redaction sought at first; Minister later dropped it at the hearing.",
+        "result": "partly_allowed",
+        "result_para": 5,
+        "result_quote": "I am directing the AGC to provide a replacement page for the public record reflecting the removed redaction at the bottom of p. 156"
+      }
+    ]
+  }
+}

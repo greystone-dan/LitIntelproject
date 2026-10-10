@@ -1,0 +1,47 @@
+{
+ "case_id": "2024_FC_2065",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 17,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the Officer's finding of misrepresentation, based on the bank statement being not genuine, reasonable?",
+    "paras": "10-16",
+    "applicant_position": "Four-sentence reasons are opaque, ignore the bank's authentication letter, and cannot justify a five-year bar.",
+    "respondent_position": "Specific inconsistencies between the two bank statements, identified after the fact, support the finding.",
+    "result": "allowed_for_applicant",
+    "result_para": 16,
+    "result_quote": "The Officer’s decision fails to demonstrate the rational chain of analysis that forms the bedrock of reasonable administrative decision-making"
+   },
+   {
+    "issue": "Did the Officer's selected verification process breach procedural fairness?",
+    "paras": "2",
+    "applicant_position": "The Officer's selected verification process was procedurally unfair.",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 2,
+    "result_quote": "the unreasonableness of the decision is sufficient to dispose of this application."
+   },
+   {
+    "issue": "Did the Officer fail to engage with the bank's authentication letter, which was contrary evidence?",
+    "paras": "8-13",
+    "applicant_position": "Officer ignored the bank's October 2022 letter confirming the statement was a true record.",
+    "respondent_position": "Relies on inconsistencies between the bank statements; the authentication letter is not addressed.",
+    "result": "allowed_for_applicant",
+    "result_para": 13,
+    "result_quote": "I find that the Officer’s complete failure to engage with the bank’s authentication letter submitted in response to the PFL demonstrates a remarkable indifference to contrary evidence."
+   },
+   {
+    "issue": "Can the court uphold the decision on inconsistencies the officer never identified?",
+    "paras": "15",
+    "applicant_position": "Inconsistencies first raised by the respondent cannot save a decision the officer never reasoned through.",
+    "respondent_position": "A December 20, 2021 deposit shown under two different names is a legitimate inconsistency.",
+    "result": "allowed_for_applicant",
+    "result_para": 15,
+    "result_quote": "it is “not open to a reviewing court to disregard the flawed basis for a decision and substitute its own justification for the outcome.”"
+   }
+  ]
+ }
+}

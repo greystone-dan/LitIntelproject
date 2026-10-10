@@ -1,0 +1,29 @@
+{
+ "case_id": "2018_FC_98",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 24,
+  "overall_result": "partly_allowed",
+  "issues": [
+   {
+    "issue": "Was the RPD's rejection of the principal applicant's claim (implausibility findings, lack of evidence) reasonable?",
+    "paras": "12-16",
+    "applicant_position": "Implausibility findings were unsupported and insufficient; the RPD did not properly analyse evidence on Jordanian citizenship revocation.",
+    "respondent_position": "Her fear of losing citizenship is speculative; the implausibility findings and lack of corroboration were reasonable.",
+    "result": "dismissed_for_applicant",
+    "result_para": 14,
+    "result_quote": "I agree with the respondent that the issue was properly treated by the RPD and that its decision was reasonable."
+   },
+   {
+    "issue": "Was the RPD's rejection of the minor applicant's claim reasonable, including the gender-related analysis?",
+    "paras": "17-23",
+    "applicant_position": "RPD never linked the risk to gender or assessed the situation of Saudi women, despite the Gender Guidelines; decision unreasonable.",
+    "respondent_position": "Claim rested on Palestinian origin; RPD referred to the Gender Guidelines and the risk was speculative.",
+    "result": "allowed_for_applicant",
+    "result_para": 19,
+    "result_quote": "The decision to dismiss the minor applicant’s claim was unreasonable"
+   }
+  ]
+ }
+}

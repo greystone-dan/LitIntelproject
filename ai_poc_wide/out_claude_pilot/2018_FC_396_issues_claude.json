@@ -1,0 +1,47 @@
+{
+  "case_id": "2018_FC_396",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 41,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the three related proceedings be consolidated under Rule 105?",
+        "paras": "7-41",
+        "applicant_position": "Consolidation avoids duplicate evidence and hearings, is efficient, and prejudices no party.",
+        "respondent_position": "Consolidation prejudices Respondents; proceedings differ in stage, issues and remedies; case management suffices.",
+        "result": "allowed_for_applicant",
+        "result_para": 41,
+        "result_quote": "In summary, I have concluded that the Related Proceedings should be consolidated."
+      },
+      {
+        "issue": "Do differing stages, legal and factual differences, or available case management defeat consolidation?",
+        "paras": "12-26",
+        "applicant_position": "Proceedings now share stage, facts and legal issues; case management cannot replace consolidation.",
+        "respondent_position": "Proceedings are at different stages, raise different grounds, and case management gives the same efficiency.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "the commonality of facts and legal issues weighs significantly in favour of consolidation"
+      },
+      {
+        "issue": "Would consolidation constrain the Court's remedial flexibility?",
+        "paras": "27-34",
+        "applicant_position": "not stated",
+        "respondent_position": "Different grounds and remedies mean consolidation would lose the flexibility of separate hearings.",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "I conclude that this Court would not be constrained, remedially or otherwise, if consolidation were ordered"
+      },
+      {
+        "issue": "Would consolidation prejudice the Respondents, and would separate hearings be an abuse of process?",
+        "paras": "35-37",
+        "applicant_position": "Separate hearings would repeat the same evidence three times; consolidation prejudices no one.",
+        "respondent_position": "Mustefa has not met her onus to show consolidation causes no prejudice.",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "I have not been persuaded that consolidation would prejudice the Respondents"
+      }
+    ]
+  }
+}

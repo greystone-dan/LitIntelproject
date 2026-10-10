@@ -1,0 +1,47 @@
+{
+  "case_id": "2012_FC_855",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the appropriate standard of review?",
+        "paras": "22-24",
+        "applicant_position": "Correctness for procedural fairness; reasonableness for review of the officer's evidence assessment.",
+        "respondent_position": "Reasonableness for points-based factual findings; correctness only for procedural fairness.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the appropriate standard of review for issues of procedural fairness and natural justice is correctness"
+      },
+      {
+        "issue": "Did the officer deny procedural fairness or act unreasonably by not explaining why the Canadian-relative evidence was insufficient?",
+        "paras": "25-31",
+        "applicant_position": "Officer erred by not explaining why the evidence on Canadian relatives was insufficient, making the decision unreasonable.",
+        "respondent_position": "Officer gave an explanation; the applicant bore the onus and the checklist required birth certificates.",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I do not find that the officer erred by not explaining why the evidence that the applicant submitted for his relatives in Canada was insufficient."
+      },
+      {
+        "issue": "Was the officer required to make further inquiries or give notice before rejecting the evidence?",
+        "paras": "32-33",
+        "applicant_position": "Officer should have interviewed him or notified him and allowed him to respond.",
+        "respondent_position": "Officer had no duty to make further inquiries; the onus rests on the applicant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "the officer was not required to ask for additional information of the applicant and the applicant was not denied procedural fairness"
+      },
+      {
+        "issue": "Should costs be awarded to the applicant?",
+        "paras": "36",
+        "applicant_position": "The officer's errors were egregious and warrant an award of costs.",
+        "respondent_position": "The applicant has not shown special reasons for costs.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "I am not prepared to award costs as I am of the view that special reasons do not exist in this case"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+ "case_id": "2013_FC_609",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 44,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the RPD's refusal to postpone the hearing, with counsel absent, reasonable?",
+    "paras": "33-38",
+    "applicant_position": "Refusal was unreasonable: it rested on counsel's earlier holiday request and ignored Rule 48(4) factors.",
+    "respondent_position": "Postponement is discretionary and deserves deference; the refusal was reasonable.",
+    "result": "allowed_for_applicant",
+    "result_para": 38,
+    "result_quote": "the Board Member’s reasons for refusing to postpone the hearing are therefore unreasonable."
+   },
+   {
+    "issue": "Did the refusal to postpone breach procedural fairness, so that the decision must be quashed?",
+    "paras": "39-44",
+    "applicant_position": "Without counsel he could not present his case, so the refusal denied him a fair hearing.",
+    "respondent_position": "Unreasonable reasons alone do not quash the decision; no unfairness or prejudice was shown.",
+    "result": "dismissed_for_applicant",
+    "result_para": 43,
+    "result_quote": "The onus was on the Applicant to demonstrate that the hearing was unfair as a result of proceeding without his counsel. He has not discharged that burden."
+   },
+   {
+    "issue": "Should paragraphs of the applicant's affidavit based on counsel's information be struck or given little weight?",
+    "paras": "27-30",
+    "applicant_position": "Affidavit largely rests on letters counsel sent the IRB, so it should be admitted and weighed.",
+    "respondent_position": "Counsel improperly swore the affidavit on her own information; those paragraphs should be struck or given no weight.",
+    "result": "dismissed_for_applicant",
+    "result_para": 30,
+    "result_quote": "For those reasons, I agree that paras 19, 20, 21, 23, 25-29, 35 and 40-44 of the Applicant's affidavit must either be struck or given very little weight"
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2010_FC_842",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the applicants rebut the presumption of state protection in Mexico?",
+        "paras": "20-26",
+        "applicant_position": "Protection in Mexico is ineffective, so the presumption is rebutted and no further complaint was needed.",
+        "respondent_position": "Mexico is a functioning democracy; a strong presumption of state protection applies and was not rebutted.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "the applicants failed to rebut the presumption of state protection by clear and convincing evidence that the state protection is inadequate or non-existent in Mexico."
+      },
+      {
+        "issue": "Did the panel ignore the documentary evidence on spousal violence in Mexico?",
+        "paras": "27-35",
+        "applicant_position": "Documentary evidence shows Mexican women are defenceless against spousal violence because protection is ineffective.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "this Court is of the opinion that the decision of the panel is reasonable"
+      },
+      {
+        "issue": "Did the applicants have to pursue the Mexican authorities after filing their complaint before seeking Canada's protection?",
+        "paras": "26, 33-34",
+        "applicant_position": "Ineffective protection meant no need to file or follow up on a complaint with the authorities.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "the applicants never followed up on their complaint and never alerted the authorities to the fact that there was still an imminent threat to their lives"
+      }
+    ]
+  }
+}

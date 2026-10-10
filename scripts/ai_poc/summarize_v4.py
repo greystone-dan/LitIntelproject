@@ -22,6 +22,7 @@ from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
 PROMPT_VERSION = "prop_v6"  # prop_v5 plus QA prompt fixes: court evaluations of the tribunal, agreement with a party, sides, headings
 CHUNK = 20
+REUSE_PROPS: Path | None = None  # --reuse-props DIR: reuse the stored propositions of the same prompt version and rerun only the blocks call
 HOLDERS = ["court", "applicant", "respondent", "earlier_decision_maker", "witness_or_document", "prior_court_or_authority", "other"]
 KINDS = ["issue", "allegation_or_argument", "finding", "rule_of_law", "fact", "conclusion_or_order", "procedure"]
 ROLES = ["facts", "procedural_history", "issue", "law", "analysis", "conclusion", "disposition", "other"]
@@ -55,14 +56,14 @@ SCHEMA_P = {"type": "object", "additionalProperties": False, "required": ["parag
 SYSTEM_B = """You are given, for a Canadian court or tribunal decision, the propositions found in each paragraph (paragraph number, holder, kind, point). Using ONLY these, return:
 - overview: three sentences at most saying what the case is about, who the parties are and how it came out.
 - background_paras and disposition_paras: paragraph ranges as text (for example "1-5, 14-18"; empty when none).
-- If the input says which paragraphs are concurring or dissenting reasons, the overview, court_conclusion and the result come from the MAJORITY paragraphs only; a dissent's view may appear as a position with holder 'other' and text starting 'Dissent:'.
+- The propositions of dissenting reasons, when there are any, are listed after a line "=== DISSENT (not the Court's) ===". The overview, positions, court_conclusion, conclusion_paras and paras of every block come from the majority and concurring propositions ONLY. Never use a dissent paragraph in paras or conclusion_paras. Put what the dissent said on the same issue in that block's dissent_view (at most 30 words, with its paragraph numbers; empty text when the dissent does not address the issue).
 - blocks: one block per issue the decision actually deals with, in order. Each block: issue (the question in plain words), paras (the range where it is dealt with), positions (each side's or earlier decision-maker's position: holder, text of at most 25 words, paras; write 'not stated' as the text when the propositions do not give that side's position), court_conclusion (at most 30 words, 'not stated' if none), conclusion_paras.
 Do not invent anything the propositions do not support. When a party's position is stated in the propositions only as an agreement by the court ("agree with the Respondent"), still give that party's position from the matching proposition instead of 'not stated'."""
 
 SCHEMA_B = {"type": "object", "additionalProperties": False, "required": ["overview", "background_paras", "disposition_paras", "blocks"], "properties": {
 	"overview": {"type": "string"}, "background_paras": {"type": "string"}, "disposition_paras": {"type": "string"},
-	"blocks": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["issue", "paras", "positions", "court_conclusion", "conclusion_paras"], "properties": {
-		"issue": {"type": "string"}, "paras": {"type": "string"}, "court_conclusion": {"type": "string"}, "conclusion_paras": {"type": "string"},
+	"blocks": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["issue", "paras", "positions", "court_conclusion", "conclusion_paras", "dissent_view"], "properties": {
+		"issue": {"type": "string"}, "dissent_view": {"type": "string"}, "paras": {"type": "string"}, "court_conclusion": {"type": "string"}, "conclusion_paras": {"type": "string"},
 		"positions": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["holder", "text", "paras"], "properties": {
 			"holder": {"type": "string", "enum": HOLDERS}, "text": {"type": "string"}, "paras": {"type": "string"}}}}}}}}}
 
@@ -96,6 +97,8 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 	if not send:
 		tin = sum(est(mk(c)) for c in chunks) + 3000
 		tout = 220 * len(paras) + 1500
+		if REUSE_PROPS and (REUSE_PROPS / f"case_{case_id}_prop_{PROMPT_VERSION}_{model}.json").exists():
+			tin, tout = 40000, 2000  # blocks call only
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "paragraphs": len(paras), "calls": len(chunks) + 1, "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
 		return None
 
@@ -121,8 +124,13 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 				dropped += 1
 				why["duplicate" if r["para"] in rows else "not_in_chunk"] += 1
 
-	for ch in chunks:
-		ask(ch)
+	stored = REUSE_PROPS / f"case_{case_id}_prop_{PROMPT_VERSION}_{model}.json" if REUSE_PROPS else None
+	if stored is not None and stored.exists():
+		for r in json.loads(stored.read_text(encoding="utf-8"))["paragraphs"]:
+			rows[r["para"]] = {k: r[k] for k in ("para", "propositions", "summary", "role")}
+	else:
+		for ch in chunks:
+			ask(ch)
 	retried = sorted({p["paragraph_index"] for p in paras} - set(rows))
 	if retried:
 		ask([p for p in paras if p["paragraph_index"] in set(retried)])
@@ -130,7 +138,12 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file):
 	ordered = [rows[k] for k in sorted(rows)]
 	for r in ordered:
 		r["part"] = part_of(parts_info["parts"], r["para"])  # majority / concurring / dissenting, from the text's own markers
-	listing = "\n".join(f"{r['para']}\t{pp['holder']}/{pp['kind']}\t{pp['text']}" for r in ordered for pp in r["propositions"])
+	row = lambda r: [f"{r['para']}\t{pp['holder']}/{pp['kind']}\t{pp['text']}" for pp in r["propositions"]]  # noqa: E731
+	listing_lines = [ln for r in ordered if r["part"] != "dissenting" for ln in row(r)]
+	dissent_lines = [ln for r in ordered if r["part"] == "dissenting" for ln in row(r)]
+	if dissent_lines:
+		listing_lines += ["", "=== DISSENT (not the Court's) ==="] + dissent_lines
+	listing = "\n".join(listing_lines)
 	msgs = [{"role": "system", "content": SYSTEM_B}, {"role": "user", "content": pre + listing}]
 	stop()
 	blocks, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="blocks", schema=SCHEMA_B, max_output_tokens=4000, est_input_tokens=est(msgs), label=f"blocks case {case_id}")
@@ -156,7 +169,10 @@ def main() -> int:
 	ap.add_argument("--meta-csv", type=Path, action="append")
 	ap.add_argument("--cap-usd", type=float, default=None)
 	ap.add_argument("--stop-file", type=Path, default=None)
+	ap.add_argument("--reuse-props", type=Path, default=None)
 	args = ap.parse_args()
+	global REUSE_PROPS
+	REUSE_PROPS = args.reuse_props
 	for m in args.meta_csv or []:
 		for row in csv.DictReader(m.open(encoding="utf-8-sig")):
 			META[int(float(row["case_id"]))] = row

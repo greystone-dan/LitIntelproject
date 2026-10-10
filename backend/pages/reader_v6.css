@@ -215,3 +215,8 @@
 }
 .v6-actions:empty{display:none}
 .v6-outnote{flex-basis:100%;margin:0!important}
+
+/* Experimental left-panel section: hidden until Show experimental is on. */
+body:not(.reader-experimental) .v6-exp{display:none!important}
+.v6-uwhy{font-size:13px;color:#555;padding:6px 12px 8px;line-height:1.35}
+.v6-urow{flex-wrap:wrap}.v6-uparty{flex-basis:100%;font-size:13px;color:#555;margin-top:2px}

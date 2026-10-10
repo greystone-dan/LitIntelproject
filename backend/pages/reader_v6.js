@@ -9,7 +9,7 @@
  const E=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const N=value=>Number(value||0).toLocaleString('en-CA');
  const getJson=async url=>{const response=await fetch(url);if(!response.ok)throw new Error(`Request failed (${response.status})`);return response.json();};
- const v6={caseId:null,tab:'about',isub:'intel',open:null,outline:false,view:null,stack:[],filter:'',af:'all',cursor:{},cfind:{},intel:new Map(),judges:new Map(),cards:new Map()};
+ const v6={caseId:null,tab:'about',isub:'intel',open:null,outline:false,units:false,view:null,stack:[],filter:'',af:'all',cursor:{},cfind:{},intel:new Map(),judges:new Map(),cards:new Map()};
  const fullCaseUrl=id=>`/data-explorer?case_id=${encodeURIComponent(id)}`;
  const openFull=id=>{if(id)window.open(fullCaseUrl(id),'_blank','noopener');};
  const SHOW_COMPARE=false; /* the Compare page is not pitch-ready; set true to bring the button back */
@@ -87,7 +87,37 @@
   return `<div class="v6-outrow"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}${disposition?`<button type="button" class="v6-lk" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)} ↓</button>`:''}</div>${outcome&&outcome.note?`<div class="v6-small v6-outnote">${E(outcome.note)}</div>`:''}
   ${details||links||status?`<div class="v6-sec v6-compact"><h4>Case details</h4>${details}${links?`<div class="v6-links">${links}</div>`:''}${status?`<div class="v6-small">${E(status)}</div>`:''}</div>`:''}
   ${tags.length?`<div class="v6-sec v6-compact"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
-  ${outl.length?`<div class="v6-sec v6-compact"><button type="button" class="v6-outbtn${v6.outline?' open':''}" data-v6-outl-toggle aria-expanded="${v6.outline}"><span class="v6-ot">Outline<small>${outl.length} section${outl.length===1?'':'s'}</small></span>${TAPE}<span class="v6-chev">${v6.outline?'▾':'▸'}</span></button>${v6.outline?`<div class="v6-outline">${outl.map(h=>`<button type="button" class="v6-orow${h.level>1?' v6-sub':''}" data-v6-outline="${h.start}"><span>${E(h.title)}</span>${h.para?`<span class="v6-ct">${E(h.para)}</span>`:''}</button>`).join('')}</div>`:''}</div>`:''}`;}
+  ${outl.length?`<div class="v6-sec v6-compact"><button type="button" class="v6-outbtn${v6.outline?' open':''}" data-v6-outl-toggle aria-expanded="${v6.outline}"><span class="v6-ot">Outline<small>${outl.length} section${outl.length===1?'':'s'}</small></span>${TAPE}<span class="v6-chev">${v6.outline?'▾':'▸'}</span></button>${v6.outline?`<div class="v6-outline">${outl.map(h=>`<button type="button" class="v6-orow${h.level>1?' v6-sub':''}" data-v6-outline="${h.start}"><span>${E(h.title)}</span>${h.para?`<span class="v6-ct">${E(h.para)}</span>`:''}</button>`).join('')}</div>`:''}</div>`:''}${unitsSectionHtml(d)}`;}
+
+
+ /* unit-rows:start */
+ /* Discussion units for the left panel: where each unit starts and ends (printed paragraph numbers), the rule-based role
+    of the unit, and the paragraphs the position rules read as the applicant's or respondent's argument. Stored data only. */
+ const UNIT_ROLE_NAMES={metadata:'Header / footer',overview:'Overview',facts:'Facts',issues:'Issues',analysis:'Analysis',disposition:'Disposition'};
+ function unitOutlineRows(rd){
+  const es=rd&&rd.evidence_summary,units=(es&&es.units)||[],chunks=(rd&&rd.chunks)||[],blocks=(rd&&rd.format_blocks)||[];
+  const numAt=i=>{const c=chunks[i],m=c&&/^\s*\[(\d{1,3})\]/.exec(String(c.text||''));return m?Number(m[1]):null;};
+  const startOf=n=>{const b=blocks.find(x=>x.type==='para'&&x.num===n);return b?b.start:null;};
+  const rows=[];
+  for(const u of units){
+   let first=null,last=null;
+   for(let i=u.start_paragraph;i<=u.end_paragraph;i++){const n=numAt(i);if(n!==null){if(first===null)first=n;last=n;}}
+   if(first===null)continue;
+   const by={};
+   for(const a of u.party_arguments||[]){const n=numAt(a.paragraph_index);if(n!==null)(by[a.party]=by[a.party]||[]).push(n);}
+   rows.push({index:u.unit_index,first:first,last:last,start:startOf(first),role:u.role||null,roleName:u.role?(UNIT_ROLE_NAMES[u.role]||u.role):'',
+    parties:['applicant','respondent'].filter(k=>by[k]).map(k=>({party:k,label:k==='applicant'?'Applicant':'Respondent',nums:by[k]}))});
+  }
+  return {rows:rows,roleNote:(es&&es.role_note)||'',partyNote:(es&&es.party_note)||''};
+ }
+ /* unit-rows:end */
+ function unitsSectionHtml(d){
+  const info=unitOutlineRows(d.readerData);if(!info.rows.length)return '';
+  const range=r=>'¶'+r.first+(r.last!==r.first?'–'+r.last:'');
+  const rows=v6.units?`<div class="v6-uwhy">Experimental. Roles and party arguments come from fixed text rules, not a reader.${info.roleNote?' '+E(info.roleNote):''}${info.partyNote?' '+E(info.partyNote):''}</div><div class="v6-outline">${info.rows.map(r=>{
+   const label=`<span>${E(range(r))}${r.roleName?' · '+E(r.roleName):''}</span>`,sub=r.parties.length?`<small class="v6-uparty">${r.parties.map(p=>E(p.label)+' '+p.nums.map(n=>'¶'+n).join(', ')).join(' · ')}</small>`:'';
+   return r.start!=null?`<button type="button" class="v6-orow v6-urow" data-v6-outline="${r.start}">${label}${sub}</button>`:`<div class="v6-orow v6-urow">${label}${sub}</div>`;}).join('')}</div>`:'';
+  return `<div class="v6-sec v6-compact v6-exp"><button type="button" class="v6-outbtn${v6.units?' open':''}" data-v6-units-toggle aria-expanded="${v6.units}"><span class="v6-ot">Discussion units<small>${info.rows.length} unit${info.rows.length===1?'':'s'} · experimental</small></span><span class="v6-chev">${v6.units?'▾':'▸'}</span></button>${rows}</div>`;}
 
  function authorityRows(d){
   const q=v6.filter.toLowerCase(),cases=v6.af==='stat'?[]:sideAuthorityGroups(d.citations).filter(g=>!q||(g.label+' '+g.citation).toLowerCase().includes(q)).map(g=>({k:'case',key:'c:'+g.key,g})),
@@ -198,6 +228,7 @@
   if(m=t.closest('[data-v6-af]')){v6.af=m.dataset.v6Af;return renderPanel();}
   if(t.closest('[data-v6-collapse]')){document.getElementById('toggleCaseInformation')?.click();return;}
   if(m=t.closest('[data-v6-outl-toggle]')){v6.outline=!v6.outline;return renderPanel();}
+  if(m=t.closest('[data-v6-units-toggle]')){v6.units=!v6.units;return renderPanel();}
   if(m=t.closest('[data-v6-find]'))return runFind(m,Number(m.dataset.v6Dir||1));
   if(m=t.closest('[data-v6-stat]'))return go({type:'statute',title:m.dataset.v6Stat,sub:m.dataset.v6Sub||''});
   if(m=t.closest('[data-v6-outline]'))return jumpOutline(m.dataset.v6Outline);

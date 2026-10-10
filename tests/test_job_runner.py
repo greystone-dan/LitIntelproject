@@ -345,9 +345,9 @@ def test_cli_actual_signal_cleans_child_and_releases_lock(tmp_path, signum):
                              cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     try:
         deadline = time.monotonic() + 5
-        while not pidfile.exists() and time.monotonic() < deadline:
+        while not (pidfile.exists() and pidfile.read_text().strip()) and time.monotonic() < deadline:
             time.sleep(0.02)
-        assert pidfile.exists()
+        assert pidfile.exists() and pidfile.read_text().strip()
         pid = int(pidfile.read_text())
         child.send_signal(signum)
         stdout, stderr = child.communicate(timeout=5)

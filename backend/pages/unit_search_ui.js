@@ -29,7 +29,7 @@ function jumpToParagraph(num){
   tries++;
   const body=$('decisionBody');
   const el=body&&Array.from(body.querySelectorAll('[id^="decision-source-"]')).find(node=>new RegExp('^\\s*\\['+num+'\\]').test(node.textContent||''));
-  if(el){clearInterval(timer);el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('us-flash');setTimeout(()=>el.classList.remove('us-flash'),2400);}
+  if(el){clearInterval(timer);el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('us-flash');setTimeout(()=>el.classList.remove('us-flash'),3500);}
   else if(tries>24)clearInterval(timer);
  },300);
 }

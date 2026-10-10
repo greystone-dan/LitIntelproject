@@ -6,6 +6,7 @@ stored CaseChunk rows (evaluation texts). The labeller is added below.
 
 from __future__ import annotations
 
+import os
 import re
 from collections import OrderedDict
 
@@ -250,12 +251,9 @@ def _transition_cost(prev: str, cur: str) -> float:
     return 4.0
 
 
-def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
-    """Label every paragraph with one of ROLES. Deterministic, no AI, reads only the text."""
-    if not paragraphs:
-        return []
-    emissions = _emissions(paragraphs)
-    n = len(paragraphs)
+def _viterbi_roles(emissions: list[dict[str, float]]) -> list[str]:
+    """Best ordered path through the section states given per-paragraph scores."""
+    n = len(emissions)
     best = [{s: (-emissions[0][s] if s in ("head", "overview", "facts") else 1e9, None) for s in _STATES}]
     for i in range(1, n):
         row: dict[str, tuple[float, str | None]] = {}
@@ -272,6 +270,28 @@ def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
         path.append(state)
     path.reverse()
     return [_STATE_ROLE.get(s, s) for s in path]
+
+
+def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
+    """Label every paragraph with one of ROLES. Deterministic, no AI, reads only the text.
+
+    With ILIT_LEARNED_ROLES=1 the rule scores are blended with a small learned word/position model
+    (learned_roles.py, fixed weights, numpy only).
+    """
+    if not paragraphs:
+        return []
+    if os.environ.get("ILIT_LEARNED_ROLES") == "1":
+        from backend.contextual_authority import learned_roles
+
+        return learned_roles.label_paragraph_roles(paragraphs)
+    return label_paragraph_roles_rules(paragraphs)
+
+
+def label_paragraph_roles_rules(paragraphs: Sequence[str]) -> list[str]:
+    """The rule-only labeller."""
+    if not paragraphs:
+        return []
+    return _viterbi_roles(_emissions(paragraphs))
 
 
 _OPENER_RE = re.compile(

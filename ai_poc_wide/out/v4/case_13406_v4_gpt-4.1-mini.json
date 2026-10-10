@@ -1,0 +1,493 @@
+{
+ "case_id": 13406,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.006564799999999999,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an application for judicial review of a PRRA Officer's decision dated March 23, 2015, denying the Applicant's PRRA under IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application of a PRRA Officer's March 23, 2015 decision denying the Applicant's PRRA under IRPA.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant is a 31-year-old Ghanaian citizen who came to Canada in 1998 as a permanent resident.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant was convicted of three criminal offences in 2005 and diagnosed with psychotic disorder in 2008, confirmed in 2013.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Immigration Division found Applicant criminally inadmissible and issued deportation order in 2008.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Immigration Appeal Division stayed removal for three years in 2009 but cancelled stay in 2014 after reoffence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant applied for PRRA in 2014 based on risk to life in Ghana due to schizophrenia.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "PRRA Officer rendered negative decision on March 23, 2015, subject of judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant is a Ghanaian permanent resident with criminal convictions and mental illness, whose PRRA was denied after deportation proceedings.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "PRRA Officer noted Applicant's belief of life risk in Ghana due to schizophrenia and lack of family support.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Officer noted counsel's submission about inadequate treatment risking stigmatization and homelessness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA Officer noted the Applicant's belief of risk in Ghana due to schizophrenia and counsel's submissions on inadequate treatment and stigma.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found insufficient objective evidence of medication since June 2012.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found discrimination against disabled persons in Ghana but government making serious efforts to change this.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found Ghana has functioning police and judiciary, so Applicant did not meet s 96 IRPA requirements.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found risk of torture excluded as it arose from medical condition, not inflicted by government agents.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer accepted diagnosis but found risk from inadequate health care excluded by s 97(1)(b)(iv) IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found absence of social support was humanitarian factor not considered in PRRA context.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA Officer found insufficient medication evidence, recognized discrimination but serious government efforts, and concluded Applicant did not meet risk criteria under IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found insufficient evidence of more than mere possibility of persecution on any Convention ground.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found on balance of probabilities no likely risk of torture, life risk, or cruel treatment on return to Ghana.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA Officer found insufficient evidence of persecution and no likely risk of torture or cruel treatment upon return to Ghana.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's counsel submitted reconsideration request with doctor's note confirming recent treatment and medication.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims no response was received to reconsideration request.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court will not consider evidence submitted after Officer's decision as it was not before Officer at decision time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant submitted new medical evidence after the decision, claims no response, but the court will not consider it as it was not before the Officer.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits Officer erred by applying 'serious efforts' rather than operational adequacy test for state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the Officer wrongly applied a 'serious efforts' test instead of the operational adequacy test for state protection.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant relied on recent Human Rights Watch report on treatment of mentally ill in Ghana's hospitals and prayer camps.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Counsel's submissions describe abuses in prayer camps and psychiatric hospitals including denial of food, medicine, and abuse.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant also cited study on mental health discrimination and loss of familial supports in Southern Ghana.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant relied on a Human Rights Watch report and studies describing abuses and discrimination against mentally ill persons in Ghana.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits evidence confirms stigma and cruel treatment in psychiatric hospitals was ignored by Officer.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits Officer relied solely on US Department of State report claiming government making serious efforts.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer pointed to no evidence that efforts amounted to protection; evidence supports opposite.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the Officer ignored evidence of stigma and cruel treatment, relying only on US report claiming government efforts, unsupported by evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits Officer's reference to 'serious efforts' was taken out of context and does not show wrong test applied.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Justice Boswell in Barragan found use of 'serious efforts' was not an error, citing Villafranca FCA case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues the Officer's 'serious efforts' reference was proper, supported by Barragan and Villafranca cases.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Adequate state protection requires evidence of actual operational protection, not just serious efforts by state.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Beri and De Araujo Garcia cases establish focus on operational protection, not mere efforts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states adequate state protection means operational protection evidence, not just serious efforts, citing Beri and De Araujo Garcia.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Molnar case states operational adequacy best determined by recent evidence, not generalities about legislation or procedures.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Molnar that operational adequacy is best assessed by recent evidence, not general legislative claims.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Bautista case states serious efforts must be viewed at operational capacity level, not just legislative stage.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Bautista that serious efforts must be assessed at operational capacity, not only legislative stage.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "PRRA Officer did not explicitly state which test for state protection was applied.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits mere reference to 'serious efforts' does not prove wrong test used, citing Majlat and Medina.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent's reliance on Barragan is misplaced as Barragan requires operational level evaluation of serious efforts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Officer did not state test used; Respondent argues 'serious efforts' reference is not error, but court finds Barragan requires operational evaluation.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Nothing suggests Officer understood or applied operational adequacy test for state protection under IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision suggests Officer incorrectly adopted a 'serious efforts' test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer likely applied a 'serious efforts' test, not the required operational adequacy test for state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Officer quoted US DOS Report concluding discrimination against disabled continues but government making serious efforts to change this.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Officer noted law prohibits discrimination and government agencies address disability discrimination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer quoted US DOS Report noting ongoing discrimination but serious government efforts and legal prohibitions against discrimination.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant points out US DOS Report also acknowledges inadequate enforcement and ongoing discrimination despite laws.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant points out the US DOS Report acknowledges inadequate enforcement and ongoing discrimination despite laws.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant submitted internet articles showing operational ineffectiveness of Ghana's mental health legislation.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "2014 article states massive investment needed for full implementation of Mental Health Bill unlikely soon.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "2011 article quotes chief psychiatrist recognizing importance of implementation for mental health improvements.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant submitted articles showing Ghana's mental health legislation is operationally ineffective and underfunded.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Whether Officer identified and applied correct test for state protection is reviewed on correctness standard.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Jurisprudence establishes clear test for state protection; Officer cannot apply different test (Ruszo).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "PRRA Officer failed to identify and adopt operational adequacy test in state protection analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On this ground alone, the application for judicial review would be granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Officer failed to apply the correct operational adequacy test, warranting granting the judicial review application.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if Officer intended correct test, he erred by accepting evidence of abuses but failing to address lack of operational adequacy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard for reviewing Officer's application of test to evidence is reasonableness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's focus on legislative efforts led to unreasonable conclusion that Applicant would have access to state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer unreasonably applied the test by focusing on legislative efforts and ignoring evidence of operational inadequacy.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No need to address Applicant's submission that PRRA Officer erred by not considering s 97(1)(b) IRPA, given prior finding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Officer must assess nature or cause of risk based on case facts, citing Lemika and Ferreira cases",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review granted; CIC decision set aside; matter remitted for redetermination by different officer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question of general importance proposed or arises",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No order as to costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no need to address Applicant's further submission, states the Officer must assess risk nature, grants judicial review, sets aside CIC decision, remits matter, finds no general importance question, and orders no costs.",
+   "role": "conclusion"
+  }
+ ]
+}

@@ -1,0 +1,792 @@
+{
+ "case_id": 71916,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.01757,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant, a Pakistani citizen, appeals the RPD decision denying refugee protection.",
+     "quote": "XXXX XXXX, (the Appellant), a citizen of Pakistan, appeals a decision of the Refugee Protection Division (RPD) denying her claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant asks the RAD to set aside the RPD decision and refer for redetermination by a different panel.",
+     "quote": "The Appellant asks that the Refugee Appeal Division (RAD) set aside the decision of the RPD and refer the matter back to the RPD for redetermination by a differently constituted panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant appeals the RPD decision denying refugee protection and asks the RAD to set aside and refer the matter back to a different panel.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) IRPA limits new evidence to that arising after claim rejection or not reasonably available before.",
+     "quote": "Section 110(4) of the IRPA provides that the Appellant \"may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances, to have presented at the time of the rejection of the claim.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 110(4) IRPA restricts new evidence to that arising after claim rejection or not reasonably available before, court states.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant tendered three documents as new evidence: affidavits from sister-in-law, daughter, and brother.",
+     "quote": "The Appellant has tendered three documents1 as proposed new evidence in support of her appeal; an affidavit from the Appellant's sister-in-law, an affidavit from the Appellant's daughter, and a Statutory Declaration from the Appellant's biological brother.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant tendered three affidavits as new evidence: sister-in-law, daughter, and brother.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The daughter's affidavit dated April 9, 2015 does not meet s.110(4) IRPA as it concerns pre-hearing circumstances and was reasonably available then.",
+     "quote": "The affidavit submitted by the Appellant's biological daughter outlines the circumstances and situation of her mother, XXXX XXXX. Although dated April 9, 2015, the affidavit does not meet the requirements of section 110 (4) of IRPA. The evidence submitted does not deal with circumstances that occurred after the hearing, or date of decision, February 25, 2015. The evidence presented could reasonably have been available at the hearing of January 27, 2015. This document will not be accepted as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The daughter's affidavit is not accepted as new evidence as it concerns pre-hearing facts and was reasonably available then, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The sister-in-law's affidavit dated April 6, 2015 about an attack on the Appellant's father is accepted as new evidence under s.110(4) IRPA.",
+     "quote": "The affidavit from the Appellant's sister-in-law dated April 6, 2015 outlines an attack on the Appellant's father on XXXX XXXX, 2015. It is reasonable that this document could not have been witnessed and sent prior to the hearing on January 27, 2015, and as a result will be accepted as new evidence under section 110 (4) of IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This new evidence would not cause the RAD to set aside the credibility determination or affect the claim's outcome; it is not relevant.",
+     "quote": "In reviewing this letter, subject to s. 110 (6) (b), (c), the RAD finds that this new evidence would not cause the RAD to set aside the determination of credibility and substitute a determination that, in its opinion, should have been made. It is not relevant in the determination of this claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Documentation about the attack was submitted at the RPD hearing and addressed in the RPD decision.",
+     "quote": "Documentation, regarding the attack referred to in the affidavit, was submitted at the RPD hearing on February 25, 2015, and addressed in the RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The original documentation submitted during the hearing will be addressed in the body of this decision.",
+     "quote": "The original documentation submitted during the hearing will be addressed in the body of this decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The sister-in-law's affidavit is accepted as new evidence but is irrelevant and would not change credibility findings; original documentation was submitted earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The son's affidavit dated April 9, 2015 about family separation and danger was reasonably available before the hearing and is not accepted as new evidence.",
+     "quote": "The affidavit submitted by the Appellant's son, dated April 9, 2015, indicates that his parents have been separated for a long time, were unable to be divorced because of his father's bad temper, and that he was very revengeful towards his mother. He speculates that his mother's life will be in danger if she is forced to come back to Pakistan. According to section 110 (4) of IRPA, this information could reasonably have been presented prior to the hearing of January 27, 2015. As a result this part of the Statutory Declaration of the Appellant's brother will not be accepted as new evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Point 7 of the brother's Statutory Declaration is accepted as new evidence as it concerns an event after the hearing date.",
+     "quote": "Point 7 of the Statutory Declaration will be considered under new evidence, in that given the timing of the occurrence, XXXX XXXX, 2015, to the hearing of January 27, 2015, it is reasonable that this piece of information could not have been made available for the RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Point 7 evidence would not cause the RAD to set aside the credibility determination or affect the claim's outcome; it is not relevant.",
+     "quote": "In reviewing Point 7 of this Statutory Declaration, subject to s. 110 (6), (b), (c), the RAD finds that the evidence submitted would not cause the RAD to set aside the determination and substitute a determination that, in its opinion, should have been made. It is not relevant in the RPD's determination of credibility in this claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Original documentation regarding the incident was submitted at the RPD hearing and addressed in the RPD decision.",
+     "quote": "As stated above, the original documentation regarding this incident was submitted at the RPD hearing on January 27, 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The son's affidavit is mostly rejected as new evidence except Point 7, which is accepted but irrelevant; original documentation was submitted earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The brother's affidavit lacks indication of how he obtained information or eyewitness support and is not relevant to credibility or determinative issues.",
+     "quote": "There is no indication in the declaration of how the Appellant's brother came upon this information. There was also no indication that the Appellant's brother was in attendance at this occurrence, or had been given any probative eyewitness documentation to support his statement. The substance of the evidence provided does not raise a credibility issue that is determinative of the claim, if believed. The RAD finds, on a balance of probabilities, that this affidavit, is not relevant to the determinative issue in this claim, credibility, and therefore does not meet the criteria of 110 (6) (b), (c).",
+     "answers": 0
+    }
+   ],
+   "summary": "The brother's affidavit lacks probative support and is not relevant to credibility or determinative issues, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No oral hearing will be held as new evidence does not meet criteria.",
+     "quote": "As the new evidence submitted does not meet the criteria, an oral hearing will not be held.",
+     "answers": 0
+    }
+   ],
+   "summary": "No oral hearing will be held as the new evidence does not meet criteria, court concludes.",
+   "role": "disposition"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to s.111(1)(a) IRPA, the RAD confirms the RPD determination and dismisses the appeal.",
+     "quote": "Pursuant to ss. 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the determination of the RPD and dismisses the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision and dismisses the appeal under s.111(1)(a) IRPA, court orders.",
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Did the Board err in failing to apply the Gender Guidelines?",
+     "quote": "* Did the Immigration and Refugee Board (Board) err in its failure to apply the Gender Guidelines?2",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Did the Board err in its treatment of the Appellant's supporting evidence?",
+     "quote": "* Did the Board error in its treatment of the Appellant's supporting evidence?",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Was the Board unreasonable in its credibility determination?",
+     "quote": "* Was the Board unreasonable in its credibility determination?",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Did the Board err in finding the Appellant's account of her former spouse's actions not plausible?",
+     "quote": "* Did the Board err in determining the Appellant's account of her former spouse's action was not plausible?3",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant raises issues about the Board's application of Gender Guidelines, evidence treatment, credibility, and plausibility of spouse's actions.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant is a XXXX-year-old Shia Muslim woman from Pakistan with moderate views.",
+     "quote": "The Appellant is a XXXX-year-old female from Pakistan. She is a Shia Muslim who has moderate religious views.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Her husband became more religious and controlling after attending a Wahabi mosque in 2012, beating her and demanding conversion.",
+     "quote": "After attending a Wahabi mosque in 2012, the Appellant's husband became more religious and controlling. He began teaching the children about the Wahhabis, and told the Appellant to stop attending her Shiaate Iman Bargah. Her husband beat her, and told her family that their marriage was illegal unless the Appellant converted to the Wahabi sect.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant is a Shia Muslim woman whose husband became more controlling and abusive after attending a Wahabi mosque in 2012, applicant states.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "In 2013, the husband assaulted and threatened the Appellant, demanded conversion and removing children from English school; she fled and went into hiding.",
+     "quote": "On XXXX XXXX, 2013, the Appellant's husband came to a Christmas party that she was attending, dragged her home, assaulted her, and threatened to kill her. The Appellant's husband returned later with three other men asking her to convert and take the children out of English school. The Appellant refused and ran away.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The children stayed in English school; police gave no support; Appellant went into hiding, got Canadian visa, and claimed refugee protection.",
+     "quote": "The children remained in an English school regardless of the father's wishes. The Appellant feels the children are not at risk because her husband cannot have any more children. The Appellant went to the police and received no support. In May 2014, the Appellant's husband came looking for her but she was in another city. As a result the Appellant went into hiding, acquired a Canadian visa and came to Canada to make a refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD rejected the claim on February 25, 2015, finding no serious possibility of persecution or risk of torture or cruel treatment.",
+     "quote": "The Appellant's application for refugee protection was heard on January 27, 2015. In a decision of February 25, 2015, the RPD rejected the claim finding that there is not a serious possibility that the Appellant would be persecuted if she were to return to Pakistan today, or that, on a balance of probabilities, she would be personally subjected to a danger of torture or face a risk to life or risk of cruel and unusual treatment or punishment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The husband assaulted and threatened the Appellant; she fled, went into hiding, got a visa, and the RPD rejected her refugee claim.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds Huruglica provides guidance on the RAD's standard of review of RPD decisions.",
+     "quote": "The RAD finds that the Federal Court decision, in Huruglica,4 provides the RAD with guidance in relation to the appropriate standard that must be applied by a specialized tribunal such as the RAD to decisions of a first-level administrative tribunal.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Huruglica requires the RAD to conduct a hybrid appeal, independently assessing refugee status and substituting decisions if departing from RPD.",
+     "quote": "Justice Phelan states in paragraphs 54 and 55 of the foregoing decision: [54] Having concluded that the RAD erred in reviewing the RPD's decision on the standard of reasonableness, I have further concluded that for the reasons above, the RAD is required to conduct a hybrid appeal. It must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection. Where its assessment departs from that of the RPD, the RAD must substitute its own decision. [55] In conducting its assessment, it can recognize and respect the conclusion of the RPD on such issues as credibility and/or where the RPD enjoys a particular advantage in reaching such a conclusion but it is not restricted, as an appellate court is, to intervening on facts only where there is an \"overriding and palpable error.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds Huruglica guides it to conduct a hybrid appeal, independently assessing refugee status and substituting decisions if departing from RPD.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court allows RAD to apply either standard of review approach until final judgment settles scope of appellate review.",
+     "quote": "While there has been some conflict in the case law from the Federal Court regarding the standard of review to be applied by the RAD when reviewing RPD decisions, Justice Martineau, in Alyafi,5 has said that, in the face of this conflict, the Federal Court should allow the RAD to apply either approach as long as the question of the scope of the appellate review of the RPD's decisions has not been settled by a final judgment by the Federal Court of Appeal or the Supreme Court of Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court allows RAD to apply either standard of review approach until final judgment settles appellate review scope, court states.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD will independently assess the RPD decision but defer to RPD credibility findings or where RPD has advantage.",
+     "quote": "Accordingly, the RAD will conduct its own assessment of the RPD's decision and come to an independent assessment of whether the Appellant is a Convention refugee or a person in need of protection. Deference will be afforded to the credibility findings of the RPD or to other findings where the RPD has a particular advantage in reaching its conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD will independently assess the RPD decision but defer to RPD credibility findings or where RPD has advantage, court states.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found credibility was the determinative issue and found the Appellant not credible on central claim elements.",
+     "quote": "The RPD found that the determinative issue in this claim was credibility. The RPD found that the Appellant was not credible with regard to the central elements of her claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found credibility determinative and found the Appellant not credible on central claim elements, earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD drew negative inference from inconsistencies between testimony and CIC forms about addresses in Pakistan.",
+     "quote": "The RPD drew a negative inference regarding the Appellant's credibility because of inconsistencies between her testimony and Citizenship and Immigration Canada (CIC) forms regarding her occupancy at different addresses in Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found no reason for Appellant to indicate she was in home village after May 2014 if she was hiding, and rejected her explanation as confused.",
+     "quote": "The RPD found that if the claimant was in hiding from May, 2014, as alleged, there was no reason for her to indicate in her CIC forms that she was still in her home village up until one month before she fled, September 2014. The RPD rejected the Appellant's explanation, \"I was under great pressure in my husband has tried to attack me twice to murder me. So when I did that case I was so confused, mentally so confused and worried that I did not remember.\"",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted claimant waited two months to make refugee claim and expected CIC to note memory difficulties if present.",
+     "quote": "The RPD noted that the claimant had waited two months until she made her refugee claim in Canada, and that it would be reasonable to expect that if the claimant could not remember the details that it would be noted in her forms.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found inconsistencies in Appellant's testimony and CIC forms, rejected her explanation, and noted delay in claim and lack of memory notes, earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD failed to apply Gender Guidelines properly and was unreasonable in focusing on minor matters affecting credibility.",
+     "quote": "The Appellant argues that the RPD only dealt with the Gender Guidelines6 in a very cursory way, and did not apply the guidelines during the hearing. The Appellant argues that the decision presumes that within two months of fleeing from her home country where she experienced abuse, and arriving in a new culture where she did not speak the language and must rely others preparing a refugee claim, the Appellant should be able to present herself and recall, with accuracy, where she was hiding. The Appellant argues that the RPD did not give consideration to the Gender Guidelines when making this decision, quoting case law to support this submission. The Appellant notes that the RPD's attack against the Appellant's credibility was unreasonable due to the focus on minor, peripheral matters that did not pertain to the substance of a claim for protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD failed to apply Gender Guidelines properly and was unreasonable in focusing on minor credibility matters.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD agrees with the RPD's credibility conclusion and finds no abuse of Gender Guidelines application.",
+     "quote": "The RAD agrees with the RPD's conclusion on this issue. In reviewing the transcript of the hearing, the RAD does not note any abuse of the application of the Gender Guidelines.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant is university educated, had an Urdu interpreter, and no psychological reports support abuse effects.",
+     "quote": "The Appellant is University educated, and had an Urdu interpreter when information was given. There are no psychological reports submitted to substantiate the Appellant's assertion that she was suffering the effects of abuse from her husband in Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Basis of Claim was completed with an Urdu interpreter's assistance.",
+     "quote": "The Basis of Claim (BOC) was completed for the Appellant with the assistance of an Urdu interpreter.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD does not accept the Appellant's reasoning for incorrect CIC information and finds RPD's reasoning sound.",
+     "quote": "The RAD does not accept the Appellant's reasoning for allegedly giving incorrect information when questioned by the CIC authorities. The RPD's reasoning is sound.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Other credibility issues exist beyond the CIC form inconsistency, cumulatively causing the RAD to find the Appellant not credible.",
+     "quote": "The RAD notes that there were other issues of credibility in this claim not just the one noted above. It is the cumulative effect of issues of credibility, addressed below in this decision, that cause the RAD to find the Appellant not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD's credibility findings, finds no abuse of Gender Guidelines, and finds cumulative credibility issues cause non-credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD gave little weight to a note from XXXX XXXX due to Appellant's lack of credibility and absence of witness.",
+     "quote": "The RPD gave little weight to the note7 from her XXXX XXXX because the Appellant lacked credibility and XXXX XXXX was not called as a witness.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD gave little weight to letters from Appellant's father and brother due to credibility concerns and their interest in proceedings.",
+     "quote": "The RPD gave little weight to the letters from the Appellant's father8 and brother9 due to the credibility concerns, and the fact that they were not disinterested parties in the proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD discounted a medical note from December 21, 2014 due to credibility concerns and prevalence of fraudulent documents in Pakistan.",
+     "quote": "The RPD also discounted the medical note issued on December 21, 2014,10 due to the credibility concerns in the hearing, as well as the prevalence of fraudulent documentation in Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD gave little weight to a January 2015 medical note about the father due to credibility concerns and lack of causation link to husband.",
+     "quote": "The medical note with regards to her father dated January 2015,11 was given little weight due to the above reasons, and because the report does not indicate that the father's injuries were caused by the Appellant's husband.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD gave little weight to notes and letters from family and medical documents due to credibility concerns and lack of evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "It is a reviewable error for the Board to first find an Appellant not credible, then reject supporting documents based on that.",
+     "quote": "The Appellant submits, referring to case law, that it is a reviewable error for the Board to first determine that an Appellant is not credible, and then use that determination to reject or give little weight to supporting documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues it is an error to find her not credible and then reject supporting documents on that basis.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD is mindful of the use of credibility findings to discredit supporting documentation.",
+     "quote": "The RAD, in reviewing this aspect of the RPD decision, is mindful of the documentation used by the Appellant regarding credibility being used to find documentation not credible or probative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD notes it is aware that credibility findings affect the weight of supporting documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The letter from Imran lacks detail and source information, so it has no probative value and little weight is given.",
+     "quote": "The letter12 from the Appellant's Imran states that, \"There was attempted murder on her.\" There is no indication how Imran acquired this information. The letter does not indicate the circumstances of this alleged attempted murder. Because of the lack of detail given, the RAD gives this letter no probative value. The Imran does not indicate the sources from whom he acquired this information. Therefore the RAD concurs with the RPD and gives this document little weight",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's findings on this letter are thin and problematic but the reasoning is sound given other issues.",
+     "quote": "The RPD findings are thin and problematic but the reasoning is sound, given the other issues described in this claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds Imran's letter lacks detail and sources, giving it little weight, concurring with the RPD's reasoning despite thin findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The father's affidavit embellishes and has no probative value on the risk of death to the Appellant.",
+     "quote": "The RAD finds that the Appellant's father's letter is an embellishment, and gives this letter no probative value in determining the central issue in this appeal that is that the Appellant would be in danger of death should she return to Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant was not present during alleged attacks; her BOC narrative lacks mention of attempted murder, suggesting embellishment.",
+     "quote": "The Appellant was not present during the two alleged visits on the dates noted by the Appellant's father. In her BOC narrative, the Appellant notes that her husband allegedly sent people to look for her two times in May. There is no mention of the potential attempt at physical harm or murder, described in her father's letter above in this decision. The RAD finds that in such an egregious situation, this information would reasonably be in the Appellant's BOC narrative, reinforcing the point made above that this allegation in the Appellant's father's letter was an embellishment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant's testimony about father's harassment lacks support for murder threats; father's threats were verbal, not physical.",
+     "quote": "In testimony, the Appellant talked about her father's harassment, and the search of every corner in the house, and that they were going to find the Appellant. The Appellant's statement that they were going to try to murder her was not supported in further testimony. In testimony the Appellant testified that the four people who entered her parent's home were carrying guns, although none were seen. On a balance of probabilities, the assertion by the Appellant's father is conjecture. In addition, the Appellant's father stated that he was threatened and harassed, not physically harmed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the father's affidavit embellishes, lacks probative value, and is contradicted by the Appellant's testimony and BOC narrative.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The medical note reports torture but is a clinical note, not notarized, and lacks supporting medical records, so it has no probative value.",
+     "quote": "The medical note presented in documentation is dated December 21, 2014. This note reports that on XXXX XXXX, 2013 the Appellant was tortured by her husband, had a \"low backache, multiple bruises over her body, and bleeding from the nose.\" This note contradicts the RPD's finding noted above, and as a result the RPD finding is problematic. However, the note presented is a clinical note, not a hospital record. The note submitted is not notarized. The RAD would expect in such a circumstance, that the note presented would be notarized, and that the actual medical records to substantiate this allegation would be sent, either prior to the hearing, or submitted with the Memorandum of Appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Victims of crime in Pakistan receive medical and medical-legal reports from hospitals.",
+     "quote": "According to the National Documentation Package, Response to Information Request, PA K10175 6.E, victims of crime can report to a public or private hospital to receive medical treatment. According to the same documentation, both a medical report and a medical-legal report are completed for victims of crime who received medical treatment in Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given the allegations, such documentation should have been presented; fraudulent documents are common in Pakistan; this note has no probative value.",
+     "quote": "It would be reasonable that such documentation would have been presented given the allegations of the Appellant. In addition, the RAD supports the RPD finding concerning the availability of fraudulent documentation in Pakistan.14 The RAD gives this document no probative value in supporting the allegations of the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the medical note unnotarized, lacking supporting records, and gives it no probative value, noting fraudulent documents are common in Pakistan.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD supports the RPD's conclusion on the January 2015 medical note about the Appellant's father, noting lack of perpetrator details.",
+     "quote": "The RAD supports the RPD's conclusion on the January, 2015, medical note regarding the Appellant's father. The RAD notes that the document says that the Appellant's father was pushed by a relative, and does not give any more information about the alleged perpetrator.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The four discussed documents are not probative on the Appellant's alleged fear of murder if returned to Pakistan.",
+     "quote": "The RAD finds that the four documents discussed above, are not probative in determining the Appellant's alleged fear of murder should she return to Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given lack of probative documentation, the RAD finds the Appellant not credible on attempted murder allegations by her husband.",
+     "quote": "Given the lack of probative documentation submitted to support her allegations, the RAD finds that the Appellant has not been credible regarding her allegations of attempted murder by her husband.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD that the documents lack probative value and finds the Appellant not credible on attempted murder allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD drew a negative inference on credibility because the father's home attack was not in the BOC narrative, despite a specific question.",
+     "quote": "The RPD drew a negative inference regarding the Appellant's credibility because the incident of armed men searching the father's home and threatening him was not included in the BOC narrative. The RPD reasoned that if the Appellant's father's home was invaded, and he was threatened with a gun, this information would have been in the BOC narrative.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appellant's explanation that including everything would make a book was rejected by the RPD as the BOC asked specifically about harm or threats.",
+     "quote": "The Appellant stated that if she had put everything in the BOC narrative, it would have been a book. The RPD rejected this explanation noting that the BOC asked specifically, \"Have you or your family ever been harmed, mistreated or threatened by any person or group? If yes, explain in detail.\" The RPD reasoned that these occurrences were central to the claim; her father's assault, and being threatened at gunpoint, should have been included in the BOC narrative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD negatively inferred the Appellant's credibility for omitting the father's home attack from the BOC narrative despite a specific question.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD's findings are unreasonable; four federal cases support that the BOC statement was sufficient before hearing expansion.",
+     "quote": "The Appellant submits that the RPD's findings above are unreasonable, and notes four federal cases to support this submission. The Appellant submits that her statement in the BOC narrative, \"Two times he sent the peoples in May, 2014, but at that time I was visiting my brother in a different city,\"15 was sufficient information prior to the expansion of the story at the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD's findings are unreasonable and her BOC statement was sufficient before hearing expansion.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD concurs with the RPD that the alleged attack is central and not credible that details were omitted from the BOC narrative.",
+     "quote": "The RAD concurs with the RPD's finding on this issue. This alleged attack is one of the central issues to the claim, supporting the Appellant's allegations that she would suffer persecution or death should she return to Pakistan. The RAD finds it not credible that such details would not be included in the BOC narrative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD that the alleged attack is central and it is not credible that details were omitted from the BOC narrative.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found implausible that the husband would tolerate children attending a non-Islamic school while threatening the wife.",
+     "quote": "The RPD noted that the Appellant stated that her husband has spared his children any punishment for their disobedience by attending a non-Islamic school. The RPD noted that, she further testified that her husband is not compelled to say anything to his children about their education. The appellant stated in her BOC narrative that a security guard at her children's school told her children many times that her husband was seen with dangerous looking people outside the residence area. The RPD found this circumstance not plausible, and reasoned that if he was compelled not to speak to his children, then there was no reason for him to be lurking, on many occasions, outside their school residence with dangerous looking men. The RPD further stated that it was not reasonable that a zealous religious man connected to an Islamic terrorist organization, who declared his intention to kill his wife on the basis of religion, would tolerate his children attending an English school if he wished them to go to an Islamic school.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found it implausible that the husband would tolerate children attending a non-Islamic school while threatening the wife.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD's plausibility finding is in error; allowing children to attend chosen school is reasonable and not disproven by evidence.",
+     "quote": "The Appellant argues that the RPD's plausibility finding on the Appellant's abusive spouse not allowing his children to attend a non-Islamic school is in error. The Appellant further submitted that permitting the children to attend a school of their choice is not \"outside the realm of what could reasonably be expected, or where the documentary evidence demonstrates that the events could not have happened in the manner asserted by the Appellant.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD's plausibility finding is erroneous and allowing children to attend chosen schools is reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's finding on this issue is somewhat speculative but not determinative; the Appellant's testimony was unclear and inconsistent.",
+     "quote": "The RPD finds that the RPD's finding in this issue somewhat speculative. It is possible even given the documentary evidence of the nomination in controlling all matters in an Islamic household, the offspring could attend a school of their choice. However, in testimony, the Appellant stated that he was not successful in making his children go to a religious school. Her reasoning was that they are at adults, \"they are grown- up.\" When the RPD noted that one of the children is still a minor commented that the father could take her out of the school if he wanted to right?, the Appellant responded, \"As I told you, he is compelled for, to, you know, not say anything to these children because he cannot have any more children but for me he is always ready to kill me.\" The RAD finds that this explanation was not an adequate response to the RPD's question.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the RPD's finding on this issue is not determinative and the Appellant admitted husband would not harm children but would harm her.",
+     "quote": "The RAD finds that the RPD finding on this issue is not a determinative issue in this decision. In reviewing the transcript of the hearing, the RAD finds that the Appellant was clear in stating that her husband had agreed to have no say in the education of his children, or provide funds. She also stated that he had no interest in harming his children, but was going to harm her.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds it unusual the Appellant feared for children's safety due to husband's visits, but this is not determinative.",
+     "quote": "The RAD finds it unusual, given the testimony of the Appellant, that she would state in her BOC narrative, that dangerous men were lurking outside her children's hostel, and she feared for their safety. In testimony, she explained that it was because her husband went to the hostel to meet the children, but they avoided him. The RAD finds that this is not an issue in the determination of the claim.",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The determinative issue is whether the husband would harm the Appellant, not the children.",
+     "quote": "The appellant, by her own admission stated that her husband was not going to harm the children. The determinative issue is whether the allegations of the Appellant's husband going to kill or harm her, and thereby preventing her from returning safely to her home country.",
+     "answers": 3
+    }
+   ],
+   "summary": "The RAD finds the RPD's finding speculative but not determinative; the Appellant admitted husband would harm her, not children; this is the key issue.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD determines no serious possibility of persecution, torture, risk to life, or cruel treatment if the Appellant returns to Pakistan.",
+     "quote": "Having considered all of the evidence, the RAD determines that there is not a serious possibility that the Appellant would be persecuted if she were to return to Pakistan today or that, on a balance of probabilities, she would be personally subjected to a danger of torture or face a risk to life or risk of cruel and unusual treatment or punishment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes the Appellant faces no serious risk of persecution or harm if returned to Pakistan.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA, the RAD confirms the RPD decision that the Appellant is not a Convention refugee or person in need of protection; appeal dismissed.",
+     "quote": "Pursuant to section 111(1)(a) of the IRPA, the RAD confirms the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection. This appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision denying refugee protection and dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

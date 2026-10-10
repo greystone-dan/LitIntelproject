@@ -1,0 +1,546 @@
+{
+ "case_id": 61413,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011322400000000002,
+ "dropped_rows": 1,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is a judicial review of a decision denying Ms. Ghebriel Yosief a permanent resident visa in Canada.",
+     "quote": "This is a judicial review of a decision denying the Applicant, Ms. Ghebriel Yosief, a permanent resident visa in Canada as a member of the Convention Refugee Abroad or Humanitarian-Protected Persons Abroad Class.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Migration Officer found Ms. Yosief had a durable solution in South Africa and best interests of children did not warrant granting the application.",
+     "quote": "Ms. Yosief’s application was refused because the Migration Officer found that she had a durable solution in South Africa, and considerations of the best interests of her children did not warrant granting the application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review of a decision denying Ms. Yosief's permanent resident visa because the Officer found a durable solution in South Africa and best interests of children did not warrant approval.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The decision is unreasonable because it fails to address personal evidence about employment restrictions despite refugee rights in South Africa.",
+     "quote": "I conclude that the decision is unreasonable: the reasons fail to grapple with the personal evidence from the Applicant and her husband that, despite the rights of refugees in South African law, employment is in practice restricted to South African citizens.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the decision is unreasonable for failing to address personal evidence about employment restrictions in South Africa.",
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Yosief is an Eritrean citizen, Pentecostal, married to Mr. Weldesilasie, with four Eritrean citizen children.",
+     "quote": "The Applicant, Ms. Yosief, is an Eritrean citizen and an adherent to the Pentecostal faith. She is married to Mr. Weldesilasie, who shares the same citizenship and faith. They have four children, all citizens of Eritrea.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Yosief is Eritrean, Pentecostal, married to Mr. Weldesilasie, with four Eritrean children.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Yosief and husband were imprisoned in Eritrea for faith and fled; husband fled in 2014, she fled in 2016 with two youngest children to South Africa, recognized as refugees.",
+     "quote": "The Applicant and her husband were imprisoned in Eritrea at various points in time because of their faith. Both the Applicant and her husband fled Eritrea to escape the persecution. Mr. Weldesilasie fled in 2014, and Ms. Yosief fled in late 2016 with her two youngest children. Mr. Weldesilasie arrived in South Africa in 2014, and Ms. Yosief with their two youngest children in early 2017. South Africa formally recognized them as refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Yosief and husband fled Eritrea due to faith persecution and were recognized as refugees in South Africa.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Yosief applied for permanent residency in Canada in May 2021, including husband and four children, sponsored by Ottawa group.",
+     "quote": "Having been sponsored by a group of people in Ottawa, Ms. Yosief applied for permanent residency in Canada under the Convention Refugees and Humanitarian-Protected Persons Abroad Class in May 2021. The application included her husband and their four children.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Yosief applied for Canadian permanent residency in May 2021 with family, sponsored by Ottawa group.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Yosief and husband interviewed by Migration Officer on February 28, 2024 in Durban, South Africa.",
+     "quote": "Ms. Yosief and her husband were interviewed by a Migration Officer on February 28, 2024, in Durban, South Africa.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Yosief and husband were interviewed by a Migration Officer in Durban on February 28, 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Yosief corrected application forms to state two oldest children now live in Ethiopia.",
+     "quote": "When asked if there was anything to correct on their application forms, Ms. Yosief explained that their two oldest children were now living in Ethiopia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Yosief corrected application forms to show two oldest children live in Ethiopia.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer explained durable solution in South Africa would make them ineligible for Canadian resettlement, citing IRPR s. 139(1)(d)(ii).",
+     "quote": "In the course of the interview, the Officer explained that if they had a durable solution in South Africa, they would not be eligible for resettlement in Canada, citing s. 139(1)(d)(ii) of the Immigration and Refugee Protection Regulations, SOR/2002-227 [IRPR].",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer acknowledged rights in South Africa may differ in practice and invited explanation why no durable solution existed.",
+     "quote": "Based on South Africa’s formal recognition of their refugee status, the Officer said they were satisfied there was a durable solution “on paper” but acknowledged that “these are the rights you have on paper and that the reality may be different. This is your opportunity to explain why you do not believe you have a durable solution in South Africa.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer said victim of crime alone insufficient to show no durable solution; applicant must explain why situation differs from other South Africans.",
+     "quote": "The Officer further explained that having been victim of crime is not enough to demonstrate there was no durable solution: they had to explain why their situation was different than other South Africans.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer explained durable solution in South Africa bars Canadian resettlement, acknowledged rights may differ in practice, and required explanation why no durable solution existed.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Yosief said two oldest children barred from South Africa; family lacks permanent residence due to inability to pay bribes.",
+     "quote": "Ms. Yosief explained that South Africa would not allow her two oldest children to enter the country. She said she wanted to be reunited with her children but could not be because neither she nor her husband had permanent residence in South Africa. The couple said they did not have permanent residence because they could not afford the bribes.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Yosief explained two oldest children barred from South Africa and family lacks permanent residence due to inability to pay bribes.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Couple and younger children faced xenophobia, crime, assaults, robbery, discrimination, and threats in South Africa.",
+     "quote": "The couple explained that they, together with their two younger children, have been subjected to xenophobia and gang crime in South Africa. Ms. Yosief explained that she and her family must always hide their belongings, are constantly robbed, have had their shop looted, and are targets for discrimination. She described an occasion where she was assaulted by thugs, and on another, where a tow truck unlawfully took her car and attempted to extort money for its release. She provided the Officer with a police report with respect to a robbery that was said to have been perpetrated by a gang leader and told the Officer that the gang members and his family threatened Mr. Weldesilasie. The couple further explained that her children in South Africa are shunned by local children, subjected to hate speech and told to leave the country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The couple explained they and younger children faced xenophobia, crime, assaults, robbery, discrimination, and threats in South Africa.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer sent procedural fairness letter about husband's undisclosed US visa application; Ms. Yosief responded and described eldest children in Ethiopia as vulnerable.",
+     "quote": "After the interview, the Officer sent a procedural fairness letter with respect to Mr. Weldesilasie’s failure to disclose a previous visa application to the United States. In addition to her response to the concerns raised, Ms. Yosief again underlined that her two eldest children were in Ethiopia, were now living in Addis Ababa, and described them as vulnerable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Yosief described children's suffering during relocation, human trafficking, custody, starvation, harsh conditions, and need for parental protection.",
+     "quote": "Both our children never saw their father for 11 years and they never saw me for 7 years. As I have articulated it during the interview, we advised them to pass to Ethiopia as soon as we heard about the interview and they suffered a lot along their way. They were not only victims of human trafficking but even when the human traffickers were arrested they were kept in custody because the police wanted them to witness what transpired along the way. They were starved, they had to pass through harsh conditions to get to Tigray and thereafter to Addis Ababa. They are now at the age where they literally need parental protection and guidance and this was the reason why I had to cry my lungs out during the interview and I hope you will find it in your heart to reconsider our application so that the whole family can be reunited in a safer country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer sent a fairness letter about husband's undisclosed US visa; Ms. Yosief responded describing eldest children's vulnerability and suffering during relocation.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer refused Ms. Yosief’s application due to durable solution in South Africa under IRPR s. 139(1)(d)(ii) and considered best interests of children.",
+     "quote": "The letter refusing Ms. Yosief’s application concluded that Ms. Yosief had a durable solution in South Africa and therefore pursuant to s. 139(1)(d)(ii) of the IRPR as visa could not be issued. The Officer also exercised his discretion to consider the best interests of the children [BIOC].",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer refused Ms. Yosief’s application due to durable solution in South Africa and considered best interests of children.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found South Africa is signatory to Refugee Convention and family has reasonable possibility of durable solution there.",
+     "quote": "The decision letter notes that South Africa is a signatory to the Convention on Refugees and concludes that there is a “reasonable possibility, within a reasonable period of time, of a durable solution”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "GCMS notes show family has refugee ID, rights to employment, education, mobility, healthcare, police and immigration services, path to permanent residence and citizenship.",
+     "quote": "The Global Case Management System [GCMS] Notes provide that, having obtained their refugee ID card, the family has the right to access formal employment, education, mobility rights and public health care. The Officer notes the family “received services related to police investigation and immigration status documents and have a path to permanent residence and citizenship should [they] choose to pursue it.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer not satisfied crime and xenophobia negate access to durable solution in South Africa.",
+     "quote": "I am not satisfied that the issues described at interview regarding crime and xenophobia rise to a level negating your access to a durable solution in South Africa.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer dismissed bribery concerns for permanent residence due to lack of evidence and suggested reporting incidents.",
+     "quote": "The Officer dismissed the reported concerns about bribery to obtain permanent residence, saying no evidence was provided and that such incidents could be reported to the authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "GCMS notes mention 2021 robbery with suspect arrested; dissatisfaction with police/judicial process not indicative of lack of durable solution.",
+     "quote": "The GCMS Notes also refer to a 2021 robbery where the suspect was arrested and notes that the “applicant is unhappy with the results of the police and judicial process is not indicative of a lack of a durable solution”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer found South Africa offers a reasonable durable solution with refugee rights, dismissed crime and bribery concerns, and noted police action in robbery case.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found it best interest to reunite two children in Ethiopia with family but they lack reasonable solution to reunite in South Africa.",
+     "quote": "The GCMS Notes acknowledge that “it is in the best interest of these 2 children to be reunited with their parents and siblings, whether in South Africa or elsewhere, and that these children are currently in a dire situation.” The Officer further recognizes “that the children outside of South Africa do not have a reasonable solution to reunite with their family in South Africa”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer accepts family in South Africa meets refugee definition and cannot reunite in Eritrea.",
+     "quote": "The Officer accepts that the family in South Africa satisfies the definition of refugee and therefore the family cannot be united in Eritrea.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer concludes children in Ethiopia lack nexus to Convention ground and do not meet Country of Asylum class definition.",
+     "quote": "The Officer then goes on to conclude that the children in Ethiopia do not have a nexus to a Convention ground and do not meet the definition of Country of Asylum class.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer weighed best interests of children against negative factors including relocation decision, dangerous illegal means, and human traffickers involvement, concluding negatives outweigh positives.",
+     "quote": "The best interest of these children and your children in South Africa have been strongly and positively considered. However, this positive consideration has been weighed against the reason for their situation in Ethiopia, including your own decision to initiate their relocation to South Africa due to the convocation for interview (which itself clearly indicates that a convocation for interview is not a guarantee of a visa), to attempt to have the children relocated under dangerous and illegal means, and to engage the services of human traffickers/smugglers for the relocation. Based on all documents before me, I am satisfied that their current situation is a consequence of your own actions and that the positive factors associated with their best interest do not overcome the negative factors as assessed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer found reuniting children in Ethiopia is best interest but negatives from relocation decisions outweigh positives, and children lack Convention nexus.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues decision is unreasonable and process unfair.",
+     "quote": "The Applicant argues the decision is unreasonable and the process leading to it unfair.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court concludes decision is unreasonable and need not consider procedural fairness arguments.",
+     "quote": "I conclude that the decision is unreasonable and thus need not consider the Applicant’s procedural fairness arguments.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues unreasonableness and unfairness; the court concludes the decision is unreasonable and skips procedural fairness issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Parties agree standard of review is reasonableness per Vavilov 2019 SCC 65 paras 23,25.",
+     "quote": "The parties agree that in assessing the merits of the decision, the standard of review is reasonableness: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at paras 23, 25.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires an internally coherent, rational, justified chain of analysis constrained by facts and law per Vavilov para 85.",
+     "quote": "A reasonable decision is based on an internally coherent and rational chain of analysis that is justified in relation to the facts and law that constrain the decision maker: Vavilov at para 85.",
+     "answers": 0
+    }
+   ],
+   "summary": "The parties agree the standard of review is reasonableness per Vavilov, requiring coherent, justified analysis.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits Officer failed to consider personal circumstances, country conditions, and OP-5 guidance on durable solution.",
+     "quote": "Ms. Yosief submits that in considering whether she had a durable solution in South Africa the Officer failed to consider her personal circumstances, the objective country condition evidence and the guidance in the Operational Manual 5 Overseas Selection and Processing of Convention Refugees and members of the Humanitarian-protected persons Abroad Classes [OP-5].",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Yosief submits the Officer failed to consider personal circumstances, country conditions, and OP-5 guidance on durable solution.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Durable solution is a forward-looking assessment of legal status, personal circumstances, and country conditions; legal and factual inquiry.",
+     "quote": "This Court has recognized that “determining whether a durable solution exists is a forward-looking assessment that depends on the applicant’s legal status and personal circumstances, as well as the conditions in the person’s country of residence”: Woldemariam v Canada (Citizenship and Immigration), 2023 FC 891 at para 7, and the cases cited therein. It is therefore both a legal and factual inquiry: Kediye v Canada (Citizenship and Immigration), 2021 FC 888 [Kediye] at paras 12,26–29.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states durable solution is a forward-looking legal and factual inquiry considering legal status, personal circumstances, and country conditions.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Domestic law may grant refugee rights formally, but systemic barriers may make rights inaccessible in practice.",
+     "quote": "As recognized by the Officer, domestic legislation may formally grant certain rights to refugees, while systemic barriers may render those rights inaccessible in practice: Kediye at paras 26–29.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states domestic law may grant refugee rights formally, but systemic barriers may make rights inaccessible in practice.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court not persuaded Officer ignored evidence of crime and xenophobia; reasons brief but issues not ignored.",
+     "quote": "Contrary to the Applicant’s assertion, I am not persuaded that the Officer failed to consider Ms. Yosief’s evidence of the crime they experienced and the xenophobia her children faced. While the reasons on these points are exceedingly brief, it cannot be said these issues were ignored.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer did consider evidence of crime and xenophobia despite brief reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer assessed family's ability to obtain formal employment as limited by refugee status",
+     "quote": "The same cannot be said for the Officer’s assessment of the family’s ability to obtain formal employment.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Ms. Yosief explained constitutional right to work but practical restriction to self-employment as refugee",
+     "quote": "Ms. Yosief ‘s application explained that she had the “constitutional right to work, study and move freely in South Africa, however, the right to work is unpractical as jobs are restricted to citizens. As a refugee I can only work as a self-employed”.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Ms. Yosief swore in affidavit about inability to obtain formal employment",
+     "quote": "Ms. Yosief swears to having advised the Officer of their inability to obtain employment in the formal sector.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the family limited to self-employment; Ms. Yosief explained and swore to this inability to get formal jobs.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Responsive justification must reflect severity of impact on individual rights",
+     "quote": "“Responsive justification” is assessed from the perspective of the individuals affected by an administrative decision.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "High stakes of asylum claims require reasons reflecting those stakes",
+     "quote": "There can be no doubt that the stakes of an asylum claim are high: Sahloul v Canada (Citizenship and Immigration), 2025 FC 1331 at para 17.",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authorities establish responsive justification must reflect severe impact on rights, especially in asylum claims.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer erred by focusing only on legal right to work, ignoring personal evidence of bar to formal employment",
+     "quote": "The Officer’s reasons focus only on the legal right to employment and fail to consider the couple’s personal evidence about their de facto bar to formal employment, an important component of assessing local integration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Failure to consider personal evidence is a reviewable error",
+     "quote": "In my view, this failure amounts to a reviewable error: Cepeda-Gutierrez v Canada (Minister of Citizenship and Immigration), 1998 CanLII 8667 (FC) at paras 15–17.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Officer erred by ignoring personal evidence, constituting a reviewable error.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant does not raise arguments about reasons concerning two children in Ethiopia",
+     "quote": "The Applicant’s written arguments do not raise any arguments with respect to the portion of the reasons about the Applicant’s two children currently in Ethiopia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer decided children in Ethiopia did not satisfy asylum test but family in South Africa did",
+     "quote": "The Officer determined that the children in Ethiopia did not satisfy the test for asylum. The Officer had already decided that they were “satisfied that the family in South Africa meet the definition of a refugee”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If determination about children in Ethiopia needed, family should have opportunity to provide submissions",
+     "quote": "there ought to have been an opportunity for the family to provide submissions on the issue.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer suggested possible inadmissibility under IRPA ss. 36 or 37 due to alleged use of human traffickers",
+     "quote": "In a GCMS Note entry, the Officer suggests that the Applicant may be inadmissible pursuant to ss. 36 or 37 of IRPA because she may have engaged the services of human traffickers in an attempt to reunite the family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No inadmissibility decision made due to negative eligibility decision",
+     "quote": "Ultimately, no decision was made on inadmissibility because of the negative eligibility decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Inadmissibility assessments must follow binding ratio in B010 v Canada, 2015 SCC 58 para 5",
+     "quote": "I would underline that in making any such inadmissibility assessment the ratio in B010 v Canada (Citizenship and Immigration), 2015 SCC 58 at paragraph 5 is binding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant raises no arguments on children in Ethiopia; court notes Officer's findings and procedural fairness and inadmissibility law requirements.",
+   "role": "analysis"
+  }
+ ]
+}

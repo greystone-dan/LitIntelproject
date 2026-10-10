@@ -1,0 +1,789 @@
+{
+ "case_id": 5224,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.013877600000000002,
+ "dropped_rows": 1,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "conclusion_or_order",
+     "text": "The Applicant seeks an order staying her removal from Canada until her Application for Leave and for Judicial Review is finally disposed of.",
+     "quote": "The Applicant seeks an order staying her removal from Canada, currently scheduled for Friday, November 26, 2021, until her Application for Leave and for Judicial Review is finally disposed of.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant seeks a stay of removal from Canada until her judicial review application is finally decided.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The underlying application concerns a negative decision on the Applicant's H&C permanent residence request issued January 6, 2021.",
+     "quote": "The underlying application is in relation to a negative decision on the Applicant’s request for permanent residence in Canada on humanitarian and compassionate (H&C) grounds issued on January 6, 2021, by a Senior Immigration Officer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Application for Leave and for Judicial Review was filed February 8, 2021, and perfected for leave determination July 15, 2021.",
+     "quote": "The Application for Leave and for Judicial Review was filed on February 8, 2021, and was perfected for a leave determination by the Court on July 15, 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicant received a Direction to Report for removal on October 20, 2021, and filed this motion on October 28, 2021.",
+     "quote": "The Applicant received a Direction to Report for removal on October 20, 2021, and this motion was filed on October 28, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the background: negative H&C decision, judicial review filed, removal scheduled, and motion filed.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is a 44-year-old Indian citizen who entered Canada as a permanent resident in December 2010 as spouse of skilled worker.",
+     "quote": "The Applicant is a 44 year old citizen of India who entered Canada as a Permanent Resident in December 2010, as the spouse of a member of the skilled worker class.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "A s 44 report for serious criminality was issued August 17, 2015, under IRPA s 36(1)(a).",
+     "quote": "On August 17, 2015, a report was issued under s 44 of the Immigration and Refugee Protection Act, S.C. 2001, c 27 [IRPA] for serious criminality contrary to s 36(1)(a) of IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "A deportation order was issued September 28, 2018, and Applicant lost permanent resident status.",
+     "quote": "As a result, a deportation order was issued on September 28, 2018, and the Applicant lost her permanent resident status.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The H&C application was submitted June 5, 2019.",
+     "quote": "The H&C application was submitted on June 5, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant is a 44-year-old Indian permanent resident who lost status after a serious criminality report and deportation order; H&C application filed.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The serious criminality was manslaughter conviction with 10 years imprisonment sentence on July 31, 2015.",
+     "quote": "The serious criminality cited in the s 44 Report was the Applicant’s conviction for manslaughter for which she received a sentence on July 31, 2015, of 10 years imprisonment with credit for several months of pre-trial custody.",
+     "answers": 0
+    }
+   ],
+   "summary": "The serious criminality was manslaughter conviction with a 10-year sentence.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The crime was appalling; the victim was a 3-year-old child with massive brain injury and multiple injuries.",
+     "quote": "It was an appalling crime. As set out in the Reasons for Sentence of the trial judge, in September 2011, the Applicant’s three year old child sustained a massive brain injury as a result of blunt force trauma to her skull.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the appalling crime causing massive brain injury to the Applicant's 3-year-old child.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant was charged with second-degree murder but jury returned manslaughter verdict, implying killing was not intentional.",
+     "quote": "The Applicant was charged with second-degree murder on the basis of allegations that she had beat her daughter over many weeks or months culminating in the final fatal attack. The jury returned a verdict of manslaughter, thus presumably accepting that the killing was not-intentional.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant was charged with second-degree murder but convicted of manslaughter, implying no intent to kill.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Sentencing judge noted aggravating factors: victim vulnerability, repeated assaults, denial of responsibility, lack of remorse, no family support, no mitigating factors.",
+     "quote": "The sentencing judge noted that there were numerous aggravating factors to the crime including the vulnerability of the victim, the evidence of repeated assaults, the offender’s denial of responsibility and lack of empathy or remorse for the loss of her daughter. No one from the immediate or extended family spoke for the child. It was left for the Court to do so. There were no mitigating factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Court states these facts to show Applicant has not accepted responsibility and family claims she is blameless.",
+     "quote": "These facts are not necessary for the determination of this motion but I think it is necessary that they be stated because it is not at all clear that the Applicant has accepted responsibility for her crime and members of her family continue to claim she is blameless.",
+     "answers": 0
+    }
+   ],
+   "summary": "Sentencing judge found many aggravating factors; court notes Applicant has not accepted responsibility and family claims blamelessness.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Sentencing court noted immigration consequences and gave modest weight to that in sentencing.",
+     "quote": "The Sentencing Court noted that the conviction would result in significant immigration consequences for the Applicant and gave that factor some modest weight in determining sentence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues deportation should not be considered additional punishment for crime.",
+     "quote": "The Applicant properly notes that deportation should not be considered an additional punishment for her crime.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant benefitted somewhat from immigration consequences being considered in sentence length.",
+     "quote": "Nonetheless, she has benefitted to some extent from it being taken into account in the length of incarceration imposed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Sentencing court considered immigration consequences modestly; Applicant argues deportation is not extra punishment; court notes Applicant benefitted.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant had two other children removed at birth; they live with father and grandmother.",
+     "quote": "Pending trial, the Applicant had two other children with her husband, both of whom were removed from their care at birth by the Children’s Aid Society. They, and an older child born before the victim, live with their father and their grandmother.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant released on parole to half-way house with strict conditions including no contact with under-16s unless supervised.",
+     "quote": "The Applicant has now been released on parole to live in a half-way house under strict conditions including that she has no contact with anyone under the age of 16 including her own children unless accompanied by a responsible adult approved in advance by her parole supervisor.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's other children live with father; Applicant on parole with strict no-contact conditions with minors.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant filed extensive updated submissions for H&C between June 2019 and September 2020.",
+     "quote": "The Applicant filed extensive updated submissions in support of her H&C application between the initial filing on June 4, 2019, and September 25, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant's April 5, 2019 affidavit diminishes responsibility despite jury verdict and trial judge findings.",
+     "quote": "I note that in the Applicant’s affidavit sworn on April 5, 2019, in support of her H&C application, she continues to diminish her responsibility for the crime notwithstanding the jury verdict and the trial judge’s factual findings about the abuse inflicted on the child.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted updated H&C materials but affidavit diminishes responsibility despite verdict and findings.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Submissions included letters of support and rehabilitation reports.",
+     "quote": "In addition to written representations, the submissions included letters of support from family, friends and caseworkers and reports of rehabilitation programs completed by the Applicant while incarcerated.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Grounds included establishment, family ties, best interests of surviving children, hardship in India.",
+     "quote": "The grounds relied upon in support of the application included her degree of establishment and family ties in Canada, the best interests of her surviving children and hardship to be expected from conditions in India.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant is Brahmin but says husband's family would not accept her due to strict cultural norms.",
+     "quote": "While the Applicant is, as she noted in her affidavit, a Brahmin and therefore a member of the highest caste in Hindu society, she says she would not be accepted in her husband’s family because of the strict cultural norms in their community.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's submissions included support letters, rehabilitation reports, and grounds of establishment, children's best interests, and hardship in India.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Senior Immigration Officer reviewed background, offence nature, and Applicant's materials, addressing each ground raised.",
+     "quote": "The Senior Immigration Officer who considered the application reviewed the background, nature of the offence and the materials submitted on behalf of the Applicant. The Officer addressed each of the grounds raised by the Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Senior Immigration Officer reviewed all materials and addressed each ground raised by Applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer erred by applying incorrect test on establishment, best interests of children, and hardship evidence.",
+     "quote": "On this motion, the Applicant argues that the Officer made several errors notably in application of an incorrect test in assessing the Applicant’s circumstances and degree of establishment, in considering the best interests of the surviving children and the evidence of hardship the Applicant claims she would face in India.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues Officer erred in applying incorrect test on establishment, children's best interests, and hardship evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issues: A. Whether to make Anonymization Order; B. Whether Applicant satisfied interlocutory injunction test.",
+     "quote": "The issues to be addressed on this motion are as follows: A. Whether the Court should make an Anonymization Order? B. Whether the Applicant has satisfied the test for an interlocutory injunction?",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies issues: anonymization order and interlocutory injunction test.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Applicant requests anonymization order to redact identities of Applicant, husband, and three children in public documents.",
+     "quote": "By notice filed on October 28, 2021, the Applicant requested that the Court make an order that all documents that are prepared by the Court and which may be made available to the public be amended and redacted to the extent necessary to make the identity of the Applicant, her husband and their three children anonymous.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant requests anonymization order to protect identities of herself, husband, and children in public documents.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits media attention on trial harms children's mental, physical, and emotional health; trial judge banned publication of surviving children's names.",
+     "quote": "The Applicant submits that the criminal trial garnered substantial media attention. Publication of the names of her and her family members in relation to her Federal Court case may be harmful to her children’s mental, physical, and emotional health. Any ongoing publicity may cause additional distress to her children. The trial judge imposed a ban on publication of the names of any surviving children of the Applicant and her husband in relation to the case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues media attention harms children; trial judge banned publication of surviving children's names.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent notes strong presumption of open courts and high bar for anonymization or redactions to maintain openness.",
+     "quote": "The Respondent notes that there is a strong presumption in favour of open courts and that there is a high bar against such a request for a discretionary court order, including redactions of identifying information, in order to maintain the open court principle: Sherman Estate v Donovan, 2021 SCC 25 at paras 2-3.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues strong open court presumption and high bar for anonymization orders.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant's anonymization request is overly broad as crime facts are public; would refuse if only Applicant concerned.",
+     "quote": "I agree with the Respondent that the Applicant’s request is overly broad particularly in as much as the facts of the crime and the conviction are already known to the public. Were it to only concern the Applicant, I would have no hesitation in refusing the request.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant's children, especially oldest, suffered from publicity; limited order justified.",
+     "quote": "However, it also concerns her children and I am satisfied from the evidence submitted that the oldest child in particular suffered from the publicity about her mother’s actions.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds anonymization request overly broad but justified limited order to protect children from publicity.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court orders anonymization of Applicant's name by initials; no order for redaction of family identities now but may revisit later.",
+     "quote": "In the circumstances, I am satisfied that a more limited order would suffice and I will therefore order that the name of the Applicant in the style of cause on this motion and in any subsequent proceedings be anonymized by the substitution of initials for her full name. There will be on order for redaction of the identities of the Applicant and her family members but that question could be revisited should leave be granted and the matter proceed to judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court orders Applicant's name anonymized by initials; no family redactions now but may revisit if judicial review proceeds.",
+   "role": "disposition"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To succeed on stay motion, Applicant must satisfy tripartite test: serious issue, irreparable harm, balance of convenience.",
+     "quote": "To be successful on a stay motion, the Applicant must satisfy the conjunctive tripartite test, set out in Manitoba (Attorney General) v Metropolitan Stores Ltd.,[1987] 1 S.C.R. 110 and applied by the Federal Court of Appeal to stays of deportation in Toth v Canada (Minister of Employment and Immigration) (1988), 86 N.R. 302 (F.C.A.) [Toth], namely that there is a serious issue to be tried, that the Applicant would suffer irreparable harm if a stay is not granted and that as between the parties, the balance of convenience lies in the Applicant’s favour.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The tripartite test was confirmed by Supreme Court in RJR MacDonald Inc. and R v Canadian Broadcasting Corp.",
+     "quote": "These principles were confirmed by the Supreme Court in RJR MacDonald Inc. v Canada (Attorney General), [1994] 1 SCR 311 and R v Canadian Broadcasting Corp, 2018 SCC 5, [2018] 1 SCR 196, at para 12.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states tripartite test for stay motions and confirms Supreme Court authority.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The threshold for a serious issue to be tried is low; the case must not be frivolous or vexatious and only minimal inquiry into merits is needed",
+     "quote": "The threshold for determining whether there is a serious issue to be tried is low. The Court must be satisfied that the case is neither frivolous nor vexatious. A prolonged inquiry into the merits is neither necessary nor desirable. While the inquiry into the merits should not be prolonged, at least a minimal inquiry is required",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the low threshold for serious issues to be tried requires minimal inquiry and no prolonged merits inquiry.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer erred by assessing hardship exclusively and importing exceptionality into the relief test",
+     "quote": "the Officer erred in assessing the Applicant’s circumstances exclusively through the lens of hardship and by importing exceptionality into the test for relief",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Officer erred applying hardship as the test for best interests of surviving children, not being sensitive as required by Kanthasamy",
+     "quote": "the Officer erred in applying hardship as the test in his assessment of the best interests of the surviving children. He was not, it is argued, “alert, alive and sensitive to their best interest” as required by the decision of the Supreme Court of Canada in Kanthasamy v Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the Officer erred by focusing only on hardship and misapplying the best interests test for children per Kanthasamy.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The H&C decision is reasonable; the Officer considered all factors and gave reasons for refusal",
+     "quote": "the Officer considered each of the factors raised by the Applicant and provided reasons in the decision for refusing the application on each factor",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Respondent addresses each of the Applicant’s alleged errors in turn",
+     "quote": "The Respondent addresses each of the Applicant’s arguments about the Officer’s alleged errors in turn",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent contends the Officer reasonably considered all factors and addresses each alleged error by the applicant.",
+   "role": "issue"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer’s reasons are thorough but the court’s role is minimal inquiry, not merits assessment",
+     "quote": "the Officer’s reasons are thorough but it is not the Court’s role on a motion such as this to assess the merits of the arguments advanced by the Applicant beyond the minimal inquiry necessary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Applicant’s arguments constitute serious issues to be tried",
+     "quote": "I am unable to conclude that the arguments presented by the Applicant do not constitute serious issues to be tried",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer’s reasons thorough and that the applicant’s arguments raise serious issues to be tried.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits she faces irreparable harm if removed before judicial review, citing Toth decision",
+     "quote": "the applicant has met the irreparable harm test. As noted supra, the evidence is to the effect that if the applicant is deported now, there is a reasonable likelihood that the family business will fail",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues she will face irreparable harm if removed before judicial review, relying on Toth decision.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent cites FCA decisions requiring convincing evidence of real probability of irreparable harm, not mere likelihood",
+     "quote": "To establish irreparable harm, there must be evidence at a convincing level of particularity that demonstrates a real probability that unavoidable irreparable harm will result unless a stay is granted",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues irreparable harm requires convincing evidence of real probability, not assumptions or speculation.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Justice Norris in Kambasaya explains irreparable harm as real, definite, unavoidable harm, not hypothetical or speculative",
+     "quote": "Under the second part of the test for a stay, “the only issue to be decided is whether a refusal to grant relief could so adversely affect the applicants’ own interests that the harm could not be remedied",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Irreparable harm concerns harm nature, not magnitude; must be clear, non-speculative evidence",
+     "quote": "Generally speaking, irreparable harm is harm which cannot be quantified in monetary terms or which could not be cured for some other reason even if it can be quantified",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Unsubstantiated assertions insufficient; must show real probability of unavoidable irreparable harm",
+     "quote": "To establish irreparable harm, the applicant must show that there is “real, definite, unavoidable harm – not hypothetical and speculative harm”",
+     "answers": 0
+    }
+   ],
+   "summary": "Justice Norris in Kambasaya defines irreparable harm as real, unavoidable harm requiring clear, non-speculative evidence.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits she and children face irreparable harm from removal; family would not follow to India",
+     "quote": "It appears now that the family would not follow her to India as they had initially indicated",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Children would lose daily contact with mother due to time differences and communication difficulties",
+     "quote": "The children would be deprived of the daily contact they presently have with their mother given the time differences and difficulties in communicating with rural India",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues removal would cause irreparable harm as family would separate and children lose daily contact with mother.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Oldest child suffers disorders from mother’s conviction; health would deteriorate if mother removed",
+     "quote": "The oldest child suffers from disorders stemming from the traumatic events of her mother’s conviction and incarceration and her health would deteriorate if her mother were removed",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant suffers mental disorders treated in custody; inadequate treatment expected in India",
+     "quote": "she also suffers from mental disorders for which she has been receiving treatment while in custody and would be unable to receive adequate treatment in the region of India",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Removal would separate applicant from family for extended time; pardon eligibility in 10 years",
+     "quote": "Removal, the Applicant argues, would result in her being separated from her family for an extended period of time as she would be unable to return to Canada without a pardon",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant claims mental health issues for herself and child, and removal would cause prolonged family separation due to pardon delays.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Removal would render judicial review proceedings illusory and reduce chances of success on redetermination",
+     "quote": "the proceedings before this Court in relation to the refusal of her H&C application will be rendered illusory even though the application will continue to be considered",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Even if readmitted later, harm from family separation would have occurred",
+     "quote": "Even if she were to be readmitted at a later time, the harm resulting from her separation from the family would have already occurred",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues removal would make judicial review ineffective and cause irreversible family separation harm.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant could rely on extended family in India and maintain ties via technology",
+     "quote": "the Applicant could rely on her extended family in India for support and maintain ties with her family through the use of modern technology",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "rule_of_law",
+     "text": "Potential mootness of litigation does not alone establish irreparable harm warranting stay",
+     "quote": "Any potential mootness of the outstanding litigation does not, in itself, suffice to establish irreparable harm warranting a stay",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues applicant has support in India and litigation mootness alone does not prove irreparable harm.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Jurisprudence on removal during pending H&C application does not address removal after refusal during judicial review",
+     "quote": "the jurisprudence establishing that removal while an H&C application is pending does not constitute irreparable harm, does not address the situation where the application has been refused and what is at issue is removal while a judicial review application of that decision is under consideration",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds existing jurisprudence on removal during pending H&C does not cover removal after refusal during judicial review.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Normal consequences of deportation like family separation do not constitute irreparable harm here",
+     "quote": "Much of what the Applicant has argued under the second branch of the stay test are among the normal consequences of deportation... I would not find that such consequences constitute irreparable harm",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Outstanding H&C application alone is insufficient to establish irreparable harm",
+     "quote": "nor would the fact of an outstanding H&C application be sufficient",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds normal deportation consequences and an outstanding H&C application do not constitute irreparable harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Removal before leave decision and judicial review would cause irreparable harm in these circumstances",
+     "quote": "removal before a decision on leave is made and, if granted, before the judicial review of the H&C decision is determined would constitute irreparable harm to the Applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes removal before leave and judicial review decisions would cause irreparable harm here.",
+   "role": "conclusion"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Public interest favors prompt execution of removal orders, especially for serious criminality",
+     "quote": "the public interest generally calls for the execution of removal orders as soon as possible particularly where they concern persons who have been found to be inadmissible for serious criminality",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues public interest favors prompt removal of persons inadmissible for serious criminality.",
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Underlying crime is shocking but public interest also requires meaningful remedies",
+     "quote": "The facts of the underlying crime are shocking and have troubled me greatly. But there is also a public interest in ensuring that available remedies are meaningful and effective",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant raised non-frivolous issues and shows irreparable harm if removed before court consideration",
+     "quote": "Applicant has raised issues with the underlying decision that are not frivolous or vexatious and has presented a compelling case that she would suffer irreparable harm if she were to be removed before they are considered by the Court",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Application perfected and decision on leave will be made shortly, a relevant factor",
+     "quote": "The fact that the application has been perfected and a decision on leave will shortly be made is also a factor to be considered",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the crime shocking but notes the applicant’s serious issues and irreparable harm, with leave decision imminent.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant has no prior criminal history and is not a risk to reoffend; remains on parole and supervision",
+     "quote": "This is not a case where the Applicant has a long history of criminality... is not considered now to be a risk to reoffend. She will remain on parole and under strict supervision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Balance of convenience favors applicant; stay of removal should be granted",
+     "quote": "I am satisfied that the balance of convenience lies in her favour and the stay should be granted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no reoffense risk and grants stay of removal, balancing convenience in applicant’s favor.",
+   "role": "conclusion"
+  }
+ ]
+}

@@ -1,0 +1,644 @@
+{
+ "case_id": 35380,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0084972,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mme Rahima Bouzidi seeks judicial review of the Refugee Protection Division's decision rejecting her refugee claim on December 13, 2024.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states that Mme Rahima Bouzidi seeks judicial review of the Refugee Protection Division's decision rejecting her refugee claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Two preliminary questions arise.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 states that two preliminary questions arise.",
+   "role": "other"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The reference to the 'Minister of Immigration, Refugees and Citizenship of Canada' is inappropriate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The reference is frequently used but incorrect; the legal title is 'Minister of Citizenship and Immigration'.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The style of cause is corrected accordingly.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 states the respondent argues the minister's title is incorrect; the court finds this true and corrects the style of cause.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Judicial review of the Refugee Protection Division's decision is appropriate as no appeal to the Refugee Appeal Division was possible.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The applicant left Algeria for the US with a visitor visa, then came to Canada avoiding a port of entry.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Entry from the US in a clandestine manner prevents the applicant from appealing to the Refugee Appeal Division under s.110 of the Immigration and Refugee Protection Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 finds judicial review appropriate since the applicant entered Canada clandestinely from the US, barring appeal to the Refugee Appeal Division.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Refugee Protection Division rejected the refugee claim due to lack of credibility, especially regarding the applicant's sexual orientation claim central to the asylum request.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 states the Refugee Protection Division rejected the claim due to lack of credibility, especially about sexual orientation.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The applicant had an arranged marriage in Algeria from 2009 to 2012, which ended due to physical and psychological abuse by the husband.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "After divorce, the applicant opened a beauty salon providing financial and emotional stability.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 states the applicant had an abusive arranged marriage ending in 2012 and then opened a beauty salon for stability.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The applicant alleges meeting a client in late 2016 or early 2017, becoming friends and then intimate.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 states the applicant alleges an intimate relationship with a client starting late 2016 or early 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The applicant fears her ex-husband discovered her bisexuality and threatened to reveal it to her family and police, causing her to flee Algeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 states the applicant fears her ex-husband threatened to reveal her bisexuality, prompting her flight from Algeria.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key issue in this case is the applicant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 states the key issue is the applicant's credibility.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Refugee Protection Division did not believe the applicant and found her sexual orientation unestablished on a balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 states the Refugee Protection Division did not believe the applicant and found her sexual orientation unestablished.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Refugee Protection Division gave many reasons for disbelief, including inconsistencies about the ex-husband revealing the applicant's sexual orientation and lack of mention in the FDA document.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The applicant's FDA emphasized blackmail by the ex-husband wanting to remarry her, not disclosure causing family scandal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No details on the scandal or timing of disclosure were provided despite administrative questioning.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Support letters from applicant's siblings in Canada do not mention disclosure or family scandal and rely solely on applicant's information, reducing their weight.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The applicant's testimony was vague and unconvincing about when she disclosed her sexual orientation to her brother and her reaction to his homosexuality.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The applicant was vague on key allegations and tried to change the subject when questioned.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The six-year homosexual relationship in Algeria was vague, as was the relationship status and contact since leaving Algeria.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Photos with the friend did not indicate a romantic relationship.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The friend's letter expressed feelings and ex-husband's harassment but no threats of disclosure or family scandal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The applicant's claimed membership in the Montreal LGBTQ+ community center was uncertain; she did not recall a support letter from the center at the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 details many reasons the Refugee Protection Division disbelieved the applicant, including inconsistencies, vague testimony, and lack of evidence of disclosure or family scandal.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The accumulation of vague statements and differing versions between FDA and hearing led to the applicant failing to establish her asylum claim convincingly.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The romantic relationship in Algeria is not established by the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 finds the applicant failed to establish her asylum claim convincingly; the romantic relationship is unproven.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Refugee Protection Division considered domestic violence during marriage though not alleged for refugee status.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Division accepted domestic violence occurred but found only a possibility of persecution, not serious risk.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Ex-husband's harassment does not prove intent or capacity to persecute.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "If domestic violence had been formally alleged, it would not have been accepted based on the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 states the Refugee Protection Division found domestic violence but only a possibility of persecution, not serious risk, and would not accept it formally.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant agrees credibility is the key issue and challenges the decision's reasonableness, justification, transparency, and intelligibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A reasonable decision requires justification, transparency, intelligibility, and absence of serious flaws like internal illogic or indefensibility (Vavilov, paras 99-101).",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 states the applicant agrees credibility is key and challenges reasonableness; the court cites Vavilov on decision standards.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The reviewing court does not decide merits but shows deference and judicial restraint while conducting rigorous review (Vavilov, paras 12,13,14,24,83,85,96).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The court's role is to review the decision, not replace the administrative decision-maker's choice.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 states the court defers to the decision-maker and reviews rigorously without substituting its own decision.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant argues the Refugee Protection Division misapplied Directive 9 on sexual orientation and gender identity procedures.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant also cites Directive 4 on gender considerations, alleging error affecting credibility and vulnerability analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant contests the overall credibility assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 16 states the applicant argues misapplication of Directives 9 and 4 and contests the credibility assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant argues the Refugee Protection Division questioned credibility based on Western cultural expectations about sexual orientation, focusing on LGBTQ+ center membership.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This allegation is unsupported by the decision, which states membership or participation in such groups is not necessary or determinative of sexual orientation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 17 states the applicant alleges cultural bias on LGBTQ+ center membership; the court finds no support in the decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The applicant's vague knowledge about the LGBTQ+ center affected her credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant failed to show how Directive 9's application made the decision unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "General allegations about Directive 9 without specific articulation do not advance the applicant's case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 18 finds the applicant's vague knowledge of the LGBTQ+ center hurt credibility; general Directive 9 allegations lack merit.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant alleges breach of procedural fairness under Directive 4 without specifying the principle or how fairness was violated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness concerns the process, not merits, and requires identifying specific procedural rights affected (Baker, para 22).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No procedural fairness issues were raised in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 19 states the applicant alleges procedural fairness breach without specifics; the court finds no procedural fairness issues raised.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Refugee Protection Division considered domestic violence despite no formal allegation, applying Directive 4.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Division concluded membership in a particular social group alone does not establish serious risk of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Evidence showed at best a mere possibility of persecution upon return to Algeria.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant did not challenge this conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 20 states the Refugee Protection Division considered domestic violence and found only possible persecution; the applicant did not challenge this.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether operational guidelines invoked are legally binding under paragraph 159(1)(h) of the IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Operational guidelines often guide discretionary powers but do not constitute a definitive rigid code (Agraira, 2013 SCC 36).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Applicant was unable to comment on the binding nature of the guidelines invoked.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To invoke guidelines, one must specify provisions and binding nature to show unreasonableness of decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains operational guidelines under IRPA s.159(1)(h) are discretionary, not rigid, and applicant must specify binding provisions to show unreasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant complains about credibility assessment by the RPD relying on Directive No. 9.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant seeks to remedy omission in RPD record about family knowledge of sexual orientation using Directive No. 9.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD acknowledged considering Directive No. 9 in its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant complains about RPD's credibility evaluation relying on Directive No. 9, despite RPD noting it considered the Directive.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant cites Directive's statement that persons may feel shame or difficulty discussing sexual orientation due to cultural/religious pressures.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Applicant fails to specify which Directive provisions are invoked and how they render the decision unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Without specific invocation and explanation, no judicial intervention is warranted.",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Directive prudently states that cases involving sexual orientation claims are treated like others; adverse conclusions can be drawn from inconsistencies without reasonable explanation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD must consider realities of persons like applicant but applicant must show why decision is unreasonable specifically.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Applicant failed to move from general to specific in showing unreasonableness of decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant cites Directive's general statements but fails to specify provisions or show how decision is unreasonable; court finds no basis for intervention.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant's testimony was vague with insufficient answers, as explicitly noted in decision with many references.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found applicant's testimony vague and insufficient, explicitly referencing many cases.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reviewing court must show deference to administrative decision-maker generally (Vavilov, para 85).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Considerable deference applies to credibility issues where RPD has expertise and saw testimony (Islam, 2024 CF 1671; Mbuyamba, 2020 CF 918).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Deference to credibility does not mean abdication of rigorous review; it sets burden on applicant to show unreasonableness (Makarov, 2025 CAF 223).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains deference to RPD on credibility per Vavilov and case law, but deference requires rigorous review and applicant must show unreasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Speculation on reasons for inconsistencies and omissions is insufficient to show decision is unreasonable given deference on credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes speculation on inconsistencies is insufficient to prove decision unreasonable given deference on credibility.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Decision by RPD was not shown to be unreasonable under Vavilov standard.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant failed to discharge burden; judicial review application is dismissed.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds RPD decision not unreasonable under Vavilov; applicant failed burden; judicial review dismissed.",
+   "role": "disposition"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Parties agree no question should be certified under IRPA s.74; court concurs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court orders cause style changed to designate defendant as Minister of Citizenship and Immigration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial review application is dismissed; no question certified.",
+     "answers": 0
+    }
+   ],
+   "summary": "Parties and court agree no question certified; court orders style change and dismisses judicial review application.",
+   "role": "disposition"
+  }
+ ]
+}

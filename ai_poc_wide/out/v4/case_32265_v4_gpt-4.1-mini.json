@@ -1,0 +1,491 @@
+{
+ "case_id": 32265,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0062432,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant seeks judicial review of two CRA decisions communicated by a Second Level Reviewer.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Reviewer found Mr. Li ineligible for CERB and CRB benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of CRA decisions denying CERB and CRB eligibility, found by Second Level Reviewer.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review will be granted in part.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court grants the application for judicial review in part.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Li worked full-time in a warehouse and quit in July 2020 for childcare and COVID-19 concerns.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He then took flexible part-time delivery work including Instacart.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Li quit warehouse job in July 2020 for childcare and COVID-19 concerns and took part-time delivery work.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Li applied for and received CERB from Aug 30 to Sept 26, 2020, and CRB from Oct 11, 2020 to July 17, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Li received CERB and CRB benefits for specified periods due to income reduction from COVID-19.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CRA contacted Mr. Li on July 2, 2024, to confirm eligibility for CERB and CRB.",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA requested confirmation of Mr. Li's CERB and CRB eligibility in July 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Li provided supporting documents including a letter about job loss due to COVID-19 lockdown and Instacart earnings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Li submitted documents including a letter and Instacart earnings to CRA.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "First Level Reviewer called Mr. Li on Sept 25, 2024, requesting more documents.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mr. Li stated he was laid off as non-essential, willing to work, and EI was not an option.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Reviewer requested ROEs, invoices, and expense reports; Mr. Li lacked these documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "First Level Reviewer requested documents; Mr. Li said he was laid off, willing to work, but lacked requested documents.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On Oct 1, 2024, Reviewer clarified documents needed to show Instacart income.",
+     "answers": 0
+    }
+   ],
+   "summary": "Reviewer clarified required documents to Mr. Li for Instacart income proof.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "First Level Reviewer found Mr. Li ineligible for CERB due to earning over $1,000 and not stopping work for COVID-19 reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Found ineligible for CRB due to no 50% income reduction and lack of documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "First Level Reviewer found Mr. Li ineligible for CERB and CRB due to income and lack of documents.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Li requested a second review of his eligibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Li requested a second level review of eligibility.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Second Level Reviewer called Mr. Li on July 29, 2025; Mr. Li attested quitting due to COVID-19 fear and childcare needs.",
+     "answers": 0
+    }
+   ],
+   "summary": "Second Level Reviewer recorded Mr. Li's statement about quitting due to COVID-19 fear and childcare.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Reviewer found Mr. Li ineligible for CERB and CRB because he quit voluntarily, not for COVID-19 reasons, per relevant Acts.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "Reviewer did not assess income documentation due to voluntary quit finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Reviewer denied benefits based on voluntary quit and did not assess income documents.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Second Level Review decision issued July 31, 2025, stating ineligibility due to voluntary quitting and no COVID-19 related work stoppage.",
+     "answers": 0
+    }
+   ],
+   "summary": "Second Level Review decision stated ineligibility due to voluntary quitting and no COVID-19 related work stoppage.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Letter also stated ineligibility for CERB due to earning over $1,000 and CRB due to no 50% income reduction.",
+     "answers": 0
+    }
+   ],
+   "summary": "Letter noted ineligibility for CERB and CRB due to income thresholds and reductions.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Li disagrees with Second Level Review decision and argues it should be overturned and process was unfair.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review for CRA decisions on CERB and CRB is reasonableness, per cited cases.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Li challenges decision and process fairness; court states reasonableness standard applies.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court reviews procedural fairness by its own analysis, applying correctness standard.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness owed to CERB and CRB applicants is low.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court applies correctness standard to procedural fairness, which is low for CERB and CRB applicants.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "CRA decision based on findings: CERB - earned over $1,000, quit voluntarily, no COVID-19 related work stoppage; CRB - quit voluntarily, no 50% income reduction due to COVID-19.",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA decision findings on CERB and CRB eligibility summarized.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent concedes CERB income finding and CRB income reduction finding were errors due to no income calculations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent concedes errors in income-related findings for CERB and CRB.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court questioned Respondent about CRB Act s 3(1)(k) regarding quitting before Sept 27, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent conceded relying on Mr. Li's resignation before Sept 27, 2020, to deny CRB was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court questioned Respondent on CRB quitting date; Respondent conceded unreasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent amends argument, submits Court should grant application regarding CRB findings due to conceded errors.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent submits Court should grant application on CRB findings due to conceded errors.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review granted regarding CRB findings as they are unjustified under CRB Act paragraph 3(1)(k).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants judicial review for CRB findings as unjustified under CRB Act paragraph 3(1)(k).",
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Reviewer’s conclusion that Applicant voluntarily quit job and was ineligible for CERB was reasonable and fair.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Agrees that the CERB decision was reasonable and fair.",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent argues the CERB decision was reasonable and fair; the court agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Paragraph 6(1)(a) of CERB Act defines eligibility for income support payment related to COVID-19 work cessation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6(1)(a) of CERB Act defines eligibility for income support related to COVID-19 work cessation.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Subsection 6(2) of CERB Act excludes voluntary quitting from 'ceases work' definition for eligibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Subsection 6(2) of CERB Act excludes voluntary quitting from 'ceases work' for eligibility.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant ceased work by voluntarily quitting; he was not terminated or laid off.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant voluntarily quit work and was not terminated or laid off.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant was not forthcoming with CRA about reason for stopping work, initially claiming layoff.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant misrepresented to CRA that he was laid off, not quit.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant communicated through interpreter but conveyed inaccurate information to CRA about job cessation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant conveyed inaccurate job cessation information to CRA despite interpreter use.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It was reasonable for Second Level Reviewer to conclude Applicant voluntarily quit despite Applicant's claim of non-voluntariness due to COVID-19 fears and childcare.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Bui v Canada and Phipps v Canada supporting reasonableness of voluntary quit conclusion.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the voluntary quit conclusion reasonable, citing Bui and Phipps cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues process was unfair due to lack of findings on resignation in First Review and surprise at Second Review decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues process was unfair due to surprise and lack of findings on resignation in First Review.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant had adequate notice and fair opportunity despite some sympathy for his argument.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's misrepresentations to CRA do not support unfair treatment claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant had adequate notice and misrepresentations do not support unfair treatment claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial review dismissed for CERB decision; granted for CRB decision with remand to CRA for redetermination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No costs awarded due to Applicant's mixed success.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses CERB review, grants CRB review with remand, and awards no costs due to mixed success.",
+   "role": "disposition"
+  }
+ ]
+}

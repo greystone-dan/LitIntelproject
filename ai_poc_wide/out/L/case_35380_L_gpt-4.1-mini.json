@@ -1,0 +1,646 @@
+{
+ "case_id": 35380,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011958000000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Mme Rahima Bouzidi seeks judicial review of the Refugee Protection Division's decision rejecting her refugee claim.",
+     "quote": "Mme Rahima Bouzidi, la demanderesse, recherche le contrôle judiciaire de la décision de la Section de la protection des réfugiés (SPR) qui décidait, le 13 décembre 2024, à l’encontre de la demande d’être reconnue comme réfugiée au Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant, Mme Rahima Bouzidi, seeks judicial review of the Refugee Protection Division's decision rejecting her refugee claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Two preliminary questions arise in this judicial review.",
+     "quote": "Deux questions préliminaires se posent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that two preliminary questions arise.",
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent argues the reference to the Minister's title is incorrect.",
+     "quote": "le défendeur fait remarquer que la référence au « Ministre de l’immigration, des réfugiés et de la citoyenneté du Canada » est inappropriée.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees the Minister's title used is incorrect and corrects the style of cause accordingly.",
+     "quote": "Il a raison. Cette référence est utilisée fréquemment et ne correspond pas au titre légal du ministre : il est le « Ministre de la citoyenneté et de l’immigration ». L’intitulé de la cause est donc corrigé.",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent argues the Minister's title is incorrect; the court agrees and corrects the style of cause.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judicial review of the SPR decision is appropriate as no appeal to the Refugee Appeal Division was available due to the applicant's clandestine entry from the US.",
+     "quote": "la demande de contrôle judiciaire d’une décision de la SPR est correcte puisqu’aucun appel à la Section d’appel des réfugiés n’était pas possible... Cette entrée à saveur clandestine à partir des États-Unis fait en sorte que la demanderesse ne pouvait bénéficier d’un appel",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The applicant left Algeria for the US with a visitor visa, then came to Canada avoiding a port of entry.",
+     "quote": "La demanderesse a quitté son pays de nationalité, l’Algérie, pour se rendre aux États-Unis, pays pour lequel elle détenait un visa de visiteur. De là, elle est venue au Canada en évitant un port d’entrée.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds judicial review proper as no appeal was available due to the applicant's clandestine entry from the US, which the applicant confirms.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR rejected the refugee claim due to lack of credibility, especially regarding the applicant's sexual orientation claim central to the asylum request.",
+     "quote": "La SPR a rejeté la demande de statut de réfugié parce que la crédibilité de la demanderesse n’a pas été établie selon la balance des probabilités, tout particulièrement la prétention relative à l’orientation sexuelle de la demanderesse qui serait au cœur de sa demande d’asile.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker rejected the refugee claim due to lack of credibility, especially about the applicant's sexual orientation claim.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The applicant's facts: arranged marriage in Algeria from 2009 to 2012, with physical and psychological violence leading to divorce in 2012.",
+     "quote": "Un mariage arrangé en Algérie aura duré de 2009 à 2012. Le mari avait exercé des violences physiques et psychologiques, ce qui aura débouché sur un divorce en 2012.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "After divorce, the applicant opened a beauty salon providing financial and emotional stability.",
+     "quote": "La demanderesse a ouvert par la suite un salon de beauté, ce qui lui a procuré la stabilité financière et émotionnelle à la suite de son divorce.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states she had an arranged marriage with violence leading to divorce, then opened a beauty salon for stability.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The applicant alleges meeting a client in late 2016 or early 2017, becoming friends and then intimate.",
+     "quote": "La demanderesse allègue avoir rencontré une cliente vers la fin de 2016 ou au début de 2017. Elles sont devenues amies et la relation a évolué pour devenir intime, selon le témoignage de la demanderesse.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges she met a client who became a friend and then an intimate partner.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The applicant fears her ex-husband discovered her bisexuality and threatened to reveal it to family and police, causing her to flee to Canada.",
+     "quote": "ce serait la crainte de l’ex-mari de la demanderesse qui aurait fait en sorte qu’elle s’est réfugiée au Canada... Il aurait découvert la bisexualité de son ex-épouse et aurait menacé de la révéler à la famille de la demanderesse et à la police.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant fears her ex-husband discovered her bisexuality and threatened to reveal it, prompting her flight to Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The key issue in this case is the applicant's credibility.",
+     "quote": "La question déterminante dans cette affaire aura été la crédibilité de la demanderesse.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the key issue is the applicant's credibility.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR did not believe the applicant and found her sexual orientation was not established on a balance of probabilities.",
+     "quote": "La SPR n’a pas cru la demanderesse. En fonction de la prépondérance des probabilités, l’orientation sexuelle de la demanderesse n’a pas été établie.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker did not believe the applicant and found her sexual orientation unproven on a balance of probabilities.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR gave many reasons for disbelief, including inconsistencies about the ex-husband revealing the applicant's sexual orientation and lack of mention in the FDA.",
+     "quote": "la première grande difficulté était qu’alors que la demanderesse invoque devant la SPR la crainte que son ex-mari ne dévoile son orientation sexuelle... Le FDA... n’en fait aucune mention.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The applicant's testimony was vague and evasive on key points, including timing of disclosure to her brother and reaction to his homosexuality.",
+     "quote": "le témoignage de la demanderesse, par ailleurs vague et opaque... Elle était aussi évasive quant à sa réaction lorsqu’elle a appris que son frère est homosexuel.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Letters of support from the applicant's siblings were silent on the alleged disclosure and family scandal, reducing their probative value.",
+     "quote": "les lettres de soutien du frère et de la sœur... sont tout aussi muettes à l’égard de la prétendue divulgation et du scandale familial... Elles n’ont pas de force probante quant à l’établissement de l’orientation sexuelle de la demanderesse",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Photos and letters did not establish a romantic relationship or threats of disclosure; the applicant was vague about her LGBTQ+ community involvement.",
+     "quote": "Les photos en présence de l’amie ne disaient rien au sujet d’une relation romantique quelconque... la prétention de la demanderesse de son appartenance au Centre communautaire LGBTQ+ de Montréal était teintée.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR found the applicant tried to avoid answering key questions and changed the subject, undermining credibility.",
+     "quote": "la demanderesse cherche à changer le sujet; même la relation homosexuelle d’une durée de six ans en Algérie était vague.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found many inconsistencies and vagueness in the applicant's testimony and evidence, undermining credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The accumulation of vague statements and differing versions between FDA and hearing led to the conclusion that the applicant did not prove her asylum claim convincingly.",
+     "quote": "l’accumulation des propos vagues... et la version des événements... différente entre le FDA et l’audience devant la SPR... la demanderesse n’a pas établi sa demande d’asile sur la base d’une preuve convaincante.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The romantic relationship in Algeria was not established based on the evidence.",
+     "quote": "la relation romantique en Algérie n’est pas établie selon la preuve offerte.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker concluded the applicant did not establish her asylum claim convincingly; the romantic relationship was unproven.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR considered domestic violence during marriage though not alleged for refugee status, finding only a possibility of persecution, not serious risk.",
+     "quote": "la SPR s’applique à considérer l’angle de la violence domestique... la preuve offerte établirait au mieux une simple possibilité de persécution, sans risque sérieux pour l’avenir.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Even harassment by the ex-husband did not prove intent or capacity to persecute; such claim would not have been accepted if formally made.",
+     "quote": "Même le harcèlement de l’ex-époux ne constitue pas la preuve d’une intention et de la capacité... qui pourrait constituer de la persécution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found domestic violence and harassment did not establish serious risk of persecution.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant agrees credibility is the key issue and argues the SPR decision lacks justification, transparency, and intelligibility, showing serious flaws.",
+     "quote": "La demanderesse convient d’entrée de jeu que la question déterminante est sa crédibilité devant la SPR... Il faut démontrer des lacunes graves.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A reasonable decision requires justification, transparency, and intelligibility; serious flaws include internal illogic or indefensible decisions (Vavilov, paras 99-101).",
+     "quote": "la décision raisonnable que sont la justification, la transparence et l’intelligibilité... Deux catégories de lacunes fondamentales sont un manque de logique interne du raisonnement et la présence d’une décision indéfendable... (Canada... c. Vavilov, 2019 CSC 65, para 99, 100, 101).",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the SPR decision lacks justification and transparency, citing Vavilov's standards for reasonable decisions.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The court's role is not to assess merits but to review the decision with judicial deference, allowing rigorous evaluation.",
+     "quote": "la cour de révision... ne se prononce pas sur le mérite... suit le principe de la retenue judiciaire... Cela n’empêche pas une évaluation rigoureuse (Vavilov, para 12, 13, 14, 24, 83, 85, 96).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The court reviews the decision but does not substitute its own decision for the administrative decision-maker's.",
+     "quote": "le rôle de la cour de révision consiste à réviser la décision et non pas de tenter de trancher la question en litige en se demandant quelle décision elle aurait prise à la place du décideur administratif.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains its role is to review with deference, not to replace the administrative decision-maker's decision.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant argues the SPR misapplied Directive 9 on sexual orientation and gender identity procedures and Directive 4 on gender considerations, affecting credibility and vulnerability analysis.",
+     "quote": "Elle invoque que la SPR n’a pas correctement appliqué la Directive numéro 9... Elle réfère aussi à la Directive numéro 4... soulignant que l’évaluation comporte une erreur...",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the SPR misapplied Directives 9 and 4, affecting credibility and vulnerability analysis.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant argues the SPR questioned her credibility based on Western cultural expectations about sexual orientation, overemphasizing LGBTQ+ centre membership.",
+     "quote": "On argumente que la SPR aurait remis en question la crédibilité... sur la base d’attentes culturelles occidentales... La SPR aurait mis trop d’emphase sur l’appartenance à cette organisation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court finds no support in the decision for the applicant's assertion about overemphasis on LGBTQ+ centre membership; the SPR stated membership is not necessary.",
+     "quote": "Or, cette assertion présentée par la demanderesse n’est en aucune manière supportée par la décision rendue. La SPR déclare haut et fort qu’il n’est pas nécessaire qu’une personne requérant le statut de réfugié participe aux activités ou être membre d’un tel groupe.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues SPR overemphasized LGBTQ+ centre membership; the court finds no support and notes SPR said membership is not necessary.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The applicant's vague knowledge about the LGBTQ+ centre affected her credibility; she failed to show Directive 9's relevance to unreasonableness.",
+     "quote": "ce qui aura affecté la crédibilité générale de la demanderesse est le fait que... la demanderesse ne semblait pas savoir avec précision de quoi il s’agissait... Elle ne s’est pas déchargée de son obligation de démontrer en quoi la Directive numéro 9 aurait une pertinence rendant la décision non raisonnable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A general allegation about Directive 9 without articulated complaint does not advance the applicant's cause.",
+     "quote": "Une allégation générale relative à cette Directive, sans articulation de la plainte, n’avance pas la cause d’un demandeur.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant's vague knowledge of the LGBTQ+ centre hurt credibility and that general allegations about Directive 9 lack merit.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant alleges a breach of procedural fairness under Directive 4 but fails to specify the principle or how fairness was violated.",
+     "quote": "la demanderesse invoque une atteinte à un principe d’équité procédurale sans jamais préciser de quel principe il serait question, et encore moins en quoi l’équité procédurale aurait pu être violée.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness concerns the procedure followed, not the merits; rights involved must be specified (Baker, para 22).",
+     "quote": "L’équité procédurale ne s’attache pas au mérite d’une décision en soi mais plutôt à la procédure suivie... (Baker c Canada... para 22).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No procedural fairness issues were raised in this case under Directive 4.",
+     "quote": "Mais aucune telle question n’a été soulevée en l’espèce.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges procedural fairness breach under Directive 4 but fails to specify; the court notes no such issue was raised.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR considered domestic violence during marriage under Directive 4 despite no formal claim, concluding only a possibility of persecution, not serious risk.",
+     "quote": "la SPR... a tout de même considéré la question (Décision, para 36)... la preuve ne révélait rien de plus, au mieux, qu’une simple possibilité de persécution advenant un retour en Algérie.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant did not challenge the SPR's conclusion on domestic violence risk.",
+     "quote": "Cette conclusion n’a pas été inquiétée par la demanderesse.",
+     "answers": 0
+    }
+   ],
+   "summary": "The SPR considered domestic violence risk and found only a possibility of persecution; the applicant did not challenge this conclusion.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Court inquired about the binding nature of policies invoked, issued under paragraph 159(1)(h) of the IRPA.",
+     "quote": "Ces directives sont émises en vertu de l’alinéa 159(1) h) de la LIPR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Operational guides often guide discretionary powers but do not constitute a definitive and rigid code.",
+     "quote": "les guides opérationnels ... servent souvent à guider l’exercice des pouvoirs discrétionnaires, sans pour autant constituer un code définitif et rigide",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "If directives are binding, the applicant must explain the legal constraint and how the decision-maker deviated, showing unreasonableness.",
+     "quote": "la demanderesse aurait eu à expliquer la rigueur de la contrainte juridique à laquelle le décideur était tenu et dont il se serait écarté, démontrant en cela le caractère déraisonnable de la décision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "To invoke directives, one must specify the provisions and their binding nature to establish unreasonableness of the decision.",
+     "quote": "il sera utile de soulever spécifiquement les dispositions invoquées et le caractère contraignant qu’on y voit pour le décideur administratif afin d’établir le caractère déraisonnable de la décision",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court explains that operational guides under IRPA are not rigid codes; the applicant must specify binding provisions and show unreasonableness to invoke them.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant complains about the SPR's credibility assessment and relies on Directive number 9 to address omissions in the FDA.",
+     "quote": "la demanderesse se plaint de l’évaluation de sa crédibilité par la SPR... en invoquant cette Directive",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The SPR noted in its decision that it took Directive number 9 into account.",
+     "quote": "la SPR a noté dans sa décision avoir tenu compte de ladite Directive",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant complains about credibility evaluation relying on Directive 9, which the SPR acknowledged considering in its decision.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The applicant states that persons under the Directive may feel shame or difficulty discussing sexual orientation due to cultural or religious pressures.",
+     "quote": "les personnes visées par la Directive « peuvent éprouver de la honte ou de la difficulté à parler de leur orientation sexuelle en raison de pressions culturelles ou religieuses »",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Without specifying which Directive provisions are invoked and how they render the decision unreasonable, there is no basis for judicial intervention.",
+     "quote": "Sans précision sur ce qui est effectivement invoqué, et en quoi cela rendrait la décision déraisonnable, il n’y a pas de place à intervention judiciaire",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Directive prudently states that cases involving persons with SOGIE must be considered like other cases, allowing adverse conclusions from inconsistencies without reasonable explanation.",
+     "quote": "la Directive est de fait très prudente en rappelant que ... les commissaires peuvent tirer une conclusion défavorable des incohérences, des contradictions ou des omissions importantes dans la preuve à défaut d’explication raisonnable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The SPR must consider realities of persons like the applicant, but the applicant must show why the decision is unreasonable specifically, which was not done.",
+     "quote": "on cherche en quoi celle-ci serait déraisonnable dans le cas précis de la décision sous étude. On se doit de passer du général au spécifique. Cela n’a pas été fait",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues cultural pressures per Directive 9, but the Court finds no specific invocation or demonstration of unreasonableness in the decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The applicant's testimony was vague with insufficient answers, as explicitly noted in the decision with many references.",
+     "quote": "le témoignage de la demanderesse, il a été vu comme vague avec des réponses insuffisantes... référant précisément à de nombreux cas",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the applicant's testimony vague and insufficient, explicitly referencing many cases.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The reviewing court must show deference to the administrative decision-maker, especially on credibility issues where the SPR has expertise and saw the testimony.",
+     "quote": "La cour de révision doit faire preuve de déférence ... lorsque la question en est une de crédibilité où la SPR a une expertise certaine et particulière, en plus d’avoir l’avantage d’avoir été le témoin du témoignage offert",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Citing Vavilov and other cases, the court emphasizes deference on credibility but not abdication of rigorous review.",
+     "quote": "Vavilov, para 85 ... la déférence considérable quant à la crédibilité ne peut se transformer en abdication d’une révision rigoureuse de la décision administrative",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Deference establishes the burden on the applicant to show why a deferential decision is unreasonable and the discretion the reviewing court must respect.",
+     "quote": "Cette déférence ... établit le fardeau auquel est tenu un demandeur ... et établit le niveau de discrétion devant être respecté par la cour de révision",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court explains the required deference to SPR on credibility, citing Vavilov, but stresses the applicant's burden to prove unreasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Given the deference on credibility, mere speculation about reasons for inconsistencies is insufficient to show unreasonableness.",
+     "quote": "il eut fallu beaucoup plus que des spéculations ... pour démontrer que la décision est déraisonnable",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states that speculation about reasons for inconsistencies does not suffice to prove unreasonableness given deference on credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "It was not demonstrated that the SPR's decision was unreasonable under Vavilov; the judicial review application is dismissed.",
+     "quote": "Il n’a pas été démontré que la décision rendue par la SPR était déraisonnable au sens de Vavilov. ... la demande de contrôle judiciaire doit être rejetée",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court concludes the SPR's decision was not unreasonable and dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The parties agree no question should be certified under section 74 of the IRPA; the Court agrees and orders accordingly.",
+     "quote": "Les parties ont été consultées et elles conviennent qu’il n’y a pas en l’espèce une question à être certifiée en vertu de l’article 74 de la LIPR. La Cour en convient",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The style of cause is amended to designate the defendant as Minister of Citizenship and Immigration; judicial review is dismissed; no question certified.",
+     "quote": "LA COUR ORDONNE : L’intitulé de la cause est modifié ... La demande de contrôle judiciaire est rejetée. Aucune question n’est certifiée",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The hearing was held in Ottawa by videoconference on December 16, 2025; judgment reasons dated December 23, 2025; counsel for applicant and respondent named.",
+     "quote": "LIEU DE L’AUDIENCE : OTTAWA (ONTARIO) (VIDÉOCONFÉRENCE) DATE DE L’AUDIENCE : LE 16 DÉCEMBRE 2025 JUGEMENT ET MOTIFS : LE JUGE Roy DATE DES MOTIFS : Le 23 décembre 2025 COMPARUTIONS : Me Liza Grees Pour lA demanderESSE Me Suzanne Trudel Pour le défendeur",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court orders style of cause amended, dismisses judicial review, no question certified; hearing details and counsel named.",
+   "role": "disposition"
+  }
+ ]
+}

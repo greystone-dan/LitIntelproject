@@ -1,0 +1,424 @@
+{
+ "case_id": 33888,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0050256,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Paul Uchemadu Adiele and his minor children seek judicial review of an officer's refusal of his open work permit application",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The open work permit was to accompany his wife, a student at the University of Saskatchewan",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicants seek judicial review of an officer's refusal of an open work permit to accompany the applicant's wife, a student.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Principal Applicant's application was refused on February 2, 2024 due to insufficient evidence of wife's full-time student status at a DLI",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker refused the application on February 2, 2024 for insufficient evidence of wife's full-time student status.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On February 5, 2024, the Principal Applicant requested reconsideration of the refusal decision",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On February 7, 2024, IRCC acknowledged receipt of reconsideration request and stated no response in 10 working days means refusal of reconsideration",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "IRCC advised reapplication is possible and will be decided on its own merits",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant requested reconsideration; IRCC acknowledged it and stated no response in 10 days means refusal, advising reapplication is possible.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In May 2025 affidavit, the Principal Applicant deposed he did not hear further from IRCC within 10 days about reconsideration",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He filed application for leave and judicial review about the February 2, 2024 decision on February 29, 2024",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant deposed no response from IRCC on reconsideration and filed judicial review application on February 29, 2024.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On October 21, 2024, IRCC determined sufficient evidence of spouse's full-time student status but refused open work permit based on funds",
+     "answers": 0
+    }
+   ],
+   "summary": "IRCC later found sufficient evidence of spouse's status but refused the work permit due to insufficient funds.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Following a Production Order, IRCC filed the Certified Tribunal Record (CTR)",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Minister objected to inclusion in CTR of materials about reconsideration request",
+     "answers": 0
+    }
+   ],
+   "summary": "IRCC filed the Certified Tribunal Record; the Minister objected to including reconsideration materials.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "An amended CTR was filed excluding materials about the reconsideration request",
+     "answers": 0
+    }
+   ],
+   "summary": "An amended Certified Tribunal Record was filed excluding reconsideration materials.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Order granting leave was issued on April 16, 2025",
+     "answers": 0
+    }
+   ],
+   "summary": "The court granted leave on April 16, 2025.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Principal Applicant argues the Officer's decision on wife's full-time student status is unreasonable and should be set aside",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He submits the Officer breached procedural fairness by denying opportunity to address sufficient funds issue in October 21, 2024 decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the decision on wife's status is unreasonable and alleges procedural fairness breach regarding funds issue.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Respondent submits the judicial review application is moot since the open work permit was reconsidered and refused on October 21, 2024",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "No judicial review was filed regarding the October 21, 2024 decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the application is moot because the permit was reconsidered and refused later, with no review filed on that decision.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness issues are reviewable on the standard of correctness, per Canada (Citizenship and Immigration) v Khosa",
+     "answers": 0
+    }
+   ],
+   "summary": "Procedural fairness issues are reviewed on correctness standard, per Khosa.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Following Vavilov, merits of decision are reviewable on reasonableness standard",
+     "answers": 0
+    }
+   ],
+   "summary": "Merits of decision are reviewed on reasonableness standard following Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires decision to show justification, transparency, intelligibility, and be justified by relevant facts and law, per Vavilov para 99",
+     "answers": 0
+    }
+   ],
+   "summary": "Reasonableness requires justification, transparency, intelligibility, and justification by facts and law per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The February 2, 2024 decision is subject of judicial review",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Principal Applicant seeks orders quashing refusal and inadmissibility decisions, directing grant or re-determination by different officer, or further orders",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant seeks to quash the refusal and inadmissibility decisions and requests grant or re-determination by another officer.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Prime Minister v. Hameed sets out two-step analysis for mootness: live controversy and discretion to hear moot case",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Second step considers adversarial context, judicial economy, and court's role",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal in Hameed sets a two-step mootness test considering live controversy and discretion factors.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Application of mootness principle is discretionary for the Court",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states mootness application is discretionary.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Respondent did not raise mootness at leave stage but did so in Further Memorandum",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent raised mootness only in the Further Memorandum, not at leave stage.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Revised CTR excludes reconsideration decision but it is attached as exhibit to applicant's Further affidavit",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Respondent did not object to inclusion of reconsideration decision exhibit",
+     "answers": 0
+    }
+   ],
+   "summary": "The reconsideration decision is excluded from CTR but attached to applicant's affidavit; respondent did not object.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The reconsideration decision does not identify the decision-maker",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent bases mootness argument on the reconsideration decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The reconsideration decision lacks decision-maker identity; respondent relies on it for mootness argument.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court declines to dismiss the application on grounds of mootness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court exercises discretion and declines to dismiss the application as moot.",
+   "role": "disposition"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "A live controversy remains between the parties regarding the application for an open work permit",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is unnecessary to address other elements of the mootness discussion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a live controversy remains about the open work permit application and declines to address mootness further.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Applicants submitted the February 2, 2024 decision was made without regard to the evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The decision fails to meet the standard of reasonableness",
+     "answers": 1
+    }
+   ],
+   "summary": "The court agrees with the Applicants that the February 2, 2024 decision ignored evidence and is unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is unnecessary to address procedural fairness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The procedural fairness argument is not appropriately raised in this judicial review application",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unnecessary to address procedural fairness, noting the argument is inappropriately raised here.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is granted",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The decision is set aside",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The matter is remitted to a different officer for re-determination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "There is no question for certification",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants judicial review, sets aside the decision, remits the matter for re-determination, and finds no question for certification.",
+   "role": "disposition"
+  }
+ ]
+}

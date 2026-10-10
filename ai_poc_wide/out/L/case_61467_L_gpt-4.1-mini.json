@@ -1,0 +1,1304 @@
+{
+ "case_id": 61467,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0281396,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Attorney General of Canada seeks judicial review of the Appeal Division's decision in Canada Employment Insurance Commission v. Z. E.",
+     "quote": "The applicant, the Attorney General of Canada, seeks judicial review of the decision of the Appeal Division of the Social Security Tribunal (SST) in Canada Employment Insurance Commission v. Z. E., 2025 SST 855 (the Decision).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division decided the Commission could not reconsider Ms. Emamifar's parental benefits claim more than 36 months after last payment unless a false or misleading statement was made.",
+     "quote": "The Appeal Division decided that the Canada Employment Insurance Commission (Commission) could not reconsider Ms. Zahra Emamifar’s claim for parental benefits under the Employment Insurance Act, S.C. 1996, c. 23 (the Act) more than 36 months after those benefits had last been paid to her.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "The Commission may extend reconsideration period to 72 months only if a false or misleading statement or representation was made: subsection 52(5) of the Act.",
+     "quote": "The Commission may only extend the reconsideration period beyond 36 months to 72 months where it is of the opinion that a false or misleading statement or representation has been made in connection with the claim: subsection 52(5) of the Act.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division concluded no evidence showed Ms. Emamifar's information was false or misleading; her failure to inform was an omission, not a statement or representation.",
+     "quote": "The Appeal Division concluded that this condition had not been met because there was no evidence that the information Ms. Emamifar provided in her application for parental benefits was false or misleading and her failure to inform the Commission that she had returned to work and received earnings was an omission that did not qualify as a statement or representation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General seeks judicial review of the Appeal Division's decision that the Commission cannot reconsider Ms. Emamifar's claim beyond 36 months absent false statements, which the Appeal Division found absent.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "This Court reviews the Decision for reasonableness, not substituting its own decision for the Appeal Division's.",
+     "quote": "In assessing whether the Decision is reasonable, it is not the role of this Court to ask what decision it would have made in place of that made by the Appeal Division.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Court can set aside the Decision only if it has central or significant flaws lacking justification, intelligibility, and transparency.",
+     "quote": "This Court can set aside the Decision only if the Attorney General establishes that it exhibits shortcomings or flaws sufficiently central or significant such that it cannot be said to exhibit the requisite degree of justification, intelligibility, and transparency.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Attorney General has not met the burden to show the Decision is unreasonable.",
+     "quote": "For the reasons that follow, I am of the view that the Attorney General has not met this burden.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states it reviews the Decision for reasonableness and finds the Attorney General has not shown it is unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar applied for maternity and parental benefits effective October 6, 2019, expecting to return to work 18 months later.",
+     "quote": "Ms. Emamifar applied for maternity and parental benefits under the Act effective October 6, 2019, indicating on her application that she expected to return to work with her employer 18 months later, on April 3, 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "She selected extended parental benefits for 61 weeks at 33% weekly earnings rather than standard benefits for 35 weeks at 55%.",
+     "quote": "She selected “extended parental benefits” paid for 61 weeks within an 18-month period at a weekly benefit rate of 33% of her weekly insurable earnings, rather than “standard parental benefits” paid for 35 weeks within a 12-month period at a weekly benefit rate of 55% of her weekly insurable earnings.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Her employer issued an electronic ROE on October 17, 2019, with expected recall date April 2, 2021, consistent with 18-month absence.",
+     "quote": "On October 17, 2019, her employer issued an electronic record of employment (ROE) with April 2, 2021, as her expected date of recall, consistent with an 18-month absence from work.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Emamifar applied for extended parental benefits in October 2019, expecting to return to work 18 months later, with employer ROE confirming this.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar sought exemption from biweekly reporting to receive EI benefits and agreed to an Exemption Declaration.",
+     "quote": "Ms. Emamifar also sought to be exempted from reporting every two weeks in order to receive her employment insurance (EI) benefits (the reporting exemption).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Exemption Declaration required agreement to report work, money received, or situations affecting EI benefits immediately.",
+     "quote": "I also agree to inform Service Canada immediately if, while I am collecting Employment Insurance benefits • I work, • I receive money, or • any situation arises that affects my Employment Insurance benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Declaration warned of penalties or prosecution for failing to report and required agreement to these terms.",
+     "quote": "I am aware that I may be penalized or subject to prosecution for failing to report any of the above. * I agree to the above statements and wish to be exempted from completing reports.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Emamifar sought and agreed to an exemption from biweekly reporting, accepting obligations to report work or earnings and penalties for failure.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar selected “yes” to agree with the Exemption Declaration statements.",
+     "quote": "Ms. Emamifar selected “yes”, indicating her agreement with the statements set out in the exemption declaration.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Emamifar agreed to the Exemption Declaration by selecting “yes.”",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The application’s “Rights and Responsibilities” section required accurate reporting of all employment earnings in the weeks earned.",
+     "quote": "Another section of the online application, titled “Rights and Responsibilities,” specified, among other things, that “[w]hen requesting maternity or parental benefits, you must… accurately report all employment earnings… in the week(s) in which they were earned” (emphasis in the original).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar checked that she had read, understood, and accepted her rights and responsibilities.",
+     "quote": "Ms. Emamifar checked a statement that she had read, understood and accepted her rights and responsibilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The application required accurate earnings reporting; Ms. Emamifar acknowledged understanding and acceptance of these responsibilities.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The application’s “Attestation” section required declaration that information given was true to the best of knowledge.",
+     "quote": "Finally, the “Attestation” section of the online application stated in part: “I declare that the information given to the questions on the Application for Employment Insurance benefits online and questionnaires is true to the best of my knowledge.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar checked a statement accepting the attestation.",
+     "quote": "Ms. Emamifar checked a statement that she accepted the attestation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Emamifar attested that her application information was true to the best of her knowledge and accepted this attestation.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar returned to work earlier than expected; employer submitted revised ROE dated October 21, 2020.",
+     "quote": "However, Ms. Emamifar returned to work earlier than she had expected. Her employer submitted to Service Canada a revised electronic ROE dated October 21, 2020, indicating that she had returned to work in October 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar did not inform the Commission of her return to work or earnings and continued receiving benefits until March 27, 2021.",
+     "quote": "Ms. Emamifar did not inform the Commission that she had returned to work or was receiving employment income. She continued receiving parental benefits until March 27, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Emamifar returned to work earlier than expected but did not inform the Commission and continued receiving benefits until March 2021.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On July 31, 2024, the Commission decided Ms. Emamifar made a false or misleading statement by failing to declare employment income and assessed an $8,087 overpayment.",
+     "quote": "On July 31, 2024, the Commission sent a notice of decision to Ms. Emamifar stating that it was of the opinion that a false or misleading statement or representation had been made because she had failed to declare employment income. The Commission decided that these earnings needed to be allocated to her claim and it assessed an overpayment of benefits in the amount of $8,087.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "This notice was sent more than 36 months after the last payment of benefits.",
+     "quote": "Significantly, this notice of decision was sent more than 36 months following the last payment of Ms. Emamifar’s benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission found Ms. Emamifar failed to declare income, assessed an $8,087 overpayment, and sent notice more than 36 months after last benefit payment.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Emamifar sought reconsideration, explaining she returned to work early due to spouse's layoff and misunderstood benefit payments.",
+     "quote": "Ms. Emamifar sought reconsideration. She explained to the Commission that she had originally intended to be off work for 18 months, but that she had to return to work after 12 months when her spouse was laid off during the COVID pandemic. She said that she had assumed that she had been approved for a lump sum with the option to have the benefits paid over 12 or 18 months and that she had believed that the continuing benefit payments were normal since she had already been approved for the entire amount of benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "She expected her employer to notify the Commission of her return to work.",
+     "quote": "She also explained that she had expected her employer to notify the Commission of her return to work.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Emamifar sought reconsideration, explaining early return to work due to spouse's layoff and expecting employer to notify Commission.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission denied reconsideration and Ms. Emamifar appealed to the General Division of the SST.",
+     "quote": "The Commission denied Ms. Emamifar’s request for reconsideration, and she appealed to the General Division of the SST.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission denied reconsideration; Ms. Emamifar appealed to the General Division of the SST.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commission argued Ms. Emamifar's failure to report return to work and earnings was an omission constituting a false statement due to her reporting exemption agreement.",
+     "quote": "The Commission submitted to the General Division that Ms. Emamifar’s failure to report her return to work and her earnings was an “omission of information” that constituted a false statement because she had agreed to the conditions for securing a reporting exemption in her application for benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission argued Ms. Emamifar's failure to report return to work was a false statement due to her reporting exemption agreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The General Division allowed Ms. Emamifar’s appeal, finding the Commission relied on paragraph 38(1)(a) of the Act to reconsider her claim.",
+     "quote": "The General Division allowed Ms. Emamifar’s appeal (Z. E. v. Canada Employment Insurance Commission, 2025 SST 856 (GD Decision)). It found that the Commission had relied on paragraph 38(1)(a) of the Act to reconsider her claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Paragraph 38(1)(a) empowers penalties for false or misleading representations or failure to declare earnings, but the Commission did not impose a penalty on Ms. Emamifar.",
+     "quote": "That provision empowers the Commission to impose a penalty on a claimant in certain circumstances, including where the claimant made a representation that the claimant knew was false or misleading, or knowingly failed to declare earnings for a period in which the claimant claimed benefits. As the Appeal Division later recognized in the Decision, the Commission did not impose a penalty on Ms. Emamifar.",
+     "answers": 0
+    }
+   ],
+   "summary": "The General Division allowed the appeal, finding the Commission relied on paragraph 38(1)(a) which allows penalties, but no penalty was imposed on Ms. Emamifar.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The General Division noted the Commission has 36 months to reconsider claims, or 72 months if a false or misleading statement is made.",
+     "quote": "The General Division noted that under subsections 52(1) and (5) of the Act, the Commission has 36 months after benefits have been paid to reconsider a claim, or 72 months if it is of the opinion that a claimant has made a false or misleading statement or representation.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The General Division adopted J. S. reasoning that a representation requires action and does not include omissions like failure to report.",
+     "quote": "It adopted the reasoning of the Appeal Division in J. S. v. Canada Employment Insurance Commission, 2017 SSTADEI 431 at paragraph 13 [J. S.] that a “representation requires action, whether in verbal, written, visual, or other form”, and does not include an omission, such as a failure to report.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The General Division found Ms. Emamifar made no statements about her return to work because she was exempted from reports.",
+     "quote": "It found that Ms. Emamifar had “made no statements or representations about her return to work and earnings because she was exempted from completing the reports where she would otherwise have done so” (GD Decision at para. 39).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Since no false or misleading statements were made, the Commission had no authority to extend reconsideration beyond 36 months.",
+     "quote": "Accordingly, the General Division concluded that, since the Commission could not establish that Ms. Emamifar had made false or misleading statements, it had no authority to extend the period to reconsider her claim for benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The General Division found no false statements by Ms. Emamifar and no authority to extend reconsideration beyond 36 months.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "The Commission appealed the General Division’s decision to the Appeal Division.",
+     "quote": "The Commission appealed the General Division’s decision to the Appeal Division.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission appealed the General Division’s decision to the Appeal Division.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division agreed the Commission did not impose a penalty and the General Division erred in relying on paragraph 38(1)(a) to extend reconsideration to 72 months.",
+     "quote": "The Appeal Division agreed with the Commission that it had not imposed a penalty on Ms. Emamifar, and that the General Division had thus erred in concluding that the Commission had relied on paragraph 38(1)(a) of the Act to extend the period for reconsideration of Ms. Emamifar’s claim to 72 months.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The authority to extend reconsideration beyond 36 months is in subsection 52(5) of the Act, not paragraph 38(1)(a).",
+     "quote": "Rather, the authority to extend the reconsideration period beyond 36 months is in subsection 52(5) of the Act.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "The Appeal Division substituted its own decision for the General Division’s rather than remitting the file back.",
+     "quote": "Having found an error of law, the Appeal Division decided to substitute its own decision for that of the General Division rather than sending the file back.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found the General Division erred relying on paragraph 38(1)(a) and substituted its own decision based on subsection 52(5).",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commission submitted Ms. Emamifar agreed to report all earnings and her failure to do so misled the Commission into paying benefits.",
+     "quote": "The Commission submitted that Ms. Emamifar had agreed to the responsibilities set out in the online application, including the obligation to report all her earnings in the week they were earned. The Commission further submitted that, because Ms. Emamifar had failed to comply with her reporting obligations when she returned to work early, the Commission had been misled into paying her benefits and it was reasonable for the Commission to come to the opinion that her failure to inform was a false or misleading statement or representation (Decision at para. 38).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission argued Ms. Emamifar's failure to report earnings misled it into paying benefits, constituting a false or misleading statement.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division noted the Commission's faulting Ms. Emamifar for failing to report was describing an omission.",
+     "quote": "The Appeal Division noted that in faulting Ms. Emamifar for failing to report to the Commission her return to work and her earnings, the Commission was describing an omission.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division decided failure to report (an omission) did not constitute a statement or representation under subsection 52(5).",
+     "quote": "The Appeal Division decided that failure to report information (an omission) did not constitute a statement or representation for the purpose of subsection 52(5), based largely on an analysis of the text of subsection 52(5), a comparison of that provision with paragraph 38(1)(a) of the Act, and the reasoning set out in J. S. and in a decision of the General Division in B. S. v. Canada Employment Insurance Commission, 2024 SST 469 [B. S.].",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found failure to report was an omission and not a statement or representation under subsection 52(5).",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division acknowledged Ms. Emamifar attested to responsibilities but found no evidence her application information was false or misleading at the time.",
+     "quote": "While the Appeal Division acknowledged that Ms. Emamifar attested to and agreed to the responsibilities set out in the online application, it “[saw] no evidence that the information she provided in her application was false or misleading as it was accurate and truthful at the time she made her application” (Decision at para. 59).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "The Appeal Division adopted J. S. interpretation that “representation” requires an action, not an omission.",
+     "quote": "The Appeal Division adopted the interpretation of “representation” in J. S., requiring a verbal, written, visual or other form of action.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "It concluded subsection 52(5) does not extend to omissions and Ms. Emamifar made no representation, so reconsideration period cannot be extended.",
+     "quote": "Accordingly, it concluded that subsection 52(5) did not extend to omissions. Considering that Ms. Emamifar was exempt from filing biweekly reports, the Appeal Division found that she had taken no action and thus made no representation. Therefore, it concluded, the Commission could not extend the reconsideration period from 36 to 72 months and reconsider Ms. Emamifar’s claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found no false information at application, adopted J. S. that representation requires action, and concluded no extension of reconsideration period.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Appeal Division’s decision is reviewed on a deferential reasonableness standard per Vavilov and Molchan.",
+     "quote": "The Appeal Division’s decision, including its interpretation of the Act, is reviewable on the deferential standard of reasonableness (Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653 [Vavilov]; Molchan v. Canada (Attorney General), 2024 FCA 46 at para. 10).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires an internally coherent, rational, justified decision based on facts and law.",
+     "quote": "An administrative decision will be reasonable if it is based on an internally coherent and rational chain of analysis and is justified in relation to the facts and law that constrain the decision maker (Vavilov at paras. 84‒85; Mason v. Canada (Citizenship and Immigration), 2023 SCC 21 at para. 8).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The reviewing court’s role is not to substitute its own decision or find the correct solution.",
+     "quote": "Significantly, the reviewing court’s role is not to ask what decision it would have made in the decision maker’s place or to determine the “correct” solution to the problem before the decision maker (Vavilov at para. 83).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division’s decision is reviewed deferentially for reasonableness, not correctness, per Vavilov and related authorities.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The burden is on the party challenging the decision to show it is unreasonable by demonstrating significant shortcomings or flaws.",
+     "quote": "The burden is on the party challenging the decision—in this case, the Attorney General—to show that it is unreasonable by satisfying the reviewing court that there are shortcomings or flaws in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Shortcomings must be central or significant, not superficial or peripheral, to render the decision unreasonable.",
+     "quote": "Such shortcomings or flaws cannot be merely superficial or peripheral to the merits of the decision; they must be sufficiently central or significant to render the decision unreasonable (Vavilov at para. 100).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the burden is on the Attorney General to show the decision has significant flaws making it unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A reviewing court must examine the decision maker’s reasons respectfully and understand their reasoning process holistically and contextually.",
+     "quote": "In evaluating an administrative decision maker’s justification for its decision, a reviewing court must examine the decision maker’s written reasons with respectful attention and seek to understand the reasoning process followed by the decision maker to arrive at its own conclusion (Vavilov at para. 84).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasons must not be judged by perfection; lacking all arguments or details is not alone a basis to set aside a decision.",
+     "quote": "Reasons must not be assessed against a standard of perfection; the fact they don’t “include all the arguments, statutory provisions, jurisprudence or other details” a reviewing court would prefer is not by itself a sufficient basis for setting aside the decision (Vavilov at para. 91, citing Newfoundland and Labrador Nurses' Union v. Newfoundland and Labrador (Treasury Board), 2011 SCC 62, [2011] 3 S.C.R. 708 at para. 16).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains how reviewing courts must respectfully and holistically assess decision reasons without requiring perfection.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division’s reasons have five shortcomings rendering its decision unreasonable.",
+     "quote": "The Attorney General submits that the Appeal Division’s reasons disclose five shortcomings or flaws that render its decision unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court will address each alleged shortcoming in turn and annex relevant Act provisions.",
+     "quote": "I address each of these in turn. For ease of reference, I have annexed the relevant provisions of the Act to these reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division unreasonably concluded Ms. Emamifar made no statements or representations in her application.",
+     "quote": "A. The Appeal Division unreasonably concluded that Ms. Emamifar made no statements or representations in her application",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General alleges five flaws in the Appeal Division’s decision, including that it wrongly found no statements by Ms. Emamifar.",
+   "role": "issue"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division unreasonably concluded that Ms. Emamifar’s application information was not statements or representations.",
+     "quote": "The Attorney General submits that the Appeal Division unreasonably concluded that the information, agreements and attestations contained in Ms. Emamifar’s online application for EI benefits were not statements or representations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General argues the Appeal Division wrongly held Ms. Emamifar’s application information was not statements or representations.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Division considered Ms. Emamifar’s application information to be a statement or representation under subsection 52(5).",
+     "quote": "In my view, on a fair reading of the reasons, the Appeal Division considered the information supplied by Ms. Emamifar in her online application, including her responses agreeing to the attestation and statement of responsibilities, to be a statement or representation within the meaning of subsection 52(5), because it turned its mind to whether that information could be false or misleading (Decision at para. 59).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Division found no evidence Ms. Emamifar made statements after filing her application due to reporting exemption.",
+     "quote": "The Appeal Division did find that there was “no evidence that [Ms. Emamifar] made any statement or representation to the Commission at all” (Decision at para. 57, emphasis in the original). However, read in context, this can only be understood to refer to the period after she filed her online application during which, due to the reporting exemption, she made no biweekly reports that would have constituted statements or representations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division viewed the application info as a statement but found no post-application statements due to reporting exemption.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division unreasonably found no evidence of false or misleading statements by Ms. Emamifar.",
+     "quote": "The Attorney General submits that it was unreasonable for the Appeal Division to conclude that it saw “no evidence that the information [Ms. Emamifar] provided in her application was false or misleading as it was accurate and truthful at the time she made her application” (Decision at para. 59).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Failure to do what was promised is a reasonable basis to find a false or misleading statement.",
+     "quote": "In the Attorney General’s view, “if a person says they will do something and then fails to do so, that is a reasonable basis to form the opinion that a false or misleading statement has been made.”",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division ignored that Ms. Emamifar later failed to do what she said, while continuing to receive benefits.",
+     "quote": "Accordingly, the Attorney General argues, it was unreasonable for the Appeal Division to find that Ms. Emamifar’s statements were true and sincere at the time they were made and to ignore that she later failed to do what she said she would do, especially considering that she continued to receive benefits while working.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division’s conclusion conflicts with Court decisions that false statements need not be knowingly made under reconsideration provision.",
+     "quote": "In the Attorney General’s view, the Appeal Division’s conclusion means that, to establish a false or misleading statement or representation, the Commission would have to prove that Ms. Emamifar knew that she would not follow through on her undertakings when applying for benefits. Such a result would conflict with decisions of this Court that false or misleading statements need not be made knowingly under the reconsideration provision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General argues the Appeal Division unreasonably ignored Ms. Emamifar’s failure to fulfill promises and conflicts with law on knowledge requirement.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "This Court in Dussault rejected the requirement that false statements be made knowingly under subsection 52(5).",
+     "quote": "As observed by the Attorney General, this Court interpreted the Commission’s authority to extend the period to reconsider a claim for benefits in Canada (Attorney General) v. Dussault, 2003 FCA 372 [Dussault].",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 52(5) requires only that the Commission be reasonably satisfied a false or misleading statement was made, not that it was made knowingly.",
+     "quote": "All Parliament requires in s. [52(5)] is that “in the opinion of the Commission, a false or misleading statement… has been made”... Of course, in order to arrive at this conclusion the Commission must be reasonably satisfied that “a false or misleading statement or representation has been made in connection with a claim”.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "False or misleading statements need not be made knowingly to trigger subsection 52(5).",
+     "quote": "With respect, I consider that the Umpire misdirected himself when he imposed on the Commission a burden pursuant to s. [52(5)] of proving [Translation] “that the claimant knowingly made false statements”. That is actually the burden imposed by s. [38], dealing with penalties.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "In Dussault, the claimant failed to report self-employed income while receiving EI benefits.",
+     "quote": "In the case at bar, it is unambiguous that the respondent did not report, or concealed, for the period during which he was receiving benefits, the income from work on his own account.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 38 punishes deviant behaviour requiring proof of knowledge; subsection 52(5) recovers overpayments without requiring knowledge.",
+     "quote": "Section [38] is intended to punish deviant behaviour and, needless to say, requires proof of such deviance. That some proof is required is indicated by the use of the word “knew”. Subsection [52(5)], on the other hand, is simply intended to recover the money that should not have been paid and would not have been paid absent the false o",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General cites Dussault to show subsection 52(5) does not require knowledge to find false statements, unlike penalties under section 38.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Reporting exemptions apply only to special benefits, not ordinary EI benefits like in Dussault.",
+     "quote": "At the hearing before this Court, counsel for the Attorney General acknowledged that reporting exemptions are only available for special benefits under the Act, such as maternity or parental benefits. The exemptions are not available for ordinary EI benefits, such as those at play in Dussault.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Dussault was subject to regular biweekly reporting and falsely reported no earnings while receiving self-employed income.",
+     "quote": "Accordingly, Mr. Dussault would have been subject to the regular biweekly reporting requirement and would have reported, for each two-week period, that he had not received any earnings, when the evidence before the Commission was that he had received self-employed income.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "False or misleading statements can be objectively inferred from facts in regular reporting contexts.",
+     "quote": "It is in that sense that the existence of a false or misleading statement could be “inferred objectively from the facts.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Dussault involved regular reporting without exemptions, allowing objective inference of false statements from facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division acknowledged no knowledge requirement under subsection 52(5) and only needs to be of opinion a false statement was made.",
+     "quote": "The Appeal Division acknowledged that Dussault had confirmed there is no requirement, under subsection 52(5) of the Act, that a false or misleading statement or representation be made knowingly (Decision at para. 46) and understood that the Commission “only has to be of the opinion that… a false or misleading statement or representation was made” (Decision at para. 45).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division found Ms. Emamifar made no false or misleading statements or representations.",
+     "quote": "It nevertheless found, for the reasons reproduced below, that Ms. Emamifar did not make any false or misleading statements or representations: [54] Generally speaking, when a person applies for benefits and a benefit period is established, they are required to submit biweekly reports. These reports ask specific questions about earnings, availability and other things. When a person applies for maternity and parental benefits, they can choose to be exempt from filing biweekly reports (it is assumed that they are not working while caring for a child). They indicate their choice to be exempt from filing biweekly reports in their application form. [55] Following that, there is a lengthy section in the application form that identifies “rights & responsibilities,” and the person must attest by signing the application form that they will “report all employment,” “accurately report all employment earnings” and to inform Service Canada immediately (among other things listed). [56] I don’t accept the Commission’s position that the Claimant made false or misleading statements or representations because she didn’t follow thru [sic] with her responsibilities to report that information to the Commission. And I don’t accept that the Claimant “misled” the Commission into paying her benefits either. [57] There is no evidence that the Claimant made any statement or representation to the Commission at all. The Claimant was exempt from filing her biweekly reports, so the Commission can’t rely on any statements or representations she made in a biweekly report in this case. [58] I see no other evidence in the record that shows the Claimant made any other statements or representations to the Commission. [59] I acknowledge that the Claimant attested to and agreed to her responsibilities when she applied for benefits, but I see no evidence that the information she provided in her application was false or misleading as it was accurate and truthful at the time she made her application. It’s also consistent with the information the employer recorded on her Record of Employment around the time she applied for benefits. [60] I am persuaded by the Appeal Division’s decision in J.S. because it explains that to make a representation, it requires some kind of action made, such as verbal, written, visual or other form. The Claimant in this case didn’t take any action, so I can’t find that she made a representation. [61] I’ve also considered the General Division’s decision in B.S. that says the Commission can’t extend the period to 72 months for any other reason, such as failing to report information. [62] I agree th",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found no false statements by Ms. Emamifar despite acknowledging no knowledge requirement under subsection 52(5).",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division distinguished statements in the application from biweekly report responses.",
+     "quote": "It is clear from its reasons that the Appeal Division considered that the statements made by Ms. Emamifar in her online application differed from responses to “specific questions about earnings, availability and other things” posed in typical biweekly reports.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division’s approach aligns with the General Division’s decision in B. S. on similar facts.",
+     "quote": "Reading its reasons contextually and in light of prior decisions of the SST (Vavilov at para. 94), I note that the Appeal Division’s approach is consistent with that taken by the General Division in B. S., a case raising similar facts that the Appeal Division referred to in its reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The General Division held false or misleading statements must come from answering direct questions untruthfully.",
+     "quote": "The General Division held that “for an appellant to make a false or misleading statement or representation, it must come from answering a direct question related to their situation in a way that isn’t truthful or accurate” (B. S. at para. 45, emphasis added).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division’s approach consistent with prior decisions requiring false statements to arise from untruthful answers to direct questions.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Statements in biweekly reports relate to facts at or before the statement time; application statements relate to present intention about future actions.",
+     "quote": "According to the Appeal Division (Decision at para. 54) and the General Division (B. S. at para. 45), the statements made by a claimant in response to biweekly reports relate to facts regarding the claimant’s situation at or before the time the statements are made, including whether they are working, have earned income or are available to work. Conversely, both Divisions recognized that the statements in the exemption declaration and rights and responsibilities section of the online application for EI benefits relate to the claimant’s present intention to carry out certain actions in the future (Decision at paras. 56 and 59; B. S. at para. 48).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The timing of agreeing to the exemption declaration is relevant to subsection 52(5) analysis.",
+     "quote": "Indeed, in B. S., the General Division observed that “when the [claimant] agreed to the exemption declaration is relevant” to the subsection 52(5) analysis (at para. 48, emphasis in the original).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes statements in reports concern facts, while application statements concern present intentions about future actions.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division viewed Ms. Emamifar’s application statements as present intentions at application time, unlike biweekly report facts.",
+     "quote": "The Appeal Division’s view that there was no evidence Ms. Emamifar provided false or misleading information in her application must be considered in light of the nature of that information. The information consisted in statements setting out her then (i.e., “at the time she made her application”) present intent to return to work at a specific future date, report future earnings if they occurred and report a return to work in the future.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This information differs from biweekly report questions about earnings and availability during two-week periods.",
+     "quote": "This information is unlike that demanded by the specific questions in a biweekly report about “earnings, availability and other things” in the course of the two-week period.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division saw Ms. Emamifar’s application statements as present intentions, distinct from biweekly report factual questions.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division understood the Commission’s argument that failure to follow through showed false statements.",
+     "quote": "In my view, the Appeal Division’s reasons demonstrate that it grasped the Commission’s argument that Ms. Emamifar’s failure to follow through on her stated intention showed that she had made false or misleading statements (Decision at para. 56).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division concluded failure to carry out intention does not prove lack of that intention at application time.",
+     "quote": "They also show that the Appeal Division concluded that the fact Ms. Emamifar failed to carry out her expressed intention did not, in itself, establish that she did not actually possess that intention at the time she submitted her application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division understood the argument but concluded failure to act does not prove lack of intention at application time.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Division’s decision is not inconsistent with Dussault’s holding that intention is unnecessary to find false statements.",
+     "quote": "In light of my previous discussion of Dussault, I disagree with the Attorney General that the Appeal Division’s decision is inconsistent with the Court’s holding that it is unnecessary to find intention when assessing whether a false or misleading statement might exist. Dussault held that, where a claimant states that he did not receive earnings during a two-week period, the existence of a false or misleading statement is inferred objectively from the facts—in that case, the evidence that he had received amounts over the relevant period.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with the Attorney General that the Appeal Division’s decision conflicts with Dussault on intention requirement.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Langelier involved a claimant attaching a ROE for a week’s work with disputed payment proof.",
+     "quote": "There, to show he had accumulated the ten weeks of insurable employment required to create a benefit period, Mr. Langelier had attached to his EI application a ROE prepared by a company for a week’s work as a “fisherman’s helper”.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Revenue Canada found no proof of payment, and the Commission claimed the ROE was false.",
+     "quote": "Relying on a decision by Revenue Canada that there was no proof of payment establishing that Mr. Langelier had been paid for the week in question, the Commission claimed that the ROE was false.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "The Umpire found no proof that Mr. Langelier knowingly made false statements.",
+     "quote": "The Umpire found that, in these circumstances, the Commission had not established that Mr. Langelier had knowingly made false or misleading statements.",
+     "answers": 0
+    }
+   ],
+   "summary": "Langelier involved disputed payment proof and a finding that the claimant did not knowingly make false statements.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "The Court held the Umpire erred in requiring proof of knowledge but not in finding no false statement based on Revenue Canada’s decision alone.",
+     "quote": "While this Court held that the Umpire had misdirected himself in requiring that the Commission prove that Mr. Langelier knowingly made false statements, it decided that the Umpire had not erred in finding that it was patently unreasonable for the Commission and Board of Referees to hold that there was a false statement solely based on Revenue Canada’s decision: [A] decision which, as in the case at bar, is based on the absence of any proof of payment does not by itself support a conclusion that no payment was made and that it is false to say that there was a payment. (Langelier at para. 18, emphasis added)",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court held the Umpire erred on knowledge but reasonably found no false statement based solely on Revenue Canada’s decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 52(5) is exceptional and strictly construed; burden on Commission to prove overpayment beyond three years is heavy.",
+     "quote": "It should be borne in mind that [s. 52(5)] is part of an “exceptional [system], which is a departure from the ordinary law” and must be “strictly construed” (Laforest v. Canada (Attorney General) (1988), 97 N.R. 95 (F.C.A.), per Lacombe J., para. 22). Accordingly, the burden of proof on the Commission when it wishes to go back more than three years to claim reimbursement of an overpayment from a claimant is not a light one.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Commission cannot rely on vague Revenue Canada decisions without claimant’s knowledge to prove false statements.",
+     "quote": "As indicated by the case at bar, the Commission cannot simply rely on a Revenue Canada decision rendered without the claimant’s knowledge, based on such a vague allegation as [Translation] “no proof of payment” and giving reasons as brief as they were vague. (Langelier at para. 17)",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court explains subsection 52(5) is exceptional, strictly construed, and requires strong evidence beyond vague Revenue Canada decisions.",
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The sufficiency of evidence to infer false statements varies with circumstances and whether statements are factual or intentional.",
+     "quote": "It follows that the nature of the evidence that is sufficient to provide the Commission with a reasonable basis to form the opinion that a false or misleading statement or representation has been made may vary with the circumstances, including whether the statement made was one of fact or of intention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "In Dussault, false statements were objectively inferred from evidence of unreported income; in Langelier, they could not be inferred from lack of payment proof alone.",
+     "quote": "In Dussault, it could be objectively inferred that the claimant had made a false or misleading statement regarding his lack of earnings, because the evidence showed that he was receiving self-employed income at the same time as he declared that he was not. In Langelier, however, the existence of a false or misleading statement could not be objectively inferred from the evidence: Revenue Canada’s inability to find proof that the claimant had been paid, in a proceeding where the claimant could not participate, could not in itself contradict his statement of fact that he had been paid for a week’s work.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains evidence sufficiency to infer false statements depends on context and whether statements are fact or intention.",
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Division reasonably concluded failure to follow through on intention does not contradict the statement of intention at application time.",
+     "quote": "In my view, the Appeal Division essentially concluded that the existence of a false or misleading statement could not be objectively inferred from evidence that Ms. Emamifar had not followed through on her stated intention, because that evidence did not contradict the statement made in her application: that her intent at the time she completed the application was to return to work on a certain date, report a return to work and report any earnings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The record corroborated Ms. Emamifar’s truthful statement of intention, including employer’s ROE and family circumstances.",
+     "quote": "In addition to noting the absence of evidence supporting the existence of a false or misleading statement, the Appeal Division observed that the record corroborated its conclusion that Ms. Emamifar had been truthful when she completed her statement of intention: consistent with that statement, her employer had issued a ROE with April 2, 2021, as her expected date of recall. I note also that the record discloses that Ms. Emamifar’s family faced an unexpected circumstance when her spouse was laid off during the COVID pandemic, prompting her premature return to work.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Nothing is unreasonable in the Appeal Division’s conclusion that failure to carry out intention is not evidence of lack of that intention at application time.",
+     "quote": "I therefore find nothing unreasonable in the Appeal Division’s conclusion that the fact Ms. Emamifar failed to carry through on her stated intention to return to work or to report earnings was not evidence that she did not in fact hold that intention when she stated it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division reasonably concluded failure to act does not contradict truthful intention at application time, supported by evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appeal Division unreasonably interpreted subsection 52(5) by improperly applying the implied exclusion rule.",
+     "quote": "The Attorney General argues that the Appeal Division’s interpretation of subsection 52(5) was unreasonable because it was improperly founded on the application of the implied exclusion rule of statutory interpretation.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Reliance on the implied exclusion rule leads to an interpretation inconsistent with the Act’s purpose and causes injustice by allowing Ms. Emamifar to keep benefits.",
+     "quote": "Reliance on that rule is improper, the Attorney General submits, because it leads to an interpretation that is inconsistent with the purpose of the Act to pay benefits to claimants who are involuntarily unemployed, and because it works an injustice by allowing Ms. Emamifar to keep benefits to which she is not entitled.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General argues the Appeal Division unreasonably applied the implied exclusion rule, causing inconsistency with the Act’s purpose and injustice.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree the Appeal Division applied the implied exclusion rule regarding omission in subsection 52(5) of the Act.",
+     "quote": "I agree with the Attorney General that the Appeal Division did apply the implied exclusion rule when it noted that, unlike paragraph 38(1)(a) of the Act, subsection 52(5) does not use the word “omission”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I am not persuaded the Appeal Division's reliance on implied exclusion was improper in this case.",
+     "quote": "However, I am not persuaded that the Appeal Division’s reliance on implied exclusion was improper in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the Appeal Division applied the implied exclusion rule but finds its reliance on it was not improper.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Implied exclusion is purely textual and cannot be the sole basis for statutory interpretation; words must be considered with purpose and scheme.",
+     "quote": "The Supreme Court has confirmed that an argument based on implied exclusion is “purely textual in nature and cannot be the sole basis for interpreting a statute … [as the] words of the statute must be considered in conjunction with its purpose and its scheme”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division did not rely solely on implied exclusion but also on SST decisions about the meaning of 'representation'.",
+     "quote": "Here, implied exclusion was not the “sole basis” for the Appeal Division’s interpretation of subsection 52(5). The Appeal Division also referred to SST decisions (Decision at paras. 43 and 52) that focused on the meaning of the word “representation”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "SST decisions held that a representation requires action and does not include omissions or failure to report information.",
+     "quote": "Those decisions held that a representation required action, whether in verbal, written, visual or other form and did not include omissions (J. S. at para. 13) or a failure to report information (B. S. at para. 36).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains implied exclusion cannot be sole basis; Appeal Division also relied on SST decisions defining 'representation' as requiring action, excluding omissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Attorney General has not shown the Appeal Division's interpretation ignores or conflicts with the Act's purpose or subsection 52(5).",
+     "quote": "Moreover, the Attorney General has not convinced me that the Appeal Division arrived at an interpretation that ignores or is clearly inconsistent with the purpose of the Act or of subsection 52(5).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Appeal Division relied on this Court's decisions about the purpose and operation of a predecessor to section 52, emphasizing discretion and time limits.",
+     "quote": "At paragraph 48 of the Decision, the Appeal Division relies on decisions of this Court which dealt with the purpose and operation of another predecessor to section 52 of the Act, noting: The Commission has the statutory authority under s.52(5) to retroactively determine that benefits have been improperly paid and to ask for repayment. This provision also has a very specific purpose. It gives the Commission the discretion to decide whether to reconsider a claim, with some limitations to the period to do so.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The power to reconsider claims is limited by statutory time-limits and discretion under the Act.",
+     "quote": "which includes the time-limits for exercising them” (LaForest at para. 39);",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Section 52 allows claimants to keep benefits if reconsideration is not done within 36 months absent false or misleading representation.",
+     "quote": "section 52 contemplates that, in circumstances where the Commission has failed to reconsider a claim within 36 months after the benefits have been paid and it cannot be reasonably satisfied that a false or misleading representation was made in connection with the claim, the claimant may get to keep benefits to which they were not entitled.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Ignoring a key element of the Act's purpose in interpretation would be indefensible and unreasonable (Vavilov).",
+     "quote": "Had the Attorney General established that, in the Decision, the Appeal Division ignored a key element of the purpose of the Act or of subsection 52(5) that, if considered, may have led it to a different result, the Appeal Division’s failure to consider that element would be indefensible and unreasonable (Vavilov at para. 122).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Attorney General failed to show the Appeal Division ignored a key element of the Act's purpose.",
+     "quote": "The Attorney General failed to meet this burden.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Attorney General failed to show the Appeal Division ignored the Act's purpose or subsection 52(5) in its interpretation.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division was aware the Act aims to provide benefits but limits reconsideration within statutory time-limits.",
+     "quote": "the Appeal Division was aware (1) that the Act aims to provide benefits to claimants who are entitled to these benefits, but also that the power to reconsider claims for benefits was to be “kept strictly within the limits and requirements specified by the Act, which includes the time-limits for exercising them” (LaForest at para. 39);",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The time-limits depend on whether the Commission is reasonably satisfied a false or misleading representation was made.",
+     "quote": "(2) that the applicable time-limits depend on whether the Commission is reasonably satisfied that a “false or misleading statement or representation” has been made in connection with a claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If the Commission cannot be reasonably satisfied of a false or misleading representation within 36 months, the claimant may keep benefits not entitled to.",
+     "quote": "In other words, section 52 contemplates that, in circumstances where the Commission has failed to reconsider a claim within 36 months after the benefits have been paid and it cannot be reasonably satisfied that a false or misleading representation was made in connection with the claim, the claimant may get to keep benefits to which they were not entitled.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division understood the Act's purpose and time-limits depend on reasonable satisfaction of false or misleading representation.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Attorney General argues the Appeal Division was unreasonable for not asking if the Commission had reasonable basis to form opinion of false or misleading statements under subsection 52(5).",
+     "quote": "The Attorney General argues that the Decision is unreasonable because the Appeal Division never asked nor answered the question mandated by subsection 52(5) and this Court’s decisions in Langelier and Dussault: whether the Commission had a reasonable basis to form the opinion that false or misleading statements or representations were made in connection with Ms. Emamifar’s claim.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Attorney General contends the Appeal Division considered only existence of false or misleading statement, not the reasonable basis for opinion.",
+     "quote": "Instead, the Attorney General contends, the Appeal Division considered whether a false or misleading statement or representation existed.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Attorney General argues the Appeal Division was unreasonable for not applying the correct standard under subsection 52(5).",
+   "role": "issue"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appeal Division accurately summarized the Commission's submissions and set out the appropriate standard under subsection 52(5).",
+     "quote": "The Appeal Division accurately summarized the Commission’s submissions on the appropriate standard to apply under subsection 52(5) in its reasons (Decision at para. 38) and at the hearing before it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It would have been preferable for the Appeal Division to expressly state it found no reasonable basis for the Commission's opinion of false or misleading statement.",
+     "quote": "It would no doubt have been preferable for the Appeal Division to expressly state that it found no reasonable basis on which the Commission could form the opinion that Ms. Emamifar made a false or misleading statement in relation to her claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Division's findings imply it found no reasonable basis for the Commission's opinion of false or misleading statement.",
+     "quote": "I am inexorably led to conclude that that is what the Appeal Division found, given its findings that there was no evidence the information Ms. Emamifar provided in her online application was false or misleading and no evidence in the record she made other statements or representations.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds the Appeal Division applied the correct standard and implicitly found no reasonable basis for the Commission's opinion of false or misleading statement.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appeal Division agreed with the General Division's reasoning in B. S., which relied on CUB decisions by Umpires before SST creation.",
+     "quote": "the Appeal Division expressed its agreement with the reasoning set out by the General Division in B. S. which, in turn had relied on Canadian Umpire Benefit (CUB) decisions rendered by Umpires under the Act before the creation of the SST.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Attorney General submits B. S. and CUB decisions were irrelevant because they involved penalties under section 38, which were not imposed on Ms. Emamifar.",
+     "quote": "The Attorney General submits that B. S. and these CUB decisions were irrelevant because they involved circumstances in which the Commission had assessed penalties against the claimant for making false statements or representations under section 38 of the Act. Since penalties were not imposed on Ms. Emamifar, the Attorney General submits it was unreasonable for the Appeal Division to rely on B. S. and, indirectly, on the CUB decisions, to interpret and apply subsection 52(5).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Appeal Division relied on General Division and CUB decisions; the Attorney General argues these were irrelevant due to penalty context.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is no merit to the Attorney General's argument; B. S. used CUB decisions to conclude failure to submit reports is not a statement or representation.",
+     "quote": "There is no merit to this argument. In B. S., the General Division relied on the CUB decisions to conclude that the failure to submit reports cannot be considered “a statement or representation” and, therefore, a false or misleading statement or representation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is not unreasonable for the Appeal Division to adopt the General Division's reasoning interpreting these terms.",
+     "quote": "It is not unreasonable for the Appeal Division to adopt the reasoning of the General Division in interpreting the meaning of these terms.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the Attorney General's argument and finds the Appeal Division reasonably adopted General Division's reasoning on 'statement or representation'.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Attorney General bore the burden to show the Decision was unreasonable by identifying significant flaws.",
+     "quote": "As the party challenging the Decision, the Attorney General bore the burden to show that it was unreasonable by identifying sufficiently central or significant shortcomings or flaws in the Decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Attorney General failed to meet the burden to show the Decision was unreasonable.",
+     "quote": "In my view, for the foregoing reasons, the Attorney General has failed to meet its burden.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Attorney General failed to show the Decision was unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I would dismiss the application for judicial review and not order costs as Ms. Emamifar did not participate.",
+     "quote": "I would dismiss this application for judicial review. Since Ms. Emamifar did not participate in the proceedings, I would not order costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application and declines to order costs due to non-participation by Ms. Emamifar.",
+   "role": "disposition"
+  }
+ ]
+}

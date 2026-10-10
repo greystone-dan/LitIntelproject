@@ -1,0 +1,1531 @@
+{
+ "case_id": 29590,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0280744,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Applicants seek judicial review of the Refugee Appeal Division decision under section 72 of IRPA.",
+     "quote": "The Applicants seek the judicial review of the decision made by the Refugee Appeal Division [RAD]. The judicial review is made under section 72 of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RAD decision affirmed the Refugee Protection Division's finding that Applicants are neither Convention refugees nor persons in need of protection.",
+     "quote": "...concerns the appeal decision which affirmed the decision of the Refugee Protection Division [RPD] finding that the Applicants are neither Convention refugees nor persons in need of protection (sections 96 and 97 of IRPA).",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants seek judicial review of RAD decision affirming RPD's finding that Applicants are not Convention refugees or persons in need of protection, under IRPA section 72.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD and RAD concluded Principal Applicant's credibility was determinative for all Applicants.",
+     "quote": "Both the RPD and the RAD concluded that the credibility of the Principal Applicant, Sabib Singh, was the determinative issue for all four of the Applicants.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant's testimony changed during RPD hearing and evolved on appeal with new evidence and allegations.",
+     "quote": "During the RPD hearing, the Principal Applicant’s testimony changed when asked about the same events more than once. On appeal, his narrative evolved again as he sought to introduce new evidence and allegations.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD and RAD found Principal Applicant's credibility determinative; his testimony changed during hearing and evolved on appeal with new evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD's decision was reasonable, properly assessed credibility and new evidence per IRPA and case law; application dismissed.",
+     "quote": "For the reasons that follow, I find that the RAD’s decision was reasonable. The RAD appropriately made findings on the Principal Applicant’s credibility and considered whether to admit new evidence in accordance with the IRPA and established case law. Therefore, this application will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD decision reasonable, properly assessed credibility and new evidence, and dismisses application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants are Indian Sikh family; Principal Applicant was a farmer owning a dairy farm in Karnal.",
+     "quote": "The Applicants are a family of Indian nationality and Sikh faith. The Principal Applicant was a farmer who owned a dairy farm in the city of Karnal.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Principal Applicant fears persecution from Indian police acting for Ms. Davinder Kaur (Gogi), sister of his childhood friend.",
+     "quote": "He alleges that he fears persecution from the Indian police acting on behalf of Ms. Davinder Kaur (“Gogi”). Gogi is the sister of the Principal Applicant’s childhood best friend, Jatinder Singh.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Gogi and her husband's family are well-connected in army and ruling party.",
+     "quote": "The Principal Applicant asserts that Gogi and her husband’s family are well-connected members of the army and India’s ruling party.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants are Indian Sikh family; Principal Applicant fears persecution from police acting for Gogi, who is well-connected politically and militarily.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Principal Applicant's fear stems from four incidents over two decades: 2001, 2010, 2017, and 2019.",
+     "quote": "The Principal Applicant’s fear of persecution stems from four incidents that occurred over a period of two decades.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "2001: Principal Applicant angered Gogi over adoption plan of Jatinder's son.",
+     "quote": "The first incident happened in 2001, when the Principal Applicant angered Gogi by being critical of her plan to adopt her brother (Jatinder)’s son.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "2010: Gogi threatened to kill Principal Applicant over family property dispute.",
+     "quote": "Next, in 2010, Gogi allegedly threatened to kill the Principal Applicant after he again interfered in her family affairs, this time concerning the division of property between Gogi and her brother.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "2017: Gogi bribed police to torture and falsely charge Principal Applicant over Sikh temple construction.",
+     "quote": "Third, the Principal Applicant alleges that in 2017, Gogi resorted to bribing local police officials to subject him to torture and falsely implicate him in criminal charges related to his role in the construction of a Sikh temple.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "2019: Police issued 'wanted notice' served on friend after Applicants arrived in Canada in 2017.",
+     "quote": "The final incident arose after the Applicants’ arrival in Canada but prior to the RPD hearing. ... local police in India issued a “wanted notice” of the Principal Applicant and served it on his friend, Neelam Notna, on September 20, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants arrived in Canada June 25, 2017; sought refugee protection December 28, 2017.",
+     "quote": "He and his family arrived in Canada on June 25, 2017. The Applicants sought refugee protection on December 28, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Applicant's fear arises from four incidents (2001, 2010, 2017, 2019); Applicants arrived Canada June 2017, sought protection December 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Significant time gaps exist between alleged incidents; Principal Applicant described intervening 'minor incidents' not documented in BOC.",
+     "quote": "As can be seen, there are significant time gaps between the alleged incidents ... he chose not to document them on his Basis of Claim form (BOC) nor in subsequent amendments to his BOC.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant unable to answer basic questions about nature and content of incidents during time gaps at RPD hearing.",
+     "quote": "During the RPD hearing, the Principal Applicant was not able to answer basic questions when prompted to provide further information regarding the nature and content of these incidents on the time gaps.",
+     "answers": 0
+    }
+   ],
+   "summary": "Significant time gaps between incidents; Principal Applicant described minor incidents but did not document them and could not explain at RPD hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "2001 incident: Principal Applicant upset Gogi by opposing adoption of Jatinder's son by Gogi.",
+     "quote": "The Principal Applicant alleges that his childhood friend Jatinder gave up his son Akashdeep for adoption to his sister Gogi. The Principal Applicant claims that he upset Gogi by trying to convince Jatinder not to go through with the adoption.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Gogi has held a grudge against Principal Applicant since 2001 incident.",
+     "quote": "According to him, Gogi has held a grudge against him since this incident.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Applicant alleges 2001 incident where he upset Gogi over adoption, causing her to hold a grudge.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "No information provided about events from 2001 to 2010.",
+     "quote": "The Principal Applicant provides no information about any event arising over the next nine years (i.e. from 2001 to 2010).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "2010 incident: Gogi sought to reverse adoption after family argument; Principal Applicant involved and received death threat.",
+     "quote": "At some point in 2010, Gogi allegedly sought to reverse the adoption ... The Principal Applicant involved himself by engaging in a verbal altercation with Gogi in which he claims he received a death threat.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Principal Applicant began fearing for his life in 2010.",
+     "quote": "Based on the Principal Applicant’s testimony, he began fearing for his life at that time.",
+     "answers": 0
+    }
+   ],
+   "summary": "No events described 2001-2010; 2010 incident involved adoption reversal, death threat, and start of fear for life.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD questioned Principal Applicant about 2010-2017 period; he described only 'small incidents' and new contentions about being followed.",
+     "quote": "The Principal Applicant stated that only “small incidents” happened over this period. ... he was “forced to save his life” after noticing Gogi and others were following him on the street.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant did not mention these incidents in BOC or amendments; explained as 'small incidents' not worth mentioning.",
+     "quote": "The Principal Applicant stated as follows: “For me, there was small incidents that happened on me. If there was an attack on my life with some weapon, I would have mentioned it.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD questioned Principal Applicant about 2010-2017; he described small incidents not in BOC, explaining they were minor.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found inconsistencies in residency and travel history: Karnal residence dates conflicted between forms and testimony.",
+     "quote": "The RPD member also sought to resolve inconsistencies regarding the residency and travel history of the Applicants.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant explained inconsistencies by interpreter error and family advice to move to Karnal after incidents.",
+     "quote": "When given the opportunity to explain the apparent contradictions, the Principal Applicant first stated that there may have been an error on the part of the interpreter, and then explained that his mother was living in Karnal and had advised him to move there following the two “small incidents” in 2010 and 2014 respectively.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found inconsistencies in residency dates; Principal Applicant explained by interpreter error and family advice to move after incidents.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicants traveled to France and Eastern Europe in 2016 for tourism.",
+     "quote": "The Applicants’ passports reveal that they traveled for tourism purposes to France and Eastern Europe in 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant did not seek asylum abroad during travel because he had not been physically attacked and situation was expected to deescalate.",
+     "quote": "When asked why he had not claimed asylum over the course of these touristic trips, the Principal Applicant responded that since he had not yet been physically attacked, he did not feel the need to seek asylum abroad.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants traveled to Europe in 2016; Principal Applicant did not seek asylum abroad as he had not been physically attacked.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants applied for temporary resident visas to visit Canada on April 9, 2017.",
+     "quote": "On April 9, 2017, the Applicants applied for temporary resident visas to visit Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants applied for temporary resident visas to visit Canada on April 9, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant involved in Sikh temple construction in Manchuri near Karnal; had no links to village.",
+     "quote": "It is around this time that the Principal Applicant says he got involved in building a Sikh temple (Gurdwara) in the village of Manchuri, near the city of Karnal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD questioned Principal Applicant's role and importance of temple; he gave vague answers about collecting money and supervisory role.",
+     "quote": "He did not respond to the question. Instead, he replied that the land had previously belonged to a Sikh person. He was also asked three times to explain specifically what his role was in the construction of the temple. The Principal Applicant ended up stating that he and others “collected money” and that he had a supervisory role.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant said Sikh community was poor and he was raising his voice for Sikhs without details.",
+     "quote": "He reiterated that the state of the Sikh community in his area was very poor and that he was “raising [his] voice” for the Sikhs without providing further details.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Applicant involved in Sikh temple construction near Karnal; gave vague answers about role and advocacy for Sikhs.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "BOC states local MLA neglected temple construction causing confrontation on April 28, 2017.",
+     "quote": "According to the Principal Applicant's BOC, a local MLA intentionally neglected and delayed the construction of the temple, leading to a confrontation on April 28, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Amended BOC alleges Principal Applicant was physically obstructed by 15-20 individuals at construction site on April 28, 2017.",
+     "quote": "In a subsequent amendment to his BOC, the Principal Applicant alleges that on that day, he attempted to access the construction site to begin building. However, when he arrived, he was met by 15-20 individuals and was physically obstructed from accessing the site.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Principal Applicant changed narrative to say Gogi was present and invited MLA to obstruct him, but did not explain omission.",
+     "quote": "During the hearing, the Principal Applicant changed his narrative. He stated for the first time that Gogi was present and it was she who had invited the MLA to obstruct his passage. ... The Principal Applicant did not answer the question.",
+     "answers": 0
+    }
+   ],
+   "summary": "BOC alleges MLA neglected temple construction; amended BOC says Principal Applicant was obstructed by 15-20 people including Gogi, newly alleged at hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Principal Applicant claims he was tortured by police at station on April 28, 2017, under Gogi's orders.",
+     "quote": "That same day, the Principal Applicant attended a nearby police station to file a complaint against the MLA. It is there that he claims he was “tortured” by the local police acting under Gogi’s orders.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He was detained overnight, beaten with belts and kicked, questioned about Sikh terrorists and involvement in Manchuri village.",
+     "quote": "he was detained over night in police custody and was hit with belts and kicked in the stomach and on the back for over an hour. The officers allegedly demanded information concerning Sikh terrorists, questioned him regarding his interest in the Manchuri village",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Police advised him to stop involvement in Gogi and Jatinder family matters.",
+     "quote": "and advised him to stop getting involved in the family matters of Gogi and Jatinder.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Applicant claims police tortured him on April 28, 2017, beating and questioning him about Sikh terrorists and family matters.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant tendered medical report from Montreal clinic dated January 7, 2019, showing leg rod displacement from past fracture.",
+     "quote": "Later during the hearing, the Principal Applicant was asked questions related to a medical report he tendered as evidence that was issued by the Metro-Medic Clinic in Montreal on January 7, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He explained rod displacement was due to torture in April 2017 and required care in Montreal.",
+     "quote": "He went on to explain that due to the torture he sustained at the hands of the police on April 28, 2017, the rod had moved and he required additional care in Montreal for his leg.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant did not mention leg injury earlier; said he only realized severity after arriving in Montreal.",
+     "quote": "When asked why he did not mention hurting his leg earlier when questioned about injuries related to the torture incident, the Principal Applicant responded that he only became aware of the severity of his injuries after arriving in Montreal.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Applicant submitted 2019 medical report showing leg injury from torture; said he only realized severity after arriving in Montreal.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants obtained temporary resident visas May 2, 2017, less than a week after April 27-28 events; arrived June 25, 2017; sought refugee protection December 28, 2017.",
+     "quote": "Having applied for visas on April 9, 2017, the Applicants obtained temporary resident visas to visit Canada on May 2, 2017, less than one week after the events of April 27 and 28. They arrived in Canada on June 25, 2017, and sought refugee protection six months later on December 28, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants obtained visas May 2, 2017, arrived June 25, 2017, and sought refugee protection December 28, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant alleged police issued 'wanted notice' served on friend in 2019, two years after leaving India.",
+     "quote": "In a subsequent amendment to his BOC, the Principal Applicant asserted that police had issued a “wanted notice” in his name and served it on his friend Neelam Notna on September 20, 2019, more than two years after having left India.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found photograph on 'wanted notice' identical to one taken in Montreal in December 2017, undermining claim.",
+     "quote": "The RPD identified blatant similarities between this photograph and the one submitted with his refugee protection claim forms in December 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Principal Applicant could not explain identical photos; claimed police must have used same clothes photo from April 28, 2017 arrest.",
+     "quote": "When asked about the identical nature of both photos, the Principal Applicant responded that he did not know where the police had found the photograph and that he must have been wearing the same clothes on April 28, 2017, when he was arrested.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Applicant alleged 2019 'wanted notice' photo identical to 2017 Montreal photo; RPD found this undermined credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD denied refugee claim due to Principal Applicant's credibility deficiencies.",
+     "quote": "The RPD denied the Applicants’ refugee protection claim for the deficiencies of the Principal Applicant’s credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD summarized credibility issues: 'warrant notice' contradicted by evidence; improper service; identical photos unexplained; omission of Gogi's presence unexplained; unsatisfactory injury explanation; travel undermined fear claim; 2014 incident contradicted BOC.",
+     "quote": "The series of inconsistencies and contradictions the RPD found regarding the credibility of the Principal Applicant are summarized as follows: ...",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD denied claim due to credibility deficiencies including contradictions about warrant notice, photos, omissions, injury, travel, and 2014 incident.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants appealed RPD decision on grounds of unfair hearing and erroneous credibility assessment.",
+     "quote": "The Applicants appealed the RPD’s decision on two grounds. First, the Applicants argued that they did not have a fair hearing before the RPD because the panel failed to consider the Principal Applicant’s evidence or listen to his explanations. Second, it was contended that the RPD erred in its assessment of the Principal Applicant’s credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants appealed RPD decision alleging unfair hearing and errors in credibility assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The decision under review is that of the Refugee Appeal Division.",
+     "quote": "The decision under review is that of the Refugee Appeal Division.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the decision under review is that of the Refugee Appeal Division.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants attached eight additional exhibits as new evidence to the Principal Applicant's affidavit for appeal before the RAD.",
+     "quote": "the Applicants attached eight additional exhibits to his affidavit as new evidence seeking to have it admitted in accordance with subsection 110(4) of the IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) of IRPA governs admissibility of new evidence on appeal before the RAD.",
+     "quote": "Section 110(4), which governs the admissibility of new evidence on appeal before the RAD, provides the following: Evidence that may be presented Éléments de preuve admissibles (4) On appeal, the person who is the subject of the appeal may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue for admission of eight new exhibits under IRPA s.110(4); court explains s.110(4) governs new evidence admissibility before RAD.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The new evidence consists of five undated affidavits by neighbours, a letter by Jatinder Singh's son, a medical certificate, and an excerpt from Indian Code of Criminal Procedure.",
+     "quote": "The new evidence consisted of five undated affidavits signed by the Applicants’ neighbours (Exhibits A-E), an undated letter written by Jatinder Singh’s son (Exhibit F), a medical certificate concerning Jatinder Singh dated February 9, 2021 (Exhibit G), as well as an excerpt from the Indian Code of Criminal Procedure, 1973 (Exhibit H).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Summaries of each exhibit A to H are provided describing their contents and assertions.",
+     "quote": "I summarize the new evidence as follows: Exhibit A: An affidavit accompanied with a letter signed by Neelam Notna... Exhibit H: An excerpt from the Indian Code of Criminal Procedure, 1973.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the new evidence exhibits A to H, including affidavits, letter, medical certificate, and legal excerpt.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Three affidavits (Exhibits C, D, E) are identical except for addresses, signatures, and names.",
+     "quote": "It is important to note that three of the affidavits (Exhibits C, D and E) are identical, save for the addresses, signature and names appearing on the three affidavits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The affidavits warn the Principal Applicant against returning to India due to police search and allege illegal torture by police linked to Gogi.",
+     "quote": "Savinder Kaur’s affidavit states: 1. 1 have known to sahib Singh personally since 2014... Police often come to his neighbors including me (Savinder Kaur) for assigning about him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes three affidavits are identical and warn against return to India due to police search and alleged torture linked to Gogi.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "The RAD considered whether to admit the eight exhibits as new evidence applying criteria from FCA decisions Singh and Raza.",
+     "quote": "the RAD considered whether to admit the eight exhibits introduced by the Applicants as new evidence. The RAD applied the criteria established by two Federal Court of Appeal decisions (Canada (Citizenship and Immigration) v Singh, 2016 FCA 96...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD admitted only the Indian Criminal Code excerpt (Exhibit H) and did not hold an oral hearing as it was not central to its decision.",
+     "quote": "The RAD ruled that it would only admit the excerpt from the Indian Criminal Code (Exhibit H). Since this evidence was not central to its decision, the RAD did not find cause to hold an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD admitted only Exhibit H applying FCA criteria and declined oral hearing as evidence was not central.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD did not admit Exhibits A to G due to lack of credibility, reliability, or reasonable availability before claim rejection under IRPA s.110(4).",
+     "quote": "The RAD did not admit the remaining seven exhibits (Exhibits A to G) on the basis that they lacked credibility, reliability, or were reasonably available before the rejection of the Applicants’ claim under subsection 110(4) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD excluded Exhibits A to G for lacking credibility, reliability, or reasonable availability before claim rejection.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The credibility of Exhibits A to E was undermined by grammatical and spelling errors in the notary's seal and lack of dates.",
+     "quote": "The credibility of the first five exhibits (Exhibits A to E)... were undermined in two ways. First, by the presence of a grammatical and a spelling error in the notary’s official wet seal... Second, none of these documents were dated.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found Exhibits A to E lacked credibility due to errors in notary seals and absence of dates.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Admissibility under IRPA s.110(4) must comply with explicit provision and five implied conditions from Singh/Raza: credibility, relevance, newness, materiality, express statutory conditions.",
+     "quote": "In Singh, the Federal Court of Appeal held that a determination of the admissibility of evidence under section 110(4) must always ensure compliance with the explicit requirements of the provision, but can also be guided by the five “implied” conditions of admissibility identified by Justice Sharlow in Raza (Singh, para 38). These are: credibility, relevance, newness, materiality, and express statutory conditions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Even if Exhibits A to E were dated and error-free, they would not meet IRPA s.110(4) criteria under Singh/Raza framework.",
+     "quote": "The RAD noted that in any event (i.e. even if five exhibits were dated and did not contain spelling and grammatical errors on the seal), the new evidence did not meet the criteria required under subsection 110(4) of the IRPA, as interpreted under the Singh/Raza framework.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD applied Singh/Raza criteria and found Exhibits A to E would not meet IRPA s.110(4) admissibility even if error-free.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Exhibit A did not meet any Singh/Raza criteria; RAD gave no fuller explanation for this finding.",
+     "quote": "The RAD held that Exhibit A did not meet any of the Singh/Raza criteria, but it did not provide a fuller explanation for why the criteria were not met (RAD decision, para 9, 14).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Exhibits B to F were not admitted because events described may not have occurred after claim rejection or could have been presented earlier with diligence.",
+     "quote": "The RAD did not admit the next five exhibits (Exhibits B to F) because it could not ascertain whether the events described in the documents had occurred after the Applicants’ claims were rejected by the RPD or why steps taken to secure such evidence could not have been taken with appropriate diligence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Evidence in Exhibits B to F could reasonably have been expected to be presented before the RPD, so did not meet s.110(4) requirements.",
+     "quote": "Moreover, that evidence could reasonably have been expected to have been presented before the RPD. As such, the evidence could not meet the requirements of s. 110(4).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found Exhibits A to F inadmissible for failing Singh/Raza criteria and reasonable availability before RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Exhibit G medical certificate dated before claim rejection was inadmissible as it could have been presented to the RPD.",
+     "quote": "The certificate was issued before the claim was rejected by the RPD. The RAD held this was inadmissible on the basis that it could have reasonably been put before the RPD...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Exhibit G did not meet IRPA s.110(4) criteria for new evidence.",
+     "quote": "and therefore did not meet the criteria under subsection 110(4) of the IRPA.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RAD excluded Exhibit G medical certificate as it was issued before claim rejection and could have been presented earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD declined to consider four new allegations in Principal Applicant’s affidavit as they arose before RPD hearing.",
+     "quote": "The RAD also declined to consider four new allegations presented by the Principal Applicant in his affidavit on the basis that they arose before the RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The four allegations involved Gogi's family connections, a 2014 car incident, and a wanted notice photograph.",
+     "quote": "The allegations were as follows: Gogi's husband and extended family are in the Indian army... The photograph on a wanted notice issued by the Indian police was likely obtained by the police searching for the Principal Applicant through his social media accounts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD rejected four new allegations as they arose before the RPD hearing, involving Gogi's family and a wanted notice.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD admitted only one exhibit and proceeded to consider the merits of the appeal.",
+     "quote": "After making the determination that only one of the eight exhibits should be admitted into evidence, the RAD moved on to consider the merits of the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD held Applicants had a fair hearing and RPD did not err in assessing Principal Applicant’s credibility.",
+     "quote": "It held that the Applicants had received a fair hearing and the RPD did not err in its assessment of the Principal Applicant’s credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD admitted one exhibit, found the hearing fair, and upheld RPD's credibility assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found no error in procedural fairness: Applicants had opportunity to present evidence, interpreter, counsel, submissions, and reasons.",
+     "quote": "In this case, the appellants had the opportunity to present their evidence to the RPD at the hearing... The appellants benefited from having an interpreter and were represented by counsel before the RPD... When it rendered its decision rejecting the refugee protection claim, the RPD gave the appellants its reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicants did not explain how RPD failed to deliver a fair hearing.",
+     "quote": "the Applicants had not explained how the RPD had failed to deliver a fair hearing.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RAD found no procedural fairness error and noted Applicants did not explain any failure by the RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found no reasonable apprehension of bias under Committee for Justice and Liberty test.",
+     "quote": "Nor did the RAD find that the Applicants had established the existence of a reasonable apprehension of bias pursuant to the test in Committee for Justice and Liberty et al v National Energy Board et al., [1978) 1 SCR 369.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found no reasonable apprehension of bias as per established test.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD made adverse credibility findings due to inconsistencies between testimony and BOC, delayed departure from India, and omissions about torture incidents.",
+     "quote": "The RAD made an adverse credibility finding from how the Principal Applicant’s testimony about the threats and incidents allegedly involving Gogi did not match the information set out in his BOC or its amendments...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Credibility undermined by delayed departure despite death threat and tourism travel in 2016.",
+     "quote": "The Principal Applicant’s credibility was further undermined by his decision not to leave India until 2017, despite claiming that he had received a death threat in 2010 and travelled abroad for tourism purposes in 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Credibility issues with testimony about Sikh temple construction and omissions about torture on April 28, 2017.",
+     "quote": "The RAD also found credibility issues with the Principal Applicant’s testimony concerning his involvement with the construction of the Sikh temple and omissions related to the alleged incidents of torture on April 28, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant initially said MLA prevented construction; later said Gogi was present and brought MLA.",
+     "quote": "In particular, the Principal Applicant had initially testified that an MLA accompanied by 15 to 20 people prevented him from starting construction of the temple. Later during his testimony, the Principal Applicant stated that Gogi was present at the construction site that day and had brought the MLA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found multiple credibility issues with the Principal Applicant’s testimony and omissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD upheld RPD’s finding to give no weight to wanted notice due to unreliable photograph origin.",
+     "quote": "Finally, the RAD upheld the RPD’s finding that no weight should be given to a wanted notice that the Principal Applicant claimed was issued by Indian police.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The wanted notice photo was taken in Montreal in 2017, undermining its reliability and the Principal Applicant’s credibility.",
+     "quote": "The wanted notice featured the same photograph of the Principal Applicant that he had submitted with his refugee protection claim form. This photograph was taken at a photography shop, on Jean-Talon Avenue in Montreal, on December 20, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Without satisfactory explanation for photo origin, wanted notice was unreliable and undermined credibility overall.",
+     "quote": "The RAD held that absent a satisfactory explanation for how this photograph came to be in the possession of the Indian police, the wanted notice was not a reliable document and the anomaly undermined the Principal Applicant’s credibility overall.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the wanted notice unreliable due to photo origin and this undermined the Principal Applicant’s credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants seek judicial review and remittal, arguing RAD’s refusal to admit new evidence was unreasonable.",
+     "quote": "The Applicants ask the Court to grant their judicial review application and remit the matter to another decision maker. Their central argument is that the RAD’s refusal to admit new evidence was unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue admitted new evidence would establish ongoing threat from Gogi and Indian state.",
+     "quote": "The Applicants argue that had this new evidence been admitted, they would have necessarily established an ongoing threat of danger faced by the Applicants from the agent of persecution (Gogi) and the Indian state.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RAD unreasonably refused new evidence which would show ongoing threat from Gogi and Indian state.",
+   "role": "issue"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants rely on cases that minor typographical errors should not discredit legitimate documents.",
+     "quote": "The Applicants rely on several cases that stand for the proposition that superficial or minor typographical errors in grammar and spelling ought not to be used as a scapegoat to otherwise discredit legitimate documents.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants cite Ali, Ayeni, and Enamejewa cases to argue spelling and grammatical errors in seals are minor typographical errors.",
+     "quote": "In Ali v Canada... Justice Zinn set aside the decision... The Applicants analogize to Ali and similar cases to argue that the spelling and grammatical error in the official wet seal was a minor typographical error...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue minor typographical errors in seals should not discredit documents, citing Ali, Ayeni, and Enamejewa cases.",
+   "role": "issue"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants’ counsel clarified that even if RAD’s refusal to admit evidence was reasonable, the overall credibility assessment was unreasonable.",
+     "quote": "During the hearing, counsel to the Applicants clarified that even if the Court finds that it was reasonable for the RAD not to admit the new evidence, the RAD’s assessment of the Principal Applicant’s credibility was unreasonable as a whole.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RAD’s overall credibility assessment was unreasonable even if refusal to admit evidence was reasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent seeks dismissal of judicial review, arguing RAD’s decision was reasonable.",
+     "quote": "The Respondent seeks the dismissal of this application for judicial review on the basis that the decision of the RAD was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues RAD’s decision was reasonable and seeks dismissal of judicial review.",
+   "role": "issue"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD reasonably rejected affidavits and letters as undated and with significant errors on an official Indian Notary seal",
+     "quote": "The Respondent argues that the RAD reasonably rejected the admission of the affidavits and letters (Exhibits A to E) because these documents were not dated and the grammatical and the spelling error found on an official wet seal of an Indian Notary is no minor typographical error.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent relies on Mohamed v Canada to support adverse inferences from errors in official documents",
+     "quote": "On the latter argument, the Respondent refers the Court’s attention to Mohamed v Canada (Citizenship and Immigration), 2022 FC 55, where Justice Bell was asked to determine whether it was reasonable for the RAD to draw adverse inferences against a claimant’s ability to establish his identity based on errors in government and educational documents.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Mohamed v Canada supports that errors in official documents can justify adverse inferences about credibility",
+     "quote": "I cannot say it was unreasonable for the RAD to take that factor into consideration. It was reasonably open for the RAD to find that the use of dated stamps cast doubt on the genuineness of these documents.",
+     "answers": 2
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Spelling mistakes on government stamps on official documents can be a valid concern for credibility",
+     "quote": "While the Applicant relies on Oranye to argue that the presence of spelling mistakes in a document is insufficient to justify a finding of fraud, that case is distinguishable.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Oranye concerned spelling errors in personal affidavits, not official government documents",
+     "quote": "In Oranye, this Court was concerned about the RAD’s treatment of spelling errors in a personal affidavit. Here, the RAD addressed spelling mistakes on government stamps placed on allegedly official documents.",
+     "answers": 3
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Azenabor supports that differences in fonts and typographical errors in official documents can justify concerns about credibility",
+     "quote": "In Azenabor v. Canada (Citizenship and Immigration), 2020 FC 1160 [“Azenabor”], this Court stated: [31] Again, I find the RAD’s reliance on these issues as one element of its assessment of the documents to be reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Material errors in printed portions of official documents raise greater concerns than clerical errors in body text",
+     "quote": "With respect to the typographical errors, there is a difference in my view between a clerical error in the body of a document and material errors in the printed portions of what is contended to be an official corporate identity card.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues RAD reasonably rejected undated affidavits with errors on official seals, citing Mohamed, Oranye, and Azenabor cases on document credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD reasonably refused to admit new evidence about gunshot wound to Principal Applicant’s friend Jatinder Singh",
+     "quote": "The Respondent also argues that the RAD reasonably refused to admit new evidence related to the gunshot wound allegedly suffered by the Principal Applicant’s friend Jatinder Singh.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Information was available before RPD hearing, so RAD’s rejection of admissibility was reasonable",
+     "quote": "The Respondent contends that since the information was available prior to the RPD hearing, the RAD’s decision to reject their admissibility was reasonable.",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent argues RAD reasonably refused to admit evidence about gunshot wound as it was available before RPD hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Evidence has little probative value due to Applicants’ lack of credibility, main hurdle to claim",
+     "quote": "The Respondent relies on the RAD’s concerns regarding the Applicants’ lack of credibility as being the main hurdle to the Applicants’ claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues evidence has little probative value because of Applicants’ credibility issues, main hurdle to claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Standard of review is reasonableness per Supreme Court in Vavilov",
+     "quote": "The parties submit, and I agree, that the standard for reviewing this application is reasonableness, as established by the Supreme Court in Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, [2019] 4 SCR 653 [Vavilov].",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonable decision must show justification, transparency, and intelligibility",
+     "quote": "A reasonable decision bears the hallmarks that are justification, transparency, and intelligibility, and the decision is justified in light of the relevant legal and factual constraints (para 99).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees standard of review is reasonableness requiring justification, transparency, and intelligibility per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issue: Did RAD reasonably refuse to accept Applicants’ evidence on appeal? Was RAD’s decision reasonable if evidence inadmissible?",
+     "quote": "The parties also agree on the issues, which can be framed as follows: Did the RAD reasonably refuse to accept the Applicants’ evidence submitted on appeal? Even if the new evidence is not admissible, was the RAD’s decision reasonable?",
+     "answers": 0
+    }
+   ],
+   "summary": "Court frames issue whether RAD reasonably refused Applicants’ evidence and if decision was reasonable even if evidence inadmissible.",
+   "role": "issue"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasons must justify and explain outcomes to ensure transparency and intelligibility per Vavilov",
+     "quote": "Reasons must justify and explain how outcomes are reached, as stated in Vavilov, to ensure transparency and intelligibility to those affected (Vavilov, para 95).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Rationale is as important as outcome; defective reasons fail transparency standard",
+     "quote": "The rationale for the decision is as important as the outcome itself (Vavilov, para 96). Defective justifications fail to meet the transparency and intelligibility standard, although minor issues may not be fatal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasons required for key elements of decision, especially with significant personal impact or harm",
+     "quote": "However, if reasons are required for a key element of the decision, they must be provided (Vavilov, para 133). Decisions with significant personal impact or potential harm require reasons that reflect the stakes (Vavilov, para 133).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states reasons must justify outcomes with transparency and intelligibility, especially for key elements and significant impact, per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reviewing courts ensure understanding but do not substitute their own reasons; must respect tribunal’s role",
+     "quote": "Reviewing courts ensure understanding of the decision maker's reasoning but should not provide their own reasons. They operate from the starting point of the principle of restraint and “adopt an appropriate posture of respect” (Vavilov, paras 13-14, 75).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Review is robust but not rubber stamping; courts control legality and reasonableness of decision",
+     "quote": "It is not because a reviewing court starts from the principle of restraint and adopts a posture of respect that the review for reasonableness is meaningless. As the Vavilov Court points out “it is not a “rubber stamping” process or a means of sheltering administrative decision makers from accountability. It remains a robust form of review” (para 13).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains reviewing courts respect tribunal’s role, do not substitute reasons, but conduct robust reasonableness review per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Federal Court of Appeal in Singh confirmed reasonableness standard applies to admissibility of new evidence",
+     "quote": "The Federal Court of Appeal in Singh confirmed that the reasonableness standard applies to decisions on the admissibility of new evidence (Singh para 29).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Subsection 110(4) conditions must be met before considering probative value or credibility",
+     "quote": "Subsection 110(4) conditions are essential and must be met before considering other criteria like probative value or credibility (Singh para 35-36).",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker held reasonableness standard applies to new evidence admissibility; s.110(4) conditions must be met first.",
+   "role": "law"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) IRPA allows RAD to accept new evidence only if it emerged after RPD decision, was unavailable, or could not reasonably be presented",
+     "quote": "According to section 110(4) of the IRPA, the RAD could only accept new evidence if: (a) it emerged after the RPD decision, (b) it was not reasonably available at the time of the decision, or (c) the applicant could not reasonably have been expected to present the evidence to the RPD before its decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "RAD must consider credibility, relevance, newness, and materiality when deciding admissibility under s.110(4)",
+     "quote": "In determining the admissibility of new evidence under subsection 110(4), the RAD must also have regard to the implicit considerations of admissibility with respect to its credibility, relevance, newness, and materiality (see Singh at paras 38-49 citing Raza at paras 13-15).",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker held RAD may accept new evidence only if s.110(4) criteria met and must consider credibility, relevance, newness, materiality.",
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD appeal is not an opportunity to submit additional evidence to address RPD vulnerabilities",
+     "quote": "I pause here to note that an RAD appeal does not serve as an opportunity to submit additional evidence to address the vulnerabilities highlighted by the RPD (see: Firooznam v. Canada (Citizenship and Immigration), 2023 FC 571 at para 27 citing to Abdullahi v Canada (Citizenship and Immigration), 2016 FC 260 at para 15).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicants submitted new evidence to bolster credible threat argument",
+     "quote": "In this case, the Applicants submitted new evidence to bolster their argument that they faced a credible threat in India.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes RAD appeal is not for new evidence to fix RPD issues; Applicants submitted new evidence to bolster threat claim.",
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD analyzed each new evidence piece and admitted only Indian Criminal Code passage",
+     "quote": "In my view, the RAD undertook a detailed analysis of each new piece of evidence presented before it (see paras 23-36 of my reasons). It reasonably concluded that it would only admit the passage of the Indian Criminal Code (Exhibit H),",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Remaining evidence could have been presented to RPD or was not credible or relevant",
+     "quote": "because the remaining evidence either could have been put to the RPD, or the evidence was neither credible nor relevant.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No reviewable errors in RAD rejecting affidavits, letter, and medical certificate evidence",
+     "quote": "I do not see any reviewable errors in how the RAD rejected the remaining evidence (i.e. the five undated affidavits signed by the Applicants’ neighbours (Exhibits A-E), the undated letter written by Jatinder Singh’s son (Exhibit F) and Jatinder Singh’s medical certificate (Exhibit G)).",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds RAD reasonably admitted only Indian Criminal Code passage and properly rejected other evidence as not credible, relevant, or timely.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably found undated affidavits with errors on notary seal lacked credibility",
+     "quote": "It was reasonable for the RAD to conclude that the first five exhibits (i.e. the undated documents that had grammatical and spelling errors in the wet seals applied by a notary), lacked credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Official notary seal errors are akin to misspelled government stamps on official documents",
+     "quote": "These were no mere typographical mistakes. The official seal of a notary is more akin to a misspelled government stamp placed on an allegedly official document (as was the case in Mohamed v Canada (Citizenship and Immigration) at para 24).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Affidavits could have been presented to RPD as they concern pre-hearing events, so s.110(4) criteria not met",
+     "quote": "Furthermore, with greater due diligence, these five affidavits could have been put before the RPD, as they contain information about events that occurred prior to the hearing. Consequently, this evidence doesn't meet the criteria in s. 110(4) as it could have been presented during the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably rejected undated affidavits with notary seal errors as lacking credibility and timely evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably found letter and medical certificate evidence inadmissible under s.110(4)",
+     "quote": "The RAD reasonably concluded that the remaining evidence (i.e. Akashdeep Singh’s letter and Jatinder Singh’s medical certificate) failed to meet any of the criteria specified under section 110(4) of the IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence could have been submitted before RPD; no adequate explanation for failure of due diligence",
+     "quote": "This evidence could have been submitted prior to the RPD hearing, as both exhibits pertain to pre-hearing events. There was no adequate explanation for the failure of due diligence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Undated, unsworn letter and unrelated medical certificate lacked credibility and relevance",
+     "quote": "Furthermore, the undated and unsworn typed letter, along with a medical certificate from an unrelated individual, were appropriately considered lacking in credibility and relevance.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably rejected letter and medical certificate as inadmissible, lacking diligence, credibility, and relevance.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Not convinced RAD was unreasonable in finding new evidence inadmissible except Indian Criminal Code",
+     "quote": "Therefore, I have not been convinced that the RAD was not reasonable in finding that the new evidence was inadmissible but for the reference to the Indian Criminal Code.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes RAD was reasonable in finding new evidence inadmissible except Indian Criminal Code passage.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Applicants chose not to raise procedural fairness issues on judicial review, so issue not before Court",
+     "quote": "While the RAD did address the procedural fairness issues raised on appeal, the Applicants made a deliberate decision not to raise procedural fairness concerns on judicial review. Consequently, this issue is not currently before the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Applicants did not raise procedural fairness on review, so issue is not before Court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably concluded Principal Applicant lacked credibility based on inconsistencies and contradictions",
+     "quote": "Given that the new evidence was found to be inadmissible by application of s. 110(4) and the Raza factors, the only issue to consider is whether the RAD was reasonable in concluding that the Principal Applicant lacked credibility. In my view, the RAD reasonably considered the Principal Applicant’s credibility based on the series of inconsistencies and contradictions in the record before it.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants failed to show RAD’s credibility decision was unreasonable",
+     "quote": "The Applicants did not discharge their burden challenging the decision to show that it was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably concluded Principal Applicant lacked credibility; Applicants failed to show unreasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably made adverse credibility finding due to unexplained identical photo and late mention of Gogi",
+     "quote": "In particular, it was reasonable for the RAD to make an adverse credibility finding given the Principal Applicant’s inability to provide an explanation for how the photograph he submitted for his refugee protection claim was the same as the “warrant notice” issued by a local police station . Nor did the Principal Applicant provide a plausible explanation for why he had failed to mention that Gogi was present on the Sikh temple’s construction site until the moment he was questioned about it during the hearing before the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably made adverse credibility finding due to unexplained identical photo and late mention of Gogi.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably found credibility undermined by omission of leg fracture and rod injury contradicting earlier testimony",
+     "quote": "It was also open for the RAD to find that the Principal Applicant’s credibility was undermined by him omitting the fact that he had suffered a leg fracture which required that a rod be implanted, the said rod being damaged as a result of the “torture”. This directly contradicted his earlier testimony concerning the injuries he had sustained.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Further injury occurred shortly before departure to Canada, unlikely to be forgotten",
+     "quote": "Indeed, the further injury to the leg would have occurred in late April 2017, merely a few weeks before the Applicants’ departure to Canada. It is hard to see how such an event could have been forgotten.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD reasonably concluded credibility undermined by omission of leg fracture and recent injury contradicting testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant must show serious shortcomings in decision to overturn it on judicial review per Vavilov",
+     "quote": "An applicant must on judicial review satisfy the Court “that there are sufficiently serious shortcomings in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency” (Vavilov, para 100). The identified flaw must not be peripheral or superficial.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states applicant must show serious shortcomings in decision to overturn it on judicial review per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Credibility findings can be supported by accumulation of contradictions, inconsistencies, and omissions if not peripheral",
+     "quote": "Lawani v Canada (Citizenship and Immigration), 2018 FC 924, usefully summarized principles applicable to the review of decisions made on the basis of the credibility of an applicant. Not only is the administrative decision maker better positioned to make assessments of testimonies, but an accumulation of contradictions, inconsistencies and omissions can support negative conclusions about the credibility of witnesses as long as the said flaws are not with respect to peripheral issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Searching for microscopic or peripheral issues may constitute reviewable errors",
+     "quote": "An examination of a testimony in search of “microscopic” issues or peripheral issues might well constitute reviewable errors.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains credibility findings can rest on contradictions if not peripheral; searching for minor issues may be error.",
+   "role": "law"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Credibility findings on critical claim elements can extend to the evidence as a whole, using common sense and rationality.",
+     "quote": "credibility findings concerning important or critical elements of a claim can well extend to the evidence as a whole. Common sense and rationality are not excluded from the courtroom.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Conclusions on witness credibility may be based on implausibilities, common sense, and human experience.",
+     "quote": "Conclusions may be reached about a witness’ credibility based on implausibilities, common sense and human experience.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Findings must be sensitive to cultural differences when assessing credibility.",
+     "quote": "I hasten to add that findings must be sensitive to cultural differences.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states credibility findings can consider all evidence using common sense, implausibilities, and must be culturally sensitive.",
+   "role": "law"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Contradictions, omissions, and implausibilities in this case were significant.",
+     "quote": "The contradictions, omissions and, in effect, implausibilities in this case were significant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applicants failed to show shortcomings in the RAD decision that would make it unreasonable.",
+     "quote": "The Applicants could not make a case that there were shortcomings in the RAD decision that could make the decision unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds significant contradictions and that applicants failed to show the RAD decision was unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The judicial review application is dismissed.",
+     "quote": "The judicial review application is dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance was submitted, so no question is certified by the Court.",
+     "quote": "No serious question of general importance was submitted by the parties, and therefore no question is certified by the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review and declines to certify any question of general importance.",
+   "role": "disposition"
+  }
+ ]
+}

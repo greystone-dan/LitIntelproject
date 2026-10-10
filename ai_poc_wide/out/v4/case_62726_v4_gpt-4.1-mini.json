@@ -1,0 +1,567 @@
+{
+ "case_id": 62726,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0069884,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant is a Mexican citizen with a Guatemalan spouse and US citizen children",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The family composition and citizenships are stated",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismisses the appeal despite sympathy for the family",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is a Mexican citizen with a Guatemalan spouse and US citizen children; court dismisses the appeal despite sympathy.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Case arises from US Trump administration policy changes affecting family",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant and spouse entered US illegally as children and sought to regularize status",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant and spouse became eligible for DACA in 2012",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's spouse's DACA renewal was not responded to and he lost work permit in 2018",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Family came to Canada to claim refugee status fearing harm to children if deported to origin countries",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states case arises from US policy changes; applicant and spouse entered US illegally, got DACA, lost status, and came to Canada fearing harm to children if deported.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found applicant and spouse credible",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "issue",
+     "text": "Determinative issue was forward-looking risk in countries of origin",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found violence and poverty feared are generalized risks not differing from others in Mexico and Guatemala",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found risk to children of separation and foster care not persecution or serious harm under IRPA sections 96 and 97",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Sections 96 and 97 IRPA do not include family unity notion; family separation alone insufficient for asylum claim",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found applicant and spouse credible but risks in origin countries generalized; children's separation not persecution under IRPA; family separation alone insufficient for asylum.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants do not contest RPD's findings on Mexico and Guatemala claims",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD erred in finding children not persons in need of protection in US",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants accept RPD's findings on Mexico and Guatemala but argue RPD erred on children's protection claims in US.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court's role is to review all evidence and decide if RPD decision was correct",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with RPD that applicant and spouse were credible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RPD correct that family are neither Convention Refugees nor persons in need of protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence insufficient to establish children would face serious harm in US to qualify under IRPA s.97",
+     "answers": 0
+    }
+   ],
+   "summary": "Court reviews evidence, agrees with RPD on credibility and protection findings, finds insufficient evidence children face serious harm in US.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant and spouse did not contest RPD's finding on forward-looking risk in Mexico and Guatemala",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court reviewed all evidence including audio recording",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RPD correct that general violence and insecurity in Mexico and Guatemala do not make applicant and spouse persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes no contest of RPD's risk findings for applicant and spouse; court reviewed evidence and agrees RPD was correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claimant must show personal risk not faced generally by others in country to qualify as person in need of protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If risk faced is same as general population, claimant not persons in need of protection",
+     "answers": 1
+    }
+   ],
+   "summary": "Court states legal test that personal risk must differ from general population risk to qualify for protection.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant and spouse reluctant to return to countries due to lack of connection and general violence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Risk faced by applicant and spouse does not differ significantly from others in Mexico and Guatemala",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant and spouse not persons in need of protection or Convention refugees in relation to those countries",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RPD correctly denied asylum claims of applicant and spouse despite difficult situation",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds applicant and spouse face generalized risk in origin countries and confirms RPD's denial of asylum claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RPD erred in finding children not persons in need of protection in US",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court is open to argument that separation of children may be cruel and unusual punishment in some cases",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Argument requires sufficient evidence which is lacking here",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RPD erred on children's protection; court open to argument but finds evidence lacking.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues children will suffer cruel and unusual treatment if returned to US due to likely deportation of parents",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues US cannot protect minor claimants and enforcement harms child's development",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues children face cruel treatment if returned to US due to deportation and poor protection.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees that family separation alone found asylum claim",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant objects to RPD citing only one decision supporting family separation principle",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision cited by RPD is RAD decision recognized by Immigration and Refugee Board",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision relies on Federal Court case law supporting family separation alone insufficient for asylum",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court finds no error in RPD citing only one decision for this well-established principle",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects applicant's objection to RPD's single citation, finds no error in citing established principle that family separation alone insufficient for asylum.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues family unity principle in Convention on Rights of Child supports asylum claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court notes applicant relies on humanitarian and compassionate case law",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court in Kim case held best interests of child applied differently in asylum claims vs humanitarian grounds",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues family unity supports asylum; court notes reliance on humanitarian cases; Federal Court in Kim says best interests differ in asylum context.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kim case explains section 96 refugee definition is strict and best interests of child considered procedurally",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Best interests of child influence process but cannot expand refugee definition under section 96",
+     "answers": 1
+    }
+   ],
+   "summary": "Kim case states best interests of child considered procedurally but cannot expand strict refugee definition under section 96.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kim case finds Convention on Rights of Child adds nuances to refugee determination for children",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Decision-makers must consider child's rights in Convention when assessing refugee claims",
+     "answers": 1
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Denial of these rights may determine well-founded fear of persecution for child",
+     "answers": 1
+    }
+   ],
+   "summary": "Kim case requires considering Convention on Rights of Child in refugee claims; denial of rights may determine child's fear of persecution.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court applies same analysis to children as persons in need of protection under IRPA s.97",
+     "answers": 0
+    }
+   ],
+   "summary": "Court applies Kim analysis to children under IRPA section 97 protection claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant filed US National Documentation Package section on child separation at border",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Document not relevant as children were born in US and are US citizens",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant filed US document on child separation; court finds it irrelevant as children are US-born citizens.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant testified children traumatized by husband's possible deportation and possible separation at Canadian border",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This is the extent of evidence supporting cruel and unusual treatment claim for children",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant testified children traumatized by deportation fears; court finds this is all evidence supporting cruel treatment claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues separation causes psychological and cognitive harm",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No social science or psychological evidence before RPD or RAD supports this argument",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Amnesty International argues forced separation at US border amounts to ill-treatment and torture",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Amnesty referred to forced separation at border, not situation of US-born citizen children here",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues separation harms children; no supporting evidence before tribunal; Amnesty refers to border separations unlike this case.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence insufficient to find children's separation would amount to cruel and unusual treatment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Children have US citizen or permanent resident family members who could care for them",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant testified children could possibly live with uncle but support needed to avoid foster care",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees separation would have significant effects but not cruel and unusual treatment",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds evidence insufficient for cruel treatment; children have family in US; separation significant but not cruel treatment.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues discrimination against children as Latinos amounts to persecution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discrimination must be serious, repeated, and prejudicial to core human rights to amount to persecution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds bullying and harassment do not rise to level of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues discrimination is persecution; court states legal test and finds bullying insufficient for persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not err in concluding children do not face serious possibility of persecution or serious harm in the US",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err in concluding the children do not face serious persecution or harm in the US.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal and confirm the RPD decision that the named individuals are neither Convention refugees nor persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that the named individuals are not refugees or in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Echo the RPD's view that claims may raise humanitarian and compassionate issues for a different entity and process",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RPD and RAD have no jurisdiction over humanitarian and compassionate issues raised by these claims",
+     "answers": 1
+    }
+   ],
+   "summary": "The court agrees with the RPD that these claims may raise humanitarian issues outside RPD and RAD jurisdiction.",
+   "role": "analysis"
+  }
+ ]
+}

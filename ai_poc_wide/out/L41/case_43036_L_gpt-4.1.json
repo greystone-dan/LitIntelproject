@@ -1,0 +1,739 @@
+{
+ "case_id": 43036,
+ "arm": "L",
+ "model": "gpt-4.1",
+ "usd": 0.06840199999999999,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellants have appealed a decision of the Federal Court dismissing a judicial review application of a Minister's decision.",
+     "quote": "The appellants have appealed a decision of the Federal Court (2021 FC 1125 per Kane J.) dismissing an application for judicial review of a decision of the Minister of Employment, Workforce, and Labour (the Minister).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent moves to strike the appeal as moot.",
+     "quote": "The respondent has brought a motion to strike the appeal on the ground that it is moot.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants oppose the respondent's motion to strike.",
+     "quote": "The appellants oppose the motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants appeal a Federal Court decision dismissing their judicial review, while the respondent moves to strike the appeal as moot, which the appellants oppose.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Minister's decision added a requirement for applicants to attest respect for human rights, including reproductive rights, in the 2018 CSJ program.",
+     "quote": "The Minister’s impugned decision (the Decision) was “to add to the application for funding under the [2018] Canada Summer Jobs (“CSJ”) program … the requirement that the applicants attest” that “the job [for which funding was sought] and the organization’s core mandate respect individual human rights in Canada, including the values underlying the Canadian Charter of Rights and Freedoms as well as other rights.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The attestation specifically referenced reproductive rights and the right to access safe and legal abortions.",
+     "quote": "The attestation made specific reference to reproductive rights and the Applicant Guide for the 2018 CSJ program explained that human rights include reproductive rights and the right to access safe and legal abortions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister required 2018 CSJ applicants to attest respect for human rights, including reproductive rights and access to abortion, as part of funding applications.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "TRTL did not make the required attestation in its 2018 CSJ application, instead objecting and offering an alternative attestation.",
+     "quote": "In its application for funding under the 2018 CSJ program, the appellant, Right to Life Association of Toronto and Area (TRTL), did not make the attestation. Rather, it enclosed a letter objecting to it, asserting the Minister did not have the jurisdiction to compel TRTL to make a statement that conflicts with its conscience rights or to compel speech. It offered an alternative attestation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Minister declined to consider TRTL's application as incomplete due to the missing attestation, so TRTL received no funding in 2018.",
+     "quote": "The Minister declined to consider TRTL’s application because it was incomplete: TRTL had not made the required attestation. As a result, TRTL did not receive any funding in 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Blaise Alleyne is a former TRTL president; Matthew Battista is a student who hoped to work for TRTL in summer 2018.",
+     "quote": "The appellant, Blaise Alleyne, is a former president of TRTL and the appellant, Matthew Battista, is a student who hoped to be employed by TRTL in the summer of 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "TRTL objected to the attestation, offered an alternative, and was denied funding; Alleyne and Battista are appellants with relevant connections to TRTL.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants sought judicial review, Charter declarations, a finding of ultra vires, bad faith, improper purpose, and mandamus for 2018 CSJ funds.",
+     "quote": "The appellants sought judicial review of the Decision, a declaration that the Decision infringed provisions in the Canadian Charter of Rights and Freedoms [Charter], a declaration the Decision was ultra vires, made in bad faith and for an improper purpose, and an order in the nature of mandamus that the TRTL be awarded the 2018 CSJ program funds that it would have been awarded had its application been considered without regard to the attestation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants did not seek judicial review of the refusal to review TRTL's application and deny funding.",
+     "quote": "The appellants did not seek judicial review of the decision not to review TRTL’s application and thereby deny it funding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants sought judicial review, Charter and administrative law declarations, and mandamus for 2018 funds, but not review of the funding denial itself.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Federal Court found the Decision reasonable, not ultra vires, not in bad faith, and not for improper purpose.",
+     "quote": "The Federal Court decided that the Decision was reasonable, was not ultra vires the Department of Employment and Social Development Act, S.C. 2005, c. 34, [DESDA] under which it was established, and was not made in bad faith or for an improper purpose.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Federal Court found TRTL's section 15 Charter rights not engaged; section 2(a) and 2(b) rights were engaged but justifiably limited under section 1.",
+     "quote": "It also concluded that TRTL’s section 15 Charter rights were not engaged and, while its section 2(a) and section 2(b) Charter freedoms were engaged, the limitation on those freedoms was justified under section 1, most particularly because it was minimal: “a one-time impact on potential—not certain—funding in 2018”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Federal Court found the limitation proportionate to the objectives of DESDA and the 2018 CSJ program.",
+     "quote": "In the Federal Court’s view, the limitation reflected a proportionate balancing of those freedoms and the objectives of the DESDA and the 2018 CSJ program.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Federal Court found Alleyne had standing but Battista did not.",
+     "quote": "The Federal Court also decided that while Mr. Alleyne, as the face of TRTL and the person required to sign the application on its behalf, had standing, Mr. Battista did not.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found the Decision reasonable, Charter section 2 rights justifiably limited, and only Alleyne had standing, not Battista.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the Federal Court erred on section 15 Charter rights, section 2 balancing, closed mind, and Battista's standing.",
+     "quote": "In their appeal, the appellants assert that the Federal Court erred in concluding that their section 15 Charter rights were not violated, that the infringements under section 2 were proportionately balanced, and that the Minister did not make the Decision with a closed mind. They also assert that the Federal Court erred in concluding Mr. Battista had no standing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The steps to set the appeal down for hearing are complete.",
+     "quote": "The steps required to set the appeal down for hearing are complete.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the Federal Court erred on Charter and standing issues; the appeal is procedurally ready for hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent moves to strike the appeal as moot, arguing no live controversy remains.",
+     "quote": "The respondent now moves to strike the appeal because it is moot. The respondent says there is no longer a live controversy between the parties.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent says the attestation was removed from the 2019 application and the 2018 program is concluded with funds disbursed.",
+     "quote": "In particular, says the respondent, the impugned attestation was removed from the 2019 application, a fact that the appellants do not dispute and that was noted in Redeemer University College v. Canada (Employment, Workforce Development and Labour), 2021 FC 686, 334 A.C.W.S. (3d) 679 at para. 8 [Redeemer University]. Moreover, says the respondent, the 2018 CSJ program is concluded and available funding has been disbursed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the appeal is moot because the attestation was removed and the 2018 program is over with funds disbursed.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the respondent should not raise mootness now, as it could have been raised earlier.",
+     "quote": "The appellants submit that the Court should not entertain the respondent’s motion because the respondent could have raised mootness earlier and should not be permitted to raise this “new issue” for the first time on appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court disagrees, stating mootness can be raised at any time, even by the court itself.",
+     "quote": "I disagree. While the desirability of addressing mootness at an early stage is obvious, mootness may be raised at any time. It may be raised by the Court if the parties do not raise it: Canadian Union of Public Employees (Air Canada Component) v. Air Canada, 2021 FCA 67, [2021] F.C.J. No 286 (Q.L.) [CUPE]; Hakizimana v. Canada (Public Safety and Emergency Preparedness), 2022 FCA 33, 87 Imm. L.R. (4th) 175 [Hakizimana].",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellants object to late mootness arguments, but the court finds mootness can be raised at any time, even by the court itself.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The first question is whether the appeal is moot; if so, the court must decide whether to exercise discretion to hear it.",
+     "quote": "Thus, the first question to answer is whether the appeal is moot. If it is, then this Court must decide whether it will nevertheless exercise its discretion to hear the appeal, having regard to the factors from Borowski v. Canada, [1989] 1 S.C.R. 342, 57 D.L.R. (4th) 231 [Borowski].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must first decide if the appeal is moot, and if so, whether to exercise discretion to hear it under Borowski factors.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The judicial review challenged only the Decision to add the attestation to the 2018 CSJ application, not the refusal to consider TRTL's application or alternative attestation.",
+     "quote": "Here, the subject of the judicial review was the Decision to add the attestation to the application under the 2018 CSJ program. It was not a judicial review of the decision not to consider TRTL’s application for funding under that program in the absence of the attestation, or of the refusal to consider or accept TRTL’s alternative attestation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The judicial review only challenged the Decision to add the attestation, not the refusal to consider TRTL's application or alternative attestation.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The 2018 CSJ program has ended and the attestation was removed for 2019, so reviewing the Decision now serves no useful purpose.",
+     "quote": "The 2018 CSJ program has ended and the attestation was removed from the application form for the 2019 CSJ program year. Thus, a review of the reasonableness of the Decision to add the attestation to the 2018 application will not serve a useful purpose; the Decision has been overtaken by subsequent events.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds reviewing the 2018 attestation Decision now serves no useful purpose, as the program has ended and the attestation was removed.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the appeal is not moot because they seek a Charter breach declaration, which is a live controversy.",
+     "quote": "The appellants say the appeal is not moot because they seek a declaration of a Charter breach and that constitutes a live controversy, citing Trang v. Alberta (Edmonton Remand Centre), 2005 ABCA 66, 363 A.R. 167 at para. 5 [Trang 2005].",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "TRTL concedes the core remedy sought is a declaration of Charter breach in 2018.",
+     "quote": "TRTL concedes that “in the case at bar … the core remedy sought is a declaration that the Respondent breached the Appellants’ Charter rights in 2018”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court acknowledges declarations can be adequate remedies, but whether to grant one depends on the circumstances.",
+     "quote": "I acknowledge that the Court may make a binding declaration and that such a declaration can be an adequate remedy, but whether the Court will make a declaration depends on the circumstances.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellants argue a Charter breach declaration is a live controversy; the court notes declarations can be remedies but depend on circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A Charter breach declaration may only be granted if it has practical utility and settles a live controversy between the parties.",
+     "quote": "A declaration may be granted only if it will have practical utility, that is, if it will settle a “live controversy” between the parties: Daniels v. Canada (Indian Affairs and Northern Development), 2016 SCC 12, [2016] 1 S.C.R. 99 at para. 11; Solosky v. The Queen, [1980] 1 S.C.R. 821, 105 D.L.R. (3d) 745; Income Security Advocacy Centre v. Mette, 2016 FCA 167, [2016] F.C.J. No. 587 (Q.L.) at para. 6.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a Charter breach declaration requires practical utility and a live controversy between the parties.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A declaration of Charter breach for a spent program would have no practical utility or resolve any live controversy.",
+     "quote": "Here, were the appellants successful on appeal, a declaration that Charter rights were violated by the inclusion of the attestation in the application form for a program that is spent, would serve no practical utility and would not resolve any live controversy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Future similar attestation requirements can be challenged then, and a decision here may not be useful in a later case.",
+     "quote": "If, in the future, a funding program contains a similar attestation requirement, it can be challenged at that time. And, of course, the challenge necessarily would depend on the type of attestation requirement and the reasons behind it. There is a good chance that a decision in this case on these particular facts would be of no use in that later case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a declaration would have no practical utility for a spent program, and future similar issues can be challenged then.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Declarations may not be granted where the dispute is academic or has no practical effect on remaining issues between the parties.",
+     "quote": "Declarations may not be granted where the dispute has become academic, or will have no practical effect in resolving any remaining issues between the parties",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Trang 2007 overturned a lower court's Charter declaration, explaining why such declarations are rarely granted without practical effect.",
+     "quote": "That decision overturned the lower court’s decision to grant a declaration of a breach of Charter rights, explaining why declarations rarely will be granted if they will have no practical effect on the rights of the parties: Trang 2007 at paras. 13-25.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Alberta Court of Appeal held declarations are not granted for academic disputes and overturned a Charter declaration lacking practical effect.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A declaration's utility depends on other available remedies; unless mandamus is granted, none of the relief sought has practical utility.",
+     "quote": "In this appeal, unless this Court is prepared to issue mandamus and order the Minister to process TRTL’s 2018 CSJ program application and provide it with the funds it would have received had its application been processed, none of the relief claimed in the application for judicial review or the notice of appeal in this Court is of any practical utility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that unless mandamus is granted, none of the relief sought would have practical utility for the appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Mandamus is discretionary and requires satisfaction of eight criteria or severe maladministration; the appellants have not addressed these criteria.",
+     "quote": "Mandamus is a discretionary remedy that may be granted where the applicant satisfies the eight criteria set out by this Court in Apotex Inc. v. Canada (Attorney General), [1994] 1 F.C. 742, 162 N.R. 177 (F.C.A.), aff’d [1994] 3 S.C.R. 1100, 176 N.R. 1, or in cases of severe maladministration as described in cases such as Canada (Public Safety and Emergency Preparedness) v. LeBon, 2013 FCA 55, 444 N.R. 93 at para. 14 and D'Errico v. Canada (Attorney General), 2014 FCA 95, 459 N.R. 167 at paras. 16-21 [D’Errico]. The appellants have not addressed these criteria in their application for judicial review, their notice of appeal, their memorandum of fact and law, or their materials on this motion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The record discloses no basis for mandamus, supporting the view that a Charter declaration would have no practical utility.",
+     "quote": "In any event, the record discloses no basis for mandamus. This augments my view that a declaration that Charter rights were violated would serve no practical utility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds mandamus is not available as the appellants did not address the criteria, and thus a Charter declaration would have no utility.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if TRTL's 2018 application had been processed, funding was not certain due to oversubscription and program priorities.",
+     "quote": "I also observe that even if TRTL’s 2018 application had been processed, TRTL may not have received any funding under the 2018 CSJ program. The 2018 CSJ program, like the CSJ program in other years, was oversubscribed. Because demand exceeds available funding, each year the Minister establishes national priorities and eligibility criteria for the CSJ program. As the Federal Court observed, under the 2018 CSJ program, “given other eligibility criteria and the stated priorities and target population, funding was not a certainty” and those other criteria and priorities “do not appear to reflect TRTL’s mandate or activities.”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Mandamus is granted only where the outcome is a foregone conclusion, absent extreme maladministration.",
+     "quote": "Absent extreme maladministration, courts grant mandamus “only where the outcome on the merits is a foregone conclusion – in other words the evidence can lead only to one result”: D’Errico at para 16; Doyle v. Canada (Attorney General), 2022 FCA 56, 2022 A.C.W.S. 740.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds funding was not certain for TRTL even if processed, and mandamus requires a foregone conclusion, which is not present here.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The claim for mandamus does not prevent the appeal from being moot; the court is satisfied the appeal is moot.",
+     "quote": "Thus, in my view, the claim for mandamus is not sufficient to render this appeal not moot. Indeed, I am satisfied it is moot.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the mandamus claim does not prevent mootness and concludes the appeal is moot.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court will consider whether to hear the moot appeal, applying Borowski factors: adversarial context, practical utility, and judicial role.",
+     "quote": "I now turn to consider whether the Court should nevertheless hear the appeal, having regard to the following factors from Borowski at 358-363: (i) the absence or presence of an adversarial context; (ii) whether there is any practical utility in deciding the matter or if it is a waste of judicial resources; and (iii) whether the Court would be exceeding its proper role by making law in the abstract, a task that is reserved for Parliament. See also CUPE at para. 9. No one factor is determinative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will now consider whether to hear the moot appeal, applying Borowski factors of adversarial context, utility, and judicial role.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is an adversarial context in this case.",
+     "quote": "I agree with the parties that there is an adversarial context.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The issues were fully argued before the Federal Court with submissions from two interveners.",
+     "quote": "The issues were fully argued before the Federal Court, which also had the benefit of submissions from two interveners.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds there is an adversarial context and notes the issues were fully argued before the Federal Court with interveners.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The second factor weighs heavily against hearing the appeal.",
+     "quote": "the second factor weighs heavily against hearing the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 2018 CSJ program is expired and the impugned attestation was removed in 2019.",
+     "quote": "The 2018 CSJ program is expired. The impugned attestation was removed from the application in 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Speculation that the same issue may arise again does not justify hearing a moot appeal.",
+     "quote": "The mere fact that the same issue may arise again—and there is no suggestion it will—does not justify hearing a moot appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The issue is not evasive of court review if it arises in the future.",
+     "quote": "I am not convinced that if the same issue does arise in the future, it is evasive of court review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appeal should not be heard because the program is expired, the issue is speculative, and not evasive of review.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Judicial review can be an effective remedy for Charter breaches.",
+     "quote": "I agree a judicial review can be an effective remedy for Charter breaches",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The CSJ program application form was changed after 2018.",
+     "quote": "the application form for the CSJ program was changed after 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Effectiveness of judicial review does not mean this appeal should be heard.",
+     "quote": "But the fact that it can be an effective remedy does not mean a particular judicial review, or an appeal of a judicial review decision, should be heard.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A declaration should not be made on the assumption that 2018 circumstances may recur.",
+     "quote": "this is not a case in which this Court should make a declaration on the assumption that the circumstances as they existed in 2018 may exist again in the future",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If the application process changes yearly, the Court would be deciding without an existing factual matrix.",
+     "quote": "this Court would be deciding an issue in the absence of an existing factual matrix",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds judicial review can be effective but does not justify hearing this appeal, especially as circumstances have changed and may change yearly.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appeal should be heard to prevent the Federal Court decision from becoming binding precedent immune from appellate review.",
+     "quote": "the appellants also assert that this Court should hear the appeal because, if it does not, the decision of the Federal Court below will be binding precedent immune from appellate review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A jurisprudential interest is insufficient to sustain a moot appeal.",
+     "quote": "This proposition suggests the appellants’ interest in the appeal is jurisprudential, which is insufficient to sustain an otherwise moot appeal",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The argument about precedent could be made in any moot appeal and cannot be determinative.",
+     "quote": "that argument might be advanced in any circumstance where an appellate court is faced with deciding whether to hear a moot appeal. Although perhaps a relevant consideration, it cannot be determinative on its own",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A decision in this case may have no jurisprudential impact as future programs may differ.",
+     "quote": "a decision in this case may have no jurisprudential impact, as future programs may be based on different criteria.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellants argue for appeal to avoid binding precedent, but the court finds jurisprudential interest alone is insufficient and future cases may differ.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Raising a constitutional question does not justify hearing an appeal unless the social cost of uncertainty outweighs judicial economy.",
+     "quote": "raising a constitutional question is not sufficient to justify hearing the appeal unless it can be demonstrated that the social cost of legal uncertainty outweighs the economy of judicial resources",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The social cost here does not outweigh the economy of judicial resources.",
+     "quote": "I am not convinced that the social cost here outweighs the economy of judicial resources.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that the social cost of uncertainty does not outweigh judicial economy, so a constitutional question alone does not justify hearing the appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Hearing the appeal would be making law in the abstract since the attestation has been removed.",
+     "quote": "In my view, it would. At this stage, since the impugned attestation has been removed from the application, to consider the issues on appeal “in a case with no practical consequences, just to create a legal precedent, would be a form of law-making for the sake of law-making [and that] is not our proper task”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds hearing the appeal would be law-making in the abstract, as the issue has no practical consequences now.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Court should not hear this appeal.",
+     "quote": "Thus, in my view, this Court should not hear this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes it should not hear the appeal.",
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is moot and the Court should not exercise its discretion to hear it.",
+     "quote": "This appeal is moot and the Court should not exercise its discretion to hear it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appeal is moot and declines to exercise discretion to hear it.",
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent seeks costs of $800 for this motion.",
+     "quote": "The respondent seeks costs of $800 for this motion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants were silent on the issue of costs.",
+     "quote": "The appellants were silent on the issue of costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No costs are awarded because the respondent should have brought the motion sooner.",
+     "quote": "In my discretion, I would not award any costs. Although successful, the respondent should have brought this motion far sooner.",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent seeks costs, appellants are silent, but the court declines to award costs as the motion should have been brought sooner.",
+   "role": "disposition"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The respondent was originally named as the Minister, but the proper respondent is the Attorney General of Canada.",
+     "quote": "The respondent was originally named as the “Canada (Minister of Employment, Workforce, and Labour)”. Under Rule 303 of the Federal Court Rules S.O.R./98-106, the proper respondent in these circumstances is the Attorney General of Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This naming issue is only a matter of form and does not affect the outcome.",
+     "quote": "This has no bearing on the outcome of this motion and is only a matter of form.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the respondent should be the Attorney General of Canada, but this is only a formal issue and does not affect the outcome.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The style of cause is amended, the motion to strike the appeal for mootness is granted, and the appeal is dismissed without costs.",
+     "quote": "I would amend the style of cause to reflect the Attorney General of Canada as the sole respondent, grant the motion to strike the appeal for mootness, and dismiss the appeal without costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court amends the style of cause, grants the motion to strike for mootness, and dismisses the appeal without costs.",
+   "role": "disposition"
+  }
+ ]
+}

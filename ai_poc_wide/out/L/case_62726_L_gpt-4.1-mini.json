@@ -1,0 +1,587 @@
+{
+ "case_id": 62726,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011506800000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant is a Mexican citizen with a Guatemalan spouse and US citizen children.",
+     "quote": "XXXX XXXX XXXX XXXX is a citizen of Mexico. Her spouse, XXXX XXXX XXXX XXXX, is a citizen of Guatemala. Their children, XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX, andXXXX XXXX XXXX XXXX XXXX XXXX are citizens of the United States (US).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismisses the appeal despite sympathy for the applicant and family.",
+     "quote": "Although I have a great deal of sympathy for XXXX XXXX XXXX XXXX and her family, I dismiss this appeal for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is a Mexican citizen with a Guatemalan spouse and US citizen children; court dismisses the appeal despite sympathy.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Case arises from US policy changes under Trump affecting applicant's family.",
+     "quote": "The circumstances of this case are particularly unfortunate and arise due to certain policy changes brought in by the Trump administration in the US.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant and spouse entered US illegally as children and later became eligible for DACA.",
+     "quote": "XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX parents took each of them and their siblings to the US when they were just young children (XXXX and XXXX years old, respectively). They crossed into the US by illegal means... Finally, in 2012, XXXX XXXX XXXX XXXX and her spouse became eligible to enroll in the Deferred Action for Childhood Arrivals (DACA) programme.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant's spouse's DACA renewal was not responded to; he lost work permit and was fired in 2018.",
+     "quote": "In the fall of 2018, XXXX XXXX XXXX XXXX applied to renew his DACA status but he never received a response to his application. In XXXX 2018, he was fired from his work because his permit had expired and there was no sign that it would be renewed by the Trump administration.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant and family came to Canada to claim refugee status fearing harm to children if deported to origin countries.",
+     "quote": "At this point, XXXX XXXX XXXX XXXX and her family made their way to Canada to claim refugee status. They fear that, if they are deported from the US to their countries of origin, their children will suffer serious harm as orphans in the child welfare system in the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains case arises from US policy changes; applicant entered US illegally as child, lost DACA status, came to Canada fearing harm to children if deported.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found applicant and spouse credible about events described.",
+     "quote": "The RPD found XXXX XXXX XXXX XXXXandXXXX XXXX XXXX XXXX XXXX to be very credible as to the events they described.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found key issue was forward-looking risk in countries of origin.",
+     "quote": "the determinative issue in the case was the issue of whether XXXX XXXX XXXX XXXX and her family faced a forward-looking risk in their respective countries of origin.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found violence and poverty feared in Mexico and Guatemala is generalized risk not differing from others.",
+     "quote": "the violence and poverty that XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX fear in Mexico and Guatemala is a generalized risk of the kind that does not differ from the risk face by others in or from those countries.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found risk to children of separation and foster care not persecution or serious harm under IRPA.",
+     "quote": "the risk they faced of being separated from their parents and living in foster homes did not amount to persecution on a Convention ground within the meaning of s. 96 of the Immigration and Refugee Protection Act (IRPA) or one of the forms of serious harm that would make them persons in need of protection within s. 97 of the IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Sections 96 and 97 IRPA do not include family unity notion; family separation alone insufficient for asylum claim.",
+     "quote": "sections 96 and 97 of the IRPA do not include the notion of family unity and that it is established in the case law that the separation of families, in itself, is not enough to found an asylum claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker found applicant credible but risk in origin countries generalized; family separation not persecution under IRPA sections 96 and 97.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants do not contest RPD's finding on Mexico and Guatemala but focus on children's situation in US.",
+     "quote": "The Appellants make no arguments to contest the RPD's conclusion that XXXX XXXX XXXX XXXXandXXXX XXXX XXXX XXXX XXXX are neither Convention refugees nor persons in need of protection in relation to Mexico and Guatemala respectively. Instead, they focus their arguments on the situation of the children in the US.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD erred in finding children are not persons in need of protection in US.",
+     "quote": "They argue that the RPD erred in finding that the children are not persons in need of protection in the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant does not contest RPD's findings on Mexico and Guatemala but argues RPD erred on children's protection status in US.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court's role is to review all evidence and decide if RPD decision was correct.",
+     "quote": "My role is to look at all the evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees RPD found applicant credible and correct in finding no refugee or protection status.",
+     "quote": "I agree with the RPD that XXXX XXXX XXXX XXXXand XXXX XXXX XXXX XXXX were very credible. However, the RPD was correct in finding that the XXXX XXXX XXXX and her family are neither Convention Refugees nor persons in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence insufficient to show children would face serious harm making them persons in need of protection under s. 97 IRPA if returned to US.",
+     "quote": "I find that the evidence in this case is insufficient to establish that, if they return to the US, the children would be subjected to any of the forms of serious harm that would make them persons in need of protection as that term is defined in s. 97 of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court reviews evidence, agrees with RPD on credibility and no protection status, finds insufficient evidence of harm to children if returned to US.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant and spouse did not contest RPD's finding on forward-looking risk in Mexico and Guatemala.",
+     "quote": "XXXX XXXX XXXX XXXXandXXXX XXXX XXXX XXXX XXXX did not make any arguments to contest the RPD's finding that the forward-looking risk they would face if they return to either Mexico or Guatemala is not the kind of risk that would make them persons in need of protection under s. 97 of the IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court reviewed all evidence including audio and finds RPD correct that general violence in Mexico and Guatemala does not make them persons in need of protection.",
+     "quote": "Based on this review, I find that the RPD was correct in its conclusion that the general violence, criminality, and insecurity to which XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX might be subject in Mexico or Guatemala do not make them persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant did not contest RPD's risk findings for Mexico and Guatemala; court agrees general violence does not qualify for protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To be a person in need of protection, risk must be personal and not general to others from that country.",
+     "quote": "When a person alleges that they are a person in need of protection due to a risk to their life or a risk of cruel and unusual treatment or punishment, they must not only establish that they likely would face such a risk personally in their country. They must also show that this risk is not faced generally by other individuals in or from that country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If personal risk equals general risk faced by others, claimant is not a person in need of protection.",
+     "quote": "If the personal risk faced by the claimant is the same risk faced generally by others in or from their country of origin, they will not be found to be persons in need of protection.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court states legal test: risk must be personal and not general; equal risk to others means no protection status.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant and spouse's reluctance to return to origin countries is understandable but risk is generalized and not different from others.",
+     "quote": "it is understandable that XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX are reluctant to return to countries to which they have almost no connection due to the fact that they left when they were very young... the risk they would face in returning to either of these countries does not differ significantly from the risk faced by others in and from those countries.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD correctly found applicant and spouse are not persons in need of protection or Convention refugees in relation to Mexico and Guatemala.",
+     "quote": "Therefore, the RPD was correct to find that they are not persons in need of protection in relation to those countries. In addition, they did not allege, and the evidence does not support, any claim that they would be Convention refugees in relation to those countries.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Despite difficult situation from US policy changes, RPD correctly denied asylum claims of applicant and spouse.",
+     "quote": "Therefore, despite the untenable situation that XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX have been placed in due to changes in US policy, the RPD was correct to deny the asylum claims filed by XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds risk to applicant and spouse generalized; RPD correctly denied asylum despite US policy hardships.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RPD erred in finding children not persons in need of protection in US.",
+     "quote": "XXXX XXXX XXXX XXXX and her family argue that the RPD erred in finding that the children were not persons in need of protection in relation to the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court is open to argument that separation of children from parents may be cruel and unusual punishment in some cases but evidence lacking here.",
+     "quote": "I am open to the argument that the separation of children from their parents may amount to cruel and unusual punishment in some circumstances, However, this argument needs to be supported by sufficient evidence which is lacking in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RPD erred on children's protection; court open to argument but finds evidence insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues children will suffer cruel and unusual treatment if returned to US due to likely deportation of parents and poor protection.",
+     "quote": "XXXX XXXX XXXX XXXX and her family argue that their children will suffer cruel and unusual treatment or punishment if they are forced to return to the US. According to XXXX XXXX XXXX XXXX and her family, XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX will likely be deported if they and their family return to the US. They argue that the US cannot protect minor claimants and that rising immigration enforcement in the US causes long-lasting harmful effects on a child's developmental well-being.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues children face cruel treatment if returned to US due to deportation risk and poor protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant disputes RPD's reliance on one decision that family separation alone cannot found asylum claim.",
+     "quote": "They take issue with the fact that the RPD cited only one decision in support of this principle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD cited a RAD decision supported by Federal Court case law establishing family separation alone insufficient for asylum claim.",
+     "quote": "I note that the decision cited by the RPD is a RAD decision that was identified as a decision of interest by the Immigration and Refugee Board. The decision relies on Federal Court case law that has made this precise finding.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds no error in RPD citing only one decision for this well-established principle.",
+     "quote": "Therefore, I do not find that the RPD erred in citing only one decision in support of the well-established principle that family separation cannot, in itself, found a claim for asylum.",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicant disputes RPD's single citation on family separation; court finds RPD's citation sufficient and principle well-established.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues family unity principle in Convention on Rights of Child supports asylum claim.",
+     "quote": "I do not agree with XXXX XXXX XXXX XXXX and her family that the fact that the principle of family unity is contained in the Convention on the Rights of the Child means that a claim for asylum can simply be based on the principle of family unity or the best interests of the child.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court notes applicant relies on humanitarian and compassionate case law but Federal Court in Kim case distinguishes asylum claims from humanitarian grounds.",
+     "quote": "I note that XXXX XXXX XXXX XXXX and her family seek to rely on court decisions dealing with humanitarian and compassionate applications to make their argument. However, the Federal Court in the Kim case, cited by XXXX XXXX XXXX XXXX and her family, specifically addressed this issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues family unity supports asylum; court notes Federal Court distinguishes asylum claims from humanitarian grounds.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Kim case explains refugee definition under s. 96 IRPA is strict; best interests of child considered procedurally, not to expand refugee definition.",
+     "quote": "The Canadian immigration system provides for several methods by which to gain entry into Canada, one of which is to be a refugee under section 96... The Court must reiterate that the best interests of the child cannot shoehorn a refugee claimant into the section 96 definition if the child's claim would otherwise be rejected, but it can influence the process which leads to that decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Kim case holds refugee definition under s. 96 IRPA is strict; best interests of child considered procedurally, not to expand refugee definition.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Kim case finds Convention on Rights of Child adds nuances to refugee determination recognizing children's distinct rights and harms.",
+     "quote": "the Convention on the Rights of the Child and the Guidelines relating to child claimants add nuances to the determination of whether a child claiming refugee claimant fits the definition in section 96 of the Immigration and Refugee Protection Act...",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Decision-makers must consider denial of children's rights under Convention to determine well-founded fear of persecution.",
+     "quote": "decision-makers must inform themselves of the rights recognized in the Convention on the Rights of the Child. It is the denial of these rights which may determine whether or not a child has a well-founded fear of persecution if returned to his or her country of origin.",
+     "answers": 0
+    }
+   ],
+   "summary": "Kim case requires considering Convention on Rights of Child to assess child's refugee claim and well-founded fear of persecution.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court applies same analysis to children as persons in need of protection under s. 97 IRPA.",
+     "quote": "In my view, the same analysis applies to assessments of whether children are persons in need of protection under s. 97 Immigration and Refugee Protection Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court applies Kim analysis to children as persons in need of protection under s. 97 IRPA.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant filed US National Documentation Package section on child-parent separation at border.",
+     "quote": "The only documentary evidence that XXXX XXXX XXXX XXXX and her family have filed in support of their argument that the children likely would be subjected to cruel and unusual treatment or punishment in the US is a section of the National Documentation Package for the US which discusses the country's practice of separating children from their parents when they were apprehended for crossing the border illegally.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Document is irrelevant as applicant's children were born in US and are US citizens, not apprehended at border.",
+     "quote": "However, this is not the situation faced by XXXX XXXX XXXX XXXX children who were born in the US and who are all US citizens. Therefore, I find that this document has little relevance to the situation likely faced by XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX children if they return to the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant filed evidence on border child separation; court finds it irrelevant as children are US-born citizens.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant testified children traumatized by husband's possible deportation and possible separation at Canadian border.",
+     "quote": "XXXX XXXX XXXX XXXX testified that her children were traumatized by the idea of her husband being deported from the US. They were also traumatized when they thought they might be separated from their parents at the Canadian border.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This testimony is the extent of evidence supporting argument that separation would be cruel and unusual treatment.",
+     "quote": "However, that is the extent of the evidence that was before the RPD, and that is before me, to support the argument made by XXXX XXXX XXXX XXXX and her family that her children's separation from their parents would amount to cruel and unusual treatment or punishment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant testified children traumatized by deportation fears; court notes this is all evidence supporting cruel treatment claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues separation causes psychological harm; cites Amnesty International on border separations amounting to ill-treatment.",
+     "quote": "Although XXXX XXXX XXXX XXXX and her family argue that separating children from their families has a range of psychological, behavioural and cognitive effects... Amnesty International has argued that the forcible separation of children from their family members at the US southern border has in some cases amounted to ill-treatment and torture.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds Amnesty International evidence relates to border apprehension conditions, not applicant's US-born children.",
+     "quote": "However, the organization was referring to the forced separation of children from their parents as they crossed the border, where in some cases, according to the organization, children were held in cages, locked up in freezing cells without adequate food or medicine. That is not the situation for XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX children who are US citizens born in the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant cites psychological harm and Amnesty International on border separations; court finds evidence not applicable to US-born children.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence insufficient to find separation effects on children amount to cruel and unusual treatment or punishment.",
+     "quote": "Overall, the evidence in this case is not sufficient to enable me to find that the effects on XXXX XXXX XXXX XXXX children if they end up being separated from their parents is of such a degree, as to amount to cruel and unusual treatment or punishment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and spouse have US family members who could care for children if separated.",
+     "quote": "since XXXX XXXX XXXX XXXX and XXXX XXXX XXXX XXXX do have family members who are citizens or permanent residents of the US. XXXX XXXX XXXX XXXX has a brother who is a citizen of the US and XXXX XXXX XXXX XXXX has a sister who she testified was a permanent resident of the US.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant testified children could live with uncle but support and foster care issues exist.",
+     "quote": "When the RPD asked XXXX XXXX XXXX XXXX if it would be possible for the children to live with her or her husband's family members in the US, XXXX XXXX XXXX XXXX replied that it would be difficult... she said it would probably be possible but it would depend on the system... she said that... they would have to be able to support them based on their earnings in Mexico or Guatemala or else they would be placed in the foster-care system.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees separation would have significant effects but evidence insufficient to establish cruel and unusual treatment or punishment.",
+     "quote": "I completely agree with XXXX XXXX XXXX XXXX and her family that their separation from their children will have significant effects on them. However, I do not find that the evidence in this case is sufficient to establish that the effects on the children would amount to cruel and unusual treatment or punishment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds evidence insufficient to show separation effects amount to cruel treatment; notes family care possible but support issues exist.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues discrimination against children as Latinos in US amounts to persecution.",
+     "quote": "XXXX XXXX XXXX XXXX and her family argue that any discrimination that the children may face in the US due to their being Latino amounts to persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Not all discrimination amounts to persecution; persecution requires serious, repeated discrimination with prejudicial consequences.",
+     "quote": "While all discrimination is unacceptable, not all discrimination amounts to persecution. In order for discrimination against a person to amount to persecution, it must be serious and occur with repetition. It must also have consequences of a prejudicial nature for the person, such as when an individual is denied a core human right, such as the right to practice religion or to earn a livelihood.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant testified children were harassed and bullied at school.",
+     "quote": "In this case, XXXX XXXX XXXX XXXX testified that other children would harass and bully his children in school.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds harassment and bullying not widespread or significant enough to be persecution.",
+     "quote": "In my view, such discriminatory actions, although unacceptable, are not sufficiently widespread or significant to rise to the level of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues discrimination is persecution; court finds harassment insufficient to meet persecution standard.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD did not err in concluding the children do not face serious persecution or serious harm in the US.",
+     "quote": "I find that the RPD did not err in concluding that the children do not face a serious possibility of persecution or the likelihood of any of the kinds of serious harm that would make them persons in need of protection in the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err in concluding the children do not face serious persecution or harm in the US.",
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed and the RPD decision confirmed that the named individuals are neither Convention refugees nor persons in need of protection.",
+     "quote": "I must dismiss the appeal and confirm the decision of the RPD that XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXXandXXXX XXXX XXXX XXXX XXXX XXXX are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that the named individuals are not refugees or persons in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's view that these claims may raise humanitarian and compassionate issues for a different entity is echoed.",
+     "quote": "I echo the RPD's view that, even though these claims do not qualify under the asylum provisions of the Immigration and Refugee Protection Act, they may raise humanitarian and compassionate issues to be decided by a different entity through a different application process over which the RPD and the RAD have no jurisdiction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD that humanitarian and compassionate issues may be raised before a different entity with no RPD or RAD jurisdiction.",
+   "role": "analysis"
+  }
+ ]
+}

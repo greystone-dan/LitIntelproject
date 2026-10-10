@@ -1,0 +1,549 @@
+{
+ "case_id": 35431,
+ "arm": "L",
+ "model": "gpt-4.1",
+ "usd": 0.05735,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "M. Magana seeks a judicial stay of his removal to Mexico, scheduled for January 10 at 5:55 p.m. to Cancún.",
+     "quote": "Le demandeur (M. Magana) se présente in extremis afin d’obtenir une sursis judiciaire à sa mesure de renvoi vers son pays de nationalité, le Mexique. Le départ est prévu le 10 janvier, à 17 h 55, avec comme destination Cancún.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant, Mr. Magana, seeks a last-minute judicial stay of his removal to Mexico, scheduled for January 10.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues the stay request should not be heard due to applicant's delay, knowing of removal since November 18.",
+     "quote": "Le défendeur a soumis une lettre requérant de la Cour que la demande de sursis ne soit pas entendue étant donné le retard à la présenter, le demandeur sachant depuis le 18 novembre que son départ est prévu pour le 10 janvier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court chose to hear the stay request in case it had merit.",
+     "quote": "J’ai préféré entendre la demande de sursis au cas où celle-ci serait méritoire.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The stay request is not meritorious.",
+     "quote": "Celle-ci ne l’est pas.",
+     "answers": 2
+    }
+   ],
+   "summary": "The respondent objects to hearing the stay due to delay, but the court hears it and finds it lacks merit.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is 31, vague about his arrival in Canada, left Mexico in April 2018, made an asylum claim he did not pursue, arrived April 25, 2018.",
+     "quote": "Le demandeur a 31 ans. Il est peu bavard à l’égard de son arrivée au Canada. Il indique avoir quitté le Mexique en avril 2018, avoir fait une demande d’asile à laquelle il ne donnera pas suite. Il serait arrivé au Canada le 25 avril 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant is 31, left Mexico in April 2018, made but did not pursue an asylum claim, and arrived in Canada April 25, 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's activities after arrival are unknown until CBSA contacts him in 2023; he then files a PRRA on February 2, 2023.",
+     "quote": "On ne sait pas ce qu’il fait par la suite. On apprend seulement que l’Agence des services frontaliers du Canada (ASFC) entre en contact avec lui en 2023. Il fait alors une demande d’examen des risques avant renvoi (ERAR) le 2 février 2023.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant alleges threats from criminal organizations seeking his collaboration.",
+     "quote": "Essentiellement, M. Magana allègue avoir reçu des menaces de la part d’organisations criminelles recherchant sa collaboration.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "PRRA decision finds insufficient evidence to support applicant's allegations.",
+     "quote": "La décision ERAR conclut à une absence de preuve suffisante pour soutenir les allégations faites.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's post-arrival activities are unknown until 2023, when he files a PRRA alleging threats; the PRRA decision finds insufficient evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Allegations are vague, lacking details about the organization, its name, functions, or the nature of threats.",
+     "quote": "les allégations sont vagues, sans précision même quant au nom de l’organisation ou même quant aux fonctions pour lesquelles on rechercherait sa collaboration. De fait, on ne sait rien de l’organisation. On ne sait même pas la nature des menaces qui auraient été faites.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicant does not specify circumstances of alleged flights within Mexico or nature of persecution suffered.",
+     "quote": "Le demandeur n’indique pas davantage les circonstances de ses fuites alléguées dans d’autres régions du Mexique ni en quoi consistaient les persécutions subies.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicant does not indicate in 2023 what risks he claims still exist years after leaving Mexico.",
+     "quote": "Le demandeur n’indique pas non plus en 2023 quels pourraient être les risques qu’il prétendrait être encore présents plusieurs années après son départ du Mexique.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Lack of detailed information, evidence, or documentation is fatal; applicant cannot establish serious risk on balance of probabilities.",
+     "quote": "L’absence d’information détaillée, de preuve ou de documentation est donc fatale puisque le demandeur ne peut établir, selon la balance des probabilités, qu’il ferait face à des risques sérieux advenant un retour au Mexique.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA decision finds the applicant's allegations vague, lacking detail, and unsupported by evidence, so he cannot establish serious risk if returned.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "PRRA decision made January 11, 2025, apparently communicated November 18; now challenged by judicial review filed December 1, 2025.",
+     "quote": "La décision ERAR est prise le 11 janvier 2025. Il semble qu’elle ait été communiquée le 18 novembre dernier. Cette décision est maintenant contestée par demande de contrôle judiciaire en date du 1er décembre 2025.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The judicial review application is generic and does not specify any alleged defect in the challenged decision.",
+     "quote": "la demande d’autorisation et de contrôle judiciaire n’est qu’un texte passe-partout qui ne révèle aucunement le vice allégué dans la décision attaquée.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA decision was made January 2025, communicated in November, and is now challenged by a generic judicial review application lacking specific allegations.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To obtain a judicial stay, applicant must meet the tripartite test: serious issue, irreparable harm, balance of convenience favors applicant.",
+     "quote": "Pour obtenir un sursis judiciaire, un demandeur doit satisfaire le test tripartite bien connu : une question sérieuse quant au contrôle sous-jacent doit être établie ; un préjudice irréparable doit découler si le sursis n’est pas accordé ; La balance des inconvénients doit favoriser le demandeur.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites RJR-MacDonald Inc. v. Canada and Toth v. Canada as authority for the tripartite test.",
+     "quote": "(RJR-MacDonald Inc. c. Canada (PG), [1994] 1 RCS 311 ; Toth c. Canada (MEI), (1988) 86 N.R. 302).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the tripartite test for a judicial stay: serious issue, irreparable harm, and balance of convenience, citing leading cases.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "All three elements of the tripartite test must be met; failure on any is fatal.",
+     "quote": "le test tripartite ne peut se fonder en un seul. Les trois éléments doivent être satisfaits",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites Janssen Inc. v. AbbVie Corporation, Ishaq, and Western Oilfield for the requirement that all three branches must be met.",
+     "quote": "Ne pas satisfaire l’une des branches sera fatal (Canada (Citoyenneté et Immigration) c. Ishaq, 2015 CAF 212, par. 15 ; Western Oilfield Equipment Rentals Ltd. c. M-I LLC, 2020 CAF 3, par. 7).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court emphasizes all three branches of the tripartite test must be met, citing appellate authority.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The three elements of the test are not watertight compartments, but none can be empty and rely on the others.",
+     "quote": "les trois éléments ne constituent pas des compartiments étanches. Mais aucun des compartiments ne peut être vide, s’en remettant ainsi aux autres.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the test's elements are not isolated, but none can be omitted or left empty.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The serious issue for judicial review would be a procedural fairness breach: PRRA officer should have sent a 'fairness letter'.",
+     "quote": "la question sérieuse à trancher sur contrôle judiciaire, qui n’apparaît pas à la face de la demande de contrôle judiciaire, serait une atteinte à l’équité procédurale en ce que le décideur ERAR aurait dû faire parvenir au demandeur ce qu’il a été convenu d’appeler une « lettre d’équité ».",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims he did not adequately answer the questionnaire and the officer should have sought clarifications, as he was vulnerable.",
+     "quote": "Selon le demandeur, il n’aurait pas répondu adéquatement aux questions se trouvant au questionnaire. On se plaint que le décideur aurait dû exercer une certaine discrétion pour rechercher des précisions. On nous dit que le demandeur aurait été une personne vulnérable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Nothing supports applicant's claim of vulnerability except his own statement.",
+     "quote": "rien n’appuie cette assertion autre que ce que dit maintenant le demandeur.",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant made full submissions; now claims breach of audi alteram partem rule.",
+     "quote": "Alors que le demandeur a fait ses soumissions complètes, on invoque maintenant une atteinte à la règle audi alteram partem.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court identifies the alleged serious issue as a procedural fairness breach, but finds no evidence of applicant's vulnerability or incomplete submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A truly destitute applicant might not make representations, but this is not the applicant's case; he simply failed to provide sufficient information.",
+     "quote": "Il se pourrait qu’un demandeur soit si dépourvu que ses représentations n’en soient pas. Mais il s’agirait alors d’un cas beaucoup plus sévère que celui du demandeur. Le demandeur n’a tout simplement pas fourni l’information suffisante per se.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant is not so destitute as to excuse his lack of information; he simply failed to provide enough.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues insufficient evidence does not amount to procedural unfairness, citing case law and commentary.",
+     "quote": "Le défendeur a raison de rappeler que l’insuffisance de la preuve ne donne pas ouverture à une violation de l’équité procédurale (Farooq c. Canada (Citoyenneté et Immigration), 2013 CF 164 ; Procedural Fairness When Credibility is an Issue, by Steven Meurrens, Immigration & Citizenship Bulletin, 2017, vol. 28, no 2 ; Azzam c. Canada (Citoyenneté et Immigration), 2019 CF 549 ; Garces Canga c. Canada (Citoyenneté et Immigration), 2020 CF 749, par. 28).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds no indication that applicant's credibility was questioned in the PRRA decision.",
+     "quote": "Je n’ai trouvé nulle part que la crédibilité du demandeur était remise en question dans la décision ERAR.",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent argues, and the court agrees, that insufficient evidence does not equal procedural unfairness; applicant's credibility was not questioned.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant tries to recast insufficient evidence as a disguised attack on credibility.",
+     "quote": "Le demandeur a bien tenté de transformer l’insuffisance de la preuve présentée en une atteinte déguisée à la crédibilité.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds no such attack in the stay materials; instead, finds applicant's evidence lacks detail and granularity.",
+     "quote": "Je n’ai trouvé rien de tel. De fait, j’ai trouvé dans le matériel fourni par le demandeur des zones d’ombre. Il n’a tout simplement jamais fourni des détails qui rendraient ses prétentions granuleuses, permettant d’en voir la suffisance.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "It is the applicant's responsibility to present their best case and all evidence to the PRRA officer; officer has no duty to alert to deficiencies.",
+     "quote": "il incombe aux personnes qui demandent une ERAR d’établir, suivant la prépondérance des probabilités, qu’elles sont des personnes à protéger [...] l’agent n’ayant aucun rôle à jouer dans la présentation de la preuve et, surtout, n’ayant aucune obligation d’aviser le demandeur des lacunes ou de l’insuffisance de sa preuve",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant has not established a serious issue exists.",
+     "quote": "En conséquence, le demandeur n’a pas établi l’existence d’une question sérieuse.",
+     "answers": 3
+    }
+   ],
+   "summary": "Applicant tries to frame lack of evidence as a credibility issue, but the court finds no such issue and says applicant failed to establish a serious issue.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This suffices to dispose of the stay request.",
+     "quote": "Cela suffit pour disposer de la demande de sursis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court would not have found irreparable harm either, as the criterion is strict and requires proof beyond consequences inherent in forced removal.",
+     "quote": "J’ajoute que je n’aurais pas non plus conclu à l’existence d’un préjudice irréparable. C’est qu’il s’agit d’un critère rigoureux, qui requiert une preuve au-delà des conséquences inhérentes à un départ forcé",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites Palka, Singh Atwal, Kanthasamy, and Chiarelli for the principle that forced removal consequences do not constitute irreparable harm.",
+     "quote": "cela ne constitue pas un préjudice irréparable. Qu’on se souvienne que « Le principe le plus fondamental du droit de l’immigration veut que les non-citoyens n’aient pas un droit absolu d’entrer ou de demeurer au Canada : Chiarelli c. Canada (Ministre de l’Emploi et de l’Immigration), [1992] 1 RCS 711, p. 733 » ; tel que repris dans Medovarski c. Canada (MCI), 2005 CSC 51, [2005] 2 RCS 539, para 46.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the lack of a serious issue disposes of the stay, and would not have found irreparable harm, citing strict standards and case law.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Federal Court of Appeal requires high-quality evidence to establish irreparable harm; general statements are insufficient.",
+     "quote": "Le caractère rigoureux du critère se manifeste par ce que la Cour d’appel fédérale requiert pour la qualité de la preuve nécessaire à l’établissement du préjudice.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites Gateway City Church and other cases: general assertions do not prove irreparable harm; unsupported claims have no probative value.",
+     "quote": "Les affirmations générales ne peuvent établir l’existence d’un préjudice irréparable, car elles ne prouvent rien: Il est beaucoup trop facile pour ceux qui demandent un sursis dans une affaire comme celle‑ci d’énumérer diverses difficultés, de les qualifier de graves, puis, au moment de préciser le préjudice qui risque d’en découler, d’employer des termes généraux et expressifs qui ne servent pour l’essentiel qu’à affirmer – et non à prouver à la satisfaction de la Cour – que le préjudice est irréparable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites appellate authority that only strong, specific evidence can establish irreparable harm; general statements are insufficient.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Evidence must show a strong probability that irreparable harm will inevitably occur without a stay.",
+     "quote": "Il faut plutôt « produire des éléments de preuve suffisamment probants, dont il ressort une forte probabilité que, faute de sursis, un préjudice irréparable sera inévitablement causé » : arrêt Glooscap, précité, au paragraphe 31.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Here, applicant asserts rather than proves harm; relies on PRRA's finding of insufficient evidence of organized crime links to claim irreparable harm, which is too weak.",
+     "quote": "Ici, le demandeur affirme plutôt qu’il ne démontre preuve à l’appui. Alors même que la décision ERAR conclut à l’insuffisance de la preuve de lien avec la criminalité organisée, le demandeur s’en réclame pour prétendre au premier chef au préjudice irréparable. C’est beaucoup trop mince.",
+     "answers": 1
+    }
+   ],
+   "summary": "The law requires strong evidence of inevitable irreparable harm; here, the applicant merely asserts harm, which is insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims to have recently requested reopening of his PRRA application.",
+     "quote": "Le demandeur soumet aussi qu’il a fait récemment une demande de réouverture de sa requête ERAR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This reopening attempt is at best uncertain and irrelevant to the stay, which is tied to the judicial review.",
+     "quote": "Cette démarche est au mieux aléatoire. D’ailleurs on n’en connait pas la pertinence puisque le sursis demandé est fonction de la demande de contrôle judiciaire, pas d’autres tentatives d’obtention d’autres remèdes.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence supports imminent or positive decision on reopening; new evidence is vague and subject to serious criticism.",
+     "quote": "La demande même de réouverture que j’ai lue, suggère un résultat très incertain. De fait, la nouvelle preuve qui est invoquée me semble elle-même sujette à critique sérieuse à cause du même caractère vague des allégations présentées originellement : appels anonymes, pancartes apposées à l’extérieur.",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Recent threats are unexplained given applicant left Mexico in 2018; this sudden interest requires explanation.",
+     "quote": "Ce soudain intérêt pour le demandeur devrait requérir une certaine explication, tout au moins pour en établir les circonstances.",
+     "answers": 3
+    }
+   ],
+   "summary": "Applicant claims to have sought PRRA reopening, but the court finds this irrelevant, uncertain, and the new evidence vague and unexplained.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Absence of a serious issue is determinative; balance of convenience favors respondent.",
+     "quote": "l’absence de question sérieuse est déterminante. Il va de soi que, dans les circonstances, la balance des inconvénients ne pourrait que favoriser le défendeur.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the lack of a serious issue decisive and says the balance of convenience favors the respondent.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The case meets none of the tripartite test's branches; applicant's theory fails as all three must be established, though elements may overlap.",
+     "quote": "Le dossier, tel que présenté, ne rencontre aucun des volets du test tripartite. De fait, la théorie du demandeur était d’établir une question sérieuse, qui aurait fait en sorte qu’un préjudice irréparable serait exposé. De là, on déduirait que la balance des inconvénients le favoriserait. Or, ce syllogisme ne fonctionne pas parce que les trois volets doivent être établis, tout en reconnaissant que des éléments de l’un peuvent être considérés pour d’autres volets.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds none of the tripartite test's branches are met; applicant's theory fails as all three must be established.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant must establish a serious issue for judicial review; when the stay matches the judicial review remedy, a likelihood standard may apply.",
+     "quote": "un demandeur doit établir une question sérieuse à être débattue sur le contrôle judiciaire sous-jacent. Lorsque le sursis correspond aux remèdes recherchés sur contrôle judiciaire, on peut penser que le demandeur sera tenu à une norme de vraisemblance que le contrôle judiciaire sera accordé",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites Wang and Baron for the likelihood standard when stay and judicial review remedies align.",
+     "quote": "Wang c. Canada (Ministre de la Citoyenneté et de l'Immigration) (1re inst.), 2001 CFPI 148, [2001] 3 CF 682, tel qu’entériné dans Baron c. Canada (Ministre de la Sécurité publique et de la Protection civile), 2009 CAF 81, [2009] 2 RCF 311",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if only required to show judicial review is not futile, applicant fails to show a serious issue; procedural fairness claim is futile.",
+     "quote": "il ne satisfait pas au volet de la question sérieuse en prétendant devant cette Cour que la question est l’absence d’équité procédurale par le décideur ERAR qui n’a pas envoyé une lettre d’équité procédurale pour ce qui n’était rien d’autre qu’un rejet à cause de l’insuffisance de la preuve. Il n’y a pas été établi que le droit sur la question n’est plus ce qu’il était depuis plusieurs années; l’insuffisance de la preuve ne donne pas ouverture à une atteinte à l’équité procédurale. Le décideur est autorisé à décider sur la base du dossier présenté. La demande de contrôle judiciaire essentiellement muette au sujet du motif précis pour la demande. Le dossier sur sursis n’établit aucunement qu’une question sérieuse, outre le vice à l’équité procédurale, se pose. Cette seule allégation de vice procédural est futile.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court explains the serious issue standard, cites authority, and finds applicant fails to meet it; procedural fairness claim is futile.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "La demande de sursis judiciaire ne peut qu’être rejetée.",
+     "quote": "Il en résulte que la demande de sursis judiciaire ne peut qu’être rejetée.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le préjudice irréparable n’avait pas non plus été établi avec la qualité de preuve offerte dans ce dossier.",
+     "quote": "J’ajoute que le préjudice irréparable n’avait pas non plus été établi avec la qualité de preuve offerte dans ce dossier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "La demande de sursis judiciaire de la mesure de renvoi à être exécutée par l’ASFC le 10 janvier 2026, à l’égard du demandeur, est rejetée.",
+     "quote": "La demande de sursis judiciaire de la mesure de renvoi à être exécutée par l’ASFC le 10 janvier 2026, à l’égard du demandeur, est rejetée.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the judicial stay application, finding irreparable harm was not proven, and orders the removal stay request against the applicant dismissed.",
+   "role": "conclusion"
+  }
+ ]
+}

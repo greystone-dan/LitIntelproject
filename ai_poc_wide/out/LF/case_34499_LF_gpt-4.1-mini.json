@@ -1,0 +1,444 @@
+{
+ "case_id": 34499,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.008620000000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Mme Matondo and her children seek judicial review of the Refugee Appeal Division's decision denying refugee or protected person status.",
+     "quote": "Mme Childerine Matondo et ses enfants sollicitent le contrôle judiciaire de la décision de la Section d’appel des réfugiés [SAR] de la Commission de l’immigration et du statut de réfugié [CISR] selon laquelle ils n’ont pas la qualité de réfugiés ni de personnes à protéger en raison de leur statut au Brésil à la date de l’audience devant la Section de la protection des réfugiés [SPR].",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of Refugee Appeal Division's decision denying refugee or protected person status due to their status in Brazil.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court concludes the Refugee Appeal Division's decision is reasonable and applicants are not refugees or protected persons under combined effect of Immigration Act and UN Refugee Convention.",
+     "quote": "la Cour ne peut que conclure que la décision de la SAR est raisonnable et que les demandeurs n’ont pas la qualité de réfugiés ni de personnes à protéger en vertu de l’effet combiné de l’article 98 de la Loi sur l’immigration et la protection des réfugiés, LC 2001, ch 27 [LIPR] et de la section E de l’article premier de la Convention des Nations Unies relative au statut des réfugiés [Convention]. La demande de contrôle judiciaire est donc rejetée.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes Refugee Appeal Division's decision is reasonable and denies applicants refugee or protected status; judicial review is dismissed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mme Matondo is Angolan citizen who fled in 2015 due to threats; lived in Brazil 2015-2019 with permanent resident status.",
+     "quote": "Mme Matondo est citoyenne de l’Angola, pays qu’elle a quitté en 2015 en raison des menaces d’un homme militaire... Entre 2015 et 2019, Mme Matondo a vécu au Brésil où elle a obtenu le statut de résident permanent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Of five children, two have permanent resident status in Brazil, two could have obtained it, and youngest is Brazilian citizen by birth.",
+     "quote": "De ses cinq enfants, deux ont également obtenu le statut de résident permanent; deux n’ont pas obtenu ce statut, mais il n’est pas contesté qu’ils auraient pu l’obtenir; et le plus jeune est citoyen du Brésil de naissance.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "SAR found two sons with permanent resident status likely also obtained Brazilian citizenship but concluded at least permanent resident status.",
+     "quote": "la SAR a simplement conclu qu’ils avaient au moins le statut de résident permanent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states facts: applicant fled Angola, lived in Brazil with permanent resident status; children have various statuses; SAR found at least permanent resident status for two sons.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mme Matondo ran a hair salon in São Paulo, was extorted by gang members, paid for two years, then left Brazil in March 2019.",
+     "quote": "Au Brésil, Mme Matondo exploitait une entreprise de salon de coiffure à São Paulo. Des membres d’un gang criminel l’ont extorquée et elle les a payés pendant deux ans avant de quitter le Brésil en mars 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "She traveled alone with five children by bus, boat, and foot to Canada, arriving June 2019 to seek asylum.",
+     "quote": "Seule avec ses cinq enfants, Mme Matondo a réalisé un périple manifestement ardu en autobus, en bateau et à pied pour finalement atteindre le Canada au mois de juin 2019, où ils ont présenté leurs demandes d’asile.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Minister intervened regarding exclusion under section 1E of the Convention due to their status in Brazil.",
+     "quote": "Le ministre de l’Immigration, Réfugiés et Citoyenneté Canada est intervenu dans le dossier au sujet de l’exclusion sous la section 1E de la Convention en raison de leur statut au Brésil.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states facts: applicant was extorted in Brazil, fled with children to Canada in 2019; Minister intervened on exclusion under section 1E due to Brazil status.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 1E excludes persons with rights and obligations like nationals in their country of residence from Convention protection.",
+     "quote": "La section 1E prévoit que la Convention ne s’applique pas à une personne considérée par les autorités compétentes du pays dans lequel elle a établi sa résidence comme ayant les droits et les obligations attachés à la possession de la nationalité de ce pays.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Zeng sets a multi-step approach to section 1E: assess if applicant has status like nationals in third country at hearing date; if yes, exclude; if no, assess prior status or ability to obtain it and reasons for loss.",
+     "quote": "Dans l’arrêt Zeng c Canada... la Cour d’appel fédérale énonce l’approche à plusieurs étapes à appliquer aux décisions prises en vertu de la section 1E (au para 28): Compte tenu de tous les facteurs pertinents...",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains section 1E excludes persons with status like nationals in residence country; Zeng sets multi-step test for exclusion under section 1E.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Two jurisprudential approaches exist on 'country of residence' under section 1E: one requires safe country, the other excludes regardless of safety.",
+     "quote": "Il subsiste deux courants jurisprudentiels au sein de cette Cour au sujet du pays de résidence pour les fins de la section 1E...",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "First approach: country must be safe; second approach: text unambiguous, exclusion automatic if status in residence country regardless of safety.",
+     "quote": "Dans le premier... Zeng au para 1... Dans le deuxième... Saint-Paul... Celestin...",
+     "answers": 1
+    }
+   ],
+   "summary": "Court identifies two jurisprudential approaches on 'country of residence' under section 1E: safe country requirement versus automatic exclusion regardless of safety.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "SAR in MB8-00025 agreed with first approach requiring risk analysis before exclusion under section 1E.",
+     "quote": "la SAR... a exprimé son accord avec la première ligne de jurisprudence selon laquelle une analyse des risques... doit être faite avant de conclure qu’il soit exclu en vertu de la section 1E...",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "This SAR decision was designated as jurisprudential guide by CISR Chair under section 159(1)(h) of LIPR.",
+     "quote": "Cette décision a été identifiée par le président de la CISR en vertu de l’alinéa 159(1)(h) de la LIPR comme guide jurisprudentiel.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier SAR decision agreed with risk analysis approach before exclusion under section 1E; designated as jurisprudential guide by CISR Chair.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court previously disagreed with SAR's risk analysis approach but recently found it reasonable in Sesay, Ralek Horodiuk, and Lauture.",
+     "quote": "Depuis cette décision de la SAR... cette Cour a exprimé un désaccord... Cependant... cette Cour a aussi conclu que cette approche est raisonnable...",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes prior disagreement with SAR's risk analysis approach but recently found it reasonable in several cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "SAR decision in present case was made before Tshimuangi, Sesay, and Ralek Horodiuk and applied the risk analysis framework from jurisprudential guide.",
+     "quote": "la SAR... a rendu sa décision le 14 mars 2022... a appliqué le cadre d’analyse... selon laquelle une analyse des risques... doit être entreprise.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No party before court argued SAR's approach or framework was unreasonable; court agrees it is reasonable based on Sesay and Ralek Horodiuk.",
+     "quote": "Aucune des parties devant la Cour n’a prétendu que l’approche de la SAR ou son cadre d’analyse était déraisonnable. Je suis d’accord... que le cadre d’analyse adopté par la SAR est raisonnable.",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR applied risk analysis framework before recent cases; no party challenges it; court agrees framework is reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "SAR categorized applicants into three groups; first group (Mme Matondo and two sons) had permanent resident status conferring rights like nationals and had internal flight alternative in Brasilia.",
+     "quote": "Dans la première catégorie se trouvent Mme Matondo et ses deux fils... La SAR a conclu... que ce statut leur confère essentiellement les mêmes droits... Ils étaient donc exclus...",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR found Mme Matondo and two sons had permanent resident status with rights like nationals and internal flight alternative in Brasilia, excluding them.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Second group: two children without permanent resident status but could have obtained it; SAR concluded they were not refugees after weighing factors including reasons for not obtaining status and internal flight alternative.",
+     "quote": "Dans la deuxième catégorie se trouvent les deux enfants... La SAR a noté... Après avoir soupesé les facteurs... la SAR a conclu que ces deux enfants n’avaient également pas la qualité de réfugié.",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR found two children without permanent resident status but could have obtained it; concluded they were not refugees after weighing factors.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Third group: youngest child, Brazilian citizen; SAR concluded no risk of persecution or serious harm in Brasilia, thus no refugee or protected person status.",
+     "quote": "Dans la troisième catégorie se trouve le benjamin... La SAR a conclu qu’il ne serait pas exposé à de la persécution... et donc qu’il n’a pas la qualité de réfugié ou de personne à protéger...",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR found youngest child, Brazilian citizen, not at risk of persecution or serious harm, thus no refugee or protected status.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants raise two main arguments: unreasonableness of SAR's conclusion on permanent resident status and procedural fairness regarding internal flight alternative conclusion.",
+     "quote": "Les demandeurs soulèvent deux arguments principaux à l’égard de la décision de la SAR. Le premier concerne le caractère raisonnable de la décision... le second se rapporte à l’équité procédurale...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR's decision on permanent resident status is unreasonable and procedural fairness was lacking on internal flight alternative conclusion.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue SAR erred in concluding they had permanent resident status in Brazil; this is subject to reasonableness standard.",
+     "quote": "les demandeurs prétendent que la SAR a commis une erreur en concluant qu’ils avaient le statut de résident permanent au Brésil. Il n’est pas contesté que cette détermination... est sujet à la norme de la décision raisonnable...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR erred in concluding they had permanent resident status; this is reviewed on reasonableness standard.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue SAR's decision is unreasonable because it lacks information showing they retained permanent resident status despite possible loss after two years absence.",
+     "quote": "Les demandeurs prétendent que la décision de la SAR est déraisonnable parce qu’elle ne mentionne aucune information permettant de constater qu’ils ont conservé le statut de résident permanent...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR's decision is unreasonable for not showing they retained permanent resident status despite possible loss after two years absence.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Relevant date for status determination is hearing date before SPR, even if decision date is later.",
+     "quote": "Comme l’acceptent les demandeurs, la date pertinente pour la détermination du statut est celle de la date de l’audience devant la SPR...",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Majebi confirms hearing date is relevant for status determination even if decision date is later.",
+     "quote": "Majebi c Canada (Citoyenneté et Immigration), 2016 CAF 274 au para 9.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Balogun confirms this remains true even with prolonged delay between hearing and decision dates.",
+     "quote": "voir Balogun v Canada (Citizenship and Immigration), 2025 FC 726... aux para 18–21.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds hearing date is relevant for status determination, confirmed by Majebi and Balogun cases.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants left Brazil in March 2019; hearing was February 2020, less than one year later; status retained at hearing date, uncontested before SAR; SAR's conclusion reasonable.",
+     "quote": "Les demandeurs ont quitté le Brésil en mars 2019. Leur audience devant la SPR a eu lieu le 27 février 2020... La conclusion de la SAR à cet égard est raisonnable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants left Brazil less than one year before hearing; status retained at hearing date; SAR's conclusion reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue SAR failed procedural fairness by concluding internal flight alternative in Brasilia without opportunity to present evidence; SPR relied on state protection, not internal flight alternative.",
+     "quote": "les demandeurs prétendent que la SAR n’a pas respecté ses obligations d’équité procédurale avant de tirer une conclusion voulant qu’ils avaient une PRI à Brasilia...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR breached procedural fairness by concluding internal flight alternative without opportunity to present evidence; SPR relied on state protection.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court rejects procedural fairness argument because SAR requested written submissions on internal flight alternative and applicants did not seek to submit more evidence or claim insufficiency.",
+     "quote": "la SAR a envoyé une lettre aux demandeurs leur demandant d’expliquer s’ils ont une PRI viable à Brasilia... n’a ni demandé de soumettre de la preuve supplémentaire...",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects procedural fairness argument as SAR requested submissions and applicants did not seek to submit more evidence or claim insufficiency.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants did not support argument that SPR failed to question sufficiently with evidence; SAR reviewed hearing recording and found sufficient evidence; applicants did not request transcript or specify issues.",
+     "quote": "les demandeurs n’ont pas soutenu cet argument en se référant à la preuve... La SAR a écouté l’enregistrement... et elle a conclu qu’elle avait suffisamment de preuve...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants failed to support argument SPR failed to question sufficiently; SAR found sufficient evidence; applicants did not request transcript or specify issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court is not satisfied that the SAR decision was unreasonable or procedurally unfair",
+     "quote": "La Cour n’est donc pas satisfaite que la décision de la SAR soit déraisonnable ou qu’il y eût un manque d’équité procédurale.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review must be dismissed",
+     "quote": "La demande de contrôle judiciaire doit donc être rejetée.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds the SAR decision reasonable and procedurally fair, so dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No party proposed a question of general importance to certify",
+     "quote": "Aucune des parties n’a proposé de question d’importance générale à certifier",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court agrees the case raises no question of general importance",
+     "quote": "je conviens que l’affaire n’en soulève aucune",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Court orders the judicial review application dismissed",
+     "quote": "La demande de contrôle judiciaire est rejetée.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds no question of general importance and dismisses the judicial review application.",
+   "role": "disposition"
+  }
+ ]
+}

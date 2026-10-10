@@ -1,0 +1,975 @@
+{
+ "case_id": 10211,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.018430000000000002,
+ "dropped_rows": 1,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an application for judicial review of an immigration officer's decision dated August 10, 2016, refusing permanent residence.",
+     "quote": "This is an application for judicial review of the decision of an immigration officer of Immigration, Refugees and Citizenship Canada (“Officer”), dated August 10, 2016, refusing the Applicant’s application for permanent residence, made pursuant to the Federal Skilled Worker Program, on the basis that the Applicant failed to meet the requirements of the Immigration and Refugee Protection Regulations, SOR/2002-227 (“IRP Regulations”) as he did not provide a qualifying offer of permanent employment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicant failed to meet IRP Regulations by not providing a qualifying offer of permanent employment.",
+     "quote": "...on the basis that the Applicant failed to meet the requirements of the Immigration and Refugee Protection Regulations, SOR/2002-227 (“IRP Regulations”) as he did not provide a qualifying offer of permanent employment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review of an officer's refusal of permanent residence due to lack of qualifying permanent employment offer.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed.",
+     "quote": "For the reasons that follow, this application for judicial review is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application for judicial review.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is an Indian citizen who studied in Canada and worked at Horizon Travel Magazine starting October 2014.",
+     "quote": "The Applicant is a citizen of India. Upon completing certificates of study in Canada, he obtained a post-graduate work permit (“PGWP”) and began working at Horizon Travel Magazine (“Horizon”) as a web designer in October 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's PGWP was renewed to July 2016 and Horizon applied for LMIA on his behalf, approved October 27, 2015.",
+     "quote": "His PGWP was subsequently renewed to July 2016. In June 2015, Horizon applied for a Labour Market Impact Assessment (“LMIA”) on the Applicant’s behalf, which was approved on October 27, 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant is an Indian citizen who worked at Horizon and had an LMIA approved for him.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant submitted Express Entry profile in Sept 2015 indicating qualifying arranged employment.",
+     "quote": "The Applicant submitted his profile to the Citizenship and Immigration Canada Express Entry intake system in September 2015, indicating that he had a qualifying offer of arranged employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant received invitation to apply for permanent residency Nov 27, 2015 with 971 points including 600 for arranged employment.",
+     "quote": "On November 27, 2015, the Applicant received an invitation to apply for permanent residency as a Federal Skilled Worker. The invitation indicated that the Applicant qualified for 971 points, including 600 for having arranged employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant applied Jan 22, 2016 including LMIA number; application returned incomplete Jan 28, 2016 for missing medical and education proof.",
+     "quote": "The Applicant made an application for permanent residency on January 22, 2016, and included his LMIA confirmation number in the application. This application was returned as incomplete on January 28, 2016 as the Applicant had not provided the required medical report and proof of education documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant resubmitted profile, received second invitation Feb 10, 2016, submitted LMIA letter and Jan 18, 2015 Horizon employment letter, finalized submission Feb 2016.",
+     "quote": "He resubmitted his profile and received a second invitation to apply for permanent residency on February 10, 2016. When submitting the required supporting documentation, the Applicant included the LMIA approval letter and a January 18, 2015 letter from Horizon confirming his employment as of October 2014. He uploaded his documents and finalised his submission in February 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Application was refused August 10, 2016.",
+     "quote": "On August 10, 2016, his application was refused.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the applicant's Express Entry submissions, invitations, document submissions, and refusal date.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found under s 11.2 IRPA that applicant lacked qualifications on which he was ranked due to no qualifying permanent employment offer.",
+     "quote": "In the refusal letter of August 10, 2016 the Officer stated that, pursuant to s 11.2 of the Immigration Refugee and Protection Act, SC 2001, c 27 (“IRPA”), an officer may not issue a visa in respect of an application for permanent residence if the applicant who had been issued an invitation to make such an application does not have the qualifications on the basis of which they were ranked under an instruction given under s 10.3(1)(h) and consequently issued the invitation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicant indicated qualifying arranged employment in Express Entry profile but officer not satisfied he had permanent employment offer.",
+     "quote": "The Officer noted that in his Express Entry profile the Applicant had indicated that he had a qualifying offer of arranged employment. The Officer referenced the Ministerial Instructions Respecting the Express Entry System, as to what is meant by a qualifying offer of arranged employment, as well as s 82(2)(c) of the IRP Regulations. The Officer stated that he or she was not satisfied that the Applicant met the requirements of the IRP Regulations because he did not provide an offer of employment offering him a permanent position in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer refused application under s 11.2 IRPA and s 82(1) IRP Regulations due to loss of points dropping rank below minimum.",
+     "quote": "In accordance with s 11.2 of the IRPA and s 82(1) of the IRP Regulations, the Officer refused the application because he or she found that the Applicant did not possess the qualification on the basis of which he was ranked. The change in his qualification resulted in a loss of points that brought his rank below the lowest ranking person invited to apply under the Express Entry Comprehensive Ranking System.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer found the applicant lacked a qualifying permanent employment offer and refused the application accordingly.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "GCMS notes show applicant awarded points for qualifying job offer but did not submit offer of employment.",
+     "quote": "The Global Case Management System notes (“GCMS Notes”) form a part of the reasons for the decision...PA awarded CRS pts for qualifying job offer at ITA with Horizon Travel Magazine as a Web Developer NOC 2175 based on a positive LMIA...PA did not submit an offer of employment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer not satisfied applicant had qualifying offer of employment; CRS score dropped below minimum for round; application refused.",
+     "quote": "I am not satisfied that PA has a qualifying offer of employment. This results in a drop in points that falls below the minimum score for the round...Based on evidence provided, I am therefore not satisfied that PA has a qualifying job offer according to R82(1) or that PA meets A11.2 - refused.",
+     "answers": 0
+    }
+   ],
+   "summary": "GCMS notes show officer awarded points but found no qualifying offer; application refused due to insufficient points.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Applicant raises two issues: procedural fairness breach and reasonableness of officer's decision.",
+     "quote": "The Applicant raises two issues. The first is whether the Officer breached the duty of procedural fairness. The second is whether the Officer’s decision is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant raises issues of procedural fairness breach and reasonableness of decision.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness regarding officer's failure to raise concerns is reviewable on correctness standard.",
+     "quote": "Whether a visa officer erred by failing to bring his or her concerns to the attention of an applicant and offering the applicant an opportunity to address them is a question of procedural fairness which is reviewable on the correctness standard (Dunsmuir v New Brunswick, 2008 SCC 9 at paras 79 and 87 (“Dunsmuir”); Muthui at para 12; Ramezanpour v Canada (Citizenship and Immigration), 2016 FC 751 at para 15).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states procedural fairness questions are reviewed on correctness standard.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness standard applies to officer's assessment of permanent residence applications and evidence.",
+     "quote": "The standard of review that applies to an officer’s assessment of an application for permanent residence under the Federal Skilled Worker Program, including the officer’s assessment of the evidence submitted in support of that application, is reasonableness...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Officer's assessment entitled to high degree of deference.",
+     "quote": "An officer’s assessment in that regard is entitled to a high degree of deference (Pathirannahelage v Canada (Citizenship and Immigration), 2015 FC 811 at para 25 (“Pathirannahelage”)).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states reasonableness standard applies to officer's assessment, with high deference.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires justification, transparency, intelligibility, and defensibility of decision within facts and law.",
+     "quote": "Reasonableness is concerned with the existence of justification, transparency and intelligibility within the decision-making process but also with whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law (Dunsmuir at para 47).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains reasonableness standard requires justification and defensibility of decision.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "LMIA approval letter was sufficient evidence of qualifying permanent arranged employment offer.",
+     "quote": "The Applicant makes two submissions in this regard. The first is that the LMIA approval letter was sufficient evidence that he had a qualifying and permanent offer of arranged employment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Duty of fairness requires officers to ask questions if concerns about credibility or genuineness of evidence arise.",
+     "quote": "The duty of fairness requires officers to ask appropriate questions of applicants when they have concerns about the credibility, accuracy, or genuine nature of information that otherwise would be sufficient, if believed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Concerns about existence or genuineness of offer or ability to carry out employment should have been put to applicant.",
+     "quote": "Thus, any concerns about the existence or genuineness of the offer, or the ability of the Applicant to carry out the employment, should have been put to the Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues LMIA letter suffices and officer should have raised concerns about genuineness or ability to perform job.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Officer has no duty to assist applicant or advise of concerns if evidence insufficient but credible.",
+     "quote": "The Respondent says that, barring credibility or authenticity concerns, the Officer was under no duty to assist the Applicant in his application for permanent residence. There is no duty to advise an applicant of concerns which arise from the applicant having failed to submit sufficient evidence meeting regulatory requirements.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Officer did not question credibility but was not satisfied applicant had qualifying offer.",
+     "quote": "Here, the Officer did not question the credibility of the Applicant’s evidence, but was not satisfied that the Applicant had a qualifying offer of employment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues officer had no duty to assist absent credibility concerns and was not satisfied applicant had qualifying offer.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The issue is sufficiency of evidence and reasonableness of officer's conclusion that applicant lacked qualifying offer.",
+     "quote": "In my view, this matter is really a question of the sufficiency of the evidence and, in that regard, the reasonableness of the Officer’s conclusion that the Applicant had not demonstrated that he had a qualifying offer of employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The officer's finding was not unreasonable.",
+     "quote": "As set out below, I do not believe that finding was unreasonable.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds issue is evidence sufficiency and officer's conclusion was reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "No obligation on visa officer to give applicant opportunity to address concerns when documents are incomplete or insufficient.",
+     "quote": "there is no obligation on a visa officer to provide an applicant with an opportunity to address concerns of the officer when the supporting documents are incomplete, unclear or insufficient to satisfy the officer that the applicant meets all the requirements that stem from the IRP Regulations",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites Pathirannahelage, Hamza, Gharialia, Veryamani, Rezvani for no duty to assist with incomplete or insufficient documents.",
+     "quote": "as stated by Justice Gascon in Pathirannahelage, at paras 28-29...see also Hamza at paras 24-25; Gharialia v Canada...Veryamani v Canada...Rezvani v Canada...",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states no duty to give opportunity to address concerns when documents are incomplete or insufficient, citing authorities.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Visa officers not obligated to convey concerns about regulatory requirements or sufficiency of evidence.",
+     "quote": "visa officers are not obligated to convey concerns that arise from the requirements of the IRP Regulations or deal with sufficiency of evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites Gedara and Virk cases supporting no duty to seek missing evidence or advise on insufficiency.",
+     "quote": "as noted by Justice Manson in Gedara...In Virk...Justice Barnes noted...",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "In Virk, officer reasonably required more evidence and had no obligation to seek missing evidence; no breach of procedural fairness.",
+     "quote": "Mr. Virk was informed about the requirement and ignored it...There is no breach of procedural fairness in these circumstances and the Officer’s finding that an essential aspect of the proposed employment was missing was reasonable…",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites cases holding officers have no duty to seek missing evidence or advise on insufficiency; no procedural fairness breach.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No record suggests officer doubted genuineness of application or documents.",
+     "quote": "there is nothing in the record suggesting that the Officer had any concerns about the genuineness of the application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Distinction between disregarding evidence for genuineness doubts and finding evidence insufficient on balance of probabilities.",
+     "quote": "There is a distinction between disregarding evidence due to doubts as to its genuineness or reliability and finding that evidence is insufficient to prove a fact on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer found documents insufficient to prove qualifying offer of employment for indeterminate period.",
+     "quote": "In this matter the Officer found that the documents submitted were insufficient to prove that the Applicant had a qualifying offer of employment for an indeterminate period.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer reviewed January 18, 2015 employment letter and found it insufficient.",
+     "quote": "The Officer reviewed the January 18, 2015 offer of employment which the Applicant submitted and found it to be insufficient.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "No duty on officer to advise applicant of concerns about insufficiency of evidence.",
+     "quote": "There was no duty on the Officer to advise the Applicant of his or her concerns regarding the insufficiency of the evidence submitted.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no officer concern about genuineness, only insufficiency of evidence; no duty to advise applicant of insufficiency.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims procedural unfairness because application was refused, not returned incomplete, contrary to legitimate expectations.",
+     "quote": "In the alternative, the Applicant submits that the decision was procedurally unfair because his application was refused rather than returned to him as incomplete, contrary to his legitimate expectations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues he had legitimate expectation that incomplete applications would be returned, based on FSW Manual and IRP Regulations.",
+     "quote": "This expectation is allegedly based on the FSW Processing Manual and ss 10(1)(c) and 12 of the IRP Regulations and because his initial application was returned as incomplete when he did not provide a medical report or proof of education documents with the application.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues refusal rather than return breached legitimate expectations based on processing manual and regulations.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent says legitimate expectations doctrine confers only procedural rights, not substantive rights like avoiding refusal.",
+     "quote": "The Respondent submits that by resorting to the doctrine of legitimate expectations the Applicant is seeking to obtain a substantive right - to not be refused for failing to meet a regulatory requirement at the second stage of the review process - but that the doctrine confers only procedural rights.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Passing initial completeness check does not shield applicant from refusal for insufficient evidence at second stage.",
+     "quote": "The Respondent submits that passing the initial check for document completeness cannot shield an applicant from being found, at the second stage, to have insufficient or no evidence to meet a regulatory requirement.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues legitimate expectations only protect procedural rights; initial completeness does not prevent refusal for insufficient evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant submitted documents for all required categories, so application was 'complete' in that sense.",
+     "quote": "Here it appears that the Applicant did submit documents for all required categories, including the offer of employment category, and, in this sense, the application was “complete.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer found documents insufficient to establish qualifying offer of permanent arranged employment.",
+     "quote": "The Officer found, however, that the documents provided were insufficient to establish that the Applicant met the regulatory requirements, i.e. that he had a qualifying offer of arranged employment for a permanent position.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This differs from prior incomplete application returned for missing medical and education documents.",
+     "quote": "This is distinguishable from the Applicant’s prior submission when his application was returned as incomplete because he did not provide documents under the required categories of medical report or proof of education with the application submission.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Doctrine of legitimate expectations does not apply in these circumstances.",
+     "quote": "The doctrine of legitimate expectations has no application in these circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds application was complete but evidence insufficient; legitimate expectations doctrine does not apply.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits LMIA approval letter is sufficient evidence of qualifying permanent arranged employment offer.",
+     "quote": "While the Applicant does not address this matter through a reasonableness lens...he submitted that the LMIA approval letter was sufficient evidence that he had a qualifying and permanent offer of arranged employment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "LMIA validates offer of employment to skilled worker per IRP Regulations ss 82(2), 203, 315.2.",
+     "quote": "The Applicant submits the presence of an LMIA clearly supports that an offer of employment existed, as the purpose of an LMIA application is to validate an offer of employment made to a skilled worker as reflected in ss 82(2), 203 and 315.2 of the IRP Regulations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "LMIA approval letter lists employer, applicant, position, continuous full-time permanent employment.",
+     "quote": "Further, the approval letter itself clearly listed Horizon as the employer, the Applicant’s name, the nature of the position, and that the Applicant was being offered continuous, full-time employment of permanent/indeterminate length.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant agrees LMIA not determinative; visa officers can deny if concerns about ability or likelihood to perform job exist, but no such concerns here.",
+     "quote": "Although the Applicant agrees that an LMIA is not determinative of whether a visa should be issued...he submits that no such concerns were raised in this matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues LMIA letter suffices as evidence of qualifying offer; no concerns about ability or intent to perform job were raised.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "No legislative basis requires an offer of employment; it's a policy requirement and failure to provide it cannot disqualify him",
+     "quote": "there is no legislative basis upon which an offer of employment is required. This is simply a policy requirement and therefore, failure to provide an offer of employment cannot disqualify him.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Having been awarded 971 points including 600 for arranged employment means Officer accepted he had an offer",
+     "quote": "because he had already been awarded 971 points, 600 of which were awarded for having arranged employment, the Officer had accepted that the Applicant had an offer of permanent employment in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "LMIA post-dated invitation but was valid when points awarded; offer of employment was backwards looking",
+     "quote": "His LMIA post-dated his invitation and was valid when the points were awarded; providing an offer of employment was therefore backwards looking.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "January 18, 2015 letter proves he had employment; LMIA proves he had an offer of permanent employment which Officer failed to appreciate",
+     "quote": "The January 18, 2015 letter of employment only served to prove that he had employment, while the LMIA proved he had an offer of permanent employment which the Officer failed to appreciate.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues no legislative basis requires offer of employment; points awarded show Officer accepted offer; LMIA was valid; letter proves employment and offer.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Visa officers are not bound by LMIA checks from Employment and Social Development Canada",
+     "quote": "The Respondent agrees that visa officers are not bound by LMIA checks produced by Employment and Social Development Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant was advised to include a job offer signed by him and employer; such offer is not superfluous or unreasonable to require",
+     "quote": "the Applicant was advised in his Express Entry document checklist to include a job offer signed by him and his employer. Such a job offer cannot be considered superfluous, nor can it be considered unreasonable for an immigration officer to look for an offer stating that the position is permanent",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "January 18, 2015 letter did not contain information that position is permanent",
+     "quote": "the letter that was uploaded, dated January 18, 2015, did not contain this information.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent says visa officers not bound by LMIA; job offer signed by applicant and employer required; January 18 letter lacked permanence info.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "LMIA is not a rubber stamp for permanent residency; it allows points to be assessed and invitation issued if points sufficient",
+     "quote": "The LMIA is not a rubber stamp for permanent residency. It allows qualifying points to be assessed and, if the points are sufficient, an invitation to apply for permanent residency may be issued.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Express Entry checklist is policy-prescribed; letter of offer content clearly described; Applicant failed to submit required document",
+     "quote": "the Express Entry document checklist is prescribed by policy, the content of the letter of offer from an employer is clearly described. The Applicant simply failed to submit a document that met the requirements.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues LMIA allows points and invitation but is not guarantee; Applicant failed to submit required letter of offer as per policy.",
+   "role": "issue"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant required to satisfy Officer that s 82 IRP Regulations criteria met, meaning employer offered arranged employment",
+     "quote": "Applicant was required to satisfy the Officer that the criteria in s 82 of the IRP Regulations were met",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "s 82 IRP Regulations defines arranged employment as offer for continuous full-time work at least one year after permanent resident visa issued",
+     "quote": "In s 82(1) “arranged employment” is defined as an offer of employment “for continuous full-time work in Canada having a duration of at least one year after the date on which a permanent resident visa is issued”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Plain reading requires submission of an offer of employment",
+     "quote": "On plain reading, this required the submission of an offer of employment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicant must satisfy s 82 IRP Regulations requiring arranged employment offer for continuous full-time work at least one year.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "LMIA approval letter states foreign worker needs LMIA and employment contract or job offer letter signed by employer and worker to apply",
+     "quote": "The foreign worker requires a copy of this LMIA letter and Annex A to apply to Citizenship and Immigration Canada (CIC) for their work permit or permanent resident visa, and must apply prior to the LMIA expiry date stated in the annex. CIC will also need the foreign worker to submit a copy of the employment contract or job offer letter (if applicable to the program stream), signed by the employer and the foreign worker, prior to issuing a work permit or permanent resident visa.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "LMIA does not authorize entry or work; it is only one CIC requirement to issue permit or visa",
+     "quote": "The LMIA does not authorize the foreign worker(s) to enter, remain or work in Canada; it is only one of CIC’s requirements to determine whether or not to issue a work permit or permanent resident visa.",
+     "answers": 0
+    }
+   ],
+   "summary": "LMIA letter states worker must submit LMIA and signed employment contract or job offer to CIC; LMIA alone does not authorize entry or work.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Express Entry checklist is personalized and identifies required supporting documents",
+     "quote": "a personalized document checklist is produced for each applicant when they submit the application through their online account, which identifies the specific supporting documents required.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Letter of offer confirms qualifying arranged employment and screens for fraud; required if applicant claims arranged employment",
+     "quote": "the purpose of the letter is to confirm an applicant’s qualifying offer of arranged employment to validate that the applicant meets the program requirements and to screen for concerns of fraud. It states that the document is required only if, as in this case, the applicant claims to have a qualifying offer of arranged employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Letter must be on company letterhead, include start date, continuous full-time work for at least one year, job title, duties, current status, hours, salary, benefits",
+     "quote": "a letter from the employer offering the job in Canada is required, it must be printed on company letterhead and, include the specified information. It must also include the following specified details: the expected start date; commitment that the applicant will be employed on a continuous, paid, full-time work basis, for work that is for at least one year after issuance of a permanent resident visa; job title; duties and responsibilities; current job status (if current job); number of work hours per week and annual salary plus benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "If LMIA associated, LMIA number requested; scanned LMIA not required at application but may be requested later",
+     "quote": "If there is an associated LMIA to the offer of employment, the LMIA number is requested as a part of the application. A scanned copy of the LMIA is not required when submitting the application but may be requested at a later date.",
+     "answers": 0
+    }
+   ],
+   "summary": "Express Entry checklist requires letter of offer with detailed info; LMIA number requested but scanned LMIA not initially required.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant provided LMIA approval letter as offer and January 18, 2015 letter as letter of employment",
+     "quote": "Applicant provided the LMIA approval letter as his offer of employment and the January 18, 2015 letter from Horizon as his letter of employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer noted valid LMIA and January 18 letter but not satisfied Applicant had qualifying offer confirming permanent position",
+     "quote": "Officer noted that the Applicant had a valid LMIA and considered the January 18, 2015 letter, but was not satisfied the Applicant had a qualifying offer of employment because the Applicant did not provide an offer of employment confirming a permanent position in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "January 18 letter states Applicant employed since October 2014 as web developer with salary but does not show forward-looking permanent offer signed by both parties",
+     "quote": "The January 18, 2015 letter states that Horizon confirms that the Applicant has been employed with Horizon since October 2014 and currently holds the position of web developer and sets out his salary for that position. Thus, the January 18, 2015 does not demonstrate that Applicant had a forward-looking offer of employment for continuous, full-time work signed by both the Applicant and the employer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant gave LMIA and January 18 letter; Officer saw valid LMIA but no qualifying permanent offer; January 18 letter shows past employment only.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's affidavit includes June 19, 2015 letter offering permanent full-time position signed by both parties",
+     "quote": "Applicant included as an exhibit his LMIA application, including a June 19, 2015 offer of employment letter from Horizon offering him a permanent full-time position as a web developer and setting out his duties. The letter was signed by Horizon and the Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "June 19, 2015 letter was not provided with permanent residence application and was not before Officer when decision made",
+     "quote": "that letter was not provided with his application for permanent residence and was not before the Officer when he or she made their decision to reject his application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Evidentiary record on judicial review is restricted to record before decision-maker; new evidence not admissible except limited exceptions not applying here",
+     "quote": "As a general rule, the evidentiary record before this Court on judicial review is restricted to the evidentiary record that was before the decision-maker. ... I am not persuaded that they apply in this matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's June 19 letter offering permanent job was not before Officer; new evidence generally inadmissible on judicial review.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer presumed to have considered all evidence before him; Officer noted Applicant had valid LMIA in GCMS Notes",
+     "quote": "a decision-maker is presumed to have considered all of the evidence before him or her ... Officer does note in the GCMS Notes that the Applicant had a valid LMIA with Horizon.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "LMIA approval letter was not an offer of employment",
+     "quote": "the LMIA approval letter was not an offer of employment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer presumed to consider all evidence and noted valid LMIA; LMIA letter not an offer of employment.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No acceptance of Applicant's claim that no legislative basis requires offer of employment",
+     "quote": "I do not accept the assertion that there is no legislative basis upon which an offer of employment is required to satisfy the requirements of the IRP Regulations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer relied on s 82 IRP Regulations and s 11.2 IRPA in refusing application, not only policy",
+     "quote": "The Officer expressly relied on s 82 of the IRP Regulations and s 11.2 of the IRPA in refusing the application and did not - as asserted by the Applicant - rely only on policy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "s 82 IRP Regulations requires employer to have offered arranged employment defined as continuous full-time work at least one year after visa issued",
+     "quote": "s 82 of the IRP Regulations requires that an employer has offered arranged employment to the applicant, which is defined as an offer of employment “for continuous full-time work in Canada having a duration of at least one year after the date on which a permanent resident visa is issued”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reasonable for Officer to require letter of offer to be satisfied arranged employment existed",
+     "quote": "it was reasonable for the Officer to require a letter of offer be provided.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No undue reliance on non-binding policy; refusal under s 11.2 arose from IRP Regulations requirements",
+     "quote": "There was no undue reliance on any non-binding policy considerations, as the Officer’s refusal under s 11.2 arose directly from the requirements of the IRP Regulations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects Applicant's claim; Officer relied on IRP Regulations and IRPA; reasonable to require letter; refusal based on law not policy.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court previously accepted failure to submit required documents per checklist may justify denial of permanent residency",
+     "quote": "this Court has previously accepted that an applicant is required to submit the documents requested under a document checklist in the form described, and the failure to do so may result in an application for permanent residency being reasonably denied",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites cases Khan, Singh, Senadheera supporting checklist compliance requirement",
+     "quote": "(Khan v Canada ... Singh v Canada ... Senadheera v Canada ...)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "LMIA letter, checklist, and instructions informed Applicant of required document to satisfy arranged employment under s 82",
+     "quote": "LMIA approval letter, document checklist, and online instructions all informed the Applicant of the type of document that was required in order to satisfy the Officer that he had an arranged offer of employment under s 82.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "LMIA post-dating invitation is irrelevant; letter required to confirm qualifying offer and validate program requirements",
+     "quote": "The fact that the LMIA post-dated the invitation is not relevant. ... the purpose of requiring the submission of an offer of employment ... was to confirm the Applicant’s qualifying offer of arranged employment and to validate that the Applicant met the program requirements.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Because letter with relevant info not provided, Officer found Applicant lacked qualifications and denied permanent residence under s 11.2 IRPA",
+     "quote": "Because the letter containing the relevant information was not provided, the Officer found that the Applicant did not have the qualifications ... Accordingly, pursuant to s 11.2 of the IRPA, permanent residence was denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds checklist and instructions required letter to satisfy s 82; LMIA date irrelevant; failure to provide letter justified denial under s 11.2.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer could request qualifying offer letter; duty of fairness did not compel Officer to do so",
+     "quote": "it was open to the Officer to have requested that the Applicant provide an offer of employment ... as the duty of procedural fairness owed in the circumstances did not compel the Officer to do so.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given documents provided, Officer reasonably found insufficient evidence of qualifying job offer; decision defensible",
+     "quote": "Given the documentation that the Applicant did provide, it was not unreasonable for the Officer to find that this was not sufficient to demonstrate that the Applicant had a qualifying job offer, which determination falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Officer could request offer letter but fairness did not require it; Officer reasonably found insufficient evidence of qualifying offer.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Applicant submits four questions for certification about revoking points and fairness regarding job offer and LMIA",
+     "quote": "The Applicant has submitted the following questions for certification: A. Can an immigration officer revoke 600 points ... B. Can an immigration officer justify revoking 600 points ... C. On an application for permanent residence ... D. If an Applicant claims 600 CRA points ...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submits four certification questions about revoking points and fairness related to job offer and LMIA.",
+   "role": "issue"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Test for certifying question requires dispositive of appeal, broad significance, and raised and dealt with by Federal Court judge",
+     "quote": "The test for certifying a question is that it “must (i) be dispositive of the appeal and (ii) transcend the interests of the immediate parties ... The question must also have been raised and dealt with by the Federal Court judge",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states certification test requires question be dispositive, broadly significant, and addressed by Federal Court judge.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "None of Applicant's proposed questions meet certification test; no broad significance or dispositive effect",
+     "quote": "none of the proposed questions meet the test for certification as set out in Zhang. No issues of broad significance or general importance are engaged, nor do the issues proposed by the Applicant transcend the interests of the immediate parties. Moreover, given my findings above, they are not dispositive.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds none of Applicant's questions meet certification test; no broad significance or dispositive effect.",
+   "role": "analysis"
+  }
+ ]
+}

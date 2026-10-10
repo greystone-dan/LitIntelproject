@@ -1,0 +1,513 @@
+{
+ "case_id": 62107,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0093288,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a Haitian citizen appealing the RPD decision dated April 25, 2018.",
+     "quote": "XXXX XXXX (the appellant), a citizen of Haiti, is appealing against the decision of the Refugee Protection Division (RPD) dated April 25, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal and confirms the RPD's determination that the appellant is neither a Convention refugee nor a person in need of protection under IRPA.",
+     "quote": "The Refugee Appeal Division (RAD) dismisses the appeal and confirms the RPD's determination that the appellant is neither a Convention refugee nor a person in need of protection, pursuant to paragraph 111(1)(a) of the Immigration and Refugee Protection Act (IRPA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant is a Haitian citizen appealing the RPD decision, and the RAD dismisses the appeal confirming the RPD's determination under IRPA.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant was threatened by armed individuals affiliated with authorities in 2012 while on his grandfather's land.",
+     "quote": "The appellant was allegedly threatened by a group of individuals in XXXX 2012 when he was XXXX his grandfather's land. He explained that these individuals were armed and affiliated with authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant took refuge on the XXXX XXXX XXXX XXXX in 2012 but left due to isolation and lack of family or employment.",
+     "quote": "The appellant states that on XXXX XXXX, 2012, he took refuge on the XXXX XXXX XXXX XXXX, but found it impossible to live there, as he had no family or employment; moreover, he felt isolated and unsafe.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant left for Florida by boat, arriving in 2013, claimed asylum in the US in 2017 but had no response by RPD hearing date.",
+     "quote": "Subsequently, the appellant allegedly left for Florida by boat and arrived there on XXXX XXXX, 2013. He made a claim for asylum in the United States on XXXX XXXX, 2017, but had not received a response as of the day of his hearing before the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant left the US for Canada in 2017 and claimed refugee protection there.",
+     "quote": "On XXXX XXXX, 2017, he left the United States for Canada, where he claimed refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges he was threatened in 2012, took refuge but left due to isolation, fled to Florida in 2013, claimed US asylum in 2017 without response, then claimed refugee protection in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the claimant failed to establish a serious possibility of persecution or personal risk of torture, death, or cruel treatment if returned.",
+     "quote": "The RPD found that the claimant failed to establish that there is a serious possibility of persecution on a Convention ground or that, on a balance of probabilities, he would be personally subjected to a danger of torture or a risk to his life or a risk of cruel and unusual treatment or punishment if he were to return to his country.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant was not credible due to many contradictions and omissions in evidence.",
+     "quote": "The RPD also found that the appellant was not a credible witness in regard to several pieces of evidence, due to his many contradictions and omissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the claimant failed to prove persecution risk and found him not credible due to contradictions and omissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant generally not credible due to accumulated contradictions and omissions.",
+     "quote": "Lastly, the RPD found that the appellant was generally not credible due to the accumulation of contradictions and omissions.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant alleges the RPD erred in assessing his credibility.",
+     "quote": "For his part, the appellant alleges that the RPD erred in its assessment of his credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant generally not credible; the appellant alleges error in that credibility assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD applies the correctness standard to fact, mixed fact and law, and law questions, except when it has a meaningful advantage.",
+     "quote": "The RAD must apply the correctness standard to questions of fact, questions of mixed fact and law and questions of law, except in cases where the RAD has a meaningful advantage.1",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD applies the correctness standard to fact, mixed fact and law, and law questions, except when it has a meaningful advantage.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court conducted an independent analysis of all evidence, including testimony, to form its own opinion on the refugee claim and RPD decision correctness.",
+     "quote": "I have conducted an independent analysis of all the evidence on the record, including a full review of the testimony given at the hearing, in order to form my own opinion on this refugee protection claim and determine whether the RPD's decision is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court conducted an independent analysis of all evidence and testimony to determine the RPD decision's correctness.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The claimant bears the burden to establish a well-founded fear of persecution or personal risk of torture, death, or cruel treatment if returned.",
+     "quote": "The claimant has the burden of establishing before the RPD that he has a well-founded fear of persecution or that, more likely than not, he will be personally subjected to a risk to his life, a risk of cruel and unusual treatment or punishment or a danger of torture, if he was to return to his country of citizenship.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "An important indicator of witness credibility is story consistency.",
+     "quote": "An important indicator of a witness' credibility is the consistency of his story.2",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimant must prove fear of persecution or risk if returned, and consistency is key to credibility.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD analyzed four categories of evidence before addressing appellant's credibility.",
+     "quote": "The RPD analyzed four categories of evidence on the record before addressing the issue of the appellant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD analyzed four evidence categories before addressing appellant's credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted a contradiction between appellant's testimony and BOC Form about land ownership (father or grandfather).",
+     "quote": "The RPD noted3 a contradiction between the appellant's testimony and the information provided in his Basis of Claim Form (BOC Form).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant explains in his memorandum that he corrected his error made during testimony due to stress.",
+     "quote": "The appellant explains in his memorandum4 that he corrected his error, which he had made during his testimony because he felt stressed at the time of the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found a contradiction on land ownership; the appellant says he corrected a stress-related error in testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court accepts appellant's explanation for the contradiction as a first-time hearing stress or minor interpretation issue.",
+     "quote": "For my part, I accept the appellant's explanation for this contradiction in fact, considering that this is his first time attending a hearing. On the other hand, having listened to the recording of the hearing, I believe that, more likely than not, the error occurred because of a minor interpretation issue.5",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the appellant's explanation for the contradiction as stress or minor interpretation error.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court concludes the RPD's finding on this element is erroneous and appellant's credibility is not undermined here.",
+     "quote": "Thus, I conclude that the RPD's finding on this element is erroneous and I find that the appellant's credibility is not undermined.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RPD erred on this point and appellant's credibility is not undermined here.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted conflicting dates in appellant's testimony and BOC Form, including dates of conflict and escape.",
+     "quote": "Second, the RPD noted several conflicting dates in the appellant's testimony and his BOC Form, including the appendices,6 particularly the dates of the alleged conflict on his grandfather's land (XXXX 2013 or XXXX 2012) and the appellant's escape to the XXXX XXXX XXXX XXXX (XXXX 2013 or XXXX 2012).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD did not accept appellant's explanation that a woman helped him with BOC Form errors and acknowledged conflict.",
+     "quote": "In short, the RPD did not accept the appellant's explanations to the effect that a woman helped him complete his BOC Form, and that she is to blame for the errors on the form.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues his story is perfectly consistent despite these errors and blames the woman who helped with BOC Form.",
+     "quote": "In his memorandum, the appellant argues that his story is perfectly consistent7 despite these errors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found conflicting dates and rejected appellant's explanation blaming a helper; appellant argues his story is consistent despite errors.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant states he left Haiti for Florida on XXXX XXXX, 2013, but contradicts himself on exact dates and timeline.",
+     "quote": "In his memorandum8 and his BOC form,9 the appellant states that he left Haiti for Florida on XXXX XXXX, 2013. He even explains that he [translation] \"left on that specific date\"10 (emphasis added). Elsewhere in his BOC Form, he contradicts himself and indicates that he left Haiti for Florida by boat on XXXX XXXX, 2013.11 He testified at least four times that he left the XXXX XXXX XXXX XXXX on XXXX XXXX, 2013.12 His memorandum13 and his BOC Form14 show that he arrived in the United States on XXXX XXXX, 2013.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The timeline is problematic because appellant claims to have arrived in the US before leaving Haiti, which is impossible.",
+     "quote": "Apart from the fact that the date of his departure from Haiti is not well established by the evidence on the record, there is also an error in one of the alleged timelines: the appellant could not have arrived in the United States (XXXX XXXX, 2013) before leaving Haiti (XXXX XXXX, 2013), as he claims he did.15",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant gives conflicting dates about leaving Haiti and arriving in the US, with an impossible timeline noted by the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant asks for benefit of doubt on dates, saying he becomes confused when asked to pinpoint events on calendar.",
+     "quote": "In response to this problematic timeline, the appellant asks to be given the benefit of the doubt as to the dates of these events, stating that he [translation] \"becomes confused when asked to pinpoint these events on the calendar, as he does not have a good memory for dates.\"16",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant requests benefit of doubt on dates, citing confusion and poor memory for dates.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court rejects appellant's explanation because inconsistencies are repeated and concern important events like grandfather's death.",
+     "quote": "I do not accept the appellant's explanations for two reasons. First, as established above, there are quite a few inconsistencies and contradictions concerning dates in this case and they occur repeatedly in both the BOC Form and his memorandum, when they could have been corrected. More importantly, the main concern is the contradictions concerning the events surrounding the appellant's grandfather's death. In my opinion, while it is possible to forget the precise dates of a conflict or a move, a person would normally remember at least the sequence of these events concerning a major event such as a death of a loved one (i.e. the grandfather's death in this case).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects appellant's explanation, noting repeated inconsistencies on important events like grandfather's death sequence.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees with RPD that inconsistencies undermine appellant's credibility as they relate to central claim aspects.",
+     "quote": "Thus, I agree with the RPD that these inconsistencies undermine the appellant's credibility in this case, since they relate to central or important aspects of the refugee protection claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD that inconsistencies undermine appellant's credibility on central claim aspects.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD questioned appellant's failure to disclose a threatening incident on the XXXX XXXX XXXX XXXX, noting burden of proof and BOC Form declaration requirements.",
+     "quote": "Third, the RPD questioned the appellant's failure to disclose an incident when he was threatened on the XXXX XXXX XXXX XXXX,17 noting that the burden of proof was on the appellant and such that his declaration in his BOC Form requires such disclosure.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant responded that he thought of the incident when filling BOC Form but no one questioned him about it.",
+     "quote": "The appellant responded that he had thought of it when he filled out his BOC Form and no one questioned him about it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD questioned appellant's failure to disclose a threat incident; appellant said he thought of it but was not questioned.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court does not accept appellant's explanation for omission of threats, given their importance to his decision to flee.",
+     "quote": "Given that these very threats [translation] \"that endangered his life\"18 ultimately motivated the appellant to leave by boat and go to the United States (in other words, a major decision: [translation] \"I did not want to die\"19), I do not accept the appellant's explanations to the effect that he simply did not consider including them in his BOC Form.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects appellant's explanation for omitting threats, given their importance to his fleeing decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees with RPD that failure to mention these allegations seriously undermines appellant's credibility.",
+     "quote": "I agree with the RPD that the appellant's failure to mention these allegations seriously undermines his credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD that omission of threat allegations seriously undermines appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted contradiction about appellant's failure to seek help from authorities and inability to name the criminal group.",
+     "quote": "Fourth, the RPD noted a contradiction concerning the appellant's failure to seek help from the authorities.20 It also noted that the appellant could not remember the name of the group of criminals.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD conducted a microscopic examination of the evidence.",
+     "quote": "In response, the appellant argues that the RPD conducted a microscopic examination21 of the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted contradictions about failure to seek help and naming criminals; appellant argues RPD examined evidence microscopically.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree with the appellant that the situation might not be a contradiction but due to various reasons.",
+     "quote": "I agree with the appellant on this point. This might not be a contradiction, but rather a situation that occurred for various reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant may not have sought Haitian authorities' help because criminals are more heavily armed and affiliated with authorities.",
+     "quote": "it is possible that the appellant did not seek the assistance of Haitian authorities to protect himself from the criminals because the criminals are more heavily armed than the authorities and also because they are affiliated with the authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There could be multiple explanations for the appellant's behaviour regarding seeking protection.",
+     "quote": "there could be more than one explanation for the appellant's behaviour in this regard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the appellant that the situation may not be contradictory and multiple reasons explain his behaviour regarding seeking protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD's finding on this element is erroneous and the appellant's credibility is not undermined.",
+     "quote": "I conclude that the RPD's finding on this element is erroneous and I find that the appellant's credibility is not undermined.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RPD erred and the appellant's credibility is not undermined.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "After considering all reasons and testimony, the RPD's finding that the appellant is not credible is correct and upheld.",
+     "quote": "I conclude that the RPD finding that the appellant not credible is correct, because these findings of non-credibility, which I uphold, concern important information and relate to central elements of the refugee protection claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The non-credibility findings concern important information and central elements of the refugee claim and are significant enough to find the appellant not credible.",
+     "quote": "I consider them to be significant enough to find the appellant not credible.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court upholds the RPD's finding that the appellant is not credible due to significant non-credibility findings on central claim elements.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "There is no serious possibility of persecution or risk of harm to the appellant if returned to Haiti.",
+     "quote": "I conclude that there is no serious possibility that the appellant would be persecuted in Haiti on a Convention ground, or that, on a balance of probabilities, he would be subjected to a danger or torture or a risk to his life or a risk of cruel and unusual treatment or punishment if he were to return to his country of citizenship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes no serious possibility of persecution or risk of harm exists if the appellant returns to Haiti.",
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal and confirms the RPD's determination that the appellant is neither a Convention refugee nor in need of protection under IRPA paragraph 111(1)(a).",
+     "quote": "Consequently, the RAD dismisses the appeal and confirms the RPD's determination that the appellant, XXXX XXXX, is neither a Convention refugee nor a person in need of protection, pursuant to paragraph 111(1)(a) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal and confirms the RPD's decision that the appellant is not a Convention refugee or person in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,546 @@
+{
+ "case_id": 34537,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.012542400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Le demandeur est un citoyen mexicain qui sollicite le contrôle judiciaire d'une décision de la SAR rejetant son appel et confirmant le refus de reconnaissance de la qualité de réfugié.",
+     "quote": "Le demandeur, Leonel Ricardo Rodriguez Reyes, est un citoyen du Mexique. Il sollicite le contrôle judiciaire d’une décision datée du 27 mai 2024 [Décision] dans laquelle la Section d’appel des réfugiés [SAR] a rejeté son appel et confirmé la décision de la Section de la protection des réfugiés [SPR] refusant de lui reconnaître la qualité de réfugié au sens de la Convention ou celle de personne à protéger, aux termes des articles 96 et 97(1) de la Loi sur l’immigration et la protection des réfugiés, LC 2001, c 27 [LIPR]. La SAR a rejeté la demande de M. Rodriguez Reyes en raison, d’une part, de son manque de crédibilité eu égard aux faits allégués qui seraient survenus après son départ du Mexique et, d’autre part, de l’existence d’une possibilité de refuge interne [PRI] dans la ville de Mérida.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant is a Mexican citizen seeking judicial review of a SAR decision rejecting his refugee claim due to credibility and internal flight alternative issues.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SAR erred by refusing new psychiatric report evidence",
+     "quote": "la SAR aurait erré en refusant d’admettre comme nouvelle preuve un rapport psychiatrique",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SAR misappreciated psychological health impact on testimony before SPR",
+     "quote": "aurait mal apprécié les conséquences de son état de santé psychologique sur son témoignage devant la SPR",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SAR erred in finding non-credible CJNG visits after departure from Mexico",
+     "quote": "aurait erré en jugeant non crédibles les visites du Cartel Jalisco Nueva Generación [CJNG] suivant son départ du Mexique",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SAR's analysis of viable PRIs in Mérida is unreasonable",
+     "quote": "l’analyse de la SAR concernant la PRI à Mérida est déraisonnable",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SAR erred in finding CJNG lacks will to find him in Mérida",
+     "quote": "la SAR aurait erré en jugeant que le CJNG n’aurait pas la volonté de le retrouver à Mérida",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "SAR wrongly concluded he could reasonably relocate to Mérida",
+     "quote": "en concluant qu’il pourrait raisonnablement s’y relocaliser",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges SAR erred on new psychiatric evidence, psychological impact on testimony, CJNG visit credibility, and analysis of viable PRIs and relocation to Mérida.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court is not convinced by Mr. Rodriguez Reyes' arguments contesting the viable internal relocation (PRI).",
+     "quote": "La Cour n’est pas convaincue par les arguments de M. Rodriguez Reyes contestant la PRI.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister explained the RPD reasonably concluded Mr. Rodriguez Reyes could rely on a viable PRI in Mérida.",
+     "quote": "Comme l’a expliqué le défendeur, le ministre de la Citoyenneté et de l’Immigration [Ministre], la SAR a raisonnablement conclu que M. Rodriguez Reyes pouvait se prévaloir d’une PRI viable à Mérida.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This suffices to render the Decision reasonable.",
+     "quote": "Cela suffit pour rendre la Décision raisonnable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds Mr. Rodriguez Reyes' challenge to the PRI unconvincing, agrees with the Minister that the RPD reasonably found a viable PRI in Mérida, making the Decision reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rodriguez Reyes argues the RPD erred by refusing new psychiatric consultation evidence and misappreciated his psychological health impact on testimony.",
+     "quote": "M. Rodriguez Reyes soutient également que la SAR aurait erré en refusant d’admettre en tant que nouvelle preuve le rapport de consultation psychiatrique et aurait mal apprécié les conséquences de son état de santé psychologique sur son témoignage.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "He also argues the RPD wrongly refused to attribute inconsistencies in his testimony to memory loss from poor mental health.",
+     "quote": "la SAR aurait erronément refusé d’attribuer les incohérences dans son témoignage aux pertes de mémoire dues à sa santé mentale précaire à l’époque.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "He contests the RPD's credibility analysis of CJNG visits after his departure from Mexico.",
+     "quote": "M. Rodriguez Reyes conteste l’analyse de la SAR quant à la crédibilité des visites du CJNG suivant son départ du Mexique.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "It is unnecessary to examine these other arguments because he failed to establish CJNG's motivation to pursue him to Mérida, even considering non-credible visits.",
+     "quote": "il n’est pas nécessaire d’examiner ces autres arguments de M. Rodriguez Reyes, car il n’a pas pu établir la motivation du CJNG à le poursuivre jusqu’à Mérida, même si la SAR avait pris en compte les visites ultérieures du CJNG jugées non crédibles.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Admission of the psychiatric report has no real impact on the PRI analysis as it only aimed to establish inconsistencies in his testimony about CJNG visits after leaving Mexico.",
+     "quote": "l’admission du rapport psychiatrique n’a aucune incidence réelle sur l’analyse de la PRI, car il servait uniquement à établir les incohérences dans le témoignage de M. Rodriguez Reyes quant aux visites du CJNG suivant son départ du Mexique.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Rodriguez Reyes argues RPD erred on psychiatric evidence and credibility, but the Court finds these irrelevant as he failed to prove CJNG's motivation to pursue him to Mérida.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Singh 2020 states PRI analysis is based on protection only if the country cannot provide adequate protection everywhere.",
+     "quote": "l’analyse d’une PRI repose sur le principe voulant que la protection internationale ne puisse être offerte aux demandeurs d’asile que dans les cas où le pays d’origine est incapable de fournir à la personne qui demande l’asile une protection adéquate partout sur son territoire",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If a viable PRI exists somewhere in the country, it invalidates the asylum claim under LIPR articles 96 or 97 regardless of other merits.",
+     "quote": "Si un demandeur d’asile dispose d’une PRI viable quelque part dans son pays de citoyenneté, cela invalidera sa demande d’asile en vertu des articles 96 ou 97 de la LIPR",
+     "answers": 0
+    }
+   ],
+   "summary": "Singh 2020 establishes PRI analysis requires protection inadequacy countrywide; a viable PRI anywhere invalidates asylum under LIPR articles 96 or 97.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The test for a viable PRI requires no serious possibility of persecution in the PRI area and it must not be unreasonable to find refuge there.",
+     "quote": "la Cour d’appel fédérale a identifié les deux critères à satisfaire pour conclure au caractère raisonnable d’une PRI : (i) il ne doit pas y avoir de possibilité sérieuse, selon la prépondérance des probabilités, que le demandeur soit persécuté dans la partie du pays où est la PRI; et (ii) il ne doit pas être déraisonnable pour le demandeur de trouver refuge dans la PRI",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court of Appeal set two criteria for reasonable PRI: no serious risk of persecution there and it must be reasonable to seek refuge there.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The second PRI test criterion requires real and concrete evidence of conditions threatening life and safety if relocating temporarily.",
+     "quote": "il doit y avoir une « preuve réelle et concrète » de conditions qui mettraient en péril la vie et la sécurité du demandeur tentant de se relocaliser temporairement en lieu sûr",
+     "answers": 0
+    }
+   ],
+   "summary": "The second PRI criterion demands real and concrete evidence of life and safety threats if relocating temporarily.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If PRI is established, the asylum seeker must prove PRI is inadequate and unreasonable to settle there.",
+     "quote": "il incombe alors au demandeur d’asile de démontrer que la PRI est inadéquate et qu’il est déraisonnable de s’y établir",
+     "answers": 0
+    }
+   ],
+   "summary": "Once PRI is established, the asylum seeker must prove it is inadequate and unreasonable to settle there.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To refute PRI existence, claimant must show persecutor has capacity and willingness to pursue him to PRI location.",
+     "quote": "M. Rodriguez Reyes devait, pour réfuter l’existence d’une PRI, démontrer que ses agents de préjudice disposaient à la fois de la capacité et de la volonté requises pour le pourchasser jusqu’à Mérida.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "There is a difference between persecutor's capacity and willingness; capacity alone is not decisive without willingness or interest.",
+     "quote": "il existe une différence entre la capacité d’un persécuteur de poursuivre un individu partout dans un pays et sa volonté ou son intérêt de le faire",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If persecutor lacks willingness or interest to pursue, no serious risk of persecution exists.",
+     "quote": "Si le persécuteur n’a pas la volonté ou l’intérêt de trouver, poursuivre et/ou persécuter un individu, il est raisonnable de conclure qu’il n’y a pas de risque sérieux de persécution",
+     "answers": 0
+    }
+   ],
+   "summary": "To refute PRI, claimant must prove persecutor's capacity and willingness to pursue; capacity alone is insufficient without willingness or interest.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD did not contest CJNG's capacity to find Mr. Rodriguez Reyes anywhere in Mexico.",
+     "quote": "la SAR n’a pas contesté que le CJNG avait la capacité de retrouver M. Rodriguez Reyes dans l’ensemble du Mexique",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD reasonably concluded Mr. Rodriguez Reyes failed to prove CJNG's willingness and motivation to find him in Mérida.",
+     "quote": "elle a raisonnablement conclu que M. Rodriguez Reyes ne n’était pas déchargé de son fardeau de démontrer, selon la prépondérance des probabilités, que le CJNG avait la volonté et la motivation de le retrouver à Mérida",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found CJNG had capacity to find Mr. Rodriguez Reyes in Mexico but he failed to prove CJNG's willingness to pursue him in Mérida.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rodriguez Reyes submits objective evidence shows personal vengeance or debt can motivate targeting outside a group's region.",
+     "quote": "M. Rodriguez Reyes soumet que la preuve documentaire objective sur le Mexique précise qu’une vengeance personnelle ou une dette peut motiver les membres d’un groupe à prendre une personne pour cible à l’extérieur de leur région",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD recognized this reality but concluded CJNG's desire for vengeance to pursue Mr. Rodriguez Reyes to Mérida was not established.",
+     "quote": "La SAR a reconnu cette réalité inévitable (Décision au para 52). Cela dit, elle a aussi conclu qu’il n’était pas établi que, dans le cas présent, le CJNG serait alimenté d’un tel désir de vengeance qui l’amènerait à poursuivre M. Rodriguez Reyes jusqu’à Mérida",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Rodriguez Reyes argues vengeance can motivate pursuit outside region; RPD recognized but found no evidence CJNG would pursue him to Mérida for vengeance.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Objective evidence shows CJNG's effort to find a person depends on that person's value to the group.",
+     "quote": "la preuve objective démontre que l’ampleur des efforts qu’un groupe criminel comme le CJNG consacrera à la recherche d’une personne dépend de la valeur que cette personne peut représenter aux yeux du groupe",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Low-level members are not worth the group's time and resources; high-level or traitors risk being targeted.",
+     "quote": "Les membres subalternes ne valent pas le temps et les ressources que prendront les groupes armés pour les trouver et les tuer. En revanche, les membres haut placés ou les gens qui ont trahi un [membre haut placé d’une] organisation criminelle risquent d’être suivis ou pris pour cible",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Security of a person relocating depends on group's desire to punish or avenge; if conflict is minor, moving may suffice.",
+     "quote": "la sécurité d’une personne qui déménage ailleurs pour échapper aux menaces d’une de ces organisations dépend du désir du groupe de punir cette personne ou de se venger d’elle. Si le conflit n’est pas trop grave, un déménagement peut suffire",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found CJNG's pursuit depends on person's value; low-level members not targeted, high-level or traitors are; relocation safety depends on group's desire to punish.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Rodriguez Reyes left his job, which was the only reason CJNG was interested in him.",
+     "quote": "M. Rodriguez Reyes a quitté son emploi au Mexique alors qu’il s’agissait là de l’unique raison pour laquelle le CJNG avait un intérêt à son égard",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found his former job did not give him a special status to motivate CJNG to invest resources to find him 1600 km away.",
+     "quote": "La SAR a également déterminé que l’ancien emploi de M. Rodriguez Reyes ne lui donnait pas un caractère particulier de nature à susciter une motivation du CJNG à investir des ressources pour le retrouver à plus de 1 600 kilomètres de l’État où il résidait au Mexique",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court and RPD found Mr. Rodriguez Reyes' former job was the only CJNG interest, but it did not justify CJNG pursuing him 1600 km away.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even assuming non-credible CJNG visits, they do not establish CJNG's willingness to pursue Mr. Rodriguez Reyes to Mérida.",
+     "quote": "même en tenant pour acquises les visites du CJNG jugées non crédibles, celles-ci ne suffisent pas pour établir la volonté du CJNG à poursuivre M. Rodriguez Reyes jusqu’à Mérida",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Distinguishing willingness to pursue locally from willingness to pursue outside local jurisdiction is important.",
+     "quote": "il est important de faire la distinction entre la volonté de poursuivre quelqu’un localement et la motivation de le faire en dehors de sa juridiction locale",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Citing cases Vishist, Verma, Bassi, Singh, willingness to pursue locally does not prove willingness to pursue elsewhere.",
+     "quote": "Vishist v Canada (Citizenship and Immigration), 2024 FC 1908 au para 35; Verma v Canada (Citizenship and Immigration), 2024 FC 1061 at para 22; Bassi v Canada (Citizenship and Immigration), 2024 FC 910 at para 27; Singh c Canada (Citoyenneté et Immigration), 2023 CF 1151 aux para 15–16",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence supports CJNG's willingness to search for Mr. Rodriguez Reyes in Mérida.",
+     "quote": "Encore une fois, aucune preuve n’appuie l’existence d’une volonté de rechercher M. Rodriguez Reyes à Mérida",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds no evidence CJNG was willing to pursue Mr. Rodriguez Reyes to Mérida, distinguishing local pursuit from pursuit outside local jurisdiction.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "At the second PRI test stage, Mr. Rodriguez Reyes argues he cannot live freely in Mérida due to CJNG influence.",
+     "quote": "M. Rodriguez Reyes soumet uniquement qu’il ne serait pas en mesure de vivre librement à Mérida puisque cette ville se trouve dans la zone d’influence du CJNG",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court already found it reasonable for the RPD to conclude CJNG would not pursue him to Mérida at the first test stage.",
+     "quote": "la Cour a déjà déterminé sous le premier volet qu’il était raisonnable pour la SAR de conclure que le CJNG ne poursuivrait pas M. Rodriguez Reyes à Mérida",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Rodriguez Reyes essentially repeats the same rejected argument at the second test stage.",
+     "quote": "M. Rodriguez Reyes répète essentiellement le même argument rejeté au premier volet",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Rodriguez Reyes argues he cannot live freely in Mérida due to CJNG, but the Court finds this repeats the rejected first-stage argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rightly noted Yucatán, where Mérida is, is the most peaceful Mexican state despite cartel presence.",
+     "quote": "la SAR a souligné à bon droit que l’État du Yucatán — où se trouve Mérida — est l’État le plus paisible du Mexique, malgré la présence de cartels",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The relatively safe situation in Mérida would not endanger Mr. Rodriguez Reyes' life and safety.",
+     "quote": "La situation relativement sécuritaire à Mérida ne mettrait pas en péril la vie et la sécurité de M. Rodriguez Reyes",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Mérida is the most peaceful Mexican state and does not endanger Mr. Rodriguez Reyes' life or safety.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. Rodriguez Reyes points to no evidence to invalidate the RPD's conclusions.",
+     "quote": "M. Rodriguez Reyes n’a mis le doigt sur aucune preuve qui permettrait à la Cour d’invalider les conclusions de la SAR",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Rodriguez Reyes provides no evidence to invalidate the RPD's conclusions.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The judicial review application is dismissed for reasons above.",
+     "quote": "la demande de contrôle judiciaire de M. Rodriguez Reyes est rejetée",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable for the RPD to conclude Mr. Rodriguez Reyes could rely on a viable PRI in Mérida.",
+     "quote": "Il était raisonnable pour la SAR de conclure que M. Rodriguez Reyes pouvait se prévaloir d’une PRI viable à Mérida",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Decision's reasons meet intelligibility, transparency, and justification required by the reasonable decision standard.",
+     "quote": "Les motifs de la Décision à cet égard possèdent les attributs d’intelligibilité, de transparence et de justification requis en vertu de la norme de la décision raisonnable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No need to examine other arguments of Mr. Rodriguez Reyes.",
+     "quote": "En conséquence, il n’y a pas lieu d’examiner les autres arguments de M. Rodriguez Reyes",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court dismisses the judicial review, finds the RPD's PRI conclusion reasonable and well-reasoned, and declines to examine other arguments.",
+   "role": "conclusion"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The judicial review application is dismissed without costs.",
+     "quote": "La demande de contrôle judiciaire est rejetée, sans dépens",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question of general importance to certify.",
+     "quote": "Il n’y a aucune question de portée générale à certifier",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court dismisses the judicial review without costs and finds no question of general importance to certify.",
+   "role": "disposition"
+  }
+ ]
+}

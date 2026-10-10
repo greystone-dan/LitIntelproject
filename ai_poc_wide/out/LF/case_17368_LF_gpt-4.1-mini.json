@@ -1,0 +1,351 @@
+{
+ "case_id": 17368,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0069884000000000005,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an application for judicial review by Ms. Aguirre challenging a Senior Immigration Officer's denial of permanent residency on H & C grounds.",
+     "quote": "This is an application for judicial review by Mayra Aguirre Renteria [Ms. Aguirre] challenging a decision by a Senior Immigration Officer [the Officer] denying her application for permanent residency on humanitarian and compassionate [H & C] grounds.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application by Ms. Aguirre challenging a Senior Immigration Officer's denial of permanent residency on humanitarian and compassionate grounds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Aguirre is a 30-year-old black woman from Colombia who came to Canada in 2015 and claimed refugee protection, which was denied.",
+     "quote": "Ms. Aguirre is a 30-year-old black woman who came to Canada in 2015 from Colombia. Later that year, she claimed refugee protection but that claim was ultimately denied.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Aguirre gave birth to a daughter in Vancouver in December 2015; both are expected to return to Colombia if removed.",
+     "quote": "Ms. Aguirre gave birth to a daughter in Vancouver on December 18, 2015. The expectation is that both would return to Colombia if Ms. Aguirre is removed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Aguirre came from Colombia in 2015, claimed refugee protection which was denied, and gave birth to a daughter in Canada expected to return to Colombia if removed.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Aguirre and her brother applied for H & C relief in September 2017, which was rejected in May 2018; this decision is challenged here.",
+     "quote": "Ms. Aguirre and her brother, Arinson, applied for H & C relief on September 25, 2017. Ms. Aguirre sought relief based on the best interests of her Canadian child, establishment factors and health considerations. Her claim was rejected on May 15, 2018. This is the decision she seeks to challenge on this application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Aguirre and her brother applied for H & C relief in 2017, rejected in 2018, and this decision is challenged here.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is allowed; the key issue is the sufficiency of the Officer's best interest of a child analysis.",
+     "quote": "For the reasons that follow, the application is allowed. The determinative issue concerns the sufficiency of the Officer’s best interest of a child [BIOC] analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is unnecessary to consider other arguments, though the Officer's treatment of Ms. Aguirre's medical situation was also lacking.",
+     "quote": "It is unnecessary for me to consider all of the other arguments presented by counsel beyond the observation that the Officer’s treatment of Ms. Aguirre’s medical situation also left something to be desired.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the application, focusing on the Officer's insufficient best interest of a child analysis and noting poor treatment of medical issues.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The challenge to the Officer's BIOC analysis is a mixed fact and law issue reviewed on a reasonableness standard per Kanthasamy.",
+     "quote": "Ms. Aguirre’s challenge to the Officer’s BIOC analysis raises an issue of mixed fact and law and stands to be reviewed on the standard of reasonableness: see Kanthasamy v Canada, 2015 SCC 61 at para 44, 391 DLR (4th) 644 [Kanthasamy].",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Deference to H & C decision-makers is significant but not a 'blank cheque'; reasons must meet transparency, justification, intelligibility per Dunsmuir.",
+     "quote": "I also endorse the views of Justice Alan Diner in Miyir v Canada, 2018 FC 73, 287 ACWS (3d) 737, where he noted that, while significant deference is owed to H & C decision-makers, deference does not constitute a “blank cheque”. The reasons given must still meet the requirements of transparency, justification and intelligibility as described in Dunsmuir v New Brunswick, 2008 SCC 9, [2008] 1 SCR 190.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the BIOC challenge is reviewed for reasonableness with significant but not unlimited deference, requiring transparent, justified reasons.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer's BIOC comments lack meaningful analysis of hardships faced by a black child in Colombia, offering only limited, unhelpful remarks.",
+     "quote": "The Officer’s BIOC comments contain no meaningful analysis of the evidence concerning the hardships faced by a black child living in Colombia. The decision contains a few unhelpful truisms about the benefits of the living in the care of a supportive parent and the resilience of young children to changing circumstances, but the description of the prevailing conditions is limited to the tepid acknowledgement that “current country conditions for Afro-Colombians are less than favourable”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer's BIOC comments lack meaningful analysis of hardships for a black child in Colombia, offering only limited remarks.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Half-hearted lip-service to evidence is insufficient for proper BIOC analysis; Minister's argument to disregard sufficiency of reasons is rejected.",
+     "quote": "To carry out a proper BIOC analysis it is not enough to pay half-hearted lip-service to the evidence. I reject the Minister’s argument that the sufficiency of reasons concern can reasonably be disregarded on judicial review because the relevant evidence was obviously considered and weighed in favour of the family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the Minister's argument and finds half-hearted consideration of evidence insufficient for proper BIOC analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Kanthasamy requires BIOC analysis to consider many factors including emotional, social, cultural, physical welfare, country conditions, education, health, gender.",
+     "quote": "We are told by the Supreme Court of Canada in Kanthasamy that the BIOC analysis required of an H & C review requires consideration of a multitude of factors relating to a child’s emotional, social, cultural and physical welfare. Included on the list are country conditions, education, special needs, health care and matters related to gender.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Children deserve special consideration and significant weight in H & C analysis; mere statement of consideration is insufficient.",
+     "quote": "We are also told that children are often deserving of special consideration and that their interests are to be given significant weight in the overall H & C analysis. It is not enough to state that the best interests of a child affected by a removal from Canada have been taken into account.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Where conditions are markedly inferior and hardship found insufficient, decision-makers must meaningfully engage with evidence per Kanthasamy para 25.",
+     "quote": "Where a child is to be sent to a place where conditions are markedly inferior to Canadian standards and where the expected hardship is still found to be insufficient to support relief, there must be a meaningful engagement with the evidence. This is what the Court meant in Kanthasamy at paragraph 25 when it said that H & C decision-makers “must substantively consider and weigh all the relevant facts and factors before them”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Kanthasamy requiring BIOC analysis to consider many factors, give children special weight, and meaningfully engage with evidence when conditions are inferior.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer's bare acknowledgment of less favourable conditions in Colombia was insufficient; reasons why relief was denied must be explained.",
+     "quote": "In this case, the bare acknowledgement by the Officer of less favourable conditions in Colombia was insufficient. What Ms. Aguirre was entitled to know is why those less favourable conditions were considered to be undeserving of relief when weighed in the evidentiary balance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer's bare acknowledgment of less favourable conditions insufficient and requires explanation for denial of relief.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The record contained significant evidence that women, blacks, and children in Colombia face significant hardships due to racial inequality and prejudice.",
+     "quote": "The record before the Officer contained a significant body of country condition evidence indicating that women, blacks and children in Colombia face significant hardships in almost all aspects of life. At the root of much of the difficulty faced by Afro-Colombians is a long-standing, pervasive history of racial inequality and prejudice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the record showed significant hardships for women, blacks, and children in Colombia due to racial inequality and prejudice.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Black women and children in Colombia are particularly at risk, with discrimination often manifesting in violence.",
+     "quote": "Black women and children are particularly at risk. Discrimination against Afro-Colombians is often manifested in violence [see the Certified Tribunal Record [CTR] at p 191].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states black women and children in Colombia face particular risks and violence due to discrimination.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A 2017 UN report highlighted pervasive structural discrimination against Afro-Colombians in education, employment, political participation, and justice access.",
+     "quote": "A 2017 United Nation’s report described the situation for blacks in the following way: 18. Afro-Colombian representatives highlight pervasive structural discrimination, including access to quality education, employment and participation in economic life, housing, effective political participation and access to justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Afro-Colombians have higher illiteracy and lower primary education access rates than national averages, especially in some regions.",
+     "quote": "The estimated illiteracy index within the Afro-Colombian population is 30 per cent, compared with the national average of 16 per cent. Nearly 10 per cent of Afro-Colombian children from 6 to 10 years of age do not access primary education, with the percentage believed to be far higher in some regions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a 2017 UN report found pervasive discrimination against Afro-Colombians with higher illiteracy and lower education access.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Afro-Colombian women are often targets of sexual violence and exploitation; child sexual exploitation is also a problem.",
+     "quote": "The record also disclosed that Afro-Colombian women are often the targets of sexual violence and exploitation [see CTR at p 418]. Sexual exploitation of children was also a reported problem [see CTR at p 494].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Afro-Colombian women face sexual violence and exploitation, and child sexual exploitation is reported.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Educational opportunities for black students in Colombia are reported as poor or very poor by a non-governmental organization.",
+     "quote": "The quality of educational opportunities for black students was said by one non-governmental organization to be poor or very poor [see CTR at p 437].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states educational opportunities for black students in Colombia are poor or very poor per NGO report.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Unemployment disproportionately affects women who face hiring and wage discrimination; child abuse and sexual exploitation are serious problems.",
+     "quote": "According to another report, unemployment disproportionally affects women who also face discrimination in hiring and wages [see CTR at p 509). The United States Department of State Report for 2016 described child abuse as a serious problem along with sexual exploitation of children [see CTR at pp 35-36].",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Afro-Colombians face significant economic and social discrimination, with high poverty and inequality especially in Choco department.",
+     "quote": "That report described the general situation for Afro-Colombians in the following way: Afro-Colombians are entitled to all constitutional rights and protections, but they faced significant economic and social discrimination. According to a 2016 UN report, 32 percent of the country’s population lived below the poverty line, but in Choco, the department with the highest percentage of Afro-Colombian residents, 79 percent of residents lived below the poverty line. NGO Afro- Colombian Solidarity Network reported 32 percent of Choco’s residents lived in extreme poverty. Choco continued to experience the lowest per capita level of social investment; ranked last among departments in terms of infrastructure, education, and health; and experienced the highest rate of income inequality in the country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states women face unemployment and discrimination; Afro-Colombians suffer economic and social discrimination with high poverty in Choco.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A 2013 human rights report noted Afro-Colombians suffer informal labour, unemployment, high drop-out, illiteracy, poor water, child labour, and limited services.",
+     "quote": "A 2013 human rights report stated that Afro-Colombians are plagued by high rates of informal labour, unemployment, high drop-out rates, illiteracy, poor access to potable water and sanitation, child labour and limited access to government services [see CTR at p 206].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a 2013 report found Afro-Colombians face informal labour, unemployment, illiteracy, poor water, child labour, and limited services.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The Officer failed to ask or answer if return to Colombia's conditions would be unacceptable to fair-minded Canadians; this question must be reasonably considered and articulated.",
+     "quote": "The question the Officer failed to ask or answer is whether the return of Ms. Aguirre and her Canadian infant to the general conditions described above (and elsewhere in the record) would be considered by decent fair-minded Canadians to be unacceptable. It is not my role to answer that question but only to ensure that it receives reasonable consideration and articulation. In this case, it did not.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer failed to reasonably consider if return to Colombia's conditions would be unacceptable to fair-minded Canadians.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The decision is set aside and the matter is to be redetermined on the merits by a different decision-maker; applicant may update evidence.",
+     "quote": "For these reasons, the decision is set aside. The matter is to be redetermined on the merits by a different decision-maker. Given the passage of time, the Applicant will be entitled to update the evidentiary record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court sets aside the decision and orders redetermination by a different decision-maker, allowing evidence update.",
+   "role": "disposition"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No certified question proposed and no issue of general importance arises; application allowed and matter redetermined by different decision-maker.",
+     "quote": "Neither party proposed a certified question and no issue of general importance arises on this record. JUDGMENT in IMM-3816-18 THIS COURT’S JUDGMENT is that this application is allowed with the matter to be redetermined on the merits by a different decision-maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no certified question or general issue arises and allows the application with redetermination by a different decision-maker.",
+   "role": "disposition"
+  }
+ ]
+}

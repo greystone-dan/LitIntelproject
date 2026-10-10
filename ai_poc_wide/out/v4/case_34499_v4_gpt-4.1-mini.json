@@ -1,0 +1,554 @@
+{
+ "case_id": 34499,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0070768,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mme Childerine Matondo and her children seek judicial review of the Refugee Appeal Division's decision denying refugee or protected person status",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Refugee Appeal Division decided they lacked refugee or protected person status due to their status in Brazil at the Refugee Protection Division hearing date",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants seek judicial review of the Refugee Appeal Division's decision denying refugee status due to their Brazilian status at the hearing date, as found by the Division.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Despite the Matondo family's difficulties, the Court finds the Refugee Appeal Division's decision reasonable and denies refugee or protected person status under combined s 98 LIPR and s 1E of the Refugee Convention",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The judicial review application is dismissed",
+     "answers": 1
+    }
+   ],
+   "summary": "The Court concludes the Refugee Appeal Division's decision is reasonable and dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mme Matondo is Angolan, fled in 2015 due to threats from a military man",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "She lived in Brazil 2015-2019, obtained permanent resident status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Of five children, two have permanent resident status, two could have obtained it but did not, and the youngest is Brazilian citizen by birth",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Refugee Appeal Division found two sons with permanent resident status at least, possibly citizenship, but concluded permanent resident status",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Matondo family background and Refugee Appeal Division's finding on children's Brazilian status.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mme Matondo ran a hair salon in São Paulo, was extorted by gang members, paid for two years, left Brazil in March 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "She traveled arduously with five children to Canada, arriving June 2019, and applied for asylum",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister of Immigration intervened on exclusion under s 1E of the Convention due to their Brazilian status",
+     "answers": 0
+    }
+   ],
+   "summary": "Court describes Matondo's extortion, flight to Canada, asylum application, and Minister's intervention on s 1E exclusion.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 1E excludes persons considered by competent authorities of their residence country as having rights and obligations of nationality",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Zeng sets a multi-step approach for s 1E decisions: does applicant have status like nationals in third country at hearing date?",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "If yes, applicant is excluded; if no, consider if applicant had or could have had status and lost or did not obtain it",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "If applicant lost or could have obtained status, Refugee Protection Division weighs factors including reason for loss, return possibility, risk in origin country, Canada's international obligations, and other facts",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains s 1E exclusion and Zeng's multi-step approach for assessing status and risks in third country.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Two jurisprudential lines exist on 'country of residence' for s 1E: one requires safe country, the other excludes automatically if status exists regardless of safety",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "First line: country must be safe to prevent seeking better asylum; see Zeng, Omorogie, Omar",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Second line: s 1E text unambiguous; status in residence country excludes automatically; see Saint-Paul, Celestin",
+     "answers": 0
+    }
+   ],
+   "summary": "Court outlines two jurisprudential approaches on s 1E's country of residence: safe country requirement versus automatic exclusion if status exists.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "SAR member Pickel analyzed both jurisprudential lines and agreed with first line requiring risk analysis before s 1E exclusion",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Decision X (2020) was designated as jurisprudential guide by CISR president under s 159(1)(h) LIPR",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR member Pickel adopted the risk analysis approach for s 1E exclusion in decision X, designated as jurisprudential guide.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This Court expressed disagreement with the risk analysis approach in Tshimuangi (2024)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "More recently, this Court found the risk analysis approach reasonable in Sesay (2025), Ralek Horodiuk (2025), and Lauture (2023)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes its prior disagreement with risk analysis approach but more recent decisions find it reasonable.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "SAR Pickel decided on March 14, 2022, before Tshimuangi, Sesay, Ralek Horodiuk, applying Zeng framework with risk analysis",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No party before Court argued SAR's approach or framework was unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees SAR's framework is reasonable for reasons in Sesay and Ralek Horodiuk",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR applied Zeng risk analysis before recent cases; no party contests reasonableness; Court agrees it is reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "SAR categorized applicants into three groups: Matondo and two sons with permanent resident status; two children without status but could obtain; youngest Brazilian citizen",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "SAR found permanent resident status confers rights like nationals and despite risks in São Paulo, internal flight to Brasilia was possible",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "They were excluded from protection under s 98 LIPR and s 1E Convention",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR found three applicant categories; those with permanent resident status had internal flight possibility and were excluded under s 98 LIPR and s 1E.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Second category: two children without permanent resident status but could have obtained it, took no steps",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "SAR weighed Zeng factors including reasons for not obtaining status, return possibility, and safe living in Brasilia",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "SAR concluded these two children also lacked refugee status",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR found two children without status but could obtain it, weighed factors, and concluded no refugee status.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Third category: youngest child is Brazilian citizen",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "SAR concluded youngest child not exposed to persecution or serious harm in Brasilia and lacks refugee or protected person status",
+     "answers": 0
+    }
+   ],
+   "summary": "SAR concluded youngest child, a Brazilian citizen, is not at risk and lacks refugee or protected person status.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants raise two main arguments: unreasonableness of SAR's permanent resident status finding and procedural fairness regarding internal flight conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR erred on permanent resident status reasonableness and procedural fairness on internal flight conclusion.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants allege SAR erred in concluding they had permanent resident status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Determination of permanent resident status is subject to reasonableness standard per Vavilov and Lauture",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants allege SAR erred on permanent resident status; Court states reasonableness standard applies per Vavilov and Lauture.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue SAR's decision unreasonable for lacking information on maintaining permanent resident status given two-year absence rule",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR's decision unreasonable for not showing they maintained permanent resident status despite two-year absence rule.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Relevant date for status determination is hearing date before Refugee Protection Division",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants accept hearing date is relevant",
+     "answers": 1
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Majebi confirms hearing date is relevant even if decision date is later",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Balogun confirms hearing date relevance despite delay between hearing and decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds hearing date is relevant for status; applicants accept; Majebi and Balogun confirm this legal principle.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants left Brazil March 2019; hearing was February 27, 2020, less than one year later",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if permanent resident status lost after two years absence, applicants had status at hearing date, uncontested before SAR",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "SAR's conclusion on permanent resident status is reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants left Brazil less than one year before hearing; status existed then; SAR's conclusion is reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue SAR breached procedural fairness by concluding internal flight possibility at Brasilia",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants say Refugee Protection Division relied on state protection, not internal flight, so they lacked chance to present evidence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants say Refugee Protection Division did not seek enough information at hearing on internal flight",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue SAR breached procedural fairness on internal flight conclusion and insufficient evidence opportunity.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "SAR sent letter asking applicants to explain viable internal flight possibility in Brasilia",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants' representative submitted written claims but did not request more evidence or claim insufficiency",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicants cannot now claim they lacked opportunity to present submissions on internal flight",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds SAR gave opportunity to present on internal flight; applicants did not seek more evidence; cannot now claim lack of opportunity.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants did not support argument that Refugee Protection Division failed to question enough with evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "SAR listened to hearing recording and found sufficient evidence to decide internal flight issue",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants did not request hearing transcript or reference recording to support argument",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants bear burden to clearly and precisely establish judicial review arguments",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Simple assertion of insufficient questioning does not meet burden",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds applicants failed to support procedural fairness argument with evidence; burden not met; simple assertion insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Court is not satisfied that the SAR decision was unreasonable or procedurally unfair",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review must be dismissed",
+     "answers": 1
+    }
+   ],
+   "summary": "The Court finds the SAR decision reasonable and procedurally fair, so dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No party proposed a question of general importance for certification",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Court agrees the case raises no question of general importance",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The judicial review application is dismissed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The judgment is in file IMM-9368-22",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The hearing took place in Montreal, Quebec on May 1, 2025",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The judgment and reasons are dated May 8, 2025 by Judge McHaffie",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Laurent Gryner represents the applicants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Attorney General of Canada represents the respondent",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds no question of general importance, dismisses the judicial review, and records hearing and counsel details.",
+   "role": "conclusion"
+  }
+ ]
+}

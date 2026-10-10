@@ -1,0 +1,421 @@
+{
+ "case_id": 35431,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.006388400000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Le demandeur (M. Magana) seeks a judicial stay of removal to Mexico, scheduled for January 10 at 17:55 to Cancún.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the applicant, M. Magana, seeks a judicial stay of removal to Mexico scheduled for January 10 at 17:55 to Cancún.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The respondent requests the Court not to hear the stay application due to late filing, knowing removal was scheduled since November 18.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Court preferred to hear the stay application in case it was meritorious, but finds it is not.",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent argues the stay application is late; the court hears it but finds it not meritorious.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The applicant is 31 years old, left Mexico in April 2018, applied for asylum but did not pursue it, and arrived in Canada on April 25, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant is 31, left Mexico in April 2018, made an asylum claim but did not pursue it, arriving in Canada April 25, 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The applicant's activities after arrival are unknown; Canada Border Services Agency contacted him in 2023 when he applied for a Pre-Removal Risk Assessment (PRRA) on February 2, 2023.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant alleges threats from criminal organizations seeking his collaboration.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The PRRA decision found insufficient evidence to support the applicant's allegations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges threats from criminal groups; the 2023 PRRA found insufficient evidence to support these claims.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The PRRA decision found allegations vague, lacking details on the organization, threats, circumstances, and risks upon return to Mexico.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Lack of detailed information and evidence is fatal; applicant cannot prove serious risks on balance of probabilities if returned to Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA found allegations vague and unsubstantiated; the court concludes lack of evidence is fatal to proving serious risks if returned.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The PRRA decision was made January 11, 2025, and communicated November 18, 2025.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The PRRA decision is challenged by a judicial review application dated December 1, 2025.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "The judicial review application is a generic text revealing no alleged defect in the challenged decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The PRRA decision was made January 11, 2025, challenged by judicial review December 1, 2025, which reveals no alleged defect.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To obtain a judicial stay, the applicant must satisfy the tripartite test: serious issue, irreparable harm, and balance of convenience favoring applicant (RJR-MacDonald; Toth).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the tripartite test for a judicial stay: serious issue, irreparable harm, and balance of convenience favoring applicant.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "All three elements of the tripartite test must be satisfied; failure of one is fatal (Janssen; Ishaq; Western Oilfield).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states all three elements of the tripartite test must be met; failure of one is fatal.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The three elements are not watertight compartments but none can be empty relying on others.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the three elements are related but none can be empty relying on others.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The serious issue to be decided is alleged procedural fairness breach: ERAR decision-maker should have sent a 'letter of fairness'.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims inadequate response to questionnaire and that decision-maker should have sought clarifications, citing vulnerability.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence supports vulnerability claim; applicant made full submissions but now alleges breach of audi alteram partem rule.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges procedural fairness breach by ERAR decision-maker; court finds no evidence supporting vulnerability or breach.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "A more severe case would be needed for lack of representations; here applicant simply failed to provide sufficient information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant simply failed to provide sufficient information, unlike more severe cases lacking representations.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues insufficient evidence does not amount to procedural fairness violation (citing Farooq, Meurrens, Azzam, Garces Canga).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No credibility issue was questioned in the ERAR decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues insufficient evidence is not procedural fairness breach; court finds no credibility issue questioned in ERAR.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant tries to disguise insufficient evidence as credibility breach.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds no credibility issue; applicant provided vague claims lacking detail to support allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Applicants must put their best evidence forward; ERAR officers have no duty to fill evidentiary gaps or notify insufficiencies (Garces Canga, Adetunji, Ferguson, Ikeji, Lupsa).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant failed to establish a serious issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant tries to claim credibility breach; court finds no such issue and cites authority that applicants must provide evidence; no serious issue established.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This suffices to dismiss the stay application; also no irreparable harm established, which requires proof beyond forced removal consequences (Palka, Singh Atwal, Kanthasamy, Chiarelli, Medovarski).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the stay application and finds no irreparable harm, requiring proof beyond forced removal consequences.",
+   "role": "conclusion"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court of Appeal requires strong evidence to establish irreparable harm; general assertions insufficient (Gateway City Church, Holy Alpha, Première Nation de Stoney, Glooscap Heritage Society).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Federal Court of Appeal requiring strong evidence for irreparable harm; general assertions insufficient.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Irreparable harm requires strong evidence showing high probability of inevitable harm without stay (Glooscap, Dywidag, Canada (AG), Laperrière).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims irreparable harm but provides no evidence; relies on insufficient proof of criminal links from ERAR decision, which is too weak.",
+     "answers": 0
+    }
+   ],
+   "summary": "Irreparable harm requires strong evidence; applicant claims harm but provides no evidence, relying on weak ERAR findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant also claims recent PRRA reopening request, but its relevance is uncertain and outcome uncertain; new evidence is vague and questionable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Recent threats alleged are vague and unexplained given applicant left Mexico in 2018; explanation needed for sudden interest.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant claims recent PRRA reopening with vague evidence; court finds allegations vague and unexplained given applicant left Mexico in 2018.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Absence of serious issue is decisive; balance of convenience favors respondent in these circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds absence of serious issue decisive; balance of convenience favors respondent.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The record fails all tripartite test elements; applicant's theory of serious issue leading to irreparable harm and favorable balance fails as all three must be established.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the applicant fails all tripartite test elements; theory of serious issue, irreparable harm, and balance fails.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicant must establish a serious issue on judicial review; when stay matches judicial review remedies, a likelihood of success standard applies (Wang, Baron).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister of Public Safety responsible for removal is not party; removal order is challenged.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even assuming applicant must show judicial review is not futile, he fails serious issue element alleging procedural fairness breach for lack of fairness letter in ERAR rejection due to insufficient evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Insufficient evidence does not amount to procedural fairness breach; decision-maker may decide on the record presented.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Judicial review application is silent on precise grounds; stay record does not establish serious issue beyond procedural fairness allegation, which is futile.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states applicant must show serious issue on judicial review; applicant fails to show procedural fairness breach; judicial review application is silent and futile.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The judicial stay request is rejected.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Irreparable harm was not established with the quality of evidence offered.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The judicial stay of the removal order to be executed by CBSA on January 10, 2026, against the applicant, is rejected.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The applicant is Luis Roberto Magana Saucedo and the respondent is the Minister of Citizenship and Immigration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The hearing took place by audioconference on January 8, 2026, with judgment reasons dated January 9, 2026.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Counsel for the applicant is Me Radu Cristian Diaconu; counsel for the respondent is Me Suzon Létourneau.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the judicial stay request and finds irreparable harm not established; identifies parties and hearing details.",
+   "role": "conclusion"
+  }
+ ]
+}

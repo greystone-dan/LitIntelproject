@@ -69,11 +69,11 @@ def main() -> int:
 	ap.add_argument("--pool", type=Path, action="append", required=True)
 	ap.add_argument("--out", type=Path, required=True)
 	ap.add_argument("--seed", default="wide100")
-	ap.add_argument("--exclude-dir", type=Path, default=None, help="folder of case_<id>.json already used; those ids are skipped")
+	ap.add_argument("--exclude-dir", type=Path, action="append", default=[], help="folder of case_<id>.json already used; those ids are skipped")
 	ap.add_argument("--quota", default="FCimm=26,FCother=4,FCfr=7,FCA=14,SCC=10,RPD=17,RAD=22")
 	args = ap.parse_args()
 	pool = {}
-	skip = {int(f.stem.split("_")[1]) for f in args.exclude_dir.glob("case_*.json")} if args.exclude_dir else set()
+	skip = {int(f.stem.split("_")[1]) for d in args.exclude_dir for f in d.glob("case_*.json")}
 	for p in args.pool:
 		for r in json.loads(p.read_text()):
 			if r.get("text") and r["id"] not in skip:

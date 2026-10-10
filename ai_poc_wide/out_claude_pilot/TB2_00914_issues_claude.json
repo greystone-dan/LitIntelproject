@@ -1,0 +1,47 @@
+{
+  "case_id": "TB2_00914",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant a citizen of Sudan (identity)?",
+        "paras": "7",
+        "applicant_position": "Claimant relies on a Sudanese passport and identity documents filed at the port of entry.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_quote": "The panel accepts that the claimant is a citizen of Sudan due to the identification filed at the Port of Entry"
+      },
+      {
+        "issue": "Is the claimant's political participation in the XXXX movement credible?",
+        "paras": "9-11",
+        "applicant_position": "Claimant distributed leaflets for a grassroots movement and was detained by security forces.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "which lead to the panel finding that the claimant was not credible with regard to his participation in the organization"
+      },
+      {
+        "issue": "Does the claimant have a well-founded fear of persecution for a Convention ground?",
+        "paras": "4, 16-17",
+        "applicant_position": "Claimant fears security forces for political activity and forced military service.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 4,
+        "result_quote": "he does not have a well-founded fear of persecution for a Convention ground in Sudan"
+      },
+      {
+        "issue": "Is the claimant a person in need of protection under s.97(1)?",
+        "paras": "5, 12-19",
+        "applicant_position": "Claimant fears cruel treatment or risk to life if forced back to Sudan.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "This is not a risk that falls in to the definition of this section."
+      }
+    ]
+  }
+}

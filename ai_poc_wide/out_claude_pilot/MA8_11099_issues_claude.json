@@ -1,0 +1,38 @@
+{
+  "case_id": "MA8_11099",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 29,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the respondent obtain refugee status by directly or indirectly misrepresenting material facts (fake FIR and warrant)?",
+        "paras": "9-18, 27",
+        "applicant_position": "Respondent filed a fraudulent FIR and arrest warrant and misrepresented being wanted in Pakistan.",
+        "respondent_position": "FIR and warrant are genuine; his Pakistani lawyer confirmed the case against him.",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I conclude that the principal respondent made false representations on material facts in his original claim for refugee status"
+      },
+      {
+        "issue": "Is the altered national identity card a further material misrepresentation?",
+        "paras": "19",
+        "applicant_position": "National identity card was altered, so the identity documents were false.",
+        "respondent_position": "Identity documents were not properly photocopied, causing confusion in verification.",
+        "result": "not_decided",
+        "result_para": 19,
+        "result_quote": "I will not pursue my analysis on the issue of material misrepresentations on the identity"
+      },
+      {
+        "issue": "Is there other sufficient evidence to justify refugee protection (s.109(2))?",
+        "paras": "21-26",
+        "applicant_position": "No other sufficient evidence remains once the false documents are set aside.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I also conclude that there remains no other sufficient evidence that was considered at the time of the first determination to justify refugee protection"
+      }
+    ]
+  }
+}

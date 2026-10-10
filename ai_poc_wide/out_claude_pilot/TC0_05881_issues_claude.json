@@ -1,0 +1,29 @@
+{
+  "case_id": "TC0_05881",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 1,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD's s. 97 analysis correctly frame the risk as personalized or generalized?",
+        "paras": "5-9",
+        "applicant_position": "Appellants challenge the RPD's s. 97 findings and say they were personally targeted by gangs, not merely at generalized risk.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 7,
+        "result_quote": "I find that the RPD's decision lacked precision as the RPD appeared to both find that the Appellants would not face a personalized risk"
+      },
+      {
+        "issue": "Would the appellants be personally subjected to a risk to life or cruel treatment if returned to El Salvador (s. 97(1)(b))?",
+        "paras": "8-17",
+        "applicant_position": "Appellants were personally targeted by gangs and would be kidnapped or killed if they failed to pay extortion.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "does not establish that, if they return to El Salvador, the Appellants will more likely than not be personally subjected to a risk to their lives"
+      }
+    ]
+  }
+}

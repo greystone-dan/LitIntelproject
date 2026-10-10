@@ -1,0 +1,47 @@
+{
+  "case_id": "VC0_03322",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the RAD admit the affidavit and six news articles as new evidence?",
+        "paras": "8-11",
+        "applicant_position": "The affidavit and six news articles on Yucatan's economy should be admitted; they could not reasonably have been expected earlier.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "The documents do not meet the legislative requirements."
+      },
+      {
+        "issue": "Are the appellants credible?",
+        "paras": "14-17",
+        "applicant_position": "The principal appellant's testimony is detailed and consistent with his BOC, POE notes and the associate appellant's testimony.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I agree with the RPD that the Appellants are credible."
+      },
+      {
+        "issue": "Is there a viable internal flight alternative (IFA) in Merida for the appellants?",
+        "paras": "18-23",
+        "applicant_position": "The CJNG has the motivation and means to find them in Merida, so there is no viable IFA.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "I do not need to consider the second part of the IFA test since the Appellants do not have a safe IFA in Mexico."
+      },
+      {
+        "issue": "Do the appellants have state protection in Mexico?",
+        "paras": "24-26",
+        "applicant_position": "Police gave no protection and advised more evidence; police are corrupt and cartels influence them.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I am satisfied that the Appellants have fully rebutted the presumption of state protection"
+      }
+    ]
+  }
+}

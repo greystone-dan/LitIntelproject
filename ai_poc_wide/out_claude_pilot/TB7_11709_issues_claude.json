@@ -1,0 +1,56 @@
+{
+  "case_id": "TB7_11709",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err by not considering the psychological and medical reports when assessing credibility?",
+        "paras": "7-15",
+        "applicant_position": "RPD ignored the psychological and medical reports, which should have changed its credibility findings.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I find that the panel did consider the medical reports and responded appropriately to them."
+      },
+      {
+        "issue": "Did the RPD fail to explain why the discrimination the appellant suffered did not amount to persecution?",
+        "paras": "16-21",
+        "applicant_position": "RPD gave no explanation of why the discrimination he suffered did not amount to persecution.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I disagree with counsel. The panel clearly wrote on this issue"
+      },
+      {
+        "issue": "Does the appellant have a political activist profile that puts him at risk in Turkey?",
+        "paras": "23-27",
+        "applicant_position": "He supported the HDP and BDP parties and was persecuted for it, so he has a political profile.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "this Appellant, who has no serious political profile (as found by the RPD), has no objective basis for his alleged fears."
+      },
+      {
+        "issue": "Would the appellant face a forward-looking risk of persecution in Turkey as an Alevi Kurd?",
+        "paras": "22-32",
+        "applicant_position": "As an Alevi Kurd he faces persecution if returned to Turkey, given the country conditions for Kurds.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "there is more than a mere possibility that this particular Appellant would face persecution as an Alevi Kurd, should he be returned to Turkey"
+      },
+      {
+        "issue": "Should the RAD substitute its own decision, or send the matter back to a new RPD panel?",
+        "paras": "33-35",
+        "applicant_position": "RAD should substitute a finding that he is a Convention refugee; alternatively refer to a differently constituted RPD panel.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "the RAD sets aside the determination of the RPD and substitutes its determination that the Appellant is a Convention refugee"
+      }
+    ]
+  }
+}

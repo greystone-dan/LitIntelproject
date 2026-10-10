@@ -1,0 +1,56 @@
+{
+  "case_id": "TB6_08024",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 50,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the new evidence (hospital report, French article, sister's affidavit) be admitted under s. 110(4)?",
+        "paras": "6-15",
+        "applicant_position": "Appellant filed a hospital report, an article and a sister's affidavit describing post-decision threats; she asks that they be accepted.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 15,
+        "result_quote": "The RAD finds that the affidavit, which is the only tendered document that meets the statutory requirements"
+      },
+      {
+        "issue": "Should an oral hearing be held under s. 110(6)?",
+        "paras": "1, 15",
+        "applicant_position": "Appellant asks the RAD to hold an oral hearing and substitute a positive determination.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "therefore the RAD will not order an oral hearing"
+      },
+      {
+        "issue": "Did the RPD make material errors in its credibility findings and in rejecting documents?",
+        "paras": "19-24",
+        "applicant_position": "RPD's credibility findings are microscopic and unreasonable, and it wrongly rejected her documents.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "The RAD finds that there are no material errors in the RPD's decision."
+      },
+      {
+        "issue": "Do Israeli country conditions expose her to persecution as a lesbian or as a domestic violence victim?",
+        "paras": "26-33",
+        "applicant_position": "Israel is intolerant of sexual minorities; the RPD cherry-picked country reports and ignored contrary evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "The RAD agrees with the RPD's findings with respect to country conditions in Israel for gay people and for victims of domestic violence."
+      },
+      {
+        "issue": "Is state protection in Israel adequate for her?",
+        "paras": "32-49",
+        "applicant_position": "Police do not protect victims in practice; her own experience and examples show state protection would fail.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 49,
+        "result_quote": "The RAD finds that the Appellant has failed to meet the burden of providing clear and convincing evidence of the state of Israel's inability to protect her."
+      }
+    ]
+  }
+}

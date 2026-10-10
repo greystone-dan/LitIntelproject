@@ -1,0 +1,56 @@
+{
+ "case_id": "TB6_09531",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Whether the identity of the male minor claimants is established",
+    "paras": "7-9",
+    "applicant_position": "Says the minors' identities are as stated in the BOC; the discrepancies came from a consultant's errors.",
+    "respondent_position": "Minister says the principal claimant gave different names and birth dates for the male minors.",
+    "result": "dismissed_for_applicant",
+    "result_para": 9,
+    "result_quote": "their identity has not been established"
+   },
+   {
+    "issue": "Whether the identity of the principal claimant and the female minors is established",
+    "paras": "10-10",
+    "applicant_position": "Says the passports establish the identities of the principal claimant and the female minors.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 10,
+    "result_quote": "the panel will give those claimants the benefit of the doubt and accept the passports as sufficient to establish their identities and nationality"
+   },
+   {
+    "issue": "Whether the state involvement and threats in the narrative are credible",
+    "paras": "14-15",
+    "applicant_position": "Says state agents (Rangers) threatened the family after their public inquiries into the brother-in-law's death.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_quote": "the addition of threats to the claimants and the involvement of state authorities in the narrative was likely an embellishment"
+   },
+   {
+    "issue": "Whether the family's public inquiries about the brother-in-law's death, and the threats, are credible",
+    "paras": "16-17",
+    "applicant_position": "Says the brother-in-law was killed by the state and the family's public inquiries led to threats.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_quote": "the allegation of her family's public inquiries and resulting threats is not credible"
+   },
+   {
+    "issue": "Whether the claimants face a section 96 or 97 risk in Pakistan",
+    "paras": "18-18",
+    "applicant_position": "Claims a risk from state agents in Pakistan if returned.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 18,
+    "result_quote": "The credibility findings undermine any claims under s. 96 or s. 97(1) of the IRPA"
+   }
+  ]
+ }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "MA9_01056",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are the claimants' identities established?",
+        "paras": "7",
+        "applicant_position": "Claimants rely on valid Pakistani passports to prove identity.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_quote": "The identity of all of the claimants has been established on the basis of valid Pakistani passports."
+      },
+      {
+        "issue": "Do the claimants have a well-founded fear of persecution under s.96 (family, forced marriage, divorce demand)?",
+        "paras": "8-20",
+        "applicant_position": "Claimants fear the husband's uncle for refusing a forced marriage and divorce demands; family is a particular social group.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "there is not a serious possibility that the claimants would be persecuted should they return to Pakistan"
+      },
+      {
+        "issue": "Is adequate state protection available in Pakistan to the claimants?",
+        "paras": "21",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "Therefore, there is no evidence to suggest that adequate state protection would not be available to the claimants"
+      },
+      {
+        "issue": "Are the claimants persons in need of protection under s.97(1)?",
+        "paras": "21",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "Furthermore, there is no evidence to substantiate the possibility that the claimants are"
+      }
+    ]
+  }
+}

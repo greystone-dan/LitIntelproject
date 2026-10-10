@@ -1,0 +1,65 @@
+{
+  "case_id": "TB1_00486",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 48,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a nexus to a Convention ground?",
+        "paras": "4-6",
+        "applicant_position": "Claimant fears Cell Block gang members who blame her for her partner's death.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "The panel finds there is no nexus to the convention grounds."
+      },
+      {
+        "issue": "Is the claimant a citizen of St Vincent (identity)?",
+        "paras": "7-8",
+        "applicant_position": "Claimant relies on a valid St Vincent passport.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "The panel finds the claimant, on a balance of probabilities, is a citizen of St Vincent and has established her identity"
+      },
+      {
+        "issue": "Is the claimant's account (common-law relationship, incident, documents) credible?",
+        "paras": "9-40",
+        "applicant_position": "Claimant says she was in a common-law relationship and fled gang threats after the death.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_quote": "The panel find's the claimant's evidence, regarding being in a common-law relationship, is not credible."
+      },
+      {
+        "issue": "Does the claimant's delay in claiming asylum show a lack of subjective fear?",
+        "paras": "13-20",
+        "applicant_position": "Claimant says she did not know the law and was afraid of being deported.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "The panel draws a negative inference in this respect, and finds the claimant's action demonstrates a lack of subjective fear in St Vincent."
+      },
+      {
+        "issue": "Is the claimant excluded under Article 1F(b) for benefiting from drug proceeds?",
+        "paras": "41-45",
+        "applicant_position": "not stated",
+        "respondent_position": "Notice of possible exclusion was declared at the start of the hearing; Minister's position not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 44,
+        "result_quote": "is not subject to exclusion under Article 1F(B), serious non-political crime"
+      },
+      {
+        "issue": "Does the claimant face a risk to life, torture or cruel treatment in St Vincent under s.97?",
+        "paras": "46",
+        "applicant_position": "Claimant says she and her daughter face risk from the gang if returned.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 46,
+        "result_quote": "the panel finds that the claimant has not established, that on a balance of probabilities"
+      }
+    ]
+  }
+}

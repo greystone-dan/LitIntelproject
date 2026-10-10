@@ -1,0 +1,56 @@
+{
+  "case_id": "VB5_00411",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 82,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Which standard of review applies to the RPD decision: correctness or reasonableness?",
+        "paras": "29-34",
+        "applicant_position": "Counsel argues the RAD must apply correctness, not reasonableness, to the RPD's findings.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "conducted my own independent assessment of the evidence and came to my own conclusion based on that evidence, applying the standard of correctness"
+      },
+      {
+        "issue": "Should the proposed new evidence (exhibits 1-22 and the associated appellant's affidavit) be admitted under s. 110(4)?",
+        "paras": "35-52",
+        "applicant_position": "Appellants say they were unrepresented, and the new documents corroborate their evidence and were not available before.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 52,
+        "result_quote": "I therefore reject accepting proposed new exhibits numbered 1 through to 22 inclusive."
+      },
+      {
+        "issue": "Should an oral hearing be held (s. 110(6))?",
+        "paras": "53-56",
+        "applicant_position": "Associated appellant effectively asks for a de novo hearing, through his affidavit.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 56,
+        "result_quote": "No hearing is ordered in this matter."
+      },
+      {
+        "issue": "Did the RPD err in its credibility findings and in finding a lack of subjective fear?",
+        "paras": "57-81",
+        "applicant_position": "RPD misread the evidence, wrongly found implausibility, and erred in its credibility and subjective fear findings.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 81,
+        "result_quote": "I am in agreement with the RPD findings and its determination."
+      },
+      {
+        "issue": "Were the RPD's specific findings (return trips, police reliance, landlady evidence) sound enough to support the credibility finding?",
+        "paras": "63-79",
+        "applicant_position": "RPD misconstrued the evidence on return trips and drew unreasonable inferences about police and ZANU PF.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 79,
+        "result_quote": "by rejecting these two findings the overall determination of the RPD is not rendered unsupportable."
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "case_id": "TB8_01667",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the husband's murder suspects pursue or threaten the appellants?",
+        "paras": "9-15",
+        "applicant_position": "Suspects believed she could influence the police; some suspects were released and still pose a threat.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I find that the appellants have not established on a balance of probabilities that they were ever threatened or pursued by the suspects involved with the murder"
+      },
+      {
+        "issue": "Did the RPD wrongly find that all suspects were still in custody?",
+        "paras": "12",
+        "applicant_position": "Basis of Claim shows four of five suspects were released; the RPD misunderstood their evidence.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 12,
+        "result_quote": "I agree with the appellants that the RPD made a factual error in finding that all the suspects were still in custody"
+      },
+      {
+        "issue": "Was the RPD's implausibility finding (she would not be blamed for the murder) valid?",
+        "paras": "16-17",
+        "applicant_position": "Being blamed for a murder is plausible under widowhood-ritual beliefs; the RPD's implausibility finding was wrong.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I find that the RPD erred in this respect"
+      },
+      {
+        "issue": "Would the appellants be forced to undergo widowhood rituals on return?",
+        "paras": "17-21",
+        "applicant_position": "Husband's family will force widowhood rituals; the rituals are based on beliefs making the claim plausible.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "I find that the appellants have not established that they would be subject to rituals upon return to Nigeria"
+      },
+      {
+        "issue": "Did the RPD err in requiring corroboration of the family chief's identity and drawing a negative inference?",
+        "paras": "22",
+        "applicant_position": "Unreasonable to require corroboration of the chief's identity and relationship to the appellants.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I therefore find that the RPD did not err and was entitled to draw a negative credibility inference"
+      },
+      {
+        "issue": "Did the RPD breach procedural fairness by relying on inconsistencies not put to the appellants?",
+        "paras": "20",
+        "applicant_position": "Internal inconsistencies must be put to the claimant; the RPD failed to put the inconsistencies it relied on.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I am entitled to rely on inconsistencies between the appellant's story and country documentation that forms part of the record without putting them to the appellant"
+      },
+      {
+        "issue": "Do the appellants face a serious possibility of persecution or s. 97 harm on return?",
+        "paras": "24",
+        "applicant_position": "Appellants are pursued by police, the suspects and the husband's family, and face risk to life if returned.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I therefore find that they would not face a serious possibility of persecution if they were to return to Nigeria"
+      }
+    ]
+  }
+}

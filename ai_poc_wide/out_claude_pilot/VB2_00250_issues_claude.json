@@ -1,0 +1,38 @@
+{
+  "case_id": "VB2_00250",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant a national of El Salvador (identity)?",
+        "paras": "18",
+        "applicant_position": "Claimant is a national of El Salvador; passport and national ID card are on file.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "The claimant's identity as a national of El Salvador is established by his testimony"
+      },
+      {
+        "issue": "Is the claimant excluded from refugee protection under Article 1F(b) for a serious non-political crime?",
+        "paras": "19-43",
+        "applicant_position": "Claimant says he acted in self-defence with a machete and had no intent to commit a crime.",
+        "respondent_position": "Minister's counsel did not respond to the exclusion notice or take part in the hearing.",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "I find the claimant to be excluded from refugee protection under Article 1F(b)."
+      },
+      {
+        "issue": "Does the claimant face a Convention refugee or s.97 protection risk, given the exclusion finding?",
+        "paras": "44",
+        "applicant_position": "Claimant fears the brother-in-law's gang if he returns to El Salvador.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 44,
+        "result_quote": "I am not required nor should I determine whether the claimant is a Convention refugee"
+      }
+    ]
+  }
+}

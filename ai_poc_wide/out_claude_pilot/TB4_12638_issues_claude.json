@@ -1,0 +1,38 @@
+{
+  "case_id": "TB4_12638",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 52,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's credibility finding (university contact, grandfather pledge, religious identity) correct?",
+        "paras": "9-21",
+        "applicant_position": "Credibility findings were unreasonable; the university's response was realistic and the grandfather-father distinction is semantic.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "the RAD finds that the Appellant lacks credibility"
+      },
+      {
+        "issue": "Did the RPD properly assess whether state protection in Nigeria is available?",
+        "paras": "18-20",
+        "applicant_position": "RPD imposed too high a burden; the cult has reach into police, so state protection was not available.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "it does not concur with the RPD's finding that the Appellant had not discharged the burden of establishing that state protection would not be available to him in Nigeria"
+      },
+      {
+        "issue": "Is an internal flight alternative available to the appellant in Port Harcourt?",
+        "paras": "22-50",
+        "applicant_position": "Cult has national reach; he has no relatives or local language in Port Harcourt and would have to live in hiding.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 50,
+        "result_quote": "the RAD finds that the Appellant does not face a serious possibility of persecution there"
+      }
+    ]
+  }
+}

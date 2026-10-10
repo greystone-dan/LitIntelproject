@@ -152,6 +152,24 @@ def _unit_party_arguments(report: dict[str, Any], title: str) -> dict[int, str]:
 	return {indexes[position]: party for position, party in voices.items()}
 
 
+_PRINTED_NUMBER_RE = re.compile(r"^[^\[\n]{0,80}\[(\d{1,3})\]")
+
+
+def _printed_numbers(report: dict[str, Any]) -> dict[int, int | None]:
+	"""Report paragraph index -> the decision's printed paragraph number (``[12]``), None for a heading or footer piece."""
+	numbers: dict[int, int | None] = {}
+	for paragraph in report.get("paragraphs", []):
+		match = _PRINTED_NUMBER_RE.match(paragraph.get("text") or "")
+		numbers[paragraph["paragraph_index"]] = int(match.group(1)) if match else None
+	return numbers
+
+
+def _unit_number_range(numbers: dict[int, int | None], start: int, end: int) -> tuple[int | None, int | None]:
+	first = next((numbers[i] for i in range(start, end + 1) if numbers.get(i) is not None), None)
+	last = next((numbers[i] for i in range(end, start - 1, -1) if numbers.get(i) is not None), None)
+	return first, last
+
+
 def _chunk_position_mapper(report: dict[str, Any], chunks: list[CaseChunk] | None):
 	"""Map the report's paragraph indexes to positions in the reader's paragraph chunk list.
 
@@ -189,6 +207,7 @@ def _build_evidence_summary(
 	unit_roles = _unit_roles(report)
 	party_by_paragraph = _unit_party_arguments(report, title)
 	at = _chunk_position_mapper(report, chunks)
+	numbers = _printed_numbers(report)
 	units = []
 	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
@@ -217,6 +236,7 @@ def _build_evidence_summary(
 					evidence=evidence,
 				)
 			)
+		first_number, last_number = _unit_number_range(numbers, unit["start_paragraph"], unit["end_paragraph"])
 		units.append(
 			CaseDiscussionUnitSummaryResponse(
 				discussion_unit_id=unit["discussion_unit_id"],
@@ -224,15 +244,16 @@ def _build_evidence_summary(
 				start_paragraph=at(unit["start_paragraph"]),
 				end_paragraph=at(unit["end_paragraph"]),
 				paragraph_count=unit["paragraph_count"],
+				start_number=first_number,
+				end_number=last_number,
 				subthemes=subthemes,
 				role=unit_roles[position] if position < len(unit_roles) else None,
 				party_arguments=[
-					CaseUnitPartyArgumentResponse(paragraph_index=index, party=party)
-					for index, party in dict(
-						(at(feature), party_by_paragraph[feature])
-						for feature in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
-						if feature in party_by_paragraph
-					).items()
+					CaseUnitPartyArgumentResponse(
+						paragraph_index=at(feature), paragraph_number=numbers.get(feature), party=party_by_paragraph[feature]
+					)
+					for feature in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
+					if feature in party_by_paragraph
 				],
 			)
 		)

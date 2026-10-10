@@ -99,3 +99,30 @@ def test_reader_v6_discussion_units_section_is_experimental_and_data_only():
     }]
     assert with_units["roleNote"] == "R" and with_units["partyNote"] == "P"
     assert empty == {"rows": [], "roleNote": "", "partyNote": ""}
+
+
+def test_reader_v6_units_use_the_servers_printed_numbers_when_present():
+    import json
+    import re
+    import shutil
+    import subprocess
+
+    import pytest
+
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("node is not installed")
+    js = (PAGES / "reader_v6.js").read_text(encoding="utf-8")
+    snippet = re.search(r"/\* unit-rows:start \*/(.*?)/\* unit-rows:end \*/", js, re.S).group(1)
+    data = {
+        "chunks": [{"text": "[1] One big chunk of many paragraphs."}],
+        "format_blocks": [{"type": "para", "num": 88, "start": 500}],
+        "evidence_summary": {"units": [{
+            "unit_index": 3, "start_paragraph": 0, "end_paragraph": 0, "start_number": 88, "end_number": 95,
+            "party_arguments": [{"paragraph_index": 0, "paragraph_number": 90, "party": "respondent"}],
+        }]},
+    }
+    probe = snippet + "\nconsole.log(JSON.stringify(unitOutlineRows(JSON.parse(process.argv[1])).rows));"
+    rows = json.loads(subprocess.run([node, "-e", probe, json.dumps(data)], capture_output=True, text=True, check=True).stdout)
+    assert rows[0]["first"] == 88 and rows[0]["last"] == 95 and rows[0]["start"] == 500
+    assert rows[0]["parties"] == [{"party": "respondent", "label": "Respondent", "nums": [90]}]

@@ -101,10 +101,11 @@
   const rows=[];
   for(const u of units){
    let first=null,last=null;
-   for(let i=u.start_paragraph;i<=u.end_paragraph;i++){const n=numAt(i);if(n!==null){if(first===null)first=n;last=n;}}
+   if(u.start_number!=null&&u.end_number!=null){first=u.start_number;last=u.end_number;}
+   else for(let i=u.start_paragraph;i<=u.end_paragraph;i++){const n=numAt(i);if(n!==null){if(first===null)first=n;last=n;}}
    if(first===null)continue;
    const by={};
-   for(const a of u.party_arguments||[]){const n=numAt(a.paragraph_index);if(n!==null)(by[a.party]=by[a.party]||[]).push(n);}
+   for(const a of u.party_arguments||[]){const n=a.paragraph_number!=null?a.paragraph_number:numAt(a.paragraph_index);if(n!==null)(by[a.party]=by[a.party]||[]).push(n);}
    rows.push({index:u.unit_index,first:first,last:last,start:startOf(first),role:u.role||null,roleName:u.role?(UNIT_ROLE_NAMES[u.role]||u.role):'',
     parties:['applicant','respondent'].filter(k=>by[k]).map(k=>({party:k,label:k==='applicant'?'Applicant':'Respondent',nums:by[k]}))});
   }

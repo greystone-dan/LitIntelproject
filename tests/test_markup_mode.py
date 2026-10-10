@@ -31,6 +31,7 @@ out.topics = m.topicIndex(p.payload, 10);
 out.topicParas = Array.from(m.topicParas(out.topics, p.selected || [])).sort((a, b) => a - b);
 out.runs = m.foldRuns(p.visible || []);
 out.peeks = out.notes.filter(n => n.cite).map(n => m.peekFor(n));
+out.unitRanges = out.notes.length ? [m.unitRange(p.payload.readerData.chunks, p.payload.readerData.evidence_summary.units[0]), m.unitRange(p.payload.readerData.chunks, Object.assign({}, p.payload.readerData.evidence_summary.units[0], {start_number: 88, end_number: 120}))] : [];
 out.partyViews = out.notes.filter(n => n.type === 'unit').flatMap(n => [m.partyArgsLine(n, false), m.partyArgsLine(n, true)]);
 out.roleViews = out.notes.filter(n => n.type === 'unit').flatMap(n => [m.unitRoleView(n, false), m.unitRoleView(n, true)]);
 console.log(JSON.stringify(out));
@@ -535,3 +536,10 @@ def test_party_arguments_line_shows_only_with_experimental_on():
     assert on.startswith("Party arguments (experimental): Applicant ¶2, ¶3 · Respondent ¶4") and "6 in 10" in on
     none_off, none_on = _run()["partyViews"]  # no stored party arguments: nothing is shown
     assert none_off == none_on == ""
+
+
+@needs_node
+def test_unit_range_prefers_the_servers_printed_numbers_when_it_sends_them():
+    plain, numbered = _run()["unitRanges"]
+    assert plain == {"first": 1, "last": 4}  # from the chunk list, as before
+    assert numbered == {"first": 88, "last": 120}  # units inside one big chunk carry their own numbers

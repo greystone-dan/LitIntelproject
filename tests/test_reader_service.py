@@ -456,3 +456,21 @@ def test_unit_indexes_follow_the_reader_chunk_list_when_a_chunk_is_split_at_a_he
     assert reader_service._chunk_position_mapper(report, None)(4) == 4  # no chunk list: unchanged
     broken = {"paragraphs": [{"paragraph_index": 0, "source_paragraph_index": 77}]}
     assert reader_service._chunk_position_mapper(broken, chunks)(0) == 0  # unknown chunk: unchanged
+
+
+def test_unit_printed_numbers_come_from_the_text_and_skip_pieces_without_one():
+    from backend import reader_service
+
+    report = {
+        "paragraphs": [
+            {"paragraph_index": 0, "text": "III. Issue"},
+            {"paragraph_index": 1, "text": "[88] The issue is whether."},
+            {"paragraph_index": 2, "text": "II. Background [3] Glued heading and paragraph."},
+            {"paragraph_index": 3, "text": "[89] More."},
+            {"paragraph_index": 4, "text": "SOLICITORS OF RECORD"},
+        ]
+    }
+    numbers = reader_service._printed_numbers(report)
+    assert numbers == {0: None, 1: 88, 2: 3, 3: 89, 4: None}
+    assert reader_service._unit_number_range(numbers, 0, 4) == (88, 89)
+    assert reader_service._unit_number_range(numbers, 4, 4) == (None, None)

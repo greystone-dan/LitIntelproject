@@ -1,0 +1,56 @@
+{
+  "case_id": "2007_FC_1252",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did Member Ringham err by not giving clear and compelling reasons for departing from earlier release decisions?",
+        "paras": "14-17",
+        "applicant_position": "Ringham lifted the curfew without clear and compelling reasons for departing from earlier detention decisions.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "In my opinion, there is no reason to disturb Mr. Ringham’s decision."
+      },
+      {
+        "issue": "Is Ringham's decision moot, since Tessler's later decision overtook it?",
+        "paras": "13",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 13,
+        "result_quote": "nevertheless, in my discretion, I think it more appropriate to deal with it on the merits."
+      },
+      {
+        "issue": "Did Tessler find that Lai was no longer a flight risk (unlikely to appear for removal)?",
+        "paras": "22-28",
+        "applicant_position": "Tessler effectively found Lai was not a flight risk, contrary to all earlier reviews.",
+        "respondent_position": "Tessler still considered Lai a flight risk; the other release conditions sufficed without the curfew.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Member Tessler did not come to the view that Mr. Lai was no longer a flight risk."
+      },
+      {
+        "issue": "If Tessler departed from earlier findings, did he err by not giving clear and compelling reasons?",
+        "paras": "22-30",
+        "applicant_position": "Tessler's new finding of no flight risk needed clear and compelling reasons; decision should be set aside.",
+        "respondent_position": "Tessler still considered Lai a flight risk and the other release conditions sufficed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "Their conclusions were not unreasonable, and should not be disturbed."
+      },
+      {
+        "issue": "Did Tessler fail to make a fresh, independent assessment of the Minister's application to reimpose the curfew?",
+        "paras": "29",
+        "applicant_position": "Tessler did not make a fresh independent review of the curfew application, as required.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "He did not simply rubber stamp Member Ringham’s decision, he agreed with it, and stated why."
+      }
+    ]
+  }
+}

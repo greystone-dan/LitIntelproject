@@ -1,0 +1,65 @@
+{
+  "case_id": "2009_FC_659",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 79,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did Mr. Harkat keep a reasonable expectation of privacy in his home despite consenting to the release terms?",
+        "paras": "43-51",
+        "applicant_position": "The home is the most private place; his consent to paragraph 16 was narrow and did not remove his privacy.",
+        "respondent_position": "Consent to residence access under paragraph 16 on release diminishes his subjective expectation of privacy.",
+        "result": "allowed_for_applicant",
+        "result_para": 51,
+        "result_quote": "I conclude that Mr. Harkat retained a reasonable expectation of privacy, which was diminished by his consent"
+      },
+      {
+        "issue": "Was the search warrantless, so that the burden shifts to the state to show it was reasonable?",
+        "paras": "52-56",
+        "applicant_position": "The search was warrantless; paragraph 16 is not a warrant, so the Ministers bear the burden.",
+        "respondent_position": "Ministers do not concede the search was warrantless or unreasonable; paragraph 16 is a valid prior judicial authorization.",
+        "result": "allowed_for_applicant",
+        "result_para": 56,
+        "result_quote": "I therefore conclude that the search and seizure conducted by the CBSA was warrantless."
+      },
+      {
+        "issue": "Did the May 12, 2009 search exceed the authority in paragraph 16 of the former order?",
+        "paras": "57-62",
+        "applicant_position": "The search went beyond compliance checks: it gathered intelligence, used a currency dog and seized excessively.",
+        "respondent_position": "Primary purpose was monitoring compliance; gathering information for the court-ordered risk assessment was a connected lawful purpose.",
+        "result": "allowed_for_applicant",
+        "result_para": 61,
+        "result_quote": "Consequently, I conclude that the actions of the CBSA on May 12, 2009, exceeded the authorization granted it by paragraph 16 of the former order."
+      },
+      {
+        "issue": "Was the manner in which the search was conducted reasonable?",
+        "paras": "63-65",
+        "applicant_position": "Search was excessive: 16 officers, three dogs, about six hours, over-seizure, and male officers searching Mrs. Harkat's drawers.",
+        "respondent_position": "The search was conducted in a reasonable manner and was connected to a lawful purpose.",
+        "result": "allowed_for_applicant",
+        "result_para": 64,
+        "result_quote": "Evidence adduced concerning the manner in which the search was conducted leads inevitably to the conclusion that it was not done in a reasonable manner."
+      },
+      {
+        "issue": "Must paragraph 16 itself meet the Hunter v. Southam criteria for a warrant?",
+        "paras": "58",
+        "applicant_position": "Harkat conceded paragraph 16 is not unreasonable if read consistently with s.8; he attacked only its execution.",
+        "respondent_position": "Paragraph 16 is a valid prior judicial authorization; no reasonable grounds need be shown before a search.",
+        "result": "not_decided",
+        "result_para": 58,
+        "result_quote": "Given Mr. Harkat’s concession that the order itself is not unreasonable, I need not deal with this issue for the purposes of this motion."
+      },
+      {
+        "issue": "What remedy follows: return and destruction of seized material, or CBSA investigation and copying before return?",
+        "paras": "66-79",
+        "applicant_position": "Return all seized items and any copies without delay; the CBSA should not keep or investigate them.",
+        "respondent_position": "CBSA may investigate and copy relevant seized material before returning it; any remedy should be limited.",
+        "result": "allowed_for_applicant",
+        "result_para": 74,
+        "result_quote": "An order requiring the return of all information, equipment and records seized from the Harkat residence"
+      }
+    ]
+  }
+}

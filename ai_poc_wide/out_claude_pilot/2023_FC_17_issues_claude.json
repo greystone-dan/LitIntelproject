@@ -1,0 +1,65 @@
+{
+  "case_id": "2023_FC_17",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer reasonably find she had more ties to Canada than to Iran?",
+        "paras": "13, 17-18",
+        "applicant_position": "Husband, parents and five siblings are in Iran, plus property and business ties; officer ignored them.",
+        "respondent_position": "Two dependent children accompanying her make her ties to Canada stronger.",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "This conclusion is reached without reference to the Applicant’s evidence that in addition to her husband, her parents and five siblings remain in Iran"
+      },
+      {
+        "issue": "Were the lump-sum deposits and funds for the studies reasonably found insufficient?",
+        "paras": "19",
+        "applicant_position": "She explained the lump-sum deposits and paid tuition; the officer did not address those explanations.",
+        "respondent_position": "Not all lump-sum deposits were explained in her submissions, so the finding was reasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "It was for the Officer, not the Respondent, to explain why the lump sum deposits remained a concern in light of the Applicant’s explanations."
+      },
+      {
+        "issue": "Did the officer misapprehend the reconsideration submissions requested and received?",
+        "paras": "16",
+        "applicant_position": "GCMS notes wrongly say she was asked to address purpose, travel and family ties with new documents.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the Officer was obviously mistaken about what new evidence had been requested and submitted by the Applicant."
+      },
+      {
+        "issue": "Was the refusal based on travel history reasonable?",
+        "paras": "14, 20",
+        "applicant_position": "Limited travel history was at worst a neutral factor; relying on it to refuse was an error.",
+        "respondent_position": "Conceded the travel-history error, but says it does not make the whole decision unreasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "It is not disputed that the Officer’s refusal on the grounds of travel history was also an error"
+      },
+      {
+        "issue": "Was there a breach of procedural fairness (bad faith, or wrong reconsideration)?",
+        "paras": "8, 22-25",
+        "applicant_position": "Officer reconsidered the refusal rather than the original application and acted in bad faith.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "there is nothing in the record to suggest the Officer acted in bad faith or that the process was unfair"
+      },
+      {
+        "issue": "Should costs be awarded (special reasons)?",
+        "paras": "26-27, 30",
+        "applicant_position": "Special reasons exist, based on the officer's alleged bad faith.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "There shall be no award of costs."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2008_FC_966",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was drug trafficking a serious non-political crime under Article 1F(b), so that the RPD could exclude the applicant?",
+        "paras": "22-26, 32",
+        "applicant_position": "Seriousness should be weighed against mitigating factors: he was forthcoming, only an accomplice, and never got the $50,000.",
+        "respondent_position": "Drug trafficking is a serious non-political crime; he was a party to the offence; no balancing is required.",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "His activity constituted a serious, non-political crime in Canada, in violation of subsection 5(1) of the CDSA."
+      },
+      {
+        "issue": "Did the RPD have to balance aggravating and mitigating factors or consider the claimant's good character before excluding under Article 1F(b)?",
+        "paras": "1-2, 25-27",
+        "applicant_position": "The RPD had to balance mitigating factors and good character before deciding exclusion.",
+        "respondent_position": "No balancing or good-character inquiry is required; mitigating factors are not salient.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "There is no obligation or requirement on the RPD to conduct a “balancing” exercise to determine whether a claimant is excluded"
+      },
+      {
+        "issue": "Did the RPD consider the circumstances of the crime and the applicant's role in it?",
+        "paras": "25, 28, 33",
+        "applicant_position": "RPD failed to consider his forthcoming admission, accomplice role and the unpaid $50,000.",
+        "respondent_position": "RPD considered all circumstances on the evidence; applicant does not dispute the facts of his participation.",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "The RPD did, in fact, consider the circumstances of the seriousness of Mr. Murillo’s crime"
+      },
+      {
+        "issue": "Is Article 1F(b) limited to fugitives from justice, or does it require a specific crime to be attributed to the claimant (Pushpanathan, Zrig)?",
+        "paras": "29-31",
+        "applicant_position": "Article 1F(b) targets fugitives only; Pushpanathan supports him; no specific crime was attributed to him.",
+        "respondent_position": "Pushpanathan concerns Article 1F(c); Zrig requires no specific charge, only serious reasons for considering a serious non-political crime.",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "the Federal Court of Appeal explicitly rejected Mr. Murillo’s argument and confirmed that it is not necessary for a specific crime to be attributed to a claimant"
+      }
+    ]
+  }
+}

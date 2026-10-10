@@ -1,0 +1,56 @@
+{
+  "case_id": "2023_FC_1583",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 31,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the decision procedurally fair?",
+        "paras": "12",
+        "applicant_position": "Raised a procedural fairness argument; details are not stated in the text.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "There is no merit to the procedural fairness argument."
+      },
+      {
+        "issue": "Was the officer's finding that family ties in Venezuela were 'not sufficiently established' reasonable?",
+        "paras": "16-17, 21, 24, 26",
+        "applicant_position": "Married 33 years with dependents in Venezuela; the officer gave no reasons for 'not sufficiently established'.",
+        "respondent_position": "Applicant has not shown strong family ties to his wife and children that rebut the presumption.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I cannot see how this conclusion is justified and transparent."
+      },
+      {
+        "issue": "Was the finding that the trip was not a reasonable expense, given his funds and bank records, reasonable?",
+        "paras": "18-19, 22, 26-28",
+        "applicant_position": "Had $5,000 for the trip and banking records; the officer gave no explanation why this was insufficient.",
+        "respondent_position": "Documents are vague, outdated and untranslated; the record does not show he would pay for the trip.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "The Officer’s conclusion that the Applicant’s financial situation does not demonstrate that he had sufficiently established that his trip to Canada would be a reasonable expense is similarly unjustified."
+      },
+      {
+        "issue": "Was the officer's characterization of mothers 'in the region' a reasonable basis?",
+        "paras": "23, 29",
+        "applicant_position": "Officer's view that regional mothers do not pay adult sons' expenses is baseless and approaches stereotyping.",
+        "respondent_position": "Visa officers have regional expertise; the finding is not a reviewable error and is not central.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "the Officer deeming the mother’s willingness to pay for the Applicant’s visit to be “unusual,” is done without fact and is acutely unreasonable."
+      },
+      {
+        "issue": "Was the travel-history finding reasonable?",
+        "paras": "19-20, 24, 26-29",
+        "applicant_position": "Two trips to the Dominican Republic with returns to Venezuela should count as a positive factor.",
+        "respondent_position": "Officer could reasonably find travel history a neutral factor; applicant asks the court to reweigh.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "The Officer’s conclusion that the Applicant’s travel history was not sufficient to count as a positive factor in the assessment is unreasonable"
+      }
+    ]
+  }
+}

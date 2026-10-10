@@ -1,0 +1,92 @@
+{
+  "case_id": "2025_FC_605",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 98,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the amended application with the correct file number be issued?",
+        "paras": "26-29",
+        "applicant_position": "The application was filed under the wrong file number; asks for an amended stamped application.",
+        "respondent_position": "Did not make submissions on this issue.",
+        "result": "moot_or_procedural",
+        "result_para": 29,
+        "result_quote": "the Registry will be directed to issue an amended stamped application for leave and judicial review with the correct file number"
+      },
+      {
+        "issue": "Is the Iozzo affidavit on detention conditions admissible?",
+        "paras": "29",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 29,
+        "result_quote": "Accordingly, the affidavit was withdrawn and will not be considered on this application."
+      },
+      {
+        "issue": "Is the Colin affidavit admissible to show mootness?",
+        "paras": "31-34",
+        "applicant_position": "not stated",
+        "respondent_position": "Cameras are now installed, so the video condition is moot; usual new-evidence rules do not apply to mootness.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "the affidavit of Jorge Estaban Colin is admitted and will be considered by the Court for this limited purpose."
+      },
+      {
+        "issue": "Is the video-surveillance condition challenge moot now that cameras are installed?",
+        "paras": "35, 68-70",
+        "applicant_position": "Not moot: the Release Order issued with conditions that were not in place at the time of decision.",
+        "respondent_position": "Moot: video surveillance is now installed.",
+        "result": "allowed_for_applicant",
+        "result_para": 70,
+        "result_quote": "I am persuaded by the Applicant’s submission, and I am unable to agree that the video surveillance issue is moot."
+      },
+      {
+        "issue": "Was the Member's danger finding reasonable, given lack of charges and passage of time, and ignoring ongoing ties?",
+        "paras": "48-57, 95",
+        "applicant_position": "Member ignored evidence of ongoing ties to La Familia associates and over-weighted the lack of charges.",
+        "respondent_position": "Member gave cogent reasons; passage of time, no charges and single-parent status are mitigating factors.",
+        "result": "allowed_for_applicant",
+        "result_para": 57,
+        "result_quote": "The failure of the Member to consider the contradictory evidence is not reasonable, is not intelligible, and is not justified."
+      },
+      {
+        "issue": "Was reliance on the prior member's analysis of the 2014 hitman evidence reasonable?",
+        "paras": "58-64",
+        "applicant_position": "Member adopted the prior analysis but reached a different conclusion on it without explaining why.",
+        "respondent_position": "Argument is without merit and must be dismissed.",
+        "result": "allowed_for_applicant",
+        "result_para": 64,
+        "result_quote": "How the passage of time or lack of conviction mitigates the danger to the public is not clearly articulated in the reasons for Decision."
+      },
+      {
+        "issue": "Can the applicant raise objections to release conditions on judicial review?",
+        "paras": "75-84",
+        "applicant_position": "Member never invited submissions on the Release Order, so this is the first chance to object.",
+        "respondent_position": "CBSA did not object at the hearing, so the daytime-alone condition cannot be raised now (case splitting).",
+        "result": "allowed_for_applicant",
+        "result_para": 84,
+        "result_quote": "the present application is the Applicant’s first opportunity to raise issues and make arguments concerning the propriety of the release conditions"
+      },
+      {
+        "issue": "Was the release order unreasonable for imposing video surveillance not in place before release?",
+        "paras": "85-86, 97",
+        "applicant_position": "Release was ordered before video surveillance and CBSA monitoring were in place; this is unreasonable.",
+        "respondent_position": "Cameras are now installed, and the reasonableness of the decision should not be supplemented with later CBSA conditions.",
+        "result": "allowed_for_applicant",
+        "result_para": 97,
+        "result_quote": "why the Member was of the view that the video surveillance did not need to be in place prior to the Respondent’s release"
+      },
+      {
+        "issue": "Were the bondsperson arrangements and reliance on other family members for supervision reasonable?",
+        "paras": "87-94",
+        "applicant_position": "Bondspersons' work hours and workplace leave supervision gaps; other family members were not examined.",
+        "respondent_position": "Bondspersons have a plan and significant bonds; the approach to other family members is reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 94,
+        "result_quote": "In my view, the Member’s approach to this issue was reasonable."
+      }
+    ]
+  }
+}

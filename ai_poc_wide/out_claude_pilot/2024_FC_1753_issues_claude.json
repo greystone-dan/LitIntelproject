@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FC_1753",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 11,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer reasonably find his Alex Pharma duties did not meet the main duties of NOC 6221?",
+        "paras": "3-9",
+        "applicant_position": "His Alex Pharma duties match NOC 6221; the officer's reading of the employer letter and interview was unreasonable.",
+        "respondent_position": "Officer reasonably found the duties fell under other NOC classes; the court should not reweigh the evidence.",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "I agree with the respondent that the Officer reasonably decided that Mr. Prajapati’s evidence did not adequately demonstrate he completed the main duties outlined in NOC 6221."
+      },
+      {
+        "issue": "Did the officer improperly rely on one interview question?",
+        "paras": "5-6",
+        "applicant_position": "The officer relied on one interview answer, which was not a fair basis for the decision.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "Contrary to Mr. Prajapati’s argument, the Officer did not rely on one question from the interview."
+      },
+      {
+        "issue": "Did the officer fail to do the required qualitative assessment of his job duties?",
+        "paras": "5, 7-8",
+        "applicant_position": "The officer did a rote word comparison and superficial analysis; a majority of duties should suffice.",
+        "respondent_position": "An officer must examine the pith and substance; tangential functions do not change the NOC category.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "the Officer was not satisfied he was doing so at a technical level as required by NOC 6221."
+      }
+    ]
+  }
+}

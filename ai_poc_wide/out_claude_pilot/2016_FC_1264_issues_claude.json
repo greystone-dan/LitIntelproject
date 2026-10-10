@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FC_1264",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the applicant raise a serious issue (not frivolous or vexatious) on the constitutional challenge to the revocation provisions?",
+        "paras": "29-30",
+        "applicant_position": "Subsections 10(3)-(4) violate Charter s.7 and the Bill of Rights; the notice is void and the process is an abuse.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "meet the low threshold of a serious issue"
+      },
+      {
+        "issue": "Would the applicant suffer irreparable harm if the stay were refused?",
+        "paras": "31-35",
+        "applicant_position": "Feels held 'hostage' in Canada; travel and post-graduate study plans would be impaired; revocation is stressful and prejudicial.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I am not satisfied that the applicant would suffer irreparable harm"
+      },
+      {
+        "issue": "Does the balance of convenience favour granting the stay?",
+        "paras": "36-38",
+        "applicant_position": "The Minister's years of delay aggravated prejudice to the applicant, weighing the balance in his favour.",
+        "respondent_position": "Applicant is in effect seeking to suspend the operation of the law, which would defeat the public interest.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "the balance of convenience is in favour of the Minister"
+      }
+    ]
+  }
+}

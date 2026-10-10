@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FC_273",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the applicant denied procedural fairness?",
+        "paras": "13-14",
+        "applicant_position": "She had no notice that the genuineness of her marriage would be the focus; this breached procedural fairness.",
+        "respondent_position": "She was told by letter and at the interview of the concerns about misrepresentation, so she had notice.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I cannot accept that the applicant was unaware her marriage would be scrutinized at the interview."
+      },
+      {
+        "issue": "Did the manager err in finding that the applicant misrepresented her marital status?",
+        "paras": "15-17",
+        "applicant_position": "Manager applied section 40 without first making a bad-faith marriage finding under section 4 IRPR; evidence not fully weighed.",
+        "respondent_position": "Misrepresentation finding is reasonable; genuineness of the marriage was material and rested on all the evidence.",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "As a result, I conclude the manager was not guided by the proper legal considerations and committed a reviewable error"
+      }
+    ]
+  }
+}

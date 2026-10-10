@@ -1,0 +1,38 @@
+{
+  "case_id": "2012_FC_16",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Could the Board find serious non-political crime from charges or conduct without a conviction for that crime?",
+        "paras": "18-22",
+        "applicant_position": "Board should not rely on an uncharged assault; the conviction was only a misdemeanour and the Board speculated about the prosecutor.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "It is not constrained by the exact characterization of the conviction, or whether there was any conviction at all."
+      },
+      {
+        "issue": "Did the Board reasonably assess the seriousness of the crime under Jayasekara in the Canadian context?",
+        "paras": "15-17, 23-26",
+        "applicant_position": "A misdemeanour is not equivalent to a Canadian summary offence; the Board did not assess the factors properly.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I cannot find that the Board erred by looking at the gravity of the underlying incident"
+      },
+      {
+        "issue": "Is a serious non-political crime limited to human-rights-type crimes under Ward and Pushpanathan?",
+        "paras": "27-28",
+        "applicant_position": "Only crimes related to human rights give rise to exclusion under Ward and Pushpanathan.",
+        "respondent_position": "No specifics were provided to support this argument.",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "With respect, this is not the case."
+      }
+    ]
+  }
+}

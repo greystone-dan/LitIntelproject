@@ -1,0 +1,29 @@
+{
+  "case_id": "2013_FC_278",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 10,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Do the officer's reasons show that he assessed Mr. Abbasi's duties against the NOC 0631 lead statement and main duties?",
+        "paras": "3-6, 9",
+        "applicant_position": "The one-sentence reasons show no evaluation of his McDonald's duties, so the refusal is unintelligible.",
+        "respondent_position": "Reasons can be supplemented from the record; the employer letter closely matches NOC 0631 duties.",
+        "result": "allowed_for_applicant",
+        "result_para": 9,
+        "result_quote": "I conclude that their absence in the present decision render it unreasonable."
+      },
+      {
+        "issue": "Can the court fill gaps in the officer's reasons by reviewing the record (NL Nurses)?",
+        "paras": "7-8",
+        "applicant_position": "Reasons cannot be rescued by the record; the officer had to carry out the assessment himself.",
+        "respondent_position": "Court can compare the employer letter with NOC 0631 and supplement the reasons from the record.",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "the principles espoused in NL Nurses do not extend to rectifying a failure of the Officer to carry out his duty."
+      }
+    ]
+  }
+}

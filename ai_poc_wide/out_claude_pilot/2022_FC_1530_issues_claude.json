@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FC_1530",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's refusal of the study permit (study plan, ties, purpose) reasonable?",
+        "paras": "12-26",
+        "applicant_position": "Officer ignored the study plan explanations, employer leave and career evidence; the refusal reasoning lacks justification and intelligibility.",
+        "respondent_position": "Officer reasonably found the study plan and ties insufficient; visa officers get deference and weight is for the officer.",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I conclude the Officer’s reasoning with regard to the Applicant’s Study Plan lacks the requisite transparency, intelligibility and justification."
+      },
+      {
+        "issue": "Did the officer breach procedural fairness by making adverse credibility findings without giving the Applicant a chance to respond?",
+        "paras": "27",
+        "applicant_position": "Adverse credibility findings were made without an opportunity to respond, breaching procedural fairness.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 27,
+        "result_quote": "As I find the Decision to be unreasonable, I need not address the Applicant’s procedural fairness argument."
+      }
+    ]
+  }
+}

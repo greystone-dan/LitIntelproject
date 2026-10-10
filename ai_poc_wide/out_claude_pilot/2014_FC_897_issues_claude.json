@@ -1,0 +1,38 @@
+{
+  "case_id": "2014_FC_897",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 0,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the visa officer's refusal of the CEC application reasonable, given the NOC 1241 duties and lead statement?",
+        "paras": "15-24",
+        "applicant_position": "Officer used a check-off approach and never substantively analysed her HOOPP work against NOC 1241.",
+        "respondent_position": "Officer reasonably found her duties were clerical and did not match NOC 1241 main duties; the decision is defensible.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The visa officer’s conclusion that Ms Morgan did not perform a substantial number of the main duties of NOC 1241 withstands scrutiny on the standard of reasonableness."
+      },
+      {
+        "issue": "Were the officer's reasons adequate?",
+        "paras": "25-26",
+        "applicant_position": "Officer's reasons were inadequate and too sparse to explain the refusal.",
+        "respondent_position": "Brief reasons identify the grounds for refusal and point to the NOC 1241 lead statement and duties.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "Consequently, his failure to compose more elaborate reasons does not render his decision unreasonable."
+      },
+      {
+        "issue": "Did the officer show a reasonable apprehension of bias?",
+        "paras": "11",
+        "applicant_position": "Written submissions alleged a reasonable apprehension of bias; counsel did not press it at the hearing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "In my view, there is nothing in the record to support the allegation."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "VC0_02445",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err in its cumulative implausibility findings?",
+        "paras": "13-18",
+        "applicant_position": "RPD erred in its implausibility findings, including the Delhi finding, and in its reading of country conditions.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "For these reasons, I find that all of the RPD's implausibility findings can not stand."
+      },
+      {
+        "issue": "Did the RPD err in its treatment of the documentary evidence and corroboration?",
+        "paras": "19-21",
+        "applicant_position": "RPD wrongly required corroborating documents, and its treatment of affidavits and news articles was inadequate.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 20,
+        "result_quote": "Nonetheless, I find that the RPD erred in its treatment of the documentary evidence, as it has effectively dismissed the evidence without meaningfully engaging with it."
+      },
+      {
+        "issue": "Can the RAD uphold the RPD decision or substitute a positive decision, or must the matter be redetermined?",
+        "paras": "22-23",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 22,
+        "result_quote": "I find the record to be insufficient to allow me to uphold the RPD's decision or to substitute a positive decision in the Appellant's favour."
+      }
+    ]
+  }
+}

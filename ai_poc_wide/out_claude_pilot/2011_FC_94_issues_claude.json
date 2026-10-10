@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FC_94",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 53,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Board apply the correct legal test under paragraph 58(1)(b), by considering only the admissibility hearing and not removal?",
+        "paras": "16, 23-36",
+        "applicant_position": "Board focused on whether the respondent would be removed, not whether he would appear for removal if ordered.",
+        "respondent_position": "Paragraph 58(1)(b) is disjunctive; the admissibility hearing was enough, and the Board considered removal anyway.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "I am not persuaded by the Applicant’s submissions that the Board failed to consider or apply the correct legal test."
+      },
+      {
+        "issue": "Was the Board's finding of no flight risk, on the smuggling debt, lack of Canadian ties and LTTE allegation, reasonable?",
+        "paras": "15, 24-26, 37-45",
+        "applicant_position": "Board ignored factors 245(f) and (g), relied on speculation and ignored evidence of LTTE membership.",
+        "respondent_position": "Brother could pay the debt, so no smuggler influence; LTTE allegation weak; lack of ties not an overriding factor.",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "I am satisfied that the Board’s decision with respect to subsections 245(f) and (g) of the Regulations is reasonable."
+      },
+      {
+        "issue": "Were the release terms reasonable, including weekly reporting and no cash bond?",
+        "paras": "46-51",
+        "applicant_position": "Minimal conditions were unreasonable; respondent has no residence or money, so a cash bond should have been required.",
+        "respondent_position": "Board imposed nearly all requested conditions; a cash bond would amount to continued detention given his lack of means.",
+        "result": "dismissed_for_applicant",
+        "result_para": 50,
+        "result_quote": "I agree with the submissions of the Respondent concerning the reasonableness of the terms and conditions imposed by the Board."
+      }
+    ]
+  }
+}

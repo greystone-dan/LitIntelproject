@@ -1,0 +1,38 @@
+{
+  "case_id": "2006_FC_1177",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was it reasonable to require Qazi to attend an interview, and to decide the file after he did not attend?",
+        "paras": "9-18",
+        "applicant_position": "Counsel asked that the interview be waived or held by phone or video; he says the requests for documents were never received.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I find it was not unreasonable to request that Mr. Qazi attend an interview"
+      },
+      {
+        "issue": "Was the officer's zero award for work experience, made without an interview to verify it, unreasonable?",
+        "paras": "7-19",
+        "applicant_position": "Officer had objective, verifiable documents confirming his experience; it was absurd to award zero because he skipped the interview.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "That decision was not, in the circumstances of this case, unreasonable in that a reasonable person could proceed from the evidence to the result."
+      },
+      {
+        "issue": "Were the education award (20 points, not 25) and the adaptability award (zero, not 8) wrong?",
+        "paras": "20",
+        "applicant_position": "Education should have earned 25 points, not 20, and adaptability 8 points, not zero.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 20,
+        "result_quote": "Thus, any such errors were not be material to the officer's assessment because it would not have changed the outcome."
+      }
+    ]
+  }
+}

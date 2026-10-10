@@ -1,0 +1,29 @@
+{
+  "case_id": "2023_FC_963",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 14,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's finding that the applicant lacked sufficient funds reasonable?",
+        "paras": "10-12",
+        "applicant_position": "Officer wrongly assumed only $13,000 in savings; other accounts and sponsor funds were ignored.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "It was unreasonable for the Officer to state that the Applicant had provided evidence of only $13,000 in savings"
+      },
+      {
+        "issue": "Was the officer's assessment of the study plan (age, career path, redundancy) reasonable?",
+        "paras": "13",
+        "applicant_position": "Degree is directly related to his pastoral vocation; age and career-path reasons were unreasonable and unexplained.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "It was also unreasonable for the Officer to find that the Applicant’s proposed course of study was unreasonable"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2016_FC_1263",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the passport-revocation part of the stay motion moot?",
+        "paras": "25",
+        "applicant_position": "Seeks a stay of the Minister's further steps to revoke her passport pending the constitutional challenge.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 25,
+        "result_quote": "Inasmuch that the present motion for stay asks the Court to order the Minister to stop taking any further steps regarding the revocation of the passport, it is moot."
+      },
+      {
+        "issue": "Does the applicant raise a serious issue on the constitutional challenge?",
+        "paras": "26-27",
+        "applicant_position": "Constitutional challenge to the s.10 revocation provisions and transitional notice is not frivolous and raises serious issues.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "meet the low threshold of a serious issue"
+      },
+      {
+        "issue": "Would the applicant suffer irreparable harm if the stay were refused?",
+        "paras": "28-32",
+        "applicant_position": "Separation from her children is a cruel and inhumane situation; she believes she cannot re-enter Canada without a visa.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I am not satisfied that the applicant would suffer irreparable harm"
+      },
+      {
+        "issue": "Does the balance of convenience favour granting the stay?",
+        "paras": "33-35",
+        "applicant_position": "Minister's delay caused aggravated prejudice; her good-faith explanations and bank evidence were not accepted.",
+        "respondent_position": "Applicant is in effect seeking to suspend the operation of the law; allowing her to keep privileges would undermine the public interest.",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "the balance of convenience is in favour of the Minister"
+      }
+    ]
+  }
+}

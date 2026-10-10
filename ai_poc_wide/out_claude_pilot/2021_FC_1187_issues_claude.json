@@ -1,0 +1,56 @@
+{
+  "case_id": "2021_FC_1187",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 78,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court hear the moot application (Respondent released and whereabouts unknown)?",
+        "paras": "37-44",
+        "applicant_position": "Minister asks the Court to hear the issues despite mootness because fettering and bondsperson questioning recur in detention reviews.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 43,
+        "result_quote": "I am pusuaded that the Court should exercise its discretion in this case to hear and decide the issues raised by the Minister."
+      },
+      {
+        "issue": "Was the proceeding without the Respondent present (ex parte) properly allowed?",
+        "paras": "37",
+        "applicant_position": "Respondent was validly served at his aunt's home and the Minister's efforts to reach him failed, so the hearing could proceed.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 37,
+        "result_quote": "I therefore see no issue in proceeding without the presence of Mr. Boampong."
+      },
+      {
+        "issue": "Did the ID member fetter her discretion by tying the flight-risk assessment to the 2014 release decision without its reasons?",
+        "paras": "45-64",
+        "applicant_position": "ID tethered flight-risk assessment to the 2014 release and did not reassess all evidence, with no 2014 reasons on file.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 64,
+        "result_quote": "the ID member, to a great extent, tied the fate of her Decision to the 2014 release decision"
+      },
+      {
+        "issue": "Did refusing the Minister's representative the right to question the proposed bondsperson and comment on alternatives breach procedural fairness?",
+        "paras": "65-77",
+        "applicant_position": "Refusal to examine the aunt and to comment on the detention alternative was a clear breach of procedural fairness.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 77,
+        "result_quote": "I would thus allow the application under this ground of review as well."
+      },
+      {
+        "issue": "Was the Decision otherwise unreasonable?",
+        "paras": "78",
+        "applicant_position": "Decision is unreasonable on the overall record (Minister's third issue).",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 78,
+        "result_quote": "I need not consider whether the Decision was otherwise unreasonable."
+      }
+    ]
+  }
+}

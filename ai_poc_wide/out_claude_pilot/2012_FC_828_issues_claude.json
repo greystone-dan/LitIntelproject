@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FC_828",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 16,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's refusal, based only on non-cohabitation, reasonable and intelligible?",
+        "paras": "11-15",
+        "applicant_position": "Decision letter gave only non-cohabitation with no analysis; the decision is unintelligible and unreasonable.",
+        "respondent_position": "Decision should be upheld on the FOSS notes' finding that the marriage was not genuine.",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "The decision rendered is unintelligible and thus unreasonable, and it cannot stand."
+      },
+      {
+        "issue": "Can the Court uphold the refusal on the bona fides finding in the FOSS notes, which the decision letter did not state?",
+        "paras": "14",
+        "applicant_position": "Only the reason in the decision letter counts; the Court cannot speculate about unstated FOSS reasons.",
+        "respondent_position": "Court should uphold the decision on the FOSS notes' bona fides finding.",
+        "result": "allowed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I am unable to accept that submission as it requires speculation by a judge as to the basis of the decision under review."
+      }
+    ]
+  }
+}

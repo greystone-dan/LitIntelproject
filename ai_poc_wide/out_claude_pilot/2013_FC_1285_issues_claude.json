@@ -1,0 +1,29 @@
+{
+  "case_id": "2013_FC_1285",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's decision that the applicant did not show the NOC 4131 main duties reasonable?",
+        "paras": "11-20",
+        "applicant_position": "Refusal letter applied the wrong test (essential duties, substantial number) and changed the criteria midstream without notice.",
+        "respondent_position": "not stated on the merits; respondent says factual findings get reasonableness review.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I conclude therefore that the decision of the Officer that the applicant failed to demonstrate that he met the requirements of NOC 4131"
+      },
+      {
+        "issue": "Should the officer have sent a fairness letter before refusing?",
+        "paras": "21-22",
+        "applicant_position": "A fairness letter was required to flag the evidence gaps before refusal.",
+        "respondent_position": "not stated on the merits.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I disagree. There is no requirement to issue a fairness letter or otherwise advise an applicant of the deficiencies in his application"
+      }
+    ]
+  }
+}

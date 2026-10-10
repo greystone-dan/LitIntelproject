@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_886",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's finding that the study plan was redundant and did not show the purpose of a temporary stay reasonable?",
+        "paras": "8-15",
+        "applicant_position": "Application met all requirements; the redundancy finding was irrational and amounted to career counselling.",
+        "respondent_position": "Applicant bore the onus to show the program's benefit; the study plan was vague, so the finding is reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "In my view, the Officer’s decision is not unreasonable in light of the record before them."
+      },
+      {
+        "issue": "Were the officer's reasons adequate and transparent?",
+        "paras": "16",
+        "applicant_position": "Officer failed to provide adequate or sufficient reasons for the refusal.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I find that the Officer was transparent and intelligible in their reason for denying the study permit"
+      },
+      {
+        "issue": "Were the other fairness arguments (procedural fairness, implicit credibility, legitimate expectation) without merit?",
+        "paras": "17",
+        "applicant_position": "Officer breached procedural fairness, made a veiled credibility finding and ignored IRCC guidelines.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Having considered them, I find them to be without merit in the context of the present case."
+      }
+    ]
+  }
+}

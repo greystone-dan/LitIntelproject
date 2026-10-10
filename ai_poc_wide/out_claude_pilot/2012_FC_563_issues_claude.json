@@ -1,0 +1,47 @@
+{
+  "case_id": "2012_FC_563",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the Member's findings on the likely length of detention speculative, given the PRRA time estimate?",
+        "paras": "21-24",
+        "applicant_position": "Member speculated about PRRA duration; detention should have continued until the Minister's time estimate ran out.",
+        "respondent_position": "Minister gave no clear PRRA timeline; the Member's uncertainty concern had an evidentiary basis.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I do not agree that this part of the decision amounts to speculation."
+      },
+      {
+        "issue": "Was the finding that the respondent is unlikely to report on imminent removal inconsistent with the section 244 detention rule?",
+        "paras": "25-26",
+        "applicant_position": "Finding that he is unlikely to report on imminent removal contradicts section 244, which requires continued detention.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I do not agree that the passage relied upon by the Minister can be read in isolation from Member McPhelan’s remaining analysis."
+      },
+      {
+        "issue": "Was release on bond, surety and conditions unreasonable, as a departure from earlier findings without clear reasons?",
+        "paras": "27-29, 34",
+        "applicant_position": "Given lack of credibility and key role in the smuggling, anything short of detention was perverse and an unexplained departure.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "This argument is no more than an invitation to reweigh the evidence and that is not the role of the Court on judicial review."
+      },
+      {
+        "issue": "Was the bondsperson finding inconsistent with the finding that the respondent was unlikely to care about the surety's finances?",
+        "paras": "30",
+        "applicant_position": "Finding he would not care about the surety's money is inconsistent with finding her an acceptable bondsperson.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I also do not agree that there is an inconsistency in Member McPhelan’s finding"
+      }
+    ]
+  }
+}

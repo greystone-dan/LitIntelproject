@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_199",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 40,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's finding that it was implausible the applicant did not ask the Newspaper about threats reasonable?",
+        "paras": "25-31",
+        "applicant_position": "No evidence showed whether the Newspaper was threatened, so the finding was unsupported and unnecessary to make.",
+        "respondent_position": "Applicant 'misses the point'; the text gives no fuller respondent position on this finding.",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "This plausibility finding is therefore set aside and must be disregarded."
+      },
+      {
+        "issue": "Was the RAD's finding that the attempted kidnapping was implausible, given the onlookers, reasonable?",
+        "paras": "32-37",
+        "applicant_position": "Finding speculated about the Taliban's mindset, relied on a letter excluded from the record, and conflicted with country evidence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 37,
+        "result_quote": "Thus, this implausibility cannot stand and must be struck as failing to comply with constraining law."
+      },
+      {
+        "issue": "Do the RAD's residual-profile and subjective-fear findings survive once the two implausibility findings are removed?",
+        "paras": "38-39",
+        "applicant_position": "Consequential findings on residual profile and subjective fear fall with the two implausibility findings.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 38,
+        "result_quote": "two other significant and residual findings by the RAD also fall when these two implausibility findings are removed"
+      }
+    ]
+  }
+}

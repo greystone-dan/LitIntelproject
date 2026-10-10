@@ -1,0 +1,47 @@
+{
+  "case_id": "2025_FC_1000",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the refusal procedurally unfair because concerns about departure after studies should have been raised in a fairness letter?",
+        "paras": "4-6",
+        "applicant_position": "Concerns about departure after studies should have been raised in a procedural fairness letter; argument later withdrawn.",
+        "respondent_position": "Decision is reasonable and the Officer breached no duty of fairness.",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "I agree with the latter point. Indeed, the Applicant resiled from the fairness argument at the hearing."
+      },
+      {
+        "issue": "Was the refusal reasonable on the study plan, career progression and purpose of stay?",
+        "paras": "9-11, 13-17",
+        "applicant_position": "Officer's conclusion on study plan and career progression was unjustified and unreasonable in light of the record.",
+        "respondent_position": "Applicant bore the onus on the study plan; the plan was vague and general, so the finding is reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Ms. Eisapour’s submissions and supporting evidence, including her study plan, were replete with generalities and lacked the specificity"
+      },
+      {
+        "issue": "Was the officer's finding that family ties to Iran were weakened, because family will accompany her, reasonable?",
+        "paras": "8, 12, 15",
+        "applicant_position": "Officer's reasons for finding weaker family ties in Iran were inadequate.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I am of the view that the same observation holds true in the present case."
+      },
+      {
+        "issue": "Did the officer give adequate reasons?",
+        "paras": "4-18",
+        "applicant_position": "Reasons on purpose of visit, family ties and study plan were inadequate.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "Here, while concise, the reasons are responsive to the central aspects of Ms. Eisapour’s Application, along with the relevant requirements of the IRPA and the IRPR."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FC_574",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 9,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Board's credibility assessment, based on inconsistencies and implausibilities, reasonable?",
+        "paras": "3, 7-8",
+        "applicant_position": "Challenged a few minor credibility findings and offered alternative explanations for the inconsistencies.",
+        "respondent_position": "Not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "In my opinion, the applicant merely offers alternative explanations and inferences that could have been drawn by the Board."
+      },
+      {
+        "issue": "Did the Board fail to properly apply the Gender Guidelines to the applicant's gender-based claim?",
+        "paras": "4-7",
+        "applicant_position": "Board did not adequately assess the Gender Guidelines as she suffered gender-based persecution.",
+        "respondent_position": "Not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "the Board’s failure to specifically mention the Gender Guidelines does not mean that they were not considered and is not material or fatal to the Board’s decision."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "MB0_00148",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 9,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's rehabilitation relevant to whether he is excluded under article 1F(b)?",
+        "paras": "5-8",
+        "applicant_position": "Claimant says his rehabilitation since coming to Canada should be considered in deciding whether he is excluded.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "Under Canadian law, as it presently exists, the question of rehabilitation is not relevant"
+      },
+      {
+        "issue": "Did the claimant commit a serious non-political crime before coming to Canada, so as to be excluded?",
+        "paras": "2-4, 9",
+        "applicant_position": "Claimant does not dispute the US cocaine conviction or that it would be a serious non-political crime in Canada.",
+        "respondent_position": "Minister says the US conspiracy conviction is a serious non-political crime, so the claimant is excluded under art. 1F(b).",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "the Tribunal concludes that XXXXX XXXXX is excluded from consideration as a Convention refugee by reason of the application of article 1F(b)"
+      }
+    ]
+  }
+}

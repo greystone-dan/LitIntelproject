@@ -1,0 +1,38 @@
+{
+  "case_id": "2013_FC_315",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 50,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the officer's findings of fact on the daughter relationship and the spouse's statements reasonable, not perverse or capricious?",
+        "paras": "30-37",
+        "applicant_position": "Officer ignored his household tasks and diaper care, relied on the spouse's shifting statements, and misread the daughter's disability.",
+        "respondent_position": "Findings are reasonable: the daughter's own declarations show weak attachment; the grandmother was the key carer.",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "The immigration officer’s finding of fact that the Applicant did not have an effective link with his daughter and did not provide psychological and emotional support was reasonable"
+      },
+      {
+        "issue": "Does a reasonable apprehension of bias arise from the officer's conduct and decision?",
+        "paras": "38-46",
+        "applicant_position": "Officer made racist remarks about Arabs and Morocco, preferred spouse's account, and decided before the interview date.",
+        "respondent_position": "Bias claim rests on suspicion; the alleged remark is absent from the interview notes; nothing shows bias.",
+        "result": "dismissed_for_applicant",
+        "result_para": 43,
+        "result_quote": "This Court does not accept the Applicant’s allegation that the immigration officer actually stated that she had lived for Morocco for seven (7) years"
+      },
+      {
+        "issue": "Did the officer unreasonably fail to assess the length of stay in Canada and degree of establishment?",
+        "paras": "47-49",
+        "applicant_position": "Officer ignored his thirteen years in Canada and lack of ties to Tunisia.",
+        "respondent_position": "Illegal stay and ties to Canada are insufficient; applicant chose to rely only on his daughter.",
+        "result": "dismissed_for_applicant",
+        "result_para": 49,
+        "result_quote": "The Applicant chose to base his H&C Application on his relationship with his daughter and did not present evidence on his other ties to Canada"
+      }
+    ]
+  }
+}

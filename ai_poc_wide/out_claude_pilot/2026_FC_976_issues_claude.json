@@ -1,0 +1,38 @@
+{
+ "case_id": "2026_FC_976",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 37,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the Minister of Immigration, Refugees and Citizenship Canada the proper respondent?",
+    "paras": "20",
+    "applicant_position": "Applicant named the Minister of Immigration, Refugees and Citizenship Canada as respondent.",
+    "respondent_position": "not stated",
+    "result": "moot_or_procedural",
+    "result_para": 19,
+    "result_quote": "the proper Respondent is the Minister of Citizenship and Immigration."
+   },
+   {
+    "issue": "Is the applicant's further affidavit, on the Minister's application to vacate refugee status, admissible?",
+    "paras": "21-23",
+    "applicant_position": "Further affidavit, filed after leave, attaches the September 2024 application to vacate refugee protection.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 23,
+    "result_quote": "I am satisfied that none of these exceptions apply here, and that this further evidence is not admissible."
+   },
+   {
+    "issue": "Did the Delegate err by not considering the foreseeable consequences of revocation (loss of refugee status and removal)?",
+    "paras": "24-36",
+    "applicant_position": "Delegate erred by not considering that revocation would likely lead to loss of refugee status, work and removal.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 36,
+    "result_quote": "For these reasons, the Minister\u2019s Delegate reasonably concluded that the Applicant\u2019s personal circumstances did not warrant special relief from revocation of citizenship."
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "VB2_03610",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "How much weight should the claimant's fraudulent immigration applications carry against her credibility?",
+        "paras": "7-8",
+        "applicant_position": "Claimant says her brother prepared the fraudulent documents she merely signed, so they should carry little weight.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 8,
+        "result_quote": "There is a negligible negative inference that can be taken against the claimant's central issue before this panel"
+      },
+      {
+        "issue": "Is there adequate state protection for the claimant in Kosovo against domestic violence?",
+        "paras": "10-28",
+        "applicant_position": "Claimant argued Kosovo does not protect domestic violence victims, citing the Kastrati case as an example of state failure.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I find that there is not sufficient, clear and convincing evidence to rebut the presumption that Kosovo authorities are unable or unwilling to provide protection to the claimant."
+      },
+      {
+        "issue": "Was it objectively reasonable for the claimant to approach Kosovan authorities for protection?",
+        "paras": "29-31",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I find that there are no significant impediments in her approaching authorities for protection."
+      }
+    ]
+  }
+}

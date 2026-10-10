@@ -1,0 +1,38 @@
+{
+  "case_id": "2022_FC_212",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD unreasonably adopt the RPD's credibility finding on omissions without applying the Gender Guidelines meaningfully?",
+        "paras": "17-27",
+        "applicant_position": "RAD adopted the omissions-based credibility finding without considering the Gender Guidelines or why trauma explained the omissions.",
+        "respondent_position": "Guidelines do not cure claim deficiencies; RAD need not mention them, and omissions reasonably undermined credibility.",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "As such, I find the RAD has not taken into account the Gender Guidelines “in a meaningful way”"
+      },
+      {
+        "issue": "Did the RAD unreasonably find the RPD did not err in applying the Gender Guidelines (no diagnosis, no reluctance to testify)?",
+        "paras": "28-33",
+        "applicant_position": "RAD's reasons were circular, required a medical diagnosis, and relied on a fair hearing as proof of Guideline compliance.",
+        "respondent_position": "RAD was sensitive to the claimant's circumstances; Guidelines do not guarantee an outcome, and credibility concerns remained.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "I find three errors with the RAD’s reasoning in this respect."
+      },
+      {
+        "issue": "Were the RAD's assessments of subjective fear and prospective fear reasonable?",
+        "paras": "34",
+        "applicant_position": "RAD failed to assess subjective fear properly and ignored relevant evidence on prospective fear.",
+        "respondent_position": "RAD's decision was reasonable on all fronts, including subjective and prospective fear.",
+        "result": "not_decided",
+        "result_para": 34,
+        "result_quote": "As I have decided to send the matter back on this error alone, I need not consider the other issues raised by the Applicant."
+      }
+    ]
+  }
+}

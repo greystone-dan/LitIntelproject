@@ -1,0 +1,47 @@
+{
+  "case_id": "2008_FC_238",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was it reasonable for the Board to treat the US drug conviction as a serious non-political crime?",
+        "paras": "9-11",
+        "applicant_position": "Offence involved only about $40 of cocaine and 5 grams of marihuana; the crime was not serious.",
+        "respondent_position": "Seriousness is measured by Canadian law; the offence carries life in Canada, so the Board was right.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I am satisfied that it was reasonable for the Board to conclude that the Applicant’s conviction"
+      },
+      {
+        "issue": "Had the applicant completed or constructively served his US sentence before leaving?",
+        "paras": "12-13",
+        "applicant_position": "He constructively served his sentence: the voluntary departure order prevented probation surveillance, so his departure was involuntary.",
+        "respondent_position": "Sentence not completed: five-year probation largely unserved; he left voluntarily, so it is not a deportation.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I am satisfied that the Applicant did not complete his sentence in the United States."
+      },
+      {
+        "issue": "Is Article 1F(b) inapplicable to a person who has served a sentence abroad before coming to Canada (Chan versus Zrig)?",
+        "paras": "14-16",
+        "applicant_position": "Under Chan, Article 1F(b) is confined to fugitives and does not apply to those who served their sentence abroad.",
+        "respondent_position": "Under Zrig, Article 1F(b) is not limited to extraditable fugitives; whether a sentence was served is irrelevant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I therefore conclude that even if the Applicant were deemed to have constructively served his sentence"
+      },
+      {
+        "issue": "Should the court decide the exclusion finding even though the refugee and protection claims fail?",
+        "paras": "7-8, 17",
+        "applicant_position": "The court should decide exclusion because it could affect other proceedings, such as a s.112 protection application.",
+        "respondent_position": "Initially objected that deciding was pointless; withdrew the objection and asked the court to decide exclusion.",
+        "result": "moot_or_procedural",
+        "result_para": 17,
+        "result_quote": "I can therefore not set aside that part of the decision nor would there be any point in sending the matter"
+      }
+    ]
+  }
+}

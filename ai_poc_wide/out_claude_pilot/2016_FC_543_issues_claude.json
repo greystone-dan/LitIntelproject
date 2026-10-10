@@ -1,0 +1,29 @@
+{
+  "case_id": "2016_FC_543",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 16,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's finding that it was implausible the PSB would do more than make random visits to the applicant's home reasonable?",
+        "paras": "9-11",
+        "applicant_position": "The RAD did not explain why the narrative was implausible; harassment by random visits was a PSB punishment method.",
+        "respondent_position": "Not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "The RAD fails to adequately explain why the Applicant’s narrative on this point is implausible"
+      },
+      {
+        "issue": "Was the RAD's finding that the applicant could not have left China on her own passport with a smuggler's bribes reasonable?",
+        "paras": "12-14",
+        "applicant_position": "Bribery of officials was plausible; the customs officer only stamped the passport; the RAD ignored this evidence.",
+        "respondent_position": "Not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "the determination that the Applicant could not leave China on her own passport is simple speculation on how one can leave China."
+      }
+    ]
+  }
+}

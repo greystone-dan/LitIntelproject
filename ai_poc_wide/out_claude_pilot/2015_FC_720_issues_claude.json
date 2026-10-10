@@ -1,0 +1,56 @@
+{
+  "case_id": "2015_FC_720",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 49,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Member err by ignoring the applicants' upcoming refugee hearings when assessing flight risk and alternatives to detention?",
+        "paras": "14-19, 39-49",
+        "applicant_position": "Member had to consider likelihood of appearing at refugee hearings, as Justice Phelan directed; ignoring that was fatal.",
+        "respondent_position": "Not stated on this point; respondent says the decision need only show justification, transparency and intelligibility.",
+        "result": "allowed_for_applicant",
+        "result_para": 49,
+        "result_quote": "I find that her failure to consider the RPD proceeding, jointly in assessing flight risk and in assessing alternatives to detention"
+      },
+      {
+        "issue": "Did the applicants concede flight risk at the hearing, so that they cannot raise it on review?",
+        "paras": "40-46",
+        "applicant_position": "No real concession was made; the Member said she would conduct a full flight-risk analysis, so they could rely on it.",
+        "respondent_position": "Applicants conceded flight risk at the detention review hearing and are precluded from raising it on judicial review.",
+        "result": "allowed_for_applicant",
+        "result_para": 45,
+        "result_quote": "Concession or not, the Member explicitly said she was going to consider a full flight risk analysis and the applicants had a reasonable expectation that she would do so."
+      },
+      {
+        "issue": "Should the Court decide the application although it may be moot once the next detention review occurs?",
+        "paras": "26-28",
+        "applicant_position": "Not stated.",
+        "respondent_position": "Application will be moot unless decided by May 12, 2015, given the next scheduled detention review.",
+        "result": "moot_or_procedural",
+        "result_para": 28,
+        "result_quote": "In the case at bar, the Court should exercise its discretion notwithstanding mootness."
+      },
+      {
+        "issue": "Should the Court follow Justice Phelan's earlier decision on the same flight-risk issue (judicial comity)?",
+        "paras": "29-33, 37",
+        "applicant_position": "Court should grant the application relying on Justice Phelan's reasons, since no new evidence was heard on re-determination.",
+        "respondent_position": "Fresh judicial review; the Court should only assess justification, transparency and intelligibility of the new decision.",
+        "result": "allowed_for_applicant",
+        "result_para": 37,
+        "result_quote": "I see no reasons to depart from Justice Phelan’s reasons with respect to that first issue."
+      },
+      {
+        "issue": "Did the Member err in assessing the release plan as an alternative to detention?",
+        "paras": "37-38",
+        "applicant_position": "The Member did not properly assess the proposed release plan as an alternative to detention.",
+        "respondent_position": "Not stated.",
+        "result": "not_decided",
+        "result_para": 37,
+        "result_quote": "I do not find it necessary to consider whether the Member committed a reviewable error in her assessment of the release plan."
+      }
+    ]
+  }
+}

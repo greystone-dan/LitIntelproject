@@ -474,3 +474,5 @@ def test_unit_printed_numbers_come_from_the_text_and_skip_pieces_without_one():
     assert numbers == {0: None, 1: 88, 2: 3, 3: 89, 4: None}
     assert reader_service._unit_number_range(numbers, 0, 4) == (88, 89)
     assert reader_service._unit_number_range(numbers, 4, 4) == (None, None)
+    # a quoted paragraph out of order does not reverse the range (unit read as 26, 14, 15, 16, 17, 18)
+    assert reader_service._unit_number_range({0: 26, 1: 14, 2: 15, 3: 16, 4: 17, 5: 18}, 0, 5) == (14, 18)

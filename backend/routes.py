@@ -954,13 +954,18 @@ def get_case_reader_data(case_id: int, evidence: bool = True, db: Session = Depe
 
 
 @router.get("/unit-search", response_model=dict[str, Any], include_in_schema=False)
-def get_unit_search(q: str = Query(..., min_length=3, max_length=300), db: Session = Depends(get_db)) -> dict[str, Any]:
+def get_unit_search(
+	q: str = Query(..., min_length=3, max_length=300),
+	limit: int = Query(default=8, ge=1, le=20),
+	court: str = Query(default="", max_length=60, description="Comma-separated courts, e.g. FC,FCA,RAD,RPD"),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
 	"""Discussion units matching a plain-language query (experimental, off unless ILIT_UNIT_SEARCH is set)."""
 	from .unit_keyword_search import search_units, unit_search_enabled
 
 	if not unit_search_enabled():
 		raise HTTPException(status_code=404, detail="Not found")
-	found = search_units(db, q)
+	found = search_units(db, q, limit=limit, court=court)
 	if found is None:
 		raise HTTPException(status_code=404, detail="No paragraph matches (or the paragraph index is not available)")
 	return found

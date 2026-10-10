@@ -165,9 +165,27 @@ def _printed_numbers(report: dict[str, Any]) -> dict[int, int | None]:
 
 
 def _unit_number_range(numbers: dict[int, int | None], start: int, end: int) -> tuple[int | None, int | None]:
-	first = next((numbers[i] for i in range(start, end + 1) if numbers.get(i) is not None), None)
-	last = next((numbers[i] for i in range(end, start - 1, -1) if numbers.get(i) is not None), None)
-	return first, last
+	"""First and last printed paragraph number of a unit.
+
+	A quoted or cited numbered paragraph can sit inside a unit out of order (a unit running 26, 14, 15 ... 18), so the
+	range comes from the longest run of increasing numbers, which is the unit's own paragraphs.
+	"""
+	found = [numbers[i] for i in range(start, end + 1) if numbers.get(i) is not None]
+	if not found:
+		return None, None
+	length = [1] * len(found)
+	parent = [-1] * len(found)
+	for i, value in enumerate(found):
+		for j in range(i):
+			if found[j] < value and length[j] + 1 > length[i]:
+				length[i], parent[i] = length[j] + 1, j
+	cursor = length.index(max(length))
+	run = []
+	while cursor != -1:
+		run.append(found[cursor])
+		cursor = parent[cursor]
+	run.reverse()
+	return run[0], run[-1]
 
 
 def _chunk_position_mapper(report: dict[str, Any], chunks: list[CaseChunk] | None):

@@ -15,6 +15,7 @@ from fastapi.responses import JSONResponse, PlainTextResponse
 # request families unlimited while allowing route-classification tests to guard them.
 ROUTE_BUCKET_PREFIXES: tuple[tuple[tuple[str, ...] | None, str, str | None], ...] = (
 	(("POST",), "/live-analysis/analyze", "live_analysis"),
+	(("POST",), "/live-analysis/issue-matches", "live_analysis"),
 	(("POST",), "/live-analysis/resolve", "live_analysis"),
 	(("POST",), "/live-analysis/reader-text", "live_analysis"),
 	(("POST",), "/live-analysis/reader", "live_analysis"),

@@ -30,6 +30,11 @@ function paraNumberForIndex(chunks,index){
   const m=c&&/^\s*\[(\d{1,3})\]/.exec(String(c.text||''));
   return m?Number(m[1]):null;
 }
+/* a unit's first and last printed paragraph number: the server's own numbers when it sent them (units inside one big chunk), else the chunk list */
+function unitRange(chunks,u){
+  if(u&&u.start_number!=null&&u.end_number!=null)return {first:u.start_number,last:u.end_number};
+  return rangeParas(chunks,u.start_paragraph,u.end_paragraph);
+}
 function rangeParas(chunks,start,end){
   let first=null,last=null;
   for(let i=start;i<=end;i++){const n=paraNumberForIndex(chunks,i);if(n!==null){if(first===null)first=n;last=n;}}
@@ -241,7 +246,7 @@ function buildNotes(payload){
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
   for(const u of units){
-    const r=rangeParas(chunks,u.start_paragraph,u.end_paragraph);
+    const r=unitRange(chunks,u);
     if(!r)continue;
     const head=sectionHeading(rd.format_blocks,item.full_text,r.first);
     const subs=subthemeRanges({readerData:{chunks:chunks,evidence_summary:{units:[u]}}});
@@ -318,7 +323,7 @@ function exportPlan(notes,layers,blockOf){
 /* paragraphs of a unit that the rules read as a party's argument: [{party,nums}] with the printed paragraph numbers */
 function partyArgs(chunks,u){
   const by={};
-  for(const a of (u&&u.party_arguments)||[]){const n=paraNumberForIndex(chunks,a.paragraph_index);if(n!==null)(by[a.party]=by[a.party]||[]).push(n);}
+  for(const a of (u&&u.party_arguments)||[]){const n=a.paragraph_number!=null?a.paragraph_number:paraNumberForIndex(chunks,a.paragraph_index);if(n!==null)(by[a.party]=by[a.party]||[]).push(n);}
   return ['applicant','respondent'].filter(k=>by[k]).map(k=>({party:k,nums:by[k]}));
 }
 const PARTY_LABELS={applicant:'Applicant',respondent:'Respondent'};
@@ -332,7 +337,7 @@ function unitRoleView(n,expOn){
   if(!label)return {pill:n?n.pill:'',line:''};
   return {pill:label+' · '+n.pill,line:'Role (experimental): '+label+(n.roleNote?'. '+n.roleNote:'')};
 }
-const api={paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,inThisCaseLine,unitRoleView,partyArgs,partyArgsLine,UNIT_ROLE_LABELS,LAYER_DEFS,TYPE};
+const api={paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,unitRange,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,inThisCaseLine,unitRoleView,partyArgs,partyArgsLine,UNIT_ROLE_LABELS,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;

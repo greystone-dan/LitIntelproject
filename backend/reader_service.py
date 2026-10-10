@@ -152,6 +152,46 @@ def _unit_party_arguments(report: dict[str, Any], title: str) -> dict[int, str]:
 	return {indexes[position]: party for position, party in voices.items()}
 
 
+_PRINTED_NUMBER_RE = re.compile(r"^[^\[\n]{0,80}\[(\d{1,3})\]")
+
+
+def _printed_numbers(report: dict[str, Any]) -> dict[int, int | None]:
+	"""Report paragraph index -> the decision's printed paragraph number (``[12]``), None for a heading or footer piece."""
+	numbers: dict[int, int | None] = {}
+	for paragraph in report.get("paragraphs", []):
+		match = _PRINTED_NUMBER_RE.match(paragraph.get("text") or "")
+		numbers[paragraph["paragraph_index"]] = int(match.group(1)) if match else None
+	return numbers
+
+
+def _unit_number_range(numbers: dict[int, int | None], start: int, end: int) -> tuple[int | None, int | None]:
+	first = next((numbers[i] for i in range(start, end + 1) if numbers.get(i) is not None), None)
+	last = next((numbers[i] for i in range(end, start - 1, -1) if numbers.get(i) is not None), None)
+	return first, last
+
+
+def _chunk_position_mapper(report: dict[str, Any], chunks: list[CaseChunk] | None):
+	"""Map the report's paragraph indexes to positions in the reader's paragraph chunk list.
+
+	The report counts text pieces: a chunk with a section heading glued to its end becomes two pieces, so after the
+	first such chunk every report index runs ahead of the chunk list the reader and markup mode index into. Returns
+	a function from a report index to a chunk position (the same index when the chunk list is not available).
+	"""
+	if chunks is None:
+		return lambda index: index
+	paragraph_chunks = sorted(
+		(chunk for chunk in chunks if (chunk.chunk_set or "") == "paragraph"), key=lambda chunk: (chunk.chunk_index, chunk.id or 0)
+	)
+	position_of_chunk = {chunk.chunk_index: position for position, chunk in enumerate(paragraph_chunks)}
+	mapped = {
+		paragraph["paragraph_index"]: position_of_chunk.get(paragraph.get("source_paragraph_index"))
+		for paragraph in report.get("paragraphs", [])
+	}
+	if not mapped or any(value is None for value in mapped.values()):
+		return lambda index: index
+	return lambda index: mapped.get(index, index)
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -166,6 +206,8 @@ def _build_evidence_summary(
 	report = _cached_inspect_case(db, case_id, chunks)
 	unit_roles = _unit_roles(report)
 	party_by_paragraph = _unit_party_arguments(report, title)
+	at = _chunk_position_mapper(report, chunks)
+	numbers = _printed_numbers(report)
 	units = []
 	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
@@ -177,7 +219,7 @@ def _build_evidence_summary(
 					chunk_id=item["chunk_id"],
 					start_offset=item["start_offset"],
 					end_offset=item["end_offset"],
-					paragraph_index=item["paragraph_index"],
+					paragraph_index=at(item["paragraph_index"]),
 					context_text=item["context_text"],
 					source_text_hash=item["source_text_hash"],
 				)
@@ -186,7 +228,7 @@ def _build_evidence_summary(
 			subthemes.append(
 				CaseSubThemeSummaryResponse(
 					subtheme_id=subtheme["subtheme_id"],
-					paragraph_indices=subtheme["paragraph_indices"],
+					paragraph_indices=list(dict.fromkeys(at(index) for index in subtheme["paragraph_indices"])),
 					key_terms=subtheme["key_terms"],
 					display_key_terms=subtheme.get("display_key_terms", subtheme["key_terms"]),
 					argument_roles=subtheme["argument_roles"],
@@ -194,19 +236,24 @@ def _build_evidence_summary(
 					evidence=evidence,
 				)
 			)
+		first_number, last_number = _unit_number_range(numbers, unit["start_paragraph"], unit["end_paragraph"])
 		units.append(
 			CaseDiscussionUnitSummaryResponse(
 				discussion_unit_id=unit["discussion_unit_id"],
 				unit_index=int(unit["discussion_unit_id"].rsplit(":", 1)[-1]),
-				start_paragraph=unit["start_paragraph"],
-				end_paragraph=unit["end_paragraph"],
+				start_paragraph=at(unit["start_paragraph"]),
+				end_paragraph=at(unit["end_paragraph"]),
 				paragraph_count=unit["paragraph_count"],
+				start_number=first_number,
+				end_number=last_number,
 				subthemes=subthemes,
 				role=unit_roles[position] if position < len(unit_roles) else None,
 				party_arguments=[
-					CaseUnitPartyArgumentResponse(paragraph_index=index, party=party_by_paragraph[index])
-					for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
-					if index in party_by_paragraph
+					CaseUnitPartyArgumentResponse(
+						paragraph_index=at(feature), paragraph_number=numbers.get(feature), party=party_by_paragraph[feature]
+					)
+					for feature in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
+					if feature in party_by_paragraph
 				],
 			)
 		)

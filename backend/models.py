@@ -374,6 +374,7 @@ class CaseSubThemeSummaryResponse(BaseModel):
 
 class CaseUnitPartyArgumentResponse(BaseModel):
 	paragraph_index: int
+	paragraph_number: int | None = None  # printed paragraph number, when the text has one
 	party: str  # "applicant" or "respondent"
 
 
@@ -383,6 +384,8 @@ class CaseDiscussionUnitSummaryResponse(BaseModel):
 	start_paragraph: int
 	end_paragraph: int
 	paragraph_count: int
+	start_number: int | None = None  # printed paragraph numbers of the unit's first and last paragraph
+	end_number: int | None = None
 	subthemes: list[CaseSubThemeSummaryResponse] = Field(default_factory=list)
 	# Experimental, rule-based role (metadata, overview, facts, issues, analysis, disposition); see role_note.
 	role: str | None = None

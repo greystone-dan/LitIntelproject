@@ -143,7 +143,7 @@ class DocumentKindTests(unittest.TestCase):
 
 	def test_headings_do_not_change_a_decision(self):
 		f = build_frame(FC_HEADER, FC_BODY)
-		r = tag_decision(["The Officer’s conclusion on the best interests of the child was unreasonable"], frame=f)[0]
+		r = tag_decision(["The Officer found that Amara would adapt to life in Trinidad and Tobago"], frame=f)[0]
 		self.assertEqual(f.author.value, "court")
 		self.assertEqual(r.sentence_holders, [EARLIER])
 
@@ -158,3 +158,54 @@ class DocumentKindTests(unittest.TestCase):
 		res = tag_decision(["1. This is a detention review.", "2. The ID finds that the detainee is a flight risk. The Minister submits that he should remain detained."], frame=f)
 		self.assertNotIn(EARLIER, res[1].holders)  # the ID is the author, not an earlier decision maker
 		self.assertIn(RESPONDENT, res[1].holders)
+
+
+class EvaluationTests(unittest.TestCase):
+	"""Sentences copied from the fictional Word drafts 01, 03, 04 and 05 (project folder live-analysis/test-docs-word)."""
+
+	def _decision(self):
+		return build_frame(FC_HEADER, FC_BODY)
+
+	def _memo(self, author="applicant"):
+		head = ("APPLICANT’S MEMORANDUM OF ARGUMENT\nFederal Court\nBETWEEN:\nMOHAMMED ALI\nApplicant\nand\n"
+			"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\n")
+		if author == "respondent":
+			head = head.replace("APPLICANT’S", "RESPONDENT’S")
+		return build_frame(head, "[1] The Applicant seeks judicial review of a decision of an Officer.")
+
+	def test_court_evaluation_of_the_officer_is_the_courts(self):
+		f = self._decision()
+		for s in ("The sole issue is whether the Officer’s decision is reasonable.",
+				"Here the Officer’s conclusion that Amara “would adapt” rests on no evidence.",
+				"Having rejected the report, the Officer did not consider the separate country evidence on mental health care.",
+				"The Court is not reweighing; it is identifying that the Officer failed to consider evidence that bore on the key question.",
+				"The Officer applied an unduly narrow hardship lens, contrary to Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61."):
+			self.assertEqual(tag_decision([s], frame=f)[0].sentence_holders[0], "court", s)
+
+	def test_reporting_verbs_stay_with_the_officer(self):
+		f = self._decision()
+		for s in ("The Officer found the psychological report “of limited weight” because the author had met the Applicant only once.",
+				"On the best interests of the child, the Officer wrote that Amara “would adapt” to life in Trinidad and Tobago."):
+			self.assertEqual(tag_decision([s], frame=f)[0].sentence_holders[0], EARLIER, s)
+
+	def test_memorandum_evaluation_and_relief_are_the_authors(self):
+		m = self._memo("respondent")
+		for s in ("The RPD’s decision is reasonable.", "The RPD’s decision is reviewed for reasonableness."):
+			self.assertEqual(tag_decision([s], frame=m)[0].sentence_holders[0], RESPONDENT, s)
+		a = self._memo("applicant")
+		for s in ("The warrant post-dates the RAD decision.",
+				"The Applicant asks that leave be granted, that the PRRA decision be set aside and that the matter be remitted to a different officer for redetermination, with an oral hearing if the Minister’s delegate considers it necessary."):
+			self.assertEqual(tag_decision([s], frame=a)[0].sentence_holders[0], APPLICANT, s)
+		# the officer's reported finding in the same memorandum is still the officer's
+		r = tag_decision(["The Officer found the warrant to be of “little probative value” because it could not be authenticated."], frame=a)[0]
+		self.assertEqual(r.sentence_holders[0], EARLIER)
+
+	def test_ibid_takes_the_citation_before_it(self):
+		for frame in (self._decision(), self._memo()):
+			r = tag_decision(["Ibid."], frame=frame)[0]
+			self.assertEqual((r.sentence_holders[0], r.layers[0]), ("prior_court_or_authority", 6))
+
+	def test_reported_testimony_in_a_memorandum_keeps_its_layer(self):
+		m = self._memo("respondent")
+		r = tag_decision(["At the RPD hearing the Applicant testified that he returned to care for his ailing father."], frame=m)[0]
+		self.assertEqual(r.layers[0], 4)

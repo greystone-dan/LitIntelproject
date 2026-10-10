@@ -100,6 +100,8 @@ _STAY_INTRO_RE = re.compile(
 _REFERRAL_44_RE = re.compile(r"admissibility\s+hearing|(?:subsection|section|s\.)\s?44\b", re.IGNORECASE)
 _RAD_OPENING_RE = re.compile(r"Refugee\s+Appeal\s+Division|\bRAD\b", re.IGNORECASE)
 _PRRA_NAMED_RE = re.compile(r"pre-removal\s+risk\s+assessment|\bPRRA\b", re.IGNORECASE)
+_TRIBUNAL_SAFE_THIRD_OPENING_RE = re.compile(r"Safe\s+Third\s+Country|ineligib|(?:subsection|section|s\.)\s?101\b", re.IGNORECASE)
+_TRIBUNAL_CESSATION_OPENING_RE = re.compile(r"cessation|ceased\s+to\s+be|(?:subsection|section|s\.)\s?108\b", re.IGNORECASE)
 
 def _is_stay_intro(intro: str) -> bool:
     # The looser stay wording only counts in the first lines; deeper in, a stay motion is just procedural history.
@@ -113,6 +115,7 @@ REFERRAL_44_BONUS = 12.0
 LEAD_MIN_SCORE = 8.0
 LEAD_MIN_RATIO = 2.2
 RAD_NO_PRRA_FACTOR = 0.2
+TRIBUNAL_SUBTYPE_FACTOR = 0.1
 STAY_INTRO_BONUS = 12.0
 JR_SUBJECT_BONUS = 8.0
 _JR_SENTENCE_RE = re.compile(r"[^.]{0,400}?(?:judicial\s+review|set\s+aside|leave\s+to\s+(?:appeal|commence))[^.]{0,400}", re.IGNORECASE)
@@ -536,6 +539,13 @@ def _classify_text(
     if (_RAD_OPENING_RE.search(intro[:500]) and not _PRRA_NAMED_RE.search(intro[:800])
             and "pre_removal_risk_assessment" in scores):
         scores["pre_removal_risk_assessment"] = round(scores["pre_removal_risk_assessment"] * RAD_NO_PRRA_FACTOR, 2)
+    # A Refugee Protection or Refugee Appeal Division decision is never an eligibility (Safe Third Country) decision, and it is a
+    # cessation decision only when the opening says so; otherwise those labels come from passing mentions of the statute.
+    if court_key in {"RPD", "RAD"}:
+        if not _TRIBUNAL_SAFE_THIRD_OPENING_RE.search(intro[:800]) and "refugee_eligibility_safe_third" in scores:
+            scores["refugee_eligibility_safe_third"] = round(scores["refugee_eligibility_safe_third"] * TRIBUNAL_SUBTYPE_FACTOR, 2)
+        if not _TRIBUNAL_CESSATION_OPENING_RE.search(intro[:800]) and "refugee_cessation" in scores:
+            scores["refugee_cessation"] = round(scores["refugee_cessation"] * TRIBUNAL_SUBTYPE_FACTOR, 2)
     # The Minister's application to vacate a positive refugee decision (s. 109) says so in its opening.
     if _VACATE_INTRO_RE.search(intro[:700]):
         scores["refugee_vacation"] = round(scores.get("refugee_vacation", 0.0) + VACATE_INTRO_BONUS, 2)

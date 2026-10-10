@@ -154,6 +154,7 @@ test checks that these paths continue to exist.
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
+| `backend/case_frame.py` | Deterministic case frame (court, proceeding, earlier decision maker, which side the Minister is on) built before any paragraph is read; no model |
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_fingerprint.py` | Case fingerprint: deterministic "similar cases by subject" and "shares authorities" (no AI) |
@@ -305,6 +306,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
 | `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/position_holder.py` | Deterministic "whose position is this paragraph reporting" rules (applicant, respondent, earlier decision maker, court, authority, witness); no model |
 | `backend/position_tags.py` | Whose-position tags for the reader (preview) |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |

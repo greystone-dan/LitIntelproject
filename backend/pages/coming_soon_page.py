@@ -142,6 +142,7 @@ def _overview() -> str:
 		'Each item says honestly how far it has got and, where it helps, what existing tools offer today.</p>'
 		'<div class="note"><strong>Take the guided preview.</strong> A short, paced tour of what is coming: a larger reference library, profiles and teams, and a future local AI layer, drawn in the site\'s own look. <a href="/coming-soon-preview" target="_top"><strong>Start the preview &rarr;</strong></a></div>',
 		'<div class="note"><strong>Try the demos.</strong> Seven working demos you can click through on fixed, invented data: the reference library, smarter tags, coverage, Supreme Court data, profiles and teams, and two future local-AI ideas (an argument breakdown and a live document reader). <a href="/data-explorer?tab=roadmap-demos&amp;group=roadmap" target="_top"><strong>Open the demos &rarr;</strong></a></div>'
+		'<div class="note"><strong>In depth: whose position.</strong> What others have tried, our approach and early results for breaking a decision into arguments. <a href="/coming-soon/argument-breakdown" target="_top"><strong>Read the page &rarr;</strong></a></div>'
 		f'<div class="note">{_RULE}</div></header>'
 		f'<section id="areas"><h2>{len(ORDER) - 1} areas in three parts</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
 		f'{parts}</section>'
@@ -202,6 +203,8 @@ def _section_page(slug: str) -> str:
 	for anchor, title, status, paragraphs, example, today, needs, *rest in area["items"]:
 		paras = "".join(f"<p>{_e(text)}</p>" for text in paragraphs)
 		elsewhere = f'<div><strong>What exists elsewhere</strong><span>{_e(rest[0])}</span></div>' if rest else ""
+		if anchor == "whose-position":
+			paras += '<p><a href="/coming-soon/argument-breakdown" target="_top"><strong>Read the full page on this work &rarr;</strong></a></p>'
 		body += (
 			f'<section id="{anchor}"><h2>{_e(title)}{_tag(status)}</h2>{paras}'
 			'<div class="status-list">'
@@ -215,6 +218,10 @@ def _section_page(slug: str) -> str:
 
 
 def render(slug: str) -> str | None:
+	if slug == "argument-breakdown":
+		from .coming_soon_argument import body
+
+		return _doc("whose position", body(_e))
 	if slug == "overview":
 		return _doc("overview", _overview())
 	if slug in SECTIONS:

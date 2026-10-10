@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FCA_139",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 73,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does issue estoppel bar the appellant from relitigating the employment issue (whether his parents' employment ended before his birth)?",
+        "paras": "32-45",
+        "applicant_position": "Issue estoppel is discretionary; new evidence not before the Board should let him relitigate the employment issue on its merits.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "I find no reviewable error in this. Indeed, on this point I agree with the Federal Court’s reasons and conclusions."
+      },
+      {
+        "issue": "Is judicial review premature because adequate and effective forums (Indian and Canadian citizenship routes) exist that the appellant must pursue first?",
+        "paras": "46-69",
+        "applicant_position": "Statelessness and Charter harms need immediate judicial review; the Minister is no adequate forum because he cannot consider the Charter.",
+        "respondent_position": "Minister says India and Canadian citizenship avenues are adequate forums the appellant must pursue first, so judicial review is premature.",
+        "result": "dismissed_for_applicant",
+        "result_para": 68,
+        "result_quote": "Therefore, I uphold the preliminary objection that the appellant has other forums available to him that are adequate and effective."
+      },
+      {
+        "issue": "Should the Court decide the constitutional and citizenship merits (Charter ss. 6 and 7, declaration of citizenship)?",
+        "paras": "70-72",
+        "applicant_position": "Charter ss. 6 and 7 and statelessness entitle him to a declaration of citizenship; the Federal Court should have granted it.",
+        "respondent_position": "Minister says administrative routes must come first; constitutional merits cannot yet be raised by way of judicial review.",
+        "result": "not_decided",
+        "result_para": 70,
+        "result_quote": "I decline to offer any views concerning the merits of any application made to the Minister under subsection 5(4)"
+      }
+    ]
+  }
+}

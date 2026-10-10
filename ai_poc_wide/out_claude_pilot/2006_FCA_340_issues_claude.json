@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FCA_340",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 15,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must the IAD consider foreign hardship where a Convention refugee's deportation order names no country of removal?",
+        "paras": "4-10",
+        "applicant_position": "Sri Lanka, his country of nationality, is the likely removal country, so the IAD must weigh hardship there under Soriano.",
+        "respondent_position": "Not stated; the IAD found Sri Lanka was not a likely country of removal under s.115 IRPA.",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "The certified question is, therefore, answered in the negative."
+      },
+      {
+        "issue": "Did the IAD err in finding gang membership on unidentified informant evidence, as a denial of natural justice?",
+        "paras": "11-14",
+        "applicant_position": "Gang membership rested on untestable informant evidence, which is a denial of natural justice.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "failed to demonstrate that the Judge committed a palpable and overriding error"
+      }
+    ]
+  }
+}

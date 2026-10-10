@@ -1,0 +1,38 @@
+{
+ "case_id": "2016_FCA_272",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 10,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the claimants ask the Appeal Division for a full de novo hearing, so they can challenge its failure to hold one?",
+    "paras": "6-8",
+    "applicant_position": "Minister: claimants never requested a de novo hearing, so they cannot raise its absence on judicial review.",
+    "respondent_position": "Claimants: they did raise the de novo hearing before the Appeal Division.",
+    "result": "allowed_for_applicant",
+    "result_para": 8,
+    "result_quote": "These facts are inconsistent with the submission that the respondents sought a full de novo hearing"
+   },
+   {
+    "issue": "Was the de novo hearing issue properly before the Federal Court, given the claimants' argument that the Minister raised it for the first time on appeal?",
+    "paras": "9",
+    "applicant_position": "Minister: the de novo issue was properly before the court; it was not raised in the leave application.",
+    "respondent_position": "Claimants: the Minister is improperly raising, for the first time on appeal, that the de novo issue was not properly before the Federal Court.",
+    "result": "allowed_for_applicant",
+    "result_para": 9,
+    "result_quote": "There is no merit in this submission because the issue was not raised in the respondents’ application for leave"
+   },
+   {
+    "issue": "Should the court answer the certified question on the deference the RAD owes to RPD credibility findings?",
+    "paras": "10",
+    "applicant_position": "not stated",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 10,
+    "result_quote": "I would decline to answer the certified question because the issue of a full de novo hearing"
+   }
+  ]
+ }
+}

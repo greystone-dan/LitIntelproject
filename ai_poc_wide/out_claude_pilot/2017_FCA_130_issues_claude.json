@@ -1,0 +1,56 @@
+{
+  "case_id": "2017_FCA_130",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 96,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the certified questions properly certified under section 74 of the IRPA, so that the Court has jurisdiction?",
+        "paras": "34-40",
+        "applicant_position": "The certified questions are proper serious questions of general importance, so the appeal is within jurisdiction.",
+        "respondent_position": "Questions are improper: the circumstances are uncommon, so they lack broad significance or general importance.",
+        "result": "allowed_for_applicant",
+        "result_para": 40,
+        "result_quote": "Thus, I would dismiss the respondent’s preliminary objection."
+      },
+      {
+        "issue": "Do the Gladue principles apply to section 48 removal decisions, requiring full consideration of an Aboriginal child's interests before removal?",
+        "paras": "49-66",
+        "applicant_position": "Gladue principles apply outside sentencing, so removal requires full consideration of the Aboriginal child's impact.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 94,
+        "result_quote": "I would therefore answer both certified questions in the negative as follows:"
+      },
+      {
+        "issue": "Does section 7 of the Charter require Gladue-like consideration of the impact of a parent's removal on an Aboriginal child?",
+        "paras": "63-69",
+        "applicant_position": "The child's Aboriginal status and liberty-type interests engage s.7, requiring a Gladue-type analysis before removal.",
+        "respondent_position": "Section 7 does not bar removal absent a s.97-type risk on return; no s.7 interest is engaged.",
+        "result": "dismissed_for_applicant",
+        "result_para": 69,
+        "result_quote": "I thus conclude that the Charter argument is without merit"
+      },
+      {
+        "issue": "Must enforcement officers give a fuller best-interests analysis of affected children under Kanthasamy and the Children's Convention, possibly deferring removal?",
+        "paras": "70-83",
+        "applicant_position": "Kanthasamy and the Children's Convention require a fuller best-interests analysis, or deferral until the H&C application is decided.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 82,
+        "result_quote": "Rather, the Enforcement Officer was only required to consider the short-term best interests of the child."
+      },
+      {
+        "issue": "Was the Enforcement Officer's deferral decision, including its treatment of the child's Indigenous connection, reasonable?",
+        "paras": "84-94",
+        "applicant_position": "Decision unreasonable: it assumed the child could return to Canada and insensitively treated her Indigenous connection.",
+        "respondent_position": "Not stated; the Federal Court upheld the decision as reasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 94,
+        "result_quote": "I thus conclude that the Enforcement Officer’s decision was unreasonable."
+      }
+    ]
+  }
+}

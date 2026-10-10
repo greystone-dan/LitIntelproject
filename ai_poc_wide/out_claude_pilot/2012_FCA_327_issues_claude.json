@@ -1,0 +1,56 @@
+{
+  "case_id": "2012_FCA_327",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the standing order a matter arising under IRPA, so that the IRPA appeal bars apply?",
+        "paras": "8-16",
+        "applicant_position": "Standing order was made under Federal Courts Act s.18.1, not IRPA, so the appeal is not barred.",
+        "respondent_position": "Appeals of interlocutory immigration judgments are barred by IRPA 72(2)(e); standing is part of IRPA matters.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "To exclude preliminary procedural questions from the category of matters arising under IRPA would strip section 72 of IRPA of its purpose."
+      },
+      {
+        "issue": "Is the standing order interlocutory, so that no appeal lies?",
+        "paras": "13-17",
+        "applicant_position": "Federal Courts Act s.27(1)(c) gives a right of appeal from interlocutory judgments.",
+        "respondent_position": "Standing order is interlocutory and appeal is barred; interlocutory judgments are generally not appealed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I find that the Standing Order is interlocutory in nature in that it in no manner disposes of the live issues in dispute in this case."
+      },
+      {
+        "issue": "Can the Federal Court grant public-interest standing under Federal Courts Act s.18.1?",
+        "paras": "10, 18",
+        "applicant_position": "Section 18.1 allows standing only to parties directly affected by the matter.",
+        "respondent_position": "This Court has granted public-interest standing before; the argument is an impermissible collateral attack.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "The Appellants’ submission that the terms of the Federal Court Act limit standing before the Federal Court to direct interest standing is without merit."
+      },
+      {
+        "issue": "Did the judge's conduct or a Minister's media statement give rise to a reasonable apprehension of bias?",
+        "paras": "11, 19",
+        "applicant_position": "Judge was influenced by a Minister's media statement and conducted proceedings that raise a reasonable apprehension of bias.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I find no basis to conclude that Justice Campbell’s statements or actions give rise to a reasonable apprehension of bias."
+      },
+      {
+        "issue": "Should the standing order be stayed pending the appeal?",
+        "paras": "4, 12, 20",
+        "applicant_position": "Companies seek a stay of the standing order pending determination of the appeal.",
+        "respondent_position": "Appeal should be quashed as barred, so no stay should be granted.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "the Motion for a Stay should be dismissed with costs"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2009_FCA_346",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the appeal raise a serious issue for the stay test?",
+        "paras": "19-24",
+        "applicant_position": "Appeal raises a serious issue; Immigration Division can adjourn to consider humanitarian relief from re-incarceration.",
+        "respondent_position": "Not stated directly; the Minister's judicial review of the adjournment succeeded in the Federal Court.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "there is clearly no serious issue raised by this appeal"
+      },
+      {
+        "issue": "Does the Immigration Division have jurisdiction to adjourn an admissibility hearing to relieve against re-incarceration under CCRA s. 128(5)?",
+        "paras": "25-30",
+        "applicant_position": "Immigration Division may weigh the consequences of re-incarceration under Rule 43(2)(i) when deciding adjournments.",
+        "respondent_position": "Not stated directly; the Federal Court held the adjournment exceeded the Immigration Division's jurisdiction.",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "the issue raised by the appellant with regard to ss. 128(5) of the CCRA was clearly not a matter over which the Immigration Division had jurisdiction"
+      },
+      {
+        "issue": "Does the Charter (s. 7) argument change the result?",
+        "paras": "31-33",
+        "applicant_position": "Section 7 of the Charter requires the Immigration Division to consider whether re-incarceration would be unjust.",
+        "respondent_position": "Charter argument is improper to raise for the first time on this stay motion.",
+        "result": "not_decided",
+        "result_para": 33,
+        "result_quote": "For the reasons which I have already stated, I need not address this issue in determining the merits of this motion."
+      },
+      {
+        "issue": "Irreparable harm and balance of convenience for the stay.",
+        "paras": "34",
+        "applicant_position": "Not stated.",
+        "respondent_position": "Not stated.",
+        "result": "not_decided",
+        "result_para": 34,
+        "result_quote": "As the appellant has not convinced me that his appeal raises a serious issue, I therefore need no address the two other prongs of the test"
+      }
+    ]
+  }
+}

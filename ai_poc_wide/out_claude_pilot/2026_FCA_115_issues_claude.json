@@ -1,0 +1,56 @@
+{
+  "case_id": "2026_FCA_115",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 101,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Can the Immigration Division consider pre-referral and investigative delay when ruling on abuse of process?",
+        "paras": "48-85",
+        "applicant_position": "ID may assess delay only from the date of the s.44(2) referral; pre-referral delay is for judicial review.",
+        "respondent_position": "ID can assess all abusive delay, including pre-referral and investigative delay, in its own proceedings.",
+        "result": "dismissed_for_applicant",
+        "result_para": 85,
+        "result_quote": "The ID, like the RPD, has jurisdiction to grant a stay of proceedings where it finds an abuse of process by reason of delay"
+      },
+      {
+        "issue": "Did the Federal Court err in declining to hear the judicial review of the referral decision as premature?",
+        "paras": "73-88",
+        "applicant_position": "Referral judicial review is not premature; a stay may be sought at the earliest opportunity.",
+        "respondent_position": "Minister argued in the Federal Court that the review was premature; on appeal says the delay should have been assessed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 88,
+        "result_quote": "I see no palpable and overriding error in the Federal Court’s conclusion that the judicial review of the referral decision was premature"
+      },
+      {
+        "issue": "Should the fresh medical evidence on ongoing psychological harm from delay be admitted on appeal?",
+        "paras": "89-92",
+        "applicant_position": "Updated medical report showing continuing harm from the delay should be admitted.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 92,
+        "result_quote": "I would accordingly dismiss the motion to admit it."
+      },
+      {
+        "issue": "Should costs be awarded against the Minister for his change of position on appeal?",
+        "paras": "92-97",
+        "applicant_position": "Minister's shifted appellate position was unfair and caused avoidable litigation; costs should be awarded.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 97,
+        "result_quote": "I would accordingly grant Mr. Rodas Tejeda his costs in both appeals"
+      },
+      {
+        "issue": "Should the style of cause be amended to name the Minister of Public Safety and Emergency Preparedness?",
+        "paras": "98-101",
+        "applicant_position": "Minister asks that the style of cause name the Minister of Public Safety and Emergency Preparedness.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 101,
+        "result_quote": "the style of cause should be amended to reflect that the appropriate party in Court files A-72-25 and A-92-25 is the Minister of Public Safety and Emergency Preparedness"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2005_FCA_417",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 49,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does a breach of the stay condition date to the offence or to the conviction, for section 197?",
+        "paras": "13-29",
+        "applicant_position": "Breach occurred when the offence was committed, before the IRPA took effect, so s.197 should not apply.",
+        "respondent_position": "Breach is dated to the conviction, after the IRPA took effect, so s.197 applies.",
+        "result": "allowed_for_applicant",
+        "result_para": 48,
+        "result_quote": "The appropriate interpretation of the time of breach, as regards section 197 of the IRPA, is the time of the offence."
+      },
+      {
+        "issue": "Does section 197 apply retrospectively to an offence committed before the IRPA, and does the presumption against retrospectivity bar it?",
+        "paras": "30-45",
+        "applicant_position": "Section 197 covers only breaches after the IRPA came into force, so it cannot reach this offence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "section 197 is clearly intended to be retrospective and, in any event, the presumption against retrospectivity does not apply to this protective legislation."
+      },
+      {
+        "issue": "Does a conviction after the IRPA came into force count as a second breach that triggers s.197 on its own?",
+        "paras": "46-47",
+        "applicant_position": "not stated",
+        "respondent_position": "Conviction is a second breach after the IRPA took effect, so s.197 applies even without retrospectivity.",
+        "result": "not_decided",
+        "result_para": 47,
+        "result_quote": "In light of the reasoning above, it is not strictly necessary to deal with this argument."
+      }
+    ]
+  }
+}

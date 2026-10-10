@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FCA_302",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 75,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does federal jurisdiction under the Canada Labour Code govern the labour relations of guards at the Immigration Prevention Centre?",
+        "paras": "32-63",
+        "applicant_position": "Detention of foreign nationals is federal; the guards' services are integral to the federal IPC, so the Code applies.",
+        "respondent_position": "Not stated; the Board majority found the guards' services not vital or essential to the CBSA.",
+        "result": "allowed_for_applicant",
+        "result_para": 63,
+        "result_quote": "I can only conclude that the security guard services that Garda provides for the Immigration Prevention Centre are a vital, essential or integral part"
+      },
+      {
+        "issue": "Are Garda's guard services at the IPC severable from its other operations and client services?",
+        "paras": "53-62",
+        "applicant_position": "Detention work differs from Garda's other services and is severable; staffing mobility and contract term are irrelevant.",
+        "respondent_position": "Not stated; the Board majority found the IPC services not severable from Garda's other operations.",
+        "result": "allowed_for_applicant",
+        "result_para": 62,
+        "result_quote": "Garda’s services for the Immigration Prevention Centre are easily severable from that corporation’s other services"
+      },
+      {
+        "issue": "Do prior Board and Ontario decisions (airport security, Bhagat Ram Mehmi) support federal jurisdiction here?",
+        "paras": "64-74",
+        "applicant_position": "Board airport decisions and Bhagat Ram Mehmi support federal jurisdiction; the panel's distinctions are unpersuasive.",
+        "respondent_position": "Not stated; the reconsideration majority distinguished Bhagat Ram Mehmi as involving more secure detention.",
+        "result": "allowed_for_applicant",
+        "result_para": 72,
+        "result_quote": "its arguments are not persuasive in light of the Ontario Labour Relations Board’s description of the facts"
+      }
+    ]
+  }
+}

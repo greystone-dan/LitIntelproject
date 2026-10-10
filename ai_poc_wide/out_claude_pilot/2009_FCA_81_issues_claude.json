@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FCA_81",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 70,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the judicial review application moot because the scheduled removal date passed while a stay was in place?",
+        "paras": "26-38",
+        "applicant_position": "Controversy stays live: deferral was sought pending the H&C decision, which is still outstanding.",
+        "respondent_position": "Also says not moot: the dispute is whether removal should occur before the pending H&C decision.",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I have come to the conclusion that a live controversy still exists between the parties and that, as a result, the appellants’ judicial review application is not moot."
+      },
+      {
+        "issue": "Should the Court exercise its discretion to hear the merits of the application even if it were moot?",
+        "paras": "39-46",
+        "applicant_position": "Alternatively, the Federal Court erred in declining to exercise its discretion to decide the merits.",
+        "respondent_position": "A merits decision would give a real remedy; a mootness finding lets stay motions prejudge the merits.",
+        "result": "not_decided",
+        "result_para": 46,
+        "result_quote": "I would have had no hesitation in deciding that this Court ought to deal with the merits of the application"
+      },
+      {
+        "issue": "Was the enforcement officer’s refusal to defer removal pending the outstanding H&C application reasonable?",
+        "paras": "47-69",
+        "applicant_position": "Officer erred in refusing deferral pending the H&C decision; children’s best interests require deferral.",
+        "respondent_position": "Officer considered all circumstances, including the children; s.48 requires removal as soon as reasonably practicable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 61,
+        "result_quote": "I therefore conclude that the enforcement officer’s decision to refuse deferral of the appellants’ removal from Canada was reasonable and that the decision must stand."
+      }
+    ]
+  }
+}

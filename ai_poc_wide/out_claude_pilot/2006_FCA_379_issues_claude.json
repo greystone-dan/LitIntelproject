@@ -1,0 +1,47 @@
+{
+  "case_id": "2006_FCA_379",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does IRPA s.197 terminate a stayed appeal where the deportation rests on a s.64 offence but the breach is not a s.68(4) offence?",
+        "paras": "6-8",
+        "applicant_position": "Minister says Hyde's appeal was terminated by s.197 because his deportation rested on a s.64 offence; s.68(4) need not also apply.",
+        "respondent_position": "Hyde says s.197 requires both s.64 and s.68(4) to apply to his facts, so his appeal continues.",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_quote": "In my respectful opinion, the Applications Judge erred in his interpretation of section 197."
+      },
+      {
+        "issue": "Does the word 'and' in s.197 (and the French text) require both s.64 and s.68(4) to apply to the facts?",
+        "paras": "21-23",
+        "applicant_position": "Minister says either provision suffices; the French text has no 'and' and reads s.68(4) as applying where s.64 does not.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The sense of this is that, if section 64 does not apply to a particular appellant, subsection 68(4) does."
+      },
+      {
+        "issue": "Does the threshold argument (s.197 applies only if the deportation offence is a s.64 offence) succeed?",
+        "paras": "30-33",
+        "applicant_position": "Threshold reading would wrongly overrule Singh and produce an anomaly between pre- and post-IRPA appellants; the Minister's reading should prevail.",
+        "respondent_position": "Section 64 sets a threshold, so s.197 never applies to sentences under two years; Hyde's threshold reading should be accepted.",
+        "result": "allowed_for_applicant",
+        "result_para": 33,
+        "result_quote": "Indeed, such a result would be inconsistent with the statutory purpose of these sections discussed below."
+      },
+      {
+        "issue": "Do the statutory scheme and legislative purpose support the Minister's reading of s.197?",
+        "paras": "24-35",
+        "applicant_position": "Scheme and purpose (serious criminality, removal of permanent residents) support terminating the appeal on any breach of the stay.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "A consideration of legislative purpose thus also bolsters the interpretation of section 197 adopted in Bautista and Carbonara."
+      }
+    ]
+  }
+}

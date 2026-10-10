@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FCA_113",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 14,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the certified question a serious question of general importance that is dispositive of the appeal?",
+        "paras": "5-12",
+        "applicant_position": "Memorandum does not address the certified question; says the appeal may consider any issue.",
+        "respondent_position": "Certified question is not dispositive and was not the basis of the Federal Court decision.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "We agree with the respondent that the question certified by the Federal Court in this case was not appropriate for certification as it is not dispositive of the appeal."
+      },
+      {
+        "issue": "Can the Court decide the procedural fairness ruling for XY on this appeal when no valid question is certified?",
+        "paras": "13-14",
+        "applicant_position": "Court is not confined to the certified question and may address any issue on appeal.",
+        "respondent_position": "A properly certified question is a precondition to appeal, so the procedural fairness issue cannot be reached.",
+        "result": "not_decided",
+        "result_para": 14,
+        "result_quote": "Where a question does not meet the test for certification, the necessary precondition is not met, and the appeal must be dismissed"
+      }
+    ]
+  }
+}

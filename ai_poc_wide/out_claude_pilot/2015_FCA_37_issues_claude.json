@@ -1,0 +1,29 @@
+{
+  "case_id": "2015_FCA_37",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the CHRC dismiss the complaint based on whether there was a bona fide justification for CIC's practice?",
+        "paras": "41-43",
+        "applicant_position": "Assumed the CHRC dismissed on bona fide justification; CIC's explanations admit differential treatment by family status.",
+        "respondent_position": "Assumed the CHRC relied on bona fide justification; CHRC accepted CIC's levels and ministerial discretion explanations as non-pretextual.",
+        "result": "allowed_for_applicant",
+        "result_para": 41,
+        "result_quote": "there are no conclusions or decisions made in relation to this issue in the Investigation Report, the decision of the CHRC or the covering letter of the CHRC"
+      },
+      {
+        "issue": "Was the CHRC's decision to dismiss the complaint reasonable?",
+        "paras": "42-43",
+        "applicant_position": "Dismissal unreasonable: CIC's own explanations confirm adverse differentiation by family status and were not tested by investigation.",
+        "respondent_position": "Dismissal reasonable on the whole record, including CIC's levels, budget and undue hardship submissions.",
+        "result": "allowed_for_applicant",
+        "result_para": 43,
+        "result_quote": "The decision of the CHRC to dismiss the complaint is not reasonable."
+      }
+    ]
+  }
+}

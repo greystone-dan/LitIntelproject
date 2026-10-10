@@ -1,0 +1,38 @@
+{
+  "case_id": "2004_FCA_261",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Do the appellants raise a serious issue on the section 97 standard of proof (the certified question)?",
+        "paras": "9-11",
+        "applicant_position": "Certified question on the section 97 standard of proof raises a serious issue for appeal.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "I am prepared to accept that the appellants just meet the low threshold requirement that the certified question must raise an arguable issue."
+      },
+      {
+        "issue": "Would removal cause irreparable harm pending the appeal?",
+        "paras": "12-20",
+        "applicant_position": "Removal would disrupt lives built in Canada, risk persecution in Sri Lanka, and render the appeal nugatory.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "I am not persuaded that the appellants have met the requirement of showing that, unless their removal is stayed pending the determination of their appeal, they will suffer irreparable harm."
+      },
+      {
+        "issue": "Where does the balance of convenience lie between a stay and an enforceable removal order?",
+        "paras": "21-22",
+        "applicant_position": "No criminal record, financially established, socially integrated; status quo should be kept until the appeal is decided.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "the balance of convenience does not favour delaying further the discharge of either their duty, as persons subject to an enforceable removal order, to leave Canada immediately"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FCA_68",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 13,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review for a visa officer's decision on a study permit application (certified question)?",
+        "paras": "2-10",
+        "applicant_position": "Not stated in the reasons; the certified question asks whether patent unreasonableness or reasonableness simpliciter applies.",
+        "respondent_position": "Not stated.",
+        "result": "not_decided",
+        "result_para": 13,
+        "result_quote": "I would dismiss the appeal without answering the certified question."
+      },
+      {
+        "issue": "Was the visa officer's refusal of the study permit, based on prior non-compliance and likely overstay, sustainable on review?",
+        "paras": "3, 11-12",
+        "applicant_position": "Appellant only questioned the officer's reading of the evidence; the officer should have concluded he would leave Canada.",
+        "respondent_position": "Not stated; the officer's refusal rested on his earlier overstay of a permit.",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "In short, the visa officer had the last word, no matter what standard applied."
+      }
+    ]
+  }
+}

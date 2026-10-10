@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FCA_59",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Can this appeal be heard at all, given IRPA paragraph 72(2)(e) (no appeal of interlocutory decisions) and paragraph 74(d) (no appeal without a certified question)?",
+        "paras": "11-19",
+        "applicant_position": "Appellant appeals the dismissal of its judicial review; the text does not state its argument against the statutory appeal bars.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "As Pinard J. refused to certify a question when he rendered his judgment on the application for judicial review, paragraph 74(d) of the IRPA prohibits an appeal."
+      },
+      {
+        "issue": "Did Pinard J. constructively refuse to exercise jurisdiction, so that mandamus-type relief should follow?",
+        "paras": "12-13",
+        "applicant_position": "Pinard J. constructively refused to exercise jurisdiction, like Subhaschandran; a mandamus-type remedy should follow.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I disagree with this submission. Pinard J. did exercise a jurisdiction when he dealt with the motion for an extension of time and denied it."
+      },
+      {
+        "issue": "Could Pinard J. decide the extension of time and dismiss the judicial review, when a coordinate judge had granted leave?",
+        "paras": "14-18",
+        "applicant_position": "Pinard J. had no power to review the motions judge's leave decision, since another judge of coordinate jurisdiction granted leave.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Since the motion for an extension of time had not been dealt with by the motions judge, Pinard J. had jurisdiction to decide the issue."
+      }
+    ]
+  }
+}

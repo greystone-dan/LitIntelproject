@@ -1,0 +1,56 @@
+{
+  "case_id": "2003_FCA_134",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Trial Division have jurisdiction to stay the immigration inquiry, given the leave requirement in IRPA s.72(1)?",
+        "paras": "9-17",
+        "applicant_position": "Stay motion is interlocutory in the citizenship judicial review, so s.18.2 of the Federal Court Act applies.",
+        "respondent_position": "Trial Division lacks jurisdiction: a stay of an immigration matter needs leave under IRPA s.72(1).",
+        "result": "not_decided",
+        "result_para": 17,
+        "result_quote": "I am prepared to assume without deciding that the Trial Division had jurisdiction under section 18.2 of the Federal Court Act"
+      },
+      {
+        "issue": "Does this Court have appellate jurisdiction to hear the appeal, given the certified question requirement?",
+        "paras": "18",
+        "applicant_position": "not stated",
+        "respondent_position": "This Court lacks jurisdiction to hear the appeal.",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "Therefore, no certified question was required and this Court has the jurisdiction to hear the appeal."
+      },
+      {
+        "issue": "Has the appellant shown an arguable case on the judicial review of the Governor in Council’s revocation order?",
+        "paras": "19-20",
+        "applicant_position": "Governor in Council misconstrued its s.10 Citizenship Act mandate and failed to give reasons.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "these arguments meet the very low threshold for an arguable case in the context of a stay application"
+      },
+      {
+        "issue": "Would the appellant suffer irreparable harm if the immigration inquiry is not stayed?",
+        "paras": "21",
+        "applicant_position": "Inquiry stress and prospect of deportation cause irreparable harm.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "that justifies the conclusion that the appellant failed to establish irreparable harm"
+      },
+      {
+        "issue": "Does the balance of convenience favour a stay of the immigration inquiry?",
+        "paras": "19, 22",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 22,
+        "result_quote": "It is not necessary to consider the other arguments relating to irreparable harm, or the arguments relating to the balance of convenience."
+      }
+    ]
+  }
+}

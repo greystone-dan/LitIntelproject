@@ -1,0 +1,38 @@
+{
+  "case_id": "2014_FCA_181",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 31,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is Mr. Seshaw precluded from seeking judicial review of the visa officer's H&C refusal?",
+        "paras": "18-20",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "On the basis of the reasoning in Habtenkiel, Mr. Seshaw had the right to bring an application for judicial review from the visa officer’s dismissal of his H&C application."
+      },
+      {
+        "issue": "Was the visa officer's refusal of the H&C application reasonable?",
+        "paras": "21-29",
+        "applicant_position": "Visa officer's H&C decision was unreasonable.",
+        "respondent_position": "Visa officer's decision on the H&C application was reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "In the result, I find that the visa officer’s decision, though terse, was reasonable in the circumstances."
+      },
+      {
+        "issue": "What is the effect of the visa officer's finding that Ms. Gebru was in default on an immigration loan?",
+        "paras": "29-31",
+        "applicant_position": "Argued the visa officer erred in finding Ms. Gebru in default on an immigration loan.",
+        "respondent_position": "Argued the loan-default point was immaterial but correct.",
+        "result": "not_decided",
+        "result_para": 29,
+        "result_quote": "But I need not decide this issue."
+      }
+    ]
+  }
+}

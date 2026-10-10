@@ -1,0 +1,38 @@
+{
+  "case_id": "2010_FCA_118",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 40,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What date is used to assess whether a claimant still has third-country status under Article 1E?",
+        "paras": "12-17",
+        "applicant_position": "The date must be fluid, covering status up to the hearing; the application judge's first step wrongly fixed the date.",
+        "respondent_position": "Agreed the date must be fluid and that status is assessed up to the hearing; no debate on this issue.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "an inquiry regarding whether a claimant should be excluded under Article 1E should take into account all relevant facts to the date of the hearing"
+      },
+      {
+        "issue": "What test applies where a claimant lost third-country status, including through asylum shopping?",
+        "paras": "18-29",
+        "applicant_position": "Asylum shopping can justify exclusion even after status is lost, in limited cases; the test should reflect this.",
+        "respondent_position": "The true issue is protection need at the hearing; exclusion should not apply where status was voluntarily forfeited.",
+        "result": "partly_allowed",
+        "result_para": 28,
+        "result_quote": "If the answer is yes, the RPD must consider and balance various factors."
+      },
+      {
+        "issue": "Did the RPD reasonably find that the respondents still held Chilean permanent residence at the hearing?",
+        "paras": "31-37",
+        "applicant_position": "Respondents held Chilean permanent residence at the hearing, so Article 1E applies; the RPD finding is reasonable and deserves deference.",
+        "respondent_position": "Status may have lapsed after more than a year abroad without renewal; the RPD should have examined that possibility.",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "the respondents possessed status in Chile is a factual finding to which deference is owed"
+      }
+    ]
+  }
+}

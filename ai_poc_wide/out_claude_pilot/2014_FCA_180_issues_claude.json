@@ -1,0 +1,29 @@
+{
+  "case_id": "2014_FCA_180",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 49,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is Ms. Habtenkiel barred from judicial review by subsection 63(1) and paragraph 72(2)(a) of the Act?",
+        "paras": "12-40",
+        "applicant_position": "Not barred: the IAD appeal is illusory because s.65 bars H&C considerations, so judicial review must stay open.",
+        "respondent_position": "Initially argued the sponsor's IAD appeal had to be exhausted first; later conceded the point.",
+        "result": "allowed_for_applicant",
+        "result_para": 40,
+        "result_quote": "I am therefore of the view that Ms. Habtenkiel is not barred from bringing an application for judicial review of the Minister’s decision"
+      },
+      {
+        "issue": "If judicial review is available, does the visa officer's refusal of H&C relief require the Court's intervention?",
+        "paras": "41-48",
+        "applicant_position": "Officer failed to treat her as a minor child whose best interests required a different outcome.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 48,
+        "result_quote": "On the state of this record, I am unable to say that the visa officer’s conclusion was unreasonable."
+      }
+    ]
+  }
+}

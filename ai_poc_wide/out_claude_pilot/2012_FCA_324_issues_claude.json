@@ -1,0 +1,38 @@
+{
+  "case_id": "2012_FCA_324",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 74,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the RPD's interpretation of Article 1F(b)?",
+        "paras": "22-25",
+        "applicant_position": "Correctness applies; the presumption of reasonableness is rebutted for an international convention provision.",
+        "respondent_position": "Takes no position; argues the appeal fails under either standard of review.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Correctness review is more likely than reasonableness review to achieve this goal, and is therefore the standard to be applied"
+      },
+      {
+        "issue": "Is rehabilitation or present dangerousness relevant to whether a non-political crime is serious under Article 1F(b)?",
+        "paras": "26-63",
+        "applicant_position": "Seriousness must consider rehabilitation and present danger; the RPD erred by ignoring them.",
+        "respondent_position": "Intervener (MPSEP) argued exclusion follows from the convictions; rehabilitation and present danger are irrelevant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 50,
+        "result_quote": "Article 1F (b) should be interpreted as excluding rehabilitation and present dangerousness from the assessment of the seriousness of a crime"
+      },
+      {
+        "issue": "Does the statutory context of IRPA (ineligibility, PRRA, rehabilitation provisions) support a narrower reading of Article 1F(b)?",
+        "paras": "64-73",
+        "applicant_position": "The IRPA scheme makes rehabilitation relevant, so a broad reading of Article 1F(b) is inconsistent with it.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 73,
+        "result_quote": "there is, in my view, no inconsistency between a broad interpretation of Article 1F (b) and other provisions of the IRPA dealing with criminality"
+      }
+    ]
+  }
+}

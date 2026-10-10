@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FCA_209",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is Harkat’s appeal from the interlocutory order denying state-funded counsel barred by IRPA s.72(2)(e) and s.82.3?",
+        "paras": "6-16, 20, 37",
+        "applicant_position": "Appeal should proceed without a certified question because the state-funding ruling is a separate act.",
+        "respondent_position": "Appeal is barred: no certified question, and interlocutory decisions cannot be appealed under IRPA.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I am of the view that the statutory bars on appeals from interlocutory decisions in paragraph 72(2)(e) and section 82.3 of IRPA apply to bar this appeal."
+      },
+      {
+        "issue": "Does the separate, divisible judicial act exception (Tobiass), or a Charter s.7 argument, allow an appeal without a certified question?",
+        "paras": "17-19, 25-33",
+        "applicant_position": "State-funded counsel ruling is a s.7 Charter act outside IRPA, so the Tobiass exception applies.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "constitutional concerns do not, on their own, qualify as an exception to the certified question requirement"
+      },
+      {
+        "issue": "Do alleged ordinary errors of law permit an appeal without a certified question?",
+        "paras": "34-36",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "“ordinary errors” or “mere errors of law” will not permit an appeal to be brought in the absence of a certified question"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+ "case_id": 10942,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0009488000000000001,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 11,
+  "12": 11,
+  "13": 12,
+  "14": 13,
+  "15": 14,
+  "16": 14,
+  "17": 14,
+  "18": 15,
+  "19": 16,
+  "20": 17,
+  "21": 18,
+  "22": 19,
+  "23": 20,
+  "24": 20,
+  "25": 21,
+  "26": 21,
+  "27": 21,
+  "28": 22,
+  "29": 22,
+  "30": 22,
+  "31": 22,
+  "32": 22
+ },
+ "result": {
+  "order_para": 22,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RAD breach procedural fairness by raising new credibility issues without notice?",
+    "paras": "11-19,22",
+    "applicant_position": "Applicant alleges RAD raised new credibility issues including baptismal certificate and contradictions without notice.",
+    "respondent_position": "Respondent says RAD did not raise new issues but analyzed credibility on grounds RPD denied claim; baptismal certificate addressed by RPD.",
+    "result": "allowed_for_applicant",
+    "result_para": 17,
+    "result_text": "RAD breached procedural fairness by raising new credibility issues without notice, including baptismal certificate issue."
+   },
+   {
+    "issue": "Was the RAD's decision reasonable?",
+    "paras": "11,20-21",
+    "applicant_position": "Applicant argues RAD's findings were unreasonable, including contradictions and treatment of conversion motivation.",
+    "respondent_position": "Not stated",
+    "result": "not_decided",
+    "result_para": 21,
+    "result_text": "Court need not address unreasonableness due to procedural unfairness."
+   }
+  ]
+ }
+}

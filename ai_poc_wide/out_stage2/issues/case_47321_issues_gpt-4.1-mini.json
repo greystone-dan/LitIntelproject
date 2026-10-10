@@ -1,0 +1,73 @@
+{
+ "case_id": 47321,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.001078,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 11,
+  "12": 12,
+  "13": 13,
+  "14": 14,
+  "15": 15,
+  "16": 16,
+  "17": 17,
+  "18": 18,
+  "19": 19,
+  "20": 20,
+  "21": 21,
+  "22": 22,
+  "23": 23,
+  "24": 24,
+  "25": 24,
+  "26": 25,
+  "27": 25,
+  "28": 25,
+  "29": 26,
+  "30": 26,
+  "31": 26,
+  "32": 27
+ },
+ "result": {
+  "order_para": 27,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the claimant a Convention refugee or person in need of protection under IRPA?",
+    "paras": "1,8,27",
+    "applicant_position": "Claimant fears police still want him and alleges harassment and arrests due to militant ties.",
+    "respondent_position": "Not explicitly stated, but panel finds claimant not credible and rejects claim.",
+    "result": "dismissed_for_applicant",
+    "result_para": 8,
+    "result_text": "Panel determines claimant is not a Convention refugee or person in need of protection."
+   },
+   {
+    "issue": "Is the claimant's credibility sufficient to support his refugee claim?",
+    "paras": "10,15,17,18,19,20",
+    "applicant_position": "Claimant admits some arrests but omits others; fears police harassment.",
+    "respondent_position": "Panel finds claimant's testimony undermined by omissions and implausible claims.",
+    "result": "dismissed_for_applicant",
+    "result_para": 18,
+    "result_text": "Panel does not believe omissions were oversight but embellishment; finds claimant not credible."
+   },
+   {
+    "issue": "Is there a viable internal flight alternative for the claimant within India, particularly in Delhi or Mumbai?",
+    "paras": "19,20,21,22,23,25,26",
+    "applicant_position": "Claimant says registration in Delhi or Mumbai risks police knowledge and danger.",
+    "respondent_position": "Panel finds claimant failed to prove Delhi unsafe; registration risk speculative and unsupported.",
+    "result": "dismissed_for_applicant",
+    "result_para": 25,
+    "result_text": "Panel finds Delhi safe for relocation; claimant's fears speculative and unsupported."
+   }
+  ]
+ }
+}

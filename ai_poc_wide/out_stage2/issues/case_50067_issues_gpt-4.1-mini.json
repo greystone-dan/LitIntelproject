@@ -1,0 +1,37 @@
+{
+ "case_id": 50067,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0005816,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 8,
+  "10": 9,
+  "11": 10,
+  "12": 11,
+  "13": 11,
+  "14": 12
+ },
+ "result": {
+  "order_para": 12,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Are the claimants Convention refugees or persons in need of protection under IRPA?",
+    "paras": "6-12",
+    "applicant_position": "Claimants fear persecution by an Afro-Trinidadian gang due to race and seek protection.",
+    "respondent_position": "The gang's crimes were for financial gain, not racially motivated; risk is generalized criminal violence.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_text": "Claimants are not Convention refugees or persons in need of protection; conclusion is reasonable."
+   }
+  ]
+ }
+}

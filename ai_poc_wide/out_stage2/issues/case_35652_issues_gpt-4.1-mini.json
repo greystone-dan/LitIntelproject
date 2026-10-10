@@ -1,0 +1,66 @@
+{
+ "case_id": 35652,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0010956,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 7,
+  "9": 8,
+  "10": 9,
+  "11": 9,
+  "12": 10,
+  "13": 11,
+  "14": 12,
+  "15": 13,
+  "16": 14,
+  "17": 15,
+  "18": 16,
+  "19": 17,
+  "20": 18,
+  "21": 19,
+  "22": 20,
+  "23": 21,
+  "24": 22,
+  "25": 22
+ },
+ "result": {
+  "order_para": 22,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RAD unreasonably conclude that the threats from CJNG were localized to Veracruz and that risk remained in Yucatan?",
+    "paras": "9,19",
+    "applicant_position": "RAD unreasonably concluded threats were localized to Veracruz and risk remained in Yucatan",
+    "respondent_position": "RAD reasonably applied IFA legal test; relocating to Meridian was not unreasonable",
+    "result": "dismissed_for_applicant",
+    "result_para": 19,
+    "result_text": "Applicant did not show RAD's conclusions on threat localization were unreasonable."
+   },
+   {
+    "issue": "Did the RAD unreasonably interpret and apply item 7.7 of the NDP regarding CJNG operations and scope?",
+    "paras": "9,15,16,18,19",
+    "applicant_position": "RAD unreasonably interpreted and applied item 7.7 of the NDP about CJNG operations and scope",
+    "respondent_position": "RAD's conclusions were open and entitled to assess evidence and draw inferences",
+    "result": "dismissed_for_applicant",
+    "result_para": 19,
+    "result_text": "RAD's conclusions on CJNG operations and scope were reasonable and supported by evidence."
+   },
+   {
+    "issue": "Did the RAD unreasonably conclude that CJNG's leaving threatening letters but no search indicated lack of motivation to locate Applicant?",
+    "paras": "9,10,20,19",
+    "applicant_position": "RAD unreasonably concluded lack of motivation to locate Applicant based on letters but no search",
+    "respondent_position": "RAD noted CJNG's lack of interest in contacting family indicates lack of motivation",
+    "result": "dismissed_for_applicant",
+    "result_para": 19,
+    "result_text": "Applicant failed to show RAD's conclusion on CJNG motivation was unreasonable."
+   }
+  ]
+ }
+}

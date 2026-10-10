@@ -1,0 +1,59 @@
+{
+ "case_id": 12991,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0008520000000000001,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 6,
+  "9": 7,
+  "10": 7,
+  "11": 7,
+  "12": 7,
+  "13": 8,
+  "14": 8,
+  "15": 9,
+  "16": 9,
+  "17": 10,
+  "18": 10,
+  "19": 11,
+  "20": 12,
+  "21": 12,
+  "22": 12,
+  "23": 13,
+  "24": 13,
+  "25": 13,
+  "26": 13,
+  "27": 14
+ },
+ "result": {
+  "order_para": 14,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Citizenship Judge err in considering the evidence regarding residency?",
+    "paras": "8-13",
+    "applicant_position": "Citizenship Judge erred by finding residency met despite insufficient evidence of physical presence and undeclared absences.",
+    "respondent_position": "Citizenship Judge reasonably assessed evidence and credibility; decision is reasonable.",
+    "result": "dismissed_for_applicant",
+    "result_para": 14,
+    "result_text": "Application dismissed; significant deference owed to Citizenship Judge's factual determinations."
+   },
+   {
+    "issue": "Do the Citizenship Judge’s reasons lack clarity, precision and intelligibility?",
+    "paras": "8-9",
+    "applicant_position": "Reasons lack clarity, precision and intelligibility.",
+    "respondent_position": "Not stated.",
+    "result": "dismissed_for_applicant",
+    "result_para": 14,
+    "result_text": "Reasons found adequate; no intervention warranted under reasonableness standard."
+   }
+  ]
+ }
+}

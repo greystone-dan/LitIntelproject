@@ -1,0 +1,83 @@
+{
+ "case_id": 51035,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.00132,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 3,
+  "5": 3,
+  "6": 4,
+  "7": 4,
+  "8": 5,
+  "9": 5,
+  "10": 6,
+  "11": 6,
+  "12": 7,
+  "13": 8,
+  "14": 8,
+  "15": 8,
+  "16": 9,
+  "17": 9,
+  "18": 10,
+  "19": 10,
+  "20": 11,
+  "21": 11,
+  "22": 12,
+  "23": 12,
+  "24": 13,
+  "25": 13,
+  "26": 14,
+  "27": 15,
+  "28": 15,
+  "29": 16,
+  "30": 17,
+  "31": 17,
+  "32": 18,
+  "33": 19,
+  "34": 20,
+  "35": 21,
+  "36": 21,
+  "37": 22,
+  "38": 22,
+  "39": 22,
+  "40": 23,
+  "41": 24,
+  "42": 25
+ },
+ "result": {
+  "order_para": 25,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Does the claimant have a subjective fear of persecution by the FARC?",
+    "paras": "5,7-14,15-18,21-22",
+    "applicant_position": "Claimant alleges continuous threats and persecution by FARC since 1987, including after resignation in 1997.",
+    "respondent_position": "Claimant's actions and failure to seek asylum earlier indicate lack of subjective fear; threats after 1997 not credible.",
+    "result": "dismissed_for_applicant",
+    "result_para": 21,
+    "result_text": "Claimant lacked subjective fear of persecution by FARC."
+   },
+   {
+    "issue": "Is the claimant's fear objectively well-founded, i.e., is there a real risk of persecution if returned to Colombia?",
+    "paras": "5,7,18,21-23",
+    "applicant_position": "Claimant fears persecution and harm from FARC if returned to Colombia.",
+    "respondent_position": "No persuasive evidence of risk beyond general violence; no objectively well-founded fear of persecution.",
+    "result": "dismissed_for_applicant",
+    "result_para": 21,
+    "result_text": "Claimant's fear is not objectively well-founded; less than a mere possibility of persecution."
+   },
+   {
+    "issue": "Is the claimant a Convention refugee or a person in need of protection under IRPA sections 97(1)(a) and 97(1)(b)?",
+    "paras": "24-25",
+    "applicant_position": "Claimant seeks refugee protection under IRPA sections 96, 97(1)(a), and 97(1)(b).",
+    "respondent_position": "Claimant does not meet criteria for refugee protection or need for protection under IRPA.",
+    "result": "dismissed_for_applicant",
+    "result_para": 25,
+    "result_text": "Claimant is not a Convention refugee nor person in need of protection under IRPA."
+   }
+  ]
+ }
+}

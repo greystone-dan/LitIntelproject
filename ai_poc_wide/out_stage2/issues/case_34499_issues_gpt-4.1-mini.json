@@ -1,0 +1,67 @@
+{
+ "case_id": 34499,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.001066,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 3,
+  "5": 3,
+  "6": 4,
+  "7": 4,
+  "8": 4,
+  "9": 5,
+  "10": 5,
+  "11": 6,
+  "12": 6,
+  "13": 7,
+  "14": 7,
+  "15": 8,
+  "16": 9,
+  "17": 9,
+  "18": 10,
+  "19": 11,
+  "20": 12,
+  "21": 13,
+  "22": 14,
+  "23": 15,
+  "24": 16,
+  "25": 16,
+  "26": 16,
+  "27": 17,
+  "28": 18,
+  "29": 19,
+  "30": 20,
+  "31": 21,
+  "32": 21,
+  "33": 22,
+  "34": 22,
+  "35": 22
+ },
+ "result": {
+  "order_para": 22,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the Refugee Appeal Division's conclusion that the applicants had permanent resident status in Brazil reasonable?",
+    "paras": "13-17",
+    "applicant_position": "Applicants argue SAR erred in concluding they had permanent resident status; decision lacks info on retention after absence.",
+    "respondent_position": "Respondent contends status retained at hearing date; SAR's conclusion reasonable and uncontested before SAR.",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "SAR's conclusion on permanent resident status is reasonable and uncontested at hearing date."
+   },
+   {
+    "issue": "Did the SAR breach procedural fairness by concluding an internal flight alternative existed without allowing applicants to present evidence?",
+    "paras": "18-20",
+    "applicant_position": "Applicants argue SAR failed procedural fairness by concluding internal flight alternative without opportunity to present evidence.",
+    "respondent_position": "Respondent states SAR requested written submissions; applicants did not seek to submit more evidence or claim insufficiency.",
+    "result": "dismissed_for_applicant",
+    "result_para": 20,
+    "result_text": "Court rejects procedural fairness argument; applicants had opportunity and did not seek more evidence."
+   }
+  ]
+ }
+}

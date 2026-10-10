@@ -1,0 +1,58 @@
+{
+ "case_id": 17368,
+ "task": "issues",
+ "model": "gpt-4.1",
+ "usd": 0.0044080000000000005,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 4,
+  "7": 5,
+  "8": 5,
+  "9": 6,
+  "10": 7,
+  "11": 8,
+  "12": 8,
+  "13": 8,
+  "14": 9,
+  "15": 10,
+  "16": 11,
+  "17": 12,
+  "18": 12,
+  "19": 13,
+  "20": 14,
+  "21": 15,
+  "22": 15,
+  "23": 16,
+  "24": 17,
+  "25": 18,
+  "26": 19
+ },
+ "result": {
+  "order_para": 19,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Officer provide a reasonable and sufficient analysis of the best interests of the child (BIOC) in denying H & C relief?",
+    "paras": "4-17",
+    "applicant_position": "The Officer failed to meaningfully analyze the child's best interests and hardships as a black child in Colombia.",
+    "respondent_position": "The Officer's reasons were sufficient; sufficiency of reasons should not be scrutinized closely.",
+    "result": "allowed_for_applicant",
+    "result_para": 4,
+    "result_text": "The Officer's BIOC analysis was insufficient; application allowed."
+   },
+   {
+    "issue": "Is it necessary to consider the Officer's treatment of Ms. Aguirre's medical situation?",
+    "paras": "4",
+    "applicant_position": "not stated",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 4,
+    "result_text": "Unnecessary to consider other arguments."
+   }
+  ]
+ }
+}

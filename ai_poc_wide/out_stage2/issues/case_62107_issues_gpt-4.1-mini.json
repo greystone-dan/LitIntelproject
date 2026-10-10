@@ -1,0 +1,73 @@
+{
+ "case_id": 62107,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.001134,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 2,
+  "5": 2,
+  "6": 2,
+  "7": 3,
+  "8": 3,
+  "9": 4,
+  "10": 4,
+  "11": 5,
+  "12": 6,
+  "13": 7,
+  "14": 7,
+  "15": 8,
+  "16": 9,
+  "17": 9,
+  "18": 10,
+  "19": 11,
+  "20": 12,
+  "21": 12,
+  "22": 12,
+  "23": 13,
+  "24": 13,
+  "25": 14,
+  "26": 15,
+  "27": 16,
+  "28": 17,
+  "29": 17,
+  "30": 18,
+  "31": 19,
+  "32": 20,
+  "33": 20,
+  "34": 21,
+  "35": 21,
+  "36": 21,
+  "37": 22,
+  "38": 23,
+  "39": 23,
+  "40": 24,
+  "41": 25
+ },
+ "result": {
+  "order_para": 25,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD err in assessing the appellant's credibility?",
+    "paras": "4,9-11,12-16,17-19,20-22,23",
+    "applicant_position": "The appellant alleges the RPD erred in assessing his credibility and explains contradictions as stress or errors by a helper.",
+    "respondent_position": "The RPD found the appellant generally not credible due to contradictions and omissions undermining his claim.",
+    "result": "dismissed_for_applicant",
+    "result_para": 23,
+    "result_text": "The RAD upholds the RPD's overall finding that the appellant is not credible despite some errors in specific findings."
+   },
+   {
+    "issue": "Is the appellant a Convention refugee or person in need of protection under IRPA?",
+    "paras": "1,24-25",
+    "applicant_position": "The appellant claims refugee protection in Canada based on threats and risk if returned to Haiti.",
+    "respondent_position": "The RPD and RAD find no serious possibility of persecution or risk of harm if returned to Haiti.",
+    "result": "dismissed_for_applicant",
+    "result_para": 25,
+    "result_text": "The RAD confirms the RPD's determination that the appellant is neither a Convention refugee nor in need of protection."
+   }
+  ]
+ }
+}

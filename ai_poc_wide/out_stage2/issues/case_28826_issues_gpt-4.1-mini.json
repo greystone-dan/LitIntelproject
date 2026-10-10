@@ -1,0 +1,51 @@
+{
+ "case_id": 28826,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0007572000000000001,
+ "points": {
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 5,
+  "7": 6,
+  "8": 7,
+  "9": 8,
+  "10": 9,
+  "11": 10,
+  "12": 11,
+  "13": 12,
+  "14": 13,
+  "15": 14,
+  "16": 15,
+  "17": 16,
+  "18": 17,
+  "19": 18
+ },
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Officer breach procedural fairness in refusing the work permit?",
+    "paras": "4,6,8,11-15",
+    "applicant_position": "Applicant alleges breaches of procedural fairness and apprehension of bias.",
+    "respondent_position": "Respondent argues procedural fairness standard was met and no breach occurred.",
+    "result": "dismissed_for_applicant",
+    "result_para": 11,
+    "result_text": "Applicant failed to show any breach of procedural fairness by Officer."
+   },
+   {
+    "issue": "Was the Officer's decision to refuse the work permit unreasonable?",
+    "paras": "5,7,9,10,16,17",
+    "applicant_position": "Applicant submits decision was unreasonable as Officer failed to consider evidence of financial establishment in India.",
+    "respondent_position": "Respondent argues Officer reasonably reviewed evidence and denied application.",
+    "result": "dismissed_for_applicant",
+    "result_para": 16,
+    "result_text": "Decision is not unreasonable after reviewing materials and submissions."
+   }
+  ]
+ }
+}

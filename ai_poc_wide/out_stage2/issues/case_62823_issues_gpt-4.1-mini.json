@@ -1,0 +1,71 @@
+{
+ "case_id": 62823,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0011152,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 2,
+  "5": 3,
+  "6": 4,
+  "7": 5,
+  "8": 6,
+  "9": 7,
+  "10": 8,
+  "11": 8,
+  "12": 8,
+  "13": 8,
+  "14": 8,
+  "15": 8,
+  "16": 9,
+  "17": 9,
+  "18": 10,
+  "19": 11,
+  "20": 12,
+  "21": 12,
+  "22": 13,
+  "23": 13,
+  "24": 13,
+  "25": 13,
+  "26": 14,
+  "27": 14,
+  "28": 15,
+  "29": 16,
+  "30": 16,
+  "31": 17,
+  "32": 18,
+  "33": 18,
+  "34": 18,
+  "35": 18,
+  "36": 18,
+  "37": 18,
+  "38": 19,
+  "39": 20
+ },
+ "result": {
+  "order_para": 20,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD err in assessing the appellant's credibility regarding his refugee claim?",
+    "paras": "8, 9, 11-17, 19",
+    "applicant_position": "The appellant argues the RPD improperly assessed credibility, dismissed explanations without reason, and ignored objective evidence on land disputes.",
+    "respondent_position": "The RPD found significant omissions, contradictions, and unsatisfactory explanations undermining credibility; explanations for discrepancies were unsatisfactory.",
+    "result": "dismissed_for_applicant",
+    "result_para": 19,
+    "result_text": "The RPD's negative credibility finding was justified due to contradictions and unsatisfactory explanations."
+   },
+   {
+    "issue": "Did the appellant establish a real risk of persecution or harm if returned to Haiti?",
+    "paras": "18, 19",
+    "applicant_position": "The appellant fears reprisals from criminals and cites ongoing threats and a burglary linked to the 2016 incident.",
+    "respondent_position": "No prospective risk exists; speculation on threats is unsupported; no family members bothered since appellant left; burglary unlinked to criminals.",
+    "result": "dismissed_for_applicant",
+    "result_para": 18,
+    "result_text": "No real risk of persecution or harm established; speculation insufficient to prove risk."
+   }
+  ]
+ }
+}

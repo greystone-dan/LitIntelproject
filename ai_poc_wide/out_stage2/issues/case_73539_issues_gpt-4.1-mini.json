@@ -1,0 +1,79 @@
+{
+ "case_id": 73539,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0012812000000000001,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 10,
+  "12": 10,
+  "13": 11,
+  "14": 11,
+  "15": 12,
+  "16": 13,
+  "17": 14,
+  "18": 14,
+  "19": 15,
+  "20": 16,
+  "21": 17,
+  "22": 17,
+  "23": 18,
+  "24": 18,
+  "25": 18,
+  "26": 19,
+  "27": 20,
+  "28": 20,
+  "29": 21,
+  "30": 22,
+  "31": 22,
+  "32": 23,
+  "33": 24,
+  "34": 24,
+  "35": 24,
+  "36": 25,
+  "37": 25,
+  "38": 26
+ },
+ "result": {
+  "order_para": 26,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD err in assessing the appellant's delay in seeking refugee protection?",
+    "paras": "11-14, 17",
+    "applicant_position": "Delay was reasonable due to intent to return and church activities; delay does not indicate fabrication.",
+    "respondent_position": "Delay indicated lack of credible subjective fear of persecution.",
+    "result": "allowed_for_applicant",
+    "result_para": 12,
+    "result_text": "The court agrees the RPD erred in assessing delay, missing key considerations including church activities and intent to return."
+   },
+   {
+    "issue": "Did the RPD err in analyzing the appellant's sur place claim and sincerity of religious devotion?",
+    "paras": "11, 15, 18-19",
+    "applicant_position": "RPD failed to analyze evidence and justify finding church attendance insincere; appellant's religious devotion is genuine.",
+    "respondent_position": "Sur place claim rejected due to insincere religious devotion and delay.",
+    "result": "allowed_for_applicant",
+    "result_para": 15,
+    "result_text": "The court concludes the RPD erred in analyzing the sur place claim and sincerity of religious devotion."
+   },
+   {
+    "issue": "Are the RPD's findings regarding the appellant's credibility and the PSB's search for her sustainable?",
+    "paras": "22-25",
+    "applicant_position": "Appellant's testimony about PSB raids and searches is credible and unrebutted.",
+    "respondent_position": "RPD questioned appellant but made no specific credibility finding; documentary evidence silent on Liaoning repression.",
+    "result": "allowed_for_applicant",
+    "result_para": 24,
+    "result_text": "The RPD's findings are unsustainable; appellant's testimony remains credible and unrebutted."
+   }
+  ]
+ }
+}

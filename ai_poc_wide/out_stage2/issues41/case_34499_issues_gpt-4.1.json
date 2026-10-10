@@ -1,0 +1,67 @@
+{
+ "case_id": 34499,
+ "task": "issues",
+ "model": "gpt-4.1",
+ "usd": 0.005042,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 3,
+  "5": 3,
+  "6": 4,
+  "7": 4,
+  "8": 4,
+  "9": 5,
+  "10": 5,
+  "11": 6,
+  "12": 6,
+  "13": 7,
+  "14": 7,
+  "15": 8,
+  "16": 9,
+  "17": 9,
+  "18": 10,
+  "19": 11,
+  "20": 12,
+  "21": 13,
+  "22": 14,
+  "23": 15,
+  "24": 16,
+  "25": 16,
+  "26": 16,
+  "27": 17,
+  "28": 18,
+  "29": 19,
+  "30": 20,
+  "31": 21,
+  "32": 21,
+  "33": 22,
+  "34": 22,
+  "35": 22
+ },
+ "result": {
+  "order_para": 22,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the SAR's conclusion that applicants retained permanent resident status in Brazil at the relevant time unreasonable?",
+    "paras": "14-17",
+    "applicant_position": "SAR erred in concluding they had permanent resident status; no info they retained it after two years' absence.",
+    "respondent_position": "Not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 17,
+    "result_text": "Status retained at hearing date; SAR's conclusion reasonable."
+   },
+   {
+    "issue": "Did the SAR breach procedural fairness by concluding there was an internal flight alternative in Brasilia without giving applicants an opportunity to present evidence?",
+    "paras": "18-20",
+    "applicant_position": "SAR failed procedural fairness; applicants had no opportunity to present evidence on internal flight alternative.",
+    "respondent_position": "Not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 19,
+    "result_text": "SAR requested submissions; applicants did not seek to submit more evidence."
+   }
+  ]
+ }
+}

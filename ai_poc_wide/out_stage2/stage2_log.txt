@@ -1,0 +1,21 @@
+dry answers: {"dry_run": true, "task": "answers", "model": "gpt-4.1-mini", "cases": 100, "ceiling_usd": 0.271}
+dry issues: {"dry_run": true, "task": "issues", "model": "gpt-4.1-mini", "cases": 100, "ceiling_usd": 0.557}
+dry answers41: {"dry_run": true, "task": "answers", "model": "gpt-4.1", "cases": 20, "ceiling_usd": 0.248}
+dry issues41: {"dry_run": true, "task": "issues", "model": "gpt-4.1", "cases": 20, "ceiling_usd": 0.544}
+== send answers 22:40:47
+{"case_id": 74590, "usd": 0.0018}
+{"case_id": 75040, "usd": 0.0021}
+{"done": true, "task": "answers", "ledger_total_usd": 0.1619}
+== send issues 22:41:48
+{"case_id": 74590, "usd": 0.0021}
+{"case_id": 75040, "usd": 0.0026}
+{"done": true, "task": "issues", "ledger_total_usd": 0.3263}
+== send answers41 22:42:54
+{"case_id": 75040, "usd": 0.0119}
+{"case_id": 61784, "usd": 0.0059}
+{"done": true, "task": "answers", "ledger_total_usd": 0.478}
+== send issues41 22:43:08
+{"case_id": 75040, "usd": 0.0078}
+{"case_id": 61784, "usd": 0.0052}
+{"done": true, "task": "issues", "ledger_total_usd": 0.6154}
+STAGE2_DONE 22:43:19

@@ -1,0 +1,67 @@
+{
+ "case_id": 17368,
+ "task": "issues",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0011056,
+ "points": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 4,
+  "7": 5,
+  "8": 5,
+  "9": 6,
+  "10": 7,
+  "11": 8,
+  "12": 8,
+  "13": 8,
+  "14": 9,
+  "15": 10,
+  "16": 11,
+  "17": 12,
+  "18": 12,
+  "19": 13,
+  "20": 14,
+  "21": 15,
+  "22": 15,
+  "23": 16,
+  "24": 17,
+  "25": 18,
+  "26": 19
+ },
+ "result": {
+  "order_para": 19,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the Senior Immigration Officer's best interest of the child (BIOC) analysis sufficient in denying permanent residency on H & C grounds?",
+    "paras": "4-9,17",
+    "applicant_position": "The Officer's BIOC analysis was insufficient and failed to meaningfully consider hardships faced by the child in Colombia.",
+    "respondent_position": "The Officer's reasons and BIOC analysis were sufficient and should not be disregarded.",
+    "result": "allowed_for_applicant",
+    "result_para": 4,
+    "result_text": "The Officer's BIOC analysis lacked meaningful consideration and was insufficient, warranting allowing the application."
+   },
+   {
+    "issue": "Did the Officer properly consider the evidence of hardships faced by black women and children in Colombia, including racial discrimination and violence?",
+    "paras": "10-16",
+    "applicant_position": "Significant evidence showed hardships and discrimination against black women and children in Colombia, which the Officer failed to properly consider.",
+    "respondent_position": "Not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 4,
+    "result_text": "The Officer failed to engage meaningfully with evidence of hardships faced by black women and children in Colombia."
+   },
+   {
+    "issue": "Did the Officer fail to reasonably consider and articulate whether return to Colombia would be unacceptable to fair-minded Canadians?",
+    "paras": "17",
+    "applicant_position": "The Officer did not ask or answer this key question, which must be reasonably considered and articulated.",
+    "respondent_position": "Not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 4,
+    "result_text": "The Officer failed to consider and articulate this important question in the decision."
+   }
+  ]
+ }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2018_FC_400",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the applicant's conduct (years in hiding, delayed HC application) count against a stay?",
+        "paras": "8-11",
+        "applicant_position": "Counsel says the public interest favours considering the merits and her personal situation despite five years in hiding.",
+        "respondent_position": "Applicant lacks clean hands; her delay in filing the HC application was tactical, so she should not get a stay.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "This was a tactical decision and she must now live with the consequences"
+      },
+      {
+        "issue": "Is there a serious issue to be tried on the merits (HC delay and mandamus arguments)?",
+        "paras": "12-13",
+        "applicant_position": "Those who live in hiding should not be deported before an HC application is decided; asks for a declaration on timing.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 13,
+        "result_quote": "Without ruling on the merit of the applicant’s submissions"
+      },
+      {
+        "issue": "Would the applicant suffer irreparable harm if removed?",
+        "paras": "14-15",
+        "applicant_position": "Vulnerable woman with fragile health and anxiety; removal would cause serious harm to her.",
+        "respondent_position": "Applicant does not meet the conjunctive test and shows no personal risk in Guatemala (para 8).",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "the harm she would suffer remains highly speculative"
+      },
+      {
+        "issue": "Does the balance of convenience favour a stay?",
+        "paras": "16",
+        "applicant_position": "Balance favours her: pending HC application, family support and vulnerability.",
+        "respondent_position": "Two unfavourable decisions went unchallenged; she has been without status nearly six years; removal duty prevails.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the balance of convenience does not favour delaying further the discharge of either her duty"
+      }
+    ]
+  }
+}

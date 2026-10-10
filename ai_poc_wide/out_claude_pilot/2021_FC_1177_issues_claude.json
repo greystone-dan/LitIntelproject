@@ -1,0 +1,47 @@
+{
+  "case_id": "2021_FC_1177",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's credibility finding unreasonable because it rested on a change in the identity of the agents of persecution between the POE and the hearing?",
+        "paras": "12-16",
+        "applicant_position": "RAD relied solely on a perceived POE inconsistency to reject the claim; reliance on POE notes alone was unreasonable (Guven, Cetinkaya).",
+        "respondent_position": "RAD reasonably relied on a major contradiction about the persecutors; Cetinkaya distinguishable; deference owed to credibility findings.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the RAD erred in impugning their credibility on the sole ground that the applicants changed the identity of their agents of persecution"
+      },
+      {
+        "issue": "Did the RAD accurately describe the POE notes, including whether Mr. Khan raised a family dispute?",
+        "paras": "17-19",
+        "applicant_position": "RAD misstated the POE notes: Khan raised an internal family dispute at both POE interviews.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "At both of his POE interviews, Mr. Khan did mention an internal family dispute."
+      },
+      {
+        "issue": "Did the RAD adequately address Ms. Bakhsh's explanations for leaving her fear out of the POE interview?",
+        "paras": "23-24",
+        "applicant_position": "RAD said she had ample opportunity, but POE notes are short and not verbatim; RAD ignored her explanation.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the RAD’s reasons are not sufficiently responsive to Ms. Bakhsh’s explanations for the omission."
+      },
+      {
+        "issue": "Did the RAD use circular reasoning and fail to weigh the totality of the evidence?",
+        "paras": "27-28",
+        "applicant_position": "RAD reasoned circularly, using evidence that contradicted the POE statements to dismiss that same evidence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "the RAD fails to engage with the applicants’ arguments by resorting to circular reasoning."
+      }
+    ]
+  }
+}

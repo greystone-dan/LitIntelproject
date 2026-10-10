@@ -1,0 +1,47 @@
+{
+  "case_id": "2021_FC_1066",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 42,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's first-prong IFA finding (no serious possibility of persecution in the IFA) reasonable?",
+        "paras": "21-34",
+        "applicant_position": "RPD's finding was conjecture; it ignored the politician's national power, surveillance and impunity.",
+        "respondent_position": "Lack of credible evidence the politician contacted her or her family since May 2017.",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "I conclude the RPD came to an unreasonable conclusion on the first prong."
+      },
+      {
+        "issue": "Was the second-prong finding (reasonable to relocate) reasonable, given she must stay silent about the assault?",
+        "paras": "35-38",
+        "applicant_position": "She cannot be required to stay silent or hide to be safe in the IFA.",
+        "respondent_position": "She chose not to report the assault and showed no intention to report it if she returned.",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "I also agree with the Applicant’s submission the RPD acted unreasonably in finding she would be safe provided she does not report her sexual assault"
+      },
+      {
+        "issue": "Was the RPD's finding of voluntary re-availment reasonable?",
+        "paras": "39",
+        "applicant_position": "A short return to collect documents and say goodbye is not voluntary re-availment; the finding is unreasonable.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 39,
+        "result_quote": "In my respectful view, the RPD’s finding of voluntary re-availment based on the Applicant’s return for a few days"
+      },
+      {
+        "issue": "Should the court decide the other credibility findings?",
+        "paras": "40",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 40,
+        "result_quote": "I decline to make determinations with respect to other credibility findings because there will be a rehearing of this matter."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+ "case_id": "2016_FC_1274",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 30,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the application moot, given the three-year TRPs and work permits?",
+    "paras": "14-29",
+    "applicant_position": "TRPs are temporary and revocable, so a live controversy remains; the RAD decision should be set aside and heard.",
+    "respondent_position": "TRPs make any risk speculative; an H&C application, not a s 97 claim, is the proper forum; the application is moot.",
+    "result": "moot_or_procedural",
+    "result_para": 29,
+    "result_quote": "As such, the Court finds that the issues before it have become moot."
+   },
+   {
+    "issue": "Did the RAD breach procedural fairness by deciding an unargued issue without notice?",
+    "paras": "20-22",
+    "applicant_position": "RAD raised and decided an unargued issue (independent claim, family separation) without notice or a chance to lead evidence.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 22,
+    "result_quote": "The Court is in agreement with the Applicants that the RAD breached procedural fairness"
+   },
+   {
+    "issue": "Did the RAD unreasonably assume the applicants would leave their daughter in Canada and return to Nigeria?",
+    "paras": "23-25",
+    "applicant_position": "Returning without their daughter, who needs treatment, would be cruel and unusual treatment and would endanger her care.",
+    "respondent_position": "Any risk from eventual separation from the daughter is purely speculative, given the three-year TRPs.",
+    "result": "not_decided",
+    "result_para": 13,
+    "result_quote": "As the preliminary question of mootness warrants the dismissal of this application, my analysis will limit itself to this first issue."
+   },
+   {
+    "issue": "Did the RAD contravene the principle of non-refoulement?",
+    "paras": "13",
+    "applicant_position": "Returning the parents to Nigeria while the daughter stays in Canada for treatment contravened non-refoulement.",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 13,
+    "result_quote": "As the preliminary question of mootness warrants the dismissal of this application, my analysis will limit itself to this first issue."
+   }
+  ]
+ }
+}

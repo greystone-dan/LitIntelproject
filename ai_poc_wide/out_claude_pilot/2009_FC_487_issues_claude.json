@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FC_487",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the panel's finding that the applicant was not credible reasonable?",
+        "paras": "13-16",
+        "applicant_position": "Panel's credibility findings were unreasonable and not based on the evidence; her sworn account should be presumed true.",
+        "respondent_position": "Implausibilities, contradictions and omissions undermined credibility; the panel's reasons were clear and sound.",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "the panel’s finding was not unreasonable given the multiple discrepancies in the applicant’s testimony"
+      },
+      {
+        "issue": "Was the finding that Mexico could protect the applicant reasonable?",
+        "paras": "17-20",
+        "applicant_position": "not stated",
+        "respondent_position": "Applicant did not exhaust state avenues or give the state time to act before leaving Mexico.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "the applicant did not provide clear and convincing evidence to rebut the presumption that Mexico was able to protect her"
+      },
+      {
+        "issue": "Was the finding that the applicant had an internal flight alternative reasonable?",
+        "paras": "21-23",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The Court considers this decision reasonable because it is consistent with the jurisprudence."
+      }
+    ]
+  }
+}

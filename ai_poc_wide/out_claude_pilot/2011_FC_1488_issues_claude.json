@@ -1,0 +1,29 @@
+{
+  "case_id": "2011_FC_1488",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the applicant treated unfairly by not being given an interpreter or a fair chance to arrange one?",
+        "paras": "17-20",
+        "applicant_position": "Officer was unfair: no interpreter was provided or allowed to be arranged, and he had difficulty understanding her.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I can see no breach of the duty of procedural fairness."
+      },
+      {
+        "issue": "Was the officer's decision unreasonable, given the genuineness evidence and the reasons' intelligibility?",
+        "paras": "21-26",
+        "applicant_position": "Officer overlooked evidence (consummation, cohabitation, shared home and worship) proving the marriage is genuine; reasons unclear.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "Accordingly, the officer’s conclusion was reasonable and adequately explained."
+      }
+    ]
+  }
+}

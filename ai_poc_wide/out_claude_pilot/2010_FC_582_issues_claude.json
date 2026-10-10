@@ -1,0 +1,38 @@
+{
+  "case_id": "2010_FC_582",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 14,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD err by taking into account Mr. Brace's youth record and the number of offences?",
+        "paras": "5-9",
+        "applicant_position": "First conviction occurred as a youth and should not have been taken into account.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 7,
+        "result_quote": "it was not only proper, but also essential, that the Member consider all of Mr. Brace’s criminal activity while in Canada."
+      },
+      {
+        "issue": "Did the IAD fail to consider the best interests of the unborn child of his pregnant girlfriend?",
+        "paras": "10-12",
+        "applicant_position": "IAD gave a boilerplate nod to children's interests with no analysis of the evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "There was an insufficient evidentiary basis for the IAD to make any meaningful assessment."
+      },
+      {
+        "issue": "Did the IAD apply a stricter standard of proof, given its repeated use of the word 'convinced'?",
+        "paras": "13-14",
+        "applicant_position": "Repeated use of 'convinced' shows the IAD applied a standard stricter than balance of probabilities.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "there is nothing in the reasons, read as a whole, to suggest that the IAD was assessing the situation on a standard more stringent than on a balance of probabilities."
+      }
+    ]
+  }
+}

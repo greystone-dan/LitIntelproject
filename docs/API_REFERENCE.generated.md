@@ -5,7 +5,7 @@ This file is generated from `backend.main:app.openapi()` by `scripts/generate_ap
 Generated: 2026-10-10T21:02:29.693260+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 135 across 132 paths
+OpenAPI operations: 136 across 133 paths
 Hidden operations: 100 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1573,6 +1573,21 @@ Live Analysis Analyze
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/issue-matches`
+
+Live Analysis Issue Matches
+
+Decided issues close to one pasted argument. Keyword search only, nothing stored, no model.
+
+**Request body (required)**
+
+- `application/json`: `IssueMatchRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /live-analysis/reader`

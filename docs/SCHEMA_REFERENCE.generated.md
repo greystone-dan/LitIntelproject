@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-10T21:02:30.812788+00:00
-Tables: 43
+Generated: 2026-10-10T21:22:14.501000+00:00
+Tables: 45
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -412,6 +412,27 @@ erDiagram
         Integer records_failed
         JSON metadata_json
     }
+    issue_map_questions {
+        Integer id PK
+        Integer issue_map_id  FK
+        Integer position
+        TEXT question
+    }
+    issue_maps {
+        Integer id PK
+        String(60) source_key
+        Integer issue_no
+        Integer case_id  FK
+        String(120) citation
+        String(20) court
+        TEXT issue
+        TEXT text
+        String(30) result
+        Integer result_para
+        TEXT soften
+        TEXT result_paragraph
+        DATETIME created_at
+    }
     judge_profile_aliases {
         Integer id PK
         Integer alias_profile_id  FK
@@ -635,6 +656,8 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
+    issue_maps ||--o{ issue_map_questions : "issue_map_id"
+    cases ||--o{ issue_maps : "case_id"
     judge_profiles ||--o{ judge_profile_aliases : "alias_profile_id"
     judge_profiles ||--o{ judge_profile_aliases : "canonical_profile_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
@@ -688,6 +711,8 @@ erDiagram
 | `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
+| `issue_map_questions` | 4 | `id` |
+| `issue_maps` | 13 | `id` |
 | `judge_profile_aliases` | 5 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
@@ -1552,6 +1577,58 @@ erDiagram
 - `ix_ingestion_runs_run_type`: index on `run_type`
 - `ix_ingestion_runs_source_type`: index on `source_type`
 - `ix_ingestion_runs_status`: index on `status`
+
+## `issue_map_questions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `issue_map_id` | `Integer` | no | FK -> issue_maps.id; NOT NULL |
+| `position` | `Integer` | no | NOT NULL; default=0 |
+| `question` | `TEXT` | no | NOT NULL |
+
+### Indexes
+
+- `ix_issue_map_questions_issue_map_id`: index on `issue_map_id`
+
+### Foreign Keys
+
+- `issue_map_id` -> `issue_maps.id`; on delete `CASCADE`
+
+## `issue_maps`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_key` | `String(60)` | no | NOT NULL |
+| `issue_no` | `Integer` | no | NOT NULL |
+| `case_id` | `Integer` | yes | FK -> cases.id |
+| `citation` | `String(120)` | yes | - |
+| `court` | `String(20)` | yes | - |
+| `issue` | `TEXT` | no | NOT NULL |
+| `text` | `TEXT` | no | NOT NULL |
+| `result` | `String(30)` | no | NOT NULL |
+| `result_para` | `Integer` | yes | - |
+| `soften` | `TEXT` | yes | - |
+| `result_paragraph` | `TEXT` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_issue_maps_case_id`: index on `case_id`
+- `ix_issue_maps_source_key`: index on `source_key`
+
+### Unique Constraints
+
+- `uq_issue_map_source_issue`: `source_key`, `issue_no`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `SET NULL`
 
 ## `judge_profile_aliases`
 

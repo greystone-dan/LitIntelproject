@@ -49,6 +49,7 @@ from .metadata import extract_metadata_observations
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
 	CaseDiscussionUnitSummaryResponse,
+	CaseUnitPartyArgumentResponse,
 	CaseEvidenceSpanResponse,
 	CaseEvidenceSummaryResponse,
 	CaseReaderChunkResponse,
@@ -68,6 +69,7 @@ from .models import (
 from scripts.inspect_discussion_units import inspect_case
 from .contextual_authority.case_structure import structure_outline
 from .contextual_authority.unit_roles import label_unit_roles
+from .contextual_authority.unit_voices import party_argument_voices
 
 _STATUTE_LIKE_RE = re.compile(
 	r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE
@@ -136,6 +138,20 @@ def _unit_roles(report: dict[str, Any]) -> list[str]:
 	return label_unit_roles(units)
 
 
+UNIT_PARTY_NOTE = (
+	"Experimental: party arguments are found by fixed text rules, not a reader. On hand-read test paragraphs about 6 "
+	"in 10 of the paragraphs flagged were really a party's argument, and some party arguments are not flagged."
+)
+
+
+def _unit_party_arguments(report: dict[str, Any], title: str) -> dict[int, str]:
+	"""Paragraph index -> 'applicant' or 'respondent' for paragraphs reporting a party's argument (no AI)."""
+	paragraphs = sorted(report.get("paragraphs", []), key=lambda paragraph: paragraph["paragraph_index"])
+	indexes = [paragraph["paragraph_index"] for paragraph in paragraphs]
+	voices = party_argument_voices([paragraph.get("text") or "" for paragraph in paragraphs], title)
+	return {indexes[position]: party for position, party in voices.items()}
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -143,11 +159,13 @@ def _build_evidence_summary(
 	has_paragraph_chunks: bool,
 	chunks: list[CaseChunk] | None = None,
 	citations: list[CaseReaderCitationResponse] | None = None,
+	title: str = "",
 ) -> CaseEvidenceSummaryResponse | None:
 	if not has_paragraph_chunks:
 		return None
 	report = _cached_inspect_case(db, case_id, chunks)
 	unit_roles = _unit_roles(report)
+	party_by_paragraph = _unit_party_arguments(report, title)
 	units = []
 	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
@@ -185,6 +203,11 @@ def _build_evidence_summary(
 				paragraph_count=unit["paragraph_count"],
 				subthemes=subthemes,
 				role=unit_roles[position] if position < len(unit_roles) else None,
+				party_arguments=[
+					CaseUnitPartyArgumentResponse(paragraph_index=index, party=party_by_paragraph[index])
+					for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
+					if index in party_by_paragraph
+				],
 			)
 		)
 
@@ -223,6 +246,7 @@ def _build_evidence_summary(
 		units=units,
 		citation_mappings=citation_mappings,
 		role_note=UNIT_ROLE_NOTE if unit_roles else None,
+		party_note=UNIT_PARTY_NOTE if party_by_paragraph else None,
 	)
 
 
@@ -1248,6 +1272,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 			has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
 			chunks=all_chunks,
 			citations=citation_responses,
+			title=case.title or "",
 		)
 		if include_evidence
 		else None

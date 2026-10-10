@@ -58,7 +58,7 @@ SECTIONS = {
 			"Finishing the grading of the first batch, a decision on the rest, and a clear label on each reference showing how it was read."),
 			("judges", "Judges and decision-makers", "partly", [
 				"Judge names appear in many forms in the sources, so one judge can show up as several profiles. Some names have also been merged that should not have been, such as two judges who share a surname but sit on different courts.",
-				"Merged names are being corrected, and the gaps are being filled: some Federal Court decisions have no judge recorded, and the Refugee Protection Division’s decision-makers are blank.",
+				"Merged names are being corrected, and the gaps are being filled: judges are now linked for most Supreme Court, Federal Court of Appeal and Board decisions, but some Federal Court decisions still have no judge recorded and French-language decisions are not covered yet.",
 				"A shared name list merges initials, titles, French forms and surname-only mentions, so a profile can show every other name a judge appears under. Every merge can be undone.",
 			], "Opening a judge profile and trusting that it holds that judge’s decisions and only theirs.",
 			"Judge Profiles are live. Many spelling variants are merged. A few wrong merges and several extraction gaps remain.",
@@ -80,11 +80,11 @@ SECTIONS = {
 	"expansion": {
 		"label": "Expansion",
 		"summary": "More cases, more tags, more laws and regulations.",
-		"lede": "A library is only useful for the questions it can answer. Today iLit holds decisions of the Federal Court, the Federal Court of Appeal, the Supreme Court of Canada and the Refugee Protection Division, with the Refugee Appeal Division being added. This area is about widening that coverage and keeping it current, without lowering the quality bar set by the accuracy work.",
+		"lede": "A library is only useful for the questions it can answer. Today iLit holds decisions of the Federal Court, the Federal Court of Appeal, the Supreme Court of Canada, the Refugee Protection Division and the Refugee Appeal Division. This area is about widening that coverage and keeping it current, without lowering the quality bar set by the accuracy work.",
 		"why": "Counsel working a file rarely stops at one court. A judicial review of a refugee decision depends on the tribunal’s own decisions, the Court’s case law and the statutes behind both. The more of that sits in one searchable place, the less time is spent hunting across websites.",
 		"items": [
 			("more-cases", "More cases", "progress", [
-				"Refugee Appeal Division decisions are being loaded, and Refugee Protection Division decisions after 2020 are being added from the Refugee Law Lab’s open collection. Each decision keeps a link to its original source.",
+				"Refugee Appeal Division decisions are now in the library, and Refugee Protection Division decisions after 2020 are being added from the Refugee Law Lab’s open collection. Each decision keeps a link to its original source.",
 				"New decisions go through the same reader, citation and statute tools as the rest of the library, so a larger library does not mean a different experience.",
 			], "Checking how the Refugee Appeal Division has treated a credibility finding, then following a Federal Court review of the same decision.",
 			"Federal Court, Federal Court of Appeal, Supreme Court and Refugee Protection Division are in. Refugee Appeal Division loading is under way.",
@@ -295,7 +295,7 @@ SECTIONS = {
 				"The end goal is Live Analysis of a one-sided draft argument: the user’s draft would be matched to decided issues and the results those arguments met, so counsel can see where a point has worked and where it has not.",
 				"AI is used only when decisions are added, on public case law, and what it finds is stored as data that points back to the source paragraph. Nothing typed on the site, and no draft, is sent to a model. This is a preview of a concept, not a finished feature.",
 			], "Opening a decision, switching on “Show whose position” and seeing which paragraphs are the applicant’s argument, which are the respondent’s and which are the Court’s own conclusion on each issue.",
-			"A preview of the reader view exists. In early tests on a graded sample, the position holder was right about 8 times in 10 and the result of an issue about 88% of the time. The grading was done by Claude, not by lawyers, so these figures are indicative only.",
+			"“Show whose position” is switched on for 665 decisions so far, with more being added. In early tests on a graded sample, the position holder was right about 8 times in 10 and the result of an issue about 88% of the time. The grading was done by Claude, not by lawyers, so these figures are indicative only.",
 			"Better handling of memoranda and split decisions (where the dissent can be mistaken for the holding), review of a sample by lawyers, and the draft-matching step in Live Analysis."),
 			("themes", "Themes", "partly", [
 				"Themes group the arguments that recur across decisions, such as the recurring complaints about credibility findings or about reasons for a refusal, and show which statutory provisions each one leans on.",

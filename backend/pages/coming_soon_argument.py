@@ -37,13 +37,13 @@ _SECTIONS = [
 		"- Issue results. The result of an issue (who won it) was right about 88% of the time.",
 		"- The readers disagreed less with each other than with the first AI pass: two independent Claude readers agreed on about 9 paragraphs in 10, which is why the fixed rules and a second reading are used as checks.",
 		"- Known problems. Memoranda and written submissions can be mistaken for decisions. In split Supreme Court decisions the dissent can be reported as the holding. Paragraphs where the rules cannot tell are shown as “not yet detected” instead of guessed.",
-		"A reader preview, “Show whose position”, already runs on about 100 decisions. It carries a Preview label and will keep it until lawyers have checked a sample.",
+		"A reader preview, “Show whose position”, already runs on about 660 decisions. It carries a Preview label and will keep it until lawyers have checked a sample.",
 	]),
 	("next", "What is next", [
 		"- Fix the known errors above, starting with memoranda and split decisions.",
 		"- Add the issue map, with the result per issue and the Court’s answer to each party point.",
 		"- A check of a sample by lawyers before any figure is quoted as accuracy, and before the Preview label is removed.",
-		"- Extend from 100 decisions to the library, and to French decisions.",
+		"- Extend from about 660 decisions to the library, and to French decisions.",
 		"- Live Analysis: match a draft argument to decided issues using fixed rules over stored data. Anything that needs a language model to write a summary waits for the on-premises model.",
 	]),
 ]
@@ -54,7 +54,7 @@ def body(e) -> str:
 	out = (
 		'<header><p class="eyebrow">Coming soon · New features</p><h1>Whose position: breaking a decision into arguments</h1>'
 		'<p class="lede">A preview of work in progress. Each paragraph of a decision would show whose position it reports, so you can tell the Court’s own reasoning from a party’s argument, and in time check a draft argument against how the same issues were decided.</p>'
-		'<div class="note"><strong>Concept and preview.</strong> Only the reader preview exists today, on about 100 decisions. The accuracy figures on this page come from early tests graded by Claude, not by lawyers.</div></header>'
+		'<div class="note"><strong>Concept and preview.</strong> Only the reader preview exists today, on about 660 decisions. The accuracy figures on this page come from early tests graded by Claude, not by lawyers.</div></header>'
 		'<nav class="pager" aria-label="On this page">'
 		+ "".join(f'<a href="#{a}">{e(h)}</a>' for a, h, _ in _SECTIONS)
 		+ "</nav>"

@@ -301,6 +301,8 @@ test checks that these paths continue to exist.
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
+| `backend/pages/unit_search_ui.css` | TODO: describe this file |
+| `backend/pages/unit_search_ui.js` | TODO: describe this file |
 | `backend/pages/welcome.py` | Welcome page (the site's front door) and the Demo / Admin mode switch |
 | `backend/pages/workbench.py` | Workbench page: demo sign-in, then three views (Analyst home, Live analysis, De-identifier) |
 | `backend/pages/workbench_brief.py` | Printable Workbench briefs: one page of plain HTML with print styles (no scripts that send data anywhere) |

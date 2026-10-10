@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 207
+Active scripts documented: 208
 
 ## Catalog
 
@@ -214,6 +214,7 @@ Active scripts documented: 207
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
 | `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
+| `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
@@ -3072,6 +3073,20 @@ Active scripts documented: 207
 
 ```powershell
 .\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
+```
+
+## `scripts/train_learned_roles.py`
+
+**Purpose:** Train the learned paragraph-role weights used by backend/contextual_authority/learned_roles.py. Training data: the Haiku draft labels in data/eval/case_structure/haiku_drafts_v1.json (decision text from the core_300_run reports). The hand-labelled decisions are NOT used, so evaluate_case_structure.py scores them as a clean hold-out. Needs scikit-learn (training only; the site runs numpy only). Run: python scripts/train_learned_roles.py [--c 1.0]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_learned_roles.py --help
 ```
 
 ## `scripts/validate_precision.py`

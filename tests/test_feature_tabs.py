@@ -718,11 +718,15 @@ def test_about_and_case_search_mobile_accessibility_contracts():
     assert "@media (max-width:520px)" in about_panel
     assert ".ilit-about .svgwrap{overflow-x:auto" in about_panel
 
-    # About inventory updates after load; Case Search already announces search state.
+    # The inventory summary now lives in the Site architecture panel (the About
+    # tab was rebuilt); it still updates after load, so it must announce itself.
+    architecture_start = html.index('<section id="siteArchitecturePanel"')
+    architecture_end = html.index('<section id="citationIntelligencePanel"', architecture_start)
     assert (
         '<div class="summaryRows" id="aboutSummary" role="status" '
         'aria-live="polite" aria-atomic="true">'
-    ) in about_panel
+    ) in html[architecture_start:architecture_end]
+    # Case Search already announces search state.
     assert 'id="searchQuery" aria-label="Case name or citation"' in search_panel
     assert 'id="searchMeta" role="status" aria-live="polite"' in search_panel
     assert 'aria-controls="searchSuggestions"' in search_panel

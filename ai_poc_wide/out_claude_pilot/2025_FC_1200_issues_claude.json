@@ -1,0 +1,38 @@
+{
+  "case_id": "2025_FC_1200",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Officer's finding that the spouse breached the duty of candour under s 16(1) IRPA reasonable?",
+        "paras": "9-14",
+        "applicant_position": "Officer applied s 16 formalistically, ignored surrounding circumstances and did not engage with the fairness-letter responses.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "It was therefore reasonable for the Officer to find that the Applicant’s spouse did not comply with subsection 16(1) of the IRPA."
+      },
+      {
+        "issue": "Did the Officer wrongly treat eligibility and admissibility as one issue?",
+        "paras": "15",
+        "applicant_position": "Applicant's submissions treated refugee eligibility as separate from admissibility, per the court's description.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "the Applicant and his family members still had to establish that they were admissible"
+      },
+      {
+        "issue": "Should the proposed question on separate assessments of family members be certified?",
+        "paras": "17-19",
+        "applicant_position": "Certify whether an overseas family application must be assessed separately for each applicant.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 18,
+        "result_quote": "I decline to certify this proposed question for the following reasons."
+      }
+    ]
+  }
+}

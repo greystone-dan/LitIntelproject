@@ -1,0 +1,47 @@
+{
+  "case_id": "2023_FC_1270",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD unreasonably speculate about why the principal applicant was targeted?",
+        "paras": "17-19",
+        "applicant_position": "RAD speculated about why the PA was targeted; the record does not support that explanation.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I agree with the Applicants that the RAD engaged in speculation that is entirely unsupported in the record"
+      },
+      {
+        "issue": "Did the RAD ignore affidavit evidence of ongoing police searches and threats in assessing the IFA?",
+        "paras": "20-24",
+        "applicant_position": "Affidavits show police still seek them, so police are motivated to find them in New Delhi; RAD did not explain this evidence.",
+        "respondent_position": "Cited cases are distinguishable because here only local police, not outside police, were interested in the applicants.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the RAD’s conclusion that the Applicants have a valid IFA cannot stand without some discussion of the affidavit evidence"
+      },
+      {
+        "issue": "Did the RAD have to consider the impact of ongoing police threats on family and friends who would need to hide the IFA location?",
+        "paras": "25-26",
+        "applicant_position": "RAD had to consider the impact of ongoing police threats on family and friends who would have to shield them.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I agree with the Applicants that the RAD had to consider the impact of the ongoing police visits and threats upon their family and friends"
+      },
+      {
+        "issue": "Other grounds: selective review of country-condition evidence and internal contradictions in the RAD analysis.",
+        "paras": "27",
+        "applicant_position": "RAD's review of country-condition evidence was selective and internally contradictory.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 27,
+        "result_quote": "It is not, therefore, necessary to discuss the other arguments advanced by the Applicants."
+      }
+    ]
+  }
+}

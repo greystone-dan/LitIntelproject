@@ -1,0 +1,38 @@
+{
+  "case_id": "2012_FC_1360",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the citizenship judge err by applying the physical presence test rather than one of the three residence tests?",
+        "paras": "14-16, 52-53",
+        "applicant_position": "Judge should have applied one of the three residence tests; not doing so denied the Minister relevant evidence.",
+        "respondent_position": "Judge may adopt any of the three residence tests the Court has recognized.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the citizenship judge correctly applied the physical residence test under paragraph 5(1)(c) of the Act."
+      },
+      {
+        "issue": "Did the judge err by considering evidence of activities outside the reference period?",
+        "paras": "17",
+        "applicant_position": "not stated",
+        "respondent_position": "Considering evidence of activities outside the reference period is a reviewable error.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The Citizenship Judge was not counting days of absence from Canada after the relevant period; there is no error."
+      },
+      {
+        "issue": "Did the judge err by not requiring the respondent to answer the challenged questions?",
+        "paras": "12-13, 18-19",
+        "applicant_position": "Judge erred by not requiring answers, depriving the Minister of evidence that could affect the weight given to other evidence.",
+        "respondent_position": "Challenged questions concerned evidence that was not relevant to the case.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "the applicant has failed to satisfy me that it was unreasonable for the citizenship judge to not insist that the respondent answer the questions that were challenged."
+      }
+    ]
+  }
+}

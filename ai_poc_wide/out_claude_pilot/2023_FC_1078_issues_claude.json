@@ -1,0 +1,47 @@
+{
+  "case_id": "2023_FC_1078",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD hearing fair, given that Mr. Singh was unrepresented and right-to-counsel concerns were raised?",
+        "paras": "14-16",
+        "applicant_position": "He attended unrepresented believing counsel had secured a postponement; absence of counsel denied a fair hearing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I find nothing unreasonable in the RAD’s determination that the proceedings in which Mr. Singh participated were fair."
+      },
+      {
+        "issue": "Was the refusal to postpone the hearing, and the unreviewed text messages, a reasonable basis for the RAD's decision?",
+        "paras": "5, 8-9, 17-19",
+        "applicant_position": "RPD never saw the text messages, so it may have misapplied the restrictive rule 54(4) rather than 54(5).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "Without it, and given the circumstances, I am unable to say that the decision of the RAD was unreasonable."
+      },
+      {
+        "issue": "Did the absence of counsel have a material effect on the outcome?",
+        "paras": "20",
+        "applicant_position": "Under Galamb, credibility findings cannot be separated from fairness breaches, so the outcome was affected.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "Nor do I find anything unreasonable with the RAD’s determination that Mr. Singh’s lack of representation had no material effect on the outcome"
+      },
+      {
+        "issue": "Should the matter be remitted for redetermination if the RAD decision were unreasonable?",
+        "paras": "13, 21",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 21,
+        "result_quote": "I need not address the second issue in this matter."
+      }
+    ]
+  }
+}

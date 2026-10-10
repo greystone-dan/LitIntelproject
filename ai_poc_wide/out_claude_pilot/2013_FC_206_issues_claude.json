@@ -1,0 +1,38 @@
+{
+  "case_id": "2013_FC_206",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the appropriate standard of review?",
+        "paras": "25-27",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 27,
+        "result_quote": "It is trite law that the appropriate standard of review for issues of procedural fairness is correctness"
+      },
+      {
+        "issue": "Did the officer act unreasonably in failing to consider the Gender Guidelines when assessing credibility?",
+        "paras": "26-33",
+        "applicant_position": "Officer failed to apply the Gender Guidelines, so the credibility finding based on her knowledge of her ex-husband was perverse.",
+        "respondent_position": "No gender-based claim, so the Guidelines did not apply; the credibility assessment was reasonable.",
+        "result": "not_decided",
+        "result_para": 33,
+        "result_quote": "Because of my finding on Issue 3, I need not deal with Issue 2."
+      },
+      {
+        "issue": "Was the duty of fairness breached by non-disclosure of extrinsic evidence and the absence of an opportunity to respond?",
+        "paras": "29-32",
+        "applicant_position": "Officer relied on undisclosed ONARS verification of the attestations without giving the applicant a chance to respond.",
+        "respondent_position": "Applicant was told at the start of the interview that the attestations were in doubt, so she had ample opportunity to respond.",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "Pursuant to the jurisprudence noted above, the officer breached procedural fairness and the decision should be returned for redetermination by a different officer."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2018_FC_180",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the IAD's finding that the marriage was not genuine, based on credibility and the evidence, reasonable?",
+        "paras": "6-13",
+        "applicant_position": "IAD ignored or misconstrued her evidence, so its credibility and genuineness findings are unreasonable.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I am satisfied that the IAD addressed the evidence in detail, identified unexplained gaps and articulated its concerns."
+      },
+      {
+        "issue": "Did the IAD err in stating the wrong date of separation from her former husband?",
+        "paras": "14",
+        "applicant_position": "Misstating the separation date as January 1, 2017 was a reviewable error.",
+        "respondent_position": "Respondent said the misstated separation date was a typo that did not affect the decision.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "The error, albeit unfortunate, is a typographical error that does not impact upon the overall findings."
+      },
+      {
+        "issue": "Did the IAD properly address the procedural fairness concerns about the officer's letters?",
+        "paras": "15",
+        "applicant_position": "IAD addressed her procedural fairness concerns in a capricious and dismissive manner.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "The IAD did not commit a reviewable error in addressing Ms. Iyare’s procedural fairness concerns."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_1441",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer adequately justify the finding of misrepresentation, including rejecting the innocent mistake explanation?",
+        "paras": "8-26",
+        "applicant_position": "Officer gave only conclusory reasons; no finding on innocent mistake or why his answer was untruthful.",
+        "respondent_position": "Minister says officer concluded the omission was not innocent or honest; case is akin to Tuiran.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "do not meet the requirements of a transparent and justified decision"
+      },
+      {
+        "issue": "Did the officer adequately justify that the omission was material?",
+        "paras": "27-31",
+        "applicant_position": "Materiality finding was brief and conclusory; no explanation of how the omission could affect the process.",
+        "respondent_position": "Minister says a foreign visa refusal is invariably material to a visa application, citing Mohseni.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "this brief and fairly conclusory statement does not provide an adequate explanation"
+      }
+    ]
+  }
+}

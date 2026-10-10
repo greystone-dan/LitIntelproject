@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_59",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer consider how country conditions in Haiti would affect the applicant personally?",
+        "paras": "12-13",
+        "applicant_position": "Officer failed to consider how country conditions in Haiti impact him personally.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 13,
+        "result_quote": "I find it is only necessary to address the second issue, which is determinative"
+      },
+      {
+        "issue": "Did the officer properly assess the best interests of the children?",
+        "paras": "17-35",
+        "applicant_position": "Officer ignored critical evidence on the children and relied selectively on the PFL response, so the BIOC assessment was incomplete.",
+        "respondent_position": "Onus is on the applicant to define the children's interests; officer was responsive to the record and alert to their best interests.",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "Overall, I find the interests of the children were not given the sufficient and careful attention required."
+      },
+      {
+        "issue": "Did the officer's hardship analysis under subsection 25(1) hold up?",
+        "paras": "35",
+        "applicant_position": "The hardship analysis was also flawed.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 35,
+        "result_quote": "I need not address the remaining issue relating to the hardship analysis."
+      }
+    ]
+  }
+}

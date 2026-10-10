@@ -1,0 +1,38 @@
+{
+  "case_id": "2013_FC_472",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review for the RPD's section 96 and section 97 analysis?",
+        "paras": "16-22",
+        "applicant_position": "not stated",
+        "respondent_position": "Sole issue is whether the decision was unreasonable, outside the range of possible, acceptable outcomes.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Therefore, the issues are to be reviewed on a standard of reasonableness"
+      },
+      {
+        "issue": "Was the RPD required to conduct a separate section 96 analysis in the circumstances?",
+        "paras": "29-44",
+        "applicant_position": "RPD accepted the brother's Mossad link but never decided the s. 96 claim; the reasonable-chance test is less stringent.",
+        "respondent_position": "RPD did conduct a s. 96 analysis; the claim failed on credibility and no evidence of subjective fear or family nexus.",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "this was not a reviewable error as it was not material to the result."
+      },
+      {
+        "issue": "Was the RPD's decision reasonable?",
+        "paras": "45",
+        "applicant_position": "Not stated separately from the section 96 argument.",
+        "respondent_position": "Decision is reasonable; review would serve no purpose because the claim could only be rejected.",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I am of the view that the Decision was reasonable and falls within the range of possible acceptable outcomes in this case."
+      }
+    ]
+  }
+}

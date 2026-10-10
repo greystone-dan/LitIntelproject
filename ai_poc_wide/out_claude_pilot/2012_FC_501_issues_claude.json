@@ -1,0 +1,38 @@
+{
+  "case_id": "2012_FC_501",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does misrepresentation under s 40(1)(a) IRPA require proof of intent?",
+        "paras": "11-16",
+        "applicant_position": "Misrepresentation under s 40(1)(a) requires intent; he did not know his daughter's documents were fraudulent.",
+        "respondent_position": "Intent is not required; civil balance of probabilities applies; a material misrepresentation that could induce error suffices.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "this Court cannot agree with the principal applicant’s submission that that case shows that proof of intent is always required"
+      },
+      {
+        "issue": "Does the daughter's misrepresentation make the whole family inadmissible, and was the officer's decision reasonable?",
+        "paras": "17-22",
+        "applicant_position": "Daughter is over 22 and no longer a student, so she is not a dependant and her inadmissibility should not reach him.",
+        "respondent_position": "Under the Manual, a family member's misrepresentation makes the whole family inadmissible, even if unintentional.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "the visa officer reasonably concluded that the family was inadmissible to Canada"
+      },
+      {
+        "issue": "Was the officer's credibility doubt about the applicant's explanation a separate basis for the decision?",
+        "paras": "21",
+        "applicant_position": "Claimed he was unaware the daughter's education documents were fraudulent.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 21,
+        "result_quote": "Although that conclusion is sufficient to find that the entire family is inadmissible"
+      }
+    ]
+  }
+}

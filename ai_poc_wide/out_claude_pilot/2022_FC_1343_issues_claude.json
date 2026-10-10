@@ -1,0 +1,38 @@
+{
+  "case_id": "2022_FC_1343",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's reliance on lower-cost local schooling in Iran a reasonable basis to refuse?",
+        "paras": "14-15",
+        "applicant_position": "Officer had no evidence of local options, and relying on them as determinative is unreasonable under the cited case law.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I am not persuaded that this is a reversible error in this case."
+      },
+      {
+        "issue": "Was the officer's finding on the family's socio-economic situation and the cost of study reasonable?",
+        "paras": "16-18",
+        "applicant_position": "Officer improperly judged the value of learning and the family's finances; it is not the officer's role to determine value of education.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "In the circumstances, this finding is not unreasonable."
+      },
+      {
+        "issue": "Did the officer fail to respond to the applicant's stated reason for studying in Canada?",
+        "paras": "19-24",
+        "applicant_position": "Officer ignored her stated reason that a Canadian Grade 12 diploma improves university admission, making the refusal unreasonable under Vavilov.",
+        "respondent_position": "Study plan findings are reasonable, since many students enter Canadian universities without Canadian education.",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I am persuaded that this makes the entire decision unreasonable"
+      }
+    ]
+  }
+}

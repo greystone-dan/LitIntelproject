@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FC_161",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer give proper weight to the applicant's vulnerability and her reasons for remaining without status?",
+        "paras": "17-21",
+        "applicant_position": "Officer gave negative weight to her lack of status and failed to consider her reasons for overstaying.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I agree with the Applicant that the Officer erred by ignoring the vulnerability of the Applicant"
+      },
+      {
+        "issue": "Did the officer reasonably assess establishment and hardship, including possible family support?",
+        "paras": "9-23",
+        "applicant_position": "Officer used her establishment to mitigate hardship and speculated, without evidence, about support from her sister.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "I am persuaded that the Officer did not properly consider the evidence put before him or her and failed to explain the decision"
+      }
+    ]
+  }
+}

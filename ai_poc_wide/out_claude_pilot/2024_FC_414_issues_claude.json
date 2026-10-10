@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FC_414",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer unreasonably ignore racial bias faced by the sister, relying on new evidence?",
+        "paras": "11-14, 23-24",
+        "applicant_position": "Officer should have considered racial bias faced by the sister due to her sickle cell diagnosis.",
+        "respondent_position": "Racial-bias factor was absent from the H&C supporting documents, so it was not in the record.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Therefore, the Applicant’s argument on racial bias must be rejected."
+      },
+      {
+        "issue": "Was the officer's best interests of the child (sister) assessment reasonable?",
+        "paras": "25-27",
+        "applicant_position": "Officer ignored the emotional support the applicant gives her sister, which digital contact cannot replicate.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "In the present case, the Immigration Officer came to a reasonable conclusion on the BIOC of the Applicant’s sister."
+      },
+      {
+        "issue": "Was the officer's decision to give little weight to professional integration reasonable?",
+        "paras": "28-30",
+        "applicant_position": "Officer unreasonably gave little weight to her professional integration; she sought valid status but lacked information.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "The Immigration Officer did not commit a reviewable error in attributing little weight to the Applicant’s professional integration"
+      }
+    ]
+  }
+}

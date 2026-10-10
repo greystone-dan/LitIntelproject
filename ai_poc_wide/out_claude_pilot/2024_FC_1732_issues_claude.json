@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FC_1732",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 42,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD fail to assess Aboutaleb's full profile as a perceived apostate?",
+        "paras": "13-26",
+        "applicant_position": "RAD ignored his cumulative profile: common-law partner, divorced partner, and a child born out of wedlock.",
+        "respondent_position": "RAD was alert to the full profile and considered cumulative risk; applicant mischaracterizes it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "In my view, the Applicant has not identified a reviewable error as it relates to this first issue."
+      },
+      {
+        "issue": "Did the RAD unreasonably find insufficient evidence of a forward-facing risk?",
+        "paras": "27-35",
+        "applicant_position": "RAD unreasonably looked for nonexistent or irrelevant evidence; no reason for the A family to pursue him.",
+        "respondent_position": "Evidence was insufficient; RAD's focus on the A family's power and influence was logical.",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "In my view, the Applicant has not established that the RAD’s analysis was unreasonable."
+      },
+      {
+        "issue": "Did the RAD make an erroneous credibility finding on delay, breaching procedural fairness?",
+        "paras": "36-40",
+        "applicant_position": "Delay finding was made without notice or chance to respond, which breaches procedural fairness.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 40,
+        "result_quote": "The Applicant has not established that this is a new issue invoking a breach of procedural fairness."
+      }
+    ]
+  }
+}

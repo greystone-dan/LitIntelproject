@@ -1,0 +1,38 @@
+{
+  "case_id": "2010_FC_497",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 8,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD reasonably find the claimant failed to exhaust state protection in Mexico before fleeing?",
+        "paras": "22-25",
+        "applicant_position": "RPD faulted him for not reporting to the AFI or staying to keep the suspect jailed; no reasonable basis.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 3,
+        "result_quote": "In my opinion, the RPD failed to discharge this obligation."
+      },
+      {
+        "issue": "Was the RPD's finding that he should have gone to a higher police authority reasonable?",
+        "paras": "7",
+        "applicant_position": "No higher authority existed; expecting appeal above the director who revoked protection is unreasonable.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_quote": "is manifestly unreasonable without concrete reasoning derived from the evidence."
+      },
+      {
+        "issue": "Did the RPD unreasonably reject the National Police Registry evidence and find an IFA in Mexico City?",
+        "paras": "8",
+        "applicant_position": "National Police Registry exists; RPD rejected it without reasons, so the Mexico City IFA fails.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "As a result, I find that the IFA finding is made in reviewable error."
+      }
+    ]
+  }
+}

@@ -505,6 +505,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="search-query-row"><div class="primary-query"><div class="case-finder"><input id="searchQuery" aria-label="Case name or citation" placeholder="Case name or citation, e.g. Vavilov or 2019 SCC 65" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="searchSuggestions"><div class="search-suggestions" id="searchSuggestions" role="listbox" aria-label="Case suggestions" hidden></div></div></div><div class="search-actions"><button type="submit" class="sq-go">Search cases</button><button type="button" class="sq-go sq-alt" id="clearSearchTop">Clear search</button><button type="button" class="sq-go sq-alt" id="toggleAdvancedSearch" aria-expanded="false" aria-controls="advancedSearchOptions">Advanced</button><a id="downloadSearchWord" class="qf-link" href="/search/export.docx" hidden aria-hidden="true">Download Word</a></div></div>
 <div class="sp-quick"><span>Or browse:</span><button type="button" class="sp-quick-link" id="recentCases">Show recent cases</button><button type="button" class="sp-quick-link" id="mostCitedCases">Show most cited</button></div>
 </form></div>
+<div id="unitSearchPanel"><div class="us-head"><strong>Find the unit</strong><small>Experimental. Keyword search that shows the passage and the discussion unit it sits in. No AI.</small></div><form id="unitSearchForm"><input type="text" id="unitSearchQuery" aria-label="Words to find in a passage" placeholder="At least three words, e.g. state protection adequacy" autocomplete="off"><select id="unitSearchCourt" aria-label="Court"><option value="">All courts</option><option value="FC,FCA">Federal Court and Appeal</option><option value="RAD">Refugee Appeal Division</option><option value="RPD">Refugee Protection Division</option><option value="SCC">Supreme Court</option></select><button type="submit">Find passages</button></form><div id="unitSearchStatus" role="status" aria-live="polite"></div><div id="unitSearchResults" aria-label="Unit search results"></div></div>
 <div class="sp-body">
 <form class="advanced-search" id="advancedSearchOptions" onsubmit="return false"><div class="sp-rail">
 <div class="sp-rail-head"><strong>Filters</strong><span class="search-filter-summary" id="searchFilterSummary">0 active filters</span></div>
@@ -1792,6 +1793,11 @@ window.addEventListener('afterprint',()=>{
   search_js = (here / 'search_v6.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + search_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + search_js + '</script>\n</body>', 1)
+  # Find the unit (experimental keyword search over passages and their discussion units).
+  us_css = (here / 'unit_search_ui.css').read_text(encoding='utf-8')
+  us_js = (here / 'unit_search_ui.js').read_text(encoding='utf-8')
+  html = html.replace('</head>', '<style>\n' + us_css + '</style>\n</head>', 1)
+  html = html.replace('</body>', '<script>\n' + us_js + '</script>\n</body>', 1)
   # Advanced filter: case type, a multi-select grouped by area of law (stored labels only; counts arrive with the results).
   html = html.replace('<label class="sp-l" for="citesFilter">', case_type_filter_html() + '</div><div class="sp-col"><label class="sp-l" for="citesFilter">', 1)
   # Phone layout goes last so it wins over every earlier rule at narrow widths.

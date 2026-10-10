@@ -31,6 +31,7 @@ out.topics = m.topicIndex(p.payload, 10);
 out.topicParas = Array.from(m.topicParas(out.topics, p.selected || [])).sort((a, b) => a - b);
 out.runs = m.foldRuns(p.visible || []);
 out.peeks = out.notes.filter(n => n.cite).map(n => m.peekFor(n));
+out.partyViews = out.notes.filter(n => n.type === 'unit').flatMap(n => [m.partyArgsLine(n, false), m.partyArgsLine(n, true)]);
 out.roleViews = out.notes.filter(n => n.type === 'unit').flatMap(n => [m.unitRoleView(n, false), m.unitRoleView(n, true)]);
 console.log(JSON.stringify(out));
 """
@@ -518,3 +519,19 @@ def test_markup_is_paused_in_the_reader_but_open_on_live_analysis():
     live = live_analysis_page_html()
     live_toggle = live.split('id="readerMarkupToggle"', 1)[1].split(">", 1)[0]
     assert "disabled" not in live_toggle
+
+
+@needs_node
+def test_party_arguments_line_shows_only_with_experimental_on():
+    payload = _payload()
+    ev = payload["readerData"]["evidence_summary"]
+    ev["party_note"] = "Experimental: about 6 in 10."
+    ev["units"][0]["party_arguments"] = [
+        {"paragraph_index": 2, "party": "applicant"}, {"paragraph_index": 3, "party": "applicant"},
+        {"paragraph_index": 4, "party": "respondent"},
+    ]
+    off, on = _run(payload=payload)["partyViews"]
+    assert off == ""
+    assert on.startswith("Party arguments (experimental): Applicant ¶2, ¶3 · Respondent ¶4") and "6 in 10" in on
+    none_off, none_on = _run()["partyViews"]  # no stored party arguments: nothing is shown
+    assert none_off == none_on == ""

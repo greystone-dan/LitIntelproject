@@ -200,6 +200,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/subthemes.py` | Groups discussion-unit subthemes |
 | `backend/contextual_authority/teacher_contract.py` | Validates report-only teacher/evaluation outputs |
 | `backend/contextual_authority/unit_roles.py` | Deterministic coarse role labels (facts, issues, analysis, disposition...) for discussion units |
+| `backend/contextual_authority/unit_voices.py` | Flags the paragraphs in a discussion unit that the position rules read as the applicant's or respondent's argument (experimental, no AI) |
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |

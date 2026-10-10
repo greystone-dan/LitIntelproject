@@ -1,0 +1,38 @@
+{
+  "case_id": "2005_FCA_126",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether 'countries of nationality' in IRPA s.96 includes a country whose citizenship is obtainable only by renouncing another citizenship (certified question)",
+        "paras": "19-25",
+        "applicant_position": "Minister says s.96 covers a country where citizenship can be obtained, so the Federal Court erred in limiting it to existing citizenship.",
+        "respondent_position": "Respondent says the case law covers only mere formalities; citizenship is a fundamental right no one should have to renounce.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "It follows that Pinard J. erred in finding that \"countries of nationality,\" in section 96 of the IRPA, did not include potential countries of nationality."
+      },
+      {
+        "issue": "Whether the respondent's need to renounce Rwandan citizenship makes Ugandan citizenship unavailable to him",
+        "paras": "26-27",
+        "applicant_position": "Minister says it is within respondent's power to renounce Rwandan and obtain Ugandan citizenship.",
+        "respondent_position": "Respondent says Ugandan citizenship is conditional on renunciation, so it does not exist at the hearing time.",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "It is, here, within the respondent's power to renounce his Rwandan citizenship and to obtain a Ugandan citizenship."
+      },
+      {
+        "issue": "Whether citizenship being a fundamental right means a claimant cannot be required to renounce it to avoid refugee status",
+        "paras": "28-32",
+        "applicant_position": "Minister says no one is forced to renounce; the respondent keeps his choice and the consequences of it.",
+        "respondent_position": "Respondent says citizenship is a fundamental right no one should be compelled to renounce; Chavarria was wrongly decided.",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "This proposition, in my view, is much too broad."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2011_FCA_18",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 9,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Has the Minister shown a serious question on appeal for a stay, given no certified question?",
+        "paras": "4-8",
+        "applicant_position": "Order rests on wrong statutory interpretations, and no certified question is needed to appeal (paras 2, 6).",
+        "respondent_position": "Not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "I conclude that the Minister has not established that a serious question is raised on the appeal."
+      },
+      {
+        "issue": "Does the Federal Court order require Mr. Aziz to be returned to Canada forthwith?",
+        "paras": "2-3",
+        "applicant_position": "The order could be read as requiring his return to Canada forthwith (para 2).",
+        "respondent_position": "The order only sets aside the IAD decision and requires a rehearing; counsel conceded this (para 3).",
+        "result": "dismissed_for_applicant",
+        "result_para": 3,
+        "result_quote": "I do not read the order that way."
+      },
+      {
+        "issue": "Did the judge breach procedural fairness by deciding s.52 and the IAD's duty without the Minister's submissions?",
+        "paras": "8-9",
+        "applicant_position": "Judge decided s.52 and the IAD stay point without hearing the Minister, a possible fairness breach (para 8).",
+        "respondent_position": "Not stated.",
+        "result": "not_decided",
+        "result_para": 8,
+        "result_quote": "I assume without deciding that the judge may have breached a rule of procedural fairness"
+      },
+      {
+        "issue": "Should costs be awarded?",
+        "paras": "10",
+        "applicant_position": "Not stated.",
+        "respondent_position": "Asked for costs (para 10).",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "In my view there are no special circumstances warranting such an award."
+      }
+    ]
+  }
+}

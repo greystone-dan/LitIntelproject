@@ -1,0 +1,38 @@
+{
+  "case_id": "2019_FCA_206",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 91,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does paragraph 22.2(d) of the Citizenship Act bar the Minister's appeal, absent a certified question?",
+        "paras": "30-51, 91",
+        "applicant_position": "Alleged jurisdictional errors (declaration of fact, usurping the Minister's role) let the appeal proceed despite the bar.",
+        "respondent_position": "Preclusive clause bars the appeal; the alleged errors are not jurisdictional, and such losses are rare.",
+        "result": "dismissed_for_applicant",
+        "result_para": 91,
+        "result_quote": "I conclude that paragraph 22.2(d) of the Citizenship Act bars this appeal by the Minister"
+      },
+      {
+        "issue": "Did the application judge impermissibly grant a declaration of fact?",
+        "paras": "53-65",
+        "applicant_position": "A declaration that Dr. Tennant was a Crown servant is a declaration of fact the Federal Court cannot make.",
+        "respondent_position": "Citizenship status is a legal question that can be declared; the declaration is not solely of fact.",
+        "result": "dismissed_for_applicant",
+        "result_para": 65,
+        "result_quote": "a declaration of citizenship is thus, at a minimum, not “solely” a declaration of fact."
+      },
+      {
+        "issue": "Did the application judge usurp the Minister's role by substituting its own decision on the citizenship application?",
+        "paras": "66-90",
+        "applicant_position": "Court substituted its decision for the Minister's; only the Minister may decide s.12(1) applications.",
+        "respondent_position": "Substitution is permissible where only one reasonable outcome exists, and the judge so found.",
+        "result": "not_decided",
+        "result_para": 90,
+        "result_quote": "it is not this Court’s place ultimately to decide whether the application judge committed these errors in substituting his view"
+      }
+    ]
+  }
+}

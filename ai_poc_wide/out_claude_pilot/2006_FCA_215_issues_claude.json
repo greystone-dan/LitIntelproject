@@ -1,0 +1,38 @@
+{
+  "case_id": "2006_FCA_215",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a serious question to be tried on the Ministers' appeal of the release order?",
+        "paras": "10-12",
+        "applicant_position": "Ministers say the release order should be stayed pending their appeal.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "I am satisfied that the appeal raises some serious questions with respect to the factors to be taken into account"
+      },
+      {
+        "issue": "Would the Ministers suffer irreparable harm if the release order is not stayed?",
+        "paras": "13-16",
+        "applicant_position": "Ministers say the terrorism risk is not diminished by the release conditions; no affidavit was filed to support this.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 16,
+        "result_quote": "I am prepared, accordingly, to move on to that third stage."
+      },
+      {
+        "issue": "Does the balance of convenience favour a stay of the release order pending appeal?",
+        "paras": "17-27",
+        "applicant_position": "Ministers say harm to public security and safety outweighs Harkat's release pending the appeal.",
+        "respondent_position": "Harkat says his recently acquired right to release pending removal would be infringed by a stay.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "the Ministers have not met their burden and that the balance of convenience favors Mr. Harkat."
+      }
+    ]
+  }
+}

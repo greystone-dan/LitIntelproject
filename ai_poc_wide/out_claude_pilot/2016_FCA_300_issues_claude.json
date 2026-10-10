@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FCA_300",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the RPD's decision: correctness or reasonableness?",
+        "paras": "6-12",
+        "applicant_position": "Minister appeals the Federal Court's correctness review of the RPD decision (para 7).",
+        "respondent_position": "Correctness applies because international law issues are involved (para 11).",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_quote": "The Federal Court held that the standard of review is correctness. We disagree."
+      },
+      {
+        "issue": "Is the RPD precluded from making a no credible basis finding under s.107(2) after excluding the claimant under s.1F?",
+        "paras": "9-18",
+        "applicant_position": "Minister appeals the Federal Court's answer that the RPD is precluded (paras 3, 5).",
+        "respondent_position": "Not stated directly; the Federal Court's reading of the Act, which the Court agreed with, favoured him (paras 12-14).",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "We will answer the reformulated question in the affirmative."
+      },
+      {
+        "issue": "Can the Court consider a statutory issue the RPD did not raise?",
+        "paras": "15-16",
+        "applicant_position": "The issue was not raised before the RPD or in the notice of appeal, so it should not be considered (para 15).",
+        "respondent_position": "Not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "This was not a barrier to this Court or the Supreme Court in Kanthasamy, above considering the issue."
+      }
+    ]
+  }
+}

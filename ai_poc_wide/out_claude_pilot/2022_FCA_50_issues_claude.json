@@ -1,0 +1,56 @@
+{
+  "case_id": "2022_FCA_50",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 7,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the first certified question (passport-based reavailment) still live?",
+        "paras": "3-4",
+        "applicant_position": "Not stated; the parties agreed the first question is no longer in issue (para 4).",
+        "respondent_position": "Same as applicant: the first question is no longer in issue (para 4).",
+        "result": "moot_or_procedural",
+        "result_para": 4,
+        "result_quote": "the first question is no longer in issue"
+      },
+      {
+        "issue": "Should the second and third certified questions be reformulated as questions of whether the RPD's approach is reasonable?",
+        "paras": "34-45",
+        "applicant_position": "Not stated.",
+        "respondent_position": "Not stated.",
+        "result": "moot_or_procedural",
+        "result_para": 44,
+        "result_quote": "I would therefore amend them to ask whether the particular statutory interpretation or approach suggested by the question is or is not reasonable."
+      },
+      {
+        "issue": "Did the Federal Court correctly find the RPD's cessation decision unreasonable?",
+        "paras": "58-59",
+        "applicant_position": "Federal Court erred in finding the RPD's decision unreasonable (para 5).",
+        "respondent_position": "Federal Court was right; RPD's reasoning on her knowledge and security evidence was unreasonable (paras 67-77).",
+        "result": "dismissed_for_applicant",
+        "result_para": 58,
+        "result_quote": "In my view, the decision of the RPD was not reasonable."
+      },
+      {
+        "issue": "Can the RPD use the refugee's lack of subjective knowledge of passport consequences to rebut the presumption of reavailment?",
+        "paras": "61-72",
+        "applicant_position": "Lack of knowledge of immigration consequences is not the legal test and is not a factor (para 5).",
+        "respondent_position": "Her testimony that she did not know the consequences rebuts the presumption of intent to reavail (para 67).",
+        "result": "dismissed_for_applicant",
+        "result_para": 71,
+        "result_quote": "the RPD’s conclusion on reavailment was not a defensible outcome based on the constraining facts and law"
+      },
+      {
+        "issue": "Can the RPD use evidence that she hired private security in Colombia to find intent to reavail?",
+        "paras": "73-79",
+        "applicant_position": "Hiring private security shows she could protect herself, so it cannot rebut reavailment (para 6).",
+        "respondent_position": "Private security shows fear of Colombia and no intent to rely on its protection (para 77).",
+        "result": "dismissed_for_applicant",
+        "result_para": 77,
+        "result_quote": "I agree with Ms. Galindo Camayo that this was an unreasonable finding"
+      }
+    ]
+  }
+}

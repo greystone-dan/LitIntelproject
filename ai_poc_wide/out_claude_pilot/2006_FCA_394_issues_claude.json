@@ -1,0 +1,38 @@
+{
+  "case_id": "2006_FCA_394",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must a PRRA officer consider the interests of a Canadian-born child when assessing the risk of removing a parent?",
+        "paras": "6-16",
+        "applicant_position": "Officer has no such duty; child-interest review belongs to the s.25(1) H&C process.",
+        "respondent_position": "Officer must consider the interests of Canadian-born children; the Applications Judge so held.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "A PRRA officer has no obligation to consider, in the context of the PRRA, the interests of a Canadian-born child"
+      },
+      {
+        "issue": "Did the officer have to consider a greater risk to the parents if the children went to Hungary, when this was not raised with the officer?",
+        "paras": "17",
+        "applicant_position": "Officer was not at fault; the submission was not made to the officer.",
+        "respondent_position": "Officer should have considered the parents' greater risk of persecution if the children went to Hungary.",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "since counsel did not make this submission to the officer, he cannot complain that the officer was at fault in not considering it."
+      },
+      {
+        "issue": "Must a PRRA officer assess the most serious risks because the s.25(1) H&C remedy may come too late?",
+        "paras": "18-19",
+        "applicant_position": "Serious risks belong to the H&C process; a removals officer can defer removal to consider them.",
+        "respondent_position": "PRRA officer must consider the most serious risks because the s.25(1) remedy is illusory.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "although the respondents were not entitled to have this issue taken into account by the PRRA officer"
+      }
+    ]
+  }
+}

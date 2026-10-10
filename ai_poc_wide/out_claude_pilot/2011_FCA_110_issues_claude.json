@@ -1,0 +1,47 @@
+{
+  "case_id": "2011_FCA_110",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 39,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does Financial Administration Act s.19 preclude collecting user fees in advance of the service?",
+        "paras": "24-28",
+        "applicant_position": "Section 19 allows fees only for services actually provided, so advance collection is unlawful.",
+        "respondent_position": "Section 19 does not prevent collecting service fees in advance of delivering a service.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "There is nothing in section 19 which restricts the authority of the Governor in Council to adopt regulations requiring the payment of user fees prior"
+      },
+      {
+        "issue": "Are the sponsorship and visa applications one service, and is there a nexus between the fees and their cost?",
+        "paras": "29-34",
+        "applicant_position": "Two fees for one contingent service; no nexus when the visa service may be about 34 months away or never occur.",
+        "respondent_position": "Sponsorship and visa applications are effectively two parts of one service; the fees reflect practical efficiency.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "a nexus or reasonable connection can be established between the fees collected for the permanent resident visa applications and the cost of processing these applications"
+      },
+      {
+        "issue": "Does the government holding the fees about 34 months before the service breach s.19 by profiting?",
+        "paras": "35",
+        "applicant_position": "Government profits from holding visa fees for about 34 months before any processing cost arises.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "this, if established, would not offend section 19 of the Financial Administration Act."
+      },
+      {
+        "issue": "Should the court compel different fee timing or notice because the timing is unreasonable?",
+        "paras": "36-37",
+        "applicant_position": "Government could easily amend the Regulations to notify applicants before collecting the visa fee.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 37,
+        "result_quote": "In the absence of a legislative or constitutional constraint on the regulatory choices made by government, courts will not interfere to compel their own regulatory preferences"
+      }
+    ]
+  }
+}

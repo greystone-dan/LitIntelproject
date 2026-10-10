@@ -1,0 +1,38 @@
+{
+  "case_id": "2018_FCA_22",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 54,
+    "overall_result": "moot_or_procedural",
+    "issues": [
+      {
+        "issue": "Does this Court have jurisdiction to decide the appeal, given the certified question?",
+        "paras": "43-53",
+        "applicant_position": "Not stated on jurisdiction; both parties said the proposed question was not suitable for certification (para 43).",
+        "respondent_position": "Same as applicant: the case turns on its facts and the proposed question is not suitable (para 43).",
+        "result": "moot_or_procedural",
+        "result_para": 53,
+        "result_quote": "I conclude that the certified question is not sufficient to give this Court jurisdiction to decide the appeal, which must therefore be dismissed."
+      },
+      {
+        "issue": "Should the certified question be reformulated?",
+        "paras": "47-52",
+        "applicant_position": "Counsel were content that the Court try to reformulate the question (para 48).",
+        "respondent_position": "Counsel were content that the Court try to reformulate the question (para 48).",
+        "result": "moot_or_procedural",
+        "result_para": 52,
+        "result_quote": "I therefore came to the view that reformulation would not be appropriate."
+      },
+      {
+        "issue": "Was Member Cook's release order, with its conditions, reasonable (the merits question)?",
+        "paras": "49-52",
+        "applicant_position": "Order as a whole struck a careful, factually supported balance; the judge showed too little deference (para 50).",
+        "respondent_position": "Judge rightly found the order unreasonable, but for reasons unrelated to the pre-release condition (para 50).",
+        "result": "not_decided",
+        "result_para": 52,
+        "result_quote": "it would not be necessary to decide this question either in order to decide the appeal."
+      }
+    ]
+  }
+}

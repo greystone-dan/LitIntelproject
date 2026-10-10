@@ -1,0 +1,29 @@
+{
+  "case_id": "2011_FCA_294",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the appeal of this interlocutory s.77 order barred by IRPA s.79, and does an exception apply?",
+        "paras": "8-32",
+        "applicant_position": "The order breaches his solicitor-client privilege (Charter ss.7, 8), so it is beyond jurisdiction and appealable.",
+        "respondent_position": "Section 79 bars the appeal; there is no constitutional right of appeal and no jurisdictional error.",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "I would quash the appeal for want of jurisdiction."
+      },
+      {
+        "issue": "Should the court decide the merits of the privilege-breach grounds on the order's prejudice test and practicality?",
+        "paras": "18-24",
+        "applicant_position": "Seeks to set aside the order and have the permanent stay motion decided before any document separation.",
+        "respondent_position": "Justice Blanchard has not yet found any privilege breach, and the order is within his jurisdiction.",
+        "result": "not_decided",
+        "result_para": 32,
+        "result_quote": "would require this Court to make a decision on the basis of a factual foundation that is, to say the least, incomplete."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2024_FCA_174",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether a Federal Court direction on the timing of a stay motion can be appealed to this Court",
+        "paras": "6-9",
+        "applicant_position": "Appellant says the Federal Court direction on the timing of his stay motion is appealable.",
+        "respondent_position": "Respondents move to terminate the appeal under Rule 74 and the statutory appeal bar in IRPA s.74(d).",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "I am not persuaded that the timing of the stay motion affects the appellant’s substantive arguments or rights for all time"
+      },
+      {
+        "issue": "Whether a 'jurisdiction' exception to the IRPA s.74(d) appeal bar applies, including the Federal Court's power to schedule the motion",
+        "paras": "10-14",
+        "applicant_position": "Appellant says the Federal Court exceeded its jurisdiction by removing his stay motion from general sittings.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "Here, there is no issue of jurisdiction."
+      },
+      {
+        "issue": "Whether a reasonable apprehension of bias, based on acting on respondents' letter, is an exception to the appeal bar",
+        "paras": "15-18",
+        "applicant_position": "Appellant says the judge acted on respondents' letter without waiting for his reply, creating reasonable apprehension of bias.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "In any event, the appellant is making an allegation of procedural fairness, which is not an exception to the statutory bars"
+      },
+      {
+        "issue": "Whether a rule of law concern makes a judge-made exception to the appeal bar applicable",
+        "paras": "19",
+        "applicant_position": "Appellant says a rule of law concern makes the judge-made exceptions to the statutory bar apply.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "In these circumstances, for the reasons set out in paragraph 8, this does not trigger any rule of law concerns."
+      }
+    ]
+  }
+}

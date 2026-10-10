@@ -1,0 +1,29 @@
+{
+  "case_id": "2005_FCA_176",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 13,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the Court have appellate jurisdiction over the Minister's appeal of an interlocutory stay order made on a pending leave application?",
+        "paras": "4-12",
+        "applicant_position": "Minister says section 27 of the Federal Courts Act gives appellate jurisdiction, and the stay order was made outside statutory jurisdiction.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "We are all of the view that paragraph 72(2)(e) of the Immigration and Refugee Protection Act precludes this Court from entertaining the Minister's appeal."
+      },
+      {
+        "issue": "Were the terms of the stay order (external matters, duration, usurping the Minister's humanitarian powers) errors of law?",
+        "paras": "7-10",
+        "applicant_position": "Stay order discloses several errors of law: external matters, duration past the leave decision, and usurping the Minister's humanitarian authority.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 9,
+        "result_quote": "It would not be appropriate to express an opinion on any of these issues"
+      }
+    ]
+  }
+}

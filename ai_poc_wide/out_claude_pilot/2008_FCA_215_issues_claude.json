@@ -1,0 +1,38 @@
+{
+  "case_id": "2008_FCA_215",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 63,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Can the application be converted into a class action before the validity of the regulations is finally decided?",
+        "paras": "37-54",
+        "applicant_position": "Conversion before judicial review ends makes s.18 meaningless; validity must be decided first.",
+        "respondent_position": "not stated; the Motions Judge held conversion before final disposition was permissible.",
+        "result": "dismissed_for_applicant",
+        "result_para": 53,
+        "result_quote": "I find no problem in principle with conversion prior to a final disposition of the application for judicial review."
+      },
+      {
+        "issue": "Can the class include people who paid fees under regulations not challenged in the leave application?",
+        "paras": "55-58",
+        "applicant_position": "Leave under s.72(1) covers only the regulation challenged, so the class must be limited to it.",
+        "respondent_position": "not stated; the Motions Judge certified a class covering all the impugned regulations.",
+        "result": "allowed_for_applicant",
+        "result_para": 57,
+        "result_quote": "In my opinion, the Motions Judge erred in defining the class to include persons who paid fees pursuant to the impugned regulations"
+      },
+      {
+        "issue": "Was a class action the preferable procedure for determining the validity of the regulations?",
+        "paras": "59-62",
+        "applicant_position": "A class action was not the preferable procedure; finding otherwise was an error.",
+        "respondent_position": "Class action is preferable: simpler restitution, no test case offered, one case management judge.",
+        "result": "dismissed_for_applicant",
+        "result_para": 62,
+        "result_quote": "For these reasons I conclude that the Motions Judge did not err in exercising his discretion to decide that a class action was the preferable procedure."
+      }
+    ]
+  }
+}

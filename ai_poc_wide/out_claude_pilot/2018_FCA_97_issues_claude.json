@@ -1,0 +1,29 @@
+{
+  "case_id": "2018_FCA_97",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 68,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the screening tools abuse the employer's authority by treating PRRA officers as quasi-judicial decision makers and immigration officers as administrative?",
+        "paras": "49-62",
+        "applicant_position": "PRRA and immigration officers do essentially the same work, so the quasi-judicial distinction is unsupported and favours PRRA officers.",
+        "respondent_position": "PRRA officers have a statutory hearing mandate and the same legal test as RPD members; the employer may set qualifications.",
+        "result": "dismissed_for_applicant",
+        "result_para": 56,
+        "result_quote": "The Board’s conclusions are supported by the evidence which it accepted."
+      },
+      {
+        "issue": "Did the reference document and schedule fetter the screening committee's discretion?",
+        "paras": "63-65",
+        "applicant_position": "Lists of qualifying and non-qualifying positions excluded immigration officers a priori, so his experience was never assessed on its merits.",
+        "respondent_position": "Tools were guides only; committees used judgment, and the screener approached his file with an open mind.",
+        "result": "dismissed_for_applicant",
+        "result_para": 65,
+        "result_quote": "The applicant has not shown any reason why it should not have done so."
+      }
+    ]
+  }
+}

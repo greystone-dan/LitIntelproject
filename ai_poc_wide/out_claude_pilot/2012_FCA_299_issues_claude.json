@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FCA_299",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the judge misdescribe the proceeding, and does that warrant appellate intervention?",
+        "paras": "22-23",
+        "applicant_position": "Judge wrongly treated the documents as relevant to judicial review, not to his Ministerial relief application.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "I am not persuaded that this error is serious enough to warrant appellate intervention."
+      },
+      {
+        "issue": "Should the redactions be reduced, or limited use allowed, because some facts were already disclosed?",
+        "paras": "24-26",
+        "applicant_position": "Redactions should be reduced or limited use allowed, as the facts were already publicly disclosed.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I can discern no error of law or principle in the conclusion of Justice Snider that fairness does not require further disclosure"
+      }
+    ]
+  }
+}

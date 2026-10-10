@@ -1,0 +1,29 @@
+{
+  "case_id": "2010_FCA_337",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 14,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Judge disqualified by bias because he refused the stay, and the appellants say he misapplied the test?",
+        "paras": "6-9",
+        "applicant_position": "Refusing the stay and the alleged legal error show the Judge was biased against them.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "this allegation would not cause a reasonable person who had thought the matter through in a realistic and practical manner to conclude that the Judge was biased"
+      },
+      {
+        "issue": "Did counsel's criticism of the Judge's reasons and the UN complaint create a reasonable apprehension of bias?",
+        "paras": "10-13",
+        "applicant_position": "Counsel's criticism of the reasons and the UN complaint would make the Judge biased against them.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "Counsel cannot create bias by intemperate criticism of a judge’s reasons."
+      }
+    ]
+  }
+}

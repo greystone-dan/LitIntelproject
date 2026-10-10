@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FCA_20",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 15,
+    "overall_result": "not_decided",
+    "issues": [
+      {
+        "issue": "Should UNHCR be granted leave to intervene in the appeal?",
+        "paras": "2-6",
+        "applicant_position": "Minister does not oppose the UNHCR motion.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "For these reasons, the motions by UNHCR and CARL are granted, on the terms set out in the order accompanying these reasons."
+      },
+      {
+        "issue": "Should CARL be granted leave to intervene in the appeal?",
+        "paras": "7-9",
+        "applicant_position": "Minister opposes CARL motion because its proposed submissions overlap with the respondent and UNHCR.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "For these reasons, the motions by UNHCR and CARL are granted, on the terms set out in the order accompanying these reasons."
+      },
+      {
+        "issue": "Should JFCY and ICIWG be granted leave to intervene in the appeal?",
+        "paras": "10-14",
+        "applicant_position": "Minister opposes the JFCY/ICIWG motion.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "The motion by JFCY and ICIWG is dismissed."
+      }
+    ]
+  }
+}

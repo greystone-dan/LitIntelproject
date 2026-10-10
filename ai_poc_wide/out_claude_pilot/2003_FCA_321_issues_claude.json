@@ -1,0 +1,47 @@
+{
+  "case_id": "2003_FCA_321",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Crown's motion to expedite the appeal be granted?",
+        "paras": "17-19",
+        "applicant_position": "Crown says expediting serves the interests of justice; the hearing could be set earlier.",
+        "respondent_position": "Jaballah says expediting would cause him financial hardship and strain his counsel's resources.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I am not persuaded that the interests of justice will be served by expediting the hearing of this appeal by two or three months."
+      },
+      {
+        "issue": "Should Jaballah get a Rowbotham order making the Crown pay his costs if the appeal is expedited?",
+        "paras": "17-20",
+        "applicant_position": "not stated",
+        "respondent_position": "Jaballah seeks a Rowbotham order requiring the Crown to pay his costs if the appeal is expedited.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "Mr. Jaballah's motion for a Rowbotham order, which was conditional upon the granting of the motion to expedite, will also be denied."
+      },
+      {
+        "issue": "Should the Crown get a stay of the May 23, 2003 order pending the appeal?",
+        "paras": "21-28",
+        "applicant_position": "Without a stay the appeal becomes moot, as the protection assessment would proceed on the August 2002 report.",
+        "respondent_position": "Jaballah opposes the Crown's motions (para 1); his specific stay arguments are not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I conclude that the Crown has failed to establish that irreparable harm will result if the stay is not granted."
+      },
+      {
+        "issue": "Should Jaballah get solicitor and client costs of the motions?",
+        "paras": "29-30",
+        "applicant_position": "not stated",
+        "respondent_position": "Jaballah seeks solicitor and client costs of the motions, arguing the Crown's motions were frivolous.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "The motion for solicitor and client costs will be denied."
+      }
+    ]
+  }
+}

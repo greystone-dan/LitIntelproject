@@ -290,6 +290,13 @@ SECTIONS = {
 			], "Searching “test for reasonable apprehension of bias” and landing on the paragraphs that state the test, not on a passage that merely mentions it.",
 			"The outline of headings is live in the reader. Discussion units run in a testing page and as reports.",
 			"Review of the unit boundaries against a hand-checked set, then storing units when decisions are added and search by unit."),
+			("whose-position", "Whose position: argument breakdown", "concept", [
+				"Each paragraph of a decision would be tagged with whose position it reports: the applicant’s, the respondent’s, the Court’s own, an earlier decision-maker’s, prior authority, or a witness or document. A reader could then tell at a glance whether a sentence is the judge speaking or a party’s argument being summarised.",
+				"The end goal is Live Analysis of a one-sided draft argument: the user’s draft would be matched to decided issues and the results those arguments met, so counsel can see where a point has worked and where it has not.",
+				"AI is used only when decisions are added, on public case law, and what it finds is stored as data that points back to the source paragraph. Nothing typed on the site, and no draft, is sent to a model. This is a preview of a concept, not a finished feature.",
+			], "Opening a decision, switching on “Show whose position” and seeing which paragraphs are the applicant’s argument, which are the respondent’s and which are the Court’s own conclusion on each issue.",
+			"A preview of the reader view exists. In early tests on a graded sample, the position holder was right about 8 times in 10 and the result of an issue about 88% of the time. The grading was done by Claude, not by lawyers, so these figures are indicative only.",
+			"Better handling of memoranda and split decisions (where the dissent can be mistaken for the holding), review of a sample by lawyers, and the draft-matching step in Live Analysis."),
 			("themes", "Themes", "partly", [
 				"Themes group the arguments that recur across decisions, such as the recurring complaints about credibility findings or about reasons for a refusal, and show which statutory provisions each one leans on.",
 				"A first Legal Themes page exists. It is built on tags and will be sharper once discussion units are stored.",

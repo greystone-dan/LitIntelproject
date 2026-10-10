@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 200
+Active scripts documented: 203
 
 ## Catalog
 
@@ -57,6 +57,8 @@ Active scripts documented: 200
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
+| `build_position_layers.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_layers.py --help` |
+| `build_position_preview.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
@@ -198,6 +200,7 @@ Active scripts documented: 200
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
+| `score_position_holder.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_position_holder.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
@@ -867,6 +870,34 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
+```
+
+## `scripts/build_position_layers.py`
+
+**Purpose:** Build per-paragraph rule-based holder and layer files for the reader preview. Offline: reads two folders of JSON (propositions files for the paragraph numbers, case reports for the text), no database, no model, no network. Output ``data/position_layers/case_<id>.json``: {"case_id": 28105, "source": {...}, "frame": "...", "paragraphs": {"13": {"l": 2, "h": ["respondent"], "law": false, "mixed": false, "c": "explicit"}}} ``l`` is the one layer the reader shows (1 judge, 2 submissions to the court, 3 earlier decision maker, 4 first-instance party as reported, 5 witness or document, 6 legal framework / precedent commentary), the same field name the reader preview uses for a stored layer. ``h`` are the rules' holders, ``law`` marks a paragraph with any layer-6 sentence, ``mixed`` marks two or more of layers 1-4 in the paragraph, ``c`` is how the paragraph layer was decided (explicit cue, lead_in, carried, default). python scripts/build_position_layers.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_layers.py --help
+```
+
+## `scripts/build_position_preview.py`
+
+**Purpose:** Build the compact per-decision "whose position" files the reader preview reads. Input: the propositions run (batch 4) JSON files, one per decision, e.g. ``case_28105_prop_prop_v4_gpt-4.1-mini.json``. Output: ``data/position_preview/case_<id>.json``. Offline and read-only against the database: no AI calls. python scripts/build_position_preview.py --src path/to/bundle5/props
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview.py --help
 ```
 
 ## `scripts/build_prototype_cohort.py`
@@ -2841,6 +2872,20 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
+```
+
+## `scripts/score_position_holder.py`
+
+**Purpose:** Score backend/position_holder.py against stored model labels. Offline only: reads two folders of JSON (no database, no network). --props folder of proposition files (para number, propositions with holder) --reports folder of deterministic case reports holding the paragraph text Example: python scripts/score_position_holder.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports --out position_holder_scores.json The stored labels are model output, not a lawyer's truth; this measures agreement only.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_position_holder.py --help
 ```
 
 ## `scripts/score_search_gold.py`

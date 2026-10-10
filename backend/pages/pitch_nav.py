@@ -79,7 +79,9 @@ def _subnav() -> str:
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
     ]
-    rows += [_tab("roadmap", f"roadmap-{key}", "comingSoonPanel", ROADMAP_LABELS[key]) for key in ROADMAP_ORDER]
+    rows += [_tab("roadmap", f"roadmap-{key}", "comingSoonPanel", ROADMAP_LABELS[key]) for key in ROADMAP_ORDER[:1]]
+    rows.append(_tab("roadmap", "roadmap-demos", "comingSoonPanel", "Try the demos"))
+    rows += [_tab("roadmap", f"roadmap-{key}", "comingSoonPanel", ROADMAP_LABELS[key]) for key in ROADMAP_ORDER[1:]]
     rows += [_tab("soon", f"soon-{key}", "comingSoonPanel", name.replace("&", "&amp;")) for key, name, _ in COMING_SOON]
     rows += [
         _tab("testing", "research-bench", "researchBenchPanel", "Research Bench"),
@@ -89,7 +91,7 @@ def _subnav() -> str:
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a><a class="ilit-tour-start alt" href="/coming-soon-preview" id="comingSoonPreview"><span aria-hidden="true">&#9654;</span> Coming soon preview</a></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a><a class="ilit-tour-start alt" href="/coming-soon-preview" id="comingSoonPreview"><span aria-hidden="true">&#9654;</span> Coming soon preview</a><a class="ilit-tour-start alt" href="/data-explorer?tab=roadmap-demos&amp;group=roadmap" id="comingSoonDemos"><span aria-hidden="true">&#9998;</span> Try the demos</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
@@ -124,6 +126,7 @@ def _script() -> str:
         info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target, "group": "soon"}
     for key in ROADMAP_ORDER:
         info[f"roadmap-{key}"] = {"name": ROADMAP_LABELS[key], "text": "", "kind": "page", "target": f"/coming-soon/{key}", "group": "roadmap"}
+    info["roadmap-demos"] = {"name": "Try the demos", "text": "", "kind": "page", "target": "/coming-soon-demo", "group": "roadmap"}
     return (
         "const pitchSoon=" + json.dumps(info) + ";\n"
         "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',soon:'Development',testing:'Testing',direct:'Other'};\n"

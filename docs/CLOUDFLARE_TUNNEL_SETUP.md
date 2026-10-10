@@ -2,6 +2,12 @@
 
 This setup publishes your local AI CaseLibrary app to your domain via Cloudflare Tunnel.
 
+For the current site deployment, the Windows scheduled task `iLitSite` is the
+primary site and tunnel process. After `git pull origin main`, restart it with
+`Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`. The
+`scripts\refresh_site.ps1` workflow below is only a fallback if that task has
+been removed; do not run it while the task is installed.
+
 ## Prerequisites
 
 - Domain is active in Cloudflare DNS
@@ -25,7 +31,7 @@ What this does:
 4. Creates DNS route from hostname to the tunnel.
 5. Writes local tunnel config to `.cloudflared/config.yml`.
 
-## Run App + Tunnel
+## Standalone App + Tunnel (Fallback Only)
 
 ```powershell
 .\scripts\refresh_site.ps1

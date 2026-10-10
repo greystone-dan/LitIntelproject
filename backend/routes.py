@@ -219,6 +219,7 @@ from .reader_service import (
 	_stored_case_citation_details,
 	_stored_statute_reference_details,
 )
+from .position_tags import case_positions
 from .case_reader_ui import (
 	case_reader_with_statutes_html,
 	statute_viewer_page_html,
@@ -1536,6 +1537,12 @@ def coming_soon_preview_page() -> HTMLResponse:
 	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/coming-soon-demo", include_in_schema=False)
+def coming_soon_demo_page() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "coming_soon_demo.html"
+	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/coming-soon-preview/img/{name}", include_in_schema=False)
 def coming_soon_preview_image(name: str) -> Response:
 	if name not in {"reader.webp", "workbench.webp", "live.webp", "authorities.webp"}:
@@ -2281,6 +2288,12 @@ def export_search_analytics_cases(
 		media_type="text/csv",
 		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
 	)
+
+
+@router.get("/cases/{case_id}/paragraph-positions", response_model=dict[str, Any])
+def get_case_paragraph_positions(case_id: int) -> dict[str, Any]:
+	"""Whose-position tags and one-line summaries for a decision (preview). Stored data only; no model call."""
+	return case_positions(case_id)
 
 
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])

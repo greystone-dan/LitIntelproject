@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-09T12:15:31.228957+00:00
+Generated: 2026-10-09T22:48:25.423572+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 134 across 131 paths
-Hidden operations: 98 excluded from OpenAPI
+OpenAPI operations: 135 across 132 paths
+Hidden operations: 99 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -680,6 +680,21 @@ Word file of the decision with the margin notes the browser sends as Word commen
 ### `GET /cases/{case_id}/paragraph-assessments`
 
 Get Case Paragraph Assessments
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-positions`
+
+Get Case Paragraph Positions
+
+Whose-position tags and one-line summaries for a decision (preview). Stored data only; no model call.
 
 **Parameters**
 
@@ -2575,6 +2590,16 @@ Handler: `backend.routes.citation_intelligence_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.citation_pass_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-demo`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_demo_page`
 
 **Responses**
 

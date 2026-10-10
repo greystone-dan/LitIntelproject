@@ -129,6 +129,24 @@ class DocumentKindTests(unittest.TestCase):
 		# "no question for certification" is a request, not the Court
 		self.assertNotIn("court", res[3].holders)
 
+	def test_memorandum_headings_and_issue_questions_are_the_authors(self):
+		# lines copied from the fictional Word drafts 04 (study permit) and 05 (cessation)
+		f = build_frame(MOA_HEADER.replace("RESPONDENT’S MEMORANDUM", "APPLICANT’S MEMORANDUM").replace("(Prepared by counsel for the Minister)", ""), MOA_BODY)
+		paras = ["B. The officer’s conclusion on the study plan was unreasonable",
+			"5.\t(a) Was the officer’s conclusion on the program of study unreasonable? (b) Did the officer’s failure to give adequate reasons breach procedural fairness?"]
+		for r in tag_decision(paras, frame=f):
+			self.assertEqual(set(r.sentence_holders), {APPLICANT})
+			self.assertEqual(set(r.layers), {2})
+		# a sentence that reports the officer's finding is still the earlier decision maker's
+		r = tag_decision(["The officer found that the Applicant did not show a clear study plan, which was unreasonable."], frame=f)[0]
+		self.assertIn(EARLIER, r.sentence_holders)
+
+	def test_headings_do_not_change_a_decision(self):
+		f = build_frame(FC_HEADER, FC_BODY)
+		r = tag_decision(["The Officer’s conclusion on the best interests of the child was unreasonable"], frame=f)[0]
+		self.assertEqual(f.author.value, "court")
+		self.assertEqual(r.sentence_holders, [EARLIER])
+
 	def test_applicants_memorandum(self):
 		f = build_frame(MOA_HEADER.replace("RESPONDENT’S MEMORANDUM", "APPLICANT’S MEMORANDUM").replace("(Prepared by counsel for the Minister)", ""), MOA_BODY)
 		self.assertEqual(f.author.value, "applicant")

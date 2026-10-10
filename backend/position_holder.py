@@ -653,6 +653,17 @@ def parties_from_frame(frame, title: str = "") -> Parties:
 
 
 _LIST_END = re.compile(r":\s*$")
+_NUM_PREFIX = re.compile(r"^\s*(?:\[\d+\]|\d+\.|[A-Z]\.|[IVX]+\.)?\s*")
+
+
+def _is_heading_or_issue_question(text: str) -> bool:
+	"""A short line without a closing full stop (a heading) or a question (an issue as framed by the author)."""
+	body = _NUM_PREFIX.sub("", (text or "").strip(), count=1).strip()
+	if not body:
+		return False
+	if body.endswith("?"):
+		return True
+	return len(body.split()) <= 20 and not body.endswith((".", ":", ";", ","))
 
 
 def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | None = None,
@@ -663,10 +674,14 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 	sentences = split_sentences(text)
 	res = Result()
 	last = previous
+	own_framing = parties.author != COURT and _is_heading_or_issue_question(text)
 	for i, s in enumerate(sentences):
 		cue = _author_fix(sentence_cue(s, parties, index=i), parties)
 		if cue:
 			assign_layer(s, cue)
+			if own_framing:
+				# in a memorandum a heading or an issue question is the author's framing, even when it names "the officer"
+				cue.holder, cue.layer, cue.inner_holder = parties.author, LAYER_JR_PARTY, None
 			if parties.author != COURT and cue.holder == COURT:
 				# one-sided document: "the Court does not reweigh" or "no question for certification" is the author
 				# stating the law or asking for an order, never the Court deciding

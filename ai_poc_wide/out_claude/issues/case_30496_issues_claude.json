@@ -1,0 +1,38 @@
+{
+  "case_id": 30496,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 4,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the applicant be anonymized as SJ to protect minor children?",
+        "paras": "5-7",
+        "applicant_position": "Counsel seeks anonymization to protect minor children from harm from criminal record information.",
+        "respondent_position": "Respondent consents to anonymization.",
+        "result": "moot_or_procedural",
+        "result_para": 7,
+        "result_text": "Anonymization granted under Sherman Estate test; name shown as SJ; amendments possible if identifiable."
+      },
+      {
+        "issue": "Did the officer reasonably consider the children's best interests in refusing the H&C application?",
+        "paras": "13-20",
+        "applicant_position": "Challenges the H&C refusal on several grounds; specific best-interests arguments not stated.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_text": "Officer minimized children's concerns and ignored safety and discrimination evidence; decision unreasonable; redetermination ordered."
+      },
+      {
+        "issue": "Did the officer properly assess the TRP request under section 24(1) IRPA?",
+        "paras": "21-24",
+        "applicant_position": "Requested time-limited TRP under s 24 and relied on Operational Manual 1 guidance.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_text": "Officer did not apply the s 24(1) TRP framework or guideline factors; further TRP analysis required."
+      }
+    ]
+  }
+}

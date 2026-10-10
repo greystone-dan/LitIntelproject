@@ -1,0 +1,29 @@
+{
+  "case_id": 296,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 53,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD fairly deal with Jeffrey's affidavit corroborating the applicant's partner AJ?",
+        "paras": "40-46",
+        "applicant_position": "RAD ignored Jeffrey's affidavit, critical evidence about AJ, and wrongly treated it as undated.",
+        "respondent_position": "RAD only had to address matters the applicant raised; he did not challenge determinative credibility findings.",
+        "result": "allowed_for_applicant",
+        "result_para": 46,
+        "result_text": "Failure to address Jeffrey's affidavit is a reviewable error; the decision is unreasonable on that basis alone."
+      },
+      {
+        "issue": "Is the RAD's overall reasoning on credibility and the AJ evidence transparent, intelligible and justified?",
+        "paras": "47-52",
+        "applicant_position": "Overall conclusion unexplained; RAD found most RPD findings erroneous yet upheld the RPD.",
+        "respondent_position": "Unchallenged negative credibility findings are presumed true; applicant did not challenge the determinative ones.",
+        "result": "allowed_for_applicant",
+        "result_para": 52,
+        "result_text": "Decision lacks justification, transparency and intelligibility and was made without regard to the evidence."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": 13080,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the applicant have clean hands and act in good faith, so as to qualify for a stay?",
+        "paras": "3-8",
+        "applicant_position": "not stated",
+        "respondent_position": "Applicant cannot be found, missed his CBSA meeting, and did not sign the supporting affidavit.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_text": "Applicant's failure to act in good faith, shown by his disappearance, suffices to dismiss the stay application."
+      },
+      {
+        "issue": "Does the applicant show a serious issue for judicial review of the negative PRRA decision?",
+        "paras": "9-20",
+        "applicant_position": "PRRA decision-maker failed to review certain allegations; Tunisia cannot provide the healthcare he needs.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_text": "Applicant failed to establish a serious issue given lack of evidence and speculative arguments; the burden lies on him."
+      },
+      {
+        "issue": "Has the applicant shown irreparable harm?",
+        "paras": "6-7, 21",
+        "applicant_position": "Argued conviction in absentia and detention risk, not irreparable harm.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 7,
+        "result_text": "Evidence and argument for irreparable harm are essentially non-existent given the applicant's non-cooperation."
+      },
+      {
+        "issue": "Does the balance of convenience favour the applicant?",
+        "paras": "22",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_text": "Balance of convenience must favour the Minister given the applicant's disappearance and unconfirmed facts."
+      }
+    ]
+  }
+}

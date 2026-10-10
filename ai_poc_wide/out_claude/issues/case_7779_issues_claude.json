@@ -1,0 +1,29 @@
+{
+  "case_id": 7779,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was former counsel negligent or incompetent, and if so did it cause substantial prejudice to the RAD appeal?",
+        "paras": "17-25, 31",
+        "applicant_position": "Counsel failed to disclose decisive employment evidence and to explain its late filing; the proof would have supported the kidnapping claim.",
+        "respondent_position": "Former counsel says employment proof was provided before the RAD appeal; the envelope shows only the mother's letter.",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_text": "Record does not show former counsel's incompetence caused substantial prejudice to the RAD appeal."
+      },
+      {
+        "issue": "Was the RAD's finding that Chittagong is a viable internal flight alternative (IFA) reasonable?",
+        "paras": "26-30, 32",
+        "applicant_position": "RAD's IFA findings are speculative and ignored contradictory evidence, including a friend's letter and inquirers who were Jubo League members.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_text": "RAD's Chittagong IFA determination was reasonable; no basis to overturn it."
+      }
+    ]
+  }
+}

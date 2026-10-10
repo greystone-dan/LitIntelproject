@@ -1,0 +1,29 @@
+{
+  "case_id": 11959,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 12,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the applicant denied procedural fairness because the Officer treated her affidavit as mere allegation and did not put doubts to her in an interview?",
+        "paras": "8-9, 12",
+        "applicant_position": "Officer should have accepted affidavit facts absent a credibility finding and allowed an interview; procedural fairness breached, correctness applies.",
+        "respondent_position": "Officer's findings concern sufficiency of evidence, not credibility; reasonableness applies; no breach of natural justice.",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_text": "No breach of natural justice; the Officer's findings were about sufficiency of evidence."
+      },
+      {
+        "issue": "Was the Officer's H&C decision unreasonable on establishment, hardship, country conditions and best interests of the children?",
+        "paras": "3-7, 9-11",
+        "applicant_position": "Officer relied on speculation, misjudged employment prospects (teacher/cleaner), undervalued financial support and gender violence evidence.",
+        "respondent_position": "Officer considered all evidence reasonably; burden on applicant to corroborate; teacher/daycare error not determinative.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_text": "Officer duly considered all evidence; outcome defensible; court will not reassess the evidence."
+      }
+    ]
+  }
+}

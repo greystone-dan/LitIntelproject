@@ -1,0 +1,38 @@
+{
+ "case_id": 65123,
+ "task": "issues",
+ "model": "claude",
+ "result": {
+  "order_para": 37,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the RPD breach natural justice through interpretation errors at the hearing?",
+    "paras": "15-20",
+    "applicant_position": "Simultaneous interpreting errors at the RPD made the hearing unfair.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 20,
+    "result_text": "Appellant had a fair, thorough hearing; no breach of natural justice or procedural fairness."
+   },
+   {
+    "issue": "Did the RPD err in finding the appellant not credible?",
+    "paras": "21-26",
+    "applicant_position": "The credibility finding is wrong and the RPD fixated on dates.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 26,
+    "result_text": "The RPD did not err regarding the appellant's credibility; errors went beyond dates."
+   },
+   {
+    "issue": "Did the RPD err in its analysis of identity documents and in finding identity not established?",
+    "paras": "27-34",
+    "applicant_position": "RPD wrongly limited its analysis to factual issues about the nationality certificate and gave no probative value to documents as it believed them fraudulent.",
+    "respondent_position": "Identity not established under IRPA section 106, so the claim should be rejected.",
+    "result": "dismissed_for_applicant",
+    "result_para": 34,
+    "result_text": "The RAD finds the RPD did not err; contradictory statements support the identity rejection."
+   }
+  ]
+ }
+}

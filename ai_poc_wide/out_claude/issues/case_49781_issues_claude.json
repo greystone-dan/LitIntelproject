@@ -1,0 +1,29 @@
+{
+  "case_id": 49781,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 17,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant's identity and credibility are established",
+        "paras": "5-7",
+        "applicant_position": "Claimant says his family was targeted by Al-Shabaab for recruitment and he fled to Kenya in 2008.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_text": "Identity accepted through aunt's testimony and diploma; claimant testified straightforwardly and is credible."
+      },
+      {
+        "issue": "Whether an internal flight alternative exists in Puntland",
+        "paras": "8-16",
+        "applicant_position": "Claimant says he cannot live safely in Puntland because he lacks local knowledge and clan affiliations there.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_text": "Claimant would be safe in Bosaso, Puntland through his Darod clan; moving there is not objectively unreasonable."
+      }
+    ]
+  }
+}

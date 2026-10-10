@@ -1,0 +1,38 @@
+{
+  "case_id": 17934,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 52,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD apply the correct legal test for adequate state protection?",
+        "paras": "24-28",
+        "applicant_position": "RAD and RPD misapplied the state protection test, citing excerpts showing the error.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_text": "Both RAD and RPD correctly identified and applied the state protection test."
+      },
+      {
+        "issue": "Was the RAD's conclusion that adequate state protection was available reasonable, including whether it assessed the case in a factual vacuum?",
+        "paras": "29-42",
+        "applicant_position": "RAD ignored factual basis and operational effectiveness, and did not explain why they did not seek police help.",
+        "respondent_position": "RAD considered the factual vacuum submission and gave clear reasons; describing some incidents was not an error.",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_text": "RAD reasonably assessed the hospital statement; denial of the appeal was within possible outcomes."
+      },
+      {
+        "issue": "Did the RAD err by reaching a different state protection conclusion from the Prior RPD Decision on the same country evidence?",
+        "paras": "43-51",
+        "applicant_position": "Panels did not explain the departure from the Prior RPD Decision; consistency is required on the same evidence.",
+        "respondent_position": "Mendoza's concern about differing results arises only in narrow circumstances; protection findings are claimant-specific.",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_text": "Court finds no reviewable error in the RAD's treatment of the Prior RPD Decision."
+      }
+    ]
+  }
+}

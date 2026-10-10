@@ -1,0 +1,38 @@
+{
+  "case_id": 30867,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 22,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer unreasonably conflate the s.96 and s.97 tests by requiring a personalized risk?",
+        "paras": "12-17",
+        "applicant_position": "Officer required personalized risk and dismissed generalized FGM evidence, conflating sections 96 and 97.",
+        "respondent_position": "Officer did not err; evidence insufficient to establish the claim or targeting for refusing FGM.",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_text": "Officer imported the s.97 threshold into s.96 and dismissed generalized FGM evidence without proper analysis; decision unreasonable."
+      },
+      {
+        "issue": "Did the Officer unreasonably require corroboration of the principal applicant's affidavit without giving reasons?",
+        "paras": "18-20",
+        "applicant_position": "Officer had no independent reasons to reject the sworn affidavit or require corroboration.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_text": "Requiring corroboration of the affidavit without independent reasons renders the decision unreasonable."
+      },
+      {
+        "issue": "Was the decision procedurally unfair, including on the need for an oral hearing?",
+        "paras": "20-21",
+        "applicant_position": "Applicants argued the process was procedurally unfair.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 21,
+        "result_text": "Having found the decision unreasonable, the court does not address procedural fairness."
+      }
+    ]
+  }
+}

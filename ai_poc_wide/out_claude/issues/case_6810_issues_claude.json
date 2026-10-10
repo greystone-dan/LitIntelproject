@@ -1,0 +1,38 @@
+{
+  "case_id": 6810,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 42,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the officer reasonably assessed establishment, or applied an 'exceptional' establishment standard",
+        "paras": "12-27",
+        "applicant_position": "Officer set an impossible threshold requiring exceptional establishment and ignored personalized evidence.",
+        "respondent_position": "Officer reasonably considered efforts and gave some weight to establishment; 'exceptional' was used descriptively.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_text": "Officer erred by not explaining why establishment and integration evidence did not show hardship or exceptional establishment."
+      },
+      {
+        "issue": "Whether the officer reasonably assessed hardship from health care conditions and medication access in Nigeria",
+        "paras": "28-41",
+        "applicant_position": "Officer ignored evidence that key medications are unavailable in Nigeria and contradicted himself on cost.",
+        "respondent_position": "Applicants bore onus to show medications unavailable; Adedeji case lacked such evidence; ability to pay was reasonably assessed.",
+        "result": "partly_allowed",
+        "result_para": 41,
+        "result_text": "Conclusion on health care hardship lacks justification as some medications are unavailable; insecurity arguments were rejected."
+      },
+      {
+        "issue": "Whether the officer erred in its best interests of the children assessment",
+        "paras": "8",
+        "applicant_position": "Officer erred in assessing best interests of the children.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 0,
+        "result_text": "Not separately addressed in the points; the decision turned on establishment and medical evidence."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": 17251,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's credibility finding that the applicant's account shifted toward police searching for him reasonable?",
+        "paras": "11, 20-21",
+        "applicant_position": "No real shift in evidence occurred regarding fear of police; credibility concerns were flawed.",
+        "respondent_position": "Applicant's testimony was vague; the RPD could make adverse credibility findings from implausibility and common sense.",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_text": "Reasonable for the RPD to find the testimony shifted toward police searching for him."
+      },
+      {
+        "issue": "Was the RPD's forward-looking risk finding, that Malaka Silva no longer controls police, reasonable?",
+        "paras": "15, 18, 22",
+        "applicant_position": "RPD failed to assess forward-looking risk and wrongly assumed Silva lost power and persecution ability.",
+        "respondent_position": "Applicant did not show Silva still had power or could persecute through connections; the finding was open.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_text": "No documentary evidence showed Silva still controlled police; no forward-looking grounds for protection."
+      }
+    ]
+  }
+}

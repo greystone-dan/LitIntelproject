@@ -1,0 +1,47 @@
+{
+  "case_id": 12661,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 38,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD err in refusing to admit the new physician's letter under the Raza criteria?",
+        "paras": "13-22",
+        "applicant_position": "Raza is a PRRA test and should not apply automatically to RAD; RAD's materiality analysis of the letter was unreasonable.",
+        "respondent_position": "PRRA and RAD new evidence provisions are similar, so the RAD reasonably applied Raza.",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_text": "RAD erred applying Raza to exclude the physician's letter; application allowed on that basis."
+      },
+      {
+        "issue": "Did the RAD apply the correct standard, reviewing the RPD's credibility and factual findings as an appeal rather than under reasonableness review?",
+        "paras": "8-12, 23-37",
+        "applicant_position": "RAD reviewed the RPD decision as if on judicial review, failed to conduct an independent appellate assessment of credibility.",
+        "respondent_position": "RAD properly applied reasonableness and owes deference to RPD credibility findings based on witness testimony.",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_text": "RAD erred by applying reasonableness to RPD findings and not consistently assessing the evidence independently."
+      },
+      {
+        "issue": "Did the RAD misapprehend the RPD's conclusion on the discrepancy about the MSR leader's death and the translation error?",
+        "paras": "25, 29, 37",
+        "applicant_position": "RAD wrongly found the RPD's adverse credibility finding on the explanation of the MSR leader's death reasonable.",
+        "respondent_position": "RAD's misunderstanding of the discrepancy was not central, as other credibility conclusions were unaffected.",
+        "result": "allowed_for_applicant",
+        "result_para": 37,
+        "result_text": "RAD misapprehended the RPD's discrepancy conclusion, which affected the overall reasonableness finding."
+      },
+      {
+        "issue": "Should a question be certified for appeal?",
+        "paras": "39",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 39,
+        "result_text": "No question certified, as the applicant succeeded and the issues will be decided in other cases."
+      }
+    ]
+  }
+}

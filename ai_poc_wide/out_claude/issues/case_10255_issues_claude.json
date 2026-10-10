@@ -1,0 +1,38 @@
+{
+  "case_id": 10255,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer breach procedural fairness by not raising doubts about the identity card and allowing a response?",
+        "paras": "14-19, 23-24, 29",
+        "applicant_position": "Officer failed to tell her of doubts about the identity card's alteration or allow her to respond.",
+        "respondent_position": "Officer had no duty to inform; applicant knew of the doubts from the CBSA officer and bore the burden to prove identity.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_text": "Officer should have informed applicant of identity card doubts and allowed a response; procedural fairness breached."
+      },
+      {
+        "issue": "Was the officer's finding that the identity card was altered reasonable?",
+        "paras": "25-28",
+        "applicant_position": "Alteration finding is unreasonable; expert findings and two identity affidavits were ignored without reasons.",
+        "respondent_position": "Officer could see the document was altered despite the expert report.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_text": "Authenticity finding lacks transparency, justification and intelligibility; expert evidence was not addressed; unreasonable."
+      },
+      {
+        "issue": "Was the officer biased or did the decision breach natural justice?",
+        "paras": "10, 13",
+        "applicant_position": "Decision was unreasonable, breached natural justice and was biased.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 13,
+        "result_text": "Court need not decide other arguments, including bias, because one argument disposes of the review."
+      }
+    ]
+  }
+}

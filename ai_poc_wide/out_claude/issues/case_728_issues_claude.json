@@ -1,0 +1,29 @@
+{
+  "case_id": 728,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 85,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the visa officer breach procedural fairness by not giving the applicant a chance to answer concerns before refusing?",
+        "paras": "7, 10-18",
+        "applicant_position": "Officer should have sent a fairness letter with concerns before refusing, citing Mohitian.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_text": "No procedural fairness breach; visa applicants have limited response rights and no exception applied here."
+      },
+      {
+        "issue": "Was the refusal reasonable on the applicant's ability, means and intention to be self-employed?",
+        "paras": "19, 30-38",
+        "applicant_position": "Officer ignored evidence of funds, revenues and Canadian activity; doubts about viability were unreasonable.",
+        "respondent_position": "Applicant's evidence contained inconsistencies that counsel raised with the officer.",
+        "result": "allowed_for_applicant",
+        "result_para": 84,
+        "result_text": "Officer failed to justify doubts about ability, means and intention; decision lacks justification and intelligibility."
+      }
+    ]
+  }
+}

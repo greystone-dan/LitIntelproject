@@ -1,0 +1,29 @@
+{
+  "case_id": 1060,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 50,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD reasonable in excluding the applicant under Article 1E and section 98, given his Brazilian status and state protection?",
+        "paras": "10-18, 22-24",
+        "applicant_position": "RAD ignored that Brazilian permanent residence is conditional and Brazil does not protect Haitians or Afro-Brazilians.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "RAD's exclusion analysis is reasonable; the applicant showed no flaw central enough to undermine it."
+      },
+      {
+        "issue": "Was the RAD reasonable in its credibility findings and its treatment of the death threat evidence?",
+        "paras": "13-14, 19-21, 40",
+        "applicant_position": "RAD overemphasized minor discrepancies, ignored explanations and the death threat, and penalized not claiming in the US.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 39,
+        "result_text": "Inconsistent description of the death threat is a significant issue; credibility findings get considerable deference."
+      }
+    ]
+  }
+}

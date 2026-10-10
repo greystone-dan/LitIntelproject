@@ -1,0 +1,38 @@
+{
+  "case_id": 2133,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 165,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the refusal under IRPR 200(1)(b) reasonable, given the discrepancies and non-disclosure at the border?",
+        "paras": "44-67",
+        "applicant_position": "Officer ignored sworn explanations that discrepancies were consultant errors and drew unreasonable negative inferences.",
+        "respondent_position": "Applicant gave untruthful answers to officials twice; untruthfulness alone is a reasonable ground to refuse.",
+        "result": "dismissed_for_applicant",
+        "result_para": 67,
+        "result_text": "Officer's decision was reasonable; truthfulness and family travel were properly considered under IRPR 200(1)(b)."
+      },
+      {
+        "issue": "Did the officer adequately engage with the sworn statement and counsel's letter, so the reasons are adequate?",
+        "paras": "45-59, 77",
+        "applicant_position": "Officer failed to engage meaningfully with the declaration and evidence; reasons are inadequate.",
+        "respondent_position": "Adequacy of reasons is not a standalone ground; the decision is clear and reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 77,
+        "result_text": "No basis to set aside for inadequate reasons; the GCMS notes show the officer considered the evidence."
+      },
+      {
+        "issue": "Was procedural fairness breached by not giving a chance to respond to concerns about the sworn statement?",
+        "paras": "68-69",
+        "applicant_position": "Applicant should have had a chance to respond to concerns about her sworn statement.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 69,
+        "result_text": "Concerns matched those raised at the border; applicant responded in writing, so no further opportunity was owed."
+      }
+    ]
+  }
+}

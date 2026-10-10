@@ -1,0 +1,29 @@
+{
+  "case_id": 32320,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 37,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD breach procedural fairness by examining documents and raising credibility concerns the RPD had not raised?",
+        "paras": "23-30",
+        "applicant_position": "RAD raised new issues from documents the RPD did not discuss, without a chance to respond.",
+        "respondent_position": "Credibility was clearly at issue; the documents were submitted by the applicant, whose counsel asked for focus on them.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_text": "No breach: credibility was central, documents were raised on appeal, and applicant cannot claim surprise."
+      },
+      {
+        "issue": "Was the RAD's credibility assessment reasonable, given the mental health evidence?",
+        "paras": "31-36",
+        "applicant_position": "RAD did not fully consider mental health and was dismissive of psychological evidence on ability to testify.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_text": "RAD considered the medical evidence in depth; its reasons explaining why it did not account for inconsistencies are reasonable."
+      }
+    ]
+  }
+}

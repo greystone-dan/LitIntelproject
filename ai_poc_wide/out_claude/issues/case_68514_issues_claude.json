@@ -1,0 +1,47 @@
+{
+  "case_id": 68514,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 77,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the new evidence on the family law proceedings and other late documents be admitted?",
+        "paras": "15-27",
+        "applicant_position": "New evidence arose after the RPD decision and is relevant to the husband's ability to locate her in Merida.",
+        "respondent_position": "New evidence fails the Raza criteria, is not material or relevant, and the case law submitted is not relevant.",
+        "result": "partly_allowed",
+        "result_para": 26,
+        "result_text": "Some new evidence admitted, including family law material; late counselling-related documents not admitted."
+      },
+      {
+        "issue": "Did the RPD reasonably find the appellant has a viable IFA in Merida?",
+        "paras": "30-60, 76",
+        "applicant_position": "Husband and father can find her in Merida; RPD speculated and did not properly assess reasonableness.",
+        "respondent_position": "Onus is on the appellant to prove she lacks a viable IFA; her case law is not relevant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 57,
+        "result_text": "RAD independently finds the RPD did not err; appellant has a viable IFA in Merida."
+      },
+      {
+        "issue": "Did the RPD fail to consider her mental health in assessing whether the IFA is reasonable?",
+        "paras": "66-75",
+        "applicant_position": "RPD did not consider her mental health issues or the viability of Merida, citing Olalere.",
+        "respondent_position": "Olalere is distinguishable; no evidence she is psychologically unstable to face risk in Mexico.",
+        "result": "dismissed_for_applicant",
+        "result_para": 75,
+        "result_text": "Mental health letters give no diagnosis or qualified opinion; they do not make the IFA unreasonable."
+      },
+      {
+        "issue": "Did the RPD properly assess state protection in Mexico for a woman harmed by an estranged husband?",
+        "paras": "61-65",
+        "applicant_position": "RPD did not consider submissions on the level of protection she would receive in Mexico.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 65,
+        "result_text": "Appellant did not rebut the presumption of state protection with clear and convincing evidence."
+      }
+    ]
+  }
+}

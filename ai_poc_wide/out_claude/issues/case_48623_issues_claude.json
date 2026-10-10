@@ -1,0 +1,38 @@
+{
+  "case_id": 48623,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 15,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant's identity and account of the car-jacking and threats are credible",
+        "paras": "4-12",
+        "applicant_position": "Car-jacking and friend's death occurred; parents were threatened; he fears return to Mexico.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 7,
+        "result_text": "Claimant not credible on identity, Mexican experience or car-jacking; account rejected."
+      },
+      {
+        "issue": "Whether the claim should be assessed under section 96 (particular social group)",
+        "paras": "1,8",
+        "applicant_position": "Claim brought under section 96 as well as section 97.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 8,
+        "result_text": "Counsel confined the claim to section 97(1)(b), so section 96 was not analyzed."
+      },
+      {
+        "issue": "Whether the claimant would face risk to life or cruel treatment in Mexico (section 97)",
+        "paras": "13-14",
+        "applicant_position": "Threats from the car-jacker and against his parents show risk to life in Mexico.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_text": "Claimant did not establish it is more likely than not he would face risk to life or cruel treatment."
+      }
+    ]
+  }
+}

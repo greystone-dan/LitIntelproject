@@ -1,0 +1,29 @@
+{
+  "case_id": 28928,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 38,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the procedural fairness letter sent before the refusal decisions sufficiently specific to alert the parents to the officer's misrepresentation concerns?",
+        "paras": "15-26",
+        "applicant_position": "Letter was too vague to show the source of concerns (confession letters), so parents could not answer.",
+        "respondent_position": "Letter gave sufficient notice of concerns; no duty to name the source; any defect was cured by later disclosure.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_text": "Weldesenbet reasoning applies; any prior procedural fairness breach was remedied on reconsideration."
+      },
+      {
+        "issue": "Did the reconsideration decisions breach procedural fairness by making an adverse credibility finding without a chance to respond?",
+        "paras": "27-37",
+        "applicant_position": "Officer made an adverse credibility finding without affording an opportunity to respond, breaching fairness.",
+        "respondent_position": "Officer's reasoning turned on sufficiency of evidence, so no fairness duty arose; Alalami is determinative.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_text": "Assuming an adverse credibility finding, fairness did not require a further chance to respond."
+      }
+    ]
+  }
+}

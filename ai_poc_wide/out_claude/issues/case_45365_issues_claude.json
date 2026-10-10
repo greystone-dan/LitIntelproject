@@ -1,0 +1,56 @@
+{
+  "case_id": 45365,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 46,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the principal and minor claimants' identities are established",
+        "paras": "9-10",
+        "applicant_position": "Identity documents tendered: certified Resident Identity Card and birth certificates of minor claimants.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_text": "Identities of the principal and minor claimants established by certified documents on balance of probabilities."
+      },
+      {
+        "issue": "Whether the youngest child's birth and the bribery explanation are credible",
+        "paras": "11-24",
+        "applicant_position": "Claimant says she bribed a hospital contact to keep the youngest son's birth secret from authorities.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "Bribery account not credible; child's birth falls within a policy exception, not outside it."
+      },
+      {
+        "issue": "Whether the FPO sterilization demand is genuine and forced sterilization is likely",
+        "paras": "25-34",
+        "applicant_position": "Claimant says an FPO letter demands a fine and sterilization within three months.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_text": "Sterilization order not established; any retroactive penalty likely a fine or fees, not sterilization."
+      },
+      {
+        "issue": "Whether the claimants' travel to Canada is corroborated",
+        "paras": "35-40",
+        "applicant_position": "Fake Hong Kong passports were kept by a smuggler and the luggage tag was discarded.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 40,
+        "result_text": "No travel documents corroborate the journey; negative credibility inference drawn."
+      },
+      {
+        "issue": "Whether the claimants have a well-founded fear and are at risk on return",
+        "paras": "41-46",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 46,
+        "result_text": "No well-founded fear shown; minor claimants' claims depend on the rejected allegations; claims rejected."
+      }
+    ]
+  }
+}

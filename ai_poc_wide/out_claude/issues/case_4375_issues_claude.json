@@ -1,0 +1,38 @@
+{
+  "case_id": 4375,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the procedure fair, given the RPD did not clearly flag Dohuk as an internal flight alternative (IFA)?",
+        "paras": "9, 11-16",
+        "applicant_position": "RPD gave no notice that Dohuk was an IFA, denying her a chance to lead evidence or make submissions.",
+        "respondent_position": "An applicant cannot complain about a determination that a previously safe place is an IFA.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_text": "Procedure was fair: IFA was raised at the hearing, Dohuk was questioned, and counsel represented her."
+      },
+      {
+        "issue": "Was the IFA finding reasonable, given her religious-advocate profile and her status as an internally displaced person?",
+        "paras": "17-28",
+        "applicant_position": "RPD ignored her religious-advocate profile and IDP status, and evidence that Kurdistan is unwelcoming to IDPs.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_text": "Reasons are clear and supported by ample evidence; the RPD did not ignore key evidence, so the decision is reasonable."
+      },
+      {
+        "issue": "Was it reasonable for the RPD to rely on her past stay in Dohuk and reject dated country evidence?",
+        "paras": "29-32",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_text": "Reliance on past experience was an error but not central or significant enough to make the decision unreasonable."
+      }
+    ]
+  }
+}

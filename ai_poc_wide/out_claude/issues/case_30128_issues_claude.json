@@ -1,0 +1,38 @@
+{
+  "case_id": 30128,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 24,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Has the Minister unreasonably delayed the permanent residence decision, so that mandamus is warranted?",
+        "paras": "7-19",
+        "applicant_position": "Delay exceeds published 26-month processing time; applicant not responsible and responded promptly to requests.",
+        "respondent_position": "Delay is not longer than process requires given complexity, security screening and COVID-19.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_text": "Delay unexplained; blanket security-screening and pandemic assertions lack evidence; delay unreasonable."
+      },
+      {
+        "issue": "Does the balance of convenience favour granting mandamus?",
+        "paras": "20",
+        "applicant_position": "Delay has prejudiced him, leaving him in life limbo.",
+        "respondent_position": "Respondents gave no evidence of inconvenience from an order directing a decision.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_text": "Applicant prejudiced by delay; respondents showed no inconvenience; balance of convenience favours applicant."
+      },
+      {
+        "issue": "What deadline should apply to the decision ordered?",
+        "paras": "22-23",
+        "applicant_position": "Requests a decision within 60 days of judgment.",
+        "respondent_position": "Counsel had no instructions on the relief deadline.",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_text": "60-day deadline appropriate absent evidence it is unreasonable or unfair; extension possible by motion."
+      }
+    ]
+  }
+}

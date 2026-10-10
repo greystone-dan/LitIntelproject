@@ -1,0 +1,38 @@
+{
+  "case_id": 10222,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 59,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the interpreter issue at the interview a live procedural fairness ground?",
+        "paras": "20",
+        "applicant_position": "Spouse was denied procedural fairness because no interpreter was provided at the interview.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 20,
+        "result_text": "Counsel conceded the spouse should have raised the interpreter issue at the interview, so it is no longer live."
+      },
+      {
+        "issue": "Was the finding that Mr. Khan directly participated in torture reasonable?",
+        "paras": "22-31",
+        "applicant_position": "Admission relied on was insufficient and doubtful; officer erred by not ensuring the admission was unambiguous.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_text": "Reasonable grounds to believe he directly participated in torture were within acceptable outcomes; reasonable."
+      },
+      {
+        "issue": "Was the finding that Mr. Khan was complicit in torture by military units reasonable?",
+        "paras": "33-58",
+        "applicant_position": "Complicity conclusion was unjustified and unintelligible; decision did not specify divisions or link him to torture.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 58,
+        "result_text": "Complicity conclusion was not unreasonable and meets justification, transparency and intelligibility standards."
+      }
+    ]
+  }
+}

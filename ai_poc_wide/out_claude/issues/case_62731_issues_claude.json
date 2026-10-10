@@ -1,0 +1,47 @@
+{
+  "case_id": 62731,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 21,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err in analysing whether the claim falls under section 96?",
+        "paras": "9-12",
+        "applicant_position": "RPD failed to analyse the claim under section 96 on imputed political opinion.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_text": "RPD did analyse the claim under s.96; its credibility conclusion applies to both ss.96 and 97, so the criticism is unfounded."
+      },
+      {
+        "issue": "Did the RPD breach natural justice by disregarding affidavits and other evidence without giving reasons?",
+        "paras": "13-18",
+        "applicant_position": "RPD disregarded much evidence, including affidavits from his brother, friend, father and sarpanch, without reasons.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_text": "RPD erred significantly in disregarding evidence without sufficient reasons; matter referred to a differently constituted panel."
+      },
+      {
+        "issue": "Did the RPD err in its credibility assessment?",
+        "paras": "19",
+        "applicant_position": "Contradictions were minor and the delay in seeking protection was not determinative.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 19,
+        "result_text": "No need to address the minor contradictions and delay given the natural justice finding; new panel will assess credibility."
+      },
+      {
+        "issue": "Did the RPD err by not analysing an internal flight alternative?",
+        "paras": "20",
+        "applicant_position": "RPD erred in failing to analyse the internal flight alternative.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_text": "RPD did not err in omitting an IFA analysis because it found the appellant not credible."
+      }
+    ]
+  }
+}

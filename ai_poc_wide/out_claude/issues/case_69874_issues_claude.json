@@ -1,0 +1,38 @@
+{
+ "case_id": 69874,
+ "task": "issues",
+ "model": "claude",
+ "result": {
+  "order_para": 71,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Should the Mumbai COVID news article be admitted as new evidence on appeal?",
+    "paras": "6-10",
+    "applicant_position": "The article on Mumbai's third COVID wave is new and relevant, so it should be admitted.",
+    "respondent_position": "not stated",
+    "result": "moot_or_procedural",
+    "result_para": 9,
+    "result_text": "Article arose after the RPD decision and is new, relevant and credible; admitted, with no oral hearing needed."
+   },
+   {
+    "issue": "Did the RPD err in its credibility findings about the police detention and visits?",
+    "paras": "11-27",
+    "applicant_position": "RPD's credibility concerns were vague, speculative and not clearly stated; the police visit account is plausible.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 27,
+    "result_text": "RPD raised concerns without clear consequential findings and asked speculative questions; its credibility findings are not upheld."
+   },
+   {
+    "issue": "Is there a viable internal flight alternative in Mumbai?",
+    "paras": "29-70",
+    "applicant_position": "No IFA: Q branch is national; CCTNS, Aadhaar and tenant checks could find them; Mumbai is unsafe and Covid hard.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 70,
+    "result_text": "Appellants did not show that relocation to Mumbai would be unreasonable or that police could locate them there."
+   }
+  ]
+ }
+}

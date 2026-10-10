@@ -1,0 +1,56 @@
+{
+  "case_id": 9700,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 87,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was procedural fairness breached when the officer removed country-conditions evidence before referral to the delegate?",
+        "paras": "29-40",
+        "applicant_position": "Officer removed country-conditions evidence, so the delegate decided on an incomplete record.",
+        "respondent_position": "Delegate had sufficient country-conditions evidence; the two missing documents were not highly relevant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 40,
+        "result_text": "Evidence was likely before the delegate; the officer's actions did not cause a breach of procedural fairness."
+      },
+      {
+        "issue": "Did the delegate's comments on the applicant's family decisions show bias or breach procedural fairness?",
+        "paras": "41-47",
+        "applicant_position": "Delegate speculated about marriage and children under a deportation order and gave no chance to respond.",
+        "respondent_position": "Delegate may consider that H&C grounds arise from the applicant's own actions, citing Legault.",
+        "result": "dismissed_for_applicant",
+        "result_para": 47,
+        "result_text": "Comments were part of weighing factors; no apprehension of bias or procedural unfairness found."
+      },
+      {
+        "issue": "Was the delegate's best interests of the child (BIOC) analysis reasonable?",
+        "paras": "48-68",
+        "applicant_position": "BIOC analysis failed to particularize each child, omitted the unborn child, and ignored Nigerian country conditions.",
+        "respondent_position": "Delegate reasonably considered the children together and considered country conditions; court should not reweigh.",
+        "result": "allowed_for_applicant",
+        "result_para": 68,
+        "result_text": "BIOC analysis was unreasonable: the unborn child's interests and country conditions were not properly considered."
+      },
+      {
+        "issue": "Was the delegate required to reassess inadmissibility in light of Ezokola, or is the prior finding res judicata?",
+        "paras": "69-80, 86",
+        "applicant_position": "Delegate failed to consider Ezokola and B010 and gave no clear inadmissibility determination under IRPA s. 35(1)(a).",
+        "respondent_position": "Prior inadmissibility findings are res judicata; the s. 37(1)(a) inadmissibility stands.",
+        "result": "allowed_for_applicant",
+        "result_para": 86,
+        "result_text": "Issue estoppel does not bar reassessment; clarity on Ezokola's impact on the inadmissibility finding is needed."
+      },
+      {
+        "issue": "Were the reasons on the weight of inadmissibility and the balancing of H&C factors intelligible?",
+        "paras": "81-84, 87",
+        "applicant_position": "Balancing relies on NBMA involvement and admitted riots without explaining how Ezokola and inadmissibility were weighed.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 87,
+        "result_text": "Delegate's reasons are unintelligible regarding inadmissibility in the H&C balancing, so unreasonable."
+      }
+    ]
+  }
+}

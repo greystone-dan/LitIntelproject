@@ -1,0 +1,38 @@
+{
+  "case_id": 74413,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 60,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD's credibility analysis properly account for the false passport use and non-disclosure?",
+        "paras": "8-13",
+        "applicant_position": "RPD ignored the false passport use in its credibility assessment; non-disclosure should count against the claimant.",
+        "respondent_position": "Non-disclosure was explained by fear and depression; testimony is presumed true and consistent with the evidence.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_text": "Adverse inference from the forged passport is insufficient to rebut the presumption of truth; the result stands."
+      },
+      {
+        "issue": "Does section 133 IRPA protection apply to the earlier forged passport used in transit?",
+        "paras": "14-32",
+        "applicant_position": "Section 133 covers only documents used to enter Canada, so it does not apply to this earlier use.",
+        "respondent_position": "Passport was used solely to claim asylum; section 133 protects that purpose even though entry failed.",
+        "result": "partly_allowed",
+        "result_para": 43,
+        "result_text": "Section 133 is an immunity from prosecution, not a defence; the RPD erred in treating it as one."
+      },
+      {
+        "issue": "Is the claimant excluded under Article 1F(b) for a serious non-political crime committed before admission?",
+        "paras": "33-57",
+        "applicant_position": "Personation and forged passport use are serious Criminal Code offences; exclusion under 1F(b) is required.",
+        "respondent_position": "Forged passport was used only to seek asylum; mitigating factors mean the offence is not serious enough for exclusion.",
+        "result": "dismissed_for_applicant",
+        "result_para": 56,
+        "result_text": "Offence not serious enough for exclusion given its purpose, no record and international law; appeal fails."
+      }
+    ]
+  }
+}

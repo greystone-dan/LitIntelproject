@@ -1,0 +1,38 @@
+{
+ "case_id": 31271,
+ "task": "issues",
+ "model": "claude",
+ "result": {
+  "order_para": 26,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Should the affidavit paragraphs 3 and 4, not before the Officer, be considered on judicial review?",
+    "paras": "11-14",
+    "applicant_position": "Information was included to assure the Court the matter is not moot.",
+    "respondent_position": "Affidavit paragraphs 3 and 4 were not before the Officer and should not be considered.",
+    "result": "dismissed_for_applicant",
+    "result_para": 14,
+    "result_text": "Affidavit paragraphs 3 and 4 will not be considered; mootness is not an issue here."
+   },
+   {
+    "issue": "Was the Officer's H&C decision unreasonable in its treatment of discrimination against Ahmadis and the father's refugee status?",
+    "paras": "15-24",
+    "applicant_position": "Finding is unreasonable given submitted materials and father's refugee status; decision lacks a rational chain of analysis.",
+    "respondent_position": "Officer acknowledged discrimination but reasonably found limited evidence and cumulative factors did not meet the exemption threshold.",
+    "result": "dismissed_for_applicant",
+    "result_para": 22,
+    "result_text": "Officer's reasoning is rational and free of serious flaws; justified, intelligible and transparent. Omission of some instances is not a reviewable error."
+   },
+   {
+    "issue": "Did the Officer fail to consider all H&C factors, including family reunification and cultural dependence?",
+    "paras": "25",
+    "applicant_position": "Officer failed to consider all H&C factors, including family reunification and cultural dependence.",
+    "respondent_position": "Officer considered family support, finances, siblings and family network.",
+    "result": "dismissed_for_applicant",
+    "result_para": 25,
+    "result_text": "Officer addressed dependence, finances and family network; applicant's argument is an impermissible request to reweigh evidence."
+   }
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": 13549,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 18,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer unreasonably fail to consider the applicant's personal circumstances (age, dependency on family, separation hardship) in the H&C decision?",
+        "paras": "5-6, 8-16",
+        "applicant_position": "Officer ignored her age, dependency and life history; relying on past separation and correspondence was unreasonable.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_text": "Officer's decision is unreasonable and outside acceptable outcomes; application allowed and referred back."
+      },
+      {
+        "issue": "Did the Officer wrongly discount the psychiatrist's assessment as prepared by an advocate?",
+        "paras": "7, 17",
+        "applicant_position": "Officer's finding that the psychiatrist's assessment was prepared as an advocate was wrong.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 17,
+        "result_text": "Court need not decide the weight of the psychiatrist's assessment given the other errors."
+      }
+    ]
+  }
+}

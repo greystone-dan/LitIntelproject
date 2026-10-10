@@ -1,0 +1,29 @@
+{
+  "case_id": 5309,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 14,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the ALJR was filed within the statutory 15-day limit",
+        "paras": "3-5, 11-13",
+        "applicant_position": "Applicants say they became aware of the decision on the filing date, 37 days after it was mailed.",
+        "respondent_position": "Application is time-barred under IRPA s. 72(2)(b) and (d); respondent moved to strike it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_text": "Court concludes without doubt the application is statute-barred; applicants did not seek an extension."
+      },
+      {
+        "issue": "Whether the application can be summarily dismissed on a preliminary motion",
+        "paras": "6-10, 14",
+        "applicant_position": "not stated",
+        "respondent_position": "Respondent moved to strike the ALJR as time-barred on a preliminary motion.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_text": "Given the uncontested delay and exceptional nature, summary dismissal of the ALJR was ordered."
+      }
+    ]
+  }
+}

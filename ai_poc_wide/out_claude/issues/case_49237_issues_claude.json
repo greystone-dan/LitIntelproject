@@ -1,0 +1,47 @@
+{
+  "case_id": 49237,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 21,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the respondents obtained Romanian passports voluntarily and intending to use them",
+        "paras": "13-17",
+        "applicant_position": "Passports obtained voluntarily and used to travel, showing intent to avail themselves of Romania.",
+        "respondent_position": "Passports obtained only to ease travel to Ireland, then left there; no intent to re-avail.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_text": "Respondents obtained passports voluntarily and intended to use them, not merely for convenience."
+      },
+      {
+        "issue": "Whether the presumption of intent from holding a national passport was rebutted",
+        "paras": "12,18-19",
+        "applicant_position": "Holding a national passport presumes intent to avail oneself of protection under the UNHCR Handbook.",
+        "respondent_position": "Passports were used only for travel to Ireland; the presumption is rebutted.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_text": "Respondents failed to rebut the presumption of intent to re-avail themselves of Romanian protection."
+      },
+      {
+        "issue": "Whether refugee protection should cease under IRPA subsection 108(2)",
+        "paras": "20-22",
+        "applicant_position": "Refugee protection should cease because the respondents re-availed themselves of Romanian protection.",
+        "respondent_position": "Respondents deny any voluntary re-availment of protection.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_text": "Application to cease refugee protection allowed; protection ceased and the claims are rejected."
+      },
+      {
+        "issue": "Whether the hearing could proceed despite the absence of some respondents",
+        "paras": "8-10",
+        "applicant_position": "Notices were sent and the hearing was rescheduled after postponements.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 10,
+        "result_text": "Hearing proceeded after notices and postponements; absent respondents did not seek another adjournment."
+      }
+    ]
+  }
+}

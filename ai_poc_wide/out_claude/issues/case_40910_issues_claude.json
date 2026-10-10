@@ -1,0 +1,29 @@
+{
+  "case_id": 40910,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant a Chinese citizen rather than an Indian citizen, and is he credible about his Indian passport?",
+        "paras": "3-21",
+        "applicant_position": "Says the Indian passport was not genuine; he is not entitled to Indian citizenship and is Tibetan from China.",
+        "respondent_position": "Claimant is an Indian citizen on a genuine Indian passport, not a Chinese citizen.",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_text": "Claimant not credible; his Indian passport is genuine and he is an Indian citizen, not Chinese."
+      },
+      {
+        "issue": "Does the claimant face risk of persecution or harm on return to India or China?",
+        "paras": "22",
+        "applicant_position": "Fears persecution in China as a Tibetan and Dalai Lama follower; cannot obtain Indian citizenship.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_text": "Claimant is an Indian citizen and has not alleged fear of return to India; claim fails."
+      }
+    ]
+  }
+}

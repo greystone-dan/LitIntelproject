@@ -1,0 +1,29 @@
+{
+  "case_id": 10481,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 16,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Citizenship Judge unreasonably find the 1095-day residence requirement not met, including on the threshold establishment question?",
+        "paras": "8-14",
+        "applicant_position": "Judge ignored the establishment threshold and relevant evidence of physical presence during the reference period.",
+        "respondent_position": "Threshold residency was implicit or presumed; Judge reasonably weighed evidence and found it insufficient.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_text": "Decision was reasonable; Judge could weigh the inconsistent evidence and find the physical presence requirement not met."
+      },
+      {
+        "issue": "Did the Citizenship Judge breach procedural fairness by not raising credibility concerns at the hearing?",
+        "paras": "7, 9, 15",
+        "applicant_position": "Judge did not tell applicant of concerns about missing transcripts or speculate on online courses without response.",
+        "respondent_position": "No duty to request more documents; applicant had an opportunity to address the inconsistencies.",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_text": "Judge met the duty of fairness; applicant was not entitled to specific additional document requests."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": 34111,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 17,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer breach procedural fairness by relying on new information without giving the applicant a chance to respond?",
+        "paras": "6-16",
+        "applicant_position": "Officer relied on post-application reports, unknown to applicant, without giving her a chance to respond.",
+        "respondent_position": "Officer could research independently; applicant could have updated submissions before the decision.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_text": "Reliance on important new information without opportunity to comment breached procedural fairness; application allowed."
+      },
+      {
+        "issue": "Was the officer's H&C refusal reasonable in light of conditions in Somalia and the ADR?",
+        "paras": "9-11",
+        "applicant_position": "Challenges the reasonableness and fairness of the officer's H&C determination on Somalia conditions.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 11,
+        "result_text": "Court finds the fairness breach sufficient and need not decide reasonableness."
+      }
+    ]
+  }
+}

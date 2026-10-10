@@ -1,0 +1,29 @@
+{
+  "case_id": 11526,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 13,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer breach procedural fairness by not raising concerns about financial information and cost estimates?",
+        "paras": "5, 9-10",
+        "applicant_position": "Officer did not disclose concerns about financial information, used extrinsic cost data, and asked for updated information.",
+        "respondent_position": "Applicants showed no reviewable error; the duty of fairness for a visa is low.",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_text": "No procedural fairness breach; the duty for a visa is low and the cost estimation steps were not irregular."
+      },
+      {
+        "issue": "Was the officer's reliance on family income and on the lack of family travel to the US and Sweden reasonable?",
+        "paras": "7, 11-12",
+        "applicant_position": "Officer unreasonably considered the lack of visits to family in the US and Sweden in refusing the application.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_text": "Consideration of family income and family travel was unreasonable and irrelevant; set aside and remitted."
+      }
+    ]
+  }
+}

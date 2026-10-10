@@ -1,0 +1,29 @@
+{
+  "case_id": 33945,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 18,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Was the Officer's finding that the applicant could find a durable solution in Rwanda reasonable?",
+        "paras": "10-16",
+        "applicant_position": "Officer unreasonably found resettlement in Rwanda; ignored Hutu-Tutsi marriage risks and persecution claims there.",
+        "respondent_position": "Concedes the durable-solution decision is unreasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_text": "Durable-solution conclusion is unreasonable; ethnic and persecution risks in Rwanda were never assessed."
+      },
+      {
+        "issue": "Should the Court order refugee status directly rather than remit the matter for redetermination?",
+        "paras": "12-17",
+        "applicant_position": "Asks the Court to grant refugee status directly.",
+        "respondent_position": "Court cannot decide the merits; matter should be remitted to a different officer.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_text": "Court declines to order refugee status; matter remitted to a different officer for redetermination."
+      }
+    ]
+  }
+}

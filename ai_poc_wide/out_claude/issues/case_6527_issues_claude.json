@@ -1,0 +1,38 @@
+{
+  "case_id": 6527,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 27,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the RPD breached procedural fairness in assessing the applicant's documents",
+        "paras": "10-13",
+        "applicant_position": "RPD breached procedural fairness by not letting him respond to concerns about documents during the hearing.",
+        "respondent_position": "RPD must consider and weigh evidence in refugee claims.",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_text": "No procedural fairness breach; counsel invited review of the documents and applicant cannot be surprised by the review."
+      },
+      {
+        "issue": "Whether the RPD's adverse credibility findings were reasonable",
+        "paras": "14-25",
+        "applicant_position": "Adverse credibility conclusion was unreasonable and over-zealous; RPD failed to analyse the claim properly.",
+        "respondent_position": "RPD's statement meant it did not believe the applicant was a Church member.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_text": "Errors in the credibility assessment are significant and require redetermination of the refugee claim."
+      },
+      {
+        "issue": "Whether the RPD erred by not analysing the s. 97 claim separately",
+        "paras": "26",
+        "applicant_position": "RPD failed to analyse the s. 97 claim separately.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_text": "No error in omitting a separate s. 97 analysis; the credibility finding suffices for both claims."
+      }
+    ]
+  }
+}

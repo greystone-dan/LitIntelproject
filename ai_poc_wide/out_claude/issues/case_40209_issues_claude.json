@@ -1,0 +1,29 @@
+{
+  "case_id": 40209,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant a lesbian who faced forced marriage or rape in Botswana, and is her account credible?",
+        "paras": "6-17",
+        "applicant_position": "Claimant is lesbian, faced forced marriage threats and rape, and reported the rape to police.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_text": "Not credible on sexual orientation and forced marriage; not a Convention refugee."
+      },
+      {
+        "issue": "Does the claimant face danger of torture or a personalized risk on return to Botswana?",
+        "paras": "18-19",
+        "applicant_position": "Claimant did not allege danger of torture or a personalized risk.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_text": "No personalized risk shown; any risk is shared by others, so not in need of protection."
+      }
+    ]
+  }
+}

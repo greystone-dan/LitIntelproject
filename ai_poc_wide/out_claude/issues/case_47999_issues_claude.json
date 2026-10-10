@@ -1,0 +1,29 @@
+{
+  "case_id": 47999,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 38,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant excluded under Article 1E because of his Bahamian permanent residence?",
+        "paras": "8-20, 37",
+        "applicant_position": "not stated",
+        "respondent_position": "Bahamian permanent residence confers rights similar to nationals, so Article 1E applies.",
+        "result": "dismissed_for_applicant",
+        "result_para": 37,
+        "result_text": "Claimant is excluded under Article 1E due to permanent resident status in the Bahamas."
+      },
+      {
+        "issue": "Is there a well-founded fear of persecution in the Bahamas because of sexual orientation?",
+        "paras": "21-36",
+        "applicant_position": "Persecuted and assaulted in the Bahamas for being homosexual; police were hostile.",
+        "respondent_position": "No subjective fear: abandoned Bahamian status and made many trips without claiming in the US.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_text": "Not enough evidence of reasonable fear of persecution in the Bahamas due to sexual orientation."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": 5709,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD unreasonably reject the applicant's claimed employment at RTD, including her inability to give a municipal address?",
+        "paras": "24-28",
+        "applicant_position": "She worked at RTD as presenter, receptionist and newsreader; municipal addresses are not commonly used in Djibouti.",
+        "respondent_position": "Differences between the BOC narrative and her testimony justify an adverse credibility inference.",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_text": "RAD's rejection based on unsupported assumptions about newsreader duties, and its address presumption, was unreasonable."
+      },
+      {
+        "issue": "Was the RAD's adverse inference from no medical or psychological evidence of the sexual assault unreasonable?",
+        "paras": "29-34",
+        "applicant_position": "Lack of medical or psychological evidence cannot ground the inference; fear and cultural shame explain why she sought no treatment.",
+        "respondent_position": "Did not defend the sexual-assault corroboration reasoning; relied on lack of corroboration from father and husband.",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_text": "Inference drawn from missing medical or psychological evidence is unreasonable, relying on a discredited stereotype and ignoring guidelines."
+      },
+      {
+        "issue": "Did the RAD unreasonably assess the new documents (RTD work corroboration and the mother-in-law's letter)?",
+        "paras": "35-36",
+        "applicant_position": "RAD's adverse assessment of documents corroborating RTD work and the mother-in-law's letter was wrong.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 36,
+        "result_text": "Court declines to address these objections as unnecessary to dispose of the application; RAD to decide on reconsideration."
+      }
+    ]
+  }
+}

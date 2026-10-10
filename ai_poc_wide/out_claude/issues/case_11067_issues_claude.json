@@ -1,0 +1,38 @@
+{
+  "case_id": 11067,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 29,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD unreasonably discount the police letters and the Ministry letter?",
+        "paras": "13-21",
+        "applicant_position": "RAD unreasonably rejected police letters for cut-off letterhead and gave a vague, unjustified reason on the Ministry letter.",
+        "respondent_position": "RAD's concerns were reasonable: the letters lack the applicant's name or address, and credibility was in doubt.",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_text": "RAD's error on one letter is insufficient to overcome the reasonableness of an otherwise sound assessment."
+      },
+      {
+        "issue": "Did the RAD unreasonably give little weight to the husband's letter?",
+        "paras": "22-25",
+        "applicant_position": "Letter was meant to corroborate persecution, not add new facts; RAD wrongly treated it as self-serving.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_text": "Letter omitted the husband's relocations due to fear, so giving it little weight was reasonable."
+      },
+      {
+        "issue": "Was the RAD's overall credibility and evidence assessment reasonable?",
+        "paras": "12, 26-28",
+        "applicant_position": "RAD's credibility assessment was erroneous and it unreasonably rejected documentary evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_text": "Weak credibility and lack of corroboration make the RAD decision reasonable; RPD view not required."
+      }
+    ]
+  }
+}

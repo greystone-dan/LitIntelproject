@@ -1,0 +1,29 @@
+{
+  "case_id": 16884,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 35,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's finding that the claim was clearly fraudulent and manifestly unfounded, based on the PSB documents, reasonable?",
+        "paras": "30-35",
+        "applicant_position": "Wanted Circular and PSB documents were wrongly found fraudulent; manifestly unfounded finding unreasonable.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_text": "Finding of fraud and manifestly unfounded determination are unreasonable; RPD decision set aside."
+      },
+      {
+        "issue": "Was the RPD's assessment of the applicant's credibility and genuineness as a Christian reasonable?",
+        "paras": "22-29",
+        "applicant_position": "Disputes only the RPD's treatment of Mr. Xi's role in the escape from PSB.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_text": "Rejection of the explanation and the corroboration question were open to the RPD; no adverse inference drawn alone."
+      }
+    ]
+  }
+}

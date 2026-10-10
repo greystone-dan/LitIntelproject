@@ -1,0 +1,29 @@
+{
+  "case_id": 8580,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 31,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the applicant denied procedural fairness because the officer did not consider his extension request (January 2, 2020 email)?",
+        "paras": "8-29",
+        "applicant_position": "He emailed an extension request on January 2, 2020, and his affidavit and Gmail printout show it was pending, so ignoring it breached fairness.",
+        "respondent_position": "IRCC never received the January 2 email; the Thyriar affidavit shows no such email in its inbox; applicant has not proved receipt.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_text": "Applicant did not prove the extension request was before the officer; no procedural fairness breach."
+      },
+      {
+        "issue": "Whether the Decision was unreasonable.",
+        "paras": "30",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 30,
+        "result_text": "No argument that the Decision was unreasonable; the findings suffice to dismiss the application."
+      }
+    ]
+  }
+}

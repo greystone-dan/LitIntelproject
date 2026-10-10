@@ -1,0 +1,38 @@
+{
+  "case_id": 630,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 39,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the officer's risk finding reasonable given the applicant's profile and the country evidence?",
+        "paras": "26-37",
+        "applicant_position": "Officer misapprehended the risk and ignored country evidence of gang violence and lack of state protection.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_text": "Officer applied correct tests; decision and addendum show clear, coherent reasoning; reasonable under Vavilov."
+      },
+      {
+        "issue": "Did the officer reasonably assess the applicant's family ties in the PRRA?",
+        "paras": "38",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_text": "No error: family impact of removal is separate from PRRA risk and not determinative."
+      },
+      {
+        "issue": "Is the challenge to the first PRRA decision separate, or subsumed in the second decision?",
+        "paras": "20",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 20,
+        "result_text": "Challenge to the first decision is subsumed; the issue is whether the second (addendum) decision is reasonable."
+      }
+    ]
+  }
+}

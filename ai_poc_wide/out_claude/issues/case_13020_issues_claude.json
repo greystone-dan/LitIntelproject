@@ -1,0 +1,29 @@
+{
+  "case_id": 13020,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 31,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the applicant denied procedural fairness because his immigration consultant was negligent or incompetent?",
+        "paras": "15-22",
+        "applicant_position": "Consultant was negligent and incompetent: minimal preparation, unclear training of associate, no documents submitted.",
+        "respondent_position": "Conceded the notice criterion; the complaint about counsel's performance was disputed as conflicting and unclear.",
+        "result": "not_decided",
+        "result_para": 22,
+        "result_text": "Court will not decide counsel's deficiency; the application fails on the prejudice criterion."
+      },
+      {
+        "issue": "Would the alleged incompetence have changed the outcome, given the missing documents on Hamas forced recruitment and the narrative details?",
+        "paras": "23-30",
+        "applicant_position": "Reasonable probability that missing documents would have changed the outcome; documents support a forced recruitment claim.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_text": "No reasonable probability the alleged incompetence changed the outcome; adverse credibility findings were supported."
+      }
+    ]
+  }
+}

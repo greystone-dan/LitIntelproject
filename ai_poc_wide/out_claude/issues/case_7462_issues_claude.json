@@ -1,0 +1,29 @@
+{
+  "case_id": 7462,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 44,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Which legal test applies to the equivalency of a foreign offence under IRPA s. 36(1)(c) (Garcia versus the essential-elements approach)?",
+        "paras": "19-27",
+        "applicant_position": "Equivalency is not dispositive, but the officer must consider the essential elements of the Canadian offence.",
+        "respondent_position": "Garcia is not dispositive; s. 36(1)(c) requires analysing whether the foreign facts meet the Canadian offence's essential elements.",
+        "result": "not_decided",
+        "result_para": 24,
+        "result_text": "Court need not decide the Garcia divergence; officer's analysis was flawed under either approach."
+      },
+      {
+        "issue": "Did the officer reasonably find that the applicant's US perjury conduct would be Canadian perjury under Criminal Code s. 131?",
+        "paras": "28-43",
+        "applicant_position": "Canadian perjury is narrower, covering only statements in court or before authorities, so ss. 139-140 do not apply; officer only compared titles.",
+        "respondent_position": "Canadian perjury is not limited to court declarations, so the essential elements match; Sosa supports equivalency.",
+        "result": "allowed_for_applicant",
+        "result_para": 43,
+        "result_text": "Officer did not engage with essential elements; applicant was not shown to commit Canadian perjury, so the decision is unreasonable."
+      }
+    ]
+  }
+}

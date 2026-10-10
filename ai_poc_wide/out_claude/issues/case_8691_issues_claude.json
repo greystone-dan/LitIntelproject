@@ -1,0 +1,38 @@
+{
+  "case_id": 8691,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 15,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD err in refusing to admit the six bus receipts as new evidence?",
+        "paras": "6-7, 10",
+        "applicant_position": "Receipts show mother-in-law travels to Port Harcourt, so it is not viable; receipts should be admitted.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_text": "RAD properly rejected receipts: they predated the RPD hearing and were unexplained."
+      },
+      {
+        "issue": "Did the RAD breach procedural fairness by not advising the applicants of its credibility concerns?",
+        "paras": "9-10",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_text": "Credibility comments were obiter; failure to advise on credibility was immaterial."
+      },
+      {
+        "issue": "Did the RAD reasonably find no significant barriers to establishing in Port Harcourt (viable IFA)?",
+        "paras": "11-13",
+        "applicant_position": "Port Harcourt is not viable because the mother-in-law travels there.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_text": "Reasonable for RAD to find no significant barriers to relocating in Port Harcourt."
+      }
+    ]
+  }
+}

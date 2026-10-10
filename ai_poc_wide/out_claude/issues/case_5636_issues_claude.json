@@ -1,0 +1,38 @@
+{
+  "case_id": 5636,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 69,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the best interests of the child (BIOC) assessment of Sam was reasonable",
+        "paras": "19, 52-68",
+        "applicant_position": "BIOC assessment ignored Sam's psychological harm, school evidence, father's abuse and his views.",
+        "respondent_position": "Officer considered Sam's best interests and gave positive weight; a positive BIOC does not decide the H&C result.",
+        "result": "allowed_for_applicant",
+        "result_para": 52,
+        "result_text": "BIOC analysis had serious shortcomings, so the BIOC finding and the overall decision are unreasonable."
+      },
+      {
+        "issue": "Whether the officer reasonably assessed the applicants' establishment, including an 'exceptional' standard",
+        "paras": "19-23, 45-46",
+        "applicant_position": "Officer set an impossible 'exceptional establishment' threshold and compared establishment unfairly to others.",
+        "respondent_position": "Officer reasonably compared establishment with similar individuals; Sam's establishment was considered in the BIOC analysis.",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_text": "Requiring an explanation of exceptional establishment would impose undue rigidity; officer's establishment assessment was reasonable."
+      },
+      {
+        "issue": "Whether the officer's findings on mental health, hardship and country conditions were reasonable",
+        "paras": "47-51, 29",
+        "applicant_position": "Officer ignored psychotherapist evidence and made speculative findings about support, jobs and recourse in China.",
+        "respondent_position": "Officer reasonably assessed mental health evidence; availability of treatment in China was a relevant consideration.",
+        "result": "partly_allowed",
+        "result_para": 44,
+        "result_text": "Some findings were reasonable and supported, but others were speculative and unsupported by evidence."
+      }
+    ]
+  }
+}

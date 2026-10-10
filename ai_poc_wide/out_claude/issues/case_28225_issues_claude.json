@@ -1,0 +1,29 @@
+{
+  "case_id": 28225,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 36,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer breach procedural fairness through inadequate reasons, an implicit credibility finding, or no chance to respond?",
+        "paras": "18-24",
+        "applicant_position": "Officer gave inadequate reasons, made an implicit credibility finding, gave no chance to respond, and ignored evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "Applicants' procedural unfairness claim has no merit."
+      },
+      {
+        "issue": "Was the officer's refusal, for lack of sufficient financial resources under IRPR s. 220, reasonable?",
+        "paras": "25-34",
+        "applicant_position": "Financial information together met s. 220; officer required bank statement detail that was impossible to provide.",
+        "respondent_position": "Tuition cost exceeds the applicants' combined bank assets and the deposit was nominal.",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_text": "Officer reasonably concluded the applicants failed s. 220 requirements without sufficient information."
+      }
+    ]
+  }
+}

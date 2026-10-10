@@ -652,6 +652,28 @@ def parties_from_frame(frame, title: str = "") -> Parties:
 	return p
 
 
+# An evaluation of an earlier decision ("the decision is reasonable", "the Officer failed to consider ...", "rests on no
+# evidence") is the author's own point about it (the court's in a decision, the party's in a memorandum), not the earlier
+# decision maker's finding. Reporting verbs (found, concluded, wrote, stated ...) keep the sentence with the earlier decision maker.
+_EVALUATION = re.compile(
+	r"\b(?:(?:is|was|are|were|be)\s+(?:not\s+)?(?:un)?reasonable|(?:un)?justified|erred|failed to|failure to|"
+	r"did not (?:consider|discuss|refer to|engage|assess|address|explain|mention|grapple|give|say)|"
+	r"rests? on no evidence|applied an unduly|(?:is|are) reviewed (?:for|on|under)|renders? the decision)\b", re.I)
+_REPORTING = re.compile(
+	r"\b(?:found|finds|concluded|concludes|wrote|writes|stated|states|noted|notes|accepted|accepts|rejected|rejects|said|says|"
+	r"relied on|relies on|described|characteri[sz]ed|declined|determined|was (?:not )?satisfied|(?<!not )considered|gave|reasoned|testif\\w*|alleged?|claimed?|believed|told|explained|submit\\w*|argued?)\b", re.I)
+_EARLIER_SUBJECT_START = re.compile(
+	r"^(?:\[?\d+\]?\.?\s*)?(?:(?:here|however|but|in this case|having [^,]{3,80}),?\s+)?(?:the\s+)?(?:officer|rpd|rad|iad|id|board|tribunal|member|panel|decision[- ]?maker|delegate)\b", re.I)
+_RELIEF = re.compile(r"^(?:\[?\d+\]?\.?\s*)?(?:the\s+)?(?:applicant|respondent|appellant|minister|moving party)\b[^.]{0,30}\b(?:asks?|seeks?|requests?|prays?)\b", re.I)
+_IBID = re.compile(r"^\s*(?:ibid|id|idem|supra)\b[^.]{0,40}\.?\s*$", re.I)
+
+
+def _evaluation_not_finding(sentence: str, cue: "Cue") -> bool:
+	body = re.sub(r"^(?:\[?\d+\]?\.?\s*)?having [^,]{3,80},\s*", "", sentence, flags=re.I)  # "Having rejected X, the Officer did not ..."
+	if cue.holder not in (EARLIER, AUTHORITY) or not _EVALUATION.search(body) or _REPORTING.search(body):
+		return False
+	return cue.holder == EARLIER or bool(_EARLIER_SUBJECT_START.match(sentence))
+
 _LIST_END = re.compile(r":\s*$")
 _NUM_PREFIX = re.compile(r"^\s*(?:\[\d+\]|\d+\.|[A-Z]\.|[IVX]+\.)?\s*")
 
@@ -677,6 +699,14 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 	own_framing = parties.author != COURT and _is_heading_or_issue_question(text)
 	for i, s in enumerate(sentences):
 		cue = _author_fix(sentence_cue(s, parties, index=i), parties)
+		if _IBID.match(s):
+			cue = Cue(AUTHORITY, s.strip(), i, "explicit")  # "Ibid." is the authority cited just before
+		elif cue and cue.holder == EARLIER and parties.author != COURT and _RELIEF.match(s):
+			cue = None  # a request for relief is the author's, even when it mentions "the Minister's delegate"
+		elif cue and lead is None and _evaluation_not_finding(s, cue):
+			cue = Cue(parties.author, cue.phrase, i, "explicit")
+		elif cue and cue.holder == EARLIER and parties.author != COURT and not _EARLIER_VERB.search(cue.phrase) and not _REPORTING.search(s):
+			cue = None  # in a memorandum, a bare mention of the decision is the author's own sentence
 		if cue:
 			assign_layer(s, cue)
 			if own_framing:

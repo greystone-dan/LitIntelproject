@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 208
+Active scripts documented: 209
 
 ## Catalog
 
@@ -149,6 +149,7 @@ Active scripts documented: 208
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
+| `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
@@ -2163,6 +2164,20 @@ Active scripts documented: 208
 
 ```powershell
 .\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help
+```
+
+## `scripts/load_issue_maps.py`
+
+**Purpose:** Load the stored issue maps (data/issue_maps/issue_maps.jsonl.gz) into issue_maps and issue_map_questions. Dry run by default. Additive only: it adds rows that are missing and never updates or deletes existing ones. Each row is linked to a library case by the live case id in the file when that case exists, otherwise by an exact citation match. python scripts/load_issue_maps.py # dry run: counts, how many rows link to a case, nothing written python scripts/load_issue_maps.py --apply # write (live database: needs the go-ahead) Undo: DROP TABLE issue_map_questions; DROP TABLE issue_maps; (or alembic downgrade 0044_refined_pinpoints) Run `alembic upgrade head` first so the tables exist.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_issue_maps.py --help
 ```
 
 ## `scripts/map_fc_seed_to_local_cases.py`

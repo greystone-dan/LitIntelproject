@@ -7,7 +7,9 @@ markup mode. Nothing is stored and no model is called; see ``backend/live_reader
 
 from __future__ import annotations
 
+from .. import issue_match
 from .data_explorer import data_explorer_page_html
+from .live_analysis_matches import MATCH_HTML, SCRIPT as MATCH_SCRIPT, STYLE as MATCH_STYLE
 
 PANEL_HTML = r'''<section id="liveAnalysisPanel" class="panel-card search-layout live-analysis-panel" hidden>
 <div class="page-header"><div class="eyebrow">Workbench</div><h2>Live Analysis</h2><p>Bring a memo, factum or decision and read it the way the case reader shows a decision: its case citations and statute references marked in the text, with the cited paragraph, the Act's provision text and the library's cited-by counts in the margin.</p></div>
@@ -216,9 +218,12 @@ def live_analysis_page_html() -> str:
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'search'),false)",
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
 	)
-	html = _replace_once(html, '<section id="caseReaderPanel"', PANEL_HTML + '<section id="caseReaderPanel"')
+	# The decided-issue search is off unless CASELIBRARY_ISSUE_MATCHES_ENABLED=1; with it off the page is unchanged.
+	matches = issue_match.is_enabled()
+	panel_html = PANEL_HTML.replace("</section>", MATCH_HTML + "</section>", 1) if matches else PANEL_HTML
+	html = _replace_once(html, '<section id="caseReaderPanel"', panel_html + '<section id="caseReaderPanel"')
 	# This page reads your document in markup mode, so the paused-markup lock on the case reader is lifted here.
 	html = _replace_once(html, ' data-coming-soon disabled aria-disabled="true" title="Markup mode is coming soon"', ' title="Markup mode: the decision with notes in the margin"')
 	html = _replace_once(html, "<title>Immigration Litigation Intelligence Tool | iLIT</title>", "<title>Live Analysis | iLIT</title>")
-	html = html.replace("</head>", STYLE + "</head>", 1)
-	return html.replace("</body>", SCRIPT + "</body>", 1)
+	html = html.replace("</head>", STYLE + (MATCH_STYLE if matches else "") + "</head>", 1)
+	return html.replace("</body>", SCRIPT + (MATCH_SCRIPT if matches else "") + "</body>", 1)

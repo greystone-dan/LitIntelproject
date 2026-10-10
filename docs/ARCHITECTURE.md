@@ -220,6 +220,7 @@ test checks that these paths continue to exist.
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/instrument_resolver.py` | Map the act name in a stored statute reference to a registered instrument key, deterministically |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
+| `backend/issue_match.py` | Live Analysis issue matches: find decided issues close to one argument from a user's draft |
 | `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/judge_aliases.py` | Read-side helpers for the reversible judge alias layer |
 | `backend/judge_fc_activity.py` | Attach Federal Court docket activity (leave, JR, motions, stays) to a canonical judge profile |
@@ -271,6 +272,7 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page: the research page with a view that opens your own document in the reader's markup mode |
+| `backend/pages/live_analysis_matches.py` | Live Analysis: "Find decided issues" block (default off; see backend/issue_match.py) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
 | `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |

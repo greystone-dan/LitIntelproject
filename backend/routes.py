@@ -107,6 +107,7 @@ from .pages.research import research_page_html
 from .pages.saved_searches import saved_searches_page_html
 from .pages.tag_finder import tag_finder_page_html
 from .pages.theme_explorer import theme_explorer_page_html
+from . import issue_match
 from .live_analysis import MAX_DOCX_BYTES, analyze_document, extract_document, paragraphs_from_pasted_text
 from .live_reader import build_live_reader_payload
 from .memo_citation_check import analyze_memo_citations
@@ -1297,6 +1298,18 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
 	response = LiveAnalysisResponse.model_validate(payload)
 	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
+
+
+class IssueMatchRequest(BaseModel):
+	text: str = Field(min_length=issue_match.MIN_QUERY_CHARS, max_length=issue_match.MAX_QUERY_CHARS)
+
+
+@router.post("/live-analysis/issue-matches")
+def live_analysis_issue_matches(body: IssueMatchRequest, db: Session = Depends(get_db)) -> JSONResponse:
+	"""Decided issues close to one pasted argument. Keyword search only, nothing stored, no model."""
+	if not issue_match.is_enabled():
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+	return JSONResponse(content=issue_match.find_issue_matches(db, body.text), headers=_NO_STORE)
 
 
 class LiveReaderTextRequest(BaseModel):

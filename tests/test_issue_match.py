@@ -113,3 +113,10 @@ def test_relink_fills_missing_links_by_underscore_citation(db):
 	relink(db, apply=True)
 	assert db.execute(select(IssueMap.case_id)).scalar_one() == 7
 	assert relink(db)["unlinked"] == 0
+
+
+def test_display_citation_fixes_file_spelling():
+	assert issue_match._display_citation("2017_FC_1067") == "2017 FC 1067"
+	assert issue_match._display_citation("MB0_00148") == "MB0-00148"
+	assert issue_match._display_citation("2025 FC 1210") == "2025 FC 1210"
+	assert issue_match._display_citation(None) is None

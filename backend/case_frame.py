@@ -93,6 +93,11 @@ class CaseFrame:
 	layers_present: list[str] = field(default_factory=list)
 	question: str = ""
 	disposition: str = UNKNOWN
+	# What kind of document this is and whose voice is the default. A decision is written by the court or tribunal;
+	# a memorandum of argument, factum or written submissions is written by one side, so every untagged sentence
+	# in it is that side's position, not the Court's.
+	document_kind: FrameField = field(default_factory=lambda: FrameField(UNKNOWN))
+	author: FrameField = field(default_factory=lambda: FrameField("court"))
 
 	def to_dict(self) -> dict[str, Any]:
 		return asdict(self)
@@ -112,7 +117,7 @@ class CaseFrame:
 		"""Short plain-language frame, built only from known fields."""
 		court = {"fc": "the Federal Court", "fca": "the Federal Court of Appeal", "scc": "the Supreme Court of Canada",
 			"rpd": "the Refugee Protection Division", "rad": "the Refugee Appeal Division",
-			"iad": "the Immigration Appeal Division"}.get(self.court.value, "")
+			"iad": "the Immigration Appeal Division", "id": "the Immigration Division"}.get(self.court.value, "")
 		kind = {"judicial_review": "judicial review", "appeal": "appeal", "motion": "motion", "direct": "hearing"}.get(
 			self.proceeding.value, "")
 		parts = []
@@ -126,9 +131,47 @@ class CaseFrame:
 		if self.applicant_is_minister.known:
 			parts.append("The Minister is the applicant." if self.applicant_is_minister.value == "yes"
 				else "The applicant is the individual (the Minister or the Crown is the respondent).")
+		if self.document_kind.known and self.document_kind.value != "decision":
+			who = {"applicant": "the applicant", "respondent": "the respondent"}.get(self.author.value, "one side")
+			parts.append(f"This document is {_a(self.document_kind.value)} {self.document_kind.value} written by {who}, so its untagged statements are that side's position.")
 		if self.question:
 			parts.append(self.question)
 		return " ".join(parts)
+
+
+_DOC_KIND = (
+	("memorandum", r"memorandum of (?:argument|fact and law)|m[ée]moire (?:des faits et du droit|de l['’]?(?:appelant|intim[ée]|demandeur|d[ée]fendeur))"),
+	("factum", r"\bfactum\b"),
+	("submissions", r"written (?:submissions|representations)|further (?:written )?submissions|reply submissions|submissions of the (?:applicant|respondent|appellant|minister)"),
+	("decision", r"judgment and reasons|reasons for (?:judgment|decision|order)|reasons and decision|order and reasons|"
+		r"notice of decision|reasons for judgment and judgment|motifs (?:du jugement|de la d[ée]cision|et d[ée]cision)|jugement et motifs"),
+)
+_DOC_AUTHOR = re.compile(
+	r"\b(?P<side>applicant|appellant|respondent|minister|moving party|intervener|plaintiff|defendant|demandeur|demanderesse|d[ée]fendeur|intim[ée]e?|appelante?)"
+	r"['’]?s?\s+(?:memorandum|factum|written submissions|submissions|m[ée]moire)|"
+	r"(?:memorandum|factum|submissions|m[ée]moire)\s+(?:of|de|du|for|on behalf of)\s+(?:the\s+|la\s+|l['’]|le\s+)?(?P<side2>applicant|appellant|respondent|minister|moving party|intervener|plaintiff|defendant|demandeur|demanderesse|d[ée]fendeur|intim[ée]e?|appelante?)|"
+	r"prepared by counsel for the (?P<side3>applicant|appellant|respondent|minister)", re.I)
+
+
+def _document_kind(head: str) -> tuple[FrameField, str | None]:
+	"""Kind of document from its first lines, and the side that wrote it when the heading says so."""
+	for key, pat in _DOC_KIND:
+		m = re.search(pat, head, re.I)
+		if not m:
+			continue
+		# a heading ("RESPONDENT'S MEMORANDUM OF ARGUMENT", "Applicant's written submissions"), not a passing
+		# mention in a sentence ("the submissions of the applicant were...")
+		before = head[head.rfind("\n", 0, m.start()) + 1:m.start()]
+		if m.group(0).isupper() or re.fullmatch(r"\s*(?:(?:the\s+)?[\w’']+\s+){0,3}", before, re.I):
+			kind = FrameField(key, "header", "high")
+			break
+	else:
+		return FrameField(UNKNOWN), None
+	if key == "decision":
+		return kind, None
+	m = _DOC_AUTHOR.search(head)
+	side = (m.group("side") or m.group("side2") or m.group("side3")).lower() if m else None
+	return kind, side
 
 
 def _a(word: str) -> str:
@@ -144,11 +187,18 @@ def _label(key: str) -> str:
 
 def _detect_court(header: str, docket: str) -> FrameField:
 	h = header[:700]
-	for key, pat in (("rpd", r"\bRPD File|dossier de la SPR"), ("rad", r"\bRAD File|dossier de la SAR"),
-			("iad", r"\bIAD File|dossier de la SAI"), ("fca", r"Federal Court of Appeal"), ("fc", r"Federal Court Decisions"),
-			("scc", r"Supreme Court")):
+	for key, pat in (("fca", r"Federal Court of Appeal"), ("fc", r"Federal Court Decisions"), ("scc", r"Supreme Court"),
+			("rpd", r"\bRPD File|dossier de la SPR"), ("rad", r"\bRAD File|dossier de la SAR"),
+			("iad", r"\bIAD File|dossier de la SAI"), ("id", r"\bID File|dossier de la SI\b")):
 		if re.search(pat, h):
 			return FrameField(key, "header", "high")
+	# a tribunal decision whose header names the division (pasted or uploaded documents have no file label)
+	for key, pat in (("rpd", r"Refugee Protection Division|Section de la protection des r[ée]fugi[ée]s"),
+			("rad", r"Refugee Appeal Division|Section d['’]appel des r[ée]fugi[ée]s"),
+			("iad", r"Immigration Appeal Division|Section d['’]appel de l['’]immigration"),
+			("id", r"Immigration Division|Section de l['’]immigration")):
+		if re.search(pat, h, re.I):
+			return FrameField(key, "header", "medium")
 	if re.search(r"\bA-\d+-\d+\b", docket or h):
 		return FrameField("fca", "header", "medium")
 	if re.search(r"\b(?:IMM|T)-\d+-\d+\b", docket or h):
@@ -176,6 +226,9 @@ def build_frame(header_text: str, body_text: str = "", *, case_type: str | None 
 	if dm:
 		docket = dm.group(1)
 	f.court = _detect_court(header, docket)
+	f.document_kind, author_side = _document_kind((header + "\n" + intro[:600]))
+	if f.court.value in ("rpd", "rad", "iad", "id") and not f.document_kind.known:
+		f.document_kind = FrameField("decision", "header", "medium")
 
 	# parties and who is the Minister
 	bm = _BETWEEN.search(allhead)
@@ -202,14 +255,14 @@ def build_frame(header_text: str, body_text: str = "", *, case_type: str | None 
 			f.applicant_is_minister = FrameField("yes", "header", "medium")
 		elif _GOV.search(tparts[1]) or not _GOV.search(tparts[0]):
 			f.applicant_is_minister = FrameField("no", "header", "medium")
-	if f.court.value in ("rpd", "rad", "iad") and not f.applicant_is_minister.known:
+	if f.court.value in ("rpd", "rad", "iad", "id") and not f.applicant_is_minister.known:
 		# tribunal decisions have no style of cause; the claimant/appellant is the individual unless the Minister applies
 		minister_applies = re.search(r"minister['’]s application|application by the minister|minister applied|the minister is the applicant|"
 			r"cessation|vacation|demande du ministre", intro, re.I)
 		f.applicant_is_minister = FrameField("yes" if minister_applies else "no", "text", "low" if minister_applies else "medium")
 
 	# proceeding
-	if f.court.value in ("rpd", "rad", "iad"):
+	if f.court.value in ("rpd", "rad", "iad", "id"):
 		f.proceeding = FrameField("appeal" if f.court.value in ("rad", "iad") else "direct", "header", "high")
 	elif re.search(r"\bmoves? (?:for|to)\b|\bmotion (?:to strike|for a stay|by)|\bis a motion\b", intro[:900], re.I) and not re.search(
 			r"seeks? judicial review|application for judicial review of", intro[:900], re.I):
@@ -220,6 +273,10 @@ def build_frame(header_text: str, body_text: str = "", *, case_type: str | None 
 		f.proceeding = FrameField("appeal", "text", "medium")
 	elif _MOTION_ANY.search(intro):
 		f.proceeding = FrameField("motion", "text", "medium")
+	elif f.document_kind.value in ("memorandum", "factum", "submissions") and f.court.value in ("fc", "fca"):
+		# a memorandum in the Federal Courts about a refusal or decision is almost always a judicial review
+		if _POSS_DECISION.search(intro) or re.search(r"\brefus(?:ed|al)\b|\bdecision\b", intro, re.I):
+			f.proceeding = FrameField("judicial_review" if f.court.value == "fc" else "appeal", "default", "low")
 
 	if f.court.value == "fca" and re.search(
 			r"appeal (?:from|of) (?:a |the )?(?:judgment|decision|order|reasons)[^.]{0,40}Federal Court|"
@@ -233,7 +290,7 @@ def build_frame(header_text: str, body_text: str = "", *, case_type: str | None 
 		pass
 	elif f.court.value == "rad":
 		f.earlier_decision_maker = FrameField("rpd", "header", "high")
-	elif f.court.value in ("rpd",):
+	elif f.court.value in ("rpd", "id"):
 		pass  # first instance: no earlier decision
 	elif jm:
 		key = _earlier_from(jm.group("who"))
@@ -272,6 +329,19 @@ def build_frame(header_text: str, body_text: str = "", *, case_type: str | None 
 			f.earlier_decision_maker = FrameField(key, "text", "medium" if counts[key] >= 2 else "low")
 	if case_type:
 		f.subject = FrameField(case_type, "case_type", "medium")
+
+	# who wrote this document: the court (a decision) or one side (a memorandum, factum or submissions)
+	if f.document_kind.known and f.document_kind.value != "decision":
+		if author_side in ("applicant", "appellant", "moving party", "plaintiff", "demandeur", "demanderesse", "appelant", "appelante"):
+			f.author = FrameField("applicant", "header", "high")
+		elif author_side in ("respondent", "defendant", "intime", "intimé", "intimée", "défendeur", "defendeur"):
+			f.author = FrameField("respondent", "header", "high")
+		elif author_side == "minister":
+			f.author = FrameField("applicant" if f.applicant_is_minister.value == "yes" else "respondent", "header", "medium")
+		else:
+			f.author = FrameField(UNKNOWN, "default", "low")  # one side wrote it, but the heading does not say which
+	elif f.document_kind.known:
+		f.author = FrameField("court", "header", "high")
 
 	# standard of review
 	sm = _STANDARD_STATED.search(body_text or "")

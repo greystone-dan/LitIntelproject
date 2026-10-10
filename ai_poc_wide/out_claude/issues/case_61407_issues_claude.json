@@ -1,0 +1,29 @@
+{
+  "case_id": 61407,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 17,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the visa officer reasonably refused the visitor visa over doubts about temporary purpose and funds.",
+        "paras": "6-16",
+        "applicant_position": "Officer ignored bank statements, property evidence, the sister's finances and family ties in India.",
+        "respondent_position": "Weaknesses in the evidence justify the officer's reasons.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_text": "Officer gave boilerplate reasons and did not engage with contradicting evidence; decision unreasonable, referred to a different officer."
+      },
+      {
+        "issue": "Whether the officer's conduct breached procedural fairness.",
+        "paras": "8",
+        "applicant_position": "Procedural fairness arguments were raised.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 8,
+        "result_text": "Not addressed because the decision is unreasonable; no need to decide procedural fairness."
+      }
+    ]
+  }
+}

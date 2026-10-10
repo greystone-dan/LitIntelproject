@@ -1,0 +1,47 @@
+{
+  "case_id": 74218,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 24,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Which new documents are admissible (three Memurlar.net articles, updated NDP, RAD decisions)?",
+        "paras": "6-10",
+        "applicant_position": "Submits four post-decision documents: three Memurlar.net articles and an updated NDP.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 8,
+        "result_text": "Three Memurlar.net articles admitted; updated NDP and RAD decisions not admitted."
+      },
+      {
+        "issue": "Should an oral hearing be held?",
+        "paras": "11",
+        "applicant_position": "Does not request an oral hearing.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 11,
+        "result_text": "No oral hearing; no serious credibility issue raised by new evidence."
+      },
+      {
+        "issue": "Does the Appellant face a forward-looking reasonable chance of persecution as a perceived XXXX supporter or former cadet?",
+        "paras": "12-22",
+        "applicant_position": "RPD wrongly found only a 'chance'; objective evidence shows cadets are targeted and blacklisted.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_text": "Well-founded fear of persecution established given blacklisting, arrests and sustained rights violations."
+      },
+      {
+        "issue": "Are state protection or an internal flight alternative available in Turkey?",
+        "paras": "23",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_text": "No state protection or IFA; the state is the agent of harm throughout the country."
+      }
+    ]
+  }
+}

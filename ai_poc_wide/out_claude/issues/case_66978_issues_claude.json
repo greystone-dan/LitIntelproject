@@ -1,0 +1,38 @@
+{
+  "case_id": 66978,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 23,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Admissibility of four new documents: two affidavits, airport information and NDP item 10.2",
+        "paras": "8-15",
+        "applicant_position": "Submits four documents as new evidence and asks for a hearing before the RAD.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_text": "None of the four documents is admitted; no hearing can be held under s.110(6) IRPA."
+      },
+      {
+        "issue": "Whether the RPD erred on the passport, APRDH letter, militia violence evidence and travel itinerary",
+        "paras": "17-21",
+        "applicant_position": "RPD ignored his passport, wrongly inferred credibility from the missing APRDH letter, and focused on peripheral travel issues.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_text": "RPD erred on passport, APRDH letter, violence evidence and itinerary focus; these errors are determinative."
+      },
+      {
+        "issue": "Whether the RPD hearing left central credibility questions unasked",
+        "paras": "21-22",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_text": "Central credibility questions were not asked at the RPD hearing; the matter goes back for redetermination."
+      }
+    ]
+  }
+}

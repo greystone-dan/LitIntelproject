@@ -1,0 +1,38 @@
+{
+  "case_id": 50163,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 55,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant excluded under Article 1F(b) because she committed serious non-political crimes outside Canada?",
+        "paras": "21-55",
+        "applicant_position": "Claimant admits her convictions but says mitigating circumstances should be considered in assessing them.",
+        "respondent_position": "Minister argues claimant should be excluded because of her criminal history in the USA.",
+        "result": "dismissed_for_applicant",
+        "result_para": 50,
+        "result_text": "Minister met the burden; serious reasons exist to consider serious non-political crimes committed before admission."
+      },
+      {
+        "issue": "Is the claimant's account of her identity and past believed, given her claimed false identities?",
+        "paras": "47-49, 54",
+        "applicant_position": "Claimant says abuse and a cousin's identity explain her false names; her real name differs.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 54,
+        "result_text": "Court accepts documented identity but rejects her claimed true identity and her evidence as not credible."
+      },
+      {
+        "issue": "Do mitigating circumstances, such as abuse and mental health, reduce the seriousness of the crimes?",
+        "paras": "32-39, 46",
+        "applicant_position": "Claimant says abuse, low self-esteem and suicidal thoughts explain her offences; she is a vulnerable person.",
+        "respondent_position": "Minister points to aggravating factors: she blamed another person and the fraud was publicised in media.",
+        "result": "dismissed_for_applicant",
+        "result_para": 39,
+        "result_text": "Panel finds no mitigating factors minimising crime seriousness; claimant not credible on her explanations."
+      }
+    ]
+  }
+}

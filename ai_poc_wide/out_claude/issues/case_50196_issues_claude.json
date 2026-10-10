@@ -1,0 +1,38 @@
+{
+  "case_id": 50196,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the feared harm linked to a Convention ground such as imputed political opinion?",
+        "paras": "9-17",
+        "applicant_position": "Claimant says police falsely accused him of supporting terrorists and beat him, so political opinion is imputed.",
+        "respondent_position": "Documents show police detain and abuse politically active people and Sikh militants.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_text": "Fear is not linked to a Convention ground; police targeted claimant to extort money, not for political reasons."
+      },
+      {
+        "issue": "Is the claimant's account of detention and beating credible, including the letters and medical note?",
+        "paras": "18-24",
+        "applicant_position": "Claimant says he was detained, beaten, forced to pay bribes and sign a recantation.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "Account and corroborating letters and medical note given little or no weight due to inconsistencies."
+      },
+      {
+        "issue": "Could the claimant safely relocate within India (internal flight alternative), so he needs no protection?",
+        "paras": "25-30",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_text": "Adequate internal flight alternatives exist in Chennai or Calcutta; claimant is not in need of protection."
+      }
+    ]
+  }
+}

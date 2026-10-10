@@ -1,0 +1,47 @@
+{
+  "case_id": 72562,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 1,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the new documents (affidavit, letters, articles, psychologist letter, court decisions) admissible as new evidence?",
+        "paras": "11-37",
+        "applicant_position": "Submitted affidavit, letters, news articles, court decisions and doctor's note as new evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 37,
+        "result_text": "New evidence fails statutory criteria; not admitted; no oral hearing held."
+      },
+      {
+        "issue": "Did the RPD err in finding an Internal Flight Alternative (Florencia, Barranquilla, Cartagena) safe?",
+        "paras": "39-54",
+        "applicant_position": "RPD was biased and erred; objective evidence shows he would not be safe in IFA locations.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 54,
+        "result_text": "No serious possibility of persecution or risk in the proposed IFAs on balance of probabilities."
+      },
+      {
+        "issue": "Is state protection relevant, given the IFA finding?",
+        "paras": "54-57",
+        "applicant_position": "IFAs are unsafe for lack of state protection against organized crime; cites Lobaton.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 57,
+        "result_text": "State protection not engaged further because the IFA finding is determinative."
+      },
+      {
+        "issue": "Is relocation to the IFAs unreasonable because of his health and the warm, humid climate?",
+        "paras": "58-70",
+        "applicant_position": "Doctor's note says he cannot live in warm humid climates; IFAs are unreasonable for him.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 71,
+        "result_text": "IFAs found reasonable; health care and work prospects adequate; insufficient evidence of unreasonableness."
+      }
+    ]
+  }
+}

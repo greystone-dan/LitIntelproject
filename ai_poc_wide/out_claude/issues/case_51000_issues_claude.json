@@ -1,0 +1,47 @@
+{
+  "case_id": 51000,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the criminal denunciation genuine or fraudulent?",
+        "paras": "10-14",
+        "applicant_position": "Principal claimant says the PIF preparer omitted information and police refused to correct the date.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_text": "Denunciation found fraudulent due to omissions, a date and time conflict, and missing official markings."
+      },
+      {
+        "issue": "Is the principal claimant's testimony credible despite omissions from his PIF?",
+        "paras": "11, 15-16, 19-20, 22-24",
+        "applicant_position": "Claimant says the PIF preparer dismissed his information as garbage; his mother could not get records.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "Principal claimant not credible; negative inference extends to all his evidence and to the female claimant."
+      },
+      {
+        "issue": "Do the supporting letters and medical reports corroborate the claims?",
+        "paras": "17-18, 21-22",
+        "applicant_position": "Claimant relies on two medical reports and supporting letters from municipal employees.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_text": "Letters are vague and the medical reports inconsistent and undated; given little weight."
+      },
+      {
+        "issue": "Should state protection and the internal flight alternative be decided?",
+        "paras": "25",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 25,
+        "result_text": "Not analysed because of the lack of credibility; no need to decide state protection or internal flight."
+      }
+    ]
+  }
+}

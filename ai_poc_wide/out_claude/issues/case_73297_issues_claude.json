@@ -1,0 +1,47 @@
+{
+  "case_id": 73297,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the new evidence (Concord Times article, affidavits, physical newspaper) admissible?",
+        "paras": "8-18",
+        "applicant_position": "New evidence arose after rejection and was not reasonably available; delay explained.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_text": "New evidence accepted as relevant, probative and meeting tests; delay explanation accepted."
+      },
+      {
+        "issue": "Is the Concord Times article credible?",
+        "paras": "23-24",
+        "applicant_position": "Article identifies him as gay and shows his exposure in Sierra Leone.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 24,
+        "result_text": "Article has credibility concerns in content and timing, but its publication in Sierra Leone is accepted."
+      },
+      {
+        "issue": "Does the appellant face a serious possibility of persecution in Sierra Leone as a perceived gay man, with no state protection or IFA?",
+        "paras": "25-29",
+        "applicant_position": "Perceived sexual orientation exposed; criminalization and discrimination; no state protection or IFA.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_text": "Appellant established exposure; no state protection or IFA; more than a mere possibility of persecution."
+      },
+      {
+        "issue": "Should the RPD's credibility findings on his sexual orientation be confirmed?",
+        "paras": "19-21",
+        "applicant_position": "Does not challenge RPD credibility findings; relies only on new evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_text": "RPD credibility findings and reasoning agreed with; new evidence is determinative."
+      }
+    ]
+  }
+}

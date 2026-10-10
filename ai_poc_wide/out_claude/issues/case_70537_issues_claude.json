@@ -1,0 +1,56 @@
+{
+  "case_id": 70537,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 53,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD apply the correct standard of proof under s. 96 and s. 97?",
+        "paras": "4, 10-11",
+        "applicant_position": "RPD confused 'more than a mere possibility' with 'serious possibility' and did not state the s. 97 standard.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_text": "RPD applied the serious possibility standard correctly and stated the s. 97 standard at the end."
+      },
+      {
+        "issue": "Is the appellant's Hoa Hao religious identity credible and her knowledge of the faith adequate?",
+        "paras": "12-38",
+        "applicant_position": "RPD expected unrealistically high religious knowledge without saying what was expected or from where.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_text": "Religious identity not established with sufficient evidence; testimony vague and letter and photos weak."
+      },
+      {
+        "issue": "Did the RPD properly draw negative inferences from missing corroboration (religious dates, Viber photos, family letters)?",
+        "paras": "14-19, 42-46",
+        "applicant_position": "Late notice and no time to prepare; Viber account no longer usable; family evidence reasonably unavailable.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 44,
+        "result_text": "Inference on religious dates was an error but not serious; inferences on Viber photos and family letters upheld."
+      },
+      {
+        "issue": "Is the appellant wanted by Vietnamese police, so that she faces risk under s. 96 or s. 97?",
+        "paras": "39-52",
+        "applicant_position": "Police looking for her since 2019 because she sent Hoa Hao materials that led to her neighbour's arrest.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 52,
+        "result_text": "Serious possibility of persecution or s. 97 harm not credibly established; police interest lacks a nexus."
+      },
+      {
+        "issue": "Did the RPD err by not addressing post-hearing letters before deciding?",
+        "paras": "8, 47-51",
+        "applicant_position": "Did not challenge the handling of the post-hearing documents on appeal.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 48,
+        "result_text": "RPD should have acknowledged the letters; error cured by the RAD's independent assessment."
+      }
+    ]
+  }
+}

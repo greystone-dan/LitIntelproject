@@ -1,0 +1,56 @@
+{
+  "case_id": 61813,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the RPD erred in finding contradictory testimony about efforts to find witnesses for the complaint letter.",
+        "paras": "6-9",
+        "applicant_position": "Inconsistencies reflect memory issues; the RPD improperly searched for credibility problems.",
+        "respondent_position": "Agrees the RPD erred on one credibility reason, but says the account was not credible overall.",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_text": "Testimony on witness efforts was contradictory and evolving without reasonable explanation; RPD was correct."
+      },
+      {
+        "issue": "Whether the omission of village sarpanch involvement from the narrative undermines credibility.",
+        "paras": "10-14",
+        "applicant_position": "RPD held the omission against him and did not consider his explanation.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_text": "RPD considered the explanation, found it unsatisfactory; the omission negatively affected the account."
+      },
+      {
+        "issue": "Whether the RPD erred in finding contradictory testimony about when he decided to leave India.",
+        "paras": "15-16",
+        "applicant_position": "Testimony on timing was not contradictory; RPD ignored when he began planning to leave.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_text": "Testimony about timing of plans to leave was not necessarily contradictory; RAD agrees."
+      },
+      {
+        "issue": "Whether the two-year delay in claiming refugee protection undermines credibility.",
+        "paras": "17-20",
+        "applicant_position": "Delay should not affect credibility because he had a student visa and legal status.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_text": "Delay adversely affects credibility; the student visa did not explain it and reasons were unsatisfactory."
+      },
+      {
+        "issue": "Whether the credibility concerns rebut the presumption of truthfulness, given the documents.",
+        "paras": "21",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_text": "Credibility concerns rebut the presumption; documents do not overcome them and conflict with testimony."
+      }
+    ]
+  }
+}

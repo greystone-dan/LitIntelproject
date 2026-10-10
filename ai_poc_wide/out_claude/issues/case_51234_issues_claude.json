@@ -1,0 +1,38 @@
+{
+  "case_id": 51234,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant's account of her UK trip and her parents' absence is credible",
+        "paras": "15-23",
+        "applicant_position": "Claimant says her parents left her with her sister and she went to England in 2008 to find them.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_text": "Claimant's story about her UK trip and stay is not credible."
+      },
+      {
+        "issue": "Whether the feared conjugal partner is established as an agent of harm",
+        "paras": "24-25",
+        "applicant_position": "Claimant says her boyfriend became abusive and controlling after she returned and knocked her unconscious.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "Claimant failed to establish the identity of the feared partner; account not credible."
+      },
+      {
+        "issue": "Whether there is credible evidence supporting any s.96 or s.97 fear",
+        "paras": "26-27",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_text": "No credible evidence supports the alleged fear; claim rejected."
+      }
+    ]
+  }
+}

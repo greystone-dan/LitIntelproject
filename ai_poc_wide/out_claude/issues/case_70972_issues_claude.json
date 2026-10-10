@@ -1,0 +1,38 @@
+{
+  "case_id": 70972,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the RAD's role and standard of review on appeal from the RPD?",
+        "paras": "8-9",
+        "applicant_position": "not stated",
+        "respondent_position": "Counsel submitted on the RAD's role in reviewing RPD decisions.",
+        "result": "moot_or_procedural",
+        "result_para": 9,
+        "result_text": "RAD conducts a hybrid appeal, independently assessing and respecting RPD credibility findings where appropriate."
+      },
+      {
+        "issue": "Should the new hospital letter, interpreter affidavit and internet article be admitted under IRPA s.110(4)?",
+        "paras": "10-15",
+        "applicant_position": "Submitted hospital authorization letter, interpreter affidavit and internet article as new evidence.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 15,
+        "result_text": "Interpreter affidavit admitted as rebuttal evidence; hospital documents and internet article not admitted."
+      },
+      {
+        "issue": "Did the Appellant establish her identity and Somali nationality with credible evidence?",
+        "paras": "16-31",
+        "applicant_position": "RPD erred by inferring negatively from lack of documents and by assessing the witness unfairly.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_text": "RAD concurs with RPD that the Appellant did not provide sufficient credible evidence of identity and nationality."
+      }
+    ]
+  }
+}

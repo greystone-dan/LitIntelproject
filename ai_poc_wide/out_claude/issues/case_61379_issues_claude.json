@@ -1,0 +1,38 @@
+{
+  "case_id": 61379,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 31,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the officer's concerns about employment, education and finances were a veiled credibility finding requiring procedural fairness.",
+        "paras": "14-24",
+        "applicant_position": "Concerns were veiled credibility findings, so the applicants had to be notified and allowed to respond.",
+        "respondent_position": "Concerns were about sufficiency of evidence, not credibility; any failure to alert was not material.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_text": "No procedural fairness breach: concerns were about evidence sufficiency, and any failure to alert was immaterial."
+      },
+      {
+        "issue": "Whether the officer's error that the commitment certificate had expired undermines the Decision.",
+        "paras": "25-27",
+        "applicant_position": "The factual error about the certificate's expiry is significant and undermines the Decision's reasonableness.",
+        "respondent_position": "Error is not material; sufficiency of evidence on funds and ability to perform work is determinative.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_text": "Factual error about the certificate's expiry is not a reviewable error; funds and work ability were determinative."
+      },
+      {
+        "issue": "Whether the officer reasonably assessed economic, social and cultural benefits under paragraph 205(a) IRPR.",
+        "paras": "28-30",
+        "applicant_position": "Written submissions referred to benefits beyond salaries, which the officer did not analyze.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 30,
+        "result_text": "Benefits analysis was incomplete, but this does not make the Decision unreasonable overall."
+      }
+    ]
+  }
+}

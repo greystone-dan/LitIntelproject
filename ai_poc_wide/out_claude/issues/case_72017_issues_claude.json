@@ -1,0 +1,38 @@
+{
+  "case_id": 72017,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 19,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the new document (page numbering verification) meet Rule 29 requirements?",
+        "paras": "3-5",
+        "applicant_position": "Submitted a document dated April 14, 2015 verifying a newspaper page numbering error.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 5,
+        "result_text": "Document verifies a page-numbering error but is not probative or relevant to the RAD's decision; not admitted."
+      },
+      {
+        "issue": "What is the RAD's role and standard of review on appeal from the RPD?",
+        "paras": "10-12",
+        "applicant_position": "Supports the Huruglica hybrid appeal approach; has not requested an oral hearing.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 12,
+        "result_text": "RAD independently assesses the RPD decision, affording deference to credibility findings where appropriate."
+      },
+      {
+        "issue": "Was the RPD's rejection of the newspaper article (authenticity and credibility) sound?",
+        "paras": "7, 13-17",
+        "applicant_position": "RPD kept the original newspaper for authentication but never verified it; the newspaper shows she was wanted in 2014.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_text": "Newspaper should have been authenticated and translated; RAD cannot substitute a decision given its centrality to credibility."
+      }
+    ]
+  }
+}

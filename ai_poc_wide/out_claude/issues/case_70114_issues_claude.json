@@ -1,0 +1,47 @@
+{
+  "case_id": 70114,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 50,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the December 2020 affidavit be admitted, and should an oral hearing be held?",
+        "paras": "5-11",
+        "applicant_position": "Affidavit is new evidence; hearsay in it raises a serious credibility issue, so an oral hearing is needed.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 11,
+        "result_text": "Affidavit admitted as new evidence; oral hearing refused as no serious credibility issue arises."
+      },
+      {
+        "issue": "Would the appellant face serious persecution or s. 97 risk from cartel members in Merida or Campeche?",
+        "paras": "13-43",
+        "applicant_position": "RPD ignored evidence of targeting by cartel members; threats and a note on his sister's body show pursuit.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 43,
+        "result_text": "Cartels not shown to be motivated to locate him in the IFA; first prong of the IFA test met."
+      },
+      {
+        "issue": "Would the appellant face risk from his former Canadian supervisor if returned to Mexico?",
+        "paras": "44-46",
+        "applicant_position": "Former supervisor deceived and threatened him; his continued interest justifies the claim.",
+        "respondent_position": "Counsel acknowledged uncertainty whether the supervisor poses a risk in Mexico.",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_text": "No evidence the supervisor can locate or harm the appellant in Mexico."
+      },
+      {
+        "issue": "Is relocation to Merida or Campeche objectively unreasonable (second prong of the IFA test)?",
+        "paras": "47-49",
+        "applicant_position": "Campeche is dangerous and far from home; crime in Merida and Campeche shows the IFA is not safe.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 49,
+        "result_text": "Relocation to Campeche or Merida is not objectively unreasonable; an IFA need not be crime-free."
+      }
+    ]
+  }
+}

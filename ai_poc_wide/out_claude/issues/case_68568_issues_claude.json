@@ -1,0 +1,38 @@
+{
+  "case_id": 68568,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD breach procedural fairness by referring to India in its decision?",
+        "paras": "13-15",
+        "applicant_position": "RPD failed to observe procedural fairness and natural justice because its decision refers to India.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_text": "The two references to India are clerical errors; the RPD observed procedural fairness and natural justice."
+      },
+      {
+        "issue": "Does past persecution create a rebuttable presumption of future persecution (Fernandopulle)?",
+        "paras": "16-19",
+        "applicant_position": "Fernandopulle applies; past persecution gives a rebuttable presumption of future persecution.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_text": "No such presumption is recognized; the facts differ and the RPD made no finding of past persecution on a Convention ground."
+      },
+      {
+        "issue": "Did the RPD err in assessing the evidence (police reports, father's account, mother's letter) on well-founded fear?",
+        "paras": "20-33",
+        "applicant_position": "RPD failed to consider the evidence; the mother's letter shows ongoing risk from Minister Silva and his associates.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_text": "Mother's letter gives no details of threats or dates; the appellant has not shown a well-founded fear on credible evidence."
+      }
+    ]
+  }
+}

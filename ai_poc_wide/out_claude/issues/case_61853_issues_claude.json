@@ -1,0 +1,38 @@
+{
+  "case_id": 61853,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the new documents filed on appeal are admissible under IRPA subsection 110(4).",
+        "paras": "8-19",
+        "applicant_position": "She sent the documents to the RAD believing they were new evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_text": "New documents not accepted: they predate rejection unexplained, or are irrelevant or unexplained."
+      },
+      {
+        "issue": "Whether the RPD erred in assessing the appellant's credibility.",
+        "paras": "20-26",
+        "applicant_position": "Submits the RPD erred in assessing credibility; details to be discussed if necessary.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_text": "RPD's three elements are insufficient to reject credibility; RAD finds the RPD erred."
+      },
+      {
+        "issue": "Whether an internal flight alternative in Mexico is available.",
+        "paras": "27",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 27,
+        "result_text": "Cannot determine internal flight alternative without the hearing evidence; matter referred to the RPD."
+      }
+    ]
+  }
+}

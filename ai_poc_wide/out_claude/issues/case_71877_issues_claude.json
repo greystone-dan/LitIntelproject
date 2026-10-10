@@ -1,0 +1,38 @@
+{
+  "case_id": 71877,
+  "task": "issues",
+  "model": "claude",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the new affidavit from relative XXXX be admitted under IRPA s.110(4)?",
+        "paras": "9-13",
+        "applicant_position": "Affidavit not available at the hearing because the relative hesitated; agreed to provide it only after the hearing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_text": "Affidavit not admitted: the relative lived with the appellant and attended the hearing, so it was reasonably available."
+      },
+      {
+        "issue": "What is the RAD's role and standard of review on appeal from the RPD?",
+        "paras": "14-15",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 15,
+        "result_text": "RAD applies Huruglica hybrid appeal, independently assessing while respecting RPD credibility findings."
+      },
+      {
+        "issue": "Did the appellant establish his identity and Somali nationality?",
+        "paras": "19-28",
+        "applicant_position": "RPD erred in assessing his identity; he submitted evidence of his residence and background.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_text": "Appellant failed to establish identity and nationality on a balance of probabilities; the claim fails."
+      }
+    ]
+  }
+}

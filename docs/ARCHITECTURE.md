@@ -154,12 +154,12 @@ test checks that these paths continue to exist.
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
-| `backend/case_frame.py` | Deterministic case frame (court, proceeding, earlier decision maker, which side the Minister is on) built before any paragraph is read; no model |
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_fingerprint.py` | Case fingerprint: deterministic "similar cases by subject" and "shares authorities" (no AI) |
 | `backend/case_fingerprint_store.py` | Stored case fingerprints: compute at ingest/batch time, read back into a similarity index |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
+| `backend/case_frame.py` | Deterministic case frame (court, proceeding, earlier decision maker, which side the Minister is on) built before any paragraph is read; no model |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
@@ -238,6 +238,7 @@ test checks that these paths continue to exist.
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/opinion_parts.py` | Majority, concurring and dissenting parts of a decision, found by code from the text's own markers |
 | `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/overruling_risk.py` | Editable source-backed seeds and cautious direct/indirect indicator response shaping |
 | `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |

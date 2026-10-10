@@ -39,6 +39,7 @@ ROUTE_BUCKET_PREFIXES: tuple[tuple[tuple[str, ...] | None, str, str | None], ...
 	(("POST",), "/search/chunks", "bulk_search"),
 	(("POST",), "/research", "bulk_search"),
 	(("POST",), "/precedent-finder", "bulk_search"),
+	(("GET",), "/unit-search", "bulk_search"),
 	(("GET",), "/discussion-units-sandbox/search", None),
 	(("GET",), "/prototype/cases", None),
 	(("GET",), "/search/tags/similar", None),

@@ -953,6 +953,19 @@ def get_case_reader_data(case_id: int, evidence: bool = True, db: Session = Depe
 	return build_case_reader_data(case_id, db, include_evidence=evidence)
 
 
+@router.get("/unit-search", response_model=dict[str, Any], include_in_schema=False)
+def get_unit_search(q: str = Query(..., min_length=3, max_length=300), db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Discussion units matching a plain-language query (experimental, off unless ILIT_UNIT_SEARCH is set)."""
+	from .unit_keyword_search import search_units, unit_search_enabled
+
+	if not unit_search_enabled():
+		raise HTTPException(status_code=404, detail="Not found")
+	found = search_units(db, q)
+	if found is None:
+		raise HTTPException(status_code=404, detail="No paragraph matches (or the paragraph index is not available)")
+	return found
+
+
 @router.get("/cases/{case_id}/evidence-summary", response_model=dict[str, Any])
 def get_case_evidence_summary(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
 	"""Discussion-unit evidence and case summary, loaded after the decision text so they never delay it."""

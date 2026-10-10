@@ -152,6 +152,28 @@ def _unit_party_arguments(report: dict[str, Any], title: str) -> dict[int, str]:
 	return {indexes[position]: party for position, party in voices.items()}
 
 
+def _chunk_position_mapper(report: dict[str, Any], chunks: list[CaseChunk] | None):
+	"""Map the report's paragraph indexes to positions in the reader's paragraph chunk list.
+
+	The report counts text pieces: a chunk with a section heading glued to its end becomes two pieces, so after the
+	first such chunk every report index runs ahead of the chunk list the reader and markup mode index into. Returns
+	a function from a report index to a chunk position (the same index when the chunk list is not available).
+	"""
+	if chunks is None:
+		return lambda index: index
+	paragraph_chunks = sorted(
+		(chunk for chunk in chunks if (chunk.chunk_set or "") == "paragraph"), key=lambda chunk: (chunk.chunk_index, chunk.id or 0)
+	)
+	position_of_chunk = {chunk.chunk_index: position for position, chunk in enumerate(paragraph_chunks)}
+	mapped = {
+		paragraph["paragraph_index"]: position_of_chunk.get(paragraph.get("source_paragraph_index"))
+		for paragraph in report.get("paragraphs", [])
+	}
+	if not mapped or any(value is None for value in mapped.values()):
+		return lambda index: index
+	return lambda index: mapped.get(index, index)
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -166,6 +188,7 @@ def _build_evidence_summary(
 	report = _cached_inspect_case(db, case_id, chunks)
 	unit_roles = _unit_roles(report)
 	party_by_paragraph = _unit_party_arguments(report, title)
+	at = _chunk_position_mapper(report, chunks)
 	units = []
 	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
@@ -177,7 +200,7 @@ def _build_evidence_summary(
 					chunk_id=item["chunk_id"],
 					start_offset=item["start_offset"],
 					end_offset=item["end_offset"],
-					paragraph_index=item["paragraph_index"],
+					paragraph_index=at(item["paragraph_index"]),
 					context_text=item["context_text"],
 					source_text_hash=item["source_text_hash"],
 				)
@@ -186,7 +209,7 @@ def _build_evidence_summary(
 			subthemes.append(
 				CaseSubThemeSummaryResponse(
 					subtheme_id=subtheme["subtheme_id"],
-					paragraph_indices=subtheme["paragraph_indices"],
+					paragraph_indices=list(dict.fromkeys(at(index) for index in subtheme["paragraph_indices"])),
 					key_terms=subtheme["key_terms"],
 					display_key_terms=subtheme.get("display_key_terms", subtheme["key_terms"]),
 					argument_roles=subtheme["argument_roles"],
@@ -198,15 +221,18 @@ def _build_evidence_summary(
 			CaseDiscussionUnitSummaryResponse(
 				discussion_unit_id=unit["discussion_unit_id"],
 				unit_index=int(unit["discussion_unit_id"].rsplit(":", 1)[-1]),
-				start_paragraph=unit["start_paragraph"],
-				end_paragraph=unit["end_paragraph"],
+				start_paragraph=at(unit["start_paragraph"]),
+				end_paragraph=at(unit["end_paragraph"]),
 				paragraph_count=unit["paragraph_count"],
 				subthemes=subthemes,
 				role=unit_roles[position] if position < len(unit_roles) else None,
 				party_arguments=[
-					CaseUnitPartyArgumentResponse(paragraph_index=index, party=party_by_paragraph[index])
-					for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
-					if index in party_by_paragraph
+					CaseUnitPartyArgumentResponse(paragraph_index=index, party=party)
+					for index, party in dict(
+						(at(feature), party_by_paragraph[feature])
+						for feature in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
+						if feature in party_by_paragraph
+					).items()
 				],
 			)
 		)

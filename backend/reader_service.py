@@ -6,6 +6,7 @@ HTML source sanitization and citation markup wrapping, and citation-pass details
 
 from __future__ import annotations
 
+import os
 import re
 import time
 from collections import OrderedDict
@@ -68,6 +69,7 @@ from .models import (
 )
 from scripts.inspect_discussion_units import inspect_case
 from .contextual_authority.case_structure import structure_outline
+from .contextual_authority.structure_units import structure_report
 from .contextual_authority.unit_roles import label_unit_roles, label_unit_roles_by_structure
 from .contextual_authority.unit_voices import party_argument_voices
 
@@ -101,7 +103,7 @@ _INSPECT_CACHE_TTL_SECONDS = 3600
 _INSPECT_CACHE_LOCK = RLock()
 
 
-def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
+def _cached_inspect_base(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
 	"""Discussion-unit segmentation is pure compute (seconds per case), so reuse it per case until its chunks change."""
 	key = None
 	if chunks is not None:
@@ -118,6 +120,26 @@ def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | No
 			while len(_INSPECT_CACHE) > _INSPECT_CACHE_MAX:
 				_INSPECT_CACHE.popitem(last=False)
 	return report
+
+
+def structure_units_enabled() -> bool:
+	"""ILIT_STRUCTURE_UNITS=1 cuts units along the decision's skeleton instead of by paragraph similarity (default off)."""
+	return os.getenv("ILIT_STRUCTURE_UNITS", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
+	"""The unit report for a case: similarity units, or structure units when the flag is on (the originals stay as fallback)."""
+	report = _cached_inspect_base(db, case_id, chunks)
+	if not structure_units_enabled():
+		return report
+	memo = report.get("_structure_report")
+	if memo is None:
+		try:
+			memo = structure_report(report)
+		except Exception:
+			memo = report
+		report["_structure_report"] = memo
+	return memo
 
 
 UNIT_ROLE_NOTE = (

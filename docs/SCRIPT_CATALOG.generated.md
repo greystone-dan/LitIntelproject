@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 206
+Active scripts documented: 207
 
 ## Catalog
 
@@ -121,6 +121,7 @@ Active scripts documented: 206
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `fetch_position_texts.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help` |
+| `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
 | `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
 | `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
@@ -1769,6 +1770,20 @@ Active scripts documented: 206
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fetch_position_texts.py --help
+```
+
+## `scripts/fill_paragraph_search.py`
+
+**Purpose:** Add decisions that are missing from the paragraph keyword index (table paragraph_search). Dry run by default. The index behind the case search box and unit search was filled once by a one-off SQL file. Decisions whose paragraph chunks were created after that, or below the id it resumed from, are not in it, so they never show up in search. The dry run counts, per court, paragraph chunks and how many are indexed. --apply adds only the missing rows (nothing is changed or deleted), in small committed batches, so it can be stopped and run again. python scripts/fill_paragraph_search.py # dry run: counts per court python scripts/fill_paragraph_search.py --apply --court RAD # add the missing RAD rows Undo: DELETE FROM paragraph_search WHERE case_id IN (SELECT id FROM cases WHERE court ILIKE '%Refugee Appeal%'); (only valid when the dry run showed no RAD rows indexed before). If a court shows no paragraph chunks at all, it needs `scripts/chunk_cases.py` first; this script cannot help.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help
 ```
 
 ## `scripts/fingerprint_pilot.py`

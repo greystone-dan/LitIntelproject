@@ -1,0 +1,38 @@
+{
+ "case_id": "2023_FC_878",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 16,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Can the deemed-discontinued ALJR be revived by an extension of time without a request to re-open or exceptional circumstances?",
+    "paras": "10-14",
+    "applicant_position": "Solicitor's error in missing the record deadline should excuse the delay; extension sought to file the application record.",
+    "respondent_position": "The ALJR was deemed discontinued; no re-opening request and no exceptional circumstances under Virk.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_quote": "As such, the motion is denied on that ground alone."
+   },
+   {
+    "issue": "Has the applicant shown a continuing intention to pursue the application?",
+    "paras": "15",
+    "applicant_position": "Solicitor's affidavit supports the motion and shows continuing intention.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_quote": "The affidavit from the Applicant’s counsel fails to disclose any reason why the Applicant has not provided evidence speaking to his continuing intention to proceed"
+   },
+   {
+    "issue": "Does the underlying application have merit?",
+    "paras": "16",
+    "applicant_position": "Solicitor's affidavit supports the merit of the underlying application.",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 16,
+    "result_quote": "The Court was not provided with copy of the decision under review, nor the alleged errors believed to exist in the decision."
+   }
+  ]
+ }
+}

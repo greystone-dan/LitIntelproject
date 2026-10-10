@@ -1,0 +1,38 @@
+{
+  "case_id": "2025_FC_527",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were Exhibits A, B, C and E (documents not before the IAD) admissible on judicial review?",
+        "paras": "12-13, 18-20",
+        "applicant_position": "Exhibits A, B, C and E are background to the judicial review and should be admitted.",
+        "respondent_position": "Exhibits were not before the decision maker and should be excluded.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "That exception applies here. Exhibits A, B, C and E to the affidavit of the Applicant provide background to the current application for judicial review."
+      },
+      {
+        "issue": "Did the IAD reasonably apply res judicata to dismiss the appeal?",
+        "paras": "11, 21-24",
+        "applicant_position": "The second officer decided on a different ground (husband's motivation), so res judicata should not bar the appeal.",
+        "respondent_position": "The genuineness question was decided and final between the same parties; the IAD reasonably applied res judicata.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "On the basis of the evidence before it, the application of the principle of res judicata by the IAD is reasonable."
+      },
+      {
+        "issue": "Did the IAD reasonably decline to waive res judicata in light of the new evidence?",
+        "paras": "10, 14, 25-28",
+        "applicant_position": "IAD failed to consider and grapple with the new evidence and to exercise its discretion to waive res judicata.",
+        "respondent_position": "IAD considered the discretion and declined it, as there was no decisive evidence or special circumstances.",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "In my opinion, the IAD’s conclusion that the new evidence did not overcome the original concerns was reasonable."
+      }
+    ]
+  }
+}

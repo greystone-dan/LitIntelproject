@@ -1,0 +1,38 @@
+{
+  "case_id": "2007_FCA_135",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Must the applicant pay the respondents' costs of the four extension-of-time motions under Rule 410(2), regardless of outcome?",
+        "paras": "6-7, 19-31",
+        "applicant_position": "Rule 410(2) does not apply: motions also sought other relief, and orders were silent on costs.",
+        "respondent_position": "Rule 410(2) is mandatory: the applicant must pay respondents' costs of all four extension motions regardless of outcome.",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I disallow the Respondents' costs as they relate to the four motions"
+      },
+      {
+        "issue": "What amount of the respondents' bill of costs is allowed (application record, paralegal, assessment, disbursements)?",
+        "paras": "32",
+        "applicant_position": "Applicant offered a nominal $300 in total and says nothing should be allowed for item 2.",
+        "respondent_position": "Respondents claimed $9,487.85 in costs, citing the applicant's delay tactics and excessive work.",
+        "result": "partly_allowed",
+        "result_para": 32,
+        "result_quote": "The Respondents' bill of costs, presented at $9,487.85, is assessed and allowed at $1,239.80."
+      },
+      {
+        "issue": "Should the applicant recover its own costs of the assessment (Rule 408(3)) instead of respondents getting item 26 costs?",
+        "paras": "7, 32",
+        "applicant_position": "Assessment was unnecessary, so respondents should not get item 26 costs; applicant should get $434.60.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "I allow item 26 (assessment of costs) as presented at the maximum 6 units"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2010_FC_305",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 8,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court decide the merits of the sponsorship-delay application, which had become moot?",
+        "paras": "3-4",
+        "applicant_position": "Only costs remain in issue; he does not press the merits of the processing order.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 3,
+        "result_quote": "the Court declines to exercise its discretion to decide the matter on the merits"
+      },
+      {
+        "issue": "Were there special reasons under Rule 22 to award costs against the Respondent for the processing delay?",
+        "paras": "5-8",
+        "applicant_position": "Unreasonable delay in processing justifies special costs; the Court should send a message to the Minister.",
+        "respondent_position": "Delay was longer than the norm but there was no bad faith; reasons were explained and circumstances justified it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "Accordingly, I find that there are no special reasons to award costs against the Respondent."
+      }
+    ]
+  }
+}

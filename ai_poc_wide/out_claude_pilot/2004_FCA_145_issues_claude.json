@@ -1,0 +1,47 @@
+{
+  "case_id": "2004_FCA_145",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 39,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should Her Majesty be struck as respondent, with the Minister and Solicitor General substituted?",
+        "paras": "9",
+        "applicant_position": "Consents to substituting the Minister and Solicitor General as respondents.",
+        "respondent_position": "Her Majesty was wrongly named; the Minister and Solicitor General issued the certificate.",
+        "result": "moot_or_procedural",
+        "result_para": 39,
+        "result_quote": "the respondent's motion for an order striking Her Majesty the Queen as respondent and adding the Minister and Solicitor General is granted."
+      },
+      {
+        "issue": "Can the designated judge's refusal to order further disclosure be appealed to the Federal Court of Appeal?",
+        "paras": "13-31",
+        "applicant_position": "Appeal lies under s. 27(1) Federal Court Act; s. 80(3) bars only appeals of the ultimate reasonableness ruling.",
+        "respondent_position": "Section 80(3) bars appeal of the whole reasonableness determination, including disclosure rulings under s. 78 (Tobiass).",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "is not subject to appeal in this Court pursuant to subsection 80(3) of the IRPA."
+      },
+      {
+        "issue": "Should the reasonableness review be stayed pending the appeal on disclosure?",
+        "paras": "32-33",
+        "applicant_position": "Review should be stayed until the appeal on undisclosed evidence is decided.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "his motion to stay the review of the certificate pending this appeal cannot succeed."
+      },
+      {
+        "issue": "Should the reasonableness review be stayed pending the Ontario Court of Appeal challenge to the IRPA provisions?",
+        "paras": "34-38",
+        "applicant_position": "Review should wait for the Ontario appeal on the constitutionality of ss. 77-83 IRPA.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_quote": "Mr. Zundel's motion to stay the review of the reasonableness of the certificate pending the hearing before the Ontario Court of Appeal should be dismissed."
+      }
+    ]
+  }
+}

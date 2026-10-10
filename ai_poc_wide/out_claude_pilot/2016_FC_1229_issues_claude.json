@@ -1,0 +1,29 @@
+{
+  "case_id": "2016_FC_1229",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the May 4, 2016 refusal letter unreasonable because it did not explain why the mitigation plan was inadequate?",
+        "paras": "2-17",
+        "applicant_position": "The letter gave no reasons why the plan was rejected, so the decision is unreasonable and unintelligible.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The application for judicial review must therefore be dismissed."
+      },
+      {
+        "issue": "Was the assessment of the child's needs generic rather than individualized, contrary to Hilewitz?",
+        "paras": "18",
+        "applicant_position": "The assessment of the child's Down syndrome was generic, relying on the classification of the condition (memorandum).",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 18,
+        "result_quote": "he did not claim that the assessment performed in this case was not individualized"
+      }
+    ]
+  }
+}

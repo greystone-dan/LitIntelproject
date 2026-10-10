@@ -1,0 +1,47 @@
+{
+  "case_id": "2005_FC_1583",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer base the finding that the marriage was not bona fide on erroneous findings of fact made in a perverse or capricious manner?",
+        "paras": "14-21",
+        "applicant_position": "Officer relied on wrong relationship dates, an erroneous factual finding that undermines the bona fides finding.",
+        "respondent_position": "The officer was justified in not being convinced of the marriage's bona fides; the onus was on the applicant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "On the other hand, it is clear that this finding was not made in a perverse or capricious manner."
+      },
+      {
+        "issue": "Did the officer rely on evidence not put to the applicant, without giving her a chance to respond?",
+        "paras": "22-24",
+        "applicant_position": "Officer relied on unexplained evidence and did not ask for more; the applicant was ready to provide any evidence on her marriage.",
+        "respondent_position": "The onus was on the applicant to make her case, not on the officer to ask her to do so.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "The onus is therefore on the applicant to file any material evidence demonstrating the bona fides of the marriage."
+      },
+      {
+        "issue": "Did the officer err in her analysis of the integration component (hardship and ties to Canada)?",
+        "paras": "26-30",
+        "applicant_position": "not stated",
+        "respondent_position": "The officer's assessment of the facts on H&C grounds was not unreasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "Here again, the applicant has failed to demonstrate that the Officer’s decision was unreasonable."
+      },
+      {
+        "issue": "Do the officer's findings show a reasonable apprehension of bias?",
+        "paras": "31-34",
+        "applicant_position": "The officer's findings demonstrate that she was biased against the applicant.",
+        "respondent_position": "The officer did not demonstrate bias in identifying gaps in the applicant's evidence.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "Obviously, that is insufficient to demonstrate a reasonable apprehension of bias."
+      }
+    ]
+  }
+}

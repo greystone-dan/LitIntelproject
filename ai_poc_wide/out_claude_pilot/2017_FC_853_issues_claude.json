@@ -1,0 +1,29 @@
+{
+  "case_id": "2017_FC_853",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer err in law by assessing the spousal sponsorship under H&C guidelines (OB 544) instead of the sponsorship guidelines?",
+        "paras": "24-31",
+        "applicant_position": "Officer should have applied OB 633 or IP 8, not OB 544; misreading the guidelines is an error of law.",
+        "respondent_position": "Guidelines are not binding; sponsorship and H&C applications are separate, and OB 544 was properly applied given the H&C request.",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "the Officer did not commit an error of law by reading OB 544, rather, than OB 633."
+      },
+      {
+        "issue": "Did the Officer show a lack of diligence and breach the applicant's legitimate expectations by not telling him to cancel his 2008 H&C application?",
+        "paras": "31-34",
+        "applicant_position": "Officer lacked diligence and frustrated legitimate expectations by not telling him to cancel the earlier H&C application.",
+        "respondent_position": "No duty to inform; the sponsorship was processed diligently and no legitimate expectation arose.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "There was no legitimate expectation in this case that the Officer would contact the Applicant in order to give him the opportunity to cancel his pending H&C application."
+      }
+    ]
+  }
+}

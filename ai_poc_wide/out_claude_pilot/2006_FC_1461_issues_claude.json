@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FC_1461",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Did the Officer err in law by not considering the applicant's financial ability to pay for his own health care?",
+        "paras": "2-15",
+        "applicant_position": "As an entrepreneur with considerable net worth, ability to pay should count; relies on Hilewitz.",
+        "respondent_position": "Ability to pay is legally irrelevant to health services; insured care is available regardless of means.",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I find that the Officer did not err in law by not considering the Applicant’s financial ability to pay for his own health care."
+      },
+      {
+        "issue": "Did the Officer breach procedural fairness by not dealing with the request for a Temporary Resident Permit?",
+        "paras": "15-18",
+        "applicant_position": "His letter asked to be considered for a TRP; the officer had to respond without a separate submission.",
+        "respondent_position": "Applicant gave insufficient information and argument for the officer to decide whether a TRP was warranted.",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "In my opinion, the failure of the Officer to deal with the request constitutes an error in due process."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2023_FC_85",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the underlying judicial reviews of the November and December detention decisions are moot",
+        "paras": "13-17",
+        "applicant_position": "Live evidentiary issue remains on the November decision; the December decision is not moot either.",
+        "respondent_position": "Matters are or will shortly be moot under Borowski because of the 30-day detention review scheme.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "That matter is not moot."
+      },
+      {
+        "issue": "Whether the Applicant may bypass the Detention Review Protocol and the Rules by seeking the underlying relief on an urgent motion",
+        "paras": "18-34",
+        "applicant_position": "Following the normal process would not allow timely argument of the merits, so an urgent motion was needed.",
+        "respondent_position": "Applicant failed to follow the Detention Review Protocol and Rules, prejudicing the Respondent; the motion is a collateral attack.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "It is clear the Court cannot countenance such a collateral attack of the ID decisions."
+      }
+    ]
+  }
+}

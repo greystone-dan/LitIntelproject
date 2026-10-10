@@ -1,0 +1,29 @@
+{
+  "case_id": "2016_FC_560",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must a citizenship judge give reasons for choosing the physical presence test over the qualitative tests?",
+        "paras": "3-18",
+        "applicant_position": "Judges must give reasons for their choice of test and consider personal circumstances, citing Cardin.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "Consequently, I would not give effect to this ground of appeal."
+      },
+      {
+        "issue": "Must the judge first decide whether the applicant established residence before applying the physical presence day count?",
+        "paras": "18-20",
+        "applicant_position": "Judge must first decide whether residence was established before applying the physical presence day count.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 20,
+        "result_quote": "I do not need to resolve that question in this case, however."
+      }
+    ]
+  }
+}

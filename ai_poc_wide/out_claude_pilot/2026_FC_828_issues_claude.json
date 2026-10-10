@@ -1,0 +1,29 @@
+{
+ "case_id": "2026_FC_828",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 27,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Should the officer have considered the June 13, 2024 work permit application (refused October 11, 2024) together with the October 2, 2024 application, or is that earlier decision outside this review?",
+    "paras": "14-15",
+    "applicant_position": "The officer should have considered the June 13, 2024 application together with the October 2 application.",
+    "respondent_position": "Only the January 21, 2025 refusal of the October 2 application is before the Court; each application stands alone.",
+    "result": "moot_or_procedural",
+    "result_para": 14,
+    "result_quote": "Mr. Singh’s Application for Leave and for Judicial Review filed before this Court only seeks the judicial review of the Decision"
+   },
+   {
+    "issue": "Was the officer unreasonable in finding the October 2, 2024 application was made after the 90-day restoration window closed on September 9, 2024?",
+    "paras": "22-26",
+    "applicant_position": "The timely June 13, 2024 application should be considered, so the October 2 application was effectively within the restoration window.",
+    "respondent_position": "Restoration window closed September 9, 2024; section 182 leaves the officer no discretion, so the late application was properly refused.",
+    "result": "dismissed_for_applicant",
+    "result_para": 26,
+    "result_quote": "it was reasonably open to the Officer to determine that Mr. Singh’s October 2, 2024 work permit application was made outside the 90-day restoration window"
+   }
+  ]
+ }
+}

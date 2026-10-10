@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FC_628",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the Federal Court have jurisdiction to hear an appeal from an associate judge's interlocutory order refusing an extension of time to perfect the record?",
+        "paras": "16-19",
+        "applicant_position": "Applicants say Rule 51(1) allows appeal of associate judge orders and prevails over IRPA s.72(2)(e).",
+        "respondent_position": "Respondent says the order is interlocutory and not appealable under IRPA s.72(2)(e).",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the Court does not have jurisdiction to hear the appeal from Associate Judge Duchesne’s interlocutory decision"
+      },
+      {
+        "issue": "Does an exception to the bar on appeals apply (refusal to exercise jurisdiction or jurisdictional error, per Goodman)?",
+        "paras": "20-23",
+        "applicant_position": "Applicants say the associate judge did not have the complete motion record, which is a jurisdictional error.",
+        "respondent_position": "Respondent says the burden was on applicants to file all evidence, and no jurisdictional error occurred.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The exceptions established by the Federal Court of Appeal in Goodman do not apply in this case"
+      },
+      {
+        "issue": "Was the associate judge right to refuse the extension of time to perfect the record under the Rule 8 / Hennelly factors? (Not reached: the Court had no jurisdiction.)",
+        "paras": "12, 24",
+        "applicant_position": "Applicants say they needed RPD audio recordings and had a technical problem transmitting the memorandum.",
+        "respondent_position": "Respondent left the second motion to the Court's discretion and says the order is not appealable.",
+        "result": "not_decided",
+        "result_para": 0,
+        "result_quote": ""
+      }
+    ]
+  }
+}

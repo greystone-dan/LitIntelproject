@@ -1,0 +1,47 @@
+{
+  "case_id": "2009_FC_1315",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Do the Hilewitz principles on ability and willingness to pay apply to out-patient prescription drug costs?",
+        "paras": "8-10",
+        "applicant_position": "Hilewitz principles apply to drug costs; the visa officer's analysis was flawed by unreasonable assumptions.",
+        "respondent_position": "Ability to pay should not count at all; alternatively, Ontario would pay most drug costs, so excessive demand.",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "the principles enunciated in Hilewitz are equally applicable in any consideration as to whether the cost of out-patient drugs would constitute an excessive demand on health services."
+      },
+      {
+        "issue": "Do Deol and Lee bar considering the applicants' ability to pay for health services?",
+        "paras": "11-14",
+        "applicant_position": "Deol and Lee do not bar considering ability to pay; they concern surgery and insured services, not drugs.",
+        "respondent_position": "Deol and Lee show ability to pay for health services should never be considered.",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "as supporting a general principle that ability to pay for health services should never be considered, is misplaced."
+      },
+      {
+        "issue": "Did the visa officer unreasonably reject the insurance plan by treating employer drug coverage as dependent on a medical exam?",
+        "paras": "21-27",
+        "applicant_position": "Officer unreasonably found employer drug coverage needed a medical exam; ignored Dr. Bayoumy's evidence on employer plans.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "There is nothing in the record to substantiate the visa officer’s belief that employer-based prescription drug coverage would be contingent on a medical examination"
+      },
+      {
+        "issue": "Would the drug costs, absent a viable insurance plan, be an excessive demand that makes the applicants inadmissible?",
+        "paras": "28-31",
+        "applicant_position": "Drug costs would be met by private or employer insurance, so there is no excessive demand.",
+        "respondent_position": "Trillium program means Ontario pays most drug costs; promises not to claim are unenforceable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "Absent a viable insurance plan, most of the costs of the drugs in question would be borne by the province of Ontario"
+      }
+    ]
+  }
+}

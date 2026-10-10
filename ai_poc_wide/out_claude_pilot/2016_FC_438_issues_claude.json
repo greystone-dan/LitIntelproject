@@ -1,0 +1,56 @@
+{
+  "case_id": "2016_FC_438",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the IAD's treatment of the new medical evidence?",
+        "paras": "11-12",
+        "applicant_position": "Correctness should apply, arguing the issues are of law and the IAD misapplied the test.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "They should therefore be reviewed on a standard of reasonableness"
+      },
+      {
+        "issue": "Did the IAD apply the correct test for medical inadmissibility ('might reasonably be expected to cause')?",
+        "paras": "13-17",
+        "applicant_position": "IAD wrongly faulted Dr. McDonald for using the 'would create excessive demand' wording.",
+        "respondent_position": "not stated; the IAD held the 'might reasonably be expected' test is distinct and faulted the 'would' wording.",
+        "result": "partly_allowed",
+        "result_para": 15,
+        "result_quote": "I find that the IAD was unreasonable to fault Dr. McDonald for using the former test rather than the latter."
+      },
+      {
+        "issue": "Can the IAD depart from the medical officer's diagnosis using new expert medical evidence?",
+        "paras": "18-20",
+        "applicant_position": "IAD can use expert medical evidence at the hearing to show CIC's medical findings were erroneous.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I do not agree for this is contrary to the Federal Court of Appeal’s holding in Jiwanpuri"
+      },
+      {
+        "issue": "Did the IAD reasonably find Dr. McDonald's evidence insufficient on excessive demand?",
+        "paras": "17, 20",
+        "applicant_position": "IAD mischaracterized its role in reviewing the new medical evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "his findings on this point would be tainted by the fact that they are based on an alternative diagnosis of the father’s health condition"
+      },
+      {
+        "issue": "Should a question on the IAD's jurisdiction over conflicting medical evidence be certified?",
+        "paras": "22-24",
+        "applicant_position": "Question is of general importance; the Singh decision on new evidence supports it.",
+        "respondent_position": "Question fails the certification test; Jiwanpuri settles the IAD's jurisdiction, so no conflict requires resolution.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Accordingly, the proposed question is not appropriate for certification."
+      }
+    ]
+  }
+}

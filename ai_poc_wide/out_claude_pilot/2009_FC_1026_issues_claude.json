@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FC_1026",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD err by ignoring evidence that Ms. Kharbanda did not have Parkinson's disease?",
+        "paras": "4-8",
+        "applicant_position": "Kharbanda did not have Parkinson's; her doctors diagnosed benign essential tremor, which the IAD ignored.",
+        "respondent_position": "IAD reasonably preferred the Respondent's neurologist; applicant's doctors did not directly refute the diagnosis.",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "In my view, the IAD acted reasonably in finding that there was no error in the diagnosis of Parkinson’s disease."
+      },
+      {
+        "issue": "Did the IAD fail to weigh the applicant's cultural obligations to his parents in the H&C assessment?",
+        "paras": "9",
+        "applicant_position": "IAD did not properly weigh his cultural obligations to his parents in the H&C assessment.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "I am also not persuaded that the Board erred in its assessment of the H&C factors."
+      },
+      {
+        "issue": "Did the IAD fail to consider evidence that Ms. Kharbanda was unlikely to cause excessive demand on health and social services?",
+        "paras": "10-15",
+        "applicant_position": "IAD ignored the private care letter and made no individual assessment of likely demand or the family's ability to pay.",
+        "respondent_position": "Case is distinguishable from Hilewitz, where the parents had made extensive arrangements for the child's care.",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "On the record before me, I am simply unable to see any recognition or analysis of the type of care that the medical officer stated that she needed"
+      }
+    ]
+  }
+}

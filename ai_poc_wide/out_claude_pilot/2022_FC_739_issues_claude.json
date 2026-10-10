@@ -1,0 +1,56 @@
+{
+ "case_id": "2022_FC_739",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 32,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the officer unreasonably give weight to the applicant's reliance on the consultant's errors, or act outside expertise in commenting on PR eligibility? (Officer's PR comment)",
+    "paras": "12-14",
+    "applicant_position": "Officer speculated beyond expertise about PR eligibility, ignoring Express Entry changes and his lack of qualifying experience.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 14,
+    "result_quote": "this in my view would not constitute a sufficiently serious shortcoming to set aside the decision as unreasonable"
+   },
+   {
+    "issue": "Was the officer's comment on COVID-19, vaccines and reopening borders, and on applying from abroad, unreasonable?",
+    "paras": "13-16",
+    "applicant_position": "Returning to India to apply from abroad would be unreasonable, as a work permit there would be hard to obtain.",
+    "respondent_position": "Comment was obiter, answered the COVID hardship claim, and was reasonable; similar stay cases proceeded despite COVID.",
+    "result": "dismissed_for_applicant",
+    "result_para": 15,
+    "result_quote": "I see nothing unreasonable in the comment made by the Officer, which simply noted the improving availability of travel and a vaccine"
+   },
+   {
+    "issue": "Was it unreasonable for the officer to expect a new LMIA and refuse the TRP for its absence, given the new argument raised at hearing?",
+    "paras": "17-23",
+    "applicant_position": "Employer was willing to reapply for an LMIA but had not committed before the TRP decision; officer should not have expected one.",
+    "respondent_position": "Officer was justified in considering that no second LMIA had been issued; the new argument was not raised in the factum.",
+    "result": "dismissed_for_applicant",
+    "result_para": 23,
+    "result_quote": "the Officer’s alternate interpretation, that a new LMIA application would be initiated within a couple months, was also reasonable in the circumstances."
+   },
+   {
+    "issue": "Did the officer unreasonably apply a 'compelling reasons' test and fetter discretion under s. 24(1) IRPA?",
+    "paras": "24-28",
+    "applicant_position": "Section 24(1) requires only that a TRP be justified in the circumstances; the officer wrongly applied a compelling-reasons test and fettered discretion.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 27,
+    "result_quote": "I am not satisfied that the Applicant has met this burden."
+   },
+   {
+    "issue": "Should the consultant's errors in the three earlier work permit applications have been weighed in the applicant's favour?",
+    "paras": "29-31",
+    "applicant_position": "Failures were inadvertent and caused by the consultant, so the officer should have assessed that rather than his responsibility.",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 29,
+    "result_quote": "I am not able to provide any precise comment on what exactly was contained in those prior applications, because they were not included in the record."
+   }
+  ]
+ }
+}

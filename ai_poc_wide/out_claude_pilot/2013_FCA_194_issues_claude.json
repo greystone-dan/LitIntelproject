@@ -1,0 +1,29 @@
+{
+ "case_id": "2013_FCA_194",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 12,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was the appellant denied procedural fairness when the Federal Court decided her reconsideration motion in writing?",
+    "paras": "6-7",
+    "applicant_position": "The Federal Court should have heard the reconsideration motion in person; deciding it in writing was unfair.",
+    "respondent_position": "The appellant deferred to the Federal Court on writing versus person, so she cannot now complain.",
+    "result": "dismissed_for_applicant",
+    "result_para": 7,
+    "result_quote": "Since the appellant deferred to the Federal Court judge on the matter of whether the motion for reconsideration should be dealt with in writing or in person"
+   },
+   {
+    "issue": "Did the Federal Court err in law on the Chou point about relying on the certified record without an affidavit, and is that ground appealable?",
+    "paras": "8-11",
+    "applicant_position": "The Federal Court did not properly decide the legal question under Chou about the record without an affidavit.",
+    "respondent_position": "The ground is closely tied to the ultimate question, so subsection 14(6) bars the appeal.",
+    "result": "dismissed_for_applicant",
+    "result_para": 11,
+    "result_quote": "this ground of appeal is precluded by the effect of subsection 14(6) of the Citizenship Act."
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "case_id": "2001_FCT_733",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 35,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Was she denied a fair opportunity to present her case because the Judge did not raise Canadianization at the interview?",
+    "paras": "18-21",
+    "applicant_position": "Judge breached procedural fairness by not raising Canadianization at the interview, so she could not prove it.",
+    "respondent_position": "Applicant had a fair chance; onus was on her, and the Judge had no duty to raise it at interview.",
+    "result": "dismissed_for_applicant",
+    "result_para": 21,
+    "result_quote": "There is no obligation on the Citizenship Judge to raise the issue during the interview."
+   },
+   {
+    "issue": "Did the Judge ignore or misapprehend evidence of her attachment to Canada before her US studies?",
+    "paras": "22-32",
+    "applicant_position": "Judge ignored the length and quality of her pre-study Canadian ties and her efforts to return; decided same day as filing.",
+    "respondent_position": "No evidence was shown to be ignored or misunderstood; the Judge need not mention every piece of evidence.",
+    "result": "dismissed_for_applicant",
+    "result_para": 32,
+    "result_quote": "It is my opinion that the Citizenship Judge did take this evidence into account when he made his decision."
+   },
+   {
+    "issue": "Did the Judge err in law by choosing the Pourghasemi test rather than the Papadogiorgakis/Koo mode-of-living test?",
+    "paras": "25-34",
+    "applicant_position": "Koo centrality-of-mode-of-living test is the principal test for students; the Judge erred by choosing Pourghasemi.",
+    "respondent_position": "No right or wrong test; the Judge properly applied one of the accepted tests.",
+    "result": "dismissed_for_applicant",
+    "result_para": 34,
+    "result_quote": "I find that the Citizenship Judge did demonstrate in his reasons an understanding of the case law"
+   }
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FC_1556",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Immigration Officer fail to consider the applicant's willingness and ability to pay for his daughter's social services, as Hilewitz requires?",
+        "paras": "2-3, 19-23",
+        "applicant_position": "Officer ignored his ability and willingness to pay for his daughter's educational costs, contrary to Hilewitz.",
+        "respondent_position": "Newton-Juliard and Kirec are on point: the daughter already uses public services with no undertaking to stop.",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "the record, in the case before me, was sufficiently clear to trigger the obligation to consider Dr. Sarkar’s willingness and ability to absorb the excessive demand costs"
+      },
+      {
+        "issue": "Did the authorities misapprehend the evidence on the daughter's future need for special educational services?",
+        "paras": "24",
+        "applicant_position": "Authorities misapprehended the evidence on the daughter's future need for special educational services.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 24,
+        "result_quote": "it is not necessary for me to address counsel for the applicant’s second submission"
+      }
+    ]
+  }
+}

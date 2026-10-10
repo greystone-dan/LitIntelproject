@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FC_1121",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Crown's agents commit a fault in refusing his October 2010 open work permit application?",
+        "paras": "19-26",
+        "applicant_position": "He met the IRPR section 208 requirements, so refusing him the open work permit without cause was a fault.",
+        "respondent_position": "No fault: he did not meet the regulatory requirements; a work permit is a privilege, not a vested right.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "CIC’s agents did not commit any fault in refusing to issue one to him."
+      },
+      {
+        "issue": "Did Mr. Cissé prove damage caused by the alleged fault?",
+        "paras": "27",
+        "applicant_position": "The refusal caused him damage, including considerable mental distress.",
+        "respondent_position": "Damage cannot be attributed to the defendant, and no evidence of any damage was presented.",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "Mr. Cissé did not present any evidence relating to the damage he allegedly suffered."
+      },
+      {
+        "issue": "Can Mr. Cissé raise Charter and Quebec or Ontario human rights arguments in this action?",
+        "paras": "17",
+        "applicant_position": "Raised arguments under the Canadian Charter, Quebec's Charter and Ontario's Human Rights Code.",
+        "respondent_position": "Objected that the required procedure for raising those arguments was not followed.",
+        "result": "moot_or_procedural",
+        "result_para": 17,
+        "result_quote": "Having taken this objection under advisement, I allow it for the reasons raised by the defendant."
+      }
+    ]
+  }
+}

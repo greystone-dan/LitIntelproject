@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FC_1241",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Citizenship Judge properly assess the evidence of physical presence in Canada?",
+        "paras": "10-19",
+        "applicant_position": "Judge erred: the gap was two months, not three, and her mental health should excuse the passport answer.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "Here, the Citizenship Judge properly considered the evidence, such as it was."
+      },
+      {
+        "issue": "Did the judge err by relying on the Pourghasemi physical presence test?",
+        "paras": "20-24",
+        "applicant_position": "Judge was wrong to rely on the Pourghasemi test rather than a qualitative residency test.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "Here, the Citizenship Judge was reasonable in deciding to apply the Pourghasemi test."
+      },
+      {
+        "issue": "Should the applicant's two proposed questions be certified for appeal?",
+        "paras": "25-30",
+        "applicant_position": "Certify whether Koo is the only residency test, and whether misapprehending evidence is an error under any test.",
+        "respondent_position": "Disagrees that there is any question for certification in this case.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I therefore decline to certify the questions proposed by the Applicant."
+      }
+    ]
+  }
+}

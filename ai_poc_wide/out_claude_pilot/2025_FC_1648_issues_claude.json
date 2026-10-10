@@ -1,0 +1,29 @@
+{
+ "case_id": "2025_FC_1648",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 18,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Should the Court grant an extension of time to file the ALJR, which was filed one day late?",
+    "paras": "13-17",
+    "applicant_position": "Filing one day late was due to counsel error and an extension should be granted.",
+    "respondent_position": "The Hennelly test for an extension is not met; no evidence supports the counsel-error explanation.",
+    "result": "dismissed_for_applicant",
+    "result_para": 16,
+    "result_quote": "The failure to satisfy two elements for the test for an extension of time is determinative and I am not exercising my discretion to grant an extension of time"
+   },
+   {
+    "issue": "Was the Decision unreasonable or a breach of natural justice?",
+    "paras": "17",
+    "applicant_position": "The Decision is unreasonable and breaches the principles of natural justice.",
+    "respondent_position": "The Decision was reasonable; the late filing is a preliminary bar to the application.",
+    "result": "moot_or_procedural",
+    "result_para": 17,
+    "result_quote": "This issue is dispositive of the ALJR, as the Court does not have jurisdiction to entertain the ALJR in the absence of an extension of time."
+   }
+  ]
+ }
+}

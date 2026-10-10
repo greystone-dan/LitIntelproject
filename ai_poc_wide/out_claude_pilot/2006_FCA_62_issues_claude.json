@@ -1,0 +1,47 @@
+{
+  "case_id": "2006_FCA_62",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 60,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the judge breach natural justice through bias or by failing to hear the appellant on common-law immunity?",
+        "paras": "10-16",
+        "applicant_position": "Judge's reasons show surprising bias, and he failed to recognize a right to hear the common-law immunity question.",
+        "respondent_position": "No bias is shown in the reasons; the judge drew no conclusion on common-law immunity, so no breach occurred.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "Consequently, the judge did not breach the audi alterem partem rule in any way, as the appellant submits."
+      },
+      {
+        "issue": "Is the IRB bound to pay the appellant's defence costs for criminal charges arising from his IAD duties, on judicial-independence grounds?",
+        "paras": "17-36, 46-58",
+        "applicant_position": "As an IAD member with judge-like powers, judicial independence requires the IRB to pay his defence costs.",
+        "respondent_position": "not stated; the IRB refused payment under the Treasury Board indemnification policy and the Legal Assistance Policy.",
+        "result": "dismissed_for_applicant",
+        "result_para": 58,
+        "result_quote": "I am unable to conclude that a superior court judge facing charges similar to those laid against the appellant, could demand that the Crown pay his legal costs and fees."
+      },
+      {
+        "issue": "Can the appellant invoke judicial immunity against the criminal charges?",
+        "paras": "37-46",
+        "applicant_position": "Does not contend he is immune from the criminal prosecution itself (para 43).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 46,
+        "result_quote": "It is clear from these authorities that the appellant is unable to invoke judicial immunity from the charges now weighing against him."
+      },
+      {
+        "issue": "Does an IAD member have the same powers, rights and privileges as a superior court judge?",
+        "paras": "22, 59",
+        "applicant_position": "Says an IAD member has the same powers as a superior court judge; the Court assumes this for argument only.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 59,
+        "result_quote": "it is unnecessary for us to decide whether the appellant, in his capacity as a member of the Immigration Appeal Division of the IRB, has powers"
+      }
+    ]
+  }
+}

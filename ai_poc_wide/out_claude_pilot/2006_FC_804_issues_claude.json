@@ -1,0 +1,29 @@
+{
+  "case_id": "2006_FC_804",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the visa officer err in her analysis of 'excessive demand' by miscalculating health and social service costs?",
+        "paras": "9-17",
+        "applicant_position": "Officer and medical officer failed to calculate five-year costs; the spouse would not need the expensive drug.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "In my view, it amounts to a reviewable error that justifies this Court's intervention."
+      },
+      {
+        "issue": "Should questions on the meaning of 'excessive demand' be certified?",
+        "paras": "18-20",
+        "applicant_position": "Proposed questions on whether the threshold includes health and social service costs for the average Canadian.",
+        "respondent_position": "Also suggested certification questions; the text does not state its position separately.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "Those questions do not raise a matter of general importance, therefore, they will not be certified."
+      }
+    ]
+  }
+}

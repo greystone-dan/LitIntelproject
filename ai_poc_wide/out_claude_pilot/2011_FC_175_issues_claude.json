@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FC_175",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the Respondent's res judicata and issue estoppel arguments bar the Minister's stay motion",
+        "paras": "9-10",
+        "applicant_position": "Motion should be heard: the January 25 release order is the only one in effect and the Chief Justice did not decide mootness.",
+        "respondent_position": "Mootness was finally decided at the pre-hearing conference and in the earlier judicial review, so res judicata and issue estoppel apply.",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "As a result, I reject the Respondent’s res judicata argument."
+      },
+      {
+        "issue": "Whether the stay motion is moot because the Chief Justice upheld the November 19 release order",
+        "paras": "21-22",
+        "applicant_position": "Each later release order supersedes the earlier one, so the dismissed review is no barrier to this motion.",
+        "respondent_position": "The upheld November release order is operative and the stay sought is moot.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Consequently, I find the motion and the relief sought therein to be moot."
+      },
+      {
+        "issue": "Whether applying the cited case law would be an abuse of process given the Respondent's liberty interests",
+        "paras": "11-17",
+        "applicant_position": "Cited jurisprudence applies; the Minister's position is consistent with Federal Court and Federal Court of Appeal authority.",
+        "respondent_position": "Minister's position would prolong detention indefinitely through serial judicial reviews, an abuse of process.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "application of the cited jurisprudence would be contrary to the interests of justice and result in an abuse of process."
+      }
+    ]
+  }
+}

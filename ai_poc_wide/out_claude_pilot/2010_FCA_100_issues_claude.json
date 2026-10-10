@@ -1,0 +1,29 @@
+{
+ "case_id": "2010_FCA_100",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 38,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Does s 14(6) of the Citizenship Act oust the Federal Court of Appeal's jurisdiction over the Federal Court's interlocutory motion ruling?",
+    "paras": "3-33",
+    "applicant_position": "Section 14(6) applies only to decisions on the ultimate citizenship question, so the motion ruling is appealable.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 33,
+    "result_quote": "Accordingly, in my opinion, this Court has jurisdiction to entertain the Minister’s appeal"
+   },
+   {
+    "issue": "Did the Motions Judge err in not striking the appeal as out of time under s 14(5)(b)?",
+    "paras": "34-37",
+    "applicant_position": "The 60-day limit runs from the date notice was mailed, not from receipt, so the appeal was late.",
+    "respondent_position": "Time should run from when the representative learned of the decision, so the appeal was not prejudiced and was timely.",
+    "result": "allowed_for_applicant",
+    "result_para": 35,
+    "result_quote": "the plain meaning of paragraph 14(3)(b) is that when notice is mailed, as it was here, the 60 day period starts at the date of mailing"
+   }
+  ]
+ }
+}

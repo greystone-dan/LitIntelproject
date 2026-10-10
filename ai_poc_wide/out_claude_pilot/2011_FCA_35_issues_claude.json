@@ -1,0 +1,56 @@
+{
+  "case_id": "2011_FCA_35",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 64,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must a medical officer actively seek information on the applicants' ability and intent to mitigate excessive demand from the outset, or is a Fairness Letter enough?",
+        "paras": "26-32",
+        "applicant_position": "Medical officer must seek out ability and intent information from the outset, as much as possible.",
+        "respondent_position": "A Fairness Letter giving a fair opportunity to respond is enough; no earlier inquiry needed (Judge, para 30).",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "A medical officer is not obligated to seek out information about the applicants’ ability and intent to mitigate excessive demands on social services from the outset of the inquiry."
+      },
+      {
+        "issue": "Were the medical officer's reasons adequate, so that they let the immigration officer judge whether the medical opinion is reasonable?",
+        "paras": "33-45",
+        "applicant_position": "Medical officer's reasons must be her own and adequate; the bare reasons given here were inadequate.",
+        "respondent_position": "Reasons were inadequate but saved by the immigration officer's detailed reasons (Judge, paras 37-42).",
+        "result": "allowed_for_applicant",
+        "result_para": 45,
+        "result_quote": "The Judge found the reasons of the medical officer to be inadequate. I agree."
+      },
+      {
+        "issue": "Could the immigration officer's detailed reasons cure the medical officer's inadequate reasons?",
+        "paras": "46-54",
+        "applicant_position": "Immigration officer could not assess reasonableness of an inadequate medical opinion; the defect was not cured.",
+        "respondent_position": "The inadequacy was saved by the immigration officer's detailed reasons and the officers' collaboration (Judge, paras 39-42).",
+        "result": "allowed_for_applicant",
+        "result_para": 47,
+        "result_quote": "For the following reasons I respectfully disagree with the Judge's conclusion that the inadequacies of the medical officer’s reasons were overcome by the reasons of the immigration officer."
+      },
+      {
+        "issue": "May the medical officer's affidavit on judicial review supplement or bolster her reasons?",
+        "paras": "50-53",
+        "applicant_position": "Affidavit cannot bolster reasons; the Judge wrongly relied on it.",
+        "respondent_position": "Affidavit shows the medical officer considered ability and intent; the Judge relied on it (para 50).",
+        "result": "allowed_for_applicant",
+        "result_para": 53,
+        "result_quote": "No weight should have been given to the affidavit of the medical officer to the extent the officer sought to explain or bolster her reasons."
+      },
+      {
+        "issue": "Was the medical officer's inadequacy material, or was the immigration officer's refusal independent of the medical opinion?",
+        "paras": "55-63",
+        "applicant_position": "The immigration officer's decision depended on the medical opinion, so its inadequacy was material.",
+        "respondent_position": "The refusal rested on non-medical factors, so the medical reasons were immaterial (para 55).",
+        "result": "allowed_for_applicant",
+        "result_para": 63,
+        "result_quote": "The immigration officer’s reasons were not independent of the medical opinion, such as it was."
+      }
+    ]
+  }
+}

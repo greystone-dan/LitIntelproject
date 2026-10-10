@@ -1,0 +1,29 @@
+{
+  "case_id": "2026_FC_348",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's refusal under IRPR 200(3)(f.1), for no new LMIA-exempt number and fee, reasonable?",
+        "paras": "8-14",
+        "applicant_position": "not stated; the text says he does not dispute the facts, and the refusal wrongly cited invalid biometrics.",
+        "respondent_position": "The biometrics error was not determinative; the refusal rests on the unmet R200(3)(f.1) requirements.",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "The decision is reasonable. It is responsive to the evidence before the Officer and complies with the requirements of the program to which the Applicant had applied."
+      },
+      {
+        "issue": "Did the officer breach procedural fairness by not warning him about the missing LMIA number and unpaid fee?",
+        "paras": "15-20",
+        "applicant_position": "The officer should have notified him or the employer of concerns about the LMIA number and unpaid fees.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "There is no breach of procedural fairness when an officer refuses an application simply because the evidence provided does not meet statutory requirements."
+      }
+    ]
+  }
+}

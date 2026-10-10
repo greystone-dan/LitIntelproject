@@ -1,0 +1,38 @@
+{
+  "case_id": "2025_FC_1826",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a reasonable possibility that an extension of time to file the late leave application will be granted, so that the JR raises a serious issue?",
+        "paras": "5-6, 18-27",
+        "applicant_position": "Applicant says he learned of the RAD decision on February 13, 2025, did not know of the 15-day limit, and always intended review.",
+        "respondent_position": "Respondent opposes the extension: not knowing the 15-day limit is no reasonable explanation for a two-month delay.",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "there is no reasonable possibility that an extension of time to file and serve that application will be granted"
+      },
+      {
+        "issue": "Does the underlying judicial review raise a serious issue on its merits (not frivolous or vexatious)?",
+        "paras": "27",
+        "applicant_position": "not stated",
+        "respondent_position": "Respondent opposes the application for leave on its merits.",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "there is no merit to the grounds raised in the application for judicial review"
+      },
+      {
+        "issue": "Would the applicant suffer irreparable harm, and does the balance of convenience favour a stay?",
+        "paras": "28",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 28,
+        "result_quote": "There is no need to address either irreparable harm or the balance of convenience."
+      }
+    ]
+  }
+}

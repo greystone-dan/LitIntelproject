@@ -1,0 +1,29 @@
+{
+  "case_id": "2026_FC_442",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 31,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the initial return of her application as incomplete (no HCCPP work permit application or fee) reasonable?",
+        "paras": "12-23",
+        "applicant_position": "Her valid work permit meant no new one was needed; the officer should have treated the gap as minor and let her add it.",
+        "respondent_position": "The instructions clearly require the HCCPP work permit application and fee; the return was reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "Given this, it cannot be said that the Officer’s initial Return Decision to reject the Application for not meeting the requirement to submit a complete application"
+      },
+      {
+        "issue": "Was the April 26, 2024 reconsideration refusal reasonable?",
+        "paras": "24-28",
+        "applicant_position": "The officer ignored her explanation and attached work permit, so the reconsideration refusal was unreasonable.",
+        "respondent_position": "The reconsideration reasons were responsive to her request.",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I find, with regard to the redetermination Decision, that the Officer’s reasons did not demonstrate regard to the evidence"
+      }
+    ]
+  }
+}

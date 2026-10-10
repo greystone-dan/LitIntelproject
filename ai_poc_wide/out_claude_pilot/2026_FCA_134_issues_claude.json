@@ -1,0 +1,56 @@
+{
+ "case_id": "2026_FCA_134",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 34,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Is the stay motion barred on legal grounds, because a court cannot order officers to disregard the Act or make the stay self-defeating (JP Morgan, Mamut)?",
+    "paras": "16-24",
+    "applicant_position": "The Court can grant the stay; it would not order officers to disregard the Act, and a fresh admissibility assessment remains possible.",
+    "respondent_position": "The Court cannot order officers to disregard the Act; a stay would be self-defeating, citing JP Morgan and Mamut.",
+    "result": "allowed_for_applicant",
+    "result_para": 24,
+    "result_quote": "While I have not been persuaded at this early stage that the remedy the appellants seek is barred by statute"
+   },
+   {
+    "issue": "Would the appellants suffer irreparable harm without a stay (business losses and family support)?",
+    "paras": "29-30",
+    "applicant_position": "A stay is needed to protect the family businesses and the family's ability to support itself while the permits are assessed.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 29,
+    "result_quote": "the appellants have not provided clear and convincing evidence that they would suffer irreparable harm"
+   },
+   {
+    "issue": "Is Oleksandra's disrupted studies and higher international tuition fees irreparable harm?",
+    "paras": "31",
+    "applicant_position": "Losing her study place and paying about eight times domestic tuition would be an overwhelming and unaffordable burden.",
+    "respondent_position": "Higher international tuition is an inconvenience, not irreparable harm, even if her study permit is late.",
+    "result": "dismissed_for_applicant",
+    "result_para": 31,
+    "result_quote": "such an inconvenience does not amount to irreparable harm under the circumstances"
+   },
+   {
+    "issue": "On the balance of convenience, do the risk of inconsistent administrative decisions and the public interest weigh against a stay?",
+    "paras": "25-28",
+    "applicant_position": "A stay would release the officer from issue estoppel and allow an independent section 34 assessment that may differ.",
+    "respondent_position": "A stay would cause inconsistent decisions and disrupt the Act; the public interest favours upholding the statute.",
+    "result": "dismissed_for_applicant",
+    "result_para": 28,
+    "result_quote": "The risk of inconsistent administrative decisions militates in favour of not granting the stay that is sought by the appellants."
+   },
+   {
+    "issue": "Should an oral hearing be granted on the motion?",
+    "paras": "33-34",
+    "applicant_position": "An oral hearing is needed to help the Court understand the irreparable harm they would face.",
+    "respondent_position": "not stated",
+    "result": "dismissed_for_applicant",
+    "result_para": 34,
+    "result_quote": "the appellants’ request for an oral hearing will be denied"
+   }
+  ]
+ }
+}

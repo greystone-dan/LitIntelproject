@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FC_661",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 42,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should paragraphs of the respondent's counsel's affidavits be struck as hearsay, opinion and new evidence?",
+        "paras": "17-19",
+        "applicant_position": "The affidavits contain hearsay, opinion and new evidence outside the record and should be struck.",
+        "respondent_position": "The affidavits correct record errors and update criminal matters only counsel can attest to.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "should be struck as they contain hearsay, opinion and new evidence."
+      },
+      {
+        "issue": "Is the judicial review moot because later detention reviews superseded the May 21, 2015 decision, and should the court decide it anyway?",
+        "paras": "20-28",
+        "applicant_position": "The application is moot: later detention reviews superseded the May 21 decision, leaving no live controversy.",
+        "respondent_position": "Not moot: he remains detained, the public has an interest, and denying merits review would be unfair (para 27).",
+        "result": "partly_allowed",
+        "result_para": 28,
+        "result_quote": "I have considered the principles set out in Borowski and have decided to address the merits of the application for judicial review notwithstanding its mootness."
+      },
+      {
+        "issue": "Did the May 21, 2015 member fail to give clear and compelling reasons for departing from the April 22, 2015 detention review decision?",
+        "paras": "30-41",
+        "applicant_position": "The member reversed the April 22 findings without clear and compelling reasons; the reasons were cursory.",
+        "respondent_position": "The May 21 decision was reasonable, referred to colleagues' decisions and could rely on his own July 2013 findings.",
+        "result": "allowed_for_applicant",
+        "result_para": 35,
+        "result_quote": "I agree with the Applicant that in ordering the release of the Respondent on May 21, 2015, ID member O. Nupponen failed to provide clear and compelling reasons"
+      }
+    ]
+  }
+}

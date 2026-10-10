@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_647",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the Minister has shown a serious issue, a strong prima facie case that the release order is unreasonable",
+        "paras": "13-25",
+        "applicant_position": "Member ignored Red Notice evidence and did not properly assess the bondsperson's suitability; release order is unreasonable.",
+        "respondent_position": "Higher threshold should apply because a stay gives the Minister what it seeks; the release order was reasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I find that the Applicant has demonstrated a strong prima facie case that the release order is unreasonable."
+      },
+      {
+        "issue": "Whether the Minister would suffer irreparable harm if the release is not stayed",
+        "paras": "26-28",
+        "applicant_position": "Release would frustrate admissibility assessment, pose security risk and flight risk, and reduce confidence in the system.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I am persuaded that the Applicant has demonstrated irreparable harm that would flow from the denial of the stay"
+      },
+      {
+        "issue": "Balance of convenience: which party suffers greater harm from granting or refusing the stay",
+        "paras": "29-32",
+        "applicant_position": "Public interest in security under IRPA is significant; admissibility proceedings are underway and will be prioritized.",
+        "respondent_position": "Liberty interest is at stake; the expert decision-maker found risks manageable through release conditions.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I find that the balance of convenience favours the Applicant."
+      }
+    ]
+  }
+}

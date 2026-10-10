@@ -1,0 +1,29 @@
+{
+  "case_id": "2014_FC_1083",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 13,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the application be dismissed because it was filed out of time without a formal request for an extension of time?",
+        "paras": "6-9",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "Not only did the Applicant fail to submit a request for an extension of time"
+      },
+      {
+        "issue": "Did the RAD err in refusing the applicant an extension of time to appeal to the RAD under IRPR s.159.91(2)?",
+        "paras": "4-6, 10-13",
+        "applicant_position": "Applicant says he only learned of the RPD decision a month after receiving it, as his roommate concealed the letter.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "The Court finds that the RAD rightfully rejected the Applicant’s request"
+      }
+    ]
+  }
+}

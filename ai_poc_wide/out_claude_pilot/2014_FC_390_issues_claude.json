@@ -1,0 +1,38 @@
+{
+  "case_id": "2014_FC_390",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 59,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the court should hear the application although it is moot",
+        "paras": "17-21",
+        "applicant_position": "Court should decide it: the issue will recur in later detention reviews and the parties asked for a decision before April 29.",
+        "respondent_position": "Also asked the Court to exercise discretion and decide the matter before the April 29 detention review.",
+        "result": "moot_or_procedural",
+        "result_para": 21,
+        "result_quote": "I am satisfied that this is an appropriate case in which to exercise my discretion to hear what would otherwise be a moot application."
+      },
+      {
+        "issue": "Whether s. 58(1)(c) permits continued detention where the original detention was under s. 55(2)(a), not s. 55(3)",
+        "paras": "22-48",
+        "applicant_position": "Section 58(1)(c) is available for continued detention whatever the original ground; the Immigration Division's contrary reading is unreasonable.",
+        "respondent_position": "Continued detention under s. 58(1)(c) is only available where the original detention was under s. 55(3) at a port of entry.",
+        "result": "allowed_for_applicant",
+        "result_para": 48,
+        "result_quote": "As such it is unreasonable."
+      },
+      {
+        "issue": "Whether Charter values or liberty interests require a narrower reading of s. 58(1)(c)",
+        "paras": "49-51",
+        "applicant_position": "not stated",
+        "respondent_position": "Section 58(1)(c) should be read consistently with Charter liberty values to protect the detainee.",
+        "result": "allowed_for_applicant",
+        "result_para": 49,
+        "result_quote": "I have found no such ambiguity here."
+      }
+    ]
+  }
+}

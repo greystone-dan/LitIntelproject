@@ -1,0 +1,29 @@
+{
+  "case_id": "2003_FC_1408",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the respondent err in finding the applicant's condition might cause excessive demand, given the ten-year timing?",
+        "paras": "7-12",
+        "applicant_position": "Specialized hospital services may not be needed for ten years, so the demand is too remote to be excessive.",
+        "respondent_position": "Medical opinion: progressive kidney decline needing specialist hospital services within about ten years.",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "Accordingly, the decision based on the requirement within ten years was reasonable."
+      },
+      {
+        "issue": "Did the respondent breach the duty of fairness by relying on undisclosed Handbook and Canadian Diabetes Association material?",
+        "paras": "13-16",
+        "applicant_position": "Officer relied on the Medical Officer's Handbook and diabetes association material without first disclosing it.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I am satisfied that the information provided the applicant in this case is sufficient to meet the requirements of the duty of fairness."
+      }
+    ]
+  }
+}

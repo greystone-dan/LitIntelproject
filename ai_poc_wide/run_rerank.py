@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
-SYSTEM = """You compare one argument from a draft with up to 5 issues already decided in other Canadian cases. For each candidate (by index, 0 to 4) say: same_question (the decided issue asks the same legal question, so its result is a useful precedent for the argument), related (same topic, different question) or different. Also give best (the index of the single most useful candidate, or -1 if none is at least related). Judge from the wording only."""
+SYSTEM = """You compare one argument from a draft with a numbered list of issues already decided in other Canadian cases. For each candidate (by its number) say: same_question (the decided issue asks the same legal question, so its result is a useful precedent for the argument), related (same topic, different question) or different. Also give best (the index of the single most useful candidate, or -1 if none is at least related). Judge from the wording only."""
 SCHEMA = {"type": "object", "additionalProperties": False, "required": ["labels", "best"], "properties": {"labels": {"type": "array", "items": {"type": "string", "enum": ["same_question", "related", "different"]}}, "best": {"type": "integer"}}}
 
 def main() -> int:
@@ -31,10 +31,10 @@ def main() -> int:
 		msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": f"Argument issue: {it['issue']}\nArgument: {it['claim']}\n\nCandidates:\n{cands}"}]
 		tin = int(sum(len(m["content"]) for m in msgs) / 3.2)
 		if not a.send:
-			return it["key"], cost_usd(a.model, tin, 60), None
+			return it["key"], cost_usd(a.model, tin, 200), None
 		if a.stop_file is not None and a.stop_file.exists():
 			raise SystemExit(3)
-		data, u = call_json(client, ledger, run="rerank", model=a.model, messages=msgs, schema_name="rerank", schema=SCHEMA, max_output_tokens=200, est_input_tokens=tin, label=it["key"])
+		data, u = call_json(client, ledger, run="rerank", model=a.model, messages=msgs, schema_name="rerank", schema=SCHEMA, max_output_tokens=600, est_input_tokens=tin, label=it["key"])
 		return it["key"], u["usd"], data
 
 	res = []

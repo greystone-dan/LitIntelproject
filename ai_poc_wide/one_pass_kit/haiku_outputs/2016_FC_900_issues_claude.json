@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FC_900",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD reasonably find the applicant not credible, given the lack of documents and his explanation for destroying them?",
+        "paras": "19-29",
+        "applicant_position": "No valid reason to doubt credibility; destroying documents was plausible; RAD cannot rely on lack of corroboration alone.",
+        "respondent_position": "Corroboration needed to offset negative credibility; no reasonable efforts to get documents; vague testimony properly weighed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "All in all there was ample reason for the RAD to come to the conclusions on credibility that it did."
+      },
+      {
+        "issue": "Did the RAD misstate or selectively review the evidence on his Wabela relationship and the plausibility of leaving Ethiopia?",
+        "paras": "20-22, 30",
+        "applicant_position": "RAD review was microscopic and selective; it misstated his testimony on Wabela and on his role in the case.",
+        "respondent_position": "RAD review was meticulous; points raised are minor, and the transcript shows no special friendship.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "Even if it was overlooked it is not enough to overcome the balance of the testimony of the Applicant or counter the overall negative credibility findings."
+      },
+      {
+        "issue": "Did the RAD ignore or unreasonably weigh the psychological report?",
+        "paras": "11, 29",
+        "applicant_position": "RAD ignored the psychological report, which was raised in the appeal.",
+        "respondent_position": "Report was speculative advocacy, so RAD reasonably gave it little weight.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "The psychological report was reviewed and found insufficient."
+      }
+    ]
+  }
+}

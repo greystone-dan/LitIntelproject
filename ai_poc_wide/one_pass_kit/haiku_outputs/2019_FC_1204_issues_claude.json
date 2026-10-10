@@ -1,0 +1,38 @@
+{
+  "case_id": "2019_FC_1204",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer reasonably weigh the crime diary, blog post, newspaper article and Ogute letter?",
+        "paras": "13, 19, 29-34",
+        "applicant_position": "Typos and pop-up ads are not obvious defects; documents should count, and corroborating affidavits mitigate any problems.",
+        "respondent_position": "The RPD credibility findings were already on record; the documents were not probative and the articles pre-dated the hearing.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "Nevertheless, due to the findings on credibility of the RPD, the Officer gave little probative value to potentially relevant documents submitted by the Principal Applicant that required more consideration."
+      },
+      {
+        "issue": "Could the officer rely on the RPD's credibility findings in the H&C decision?",
+        "paras": "11, 22, 29",
+        "applicant_position": "not stated",
+        "respondent_position": "The RPD non-credibility findings were on the record, and new evidence did not counterbalance them.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "in her reasoning, the Officer relies heavily on the findings of credibility of the RPD, which she is entitled to do."
+      },
+      {
+        "issue": "Did the officer reasonably assess the family's establishment in Canada?",
+        "paras": "9-10, 26-28",
+        "applicant_position": "Establishment should count despite missing proof of employment; volunteering and community ties warrant real weight.",
+        "respondent_position": "Volunteering was noted but not enough; work and education in Nigeria mean no considerable difficulty returning.",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "such considerations require, at the very least, certain explanations in the decision itself"
+      }
+    ]
+  }
+}

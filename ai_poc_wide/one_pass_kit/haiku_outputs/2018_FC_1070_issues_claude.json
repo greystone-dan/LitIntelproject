@@ -1,0 +1,47 @@
+{
+ "case_id": "2018_FC_1070",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 44,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Did the Officer reasonably assess the best interests of the child?",
+    "paras": "13-27",
+    "applicant_position": "Officer paid lip service to Tamara's best interests, ignored Dr. Agarwal's report, and ran a hardship test instead.",
+    "respondent_position": "Report gives no diagnosis or treatment; future risk is speculative; Officer was alert to the children's interests.",
+    "result": "dismissed_for_applicant",
+    "result_para": 27,
+    "result_quote": "I am not persuaded that he or she failed to take Tamara’s particular circumstances into account"
+   },
+   {
+    "issue": "Did the Officer ignore or misread evidence of stigma and hardship facing deportees in Jamaica?",
+    "paras": "29-33",
+    "applicant_position": "Officer ignored or misconstrued evidence that deportees face stigma and marginalization in Jamaica, without explaining why.",
+    "respondent_position": "Officer considered the country documents and the de Noronha report and reasonably found no returnee-specific hardship.",
+    "result": "dismissed_for_applicant",
+    "result_para": 33,
+    "result_quote": "Given this, I am not persuaded that the Officer ignored the Applicant’s documentary submissions."
+   },
+   {
+    "issue": "Did the Officer unreasonably discount evidence of rehabilitation and establishment?",
+    "paras": "34-42",
+    "applicant_position": "Officer ignored character letters, rehabilitation and establishment since age 16, and focused on the inadmissibility grounds.",
+    "respondent_position": "Applicant only disagrees with the findings and asks the Court to reweigh the evidence (Chaudhary).",
+    "result": "allowed_for_applicant",
+    "result_para": 36,
+    "result_quote": "I agree with the Applicant that the Officer unreasonably discounted the very significant body of evidence"
+   },
+   {
+    "issue": "Was the Officer's negative character inference from past offending intelligible?",
+    "paras": "43",
+    "applicant_position": "The negative inference is unintelligible: the offending was admitted and rehabilitation was shown since incarceration.",
+    "respondent_position": "not stated",
+    "result": "allowed_for_applicant",
+    "result_para": 43,
+    "result_quote": "This is unintelligible and again suggests that the Officer misunderstood his role or misapplied the evidence."
+   }
+  ]
+ }
+}

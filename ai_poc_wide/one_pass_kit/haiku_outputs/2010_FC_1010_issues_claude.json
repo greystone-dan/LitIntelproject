@@ -1,0 +1,29 @@
+{
+  "case_id": "2010_FC_1010",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's credibility finding on the FARC targeting reasonable?",
+        "paras": "14-19",
+        "applicant_position": "The RPD misread the 'admitted lie' answer and ignored police reports linking the FARC to the threats.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I conclude the RPD erred in how it conducted its assessment of the Applicant’s credibility."
+      },
+      {
+        "issue": "Was the RPD's internal flight alternative finding in Bogota reasonable?",
+        "paras": "20-27",
+        "applicant_position": "The FARC can track him in urban centres; the RPD ignored documents and his personal history across three cities.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I conclude the RPD failed to have regard for the Applicant’s personal circumstances and documentary evidence relevant to the availability of an IFA."
+      }
+    ]
+  }
+}

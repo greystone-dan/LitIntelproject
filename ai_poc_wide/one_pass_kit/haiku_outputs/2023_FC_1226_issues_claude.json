@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_1226",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD breach procedural fairness by not notifying the applicants that exclusion was an issue?",
+        "paras": "13-20",
+        "applicant_position": "RAD treated exclusion as a new issue without notice or a chance to reply, and should have allowed further submissions.",
+        "respondent_position": "The Minister's notice gave notice that exclusion was in play; applicants chose not to reply, at their own risk.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "There was no breach of procedural fairness in these circumstances."
+      },
+      {
+        "issue": "Was the Article 1E exclusion finding of the principal applicant reasonable?",
+        "paras": "21-28",
+        "applicant_position": "Principal applicant lost Italian permanent residence after more than 12 months' absence; the RAD's status finding was unreasonable.",
+        "respondent_position": "Applicant held Italian status and did not reply to the notice or show that the status was lost.",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "In these circumstances, the RAD’s finding that the Principal Applicant is excluded pursuant to Article 1E is reasonable."
+      },
+      {
+        "issue": "Was the internal flight alternative finding reasonable?",
+        "paras": "29-36",
+        "applicant_position": "IFA rested on a false assumption that only prominent Shia are at risk; uncontradicted evidence showed harassment.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "In my view, the RAD took a measured and balanced approach in analyzing the objective documentary evidence, and its IFA finding is reasonable."
+      }
+    ]
+  }
+}

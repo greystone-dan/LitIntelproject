@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FC_1272",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD breach procedural fairness by relying on updated NDP items 7.4 and 7.12 without giving the applicants a chance to respond?",
+        "paras": "19-24",
+        "applicant_position": "Updated NDP items were novel extrinsic evidence; the applicants had no notice and no chance to comment.",
+        "respondent_position": "The updated NDP was an update of publicly available information, so it was not novel extrinsic evidence.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "The RAD’s failure to do so amounted to a breach of procedural fairness"
+      },
+      {
+        "issue": "Was the RAD's finding that Abuja is a viable internal flight alternative reasonable?",
+        "paras": "14-16, 23, 25",
+        "applicant_position": "The RAD read the country evidence selectively and ignored Boko Haram attacks in Abuja.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 25,
+        "result_quote": "There is no need to consider the issue of whether the RAD erred in its assessment of the IFA"
+      }
+    ]
+  }
+}

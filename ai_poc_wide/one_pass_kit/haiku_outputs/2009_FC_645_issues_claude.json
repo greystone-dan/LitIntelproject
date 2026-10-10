@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FC_645",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the OS GPS device be removed and the BI GPS device reinstalled?",
+        "paras": "12-33",
+        "applicant_position": "OS device is heavier, thicker and needs daily charging; it causes a rash and sleep disruption, unlike the BI device.",
+        "respondent_position": "Jaballah has not shown he is entitled to the relief; CBSA's switch to the OS device was not excessive treatment.",
+        "result": "allowed_for_applicant",
+        "result_para": 33,
+        "result_quote": "It follows that the OS GPS device should be removed and be replaced with a BI GPS device."
+      },
+      {
+        "issue": "Must the Court decide the Charter challenge (sections 7 and 12) to resolve the motion?",
+        "paras": "5-7",
+        "applicant_position": "Liberty and security interests under section 7 are engaged and infringed; over time the treatment may become cruel and unusual under section 12.",
+        "respondent_position": "Accepts section 7 is engaged but says no principle of fundamental justice is breached and the treatment is not excessive.",
+        "result": "not_decided",
+        "result_para": 7,
+        "result_quote": "While the parties frame this motion in terms of the Charter, I do not find it necessary to resort to the Charter in order to adjudicate upon the motion."
+      },
+      {
+        "issue": "Can the Court vary its earlier release-conditions order for matters that arose after it was made?",
+        "paras": "8, 33",
+        "applicant_position": "Court can vary the order under Rule 399(2) because the device difficulties arose after the conditions order was made.",
+        "respondent_position": "Acknowledged the Court's Rule 399(2) power at oral argument; disputed that Jaballah is entitled to the relief sought.",
+        "result": "allowed_for_applicant",
+        "result_para": 33,
+        "result_quote": "matters that arose or were drawn to the Court's attention subsequent to the making of the order"
+      }
+    ]
+  }
+}

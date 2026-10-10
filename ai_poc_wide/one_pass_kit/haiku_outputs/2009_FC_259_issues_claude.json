@@ -1,0 +1,29 @@
+{
+  "case_id": "2009_FC_259",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 15,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Board reasonably find the applicant failed to establish his identity?",
+        "paras": "5-13",
+        "applicant_position": "Board was overly critical, rejecting identity documents as fraudulent without evidence; the birth certificate should have been forensically tested.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I am satisfied that the Board reached a reasonable conclusion based on the limited number of identity documents"
+      },
+      {
+        "issue": "Did the Board reasonably find no credible persecution in China or Panama?",
+        "paras": "14",
+        "applicant_position": "Board wrongly found no credible persecution in China or Panama; both of its conclusions were made in error.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 14,
+        "result_quote": "there is no need to examine the reasonableness of the Board’s finding that the level of discrimination experienced by the Applicant"
+      }
+    ]
+  }
+}

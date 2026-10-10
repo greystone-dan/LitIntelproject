@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FC_1450",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Board member's conduct raise a reasonable apprehension of bias?",
+        "paras": "15-22",
+        "applicant_position": "Board member was impatient, aggressive and seemed to have prejudged the claim, causing fear and bias.",
+        "respondent_position": "No material evidence of bias; intensive questioning is not bias; bias was not raised at the hearing.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I find that the Board member’s conduct is insufficient to raise a reasonable apprehension of bias."
+      },
+      {
+        "issue": "Did the Board breach procedural fairness in addressing the claim?",
+        "paras": "23-27",
+        "applicant_position": "Board interrupted counsel, signalled to hurry her, and prevented the applicants from fully presenting their case.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "This did not result in a breach of procedural fairness in the assessment of the Applicants’ claim."
+      },
+      {
+        "issue": "Was the Board's assessment of the adequacy of state protection reasonable?",
+        "paras": "28-35",
+        "applicant_position": "Board ignored documentary evidence on implementation of laws and effectiveness of prosecutions for blood feuds.",
+        "respondent_position": "Board weighed mixed evidence reasonably; police patrols provided at the family's request showed protection was adequate.",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "the Board was justified in its conclusion that there was adequate state protection in Albania for the Applicants."
+      }
+    ]
+  }
+}

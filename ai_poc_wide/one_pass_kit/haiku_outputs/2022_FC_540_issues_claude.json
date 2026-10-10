@@ -1,0 +1,56 @@
+{
+  "case_id": "2022_FC_540",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 60,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer apply the wrong test for the best interests of the children (BIOC) and fail to weigh the key evidence?",
+        "paras": "16-30",
+        "applicant_position": "Officer wrongly required that children's well-being be compromised before BIOC got more than minimal weight; ignored aunt-family evidence.",
+        "respondent_position": "No Williams test needed; BIOC favoured staying in Canada so works in children's favour; children could study anywhere.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "by applying a wrong legal test, and by failing to engage with the critical evidence, the Officer failed to be"
+      },
+      {
+        "issue": "Did the Officer unreasonably discount the psychological evidence?",
+        "paras": "31-45",
+        "applicant_position": "Officer wrongly discounted psychologist's findings as not objective and relied on online treatment; psychologist need not know country conditions.",
+        "respondent_position": "Psychologist merely repeated the applicant's account without checking India country conditions; Demberel supports discounting such reports.",
+        "result": "allowed_for_applicant",
+        "result_para": 41,
+        "result_quote": "this conclusion was unreasonable because it ignored, and was not responsive to, the Applicants’ evidence and submission"
+      },
+      {
+        "issue": "Did the Officer wrongly require personalized harm to show hardship from gender-based discrimination in India?",
+        "paras": "46-53",
+        "applicant_position": "Applicants need not show they would be targeted more than other Indian women; discrimination can be inferred from group membership (Kanthasamy).",
+        "respondent_position": "Applicants must tie personal circumstances to the general country conditions (Dorlean); general gender violence is not enough.",
+        "result": "allowed_for_applicant",
+        "result_para": 53,
+        "result_quote": "the Officer has erred by imposing a higher burden on the female Applicants that the law does not require."
+      },
+      {
+        "issue": "Did the Officer apply the wrong H&C test (exceptional circumstances or comparative approach)?",
+        "paras": "55-59",
+        "applicant_position": "H&C is not a comparative or exceptional-circumstances test; Kanthasamy rejects a silo approach.",
+        "respondent_position": "H&C relief is exceptional, not an alternative immigration stream; officers need something to distinguish cases.",
+        "result": "allowed_for_applicant",
+        "result_para": 58,
+        "result_quote": "I agree with the Applicants that assessment of H&C applications is not based on a “comparative” approach"
+      },
+      {
+        "issue": "Did the Officer ignore the caste issue intersecting with gender-based discrimination?",
+        "paras": "54-54",
+        "applicant_position": "Officer ignored caste, which intersects with gender-based discrimination.",
+        "respondent_position": "Insufficient evidence in the record on caste, especially its effect on Auroshika.",
+        "result": "not_decided",
+        "result_para": 54,
+        "result_quote": "Further, given my finding on the issue of gender based violence, I need not consider this new argument."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2019_FC_986",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer reasonably assess the best interests of the child?",
+        "paras": "14-22",
+        "applicant_position": "Officer misapprehended that the son spent most of his life in Canada, did not identify his best interests, and judged them only by hardship.",
+        "respondent_position": "A disagreement with weight; noting the child spent most of his life in Canada was not a fatal flaw.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "the assessment of the best interests of the Applicants’ son was unreasonable"
+      },
+      {
+        "issue": "Did the officer reasonably assess the applicants' establishment and hardship?",
+        "paras": "23-31",
+        "applicant_position": "Officer misstated their stay, required exceptional establishment, and wrongly weighed it negatively.",
+        "respondent_position": "Applicants controlled their stay beyond 2014, so negative weight was open; establishment alone is not enough.",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "the Officer unreasonably discounted the degree to which the Applicants had established themselves in Canada"
+      }
+    ]
+  }
+}

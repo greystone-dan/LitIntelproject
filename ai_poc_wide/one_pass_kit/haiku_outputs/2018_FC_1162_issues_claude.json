@@ -1,0 +1,29 @@
+{
+  "case_id": "2018_FC_1162",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the PRRA officer err by not holding an oral hearing?",
+        "paras": "19-23",
+        "applicant_position": "Officer made a veiled credibility finding about the applicant's sexual orientation and did not apply the section 167 IRPR hearing factors.",
+        "respondent_position": "No duty to hold a hearing; officer only weighed the evidence and made no credibility finding.",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "There was no duty to provide an oral hearing."
+      },
+      {
+        "issue": "Did the officer err by not considering the compelling reasons under subsection 108(4) of the IRPA?",
+        "paras": "24",
+        "applicant_position": "Officer had to consider compelling reasons under subsection 108(4); failing to do so is a reviewable error.",
+        "respondent_position": "Subsection 108(4) applies only to persons previously found to be refugees; the applicant was never found to be one.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "The PRRA Officer did not err in his analysis as subsection 108(4) of the IRPA is inapplicable to the Applicant’s situation."
+      }
+    ]
+  }
+}

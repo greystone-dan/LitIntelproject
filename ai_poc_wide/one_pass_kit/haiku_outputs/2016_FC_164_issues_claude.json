@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FC_164",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer wrongly require proof of residence in Pakistan as a condition of refugee or country-of-asylum status?",
+        "paras": "16-29",
+        "applicant_position": "No residency requirement exists in the IRPA or IRPR; being outside the country of nationality is enough.",
+        "respondent_position": "Residence was not the decisive test; the claim was rejected for misrepresenting residence in Pakistan.",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "Therefore this finding is unreasonable, and to the extent the decision depends on this finding and the underlying but non-existent residency requirement, it must be set aside."
+      },
+      {
+        "issue": "Did the Officer unreasonably find the applicants misrepresented their country of residence?",
+        "paras": "30-33",
+        "applicant_position": "Misrepresentation finding was unreasonable: the letter, POR, tenancy and employment points were erroneous or unexplained.",
+        "respondent_position": "Applicants misrepresented residence in Pakistan when they lived in Afghanistan, so the claim was properly rejected.",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "In this circumstance, it would not be safe to rely on the misrepresentation analysis and therefore judicial review must be granted."
+      },
+      {
+        "issue": "Did the Officer breach natural justice by not putting reavailment concerns to the applicants?",
+        "paras": "34",
+        "applicant_position": "Applicants were not told of the Afghan passport concern and had no chance to respond on reavailment.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 34,
+        "result_quote": "However, I do not need to make a finding on this point given the other difficulties with the decision identified above."
+      }
+    ]
+  }
+}

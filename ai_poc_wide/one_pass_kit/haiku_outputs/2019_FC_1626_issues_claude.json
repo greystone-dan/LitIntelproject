@@ -1,0 +1,47 @@
+{
+  "case_id": "2019_FC_1626",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD reasonably find the applicants had permanent resident status in Brazil, so Article 1E applies?",
+        "paras": "9-16",
+        "applicant_position": "Names on the 2015 ministerial act do not prove permanent status; they had lost it and could not return to Brazil.",
+        "respondent_position": "Applicants were permanent residents of Brazil via the 2015 joint ministerial act and should be excluded under Article 1E.",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "Upon reviewing the record, the Court cannot agree with this argument."
+      },
+      {
+        "issue": "Did the RPD reasonably apply the Zeng factors (return, voluntary loss of status, fear in Haiti, international obligations)?",
+        "paras": "17-22",
+        "applicant_position": "Applicants had lost Brazilian status and could not return, so they would be forced back to Haiti.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Having reviewed the record, the Court finds that the RPD’s decision was reasonable and supported by sufficient reasons."
+      },
+      {
+        "issue": "Did the RPD fail to properly consider Chairperson's Guideline 4 on gender-related persecution?",
+        "paras": "23-25",
+        "applicant_position": "Female applicant may lack protection in Haiti as a Lavalas target; RPD did not question her or mention Guideline 4.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "The Court finds this argument to be without merit."
+      },
+      {
+        "issue": "Would any error in the Zeng analysis change the outcome, given the credibility findings on Brazil and Haiti?",
+        "paras": "26-27",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "The applicants have not demonstrated that those findings were unreasonable."
+      }
+    ]
+  }
+}

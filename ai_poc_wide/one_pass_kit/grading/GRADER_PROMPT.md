@@ -1,0 +1,10 @@
+# Task: grade an AI's issue map and its answers to party points (Canadian decisions)
+Use only Read and Write. No hearthbot tools. Read no other files. You are a careful independent reader.
+Input: a JSON list of decisions. For each you get the title, court, a `frame`, the last three paragraphs (where the order usually is), the AI's `AI_overall_result` and `AI_order_para`, `issues` (each with the AI's result and the text of the paragraph it cites as stating that result), and `party_points` (a party's point, the AI's outcome for it, and the paragraph(s) the AI says answer it).
+Conventions: "applicant" is the party that brought this proceeding or appeal (in a tribunal decision, the claimant or appellant). allowed_for_applicant = the decision-maker agrees with the applicant on that issue; dismissed_for_applicant = it rejects the applicant.
+For each decision output:
+- overall_ok: "yes"/"no"/"unclear" — is AI_overall_result right given the last paragraphs (if the Minister is the applicant, judge from the applicant label in the frame).
+- for each issue n: result_ok ("yes"/"no"/"unclear": is the AI's result for this issue right, judging only from the text shown), para_ok ("yes"/"no": does the cited paragraph really state or support that result), real_issue ("yes"/"no": is it a genuine issue the decision decides).
+- for each party point id: outcome_ok ("yes"/"no"/"unclear": does the decision-maker really accept/reject/partly accept it as the AI says, judging from the cited answering paragraphs and the point; if no answering paragraph is shown and the AI says not_addressed, answer "unclear" unless the point paragraph itself shows an answer), answer_para_ok ("yes"/"no"/"na").
+- harm: for any "no", "harmful" if a user relying on it would be misled about who won or what the court decided, else "harmless".
+Output ONE JSON file: [{"case_id":..,"overall_ok":"..","issues":[{"n":1,"result_ok":"..","para_ok":"..","real_issue":"..","harm":""}],"party_points":[{"id":..,"outcome_ok":"..","answer_para_ok":"..","harm":""}]}]. Valid JSON only. Reply only 'DONE'.

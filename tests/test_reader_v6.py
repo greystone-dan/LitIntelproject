@@ -86,7 +86,7 @@ def test_reader_v6_discussion_units_section_is_experimental_and_data_only():
             "units": [
                 {"unit_index": 1, "start_paragraph": 2, "end_paragraph": 3, "role": "analysis",
                  "party_arguments": [{"paragraph_index": 2, "party": "applicant"}]},
-                {"unit_index": 2, "start_paragraph": 0, "end_paragraph": 0},  # no printed number: skipped
+                {"unit_index": 2, "start_paragraph": 0, "end_paragraph": 0},  # no printed number: still listed
             ],
         },
     }
@@ -96,6 +96,8 @@ def test_reader_v6_discussion_units_section_is_experimental_and_data_only():
     assert with_units["rows"] == [{
         "index": 1, "first": 2, "last": 3, "start": 40, "role": "analysis", "roleName": "Analysis",
         "parties": [{"party": "applicant", "label": "Applicant", "nums": [2]}],
+    }, {
+        "index": 2, "first": None, "last": None, "start": None, "role": None, "roleName": "", "parties": [],
     }]
     assert with_units["roleNote"] == "R" and with_units["partyNote"] == "P"
     assert empty == {"rows": [], "roleNote": "", "partyNote": ""}

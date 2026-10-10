@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Find decided issues: 212 more decided issues from 71 more decisions, including RAD and RPD (vacated or ceased status, PR card identity, detention as a danger, program-rule versions, abandonment, interpreters, extension of time, mandamus, exclusion, sexual orientation, proof of funds, procedural fairness). Load with `python scripts/load_issue_maps.py` (dry run), then `--apply`; it only adds missing rows. Cases where the Minister brought the proceeding (for example cessation) are left out so "applicant won" is never misread.
 - Find decided issues: citations stored in file spelling (2017_FC_1067) now show as 2017 FC 1067, and tribunal ids with a dash.
 - Find decided issues: new `python scripts/load_issue_maps.py --relink [--apply]` links the stored issues that have no library case by citation (file keys use underscores, the library uses spaces or dashes). Only fills empty links. Checked against the live site: all 112 unlinked decisions are in the library.
 - Live Analysis "Find decided issues": result wording now says who won ("The applicant won on this issue." / "The respondent won on this issue (the applicant lost).") instead of only "the court agreed/rejected".

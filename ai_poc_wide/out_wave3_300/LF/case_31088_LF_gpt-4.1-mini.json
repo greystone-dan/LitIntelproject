@@ -1,0 +1,323 @@
+{
+ "case_id": 31088,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.005034,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is an application for judicial review of an Immigration Officer's decision dated November 2, 2021, refusing TRP and study permit applications.",
+     "quote": "This is an application for judicial review of a decision of an Immigration Officer [Officer], dated November 2, 2021 [the Decision], in which the Officer refused the Applicant’s applications for a temporary residence permit [TRP] and a study permit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application of an Immigration Officer's refusal of TRP and study permit applications dated November 2, 2021.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is granted because the Officer overlooked or misunderstood evidence of an attempted sexual assault experienced by the Applicant as a child.",
+     "quote": "this application is granted because the Decision demonstrates that the Officer overlooked, or misunderstood the significance of, evidence of the Applicant experiencing an attempted sexual assault as a child.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the application because the Officer overlooked or misunderstood evidence of the Applicant's attempted sexual assault as a child.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is a 28-year-old Nigerian citizen who came to Canada in 2012 for post-secondary studies.",
+     "quote": "The Applicant is a 28-year-old citizen of Nigeria. She came to Canada in 2012 to pursue her post-secondary studies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant lived in the UK before Canada, completed high school there; mother and brother still live in UK; father deceased.",
+     "quote": "Prior to arriving in Canada, the Applicant lived with her family in the United Kingdom, where she completed high school. Her mother and brother continue to reside in the United Kingdom. Her father is deceased.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant is a 28-year-old Nigerian who studied in Canada since 2012, previously lived in the UK with family, father deceased.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's initial study permit expired in 2015; she stayed and studied and worked without authorization.",
+     "quote": "The Applicant’s initial study permit expired in 2015, but she remained in Canada and studied and worked without authorization.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant applied for TRP and new study permit; both refused on November 2, 2021; refusal is subject of judicial review.",
+     "quote": "She eventually applied for a TRP and a new study permit, but both applications were refused on November 2, 2021. That refusal is the subject of this application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant's initial study permit expired in 2015; she stayed without authorization and had TRP and study permit applications refused in 2021.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer summarized Applicant's immigration history in Global Case Management System notes forming part of reasons.",
+     "quote": "In the Global Case Management System notes, which form part of the reasons for the Decision, the Officer first summarized the Applicant’s immigration history.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer summarized Applicant's submissions about difficulties adjusting to life in Canada and family hardships due to father's illness and death.",
+     "quote": "The Officer then summarized some of the Applicant’s submissions regarding the difficulty she experienced in adjusting to life in Canada, including the difficulties she and her family faced when her father fell ill and subsequently passed away.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker summarized the Applicant's immigration history and her submissions about adjustment difficulties and family hardships.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer acknowledged Applicant's wish to remain in Canada due to difficulty returning to UK or Nigeria.",
+     "quote": "While acknowledging the Applicant’s wish to remain in Canada, as she could not return to the United Kingdom and believed it would be difficult to return to Nigeria,",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer noted Applicant made no attempt to regularize status or apply for permanent residence alternatives.",
+     "quote": "the Officer noted that the Applicant had not made any attempt to regularize her status in Canada or use alternative options such as applying for permanent residence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker acknowledged the Applicant's wish to stay but found no attempt to regularize status or seek permanent residence.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer acknowledged Applicant's submissions on Nigeria's country conditions including crime, violence, sexual harassment risks.",
+     "quote": "The Officer also acknowledged the Applicant’s submissions as to the country conditions in Nigeria, including risks of crime, violence, and sexual harassment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found Applicant did not provide submissions showing she would be directly impacted by these hardships.",
+     "quote": "the Officer found that the Applicant had not herself provided any submissions that showed that she would be directly impacted by these hardships.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker acknowledged country condition evidence but found no direct impact shown on the Applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found no risk in issuing TRP but was unconvinced granting permit was justified.",
+     "quote": "while noting that there was no risk involved in issuing a TRP to the Applicant, the Officer was not convinced that granting a permit was justified in the circumstances.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Officer refused TRP and study permit applications.",
+     "quote": "As the application for a TRP had been refused, the Officer also refused the Applicant’s application for a study permit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found no risk issuing TRP but refused both TRP and study permit applications.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Did the Officer err by failing to provide reasons why TRP was not justified?",
+     "quote": "Did the Officer err by failing to provide reasons as to why a TRP was not justified in the Applicant’s circumstances?",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Did the Officer ignore evidence of harm to the Applicant in Nigeria?",
+     "quote": "Did the Officer ignore evidence of harm to the Applicant in Nigeria?",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant raises two issues: whether the Officer erred in reasons for TRP refusal and ignored evidence of harm in Nigeria.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The applicable standard of review is reasonableness, agreed by parties and court.",
+     "quote": "The parties agree (and I concur) that the applicable standard of review is reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is reasonableness, agreed by parties and court.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer ignored evidence of attempted sexual assault as a child, denying direct impact of sexual abuse.",
+     "quote": "She argues that the Officer’s statement, that she had not provided any submissions showing that she would be directly impacted by sexual abuse, ignores her evidence of having been the victim of an attempted sexual assault as a child.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the Officer ignored evidence of her attempted sexual assault as a child, denying direct impact of sexual abuse.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant submitted country condition evidence on sexual violence prevalence in Nigeria, including by college professors.",
+     "quote": "In support of her TRP application, the Applicant submitted country condition evidence surrounding the prevalence of sexual violence in Nigeria, including at the hands of college professors.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer acknowledged country condition evidence but concluded Applicant did not link it to personal circumstances.",
+     "quote": "As I read the Decision, the Officer acknowledged this evidence but concluded that the Applicant had not linked this evidence to her personal circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Applicant submitted country condition evidence; Officer acknowledged but found no link to personal circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant's Statutory Declaration stated attempted sexual assault at age 11 linked to fear of sexual violence in Nigeria.",
+     "quote": "In a Statutory Declaration submitted in support of her TRP application, the Applicant explained that she was the victim of an attempted sexual assault when she was around 11 years old and linked this incident to her fear of being exposed to the risks of sexual violence in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Decision shows Officer overlooked or misunderstood significance of this evidence for Applicant's submissions.",
+     "quote": "the Decision demonstrates that the Officer either overlooked this evidence or misunderstood its significance for the Applicant’s submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer overlooked or misunderstood the Applicant's declaration of attempted sexual assault and its significance.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues factual error is not material or fatal to warrant judicial intervention.",
+     "quote": "The Respondent submits that, even if the Court identified a factual error of this nature, it is not a material or fatal flaw that warrants judicial intervention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court disagrees; finds error significant as Applicant's arguments on risks in Nigeria were material.",
+     "quote": "I disagree with this submission. I appreciate that the Applicant’s submissions in support of her TRP application related significantly to her wish to remain in Canada to complete her studies. However, her arguments as to the isolation and risks she would face in returning to Nigeria also represented material components of her submissions. I therefore do not find the Officer’s error in relation to the evidence supporting those arguments to be insignificant.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Respondent argues the error is not material; the court disagrees, finding the error significant to Applicant's material submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application allowed, Decision set aside, matter referred to different officer for redetermination with opportunity for updated evidence.",
+     "quote": "This application for judicial review will be allowed, the Decision set aside, and the matter referred to a different officer for redetermination, following an opportunity for the Applicant to provide updated evidence and submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question certified for appeal as none proposed or stated by parties.",
+     "quote": "Neither party proposed any question for certification for appeal, and none is stated.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the application, sets aside the Decision, refers matter for redetermination, and declines to certify any question for appeal.",
+   "role": "disposition"
+  }
+ ]
+}

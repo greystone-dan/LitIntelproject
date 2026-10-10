@@ -1,0 +1,407 @@
+{
+ "case_id": 33945,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.007274,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant, wife, and seven children refused permanent residency as Convention refugees and humanitarian-protected persons abroad.",
+     "quote": "The Applicant, his wife, and his seven children were refused permanent residency in Canada as Convention refugees abroad and members of the humanitarian-protected persons abroad classes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Applicant challenges Immigration Officer’s decision and requests refugee status from this Court on judicial review.",
+     "quote": "On judicial review, he challenges the Immigration Officer’s decision and requests an Order from this Court granting him status as a refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant and family refused permanent residency; applicant challenges decision and requests refugee status from Court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister concedes decision is unreasonable but disagrees on remedy; court cannot decide merits but must remit to another Officer.",
+     "quote": "The Respondent, the Minister of Citizenship and Immigration, concedes that the decision under review is unreasonable. However, they disagree with the Applicant as to the appropriate remedy. On their submission, the Court cannot step into the shoes of the merits decider and rule on the underlying application; the reviewing court must recognize that the legislature has entrusted this power to the administrative decision maker and thus remit the matter to a different Officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister concedes unreasonableness but argues for remitting matter to another Officer, not deciding merits.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court will grant judicial review and remit matter to a different Officer.",
+     "quote": "For the reasons that follow, I will grant this application for judicial review and remit the matter to a different Officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court grants judicial review and remits matter to different Officer.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is Burundian Hutu married to Tutsi woman; ethnic tensions persist in Burundi and region.",
+     "quote": "The Applicant is Burundian national and member of the Hutu ethnic group, which constitutes the majority group in the country. He is married to a Tutsi woman, part of the minority ethnic group in the country. A colonial legacy of ethnic division in sub-Saharan Africa has led to decades of tension and violence between the two groups, a tension that still colours perceptions of inter-ethnic relationships in Burundi and its neighbouring states.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is Burundian Hutu married to Tutsi woman amid longstanding ethnic tensions.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and family fled Burundi due to 2015 political turmoil and ethnic killings; family fled to Rwanda in 2016, Applicant followed in 2019.",
+     "quote": "In 2015, the Applicant and his family had their lives threatened by political turmoil and mass ethnic killings in Burundi. His family fled to Rwanda in 2016, with him following in 2019, where they were then sponsored for a permanent residency application as Convention refugees abroad and members of the humanitarian-protected persons abroad classes.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant and family fled Burundi due to turmoil; family fled to Rwanda in 2016, Applicant in 2019, then sponsored for residency.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Sponsorship approved; travel to Canada planned for July 17, 2023, but prevented due to spouse's undisclosed Rwandan citizenship.",
+     "quote": "The sponsorship application was approved, and the Applicant and his family were set to travel to Canada on July 17, 2023. However, upon departure, they were prevented from leaving the country on the basis that the Applicant’s spouse was also a Rwandan citizen—a fact that she failed to disclose to Canadian immigration officials.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Rwanda is neighboring country to Burundi.",
+     "quote": "Rwanda is a neighbouring country to Burundi.",
+     "answers": 0
+    }
+   ],
+   "summary": "Sponsorship approved but travel blocked due to spouse's undisclosed Rwandan citizenship; Rwanda neighbors Burundi.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found Applicant ineligible for refugee protection due to 'durable solution' in Rwanda under IRPR s.139(1)(d).",
+     "quote": "The Officer considered this new evidence and found that the Applicant was not eligible for refugee protection because there was a “durable solution” in Rwanda, pursuant to paragraph 139(1)(d) of the Immigration and Refugee Protection Regulations (SOR/2002-227) [IRPR].",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer reasoned spouse could regain Rwandan citizenship, sponsor family, enabling protection in Rwanda.",
+     "quote": "According to the Officer, the Applicant’s spouse could regain her Rwandan citizenship, sponsor her husband, and the entire family could seek protection in Rwanda.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found Applicant ineligible due to durable solution in Rwanda; spouse could regain citizenship and sponsor family.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Core issue is whether Officer’s decision is reasonable under Vavilov standard.",
+     "quote": "The core issue on judicial review is whether the Officer’s decision is reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires decision to be justified, transparent, intelligible, and based on coherent analysis (Vavilov).",
+     "quote": "the role of a reviewing court is to examine the decision maker’s reasoning and determine whether the decision is based on an “internally coherent and rational chain of analysis” and is “justified in relation to the facts and law that constrain the decision maker” (Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 85 [Vavilov]; Mason v Canada (Citizenship and Immigration), 2023 SCC 21 at para 64).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Challenger bears onus to show unreasonableness; court looks for justification, transparency, intelligibility (Vavilov).",
+     "quote": "Although the party challenging the decision bears the onus of demonstrating that the decision is unreasonable (Vavilov at para 100), the reviewing court must ask “whether the decision bears the hallmarks of reasonableness—justification, transparency and intelligibility” (Vavilov at para 99).",
+     "answers": 0
+    }
+   ],
+   "summary": "Issue is reasonableness of Officer’s decision under Vavilov standard requiring justification and coherence.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Further issue is appropriate remedy for unreasonable decision under Vavilov guidance.",
+     "quote": "In this case, there is the further issue of determining the appropriate remedy.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Remedy guided by legislature entrusting decision to administrative decision maker; usually remitting for redetermination (Vavilov).",
+     "quote": "the Supreme Court of Canada instructs that “the choice of remedy must be guided by the rationale for applying [the reasonableness] standard to begin with, including the recognition by the reviewing court that the legislature has entrusted the matter to the administrative decision maker, and not to the court, to decide” (Vavilov at para 140). Where a decision is unreasonable, “it will most often be appropriate to remit the matter to the decision maker” for redetermination, with guidance that arises from the court’s reasonableness analysis (Vavilov at para 141).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Court may decline remittal only if outcome is inevitable and remitting serves no purpose; such cases are rare (Vavilov).",
+     "quote": "However, there are limited circumstances where a reviewing court may nevertheless decline to remit a matter to the decision maker, namely where “becomes evident to the court, in the course of its review, that a particular outcome is inevitable and that remitting the case would therefore serve no useful purpose” (Vavilov at para 142). These circumstances are exceedingly rare.",
+     "answers": 0
+    }
+   ],
+   "summary": "Issue of remedy: usually remitting to decision maker unless outcome is inevitable, per Vavilov.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Under IRPR s.139, permanent resident visa granted unless relief possible by repatriation or resettlement in nationality or another country.",
+     "quote": "Under section 139 of the IRPR, a permanent resident visa shall be granted to a foreign national outside of Canada in need of refugee protection unless, inter alia, there is a possibility that they might seek relief by way of repatriation or resettlement in their country of nationality, habitual residence, or another country.",
+     "answers": 0
+    }
+   ],
+   "summary": "IRPR s.139 grants permanent resident visa unless relief possible by repatriation or resettlement elsewhere.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer unreasonably concluded Applicant could resettle in Rwanda based on spouse regaining citizenship and sponsoring family.",
+     "quote": "In this case, it was unreasonable for the Officer to conclude that the Applicant and his family could re-settle in Rwanda based on the fact that the Applicant’s wife could obtain her Rwandan citizenship and assist them in resettling in Rwanda.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer failed to consider Applicant’s Hutu-Tutsi marriage risks: persecution in Burundi and in Rwandan refugee camps.",
+     "quote": "In doing so, the Officer failed to consider the fact that the Applicant is a Hutu married to a Tutsi. This fact entails two separate risks of persecution. On the one hand, the Applicant claims to face persecution in Burundi, where he is viewed as a traitor for having married a Tutsi woman. On the other hand, the Applicant claims to face persecution in the Rwandan refugee camps where his family lives, because the Tutsi living there believe that he is spying on behalf of the Hutu ruling party in Burundi.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant claims risk of persecution throughout Rwanda due to ethnic hatred; these risks were never assessed.",
+     "quote": "The Applicant also claims a risk of persecution everywhere in Rwanda because of the continuous ethnic hatred and threat. Those claims of risks in Rwanda were never assessed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Officer’s conclusion of durable solution in Rwanda is unreasonable.",
+     "quote": "The Officer’s conclusion that there was a “durable solution” is therefore unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer unreasonably found durable solution in Rwanda, ignoring Applicant’s ethnic persecution risks unassessed.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant seeks Court order granting refugee status, but Court cannot do so absent special circumstances.",
+     "quote": "On judicial review, the Applicant seeks an Order from this Court granting him his status as a refugee. Absent special circumstances that do not arise here, this is not something the Court can do.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks refugee status order, but Court cannot grant absent special circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Certiorari and mandamus only granted if outcome inevitable and remitting serves no purpose (Vavilov, Sharif, Tennant).",
+     "quote": "The Applicant’s request is essentially in the nature of a certiorari and mandamus, which could only be granted when the Court is of the view that a particular outcome is inevitable and remitting the case would serve no purpose (Vavilov at paras 140–142; Sharif v Canada (Attorney General), 2018 FCA 205 at paras 53–56; Canada (Citizenship and Immigration) v Tennant, 2019 FCA 206 at para 72). However, that is not the case here.",
+     "answers": 0
+    }
+   ],
+   "summary": "Certiorari and mandamus require inevitable outcome and no purpose in remitting; not met here.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant’s spouse is Rwandan citizen; refugee status was granted assuming only Burundi citizenship.",
+     "quote": "The Applicant’s spouse is a citizen of Rwanda, and the granting of their refugee status was predicated on them being citizens of Burundi only.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Had spouse declared Rwandan citizenship, refugee status decision could differ.",
+     "quote": "Had the Applicant’s spouse declared her Rwandan citizenship, the provisional granting of the Applicant’s application for refugee status could have been decided differently.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and family fled to Rwanda for proximity and immediate safety.",
+     "quote": "Indeed, the Applicant and his family fled to Rwanda due to its geographical proximity and the immediate safety that it provided.",
+     "answers": 0
+    }
+   ],
+   "summary": "Spouse’s Rwandan citizenship undisclosed; refugee status granted assuming Burundi citizenship; family fled to Rwanda for safety.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant alleged he was suspected as spy in Rwandan refugee camp and faces ethnic hatred risk in Rwanda.",
+     "quote": "However, in his basis of claim, the Applicant alleged that he was not able to join his family in the refugee camp because he was suspected, as a Hutu, to be a spy on behalf of the ruling party in Burundi—the party responsible for the anti-Tutsi violence that resulted in them fleeing to Rwanda. He also claimed a risk of persecution in Rwanda generally as a result of ethnic hatred.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "These risk allegations were not conclusively assessed regarding Rwanda.",
+     "quote": "Those allegations of risks were not conclusively assessed in relation to Rwanda.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleged spying suspicion and ethnic risk in Rwanda; these risks were not conclusively assessed.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is not inevitable that another Officer will find risks substantiated; risks must be objectively assessed with evidence.",
+     "quote": "On the basis of these allegations, it is not a foregone conclusion that another Immigration Officer will come to the inevitable conclusion that the alleged risks are substantiated. Indeed, the Applicant’s allegations of risks in Rwanda must be assessed objectively, with proper evidence on country conditions.",
+     "answers": 0
+    }
+   ],
+   "summary": "No inevitable outcome; risks must be objectively assessed with evidence by another Officer.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Proper remedy is to quash Officer’s decision and remit to different decision maker for redetermination.",
+     "quote": "Consequently, the Court cannot come to the conclusion that a particular outcome is inevitable and therefore, the proper remedy is to quash the Officer’s decision and remit it to a different decision maker for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court quashes Officer’s decision and remits matter to different decision maker for redetermination.",
+   "role": "disposition"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review application granted; matter remitted to different Immigration Officer.",
+     "quote": "The application for judicial review is granted, and the matter is remitted for reconsideration before a different Immigration Officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Judicial review granted; matter remitted to different Immigration Officer.",
+   "role": "disposition"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment grants judicial review, remits matter, and declines certification of general importance.",
+     "quote": "THIS COURT’S JUDGMENT is that: The application for judicial review is granted. The matter is remitted for reconsideration before a different Immigration Officer. There is no question of general importance for certification.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Judgment dated August 22, 2025, heard in Vancouver, counsel appearances noted.",
+     "quote": "JUDGMENT AND REASONS: RÉGIMBALD J. DATED: AUGUST 22, 2025 APPEARANCES: T. Soye Brown For The Applicant Philippe Alma For The RESPONDENT SOLICITORS OF RECORD: Soye Brown Law Corp Barristers and Solicitors Surrey (British Columbia) For The Applicant Attorney General of Canada Vancouver (British Columbia) For The RESPONDENT",
+     "answers": 0
+    }
+   ],
+   "summary": "Judgment grants review, remits matter, declines certification; hearing and counsel appearances noted.",
+   "role": "disposition"
+  }
+ ]
+}

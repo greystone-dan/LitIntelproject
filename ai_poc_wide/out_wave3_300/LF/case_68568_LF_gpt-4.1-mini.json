@@ -1,0 +1,888 @@
+{
+ "case_id": 68568,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0133828,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss this appeal.",
+     "quote": "I dismiss this appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is a citizen of Sri Lanka seeking refugee protection in Canada due to fear of persecution based on political opinion.",
+     "quote": "XXXX XXXX XXXX XXXX XXXX (Appellant) is a citizen of Sri Lanka. The Appellant seeks refugee protection in Canada because he fears persecution in Sri Lanka based on his political opinion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant was attacked and injured in 2005 while setting up venues for political meetings involving his father.",
+     "quote": "The Appellant was attacked and suffered injury in 2005 while setting up venues for political meetings in which his father was a participant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant submits that attackers acted on behalf of a political rival of his father and that his life remains in danger.",
+     "quote": "The Appellant submits that the individuals responsible for these attacks were acting on behalf of a political rival of his father. The Appellant submits that his life remains in danger.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant did not establish his case through sufficient credible evidence.",
+     "quote": "The Refugee Protection Division (RPD) found that the Appellant has not established his case through sufficient credible evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues on appeal that the RPD erred in its assessment of the evidence.",
+     "quote": "The Appellant argues on appeal that the RPD erred in its assessment of the evidence before it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The determinative issue is whether the RPD erred in finding the Appellant has not established a well-founded refugee claim.",
+     "quote": "The determinative issue for the Refugee Appeal Division (RAD) is whether the RPD erred in finding that the Appellant has not established a well-founded claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal; the Appellant is a Sri Lankan citizen fearing political persecution, was attacked in 2005, claims attackers acted for a rival, and argues RPD erred in evidence assessment; the issue is whether RPD erred in finding no well-founded claim.",
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in its decision.",
+     "quote": "I find that the RPD did not err.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant has not provided sufficient credible evidence to support his refugee claim.",
+     "quote": "I find that the Appellant has not adduced sufficient credible evidence to ground his claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err and the Appellant failed to provide sufficient credible evidence for refugee protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal.",
+     "quote": "I dismiss the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD was correct in finding the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "quote": "The RPD was correct in finding that the Appellant is neither a Convention1 refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and finds the RPD was correct that the Appellant is neither a Convention refugee nor in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant helped his father, a member of a political party in Sri Lanka, set up venues for political meetings.",
+     "quote": "The Appellant alleges in his Basis of Claim (BOC) that, as a young man, he helped his father, who was a member a political party in Sri Lanka - the XXXX XXXX XXXX XXXX XXXX XXXX - set up venues for political meetings.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In 2005, members of a rival party disrupted preparations for political meetings on two occasions.",
+     "quote": "The Appellant states that on two occasions in 2005, members of a rival party disrupted preparations for political meetings.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant was shot on the last occasion in 2005.",
+     "quote": "The Appellant says he was shot XXXX XXXX XXXX on the last of these occasions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges he helped his father politically, rival party members disrupted meetings twice in 2005, and he was shot on the last occasion.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant left Sri Lanka in 2006 to work in Iraq with a contractor.",
+     "quote": "The Appellant left Sri Lanka in XXXX 2006 to work in Iraq with a contractor providing XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He returned to Sri Lanka in 2008 and stayed until 2009.",
+     "quote": "He returned to Sri Lanka in XXXX 2008 and remained in Sri Lanka until XXXX 2009.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant left Sri Lanka in 2006 to work in Iraq, then returned and stayed in Sri Lanka until 2009.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant went to Dubai in 2009 and was a legal resident of the UAE until 2014.",
+     "quote": "The Appellant went to Dubai in XXXX 2009 and was a legal resident of the United Arab Emirates (UAE) until XXXX 2014.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant lived legally in the UAE from 2009 to 2014 after going to Dubai.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant came to Canada on a work permit in 2014.",
+     "quote": "In XXXX 2014 the Appellant came to Canada on a work permit.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "After the work permit expired, he worked in Canada without legal status from January 2017 to March 2018.",
+     "quote": "When his work permit expired, the Appellant continued to work in Canada without legal status for more than a year from January 2017 until March 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant arrived in Canada on a work permit in 2014 and worked without legal status from 2017 to 2018 after permit expiry.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant filed for refugee protection in March 2018, fearing persecution in Sri Lanka based on political opinion.",
+     "quote": "The Appellant filed for refugee protection in March 2018 claiming that he feared persecution in Sri Lanka based on his political opinion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant filed for refugee protection in March 2018, fearing political persecution in Sri Lanka.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "My role is to review all evidence and decide if the RPD made the correct decision.",
+     "quote": "My role is to look at all the evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review all evidence and decide if the RPD made the correct decision.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Sworn testimony at the IRB is presumed truthful unless rebutted; this presumption does not extend to conclusions or assumptions.",
+     "quote": "Sworn testimony at the Immigration and Refugee Board (IRB) is presumed to be truthful unless the presumption of truthfulness is rebutted. The presumption of truthfulness does not extend to conclusions or assumptions that a witness might advance in testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains IRB sworn testimony is presumed truthful unless rebutted, but not conclusions or assumptions.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I listened to the RPD hearing recording, examined evidence, and considered Appellant's arguments.",
+     "quote": "I have listened to the recording of the RPD hearing, examined all the evidence and considered the Appellant's arguments on appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found insufficient evidence that the Appellant faces serious persecution or risk to life or cruel treatment if returned to Sri Lanka.",
+     "quote": "The RPD found that there is insufficient evidence to establish that the Appellant would face a serious possibility of persecution or that he would, on a balance of probabilities, face a risk to life or of cruel or unusual treatment or punishment if he were to return to Sri Lanka.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court listened to the RPD hearing, reviewed evidence, and notes the RPD found insufficient evidence of serious persecution or risk if returned to Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I find the RPD did not err.",
+     "quote": "I find that the RPD did not err.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant has not provided sufficient credible evidence to establish serious persecution or risk of cruel treatment if returned to Sri Lanka.",
+     "quote": "Based on my independent analysis, I find that the Appellant has not adduced sufficient credible evidence to establish that he faces a serious possibility of persecution on a Convention ground or that he faces, on a balance of probabilities, a risk to life or of cruel or unusual treatment or punishment if he were to return to Sri Lanka.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD observed procedural fairness and natural justice.",
+     "quote": "Procedural fairness and natural justice were observed by the RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err, the Appellant failed to provide sufficient credible evidence of persecution or risk, and procedural fairness was observed.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD failed to observe procedural fairness and natural justice due to references to India in the decision.",
+     "quote": "The Appellant argues on appeal that the RPD failed to observe the principles of procedural fairness and natural justice. The Appellant notes that the RPD discusses the Appellant being returned to India in paragraphs 29 and 30 of its decision. The Appellant argues that, while the reference to India rather than Sri Lanka may be a clerical error, the error raises questions as to the attentiveness and awareness of the RPD in arriving at its conclusions and ultimate determination. The Appellant argues that this raises a question as to the level of fairness provided to the appellant by the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD failed procedural fairness due to clerical errors referencing India, questioning RPD's attentiveness and fairness.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I independently reviewed the record and audio; the RPD was fully engaged and focused on Sri Lanka.",
+     "quote": "I have conducted my own independent analysis of the record, including listening to the audio recording of the RPD hearing. The RPD Member was fully engaged in the hearing and focussed on the Appellant's claim in the context of Sri Lanka.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD Member did not mention India during the hearing and was not confused about the country of reference.",
+     "quote": "The RPD Member did not mention India at any time during the hearing. I find nothing in the audio recording to indicate that the RPD Member was in any way confused or uncertain that Sri Lanka was the country of reference for the Appellant's claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Except for paragraphs 29 and 30, the RPD decision refers to Sri Lanka throughout.",
+     "quote": "With the exception of paragraphs 29 and 30, the RPD refers to Sri Lanka throughout its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD was engaged, focused on Sri Lanka, did not mention India in hearing, and only paragraphs 29-30 erroneously mention India.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The two references to India in the RPD decision are clerical errors.",
+     "quote": "Based on my independent analysis, I find that the two references to India in the RPD decision are clerical errors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD Member was attentive and aware in considering the claim.",
+     "quote": "I find that the RPD Member was appropriately attentive and aware in considering the Appellant's claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD observed procedural fairness and natural justice.",
+     "quote": "I find that the RPD observed procedural fairness and natural justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Appellant has the burden of proof.",
+     "quote": "The Appellant has the burden of proof.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds references to India are clerical errors, the RPD was attentive, procedural fairness was observed, and the Appellant bears the burden of proof.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues Fernandopulle v. Canada applies, citing a rebuttable presumption of future persecution from past persecution.",
+     "quote": "The Appellant argues on appeal that Fernandopulle v. Canada (Minister of Citizenship and Immigration)4 applies in his appeal. The Appellant cites paragraph 12 wherein Madame Justice Sharlow summarizes an argument put forward in that case that proven past persecution establishes a rebuttable presumption of future persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Federal Court of Appeal found no such presumption is recognized in Canadian refugee law.",
+     "quote": "The Federal Court of Appeal found that no such presumption was recognized in Canadian refuge law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues Fernandopulle applies for a rebuttable presumption of future persecution; the Federal Court of Appeal rejected such presumption.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The facts here differ from Fernandopulle; the RPD did not find past persecution on a Convention ground.",
+     "quote": "The facts in the present case differ from the facts in Fernandopulle. In Fernandopulle, the IRB found that the refugee claimant had suffered past persecution; the risk of future persecution was the issue before the court. In the present case, the RPD did not find that the Appellant had suffered past persecution on a Convention ground.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds this case differs from Fernandopulle because the RPD did not find past persecution on a Convention ground here.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A refugee claim requires proving a well-founded fear of persecution under section 96 of IRPA; past persecution may support but does not guarantee future fear.",
+     "quote": "In her answer to the certified question before the Court, Madame Justice Sharlow concluded: A person establishes a refugee claim by proving the existence of a well-founded fear of persecution for one of the reasons listed in section 96 of the Immigration and Refugee Protection Act. Proof of past persecution for one of the listed reasons may support a finding of fact that the claimant has a well-founded fear of persecution in the future, but it will not necessarily do so. If, for example, there is evidence that country conditions have changed since the persecution occurred, that evidence must be evaluated to determine whether the fear remains well founded.",
+     "answers": 0
+    }
+   ],
+   "summary": "Madame Justice Sharlow explained refugee claims require proving well-founded fear; past persecution may support but not guarantee future fear.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant has not proven a well-founded fear of persecution.",
+     "quote": "The RPD found that the Appellant has not proven the existence of a well-founded fear of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I find the RPD did not err.",
+     "quote": "I find that the RPD did not err.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no well-founded fear of persecution; the court finds the RPD did not err.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD failed to consider the evidence before it.",
+     "quote": "The Appellant argues on appeal that the RPD failed to consider the evidence before it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I reviewed the evidence and find the RPD did not err for reasons to follow.",
+     "quote": "I have conducted my own review of the evidence and I find the RPD did not err for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD failed to consider evidence; the court reviewed evidence and finds no error by RPD.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant adduced three police reports in Singhalese with English translations",
+     "quote": "The Appellant adduced three police reports in Singhalese with English translations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "A clerical error by Appellant's legal team was corrected at RPD hearing start",
+     "quote": "A clerical error on the part of the Appellant's legal team was corrected at the beginning of the RPD hearing",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD had correct translations with correct original reports after correction",
+     "quote": "so that the RPD had the correct translations with the correct original reports.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant adduced three police reports with translations; a clerical error was corrected so the RPD had correct reports.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Police reports are three excerpts from a police station desk diary",
+     "quote": "The police reports adduced in evidence are actually three excerpts from the desk diary of a police station.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "One report details Appellant's account of events on XXXX XXXX, 2005 to desk officer",
+     "quote": "One of the reports details the Appellant's account of events on XXXX XXXX, 2005 as told to the desk officer at the police station",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Another report details Appellant's account of events on XXXX XXXX, 2005",
+     "quote": "and one report details the Appellant's account of events on XXXX XXXX, 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Third report details Appellant's father's account of events on XXXX XXXX, 2005",
+     "quote": "A third report details the Appellant's father's account of events on XXXX XXXX, 2005.",
+     "answers": 0
+    }
+   ],
+   "summary": "The police reports are three desk diary excerpts detailing Appellant's and his father's accounts of events in 2005.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant's police report states two of Mervyn Silva's thugs threatened him to stop political activities",
+     "quote": "The Appellant's police report states that \"one day two of Mervyn Silva's thugs came to my home and threatened me to stop political activities\".",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant does not provide details on when or nature of threats",
+     "quote": "The Appellant does not provide details as to when he was threatened or the details of the nature of the threats.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's police report states two thugs threatened him to stop political activities but lacks details on timing or nature.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant was helping set up venue for political meeting on night of XXXX XXXX XXXX XXXX, 2005",
+     "quote": "The Appellant's police report states that he was helping to set up a venue for a XXXX political meeting on the night of XXXX XXXX XXXX XXXX, 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Mervyn Silva and security guards arrived in black Land Rover Jeep, searched for Appellant but couldn't find him",
+     "quote": "He states that Mervyn Silva and his security guards arrived at the venue in a black coloured Land Rover Jeep [sic], that they searched for the Appellant and his companions but could not find them because it was dark.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Silva group disrupted meeting preparations, shouted threats, fired shots, then left",
+     "quote": "The Appellant reported that the Silva group disrupted the preparations for the meeting, shouted threats and fired shots into the air before departing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant reported Silva's group disrupted political meeting setup, searched for him, shouted threats, fired shots, then left.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On XXXX XXXX, 2005, Appellant was helping set up venue when unknown motorcycle approached at 4:00 am",
+     "quote": "The Appellant's report to police given on XXXX XXXX, 2005 states that he was helping to set up a venue for a political meeting on that date when an unknown motorcycle approached the venue at about 4:00 am.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant hid under stage while motorcyclist shot randomly",
+     "quote": "The Appellant states that he hid under a stage while the motorcyclist shot randomly.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant noticed he was shot in XXXX XXXX after motorcyclist left",
+     "quote": "The Appellant states that he noticed that he had been shot in the XXXX XXXX after the motorcyclist left.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant's helpers took him to hospital for treatment",
+     "quote": "The Appellant told police that his helpers took him to hospital for treatment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant reported being shot by unknown motorcyclist while setting up venue and taken to hospital for treatment.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Unclear when Appellant attended police station on XXXX XXXX, 2005; time not noted",
+     "quote": "It is unclear when the Appellant attended the police station on XXXX XXXX, 2005; the time is not noted in the police desk diary extract.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant testified at RPD hearing he was in hospital for six days after shooting",
+     "quote": "The Appellant testified at the RPD hearing that he was in hospital for six days XXXX XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "Unclear when Appellant attended police; he testified he was hospitalized six days after shooting.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant's police narrative does not identify the shooter",
+     "quote": "The Appellant's narrative to the police does not provide any detail as to the identity of the shooter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's police narrative does not identify the shooter.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant's father opposed Minister Silva and alleged his corruption",
+     "quote": "The Appellant's father's account of events on XXXX XXXX, 2005 details the father's political opposition to Minister Silva and the Minister's alleged corruption.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Father says meeting preparations disrupted by rivals in black Land Rover Jeep he 'came to know' belonged to Silva",
+     "quote": "The Appellant's father says that preparations for a XXXX meeting were disrupted by political rivals in a black coloured Land Rover Jeep [sic] that the Appellant's father says \"he came to know\" belonged to Minister Mervyn Silva.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Father does not state he saw Silva or how he knew car was Silva's",
+     "quote": "The Appellant's father does not state that he saw Silva that night or how he knew the car was Silva's.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Father says rivals asked for Appellant and thought his son's life was in danger",
+     "quote": "The Appellant's father states that the political rivals asked for his son (the Appellant) and that he thought his son's life was in danger.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "No reasons given why rivals would target Appellant or why father thought son's life was in danger",
+     "quote": "The account provides no reasons as to why the political rivals would specifically target his son or why he thought his son's life was in danger.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Father states Appellant was not active member beyond helping set up meeting venues",
+     "quote": "The Appellant's father states in the report that his son was not an active member of the XXXX beyond helping to set up venues for meetings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's father opposed Silva, said rivals disrupted meeting, asked for Appellant, feared for his life, but gave no reasons or proof.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred by not giving weight to letter from Appellant's mother dated April 28, 2019",
+     "quote": "The Appellant argues on appeal that the RPD erred by not giving weight to a letter from the Appellant's mother dated April 28, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Letter shows Appellant faces ongoing risk from Minister Silva and associates",
+     "quote": "The Appellant argues that the letter shows that the Appellant faces ongoing risk from Minister Silva and his associates.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I have examined the letter and find RPD did not err for reasons that follow",
+     "quote": "I have examined the letter and I find that the RPD did not err for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues RPD erred by ignoring mother's letter showing ongoing risk; I find RPD did not err.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant's mother outlines late husband's political opposition to Silva and alleged harassment",
+     "quote": "In the letter, the Appellant's mother outlines the political activities of her late husband, the Appellant's father, and her husband's opposition to Minister Silva. She states that Minister Silva threatened and harassed her husband",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mother provides no details or dates of threats; husband died in XXXX 2016",
+     "quote": "but she does not provide any details or dates. Her husband died in XXXX 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mother's letter outlines late husband's opposition to Silva and harassment but gives no details or dates; husband died 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mother states Appellant was injured by gunshot in 2005 while working on stage",
+     "quote": "The Appellant's mother states in her letter that the Appellant was \"injured by gun shot on XXXX XXXX 2005, when he was working to make stage for XXXX program.\"",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mother provides no details on injury or how it occurred",
+     "quote": "She does not provide any details on the injury or how it occurred.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mother provides no evidence of Appellant's political involvement beyond helping make stage in 2005",
+     "quote": "The Appellant's mother does not provide any evidence of political involvement or activism on the part of the Appellant beyond helping to make the stage in 2005.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mother states Appellant was shot in 2005 but gives no injury details or political involvement beyond stage help.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mother's letter states Silva and associates want to kill Appellant; Appellant works in Iraq to protect himself",
+     "quote": "The letter from the Appellant's mother concludes, \"Mr. Silva and his people need to kill my son. My son have [sic] to work in Iraq in order to protect him from Mr. Silva.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Mother states Silva threatened husband to kill Appellant and is still looking for Appellant",
+     "quote": "Mr. Silva threatening to my husband that he would kill my son. But Mr. Silva still looking [for] my son.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "Mother's letter states Silva wants to kill Appellant, threatened husband, and is still looking for Appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mother provides no details of threats, dates, or context for Silva still looking for Appellant",
+     "quote": "The Appellant's mother provides no details of the threats, dates when the threats were made, or the context wherein the threats were made. She provides no basis for the assertion in the letter that Mr. Silva is still looking for the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mother's letter lacks details or basis for threats or Silva still looking for Appellant, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismiss appeal and confirm RPD decision that Appellant is not a Convention refugee or person in need of protection",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "I dismiss the appeal and confirm RPD decision that Appellant is not a refugee or person in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

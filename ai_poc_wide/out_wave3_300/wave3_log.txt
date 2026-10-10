@@ -1,0 +1,14 @@
+dry LF: {"dry_run": true, "arm": "LF", "model": "gpt-4.1-mini", "cases": 300, "ceiling_usd": 6.702, "typical_usd": 5.027, "ledger_now": 0.0}
+== send LF 03:22:38
+  File "C:\Users\danny\ilit_poc_wide\ai_poc_wide\common.py", line 128, in call_json
+    raise RuntimeError(f"{label}: failed after {attempts} attempts: {last_error}")
+RuntimeError: LF case 69757: failed after 4 attempts: RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'c
+LF_EXIT 1 (files: 298)
+== dry issues
+RuntimeError: generator raised StopIteration
+== send issues 04:21:29
+  File "C:\Users\danny\ilit_poc_wide\ai_poc_wide\common.py", line 128, in call_json
+    raise RuntimeError(f"{label}: failed after {attempts} attempts: {last_error}")
+RuntimeError: issues case 7902: failed after 4 attempts: RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code':
+ISS_EXIT 1 (files: 1)
+WAVE3_DONE 04:22:35

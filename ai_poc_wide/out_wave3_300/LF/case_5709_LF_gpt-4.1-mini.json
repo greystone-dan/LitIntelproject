@@ -1,0 +1,876 @@
+{
+ "case_id": 5709,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.016982000000000004,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is a Djibouti citizen who claimed refugee protection in Canada based on political and clan persecution fears.",
+     "quote": "Araksan Ismael Ibrahim, the applicant, is a citizen of Djibouti. After entering Canada irregularly from the United States in November 2016, she made a claim for refugee protection. The claim was based on the applicant’s fear of persecution because of her perceived membership in an opposition political party, the Mouvement pour le Renouveau Démocratique et le Développement (“MRD”), and because of her membership in the Samaron clan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant is a Djibouti citizen claiming refugee protection due to political and clan persecution fears.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD rejected the refugee claim on credibility grounds in April 2017.",
+     "quote": "In a decision dated April 12, 2017, the Refugee Protection Division (“RPD”) of the Immigration and Refugee Board of Canada (“IRB”) rejected the claim on credibility grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD dismissed the appeal but judicial review allowed on consent and matter remitted for redetermination in July 2019.",
+     "quote": "The RAD dismissed the appeal. However, on July 16, 2019, the applicant’s application for judicial review of the RAD’s decision was allowed on consent and the matter was remitted for redetermination.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD dismissed the appeal again in January 2020 after redetermination.",
+     "quote": "In a decision dated January 10, 2020, the RAD dismissed the appeal again.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker rejected the claim, the RAD dismissed appeal, judicial review allowed and remitted, then RAD dismissed again.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant contends RAD's determination is unreasonable under IRPA subsection 72(1).",
+     "quote": "She contends that the RAD’s determination is unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with applicant and allows judicial review, remitting matter for redetermination again.",
+     "quote": "For the reasons that follow, I agree. This application must, therefore, be allowed and the matter remitted for redetermination once again.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD's decision is unreasonable; court agrees and allows judicial review, remitting matter again.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant was born in Djibouti in March 1989 and graduated university in journalism in September 2013.",
+     "quote": "The applicant was born in Djibouti in March 1989. She graduated from university with a degree in journalism in September 2013.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states applicant's birth and education background facts.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant claims to have worked at RTD starting March 2012 as music presenter, then receptionist, then newsreader.",
+     "quote": "According to the applicant, in March 2012 (while she was still in university) she began working in the music department as a “presenter of songs.” (An RTD identification card from this time identifies the applicant as an “animatrice” or “host”.) In May 2014, she was transferred to the position of receptionist, which she considered to be a demotion. She worked in this position until October 2015, when she became a radio newsreader.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant alleges psychological abuse at RTD due to clan membership inferiority perception.",
+     "quote": "According to the applicant’s Basis of Claim (“BOC”) narrative, while she “tried to maintain some form of independence as a newsreader and journalist,” she was “constantly being psychologically abused by the directors of the company.” She believed this was because of the perceived inferiority of her clan.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant claims RTD employment and alleges psychological abuse due to clan inferiority perception.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant alleges suspension from RTD in August 2016 due to suspected MRD membership after questioning news reports.",
+     "quote": "The applicant alleges that she was suspended from her job as newsreader in August 2016 because her employer began to suspect that she was a member of the MRD after she raised questions about two news reports relating to the MRD.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant questioned MRD news reports on May 21 and July 28, 2016, then was sexually abused, insulted and suspended after a meeting.",
+     "quote": "The first time she questioned the reporting was on May 21, 2016. The second time was on July 28, 2016. After the second incident, she was summoned to a meeting with her supervisors where she was sexually abused, insulted and suspended from her employment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges suspension and abuse at RTD after questioning MRD news reports in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant alleges arrest on August 5, 2016, for suspected MRD spying and month-long detention with sexual and physical assault.",
+     "quote": "According to the applicant, on August 5, 2016, shortly after she was suspended by RTD, she was arrested by the police on suspicion that she was spying for the MRD. She was detained for a month, during which time she was sexually and physically assaulted.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant released on September 5, 2016, after father paid bribe.",
+     "quote": "She was released on September 5, 2016, after her father paid a bribe.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges arrest and assault in detention, released after bribe paid by father.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant hid at uncle’s home, married secretly, ashamed of prison rape, feared pregnancy from rape.",
+     "quote": "After being released from custody, the applicant hid at her uncle’s home. She also got married, a fact she kept secret from her family. The applicant testified that she was ashamed about what had happened to her in the prison. As she put it, a woman being raped “is shame in our tradition.” She had not told her family what had happened to her. As well, she feared she might be pregnant because of what had happened when she was detained.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant traveled to US on visitor visa, then apprehended near Canada/US border on November 27, 2016, and claimed refugee protection.",
+     "quote": "After obtaining a visitor’s visa for the United States, the applicant travelled to Washington, D.C., arriving there on November 4, 2016. The applicant was apprehended on or about November 27, 2016, near Emerson, Manitoba attempting to cross the Canada/United States border on foot. She then made a claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant hid, married secretly, feared pregnancy from rape, traveled to US, then claimed refugee protection in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found applicant established identity but had credibility issues due to late documents and inconsistencies.",
+     "quote": "The applicant had established her personal identity. The fact that the applicant did not bring her supporting documents with her when she left the United States for Canada and, once she obtained them, provided them late to the RPD adversely affected the applicant’s credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD not satisfied applicant worked at RTD due to inability to provide address, evasive testimony, contradictory ID cards, and omitted facts.",
+     "quote": "For several reasons, the RPD was not satisfied that the applicant had worked at RTD: o The applicant could not provide the municipal address of RTD despite claiming to have worked there for over four years. o When asked about her duties as a newsreader, the applicant simply stated that every day she would be given a script and would read the news for an hour. She would be at the station for five hours a day “did not [do] anything else” except read over her “papers” and then present them.The RPD found that the applicant gave an “evasive” account of her duties and could not provide “spontaneous and detailed testimony” relating to her job. o The information on the employee identification cards the applicant submitted contradicted her own account of her employment.For example, a card issued in December 2014 and valid until December 2015 identified the applicant as a “journaliste” when, according to the applicant, she was still a receptionist when the card was issued. o The RPD also drew an adverse inference about the credibility of the applicant’s account of her employment from the fact that while she testified that her father had also worked as a technician at RTD for 20 years and that he had been suspended shortly after she was, she did not include this material fact in her BOC narrative.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD gave no weight to pay stub due to discrepancies and did not confront applicant as she supplied it.",
+     "quote": "The RPD gave no weight to what the applicant claimed was a pay stub from RTD (a “Bulletin de Paye”) because of several discrepancies on the face of the document.In the latter regard, the RPD noted the following: “I did not advance these concerns to the claimants [sic] at the time of her hearing as this information was not only known to the claimant, she herself supplied the documents, and the duty of fairness does not require the claimant be confronted with information which she herself supplied [footnote omitted].”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found applicant not credible or trustworthy witness and gave no positive weight to employment documents.",
+     "quote": "In sum, the RPD placed “no positive weight on the employment identity cards, the pay stub or photographs in terms of establishing any of her allegations, as I determined the claimant to be not a credible or trustworthy witness.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found applicant gave evasive and inconsistent information in immigration records and BOC narrative, rejecting explanations.",
+     "quote": "In addition, the applicant provided “evasive and inconsistent information” in her immigration records (including the forms she completed and her Port of Entry (“POE”) interviews) and her BOC narrative.The RPD did not accept the applicant’s explanation that the discrepancies were due to mistakes by the person who had assisted her in completing her immigration forms or were due to interpretation errors at the POE.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found applicant credible on identity but not on employment or documents, rejecting explanations and deeming her evasive and inconsistent.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found applicant not credible or truthful about employment, tribal membership, arrest, and MRD perception, rejecting claim.",
+     "quote": "In sum, the RPD found that the applicant was not a credible witness and was not truthful about her employment, her tribal membership, her arrest or her the perception that she was an MRD supporter. Accordingly, the RPD rejected the claim for protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found applicant not credible or truthful on key issues and rejected protection claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant challenged RPD's adverse credibility findings and submitted two new documents on appeal to RAD.",
+     "quote": "On her appeal to the RAD, the applicant took issue with the RPD’s adverse credibility findings in several respects. As well, the applicant tendered two documents as new evidence supporting her appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD admitted both new documents in the decision under review.",
+     "quote": "In the decision now under review, the RAD admitted both.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant challenged RPD credibility findings and submitted two new documents, both admitted by RAD.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "One new document was a May 8, 2017 affidavit from interpreter about dialect differences to explain discrepancies.",
+     "quote": "One of the documents was an affidavit sworn on May 8, 2017, from the individual who had provided interpretation for the applicant and assisted her in completing her BOC narrative after she had reached Toronto. The purpose of the affidavit was to establish that there are differences between the Djibouti Somali dialect (the applicant’s language) and the South Somali dialect (the language of the interpreter) in order to support the applicant’s argument on appeal that apparent discrepancies in the applicant’s accounts may have been due to interpretation errors when she first submitted her papers in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted affidavit from interpreter about dialect differences to explain discrepancies.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Other new document was a February 22, 2018 letter from applicant’s mother-in-law about police action against her son and his hiding.",
+     "quote": "The other document was a letter (in French) dated February 22, 2018, from the applicant’s husband’s mother. She wrote that, after the applicant fled the country, the police had taken legal action against her son (“la police a entamé des poursuites à l'encontre de mon fils”). As a result, he had gone into hiding and she had no information as to his whereabouts.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted letter from mother-in-law about police action against husband and his hiding.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed RPD erred relying on POE statements made under difficult conditions without proper interpretation.",
+     "quote": "the RAD agreed with the applicant that the RPD had erred in relying on the applicant’s statements at the POE because they were made under difficult conditions and without proper interpretation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed RPD erred in drawing adverse inference from applicant not bringing documents when leaving US for Canada.",
+     "quote": "the RAD also agreed that the RPD had erred in drawing an adverse inference from the fact that the applicant had not brought her documents with her when she left the United States for Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD agreed RPD erred on POE statements and adverse inference about documents not brought from US.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "RAD upheld RPD’s determination despite errors, on four main grounds summarized next.",
+     "quote": "Despite these errors, the RAD upheld the RPD’s determination. It did so on four main grounds that can be summarized as follows:",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states RAD upheld RPD’s determination despite errors on four main grounds.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed applicant’s testimony about newsreader duties was very basic and lacked credibility.",
+     "quote": "the RAD agreed that the applicant’s “very basic” testimony regarding her work “is not commensurate with the responsibilities she alleges that she had.” On the basis of its own independent analysis of the applicant’s evidence, the RAD agreed with the RPD that the applicant’s account of her employment was lacking in credibility for this reason.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found applicant’s basic testimony about newsreader duties lacked credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found no corroboration from father or husband despite contact before RPD hearing.",
+     "quote": "The RAD found that there was no reasonable explanation for the absence of supportive evidence from the applicant’s father or from her husband, both of whom she had been in contact with shortly before the RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD drew negative inference from no medical or psychological evidence corroborating sexual assault claim.",
+     "quote": "Further, like the RPD, the RAD drew a negative inference from the fact that the applicant had not sought medical or psychological treatment or testing to corroborate her claim that she was sexually assaulted in detention.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found no letters or other evidence corroborating events alleged in Djibouti; absence detracts from credibility though not required.",
+     "quote": "The applicant had provided “no letters or other evidence to corroborate the events as alleged in Djibouti.” The RAD found that while it is not necessary to do so, “it is reasonably expected, and its absence detracts from her overall credibility.”",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found no corroboration from family or medical evidence, negatively affecting credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Applicant failed to credibly explain discrepancies in employment documents and inability to provide RTD address.",
+     "quote": "the applicant was unable to provide credible explanations for the discrepancies between the employment documents and her narrative or for a discrepancy on the face of the Bulletin de Paye she presented. Nor did she have a credible explanation for why she could not provide the municipal address of RTD (an address that was clearly indicated on the business cards she presented).",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant failed to credibly explain discrepancies in employment documents and RTD address.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "New evidence admitted on appeal did not outweigh credibility concerns; mother-in-law’s letter lacked detail on police action and disappearance.",
+     "quote": "the new evidence admitted on appeal did not outweigh these concerns with the applicant’s credibility. In particular, the letter from her mother-in-law did not resolve the numerous credibility concerns because it did not say why the police were searching for her husband or when he had disappeared.",
+     "answers": 0
+    }
+   ],
+   "summary": "New evidence did not outweigh credibility concerns; mother-in-law’s letter lacked key details.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD concluded applicant’s testimony and corroborating evidence lacked credibility and dismissed appeal, confirming RPD’s determination.",
+     "quote": "The Appellant’s testimony and her corroborating evidence are lacking in credibility. Her inability to provide details on her type of work, and the documents submitted to corroborate her work contain problems that are unreasonable in my view.” As a result, the RAD dismissed the appeal and confirmed the RPD’s determination that the applicant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found applicant’s testimony and evidence lacked credibility and dismissed appeal, confirming RPD’s decision.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD's decision is reviewed on a reasonableness standard, as established by case law including Vavilov.",
+     "quote": "It is well-established that the substance of the RAD’s decision (including credibility determinations) is reviewed on a reasonableness standard: see Canada (Citizenship and Immigration) v Huruglica, 2016 FCA 93 at para 35; see also Koffi v Canada (Citizenship and Immigration), 2016 FC 4 at para 27. That this is the appropriate standard of review has been reinforced by Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness is the presumptive standard unless legislative intent or rule of law indicates otherwise.",
+     "quote": "Reasonableness is now the presumptive standard of review for administrative decisions, subject to specific exceptions “only where required by a clear indication of legislative intent or by the rule of law” (Vavilov at para 10). There is no basis for derogating from this presumption here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that RAD decisions are reviewed on a reasonableness standard, presumptive unless legislative intent or law requires otherwise.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A reasonable decision is internally coherent, rational, and justified by facts and law, deserving deference.",
+     "quote": "A reasonable decision “is one that is based on an internally coherent and rational chain of analysis and that is justified in relation to the facts and law that constrain the decision maker” (Vavilov at para 85). A decision that displays these qualities is entitled to deference from the reviewing court (ibid.).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reviewing court should not reweigh evidence or interfere with factual findings except in exceptional circumstances.",
+     "quote": "When applying the reasonableness standard, it is not the role of the reviewing court to reweigh or reassess the evidence considered by the decision maker or to interfere with factual findings unless there are exceptional circumstances: see Vavilov at para 125.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review is robust and not mere rubber-stamping.",
+     "quote": "At the same time, reasonableness review is not a rubber-stamping process; it remains a robust form of review: see Vavilov at para 13.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the reasonableness standard requires coherent, justified decisions and robust review without reweighing evidence except in exceptional cases.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant bears onus to show RAD decision is unreasonable to set it aside.",
+     "quote": "The onus is on the applicant to demonstrate that the RAD’s decision is unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "To set aside, court must find serious shortcomings undermining justification, intelligibility, and transparency.",
+     "quote": "To set aside a decision on this basis, the reviewing court must be satisfied that “there are sufficiently serious shortcomings in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency” (Vavilov at para 100).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Shortcomings must be central or significant to render decision unreasonable.",
+     "quote": "The court “must be satisfied that any shortcomings or flaws relied on by the party challenging the decision are sufficiently central or significant to render the decision unreasonable” (ibid.).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant must prove serious, central flaws to set aside the RAD decision as unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD's decision has reviewable errors rejecting applicant's RTD employment claim and drawing adverse credibility inference about sexual assault claim.",
+     "quote": "I agree with the applicant that the RAD’s decision is marred by reviewable errors in two key respects: first, in rejecting the applicant’s claim that she had worked at RTD; and second, in drawing an adverse inference about the applicant’s credibility from the absence of evidence to corroborate her claim that she was sexually assaulted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds reviewable errors in RAD's rejection of RTD employment and adverse credibility inference on sexual assault claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's RTD employment was key to her persecution fear narrative involving suspicions, suspension, arrest, and detention.",
+     "quote": "Specifically, the applicant alleged that it was things she had said in her role as newsreader that first raised suspicions that she supported the MRD, these suspicions led to her being suspended from RTD, and then a short time later she was arrested and detained on the basis of these same suspicions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD disbelieved applicant worked at RTD due to lack of municipal address knowledge and evasive, detail-lacking account of responsibilities.",
+     "quote": "The RPD did not believe that the applicant worked at RTD because she did not know the municipal address of the office where she worked and because her account of her responsibilities there was “evasive” and lacking in detail.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts applicant's RTD employment claim and RPD's disbelief based on address knowledge and evasive testimony.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed lack of RTD location knowledge detracted from credibility but erred by presuming municipal addresses used in Djibouti.",
+     "quote": "the RAD agreed with the RPD that the applicant’s lack of knowledge of the “location” of the RTD building detracted from the credibility of her claim to have worked there... the RAD’s analysis simply begs the question... the RAD failed to address the applicant’s argument on appeal that the RPD had simply presumed... municipal addresses were used in Djibouti just like they are used in Canada and had therefore erred in doubting the applicant’s evidence on this basis.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued municipal addresses are not commonly used in Djibouti, explaining why she did not give address on ID cards.",
+     "quote": "According to the applicant, this was because municipal addresses are not commonly used in Djibouti; rather, one would refer to a place by name or description and identify the neighborhood in which it is located.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD repeated RPD's error by presuming municipal addresses used, failing to address applicant's argument.",
+     "quote": "Indeed, far from addressing this argument, it fell into the very same error as the RPD.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds RAD erred by presuming municipal addresses used in Djibouti, ignoring applicant's explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed 'evasive' was inapt but found applicant's testimony on journalistic work insufficient for alleged responsibilities.",
+     "quote": "while the RAD agreed that the word “evasive” was an inapt description of the applicant’s evidence about her duties, it nevertheless agreed with the RPD that the applicant’s “testimony regarding the type of journalistic work she did is not commensurate with the responsibilities she alleges she had.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found applicant's account of responsibilities very basic but no evidence showed newsreader duties to measure adequacy.",
+     "quote": "The RAD reasonably determined that the applicant’s account of her responsibilities was very basic. The problem, however, is that, apart from the applicant’s account, there is no evidence in the record showing what the responsibilities of a newsreader at RTD would have been that could be used to measure the adequacy of the applicant’s account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's rejection based on assumptions about newsreader duties without evidence is unreasonable.",
+     "quote": "In the absence of such evidence, the RAD’s assessment was based on its own assumptions about what being a newsreader for RTD entailed. This is not a reasonable basis on which to reject the applicant’s account and to find, as a result, that the applicant had not established that she had held the position of newsreader at RTD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD unreasonably rejected applicant's RTD duties account based on assumptions without evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits differences between BOC narrative and testimony justify adverse credibility inference.",
+     "quote": "the respondent submits that there were sufficient differences between the applicant’s description of her work in her BOC narrative and her testimony to warrant the adverse inference that was drawn.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD did not rely on differences; court disagrees minor differences justify adverse credibility finding.",
+     "quote": "The RAD did not expressly rely on this factor in its decision. In any event, I do not agree that the minor differences between the two justify an adverse finding as to the applicant’s credibility.",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent argues minor differences justify adverse inference; court disagrees and notes RAD did not rely on this.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's sexual assault allegation was important to protection claim narrative.",
+     "quote": "Turning to the applicant’s allegation that she was sexually assaulted while in detention, this too was an important part of the narrative on which her claim for protection rested.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found corroboration not necessary but reasonably expected; absence detracted from credibility.",
+     "quote": "the RAD determined that while it is not “necessary” to produce corroboration for this allegation, in this case “it is reasonably expected” and the absence of corroboration “detracts from [the applicant’s] overall credibility.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds RAD's determination unreasonable for at least two reasons.",
+     "quote": "In my view, this determination is unreasonable for at least two reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD's adverse credibility inference on sexual assault corroboration unreasonable for two reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD's inference relies on discredited myth that sexual assault victims seek medical or psychological evidence.",
+     "quote": "the validity of the inference the RAD draws ... depends on a myth or stereotype about how victims of sexual assault will behave that has long been discredited in Canadian law – namely, that genuine victims of sexual assault will seek out medical or psychological assessment or treatment.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "R v D(D) held no inviolable rule on how sexual assault victims behave; no presumption they seek treatment.",
+     "quote": "In R v D(D), [2000] 2 SCR 275, Major J held for the majority that that “there is no inviolable rule on how people who are the victims of trauma like a sexual assault will behave” (at para 65).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's reliance on discredited stereotype leaves its determination lacking internal rationality.",
+     "quote": "The RAD’s reliance on a discredited myth or stereotype leaves its determination lacking internal rationality: see Vavilov at para 104.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD's adverse inference relies on a discredited stereotype, lacking internal rationality per Vavilov.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "IRB Chairperson Guidelines emphasize avoiding unfounded generalizations and considering social, cultural context in gender-related refugee claims.",
+     "quote": "the IRB’s Chairperson Guidelines 4: Women Refugee Claimants Fearing Gender-Related Persecution ... emphasize the importance of avoiding unfounded generalizations and considering refugee claims within the social, cultural, religious and economic context in which the claimant finds herself.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Guidelines caution against cross-cultural misunderstandings and note cultural norms may cause reluctance to disclose sexual violence.",
+     "quote": "The guidelines also caution against the risks of cross-cultural misunderstandings. Thus, the guidelines note: “Women from societies where the preservation of one’s virginity or marital dignity is the cultural norm may be reluctant to disclose their experiences of sexual violence in order to keep their ‘shame’ to themselves and not dishonour their family or community [footnote omitted].”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites IRB guidelines cautioning against stereotypes and emphasizing cultural context in sexual violence claims.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD quoted guidelines but ignored them, noting lack of medical/psychological corroboration and applicant's fear-based hiding explanation.",
+     "quote": "the RAD quotes this passage from the guidelines but then simply ignores it... the RAD quotes the applicant’s explanation for why this was so – namely, when she was released from detention she remained in hiding because she was fearful.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant stated women being raped is shame in their tradition, engaging guideline concerns.",
+     "quote": "She also stated later in her evidence that “women being raped is shame in our tradition.” This evidence directly engaged the precise concern highlighted by the guidelines.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD failed to address applicant's cultural explanation and guidelines when expecting corroboration.",
+     "quote": "The RAD does not address this question in light of the evidence bearing on it or the guidelines when it determined that corroborative evidence was “reasonably expected” in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD ignored cultural context and applicant's explanation when expecting corroboration for sexual assault claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant did not seek treatment due to fear; RAD did not address this in its expectation of corroboration.",
+     "quote": "This is not a case where the applicant, on her own account, did seek treatment after the sexual assault but then unaccountably fails to provide independent evidence of this... The RAD does not address this question in light of the evidence bearing on it or the guidelines when it determined that corroborative evidence was “reasonably expected” in this case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD's adverse credibility determination for lack of corroboration is unreasonable for this reason.",
+     "quote": "For this additional reason, the RAD’s adverse determination with respect to the applicant’s credibility because she did not provide corroboration for her account of being sexually assaulted is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes RAD's adverse credibility finding for lack of corroboration is unreasonable given applicant's fear and cultural context.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent did not defend RAD's reasoning on sexual assault corroboration but focused on lack of corroboration from father and husband.",
+     "quote": "In fairness, counsel for the respondent did not attempt to defend the RAD’s reasoning in this regard. Instead, she submitted that the RAD’s concern related to the absence of corroborative evidence from the applicant’s father and husband...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees RAD's concern included absence of medical/psychological evidence and finds this inference unreasonable.",
+     "quote": "While I agree that this was part of the RAD’s concern... For the reasons I have just set out, this was an unreasonable inference for it to draw.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent did not defend RAD's sexual assault corroboration reasoning; court finds adverse inference unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant's claim has difficulties but errors in RAD's reasoning are serious and central to key evidence.",
+     "quote": "The applicant’s claim for refugee protection is not without its difficulties. However, the errors I have identified in the RAD’s reasoning are not peripheral considerations or minor missteps... they go to the heart of the RAD’s analysis of key elements of the evidence on which the applicant’s claim for protection was based.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Errors render RAD decision lacking justification, intelligibility, and transparency; matter must be reconsidered.",
+     "quote": "In my view, they are sufficiently serious that the decision as a whole “cannot be said to exhibit the requisite degree of justification, intelligibility and transparency” (Vavilov at para 100). As a result, this matter must be reconsidered by the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD's errors serious and central, rendering decision unreasonable and requiring reconsideration.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant challenged RAD's adverse assessment of documents corroborating RTD work and mother-in-law's letter.",
+     "quote": "the applicant also took issue with the RAD’s adverse assessment of some of the documents she provided to corroborate her claim to have worked at RTD... The same is true of the letter from the applicant’s mother-in-law...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court declines to address these objections as unnecessary to dispose of application; RAD to determine on reconsideration.",
+     "quote": "Since it is not necessary to address these objections to dispose of this application, the fact that I have not done so should not be taken as signalling that I consider the RAD’s assessment to be reasonable. What, if anything, should be made of these documents will be for the RAD to determine when it considers the matter again.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant challenged RAD's document assessments; court declines to address, leaving reconsideration to RAD.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is allowed; RAD decision set aside and matter remitted for reconsideration by different decision maker.",
+     "quote": "For these reasons, the application for judicial review is allowed. The decision of the Refugee Appeal Division dated January 10, 2020, is set aside and the matter is remitted for reconsideration by a different decision maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows judicial review, sets aside RAD decision, and remits matter for reconsideration by different decision maker.",
+   "role": "disposition"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No serious questions of general importance arise for certification under IRPA s.74(d).",
+     "quote": "The parties did not suggest any serious questions of general importance for certification under paragraph 74(d) of the IRPA. I agree that none arise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious questions of general importance for certification under IRPA s.74(d).",
+   "role": "disposition"
+  }
+ ]
+}

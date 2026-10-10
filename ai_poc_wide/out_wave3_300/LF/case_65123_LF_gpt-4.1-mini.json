@@ -1,0 +1,701 @@
+{
+ "case_id": 65123,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011616000000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This is an appeal against the RPD decision rejecting refugee protection claim.",
+     "quote": "This is an appeal made by XXXX XXXX XXXX against a decision of the Refugee Protection Division (RPD) rendered on November 27, 2017, rejecting his claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is an appeal against the RPD decision rejecting refugee protection claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant fears return to DRC due to unjust blame for fund diversion and threats of imprisonment, torture, or death.",
+     "quote": "The appellant alleges a fear of returning to the Democratic Republic of Congo because as a XXXX XXXX XXXX XXXX, he states that he was unjustly blamed for diverting funds earmarked for XXXX XXXX and was being forced to repay US XXXX XXXX XXXX XXXX. Fearing that he would be imprisoned, tortured or possibly killed, he travelled to Kinshasa and then left the Congo on XXXX XXXX, 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges fear of persecution in DRC due to unjust blame and threats, leading to his departure.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister argues appellant's identity not established per IRPA paragraph 106, so claim should be rejected.",
+     "quote": "He stated that the appellant's identity was not established as set out in paragraph 106 of the Immigration and Refugee Protection Act (IRPA),1 and therefore his claim for refugee protection should be rejected.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister argues appellant's identity was not established as required, so claim should be rejected.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected claim due to failure to establish identity with reliable documents and lack of credibility.",
+     "quote": "The RPD rejected the appellant's claim for refugee protection because he failed to establish his identity with reliable documents and because his explanations were not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the claim for failure to establish identity and lack of credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant asks RAD to set aside IRB determination, substitute or refer for redetermination.",
+     "quote": "The appellant is asking the Refugee Appeal Division (RAD) to [translation] \"set aside the Immigration Refugee Board of Canada (IRB) determination; substitute its determination for the one made on November 27, 2017, or refer the matter to the Board...for redetermination.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant asks RAD to set aside or refer the IRB determination for redetermination.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant is not requesting new evidence or a hearing under subsections 110(4) or 110(6) of IRPA.",
+     "quote": "The appellant is not requesting to present new evidence pursuant to subsection 110(4) of the IRPA and does not want a hearing to be held under subsection 110(6) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant does not request new evidence or a hearing under IRPA subsections 110(4) or 110(6).",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Appellant raises three issues: natural justice breach by interpretation, credibility finding, and identity evidence analysis error.",
+     "quote": "On appeal, the appellant submits the following arguments: 1. Did the RPD breach the principles of natural justice and procedural fairness with respect to interpretation, causing the appellant to experience an unfair hearing? 2. Is the RPD's credibility finding well-founded? 3. Did the RPD err in law in its analysis of the evidence on identity? DETERMINATION",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant submits three issues: natural justice breach by interpretation, credibility, and identity evidence analysis error.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD confirms RPD's determination that appellant is neither a Convention refugee nor person in need of protection under IRPA.",
+     "quote": "Pursuant to paragraph 111(1)(a) of the IRPA, the RAD confirms the determination of the RPD, namely, that XXXX XXXX XXXX is neither a \"Convention refugee\" nor a \"person in need of protection\" within the meaning of sections 96 and 97 of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD's determination that the appellant is not a Convention refugee or person in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD must apply standard of correctness for questions of fact, law, and mixed fact and law per Huruglica.",
+     "quote": "For questions of fact, of law, and of mixed fact and law, the RAD must apply the standard of correctness in accordance with Huruglica.2",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD must apply the standard of correctness for fact, law, and mixed questions per Huruglica.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court conducted independent analysis of all evidence and hearing to determine correctness of RPD decision.",
+     "quote": "I have conducted an independent analysis of all the evidence on the record, after listening carefully to the hearing, in order to form my own opinion about this refugee protection claim and to determine whether the decision rendered by the RPD is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court conducted an independent analysis of all evidence and hearing to assess RPD decision correctness.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds appellant failed to establish identity and is not credible, agreeing with RPD.",
+     "quote": "Having examined all of the testimonial and documentary evidence on the record, the RAD finds, as did the RPD, that the appellant failed to establish his identity and that he is not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant failed to establish identity and is not credible, agreeing with the RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The case's essence is the appellant's credibility.",
+     "quote": "The very essence of this case is based on the appellant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the case's essence is the appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony was arduous; he could not specify dates or respond directly, requiring repeated question reformulation.",
+     "quote": "After listening to the recording of the hearing, which was nearly seven hours long, it is clear that the appellant's testimony was an arduous process. First, it should be noted that the appellant was unable to pinpoint when the major events of his life took place. For instance, he did not know when his life together with his spouse began, how old his children are, or when he resided in any given place. He was unable to specify when he pursued his studies, and yet his Basis of Claim Form (BOC Form) includes dates. The same can be said for his places of residence, which are included on the form. Moreover, it must be noted that the appellant did not respond directly to the questions he was asked. With a great deal of tact and patience, the member was required to restate and reformulate questions to finally obtain often random responses.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's testimony was difficult, lacking date specifics and direct answers, requiring repeated question reformulation.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges RPD breached natural justice due to simultaneous interpreting errors causing unfair hearing.",
+     "quote": "The first issue raised in the appellant's memorandum is that simultaneous interpreting errors breached principles of natural justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant's counsel understands appellant's language and has represented him since arrival and throughout proceedings.",
+     "quote": "First, it must be pointed out that the appellant's counsel understands the language spoken by the appellant. He has represented the appellant since the moment he arrived here. He has been the appellant's agent since he was placed in detention in Laval. He has accompanied and represented him throughout all proceedings, including those before the Immigration Division (ID), the RPD and now the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges interpreting errors breached natural justice; the court notes counsel understands appellant's language and has represented him throughout.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Before ID, counsel did not raise interpretation errors; at RPD, some remarks about incorrect translations were made.",
+     "quote": "Before the ID, the appellant's counsel did not point out any interpretation errors. However, during the RPD hearings, he made a few remarks about words he considered to be incorrectly translated.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD member addressed translation issues promptly, reformulated questions, and interpretation was adequate without objection.",
+     "quote": "Immediately, the member, who was attuned to the situation, stated [translation] \"we are trying to help you, sir\" when speaking of the dates of his common law life. She added that they will [translation] \"help the gentleman pinpoint dates when there is a contradiction regarding a specific date of separation, we will reformulate the question...we are trying to help the gentleman situate himself in time because we have several responses about the same thing.\" When the appellant's counsel pointed out a few misunderstandings or an inadvertent misinterpretation, the member intervened to rectify the situation and reformulate the question, which was then interpreted without objection or response from the appellant's counsel; this tends to show that translation was adequate.3 Note that translation, based on the decision referenced, \"does not require perfection,\" \"the interpretation before the RPD must be adequate, continuous, precise, competent, impartial and contemporaneous.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD member addressed translation issues promptly and interpretation was adequate without objection.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's counsel never formally requested to stop hearing to verify translation adequacy; minor issues were addressed immediately.",
+     "quote": "On this issue, the RAD would like to state that the appellant's counsel never formally asked the member to stop the hearing and take steps to verify the translation in order to ensure that the work was adequate. If there were translation errors, it was his responsibility to point out the words and request that the hearing be stopped, which he failed to do. On a few occasions, he stated that a word was not translated correctly. The situation was addressed immediately by the presiding RPD member and the situation was clarified and rectified right away.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds counsel never formally requested to stop hearing for translation verification; minor issues were promptly addressed.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant's counsel stated translation issues did not affect case but he intervened as it did not correspond to client's statements.",
+     "quote": "In his submissions at the end of the hearing, the appellant's counsel made a telling statement. The RAD wishes to emphasize it. He stated the following: [translation] \"it must be stated, unassisted by the translator. I would not say that it affects the case, but I had to intervene because it did not seem to correspond to my client's statements.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's counsel said translation issues did not affect case but he intervened as it did not match client's statements.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds hearing was orderly with accredited interpreters; counsel ensured translation was proper and issues were addressed quickly.",
+     "quote": "The RAD is of the opinion that the statement by the appellant's counsel is telling. He has the opportunity to understand the language used by the appellant, he has a great deal of academic training, he is a good speaker, and the RAD can agree that on occasion, a word or string of words may not be translated in extenso because a word or image does not exist in the language used. Should, however, common sense and the response provided by the person not correspond to the question as asked, the member has a duty to confront the refugee protection claimant about the statement. In this case, the RAD is of the opinion that the hearing was conducted in an orderly fashion and went smoothly with two interpreters accredited by the IRB. Furthermore, the appellant's counsel was able to ensure that the translation was delivered by the book. Moreover, when the counsel raised issues, the member quickly addressed them and reworded the question to the appellant's benefit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the hearing was orderly with accredited interpreters and counsel ensured proper translation and quick issue resolution.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given circumstances, appellant had a fair, lengthy, thorough hearing without violating section 14 of the Charter; no breach of natural justice or procedural fairness.",
+     "quote": "Given the circumstances, the RAD is of the opinion that the appellant had a fair hearing that was lengthy, full and thorough, and that it did not violate section 14 of the Canadian Charter of Rights and Freedoms. Therefore, the RPD hearings regarding the appellant's claim for refugee protection did not breach the principles of natural justice and procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the appellant had a fair, thorough hearing without Charter violation or breach of natural justice.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the credibility finding is erroneous and that the RPD fixated on dates.",
+     "quote": "The second topic put forward by the appellant is that the credibility finding is erroneous. The appellant adds that the RPD [translation] \"fixated on the dates.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD states the appellant made errors beyond just dates.",
+     "quote": "The RAD wishes to state that it was not only regarding the dates that the appellant made errors.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellant argues the credibility finding is erroneous and fixated on dates; the RAD states errors go beyond dates.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant interchanged places of residence between BOC Form and testimony; dates did not match.",
+     "quote": "he interchanged the locations between his BOC Form and his testimony, not to mention the dates did not match up.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's spouse's name differs between testimony and family composition certificate (Exhibit D-4).",
+     "quote": "His spouse's name is different in his testimony than in Exhibit D-4, the family composition certificate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The family composition certificate was issued November 2016, when appellant was in Canada since XXXX XXXX, 2016, stating couple still together.",
+     "quote": "This document, which was issued in November 2016-although at this time he was in Canada and had been here since XXXX XXXX, 2016-states that the couple are still together.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony indicates separation from spouse for quite some time, contradicting the certificate.",
+     "quote": "His testimony indicates that they have been separated for quite some time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds contradictions in appellant's residence, spouse's name, and separation status between testimony and documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant testified not highly educated, completed primary and secondary school but not XXXX course.",
+     "quote": "he testified that he is not highly educated. He indicated that he completed primary and secondary school but never finished his XXXX course.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A XXXX XXXX XXXX XXXX issued on XXXX XXXX, 2005, is in evidence (page 115 of court record).",
+     "quote": "However, a XXXX XXXX XXXX XXXX issued on XXXX XXXX, 2005, namely, page 115 of the court record, is in evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD notes appellant's testimony on education conflicts with a 2005 document in evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant gave inconsistent versions about who handled his passport and photo for visa process.",
+     "quote": "He indicated that it was his brother who took care of everything for his departure...the version changes throughout the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant unable to provide detailed, coherent explanation for inconsistent dates regarding passport photo.",
+     "quote": "When asked to explain why the dates were inconsistent, the appellant was unable to provide a detailed and coherent explanation for it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant's versions about passport and photo handling inconsistent and explanations incoherent.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony is spotty on dates and characterized by contradictions and inconsistencies.",
+     "quote": "Despite all these forgotten dates, the rest of the appellant's testimony on sensitive topics was characterized by contradictions and inconsistencies, so much so that it cannot be given credit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Examples show appellant's testimony cannot be credited.",
+     "quote": "The few examples referenced above obviously show that to be true.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RAD finds appellant's testimony contradictory and inconsistent, thus not credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD did not err regarding appellant's credibility.",
+     "quote": "Consequently, the RPD did not err with respect to the appellant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes the RPD did not err on credibility.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD found appellant's credibility completely undermined and failed to prove identity under section 106 IRPA.",
+     "quote": "The RPD found that the appellant's credibility is completely undermined and that he failed to discharge his burden of proving his identity, pursuant to section 106 of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant's credibility undermined and identity not proven under IRPA section 106.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred by limiting analysis to factual issues about certificate of nationality.",
+     "quote": "the appellant stated that the RPD erred in limiting its analysis to factual issues surrounding this document.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant was vague about how Exhibit D-1 was obtained; document issued August 25, 2016, when appellant was in Canada.",
+     "quote": "The appellant was vague with respect to how Exhibit D-1 was obtained. He stated that one day after he requested it, he picked up the document. It is clear that the document was issued on August 25, 2016, when the appellant was in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This contradiction and other comments about Exhibit D-1 have no probative value.",
+     "quote": "This major contradiction, along with the other comments the appellant made about this exhibit, truly stand out. The RAD gives them no probative value.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues RPD erred on certificate of nationality; RAD finds contradictions and gives no probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The panel analyzed the voter's card; appellant said it was his first ID and obtained per prevailing standards.",
+     "quote": "Another document was analyzed by the panel. It is the voter's card. He stated that it is his first voter's card. He added that it was his first identification document and that his parents had suggested that he have this document made for travel purposes. The appellant's memorandum states that he obtained the voter's card according to the prevailing standards.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel analyzed the voter's card, which appellant said was his first ID obtained properly.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant testified about obtaining voter's card near a school with fingerprinting and name given without further ado.",
+     "quote": "He testified that he lined up near a school, the authorities took his fingerprints and gave his name without further ado.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's statements about residence conflict: lives in parents' home but had not returned until 2016.",
+     "quote": "He stated that he lives in his parents' home, but he also stated that he had not returned to his parents' home until 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Responses about motivation and residence make path to obtaining voter's card unreliable.",
+     "quote": "the responses provided regarding the motivation for obtaining this card and where he resided lead the RAD to consider the path to obtaining the card unreliable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant's testimony about voter's card and residence unreliable and contradictory.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant claims panel gave no probative value to documents because it believed them fraudulent.",
+     "quote": "the appellant states in paragraph 64 of his memorandum that [translation] \"the panel gave no probative value to these documents because it believed they were fraudulent. How else can we explain its rejection of authentic documents out of hand?\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges the panel rejected authentic documents as fraudulent without probative value.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant provided detailed information in forms but could not give a logical, accurate, consistent oral account.",
+     "quote": "This unique case reveals an individual who filled in forms about his past with a great deal of information, and when it came time to present his past, he was incapable of providing a logical, accurate account free of inconsistencies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's counsel was present from the outset during months of information gathering.",
+     "quote": "such as his counsel, who was front and centre from the outset?",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant gave detailed forms but inconsistent oral testimony despite counsel's presence.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant adjusts testimony as questions are asked; explanations do not fit or contradict earlier responses.",
+     "quote": "the appellant adjusts his testimony as the questions are asked of him. Explanations do not logically fit the questions, and sometimes they do not even match his earlier responses, which are contradicted as a result.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant cannot coherently explain passport photo dated 12 years earlier but claimed taken in 2016.",
+     "quote": "He is incapable of providing coherent and plausible explanations about the passport photo he claims was taken in 2016 and is found on his diploma issued 12 years earlier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's places of residence change constantly throughout testimony.",
+     "quote": "The places he has lived are another confusing matter. The places and locations change constantly throughout the testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The contradictory statements led the first panel to reject the claim for lack of identity; RAD agrees.",
+     "quote": "On the contrary, the statements heard are a hodgepodge of contradictory facts that led the first panel to reject the claim for refugee protection based on a lack of identity. The RAD shares that analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant's testimony contradictory, incoherent, and agrees with first panel's rejection for lack of identity.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds the RPD did not err.",
+     "quote": "Consequently, the RAD finds that the RPD did not err.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes the RPD did not err.",
+   "role": "conclusion"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD opines the RPD rendered a correct and appropriate decision.",
+     "quote": "For the reasons expressed in this decision, the RAD is of the opinion that the RPD has rendered a correct and appropriate decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD states the RPD decision was correct and appropriate.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD's determination that appellant is not a Convention refugee or person in need of protection under IRPA sections 96 and 97.",
+     "quote": "I confirm the RPD's determination, namely, that XXXX XXXX XXXX is not a \"Convention refugee\" under section 96 of the IRPA or a \"person in need of protection\" under section 97 of the same act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD's determination appellant is not a Convention refugee or person in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,471 @@
+{
+ "case_id": 66430,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0079424,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants are Nigerian citizens, including a minor female US citizen, appealing the RPD's refugee claim rejection.",
+     "quote": "XXXX XXXX (Principal Appellant/PA), XXXX XXXX XXXX XXXX (minor male Appellant), and XXXX XXXX XXXX XXXX (minor female Appellant) are citizens of Nigeria. The minor female Appellant is also a citizen of the United States of America. The Appellants are appealing a decision of the Refugee Protection Division (RPD) rejecting their claims for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants are Nigerian citizens, including a minor female US citizen, appealing the RPD's refugee claim rejection, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants fear return to Nigeria due to PA's bisexuality and FGM fears for PA and daughter; minor male fears persecution due to mother's bisexuality.",
+     "quote": "The Appellants fear returning to Nigeria because the PA is bisexual and both the PA and her daughter fear undergoing Female Genital Mutilation (FGM). The minor male Appellant fears persecution on the basis of his mother's bisexuality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue they fear return to Nigeria due to PA's bisexuality and FGM fears, and minor male fears persecution, applicant says.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The determinative issue is the PA's bisexuality and risk of persecution on that basis.",
+     "quote": "I find that the determinative issue in this case is the PA's bisexuality.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "PA has shown serious possibility of persecution in Nigeria due to her sexuality.",
+     "quote": "I find that the PA has demonstrated that there is a serious possibility that she will be persecuted if she returns to Nigeria on the basis of her sexuality.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Minor male appellant's claim is allowed given risk due to mother's bisexuality.",
+     "quote": "In light of this finding, and given the treatment that the PA alleges her son will experience if he returns to Nigeria, the minor male Appellant's claim is also allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds PA's bisexuality is determinative, she faces serious persecution risk, and minor male appellant's claim is allowed.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Minor female appellant is a US citizen with no evidence of risk if returned to US.",
+     "quote": "However, the minor female Appellant is a citizen of the United States. The Appellants did not provide any evidence to suggest that she would be at risk if she were to return to the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Minor female appellant is not a Convention Refugee or person in need of protection.",
+     "quote": "Consequently, the minor female Appellant is not a Convention Refugee nor is she a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor female appellant is a US citizen with no risk evidence and not a refugee or protected person.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD reviews RPD decisions on correctness standard, except where RPD has advantage on oral testimony assessment.",
+     "quote": "The Refugee Appeal Division (RAD) reviews decisions of the RPD on a standard of correctness after conducting an independent assessment of the evidence before it. The exception to this rule is where the RPD enjoys a meaningful advantage in the assessment and weighing of oral testimony heard, which may attract deference.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Correctness standard applied except where specifically stated otherwise.",
+     "quote": "I have applied a correctness standard, except where specifically stated.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states RAD reviews RPD decisions on correctness standard, except for oral testimony where deference may apply.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found PA not proven bisexual due to inability to recall ex-lover's last name and lack of good reason for it.",
+     "quote": "The RPD determined that the PA had not proven that she was bisexual. The PA testified that she had a relationship that lasted around one year starting in 1999 and provided the first name of her ex-lover. However, the PA was unable to provide the last name of her ex-lover. The RPD found that the PA had not provided a good reason why she was unable to provide her ex-lover's full name.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found it unlikely PA had same-sex relationship given no other female lovers and inability to recall full name.",
+     "quote": "The RPD found that, considering she had not had any other female lovers, that it was unlikely that she would have had a same sex relationship with someone whose full name she could not remember.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "RPD concluded PA was not bisexual as alleged.",
+     "quote": "Consequently, the RPD found that she was not bisexual as alleged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found PA not proven bisexual due to inability to recall ex-lover's last name and found this unlikely, concluding she was not bisexual.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD failed to properly assess PA's sexuality and ignored corroborating evidence including pictures, affidavits, and arrest warrant.",
+     "quote": "The Appellants argue that the RPD failed to properly assess the PA's sexuality. They argue that the RPD failed to consider corroborating evidence of her sexuality, including pictures of the Appellant and her ex-partner, several affidavits attesting to her relationship, and an arrest warrant before deciding her claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue RPD failed to properly assess PA's sexuality and ignored corroborating evidence, applicant says.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's finding that PA was not bisexual based solely on inability to recall last name is disagreed with.",
+     "quote": "The RPD's decision that the Appellant was not bisexual was based solely on her inability to recall the last name of her same sex partner. I do not agree with the RPD that this inability results in a finding that the Appellant is not bisexual.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with RPD's finding that PA was not bisexual based solely on inability to recall last name.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "PA testified she forgets a lot these days when asked why she could not remember ex-partner's name.",
+     "quote": "When questioned by counsel as to why she could not remember her ex-partner's name, the Appellant testified that she \"forget[s] a lot these days.\"",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "PA provided psychological report noting severe psychological issues including memory and concentration difficulties.",
+     "quote": "The Appellant also provided the RPD with a psychological report noting that she has severe psychological issues, including a lack of concentration and difficulties with her memory.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD assigned no weight to psychological report due to minor inconsistency about timing of relationship.",
+     "quote": "However, the RPD assigned no weight to this report because of a minor inconsistency in the report about the timing of the Appellant's relationship with her ex-partner.",
+     "answers": 0
+    }
+   ],
+   "summary": "PA testified she forgets a lot and provided psychological report, but RPD gave no weight due to minor inconsistency, court reports.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred by failing to consider psychological report's content and relation to PA's testimony.",
+     "quote": "I find that the RPD erred in failing to consider the content of the psychological report and how it related to the Appellant's testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD dismissed entire psychological report due to one minor inconsistency, failing to consider its substance and relevance.",
+     "quote": "Instead, however, the RPD dismissed the entire report on the basis of one minor inconsistency, and in doing so failed to consider the substance of the psychologist's report and how it pertained to the PA's testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred by dismissing psychological report due to minor inconsistency and failing to consider its relevance to PA's testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred in rejecting bisexuality based on failure to provide ex-partner's last name given psychological issues noted in report.",
+     "quote": "I find that the RPD erred in determining the Appellant was not bisexual on the basis of her failing to provide the last name of her ex-partner of almost 20 years ago, especially given the psychological report on file which notes that the Appellant suffers from XXXX, and that difficulty recalling past events, and concentration and memory problems are common among those exposed to XXXX XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Psychological report notes symptoms may include inability to retrieve specific past details or formulate coherent responses during hearing.",
+     "quote": "Furthermore, the psychological report also notes that \"symptoms may arise during the hearing in the form of...inability to retrieve specific details of the past or an apparent inability to formulate a coherent response.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The omission fatal to PA's bisexual identity is within potential psychological shortcomings warned by psychologist.",
+     "quote": "The omission noted by the RPD - which was found to be fatal to the PA's identity as bisexual - is exactly within the realm of potential psychological shortcomings warned of by the psychologist in this instance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD failed to consider psychological report in assessing PA's testimony, which was an error.",
+     "quote": "I find that the RPD erred in failing to consider this psychological report in assessing the PA's testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Had RPD considered report, it would not have decided PA was not bisexual based on this evidentiary shortcoming.",
+     "quote": "Had it done so, I find that the RPD would not have decided that the PA was not bisexual simply based on this one evidentiary shortcoming.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred rejecting bisexuality based on failure to recall ex-partner's name given psychological issues and would not have decided so if report considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's finding that PA was not bisexual was based entirely on failure to provide ex-partner's full name, which was erroneous.",
+     "quote": "The RPD's finding that the PA was not bisexual was based entirely on her failure to provide the full name of her ex-partner and I have determined this was in error.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Appellant is entitled to presumption that sworn testimony is true.",
+     "quote": "The Appellant is entitled to a presumption that her sworn testimony is true.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred in finding presumption rebutted due to failure to recall last name of ex-partner.",
+     "quote": "I find that the RPD erred in finding that this presumption was rebutted as a result of her failure to recall the last name of her same sex partner of almost 20 years ago.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Based on evidence including testimony, pictures, affidavits, PA has proven on balance of probabilities that she is bisexual.",
+     "quote": "Rather, I find that, based on the evidence that the Appellant has provided - including her testimony, pictures, affidavits and other evidence in support of her claim - that she has proven, on a balance of probabilities, that she is bisexual as alleged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred in rejecting PA's bisexuality, presumption of truth applies, and PA proved bisexuality on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Bisexuality is illegal in Nigeria, so state protection and internal flight alternatives are unavailable to PA.",
+     "quote": "As bisexuality is illegal in Nigeria, state protection and internal flight alternatives are not available to the PA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "PA has proven serious possibility of persecution in Nigeria due to bisexuality.",
+     "quote": "Consequently, I find that the PA had proven that she would face a serious possibility of persecution if she returns to Nigeria as a result of her bisexuality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds bisexuality illegal in Nigeria, no protection or internal flight available, and PA faces serious persecution risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "PA testified about risks to her children in Nigeria including FGM and cleansing ritual for daughter, possible kidnapping for son.",
+     "quote": "The PA has also provided testimony about the risks that her children would face in Nigeria as a result of her bisexuality, including potential FGM and a cleansing ritual for her daughter and possible kidnapping for her son.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Allegations supported by affidavits from father, pastor, PA's mother, and former Nigerian lawyer.",
+     "quote": "Her allegations on this point are supported by affidavits written by the Associate Appellants' father, their pastor's affidavit, as well as affidavits from the PA's mother, and their former lawyer in Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "PA testified about risks to children including FGM and kidnapping, supported by affidavits from family and pastor, applicant says.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Minor male appellant has nexus to refugee definition as family member of bisexual parent in Nigeria.",
+     "quote": "I find that the minor male Appellant has a nexus to the Convention refugee definition because he is a member of a particular social group of family members of a bisexual parent in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Minor male appellant faces more than mere possibility of persecution by father's family in Nigeria.",
+     "quote": "Based on the evidence provided by the PA, I find that the minor male Appellant faces more than a mere possibility of persecution in Nigeria by his father's family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor male appellant is a family member of bisexual parent with nexus and faces more than mere possibility of persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Minor female appellant is US citizen with no evidence of risk if returned to US.",
+     "quote": "However, the minor female Appellant is a citizen of the United States. The Appellants did not provide any evidence to suggest that she would be at risk if she were to return to the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Minor female appellant is not a Convention Refugee or person in need of protection.",
+     "quote": "Consequently, the minor female Appellant is not a Convention Refugee nor is she a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor female appellant is US citizen with no risk evidence and not a refugee or protected person.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred in finding PA not bisexual; PA established bisexuality on balance of probabilities and serious persecution risk.",
+     "quote": "I find that the RPD erred when it found that the Principal Appellant was not bisexual as alleged. Rather, I find that the Principal Appellant has established, on a balance of probabilities, that she is bisexual and that she faces a serious possibility of persecution if she returns to Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Minor male appellant faces serious possibility of persecution due to mother's bisexuality.",
+     "quote": "Based on the evidence of the PA and other supporting evidence, I also find that the minor male Appellant faces a serious possibility of persecution in Nigeria as a result of his mother's bisexuality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred rejecting PA's bisexuality; PA and minor male face serious persecution risk due to bisexuality.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Minor female appellant is US citizen with no evidence of risk if returned to US.",
+     "quote": "The minor female Appellant is a citizen of the United States. Given that the Appellants did not provide any evidence to suggest that she would be at risk if she were to return to the United States,",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Minor female appellant is not a Convention Refugee or person in need of protection.",
+     "quote": "I find that she is not a Convention Refugee or a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor female appellant is US citizen with no risk evidence and not a refugee or protected person.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed in part; RPD decision set aside for PA and minor male as Convention refugees; minor female's rejection upheld.",
+     "quote": "The appeal is allowed in part. Pursuant to section 111(1)(b) of the Immigration and Refugee Protection Act (IRPA), I set aside the determination of the RPD and substitute my own determination that the Principal Appellant and the minor male Appellant are Convention refugees. However, I uphold the RPD's finding that the minor female Appellant is not a Convention Refugee or person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows appeal in part, sets aside RPD for PA and minor male as refugees, upholds minor female's rejection.",
+   "role": "disposition"
+  }
+ ]
+}

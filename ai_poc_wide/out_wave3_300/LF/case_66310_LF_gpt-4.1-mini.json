@@ -1,0 +1,696 @@
+{
+ "case_id": 66310,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011512400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "XXXX XXXX is a citizen of India and appeals the RPD decision rejecting his refugee claim.",
+     "quote": "XXXX XXXX is a citizen of India. He appeals a decision of the Refugee Protection Division (RPD) rendered on May 8, 2019, rejecting his claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that XXXX XXXX, an Indian citizen, appeals the RPD decision rejecting his refugee claim.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant claims he is gay and fears persecution from family and community in India.",
+     "quote": "The Appellant claims that he is gay and fears persecution or harm from his family and community in India.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred by rejecting his claim based on credibility concerns.",
+     "quote": "He argues that the RPD erred in rejecting his claim based on overriding concerns regarding the credibility of his evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant claims he is gay and fears persecution, arguing the RPD erred in rejecting his claim due to credibility concerns.",
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed because the Appellant failed to establish credibility on a balance of probabilities.",
+     "quote": "I dismiss the appeal. After considering the Appellant's submissions and all the evidence, I find that the Appellant failed to establish his credibility on a balance of probabilities which is determinative of the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, finding the appellant failed to prove credibility on a balance of probabilities.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Appellant was disowned and rejected by family and Sikh community in India because he is gay.",
+     "quote": "According to his Basis of Claim form (BOC), the Appellant was disowned, disinherited and rejected by his family and Sikh community in India because he is gay.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant was disowned and rejected by family and community in India due to his sexual orientation.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant's same-sex relationship was revealed to his parents, leading to mistreatment and threats.",
+     "quote": "The Appellant states that in XXXX XXXX, his same-sex relationship was revealed to his parents in India. As a result, the Appellant was mistreated and threatened by his father, male family members and his community.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant ended his same-sex relationship in XXXX XXXX.",
+     "quote": "He ended his same-sex relationship in XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant states his same-sex relationship was revealed, causing mistreatment and threats, and he ended the relationship.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant's parents arranged for him to come to Canada to separate him from his boyfriend and protect him from ill-treatment.",
+     "quote": "The Appellant's parents arranged for the Appellant to come to Canada XXXX XXXX XXXX XXXX to separate him from his boyfriend and spare him ill-treatment as a result of his sexual orientation in India.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's parents arranged his move to Canada to separate him from his boyfriend and protect him from ill-treatment.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant arrived in Canada and had various same-sex relationships including a partner.",
+     "quote": "The Appellant came to Canada XXXX XXXX XXXX XXXX. Following his arrival, the Appellant had various same-sex relationships including his partner XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant arrived in Canada and had various same-sex relationships including a partner.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant made a refugee claim on April 5, 2018, and later married a XXXX XXXX.",
+     "quote": "The Appellant made a refugee claim on April 5, 2018. Then, XXXX XXXX XXXX XXXX XXXX, he got married to a XXXX XXXX with whom he has a relationship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant made a refugee claim in 2018 and later married a XXXX XXXX.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the refugee claim due to overriding credibility concerns.",
+     "quote": "The RPD rejected the Appellant's refugee claim based on overriding concerns with the credibility of his evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the appellant's refugee claim due to credibility concerns.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant submits the RPD erred in its credibility assessment.",
+     "quote": "The Appellant submits that the RPD erred in its credibility assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant submits the RPD erred in assessing his credibility.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Under IRPA s.110(4), new evidence on appeal must arise after rejection or be previously unavailable or unpresentable.",
+     "quote": "According to ss. 110(4) of the Immigration and Refugee Protection Act (IRPA), the Appellant may present only evidence that arose after the rejection of his claim, or that was not reasonably available, or that the Appellant could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD lacks discretion to admit new evidence if it does not meet IRPA s.110(4) conditions.",
+     "quote": "The RAD does not have discretion to admit new evidence if it does not meet one of the conditions set out in ss. 110(4).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRPA s.110(4) limits new evidence admissible on appeal and RAD has no discretion to admit otherwise.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Item 1 is a sworn affidavit from the Appellant dated June 15, 2019, including documents already in the RPD record.",
+     "quote": "Item 1 is a sworn Affidavit from the Appellant dated June 15, 2019. Item 1 also includes attached documents which already form part of the RPD record.",
+     "answers": 0
+    }
+   ],
+   "summary": "Item 1 is a sworn affidavit from the appellant dated June 15, 2019, with documents already in the RPD record.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The affidavit critiques the RPD decision but is not new evidence under IRPA.",
+     "quote": "Item 1 appears to deconstruct and criticize the RPD's decision. The IRPA expressly limits admissible evidence to new evidence or evidence that was not reasonably available or obtainable at the time the claim was rejected. The affidavit is not new evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The affidavit will be treated as supplementary submissions in the appeal.",
+     "quote": "Rather, I will treat it as supplementary submissions in the present appeal.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the affidavit is not new evidence but will treat it as supplementary submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant intends to submit an affidavit from his wife to support his sexual orientation and change the RPD decision.",
+     "quote": "The Memorandum of Appeal also indicates that a sworn affidavit from the Appellant's wife will be submitted as new evidence to support his sexual orientation and \"help change the negative decision\" by the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No affidavit or letter from the Appellant's wife is before the RAD record.",
+     "quote": "However, I note that a letter or affidavit from the Appellant's wife does not form part of the record before the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant intends to submit his wife's affidavit, but none is before the RAD record.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant requests an oral hearing before the RAD.",
+     "quote": "While the Appellant requests an oral hearing before the RAD,",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "No new admissible evidence bars an oral hearing in this case.",
+     "quote": "there is no new evidence admissible on appeal. This, in itself, is a bar to an oral hearing in the present case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant requests an oral hearing, but no new admissible evidence bars it.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews decisions on a correctness standard with independent evidence assessment.",
+     "quote": "The RAD reviews decisions on a standard of correctness after conducting an independent assessment of the evidence before it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Deference may be required when RPD has meaningful advantage in assessing oral credibility.",
+     "quote": "Deference may be required when the RPD enjoys a meaningful advantage in the assessment of the credibility of oral evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The correctness standard is applied in this case.",
+     "quote": "I have applied the correctness standard in the present case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD applies correctness standard, with possible deference to RPD's oral credibility advantage, and applies correctness here.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant alleges RPD bias, claiming it decided he was unworthy of protection and dismissed evidence arbitrarily.",
+     "quote": "The Appellant submits that the RPD demonstrated bias in reaching the decision to reject his claim. It is argued that the RPD decided at the outset of the hearing that the Appellant is not worthy of Canada's protection. Then, the Panel member proceeded to engage in an exercise where he dismissed oral and documentary evidence in an arbitrary way to support his conclusion that the Appellant is not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges RPD bias, claiming it predetermined his unworthiness and arbitrarily dismissed evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The submission of bias is unfounded.",
+     "quote": "I find this submission is unfounded.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the bias allegation unfounded.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Allegations of bias require a high threshold and cogent evidence.",
+     "quote": "First, it bears noting that an allegation of bias against a tribunal is a serious allegation which must meet a very high threshold and requires cogent evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Arthur case explains bias challenges tribunal integrity and requires material evidence, not suspicion or conjecture.",
+     "quote": "As explained by the Federal Court of Appeal in Arthur, It challenges the integrity of the tribunal and of its members who participated in the impugned decision. It cannot be done lightly. It cannot rest on mere suspicion, pure conjecture, insinuations or mere impressions of an applicant or his counsel. It must be supported by material evidence demonstrating conduct that derogates from the standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains bias allegations require cogent evidence and cites Arthur for the high standard.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant asserts bias but provides no material evidence demonstrating it.",
+     "quote": "In the present case, the Appellant asserts that the RPD was biased. This being said, the Appellant has not directed me to any material evidence demonstrating bias.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the appellant asserts bias but provides no material evidence to support it.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD panel member questioned respectfully and directly, consistent with SOGIE guidelines and inquisitorial role.",
+     "quote": "he posed questions in both a respectful and direct manner, compatible with the SOGIE guidelines and his role as a decision maker in an inquisitorial process.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence that the RPD breached acceptable conduct standards in rejecting the claim.",
+     "quote": "there is nothing perceptible in the record to suggest that the RPD derogated from acceptable standards of conduct in reaching the decision to reject the claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD's questioning was respectful and proper, with no conduct breaches in rejecting the claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence of bias in this case after review of the record.",
+     "quote": "my review of the record reveals no evidence of bias in the present case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in finding the appellant's evidence lacked credibility.",
+     "quote": "The RPD did not err in finding that the Appellant's evidence lacked credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no bias and no error in the RPD's credibility finding against the appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD dismissed the claim due to overriding credibility concerns about appellant's sexual orientation and fear of persecution.",
+     "quote": "The RPD dismissed the claim, finding overriding concerns with the credibility of the Appellant's evidence that he is gay and fears persecution or harm from his family and community in India.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD dismissed the claim due to credibility concerns about appellant's sexual orientation and fear of harm.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant stated he fled India due to ill-treatment for being gay, describing it as natural and liking boys.",
+     "quote": "The Appellant states in his BOC that he fled India because of ill-treatment stemming from his sexual orientation as a gay or homosexual man. He emphasized that a person cannot change who he is and he fears continued mistreatment from his family and community in India. When asked to explain what being gay meant to him, the Appellant stated that this is a natural phenomenon and that he only likes boys.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant provided a marriage certificate to a woman and claimed both are bisexual, but inconsistently described himself as gay and bisexual.",
+     "quote": "In contrast, the Appellant provided a marriage certificate revealing that he married XXXX XXXX XXXX XXXX XXXX XXXX XXXX. When asked to explain why he married a woman if he is gay, he stated that he and his wife are bisexual, and they are in the process of getting to know each other. When challenged to explain why he refers to himself as bisexual when he previously explained that he is homosexual, the Appellant stated that homosexuality and bisexuality is the same thing. Further in his testimony, he reverted to calling himself gay.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD drew negative inference from appellant's inconsistent testimony and marriage undermined his claim of being gay; rejected bisexual assertion.",
+     "quote": "The RPD reached a negative inference from the Appellant's evolving testimony. Moreover, the RPD found that the Appellant's marriage to a woman undermines the credibility of his claim that he is gay. The RPD rejected the Appellant's assertion that he is bisexual.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant testified no distinction between gay and bisexual, but other testimony showed he differentiated them, e.g. calling wife bisexual and himself gay.",
+     "quote": "While the Appellant testified that there is no distinction between gays and bisexuals, other aspects of his testimony revealed that he clearly differentiated between these two types of relationships. For instance, during his testimony he referred to his wife as bisexual and himself as gay.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD drew adverse inference because appellant did not provide letters from his wife to corroborate his sexual orientation claim.",
+     "quote": "The RPD also reached an adverse inference about the Appellant's sexual orientation because the Appellant did not provide any letters of support from his XXXX XXXX to corroborate the central allegation that her husband is gay or bisexual.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant claimed prior same-sex relationship in Canada but gave incorrect dates and lacked memory and corroboration, undermining credibility.",
+     "quote": "The Appellant testified that prior to his marriage, he had a same-sex relationship with XXXX XXXX XXXX in Canada. The Appellant stated they met in May 2018. The RPD noted that this is incorrect given that the BOC (which refers to his relationship with XXXX XXXX XXXX) is signed April 2018. In response, the Appellant stated that he could not remember the date he met this man and could not remember the last time they spoke. The RPD found the Appellant's credibility about his sexual orientation is further impugned given his lack of knowledge about someone he alleges to have had an intimate relationship with and the lack of corroboration to establish their relationship.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant delayed 14 months to make refugee claim after arriving in Canada, undermining credibility of subjective fear.",
+     "quote": "The RPD found that the delay in making his refugee claim undermined the credibility of his subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found multiple inconsistencies and lack of corroboration in appellant's testimony and evidence undermining his credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues RPD ignored evidence and engaged in unreasonable, speculative reasoning to reject claim.",
+     "quote": "Counsel submits that the RPD ignored testimony and evidence properly placed before him and \"engaged in a perverse and patently unreasonable line of reasoning and decision making\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's counsel argues the RPD ignored evidence and made unreasonable, speculative findings.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is improper to ignore evidence and speculate, but appellant failed to show substantive error by RPD.",
+     "quote": "While I agree that it is improper for any decision maker to reach a decision by ignoring evidence and engaging in speculation, the Appellant has not provided any substantive evidence to demonstrate how the RPD erred in its analysis in the present case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Counsel's submissions are bald assertions unsupported by evidence.",
+     "quote": "Rather, the submissions advanced by Counsel are merely bald assertions unsupported by the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees ignoring evidence is improper but finds appellant's counsel gave no substantive evidence of RPD error.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant claims RPD erred in paragraphs 6,8-9,10-16,18-22, implying entire credibility analysis is flawed.",
+     "quote": "the most notable errors made by the RPD are found at paragraphs 6,8,9, 10-16 and 18-22 of the RPD's decision... the entirety of the credibility analysis conducted by the RPD is flawed and unsustainable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant failed to specify the nature of any errors made by the RPD.",
+     "quote": "However, the Appellant has failed to provide any specific information about the nature of any errors made by the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges broad errors in RPD's credibility analysis but fails to specify any particular errors.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's analysis was properly informed by SOGIE Guidelines for sexual orientation claims.",
+     "quote": "the analysis conducted by the RPD was properly informed by the SOGIE Guidelines which sets out guiding principles for decision makers adjudicating cases involving SOGIE at the Immigration Refugee Board.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD approached claim sensitively and gave appellant opportunity to establish facts about challenges faced due to SOGIE non-conformity.",
+     "quote": "I find that the RPD approached the claim with sensitivity and gave the Appellant every opportunity to establish facts underpinning his claim, including any challenges he faced in India as a result of his non-conformity to SOGIE norms.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD properly applied SOGIE Guidelines and sensitively considered appellant's claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Sexual orientation claims present evidentiary challenges due to privacy but credibility concerns cannot be disregarded.",
+     "quote": "sexual orientation claims may present evidentiary challenges for the claimant and decision maker, given the inherently private nature of the claims. However, this does not mean that the RPD should simply disregard credibility concerns that arise from the evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "SOGIE Guidelines allow decision makers to draw negative inferences from vague testimony and unexplained inconsistencies or omissions.",
+     "quote": "the SOGIE Guidelines explain that decision makers may draw a negative inference from vague testimony as well as material inconsistencies and omissions in the evidence that have no reasonable explanation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes evidentiary challenges in sexual orientation claims but allows negative inferences from vague or inconsistent evidence per SOGIE Guidelines.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claim centers on appellant's assertion he is gay and fears persecution after exposure of same-sex relationship in India.",
+     "quote": "The crux of the present refugee claim centers on the Appellant's assertion that he is gay and was victimized, rejected and threatened by his family and community after his same-sex relationship was exposed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claim is based on appellant's assertion of being gay and fearing persecution in India after exposure.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees with RPD that appellant's testimony was inconsistent and credibility was undermined by delay in refugee claim.",
+     "quote": "My review of the record is compatible with the RPD's. The Appellant provided evolving testimony about his sexual orientation and there were significant inconsistencies and omissions in the evidence striking at the heart of his claim that he is gay and fears harm in India. I also agree with the RPD who found that the Appellant's subjective fear lacked credibility based on his 14-month delay in making his refugee claim which placed him in a precarious situation in Canada once he abandoned his schooling.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that appellant's inconsistent testimony and delayed claim undermine credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Marriage certificate shows appellant is in relationship with a woman; appellant failed to corroborate relationship or produce wife as witness.",
+     "quote": "The marriage certificate is compelling evidence that the Appellant is in a relationship with XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX. While the Appellant asserts that his relationship with this woman is \"developing\" and that they are both bisexual, he made no attempt to corroborate the nature of his relationship with his wife who remained at home on the day of the RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD did not err in drawing negative inference from appellant's failure to provide letter of support or produce wife as witness; no information from wife on appeal.",
+     "quote": "The RPD did not err in reaching a negative inference as a result of the Appellant's failure to provide a letter of support or produce his wife as a witness to clarify or corroborate the nature of their relationship. I also note that no information from the Appellant's wife is forthcoming on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the marriage certificate credible and no error in RPD's negative inference from lack of corroboration or wife testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD did not err in finding overriding credibility concerns determinative of the appeal.",
+     "quote": "Overall, I conclude that the RPD did not err in finding overriding concerns with the Appellant's credibility which is determinative of the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RPD correctly found overriding credibility concerns deciding the appeal.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court confirms the RPD decision dismissing the appeal; appellant is not a Convention refugee or person in need of protection.",
+     "quote": "I confirm the decision of the RPD in accordance with ss. 111(1)(a) of the IRPA, namely that the Appellant is neither a \"Convention refugee\" nor a \"person in need of protection\". The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the RPD decision dismissing the appeal; appellant is not a refugee or protected person.",
+   "role": "disposition"
+  }
+ ]
+}

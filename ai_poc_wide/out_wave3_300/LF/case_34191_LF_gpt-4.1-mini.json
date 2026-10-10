@@ -1,0 +1,463 @@
+{
+ "case_id": 34191,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.007606400000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicants are Polish citizens claiming refugee protection in Canada due to persecution for Roma ethnicity.",
+     "quote": "The Applicants, Adrian Kaluza and Jadwiga Igleniec, are Polish citizens. They left Poland and claimed refugee protection in Canada based on persecution because of their Roma ethnicity.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants fear nationalist and neo-Nazi groups, abuse, systemic discrimination, and lack trust in Polish government protection.",
+     "quote": "They assert a fear of nationalist and neo-Nazi groups in Poland, abuse and systemic discrimination, and a lack of trust in the Polish government, including police, to protect them.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants are Polish Roma claiming refugee protection due to fear of nationalist groups, abuse, discrimination, and lack of state protection.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected Applicants' claim for failing to rebut presumption of state protection.",
+     "quote": "The Refugee Protection Division [RPD] of the Immigration and Refugee Board [IRB] rejected the Applicants’ claim because they had not rebutted the presumption of state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD also rejected Applicants' appeal on same state protection basis.",
+     "quote": "The Applicants’ appeal to the Refugee Appeal Board [RAD] of the IRB also was rejected on the same basis.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD and RAD rejected Applicants' refugee claim for failing to rebut presumption of state protection.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Applicants seek to set aside RAD decision and have matter redetermined.",
+     "quote": "The Applicants seek to have the RAD decision [Decision] set aside and their matter redetermined.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants seek to set aside RAD decision and redetermine their claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Sole issue is whether RAD Decision is reasonable under presumptive reasonableness standard.",
+     "quote": "The sole issue before the Court in this proceeding is whether the Decision is reasonable. There is no dispute that the presumptive review standard of reasonableness applies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires justification, transparency, intelligibility; misapprehension of evidence may render decision unreasonable.",
+     "quote": "To avoid judicial intervention, the challenged decision must bear the hallmarks of reasonableness – justification, transparency and intelligibility. A decision may be unreasonable if the decision maker misapprehended the evidence before it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant challenging decision bears onus to prove unreasonableness, citing Vavilov at paras 10, 25, 99-100, 125-126.",
+     "quote": "The party challenging the decision has the onus of demonstrating that the decision is unreasonable: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at paras 10, 25, 99-100, 125-126.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states issue is reasonableness of RAD Decision under Vavilov standard; applicant bears onus to prove unreasonableness.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applicants have not met onus to show RAD Decision is unreasonable; judicial review dismissed.",
+     "quote": "I find that the Applicants have not met their onus of showing the Decision is unreasonable. For the reasons below, their judicial review application thus will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants failed to show RAD Decision unreasonable and dismisses judicial review.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Decision shows justification, transparency, intelligibility; no court intervention warranted.",
+     "quote": "I find that the Decision exhibits the requisite justification, transparency and intelligibility, with the result that the Court’s intervention in this matter is not warranted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants' arguments ask court to reweigh evidence before RAD, which is not court's role per Vavilov para 125.",
+     "quote": "The Applicants’ arguments amount to asking this Court to reweigh the evidence and arguments that were before the RAD, which is not the role of a reviewing court: Vavilov, above at para 125.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Decision justified and intelligible; Applicants improperly ask court to reweigh evidence, which is not allowed.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue credibility was not questioned; discrimination found to be persecution but claim denied on state protection.",
+     "quote": "The Applicants argue that their credibility was not in issue before both the RPD and the RAD. They submit that the RPD and RAD found the discrimination against the Applicants, and their family and friends regarding housing, education and employment, reaches persecution. Their claims were denied, however, on state protection grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Case hinges on whether RAD reasonably assessed burden to rebut state protection presumption.",
+     "quote": "According to the Applicants, the case comes down to whether the RAD reasonably assessed the burden of proof to rebut state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue credibility not questioned; discrimination found persecution but claim denied on state protection; issue is burden to rebut presumption.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent says Applicants claim general population as persecutors, so RAD reasonably required seeking state protection in Poland.",
+     "quote": "The Respondent counters that because the Applicants claim the general population as their agents of persecution, the RAD reasonably found that the Applicants needed to seek protection from the authorities to rebut the presumption of state protection in the case of a high functioning democracy like Poland.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent does not see police as agents of persecution in record or Decision.",
+     "quote": "The Respondent does not read the certified tribunal record, the basis of claim, nor the Decision, as implicating the police as an agent of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues Applicants claim general population as persecutors, so RAD reasonably required seeking state protection; police not implicated as persecutors.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Disagrees with Respondent; RAD noted RPD found discrimination and identified Polish society including police as persecutors.",
+     "quote": "I disagree with the Respondent insofar as the Decision itself is concerned. The RAD specifically notes (at paragraph 6 of the Decision) the RPD’s finding of pervasive discrimination faced by the Applicants because of their Roma identity and the RPD’s identification of the agent of persecution as “Polish society as a whole, with particular concern to policing agencies, housing initiatives and educational bodies.” (Emphasis added.) Noting that the latter findings were not challenged on appeal, the RAD expresses agreement with the RPD’s reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disagrees with Respondent; RAD noted RPD found discrimination and Polish society including police as persecutors.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants not excused from seeking state protection even if state implicated as persecutor; presumption of protection applies except in state breakdown.",
+     "quote": "That said, contrary to the Applicants’ arguments, they are not absolved from seeking state protection simply because the state is implicated as an agent of persecution. The RAD reasonably observed, in my view, states are presumed capable of protecting their citizens, except in cases of complete state breakdown.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Quality of evidence to rebut presumption depends on state's democracy level, citing Homenszki and Hinzman cases.",
+     "quote": "Further, the quality of the “clear and convincing” evidence required of an applicant to rebut this presumption is directly proportionate to the level of democracy in a state: see, for example, this Court’s decision in Homenszki v Canada (Citizenship and Immigration), 2017 FC 948 at para 12, citing, among others, the Federal Court of Appeal’s decision in Hinzman v Canada (Citizenship and Immigration), 2007 FCA 171.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subjective reluctance to engage state does not rebut presumption of state protection, citing Ruszo case.",
+     "quote": "As this Court previously has held, “simply asserting a subjective reluctance to engage the state, does not rebut the presumption of state protection”: Ruszo v Canada (Citizenship and Immigration), 2013 FC 1004 at para 33.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants must seek state protection despite state as persecutor; evidence quality depends on democracy level; subjective reluctance insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue RAD erred by not considering Poland's democracy level at claim time.",
+     "quote": "The Applicants argue that it was an error for the RAD not to consider where Poland landed on the democratic spectrum, particularly at the time when they made their claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds RAD did consider Poland's democracy level, citing Lakatos case and RAD's explicit statement Poland is fully functioning democracy with some challenges.",
+     "quote": "While I do not disagree with the principle, I am of the view that the RAD indeed considered Poland’s “level” of democracy: Lakatos v Canada (Citizenship and Immigration), 2018 FC 367 at para 20. For example, the RAD held at paragraph 12 of the Decision: “I find that Poland is a fully functioning democracy, despite facing a few challenges in some of its democratic indicators.” I find, in turn, that this is an explicit reference to the level of democracy in Poland - the RAD noted the high democratic functioning, along with some drawbacks. More to the point, I am not convinced that it is an unreasonable finding.",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicants argue RAD erred by not considering Poland's democracy level; court finds RAD did consider and reasonably found Poland a functioning democracy.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue RAD placed higher burden due to recent election and more democratic government.",
+     "quote": "Further, the Applicants’ arguments to the effect that the RAD placed a higher burden on the Applicants because of the recent election in Poland that resulted in a seemingly more democratic government is not borne out on a holistic review of the Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds Applicants' position contradicted by RAD's reliance on earlier national documentation package (NDP).",
+     "quote": "I find that the Applicants’ position on this issue is contradicted by the RAD’s consideration of the national documentation package [NDP] and reliance on an earlier version.",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants say RAD erred by not considering more recent NDP.",
+     "quote": "The Applicants say that the RAD erred by not considering the more recent NDP,",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants failed to persuade court RAD's reasons for relying on earlier NDP are unreasonable.",
+     "quote": "but they have not persuaded me that the RAD’s reasons for why it relied on the earlier package are unreasonable.",
+     "answers": 3
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Request to reweigh evidence is not court's role on judicial review.",
+     "quote": "This is an example of the Applicants’ request for the Court to reweigh evidence considered by the RAD which, as mentioned, is not the Court’s role on judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants did not specify where NDP changes affected state protection analysis.",
+     "quote": "I add that the Applicants did not pinpoint where in the NDP changes occurred relating to the state protection analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RAD placed higher burden due to recent election and ignored recent NDP; court finds RAD's reliance on earlier NDP reasonable and rejects reweighing evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit RAD failed to consider their lack of sophistication.",
+     "quote": "The Applicants submit that the RAD failed to consider the Applicants’ lack of sophistication.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court disagrees; RAD acknowledged Applicants' low literacy and found insufficient evidence to support their belief about complaint process.",
+     "quote": "I disagree. The RAD referred to the Applicants’ argument on this point at paragraph 16 of its Decision where the RAD acknowledged the Applicants’ submissions that they are unsophisticated individuals with low literacy in their language. In particular, the RAD found that there was insufficient evidence to support the Applicants’ belief that they would need to complain to higher bodies (than the police) to get state protection or that they would not receive adequate support in filing and navigating such a complaint.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RAD ignored their lack of sophistication; court finds RAD considered and found insufficient evidence to support their belief.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants say RAD did not give proper weight to experiences of others.",
+     "quote": "The Applicants say that the RAD did not give proper weight to the experiences of others.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court disagrees with Applicants' claim.",
+     "quote": "I disagree.",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicants argue RAD undervalued others' experiences; court disagrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants contend it was reasonable not to go to police after attack and to rely on family and similar persons' experiences.",
+     "quote": "The Applicants contend that it was reasonable for them to not go to the police following an attack against the male Applicant that resulted in harm and hospitalization and, thus, it was reasonable for the Applicants to rely on the experiences of their family members and persons in a similar position.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds RAD reasonably explained why others' experiences insufficient to rebut presumption of state protection.",
+     "quote": "I find, however, that the RAD reasonably explained why the experiences of others were not strong enough in this case to rebut the presumption of state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants improperly ask court to reweigh evidence before RAD, which is outside judicial review scope.",
+     "quote": "Again, the Applicants request that the Court reweigh the evidence that was before the RAD and come to a different conclusion, something that is outside the scope of judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue it was reasonable not to go to police and rely on others' experiences; court finds RAD reasonably rejected this and rejects reweighing evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants' counsel gave evidence during hearing about attack and hospitalization length, which is improper.",
+     "quote": "These submissions veered into Applicants’ counsel giving evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court finds claimed hospitalization length unsupported by record, which shows shorter stay.",
+     "quote": "I find, however, that this length of hospital stay is not supported by the record before the Court which points to a significantly shorter stay.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants' counsel improperly gave evidence and hospitalization length claimed unsupported by record.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court cautions counsel against giving evidence disguised as argument, especially unsupported or contradictory evidence.",
+     "quote": "the Court strongly cautions against counsel giving evidence on behalf of their clients in the guise of arguments, particularly evidence that seemingly is not supported by, or even contradicts, the record before the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cautions counsel against giving evidence disguised as argument, especially unsupported or contradictory evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applicants' judicial review application dismissed for reasons stated above.",
+     "quote": "For the above reasons, the Applicants’ judicial review application will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses Applicants' judicial review application for stated reasons.",
+   "role": "disposition"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance for certification arises; none certified.",
+     "quote": "Neither party proposed a serious question of general importance for certification. I find that none arises in the circumstances.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment: Applicants' judicial review dismissed; no question for certification.",
+     "quote": "JUDGMENT in IMM-19986-24 THIS COURT’S JUDGMENT is that: The Applicants’ judicial review application is dismissed. There is no question for certification.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no serious question for certification; dismisses Applicants' judicial review application with no certification.",
+   "role": "disposition"
+  }
+ ]
+}

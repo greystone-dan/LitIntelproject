@@ -1,0 +1,901 @@
+{
+ "case_id": 29799,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0202812,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is a Ghanaian citizen who claimed refugee protection as a bisexual man in March 2018.",
+     "quote": "The applicant is a citizen of Ghana. In March 2018, he made a claim for refugee protection on the basis of his fear of persecution as a bisexual man.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD rejected claim in July 2019 due to failure to establish Ghanaian identity.",
+     "quote": "In July 2019, the Refugee Protection Division (RPD) of the Immigration and Refugee Board of Canada (IRB) rejected the claim because the applicant had failed to establish his identity as a national of Ghana.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD allowed appeal after applicant produced Ghanaian passport and referred matter back to RPD.",
+     "quote": "After the applicant produced a recently obtained Ghanaian passport, the Refugee Appeal Division (RAD) of the IRB allowed his appeal and referred the matter back to the RPD for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant is Ghanaian and claimed refugee protection; the RPD rejected for identity failure; the RAD allowed appeal after passport produced.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In July 2021, RPD rejected applicant's claim again on credibility grounds.",
+     "quote": "In July 2021, the RPD rejected the applicant’s claim again, this time on credibility grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant appealed this decision to the RAD.",
+     "quote": "The applicant appealed this decision to the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the applicant's claim again in July 2021 on credibility grounds; applicant appealed to RAD.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On November 29, 2021, RAD dismissed applicant's appeal and confirmed RPD's determination that applicant is neither a Convention refugee nor a person in need of protection.",
+     "quote": "In a decision dated November 29, 2021, the RAD dismissed the applicant’s appeal and confirmed the RPD’s determination that the applicant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismissed the applicant's appeal and confirmed the RPD's negative determination on November 29, 2021.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Applicant applies for judicial review of RAD's decision under subsection 72(1) of IRPA.",
+     "quote": "The applicant now applies for judicial review of the RAD’s decision under subsection 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant applies for judicial review of the RAD's decision under IRPA subsection 72(1).",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds RAD's decision has fundamental flaws affecting reasonableness and allows application, remitting matter for redetermination.",
+     "quote": "As I explain in the reasons that follow, I am persuaded that the RAD’s decision suffers from fundamental flaws that call its overall reasonableness into question. This application must, therefore, be allowed and the matter remitted for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds fundamental flaws in the RAD's decision, allowing the application and remitting the matter for redetermination.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The applicant's refugee protection claim is based on the following narrative.",
+     "quote": "The applicant’s claim for refugee protection was based on the following narrative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court introduces the applicant's refugee protection claim narrative.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant born in Accra in 1985; fled to Germany in 2003 due to threats from girlfriend's brothers; used fraudulent Burkina Faso passport to claim refugee protection in Germany.",
+     "quote": "The applicant was born in Accra, Ghana, in November 1985. In 2003, when he was 18 years old, the applicant fled to Germany because the brothers of his then girlfriend objected to their sister dating a Muslim man and had threatened to kill him. The applicant travelled to Germany using a fraudulent Burkina Faso passport in the name of Baba Yaro. He then used this passport to make a claim for refugee protection in Germany.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant fled Ghana in 2003 using a fraudulent passport to claim refugee protection in Germany due to threats from girlfriend's brothers.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2014, applicant moved to Netherlands; became aware of bisexuality; had one same-sex relationship with Tanko for three months; then a 1.5-year relationship with a woman.",
+     "quote": "In 2014, with his claim for protection in Germany still unresolved, the applicant decided to move to the Netherlands. While in the Netherlands, the applicant became aware of his sexual attraction to men as well as women. For three months, he was in a romantic and sexual relationship with a man named Tanko. The two broke up when Tanko began seeing another man. This was the applicant’s first and (still) only same sex relationship. After his relationship with Tanko ended, the applicant began a one-and-a-half year relationship with a woman in the Netherlands.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant moved to Netherlands in 2014, had one same-sex relationship and then a longer relationship with a woman.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant returned to Ghana in February 2017 because he missed family; no longer feared girlfriend's brothers as former girlfriend had died.",
+     "quote": "The applicant returned to Ghana in February 2017 because he missed his family. Since his former girlfriend had died, the applicant no longer feared her brothers.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant returned to Ghana in 2017, no longer fearing girlfriend's brothers due to her death.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant befriended gay man Dan Ofori; father, an influential Imam, disapproved and was abusive; applicant disclosed bisexuality to father who disapproved on religious grounds.",
+     "quote": "After he had settled in Accra, the applicant befriended a gay man named Dan Ofori. According to his Basis of Claim (BOC) narrative, the applicant knew Dan was gay “because of the way he dressed and he had effeminate gestures.” When the applicant’s father, an influential Imam, learned of this friendship, he confronted the applicant at the latter’s home and told him not to associate with Dan. The applicant then disclosed his bisexuality to his father. The applicant was reluctant to do so because his father had been physically abusive towards his mother and used to beat the applicant as punishment when he was growing up. The applicant was also concerned that his father was an influential member of the community. At the same time, the applicant wanted to educate his father about the freedom he had experienced living in Europe. The applicant’s father told him that he did not approve and that this lifestyle is not permitted in the Islamic faith. The two spoke about this, then the applicant’s father left.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant befriended gay man; father, an abusive Imam, disapproved and rejected applicant's bisexuality on religious grounds.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In May 2017, community elders met with applicant, including his father, disapproving of his lifestyle; applicant asserted independence and left meeting.",
+     "quote": "In May 2017, the applicant was summoned to a meeting of community elders. The applicant’s father was also present. The applicant was told that he had adopted a lifestyle they disapproved of and this would not be tolerated. The applicant maintained that he was a grown man and what he did with his life had nothing to do with them. This angered the elders and the applicant left the meeting.",
+     "answers": 0
+    }
+   ],
+   "summary": "Community elders, including father, disapproved applicant's lifestyle; applicant asserted independence and left meeting.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Shortly after, youths threatened applicant; on June 10, 2017, apartment vandalized, pet cat killed, and applicant assaulted by youths.",
+     "quote": "A short time later, youths in the community began threatening the applicant and telling him to leave. Then, on June 10, 2017, the applicant arrived home to find that his apartment had been broken into and vandalized and his pet cat had been killed. As the applicant was discussing what had happened with a neighbour, a group of youths arrived and assaulted the applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Youths threatened applicant; on June 10, 2017, vandalized apartment, killed pet cat, and assaulted applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant reported attack to police same day, alleging attack due to bisexuality.",
+     "quote": "The applicant reported these incidents to the police the same day, alleging that he had been attacked for being bisexual.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant reported attack to police alleging it was due to bisexuality.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Threats continued; applicant left Ghana in December 2017 using friend's Dutch passport; arrived in Canada January 2018; claimed refugee protection two months later.",
+     "quote": "When the threats against him continued, the applicant returned to the Netherlands in December 2017 using a friend’s Dutch passport. The applicant then travelled to Canada using a fraudulent Dutch passport, arriving here on January 28, 2018. He submitted a claim for refugee protection two months later.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant fled Ghana in December 2017 using fraudulent Dutch passport, arrived Canada January 2018, claimed refugee protection.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected claim due to cumulative credibility concerns including lack of spontaneous account, embellishments, delay in leaving Ghana, inconsistent accounts, failure to seek protection in Netherlands, and questionable documents.",
+     "quote": "The RPD rejected the applicant’s claim because of the cumulative impact of concerns with the credibility of key elements of the applicant’s narrative. Specifically: The RPD found that the applicant was unable to provide a spontaneous account of the meeting with his father when he allegedly disclosed his sexuality or of the events on June 10, 2017, when his apartment was allegedly vandalized and he was attacked.Instead, the applicant’s testimony “closely mirrored” the information in his BOC narrative.The RPD therefore found that the applicant had not provided credible evidence that these events took place. The applicant testified that, after the events on June 10, 2017, youths in the community had threatened to kill him but this fact was not mentioned in the BOC narrative.The RPD found that the applicant had embellished his claim in his testimony and that this further undermined his credibility. The RPD found that the applicant’s delay in leaving Ghana after allegedly being targeted for being bisexual demonstrates a lack of subjective fear and, as such, further diminished the applicant’s credibility. The RPD found that the applicant gave inconsistent accounts of how he first determined that Tanko was gay.Given that this was the applicant’s first and only same sex relationship, it would have been memorable and the applicant should have been able to keep his story straight.That he did not do so compromised his credibility. The RPD found that the applicant did not give a satisfactory explanation for why he did not seek refugee protection when he returned to the Netherlands in late 2017.His conduct was inconsistent with that of someone genuinely fearing persecution in his home country.This further compromised his credibility. The RPD found that corroborative evidence provided by the applicant (an extract from a police station diary containing the applicant’s report of the June 10, 2017, incident; a medical form issued by the police on June 10, 2017; a statutory declaration from the applicant’s neighbour Randall Owusu, who witnessed the June 10th incident; a statutory declaration from the applicant’s mother; and a statutory declaration from Dan Ofori) was entitled to little weight.The applicant had shown that he is able to obtain and willing to use fraudulent documents.The RPD found that two documents in particular – the applicant’s Ghanaian driver’s licence and a Ghanaian driver’s licence in the name of Dan Ofori – are likely fraudulent.By submitting such documents, the applicant has demonstrated that he is “an untrustworthy witness.” The RPD found that a letter from The 519 dated April 2, 2019, simply confirmed that the applicant had completed a Newcomer Orientation for LGBQ refugee claimants and had attended the program 10 times.It had little probative value in establishing the applicant’s sexual identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the claim due to multiple credibility concerns and found corroborative evidence had little weight.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD concluded applicant did not present sufficient credible evidence to be a Convention refugee or person in need of protection and rejected claim.",
+     "quote": "On the basis of the cumulative effect of these credibility concerns, the RPD concluded that the applicant had not presented sufficient credible and trustworthy evidence on which to find that he is a Convention refugee or a person in need of protection. The RPD therefore rejected the applicant’s claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD concluded applicant lacked credible evidence and rejected claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant challenged RPD's credibility findings and probative value of evidence on six grounds in RAD appeal.",
+     "quote": "In his appeal to the RAD, the applicant challenged the RPD’s determination on six grounds relating to its assessment of his credibility and the probative value of the documentary evidence he provided in support of his claim: (a) the comparison of the applicant’s testimony with his BOC narrative; (b) the significance of the applicant’s delay in leaving Ghana in 2017; (c) the assessment of the applicant’s account of his relationship with his same sex partner in the Netherlands; (d) the failure to consider all of the documentary evidence; (e) the finding that the driver’s licences were fraudulent; and (f) the finding that the letter from The 519 had little probative value concerning the applicant’s bisexuality.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant appealed to RAD challenging RPD's credibility findings and evidence assessment on six grounds.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant submitted new evidence: mother's statutory declaration denying signature on earlier declaration.",
+     "quote": "The applicant also provided as new evidence a statutory declaration from his mother dated August 24, 2021, stating that she had not signed the statutory declaration that the applicant had submitted in support of his claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Earlier statutory declaration bore mother's signature despite passport indicating 'Cannot sign'; RPD gave it little weight.",
+     "quote": "The earlier statutory declaration bore a signature by the declarant (allegedly the applicant’s mother) despite the fact that the applicant’s mother’s passport (a copy of which was submitted with the statutory declaration) had the words “Cannot sign” on the signature line. The RPD had relied on this discrepancy in finding that the mother’s statutory declaration should be given little weight.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted new mother's declaration denying signature; RPD had given little weight to earlier declaration due to signature discrepancy.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD admitted new mother's statutory declaration as relevant new evidence arising after RPD decision and found it credible on its face.",
+     "quote": "The RAD first determined that the August 24, 2021, statutory declaration from the applicant’s mother was admissible as new evidence. The RAD was satisfied that the evidence arose after the RPD’s decision and was relevant to the RPD’s assessment of the probative value of the earlier statutory declaration. The RAD also found that the new statutory declaration was credible “on its face” because it was issued by the Superior Court of Judicature in the High Court of Justice, Accra, Ghana.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD admitted new mother's declaration as credible new evidence relevant to earlier statutory declaration assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD rejected all applicant's appeal grounds, endorsed RPD's adverse credibility findings, and found applicant's bisexuality claim not credible despite new declaration.",
+     "quote": "Turning to the merits of the appeal, the RAD rejected all of the grounds of appeal advanced by the applicant. It concluded that the RPD was correct in its adverse credibility findings. The RAD endorsed the RPD’s analysis in support of these findings. It also provided additional reasons of its own for finding that the applicant’s account – including the central claim that he is bisexual – is not credible. Despite admitting the more recent statutory declaration from the applicant’s mother, the RAD found that it did not overcome the credibility concerns relating to the applicant’s account or the frailties of the other corroborative evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD rejected applicant's appeal, endorsed RPD's credibility findings, and found bisexuality claim not credible despite new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismissed the appeal and confirmed the RPD’s determination that the applicant is neither a Convention refugee nor a person in need of protection.",
+     "quote": "The RAD therefore dismissed the appeal and confirmed the RPD’s determination that the applicant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismissed the appeal and confirmed the RPD’s determination that the applicant is neither a Convention refugee nor a person in need of protection, as found by the earlier decision-maker.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD’s decision is to be reviewed on a reasonableness standard, agreed by all parties.",
+     "quote": "The parties agree, as do I, that the substance of the RAD’s decision is to be reviewed on a reasonableness standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that the RAD’s decision is to be reviewed on a reasonableness standard, as agreed by the parties.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A reasonable decision is based on an internally coherent and rational chain of analysis justified by facts and law (Vavilov para 85).",
+     "quote": "A reasonable decision “is one that is based on an internally coherent and rational chain of analysis and that is justified in relation to the facts and law that constrain the decision maker” (Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 85).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A reviewing court must trace the decision maker’s reasoning without fatal flaws and find a reasonable line of analysis from evidence to conclusion (Vavilov para 102).",
+     "quote": "For a decision to be reasonable, a reviewing court “must be able to trace the decision maker’s reasoning without encountering any fatal flaws in its overarching logic, and it must be satisfied that there is a line of analysis within the given reasons that could reasonably lead the tribunal from the evidence before it to the conclusion at which it arrived” (Vavilov at para 102, internal quotation marks and citation omitted).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasons must provide transparent and intelligible justification or the decision is unreasonable (Vavilov para 136).",
+     "quote": "On the other hand, “where reasons are provided but they fail to provide a transparent and intelligible justification [. . .], the decision will be unreasonable” (Vavilov at para 136).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the reasonableness standard from Vavilov, requiring coherent reasoning and transparent justification for decisions.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The applicant bears the onus to show the RAD’s decision is unreasonable by demonstrating serious shortcomings (Vavilov para 100).",
+     "quote": "The onus is on the applicant to demonstrate that the RAD’s decision is unreasonable. To set aside a decision on this basis, “the reviewing court must be satisfied that there are sufficiently serious shortcomings in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency” (Vavilov at para 100).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant must prove the RAD’s decision is unreasonable by showing serious shortcomings, per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD’s decision has three fundamental flaws, which the court will explain.",
+     "quote": "As I will explain, I am satisfied that the RAD’s decision suffers from three fundamental flaws.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD’s decision has three fundamental flaws and will explain them.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the applicant’s claim to be bisexual not credible due to absence of evidence of feelings of difference, stigma, shame, or harm beyond his narrative.",
+     "quote": "First, among the grounds on which the RAD finds that the applicant’s claim that he is bisexual is not credible is that the absence of evidence of his having experienced feelings of difference, stigma, shame, or harm (apart from the harms alleged in his narrative) “point[s]” to the applicant “not demonstrating his sexual orientation.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the applicant’s evidence lacked insight into feeling different or shame related to bisexuality, which is an indicator against his claim.",
+     "quote": "The applicant’s evidence did not “provide any insight of him feeling different because of his sexual orientation or other insight when he realized he was bisexual and how that impacted him.” Similarly, for the RAD, the applicant’s evidence “does not raise any feeling of shame or stigma that is often associated in claims for sexual orientation in countries where being bisexual is illegal and the Muslim faith in Ghana would not support it.” The RAD found that this is “an indicator” that the applicant is not bisexual.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the applicant’s bisexuality claim not credible due to lack of evidence of feelings of difference, stigma, or shame.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD relied on the Difference, Stigma, Shame, and Harm (DSSH) Model to support its finding that the applicant did not credibly demonstrate bisexuality or risk of persecution.",
+     "quote": "The RAD purports to rest this inference on an application of the Difference, Stigma, Shame, and Harm (DSSH) Model. The RAD states: “When applying the DSSH Model and assessing whether the RPD erred in finding the Appellant had not established his basis of claim, namely that he is bisexual and because of his sexual orientation could face persecution in Ghana, I agree with the RPD that the Appellant has not credibly demonstrated he is bisexual or faces persecution based on his sexual orientation.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker applied the DSSH Model to conclude the applicant did not credibly demonstrate bisexuality or persecution risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The DSSH Model was not mentioned before the RPD or in the applicant’s RAD appeal, and the RAD did not explain it, creating a fundamental gap in reasoning.",
+     "quote": "The DSSH Model was not mentioned in the proceedings before the RPD or in the applicant’s appeal to the RAD. The RAD does not explain what it is or how it is to be used. This alone is a serious problem, leaving a fundamental gap in the RAD’s reasoning.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Administrative decision makers must provide reasons justifying decisions accessible to affected parties, not rely on internal records unavailable to them (Vavilov para 95).",
+     "quote": "As Vavilov holds, it is “unacceptable for an administrative decision maker to provide an affected party formal reasons that fail to justify its decision, but nevertheless expect that its decision would be upheld on the basis of internal records that were not available to that party” (at para 95).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD’s unexplained use of the DSSH Model is a serious problem violating Vavilov’s requirement for accessible reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if the DSSH Model is within RAD expertise or public policy, the RAD must explain what it is and how it was used.",
+     "quote": "Even assuming for the sake of argument that the DSSH Model is a subject within the institutional expertise of the RAD or is a publicly available policy or guideline that could properly inform the decision maker’s work (c.f. Vavilov at paras 93 and 94), this does not relieve the RAD of the obligation to explain what the model is and how it was used.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD must explain the DSSH Model and its use, even if it is within RAD expertise or public policy.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD misused the DSSH Model as understood from publicly available sources.",
+     "quote": "Moreover, to the extent that the DSSH Model can be understood from publicly available sources, it is clear that the RAD has misused it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD misused the DSSH Model based on publicly available information.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In May 2017, the IRB adopted Chairperson’s Guideline 9 to assist decision-making in asylum claims involving sexual orientation and gender identity and expression.",
+     "quote": "To put the issue in context, in May 2017, the IRB adopted Chairperson’s Guideline 9: Proceedings Before the IRB Involving Sexual Orientation and Gender Identity and Expression to assist decision-making in asylum claims based on these grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The guideline promotes understanding of SOGIE cases and establishes guiding principles for decision-makers.",
+     "quote": "The purpose of the guideline was “to promote greater understanding of cases involving sexual orientation, gender identity and expression (SOGIE) and the harm individuals face due to their non-conformity with socially accepted SOGIE norms” (at para 1.1). It “addresses the particular challenges individuals with diverse SOGIE may face in presenting their cases before the Immigration and Refugee Board of Canada (IRB) and establishes guiding principles for decision-makers in adjudicating cases involving SOGIE” (ibid.).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The guideline was revised in December 2021; references here are to the May 2017 version in effect at the decision time.",
+     "quote": "(The guideline was revised in December 2021 to add sex characteristics and make some other changes. All of my references are to the May 2017 version, which is the version that was in effect when the decision under review was made.)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the IRB’s May 2017 Chairperson’s Guideline 9 on SOGIE claims, noting it was revised in December 2021.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Chairperson’s Guideline 9 shares goals and practices with UNHCR Guidelines on LGBTI refugee claims from 2012.",
+     "quote": "Chairperson’s Guideline 9 shares many of the same goals and advocates many of the same practices as Guidelines on International Protection No. 9 for refugee protection claims by Lesbian, Gay, Bisexual, Transgender and Intersex (LGBTI) individuals adopted by the United Nations High Commissioner for Refugees (UNHCR) in October 2012.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "LGBTI experiences vary greatly and are influenced by cultural, economic, family, political, religious, and social environments (UNHCR Guideline para 4).",
+     "quote": "As the UNHCR guideline states (at para 4), the experiences of LGBTI persons “vary greatly and are strongly influenced by their cultural, economic, family, political, religious and social environment.”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A claimant’s background may affect how they express sexual orientation or gender identity or explain why they do not live openly as LGBTI (UNHCR Guideline para 4).",
+     "quote": "A claimant’s background “may impact the way he or she expresses his or her sexual orientation and/or gender identity, or may explain the reasons why he or she does not live openly as LGBTI” (ibid.).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Decisions on LGBTI refugee claims must avoid superficial, erroneous, culturally inappropriate, or stereotypical assumptions (UNHCR Guideline para 4).",
+     "quote": "Consequently, “It is important that decisions on LGBTI refugee claims are not based on superficial understandings of the experiences of LGBTI persons, or on erroneous, culturally inappropriate or stereotypical assumptions” (ibid.).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Guideline 9 aligns with UNHCR’s 2012 LGBTI refugee claim guidelines emphasizing cultural sensitivity and avoiding stereotypes.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Chairperson’s Guideline 9 states individuals with diverse SOGIE recognize and act on their identity differently due to various factors.",
+     "quote": "Similarly, the version of IRB Chairperson’s Guideline 9 in effect at the time of the RAD’s decision stated the following under the heading “Understanding the challenges faced by individuals with diverse SOGIE in establishing their SOGIE”: 3.1 Depending on factors such as race, ethnicity, religion, faith or belief system, age, disability, health status, social class and education, individuals with diverse SOGIE recognize and act on their SOGIE differently.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Self-awareness and acceptance of SOGIE may be gradual or non-linear; no standard criteria exist to establish diverse SOGIE identity.",
+     "quote": "An individual’s self-awareness and self-acceptance of their SOGIE may present as a gradual or non-linear process. There is no standard set of criteria that can be relied upon to establish an individual’s identification as an individual with diverse SOGIE.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Many conceal SOGIE due to mistrust or fear of state and non-state actors, leading to reluctance or difficulty discussing SOGIE with decision-makers.",
+     "quote": "Many individuals with diverse SOGIE conceal their SOGIE in their country of reference out of mistrust or fear of repercussion by state and non-state actors, or due to previous experiences of stigmatization and violence. These circumstances may manifest themselves as an individual being reluctant to discuss, or having difficulty discussing, their SOGIE with a decision-maker based on a fear or general mistrust of authority figures, particularly where intolerance or punishment of individuals with diverse SOGIE are sanctioned by state officials in an individual’s country of reference.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes Guideline 9’s recognition of diverse SOGIE experiences, gradual self-acceptance, and concealment due to fear or mistrust.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Credibility assessment in LGBTI claims requires individualized, sensitive exploration of feelings of difference, stigma, and shame rather than focus on sexual practices (UNHCR Guideline para 62).",
+     "quote": "Likewise, the UNHCR guideline states (at para 62): Ascertaining the applicant’s LGBTI background is essentially an issue of credibility. The assessment of credibility in such cases needs to be undertaken in an individualized and sensitive way. Exploring elements around the applicant’s personal perceptions, feelings and experiences of difference, stigma and shame are usually more likely to help the decision maker ascertain the applicant’s sexual orientation or gender identity, rather than a focus on sexual practices.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites UNHCR guidance that credibility in LGBTI claims requires sensitive exploration of feelings, not focus on sexual practices.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "The DSSH Model is described in a 2011 UNHCR expert meeting summary as common themes in LGBTI claims: difference, stigma, shame, and harm.",
+     "quote": "In support of these statements, a footnote to paragraph 62 of the UNHCR guideline cites paragraph 32 of the Summary Report of an Informal Meeting of Experts on Refugee Claims relating to Sexual Orientation and Gender Identity (10 September 2011) convened by the UNHCR, the International Association of Refugee Law Judges and the European Legal Network on Asylum (ELENA).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "The DSSH Model serves as a useful identity checklist in LGBTI claims, explaining each term: difference, stigma, shame, harm.",
+     "quote": "Citing the work of S Chelvan, a UK barrister, the Summary Report states: 32. There is no fixed template questionnaire or list of questions which can determine an applicant’s sexual orientation. However, there are common themes which arise in the majority of claims, i.e. difference, stigma, shame and harm (“DSSH”), which can serve as a useful identity checklist in claims made by LGBTI individuals. This paragraph then goes on to explain what is meant by each of these terms.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the DSSH Model was described in a 2011 UNHCR expert meeting as common themes in LGBTI claims.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The DSSH Model has not been specifically endorsed or adopted by the IRB; some countries and UNHCR have endorsed it.",
+     "quote": "The DSSH Model has not been specifically endorsed or adopted by the IRB. A review of the implementation of the original version of Chairperson’s Guideline 9 published by the IRB in November 2020 observed that some countries (the United Kingdom, New Zealand, Finland, Sweden, and Ireland are mentioned) have adopted this model. The review also notes that the DSSH Model has been endorsed by the UNHCR, as we have just seen. Despite this, the DSSH Model is not mentioned in the December 2021 revision of Chairperson’s Guideline 9.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the DSSH Model is not adopted by the IRB but endorsed by some countries and UNHCR; it is absent from the 2021 Guideline revision.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The DSSH Model helps claimants provide detailed narratives and guides decision-makers on sensitive credibility assessments in SOGIE claims.",
+     "quote": "The November 2020 review of Chairperson’s Guideline 9 explains that the DSSH Model “helps the claimant provide a detailed narrative and guides decision-makers on sensitive and appropriate ways of assessing credibility in SOGIE-related asylum claims.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The model uses open-ended 'trigger' questions about difference, stigma, shame, and harm to elicit detailed narratives and respect claimant dignity.",
+     "quote": "More particularly, as described in Moira Dustin and Nuno Ferreira, “Improving SOGI Asylum Adjudication: Putting Persecution Ahead of Identity” (2021), 40 Refugee Survey Quarterly 315 at 328-35, the model relies on “trigger” questions relating to the claimant’s experiences of difference, stigma, shame, and harm – common themes in the lives of individuals needing protection on SOGIE grounds. The questions, which should be open-ended and non-judgmental, aim to elicit a more detailed narrative from the claimant about these particular experiences in order to shed light on their identity as a person with a diverse SOGIE. Questioning claimants along these lines is fairer to them and more respectful of their dignity than, for example, intrusive questions about their sexual practices.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Answers to these questions ground credibility assessments that are more sensitive and reliable.",
+     "quote": "Answers provided to this line of questioning can, in turn, ground credibility assessments that are more sensitive to the specific experiences of particular claimants and that are, as a result, more reliable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the DSSH Model’s use of open-ended questions to elicit narratives and guide sensitive credibility assessments in SOGIE claims.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Many SOGI claimants may not feel shame or have past harm but fear future harm; the DSSH Model does not apply to all claimants equally.",
+     "quote": "Even so, it is the case that “many SOGI claimants may not feel ‘shame’ or may not have suffered any harm in the past and simply fear future harm” (Dustin and Ferreira at 329). Consequently, S Chelvan, the UK barrister who first developed the DSSH Model, has recognized that it will not apply to every claimant and that it does not provide a “one-size-fits all recipe equally applicable to all relevant cases” (ibid.).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "There is a risk of simplistic and damaging application of the DSSH Model, which may narrow decision-makers’ mindsets.",
+     "quote": "Furthermore, Dustin and Ferreira observed that, while the DSSH Model has much to be said for it, “the risk of asylum authorities applying it in a simplistic and damaging way has also materialized” and it “may have the unfortunate effect of narrowing the mind-set of decision-makers” (at 332).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the DSSH Model’s limitations and risks of simplistic, damaging application narrowing decision-makers’ perspectives.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD’s reliance on the DSSH Model is erroneous because the applicant was not questioned accordingly and absence of evidence may be due to lack of elicitation.",
+     "quote": "Viewed against this backdrop, the RAD’s reliance on the DSSH Model is clearly erroneous. The applicant was not questioned in accordance with the model about his experiences of difference, shame, stigma, or harm relating to his bisexuality so it is unclear how the model is even relevant. The RAD points to the absence of evidence touching on these matters but this may be due simply to the fact that it was never elicited from the applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The DSSH Model is not a diagnostic tool or indicator where absence of elements weighs against credibility; the RAD’s inference is unfounded and contrary to Guideline 9.",
+     "quote": "More fundamentally, the model is not meant to be used as a diagnostic tool or, as the RAD puts it, as an “indicator” of a diverse SOGIE, where the absence of the elements on which it focuses weighs against a claimant’s credibility. In short, there is no foundation for the RAD’s repeated inference that the absence of evidence of experiences of difference, stigma or shame on the applicant’s part undermines his claim to be bisexual. Indeed, the manner in which the RAD purports to use the DSSH Model is contrary to Chairperson’s Guideline 9, which counsels that there is “no standard set of criteria that can be relied upon to establish an individual’s identification as an individual with diverse SOGIE” (at para 3.1).",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the RAD’s use of the DSSH Model erroneous and contrary to Guideline 9, as the applicant was not questioned accordingly and absence of evidence is not a credibility indicator.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the applicant’s disclosure of bisexuality to his father and community elders not credible due to unexpected calm reactions inconsistent with expected Muslim leader responses.",
+     "quote": "The RAD does not find the applicant’s claim that he disclosed is bisexuality to his father credible because the father’s “calm reaction” to learning his son is bisexual “does not follow the expected reaction of a Muslim leader in a country where being bisexual would be illegal.” Similarly, the RAD does not find it credible that the applicant’s disclosure to the “Muslim leaders” did not elicit “a different reaction, such as a mob attack then and there.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the applicant’s disclosure to his father and community elders not credible due to calm reactions inconsistent with expected responses.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD's inference from general country trends to individual behavior is stereotypical reasoning.",
+     "quote": "this inference from general trends in the country to how particular individuals would be expected to act in a given situation is nothing but stereotypical reasoning",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD's reliance on generalizations about Muslim men's behavior questions the decision's internal rationality.",
+     "quote": "The RAD’s reliance on these unfounded generalizations about how Muslim men are likely to behave calls into serious question the internal rationality of the decision",
+     "answers": 1
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Vavilov at para 104 supports that stereotypical reasoning undermines internal rationality.",
+     "quote": "(Vavilov at para 104)",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the RAD's reasoning stereotypical and questions its rationality, citing Vavilov at para 104.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD does not find credible the applicant's evidence of no other same sex relationships since 2014.",
+     "quote": "the RAD does not “find credible” the applicant’s evidence that he has not had any other same sex relationships since his alleged relationship with Tanko in the Netherlands in 2014",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD reasons that having only one same sex relationship indicates the applicant is not bisexual.",
+     "quote": "the fact that, on his own account, the applicant has had only one same sex relationship “is an indicator that he is not bisexual.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD's premise that bisexual persons likely have multiple same sex relationships lacks support in the record or reasons.",
+     "quote": "there is no support whatsoever for the truth of this premise in the record before the RAD or in the RAD’s reasons",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the RAD disbelieved the applicant's relationship evidence based on an unsupported premise about bisexuality.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The applicant's claim has difficulties and the RAD may have had reasonable basis to dismiss the appeal.",
+     "quote": "The applicant’s claim for protection is not without its difficulties. There may well have been a reasonable basis for the RAD to dismiss the applicant’s appeal",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Vavilov holds that an otherwise reasonable outcome cannot stand if reached on an improper basis (at para 86).",
+     "quote": "as Vavilov holds, “an otherwise reasonable outcome . . . cannot stand if it was reached on an improper basis” (at para 86)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The flaws identified in the RAD's decision are serious, affect credibility, and render the decision unreasonable.",
+     "quote": "The flaws I have identified in the RAD’s decision are not minor or peripheral; they are serious and they bear directly on the central issue, the applicant’s credibility. They are such as to render the decision as a whole unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds serious flaws in the RAD's decision affecting credibility, making it unreasonable despite possible reasonable basis.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The judicial review application is allowed and the RAD decision is set aside and remitted for redetermination by a different decision maker.",
+     "quote": "the application for judicial review must be allowed. The decision of the RAD dated November 29, 2021, is set aside and the matter is remitted for redetermination by a different decision maker",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the judicial review, sets aside the RAD decision, and remits the matter for redetermination by a different decision maker.",
+   "role": "disposition"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The parties did not propose serious questions of general importance for certification under IRPA paragraph 74(d).",
+     "quote": "The parties did not propose any serious questions of general importance for certification under paragraph 74(d) of the IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court agrees no question of general importance arises and none is certified.",
+     "quote": "I agree that no question arises",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious questions of general importance and declines certification under IRPA paragraph 74(d).",
+   "role": "disposition"
+  }
+ ]
+}

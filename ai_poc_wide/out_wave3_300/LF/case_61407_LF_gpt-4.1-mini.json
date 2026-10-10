@@ -1,0 +1,440 @@
+{
+ "case_id": 61407,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0072312,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is an Indian citizen seeking judicial review of a TRV denial.",
+     "quote": "The Applicant, Ms. Seema Kumar (Applicant), is a citizen of India and seeks judicial review of a decision denying her temporary resident visa (TRV or Visitor Visa) application.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer rejected application due to doubts about temporary purpose and financial sufficiency.",
+     "quote": "On December 19, 2024, the immigration officer (Officer) rejected the application because they were not satisfied that the purpose of the visit was temporary and that the Applicant’s assets and financial situation were sufficient to support the proposed travel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant is an Indian citizen seeking judicial review of a TRV denial by an Officer who doubted the visit's purpose and financial sufficiency.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant planned a one-month visit to see sister and attend nephew's baptism.",
+     "quote": "The Applicant wished to visit Canada for approximately one month to see her sister in Montreal and to attend her nephew’s baptism ceremony.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant submitted bank statements from 11 accounts beyond six months.",
+     "quote": "To support her application, the Applicant submitted bank statements of 11 accounts covering a period beyond the required six months.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant provided evidence of real estate business including license, tax, financial statements, and rental lease.",
+     "quote": "She also provided evidence of her newly established real estate business in the form of a business licence, copies of her tax and financial statements, and a lease agreement for a property that generates rental income.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Sister provided income evidence, invitation letter, and support undertaking.",
+     "quote": "Her sister, a Canadian citizen, had also provided evidence of her income and available funds, as well as an invitation letter in which she undertook to provide accommodation and other support during the Applicant’s stay.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant planned a one-month visit, submitted extensive financial and business evidence, and sister provided support and invitation.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant submitted evidence of living with elderly mother and brother and her role with mother.",
+     "quote": "Additionally, the Applicant submitted evidence that she lived with her elderly mother and her brother, as well as evidence of her role and connection to her mother.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted evidence of living with elderly mother and brother and her role with mother.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found visit purpose inconsistent with temporary stay and insufficient family ties outside Canada.",
+     "quote": "The purpose of your visit to Canada is not consistent with a temporary stay given the details you have provided in the application. The applicant does not have significant family ties outside Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer not satisfied with proof and origin of funds and financial ability to support travel.",
+     "quote": "I am not satisfied with the proof of funds demonstrated by the PA. Although financial documentation has been provided showing available funds, there is insufficient evidence regarding the origin of these funds. Considering this factor, I am not satisfied that the PA is sufficiently established and has the financial ability to justify such travel expenses.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found documentation insufficient to show funds sufficient or available for travel expenses.",
+     "quote": "Taking the applicant's travel plan into account, the documentation provided in support of the applicant's financial situation does not demonstrate that funds would be sufficient or available. I am not satisfied that the proposed stay would be a reasonable expense.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "Officer concluded Applicant does not meet Act or Regulations and would not depart Canada after authorized stay.",
+     "quote": "Therefore, I am not satisfied that the applicant meets the requirements of the Act and/or the Regulations, and would depart Canada at the end of authorized stay.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found visit purpose not temporary, insufficient family ties, inadequate proof and origin of funds, and concluded Applicant would not leave Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review granted; decision found unreasonable.",
+     "quote": "For the following reasons, I grant the Applicant’s judicial review. I find that the decision was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court grants judicial review and finds the decision unreasonable.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Main issue is whether Officer’s decision was reasonable.",
+     "quote": "I agree with the parties that the main issue is whether the Officer’s decision was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies main issue as reasonableness of Officer's decision.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Standard of review for visa decisions is reasonableness per Vavilov and related cases.",
+     "quote": "The standard of review applicable to visa decisions is reasonableness (Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 23 [Vavilov]; Singh v Canada (Citizenship and Immigration), 2022 FC 1645 at para 13; Shah v Canada (Citizenship and Immigration), 2022 FC 1741 at para 15).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonable decision must be coherent, rational, justified by facts and law.",
+     "quote": "A reasonable decision is “based on an internally coherent and rational chain of analysis” and “is justified in relation to the facts and law that constrain the decision maker” (Vavilov at para 85).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reviewing court ensures decision is justifiable, intelligible, and transparent.",
+     "quote": "The reviewing court must ensure that the decision is justifiable, intelligible, and transparent (Vavilov at para 95).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Decisions must address central issues and concerns raised by parties.",
+     "quote": "Justifiable and transparent decisions account for central issues and concerns raised in the parties’ submissions to the decision maker (Vavilov at para 127).",
+     "answers": 0
+    }
+   ],
+   "summary": "Standard of review is reasonableness requiring coherent, justified, and transparent decisions addressing parties' concerns.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Applicant raised procedural fairness as an issue.",
+     "quote": "The Applicant also raised procedural fairness as an issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Since decision is unreasonable, procedural fairness arguments need not be addressed.",
+     "quote": "Since I find the decision to be unreasonable, I need not deal with the procedural fairness arguments, or the standard of review governing it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant raised procedural fairness, but court declines to address it due to unreasonableness finding.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Decision is unreasonable for failing to address evidence contradicting Officer’s findings.",
+     "quote": "The decision is unreasonable as it does not grapple with the evidence that directly contradicts the Officer’s findings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds decision unreasonable for ignoring contradictory evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant must meet IRPA and IRPR requirements; visa officers have wide discretion and expertise; court defers accordingly.",
+     "quote": "I understand that on a TRV application, the Applicant must establish that they meet the requirements of the Immigration and Refugee Protection Act, S.C. 2001 c 27 (IRPA) and the Immigration and Refugee Protection Regulations, SOR/2002-227 (IRPR). Visa officers have a wide discretion in their assessment of the application and the Court ought to provide considerable deference to an officer’s decision given the level of expertise they bring to these matters (Chera v Canada (Citizenship and Immigration), 2023 FC 733 at para 36 and Singh v Canada (Citizenship and Immigration), 2022 FC 1745 at para 14).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant bears onus to prove they will leave Canada after authorized stay.",
+     "quote": "The onus is on the Applicant who seeks temporary entry to Canada to establish and satisfy a visa officer that they will leave Canada at the end of the authorized period of stay.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant must meet IRPA/IRPR; visa officers have discretion; applicant bears onus to prove temporary stay.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "High volume and limited refusal consequences mean extensive reasons not required for visa refusals.",
+     "quote": "In addition, in assessing the reasonableness of the decision, the Court recognizes that the high volume of visa decisions and the relatively limited consequences of a refusal are such that extensive reasons are not required (Vavilov at paras 88, 91; Lingepo v Canada (Citizenship and Immigration), 2021 FC 552 at para 13; Yuzer v Canada (Citizenship and Immigration), 2019 FC 781 at paras 9, 16 [Yuzer]; Wang v Canada (Minister of Citizenship and Immigration), 2006 FC 1298 at paras 19–20).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Officer's reasons must adequately explain and justify refusal when read with record.",
+     "quote": "Nonetheless, the reasons given by the Officer must, when read in the context of the record, adequately explain and justify why the application was refused (Yuzer at paras 9, 20; Hashemi v Canada (Citizenship and Immigration), 2022 FC 1562 at para 35; Vavilov at paras 86, 93–98).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "When evidence contradicts, Officer must explain how they reached contrary conclusion.",
+     "quote": "When there is contradictory evidence, the Officer must explain how they reached a contrary conclusion in light of that evidence (Seyedsalehi v Canada (Citizenship and Immigration), 2022 FC 1250 [Seyedsalehi]).",
+     "answers": 0
+    }
+   ],
+   "summary": "Visa refusals need not have extensive reasons but must adequately explain refusals and address contradictory evidence.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer failed to grapple with evidence contradicting their conclusion.",
+     "quote": "In this case, there was evidence that contradicted the conclusion and I find that the Officer did not grapple with such evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Officer failed to address contradictory evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant submitted long-term bank statements showing over CAD $90,000 in deposits.",
+     "quote": "The Applicant’s evidence that contradicted the Officer’s findings, as mentioned above, included significant long-term bank statements showing ongoing deposits as source of funds. They totalled 5,534,658.16 Indian rupees, which the Applicant estimated to be equivalent to more than CAD $90,000.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant provided business activities, financial statements, and lease agreement showing rental income.",
+     "quote": "The documents provided also included evidence of business activities, financial statements, and her leasehold agreement demonstrating rental income.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant’s sister provided invitation letter and financial evidence including tax returns and CAD $215,000 in bank assets.",
+     "quote": "The Applicant’s host sister also provided a detailed invitation letter explaining her financial undertaking, which was substantiated by her tax returns and statements of assets in a Canadian bank account with over CAD $215,000.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Officer was required to consider sister’s financial context when assessing Applicant’s finances and travel plans.",
+     "quote": "The sister provided relevant context that the Officer was required to consider when assessing the Applicant’s financial circumstances and travel plans.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted extensive financial evidence and sister's support, which Officer was required to consider.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant submitted evidence of family ties in India including mother and brother and her role with mother.",
+     "quote": "Although the Applicant is a single woman and wanted to visit her sister in Canada, she presented evidence that her other immediate family members, namely her brother and mother reside in India, as well as evidence of her relationship to her mother and her mother’s dependence on her.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "It is Officer’s role to weigh family ties evidence, not the Court’s.",
+     "quote": "While it is not for this Court to weigh that evidence, it was the Officer’s role to do so, and they failed to engage with it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted family ties evidence; Officer failed to engage with it, which is their role, not the Court's.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer gave boilerplate reasons contradicting evidence and failed to engage with Applicant’s evidence.",
+     "quote": "Regardless, other than listing a number of boiler plate factors, such as not having sufficient family ties outside of Canada, which contradict the evidence before the Officer, the reasons do not engage with the Applicant’s evidence in any way, shape, or form.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent’s counsel argued weaknesses in evidence justify reasons.",
+     "quote": "At the hearing, the Respondent’s counsel tried to point to what they saw as weaknesses in the evidence to suggest that the reasons were reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Counsel’s submissions speculate on Officer’s reasoning absent engagement; Officer’s failure caused logical breakdown.",
+     "quote": "However, in the absence of any engagement or analysis by the Officer, counsel’s submissions are speculating as to what factors, if any, may have been important to the Officer. The Officer’s lack of engagement with the contradictory evidence created a logical vacuum which resulted in a breakdown in the chain of reasoning.",
+     "answers": 2
+    }
+   ],
+   "summary": "Officer gave boilerplate reasons ignoring evidence; Respondent’s counsel speculated on reasoning; court finds logical breakdown.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No indication Officer considered contradictory evidence; decision arbitrary and unreasonable.",
+     "quote": "Given the totality of the evidence before the Officer, there is nothing in the reasons to suggest that the Officer sufficiently turned their mind to the relevant contradictory evidence (Shirazi v Canada (Citizenship and Immigration), 2024 FC 822 at paras 17-18). By not engaging with the contrary evidence in any way, the Officer made an arbitrary decision (Seyedsalehi). I therefore find that the reasons are unintelligible, unjustified and opaque, and therefore unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Officer made arbitrary, unintelligible, and unreasonable decision by ignoring contradictory evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review granted; matter referred to different Officer for decision.",
+     "quote": "The Application for judicial review is granted. This matter is referred to the visa post to be decided by a different Officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Judicial review granted; case referred to different Officer.",
+   "role": "disposition"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No certified question arises as parties did not propose one.",
+     "quote": "The parties did not propose a certified question, and I agree that none arises in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no certified question arises as none was proposed.",
+   "role": "disposition"
+  }
+ ]
+}

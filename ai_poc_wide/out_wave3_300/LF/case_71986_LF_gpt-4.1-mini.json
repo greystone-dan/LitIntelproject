@@ -1,0 +1,893 @@
+{
+ "case_id": 71986,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0157728,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant, a Nigerian citizen, appeals the RPD decision rejecting her refugee claim.",
+     "quote": "XXXX XXXX XXXX (Appellant) a citizen of Nigeria, appeals a decision of the Refugee Protection Division (RPD) rejecting her claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant asks the RAD to set aside the RPD decision and find her a Convention refugee or person in need of protection.",
+     "quote": "The Appellant asks that the Refugee Appeal Division (RAD) set aside the decision of the Refugee Protection Division (RPD) and substitute a decision with its own determination that the Appellant is a Convention refugee or a person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Alternatively, the appellant requests the RAD to refer the matter back to the RPD with directions to accept her claim.",
+     "quote": "In the alternative, the Appellant requests that the RAD refer the matter back to the RPD with directions that the RPD accept the Appellant's claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant appeals the RPD decision rejecting her refugee claim and asks the RAD to set aside or refer back the decision (applicant and court).",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD's determination and dismisses the appeal under IRPA s.111(1)(a).",
+     "quote": "Pursuant to ss. 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the determination of the RPD and dismisses the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision and dismisses the appeal (court).",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant alleged abduction and rape by criminals at a young age, reported to police but unsolved.",
+     "quote": "The Appellant alleged before the RPD that, when she was XXXX years old, she was abducted and raped by criminals. Although the crime was reported to police, the crime remained unsolved.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "She alleges harassment and insults from community and students after the incident, making life unbearable in Nigeria.",
+     "quote": "She alleges her life became unbearable in Nigeria because she was insulted and harassed by other students and members of the community who became aware that she had been abducted and raped.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "As a result, she traveled to Canada on a student visa.",
+     "quote": "As a result, the Appellant traveled to Canada on a student visa.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleged abduction, rape, harassment in Nigeria, and traveled to Canada on a student visa (applicant).",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "After student visa expiry and denied extensions, the appellant made a refugee claim.",
+     "quote": "After her student visa expired and her efforts to obtain further extensions for her student visa were denied, the Appellant made a refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "She fears returning to Nigeria due to general safety concerns and risk of rape or abduction.",
+     "quote": "The Appellant fears returning to Nigeria, as she generally fears the lack of safety in Nigeria and fears that she will be raped and/or abducted.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "She fears everyone except her family because people blamed her for being raped.",
+     "quote": "She also fears everyone in the country except her family because people had blamed her for being raped.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant fears returning to Nigeria due to safety, rape risk, and social blame (applicant).",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD heard the claim on Nov 13, 2014 and rejected it on Jan 15, 2015.",
+     "quote": "The Appellant's refugee claim was heard on November 13, 2014. In a decision of January 15, 2015, the RPD rejected the claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant not credible, failed to establish central claim elements, and lacked well-founded fear of persecution.",
+     "quote": "finding that the Appellant was not a credible witness, that she had not established the central elements of her claim, and that she did not have a well-founded fear of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant has a viable internal flight alternative (IFA).",
+     "quote": "The RPD also found that the Appellant has a viable internal flight alternative (IFA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the claim for lack of credibility, central elements, well-founded fear, and found a viable IFA (earlier_decision_maker).",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant alleges RPD erred by failing to determine nexus clearly.",
+     "quote": "a) The RPD failed to make a clear determination on the issue of nexus;",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant alleges RPD made unreasonable findings on state protection and well-founded fear of persecution.",
+     "quote": "b) The RPD made unreasonable findings on the issue of state protection and well-foundness of fear of persecution;",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant alleges RPD made an unreasonable assessment of internal flight alternative.",
+     "quote": "c) The RPD made an unreasonable assessment of internal flight alternative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges RPD erred on nexus, state protection, well-founded fear, and internal flight alternative (applicant).",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Counsel made no submissions on RAD's role in reviewing RPD decisions.",
+     "quote": "Counsel has not made submissions in regard to the role that the RAD plays in the review of an RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds Huruglica provides guidance on the standard of review for RPD decisions.",
+     "quote": "the RAD finds that the recent Federal Court decision, in Huruglica,1 provides the RAD with guidance in relation to the appropriate standard that must be applied by the RAD to decisions of the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Huruglica requires RAD to conduct a hybrid appeal, independently assessing refugee status and substituting its own decision if differing from RPD.",
+     "quote": "[54] Having concluded that the RAD erred in reviewing the RPD's decision on the standard of reasonableness, I have further concluded that for the reasons above, the RAD is required to conduct a hybrid appeal. It must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection. Where its assessment departs from that of the RPD, the RAD must substitute its own decision.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD can respect RPD credibility findings but is not restricted to intervening only on overriding and palpable errors.",
+     "quote": "[55] In conducting its assessment, it can recognize and respect the conclusion of the RPD on such issues as credibility and/or where the RPD enjoys a particular advantage in reaching such a conclusion but it is not restricted, as an appellate court is, to intervening on facts only where there is an \"overriding and palpable error\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds Huruglica requires a hybrid appeal with independent assessment, respecting but not bound by RPD credibility findings (court and prior_court_or_authority).",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court decisions conflict on RAD's standard of review; Alyafi allows RAD to apply either approach pending final appellate ruling.",
+     "quote": "While there has been some conflict in the case law from the Federal Court regarding the standard of review to be applied by the RAD when reviewing RPD decisions, Justice Martineau, in Alyafi,4 has said that, in the face of this conflict, the Federal Court should allow the RAD to apply either approach as long as the question of the scope of the appellate review of the RPD's decisions has not been settled by a final judgment by the Federal Court of Appeal or the Supreme Court of Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court conflict on RAD's review standard; Alyafi permits RAD to apply either approach pending final appellate decision (prior_court_or_authority).",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD will independently assess the RPD decision but defer to RPD credibility findings or where RPD has advantage.",
+     "quote": "Accordingly, the RAD will conduct its own assessment of the RPD's decision and come to an independent assessment of whether the Appellant is a Convention refugee or a person in need of protection. Deference will be afforded to the credibility findings of the RPD or to other findings where the RPD has a particular advantage in reaching its conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD will independently assess the RPD decision, deferring to RPD credibility findings or where RPD has advantage (court).",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Despite RPD findings and appellant's errors, evidence showed a determinative issue of an accessible and reasonable IFA.",
+     "quote": "After a review of the complete record, including a recording of the hearing, the RAD finds that notwithstanding the findings of the RPD and the allegations of error in those findings by the Appellant, there was evidence before the RPD of the existence of the determinative issue of an accessible and reasonable IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds evidence of an accessible and reasonable internal flight alternative despite RPD findings and appellant's errors (court).",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD can dispose of the appeal on the IFA issue and need not address other appellant issues.",
+     "quote": "Therefore, because the RAD is able to fairly dispose of this appeal by making a decision on the IFA issue, it is unnecessary to address the other issues raised by the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD disposes of the appeal on the IFA issue and declines to address other issues (court).",
+   "role": "disposition"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Chairperson's Gender Guidelines were considered, including social, cultural, and country condition factors.",
+     "quote": "The Chairperson's Gender Guidelines5 were taken into account when considering the facts in this appeal. The RAD considered all relevant factors, such as the social and cultural context in which the Appellant's allegations arose. In addition, issues of country conditions were examined with consideration of the Chairperson's Gender Guidelines.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD considered the Chairperson's Gender Guidelines and relevant social, cultural, and country conditions (court).",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RPD must apply a two-pronged test for IFA per Rasaratnam and IRPA s.97: no serious persecution risk and reasonableness of seeking refuge there.",
+     "quote": "In assessing an IFA, the RPD must apply a two-pronged test cited in Rasaratnam7 suitably modified to take account of section 97 of the IRPA. 1) the Board must be satisfied on a balance of probabilities that there is no serious possibility of the claimant being persecuted in the part of the country to which it finds an IFA exists and/or the claimant would not be personally subject to a risk to life or a risk of cruel and unusual treatment or punishment or a danger, believed on substantial grounds to exist, of torture in the IFA. 2) moreover, the conditions in the part of the country considered to be an IFA must be such that it would not be unreasonable, in all the circumstances, including those particular to the claim, for him to seek refuge there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD must apply a two-pronged test for IFA: no serious persecution risk and reasonableness of seeking refuge (court).",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Both prongs must be satisfied; burden is on appellant to show no IFA; IFA must be realistic and not involve undue hardship.",
+     "quote": "Both prongs must be satisfied to find that the claimant has an IFA. The burden of proof rests with the Appellant to show that she does not have an IFA. The finding of an IFA must be based on a distinct evaluation of a region for that purpose taking into account the Appellant's identity. An IFA must be a realistic and attainable option. An Appellant cannot be required to encounter great physical danger or to undergo undue hardship in traveling there or staying there.",
+     "answers": 0
+    }
+   ],
+   "summary": "Both IFA prongs must be met; appellant must prove no IFA; IFA must be realistic and not involve undue hardship (court).",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness of IFA means no undue harshness to relocate; hardship of dislocation is insufficient to render IFA unreasonable.",
+     "quote": "The RAD considered whether it would be unreasonable to expect the Appellant to relocate in the proposed IFAs. The test for reasonableness is whether it would be unduly harsh to expect the claimant to move to another, less hostile part of the country before seeking status abroad, as per Thirunavukkarasu. This requires an evaluation of the conditions in the IFA as well as the Appellant or similarly-situated persons. Thirunavukkarasu sets a very high threshold for what makes an IFA unreasonable in all the circumstances. The hardship associated with dislocation and relocation is not the kind of undue hardship that renders an IFA unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Dislike of weather, lack of friends or work is insufficient to reject IFA.",
+     "quote": "However, it is not enough for the Appellant to say that he or she does not like the weather there, or that he or she has no friends or relatives there, or that he or she may not be able to find suitable work there.",
+     "answers": 0
+    }
+   ],
+   "summary": "Reasonableness of IFA requires no undue harshness; hardship of relocation insufficient; dislike of weather or lack of friends/work insufficient (court).",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD agrees with the RPD that a reasonable and viable IFA exists in proposed cities including Lagos, Ibadan, Abuja, Port Harcourt, Benin City.",
+     "quote": "The RAD agrees with the RPD's findings that there is a reasonable and viable internal flight alternative available to the Appellant in any of the proposed IFA cities including Lagos, Ibadan, Abuja, Port Harcourt or Benin City.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD that a reasonable and viable IFA exists in several Nigerian cities (court).",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "UK Home Office notes Nigerian constitution provides right to travel internally and internal relocation to escape non-state ill-treatment is almost always an option.",
+     "quote": "The United Kingdom Home Office Operational Guidance Note for Nigeria states that the Nigerian constitution provides for the right to travel within Nigeria. The report also states that internal relocation to escape ill-treatment from non-state agents is almost always an option and, in the absence of exceptional circumstances, it would not be unduly harsh for any individual to internally relocate.",
+     "answers": 0
+    }
+   ],
+   "summary": "UK Home Office notes Nigerian constitution allows internal travel and relocation to escape ill-treatment is usually an option (witness_or_document).",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues RPD erred in assessing IFA, failing to consider her age, psychological illness, and lack of safety in Lagos.",
+     "quote": "The Appellant submits that the RPD erred when it properly assessed the IFA. The Appellant argues that the RPD failed to be sensitive to her age and psychological illness. The Appellant further argues that the RPD failed to consider the evidence of complete lack of safety in Lagos state as a whole.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues she would have to avoid everyone she knows and go into hiding in the IFAs to avoid targeting.",
+     "quote": "The Appellant argues that she would have to avoid everyone she has ever met and essential go into hiding in the IFAs to avoid being targeted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues RPD erred on IFA by ignoring her age, illness, Lagos safety, and need to hide in IFAs (applicant).",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD is not persuaded; finds RPD was sensitive to appellant's age and psychological condition.",
+     "quote": "The RAD is not persuaded by the Appellant's argument in this regard. The RAD finds after its review of the evidence in the record, including the recording of the hearing, that the RPD was sensitive to both the Appellant's age and her psychological condition.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's reasons reflect the RPD's sensitivity to these issues in its conclusions.",
+     "quote": "The RAD finds that the Appellant's reasons reflect the RPD's sensitivity to these issues in coming to its conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds RPD was sensitive to appellant's age and psychological condition and reflected this in its conclusions (court).",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds appellant failed to provide sufficient evidence of total lack of safety in Lagos state.",
+     "quote": "Although the Appellant alleges that there is a total lack of safety in Lagos state, the RAD finds that the Appellant has failed to provide sufficient evidence to support this argument.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted some problems with domestic violence law enforcement but objective evidence does not show Nigeria lacks ability to protect citizens from violence.",
+     "quote": "As noted by the RPD, while there are some problems with the enforcement of laws on domestic violence, the objective evidence does not establish that Nigeria is without the ability to protect its citizens from acts of violence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Several proposed IFA cities are outside Lagos state.",
+     "quote": "In any event, there are a number of proposed IFA cities which are located outside of Lagos state.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant fears everyone except family and fears Boko Haram kidnapping but has not alleged anyone pursues her in IFA cities.",
+     "quote": "The RAD notes that the Appellant has alleged that she fears everyone in Nigeria except her family and further fears being kidnapped by the Boko Haram; however, she has not alleged that anyone is pursuing her or would pursue her in any of the IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds insufficient evidence of total lack of safety in Lagos; notes other IFAs outside Lagos; appellant fears many but no pursuit in IFAs (court and earlier_decision_maker).",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Gender violence is serious in Nigeria but appellant failed to prove more than a mere possibility of persecution or harm on balance of probabilities",
+     "quote": "The RAD agrees with the RPD that the evidence in the record establishes that, although gender violence is a serious issue in Nigeria, the Appellant has failed to establish that there is more than a mere possibility that she would be persecuted or that, on a balance of probabilities, she would be targeted or even randomly harmed if she returns to Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "None of the proposed IFAs are in northwest Nigeria where Boko Haram is most active",
+     "quote": "As noted by the RPD, none of the proposed IFAs are in the northwest of Nigeria where the Boko Haram are most active.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's fears understandable due to past experience and anxiety disorder but failed to prove serious possibility of persecution or risk of harm",
+     "quote": "The RAD agrees with the RPD that, while the Appellant's fears are understandable given her past experience and her major anxiety disorder, she has failed to establish, on a balance of probabilities, that there is a serious possibility that she would be persecuted or be a person at risk of harm.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD that although gender violence is serious in Nigeria, the appellant failed to prove a serious risk of persecution or harm on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant cannot relocate to other IFA cities due to no family and discomfort",
+     "quote": "When asked why she could not relocate to a different part of Lagos or to one of the other IFA cities, the Appellant responded that she had no family there, and she did not think she could be comfortable there.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant fears others would find out her story and insult, mock, blame her",
+     "quote": "She further testified that she feared others could find out about her story and would insult, mock and blame her.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant does not have a high profile in Nigeria and social stigmatization problems are local",
+     "quote": "The RAD finds that the Appellant does not have a high profile in Nigeria and also finds that the problems faced by the Appellant with social stigmatization were local in nature.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant failed to establish how people would know about her past rape if she and family did not disclose it",
+     "quote": "The RAD agrees with the RPD's finding that the Appellant has failed to establish how people would come to know that she had been raped in the past if she and her family did not disclose it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant says she cannot relocate due to no family and fear of stigma; the RAD finds her profile low and stigma local, agreeing with the RPD on disclosure issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Remaining in hiding is not evidence of an IFA and large urban areas are not IFAs by population alone",
+     "quote": "The RAD is aware of the fact that an individual has to remain in hiding to avoid problems is not evidence of an IFA13 and that large urban areas cannot be assumed to be an IFA by virtue of their population size alone.14",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's IFA finding considers totality of evidence, not city size alone",
+     "quote": "The RAD's finding of an IFA is not dependent on the size of these cities alone but is made in consideration of the totality of the evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant did not provide persuasive evidence she would have to live in hiding in these cities",
+     "quote": "The RAD finds that the Appellant did not adduce sufficient persuasive evidence to indicate that she would have to live in hiding in these cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD states hiding is not evidence of IFA and city size alone does not determine IFA; appellant failed to prove she must live in hiding.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Chairperson's Gender Guidelines require considering women's ability to travel safely and stay without undue hardship in IFA",
+     "quote": "The Guidelines state in part: In determining the reasonableness of a woman's recourse to an internal flight alternative (IFA), decision-makers should consider the ability of women, because of their gender, to travel safely to the IFA and to stay there without facing undue hardship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD considers Chairperson's Gender Guidelines requiring assessment of women's safe travel and stay in IFA.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD considered objective evidence on difficulties faced by single women in proposed IFA cities",
+     "quote": "The RAD has considered the objective documentary evidence on the difficulty that would be faced by the Appellant as a single woman living in the proposed IFA cities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Challenges exist for women heading households in employment, housing, loans",
+     "quote": "The RAD acknowledges that there are challenges faced by women who head their own household in obtaining employment and securing housing and loans.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted more female-headed households in large southern cities like Port Harcourt",
+     "quote": "However, the RPD notes that there are more female-headed households in large southern cities [such as Port Harcourt].",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted easier for educated women with high social status to live alone without male support",
+     "quote": "The RPD also noted that it is easier for women to live alone without male support if they are educated and have a high social status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD considered evidence on challenges for single women but notes more female-headed households in southern cities and easier living for educated women.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant provided no persuasive evidence of unfamiliarity with cultural norms in proposed IFA cities",
+     "quote": "The Appellant provided no persuasive evidence that she would be unfamiliar with cultural issues and norms in these cities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD satisfied appellant could adapt, attend university or work in proposed cities",
+     "quote": "Therefore, the RAD is satisfied that it would be reasonable for the Appellant to adapt to new surroundings in any of the cities identified and be able to attend university or obtain employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Many Nigerians establish support networks beyond family, including religious and social organizations",
+     "quote": "Many Nigerians try to establish other support networks that may complement or, in some cases, replace the extended family. Examples of such support networks are religious congregations, religious organizations, age grades/sets, political organizations, charities, secret societies and guilds.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD satisfied appellant will have moral and spiritual support in Nigeria beyond family",
+     "quote": "For this reason, the RAD is satisfied that the Appellant will have sources of moral and spiritual assistance and support available to her in Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant gave no evidence of cultural unfamiliarity; RAD finds she can adapt and have moral and spiritual support beyond family in Nigeria.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Women's Rights Watch Nigeria coordinator stated educated women cope easier running household without male support",
+     "quote": "The Women's Rights Watch Nigeria project coordinator stated that if women are educated, it is \"easier to cope\" with running a household without male or family support.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Document states more female-headed households in large southern cities than northern cities",
+     "quote": "The same document states that there are more female-headed households in large southern cities than in large northern cities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD satisfied appellant has access to moral and spiritual support in proposed IFAs beyond family and friends",
+     "quote": "For this reason, the RAD is satisfied that the Appellant does have access to sources of moral and spiritual assistance and support available to her in the proposed IFAs outside of her network of family and friends.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD relies on Women's Rights Watch evidence that educated women cope better and finds appellant has moral and spiritual support in proposed IFAs.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant's parents and siblings reside in Nigeria",
+     "quote": "The RAD takes note that the Appellant has stated that her parents and siblings reside in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant receives strong ongoing family support",
+     "quote": "The RAD takes note that the Appellant has received and continues to receive strong support from her family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Family has shown commitment through hardships and likely to continue support",
+     "quote": "They have demonstrated a commitment to her throughout the hardships she has experienced in Nigeria, and there is no reason to believe that he will not continue to provide her with ongoing support.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Problems faced by appellant in IFA cities would be mitigated by family support",
+     "quote": "The RAD finds that problems faced by the Appellant in living in any of the proposed IFA cities would be mitigated by the support of her family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD notes appellant's family lives in Nigeria, provides strong support, and would mitigate problems in IFA cities.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD agrees with RPD that on balance of probabilities no serious possibility of persecution or risk to life or torture in proposed cities",
+     "quote": "The RAD agrees with the RPD and finds, on a balance of probabilities, that there is not a serious possibility of persecution of the Appellant in these cities, that her removal to Nigeria would not subject her personally to a risk to her life, or of cruel and unusual treatment or punishment, or a danger, believed on substantial grounds to exist, of torture.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant failed to provide reasonable explanation why she would be discovered or harmed in these locations",
+     "quote": "The Appellant has failed to provide a reasonable explanation as to why she believes she would be discovered and/or harmed at any of these locations, and therefore there is no reason to believe, on a balance of probabilities, that she would be harmed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds no serious risk of persecution or harm in proposed cities and appellant failed to explain why she would be discovered or harmed.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Once IFA issue raised, onus on claimant to show option does not exist by failing Rasaratnam criteria",
+     "quote": "Once the issue of an internal flight alternative is raised, the onus is on the refugee claimant to show that the option does not exist, by establishing that either of the two tests cited in Rasaratnam18 criteria is not met.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Thirunavukkarasu states applicant must show serious possibility of persecution or risk to life or torture in new location",
+     "quote": "The Federal Court of Appeal, in Thirunavukkarasu, stated that an applicant need only show that there is a serious possibility of being persecuted in the new location or that their removal to Nigeria would not subject them personally to a risk to life, or of cruel and unusual treatment or punishment, or a danger, believed on substantial grounds to exist, of torture.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds appellant failed to show IFA option is not available",
+     "quote": "The RAD finds that the Appellant has failed to show that the IFA option is not available to her.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD states claimant must disprove IFA by Rasaratnam tests; appellant failed to do so per Thirunavukkarasu and RAD findings.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD agrees with RPD that appellant could live in proposed IFA cities",
+     "quote": "The RAD agrees with the RPD and finds that the Appellant could live in any of the proposed IFA cities in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant has IFA and does not face serious persecution or risk to life or torture on removal",
+     "quote": "Given the finding above that the Appellant has an internal flight alternative in Nigeria, the RAD finds that the Appellant does not face a serious possibility of persecution there and also finds that her removal to Nigeria would not subject her personally to a risk to her life, or of cruel and unusual treatment or punishment, or a danger, believed on substantial grounds to exist, of torture.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant could live in proposed IFAs and faces no serious persecution or risk on removal.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant failed to provide reasonable explanation why she would be discovered or harmed in proposed locations",
+     "quote": "The Appellant has failed to provide a reasonable explanation as to why she believes she would be discovered and/or harmed at any of these locations, and therefore there is no reason to believe, on a balance of probabilities, that she would be harmed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant failed to explain why she would be discovered or harmed in proposed locations.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Problems faced by appellant are local in nature",
+     "quote": "The problems faced by the Appellant are local in nature.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant's problems are local in nature.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant has not provided persuasive evidence how people would know of her past victimization in proposed IFAs",
+     "quote": "The Appellant has not provided any persuasive evidence how people would come to know of her past victimization in the proposed IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant did not provide persuasive evidence how people would know of her past victimization in IFAs.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant could live in any of the proposed IFA cities",
+     "quote": "The Appellant could live in any of the proposed IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant could live in any proposed IFA city.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD agrees with RPD that there is an IFA and appellant is neither a Convention refugee nor person in need of protection",
+     "quote": "The RAD agrees with the RPD and finds that there is an IFA for the Appellant, and since IFA is a determinative issue, the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes there is an IFA and appellant is not a refugee or person in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA s.111(1)(a), RAD confirms RPD decision for same reasons",
+     "quote": "Pursuant to Section 111(1)(a) of the IRPA, the RAD confirms the decision of the RPD for the same reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision pursuant to IRPA s.111(1)(a) for the same reasons.",
+   "role": "disposition"
+  }
+ ]
+}

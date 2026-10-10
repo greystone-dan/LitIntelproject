@@ -1,0 +1,740 @@
+{
+ "case_id": 33708,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.013256800000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Applicant seeks judicial review of a RAD decision refusing refugee protection due to an internal flight alternative.",
+     "quote": "The Applicant seeks judicial review of a Refugee Appeal Division [RAD] decision refusing his application for refugee protection under section 96 and subsection 97(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA], due to the availability of an internal flight alternative [IFA].",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD erred in refusing to admit new evidence corroborating an alleged attack on the Applicant’s wife and son.",
+     "quote": "He argues that the RAD erred in refusing to admit new evidence, under subsection 110(4) of the IRPA, that corroborated an alleged attack on the Applicant’s wife and son.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD unreasonably found a viable IFA because agents of persecution were not motivated to locate him throughout Pakistan.",
+     "quote": "Further, the Applicant asserts that the RAD unreasonably determined that he had a viable IFA because his agents of persecution were not motivated to locate him throughout Pakistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant seeks judicial review of a RAD decision refusing refugee protection due to an IFA, arguing errors in evidence admission and motivation findings.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed.",
+     "quote": "I am dismissing the application for judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD reasonably refused to admit new evidence due to suspicious timing of the alleged attack.",
+     "quote": "The RAD reasonably refused to admit the new evidence for several reasons. Most notably, the timing of the alleged attack was suspicious given it occurred ten days after the Refugee Protection Division’s [RPD] decision rejecting the Applicant’s asylum claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD reasonably found lack of motivation for agents of persecution to locate the Applicant due to no credible evidence of attempts and absence of blasphemy charge.",
+     "quote": "With respect to the viability of the proposed IFAs, the RAD reasonably determined a lack of motivation for two main reasons. First, there was no credible evidence that the agents of persecution had tried to locate the Applicant in the two years since he fled Pakistan. Second, the fatwa issued against the Applicant was not accompanied by a blasphemy charge.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the review, finding the RAD reasonably refused new evidence and reasonably found lack of motivation for agents of persecution.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicant is a Pakistani citizen targeted by SSP/ASWJ for attending a Christian funeral and firing an SSP member from family business.",
+     "quote": "A citizen of Pakistan, the Applicant alleges being targeted by the Sipah-e-Sahaba Pakistan [SSP], also known as the Ahle Sunnat Wal Jama’at [ASWJ], for attending a Christian funeral and firing a manager, an SSP member, from his family business.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant, a Pakistani citizen, alleges targeting by SSP/ASWJ for attending a Christian funeral and firing an SSP member.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In December 2021, the Applicant was physically attacked with religious slogans and threatened over firing the manager.",
+     "quote": "In December 2021, the Applicant was physically attacked by a group of individuals who shouted religious slogans and called him a heretic. The next day, the Applicant was threatened over the phone for firing the manager.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The manager threatened the Applicant’s father that the Applicant would be targeted if not rehired.",
+     "quote": "The manager subsequently called the Applicant’s father stating that the Applicant would be added to the SSP’s target list if he was not rehired.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant was attacked and threatened in December 2021, with the manager threatening his father about targeting.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The SSP issued a fatwa to kill the Applicant, causing him to flee from Kamoke to Lahore, then Noshera Virkan, then Canada via the US.",
+     "quote": "The SSP ultimately issued a fatwa against the Applicant, declaring that he should be killed. This caused the Applicant to leave his home in Kamoke and hide in Lahore at his uncle’s house. However, after a shopkeeper in Lahore reported that men had been asking for his whereabouts, the Applicant fled to another uncle’s home in Noshera Virkan, and then to Canada via the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicant filed his asylum claim in April 2022.",
+     "quote": "He filed his asylum claim in April 2022.",
+     "answers": 0
+    }
+   ],
+   "summary": "The SSP issued a fatwa against the Applicant, who fled multiple locations before filing asylum in April 2022.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Applicant credible but rejected his claim due to viable IFAs in Hyderabad and Karachi.",
+     "quote": "The RPD found that the Applicant was credible and had established the elements of his claim. However, his application was rejected based on viable IFAs in Hyderabad and Karachi.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded SSP was not motivated to seek the Applicant in IFAs due to no evidence of contact with family since he fled Pakistan.",
+     "quote": "In particular, the RPD concluded that the SSP was not motivated to seek out the Applicant in the proposed IFAs because there was no evidence corroborating his testimony that the SSP had contacted his family since he left Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found allegations of ongoing motivation speculative.",
+     "quote": "The RPD therefore determined that his allegations of ongoing motivation were speculative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Applicant credible but rejected his claim due to viable IFAs and lack of evidence of SSP motivation.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Applicant sought to introduce new evidence of an attack on his wife and child in January 2024 before the RAD.",
+     "quote": "Before the RAD, the Applicant sought to adduce new evidence about an alleged attack on his wife and child that occurred in January 2024.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the new evidence inadmissible as not sufficiently credible or trustworthy.",
+     "quote": "The RAD determined that the evidence was inadmissible because it was not sufficiently credible or trustworthy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant sought to introduce new evidence of an attack, but the RAD found it inadmissible for lack of credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the key issue was viable IFAs and agreed with the RPD that lack of evidence of SSP seeking the Applicant supports no motivation.",
+     "quote": "On the merits, the RAD concluded that the determinative issue was viable IFAs. The RAD agreed with the RPD that the lack of evidence that the SSP was looking for him, or had bothered his family since he left Pakistan, supports that they are not motivated to find and harm the Applicant in either IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD accepted the fatwa but found insufficient evidence SSP was motivated to enforce it in the Applicant’s home area or throughout Pakistan.",
+     "quote": "Further, while the RAD accepted that the Applicant was the subject of a fatwa, it concluded that this did not mean that the SSP was motivated to pursue him. There was insufficient evidence that the SSP was interested in enforcing the fatwa in the Applicant’s home area, let alone throughout Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the absence of blasphemy charges reinforced lack of motivation.",
+     "quote": "The RAD reasoned that this finding was reinforced by the absence of any blasphemy charges.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found no motivation by SSP to find the Applicant despite the fatwa, reinforced by no blasphemy charges.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD erred in refusing new evidence and in finding SSP not motivated to locate him in IFAs.",
+     "quote": "The Applicant argues that the RAD erred in two ways. First, that it erroneously refused to accept his new evidence. Second, that it erred in finding that the SSP was not motivated to locate him in either proposed IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The applicable standard of review on both issues is reasonableness.",
+     "quote": "There is no dispute that the applicable standard of review on both issues is reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues RAD erred on evidence and motivation; the court notes the standard of review is reasonableness.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Deference is owed to RAD’s admissibility determinations under reasonableness standard.",
+     "quote": "It is well established that under the reasonableness standard of review, deference is owed to the RAD’s determinations of the admissibility of evidence: Frank v Canada (Citizenship and Immigration), 2023 FC 696 at para 25; Asim v Canada (Citizenship and Immigration), 2022 FC 517 at para 23; Khan v Canada (Citizenship and Immigration), 2020 FC 438 at para 32.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states deference is owed to RAD’s admissibility decisions under reasonableness review.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Applicant sought to adduce three new pieces of evidence about an alleged January 2024 attack on his wife and child.",
+     "quote": "The Applicant sought to adduce three new pieces of evidence about an alleged attack by members of the SSP on his wife and child in January 2024: (i) an affidavit from the Applicant; (ii) a letter from his father to local police; and (iii) videos of the attack.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The alleged attack involved 8-10 people following wife and son, attacking with weapons, holding hostage, threatening lives, fleeing when police arrived.",
+     "quote": "According to this evidence, eight to ten people “followed the [Applicant]’s wife and son to the father’s home, attacked with weapons including firearms, held them hostage for two hours, threatened their lives, and fled only when the police eventually arrived”: Refugee Appeal Division – Reasons and Decision dated March 26, 2024 at para 15 [RAD Decision].",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant sought to adduce three new evidences about a violent attack on his wife and child in January 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the new evidence not credible for four reasons.",
+     "quote": "The RAD determined that the new evidence was not credible for four reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the new evidence not credible for four reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the timing of the attack suspicious as it occurred ten days after RPD denied asylum claim.",
+     "quote": "First, the RAD found that the timing of the attack was “suspiciously fortuitous” given that it occurred ten days after the RPD had denied the Applicant’s asylum claim: RAD Decision at para 14.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The new evidence appears to rebut RPD’s finding that SSP had no ongoing interest in finding the Applicant.",
+     "quote": "The RAD noted that the new evidence appears to rebut the RPD’s key finding that the Applicant had failed to demonstrate that the SSP has an ongoing interest in finding him because they did not bother his father nor his wife after he fled Pakistan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the attack’s timing suspicious and that the new evidence rebuts RPD’s finding of no ongoing SSP interest.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Evidence can be regarded as dubious based on suspicious timing of events, citing several cases.",
+     "quote": "This Court has held that evidence can reasonably be regarded as dubious based on the suspicious timing of events: Jiang v Canada (Citizenship and Immigration), 2021 FC 572 at para 44; Idugboe v Canada (Citizenship and Immigration), 2020 FC 334 at paras 21–25 [Idugboe]; Elmi v Canada (Citizenship and Immigration), 2020 FC 296 at paras 32–36; Meng v Canada (Citizenship and Immigration), 2015 FC 365 at para 22.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites precedent that suspicious timing can render evidence dubious.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD erred in not considering notarization and police stamp as indicators of credibility of the father’s letter.",
+     "quote": "The Applicant, however, argues that the RAD erred in failing to consider the nature of the new evidence. In particular, he states that the father’s letter was notarized and “appears to have been stamped by the police station”. These factors, the Applicant asserts, “are indicative of the credibility of the document”: Applicant’s Memorandum of Fact and Law at para 17.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Notarization supports authenticity but does not automatically make a statement credible; form should not trump substance.",
+     "quote": "I do not agree that the RAD’s reasoning is undermined because it failed to mention these factors. While notarization supports the authenticity of a document, it does not automatically make a statement credible. This would elevate form over substance.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "In Idugboe, affidavits were rejected as not credible due to fortuitous timing.",
+     "quote": "Notably, in Idugboe, four affidavits were reasonably rejected as not credible due to the fortuitous timing of the events they described: Idugboe at paras 18–25.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues notarization shows credibility; the court disagrees, citing Idugboe on timing undermining credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the attack’s timing suspicious as a sudden, violent escalation not explained by country conditions.",
+     "quote": "Second, the RAD found that the timing of the alleged attack was even more suspicious because “it represents a remarkably sudden and violent escalation in the SSP/ASWJ’s targeting of the [Applicant]”: RAD Decision at para 15.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Before RPD, no credible evidence SSP bothered Applicant’s family; 10 days after RPD decision, alleged violent attack occurred.",
+     "quote": "Before the RPD, there was no credible evidence that the SSP had bothered the Applicant’s family after he left Pakistan. Yet, 10 days after the RPD’s decision, the Applicant alleges that a group of eight to ten persons followed his wife and son to his father’s house, attacked them with weapons, held them hostage for two hours, threatened their lives, and only fled when the police arrived.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Country condition evidence did not explain this coincidental and dramatic escalation.",
+     "quote": "Further, the RAD noted that there was nothing in the country condition evidence that “would reasonably explain this extraordinarily coincidental and dramatic escalation”: RAD Decision at para 15.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the attack’s timing suspicious as a sudden escalation unexplained by country conditions.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD ignored unpredictability of fatwas which can be enforced anytime by anyone.",
+     "quote": "The Applicant argues that the RAD’s objection about the timing and severity of the attack ignores the unpredictability of fatwas, which can be enforced at any time by anyone: Applicant’s Memorandum of Fact and Law at paras 18–19.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD considered fatwa evidence but found lack of motivation remains.",
+     "quote": "However, the Applicant extensively argued this point about fatwas before the RPD and the RAD. The RAD clearly took this evidence into account but determined that the issue of lack of motivation remains.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues fatwas are unpredictable; the court finds RAD considered this but still found lack of motivation.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found Applicant’s RPD testimony casts doubt on new evidence as SSP does not target women and children.",
+     "quote": "Third, the RAD concluded that the Applicant’s testimony before the RPD “raises doubts about the credibility of his fortuitous new allegations”: RAD Decision at para 16. This is because the Applicant testified that the SSP “only go after the person that is on their list or that is on their target list” and “does not go after kids and women, otherwise, it becomes a big issue in the whole community”: Transcript of the RPD Hearing, Certified Tribunal Record at 124. The new evidence alleges that the SSP attacked his wife and child, which would not be the norm, according to the Applicant’s testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the Applicant’s own testimony that SSP does not target women and children casts doubt on new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found video evidence not credible or probative due to lack of context, identification, audio, and explanation of provenance.",
+     "quote": "Fourth, the RAD held that the video evidence of the alleged incident was not sufficiently credible or probative: […] There is insufficient credible evidence that the events documented in these videos are the same ones alleged by the Appellant. The videos do not reveal when or where they were taken. There is no one identifiable in the videos who can be linked to the Appellant’s claim, such as his family members. The videos are brief, and there is no audio. Though what is captured in the videos is not necessarily inconsistent with the Appellant’s and his father’s description of the alleged attack, many key details are not captured, such as the use of firearms, the attack on their home by multiple persons who managed to break in, and the arrival of the police. Moreover, neither the Appellant’s affidavit nor his father’s letter provides any further explanation on the provenance or the content of the videos, and the Appellant merely asserts that these are videos of the event in question. […] RAD Decision at para 17",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the videos not credible or probative due to lack of context, identification, audio, and provenance explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD erred by dismissing videos for what they do not show instead of what they do show.",
+     "quote": "The Applicant argues that the RAD erred in dismissing the videos for what they do not show, as opposed to considering what they do show.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD was entitled to note missing key details and lack of provenance explanation; videos insufficient to overcome suspicions.",
+     "quote": "I agree with the Respondent, however, that the RAD was entitled to point out key details missing in the videos, as well as the lack of any explanation of its provenance. Further, the Applicant ignores the broader issues undermining the credibility of the attack — fortuitous timing and dramatic escalation. The role of corroborative evidence is to assuage any suspicions. This requires more than just not contradicting the story, which is already suspect; it must offer an element that allows the RAD to overcome its suspicions. In this case, the videos were simply insufficient to do so.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues RAD erred on videos; the court finds RAD reasonably noted missing details and videos insufficient to overcome suspicions.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applicant has not established that RAD’s rejection of his new evidence was unreasonable",
+     "quote": "For these reasons, the Applicant has not established that the RAD’s rejection of his new evidence was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicant has not shown the RAD’s rejection of new evidence was unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD erred by finding lack of SSP motivation due to no contact with family",
+     "quote": "the Applicant argues that the RAD erred by finding a lack of motivation because the SSP have not contacted his family since he left Pakistan.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant relies on Court decisions Rivera Benavides, Losada Conde, Abbas to support his argument",
+     "quote": "Relying on the Court’s decisions in Rivera Benavides v Canada ... Losada Conde ... and Abbas ... the Applicant argues that the RAD erred",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issue is whether RAD’s finding on SSP motivation under first prong of IFA test was correct",
+     "quote": "The Applicant only takes issue with the RAD’s determination under the first prong of the IFA test: that he failed to establish the SSP’s motivation",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the RAD erred in finding no SSP motivation, relying on prior Court decisions; the issue is the first prong of the IFA test.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent distinguishes cited cases and says lack of contact with family is legitimate factor in motivation assessment",
+     "quote": "The Respondent distinguishes those cases and counters that a parallel line of jurisprudence remains valid, whereby an agent of persecution’s lack of contact with family members is a legitimate factor to consider",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent relies on Torres Zamora and Leon cases supporting this approach",
+     "quote": "Torres Zamora v Canada ... Leon v Canada ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues lack of contact with family is a valid factor, citing Torres Zamora and Leon cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Justice Sadrehashemi found motivation determinations are fact-specific decisions considering multiple factors",
+     "quote": "Justice Sadrehashemi considered these two approaches ... finding that motivation determinations are fact-specific decisions",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Motivation determinations depend on factors like initial targeting reason, steps taken, time without contact, relationship",
+     "quote": "these are fact-specific decisions that depend on how the RAD considered a number of factors including ...",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "No magic formula; absence of contact evidence does not necessarily establish lack of motivation",
+     "quote": "There is no magic formula to making this determination; an absence of evidence of contact for X number of years does not necessarily establish a lack of motivation",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Evaluations depend on claim facts and decision-maker’s reasons",
+     "quote": "These are context-specific evaluations that depend on the facts of the claim and the reasons given by the decision-maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Justice Sadrehashemi’s fact-specific approach to motivation, with no fixed formula, depending on claim facts and reasons.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD based motivation finding on absence of credible evidence SSP contacted family and absence of blasphemy charges with fatwa",
+     "quote": "the RAD based its motivation finding on two main reasons. The absence of credible evidence that the SSP had “bothered” the Applicant’s family ... The other reason was the absence of blasphemy charges accompanying the fatwa.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found no SSP motivation due to no credible evidence of contact with family and no blasphemy charges with the fatwa.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD failed to meaningfully account for objective evidence about fatwas",
+     "quote": "Applicant’s Memorandum of Fact and Law at para 33",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD accepted Applicant was subject of fatwa and fatwas are serious but fatwa alone does not prove motivation",
+     "quote": "the RAD accepted that the Applicant was the subject of a fatwa and acknowledged the objective evidence that fatwas are serious. However, it found that simply because the Applicant “is the subject of a fatwa does not mean ... that the agents of persecution ... possess the motivation",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A fatwa does not automatically guarantee asylum, per Ilyas v Canada",
+     "quote": "This is consistent with the Court’s jurisprudence that a fatwa does not automatically guarantee asylum: Ilyas v Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues RAD ignored fatwa evidence; the court finds RAD accepted fatwa but reasonably found it alone does not prove motivation.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD relied on evidence that blasphemy charges often follow fatwas to involve police",
+     "quote": "the RAD relied on objective evidence indicating that blasphemy charges are increasingly being lodged by the SSP following the issuance of fatwas",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD reasoned absence of blasphemy charge with Applicant’s fatwa supports no SSP motivation to track him to IFA locations",
+     "quote": "the fact the fatwa on the Applicant was not accompanied by a blasphemy charge further supports that the SSP is not motivated to track him to either proposed IFA locations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Based on country condition evidence, RAD’s conclusion is reasonable",
+     "quote": "Based on the country condition evidence, this is a reasonable conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reasonably concluded no SSP motivation due to no blasphemy charge accompanying the fatwa, supported by country evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD failed to consider testimony about shopkeeper reporting inquiries while hiding in Lahore",
+     "quote": "Applicant further argues that the RAD failed to consider his testimony that ... a shopkeeper reported that individuals were inquiring about him.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD expressly accepted this testimony and found it weighed in Applicant’s favour",
+     "quote": "the RAD expressly accepted this testimony and determined that it “weighed” in the Applicant’s favour.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD held testimony did not show SSP motivation to track Applicant to IFA locations given Lahore’s proximity to home area",
+     "quote": "it did not demonstrate the SSP’s motivation to track him to the proposed IFA locations “given that Lahore is in close proximity to his home area”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is no basis to interfere with RAD’s reasoning on this point",
+     "quote": "There is no basis to this argument given that the RAD expressly accepted this testimony ... However, the RAD held that it did not demonstrate the SSP’s motivation ...",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD ignored testimony about inquiries; RAD accepted it but found it did not prove SSP motivation to track him to IFAs; court agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD’s reasoning that Applicant has two viable IFAs in Pakistan is intelligible, transparent, and justified",
+     "quote": "The RAD’s reasoning that the Applicant has two viable IFAs in Pakistan is intelligible, transparent, and justified.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No basis to interfere with RAD’s finding on IFAs",
+     "quote": "There is no basis upon which I can interfere with the finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD’s reasoning on two viable IFAs is clear and justified and declines to interfere.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD’s decision is reasonable and judicial review application is dismissed",
+     "quote": "Based on the foregoing, the RAD’s decision is reasonable and the application for judicial review is dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises",
+     "quote": "The parties did not propose a question for certification, and I agree that none arise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review and finds no question for certification.",
+   "role": "disposition"
+  }
+ ]
+}

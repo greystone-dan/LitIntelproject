@@ -1,0 +1,665 @@
+{
+ "case_id": 75116,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0135344,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The principal Appellant and minor children are Nigerian citizens appealing the RPD's refugee claim denial.",
+     "quote": "XXXX XXXX XXXX (the \"principal Appellant\") and her minor children, XXXX XXXX XXXX, XXXX XXXX XXXX, XXXX XXXX XXXX, and XXXX XXXX XXXX (the \"minor Appellants\"), are citizens of Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "They request the RAD to set aside the RPD decision or refer for redetermination by a different panel, without new evidence or oral hearing.",
+     "quote": "The Appellants are requesting that the Refugee Appeal Division (RAD) set aside the RPD's negative determination and find that they are Convention refugees or persons in need of protection. In the alternative, the Appellants request the RAD refer the matter back to the RPD for redetermination by a differently constituted panel. The Appellants have not requested to submit new evidence and have not requested an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Nigerian appellants appeal the RPD's refugee claim denial and request the RAD to set aside or refer the matter without new evidence or hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The principal Appellant was the designated representative for minor Appellants at the RPD and continues as such for this appeal.",
+     "quote": "The principal Appellant was appointed to be the designated representative (DR) for the minor Appellants at the RPD proceeding, and she continues to be the DR for the minor Appellants for the purposes of this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the principal Appellant is the designated representative for the minor Appellants at RPD and for this appeal.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA s.111(1)(c), the RAD accepts the appeal and refers the matter back to the RPD for redetermination by a different panel.",
+     "quote": "Pursuant to section 111(1)(c) of the Immigration and Refugee Protection Act (IRPA), the RAD accepts the appeal and refers the matter back to the RPD for redetermination by a differently constituted panel.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The RAD cannot confirm or set aside the RPD decision without hearing evidence on credibility and internal flight alternative.",
+     "quote": "The RAD is unable to confirm or set aside the RPD's decision without hearing evidence presented to the RPD with respect to the credibility of the Appellants and whether there is a viable internal flight alternative (IFA) available to them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the appeal and refers the matter back to RPD, unable to confirm or set aside without hearing evidence on credibility and IFA.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants and principal Appellant's husband experienced robberies, threats, and attacks since 2009, with an oracle declaring the principal Appellant a witch in 2016.",
+     "quote": "The Appellants allege that they, and the principal Appellant's husband, have experienced a series of robberies, threats and attacks since 2009....the oracle stated that the misfortune was due to the principal Appellant being a witch.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The oracle demanded cleansing rituals for the principal Appellant and female circumcision and rites for the minor Appellants.",
+     "quote": "the oracle demanded that the principal Appellant undergo cleansing rituals, and that the minor Appellants undergo female circumcision and traditional rites.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants fear the husband's family, police, and unknown robbers.",
+     "quote": "The Appellants fear the husband's family, the police, and unknown robbers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants allege robberies, threats, and an oracle declaring the principal Appellant a witch, demanding rituals; they fear family, police, and robbers.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants obtained a visa in August 2015; the principal Appellant visited Canada alone in 2015 and returned to Nigeria.",
+     "quote": "The Appellants obtained a visa on August 12, 2015. The principal Appellant visited Canada alone in XXXX 2015 to destress and have a change in environment. The principal Appellant returned to Nigeria in XXXX 2015.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "In 2016, the Appellants and principal Appellant's husband arrived in Canada for a holiday; husband returned to Nigeria after business robbery.",
+     "quote": "On XXXX XXXX, 2016, the Appellants and the principal Appellant's husband arrived in Canada for a holiday. Shortly thereafter, the principal Appellant's husband returned to Nigeria because his business was robbed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The husband's family consulted an oracle who declared the principal Appellant a witch and demanded cleansing rituals.",
+     "quote": "Following this, the principal Appellant's husband's family consulted with the oracle. It was at this time that the oracle announced she was a witch and that the Appellants had to undergo cleansing rituals.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants made an inland refugee claim in June 2016; the husband did not make a claim.",
+     "quote": "The Appellants made an inland refugee claim on June 16, 2016. However, the principal Appellant's husband chose not to make a refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants obtained visas, visited Canada, husband returned to Nigeria after robbery, oracle declared principal Appellant a witch, appellants claimed refugee in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD held a refugee hearing in August 2016 and rejected the claims in September 2016.",
+     "quote": "The Appellants had a refugee determination hearing on August 16, 2016. In a written decision issued on September 29, 2016, the RPD rejected the claims.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the principal Appellant's evidence lacked credibility and that she and her husband were not trustworthy witnesses.",
+     "quote": "The RPD panel found the principal Appellant's evidence in crucial areas to lack credibility and that her and husband were not trustworthy witnesses in the proceeding.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded the Appellants lack a well-founded fear of persecution or risk of cruel treatment upon return to Nigeria.",
+     "quote": "Therefore, the RPD concluded that the Appellants do not have a well-founded fear of persecution on a Convention ground, or that they would not personally be subjected to a risk to life or a risk of cruel and unusual treatment or a danger of torture upon return to Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the refugee claims, finding the principal Appellant and husband not credible and no well-founded fear of persecution or risk on return.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants argue the RPD erred in assessing their credibility and documentary evidence.",
+     "quote": "The Appellants argue that the RPD erred in its assessment of their credibility and documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD erred in assessing their credibility and documentary evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Huruglica directs the RAD to apply correctness standard reviewing RPD decisions without credibility issues, providing final determination or referring back if oral evidence needed.",
+     "quote": "The recent Federal Court of Appeal decision, in Huruglica,4 provides the RAD with guidance in relation to the appropriate standard that the RAD must apply in reviewing decisions of a first-level administrative tribunal....It is only when the RAD is of the opinion that it cannot provide such a final determination without hearing the oral evidence presented to the RPD that the matter can be referred back to the RPD for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Huruglica requires RAD to apply correctness standard reviewing RPD decisions without credibility issues, and refer back only if oral evidence needed.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD should sometimes defer to RPD on credibility findings but must decide case-by-case whether to confirm, set aside, or refer back.",
+     "quote": "There are, however, cases where the RPD may enjoy a meaningful advantage over the RAD in making findings of fact or mixed fact and law, because such findings require an assessment of the credibility or weight to be given to oral evidence heard by the RPD....If it cannot do so without hearing oral evidence that was already heard by the RPD, it will refer the matter back for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states RAD may defer to RPD on credibility but must decide case-by-case whether to confirm, set aside, or refer back for redetermination.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "The Appellants argue the RPD erred in assessing their credibility and documentary evidence.",
+     "quote": "The Appellants argue the following issues in their appeal: 1) The RPD erred in its assessment of the Appellants' credibility;8 and, 2) The RPD erred in its assessment of the documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD erred in assessing their credibility and documentary evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellants lacked credibility in crucial areas and were not trustworthy witnesses.",
+     "quote": "The RPD determined that the Appellants' evidence lacked credibility in crucial areas of their claim and that the principal Appellant and the witness (her husband) were not trustworthy witnesses, as their conduct was not consistent with that of persons having the fear, risk or experiences they allege.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD's conclusion was based on two findings.",
+     "quote": "The RPD's conclusion is based on the following two findings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellants lacked credibility and were not trustworthy witnesses, basing its conclusion on two findings.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Before 2016, the principal Appellant was accused of witchcraft by in-laws and daughters were pressured for female circumcision.",
+     "quote": "First, the RPD noted that prior to XXXX 2016, the principal Appellant's mother in-law accused her of being a witch during private heated arguments. In addition, her husband's family suggested on a number of occasions that her daughters undergo female circumcision in accordance with the husband's family's traditional beliefs.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The principal Appellant was concerned about these threats during her 2015 Canada visit; rites were proposed since 2008.",
+     "quote": "The principal Appellant testified that she was concerned about these accusations and threats at the time she visited Canada in XXXX 2015, and that these rites and rituals were first proposed as early as 2008.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD asked why no refugee claim was made in 2015 or at 2016 port-of-entry; the principal Appellant said only after oracle's declaration fear was serious.",
+     "quote": "The RPD asked if she had concerns about these issues, why she did not make a refugee claim in XXXX 2015, or at the port-of-entry (POE) when the Appellants came to Canada for a holiday on XXXX XXXX, 2016. The principal Appellant explained that it was not until the oracle declared her to be a witch, that it was \"treated with the greatest of seriousness.\"",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected this explanation as unreliable because prior to oracle, the accusations were already serious and frightening.",
+     "quote": "The RPD rejected this explanation as \"unreliable\" given that prior to the oracle's pronouncement, the principal Appellant and her husband considered the accusations of being a witch by family members, elders and community members to be very serious, frightening and dangerous.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the principal Appellant was accused of witchcraft and pressured for circumcision; it rejected her explanation for delay in claiming as unreliable.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the principal Appellant's explanations about when she knew she could claim refugee status unreliable and implausible.",
+     "quote": "Second, the RPD found the principal Appellant's explanations for when she first knew that she could make a refugee claim in Canada unreliable and implausible.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "She told her half-sister in 2015 about her circumstances but did not seek advice about refugee claims.",
+     "quote": "This was because the principal Appellant testified that although she disclosed to her half-sister in XXXX 2015 her personal and family circumstances that formed the basis of their refugee claim, she did not ask her half-sister to provide her with any advice about making a refugee claim in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted unresolved inconsistent and contradictory assertions about when she first knew she could claim refugee status.",
+     "quote": "The RPD also noted that the principal Appellant's \"significant inconsistent and contradictory assertions and explanations with respect to when she first knew that she could claim refugee status in Canada but allegedly did not know how to make that refugee claim remained unresolved in the proceeding.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the principal Appellant's explanations about when she knew she could claim refugee status unreliable, noting inconsistencies and contradictions.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD accepted the psychological report's symptomology findings but found no causal link to refugee claim allegations.",
+     "quote": "With respect to the Appellants' documentary evidence, the RPD stated it accepted the findings of symptomology of the principal Appellant contained in the psychological report, but that the report does not establish that her symptoms and conditions were caused by or related to her refugee claim allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted the National Documentation Package confirms widespread corruption and availability of personal documents in Nigeria.",
+     "quote": "The RPD later noted in its conclusion, without a finding or attributing weight to the Appellants' documents that, the National Documentation Package (NDP) for Nigeria \"confirms widespread official and other corruption and the availability of personal documents such as those proffered.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD accepted psychological symptom findings but found no causal link to claims and noted corruption and document availability in Nigeria.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants submit the RPD's reasoning was unclear and not based on reasoned analysis of evidence.",
+     "quote": "The Appellants submit that the RPD's reasoning was not intelligible or sufficiently clear, and that the points cited by the RPD, which were to demonstrate the Appellants' lack of credibility, were not based on a reasoned analysis of the evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The points cited by the RPD fail to demonstrate lack of credibility, alone or together.",
+     "quote": "Rather, the points cited by the RPD as being indicative of the Appellants' lack of credibility, standing alone, or in unison, fail to demonstrate they have a lack of credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD's reasoning was unclear and the cited points do not demonstrate lack of credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The principal Appellant argues the RPD misapprehended her evidence about fear heightening only after oracle consultation.",
+     "quote": "With respect to the RPD's finding that the Appellants failed to advance their claim at the POE, the principal Appellant argues that the RPD misapprehended her evidence and that it was not until the oracle was consulted that her fear was heightened.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants argue the RPD erred by impugning credibility over lack of legal advice despite student visa application.",
+     "quote": "In addition, the Appellant submits that the RPD erred by impugning the principal Appellant's credibility because she stated that she did not get any legal advice or information about the refugee or immigration process in Canada until June 2016, even though she applied for a student visa in April 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD misconstrued evidence, confusing refugee claim with student visa application.",
+     "quote": "The Appellants argue that the RPD misconstrued the evidence, because she thought she was answering a question about the refugee claim, and not her student visa (immigration) application.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD used tangential points and peripheral information to impugn credibility, ignoring core claim elements.",
+     "quote": "The Appellants further contend that the RPD used tangential points to impugn the Appellants' credibility and relied on peripheral information to rebut the presumption of truthfulness. The RPD made no real attempt to engage with the core elements of the claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD misapprehended evidence, erred on legal advice issue, and relied on peripheral points ignoring core claim elements.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants submit the RPD failed to engage with psychological report and ignored affidavits, dismissing documents due to fraud prevalence.",
+     "quote": "In regard to the Appellants' documentary evidence, the Appellants submit that the RPD failed to engage with the psychological report, other than saying it did not establish her symptoms were a result of her refugee claim allegations. Moreover, the RPD completely ignored the affidavits from the principal Appellant's mother, husband, and husband's employee. Instead the RPD dismissed the documents because of the prevalence of fraudulent documents in Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants submit the RPD failed to engage with psychological report and ignored affidavits, dismissing documents due to fraud prevalence.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD agrees the RPD's reasons cannot sustain its negative credibility conclusion and finds the reasons difficult to follow.",
+     "quote": "The RAD agrees with the Appellants' overarching argument that the RPD's findings cannot sustain its conclusion that the Appellants lack credibility and are not Convention refugees or persons in need of protection. The RAD finds the RPD's reasons were largely difficult to follow.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD erred by not clearly identifying which parts of the claimant's story it believed or disbelieved and by selective evidence consideration.",
+     "quote": "First, the RPD did not make clear in its reasons which parts of the claimant's story it believed and which it did not. The RPD said it drew negative inferences but did not make a clear finding on each of the allegations. Second, the RPD did not consider all of the evidence in context. It was selective and looked for small implausibilities to build its case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Credibility findings must be clear, unmistakable, and supported by adequate reasons, including intelligible explanations for rejecting testimony.",
+     "quote": "Third, the courts have held that the RPD must make credibility findings in \"clear and unmistakable terms\", and supported by adequate reasons. The RPD did not do so in this case. Also, aspects of a witness's testimony which are found to be not credible must be specifically identified and the reasons for rejecting the testimony and the explanations put forward by the claimant must be intelligibly explained.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The claimant provided reasonable explanations, so the RPD erred in rejecting those points.",
+     "quote": "In this case, as argued by the Appellant, the claimant did seem to provide reasonable explanations, which also meant that the RPD erred in its findings on those points.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the RPD's reasons unclear, selectively considered evidence, failed to make clear credibility findings, and erred rejecting reasonable explanations.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's analysis lacks clear credibility findings, only two findings of unreliability and implausibility without specifics.",
+     "quote": "In particular, the RAD notes that the RPD does not make clear and explicit credibility findings in its \"analysis\". Rather, the RPD simply finds on two occasions that the principal Appellant's explanation for not claiming earlier was \"unreliable\", and that her explanation for not seeking the advice of her half-sister was both \"unreliable\" and \"implausible.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD refers to inconsistencies but does not specify which or make specific credibility findings on them.",
+     "quote": "Although the RPD refers to inconsistencies and contradictions about when she learned she could make a refugee claim in Canada, it is not clear which inconsistencies and contradictions it is referring to, and the RPD does not make a specific credibility finding on the alleged inconsistencies and contradictions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's analysis is largely a summary with two credibility findings related to subjective fear and delay in claiming.",
+     "quote": "In essence, the RPD's \"analysis\" is largely a summary of the principal Appellant's and the witness' testimony, with two credibility findings. Moreover, the RPD's two findings relate to the Appellants' subjective fear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Delay in making a claim is relevant but not determinative of credibility or refugee status.",
+     "quote": "While the RAD disagrees with the Appellants' submissions that these were peripheral findings, since delay in claiming is a relevant and important consideration, it is well-established that delay in making a claim is not determinative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds the RPD's two findings insufficient to support its negative determination and the decision lacks actual analysis.",
+     "quote": "The RAD finds the decision lacking in actual analysis and that its two findings related to their delay in claiming to be insufficient to substantiate the RPD's negative determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the RPD's analysis lacks clear credibility findings, relies on delay which is not determinative, and is insufficient to support negative determination.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD agrees the RPD ignored the appellants' documentary evidence, mentioning psychological report perfunctorily and ignoring affidavits.",
+     "quote": "The RAD also agrees with the Appellants' argument that the RPD ignored their documentary evidence. The RPD mentioned the psychological report and addressed it in a very perfunctory manner. In addition, the RPD did not even mention the Appellants' affidavits, and as a result, the RAD doubts that the RPD actually considered them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's blanket rejection of documents due to corruption and fraud prevalence in Nigeria is insufficient and erroneous.",
+     "quote": "The RPD's blanket statement that the RPD rejected the documents because the NDP confirms widespread corruption and the availability of personal documents in Nigeria is clearly insufficient and lacks any analysis. The Federal Court has clearly stated that rejecting such documents, because there is a prevalence of fraudulent documents in a country, is an error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the RPD ignored documentary evidence and erred by rejecting documents due to fraud prevalence without analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD cannot find Appellants established their allegations based on the record before it.",
+     "quote": "Despite these errors, the RAD is not in a position to find that the Appellants have established their allegations based on the record before it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD has remaining questions on Appellants' credibility on core claim aspects and viability of IFA in Nigeria.",
+     "quote": "Having reviewed the whole record, including the audio recording, the RAD has remaining questions which relate to the Appellants' credibility on core aspects of their claims, as well as whether the Appellants have a viable IFA in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "These issues were not put to Appellants before RPD and RAD cannot do so now as IFA is a new issue.",
+     "quote": "These were not all put to the Appellants before the RPD, and the RAD is unable to do so in this proceeding, since IFA is a new issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD made no findings on IFA and issue was not canvassed at RPD hearing.",
+     "quote": "The RPD made no findings on IFA in its decision, and the issue was not canvassed at the RPD hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds it cannot confirm Appellants' allegations due to credibility and IFA issues not addressed by RPD or tested in this proceeding.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds RPD's findings inadequate and insufficient to uphold denial of refugee protection.",
+     "quote": "After conducting its own analysis of the entire record, the RAD finds that the RPD's findings are inadequate and insufficient to maintain the determination that the Appellants are not Convention refugees or persons in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's determination relied only on two credibility findings related to delay in claiming, which is not determinative.",
+     "quote": "The RPD's determination stems from only two credibility findings related to their delay in claiming, which is not determinative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds RPD's decision inadequate, relying only on delay-related credibility findings which are not determinative.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD cannot confirm or set aside RPD decision without hearing evidence on Appellants' credibility and IFA viability.",
+     "quote": "However, the RAD is unable to confirm or set aside the RPD's decision without hearing evidence presented to the RPD with respect to the credibility of the Appellants and whether there is a viable IFA available to them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD is not in position to find Appellants face serious persecution risk or danger if returned to Nigeria.",
+     "quote": "Therefore, the RAD is not in a position to find the Appellants face a serious possibility of persecution on a Convention ground, or on a balance of probabilities, would be personally subjected to a danger of torture, or face a risk to life or a risk of cruel and unusual treatment or punishment, if returned to Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD cannot confirm or overturn RPD decision without evidence on credibility and IFA, so cannot find persecution risk if returned to Nigeria.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Credibility and IFA issues remain outstanding and were not tested by RPD.",
+     "quote": "In this case, credibility and IFA issues remain outstanding on evidence presented to the RPD, and this evidence was not tested by the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 111(2)(c) IRPA allows RAD to return case to RPD for re-determination if unable to confirm or set aside decision without hearing evidence.",
+     "quote": "Where the RAD is unable to confirm, or set aside and substitute its own decision without hearing evidence that was presented to the RPD, section 111(2)(c) of the IRPA allows the RAD to return the case to the RPD for re-determination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD chooses to return case to RPD for re-determination.",
+     "quote": "The RAD chooses to do so in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Credibility and IFA issues remain untested; RAD returns case to RPD for re-determination under IRPA section 111(2)(c).",
+   "role": "disposition"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA section 111(1)(c), RAD allows appeal and refers matter to RPD for re-determination by different panel on credibility and IFA issues.",
+     "quote": "Accordingly, pursuant to section 111(1)(c) of the IRPA, the RAD allows the appeal and refers the matter to the RPD for re-determination by a differently constituted panel, to consider issues of credibility and whether there is a viable IFA in Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD allows the appeal and refers the matter to RPD for re-determination by a different panel on credibility and IFA.",
+   "role": "disposition"
+  }
+ ]
+}

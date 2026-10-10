@@ -1,0 +1,474 @@
+{
+ "case_id": 65300,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.008732000000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a Haitian citizen appealing the RPD decision without submitting new evidence but requesting a hearing.",
+     "quote": "XXXX XXXX, the appellant, a Haitian citizen, is appealing the decision of the Refugee Protection Division (RPD). He is not submitting any evidence on appeal, but is requesting that a hearing be held.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by not accepting explanations for omissions in the BOC Form, improperly assessing evidence, and failing to analyze counsel's submissions.",
+     "quote": "He is claiming that the RPD erred by not accepting his explanations regarding omissions in his Basis of Claim Form (BOC Form), by improperly assessing the evidence and by failing to analyze his counsel's submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant, a Haitian citizen, appeals the RPD decision without new evidence, alleging errors in omissions, evidence assessment, and counsel submissions analysis.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA section 111, the RAD dismisses the appeal and confirms the RPD's determination.",
+     "quote": "Pursuant to section 111 of the Immigration and Refugee Protection Act (IRPA), the Refugee Appeal Division (RAD) dismisses the appeal and confirms the RPD's determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal and confirms the RPD's decision under IRPA section 111.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant left Haiti in 2002 fearing murder after his brother's death, entered the US, applied for asylum, then came to Canada in 2017.",
+     "quote": "In his BOC Form, the appellant states that he left his country on XXXX XXXX, 2002, because he feared being murdered like his brother had been a few days prior. He also states that he entered the United States of America on XXXX XXXX, 2002, and that he applied for asylum there, but there was no follow up. On July 16, 2017, he entered Canada to obtain Canada's protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant submitted a few documents as evidence before the RPD.",
+     "quote": "Before the RPD, the appellant, then designated as the claimant, submitted a few documents as evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant left Haiti fearing murder, sought asylum in the US, then Canada, submitting few documents to the RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD hearing was on October 13, 2017, and the decision rejecting the claim was on November 3, 2017.",
+     "quote": "The hearing before the RPD was held on October 13, 2017, and the decision to reject the claim for refugee protection was rendered on November 3, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD hearing occurred on October 13, 2017, with a rejection decision on November 3, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the claimant's testimony lacked spontaneity, had many omissions, and unsatisfactory explanations.",
+     "quote": "The RPD was of the opinion that the claimant's testimony lacked spontaneity because he dodged a number of questions and it contained numerous omissions that were not satisfactorily explained.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the claimant's testimony lacked spontaneity and had unexplained omissions.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant admits omissions in the BOC Form but argues he gave reasonable explanations and they should not be fatal.",
+     "quote": "Essentially, in his memorandum, the appellant acknowledges the existence of omissions in his BOC Form, but submits that he provided reasonable explanations in that regard in his testimony before the RPD, that the RPD should have excused him for those omissions, and that it erred by not acknowledging that they were omissions regarding details and that they cannot be fatal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant admits omissions but argues he explained them reasonably and they should not be fatal errors.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant submits the RPD did not adequately analyze the peace tribunal document and should have analyzed it independently despite credibility issues.",
+     "quote": "He also submits that the RPD did not adequately analyze the document from the Croix-des-Bouquets peace tribunal and that, despite the other credibility problems cited by the RPD, it was supposed to analyze it independently.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD failed to independently analyze the peace tribunal document despite credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant submits the RPD breached procedural fairness by not addressing counsel's arguments and submissions.",
+     "quote": "He finally submits that the RPD breached the principles of procedural fairness by not addressing and not reviewing the arguments and submissions presented to it by his counsel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges the RPD breached procedural fairness by ignoring counsel's submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "conclusion_or_order",
+     "text": "The appellant requests the RPD decision be set aside, refugee status granted, or referral for re-determination by a different member.",
+     "quote": "In short, the appellant requests that the RPD's determination be set aside and that he be granted refugee status or that the matter be referred to the RPD for re-determination by a different member.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant requests setting aside the RPD decision, granting refugee status, or referral for re-determination.",
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant requests a hearing before the RAD due to RPD errors including improper evidence assessment.",
+     "quote": "In his written statement, the appellant asks for a hearing to be held before the RAD because of the RPD's errors, including its improper assessment of the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant requests a RAD hearing due to alleged RPD errors including evidence assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The RAD must determine if subsection 110(6) IRPA criteria are met, including admissibility of evidence on appeal.",
+     "quote": "According to the case law, the onus is on the RAD to determine whether or not the criteria set out in subsection 110(6) of the IRPA have been met.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant did not present any evidence on appeal, so the request for a hearing is denied due to no new evidence to analyze.",
+     "quote": "One of the determining factors is that evidence submitted as part of the appeal be found admissible. However, the appellant did not present any evidence. Therefore, because there is no new evidence to analyze as part of the appeal before the RAD, the request is denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD must assess appeal evidence admissibility; appellant presented none, so hearing request is denied.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant submits the RAD must review all RPD decision aspects and need not show same deference as Federal Court.",
+     "quote": "In his memorandum, the appellant submits that the RAD must review all aspects of the RPD's decision, and that the RAD does not have to show the same deference to the RPD that that Federal Court shows to it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RAD must review all RPD decision aspects without Federal Court-level deference.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews RPD decisions applying correctness standard, except for credibility assessments where reasonableness applies.",
+     "quote": "The RAD's role is to review RPD decisions by applying the correctness standard of review after conducting its own analysis of the record. The exception to that rule is, where the RPD enjoys a meaningful advantage in assessing the credibility or weight to be given to the oral evidence it hears, the RAD must then apply the reasonableness standard modified to its particular context.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD does not conduct a de novo refugee claim but determines if the RPD erred as submitted by appellants.",
+     "quote": "That said, the RAD's role is not to carry out a de novo consideration of the refugee claim, but rather, to determine whether, as submitted by the appellants, the RPD erred.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD applies correctness standard except for credibility, and does not reconsider refugee claims de novo.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The correctness standard applies here as the RPD had no meaningful advantage assessing appellant's demeanor.",
+     "quote": "Having conducted my own analysis of the record, I am of the opinion that the standard of correctness must be applied, with the understanding that deciding this case involves many elements with respect to which the RPD did not enjoy any \"meaningful advantage\" in terms of a first-hand observation of the appellant's demeanor.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applying correctness standard, the correct decision was to reject the refugee claim.",
+     "quote": "Having applied that standard of review, I am of the opinion that the correct decision was to reject the refugee protection claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies correctness standard and finds rejecting the refugee claim was correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Claimant must prove facts on balance of probabilities; RPD and RAD may rely on implausibilities, inconsistencies, omissions.",
+     "quote": "It is up to the person who is claiming refugee protection to establish, on a balance of probabilities, the facts on which they based their claim. The RPD and the RAD are entitled to make reasonable findings based on implausibilities, inconsistencies and omissions.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Findings on implausibility must be in clearest cases; lack of credibility can extend to all evidence; common sense applies.",
+     "quote": "Findings based on implausibility of evidence should be only made in the clearest of cases. A general finding of a lack of credibility based on these inconsistencies can extend to all relevant evidence provided by a refugee protection claimant. It is the entirety of the evidence that must be assessed, and members of the RPD or of the RAD may apply common sense and human experience.",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimants must prove facts; RPD and RAD may find implausibilities and apply common sense in credibility assessments.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD found omissions in BOC Form and explanations unreasonable; the appellant's argument that omissions are not fatal is rejected.",
+     "quote": "In its reasons for decision, the RPD identifies a number of omissions in the appellant's BOC Form. It took into account the explanations given in that regard, but found those explanations unreasonable. In this appeal, the appellant submits essentially that the RPD erred by not excusing him for those omissions and by considering them fatal. After carefully reviewing the RPD's decision and the appellant's arguments, I conclude that his explanations are unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's explanations for omissions unreasonable and rejects his argument that omissions are not fatal.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's explanation for omitting a kidnapping and beating incident as too long is unreasonable.",
+     "quote": "His explanation for omitting that incident in the BOC Form was that it was too long and that he instead summarized. Based on my own analysis, that explanation is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's explanation for omitting a kidnapping incident unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's explanation for omitting an assault and rape incident as too long is unreasonable.",
+     "quote": "His explanation for omitting that incident in his BOC Form is that he did not want his story to be too long. Based on my own analysis, that explanation is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's explanation for omitting assault and rape incident unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD analyzed the peace tribunal document but found it insufficient due to claimant's overall lack of credibility.",
+     "quote": "In its reasons for decision, the RPD indicates that it analyzed it, but that it decided that, because of the refugee protection claimant's overall lack of credibility, that document alone was not sufficient to make his allegations credible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court finds the peace tribunal document credible but the appellant failed to establish fear of persecution in 2017.",
+     "quote": "Personally, even though I find the content of that document credible, namely, that the appellant and his brother were kidnapped in 2002 and that the latter was murdered, which is clearly tragic, I am of the opinion that, at the time of the hearing before the RPD, the fear of being persecuted if he had to return and live in his country in 2017 was not established.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant failed to demonstrate he was still sought for political reasons in 2017.",
+     "quote": "In fact, the appellant was unable to demonstrate that, at that time, he was being sought by individuals who, in the past, wanted him for political reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the peace tribunal document insufficient; the court finds it credible but appellant failed to prove 2017 persecution fear.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable to expect the appellant to present documents corroborating ongoing persecution in 2017 or 2018, but he did not.",
+     "quote": "Because the appellant spent a number of years in the United States of America, I am of the opinion that it was reasonable to expect him to present before the RPD or before the RAD a document corroborating his allegations that, in 2017 or in 2018, he was still being sought by those individuals. But he did not do so.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Failure to file reasonably expected supporting documents may impact claimant's credibility.",
+     "quote": "Failure to file supporting documents that it is reasonable to expect may have an impact on the refugee protection claimant's credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Rule 11 of the Refugee Protection Division Rules requires claimants to provide supporting documents and elements.",
+     "quote": "When reading rule 11 of the Refugee Protection Division Rules, it is clear that the refugee protection claimant must provide documents and other elements supporting the refugee protection claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant failed to provide expected corroborating documents, impacting credibility per rules.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's failure to explicitly refer to claimant's counsel arguments is not an error or procedural fairness breach",
+     "quote": "the fact that the RPD did not explicitly refer to the arguments and submissions of the claimant's counsel in its decision does not constitute, in my opinion, an error or a breach of the principles of procedural fairness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that the RPD's omission to explicitly mention claimant's counsel arguments is not an error or breach of procedural fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness requires natural justice be met considering case circumstances",
+     "quote": "Where procedural fairness is at issue, the proper approach is to ask whether the requirements of natural justice have been met considering the particular circumstances of the case",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness in RPD claims means claimant understands proceedings, can tender evidence, and persuade RPD",
+     "quote": "procedural fairness means ensuring that the person claiming refugee protection understands the proceedings, has a reasonable opportunity to tender evidence in support of their claim, and is given a chance to persuade the RPD that their claim is well-founded",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD took into account all evidence, appellant understood proceedings, had opportunity to tender evidence and persuade RPD",
+     "quote": "the RPD took into account all the evidence. Furthermore, the appellant understood the proceedings, had the opportunity to tender evidence in support of his claim and had the chance to persuade the RPD that his claim is well-founded",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RPD complied with principles of procedural fairness",
+     "quote": "Consequently, the RPD complied with the principles of procedural fairness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains procedural fairness requirements and finds the RPD complied with them in this case.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Confirms RPD's determination that appellant is not a Convention refugee or person in need of protection",
+     "quote": "I confirm the RPD's determination, namely, that XXXX XXXX is not a Convention refugee under section 96 or a person in need of protection under section 97 of the IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the RPD's decision that the appellant is not a Convention refugee or person in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismisses the appeal",
+     "quote": "The appeal is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

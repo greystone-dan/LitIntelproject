@@ -1,0 +1,405 @@
+{
+ "case_id": 69054,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.00847,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Granting the appeal and substituting a decision that the Appellants are persons in need of protection.",
+     "quote": "These are my reasons for granting the appeal of XXXX XXXX XXXX (\"Principal Appellant\"), his spouse XXXX XXXX XXXX XXXX (\"Associate Appellant\"), and their children XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXXand XXXX XXXX XXXX XXXX XXXX I am substituting a decision that the Appellants are persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the appeal and substitutes a decision that the Appellants are persons in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellants are Mexican citizens claiming risk to life from Los Zetas cartel targeting their farm near Torreon, Coahuila.",
+     "quote": "The Appellants are citizens of Mexico. They claim a risk to life at the hands of the Los Zetas cartel, which targeted them on their farm in XXXX XXXX, near Torreon, in the state of Coahuila.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Los Zetas began extorting money in 2015, threats escalated in 2016 after non-payment, leading to violent altercation.",
+     "quote": "According to the Appellants, Los Zetas began extorting money from them in XXXX 2015. The cartel's threats escalated in XXXX 2016, when the Appellants were unable to pay the amount requested. A violent altercation ensued.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellants relocated to Monterrey then Mexico City, received threats in both places, and fear death if returned to Mexico.",
+     "quote": "The Appellants relocated to Monterrey and then to Mexico City; they received threatening communications in both locations. They believe they will be killed if they return to Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants say Los Zetas extorted and threatened them, forcing relocation and fearing death if returned to Mexico.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Appellants credible but concluded they had a viable internal flight alternative in Merida.",
+     "quote": "The RPD found the Appellants generally credible, but concluded they had a viable internal flight alternative (\"IFA\") in the city of Merida.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants challenge the RPD's IFA finding on appeal.",
+     "quote": "The Appellants challenge the panel's IFA finding on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Appellants credible but viable IFA in Merida; Appellants challenge this finding on appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Generally, RPD decisions reviewed on correctness standard, except for credibility assessments which may attract deference.",
+     "quote": "Generally, I must review a decision of the RPD on a standard of correctness. The exception to this rule is where the RPD enjoys a meaningful advantage in assessing the credibility of oral testimony, which may attract deference in particular cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "In this case, RPD had no advantage in assessing credibility, so correctness standard applies.",
+     "quote": "In this case, however, the RPD had no advantage. I have therefore considered whether its decision was correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is correctness here as RPD had no advantage assessing credibility.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellants submitted no new evidence or requested oral hearing on appeal.",
+     "quote": "The Appellants have not submitted any new evidence in support of their appeal, nor have they requested an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants did not submit new evidence or request an oral hearing on appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Determinative issues are credibility, lack of state protection, and lack of viable IFA in Mexico.",
+     "quote": "The determinative issues on appeal are the credibility of the Appellants' allegations, as well as a lack of state protection and viable IFA for them in Mexico.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Agrees with Appellants that RPD erred and finds they face risk to life under s. 97 IRPA.",
+     "quote": "For the following reasons, I agree with the Appellants that the RPD erred in its determination and find that they face a risk to life under s. 97 of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies key issues and finds RPD erred, concluding Appellants face risk to life under IRPA.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Appellant and family farmed near Torreon, growing various crops; Los Zetas first approached in 2015 demanding monthly payments.",
+     "quote": "As summarized by the RPD, the Principal Appellant and his family are farmers who worked on their farm near Torreon, Coahuila, where they cultivated melons, watermelons, chilies, and tomatoes. In XXXX 2015, the Principal Appellant was first approached by Los Zetas on his farm. The cartel demanded that he pay them XXXX XXXX XXXX pesos per month.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Appellant complied but could not pay in 2016 due to crop damage.",
+     "quote": "The Principal Appellant complied with this demand but was unable to make his payment in XXXX 2016 because his crops were damaged.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD summarized that the Principal Appellant farmed near Torreon and was extorted by Los Zetas starting 2015, with payment failure in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2016, cartel representatives returned angry over partial payment; violent altercation occurred involving gun and spade.",
+     "quote": "In XXXX 2016, a man named XXXX XXXX, who represented the cartel, returned to the farm along with a younger man. The Principal Appellant explained that he would only be able to pay about half of the amount the cartel had demanded and XXXX XXXX became angry. XXXX XXXX told the Principal Appellant that he could not \"play around\" with them and demanded the remainder of the money. XXXX XXXX ran into the Appellants' home and grabbed the Associate Appellant. A friend of the family's, XXXX, was also on the property at the time and intervened to help the Associate Appellant. As XXXX XXXX and XXXX were struggling, the Principal Appellant noticed that XXXX XXXX was pulling out his gun, so he hit him over the head with a spade. XXXX XXXX fell to the ground and started bleeding. XXXX picked up the gun and XXXX XXXX and the younger man left the property. Before they left, they told the Principal Appellant that they would return and kill him and his family.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found that in 2016 cartel representatives violently confronted the family over unpaid extortion, threatening to kill them.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellants relocated to Monterrey, stayed with aunt, lived openly; Principal Appellant traveled to Canada in 2017; RPD found insufficient risk evidence then.",
+     "quote": "Following this incident, the Appellants relocated to Monterrey, where they stayed with an aunt. While the Principal Appellant testified that they were in hiding, he continued to work at the market and the children attended school. In XXXX 2017, the Principal Appellant travelled to Canada, where he has a sister, and his family remained in Monterrey without issue. The RPD found the Principal Appellant could not adequately explain his decision to travel to Canada, apart from noting he hoped things would calm down; it found insufficient evidence to establish he was at risk at this time.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found Appellants lived openly in Monterrey and Principal Appellant's 2017 Canada trip lacked sufficient risk evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2018, cartel demanded half the Principal Appellant's land via text, indicating knowledge of his Monterrey location; family relocated to Mexico City.",
+     "quote": "The Principal Appellant returned to Monterrey in XXXX 2017. He testified that in XXXX 2018, he received a text message from the cartel, which indicated that he had to provide them with half of his land so that they could plant crops on it. In this text message, the cartel indicated that they knew that he was in Monterrey and that if they wanted to, they could have killed him already. At this point, the Appellants decided to relocate to Mexico City.",
+     "answers": 0
+    }
+   ],
+   "summary": "In 2018, cartel demanded land and showed knowledge of Monterrey location, prompting relocation to Mexico City.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellants filed police complaint in Mexico City; police took report but did not investigate seriously.",
+     "quote": "After relocating to Mexico City, where they stayed with a friend, the Principal Appellant decided to file a complaint with the police. While they took a report, which included details about the extortion demands and the role that XXXX played in the events of XXXX 2016, the Principal Appellant testified that they did not take his complaint seriously and did not actually pursue an investigation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants filed police complaint in Mexico City, but police did not seriously investigate.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In late 2018, cartel called Principal Appellant threatening death; he left for Canada; family remained in hiding then joined him in Canada.",
+     "quote": "The Principal Appellant received a call from the cartel at the end of XXXX 2018, indicating they knew he was in the Federal District, they knew XXXX had helped attack XXXX XXXX in XXXX 2016, and that they were going to kill him. In XXXX 2018, the Principal Appellant left for Canada to avoid being killed. He testified that he continued to run errands until his departure, but that his family remained in hiding after he left; the children were not attending school, and the Appellants' friend was picking up supplies for them. In XXXX 2018, the family travelled to Canada to join the Principal Appellant. They were not approached by the cartel while they remained in hiding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Cartel threatened death in late 2018; Principal Appellant fled to Canada; family hid then joined him without cartel contact.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellants learned in 2019 that XXXX died, believed killed by Los Zetas; panel accepted death but found insufficient evidence of cartel involvement.",
+     "quote": "In XXXX 2019, the Appellants learned that XXXX had died after XXXX XXXX XXXX XXXX XXXX XXXX. The Appellants believe Los Zetas killed him. While the panel accepted his death, which was supported by a news article, it found there was insufficient evidence to establish it was caused by the cartel.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants believe Los Zetas killed XXXX in 2019; panel accepted death but not cartel causation evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD accepted cartel members continued seeking Appellants at their farm, supported by letters from friends.",
+     "quote": "The RPD accepted that members of the cartel have continued to seek the Appellants at their farm in XXXX, as supported by several letters from friends in the area.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD accepted cartel continued seeking Appellants at their farm, supported by friends' letters.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellants sought state protection in Mexico City; police took report but no action; threats continued.",
+     "quote": "The Appellants sought state protection in Mexico City; while a report was taken by police, no further action ensued, and the Appellants continued to face threats.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Country documentation shows Mexico's law enforcement is ineffective, corrupt, linked to criminal organizations, and violates human rights.",
+     "quote": "Their experience is in line with the country documentation, which indicates Mexico's law enforcement agencies are ineffective, hampered by corruption, operate in league with criminal organizations, and engage in human rights violations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants rebutted presumption of state protection with clear and convincing evidence.",
+     "quote": "In light of this, I find the Appellants have rebutted the presumption of state protection with clear and convincing evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants' failed police protection and country conditions rebut presumption of state protection, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "IFA test first prong requires showing serious possibility of persecution or risk to life, torture, or cruel treatment in proposed location.",
+     "quote": "On the first prong of the test for IFA, the Appellants must establish that they face a serious possibility of persecution or that they would, on a balance of probabilities, personally face a risk to life, torture, or cruel and unusual treatment or punishment in the proposed location.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first prong of the IFA test requires showing serious risk of persecution or harm in the proposed location.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD accepted cartel could track Appellants but found no motivation to do so beyond farm; threatening messages insufficient to show motivation elsewhere.",
+     "quote": "The RPD accepted that Los Zetas had the ability to track the Appellants throughout Mexico; however, it found they were not motivated to do so. While it accepted that the cartel was motivated to seek the Appellants at their farm, it did not find the threatening messages received in Monterrey and Mexico City sufficient to establish their motivation in other locations.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted Appellants lived safely in Monterrey and Mexico City, with no evidence cartel tried to track them down.",
+     "quote": "The panel noted that in spite of receiving threatening messages, the Appellants were able to live safely in these locations and found no evidence to suggest Los Zetas had made any attempt to actually track them down. In Monterrey, the family lived openly, with the children attending school and the Principal Appellant working. While the Associate Appellant and her children remained in hiding after the Principal Appellant left Mexico City, they remained at the same location.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found cartel motivated only at farm, threatening messages insufficient to show motivation elsewhere; Appellants lived safely in Monterrey and Mexico City.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Disagrees with RPD that cartel would have physically tracked Appellants if interested; text and call show ongoing motivation to harm.",
+     "quote": "I do not agree with the RPD that Los Zetas would necessarily have physically tracked down the Appellants if they were still interested in harming them. The text message received in Monterrey indicated the cartel knew their location; the family then left the city. The follow-up call received by the Principal Appellant in XXXX 2018 after the family relocated to Mexico City demonstrates an ongoing motivation to harm the Appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disagrees with RPD, finds cartel's messages and calls show ongoing motivation to harm Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Unclear if cartel pinpointed family's location in Mexico City; family remained in hiding, possibly safe due to unknown location.",
+     "quote": "While the Appellants did not immediately leave following the call-the Principal Appellant travelled to Canada on XXXX XXXX while his family joined him in XXXX-the caller simply indicated that they knew they were in the Federal District. It is not clear if the family's location had been pinpointed by the cartel at this time. As the family remained in hiding after the Principal Appellant's departure, it is possible they were safe because the cartel did not know where they were staying.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds unclear if cartel knew family's exact location in Mexico City; hiding may have kept them safe.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On balance of probabilities, cartel remains motivated to find and harm Appellants given repeated threats in different locations.",
+     "quote": "On a balance of probabilities, given the repeated threats in different locations, I find that Los Zetas remains motivated to find and harm the Appellants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No need to consider second prong of IFA test as motivation to harm is established.",
+     "quote": "For this reason, it is not necessary for me to consider the second prong of the test for IFA, whether it would be reasonable in the Appellants' particular circumstances to relocate.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds cartel remains motivated to harm Appellants and declines to consider second IFA prong.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed and the Appellants are persons in need of protection.",
+     "quote": "The appeal is allowed. I substitute my own decision that the Appellants are persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and substitutes its own decision that the Appellants need protection.",
+   "role": "disposition"
+  }
+ ]
+}

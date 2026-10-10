@@ -1,0 +1,244 @@
+{
+ "case_id": 5309,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.004212,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The respondent's preliminary motion to strike the ALJR is based on the claim that the proceedings are time-barred.",
+     "quote": "The order in this case deals with the respondent’s preliminary motion to strike the application for leave and judicial review [ALJR] filed by the applicants on October 14, 2021, on the ground that the proceedings are time-barred.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the respondent's motion to strike the ALJR as time-barred.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The facts underlying the motion are very simple.",
+     "quote": "The facts underlying the motion are very simple.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the facts underlying the motion are simple.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On September 7, 2021, the applicants' appeal to the RAD was dismissed and the Refugee Protection Division's decision confirmed.",
+     "quote": "On September 7, 2021, the applicants’ appeal to the Refugee Appeal Division [RAD] regarding their refugee protection claim was dismissed and the decision of the Refugee Protection Division confirmed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker dismissed the applicants' RAD appeal and confirmed the Refugee Protection Division's decision on September 7, 2021.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On the same day, the Board mailed the RAD decision and reasons to the applicants and sent them to their counsel via My Account portal.",
+     "quote": "On the same day, the Immigration and Refugee Board of Canada [Board] mailed the RAD’s decision and reasons to the applicants, and sent them to their counsel through the Board’s My Account portal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker states the Board mailed the RAD decision and reasons to applicants and counsel on the same day.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicants filed their ALJR on October 14, 2021, stating they became aware of the decision that day, 37 days after it was sent.",
+     "quote": "On October 14, 2021, the applicants filed their ALJR against the RAD’s negative decision. In it, they state that they [translation] “became aware of the decision on October 14, 2021”, 37 days after it was sent to them by the Board.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicants say they filed ALJR on October 14, 2021, stating they became aware of the decision that day, 37 days after mailing.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Allegations in the Notice of Application must be taken as true for a motion to strike, but affidavit shows no delay in sending the decision.",
+     "quote": "As this is a motion to strike, the allegations in the Notice of Application must be taken as true. However, according to the undisputed affidavit supporting the motion, there was no delay in sending the decision and reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must accept allegations as true but affidavit shows no delay in sending the decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Limitation period issues should normally be considered at the hearing, not by preliminary motions to dismiss.",
+     "quote": "As a general rule, while the issue of limitation periods may seem straightforward to analyze a priori, a motion to dismiss should not prematurely end a case. This issue should normally be considered at the hearing of the application for review itself.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Justice Pentney stated judicial review applications focus on merits, not procedural preliminary motions.",
+     "quote": "As Justice William Pentney stated in Krah v Canada (Citizenship and Immigration), 2019 FC 361 at paragraph 13: [13] Applications for leave and judicial review in immigration and refugee matters, like all other applications for judicial review in this Court, are meant to be summary and expeditious proceedings. The focus is on hearing the matter on the merits without delay rather than contesting procedural questions through preliminary motions and hearings, which normally, and preferably, could all be dealt with at the merits hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states limitation issues should be heard at review hearing; cites Justice Pentney on focusing on merits over procedural motions.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court of Appeal discourages interlocutory motions in judicial review applications, favoring summary decisions.",
+     "quote": "Moreover, in Canada (Health) v Canadian Generic Pharmaceutical Association, 2007 FCA 375 at paragraph 7, the Federal Court of Appeal cited with approval the trial judge’s opinion that “[a]n application for judicial review is supposed to be decided in a summary way”, and that “[t]he Court discourages interlocutory motions in applications for judicial review”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites FCA discouraging interlocutory motions in judicial review, favoring summary decisions.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "In exceptional cases, the Court can summarily dismiss an application clearly without any possibility of success.",
+     "quote": "However, in David Bull Laboratories (Canada) Inc v Pharmacia Inc, 1994 CanLII 3529 (FCA), [1995] 1 FC 588, the Federal Court of Appeal recognized that in very exceptional cases, where an application for judicial review “is so clearly improper as to be bereft of any possibility of success”, there is jurisdiction in the Court “either inherent or through Rule 5 by analogy to other rules, to dismiss in summary manner” such an application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites FCA allowing summary dismissal in exceptional cases lacking any possibility of success.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The reasoning allowing summary dismissal applies to ALJR under section 72 of IRPA.",
+     "quote": "In my opinion, the same reasoning applies to an ALJR made pursuant to section 72 of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies summary dismissal reasoning to ALJR under section 72 IRPA.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court concludes without doubt that the application is statute-barred.",
+     "quote": "In this case, I am of the opinion that the present situation is plain and obvious, allowing me to conclude without a shadow of a doubt that the application is statute-barred.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the application is clearly statute-barred.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants must submit ALJR within 15 days of notification or awareness under IRPA paragraphs 72(2)(b) and (d).",
+     "quote": "Applicants must submit their ALJR within 15 days of the date on which they were notified or became aware of the decision they wish to challenge (paragraphs 72(2)(b) and (d) of the IRPA).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants did not dispute submitting ALJR 37 days after the Board mailed the RAD decision.",
+     "quote": "The applicants did not dispute that they submitted their ALJR 37 days after the Board mailed the RAD’s decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the 15-day ALJR deadline and that applicants did not dispute filing 37 days late.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants did not seek an extension of time or establish special reasons for delay.",
+     "quote": "I note that the applicants are not seeking an extension of time in their ALJR, as was open to them under paragraph 72(2)(c). Further, they have not sought to establish special reasons for their delay in their response to this motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes applicants did not seek extension or special reasons for delay.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given the uncontested motion and exceptional nature, the ALJR is dismissed.",
+     "quote": "In light of the foregoing, and especially given that the motion is not contested by the applicants, I consider this case to be exceptional in nature, thus justifying the dismissal of the ALJR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court orders dismissal of the applicants' ALJR.",
+     "quote": "The applicants’ application for leave and judicial review is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the ALJR as uncontested and exceptional, ordering dismissal.",
+   "role": "disposition"
+  }
+ ]
+}

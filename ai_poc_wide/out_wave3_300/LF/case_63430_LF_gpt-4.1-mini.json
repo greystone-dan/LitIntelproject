@@ -1,0 +1,776 @@
+{
+ "case_id": 63430,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0150308,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is a Haitian citizen fearing bandits who tried to kill him.",
+     "quote": "The Appellant XXXX XXXX XXXX is a citizen of Haiti who fears bandits who tried to kill him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant is a Haitian citizen fearing bandits who tried to kill him.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant did not credibly establish his claim or personal risk under subsection 97(1) IRPA.",
+     "quote": "The Refugee Protection Division (RPD) found that the Appellant did not credibly establish his claim and did not establish, on a balance of probabilities, that he would be subjected personally to a prospective risk of harm not faced generally in Haiti pursuant to subsection 97(1) of the Immigration and Refugee Protection Act (IRPA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant did not credibly establish his claim or personal risk under subsection 97(1) IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred in analyzing credibility and risk.",
+     "quote": "The Appellant argues that the RPD erred in its analysis of both credibility and risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred in analyzing credibility and risk.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court finds the RPD did not err; the Appellant was not credible and did not establish prospective risk of harm.",
+     "quote": "Following my own review, I find that the RPD did not err. The Appellant was not credible and did not establish that he faces a prospective risk of harm in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err; the Appellant was not credible and did not establish prospective risk of harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed; the RPD was correct the Appellant is neither a Convention refugee nor in need of protection.",
+     "quote": "I dismiss the appeal. The RPD was correct in finding that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, agreeing the Appellant is neither a Convention refugee nor in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Two armed bandits shot at the Appellant and his employee on June 17, 2017 in Port-au-Prince; bandits fled upon police sirens.",
+     "quote": "According to his Basis of Claim form (BOC)1 two armed bandits on motorcycles shot at the Appellant and his employee on June 17, 2017 in Port-au-Prince while he was in his car on an errand to buy car parts. Upon hearing police sirens, the bandits fled and one of them yelled \"on te retrouvera quand même\", we will find you anyway [trans].",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant states two armed bandits shot at him and his employee on June 17, 2017, fleeing when police sirens sounded.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant was a partner in a successful business; many merchants were killed and robbed in Haiti; he carried hundreds of dollars.",
+     "quote": "The Appellant was a partner in a successful XXXX XXXX XXXX business and many merchants and businessmen were killed and robbed in Haiti. The Appellant always carried hundreds of dollars to XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant was a business partner; many merchants were killed and robbed; he carried hundreds of dollars.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant lodged a police complaint the day of the attack but police did not investigate or apprehend bandits.",
+     "quote": "The Appellant lodged a complaint with the police on the same day as he was attacked but the police did not carry out an investigation and did not apprehend the bandits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant lodged a police complaint the day of the attack but police did not investigate or apprehend bandits.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant went into hiding, obtained a Canadian visa, left Haiti, and filed refugee claim on October 26, 2017.",
+     "quote": "The Appellant did not return to his home or business and went into hiding. He obtained a visa for Canada and left Haiti on XXXX XXXX, 2017. The Appellant's refugee claim was received on October 26, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant hid, left Haiti for Canada, and filed refugee claim on October 26, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews RPD decisions on correctness standard, with deference when RPD has advantage assessing oral testimony.",
+     "quote": "The Refugee Appeal Division (RAD) reviews decisions of the RPD on a standard of correctness after conducting an independent assessment of the evidence before it. The exception to this rule is where the RPD enjoys a meaningful advantage in assessing and weighing the oral testimony heard, which in particular cases attracts deference.2 Unless specifically stated below, I have applied the correctness standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reviews RPD decisions on correctness standard, deferring when RPD has advantage assessing oral testimony.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD identified credibility and risk of harm under subsection 97(1) IRPA as determinative issues.",
+     "quote": "The RPD identified the determinative issues as credibility and risk of harm pursuant to subsection 97(1) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD identified credibility and risk of harm under subsection 97(1) IRPA as determinative issues.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found significant credibility problems: contradictory testimony about June 17 events, police report, claim delay, and vague answers about business.",
+     "quote": "The RPD identified significant problems with the Appellant's credibility during his testimony: disjointed and contradictory testimony about the events of June 17, 2017; the police report did not state that his friend XXXX was with him; contradictory testimony about his delay in claiming refugee protection; and, vague and circuitous answers to the RPD's questions about his business and his business partner.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found significant credibility problems including contradictory testimony and vague answers about business.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected risk from 2019 extortion and found bandit risk not different from general Haitian population.",
+     "quote": "The RPD did not find that the Appellant's problems with extortion based on compromising videos in 2019 in Canada exposed him to a risk in Haiti. Taking into account the credibility issues the RPD rejected the Appellant's allegations that bandits tried to kill him because he runs a XXXX. The RPD found that the fact that the Appellant is a good XXXX who runs a XXXX is not sufficient to establish that the risk he faces is any different from the general population in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected risk from 2019 extortion and found bandit risk not different from general Haitian population.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant does not contest 2019 extortion finding but argues RPD erred on other findings and made decision on non-determinative issues with incoherent reasons.",
+     "quote": "The Appellant does not make any submissions about the RPD's finding about the extortion the he faced in 2019 but argues that it erred in its other findings. Under the heading \"les motifs de contestation\" grounds for challenge [trans], the Appellant also submits that the RPD made its decision on non-determinative issues, its reasons were incoherent and unintelligible and its determination on the absence of risk was unclear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant does not contest 2019 extortion finding but argues RPD erred on other findings and made decision on non-determinative issues with incoherent reasons.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees with RPD that Appellant was not credible and did not establish prospective risk of harm in Haiti.",
+     "quote": "Following my review of the record, the testimony and arguments of the Appellant, for the reasons detailed below, I agree with the RPD that the Appellant was not credible and that he did not establish, on a balance of probabilities, that he faces a prospective risk to his life or to cruel and unusual punishment in Haiti. Les motifs de contestation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that Appellant was not credible and did not establish prospective risk of harm in Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues RPD based decision on irrelevant, non-determinative elements and drew negative inferences improperly.",
+     "quote": "The Appellant argues that in arriving at its conclusion that the RPD: - \"a fondé sa décision sur des éléments non pertinents et non déterminants pour l'issue des droits revendiqués par la partie appelante\",3 based its decision on irrelevant and non-determinative elements; - \"tiré des inférences négatives sur des éléments non déterminants et encore moins pertinents à la demande de la partie appelante\",4 drew negative inferences on non-determinative elements and even less relevant to his claim; - \"s'est appesanti sur des faits non déterminants pour établir quels sont les \" éléments pertinents \" de cette affaire et quelle est la valeur probante à leur accorder à chacun\",5 dwelled on non-determinative facts to establish the relevant elements of the claim and the probative value to give to each; - \"n'a pas clairement établi de quelle façon elle conclut à l'absence de risque de persécution de l'appelant par rapport à sa crainte d'être tué advenant un retour en Haïti\",6 did not clearly establish how it concludes that there is no risk of persecution of the appellant in relation to his fear of being killed if he returned to Haiti; and - \"cette décision manque de cohérence et d'intelligibilité\",7 decision lacks coherence and intelligibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD based decision on irrelevant, non-determinative elements and drew negative inferences improperly.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant's arguments are bald statements without examples or references to RPD decision.",
+     "quote": "All these arguments are presented as bald statements without examples or references to the RPD decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's arguments lack examples or references to the RPD decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's credibility findings relate to June 17 events, claim delay, and business details, core to the claim.",
+     "quote": "As detailed below the RPD's first credibility finding relates to the events of June 17, 2017 which are the very foundation of the Appellant's claim. The RPD's second credibility finding relates to his delay in making a refugee claim after arriving in Canada. The Federal Court is clear that while delay in making a claim is not necessarily determinative of the credibility of a claim it is a relevant factor which may be taken into account. The RPD's last credibility finding about the Appellant's business and his partner also goes to the core of his claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD's credibility findings relate to June 17 events, claim delay, and business details, core to the claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant does not distinguish between section 96 and subsection 97(1) analyses regarding risk of persecution.",
+     "quote": "The Appellant does not appear to make a distinction between the analysis of a claim under section 96 and subsection 97(1) when he argues that the RPD did not clearly establish how it concludes that there is no risk of persecution in relation to his fear of being killed if he returned to Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant does not distinguish between section 96 and subsection 97(1) analyses regarding risk of persecution.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 97(1) requires an objective risk assessment without subjective evaluation; past persecution is relevant but not determinative.",
+     "quote": "The Federal Court of Appeal has clearly said that subsection 97(1) does not have a subjective component: 8 As such a determination of whether a claimant is in need of protection requires an objective assessment of risk, rather than a subjective evaluation of the claimant's concerns. Evidence of past persecution may be a relevant factor in assessing whether or not a claimant would be at risk of harm if returned to his or her country, but it is not determinative of the matter. Subsection 97(1) is an objective test to be administered in the context of a present or prospective risk for the claimant. (emphasis in the original)",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal states subsection 97(1) requires objective risk assessment without subjective evaluation; past persecution is relevant but not determinative.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 97 protection differs from section 96 as it does not require risk based on enumerated grounds.",
+     "quote": "Unlike section 96 of the Act, section 97 is meant to afford protection to an individual whose claim \"is not predicated on the individual demonstrating that he or she is [at risk] ... for any of the enumerated grounds of section 96\" (Li v. Canada (Minister of Citizenship and Immigration), 2005 FCA 1, [2005] 3 F.C.R. 239 at paragraph 33).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Subsection 97(1) requires individualized inquiry based on claimant's evidence about present or prospective risk.",
+     "quote": "The examination of a claim under subsection 97(1) of the Act necessitates an individualized inquiry, which is to be conducted on the basis of the evidence adduced by a claimant \"in the context of a present or prospective risk\" for him (Sanchez v. Canada (Minister of Citizenship and Immigration), 2007 FCA 99 at paragraph 15) (emphasis in the original).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains that section 97 claims require individualized risk inquiry unlike section 96 claims, citing Federal Court of Appeal cases.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD clearly concluded the Appellant faces no personalized prospective risk beyond general Haitian population.",
+     "quote": "I find that the RPD stated very clearly why it concluded that the Appellant does not face a personalized prospective risk of harm any different from the risks faced by the general population in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD clearly explained why the Appellant does not face a personalized prospective risk beyond general population risks in Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD decision was coherent and intelligible.",
+     "quote": "I do not find that the RPD decision lacked coherence or intelligibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD decision coherent and intelligible.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD identified significant credibility problems with the Appellant regarding June 17, 2017 events, police report, delay, and business testimony.",
+     "quote": "The RPD identified significant problems with the Appellant's credibility in relation to the events of June 17, 2017 and the police report; his delay in claiming refugee protection; and his testimony about his business and his business partner.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD was expeditive in analyzing the evidence.",
+     "quote": "The Appellant argues that the RPD was \"expeditive\" in its analysis of the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found credibility issues with the Appellant on key matters; the Appellant argues the RPD was expeditive in its analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The Appellant's evidence about June 17, 2017 attack is in his BOC, testimony, and police complaint.",
+     "quote": "The Appellant's evidence about the events of June 17, 2017 is found in his BOC, his testimony and the police complaint: BOC10 Testimony 11 Police complaint12",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Appellant describes being attacked by two armed men on a motorcycle while going to buy car parts.",
+     "quote": "J'ai été attaqué par deux hommes armés de pistolets qui étaient en moto. Il y avait deux personnes sur une motocyclette qui m'avaient attaqué. Je suis sorti pour acheter des pièces juste pour réparer une voiture puis je suis mécanicien, deux individus lourdement armes à bord d'une motocyclette m'ont attaqué.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Appellant says bandits fired at him twice but guns jammed; he escaped and police arrived.",
+     "quote": "L'un des bandits à moto a crié ?tire-le? et à tour de rôle, ils one fait feu sur moi et par deux fois leurs armes se sont enrayées, en faisant marche arrière pour me protéger, j'ai entendu plusieurs coups de feu, je suis sortie de l'auto et j'ai couru pour me cacher et l'autre mécanicien a fait de même.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Bandits threatened to find him again and fled when police sirens arrived.",
+     "quote": "Les deux hommes ont pris la fuite sur leur moto et l'un deux a crié ?on te retrouvera quand même.? Et là, j'ai entendu la sirène des voitures de police, il y avait eu un cortège qui passait.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant's evidence about the June 17, 2017 attack is in his BOC, testimony, and police complaint describing an armed attack and escape.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD questioned inconsistencies about Appellant's location, timing of shooting, awareness, and omission of passenger in police complaint.",
+     "quote": "The RPD questioned the Appellant about several inconsistencies in his evidence: whether the Appellant was still in the car when the bandits shot at him, whether the shooting occurred before or after the bandits heard the police sirens, how the Appellant knew he was being shot at and why he did not reference the person who was in the car with him in his police complaint.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD questioned inconsistencies in the Appellant's evidence about the attack and police complaint omissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant testified bandits tried to shoot but guns failed; shots fired after police sirens heard.",
+     "quote": "The Appellant testified that the bandits tried to shoot him, but their weapons did not work, and they shot at him after they heard the police sirens.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant said he heard noise and identified bandits as shooters.",
+     "quote": "The Appellant replied \"J'ai entendu le bruit et c'est eux autres qui étaient armés. Pour moi, c'est eux autres qui ont tiré.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified bandits' guns failed initially and shots were fired after police sirens; he identified bandits as shooters.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant said bandits fired but guns jammed; he heard bullets afterwards and knew shots were aimed at him.",
+     "quote": "The Appellant responded \"ils ont tiré, mais ça n'a pas marché ; mais après j'ai entendu des balles\"; \"c'est moi qu'on recherchait\".",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant explained police complaint omitted passenger because only he made complaint and was affected.",
+     "quote": "When asked why the police complaint did not mention that someone else was in the car with him the Appellant said that the other person did not make a police complaint with him and that he was the only one affected by the attack because he was the businessman.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant explained guns jammed but shots fired later; he was targeted and only he made police complaint.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Appellant's explanations contradictory, confused, and adjusted, undermining credibility.",
+     "quote": "The RPD found the Appellant's explanations to be contradictory, confused and that he adjusted his testimony about the attack which was the central element of his claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Appellant's failure to mention passenger in complaint unreasonable and gave no weight to police complaint.",
+     "quote": "The RPD also found that the Appellant's explanation for not referencing the person in the car with him who was potentially an important witness in his police complaint was not reasonable and did not give any evidentiary weight to the police complaint.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant's explanations contradictory and unreasonable, undermining credibility and discounting the police complaint.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD concluded Appellant was not assaulted as described and no link to being businessman established.",
+     "quote": "The RPD concluded that the Appellant was not assaulted on June 17, 2017 in the circumstances he described.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Bandits did not speak except to threaten; no past attacks or attacks on business; Appellant did not know attackers.",
+     "quote": "The bandits did not speak to him other than saying they would come back for him and he was not attacked by them in the past nor did they attack his business afterwards. I also note that the Appellant testified that he did not know his attackers, that they were \"des inconnus\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no assault as described, no link to business, no past attacks, and Appellant did not know attackers.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant focuses on minor contradiction about passenger's identity and argues fear of reprisals explains complaint omission.",
+     "quote": "The Appellant argues that this was a minor contradiction and that it was reasonable to believe that XXXX feared reprisals if he made a complaint.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence exists that passenger feared reprisals if making complaint.",
+     "quote": "I note that there is no evidence on the record that XXXX feared reprisals if he made a complaint.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellant argues a minor contradiction about passenger and fear of reprisals; court finds no evidence of such fear.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Inconsistencies and contradictions in Appellant's evidence about key event undermine credibility.",
+     "quote": "As detailed above the inconsistencies and contradictions on the face of the Appellant's evidence about the triggering event and the most important element of his claim, which were not reasonably explained, are sufficient to undermine the credibility of his claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds unexplained inconsistencies in the Appellant's evidence undermine his credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant arrived in Canada after June 17, 2017 attack fearing for life; claim received October 26, 2017.",
+     "quote": "The Appellant arrived in Canada on XXXX XXXX, 2017 because he said he feared for his life after the June 17, 2017 attack. When the RPD asked the Appellant why he did not seek protection upon arrival, he testified that he hoped that the situation in Haiti would improve. The Appellant's claim for protection was received on October 26, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found delay in claiming inconsistent with fear and made negative credibility inference.",
+     "quote": "The RPD found that the Appellant's delay in claiming was behaviour inconsistent with a fear of harm and made a negative credibility inference.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant delayed claiming protection inconsistently with fear, negatively affecting credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues delay in claiming is not determinative of credibility.",
+     "quote": "The Appellant argues that delay in claiming is not determinative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Delay is relevant but not necessarily determinative of credibility, per Federal Court.",
+     "quote": "As noted above the Federal Court is clear that while delay in making a claim is not necessarily determinative of the credibility of a claim it is a relevant factor which may be taken into account.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues delay is not determinative; court agrees delay is relevant but not necessarily determinative.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant did not warn business partner or inquire about partner after June 17, 2017 incident; avoided direct answer about contact.",
+     "quote": "The Appellant testified that he did not warn his business partner following the June 17, 2017 incident and that he did not try to find out what happened to the XXXX XXXX after that date. The RPD found that when it asked the Appellant why he had not contacted his business partner he avoided responding directly to the question.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Appellant should have contacted partner given fear and bandits' threat.",
+     "quote": "Since the Appellant's fear for his life was directly related to his business, the RPD found that he would reasonably have been expected to contact his partner especially as the bandits allegedly said that they would be coming back.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant avoided explaining why he did not contact his business partner despite threats and fear.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues he did not contact partner because he was hiding and feared being found.",
+     "quote": "The Appellant argues that he did not contact his partner because he was in hiding and did not want to be found.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's hiding does not explain why he did not try to contact partner by phone.",
+     "quote": "This does not explain why the Appellant did not attempt to contact his partner by telephone.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues hiding explains no contact with partner; court finds this does not explain lack of phone contact.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Appellant's unexplained behavior undermined credibility about business-related risk.",
+     "quote": "The RPD found that the behaviour of the Appellant, without a reasonable explanation, undermined the credibility of his allegations about the risks he faced due to his business activities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with RPD's credibility finding regarding business risk allegations.",
+     "quote": "I agree.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD and court agree the Appellant's unexplained behavior undermines credibility about business-related risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD reviewed objective evidence showing precarious security in Haiti with violent crimes affecting wealthy and general population.",
+     "quote": "In its analysis of the prospective risk faced by the Appellant, the RPD canvassed the objective evidence noting that the security situation in Haiti is precarious with reports of violent crimes including murders, thefts and kidnappings of anyone perceived as wealthy.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Federal Court authority states risk of criminality is general and affects all Haitians, though some targeted more due to wealth.",
+     "quote": "The RPD cited the Federal Court as authority for the proposition that: The risk of all forms of criminality is general and felt by all Haitians. While a specific number of individuals may be targeted more frequently because of their wealth, all Haitians are at risk of becoming the victims of violence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted Haiti's precarious security and cited Federal Court that criminal risk is general but some targeted more for wealth.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected Appellant's claim bandits tried to kill him due to business; found business success insufficient to show different risk.",
+     "quote": "Considering the credibility issues, the RPD rejected the Appellant's allegations that the bandits tried to kill him because he runs a XXXX. While accepting the Appellant's evidence that he was a good XXXX and ran an XXXX XXXX XXXX the RPD concluded that it was not sufficient in the circumstances to establish that the Appellant's risk was different to that of the general population in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the Appellant's claim of targeted risk due to business, finding business success insufficient to show different risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD wrongly concluded no prospective risk and that evidence shows objective risk to life.",
+     "quote": "The Appellant submits that the RPD wrongly concluded that there was no prospective risk and argues that his evidence demonstrated that he faces an objective risk to his life.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court disagrees with Appellant and does not accept evidence shows objective risk to life.",
+     "quote": "For all the reasons outlined above, I do not agree.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellant argues RPD erred in finding no prospective risk; court disagrees and rejects that evidence shows objective risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in finding the Appellant failed to prove a personalized risk to life or cruel and unusual punishment if returned to Haiti",
+     "quote": "I find that the RPD did not err when it found that the Appellant did not establish, on a balance of probabilities, that if he returned to Haiti he would face a personalized risk to his life or of cruel and unusual punishment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err in concluding the Appellant failed to prove a personalized risk if returned to Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed and the RPD decision confirmed that the Appellant is neither a Convention refugee nor in need of protection",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that the Appellant is not a Convention refugee or person in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

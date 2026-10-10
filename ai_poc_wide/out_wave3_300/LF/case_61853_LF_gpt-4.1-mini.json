@@ -1,0 +1,531 @@
+{
+ "case_id": 61853,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0084104,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a Mexican citizen appealing the RPD's rejection of her refugee claim.",
+     "quote": "XXXX XXXX XXXX XXXX, a citizen of Mexico, is appealing against the decision of the Refugee Protection Division (RPD) rejecting her claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant, a Mexican citizen, appeals the RPD's rejection of her refugee claim, as stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD allows the appeal and refers the matter to the RPD for re-determination by a different panel.",
+     "quote": "the Refugee Appeal Division (RAD) allows the appeal and refers the matter to the RPD for re-determination by a differently constituted panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD allows the appeal and refers the matter back to the RPD for re-determination by a different panel, per the court.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The appellant fears criminals linked to the government due to her father's anti-corruption activities.",
+     "quote": "the appellant alleges a fear of criminals in Mexico who are possibly linked to the government and who allegedly want to hurt her due to the activities of her father, who runs XXXX and XXXX that denounce state corruption.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant was subject to an attempted kidnapping on a specified date in 2017.",
+     "quote": "The appellant was allegedly the subject of an attempted kidnapping on XXXX XXXX XXXX 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges fear of criminals linked to government due to her father's anti-corruption work and an attempted kidnapping in 2017, as she told the RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant left Mexico for Canada in 2017 and claimed refugee protection.",
+     "quote": "On XXXX XXXX XXXX 2017, the appellant left Mexico for Canada, where she claimed refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant left Mexico for Canada in 2017 and claimed refugee protection, as reported to the RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the refugee claim on credibility grounds after a hearing in March 2019 and written reasons in April 2019.",
+     "quote": "Following a hearing on March 26, 2019, and in written reasons dated April 12, 2019, the RPD rejected the refugee protection claim on the ground that the appellant's allegations were not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the refugee claim in 2019 due to lack of credibility, as found by the RPD.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant submits the RPD erred in assessing her credibility, to be discussed if necessary.",
+     "quote": "The appellant submits before the Refugee Appeal Division (RAD) that the RPD erred in its assessment of her credibility for reasons that will be discussed below in the Analysis section, if necessary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred in assessing her credibility, as submitted to the RAD.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews RPD decisions on correctness but defers to RPD credibility findings if RPD had a meaningful advantage.",
+     "quote": "The RAD's role is to review RPD decisions by applying the correctness standard of review after carrying out its own analysis of the record to determine whether the RPD erred, as submitted by the appellant. The exception to this rule concerns the RPD's findings in the assessment of credibility or the weight to be given to the oral evidence it hears. In situations where it enjoyed a meaningful advantage, the RAD must then show a degree of deference to the RPD's findings (Canada v. Huruglica, 2016 FCA 93, No. A-470-14).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reviews RPD decisions for correctness but defers on credibility findings if RPD had a meaningful advantage, per the court.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "New evidence on appeal must arise after claim rejection or be unavailable or not reasonably presented before rejection under IRPA s.110(4).",
+     "quote": "The appellant filed before the RAD two documents that she claims constitute new evidence under subsection 110(4) of the Immigration and Refugee Protection Act (IRPA), which states that: On appeal, the person who is the subject of the appeal may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRPA s.110(4) limits new evidence on appeal to evidence arising after rejection or not reasonably available before.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD must also consider credibility and relevance of new evidence per Federal Court of Appeal in Singh.",
+     "quote": "In addition to the explicit conditions set out in subsection 110(4) of the IRPA, the RAD must also consider the implicit conditions pertaining to the admissibility of new evidence, as established by the Federal Court of Appeal in Singh (M.C.I. v. Parminder Singh, 2016 FCA 96), and in particular, in this case, the criteria of credibility and relevance of new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD must consider credibility and relevance of new evidence per Federal Court of Appeal in Singh, as stated by the court.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The first new document is undated and describes events from July 28, 2015.",
+     "quote": "The first document is titled Menace à ma vie [Threat to my life], is not dated and describes facts that allegedly occurred on July 28, 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The first new document is undated and describes events from July 28, 2015, as filed by the appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The second new document is dated April 2008 and is a request to the Governor of Mexico.",
+     "quote": "The second document is titled Demande au gouverneur du Mexique [Request to the Governor of Mexico] and is dated April 2008.",
+     "answers": 0
+    }
+   ],
+   "summary": "The second new document is dated April 2008 and is a request to the Governor of Mexico, as filed by the appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Both documents pre-date claim rejection and appellant does not explain their prior unavailability or non-presentation.",
+     "quote": "Both documents pre-date the date on which the claim was rejected, and the appellant does not explain why they were not available at that time or, if they were, why they were not reasonably presented at that time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds both documents pre-date claim rejection and appellant fails to explain why they were not presented earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court does not accept these two documents as evidence before the RAD.",
+     "quote": "For this reason, I do not accept them as evidence before the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not accept the two documents as evidence before the RAD.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court finds the two documents irrelevant to the appellant's refugee claim.",
+     "quote": "I do not see how they would be relevant to the appellant's refugee protection claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the two documents irrelevant to the appellant's refugee claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 5,
+     "kind": "fact",
+     "text": "In July 2020, the appellant sent what she believed was new evidence to the RAD.",
+     "quote": "In July 2020, the appellant sent the RAD what she believed was new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant sent what she believed was new evidence to the RAD in July 2020.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The first July 2020 document is an undated copyright form mentioning appellant's father; the second is a 2001 response to appellant's father, likely predating claim rejection.",
+     "quote": "The first document appears to be a form from the National Institute of Copyright in Mexico that mentions the name of the appellant's father. This document is not dated. The second document appears to be a response from the XXXX XXXX XXXX XXXX to the appellant's father and is dated XXXX XXXX XXXX 2001. The date of the second document suggests that the first document also pre-dates the rejection of the claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the July 2020 documents pre-date claim rejection and relate to appellant's father.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant does not explain why July 2020 documents were unavailable or not presented earlier, nor their relevance.",
+     "quote": "The appellant does not explain why they were not available at that time or, if they were, why they were not reasonably presented at that time. Moreover, the appellant does not explain how these documents are relevant to her claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant fails to explain unavailability or relevance of July 2020 documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The third July 2020 document is a series of unexplained photographs from a Google search, not accepted as evidence.",
+     "quote": "The third document is a series of photographs that appear to be taken from a Google search. There is no explanation for the content or relevance of this document. For these reasons, I do not accept it as evidence before the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not accept unexplained Google search photographs as evidence before the RAD.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Because the matter is referred to the RPD, appellant may submit these documents again if accepted by the RPD.",
+     "quote": "because I am referring the matter to the RPD, the appellant will be able to submit them if she wishes to do so, and the RPD accept them into evidence if they meet the requirements in this regard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows appellant to submit these documents again to the RPD if accepted.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The issue is whether the RPD erred in analyzing the appellant's credibility.",
+     "quote": "The issue in this case is whether the RPD erred in its analysis of the appellant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the issue as whether the RPD erred in analyzing appellant's credibility.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "After analyzing all evidence and submissions, the answer to the relevant question is yes.",
+     "quote": "After analyzing all the evidence presented, including listening to the recording of the hearing before the RPD, and taking into consideration its reasons and the appellant's submissions, respectfully, I am of the opinion that the answer to that question is yes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes after reviewing evidence and submissions that the answer to the question is yes.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD decision was based on three elements: appellant's confusing testimony, siblings not targeted, and contradiction about police visit.",
+     "quote": "The RPD's short decision is based on three elements raised, namely, the fact that the appellant testified in a [translation] \"confusing manner\" about her fear; the fact that her brothers and sisters in Mexico were apparently not targeted by the criminals; and a contradiction as to whether she went to the police alone or with her father following the alleged attempted kidnapping.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD decision relied on three elements: confusing testimony, siblings not targeted, and contradiction about police visit.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD's elements are insufficient to reject the appellant's credibility.",
+     "quote": "Considering the appellant's allegations as outlined in her BOC Form and her testimony before the RPD, I am of the opinion that the elements raised by the RPD are insufficient to reject the credibility of her allegations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD's reasons insufficient to reject the appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's testimony was difficult, reluctant, and sometimes contradictory.",
+     "quote": "It is true that the appellant's testimony was quite difficult. The appellant testified with reluctance and sometimes even with some contradictions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's testimony was difficult and sometimes contradictory.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant was not sufficiently questioned to explain contradictions and implausibilities.",
+     "quote": "However, in my opinion, the appellant was not sufficiently questioned about the allegations in her BOC Form and did not have the opportunity to explain possible contradictions and implausibilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant was not sufficiently questioned to clarify contradictions.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant was not questioned about confinement and rape allegations from 2009.",
+     "quote": "For example, the appellant was not asked any questions about her allegations that she was been confined and raped by a criminal group in 2009;",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant gave inconsistent answers about other problems besides 2017 incident.",
+     "quote": "when asked as to whether she had had [translation] \"problems other\" than those of XXXX 2017, she first answered \"yes\" before changing her answer to \"no\";",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's BOC Form states involvement in father's activities but she testified not really knowing what he does.",
+     "quote": "she states in her BOC Form that she was involved in her father's activities but testified that not really knowing what he does;",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's testimony about moving in with father in 2017 contradicts answers in form IMM5669 about education and addresses.",
+     "quote": "she testified that she moved in with her father in XXXX 2017 to pursue her studies, which contradicts the answers to questions 7 (education) and 12 (addresses) of form IMM5669, which she completed as part of her refugee protection claim;",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Answers to questions 8 and 9 of form IMM5669 contradict her allegations.",
+     "quote": "the answers to questions 8 (personal history) and 9 (membership of association with organizations) of the same form also appear to contradict her allegations;",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No questions were asked about absence of documents from father and his organizations to corroborate allegations.",
+     "quote": "no questions were asked about the absence of documents, primarily from her father and his organizations, that could corroborate the appellant's allegations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds multiple contradictions and lack of questioning on key allegations and documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court cannot determine the appellant's credibility and cannot hold a hearing as no new evidence was admitted on appeal.",
+     "quote": "I find that I am unable to determine whether the appellant's central allegations are credible, and the RAD cannot hold a hearing to question her, since no new evidence was admitted on appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The issue of internal flight alternative in Mexico may be relevant.",
+     "quote": "I am also of the view that the issue of whether the appellant has an internal flight alternative in Mexico may be relevant in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cannot assess credibility without new evidence and notes internal flight alternative may be relevant.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD's determination is set aside and the matter is referred to a differently constituted panel for re-determination.",
+     "quote": "For this reason, I set aside the RPD's determination and refer the matter to the RPD for re-determination by a differently constituted panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court sets aside the RPD decision and refers the matter for re-determination by a different panel.",
+   "role": "disposition"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD's decision is wrong in fact and law; the court cannot properly assess credibility or internal flight alternative without hearing evidence presented to the RPD.",
+     "quote": "I conclude that the RPD's decision is wrong in fact and in law, and I find that I am unable to properly assess the appellant's credibility and, if necessary, the issue of whether the appellant has an internal flight alternative, without hearing evidence that was presented to the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RPD decision is wrong and proper assessment requires hearing evidence presented to the RPD.",
+   "role": "disposition"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA paragraph 111(1)(c), the RAD refers the matter to the RPD.",
+     "quote": "Pursuant to paragraph 111(1)(c) of the IRPA, the RAD refers the matter to the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court refers the matter to the RPD under IRPA paragraph 111(1)(c).",
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed.",
+     "quote": "The appeal is allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

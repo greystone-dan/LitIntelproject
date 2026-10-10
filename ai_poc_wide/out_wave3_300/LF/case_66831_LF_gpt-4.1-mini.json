@@ -1,0 +1,1395 @@
+{
+ "case_id": 66831,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.022690000000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is a Chinese citizen appealing the RPD's October 28, 2019 decision rejecting his refugee claim.",
+     "quote": "XXXX XXXX (the Appellant) is a citizen of China who appeals a decision of the Refugee Protection Division (RPD) dated October 28, 2019, rejecting his refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Minister intervened on the issue of credibility and attended the Appellant's hearing.",
+     "quote": "The Minister of Citizenship and Immigration Canada had intervened based on the issue of credibility and was present at the Appellant's hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant is a Chinese citizen appealing the RPD's rejection of his refugee claim; the Minister intervened on credibility and attended the hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD was wrong to find his account lacked credibility.",
+     "quote": "The Appellant argues that the RPD was wrong to find that his account lacked credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "After independent analysis, the RPD was correct to find the Appellant lacked credibility.",
+     "quote": "After conducting an independent analysis, I find that the RPD was correct to find that he lacked credibility.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "The appeal is therefore dismissed.",
+     "answers": 2
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred on credibility; the court finds the RPD correct and dismisses the appeal.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant alleges he is sought by the PSB in China due to his religious beliefs.",
+     "quote": "The Appellant alleges that he is being sought by the Public Security Bureau (PSB) in China because of his religious beliefs.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He discovered the Local Church of China (Shouters) after developing gambling problems and depression.",
+     "quote": "He discovered the Local Church of China, also known as the Shouters, after he had developed a gambling problem and subsequently become depressed and suicidal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges PSB seeks him for religious beliefs; he found the Local Church after gambling and depression, he says.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "His aunt introduced him to the Christian sect in 2016; he began praying at home then attending house church.",
+     "quote": "His aunt introduced him to the above Christian sect in XXXX 2016 and he was persuaded initially to pray at home and later to attend house church services.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant says his aunt introduced him to the sect in 2016; he prayed at home then attended house church.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In 2017, the church was raided; the Appellant was arrested, interrogated, fined, and had to report when summoned.",
+     "quote": "On XXXX XXXX, 2017 the church was raided and the Appellant along with two others were arrested and interrogated because of their religious activities. After two days in detention, he was required to pay a fine of XXXX XXXX before release and given conditions to report whenever summoned.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "After this, the Appellant and family sought a smuggler's help to leave China; he arrived in Canada in 2017 and filed a refugee claim soon after.",
+     "quote": "Following this incident, the Appellant and his family sought the assistance of a smuggler to help him depart from China. He arrived in Canada on XXXX XXXX, 2017 and learned that the PSB had summoned him for investigation on XXXX XXXX, 2017. Thus, he filed his refugee claim shortly thereafter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant says the church raid led to arrest, fine, and reporting conditions; he then used a smuggler to leave China and filed a claim in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The standard of review is correctness as established in Huruglica regarding the RAD's role.",
+     "quote": "The standard of review is correctness as established in Huruglica1, where the Federal Court of Appeal gives guidance in regard to the role of the Refugee Appeal Division (RAD).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is correctness per Huruglica on the RAD's role.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "The determinative issue on appeal is credibility.",
+     "quote": "The determinative issue on appeal is credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred by: i) negative inference from failure to disclose prior applications; ii) dismissing documentary evidence on peripheral inconsistencies; iii) misinterpreting wife's name misrepresentation; iv) failing to analyze or dismissing documents improperly; v) misapplying sur place test focusing on motivation not merits.",
+     "quote": "The Appellant argues that the RPD erred in its assessment of his credibility; i) by making a negative inference from his failure to disclose previous refugee applications and using this and other inconsistencies between his applications to impugn all of his credibility, ii) by determining that his documentary evidence and testimony were not credible based on inconsistencies regarding his family and personal background which were peripheral issues and by dismissing documents regarding the same based solely on the availability of fraudulent documents, iii) by determining that previous misrepresentation about his wife's name meant that the part she played in his narrative was false, iv) by either failing to analyse documents supplied in support of the claim or dismissing some without due consideration, v) by failing to apply the proper legal test in determining sur place and focusing on motivation rather than merits of the documents and by finding that activities in China were relevant to a sur place analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states credibility is the key issue; the Appellant argues the RPD erred on five credibility-related grounds.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant does not rely on new evidence under IRPA 110(4) nor request an oral hearing under IRPA 110(6).",
+     "quote": "The Appellant is not relying on any new evidence referred to in subsection 110(4) of the Immigration and Refugee Protection Act (IRPA) and does not request an oral hearing under subsection 110(6) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant does not rely on new evidence or request an oral hearing under IRPA provisions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD was correct about the impact of the Appellant's failure to disclose his time in Australia on his claim.",
+     "quote": "I find that the RPD was correct regarding its overall finding about the impact of the Appellant's failure to disclose his time in Australia on his refugee claim in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD was correct about the impact of the Appellant's failure to disclose his Australian residence.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant did not reasonably explain failure to disclose Australian residence or inconsistencies about wife's name, father's death, work, and address.",
+     "quote": "The RPD found that the Appellant did not reasonably explain his failure to disclose his Australian residence or the inconsistencies between the information he provided to Australian authorities versus Canadian authorities, particularly about his wife's name and date of birth; as well as his father's date of death, his work and his address.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant deliberately concealed travel history and lost the presumption of truthfulness.",
+     "quote": "The RPD found that overall the Appellant's actions conveyed a deliberate attempt to conceal his personal travel history and as such the Appellant had lost the benefit of the presumption of truthfulness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant failed to explain inconsistencies and deliberately concealed travel history, losing presumption of truthfulness.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues it was error to infer negative credibility from failure to disclose prior Australian refugee applications due to duress.",
+     "quote": "The Appellant argues that it was an error to draw a negative credibility inference from his failure to disclose his previous refugee applications in Australia, given the failure to disclose was attributable to duress.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "He argues failure to disclose and inconsistencies were wrongly used to deny credibility regarding religious belief.",
+     "quote": "He submits that his failure to disclose this information and inconsistencies between the Australian and Canadian refugee applications were used to determine he was not credible regarding his religious belief.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "He claims entitlement to presumption of truth and plausibility findings only in clearest cases.",
+     "quote": "However, he was entitled to the presumption of truth and plausibility findings can only be made in the clearest of cases.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "He argues failure to disclose was insufficient to deny presumption of truthfulness or undermine all credibility.",
+     "quote": "He submits that his failure to disclose was insufficient to deny him the presumption of truthfulness or to find that his credibility was undermined in its entirety.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "He says he was dependent on smuggler who confiscated passport and coerced obedience, so RPD mischaracterized reliance as advice.",
+     "quote": "He argues that he was dependent upon the smuggler to facilitate his entry and he had to obey the smugglers instructions given his passport had been confiscated. He argues that he was prevented from pursuing other options and the smuggler's actions coerced him into obedience because the smuggler had power over him, so the RPD mischaracterized the situation by indicating that he relied upon the smuggler's advice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred by inferring negative credibility from failure to disclose prior claims due to duress and mischaracterizing smuggler's role.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "At hearing, the Appellant testified he was in Australia 2009-2016 and made two refugee claims there for political reasons.",
+     "quote": "I have reviewed the Appellant's testimony in this regard. At the hearing he testified that he was in Australia from 2009 until 2016 and made two applications for refugee protection during that time on the basis of political problems he experienced in China.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He testified he did not disclose Australian claims to Canadian authorities because smuggler told him not to, fearing problems in Canada.",
+     "quote": "He testified that he did not declare to Canadian authorities that he had made a refugee claim in Australia because the smuggler repeatedly told him not to disclose this information to Canadian authorities as he would have problems obtaining protection in Canada if he did.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified he lived in Australia 2009-2016, made refugee claims, and did not disclose them in Canada due to smuggler's advice.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He testified the smuggler helped get Canadian visa, pick him up, arrange accommodations, and accompanied him; he paid a large sum.",
+     "quote": "He also testified about the things the smuggler did for him when describing how he managed to leave China. He explained that the smuggler/snakehead assisted him with getting a Canadian temporary resident visa, had someone pick him up after he arrived in Canada, arranged for his accommodations, and accompanied him to Canada. For this he paid XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified the smuggler helped with visa, pickup, accommodations, and accompanied him, for a large payment.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Failure to disclose prior applications was a significant omission.",
+     "quote": "I find that the failure to disclose these applications was a significant omission.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant was not under duress; the RPD did not mischaracterize the situation.",
+     "quote": "While the Appellant suggests that he was under duress, I do not find this to be the case nor do I find that the RPD mischaracterized the situation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant arrived in Canada weeks before making inland claim, not at entry with smuggler.",
+     "quote": "The Appellant arrived in Canada on XXXX XXXX, 2017 and made his claim for refugee protection inland at CIC Etobicoke a few weeks later on XXXX XXXX, 2017. He did not make his claim upon entry in the presence of the smuggler.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No evidence smuggler threatened to withhold passport based on disclosure; smuggler only warned of claim consequences.",
+     "quote": "Further, there is also no indication in the evidence that the smuggler threatened to withhold his passport on the basis of his disclosure/non-disclosure of the information about the Australian claims. The smuggler simply told him that providing such information may have a certain consequence (on the claim), but not one imposed by the smuggler.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds failure to disclose was significant; no duress or mischaracterization; claim made inland weeks after arrival; no smuggler threat to withhold passport.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant was not forced to comply with smuggler's advice; he chose to trust him.",
+     "quote": "According to the Appellant's evidence, while the smuggler gave him information or advice, the Appellant was not forced to comply, nor was he under duress as suggested in the memorandum. He chose to follow said advice because he trusted this individual who saw him out of China safely.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant was not forced but chose to follow the smuggler's advice out of trust.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Persons seeking Canadian protection are expected to be forthcoming; omission seriously undermines credibility.",
+     "quote": "It is anticipated that persons will be forthcoming with Canadian authorities from whom they are seeking assistance and I find that this was a significant omission, which does seriously undermine the credibility of his entire account given that the information about his residence in Australia only came to light as a result of the Minister's intervention in the case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that the omission seriously undermines the Appellant's credibility as applicants are expected to be forthcoming.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Presumption of truth applies only absent reason to doubt; concealment and inconsistencies undermine overall credibility.",
+     "quote": "While he submits that he is entitled to the presumption of truthfulness, I find that this presumption only applies when there is no reason to doubt the testimony. However, given the credibility concerns that exist based on the fact that the Appellant concealed that he resided in Australia for several years and presented entirely different reasons for fearing persecution as well as different basic details about his family and work history without a reasonable explanation, I find that this does undermine the credibility of his overall account.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the presumption of truth does not apply due to concealment and inconsistencies undermining credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant had no explanation for inconsistencies about wife's name, birthdate, and father's death date; these are not reasonable.",
+     "quote": "He in fact had no explanation for why his wife's name and date of birth were recorded differently by Australian authorities, nor did he have an explanation for why his father's date of death was recorded incorrectly in his Basis of Claim form. Given his wife's close relationship to him as well as the circumstances surrounding his father's death and the significant events that followed (to be discussed below), I find also that it is not reasonable that these details were inconsistent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant gave no reasonable explanation for inconsistencies about his wife's and father's details.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court independently finds the Appellant lacks credibility.",
+     "quote": "I have conducted an independent assessment and I find that the Appellant lacks credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court independently finds the Appellant lacks credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is an additional omission about the Appellant's imputed political opinion relevant to credibility.",
+     "quote": "I find that there is also an additional omission regarding the Appellant's imputed political opinion that is relevant and illustrates his lack of credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD must notify parties and allow response when considering new issues not raised before RPD or parties (Ching).",
+     "quote": "As per Corvil2, a recent Federal court case: It goes without saying that when considering a question which was not raised before the RPD or by any of the parties to the appeal, the RAD must first notify the parties accordingly and give them an opportunity to respond thereto (Ching v Canada (Citizenship and Immigration), 2015 FC 725 at para 71 [Ching]).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "When credibility is central, RAD may make independent findings without questioning applicant or new submissions.",
+     "quote": "However, it is now a well-established fact that when the credibility of a refugee protection claimant is at the heart of the RPD's decision and the grounds for appeal before the RAD, the RAD is entitled to make independent findings in this regard, without having to question the applicant or giving the applicant another opportunity to make submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD must avoid disregarding contradictory evidence or making findings on evidence unknown to applicant (Ibrahim, Koffi, Kwakwa, Marin, Adeoye).",
+     "quote": "That said, the RAD must avoid disregarding contradictory evidence on the record or making findings based on evidence unknown to the applicant (Ibrahim v Canada (Citizenship and Immigration), 2016 FC 380 at paras 26, 30 [Ibrahim]; Koffi v Canada (Citizenship and Immigration), 2016 FC 4 at para 38; Kwakwa v Canada (Citizenship and Immigration), 2016 FC 600 at para 24; Marin v Canada (Citizenship and Immigration), 2018 FC 243 at paras 35-37 [Rodriguez Marin]; Oluwaseyi Adeoye v Canada (Citizenship and Immigration), 2018 FC 246 at para 13 [Adeoye]).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Credibility was central to RPD's decision and appeal; RAD's independent finding on visa date did not constitute a new issue or involve unknown evidence.",
+     "quote": "In this case, credibility was at the heart of the RPD's concerns and the subsequent rejection of the applicant's claim for refugee protection. It was also at the heart of the applicant's appeal to the RAD. Therefore, the RAD's independent finding regarding the date of issue of the Canadian visa affecting the applicant's credibility did not constitute a new issue, in and of itself, and did not involve contradictory evidence. Was this finding based on evidence unknown to the applicant? The answer is no, since the date of issue of the Canadian visa is clearly indicated in the record (Certified Tribunal Record [CTR] at pp 76, 102).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds an additional omission on political opinion; cites case law on RAD's role in new issues and credibility; finds RAD's visa date finding was proper and known.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The omission is not a new issue and the Appellant had full opportunity to respond at the RPD hearing.",
+     "quote": "this omission was raised at the RPD hearing and the Appellant had a full opportunity to answer to the concerns.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Credibility is central in both RPD decision and appeal, and the omission relates closely to appeal issues.",
+     "quote": "Credibility is the central issue in both the RPD decision and on appeal. Further, the omission is very closely related to the issues raised on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No notice or further opportunity to respond is required as this is not a new issue.",
+     "quote": "As this is not a new issue, I am not required to provide notice to the Appellant and give him a further opportunity to respond.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the omission is not new, relates to credibility, and no further notice to the Appellant is required.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant confirmed his information to Australian authorities was true and complete.",
+     "quote": "The Appellant confirmed in testimony that the information he had provided to Australian authorities was true, complete and correct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant verified his father and brother's accident and father's death caused by drunken individuals.",
+     "quote": "He verified that his father and brother were involved in a serious accident in XXXX 2005 and his father died later in hospital as a result of the serious injuries sustained. He verified that some drunken XXXX XXXX XXXX were responsible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "His brother was arrested for inciting anti-government activities and sentenced to reform through labour in 2005.",
+     "quote": "His brother was subsequently arrested for inciting anti-government activities and was sentenced to reform through labour for three years in XXXX 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant did not include these details in Canadian BOC because smuggler told him not to mention them.",
+     "quote": "he indicated again that the smuggler told him not to mention anything that he told Australian authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant's elder brother was arrested in 2008 and sentenced to labour education camp for three years.",
+     "quote": "He then confirmed that his elder brother was also arrested in 2008 and sentenced to labour education camp for three years",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "From 2008 to 2009, Appellant organized people to distribute pamphlets and left China fearing arrest.",
+     "quote": "from XXXX 2008 until XXXX 2009 he (the Appellant) had organized ten people to distribute copies of pamphlets... he decided to leave China after that because the Chinese government wanted to arrest him",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant again testified smuggler told him not to reveal details reported to Australian government.",
+     "quote": "he testified that the smuggler told him not to reveal anything that he had reported to the Australian government.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the Appellant's testimony about family incidents, political activities, and smuggler's advice not to disclose details in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant testified no difficulty with PSB on return to China as he stayed with friends in different province.",
+     "quote": "he did not have any difficulty with the PSB because he did not return to his own home, but rather he stayed with friends in a different province.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Local Fuqing PSB was after him but he avoided arrest by arriving at Fuzhou airport and registering when asked.",
+     "quote": "the local police officers/ the Fuqing PSB that were after him, but the airport he arrived at was in Fuzhou so he did not have problems other than being taken into a room and asked to register",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes Appellant's testimony about avoiding PSB arrest by staying elsewhere and registering at Fuzhou airport.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant sought agent's help to apply for new passport due to fear of PSB.",
+     "quote": "he sought the assistance of an agent to help him to apply for a new passport because he dared not go by himself",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant testified he claimed refugee in Canada because church was raided, he was detained and fined, and he was terrified.",
+     "quote": "he testified it was because his church was raided, he had been detained and fined so he was terrified.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant testified combined incidents after Australia return made him think he had to leave China.",
+     "quote": "On top, after I came back from Australia that incident that happened to father and brother I never received final notice from the government. All those combined I thought I had to leave China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts Appellant's testimony about passport application help, church raid, detention, and reasons for leaving China.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Political problems with Fuqing PSB are ongoing and part of Appellant's reason for coming to Canada.",
+     "quote": "political problems with the local Fuqing PSB are apparently unresolved/ongoing and according to his own testimony, this formed part of the reason that he came to Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant should have included these details in Canadian BOC narrative.",
+     "quote": "at the very least he should have included these details in his BOC narrative in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's explanation that smuggler told him not to say anything is not persuasive.",
+     "quote": "His explanation, that the smuggler told him not to say anything, is not persuasive.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Withholding prior claim is one thing, but not mentioning family and political problems is unreasonable and undermines credibility.",
+     "quote": "Withholding the fact that he had made a claim elsewhere is one thing, but I find it is also not reasonable that he did not mention these details about the problems he was facing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's omission of family and political problems in Canada BOC unreasonable and not credible despite smuggler's advice.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Australian claims show brother sued employer unsuccessfully and eldest brother accused of inciting strikes and disturbing order.",
+     "quote": "one brother unsuccessfully sued the XXXX who never took responsibility for killing their father. His eldest brother was accused of inciting workers to strike and disturbing normal social orders",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant organized anti-government pamphlet distribution, police interrogated his wife at home in 2009.",
+     "quote": "the Appellant himself... organized others to hand out anti-government pamphlets - which brought him to the attention of police who went to his home in XXXX 2009 and interrogated his wife.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "These incidents are not minor or unrelated and were omitted from Canadian narrative despite BOC signed as true and complete.",
+     "quote": "These are not minor or unrelated past incidents... this information is not found in his narrative. I find that this was a significant omission",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Omission undermines overall credibility of Appellant's allegations.",
+     "quote": "I find that this further undermines the overall credibility of his allegations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds significant omissions of serious incidents in Canadian narrative, undermining Appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found summons not credible or reliable as underlying facts were disbelieved.",
+     "quote": "The RPD found that the summons was not a credible or reliable document because it did not believe the underlying facts upon which the summons was created.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD disbelieved Appellant was genuine Christian Shouter and wanted by Chinese authorities.",
+     "quote": "It disbelieved that the Appellant was a genuine Christian Shouter and therefore that the Appellant was wanted by the Chinese authorities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the summons and Appellant's Christian Shouter claim not credible or reliable.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred by failing to analyze evidence like marriage certificate, business license, outpatient record, photos.",
+     "quote": "The Appellants argue that the RPD erred by failing to analyze the evidence provided in support of the claim, for example the marriage certificate, business license, outpatient record and photos.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues summons was dismissed without due consideration by RPD.",
+     "quote": "even where it did consider certain items; namely the summons, that it was dismissed without due consideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred by not properly analyzing evidence and dismissing summons without due consideration.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The summons was not assessed separately by RPD, so the court will independently assess it.",
+     "quote": "I agree that the summons was not assessed separately. As such, I will conduct my own independent assessment of the document below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees summons was not separately assessed and will conduct independent assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court examined the summons and compared Chinese characters to public security summons sample.",
+     "quote": "I have closely examined the summons that was before the RPD... the Chinese characters found at the top of the summons on the second line... match the sample for the public security summons (zhi'an chuanhuan).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court examined the summons and found its type matches the public security summons sample.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "NDP states summons format has not varied since 2003 and regional variations are not meant to exist.",
+     "quote": "According to the National Documentation Package (NDP), summonses have not varied in format since 2003... regional variations are not meant to exist.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Summons in evidence should duplicate the sample in format and structure.",
+     "quote": "Hence, the summons in evidence should duplicate the sample in terms of its format and structure.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes NDP says summons format is uniform and summons should match sample format and structure.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Summons differs from sample: left side has three characters before colon, sample has one, and missing salutation 'To:'.",
+     "quote": "the sample has one word/character, followed by a colon, whereas the summons proffered by the Appellant has three Chinese characters preceding the colon, none of which match the Chinese character on the sample.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "English translation shows missing character corresponds to standard salutation 'To:' not found on summons in evidence.",
+     "quote": "the missing Chinese character corresponds with the salutation addressing the person concerned; To: which is meant to be standard text and is not found on the summons in evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the summons differs from sample by missing standard salutation and having different characters before colon.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Main body lines of summons differ from sample in number and placement of Chinese characters.",
+     "quote": "the second and third lines of the summons in evidence do not match the sample... fewer characters and different placement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Chinese characters preceding reporting date differ in number and content between summons and sample.",
+     "quote": "Chinese characters preceding the reporting date... do not match. The summons in evidence has five Chinese characters where the sample has only three.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Number placement on third line differs from sample; numbers should be on second line.",
+     "quote": "the number 22, the Chinese character that follows it and the number 10... should fall on the second rather than the third line according to the sample.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds multiple discrepancies in the summons's main body lines compared to the sample.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Summons has a fourth line of centered text not in sample and a stamp with fewer characters in brackets than sample.",
+     "quote": "there is a fourth line of centred text on the summons in evidence that does not appear in the sample at all... a stamp appears over two lines of text... five Chinese characters within the set of brackets, whereas in the sample there are six",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Date on summons is in English, but sample date is entirely in Chinese characters.",
+     "quote": "on the line that follows where the date is written in English as 2017/XXXX XXXX XXXX on the summons in evidence, in the sample that information appears entirely in Chinese characters.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the summons has extra text lines, fewer characters in stamp brackets, and English date unlike sample's Chinese date.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Bottom three lines differ: Chinese character at start of second line differs from sample.",
+     "quote": "the Chinese character at the beginning of the second line differs from the Chinese character in the sample that appears at the same spot.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a differing Chinese character in the bottom lines of the summons compared to the sample.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Small or microscopic differences between documents can justify questioning authenticity and exposing forgery.",
+     "quote": "small differences can be telling... it may very well be reasonably open to... question the authenticity of a document based on very small or even microscopic differences",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites precedent that small differences can reveal document forgery and justify authenticity doubts.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On balance of probabilities, the summons is fraudulent and submission of it undermines Appellant's credibility.",
+     "quote": "I find on a balance of probabilities, that the summons submitted is fraudulent, and that the Appellant's submission of a fraudulent document... significantly undermines his credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the summons fraudulent and that submitting it undermines the Appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given summons is fraudulent, Appellant is not wanted by PSB for Christian Shouter membership as alleged.",
+     "quote": "I also find on a balance of probabilities that the Appellant is not being investigated nor is he wanted by the PSB for being a member of the Christian Shouter church as alleged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant is not wanted by PSB for Christian Shouter membership due to fraudulent summons.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Only other document about PSB issues is a receipt for fine for preaching dangerous illegal religion.",
+     "quote": "The only other document which deals directly with his issues with the PSB... is a receipt for a fine he allegedly paid as a result of preaching a \"dangerous illegal religion and damaging the social order.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD did not expressly refer to this receipt, so court will assess it independently.",
+     "quote": "The RPD did not expressly refer to this particular document in its decision, therefore I will as part of my independent assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes a fine receipt document about PSB issues and will independently assess it as RPD did not.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Submitting false or irregular documents impacts weight of other documents and overall credibility.",
+     "quote": "submitting a false or irregular document may have an impact on the weight assigned to other documents... and on the overall credibility of an Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given fraudulent summons, no weight can be given to related letter allegedly issued by Fuqing city PSB.",
+     "quote": "I find that given the use of a fraudulent summons, that no weight can be put on this letter, which was allegedly issued in relation to the same event and by the same entity; the Fuqing city PSB.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds fraudulent summons affects credibility and gives no weight to related PSB letter.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's knowledge of faith could have been gained in Canada, not necessarily genuine practice in China",
+     "quote": "the knowledge he has could easily have been gained in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Having some information on teachings does not prove genuine or false practice",
+     "quote": "simply having some information regarding basic teachings and practice or the lack of such information does not necessarily reflect genuine or false practice",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Little weight given to Appellant's correct answers about Shouter Christians due to serious credibility concerns",
+     "quote": "little weight can be given to the Appellant's ability to answer questions about Shouter Christians and his correct responses do not overcome the serious credibility concerns in this case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's knowledge could be from Canada, basic knowledge doesn't prove genuine practice, and correct answers don't overcome credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant failed to disclose time and two previous refugee applications in Australia",
+     "quote": "his failure to disclose his time and two previous applications for refugee protection made in Australia",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant omitted a reason for seeking protection in Canada and submitted a fraudulent summons",
+     "quote": "the significant omission of one of the reasons why he seeks protection in Canada, and the submission of the fraudulent summons",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant failed to provide sufficient reliable evidence to prove he was a genuine Christian Shouter in China",
+     "quote": "the Appellant has failed to provide sufficient reliable evidence to establish, on a balance of probabilities, that he was a genuine Christian Shouter in China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Events alleged by Appellant did not occur as claimed",
+     "quote": "and the events did not occur as alleged",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant failed to disclose prior applications, omitted reasons, submitted fraudulent summons, and failed to prove genuine Christian Shouter status or events.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No need to address other credibility arguments in memorandum due to serious credibility findings",
+     "quote": "I find it is unnecessary to deal with the other arguments within the memorandum related to credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unnecessary to address other credibility arguments due to serious credibility findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was correct in its overall conclusion about the sur place claim",
+     "quote": "I find that the RPD was correct regarding its overall conclusion about whether there was a sur place claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD was correct about the sur place claim conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found sur place claim based on China events failed due to lack of credibility",
+     "quote": "The RPD found that any sur place aspect of the claim must fail that were based and predicated on events in China, which it found not credible",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found church letter does not create a sur place claim",
+     "quote": "The RPD also found that the church letter does not create a sur place aspect to this claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found sur place claim based on China events failed and church letter did not create sur place claim.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD erred by focusing on motivation instead of merits of documentation for faith authenticity",
+     "quote": "the RPD erred by focusing improperly on motivation instead of on the merits of the documentation provided to conclude that his faith was inauthentic",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD erred by considering Chinese activities relevant to sur place instead of Canadian activities' risk if returned",
+     "quote": "it was an error to determine that his activities in China were relevant to sur place and the focus should have been whether his activities in Canada put him at risk if he returned to China",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Canadian activities cannot be ignored even if motivation is a concern",
+     "quote": "these Canadian activities cannot be ignored even if motivation is a concern",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Good faith is not required for sur place claim and activities must be considered",
+     "quote": "even if it was correct to find that he converted simply to bolster the claim, good faith is not required for a sur place claim and there is an obligation to consider these activities",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD erred by focusing on motivation, ignoring Canadian activities' risk, and that good faith is not required for sur place claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Relying on prior credibility findings is error; credibility in China doesn't negate Canadian practice genuineness",
+     "quote": "relying on previous credibility findings is an error because whether he was credible regarding his practice in China, this does not mean that he is not credible or genuine in his Canadian practice",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Prior knowledge by authorities of Canadian activities is not required for sur place claim",
+     "quote": "authorities having prior knowledge of his activities in Canada is not a requirement for sur place",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Focus should be on whether activities would place him at risk upon return, not if authorities knew",
+     "quote": "must ask not whether there is evidence that this came to the attention of authorities, but rather if on a balance of probabilities, these activities would place him at risk upon return",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues prior credibility findings don't negate Canadian practice, prior authority knowledge not required, and risk on return is key.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court considered if Appellant could be at risk from Canadian Shouter activities upon return to China",
+     "quote": "I have considered the issue as part of my independent assessment in acknowledgement that even if the Appellant was not a genuine Shouter Christian in China, he could still be at risk if his Shouter activities in Canada came to the attention of the Chinese authorities upon return to China",
+     "answers": 0
+    }
+   ],
+   "summary": "The court independently assessed risk from Appellant's Canadian Shouter activities upon return to China.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was correct to give no weight to documents submitted by Appellant",
+     "quote": "I find that the RPD was correct in giving them no weight",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found letter from Canadian pastor did not redeem Appellant's lack of credibility",
+     "quote": "The RPD found that the Appellant's letter of support from a pastor in Canada did not redeem his lack of credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD made no particular finding on photographs",
+     "quote": "no particular finding was made regarding the photographs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD correctly gave no weight to documents, letter did not redeem credibility, and no finding on photos.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Letter from Toronto church elder confirms attendance and course completion but not genuine commitment",
+     "quote": "While the letter may validate that the Appellant is associated with the Church in Toronto, it does not establish that his practice was indicative of a genuine commitment to the Shouters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidentiary weight placed on letter to support Appellant's identity as genuine Christian Shouter",
+     "quote": "I place no evidentiary weight on this document as support for the Appellant's identity as a genuine Christian Shouter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Letter does not overcome significant credibility concerns",
+     "quote": "find it does not overcome the significant credibility concerns outlined above",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the church letter confirms attendance but not genuine commitment and gives it no evidentiary weight.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Photographs are not determinative and do not show genuineness of practice",
+     "quote": "these photos are not determinative as they also do not show the genuineness of his practice",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Original photos not available for examination",
+     "quote": "although I do not have the originals to examine",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds photographs are not determinative of genuineness and originals were not available for examination.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No persuasive evidence that Appellant's Canadian church practice came to attention of Chinese authorities",
+     "quote": "there was no persuasive evidence submitted/adduced ... to suggest that the Appellant's practice at the Church in Toronto has come to the attention of Chinese authorities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence Appellant or group faced harassment or observation by authorities in Canada",
+     "quote": "He did not provide any evidence to indicate that he, or the group in Toronto, were ever observed, photographed, or approached by or faced harassment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, Canadian activities would not place Appellant at risk upon return to China",
+     "quote": "I find on a balance of probabilities, these activities would not place him at risk upon return",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no evidence Canadian church activities came to Chinese authorities' attention and would not place Appellant at risk on return.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Sur place claim requires evidence that refugee claim came to attention of authorities in country of origin",
+     "quote": "a sur place claim could not be maintained in the absence of evidence, that the making of the refugee claim had specifically come to the attention of the authorities of the claimant's country of origin",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court decision in Wang supports this requirement for sur place claims",
+     "quote": "I am guided by the Federal Court Trial Division decision in Wang",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Federal Court decision in Wang that sur place claims require evidence refugee claim came to authorities' attention.",
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant alleges Canadian practice continues practice begun in China",
+     "quote": "The Appellant's allegations were that his desire to commence the practice of Christianity took place as a result of circumstances, which occurred in China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's connection to Toronto Church is questionable given he was not genuine Shouter in China",
+     "quote": "having found that he was not a genuine Shouter in China, I find that his connection to the Church in Toronto in Canada is questionable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Insufficient evidence of conversion in Canada; on balance Appellant was not Shouter in China or Canada",
+     "quote": "having insufficient reliable and persuasive probative evidence of conversion in Canada, I find, on a balance of probabilities, the Appellant was not a Shouter in China, nor is he a Shouter in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant affiliated with practice solely to bolster claim and will not practice on return",
+     "quote": "I find that the Appellant affiliated himself with the practice for the sole purpose of supporting and bolstering his claim and he will on a balance of probabilities, not practice on return",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's Canadian connection questionable, insufficient evidence of conversion, and affiliation was to bolster claim only.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with RPD that Appellant is not a genuine Christian on balance of probabilities",
+     "quote": "I agree with the RPD, on a balance of probabilities, that the Appellant is not a genuine Christian",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant is not wanted by Chinese authorities for Shouter activities or other reasons",
+     "quote": "the Appellant is not wanted by the authorities in China because of Shouter Christian activities or for any other reason",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appellant would not face serious persecution, torture, risk to life, or cruel treatment upon return",
+     "quote": "the Appellant would not face a serious possibility of persecution, nor would he face a danger of torture or a risk to his life or of cruel and unusual treatment or punishment upon return to China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Decision of RPD is confirmed and appeal is dismissed",
+     "quote": "I confirm the decision of the RPD and dismiss the appeal",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms RPD decision, finds Appellant not genuine Christian, not wanted, and not at risk, dismissing appeal.",
+   "role": "disposition"
+  }
+ ]
+}

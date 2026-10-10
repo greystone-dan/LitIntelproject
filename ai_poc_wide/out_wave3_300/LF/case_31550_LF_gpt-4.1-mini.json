@@ -1,0 +1,333 @@
+{
+ "case_id": 31550,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0081776,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants seek judicial review of RAD decision confirming refusal of refugee claim.",
+     "quote": "The Applicants, a mother [Principal Applicant] and her adult son from Mexico, seek judicial review of a decision of the Refugee Appeal Division [RAD] dated November 8, 2021 confirming the refusal of their refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed with RPD that Applicants have viable internal flight alternative in Merida, Cabo San Lucas and Campeche and are not Convention refugees or persons in need of protection.",
+     "quote": "The RAD agreed with the Refugee Protection Division [RPD] that the Applicants have a viable internal flight alternative [IFA] in Merida, Cabo San Lucas and Campeche and are not Convention refugees or persons in need of protection under sections 96 and 97 of the Immigration and Refugee Protection Act, SC 2001, c 27.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Applicants seek judicial review of RAD decision confirming refusal; RAD found viable internal flight alternative and no refugee status.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicants fear persecution in Mexico due to threats by OCEZ, an armed land rights group in Chiapas.",
+     "quote": "The Applicants fear persecution in Mexico due to threats of extortion and death made against them by a group known as Organización Campesina Emiliano Zapata [OCEZ]. OCEZ is an armed organization that advocates for land rights for rural farmers/peasants in the state of Chiapas.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Principal Applicant sued neighbour over land ownership; OCEZ claimed the neighbour was one of their own.",
+     "quote": "The Principal Applicant sued her neighbour for land ownership and OCEZ claimed that the person who owned the property was one of their own.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Applicants fear persecution from OCEZ due to land dispute; Principal Applicant sued neighbour claimed by OCEZ.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Two-prong IFA test requires claimant not face persecution or risk in IFA and conditions must not be unreasonable for refuge.",
+     "quote": "The two-prong IFA test was described by Justice McHaffie in Olusola v Canada (Citizenship and Immigration), 2020 FC 799 at paras 8-9 as follows: [8] To determine if a viable IFA exists, the RAD must be satisfied, on a balance of probabilities, that (1) the claimant will not be subject to persecution (on a “serious possibility” standard), or a section 97 danger or risk (on a “more likely than not” standard) in the proposed IFA; and (2) in all the circumstances, including circumstances particular to the claimant, conditions in the IFA are such that it would not be unreasonable for the claimant to seek refuge there: Thirunavukkarasu at pp 595–597; Hamdan v Canada (Immigration, Refugees and Citizenship), 2017 FC 643 at paras 10–12.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Both prongs must be satisfied; second prong requires actual and concrete evidence of jeopardizing conditions.",
+     "quote": "[9] Both of these \"prongs\" of the test must be satisfied to conclude that a refugee claimant has a viable IFA. The threshold on the second prong of the IFA test is a high one. There must be \"actual and concrete evidence\" of conditions that would jeopardize the applicants' lives and safety in travelling or temporarily relocating to a safe area: Ranganathan v. Canada (Minister of Citizenship & Immigration), [2001] 2 F.C. 164 (Fed. C.A.) at para 15.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites prior authority describing two-prong IFA test requiring no persecution risk and reasonable conditions, with high threshold for second prong.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Once RPD proposes viable IFA, claimant bears burden to prove proposition unreasonable and serious persecution risk nationwide.",
+     "quote": "It must also be kept in mind that once the RPD proposes a viable IFA, the claimant bears the burden to establish that such proposition is unreasonable and that there is a serious possibility of persecution throughout the whole country [see Adeleye v Canada (Citizenship and Immigration), 2022 FC 81 at para 20].",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states claimant bears burden to prove RPD's viable IFA proposition unreasonable and serious persecution risk nationwide.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Sole issue is reasonableness of RAD's determination on first prong of IFA test, specifically agent's means to locate Applicants.",
+     "quote": "The sole issue raised on this application is the reasonableness of the RAD’s determination on the first prong of the IFA test and specifically, whether the RAD’s determination that the agent of persecution lacked the means to locate the Applicants in the proposed IFAs was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies sole issue as reasonableness of RAD's finding on agent's means to locate Applicants in IFAs.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review requires decision to be transparent, intelligible, justified; burden on challenger; intervention only for serious shortcomings.",
+     "quote": "When reviewing for reasonableness, the Court must determine whether the decision under review, including both its rationale and outcome, is transparent, intelligible and justified. A reasonable decision is one that is based on an internally coherent and rational chain of analysis and that is justified in relation to the facts and law that constrain the decision-maker. The burden is on the party challenging the decision to show that it is unreasonable [see Canada (Minister of Citizenship and Immigraiton) v Vavilov, 2019 SCC 65 at paras 15, 83, 85, 99, 100]. The Court will intervene only if it is satisfied there are sufficiently serious shortcomings in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency [see Adenjij-Adele v Canada (Minister of Citizenship and Immigration), 2020 FC 418 at para 11].",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites law on reasonableness review requiring transparent, justified decision; burden on challenger; intervention only for serious flaws.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicants asserted OCEZ could use corrupt police, technology, data breaches, social media to locate them in IFAs.",
+     "quote": "In relation to the issue of whether OCEZ had the means to locate the Applicants in the IFAs, the Applicants had asserted before the RAD that OCEZ could use corrupt police officers and/or technology, data breaches and social media to locate the Applicants in the IFAs.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found electoral database lacks current location, home address, employer info; data breaches info scarce; social media use limited.",
+     "quote": "The objective evidence describes the voter identification database (Unique Population Registration Code (CURP) [sic] which contains a wide array of personal information from numerous sources. The available information indicates that any person can use the Ministry of Interior’s web portal to obtain information if they have the person’s CURP or their complete first and last names, date of birth, and the name of the federal state where he or she was born. The evidence is silent on the availability of employer information and does not include a person’s home address. I conclude from this evidence that the electoral website would not include their current location, their home address nor their employer. Another article points to a 2013 account of a journalist who was able to purchase, on the black market, access to a database containing names, addresses and social identification numbers and a data breach in 2016 where the records of 93 million Mexicans were illegally disclosed. However, this same document indicates that information about data breaches or unauthorized access by third parties was scarce. The evidence also indicates that the voter identification card has the most security features of all identification cards in Mexico and states that information on whether police authorities or others can use these voter identification cards to illegally locate an individual could not be found. Finally, the article indicates that the CURP does not indicate a person’s address and further, a third party cannot access a person’s home address only by knowing the CURP. I have considered whether the Appellants can be found through their use of social media. The Federal Court has found that limitations on the use of social media were not unreasonable in a proposed IFA… [Emphasis added.]",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argued OCEZ could use corrupt police, technology, data breaches, social media; RAD found database lacks key info and data breach info scarce.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD cited item 14.1 of National Document Package dated Sept 30, 2020 and Sept 29, 2021, concluding Applicants not found through alleged technology.",
+     "quote": "In making its findings, the RAD cited item 14.1 of the National Document Package [NDP] dated September 30, 2020 and noted that this item remained unchanged in the most recent NDP available at the time of the hearing, being September 29, 2021. The RAD then concluded that it had not been established, on a balance of probabilities, that the Applicants could be found through the alleged technology.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD cited item 14.1 of NDP from Sept 2020 and 2021, concluding Applicants could not be found through alleged technology.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Contrary to RAD, item 14.1 was amended to include more data breaches with employer info; RAD obligated to consider updated info.",
+     "quote": "However, contrary to the RAD’s assertion that item 14.1 remained unchanged, amendments had been made to item 14.1 in the interim. These changes included the removal of the language that information about data breaches or unauthorized access by third parties was scarce and the inclusion of two additional data breaches in January of 2021, one of which included employer names and addresses. I find that the RAD was obligated to consider the most recently updated information in its NDP at the time that it rendered its decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given changes to item 14.1 and RAD's rationale, update could have affected result; application must be allowed.",
+     "quote": "Given the changes made to item 14.1 and the RAD’s rationale for rejecting the Applicants’ assertion that they could be found through technology, I find that the update could have affected the result. Accordingly, the application must be allowed [see Demir v Canada, 2014 FC 1218 at para 12].",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds item 14.1 was amended with new data breaches; RAD had to consider update; update could affect result; application allowed.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent says RAD's failure to cite updated NDP irrelevant; Applicants lack evidence OCEZ used such info to track outside Chiapas.",
+     "quote": "The Respondent asserts that the RAD’s failure to cite the updated NDP item is irrelevant as it does not overcome the fundamental weakness in the Applicants’ case—namely, that the Applicants presented insufficient evidence to demonstrate that OCEZ had ever used that type of information or information technology to track individuals outside of Chiapas.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's reasons focused on scarcity of data breach info and type of info available, not on absence of evidence of OCEZ's use of technology.",
+     "quote": "However, the RAD’s reasons do not turn on the absence of evidence regarding OCEZ’s use of that type of information or information technology to track individuals. Rather, the RAD’s reasons were focused on the scarcity of information about data breaches and the type of information available from data breaches.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues RAD's failure to cite update irrelevant due to lack of evidence OCEZ used tech; court finds RAD focused on data breach info scarcity.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD's failure to consider updated NDP item renders decision unreasonable; judicial review granted; matter remitted to different RAD panel.",
+     "quote": "While the Applicants have asserted that the RAD made additional errors, I am satisfied that the RAD’s failure to consider the updated NDP item is sufficient to render the decision unreasonable. The application for judicial review shall therefore be granted and the matter shall be remitted to a differently-constituted panel of the RAD for redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes RAD's failure to consider updated NDP item makes decision unreasonable; grants review and remits matter.",
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review allowed; RAD decision set aside; matter remitted to differently-constituted RAD panel; no certification question arises.",
+     "quote": "THIS COURT’S JUDGMENT is that: The application for judicial review is allowed, the decision of the Refugee Appeal Division dated November 8, 2021 is set aside and the matter is remitted to a differently-constituted panel of the Refugee Appeal Division for redetermination. The parties proposed no question for certification and none arises.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court orders judicial review allowed, RAD decision set aside, matter remitted, no certification question arises.",
+   "role": "disposition"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The voter identification database (CURP) contains wide personal information from many sources.",
+     "quote": "The objective evidence describes the voter identification database (Unique Population Registration Code (CURP) [sic] which contains a wide array of personal information from numerous sources.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Anyone can use the Ministry of Interior’s web portal to get info if they have CURP or full name, birth date, and birth state.",
+     "quote": "any person can use the Ministry of Interior’s web portal to obtain information if they have the person’s CURP or their complete first and last names, date of birth, and the name of the federal state where he or she was born.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Evidence is silent on employer info and does not include home address in the database.",
+     "quote": "The evidence is silent on the availability of employer information and does not include a person’s home address.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The electoral website would not include current location, home address, or employer.",
+     "quote": "I conclude from this evidence that the electoral website would not include their current location, their home address nor their employer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A 2013 journalist bought black market access to a database with names, addresses, social IDs; 2016 breach disclosed 93 million records.",
+     "quote": "Another article points to a 2013 account of a journalist who was able to purchase, on the black market, access to a database containing names, addresses and social identification numbers and a data breach in 2016 where the records of 93 million Mexicans were illegally disclosed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Information about data breaches or unauthorized third-party access was scarce.",
+     "quote": "this same document indicates that information about data breaches or unauthorized access by third parties was scarce.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The voter ID card has the most security features of all Mexican ID cards.",
+     "quote": "The evidence also indicates that the voter identification card has the most security features of all identification cards in Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No info found on whether police or others can use voter ID cards to illegally locate individuals.",
+     "quote": "states that information on whether police authorities or others can use these voter identification cards to illegally locate an individual could not be found.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "CURP does not indicate a person’s address and third parties cannot access home address by knowing CURP.",
+     "quote": "the CURP does not indicate a person’s address and further, a third party cannot access a person’s home address only by knowing the CURP.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Considered whether appellants can be found through social media use.",
+     "quote": "I have considered whether the Appellants can be found through their use of social media.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Federal Court found limitations on social media use were not unreasonable in a proposed IFA.",
+     "quote": "The Federal Court has found that limitations on the use of social media were not unreasonable in a proposed IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the CURP database contains personal info but excludes home address and employer; data breaches exist but info is scarce; voter ID cards are secure; social media limitations were found reasonable by Federal Court.",
+   "role": "analysis"
+  }
+ ]
+}

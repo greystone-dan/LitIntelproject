@@ -1,0 +1,1474 @@
+{
+ "case_id": 72562,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0253308,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss this appeal.",
+     "quote": "I dismiss this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses this appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is a citizen of Colombia.",
+     "quote": "XXXX XXXX XXXX XXXX (Appellant) is a citizen of Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant is a citizen of Colombia.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant fears unknown guerilla fighters in Colombia and fled after assault in 2014 while they sought his uncle.",
+     "quote": "The Appellant fears unknown guerilla fighters in Colombia. He fled the country after he was assaulted by them in 2014 while they were looking for his uncle.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant fears guerilla fighters and fled after assault in 2014.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant had an Internal Flight Alternative (IFA) in Florencia, Barranquilla, or Cartagena.",
+     "quote": "The Refugee Protection Division (RPD) found that the Appellant had an Internal Flight Alternative (IFA) in Florencia, Barranquilla, or Cartagena.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant had an IFA in Florencia, Barranquilla, or Cartagena.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's Counsel argues the RPD showed bias and erred in findings.",
+     "quote": "The Appellant's Counsel argues that the RPD demonstrated bias and erred in its findings.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues objective documentary evidence shows Appellant would not be safe in IFA locations.",
+     "quote": "Counsel argues that the objective documentary evidence indicates that the Appellant would not be safe from the guerilla fighters in the IFA locations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues IFAs are unreasonable because Appellant cannot live in warm humid climates with his condition.",
+     "quote": "Counsel also argues that the IFAs are unreasonable because the Appellant cannot live in warm humid climates with his XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's Counsel argues RPD was biased, evidence shows IFAs unsafe, and IFAs unreasonable due to Appellant's condition.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "After independent review, RPD did not err; insufficient evidence shows IFAs unsafe or unreasonable for Appellant.",
+     "quote": "After an independent review of the record, I find that the RPD did not err. There is insufficient evidence on the record to indicate that the IFAs are unsafe or unreasonable for the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error by RPD; evidence insufficient to show IFAs unsafe or unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal; RPD was correct that Appellant is neither a Convention refugee nor in need of protection.",
+     "quote": "I dismiss the appeal. The RPD was correct in finding that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, agreeing RPD was correct on refugee and protection status.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant lived with uncle's family in Bogota; uncle bought land in guerilla-controlled area; guerillas extorted uncle.",
+     "quote": "The Appellant lived with his uncle's family in Bogota, Colombia. In 2009 his uncle purchased some land in an area which was under guerilla control. Guerillas began extorting the Appellant's uncle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Uncle stopped payments; family targeted; in 2014 uncle's family fled and claimed asylum in USA.",
+     "quote": "After several years the uncle ceased these payments, and the family was targeted by the guerillas. In XXXX 2014 the uncle's family fled the country and made a claim for asylum in the USA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2014 Appellant was abducted, assaulted, questioned about uncle, then released with threat of return.",
+     "quote": "In XXXX 2014 the Appellant was abducted by three men, who assaulted him and asked him questions about his uncle's whereabouts. The men released him but said that they would return to question him again.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Appellant's uncle was extorted by guerillas; family fled; Appellant abducted and threatened in 2014.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant fled Colombia, obtained student visa, relocated to Canada in 2014.",
+     "quote": "The claimant decided to flee the country. The Appellant obtained a student visa and relocated to Canada in XXXX 2014.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Appellant fled Colombia and relocated to Canada in 2014 with a student visa.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant's RPD hearing was Feb 6, 2020; RPD allowed 3 weeks for medical submissions; RPD accepted and analyzed them; decision signed July 17, 2020.",
+     "quote": "The Appellant's hearing before the RPD was on February 6, 2020. The RPD allowed the Appellant an additional three weeks for extra submissions related to his medical condition. The Appellant submitted documents and the RPD accepted and analyzed them. The RPD signed its decision on July 17, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RPD hearing date, allowance for medical submissions, and decision date.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "New evidence accepted only if it arose after RPD decision, was not reasonably available before, or could not reasonably have been expected to be brought before RPD.",
+     "quote": "According to the law,1 I can only accept evidence that: i. arose after the RPD decision; or ii. was not reasonably available at the time of the decision; or iii. that could not reasonably have been expected in the circumstances to bring to the RPD before the decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal criteria for accepting new evidence on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If evidence meets criteria, must decide if it is new, credible, and relevant before acceptance.",
+     "quote": "If the evidence meets one or more of these requirements, I must decide if the evidence is new, credible, and relevant before I can accept it.2",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it must assess new evidence for newness, credibility, and relevance before acceptance.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant submitted various documents as new evidence including affidavit, letters, news articles, court decisions, and a doctor's note.",
+     "quote": "The Appellant submitted the following documents as new evidence: a. Affidavit of XXXX XXXX XXXX XXXX (the Appellant), August 26, 2020. b. Letter from XXXX XXXX XXXX XXXX (the Appellant's brother) with identification documents, August 20, 2020. c. Letters confirming that the Appellant's brother lived in Barranquilla, August 20, 2020. d. Letter from XXXX XXXX XXXX and XXXX XXXX XXXX XXXX XXXX (the Appellant's parents), August 20, 2020. e. Letter from XXXX XXXX XXXX XXXX XXXX (the Appellant's former psychologist in Colombia), August 18, 2020. f. News article by unknown author, \"Colombia suspends peace talks with ELN rebels\", Reuters, January 18, 2018. g. News article by unknown author, \"ELN\", InSight Crime, May 4, 2020. h. News article by unknown author, \"Dealing with arthritis in hot weather\", Griswold Home Care, May 11, 2017. i. News article by Colleen Doherty, \"How summer heat may worsen your chronic pain\", Very Well Health, July 5, 2020. j. News article by unknown author, \"Colombia has 24 of the best hospitals in Latin America\", Medellin Guru, October 29, 2019. k. News article by unknown author, \"Average Weather in Cartagena\", Weather Spark, date unknown, printed on August 28, 2020. l. News article by unknown author, \"Average Weather in Barranquilla\", Weather Spark, date unknown, printed on August 28, 2020. m. Three publicly available federal court decisions. n. A doctor's note submitted to the RPD.3 The Appellant's affidavit is inadmissible as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant submits various documents as new evidence including affidavit, letters, news articles, court decisions, and a doctor's note.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's affidavit repeats information before RPD and rebuts with corroborative evidence; does not meet IRPA requirements for new evidence.",
+     "quote": "The affidavit repeats information that was before the RPD and \"rebuts with corroborative evidence why his life is in danger\".4 This affidavit does not meet the requirements of the Immigration and Refugee Protection Act (IRPA) as described above.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Affidavit inadmissible as new evidence; court will not engage with explanations or comments in affidavit; will consider only arguments in Memorandum.",
+     "quote": "As such, I will not engage with the Appellant's explanations of his evidence presented at the RPD and his comments on the RPD reasoning. The information provided in the affidavit are inadmissible, either because it is not new evidence or contains arguments that belong in the Appellant's Memorandum. As such, I will only consider the arguments made in the Appellants' Memorandum.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the affidavit inadmissible as new evidence and will consider only the Memorandum arguments.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Letters from Appellant's parents and confirming brother's residence are inadmissible as new evidence because content is not new.",
+     "quote": "These documents are inadmissible as new evidence because their content is not new.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds letters from parents and confirming brother's residence inadmissible as new evidence due to lack of new content.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Letters describe brother's experience living and interning in Barranquilla 2016-2017, witnessing extortion with same modus operandi as Appellant's attack.",
+     "quote": "Although the letters post-date the RPD's decision, they describe the Appellant's brother's experience living and completing an internship in Barranquilla \"from XXXX 2016 to late 2017.\"5 Mr. XXXX XXXX states that he witnessed extortion in his apartment building. He states that the perpetrators used the same \"modus operandi as those who attacked [the Appellant]\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states letters describe brother's 2016-2017 experience in Barranquilla witnessing extortion similar to Appellant's attack.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Brother's letter contains general statements about increasing danger from guerillas and blacklisting by FARC and ELN; no specific incidents provided; repeats Appellant's submission about physical condition.",
+     "quote": "The letter also contains several general statements. Mr. XXXX XXXX states that guerillas in Colombia are becoming more dangerous and crime is increasing. He states that people who are blacklisted by the FARC and ELN can be easily located. No specific incidents or details are provided. He repeats the Appellant's previous submission that the Appellant would be easily identified by his physical condition.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states brother's letter has general statements about guerilla danger and repeats Appellant's identification argument without specifics.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Brother's letter is accompanied by two letters confirming his residence and studies in Barranquilla in 2016-2017.",
+     "quote": "Mr. XXXX XXXX letter is also accompanied by two letters confirming that he lived and studied in Barranquilla in 2016-2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states brother's letter is accompanied by letters confirming his residence and studies in Barranquilla 2016-2017.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Content of these documents is not new; brother's experiences occurred before RPD decision; no reason why evidence not presented earlier; no explanation given.",
+     "quote": "The content of these documents is not new. The Appellant's brother's experiences in Barranquilla in 2016-2017 occurred years before the RPD signed its decision. The RPD informed the Appellant and his Counsel that it would consider Barranquilla as a potential IFA at the Appellant's hearing. There is no reason why the Appellant and his Counsel could not present this evidence at an earlier date. The Appellant did not provide any explanation for why he did not present this evidence earlier.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the documents' content not new and no explanation for late submission was given.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if documents were new, they do not establish that men who targeted Appellant are present in IFAs or connected to organized crime there.",
+     "quote": "Furthermore, even if I were to find that these documents are new, I do not find that they would impact my decision. Although there may be organized crime in the IFA locations, the Appellant's brother's letter does not help to establish that the men who targeted the Appellant in 2014 are present in the IFAs, or whether they have connections to the existing organized crime in these areas.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "General statements about guerilla presence do not help establish risk in IFAs.",
+     "quote": "The same applies to Mr. XXXX XXXX general statements about the presence of guerrilla groups in Colombia.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds even if documents were new, they do not establish risk from men who targeted Appellant or guerilla presence in IFAs.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Do not admit the letter from the Appellant's parents as new evidence.",
+     "quote": "I do not admit these documents as new evidence. Letter from the Appellant's parents is inadmissible as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not admit the letter from the Appellant's parents as new evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This document is inadmissible as new evidence because its content is not new.",
+     "quote": "This document is inadmissible as new evidence because its content is not new.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the document inadmissible as new evidence because its content is not new.",
+   "role": "disposition"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The letter repeats information about the Appellant's medical condition, family history, and events in Colombia including extortion witnessed by the Appellant's brother.",
+     "quote": "This letter repeats information about the Appellant's XXXX XXXX, including details of its onset and treatments that the Appellant received. It repeats the Appellant's story including his uncle's past issues in Colombia. It explains that in 2016 the Appellant's parents moved to another one of their properties and changed their phone numbers in 2016 to avoid issues in Colombia. It repeats that the Appellant's brother witnessed his landlord's extortion in Barranquilla in 2016-2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the letter repeats prior information about the Appellant's health, family, and events in Colombia.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The letter describes events before the hearing and RPD decision, and most details were before the RPD.",
+     "quote": "This letter describes events that occurred before the Appellant's hearing and before the RPD signed its decision. Most of the details of this letter were before the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant has not explained why he could not provide a similar letter before the RPD decision.",
+     "quote": "Moreover, the Appellant has not explained why he was unable to provide a similar letter of support before the RPD signed its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the letter describes events known before the hearing and RPD decision, and the Appellant did not explain why it was not provided earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Do not admit the letter from XXXX XXXX XXXX XXXX XXXX as new evidence.",
+     "quote": "I do not admit this letter as new evidence. Letter from XXXX XXXX XXXX XXXX XXXX is inadmissible as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not admit the letter from XXXX XXXX XXXX XXXX XXXX as new evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This document is inadmissible as new evidence because its content is not new.",
+     "quote": "This document is inadmissible as new evidence because its content is not new.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the document inadmissible as new evidence because its content is not new.",
+   "role": "disposition"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. XXXX XXXX is the Appellant's former psychologist who treated him from 2011-2014 for depression and recommended mindfulness and cognitive exercises.",
+     "quote": "Mr. XXXX XXXX is the Appellant's former psychologist. His letter states that he treated the Appellant from 2011-2014 for depression. This letter describes the Appellant's physical and mental health conditions as they appeared at the time that he underwent treatment. It describes the therapist's recommendations, which included mindfulness exercises, conscious breathing, and cognitive focalization.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the psychologist treated the Appellant from 2011-2014 and described his conditions and treatment recommendations.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The letter describes medical treatment before the hearing and RPD decision, and the Appellant did not explain why it was not provided earlier.",
+     "quote": "This letter describes the Appellant's medical treatment that occurred before the Appellant's hearing and before the RPD signed its decision. The Appellant has not explained why he was unable to provide a similar medical report before the RPD signed its decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD gave the Appellant 3 extra weeks for post-hearing health submissions, so the evidence should have been available earlier.",
+     "quote": "This is especially pertinent considering that the RPD provided the Appellant with an additional 3 weeks to provide post-hearing submissions related to his health condition.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Without explanation, there is no reason why this evidence was not available before the RPD decision; the Appellant could have provided it.",
+     "quote": "In these circumstances and without further explanation, I find no reason why this evidence was not available to the Appellant prior to the RPD's decision. The Appellant could have reasonably been expected to provide this evidence to the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the medical letter predates the hearing and RPD decision, the Appellant gave no explanation for delay, and could have provided it earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Do not admit the news articles as new evidence.",
+     "quote": "I do not admit this letter as new evidence. News articles are inadmissible as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not admit the news articles as new evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The news articles are inadmissible as new evidence because they are not new.",
+     "quote": "These articles are not admissible as new evidence because they are not new.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the news articles inadmissible as new evidence because they are not new.",
+   "role": "disposition"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Five of seven articles pre-date the RPD decision and cover topics before the RPD, including guerilla activity, healthcare, and climate effects on arthritis.",
+     "quote": "Five of the seven articles submitted as new evidence pre-date the RPD's decision. They cover subjects that were before the RPD, including the activity of guerilla groups in Colombia, the quality of healthcare in Colombia, and the impact of humidity on arthritis and chronic pain.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes five articles pre-date the RPD decision and cover subjects already before the RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The undated articles describe weather in Barranquilla and Cartagena, topics before the RPD.",
+     "quote": "The other articles are undated. The undated articles describe the weather in Barranquilla and Cartagena respectively. The subject of the weather in the IFA locations was before the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes undated articles describe weather in locations already considered by the RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant did not explain why these articles were not provided earlier to the RPD.",
+     "quote": "The Appellant did not explain why he was unable to provide these articles to the RPD in the time the RPD provided the Appellant for post-hearing submissions or before it signed its decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The evidence was reasonably available at the time and the Appellant could have been expected to provide it to the RPD.",
+     "quote": "The evidence was reasonably available at the time of the decision and I find no reason why the Appellant could not have been expected to provide this evidence to the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant did not explain why articles were not provided earlier and could have been expected to provide them.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Do not admit Federal Court decisions as new evidence.",
+     "quote": "I do not admit these articles as new evidence. Federal Court decisions are not new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not admit Federal Court decisions as new evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel submitted three Federal Court decisions with new evidence and made submissions on their applicability.",
+     "quote": "The Appellant's Counsel submitted three decisions from the Federal Court with the new evidence. It is open to Counsel to make submissions about the applicability of Federal Court decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Counsel pointed to two decisions in submissions, which the court reviewed and considered in analysis.",
+     "quote": "I note that Counsel pointed to two decisions in their submissions.7 I reviewed this decision and the others and considered them in my analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court did not consider these decisions as new evidence or apply the new evidence test to them.",
+     "quote": "I did not, however, consider them as new evidence or apply the test for new evidence to these documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent notes Counsel submitted Federal Court decisions; the court reviewed but did not treat them as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel resubmitted a doctor's note that was before the RPD.",
+     "quote": "The Appellant's Counsel resubmits a doctor's note that was before the RPD.8",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This is not new evidence because it was before the RPD; the court considered it as part of the record without applying the new evidence test.",
+     "quote": "This is not new evidence because it was before the RPD. I have considered this document as it forms part of the RPD record but have not applied the test for new evidence to this document.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent notes Counsel resubmitted a doctor's note before the RPD; the court considered it part of the record, not new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Appellant requested an oral hearing, which the court may hold if new evidence raises a serious credibility issue central to the claim.",
+     "quote": "The Appellant requested an oral hearing. I may hold a hearing if I accept new evidence that raises a serious issue about the Appellant's credibility, which is central to the claim, and would justify allowing or rejecting the claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Since the new evidence does not meet these criteria, the court did not hold an oral hearing.",
+     "quote": "Since the new evidence does not fit these criteria, I did not hold an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the criteria for an oral hearing and declines to hold one as the new evidence does not meet them.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court's role is to review all evidence and decide if the RPD made the correct decision.",
+     "quote": "My role is to look at all the evidence and decide if the RPD made the correct decision.9",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review all evidence and decide if the RPD decision was correct.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "There are two parts to the legal test for assessing an IFA.",
+     "quote": "There are two parts of the legal test for assessing an IFA.10",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal test for assessing an IFA has two parts.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "First, the court must be satisfied on a balance of probabilities that there is no serious possibility of persecution or risk of torture, death, or cruel treatment in the proposed IFA locations.",
+     "quote": "First, I must be satisfied, on a balance of probabilities, that there is no serious possibility of the Appellant being persecuted, and/or no danger of torture, risk to life, or risk of cruel and unusual treatment or punishment in the proposed IFA locations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first part of the IFA test requires no serious possibility of persecution or risk in the proposed locations.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Conditions in IFAs must be such that it is not unreasonable for the Appellant to seek refuge there.",
+     "quote": "Second, the conditions in the IFAs must be such that it would not be unreasonable, in all the circumstances, for the Appellant to seek refuge there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that conditions in IFAs must not be unreasonable for the Appellant to seek refuge there.",
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Once an IFA is identified, the Appellant must demonstrate that the IFA is unsafe or unreasonable.",
+     "quote": "Once an IFA has been identified, the Appellant is responsible for demonstrating that the IFA is unsafe or unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant must show the IFA is unsafe or unreasonable once identified.",
+   "role": "law"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD considered Barranquilla, Cartagena, and Florencia as IFAs and found both parts of the legal test satisfied.",
+     "quote": "The RPD considered the cities of Barranquilla, Cartagena, and Florencia as potential IFAs. The RPD found that both parts of the legal test for an IFA were satisfied.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "After independent review, the court agrees with the RPD's finding on IFAs for the stated reasons.",
+     "quote": "After an independent review of the record, I agree with the RPD for the following reasons.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RPD found the three cities met the IFA test, and the court agrees after independent review.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The men who assaulted the Appellant in 2014 were the same who extorted his uncle.",
+     "quote": "The Appellant's Counsel argues that the men who assaulted the Appellant in 2014 were the same men who extorted his uncle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court accepts this fact as credible but does not find it automatically makes IFAs unsafe.",
+     "quote": "Like the RPD, I accept this fact as credible. However, I do not find that this fact automatically makes the IFAs unsafe.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Analysis must consider the totality of the Appellant's circumstances.",
+     "quote": "My analysis must consider the totality of the Appellant's circumstances, which is conducted below.",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The jurisprudence presented by Counsel differs from the Appellant's case.",
+     "quote": "The jurisprudence presented by Counsel is different than the Appellant's case",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the assailants are the same men who extorted his uncle; the court accepts this but finds it does not automatically make IFAs unsafe and notes jurisprudence differs.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel cites Barrera Torres and NDP stating guerrillas have sophisticated databases and relocation within Colombia is not safer.",
+     "quote": "The Appellant's Counsel points to Barrera Torres, which recites a passage from the National Documentation Package (NDP) that was current at the time of the Court's decision. This passage indicates that guerrillas and paramilitary groups have access to sophisticated databases and computer networks. It states that people who relocate within Colombia are not notably safer in another region of the country, even after an extended time.",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel cites Barrera Torres and NDP that guerrillas have databases and relocation within Colombia is not notably safer.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Barrera Torres involved a claimant pursued by FARC due to her financial job and multiple threats, with police complaints leading to further threats.",
+     "quote": "In that case, the claimant was pursued by the FARC because of her job in a financial institution. She and her husband were contacted and threatened by the FARC on multiple occasions. When they reported an incident to the police they were subsequently contacted by the FARC and informed that they were considered military targets.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Justice Beaudry found the RPD failed to consider complaints against FARC and exposure to persecution in similar situations.",
+     "quote": "Justice Beaudry found that the RPD did not properly consider that the Appellants filed complaints against the FARC, or that people in similar situations are often exposed and persecuted by the FARC.",
+     "answers": 0
+    }
+   ],
+   "summary": "Barrera Torres involved a claimant pursued by FARC with multiple threats and police complaints; Justice Beaudry found RPD erred in not considering these facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant had one contact with assailants focused on his uncle's whereabouts and no subsequent contact or knowledge of their affiliation.",
+     "quote": "The Appellant had one incident of contact with his assailants, where the conversation focused on the whereabouts of his uncle. He does not know to which guerrilla organization they are affiliated. Neither he nor the rest of his family had any subsequent contact with his assailants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant had one contact with assailants about his uncle and no further contact or knowledge of their group.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues RPD showed bias by misconstruing testimony and ignoring corroborative evidence, citing Pabon Morales and NDP evidence on guerrilla reach.",
+     "quote": "Similarly, the Appellant's Counsel argues that the RPD demonstrated bias in their decision by misconstruing the Appellant's testimony and ignoring \"relevant corroborative evidence.\" Counsel does not point to specific evidence that the RPD ignored. Rather, Counsel relies on Pabon Morales, which references evidence from a previous NDP, which states that the FARC, ELN and successor groups have the capacity to pursue victims throughout the country and may do so when the person is of \"particular interest to warrant such effort.\" The excerpt goes on to state that advances made against guerilla groups do not necessarily translate into state protection for those targeted by such groups.",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel argues RPD was biased by misconstruing testimony and ignoring evidence, citing Pabon Morales and NDP on guerrilla reach and state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Pabon Morales involved a former police officer pursued by FARC due to investigations, unlike the Appellant's case.",
+     "quote": "The Pabon Morales case is different than the Appellant's. Following the excerpt described above, Justice Simpson states that the Officer failed to appreciate how this evidence linked to that claimant's circumstances as a former police officer in Colombia who was pursued because of his involvement in investigations against the FARC.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant was not a police officer and had a single interaction with unknown guerrillas; insufficient evidence shows assailants' means or motivation to pursue him in IFAs.",
+     "quote": "These are indeed circumstances that would trigger the FARC to have a \"particular interest\" to pursue a target across different Colombia. These circumstances are very different than the Appellant's, who was not a police officer and had a single interaction with an unknown guerilla group looking for his uncle. There is insufficient evidence to demonstrate that the Appellant's assailants have the means or motivation to pursue him in the IFAs on a balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Pabon Morales differs as it involved a police officer pursued by FARC; here, the Appellant had one contact with unknown guerrillas and insufficient evidence of pursuit.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found insufficient evidence that assailants have means or motivation to find the Appellant in IFAs.",
+     "quote": "The RPD found that there was insufficient evidence to demonstrate that the men who assaulted the Appellant in 2014 have the means or motivation to find him in the IFA locations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees with the RPD and accepts guerrilla groups have means but must consider balance of probabilities in this case.",
+     "quote": "I agree. I accept that many guerilla and organized crime groups in Colombia have the means to locate and harm their targets as discussed in the jurisprudence considered above. However, like the RPD, I must consider what has been established on a balance of probabilities in the Appellant's case.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RPD found insufficient evidence that assailants can find the Appellant in IFAs; the court agrees but notes guerrilla groups have such means generally.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant does not know assailants' group; without further info, court cannot conclude assailants have means to locate him in Colombia.",
+     "quote": "In the Appellant's case, he does not know which group his assailants were affiliated. Although I accept that some criminal groups have means such as access to databases to find their targets, without further information about the identity of the Appellant's assailants I cannot conclude that his assailants have these means available to them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Insufficient evidence to establish assailants belonged to guerrilla group that can locate Appellant throughout Colombia on balance of probabilities.",
+     "quote": "Without further information, I find that there is insufficient evidence before me to establish that these men belonged to a guerrilla group that can locate the Appellant throughout Colombia on a balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence that the assailants belong to a guerrilla group with means to locate the Appellant throughout Colombia.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "When claimants do not know details of persecutors, other facts and interactions must be evaluated.",
+     "quote": "I accept that there are cases where refugee claimants may not know all the details of their agents of persecution. In these circumstances it is important to evaluate the other facts of the case, including any further interactions between the agents of persecution and the Appellant or his remaining family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant had one interaction six years ago; no contact with family since; assailants sought uncle, a family member.",
+     "quote": "Like the RPD, I note that the Appellant had a single interaction with his assailants over six years ago. They were looking for his uncle. He testified that none of his remaining family in Colombia, including his siblings and parents, had been contacted by the men who were looking for his uncle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If assailants had means or motivation to find Appellant, they would have contacted family in six years, on balance of probabilities.",
+     "quote": "If the Appellant's assailants were motivated to find him or had the means to do so I would expect them to have attempted to contact his other family members in the six years that he was gone, on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Assailants initially sought Appellant's uncle, a family member, reinforcing expectation of contact if motivated.",
+     "quote": "This is particularly the case when I consider that the Appellant's assailants were initially looking for the Appellant's uncle, who is his family member.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that when details of persecutors are unknown, other facts matter; here, no contact with family in six years suggests assailants lack means or motivation.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD correctly summarized facts on IFA safety and found insufficient evidence that assailants can locate and harm Appellant in IFAs.",
+     "quote": "The RPD succinctly and correctly summed up the facts of the Appellant's case with respect to the safety of the IFA locations. The RPD found that there was insufficient evidence on the record to establish that the men who assaulted the Appellant had the means or motivation to locate and harm the Appellant in the IFA locations, on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees with the RPD's analysis and finds no error.",
+     "quote": "I agree with this analysis and find it without error.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RPD correctly found insufficient evidence that assailants can locate and harm the Appellant in IFAs; the court agrees without error.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court finds no serious possibility of persecution or risk in the proposed IFAs on balance of probabilities.",
+     "quote": "After considering the evidence before me, I do not find that the men who assaulted the Appellant in 2014 while looking for his uncle have the means and motivation to locate him in the proposed IFAs, on a balance of probabilities. I am satisfied, on a balance of probabilities, that there is no serious possibility of the Appellant being persecuted, and/or no danger of torture, risk to life, or risk of cruel and unusual treatment or punishment in the proposed IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "State protection analysis is not required in an IFA evaluation.",
+     "quote": "State protection analysis is not required in an IFA evaluation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes no serious risk exists in IFAs and state protection analysis is not required in IFA evaluation.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues IFAs are unsafe due to lack of state protection because of organized crime presence.",
+     "quote": "The Appellant's Counsel argues that the IFA cities are not safe because the Appellant would not have access to state protection in these locations because of the presence of organized crime groups.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found no evidence indicating lack of state protection for the Appellant in IFAs.",
+     "quote": "The RPD found that there was no evidence to indicate that the Appellant would not have protection from state authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel cites Lobaton where a PRRA Officer failed to engage with evidence of ELN activity in Bogota.",
+     "quote": "Counsel points to Lobaton, where the Federal Court found that a PRRA Officer failed to engage with evidence contrary to his findings on the availability of state protection and IFA. Specifically, the Court found that the Officer failed to engage with the evidence that the ELN was active in Bogota.",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel argues IFAs lack state protection due to organized crime; RPD found no evidence; Counsel cites Lobaton on ELN activity.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD engaged with Appellant's arguments on state protection and addressed credibility concerns about police report evidence.",
+     "quote": "First, I find that the RPD engaged with the Appellant's arguments regarding his access to state protection. The RPD clearly addressed these arguments in its reasons. The RPD considered that the Appellant did not make a police report. The RPD also noted a credibility concern with the Appellant's evidence regarding state protection. He answered yes to question 2c), which asks whether he sought assistance from police or any other organization. By contrast, his Basis of Claim (BOC) states that he did not approach authorities. The RPD did not accept the Appellant's explanation that his response to question 2c) was an error because he had declared that this form was complete, true and correct at the beginning of the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD engaged with state protection arguments and noted credibility concerns about police report evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not need to engage with state protection arguments because if IFA is met, state protection is not required.",
+     "quote": "Although I do not find any error in the RPD's analysis of the Appellant's submissions about lack of state protection, the RPD did not need to engage with the Appellant's arguments on this subject. The concepts of state protection and internal flight alternative are separate in the refugee determination. If the first prong of an IFA is met, on a balance of probabilities, the Appellant would be safe from their agents of harm in the given IFA locations as detailed in paragraph 40 above. In these circumstances the Appellant would not have a need to access state protection from their agents of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court has not engaged further with state protection arguments as IFA is determinative and reasonable.",
+     "quote": "As the determinative issue in this case is IFA, I have not engaged further with the Appellant's arguments regarding the availability of state protection from his agents of persecution. The IFA is reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD did not need to address state protection as IFA is determinative and reasonable; court declines further engagement.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Relocation involves hardship but threshold to find IFA unreasonable is high; appellants must provide concrete evidence of jeopardy.",
+     "quote": "Relocation will always involve some amount of hardship. However, the threshold to find an IFA unreasonable is high. Appellants must provide actual and concrete evidence to demonstrate that the conditions in an IFA would jeopardize their life and safety.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states relocation hardship is expected but appellants must provide concrete evidence to show IFA is unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant has not provided concrete evidence that the proposed IFAs are unreasonable.",
+     "quote": "After considering the particular facts of the Appellant's case, I find that the Appellant has not met his burden to provide actual and concrete evidence to demonstrate that the proposed IFAs are unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant has not met the burden to show IFAs are unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues RPD erred by not giving probative value to doctor's note about Appellant's inability to live in humid, warm areas; IFAs are humid and warm.",
+     "quote": "Counsel argues that the RPD erred when it did not give probative value to the Appellant's doctor's note, which states that the Appellant cannot live in an area that is humid and warm. Counsel submits that the IFA cities are all humid and warm.",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel argues RPD erred by ignoring doctor's note that Appellant cannot live in humid, warm areas, which IFAs are.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's health condition makes relocation to IFAs unreasonable due to hot and humid climate",
+     "quote": "Before the RPD he submitted that this condition made relocation to the IFAs unreasonable, notably because of their alleged hot and humid climate.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not find Appellant's health condition made IFAs unreasonable",
+     "quote": "The RPD considered the Appellant's submissions regarding his health condition but did not find that the Appellant's health condition made the IFAs unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I agree with RPD's finding for the following reasons",
+     "quote": "I agree for the following reasons.",
+     "answers": 2
+    }
+   ],
+   "summary": "The appellant argued his health condition made IFAs unreasonable due to climate; the RPD disagreed, and the court agrees with the RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant submitted a doctor's note stating he cannot live in warm, humid climates",
+     "quote": "The Appellant submitted a note from a doctor who treated him in Colombia. The note says that he \"cannot live where the climate is warm and humid as his health condition would otherwise be badly affected\".",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant testified about symptoms preventing physical activities",
+     "quote": "The Appellant also testified that he had been in remission but encountered symptoms that prevented him from picking up objects, walking quickly and moving his neck.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted the note did not explain why warm climate affects Appellant's condition",
+     "quote": "The RPD noted that the note did not explain why a warm climate would affect the Appellant's XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The letter does not address whether negative side effects could be treated",
+     "quote": "In addition, I note that this letter does not speak to whether any potentially negative side effects could be remedied with treatment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant submitted a doctor's note and testified about symptoms; the RPD noted the note lacked explanation; the court notes no mention of treatment.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree with RPD's minimal probative value to the note due to lack of detail",
+     "quote": "I agree with the RPD's decision to accord minimal probative value to this note because it does not contain more descriptive details or information about the Appellant's condition and response to weather.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD considered doctor's note and testimony within medical history context",
+     "quote": "The RPD also correctly considered the Appellant's doctor's note and testimony about his condition within the context of his medical history.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD noted Appellant had not seen a doctor since 2014",
+     "quote": "The RPD noted that the Appellant had not seen a doctor about his medical condition since 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Appellant's former doctor's report listed medical interventions",
+     "quote": "Also, the Appellant's former doctor's medical report listed the medical interventions that the Appellant underwent for his condition.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Doctor's 2012 note said no pain and patient can do daily jobs",
+     "quote": "The doctor's note about the Appellant's final visit in 2012 says, \"No pain, the patient can do his daily jobs\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD's minimal value to the note, noting medical history and lack of recent doctor visits.",
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted Appellant did not provide evidence about climate in IFA locations after hearing",
+     "quote": "The RPD noted that despite having the opportunity to provide post-hearing submissions, the Appellant did not provide any evidence about the climate in the IFA locations, nor did he submit any evidence to substantiate his claim that the climate could impact his condition.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant did not provide evidence about climate in IFA locations after hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I note appellant's inadmissible evidence about climate in Barranquilla and Cartagena",
+     "quote": "I note that the Appellant submitted information with his appeal but found it inadmissible as new evidence as described in paragraphs 30-35 above.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I did not admit this evidence and will not engage with it",
+     "quote": "As I did not admit this evidence, I will not engage with it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant attempted to submit evidence about climate in Barranquilla and Cartagena but not Florencia",
+     "quote": "That said, I note that the Appellant attempted to submit evidence regarding the climate in Barranquilla and Cartagena but did not attempt to submit any new evidence with respect to the climate in Florencia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No overt inference drawn from omission but insufficient evidence to find Florencia unreasonable",
+     "quote": "While I do not draw an overt inference from this omission, I note that if I were to have admitted the evidence with respect to Cartagena and Barranquilla and found them to be unsuitable IFAs, I would still find insufficient evidence to indicate that an IFA in Florencia would be unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes inadmissible climate evidence and insufficient evidence to find Florencia unreasonable as an IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Insufficient evidence to find Appellant's health condition makes all IFAs unreasonable",
+     "quote": "I do not have sufficient evidence to find that the Appellant's health condition makes all the IFA locations unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD thoroughly analyzed health care availability and quality in Colombia",
+     "quote": "Additionally, I note that the RPD thoroughly analyzed the objective documentary evidence describing the availability and quality of health care in Colombia.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant does not contest RPD's analysis of health care",
+     "quote": "The Appellant does not contest this analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence that health condition makes IFAs unreasonable; RPD analyzed health care; appellant does not contest analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I find no error in RPD's reasons on health care access",
+     "quote": "I have reviewed this information and find no error in the RPD's reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, Appellant would have adequate care in IFAs, mitigating health issues",
+     "quote": "On a balance of probabilities, I find that the Appellant would have access to adequate care for his condition in the IFA locations. I consider that this mitigates any issues that might occur due to the Appellant's health condition.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in RPD's reasons and concludes appellant would have adequate care in IFAs.",
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant testified he could not work in IFAs due to risk from assailants and lack of artistic work",
+     "quote": "The Appellant testified that he did not think he would be able to work in the IFA locations because his assailants could find him through the details he would reveal through his professional work. He also testified that there was insufficient artistic work in these regions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant testified he could not work in IFAs due to risk and insufficient artistic work.",
+   "role": "facts"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD considered appellant's testimony but did not find relocation unreasonable",
+     "quote": "The RPD considered the Appellant's testimony but did not find that these circumstances made relocation to the IFAs unreasonable for the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant does not contest RPD's analysis of his testimony",
+     "quote": "The Appellant does not contest the RPD's analysis of his testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I find RPD's analysis correct and adopt it",
+     "quote": "After an independent review, I find the RPD's analysis correct. I adopt it as my own.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found relocation reasonable despite appellant's testimony; appellant does not contest; court adopts RPD's analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No other reason makes IFAs unreasonable for appellant",
+     "quote": "Like the RPD I find no other reason why the Appellant's particular circumstances would make an IFA unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's Spanish, education, and work experience weigh favourably in IFA test",
+     "quote": "The Appellant speaks Spanish, has post-secondary education and work experience in his field. I find that these elements of the Appellant's profile weigh favourably in my analysis of the second part of the IFA test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no other reason IFAs are unreasonable; appellant's profile weighs favourably in IFA test.",
+   "role": "analysis"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I find IFAs in Florencia, Barranquilla, or Cartagena reasonable for appellant",
+     "quote": "After considering the evidence before me, I find that an IFA in Florencia, Barranquilla, or Cartagena would be reasonable for the Appellant in all the circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds IFAs in Florencia, Barranquilla, or Cartagena reasonable for the appellant.",
+   "role": "conclusion"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal and confirm RPD decision that appellant is not a refugee or person in need of protection",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that the appellant is not a refugee or person in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

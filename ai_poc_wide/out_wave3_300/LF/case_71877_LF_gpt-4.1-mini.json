@@ -1,0 +1,756 @@
+{
+ "case_id": 71877,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.013464,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant alleges to be a citizen of Somalia.",
+     "quote": "XXXX XXXX XXXX (the Appellant) alleges to be a citizen of Somalia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Appellant appeals a decision of the RPD denying his refugee claim.",
+     "quote": "The Appellant appeals a decision of the Refugee Protection Division (RPD) denying his claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges Somali citizenship and appeals the RPD's denial of his refugee claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant asks the RAD to set aside the RPD decision and find him a Convention refugee or person in need of protection.",
+     "quote": "The Appellant asks that the Refugee Appeal Division (RAD) set aside the decision of the RPD and determine the Appellant to be a Convention refugee or a person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Alternatively, the Appellant asks the RAD to remit the matter back to the RPD for re-determination.",
+     "quote": "In the alternative, the Appellant asks that the RAD send the matter back to the RPD for re-determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant asks the RAD to set aside the RPD decision or remit the matter for re-determination.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant relies on new evidence under Section 110(4) but does not request an oral hearing under Section 110(6).",
+     "quote": "The Appellant is relying on new evidence pursuant to Section 110(4); however, the Appellant is not requesting an oral hearing pursuant to Section 110(6)1 of the Immigration and Refugee Protection Act (IRPA or Act).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Minister is not intervening in the appeal.",
+     "quote": "The Minister is not intervening in the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant relies on new evidence but does not request an oral hearing; the Minister does not intervene.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD decision that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "quote": "Pursuant to Section 111(1)(a) of the IRPA, the RAD confirms the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "This appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision denying refugee status and dismisses the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant alleges Somali citizenship, Ashraf clan membership, and that his father was killed by the XXXX clan in 2007.",
+     "quote": "The Appellant alleged that he is a citizen of Somalia. He belongs to the Ashraf clan, sub-clan Hassan. In 2007, his father was killed by members of the XXXX clan.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant's mother feared for his safety from the XXXX clan and Al Shabaab militants who forcibly recruited youth.",
+     "quote": "After the death of his father, the Appellant's mother feared for his safety both from the XXXX clan, and the Al Shabaab militants who forcefully recruited youth to their army.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In 2008, the Appellant fled Somalia to Kenya arranged by his mother, living with a distant relative named XXXX.",
+     "quote": "In XXXX 2008, the Appellant's mother was able to arrange for the Appellant to flee Somalia and go to live in Kenya. In Kenya, the Appellant lived with a distant relative, XXXX XXXX XXXX (\"XXXX\").",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant lost contact with his mother since 2013 and had no status in Kenya, attending school under a pseudonym with fake documents.",
+     "quote": "The Appellant lost contact with his mother, and has not heard from her since XXXX 2013. In Kenya, the Appellant had no status. The Appellant went to school in Nairobi with a pseudo name, and using fake documents.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant feared detection and deportation in Kenya; XXXX helped him financially and with travel to Canada.",
+     "quote": "In Kenya, the Appellant feared that he would be detected by the authorities to be a Somali, and thus would face deportation to Somalia. XXXX helped the Appellant with his travel out of Kenya; she assisted him financially, and in finding an agent who facilitated the Appellant's travel to Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant fears persecution in Somalia by large clans and Al Shabaab upon return.",
+     "quote": "The Appellant fears persecution upon return to Somalia at the hands of large Somali clans and Al Shabaab.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges Somali citizenship, clan membership, family violence, flight to Kenya, loss of contact with mother, lack of status, and fear of persecution.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant arrived in Canada in 2014 with a smuggler using a fraudulent German passport.",
+     "quote": "Accompanied by a smuggler, the Appellant arrived in Canada on XXXX XXXX, 2014. The Appellant entered Canada using a fraudulent German passport.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant filed his refugee claim on September 30, 2014, at a CIC inland office.",
+     "quote": "On September, 30, 2014, the Appellant filed his claim for refugee protection at an inland office of the Citizenship and Immigration Canada (CIC).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant arrived in Canada in 2014 with a fraudulent passport and filed a refugee claim.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the Appellant's refugee claim on December 8, 2014.",
+     "quote": "In the decision of December 8, 2014, the RPD rejected his refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant failed to establish his identity with credible and trustworthy evidence on a balance of probabilities.",
+     "quote": "The RPD found that the Appellant, on a balance of probabilities, has failed to establish his identity with credible and trustworthy evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the refugee claim, finding the Appellant failed to prove his identity credibly.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant submits the RPD erred in assessing his identity.",
+     "quote": "The Appellant submits that the RPD erred in its assessment of his identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred in assessing his identity.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant relies on new evidence: an affidavit from his relative XXXX, not available at the RPD hearing due to the relative's initial hesitation.",
+     "quote": "The Appellant submits that he is relying on new evidence, pursuant to Section 110(4) of the IRPA, an affidavit of his relative in Canada named XXXX XXXX XXXX XXXX (\"affiant XXXX\"). The Appellant submits that this affidavit was not available to him at the rejection of his claim because his relative was hesitant to be involved in his case.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The relative agreed to provide the affidavit only after the hearing.",
+     "quote": "The Appellant submits that his relative only agreed to provide this affidavit to him post-hearing.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellant relies on new affidavit evidence from a relative who was hesitant and only agreed post-hearing.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 110(3) requires the RAD to proceed without a hearing, based on RPD record and documentary evidence.",
+     "quote": "As provided for in Section 110(3) of the IRPA, with certain exceptions, the RAD must proceed without a hearing, on the basis of the record of the proceedings of the RPD and may accept documentary evidence and written submissions from the Minister and person subject to the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) sets factors for assessing new evidence's newness and availability.",
+     "quote": "Section 110(4) of the IRPA provides the RAD with factors to consider in assessing a document's newness and reasonableness of its availability.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) limits new evidence to that arising after rejection or not reasonably available or not reasonably expected to be presented at rejection.",
+     "quote": "Section 110(4) of the IRPA indicates that, \"the person who is the subject of the appeal may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD Rule 3(3)(g)(iii) requires explanation how evidence meets Section 110(4) requirements.",
+     "quote": "RAD Rule 3(3)(g)(iii) directs applicants to include an explanation of how the documentary evidence submitted to the RAD meets the requirements of Section 110(4) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains RAD's rules on new evidence admissibility under IRPA Sections 110(3) and 110(4) and RAD Rule 3(3)(g)(iii).",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant explains in affidavit and memorandum why new evidence should be accepted.",
+     "quote": "In his Affidavit and in his Memorandum, the Appellant explains why his proposed new evidence should be accepted by the RAD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RAD reviewed and assessed the new evidence per Section 110(4) and the totality of evidence including RPD recording.",
+     "quote": "The RAD reviewed and assessed the Appellant's proposed new evidence, as per Section 110(4) of the IRPA and in the context of the totality of the Appellant's evidence adduced at the RPD, including the recording of the RPD's proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant explains why new evidence should be accepted; the RAD reviewed it per Section 110(4) and all evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant is 18 years old and provided little reliable evidence at the RPD to establish Somali identity.",
+     "quote": "The RAD notes that the Appellant is eighteen years old. The RAD finds the Appellant provided little reliable and satisfactory probative evidence at the RPD to establish his identity as a citizen of Somalia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant did not make reasonable and diligent efforts to obtain reliable identity documentation.",
+     "quote": "Moreover, the evidence in this case shows that the Appellant did not make a reasonable and diligent effort to obtain reliable and satisfactory probative documentation to support his identity as a Somali national.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant lived with affiant XXXX at the time of the RPD hearing; the affiant accompanied him to the hearing.",
+     "quote": "The evidence adduced at the RPD shows that the Appellant was living with the affiant XXXX, the Appellant's relative, at the time of his RPD hearing; the affiant XXXX accompanied the Appellant to the RPD office for the hearing of the claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD noted the Appellant lived with his distant relative who waited outside the hearing room.",
+     "quote": "The RPD noted in its reasons that the Appellant lived with his distant relative, who waited outside the hearing room.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant submitted his relative was hesitant and only agreed to provide affidavit post-hearing.",
+     "quote": "The RAD considered the Appellant's submissions that his relative was hesitant to be involved in his case, and that his relative only agreed to provide the affidavit to him post-hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The affiant is the Appellant's relative and lived with him at the RPD hearing time.",
+     "quote": "The affiant XXXX, however, is the Appellant's relative; the Appellant was living with him at the time of his RPD hearing.",
+     "answers": 5
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Given little evidence and competent counsel, it was reasonable for the Appellant to present the affidavit at the RPD hearing.",
+     "quote": "Considering that the Appellant forwarded little reliable and satisfactory probative evidence to the RPD and that the Appellant was represented by competent counsel at the RPD, and in the circumstances of this case, the RAD finds it reasonable for the Appellant to have presented this evidence, the affidavit of affiant XXXX XXXX to the RPD prior to the rejection of his claim.",
+     "answers": 5
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The proposed new evidence does not satisfy Section 110(4) factors and is not accepted.",
+     "quote": "Therefore, the RAD finds the Appellant's proposed new evidence does not satisfy the factors set out in Section 110(4) of the IRPA.",
+     "answers": 7
+    }
+   ],
+   "summary": "The RAD finds the Appellant provided little reliable evidence, did not diligently seek documents, lived with affiant at RPD hearing, so new evidence is not new or reasonably unavailable.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD does not admit the proposed new evidence as new evidence.",
+     "quote": "Based on the above, the RAD does not admit the above as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD excludes the proposed new evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Huruglica decision outlines the RAD's hybrid appeal approach reviewing RPD decisions.",
+     "quote": "In assessing the appeal, the RAD is guided by the recent Huruglica decision which outlines the approach that the RAD should take as an appellate body in reviewing the first level decisions of the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Justice Phelan states RAD conducts hybrid appeal with independent assessment under Subsection 111(1)(b) of IRPA.",
+     "quote": "Justice Phelan has indicated that the RAD conducts a hybrid appeal and is required to review all aspects of the RPD's decision and comes to an independent assessment of whether the Appellant is a Convention refugee or a person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD has broad remedial powers including setting aside and substituting RPD determinations under IRPA.",
+     "quote": "This authority comes from the broad remedial powers of the RAD, including the power to set aside and substitute the RPD's determination that, in its opinion, should have been made as per Subsection 111(1)(b) of the IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD may respect RPD credibility findings but has equal or greater expertise on country conditions evidence.",
+     "quote": "The RAD can recognize and respect the conclusions of the RPD on issues such as credibility and/or where the RPD enjoys a particular advantage in reaching its conclusion; however, the RAD has equal or greater expertise to the RPD in the interpretation of country conditions evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD is not restricted to intervening only on palpable and overriding error and need not find error to exercise remedial power.",
+     "quote": "The RAD is not restricted to intervening on facts where there is a palpable and overriding error. It is not necessary for the RAD to find an error on some standard of review basis in order to trigger its remedial power.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD follows Huruglica: it conducts a hybrid appeal with broad remedial powers and independent assessment under IRPA.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD adopts and applies Huruglica case law in this appeal.",
+     "quote": "The RAD adopts and applies the Huruglica case law in this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD applies Huruglica case law in this appeal.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 106 IRPA requires RPD to consider claimant's documentation and efforts to establish identity credibility.",
+     "quote": "Section 106 of the IRPA states that: The Refugee Protection Division must take into account, with respect to the credibility of a claimant, whether the claimant possesses acceptable documentation establishing identity, and if not, whether they have provided a reasonable explanation for the lack of documentation or have taken reasonable steps to obtain the documentation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 106 IRPA requires RPD to consider claimant's identity documentation and efforts for credibility.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RPD Rule 11 requires claimant to provide acceptable identity documents or explain lack and efforts to obtain them.",
+     "quote": "Rule 11 of the RPD Rules states that: The claimant must provide acceptable documents establishing their identity and other elements of the claim. A claimant who does not provide acceptable documents must explain why they did not provide the documents and what steps they took to obtain them.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD Rule 11 requires claimant to provide identity documents or explain their absence and efforts to obtain them.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "BoC instructions require claimant to provide official documents proving identity or explain efforts to obtain them.",
+     "quote": "Further, instructions accompanying the Basis of Claim (BoC) state: You must show the IRB evidence of who you are by giving the IRB official documents with your name and date of birth on them...",
+     "answers": 0
+    }
+   ],
+   "summary": "BoC instructions require claimant to provide official identity documents or explain efforts to obtain them.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD cited Federal Court case Su that claimant has a high burden to produce acceptable identity documentation.",
+     "quote": "Referring to the Federal Court case Su, the RPD stated, \"The onus is on the [Appellant] to produce acceptable documentation establishing his or her identity. This is a high burden, as it should be.\"",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD cited Federal Court case Duale that claimant must make genuine, substantive effort to establish identity.",
+     "quote": "The RPD also referred to the Federal Court case Duale, in which the Court noted that \"It is up to the claimant to establish his identity and he must make genuine, substantive effort to do so.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD cited Federal Court cases Su and Duale imposing a high burden and genuine effort to establish identity.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the burden rests on claimant to prove identity and Somali nationality on balance of probabilities with credible evidence.",
+     "quote": "The RPD wrote that the burden rests on the claimant to establish, with credible and trustworthy evidence, on a balance of probabilities, that he is who he says he is, and that he is a national of Somalia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the claimant must prove identity and Somali nationality on balance of probabilities with credible evidence.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the Appellant failed to produce sufficient reliable evidence to establish his identity as required by law.",
+     "quote": "the RAD finds the Appellant, on a balance of probabilities, has failed to produce sufficient reliable and trustworthy probative evidence to establish his personal identity and his identity as a national of Somalia as required by Section 106 of the IRPA and Rule 11 of the RPD Rules.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the Appellant failed to produce sufficient reliable evidence to establish his identity as required by law.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant submitted little reliable evidence of residing in Somalia or Kenya and used fake documents at school.",
+     "quote": "The Appellant has submitted little reliable and satisfactory probative evidence of him ever residing in Somalia, or Kenya. The Appellant's own evidence shows that he went to school on a pseudo name and using fake documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant provided no documents about his domicile in Somalia for 12 years and Kenya for 6 years.",
+     "quote": "The RAD finds the Appellant provided no documents regarding his alleged domicile in Somalia for twelve years, and thereafter for six years, in Kenya.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence shows an agent was engaged for the Appellant's travel from Kenya to Canada using a fraudulent German passport.",
+     "quote": "The evidence shows that an agent was engaged for the Appellant's alleged travel from Kenya to Canada. The Appellant allegedly travelled with a smuggler to Canada using a fraudulent German passport.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No documents show arrangements made for the Appellant's travel from Kenya to Canada.",
+     "quote": "There are no documents whatsoever showing any of the alleged arrangements that had been made on the Appellant's behalf for his travel from Kenya to Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant has high school education, is fluent in English, and speaks Somali.",
+     "quote": "The Appellant has high school education; he is fluent in English, and speaks Somali.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is reasonable to expect the Appellant to have documentation or show efforts to obtain it to corroborate his identity.",
+     "quote": "Based on the above, the RAD finds it reasonable to expect that the Appellant would have some documentation to corroborate his identity, or at the very least be able to show that he has made a reasonable and diligent effort to obtain any such documentation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant did not make reasonable and diligent efforts to obtain reliable documentation to establish his identity and citizenship.",
+     "quote": "The evidence on the record, including the recording of the RPD's proceedings, shows that the Appellant did not make a reasonable and diligent effort to obtain reliable and satisfactory probative documentation to establish his personal identity, and his identity as a citizen of Somalia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the Appellant submitted little reliable evidence of residence, used fake documents, lacked travel documents, and failed to diligently obtain identity proof.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD concurs with the RPD's finding to give little weight to two documents submitted by the Appellant.",
+     "quote": "the RAD concurs with the RPD's finding to give the Appellant's documentation, 1) an affidavit from someone whom the Appellant met in a chance encounter in Kenya and then it happened that the Appellant ran into the same person at a restaurant frequented by Somalis in Toronto and 2) a scratch-notes-style document from the so-called XXXX XXXX XXXX, little weight towards establishing the Appellant's personal or national identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concurs with the RPD to give little weight to two documents submitted by the Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant allegedly lived in Somalia for 12 years before moving to Kenya with a relative.",
+     "quote": "The Appellant allegedly lived in Somalia for twelve years, before his mother sent him to live with a relative in Kenya.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's adverse credibility findings also rely on the Appellant's inadequate knowledge of his Somali area.",
+     "quote": "the RPD's adverse credibility findings relating to the Appellant's identity are also based on other concerns including: a. The Appellant's inadequate knowledge about the area and the wider vicinity where the Appellant allegedly lived in Somalia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD found the witness testimony unreliable due to insufficient details to authenticate the Appellant's identity.",
+     "quote": "b. The unreliability of the witness testimony at the RPD because the witness provided insufficient details to authenticate the Appellant's identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD notes the Appellant's alleged residence and RPD's adverse credibility findings on knowledge and witness reliability.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Claimants must establish identity with documents or explain efforts to obtain them; lack of documents without explanation affects credibility.",
+     "quote": "There is no doubt that the onus is on a claimant to establish his or her identity with documentary evidence, and, if such documents are not provided, to explain what steps were taken to obtain them. Consequently, a lack of acceptable documents without a reasonable explanation for their absence, or the failure to take reasonable steps to obtain them, is a significant factor in assessing the credibility of a claimant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court states claimants must prove identity with documents or explain their absence; failure affects credibility.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the Appellant failed to make reasonable efforts to obtain documentation corroborating his identity and concurs with RPD's negative credibility findings.",
+     "quote": "the RAD finds the Appellant has failed to show that he had made a reasonable and diligent effort to obtain reliable and satisfactory probative documentation to corroborate his personal and national identity. In these respects, the RAD concurs with the RPD's negative credibility findings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the Appellant failed to make reasonable efforts to obtain identity documents and concurs with RPD's negative credibility findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds the Appellant failed to establish his identity and nationality on a balance of probabilities.",
+     "quote": "the RAD finds the Appellant has failed to establish with credible and trustworthy probative evidence, on a balance of probabilities, that he is who he says he is, and that he is a national of Somalia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the Appellant failed to establish his identity and nationality on a balance of probabilities.",
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If a claimant's identity is not proven, the refugee claim must be dismissed without further analysis.",
+     "quote": "Justice Blanchard noted in Ipala, \"The decisions of this Court indicate clearly that a refugee claim must be dismissed once the Board determines that the identity of the claimant has not been proven.\" Justice Blanchard in Ipala, citing Justice Beaudry's reasoning in Najam stated, \"The proof of a claimant's identity is of central importance to his or her claim. ...[I]f the identity of the claimant is not proven, the claim must fail; that means the Board need not pursue an analysis of the evidence in relation to other aspects of the claim....\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Since the RAD cannot establish the Appellant's identity and nationality, it cannot find him a Convention refugee or person in need of protection.",
+     "quote": "Since the RAD cannot establish the Appellant's personal identity and his country of nationality; the RAD cannot find the Appellant to be a Convention refugee or a person in need of Canada's protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD states that unproven identity requires dismissal of the refugee claim and cannot find the Appellant a refugee or protected person.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds the Appellant's claim fails based on the above analysis and reasons.",
+     "quote": "Based on the above analysis and reasons, the RAD finds the Appellant's claim fails.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the Appellant's claim fails based on the above analysis and reasons.",
+   "role": "conclusion"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD decision that the Appellant is neither a Convention refugee nor a person in need of protection and dismisses the appeal.",
+     "quote": "Pursuant to Section 111(1)(a) of the IRPA, the RAD confirms the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection. This appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision denying refugee status and dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

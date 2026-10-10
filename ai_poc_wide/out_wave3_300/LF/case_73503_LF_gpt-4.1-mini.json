@@ -1,0 +1,664 @@
+{
+ "case_id": 73503,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.013364400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Minister appeals the RPD decision accepting the Respondent's refugee claim.",
+     "quote": "The Minister of Citizenship and Immigration (the Minister) appeals a decision of the Refugee Protection Division (RPD) accepting the claim for refugee protection made by XXXX XXXX XXXX (the Respondent).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister submits the RPD erred in credibility and IFA analysis and that the Respondent breached rules by not disclosing BoC amendment and witness testimony issues.",
+     "quote": "The Minister submits that the RPD erred in its credibility/internal flight alternative (IFA) analysis and findings. The Minister also submits that the Respondent breached the RPD Rules and principles of natural justice by failing to disclose his last Basis of Claim Form (BoC) amendment and by failing to notify the Minister that the witness would be testifying on an issue other than identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in credibility/IFA analysis; breach of procedural fairness on BoC amendment is immaterial; questioning witness on other issues is not unfair.",
+     "quote": "Having found that the RPD did not err in its credibility/IFA analysis or findings, a breach of procedural fairness regarding the amended BoC does not have a material effect on the RPD's decision, and the RPD's decision to question the witness regarding other aspects of the Respondent's claim does not constitute a breach of procedural fairness, I am confirming the decision of the RPD and dismissing the appeal.",
+     "answers": 2
+    }
+   ],
+   "summary": "The Minister appeals the RPD decision, alleging errors and breaches; the court finds no error or material breach and dismisses the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Respondent alleges clan membership and family history in Somalia, including father's death and his injury in 1991.",
+     "quote": "The Respondent alleges that he is a member of the XXXX, a sub-clan of the XXXX XXXX in Somalia. His father was the XXXX XXXX XXXX XXXX and later became a XXXX XXXX XXXX. The Respondent's father was killed by members of XXXX XXXX regime in 1990. In 1991, during a battle between the XXXX and XXXX clans in Mogadishu, the Respondent was shot in the leg.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Respondent fled Somalia in 1992, sought asylum in the US in 1994 but was rejected, then entered Canada in 2014 and claimed refugee protection.",
+     "quote": "The Respondent fled Somalia to Djibouti in 1992. He traveled to the United States in 1993 and filed an asylum claim in 1994. His claim was rejected, as were his subsequent appeal and application for the immigration lottery. He entered Canada in September 2014 and filed a claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent alleges clan membership, family persecution, injury, flight from Somalia, rejected US asylum claim, and refugee claim in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the Respondent's pre-Somalia experiences as not credible but accepted a sur place claim based on residual profile and risk in Bulo Burte.",
+     "quote": "The RPD rejected the Respondent's experiences prior to leaving Somalia as lacking in credibility. However, it found that he had a sur place claim based on his residual profile - as a Somali national from the XXXX clan, having spent 25 years outside Somalia - and faces a serious possibility of persecution from XXXX XXXX XXXX in Bulo Burte.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found IFA in Mogadishu not viable due to inability to establish and live as displaced person given absence and limited resources.",
+     "quote": "The RPD found that an IFA in Mogadishu is not viable, as the Respondent would not be able to establish himself in that city and would have to live as a displaced person. The RPD indicated that the Respondent's lengthy absence from Somalia and his limited financial resources would prevent him from establishing a network to meet his basic needs.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Relocation to Mogadishu is unreasonable given weak links to the area.",
+     "quote": "It found that relocation to Mogadishu would be unreasonable considering the Respondent's weak links to the area.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD reviews RPD decisions on correctness standard except where RPD has advantage on oral testimony assessment, then reasonableness applies.",
+     "quote": "As held by the Federal Court of Appeal in Huruglica, the Refugee Appeal Division (RAD) is to review decisions of the RPD on a standard of correctness on questions of law, fact, and mixed fact and law, after conducting an independent assessment of the evidence before it. The exception to this rule is where the RPD enjoys a meaningful advantage in the assessment and weighing of oral testimony heard, which, in particular cases may attract a standard of review of reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected pre-flight experiences but accepted sur place claim and found IFA in Mogadishu unreasonable; RAD reviews RPD on correctness standard.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister submits the Respondent breached RPD Rules and natural justice by not disclosing last BoC amendment before hearing.",
+     "quote": "The Minister submits that the Respondent breached the RPD Rules and principles of natural justice by failing to disclose to the Minister his last BoC amendment prior to the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister alleges the Respondent breached rules by not disclosing last BoC amendment before hearing.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Respondent says last BoC amendment was re-signed on hearing day but no new amendments made that day.",
+     "quote": "The Respondent maintains that, while his last BoC amendment was re-signed and dated the day of the hearing (July 17, 2017), no amendments were made that day.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Only prior amendments served on Minister in January and June 2017; latest amendment relates to fear in Bulo Burte, irrelevant to IFA issue.",
+     "quote": "He points out that the only amendments to the BoC were those made previously and served on the Minister on January 8, 2015 and June 28, 2017. He also points out that the very short BoC narrative amendment that was served on the Minister on June 28, 2017 relates to a fear of persecution in Bulo Burte, which is irrelevant to the issue of IFA, the issue the Minister raised in this appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister's concern about BoC amendments is unfounded.",
+     "quote": "He submits that the Minister's concern about the BoC amendments is unfounded.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues no new BoC amendments on hearing day; prior amendments served; Minister's concerns unfounded.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "One BoC amendment was presented on hearing day adding 'I was shot in the leg' sentence from prior amendment.",
+     "quote": "I note that one BoC amendment was presented to the RPD on the day of the hearing. The Respondent's BoC narrative amendment dated the day of the hearing includes an additional sentence from his previous BoC narrative amendment. The sentence reads, \"I was shot in the leg\".",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Minister may not have been served with hearing day amendment but it is inconsequential as RPD found pre-flight experiences not credible and sentence relates to pre-flight experiences.",
+     "quote": "While the Minister may not have been served with the Respondent's BoC narrative amendment dated the day of the hearing, it is inconsequential, as the RPD found the Respondent's experiences prior to leaving Somalia as lacking in credibility, and the additional sentence relates to the Respondent's experiences prior to leaving Somalia.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds hearing day BoC amendment added sentence about leg injury but is inconsequential due to RPD's credibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent had opportunity to amend or correct narrative orally at hearing before affirming BoC completeness and truth.",
+     "quote": "Further, as noted by the RPD, the Respondent was given the opportunity to amend or correct his narrative at the beginning of the hearing. Therefore, even if the latest BoC narrative amendment was not presented in writing, the Respondent could have presented the additional sentence orally at his hearing, before he affirmed that the information in his BoC was complete, true and correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent could have orally amended narrative at hearing before affirming BoC truth and completeness.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent breached RPD Rule by not providing last BoC amendment to Minister before hearing, a clear procedural fairness breach.",
+     "quote": "I find that the Respondent did not comply with the RPD Rule to provide the Minister with a copy of his last BoC narrative amendment prior to the hearing, and this is a clear breach of procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Breach is immaterial as Respondent could have presented amendment orally, RPD found pre-flight experiences not credible, and case decided on IFA.",
+     "quote": "However, since the Respondent could have provided the amendment orally at the hearing, and the RPD found the Respondent's experiences prior to leaving Somalia as lacking in credibility, and the RPD decided the case in relation to IFA, I find that it does not have a material effect on the decision of the RPD to grant the Respondent refugee protection status.",
+     "answers": 1
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A breach of procedural fairness can be overlooked if it had no material effect on the decision.",
+     "quote": "A breach of procedural fairness can only be overlooked if there is no doubt that it had no material effect on the decision.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds procedural breach by Respondent but it is immaterial as amendment could be oral and pre-flight experiences not credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister submits Respondent breached rules and natural justice by not notifying Minister that witness would testify beyond identity.",
+     "quote": "The Minister submits that the Respondent breached the RPD Rules and principles of natural justice by failing to notify the Minister that the witness would be testifying on an issue other than identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister alleges Respondent breached rules by not notifying witness would testify beyond identity.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues IRPA and RPD Rules do not preclude RPD from eliciting testimony beyond counsel's short statement about witness.",
+     "quote": "The Respondent points out that neither the Immigration and Refugee Protection Act (IRPA) nor the RPD Rules preclude the RPD from eliciting or relying on testimony from a witness beyond what counsel identifies in a short statement prior to the hearing when proposing a witness.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Refugee hearings are not bound by strict evidence rules like criminal trials requiring advance disclosure of witness statements.",
+     "quote": "He also points out that a refugee hearing is not bound by strict rules of evidence like a criminal trial where disclosure of witness statements must be given in advance.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister's representative chose not to attend hearing, knowing witness is Respondent's brother who may testify beyond identity.",
+     "quote": "The Respondent submits that the Minister's representative chose not to attend the hearing, well aware that given the witness is his brother, he may have more evidence to offer than simply affirming identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues no rule precludes RPD eliciting testimony beyond counsel's statement; hearings not bound by strict evidence rules; Minister chose not to attend.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues Minister cannot rely on witness evidence to claim RPD error and simultaneously claim evidence was improper.",
+     "quote": "The Respondent also points out that the Minister argues that the substance of the witness's evidence regarding his family ties to his siblings in Somalia supports an error in the RPD's decision. He argues that the Minister cannot rely on the witness's evidence to argue an error in the RPD's decision and at the same time argue that the same evidence was improper.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues Minister's reliance on witness evidence to claim error contradicts claim that evidence was improper.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD first questioned witness beyond identity despite counsel's request for identity confirmation only.",
+     "quote": "I note that it was the RPD who first questioned the witness on issues other than the Respondent's identity, even though the Respondent's counsel indicated in correspondence that he was requesting that the Respondent's brother be allowed to testify to confirm the Respondent's identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Witness was mainly questioned on identity, including familial and clan affiliation.",
+     "quote": "I note that the witness was questioned mainly about the Respondent's identity, including familial and clan affiliation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was not wrong for RPD to question witness on other claim aspects given witness is Respondent's brother with knowledge of circumstances.",
+     "quote": "It was not wrong for the RPD to question the witness regarding other aspects of the Respondent's claim, especially considering that the witness is the Respondent's brother and would have knowledge of the Respondent's circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD first questioned witness beyond identity, mainly on identity, and this was not wrong given witness's relation and knowledge.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No indication Respondent intended witness to testify beyond identity; not indicated in correspondence or hearing outset.",
+     "quote": "There is no indication that the Respondent intended to have his witness testify on issues other than identity. It is not indicated in his correspondence, and it was not raised at the outset of the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RPD not restricted to questioning witness only on identity and may elicit or rely on testimony beyond initial purpose and substance statement.",
+     "quote": "The RPD was not restricted in questioning the witness solely on the issue of identity, and it decided to question the witness on other areas of the Respondent's claim. While the Respondent was required to provide a brief statement of the purpose and substance of the witness's testimony, and the RPD may limit the questioning of a witness, there is nothing that prevents the RPD from eliciting or relying on testimony from a witness beyond what the witness was initially proposed to provide evidence on.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent was not in contravention of RPD rules; RPD questioning witness on other claim aspects is not breach of procedural fairness.",
+     "quote": "The Respondent was not in contravention of the RPD rules, and the RPD's decision to question the witness regarding other aspects of the Respondent's claim does not constitute a breach of procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no indication Respondent intended witness to testify beyond identity; RPD may question beyond initial scope; no breach of fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister submits RPD was correct on credibility assessment, noting issues and reasons for disbelief, and RAD should defer to RPD.",
+     "quote": "The Minister submits that the RPD was correct in its assessment of the Respondent's credibility: the RPD noted numerous issues related to the Respondent's credibility and subjective fear, confronted the Respondent with these issues, and provided intelligible reasons why it did not accept the Respondent's explanations. The Minister submits that the RAD should defer to the RPD regarding its findings about the credibility of the Respondent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister submits RPD correctly assessed credibility and RAD should defer to RPD's findings.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister submits RPD erred on IFA assessment by accepting Respondent's evidence on lack of social support despite lack of credibility.",
+     "quote": "However, the Minister maintains that the RPD's assessment of internal flight alternative was not correctly made in light of the Respondent's lack of credibility. The Minister submits that the RPD should not have accepted the Respondent's evidence regarding his lack of social support in Somalia and should not have accepted at face value the Respondent's assertion that he had minimal contact with his family or that his family would not be a source of support in Mogadishu.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister argues RPD erred on IFA by accepting Respondent's evidence despite credibility issues.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent says RPD accepted credible evidence of limited family ties and displaced person status, so RAD must defer on credibility.",
+     "quote": "The Respondent points out that the RPD accepted as credible that he has limited ties with his siblings in Somalia and cannot rely on them as a source of support, and he would as a result be a displaced person. He maintains that, given the requirement for the RAD to defer to the RPD on credibility matters, the RAD must defer to the RPD's acceptance as credible the evidence about his residual profile.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister cannot cherry pick credibility findings to argue for deference on some and intervention on others without specific reasons.",
+     "quote": "He argues that the Minister cannot cherry pick the credibility findings it likes and argue that deference is needed, yet argue that the RAD should intervene in other credibility findings and not defer, without offering specific reasons for why the evidence relating to IFA is not credible.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD was entitled to reject past experiences but accept insufficient links to Mogadishu making Respondent a displaced person.",
+     "quote": "He maintains that the RPD was entitled to reject his past experiences and at the same time accept that his insufficient links to Mogadishu would render him a displaced person.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues RPD's credible findings on limited family ties require RAD deference; Minister cannot selectively challenge credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was not wrong to find credible Respondent's residual profile evidence making IFA in Mogadishu unreasonable.",
+     "quote": "In my view, the RPD was not wrong to find the Respondent's evidence regarding his residual profile credible. Even if the RPD found the Respondent's evidence regarding his experiences prior to leaving Somalia not credible, it had to assess the evidence which it found to be credible and determine the claim as the totality of the evidence warrants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD correctly found credible residual profile evidence making IFA unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondent provided consistent evidence on identity, citizenship, and clan membership; no significant inconsistencies with witness testimony on family contact.",
+     "quote": "I note that the Respondent provided consistent evidence, without omissions, regarding his personal identity, his country of citizenship, and his membership in the XXXX sub-tribe. I note no significant inconsistencies between the Respondent and his witness's testimonies regarding their family members in Mogadishu, or the lack of contact they each had with them.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Respondent's evidence on identity and family contact consistent with witness testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent and witness testified about brother XXXX's return to Somalia, separation, illness, and delayed return to US.",
+     "quote": "At the hearing, the Respondent and his witness indicated that their brother, XXXX, an American citizen, had returned to Somalia to get married. They also indicated that he had since separated from his wife and taken ill, delaying his return to the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Witness testified brother XXXX is diabetic, has blood pressure problems, suffered mild stroke, and will return to US when recovered.",
+     "quote": "The witness indicated that XXXX was diabetic, had problems with his blood pressure, and had suffered a mild stroke. I gather from their testimony that XXXX would return to the United States when he recovered from his ailments or when he was healthy enough to return.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent and witness testified about brother's illness, separation, and delayed return to US.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent's sister XXXX lives in Mogadishu, is uneducated, raises children alone after father's death, and is unlikely to provide support beyond children.",
+     "quote": "The Respondent indicated that his sister, XXXX, lives in Mogadishu. The witness indicated that XXXX is uneducated and simply raises her children because the father of her children had died. When the witness was asked if he knew what was happening in Somalia since he communicated with XXXX, he said he did not think she was in a position to tell him the situation in the country, since she is a woman, indigent, and uneducated. In my view, this evidence reveals XXXX incapacity to provide support to anyone other than her children.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Respondent's sister in Mogadishu is uneducated, indigent, and unable to provide support beyond her children.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "XXXX is the brother of the Respondent and witness, living in Mogadishu, who lost trucks, machines, and $50,000 cash in 1996",
+     "quote": "XXXX is the brother of the Respondent and the witness. He lives in Mogadishu. The Respondent and witness indicated that XXXX had worked in Saudi Arabia and returned to Somalia with two trucks, some machines, and money.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "XXXX intended to use trucks and machines to earn a living but lost them and $50,000 cash in or about 1996",
+     "quote": "They indicated that XXXX intended to use the trucks and machines to earn a living in Somalia; however, the trucks and machines, as well as $50,000 cash he had earned in Saudi Arabia, were taken away from him in or about 1996.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "XXXX became jobless, mentally stressed, confused, and his whereabouts in Mogadishu are unknown",
+     "quote": "They indicated that XXXX was jobless and did not know where he was residing in Mogadishu. They also indicated that XXXX became mentally stressed and confused when he lost all of his belongings.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "This evidence reflects XXXX's dire circumstances and inability to assist or support anyone",
+     "quote": "In my view, this evidence reflects XXXX dire circumstances in Somalia and his inability to be of assistance or support to anyone.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker finds XXXX, brother of the Respondent, lost assets and money in 1996, is jobless, stressed, and unable to support anyone in Somalia.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Respondent lost contact with siblings in Somalia and did not maintain contact due to inability to provide financial support",
+     "quote": "The Respondent indicated at the hearing that he had lost contact with his siblings in Somali. When asked why he had not attempted to maintain contact with them, he indicated that his siblings would expect him to provide them with money or other financial assistance if he contacted them, and he was unable to provide such assistance.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Respondent's long absence and inability to provide support explain loss of contact with siblings",
+     "quote": "Considering that the Respondent has been away from Somalia for such a long period of time and unable to provide financial support to his siblings, it makes sense that he would lose contact with them.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Civil war and disrupted communication networks in Somalia hindered Respondent's contact with family",
+     "quote": "The fact that the civil war in Somalia caused many citizens to relocate and caused disruption of communication networks did not help the Respondent stay in touch with his family members.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Respondent's evidence on loss of contact and siblings' circumstances is credible on a balance of probabilities",
+     "quote": "I find the Respondent's evidence on this issue and on the issue of his siblings' circumstances credible, on a balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker finds the Respondent credibly lost contact with siblings due to financial inability, long absence, and civil war disruptions.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Presence of Respondent's siblings in Mogadishu does not undermine his profile as having little family support",
+     "quote": "The presence of the Respondent's sister, XXXX, and brother, XXXX, in Mogadishu do not undermine the Respondent's profile as a person with little family support.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Evidence shows weak connection between Respondent and siblings and siblings' incapacity to assist him",
+     "quote": "The evidence demonstrates a weak connection between the Respondent and his siblings in Mogadishu. The evidence also establishes XXXX and XXXX incapacity to provide assistance to the Respondent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker finds the Respondent's siblings in Mogadishu have weak connection and cannot assist him, not undermining his limited family support.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD was correct to find the Respondent's diaspora profile places him at risk of persecution in Bulo Burte",
+     "quote": "The RPD was not wrong to find that the Respondent's residual profile as a member of the diaspora who has lived outside of Somalia for the past 25 years would place him at risk of persecution at the hands of XXXX XXXX XXXX in Bulo Burte.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Based on documentary evidence and Respondent's profile, the court agrees with the risk of persecution finding",
+     "quote": "Based on the documentary evidence in the National Documentation Package and the Respondent's residual profile, I find the same.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court agrees with the RPD that the Respondent's diaspora profile places him at risk of persecution in Bulo Burte.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is unreasonable to expect the Respondent to relocate to Mogadishu due to lack of protection and support",
+     "quote": "I also find that it would unreasonable to expect the Respondent to relocate to Mogadishu. The documentary evidence is clear in indicating that Somalia is unable to provide its citizens with adequate state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent is 50 years old, with little familial support, limited recent work experience, and long absence from Somalia",
+     "quote": "The Respondent is a 50-year-old man who has little, if any, familial support in Mogadishu. Although he has twelve years of formal schooling, it was many years ago, and he has had limited work experience since then.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Respondent was a XXXX XXXX in the US for certain periods and has been outside Somalia for almost 26 years",
+     "quote": "He was a XXXX XXXX in the United States for certain periods of time while he resided there. He has been outside of Somalia for almost 26 years.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Considering age, economic means, familial support, and weak links, Mogadishu is not a reasonable internal flight alternative",
+     "quote": "Considering the Respondent's age, lack of economic means, lack of familial support, and weak links, Mogadishu is not a reasonable internal flight alternative for him. It does not meet the second prong of the test.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On balance of probabilities, the Appellant has established a serious possibility of persecution in Somalia",
+     "quote": "I find, on a balance of probabilities, that the Appellant has satisfied the burden of establishing a serious possibility of persecution in Somalia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appellant has established a well-founded fear of persecution under section 96 of the IRPA",
+     "quote": "I therefore conclude that the Appellant has established a well-founded fear of persecution under section 96 of the IRPA.",
+     "answers": 5
+    }
+   ],
+   "summary": "The court finds relocation to Mogadishu unreasonable and confirms a well-founded fear of persecution under IRPA section 96 for the Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA paragraph 111(1)(a), the court confirms the RPD decision and dismisses the appeal",
+     "quote": "Pursuant to paragraph 111(1)(a) of the IRPA, I confirm the decision of the RPD and dismiss the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the RPD decision and dismisses the appeal under IRPA paragraph 111(1)(a).",
+   "role": "disposition"
+  }
+ ]
+}

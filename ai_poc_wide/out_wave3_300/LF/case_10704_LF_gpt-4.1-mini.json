@@ -1,0 +1,289 @@
+{
+ "case_id": 10704,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0047884,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This judicial review concerns the RAD's decision to not admit new evidence under s 110(4) of the Immigration and Refugee Protection Act.",
+     "quote": "This judicial review is in respect of a decision of the Refugee Appeal Division [RAD] to not admit “new evidence” pursuant to s 110(4) of the Immigration and Refugee Protection Act, SC 2001, c 27 [Act]",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) allows only evidence arising after rejection or not reasonably available at rejection to be presented on appeal.",
+     "quote": "110 (4) On appeal, the person who is the subject of the appeal may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this judicial review concerns RAD's refusal to admit new evidence under s 110(4) of the Immigration and Refugee Protection Act, which limits evidence on appeal.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD dismissed the appeal and confirmed the RPD's decision that the Applicant is not a Convention refugee.",
+     "quote": "The RAD dismissed the appeal and confirmed the decision of the Refugee Protection Division [RPD] holding the Applicant not to be a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismissed the appeal and confirmed the RPD's finding that the Applicant is not a Convention refugee.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant argues a doctor's letter and four news articles published before the RPD decision were not reasonably available or could not have been presented then.",
+     "quote": "The Applicant argues that a doctor’s letter and four news articles which were published before the RPD decision were not reasonably available or the Applicant could not have been expected to have presented them to the RPD before the decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues certain pre-RPD decision documents were not reasonably available or could not have been presented to the RPD.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicant, a Brazilian citizen, filed a refugee claim based on being gay and targeted by a criminal organization, later adding fear of persecution for HIV and social-religious membership.",
+     "quote": "The Applicant, a citizen of Brazil, filed a refugee claim on the basis of being gay and targeted by a Brazilian criminal organization. He later amended his claim to include a fear of persecution on the basis of being HIV positive and a member of a social-religious organization.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant filed a refugee claim based on sexual orientation and later added HIV status and social-religious membership fears.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD hearing was November 21, 2016; post-hearing submissions filed December 2, 2016; RPD dismissed claim January 12, 2017.",
+     "quote": "The RPD hearing was on November 21, 2016, the Applicant filed post-hearing submissions on December 2, 2016, and the RPD dismissed his claim on January 12, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD hearing occurred November 21, 2016; submissions filed December 2; claim dismissed January 12, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In the RAD proceeding, the Applicant tried to file eight documents; RAD admitted one but denied admission of seven others.",
+     "quote": "In the Applicant’s RAD proceeding, he attempted to file eight additional documents. The RAD admitted one document, part of the National Documentation Package for Brazil, but denied the request to admit the other seven documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant tried to file eight documents in RAD; one was admitted, seven were denied.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant concedes two documents did not fall within s 110(4); five remaining documents include a doctor's letter and four news articles dated Dec 15, 2016 to Jan 2, 2017.",
+     "quote": "The Applicant now concedes that two of the documents that he sought to admit as new evidence did not fall within s 110(4). The five remaining documents are a letter from a doctor and four news articles ranging in dates from December 15, 2016 to January 2, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant concedes two documents are excluded but argues five documents, including a doctor's letter and news articles, should be admitted.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD rejected the five documents because they were dated before the RPD decision and/or contained no truly new information.",
+     "quote": "The RAD rejected these five documents on finding that they were all dated prior to the RPD’s rejection of the claim and/or contained no truly “new” information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD rejected the five documents as dated before the RPD decision or lacking truly new information.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The standard of review for new evidence is generally reasonableness, per Canada (Citizenship and Immigration) v Singh, 2016 FCA 96.",
+     "quote": "As held in Canada (Citizenship and Immigration) v Singh, 2016 FCA 96 at para 29, [2016] 4 FCR 230, the standard of review with respect to new evidence is, generally, reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The standard of review for new evidence is generally reasonableness, per Singh 2016 FCA 96.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD's consideration and conclusion on new evidence is not unreasonable.",
+     "quote": "I cannot find anything unreasonable in the RAD’s consideration and conclusion on this matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds nothing unreasonable in the RAD's decision on new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The doctor's letter was vague about availability timing; information was not necessarily new just because dated after RPD decision.",
+     "quote": "The doctor’s letter was vague and unclear as to when it could have been available. Information is not necessarily “new” just because it is expressed in a document dated after the RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The doctor had treated the Applicant since shortly after HIV diagnosis; information could have been available earlier, especially for original hearing.",
+     "quote": "The doctor had been treating the Applicant since shortly after his HIV diagnosis. The information, such as it was, expressed in the doctor’s letter could have been available sooner – most particularly for the original hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the doctor's letter vague on timing and that information could have been available earlier for the hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant had 53 days between RPD hearing and decision, sufficient time to file the evidence.",
+     "quote": "The Applicant had 53 days between the RPD hearing and the rejection decision. It was not unreasonable to view this time period as more than sufficient to file this evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds 53 days between hearing and decision was sufficient time to file evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "One news article in Portuguese was no barrier to submitting it before decision or advising RPD of its existence and translation plans.",
+     "quote": "As to the news articles, the fact that one of them was in Portuguese was no bar to submitting it prior to the decision or, at the bare minimum, advising the RPD that it existed and generally what it said, along with an undertaking to file a translation as soon as possible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Portuguese article could have been submitted or at least disclosed with a translation plan before the decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A January 2, 2017 news article was shortly before RPD decision but contained basically same information as a November 2, 2016 article.",
+     "quote": "The only document that raises the possibility of admissibility is a January 2, 2017 news article that was published only shortly before the RPD decision. Whether it was “click bait” or not, the information it contains is basically the same as another article submitted by the Applicant which was published November 2, 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable to conclude the January 2 article was not new information under s 110(4).",
+     "quote": "It was reasonable to conclude that the information in the article was not “new” in the sense of s 110(4).",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the January 2 article's information was not new, matching a November 2 article, so its rejection was reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD's rejection of evidence as not falling within s 110(4) was reasonable.",
+     "quote": "For these reasons, I conclude that the RAD’s rejection of this evidence as not falling within s 110(4) was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RAD reasonably rejected the evidence as not meeting s 110(4) criteria.",
+   "role": "conclusion"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This judicial review is dismissed.",
+     "quote": "This judicial review will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review.",
+   "role": "disposition"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question for certification; judicial review application dismissed.",
+     "quote": "There is no question for certification. JUDGMENT in IMM-4998-17 THIS COURT’S JUDGMENT is that the application for judicial review is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no question for certification and dismisses the judicial review application.",
+   "role": "disposition"
+  }
+ ]
+}

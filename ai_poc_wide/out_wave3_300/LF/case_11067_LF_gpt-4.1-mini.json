@@ -1,0 +1,533 @@
+{
+ "case_id": 11067,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.009870400000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and her children are Ethiopian citizens; Applicant worked as Executive Secretary at Lesotho Embassy 2009-2012",
+     "quote": "Yeshihareg Alemu Mengesha [the Applicant] and her minor children Dinah Hailu Kebede and Nazrawit Hailu Kebede are citizens of Ethiopia. The Applicant worked as an Executive Secretary for the Lesotho Embassy in Addis Abada from 2009-2012.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant and her children are Ethiopian citizens; Applicant worked as Executive Secretary at Lesotho Embassy 2009-2012.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "In April 2012, Ethiopian security officials asked Applicant to retrieve info on Ginbot 7 links; she denied knowledge and was detained one night",
+     "quote": "She alleges that in April 2012 she was asked by Ethiopian security officials to retrieve information from the Embassy regarding individuals who had alleged links to the Ginbot 7 party. The Ginbot 7 party is an opposition group based in Eritrea. The Applicant denied having the knowledge or ability to obtain this information, and was subsequently detained by security forces for one night.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges April 2012 detention after refusing to retrieve info on Ginbot 7 links from Embassy.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant fled to USA with children August 2012, claimed asylum six months later, returned to Ethiopia August 2013 after husband's bribe and safety assurances",
+     "quote": "The Applicant fled to the United States of America with her children in August 2012, where they made an asylum claim six months later. In August 2013, before their claim was heard, the Applicant and her children returned to Ethiopia, after her husband bribed an Ethiopian security official who provided assurances of her safety.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant fled to USA August 2012, claimed asylum, returned to Ethiopia August 2013 after husband's bribe and safety assurances.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Since return, Applicant harassed by security officials for info from former employment; traveled to Dubai 2014 and Bangkok 2015 for husband's treatment",
+     "quote": "The Applicant alleges that since her return she has been harassed by security officials for information they believe she has as a result of her former employment. In 2014 the Applicant travelled to Dubai on a business matter. In 2015 the Applicant travelled to Bangkok seeking treatment for her sick husband.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges harassment since return; traveled to Dubai 2014 and Bangkok 2015 for husband's treatment.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "May 25, 2016, Applicant taken to police, asked to ID photos, threatened for alleged opposition links, planned to flee and got Canadian visas",
+     "quote": "In May 25, 2016, the Applicant was taken to a police station and asked to identify individuals from photographs provided by the police. When she was unable to identify the individuals, she was threatened and accused of having association with the Blue Party (an opposition party also referred to as the Semayawi party) and collaborating with Ginbot 7. The Applicant testifies that in fear for her life and safety she began to plan to flee from the country, and thus applied for and secured Canadian Visas for herself and the minor Applicants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant taken to police May 25, 2016, threatened for opposition links, planned to flee and got Canadian visas.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "June 20, 2016, police forced Applicant to read statement on TV; she agreed knowing she would soon flee to Canada",
+     "quote": "The Applicant was once again brought to the police station in June 20, 2016. The Police demanded that she read a statement prepared by security agents on national television. She was taken to the TV station and shown how to read the statement. She was told she must read out the statement when the program was ready. The Applicant agreed to do so because she knew she would be fleeing to Canada shortly.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant forced June 20, 2016 to read statement on TV; agreed knowing she would flee to Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant arrived Canada July 7, 2016; police searched home July 14 and 16, 2016; Foreign Minister sent letter to appear at Embassy",
+     "quote": "The Applicant arrived in Canada on July 7, 2016. She learned from her husband that the police came to her home looking for her on July 14, 2016 and July 16, 2016, and that she was sent a letter from the Foreign Minister asking her to appear at the nearest Embassy to sign a witness statement.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant arrived Canada July 7, 2016; police searched home July 14 and 16; Foreign Minister sent letter to appear at Embassy.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant filed refugee claim based on imputed political opinion, lack of cooperation, and Blue Party support",
+     "quote": "She filed an application for refugee protection based on her imputed political opinion, her lack of cooperation with the authorities, and her support for the Blue Party.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD dismissed claim due to credibility concerns and failure to prove active Blue Party support or persecution",
+     "quote": "The Refugee Protection Division [RPD] dismissed her claim. It had numerous credibility concerns regarding the evidence she proffered in support of her allegations that she is being pursued by the Ethiopian authorities. It further found that she had failed to establish that she was an active supporter of the Blue Party, or was being pursued because of her support for it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant filed refugee claim; RPD dismissed it for credibility concerns and failure to prove active Blue Party support or persecution.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD dismissed appeal, agreeing with RPD that material allegations were not established",
+     "quote": "An appeal to the Refugee Appeal Division [RAD] was dismissed. The RAD stated that “after conducting an independent assessment of the entire record of the proceedings, the RAD agrees with the RPD that the Applicant and her children have not established the material allegations in their claims.”",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD dismissed appeal, agreeing with RPD that material allegations were not established.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant asks Court to set aside RAD decision for unreasonable rejection of documentary evidence and erroneous credibility assessment",
+     "quote": "The Applicants asks the Court to set aside the decision of the RAD on two bases: (1) that its rejection of documentary evidence that corroborates her claim was unreasonable, and (2) it erred in its assessment of her credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant asks Court to set aside RAD decision for unreasonable rejection of evidence and erroneous credibility assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court is not persuaded RAD made error or unreasonable finding; application must be dismissed",
+     "quote": "For the following reasons, I am not persuaded that the RAD made any error or unreasonable finding and thus the application must be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court is not persuaded RAD erred or was unreasonable; application dismissed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD decision is better reasoned and more persuasive than RAD decision",
+     "quote": "Having read both the RPD and the RAD decisions, I confess that I find the RPD decision better reasoned and more persuasive.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Despite preference for RPD decision, RAD decision is not deficient or to be set aside",
+     "quote": "However, it is the RAD decision that is under review and my preference for the RPD decision does not mean that the RAD decision is deficient or ought to be set aside.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's differing view of evidence from RPD is not unreasonable in outcome or analysis",
+     "quote": "Although the RAD’s view of some of the evidence differed from that of the RPD, I find nothing unreasonable in the outcome or analysis of the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD decision better reasoned but RAD decision is not deficient or unreasonable despite differing views.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant complains RAD improperly treated three documents: two Police letters, Ministry of Foreign Affairs letter, and husband's letter",
+     "quote": "The Applicant complains of the RAD’s treatment of three documents: (a) the Police letters dated May 25, 2016 and July 16, 2016; (b) the Letter from the Ministry of Foreign Affairs, and (c) the Letter from the Applicant’s husband.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant complains RAD improperly treated three documents: two Police letters, Ministry letter, and husband's letter.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RAD's rejection of Police letters was unreasonable due to letterhead cut off and no Applicant name; RAD lacked evidence to decide",
+     "quote": "The Applicant submits that the RAD’s decision to grant the two Police letters little weight was unreasonable. She says that the RAD gave no weight to the May 25, 2016 letter because the letterhead is cut off at the top and because it does not name the Applicant, and gave no weight to the July 16, 2016 letter solely because the letterhead was cut off at the time. The Applicant submits that the RAD did not have sufficient evidence before it to decide to give no weight to these letters. She notes that the RAD did not state it had a specialized knowledge of the features of police letters from Ethiopia, nor did they have a sample of police summons or letters to compare with those the Applicant submitted. The Applicant submits that while the RAD is an expert in weighing evidence concerning the authenticity of documents, it is not an expert in the authenticity of documents per se.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submits RAD unreasonably rejected Police letters due to letterhead issues and lack of Applicant name, lacking evidence to decide.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with Respondent that RAD's concerns about May 25 letter were reasonable and explained",
+     "quote": "I agree with the Respondent that the RAD’s concerns regarding the May 25, 2016 letter was reasonable and it provided an acceptable explanation for granting the letter little weight.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD reasonably gave low probative value to May 25 letter because it did not name Applicant",
+     "quote": "The RAD had no way of confirming that the letter was intended for the Applicant because it did not name her. It thus reasonably afforded it low probative value.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court agrees RAD reasonably gave low weight to May 25 letter because it did not name Applicant.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees RAD reasonably gave little weight to July 16 letter due to cut off letterhead",
+     "quote": "I also agree with the Respondent that it was not unreasonable for the RAD to also give little weight to the July 16, 2016 letter because the very top of the letterhead was cut off.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD discounted July 16 letter because Applicant initially denied officials left letter with husband, then said notice always given, and letterhead was cut off",
+     "quote": "The RPD discounted this evidence for two reasons. The letter in question was a summons that the husband stated had been left with him on July 16th. When the Applicant was asked if the officials left anything with her husband she twice responded that they did not, before being informed by the panel that such a letter was in the record. She then testified that “it was a notice and that they do not come without a notice.” The RPD stated that it found this explanation to be unreasonable “because the panel asked a direct question on more than one occasion regarding whether or not the security agents left any documentation with her husband and on two occasions she indicated that they did not.” It continued, “In addition to the claimant’s failure to mention this highly relevant document, on the face of it, the letterhead is cut off at the top.” These together led the RPD to give it no weight to corroborating her allegations that she was actively being pursued.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees RAD reasonably gave little weight to July 16 letter; RPD discounted it due to Applicant's inconsistent testimony and cut off letterhead.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found RPD overzealous in finding Applicant did not mention summons, but still gave letter little probative value due to cut off letterhead",
+     "quote": "The RAD found that the RPD was “overzealous in its finding that the Appellant did not mention the summons, when it was submitted in evidence.” Nonetheless it also found that it could not be assigned “much probative value on its face, given that the letterhead was cut off.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is not unreasonable to discount incomplete letter with cut off letterhead and unknown removed content",
+     "quote": "Despite its legible portions, it cannot be said to be unreasonable to discount its value when it is incomplete and one has no way of knowing what has been removed from it.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found RPD overzealous but still discounted letter due to cut off letterhead; court finds discounting incomplete letter reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RAD's discounting of Ministry letter was vague and unjustified given letterhead, signature, and stamp",
+     "quote": "The Applicant submits that the only reason the RAD provided for discounting the letter was because of its lack of identifying features. The Applicant submits a “lack of identifying features” is a very vague term, especially as the letter has a letterhead, was signed and stamped, and appears authentic on its face.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submits RAD's discounting of Ministry letter was vague and unjustified given letterhead, signature, and stamp.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits RAD's statement on Ministry letter was not vague, citing lack of Applicant's name, address, and credibility concerns",
+     "quote": "The Respondent submits the RAD’s statement was not vague. At paragraph 27 of its reasons the RAD wrote: “In the absence of the Appellant’s name, her address or where the letter from the Ministry of Foreign Affairs was sent, coupled with the aforementioned credibility concerns, the RPD found, on a balance of probabilities, that this letter did not provide any additional credible corroborating evidence.”",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent submits RAD's statement on Ministry letter was not vague, citing lack of Applicant's name, address, and credibility concerns.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Letter contains Applicant's name but lacks address and destination; RPD found letter did not overcome credibility concerns",
+     "quote": "In fact, the letter does contain the Applicant’s name – a fact noted by the RPD. The RPD’s reasons for discounting the letter were as follows: [I]t indicates that she is to go to a Consulate or embassy where she resides to sign a witness statement. While it indicates the claimant’s name, it does not contain her address or to where the letter was sent. Given the aforementioned credibility concerns noted with respect to the claimant’s testimony, the panel finds, on a balance of probabilities, the letter does not overcome or outweigh the numerous credibility concerns already stated.",
+     "answers": 0
+    }
+   ],
+   "summary": "Letter contains Applicant's name but lacks address and destination; RPD found letter did not overcome credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The only difference between RAD and RPD decisions is the Applicant being named in the letter.",
+     "quote": "the only difference between the RAD and RPD decisions on this point appears to rest on the Applicant being named in the letter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD's error is insufficient to overcome the reasonableness of the assessment otherwise.",
+     "quote": "that error on the part of the RAD is not sufficient to overcome the reasonableness of the assessment otherwise",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the only difference between RAD and RPD decisions is the Applicant named in the letter, but RAD's error is not enough to overturn the assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Both boards addressed a letter from the Applicant's husband.",
+     "quote": "The third document addressed by both boards is a letter from the Applicant’s husband",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes both boards addressed a letter from the Applicant's husband.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD gave no weight to the husband's letter because it was self-serving and added nothing new.",
+     "quote": "The Applicant submits that the RAD gave no weight to the letter from her husband because it was self-serving and added nothing to what was already in the testimony and Basis of Claim form",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The husband's letter was to corroborate persecution allegations, not add new facts.",
+     "quote": "The Applicant submits that this finding misses the point of the husband’s letter, which was not to add new facts into evidence, but rather to corroborate the Applicant’s allegations of persecution",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Letters must be considered for what they say, not what they do not say.",
+     "quote": "The Applicant submits that letters must be considered for what they say, not what they do not say",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues the RAD wrongly gave no weight to the husband's letter, which was meant to corroborate, not add facts, and letters should be considered for what they say.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the husband's letter missing key information and gave it minimal weight regarding family fears.",
+     "quote": "the RAD finds that with this in mind, this letter ought to be given minimal, if any, weight in terms of establishing fears on behalf of the family",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the husband's letter lacked key information and gave it minimal weight on family fears.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The letter failed to mention the husband's multiple relocations due to fear of authorities, which reduces its weight to near zero.",
+     "quote": "the absence of any mention of that fact reasonably reduces to near zero the weight to be given to this letter",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD and RAD expected the husband to mention his relocations in the letter.",
+     "quote": "The RPD and RAD reasonably found that it would expect the husband to mention this critical fact in his letter",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD and RAD that the husband's letter's failure to mention relocations reduces its weight to near zero.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Applicant's overall credibility was reasonably assessed as weak due to inconsistent travel and political knowledge.",
+     "quote": "She purported to travel to the United States to escape persecution, but failed to file an asylum claim for six months... had no knowledge of its ideology, platform, or of when the last election occurred",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicant's credibility reasonably assessed as weak due to inconsistent travel and political knowledge.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Contradictions between the Blue Party letter and Applicant's testimony justified giving the letter little weight.",
+     "quote": "the contradictions between the letter and the Applicant’s testimony as to how she supported the party were sufficient to justify the RAD giving it little weight",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Contradictions in testimony made receipts insufficient to establish party support.",
+     "quote": "the receipts were insufficient to establish her claim to be a supporter of the party",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds contradictions justify giving the Blue Party letter little weight and receipts insufficient to prove support.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The difficulties with testimony and lack of corroborating evidence render the RAD's decision reasonable.",
+     "quote": "renders the RAD’s overall decision reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RAD's decision is reasonable given testimony difficulties and lack of corroboration.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is dismissed and no question for certification is proposed.",
+     "quote": "This Court’s JUDGMENT IS that the application is dismissed and there is no certified question",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application and finds no question for certification.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,608 @@
+{
+ "case_id": 67478,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0104472,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a Grenadian citizen who came to Canada in 1999 and made a refugee claim in February 2013.",
+     "quote": "XXXX XXXX XXXX (Appellant) is citizen of Grenada who came to Canada in 1999. He made a refugee claim in February 2013.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The refugee claim was refused by the Refugee Protection Division (RPD).",
+     "quote": "It was refused by the Refugee Protection Division (RPD)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The appellant appealed to the Refugee Appeal Division (RAD).",
+     "quote": "and he appealed to the Refugee Appeal Division (RAD).",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant is a Grenadian who claimed refugee status in 2013; the RPD refused it and he appealed to the RAD, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed and the matter is referred back to the RPD for redetermination because the appellant should have had a Designated Representative (DR).",
+     "quote": "The appeal is allowed. The matter is referred back to the RPD to be redetermined because the Appellant should have had a Designated Representative (DR).",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is allowed and the case is referred back to the RPD due to the appellant's need for a Designated Representative, court states.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "At the June 28, 2018 hearing, the appellant was ill and cognitively impaired, possibly affecting evidence or argument.",
+     "quote": "At the time of the June 28, 2018 hearing, the Appellant was affected by illness that impaired his cognitive ability.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD cannot rely on the RPD Record to decide the appeal due to possible inadequate evidence or argument.",
+     "quote": "Relevant evidence or argument in support of his claim may not have been adequately provided as a result and thus the RAD cannot rely on the RPD Record to decide the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant was cognitively impaired at the hearing, so the RAD cannot rely on the RPD record, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The referral back is not an instruction to allow or dismiss the claim; the RAD would do so if it could on the merits.",
+     "quote": "The referral back is not an instruction to allow or to dismiss the claim. If the RAD could allow or dismiss the appeal on the merits, it would do so.",
+     "answers": 0
+    }
+   ],
+   "summary": "The referral back is not a direction to allow or dismiss; the RAD would do so if it could, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Lack of a DR at the RPD hearing is a procedural defect that cannot be cured by the RAD's merit-based process.",
+     "quote": "The lack of a DR at the time of the RPD hearing is a procedural defect that cannot be cured by the merit-based RAD process, as explained in this decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The absence of a DR at the RPD hearing is a procedural defect not curable by the RAD's merit-based process, court explains.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The claim should be heard by a different panel if possible.",
+     "quote": "The claim should be heard by a different panel if possible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claim should be heard by a different panel if possible, court directs.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "If the appellant's medical situation changes, the RPD may decide a DR is not required at redetermination.",
+     "quote": "If the Appellant's medical situation is different at the time of the redetermination, it is open to the RPD to decide that the Appellant does not require a DR.",
+     "answers": 0
+    }
+   ],
+   "summary": "If the appellant's medical condition changes, the RPD may decide a DR is unnecessary, court states.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2009, the appellant was charged with murder and manslaughter in Canada but acquitted in 2012.",
+     "quote": "In 2009, the Appellant was involved in an incident in Canada that generated charges of murder and manslaughter against him. In 2012, he was acquitted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "He claims relatives of the deceased victims will harm or kill him if returned to Grenada.",
+     "quote": "He claims that relatives of the two deceased victims will harm or kill him if he is returned to Grenada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant was acquitted of murder charges and fears harm from victims' relatives if returned to Grenada, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claim was refused by an RPD Member on May 7, 2015 but returned to RPD by RAD due to legislative changes affecting authority.",
+     "quote": "It was refused by an RPD Member on May 7, 2015 but on appeal, the RAD returned the matter to the RPD for redetermination because a change in the legislation meant that the RPD member who decided the case did not have authority to make the decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claim was refused in 2015 but returned to RPD due to legislative changes affecting decision authority, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "A different RPD Member refused the claim on July 4, 2018 after a new hearing.",
+     "quote": "A different RPD Member refused the claim on July 4, 2018 after a new hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD Member found state protection exists in Grenada for the appellant if needed.",
+     "quote": "The RPD Member evaluated the country evidence and concluded that there is state protection in Grenada for the Appellant if he should need it.",
+     "answers": 0
+    }
+   ],
+   "summary": "A different RPD Member refused the claim in 2018, finding state protection exists in Grenada, court reports.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues breach of procedural fairness because the RPD should have appointed a DR.",
+     "quote": "A primary argument for this appeal to the RAD is a breach of procedural fairness by the RPD because it should have appointed a DR for the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Other arguments concern alleged errors in the RPD decision.",
+     "quote": "Other arguments are about alleged errors in the RPD decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues procedural fairness breach for lack of DR and other alleged RPD errors, appellant submits.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A DR was appointed by the RAD on December 11, 2018 at appellant's counsel request.",
+     "quote": "At the request of the Counsel representing the Appellant in this appeal, a DR was appointed by the RAD on December 11, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "It is unclear if this DR has been involved in the appeal process.",
+     "quote": "It is not evident from the information before me that this DR has been involved in the appeal process.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is represented by counsel who provided new evidence and appeal submissions.",
+     "quote": "The Appellant is represented by Counsel who has provided the Appellant Record with new evidence and the appeal submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "A DR was appointed in 2018 but may not be involved; appellant is represented by counsel submitting new evidence, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There was a breach of procedural fairness at the RPD requiring referral back for redetermination.",
+     "quote": "I find that there was a breach of procedural fairness at the RPD that requires the matter to be referred back for redetermination by the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a procedural fairness breach at the RPD requiring referral back for redetermination.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant's counsel submits the RPD should have appointed a DR and this breach is determinative of the appeal.",
+     "quote": "The Appellant's Counsel submits that the RPD should have appointed a DR and that this breach of procedural fairness \"is determinative of the appeal\".",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's counsel argues the RPD's failure to appoint a DR is determinative of the appeal, appellant submits.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel does not specify the remedy for the breach but suggests RAD should intervene or refer back.",
+     "quote": "Counsel does not specify the appropriate remedy upon finding such a breach. Elsewhere in the arguments, the Appellant's Counsel correctly suggests that the RAD should intervene and substitute a determination or, if unable to do so, should refer the matter back for re-determination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A procedural defect is remedied by referral back or a merit-based appeal determination curing the defect.",
+     "quote": "A procedural defect is remedied either by referring the matter back to the original decision-making body or through a merit-based appeal determination that cures the identified defect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "It would be incorrect to find the appellant is a refugee solely due to procedural fairness breach.",
+     "quote": "To be clear, it would be incorrect to find that the Appellant is a refugee because of a breach of procedural fairness in the RPD's process.",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel suggests RAD intervene or refer back; court explains procedural defects are remedied by referral or merit decision, not by finding refugee status solely due to breach.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD is generally limited to evidence in the RPD Record despite being a merit-based appeal.",
+     "quote": "Despite the RAD's role as an independent merit-based appeal, the RAD is generally limited to considering the evidence in the RPD Record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If the appellant was impaired and could not adequately present his claim, the RPD Record may be deficient and RAD cannot fairly rely on it.",
+     "quote": "If the Appellant was impaired such that he could not adequately prepare and present his claim to the RPD, its Record may be deficient and the RAD cannot fairly rely on it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Allowing new evidence and oral hearing at RAD does not cure defects due to statutory limits on evidence and inquiry.",
+     "quote": "Allowing for new evidence and an oral hearing at the RAD does not cure that type of defect because of statutory limits on the evidence that may be presented to the RAD and its limited ability to enquire into and gather evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD is limited to RPD evidence; impairment may make the record deficient; new evidence at RAD does not cure this, court explains.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD Member found the appellant's concerns speculative and failed to rebut presumption of state protection.",
+     "quote": "The RPD Member found that the Appellant's concerns about what might happen in Grenada were speculative and that, in any event, the Appellant failed to rebut the presumption of state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant's concerns speculative and that he failed to rebut presumption of state protection, earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The onus was on the appellant to show Grenada cannot protect him; his ability was affected by impaired mental capacity.",
+     "quote": "The onus was on the Appellant to show that Grenada cannot protect him from the alleged persecution or harm. I agree with the Appellant's Counsel that on these points the Appellant's ability to present his case was affected by his impaired mental capacity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant bore the onus to show lack of state protection; his impaired capacity affected his ability to present his case, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Presenting evidence on state protection and fear was critically relevant; appellant could convey personal fear but was impaired in rebutting presumption.",
+     "quote": "The ability to present evidence about whether the state is capable of protecting him from alleged persecution or harm, including to show the effect of and an objective basis for his fear, was critically relevant in this case. The audio record of June 28, 2018 indicates that the Appellant was able to convey evidence about his personal circumstances and subjective fear, but that he may have been impaired in understanding how to present information and arguments to rebut the presumption that Grenada can provide adequate protection or to demonstrate why adequate state protection is not available.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant required a designated representative at the RPD.",
+     "quote": "The Appellant required a designated representative at the RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "Presenting evidence on state protection was critical; appellant conveyed fear but was impaired in rebutting presumption and needed a DR, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Despite thorough process and PHCs, the RPD Member failed to recognize appellant's impairment and need for a DR at third sitting.",
+     "quote": "Even though the RPD Member conducted a thorough inquisitorial process, including with two PHCs to assist the Appellant, the RPD Member failed to recognize that, at the third sitting when the hearing proceeded, the Appellant's ability to present his case was impaired and he required a DR.",
+     "answers": 0
+    }
+   ],
+   "summary": "Despite thorough process and PHCs, the RPD failed to recognize appellant's impairment and need for a DR, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "There were three in-person sittings at the RPD, starting with a pre-hearing conference on March 1, 2018.",
+     "quote": "There were three in-person sittings at the RPD. The first sitting on March 1, 2018 was adjourned but the Member conducted what was, in essence, a pre-hearing conference (PHC) with the Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD Member explained the process, addressed mental challenges, confirmed state protection as main issue, and gave documents to the Appellant.",
+     "quote": "The RPD Member confirmed that state protection was the main issue for the claim, gave the Appellant copies of documents, including country information about state protection, explained the type of evidence that would be examined for the claim and reviewed the Appellant's medical problems.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RPD Member adjourned to allow the Appellant to seek representation and obtain medical information about his ability to participate.",
+     "quote": "The RPD Member adjourned to give the Appellant time to seek representation and to obtain medical information that explained how his medical problems might interfere with the ability to present evidence or participate in the proceeding on his own.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that the RPD held three sittings, with the first on March 1, 2018, being a pre-hearing conference explaining process and adjourned for representation and medical info.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The March 1, 2018 PHC lasted 23 minutes with extensive discussion and explanations to ensure the Appellant's understanding.",
+     "quote": "During the 23-minute PHC on March 1, 2018, there was extensive discussion, note-taking by the Appellant, and repeated explanations from the RPD Member to ensure understanding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD Member confirmed the file contents and gave the Appellant copies of the PIF and country information documents.",
+     "quote": "The Member also confirmed the contents of the RPD file and gave the Appellant copies of the Personal Information Form (PIF) and country information documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the March 1, 2018 PHC involved extensive discussion and document sharing to ensure the Appellant understood the process.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On April 9, 2018, the RPD Member held another 15-minute PHC repeating prior explanations and emphasizing need for documents and right to counsel.",
+     "quote": "At the next sitting on April 9, 2018, the same RPD Member effectively conducted another PHC. The session lasted for 15 minutes. The RPD Member repeated what had happened at the previous PHC, explained the process again, identified the need for relevant documents and the Appellant's right to Counsel, including the possibility of legal aid.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant informed the RPD Member about a neurologist appointment scheduled after the PHC, and the hearing was adjourned accordingly.",
+     "quote": "The Appellant explained that after the previous PHC he had called for an appointment with the neurologist and the earliest available was XXXX XXXX, 2018. The Appellant expected to obtain information about his mental capacity for the RPD process and the RPD Member fairly adjourned the hearing until after the neurologist appointment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the April 9, 2018 PHC repeated prior info, discussed counsel, and adjourned for neurologist appointment.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant's Counsel argues the Appellant has no recollection of the April 9, 2018 hearing based on administrative notes.",
+     "quote": "The Appellant's Counsel relies on administrative notes about these first two PHC sessions and suggests that the Appellant has no recollection of the April 9, 2018 hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "After listening to audio transcripts, the RPD fairly assessed the Appellant understood his responsibilities and the process at that time.",
+     "quote": "I have listened to the audio transcripts of first two sittings and find that the RPD fairly assessed that the Appellant understood his responsibilities and correctly relied on the Appellant's understanding at that time.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant was present, understood information, presented evidence about medical issues, and advised about neurologist appointment.",
+     "quote": "The Appellant was present, understood the RPD Member's information, presented his own evidence about the medical issues he was having in the past year, and advised the RPD Member about his upcoming neurological appointment.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant presented medical documents from 2017 about viral illness and treatment, and the Member declined to make medical determinations beyond his expertise.",
+     "quote": "The Appellant presented XXXX, XXXX and XXXX 2017 medical documents about recent viral XXXX and treatment at the XXXX XXXX XXXX XXXX and the Member correctly declined to make any medical determinations he was not qualified to make from the that evidence.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RPD Member gave the Appellant opportunity to obtain an appropriate medical letter about his limitations.",
+     "quote": "Rather, the RPD Member gave the Appellant an opportunity to get an appropriate medical letter that spoke to his limitations.",
+     "answers": 3
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Throughout the two PHCs, the Appellant conveyed understanding and ability to present his case.",
+     "quote": "Throughout these two processes, the Appellant conveyed his understanding and the ability to present his case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant's Counsel claims no recollection of April 9, 2018 hearing, but the court finds the Appellant understood and participated well in the two PHCs.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "At the third sitting on June 28, 2018, a letter from Dr. XXXX assessed the Appellant's cognitive difficulties and recommended consideration of his ability to answer for himself.",
+     "quote": "A letter was presented from Dr. XXXX, XXXX, at the third sitting on June 28, 2018. It includes this assessment: [The Appellant] has XXXX XXXX and the Mini-Mental status today scoring a XXXX out of 30 with difficulty in registering information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes a June 28, 2018 medical letter assessing the Appellant's cognitive difficulties and ability to respond.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD Member was polite and inquisitorial at the June 28, 2018 hearing but the unrepresented Appellant struggled to respond and present his case.",
+     "quote": "Even though the RPD Member was politely considerate throughout the June 28, 2018 hearing and helpfully inquisitorial, there was evidence before him that, at that time, the Appellant needed a DR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant's responsiveness and coherence declined notably at the June 28 hearing compared to the two PHCs, consistent with cognitive deficiencies.",
+     "quote": "There is a notable difference between the Appellant's responsiveness and coherence during the two PHCs and at the hearing on June 28, 2018, where he struggled at times, particularly when called on to explain and present evidence related to the state protection and IFA questions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant seemed affected by cognitive deficiencies consistent with Dr. XXXX's letter about difficulty registering information.",
+     "quote": "He seemed affected by some cognitive deficiencies that are consistent with what is indicated in Dr. XXXX letter about difficulty registering information.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "In absence of Counsel, the RPD must identify when an Appellant requires a Designated Representative (DR).",
+     "quote": "In the absence of Counsel, it was the RPD's responsibility to identify that the Appellant required a DR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD decision is set aside and the matter is returned to the RPD for redetermination.",
+     "quote": "DECISION The RPD decision is set aside and the matter is returned to the RPD to be redetermined.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant struggled at the June 28, 2018 hearing, requiring a DR, and sets aside the RPD decision for redetermination.",
+   "role": "conclusion"
+  }
+ ]
+}

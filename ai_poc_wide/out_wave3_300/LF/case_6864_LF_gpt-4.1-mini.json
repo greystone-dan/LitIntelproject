@@ -1,0 +1,382 @@
+{
+ "case_id": 6864,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.007491200000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This case concerns judicial review of the RAD decision dismissing the Applicant's appeal of the RPD refugee claim denial.",
+     "quote": "This case concerns an application for judicial review of a decision (the “Decision”) of the Refugee Appeal Division (the “RAD”), dated August 18, 2021, dismissing the Applicant’s appeal of the Refugee Protection Division’s decision to deny his claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RAD determined the RPD was correct that the Applicant had an internal flight alternative in Lagos, Nigeria.",
+     "quote": "The RAD determined that the RPD was correct to conclude that the Applicant had an internal flight alternative (“IFA”) in Lagos, Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Decision is reasonable and the judicial review application is dismissed.",
+     "quote": "For the reasons that follow, I find the Decision to be reasonable and will dismiss the application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the case concerns judicial review of the RAD decision dismissing the Applicant's appeal, finds the Decision reasonable, and dismisses the application.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicant is a 40-year-old Nigerian who claimed refugee protection in 2018 fearing harm from in-laws.",
+     "quote": "The Applicant is a 40-year-old citizen of Nigeria, who claimed refugee protection in 2018 on the grounds that he fears a risk to his life at the hands of his in-laws.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant claims in-laws want to harm him for reporting his wife for fraudulent passport travel to Canada with their daughter.",
+     "quote": "He claims they want to harm and kill him for reporting his wife to the authorities for travelling to Canada using a fraudulent passport with their daughter and against his will.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In February 2021, the RPD concluded the Applicant did not qualify for protection due to a viable IFA in Lagos.",
+     "quote": "In February 2021, the RPD concluded that the Applicant did not qualify as a person in need of protection because he had a viable IFA in Lagos.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant is a Nigerian fearing harm from in-laws for reporting his wife, and the RPD denied protection due to an IFA in Lagos.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the Applicant generally credible and accepted in-laws' motivation but not their means to find him in Lagos.",
+     "quote": "On Appeal, the RAD found that the Applicant was generally credible, and accepted that his in-laws had the motivation to attempt to locate him in Lagos, Nigeria, but that he had not established that they had the means to do so.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found it reasonable to consider Lagos's size and expect Applicant to exercise caution on social media to avoid detection.",
+     "quote": "The RAD found that the RPD was correct to consider the size and population of Lagos in its assessment of the risk to the Applicant and that it was reasonable to expect that he would take reasonable steps and exercise caution in his use of social media to avoid detection there.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found Applicant failed to show brother-in-law J.O. had means to locate him or pose a threat.",
+     "quote": "The RAD also found that the Applicant had failed to establish how his brother-in-law, J.O., who he claimed had threatened to kill him if he returned to Nigeria, would have the sophistication, resources or access to networks in Nigeria that would permit him to locate the Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Applicant challenges the RAD Decision by judicial review under s 72(1) of the Immigration and Refugee Protection Act.",
+     "quote": "He now challenges the Decision by way of this application for judicial review, brought pursuant to s 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [Act].",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found Applicant credible but lacking evidence of in-laws' means, accepted Lagos size and social media caution, and Applicant challenges this by judicial review.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The only issue is whether the Decision was reasonable under the reasonableness standard from Vavilov.",
+     "quote": "The only issue in this judicial review is whether the Decision was reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review looks for justification, transparency, intelligibility, and whether flaws are central enough to render decision unreasonable (Vavilov).",
+     "quote": "A court performing a reasonableness review scrutinizes the decision maker’s decision in search of the hallmarks of reasonableness – justification, transparency and intelligibility – to determine whether it is justified in relation to the relevant factual and legal constraints that bear on the decision (Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 99 [Vavilov]). Any flaws or shortcomings must be more than superficial or peripheral to the merits of the decision and the court must be satisfied that they are sufficiently central or significant to render the decision unreasonable (Vavilov at para 100).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is whether the Decision was reasonable, applying the Vavilov reasonableness standard.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD erred by failing to justify reasons and unreasonably assessing evidence, especially on social media caution.",
+     "quote": "The Applicant argues that the RAD erred by failing to justify its reasons and by unreasonably assessing the evidence. Specifically, he challenges the finding that he would be expected to take reasonable steps to avoid detection in Lagos, asserting that he should not be expected to live in perpetual hiding and that means other than social media would be available to locate the Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues it was unreasonable to conclude in-laws lacked means to locate him despite their wealth and Nigeria's corruption.",
+     "quote": "The Applicant further argues that having demonstrated that his wife was from a wealthy family, it was unreasonable to conclude that her family would not have the means to locate him in a corrupt country like Nigeria, or to place a higher evidentiary burden on the Applicant to demonstrate their influence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant contests RAD's finding on brother-in-law J.O.'s lack of influence, saying his affidavit should suffice.",
+     "quote": "The Applicant also contests the RAD’s finding regarding the absence of evidence of any influence possessed by his brother-in-law, J.O., asserting that his sworn affidavit ought to have been considered adequate in this regard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the RAD erred by unjustified reasons, unreasonable evidence assessment, and wrongly finding in-laws lacked means and brother-in-law lacked influence.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court is not persuaded by Applicant's arguments and finds RAD applied proper standard and justified its findings.",
+     "quote": "I am not persuaded by the Applicant’s arguments. The RAD applied the proper standard of review, cited the correct authorities in support of its application of the IFA analysis, and provided detailed and transparent reasoning to justify its findings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicant invites court to replace RAD's IFA determination, which is owed deference on judicial review.",
+     "quote": "The Applicant essentially invites the Court to replace the RAD’s IFA determination, which is owed deference on judicial review (Castillo Garcia v Canada (Citizenship and Immigration), 2019 FC 347) with his own alternative interpretation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applicant must show unreasonableness to set aside Decision; he has not done so.",
+     "quote": "The Applicant is free to disagree with the RAD, but to have the Decision set aside; he must demonstrate that it was unreasonable. I find that he has not done so.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects Applicant's arguments, finds RAD applied correct standard and justified findings, and that Applicant failed to show unreasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Burden to prove no IFA was on Applicant; RAD could find no serious persecution possibility based on evidence.",
+     "quote": "The burden to prove that an IFA was not available fell on the Applicant, and it was open to the RAD, based on the evidence that was before it, to find that he had not shown a serious possibility of persecution by his in-laws there.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD accepted in-laws had motivation but was not convinced they had means to persecute Applicant in Lagos.",
+     "quote": "The RAD accepted that they had the motivation, but was not convinced as to their means.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD concluded it was not unreasonable to expect Applicant to relocate to Lagos.",
+     "quote": "The RAD also concluded that it was not unreasonable to expect the Applicant to relocate to Lagos.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states burden was on Applicant to prove no IFA; RAD found motivation but no means and relocation to Lagos reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court is not convinced Applicant's claims of wealth and influence required RAD to find means to locate him or that contrary conclusion was unreasonable.",
+     "quote": "I am not convinced that the mere suggestion by the Applicant of his in-laws being wealthy, or that his brother-in-law is an influential businessman, required the RAD to find that there was sufficient evidence to demonstrate they had the means to locate him in the largest city in Nigeria and that any conclusion to the contrary was unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was open to RAD to conclude as it did on sufficiency of evidence about agents of persecution's reach.",
+     "quote": "It was open to the RAD to conclude as it did regarding the sufficiency of evidence to show the reach of the agents of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant's claims of wealth and influence did not require RAD to find means to locate him and RAD's conclusion was reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with Respondent that Applicant failed to provide sufficient evidence to show RAD's conclusions unreasonable.",
+     "quote": "I agree with the Respondent that the Applicant has simply failed to provide a sufficient evidentiary basis to find that the RAD’s conclusions were unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Main agent of persecution was mother-in-law, now deceased; Applicant provided little evidence on brother-in-law J.O.",
+     "quote": "I note that the main agent of the persecution, including the subject of the police report, was the mother-in-law, who is since deceased. The Applicant provided very little evidence regarding J.O, as the RAD clearly pointed out in their Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD did not accept Applicant's explanation for omission of J.O. in claim and expected corroborative evidence.",
+     "quote": "The RAD did not accept the Applicant’s blanket rationale that he was “forgetful” regarding his failure to mention J.O. in the Basis of Claim form. While the RAD found that the Applicant was “generally credible”, it was entitled to draw an adverse credibility finding on the omission of this important fact in his claim and to expect some corroborative evidence for that reason (see Occilus v MCI, 2020 FC 374 at paras 24-25; Cekim v MCI, 2011 FC 177 at para 14).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees Applicant failed to provide evidence to show RAD's conclusions unreasonable, noting mother-in-law deceased and little evidence on brother-in-law.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court upholds RAD's expectation that refugee claimants exercise care in social media use as reasonable.",
+     "quote": "As for the RAD’s findings on his social media use, this Court has already upheld that it is not an error for the RAD to expect a refugee claimant to exercise care and caution in their use of social media (Adeyig Olusola v Canada (Citizenship and Immigration), 2021 FC 659 at para 24).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant relies on Zamora Huerta case where court did not mention social media and was concerned about inability to share whereabouts.",
+     "quote": "The Applicant placed great reliance on Zamora Huerta v Canada (Citizenship and Immigration), 2008 FC 586, where the Court never mentioned social media, and was specifically concerned with a person’s inability to share their whereabouts with family and friends.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD only suggested Applicant be careful on social media, not avoid contact with family or friends, which is reasonable.",
+     "quote": "Here, on the other hand, the RAD simply suggested the Applicant be careful in his use of social media, and not that he avoid contacting family or friends.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Being discreet on social media is a reasonable expectation and not akin to living in hiding, as upheld in other cases.",
+     "quote": "Being discreet in social media and making use of privacy settings therein has been upheld in other cases to be a reasonable expectation, and not akin to requiring a claimant to live in seclusion or hiding, as distinct from Zamora Huerta (see, for instance, Olusesi v Canada (Citizenship and Immigration), 2021 FC 1147 at paras 19-20).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court upholds RAD's reasonable expectation of social media caution, distinguishes Zamora Huerta, and cites supporting cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant raised new argument that sister in Lagos could inadvertently share his whereabouts with persecutors.",
+     "quote": "The Applicant at the hearing raised a new argument that his sister, who lives in Lagos, could inadvertently share his whereabouts with his agents of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Court notes this argument was not raised before RAD or in factum and declines to address it as speculative and improperly raised.",
+     "quote": "However, this point was neither addressed by the RAD, nor for that matter, in the Applicant’s factum, as I pointed out to counsel for the Applicant during the hearing. Furthermore, I find this argument to be speculative and decline to address it at this stage of the proceedings without it having been properly raised before the Court, or indeed, without it having even been raised in submissions to the RAD itself (Xiao v Canada (Citizenship and Immigration), 2021 FC 386 at para 34).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant raised a new argument about his sister possibly sharing his location, but the court declines to consider it as it was not properly raised.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant did not justify why RAD's finding on relocation was insensitive to religious, cultural or economic factors.",
+     "quote": "Finally, the Applicant has also not provided any convincing justification for why the RAD’s finding on his ability to relocate was insensitive to any particular religious, cultural or economic factors.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD considered Applicant's personal circumstances as Igbo from Imo state and Lagos's history of accommodating non-indigenes.",
+     "quote": "To the contrary, the RAD specifically considered the Applicant’s personal circumstances as an Igbo from Imo state and referred to Lagos’s long history of accommodating non-indigenes, who compose the majority of its population.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found Lagos's demographics and public services would enable Applicant to relocate and live safely.",
+     "quote": "The RAD found the conditions in Lagos, including the demographic make-up and availability of public services, would enable the Applicant to relocate and live there safely.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds RAD's IFA conclusions reasonable and dismisses the judicial review application with no costs.",
+     "quote": "I find the RAD’s IFA conclusions to be reasonable. JUDGMENT in IMM-6233-21 THIS COURT’S JUDGMENT is that: The Application for judicial review is dismissed. No question for certification was submitted and I agree that none arise. No costs will be issued.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant failed to justify insensitivity claims, notes RAD considered personal and Lagos factors, finds IFA conclusions reasonable, and dismisses review.",
+   "role": "conclusion"
+  }
+ ]
+}

@@ -1,0 +1,506 @@
+{
+ "case_id": 30496,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.010245200000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant applied for permanent residence based on humanitarian and compassionate grounds and alternatively sought a Temporary Resident Permit.",
+     "quote": "The Applicant applied for permanent residence from within Canada based on humanitarian and compassionate grounds (“H & C Application”). The Applicant based his H & C Application on his establishment in Canada through family, work, and community involvement, his risk of hardship in his country of citizenship, and the hardship of being separated from his Canadian spouse and his two minor children. In the alternative, the Applicant sought a Temporary Resident Permit (“TRP”).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant applied for permanent residence on humanitarian grounds and alternatively sought a Temporary Resident Permit.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Officer denied the Applicant’s H & C Application and TRP request, finding the past criminal conviction nullified positive factors.",
+     "quote": "A senior immigration officer at Immigration, Refugees and Citizenship Canada [IRCC] (“the Officer”) denied the Applicant’s H & C Application. The Officer also denied the Applicant’s alternative request for a TRP. The Officer found that the Applicant’s past criminal conviction “nullified” the positive elements in his H & C Application, including that it was in his children’s best interests that their father remain in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker denied the applicant's H & C and TRP applications due to his past criminal conviction.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant challenges the Officer’s refusal on several grounds in this judicial review.",
+     "quote": "The Applicant raises several arguments challenging the Officer’s refusal in this judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer’s consideration of the children’s best interests requires redetermination, making other arguments unnecessary to address.",
+     "quote": "I find the Officer’s consideration of the best interests of the two children impacted by this decision requires redetermination and therefore it is unnecessary for me to address the Applicant’s other arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Officer failed to substantively consider the Applicant’s TRP request as required.",
+     "quote": "I also find that the Officer failed to substantively consider the Applicant’s request for a TRP as required.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The merits of the Officer’s decision on these two issues must be reviewed on a reasonableness standard, agreed by parties and court.",
+     "quote": "The parties agree, as do I, that I must review the merits of the Officer’s decision on these two issues on a reasonableness standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant challenges the refusal; the court finds the best interests consideration and TRP request need redetermination under a reasonableness standard.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review is granted and the H & C Application and TRP request must be redetermined.",
+     "quote": "Based on the reasons below, I grant this judicial review and order that the H & C Application and the TRP request be redetermined.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants judicial review and orders redetermination of the H & C Application and TRP request.",
+   "role": "disposition"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Applicant’s counsel will request anonymization to protect minor children from harm due to criminal record information.",
+     "quote": "Applicant’s counsel indicated at the judicial review hearing that they would be providing a letter to the Court following the hearing requesting an anonymization order because of a concern that information regarding the Applicant’s criminal record may cause reputational, social and psychological harm to his minor children.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "procedure",
+     "text": "Respondent consents to the anonymization request.",
+     "quote": "In the letter filed after the judicial review hearing, Applicant’s counsel indicates that the Respondent consents to the anonymization request.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant’s counsel requests anonymization to protect children; respondent consents.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applying Sherman Estate v Donovan test, limitation on open courts principle is warranted and anonymization is proportionate to protect minor children.",
+     "quote": "Applying the test in Sherman Estate v Donovan, 2021 SCC 25 at paragraph 38, I am satisfied that a limitation on the open courts principle is warranted in these circumstances and the request for an anonymity order is a proportionate measure to protect the minor children impacted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies Sherman Estate test and finds anonymization justified to protect minor children.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Applicant’s name is anonymized as “SJ” in public documents; parties may request amendments if identifying information remains.",
+     "quote": "The Applicant’s name shall be anonymized as “SJ” in the style of cause in any document the Court makes available to the public. As requested by the parties, I have also attempted to not include identifying information in these reasons. The parties are welcome to write to the Court following the issuance of this decision to request any amendments if there remain concerns with identifying information in this decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court anonymizes the applicant’s name as “SJ” and invites parties to request amendments if needed.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant has lived in Canada over 20 years; spouse and children are Canadian citizens; refugee status granted over 20 years ago.",
+     "quote": "The Applicant has lived in Canada for more than 20 years. The Applicant’s spouse and two children are Canadian citizens. He was granted refugee status in Canada over 20 years ago.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant convicted of serious offence involving a child about a year after refugee status; sentenced to imprisonment and probation.",
+     "quote": "Approximately a year later, the Applicant was convicted of a serious offence involving a child. He was sentenced to 100 days of imprisonment and 18 months of probation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant completed rehabilitation; found low-risk of reoffending in 2006; no other convictions.",
+     "quote": "The Applicant completed a course of rehabilitation and, in 2006, a rehabilitation program counsellor found him to be at low-risk of reoffending. He has no other criminal convictions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant’s long residence, family citizenship, refugee status, past conviction, rehabilitation, and low reoffending risk.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant issued removal order for criminal inadmissibility; appeal rejected; lost permanent residence status.",
+     "quote": "The Applicant was issued a removal order because he was found criminally inadmissible under section 36(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]. The Immigration Appeal Division rejected his appeal of the removal order. As a result, the Applicant lost his permanent residence status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the applicant was removed for criminal inadmissibility and lost permanent residence after appeal rejection.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD vacated Applicant’s refugee status in 2019 for not residing in country of citizenship at claim time.",
+     "quote": "In 2019, the RPD vacated the Applicant’s Convention refugee status because it found that he was not residing in his country of citizenship at the time that he had alleged in his refugee claim to have experienced persecution there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker vacated the applicant’s refugee status in 2019 due to residency findings.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant’s 2020 PRRA denied in 2021; judicial review leave denied in 2022.",
+     "quote": "In 2020, the Applicant submitted a Pre-Removal Risk Assessment (“PRRA”). This was denied in 2021. The Applicant sought leave and judicial review to challenge the refusal; this Court denied leave in March 2022.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker denied the applicant’s PRRA and judicial review leave.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Officer accepted positive factors including low reoffend risk, family hardship, discrimination risk, social ties, and children’s best interests.",
+     "quote": "The Officer accepted that the Applicant “is a low risk re-offend”, that his wife would experience hardship in being separated from her husband, that he would experience discrimination in his country of citizenship, that he had built social and work connections in Canada during his years here, and that the best interests of the children is to have their father remain in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer found seriousness of offence and negative immigration history outweighed positive factors, denying H & C and TRP in March 2021.",
+     "quote": "The Officer ultimately found that in spite of these positive factors, the seriousness of the offence for which the Applicant was convicted and his negative immigration history tipped the balance to not granting the Applicant relief. The Officer relied on their analysis on the H & C application to find that the TRP is also not justified. Both the H & C and TRP were denied in March 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker acknowledged positive factors but denied relief due to offence seriousness and immigration history.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "IRPA s 25(1) allows discretion for humanitarian and compassionate relief to relieve misfortunes.",
+     "quote": "Foreign nationals applying for permanent residence in Canada can ask the Minister to use their discretion to relieve them from requirements in IRPA because of humanitarian and compassionate factors (IRPA, s 25(1)). The Supreme Court of Canada in Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61 [Kanthasamy], citing Chirwa v Canada (Minister of Citizenship and Immigration) (1970), 4 IAC 338, confirmed that the purpose of this humanitarian and compassionate discretion is “to offer equitable relief in circumstances that ‘would excite in a reasonable [person] in a civilized community a desire to relieve the misfortunes of another’” (at para 21).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains IRPA s 25(1) and Kanthasamy affirming humanitarian discretion to relieve misfortunes.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "IRPA s 25(1) requires officers to consider best interests of a child directly affected; Kanthasamy emphasizes this as a significant focus.",
+     "quote": "Subsection 25(1) of IRPA directs officers deciding applications for humanitarian and compassionate relief to take into account “the best interests of a child directly affected.” In considering this requirement, the Supreme Court of Canada in Kanthasamy found: “Where, as here, the legislation specifically directs that the best interests of a child who is ‘directly affected’ be considered, those interests are a singularly significant focus and perspective” (Kanthasamy at para 40).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites IRPA and Kanthasamy requiring officers to focus significantly on best interests of directly affected children.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Kanthasamy affirms Baker that minimizing children’s interests inconsistently with humanitarian tradition renders decision unreasonable.",
+     "quote": "Kanthasamy affirmed the Supreme Court of Canada’s finding in Baker v Canada (Minister of Citizenship and Immigration), 1999 CanLII 699 [Baker], that “where the interests of children are minimized, in a manner inconsistent with Canada’s humanitarian and compassionate tradition and the Minister’s guidelines, the decision will be unreasonable” (Kanthasamy at para 38, citing Baker at para 75).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Kanthasamy requires best interests analysis to be well identified, defined, and examined with great attention.",
+     "quote": "The Supreme Court of Canada also reaffirmed in Kanthasamy that a reasonable best interests of the child analysis requires that a child’s interests be “well identified and defined” and examined “with a great deal of attention” in light of all the evidence (Kanthasamy at para 39, citing Legault v Canada (Minister of Citizenship and Immigration), 2002 FCA 125 at paras 12, 31; Kolosovs v Canada (Citizenship and Immigration), 2008 FC 165 at paras 9-12).",
+     "answers": 0
+    }
+   ],
+   "summary": "Kanthasamy affirms Baker that minimizing children’s interests is unreasonable and requires detailed, attentive analysis.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Two Canadian children in early adolescence live with parents; father is integral daily presence; refusal causes separation.",
+     "quote": "There are two Canadian children, both entering their early adolescence, impacted by this decision. Both have grown up living in Canada with their father and mother as their primary caregivers for the entirety of their lives. As the Officer acknowledges, this decision has serious consequences on the lives of these children given the close and loving relationship they have with their father, who is an integral presence in their daily lives. There is no suggestion that there is some alternative means by which their father can immigrate to Canada in the near future. A refusal results in separation of these children from their father for an indeterminate length of time during their childhood.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds two adolescent Canadian children live with their father, and refusal causes separation with no alternative immigration means.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer finds refusal causes separation but mitigating factors include videoconferencing and visits to country of citizenship.",
+     "quote": "The Officer accepts a refusal will result in this separation but also finds that there are “significant mitigating factors to alleviate the hardship of separation of the applicant from his children.” There are two factors discussed: videoconferencing and visits to the Applicant’s country of citizenship. The Officer acknowledges that the children have been to the country of citizenship and “did not enjoy the experience very much”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found separation hardship mitigated by videoconferencing and visits, though children disliked visits.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer minimized children’s concerns about visiting country of citizenship despite evidence of negative experiences and safety concerns.",
+     "quote": "I find the Officer’s characterization of this issue minimizes the children’s concerns about visiting their father in his country of citizenship. The evidence before the Officer was that the children had been two or three times to the country of citizenship and that these were negative experiences. One child required hospitalization due to an insect-borne infection on one visit, and that in general the children did not feel safe during their time there. The children both stated in their letters that they did not want to go to the Applicant’s country of citizenship. The Applicant’s wife also explained the safety concerns while travelling with her children to the Applicant’s country of citizenship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer minimized children’s concerns about visiting their father’s country despite evidence of negative experiences and safety risks.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer accepted ethnic discrimination in country of citizenship but did not mention it in mitigating factor analysis.",
+     "quote": "Further, the Officer accepted that individuals from the particular ethnic group to which the Applicant and the children belong experience discrimination in the Applicant’s country of citizenship. Applicant’s counsel referenced Canada’s travel advisories in place for travel to the country. These country conditions were not mentioned by the Officer in their evaluation that found that visits by the children could act as a mitigating factor to separation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer accepted ethnic discrimination but failed to mention it when considering visits as mitigating factor.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer failed to address evidence about children’s conditions visiting country and minimized concerns, making decision unreasonable requiring redetermination.",
+     "quote": "The Officer failed to grapple with the evidence and submissions about the conditions in which the children would find themselves if they were to visit, and minimized the children’s concerns about visiting. This is a sufficiently central and serious shortcoming because of the Officer’s reliance on the children’s ability to visit in their overall balancing of the relevant factors. The decision is therefore unreasonable and requires redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer’s failure to address evidence and minimize concerns makes the decision unreasonable and requires redetermination.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant requested Officer consider time-limited relief through a TRP under section 24 of IRPA",
+     "quote": "the Applicant requested that the Officer consider whether he could be granted time-limited relief through a TRP under section 24 of IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 24 allows TRP issuance if officer is of opinion it is justified in the circumstances",
+     "quote": "Section 24 provides that a TRP can be issued to a foreign national who is inadmissible if “the officer is of the opinion that it is justified in the circumstances.”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "TRPs are issued for fixed time and may be cancelled anytime under section 63 IRPR and section 24(1) IRPA",
+     "quote": "TRPs are issued for a fixed amount of time and “may be cancelled at any time” (section 63 of Immigration and Refugee Protection Regulations, SOR/2002-227 [IRPR]; section 24(1) of IRPA).",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant requested TRP relief under section 24 IRPA; TRPs are time-limited and cancellable, per IRPA and IRPR provisions.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant made submissions on qualifying for TRP using guidance in Operational Manual 1: Temporary Resident Permits",
+     "quote": "The Applicant made submissions on how he qualified for a TRP, considering the guidance set out in the relevant operational manual: Operational Manual 1: Temporary Resident Permits (“the Guidelines”).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Guidelines are not binding but inform courts on factors decision-makers consider (Vavilov para 94)",
+     "quote": "While guidelines are not binding on an officer, they may inform a reviewing court on the factors administrative decision-makers are generally taking into account (Vavilov at para 94)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Guidelines offer guidance on background, purpose, meaning, and reasonable interpretation of legislation (Mousa, Williams)",
+     "quote": "and “offer guidance on the background, purpose, meaning and reasonable interpretation of legislation” (Mousa v Canada (Immigration, Refugees and Citizenship), 2016 FC 1358 at para 11, cited in Williams v Canada (Citizenship and Immigration), 2020 FC 8 at para 36).",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant relied on Operational Manual guidance for TRP qualification; guidelines inform courts though not binding, per Vavilov and case law.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Guidelines list factors for officers to assess in criminal inadmissibility TRP risk assessment",
+     "quote": "In the section of the Guidelines addressing the issuance of TRPs in cases where there is criminal inadmissibility, a series of factors an “officer should assess” in doing a risk assessment are listed",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Factors include seriousness of offence, chances of reoffending, pattern of behaviour, sentence completion, fines paid or restitution",
+     "quote": "including: the seriousness of the offence, the chances of committing further offences, if there is a pattern of criminal behaviour (e.g., the offence was a single event and out of character), if all sentences have been completed, fines paid or restitution made, etc.",
+     "answers": 0
+    }
+   ],
+   "summary": "Guidelines list factors officers should assess for TRPs with criminal inadmissibility, including offence seriousness and sentence completion.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer did not reference any Guidelines factors in TRP decision",
+     "quote": "The Officer did not reference any of the factors in the Guidelines.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Officer relied on findings from H & C analysis instead",
+     "quote": "Instead, the Officer relied on their findings in the H & C analysis.",
+     "answers": 1
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Relief under section 24(1) IRPA is more narrowly framed than broad discretion under section 25(1) IRPA (Williams para 64)",
+     "quote": "As noted by Justice Norris at paragraph 64 of Williams, relief under section 24(1) “is more narrowly framed” than the “broad equitable discretion” provided for under section 25(1) of IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer failed to appreciate distinct legal framework for TRP vs H & C Application",
+     "quote": "I find, as was the case in Williams, that the Officer failed to conduct an evaluation that appreciated the distinct legal framework for determining a TRP as opposed to an H & C Application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Further analysis reflecting TRP legal framework under section 24(1) IRPA required",
+     "quote": "I find that “further analysis reflective of the legal framework for determining a request for a TRP under section 24(1) of the IRPA was required.”",
+     "answers": 3
+    }
+   ],
+   "summary": "Officer failed to apply TRP-specific legal framework, relying on H & C findings; further TRP analysis required, court finds.",
+   "role": "analysis"
+  }
+ ]
+}

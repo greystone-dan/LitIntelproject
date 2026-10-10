@@ -1,0 +1,498 @@
+{
+ "case_id": 30128,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0095988,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant is a 36-year-old Iranian civil engineer who applied for permanent residence in Canada in February 2019 under Express Entry.",
+     "quote": "The applicant is a 36-year-old citizen Iran. In December 2018, he was invited to apply for admission to Canada as a permanent resident under the Express Entry federal skilled worker program (the applicant is a civil engineer). He completed his application in February 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Application remains pending over four-and-a-half years later due to security screening delay.",
+     "quote": "Over four-and-a-half years later, the application is still pending. The applicant has been told that the delay is due to the need for security screening.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant, a 36-year-old Iranian civil engineer, applied for permanent residence in 2019; the application remains pending due to security screening delay, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant applied for mandamus order in September 2022 to compel decision on permanent residence application.",
+     "quote": "In September 2022, the applicant applied for an order in the nature of mandamus to compel the Minister of Citizenship and Immigration to render a decision on his application for permanent residence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant named Minister of Public Safety as respondent due to responsibility for security screening.",
+     "quote": "Out of an abundance of caution, the applicant also named the Minister of Public Safety and Emergency Preparedness as a respondent because agencies under the authority of that Minister are responsible for security screening.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant sought a mandamus order in 2022 and named the Minister of Public Safety as respondent due to security screening responsibility, court states.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents oppose mandamus application, citing delay explained by security screening and balance of convenience against applicant.",
+     "quote": "The respondents oppose the application on the basis that the delay in rendering a decision is reasonably explained by the need to conduct security screening and because the balance of convenience does not favour the applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents oppose the application, arguing delay is justified by security screening and balance of convenience disfavors applicant, respondents argue.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court is satisfied the mandamus application should be granted.",
+     "quote": "For the reasons that follow, I am satisfied that this application should be granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court is satisfied the mandamus application should be granted, court concludes.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Mandamus test requires eight preconditions per Apotex v Canada (Attorney General) (1993).",
+     "quote": "The test for mandamus is well-established. Apotex v Canada (Attorney General) (1993), [1994] 1 FC 742 (CA) (aff’d [1994] 3 SCR 1100) identified eight preconditions that must be met for an applicant to be entitled to an order of mandamus.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The eight requirements include public legal duty, duty owed to applicant, clear right, discretionary duty principles, no other remedy, practical effect, no equitable bar, and balance of convenience.",
+     "quote": "In summary, these requirements are: (1) there must be a public legal duty to act; (2) the duty must be owed to the applicant; (3) there must be a clear right to performance of that duty; (4) where the duty sought to be enforced is discretionary, certain additional principles apply; (5) no other adequate remedy is available to the applicant; (6) the order sought will have some practical value or effect; (7) there is no equitable bar to the relief sought; and (8) on a balance of convenience an order of mandamus should be issued.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Lukács v Canada (Transportation Agency), 2016 FCA 202 at para 29 also discusses mandamus requirements.",
+     "quote": "See also Lukács v Canada (Transportation Agency), 2016 FCA 202 at para 29.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the eight preconditions for mandamus per Apotex and Lukács cases, court states.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Only the third and eighth Apotex requirements are in issue in this case.",
+     "quote": "As noted above, only the third and eighth Apotex requirements are in issue here.",
+     "answers": 0
+    }
+   ],
+   "summary": "Only the third and eighth Apotex mandamus requirements are at issue, court states.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Third requirement asks if applicant has clear right to decision by Minister, engaged if decision delayed unreasonably.",
+     "quote": "Under the third requirement, the question is whether the applicant has a clear right to performance of the duty on the part of the Minister of Citizenship and Immigration to render a decision on his application for permanent residence. Generally speaking, this right is engaged only if the party seeking mandamus has satisfied all the requirements for a decision to be made, they have requested that a decision be made, and the tribunal has either expressly refused to make a decision or it has taken unreasonably long to do so (Apotex at 767).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The live issue is whether the Minister has taken unreasonably long to make a decision.",
+     "quote": "In the present case, the only live issue is whether the Minister has taken unreasonably long to make a decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the third requirement concerns clear right to decision, focusing on whether delay is unreasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Conille v Canada sets three requirements for unreasonable delay: longer than process requires, applicant not responsible, no satisfactory justification.",
+     "quote": "In Conille v Canada (Minister of Citizenship and Immigration) (1998), [1999] 2 FC 33, which concerned a long-delayed decision on a citizenship application, Justice Tremblay-Lamer held (at 43) that three requirements must be met for delay to be considered unreasonable: (1) the delay in question has been longer than the nature of the process required, prima facie; (2) the applicant and his counsel are not responsible for the delay; and (3) the authority responsible for the delay has not provided a satisfactory justification.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Conille for three requirements to find delay unreasonable, court states.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues delay exceeds published processing time of 26 months as of September 2022.",
+     "quote": "In support of his submission that it has taken longer to make a decision on his application than the process required, prima facie, the applicant relies on evidence that, as of September 2022 (when he commenced this mandamus application), Immigration, Refugees and Citizenship Canada’s published processing time for Express Entry applications by skilled workers was 26 months.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents do not seriously dispute first Conille requirement given disparity between published time and actual delay.",
+     "quote": "While not necessarily conceding that this should be the benchmark for the time the nature of the process usually requires, I do not understand counsel for the respondents to seriously dispute that the first Conille requirement is met given the wide disparity between the published processing time (as of September 2022) and the amount of time that has passed since the applicant completed his application for permanent residence.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Second Conille requirement is met; applicant is not responsible for delay and responded promptly to requests.",
+     "quote": "Nor is there any question that the second Conille requirement is met. The record demonstrates that the applicant has always responded promptly when additional information was requested from him. None of the delay is attributable to the applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues delay exceeds published 26-month processing time; respondents do not dispute; court finds applicant not responsible for delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents submit delay is not longer than process requires given complexity and security screening.",
+     "quote": "The respondents submit that “the delay in processing has not been longer than the nature of the process required under all the circumstances, and given the complex nature of this application, where security screening is required” (Respondents’ Memorandum of Argument, para 11).",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents argue delay is justified by complexity and security screening, respondents argue.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court disagrees with respondents' justification for delay.",
+     "quote": "I am unable to agree.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with respondents' justification for delay, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondents' memorandum filed October 5, 2022, justifying delay only up to that date; no further argument filed.",
+     "quote": "I would underscore at the outset that the respondents filed their Memorandum of Argument on October 5, 2022. As a result, the delay they sought to justify on this basis was only that which had accrued up to that point. The respondents did not file a Further Memorandum of Argument after leave was granted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Hearing proceeded on assumption all delay is explained by security screening.",
+     "quote": "Thus, strictly speaking, they have not made any argument to justify the additional delay over the last year. Nevertheless, the hearing of this application proceeded on the understanding that the respondents’ position is that all the delay to date is explained by the need for security screening.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes respondents justified delay only up to October 2022; hearing proceeded assuming all delay due to security screening, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Security screening and background checks are important and can justify lengthy delays depending on circumstances.",
+     "quote": "There is no question that background checks and security screening are important requirements under the Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA). Nor is there any question that, depending on the circumstances, the need to take such steps can justify even lengthy processing delays (Jaber v Canada (Citizenship and Immigration), 2013 FC 1185 at para 26; Carrero v Canada (Citizenship and Immigration), 2021 FC 891 at paras 14-15).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court acknowledges security screening can justify lengthy delays depending on circumstances, court states.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondents' blanket assertion that security screening explains delay is insufficient to justify delay.",
+     "quote": "In the present case, however, the respondents simply make the bald assertion that the need for background and security checks increased the complexity of the application and, as a result, the amount of time required to process it. This Court has held repeatedly that blanket statements like this are insufficient to justify delay: see Abdolkhaleghi v Canada (Minister of Citizenship and Immigration), 2005 FC 729 at para 26; Kanthasamyiyar v Canada (Citizenship and Immigration), 2015 FC 1248 at paras 49-50; Samideh v Canada (Citizenship and Immigration), 2023 FC 854 at paras 36-37; and Jahantigh v Canada (Citizenship and Immigration), 2023 FC 1253 at para 19. As Justice McHaffie held in Jahantigh, “For the Court to assess whether the length of a security review is reasonable, it must have some information about the review and the reasons for its length” (at para 20). Likewise, Justice Tremblay-Lamer held in Abdolkhaleghi that what will constitute an adequate explanation for delay will depend “on the relative complexity of the security considerations in each case” (at para 26).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondents' blanket assertion about security screening insufficient to justify delay, citing precedent, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Record lacks any explanation for delay; no affidavits filed; CTR shows minimal progress since July 2019.",
+     "quote": "The record before me falls well short of providing any justification for the delay in this case. Beyond the fact that security screening is required, the record sheds no light whatsoever on the nature of the review or the reasons for its length. The respondents did not file any affidavits at the leave stage. The Certified Tribunal Record (CTR) was produced on January 11, 2023. It confirms that in July 2019, an analyst recommended that the application be approved and that, as of October 2019, it was determined that a “comprehensive check” was required. As of May 2021, security verifications were “not started.” As of November 2021 and then July 2022, “additional verifications” were in progress. The CTR reveals nothing about the nature of these verifications or why they have taken as long as they have.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the record lacks explanation for delay; CTR shows minimal progress since 2019; no affidavits filed, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Very little processing has occurred since July 2019 despite repeated inquiries from MP Pierre Poilievre's office.",
+     "quote": "In sum, from the information in the CTR, it appears that very little has happened in the processing of the application since July 2019. This is despite repeated inquiries about the matter from the office of a Member of Parliament, Pierre Poilievre.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds very little processing has occurred since July 2019 despite MP inquiries, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Most recent CTR entry dated December 1, 2022 notes due date extended 30 days; no affidavits filed after leave granted.",
+     "quote": "The most recent entry in the Global Case Management System notes in the CTR is dated December 1, 2022. It states (rather optimistically) that the due date had been pushed back by another 30 days because verifications were still in progress. The respondents did not file any affidavits after leave was granted (despite having until August 24, 2023, to do so).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "What has happened since December 2022 is unknown due to lack of evidence.",
+     "quote": "As a result, what, if anything, has happened since last December is a complete mystery.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes last CTR entry in December 2022 extended due date; no affidavits filed after leave; post-December 2022 status unknown.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondents submit COVID-19 pandemic delayed processing; ask court to take judicial notice of pandemic's impact on processing times.",
+     "quote": "The respondents submit that processing of the application has also been delayed by the COVID-19 pandemic. According to the respondents, I should take judicial notice that the pandemic adversely affected processing times for applications for permanent residence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court can take judicial notice of pandemic's general impact but not specific effect on this application without evidence.",
+     "quote": "I do not doubt that this is something of which I can take judicial notice. What I cannot take judicial notice of is how, exactly, the pandemic affected the processing of this application and whether this (alone or together with other factors) justifies the delay that has accrued in this case. This must be established by evidence, and there is none.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents argue COVID-19 delayed processing; court accepts general judicial notice but requires evidence for specific impact, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Respondents' lack of evidence leaves little to defend delay as reasonable.",
+     "quote": "Perhaps to state the obvious, the complete absence of evidence to explain the lengthy delay in processing the applicant’s application for permanent residence gave counsel for the respondents little to work with in defending the delay as reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondents' lack of evidence leaves little defense for delay's reasonableness, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant's affidavit explains delay has prejudiced him and caused life limbo and decision delays.",
+     "quote": "Turning to the balance of convenience, the applicant provided affidavit evidence explaining how the delay in processing his application has left his life in limbo and led him to delay making important decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court accepts applicant is prejudiced by delay.",
+     "quote": "I accept that the applicant has been prejudiced by the lengthy delay in processing his application for permanent residence in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Respondents provided no evidence of inconvenience from an order directing decision.",
+     "quote": "The respondents, on the other hand, did not provide any evidence to show that they would be inconvenienced by an order directing that a decision finally be made.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds balance of convenience favors applicant.",
+     "quote": "As a result, I am satisfied that the balance of convenience favours the applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's affidavit shows prejudice from delay; respondents show no inconvenience; court finds balance of convenience favors applicant.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The applicant meets all preconditions for an order of mandamus.",
+     "quote": "I am satisfied that the applicant meets all the preconditions for an order of mandamus.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court is satisfied the applicant meets all preconditions for an order of mandamus.",
+   "role": "conclusion"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The applicant requested an order for decision within 60 days of the judgment.",
+     "quote": "The applicant requested that the respondents be ordered to complete the processing of his application and to render a decision within sixty days of the Court’s judgment.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Respondents' counsel confirmed no instructions on the relief request deadline.",
+     "quote": "Counsel for the respondents confirmed that she did not have any instructions concerning this aspect of the request for relief.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant requested a 60-day decision deadline; respondents' counsel had no instructions on this relief request.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The 60-day deadline is appropriate absent evidence it is unreasonable or unfair.",
+     "quote": "I am satisfied that it is appropriate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Respondents may seek deadline extension by motion if warranted, with or without opposition.",
+     "quote": "If circumstances warranting an extension of the deadline were to arise, the respondents may bring a motion to that effect. If the extension is not opposed, the request may be submitted informally. Otherwise, a motion record and supporting evidence will be required.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 60-day deadline appropriate and allows respondents to seek extensions by motion if needed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No serious questions of general importance arise for certification under IRPA s.74(d).",
+     "quote": "Finally, the parties did not suggest any serious questions of general importance for certification under paragraph 74(d) of the IRPA. I agree that no question arises.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is granted; decision on permanent residence within 60 days; court remains seized.",
+     "quote": "The application is granted. A decision shall be rendered on the applicant’s application for permanent residence within sixty (60) days of the date of this judgment. The preceding term is without prejudice to the right of the respondents to seek an extension of the deadline set out therein. I will remain seized with this matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious questions for certification and grants the application with a 60-day decision deadline, remaining seized.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,632 @@
+{
+ "case_id": 73747,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0110228,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant, an Albanian citizen, appeals the RPD decision denying refugee protection.",
+     "quote": "The Appellant, XXXX XXXX, a citizen of Albania, appeals a decision of the Refugee Protection Division (RPD) denying her claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant asks the RAD to set aside the RPD's negative decision and grant protection or refer back for redetermination.",
+     "quote": "The Appellant asks the Refugee Appeal Division (RAD) to set aside the negative determination of the RPD and either grant her claim for protection or refer the matter back to the RPD for redetermination.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellant has not provided new evidence or requested an oral hearing.",
+     "quote": "She has not provided new evidence in support of her appeal, and she has not requested an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant appeals the RPD decision, requests setting aside or referral, and has not provided new evidence or requested oral hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2016, the Appellant entered Canada from Spain using an Italian passport under a false identity.",
+     "quote": "In XXXX 2016, the Appellant travelled to Canada from Spain with the use of an Italian passport in the name of \"XXXX XXXX.\"",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The Appellant claimed refugee protection under a different personal and national identity.",
+     "quote": "Upon questioning by immigration authorities, the Appellant made a claim for refugee protection under a different personal and national identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant entered Canada in 2016 using an Italian passport and claimed refugee protection under a different identity.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant fears persecution in Albania as a woman fearing harm from male family members and former boyfriend's family.",
+     "quote": "The Appellant alleged a fear of persecution in Albania on the basis of membership in a particular social group as a woman who fears harm at the hands of her uncle \"XXXX XXXX\" and other male family members, as well as the family of her former boyfriend \"XXXX XXXX\" or \"XXXX XXXX.\"",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "She alleges risk because she is Catholic and the former boyfriend is Muslim.",
+     "quote": "She alleged she was at risk because she was Catholic and XXXX was Muslim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges fear of persecution in Albania due to being a woman fearing harm from male relatives and religious differences.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The Minister challenged the Appellant's credibility, alleging false or misleading information and contradictory evidence.",
+     "quote": "The Minister of Immigration Refugees and Citizenship Canada (\"Minister\") intervened on credibility grounds. The Minister submitted the Appellant had provided false or misleading information to Canadian border officials, who had discovered photographs of documents under the Appellant's Italian alias, including an email account, credit card, and a student identification card for a school located in South Australia. The Appellant also had correspondence, which clearly contradicted the Appellant's alleged timeline of events.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The Minister argued the Appellant intentionally withheld facts, detracting from her credibility.",
+     "quote": "The Minister submitted the Appellant was intentionally withholding facts, which further detracted from her credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister argues the Appellant provided false information and withheld facts, undermining her credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the Appellant's claim based on credibility, state protection, and internal flight alternative.",
+     "quote": "In a decision of May 26, 2017, the RPD rejected the Appellant's claim. The determinative issues were credibility, state protection, and internal flight alternative (IFA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the Appellant's claim due to issues of credibility, state protection, and internal flight alternative.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred in its findings.",
+     "quote": "The Appellant argues the RPD erred in its findings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD is not convinced the RPD erred and finds the IFA issue determinative.",
+     "quote": "The RAD is not convinced the RPD erred. The RPD correctly concluded the Appellant has a viable IFA in her country. This is the determinative issue in this claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues error by the RPD; the RAD disagrees and finds the IFA issue determinative.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD decision denying refugee protection and dismisses the appeal under the Act.",
+     "quote": "Pursuant to paragraph 111(1)(a) of the Immigration and Refugee Protection Act (the \"Act\"), the RAD confirms the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection and dismisses the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision denying protection and dismisses the appeal under the Act.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews RPD findings of law and fact without credibility issues on a correctness standard per Huruglica.",
+     "quote": "Pursuant to the Federal Court of Appeal's (FCA) decision in Huruglica, the RAD is to review RPD findings of law, fact (and mixed fact and law), which raised no issue of credibility of oral evidence, applying the correctness standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reviews RPD findings of law and fact without credibility issues on a correctness standard per Huruglica.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews RPD credibility findings on a reasonableness standard with deference, considering process and outcome.",
+     "quote": "In assessing the credibility of oral evidence, the RPD may have a meaningful advantage, as the RPD directly sees, observes, and selects questions to ask of the witnesses etc. The RAD is accordingly to review those RPD's findings on a standard of reasonableness, modified to apply to the RAD context. The RAD is to show deference, while also considering both the process and the outcome of the RPD's findings. In other words, the RAD must be satisfied the RPD's findings are a result of a comprehensible reasoning process and based upon the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reviews RPD credibility findings on a reasonableness standard with deference, considering process and outcome.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds no evidence the RPD ignored or failed to weigh evidence including Dr. XXXX's report.",
+     "quote": "The RAD has carefully reviewed the RPD record and finds no evidence to support the Appellant's argument the RPD ignored and/or failed to give adequate weight to the evidence, including a report by Dr. XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD is presumed to have considered all evidence, including the Dr. XXXX report, as indicated in its reasons.",
+     "quote": "The RPD is further presumed to have taken all of the evidence into consideration whether or not it indicates having done so in its reasons. The contrary has not been shown. Indeed, the RPD reasons make clear references to the Appellant's evidence, including the Dr. XXXX report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the RPD considered all evidence including Dr. XXXX's report and did not ignore or fail to weigh it.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD correctly considered the Chairperson's Gender Guidelines in assessing the claim.",
+     "quote": "The RPD also correctly considered the Chairperson's Gender Guidelines.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Gender Guidelines ensure sensitivity but do not shield testimony from credibility assessment.",
+     "quote": "The RAD notes the Gender Guidelines do not shield testimony from the RPD's scrutiny or preclude an assessment of their credibility. The Gender Guidelines exist to ensure that gender-based claims are heard with sensitivity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD found the RPD panel member was female and asked questions with sensitivity; no accommodations or vulnerable person status was sought.",
+     "quote": "Having also listened to the audio recording of the hearing, the RAD notes that the RPD panel member was female and that questions were asked with sensitivity. The RPD also specifically noted having canvassed \"the claimant's own sense of capability, alertness, and focus\" during the hearing process due both to her prescribed medication and psychological assessment report etc. The RAD also notes the Appellant did not seek any accommodations nor did her counsel seek to have the Appellant declared a vulnerable person.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD considered Gender Guidelines properly; the RAD found the hearing was sensitive and no accommodations were requested.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The panel is guided by jurisprudence in assessing whether a viable internal flight alternative exists.",
+     "quote": "In assessing whether a viable IFA exists, the panel is guided by the jurisprudence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel is guided by jurisprudence in assessing whether a viable internal flight alternative exists.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Claimants bear the burden to prove a serious possibility of persecution in the proposed IFA area, here Tirana.",
+     "quote": "Refugee claimants always bear the burden of proof to show there is a serious possibility they would be persecuted in the potential IFA area named, in this case, Tirana.",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimants must prove a serious possibility of persecution in the proposed IFA area, here Tirana.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Appellant did not meet the burden to show a serious possibility of persecution in Tirana.",
+     "quote": "The RPD found the Appellant had not met her burden to establish there was a serious possibility of persecution for her in Tirana.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant failed to prove a serious possibility of persecution in Tirana.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred by ignoring that alleged persecutors have large families dispersed throughout Albania.",
+     "quote": "The Appellant argues the RPD erred as it failed to address the alleged agents of persecution have large families and are dispersed throughout Albania, which is a small country.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD's conclusions were wrong and based on speculation.",
+     "quote": "The Appellant also argues the RPD's conclusions were wrong and based upon \"pure speculation.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred by ignoring dispersed persecutors and that its conclusions were speculative.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD disagrees with the Appellant and finds the RPD addressed IFA issues and asked relevant questions.",
+     "quote": "Having reviewed the evidence, including listening to the audio recording of the hearing, the RAD does not agree with the Appellant's arguments. At the outset of the hearing, the RPD clearly identified IFA as an issue in this claim. The RPD accordingly asked the Appellant several related questions, including whether she could safely reside elsewhere in Albania, specifically in Tirana.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant's responses were speculative and unsupported; the RPD found no evidence her persecutors could locate or pursue her.",
+     "quote": "The Appellant simply responded that anyone can reside there as long as there is no persecution. As was specifically acknowledged in the RPD reasons, the Appellant also added that Albania is a small country and her uncle would not leave her alone, as her family is large. The RPD concluded the Appellant's responses were speculative and not borne out by the evidence. For example, the RPD noted the Appellant had not provided any evidence of the means or ability or motivation whereby her uncle or XXXX's family would locate and pursue her in Albania.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant merely reargues IFA before the RAD, which is not a second hearing; the RPD had advantage assessing credibility and found responses vague and uncorroborated.",
+     "quote": "The Appellant has not demonstrated how the RPD erred in its findings; rather, the Appellant has simply re-submitted her same arguments on IFA before the RAD. However, an appeal before RAD is not a second chance to present her submissions. The Appellant has already had a full hearing before the RPD. In this regard, the RPD enjoyed a meaningful advantage over the RAD in assessing the credibility of the Appellant's oral responses, which were determined to be vague, speculative, and not corroborated by the evidence. The RAD finds the RPD's findings to be reasonable, as understood in the RAD context, as well as a result of a comprehensible reasoning process and based upon the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the RPD addressed IFA, found Appellant's responses speculative, and that the RAD cannot re-hear the case; RPD's findings are reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even on correctness standard, the RAD finds no error in RPD's finding that Appellant failed to prove serious persecution risk in Tirana.",
+     "quote": "Moreover, even on a correctness standard, the RAD finds no error in the RPD's finding that the Appellant had not met her burden to establish there was a serious possibility of persecution for her in Tirana.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant relocated within Tirana with family support and no credible evidence of pursuit by persecutors during that time.",
+     "quote": "By the Appellant's own evidence, she relocated from her home in December 2016-February 2017, inclusive. She remained in the same city and moved into a shelter. She had the active support of various family members, including her mother, aunt and brother. The Appellant did not credibly establish that any of the alleged agents of persecution pursued her or had any continuing interest in her during this time period when she was notably residing in the same city.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No evidence shows the persecutors have influence with police or judiciary.",
+     "quote": "The RAD notes there is further no evidence the Appellant's uncle or XXXX's family have any influence or connections with the police or judiciary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds no error in RPD's finding of no serious persecution risk in Tirana; Appellant relocated with family support and no pursuit evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the RPD correctly concluded the risk of harm in Tirana is not more than a mere possibility on balance of probabilities.",
+     "quote": "Accordingly, upon its own review of the evidence in its entirety, the RAD finds the RPD was correct to find the Appellant failed to establish with sufficient trustworthy and credible evidence the alleged agents of persecution have any motivation, means or continuing interest to pursue her in Tirana. The panel finds that, on a balance of probabilities, the risk of the Appellant being attacked or harmed in Tirana is not more than a mere possibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the RPD correctly concluded the risk of harm in Tirana is not more than a mere possibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found it was not objectively reasonable for the Appellant to relocate to Tirana.",
+     "quote": "The RPD determined it was not objectively reasonable for the Appellant to relocate to Tirana.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellant has not challenged the RPD's finding on reasonableness of relocation.",
+     "quote": "The Appellant has not specifically challenged the RPD's finding in this area.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD independently reviewed the evidence on reasonableness of relocation.",
+     "quote": "The RAD has nevertheless independently reviewed the evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found relocation to Tirana not reasonable; the Appellant did not challenge this; the RAD independently reviewed evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The 2016 UK guidance states internal relocation to avoid domestic violence is likely possible unless unduly harsh.",
+     "quote": "The 2016 UK Country Information and Guidance Note on Women fearing domestic violence in Albania concludes that internal relocation to avoid risk from domestic violence is likely to be possible, as long as it would not, on the particular facts of the case, be unduly harsh to expect the woman to do so.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD carefully reviewed the particular facts of the case regarding relocation.",
+     "quote": "The RAD has accordingly carefully reviewed the particular facts of the case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD notes UK guidance that internal relocation is likely possible unless unduly harsh and carefully reviewed the case facts.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is not objectively unreasonable for the Appellant to seek refuge by relocating to and residing in Tirana.",
+     "quote": "the RAD finds that it is not objectively unreasonable for her to seek refuge by relocating to and residing in Tirana",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is university-educated and studied at the XXXX XXXX XXXX in her country.",
+     "quote": "the RAD notes the Appellant is university-educated and studied at the XXXX XXXX XXXX in her country",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is fluent in Albanian, English and Italian.",
+     "quote": "She is fluent in Albanian, English and Italian",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant has supportive family in Albania, including her mother, aunt, and brother.",
+     "quote": "She continues to have supportive family in Albania, including her mother, aunt, and brother",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant has experience of relocation within Albania and outside, having resided in Canada recently.",
+     "quote": "She also has experience of relocation within her own country, as well as outside the country having resided in Canada the past several months",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is resourceful, having crossed various international borders.",
+     "quote": "She is also clearly resourceful having crossed various international borders",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds it reasonable for the Appellant to relocate to Tirana, noting her education, language skills, family support, relocation experience, and resourcefulness.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Country documentation shows government and NGO shelters for domestic violence victims are available in Tirana.",
+     "quote": "The RAD also carefully reviewed the country documentation, which details the availability of government services and shelters for victims of domestic violence, particularly in Tirana",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Shelters in Tirana offer integrated services including counselling and psychological support.",
+     "quote": "The shelters offer \"integrated services\", including counselling and psychological support",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant received regular XXXX treatment while in a shelter in XXXX.",
+     "quote": "By her own evidence, the Appellant received regular XXXX treatment when she resided in a shelter in XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant could obtain assistance to request a protection order.",
+     "quote": "The Appellant could also obtain assistance in formally requesting a protection order",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Albanian law provides protection measures against domestic violence, including court-ordered and emergency protection orders.",
+     "quote": "The law in Albania provides protection measures against domestic violence, including court-ordered protection orders and emergency protection orders",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "UK Home Office Guidance states Albania has comprehensive legal provisions and effective protection against gender-based violence.",
+     "quote": "the UK Home Office Guidance Notice describes, \"there are comprehensive legal provisions for dealing with gender based violence and appropriate sanctions are handed down by the courts. The authorities are in general willing and able to provide effective protection.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds shelters and legal protections for domestic violence victims exist in Tirana, supported by country documents and UK guidance.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Thirunaukkarasu holds that dislike of weather, lack of friends or work is insufficient for refugee claim.",
+     "quote": "Thirunaukkarasu, which found that it is not enough for a refugee claimant to say that she does not like the weather there or that she has no friends or relatives there or that she may not be able to find suitable work there",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD cites Thirunaukkarasu that personal dislike or lack of social ties is insufficient for refugee status.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A viable internal flight alternative (IFA) exists for the Appellant within Albania.",
+     "quote": "The RAD therefore finds that a viable IFA does exist for the Appellant within Albania",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is not a serious possibility the Appellant would be persecuted if returned to Albania under section 96 of the Act.",
+     "quote": "there is not a serious possibility that the Appellant would be persecuted if she returned to Albania, pursuant to section 96 of the Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On a balance of probabilities, the Appellant would not face danger of torture, risk to life, or cruel and unusual treatment under section 97 of the Act.",
+     "quote": "on a balance of probabilities, the Appellant would not be personally subjected to a danger of torture or face a risk to life or risk of cruel and unusual treatment or punishment in Albania pursuant to section 97 of the Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds a viable IFA exists and no serious risk of persecution or torture if the Appellant returns to Albania.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the RPD's IFA finding is correct and determinative.",
+     "quote": "the RAD finds that the RPD's IFA finding is correct. This is the determinative issue",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD's IFA finding as correct and determinative.",
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to paragraph 111(1)(a) of the Act, the RAD confirms the RPD decision and dismisses the appeal.",
+     "quote": "the RAD confirms the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection and dismisses the appeal",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision and dismisses the appeal under paragraph 111(1)(a) of the Act.",
+   "role": "disposition"
+  }
+ ]
+}

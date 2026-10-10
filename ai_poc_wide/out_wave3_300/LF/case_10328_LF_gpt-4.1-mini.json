@@ -1,0 +1,468 @@
+{
+ "case_id": 10328,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0093836,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is a judicial review of a negative humanitarian and compassionate decision for a 19 year old Lebanese citizen.",
+     "quote": "This is a judicial review of a negative humanitarian and compassionate [H&C] decision for a now 19 year old citizen of Lebanon.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Abdel Nabi Chehade arrived in Canada as an unaccompanied minor on November 25, 2013, sent by his parents to claim refugee status.",
+     "quote": "Abdel Nabi Chehade arrived in Canada through the United States as an unaccompanied minor on November 25, 2013. His parents sent him from Lebanon in the hopes of claiming refugee status and finding a better life.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review of a negative H&C decision for a 19-year-old Lebanese citizen who arrived unaccompanied in Canada in 2013.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court finds the decision reasonable and will dismiss the application.",
+     "quote": "For the reasons that follow, I find the decision reasonable and will dismiss the application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the decision reasonable and dismisses the application.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Chehade has been under Family and Child Services custody since arrival and is the only family member not residing in Lebanon.",
+     "quote": "Mr. Chehade has been under the custody of Family and Child Services since his arrival to Canada. He is the youngest of seven children and is the only member of his family who does not reside in Lebanon.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "His parents sent him unaccompanied to Canada after an alleged Hezbollah recruitment attempt; he was to live with an aunt but now lives in a group home.",
+     "quote": "Mr. Chehade’s parents decided to send him, then fifteen, unaccompanied to Canada via the United States after an alleged incident in which Hezbollah attempted to force him to join their organization. His parents intended him to live with an aunt when he arrived in Canada. However, the Canadian authorities were not satisfied with the arrangements when he arrived at the border. As a result, Mr. Chehade has resided in a group home in Welland, Ontario.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Chehade has been in custody since arrival, sent unaccompanied due to alleged Hezbollah threat, intended to live with an aunt but placed in a group home.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Chehade's refugee claim and appeal were denied; judicial review refused; he applied for H&C relief at 17, which was refused and then re-determined and rejected again.",
+     "quote": "On February 13, 2014, Mr. Chehade’s refugee claim was denied as was his appeal to the Refugee Appeal Division. An application for leave and judicial review of that decision was refused by the Federal Court. On August 13, 2015, at age 17, Mr. Chehade submitted an application for H&C relief. The application was refused but then sent back for re-determination by consent of the parties. A term of the settlement was that the best interests of the child would be considered because he was 17 at the time of application. In a decision rendered June 23, 2016, Mr. Chehade’s re-determined H&C application was rejected which forms the decision currently under judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts Mr. Chehade's refugee claim and appeal were denied, H&C application refused, re-determined, and rejected, now under review.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Was the officer alert, alive and sensitive to the best interests of the child?",
+     "quote": "Mr. Chehade raises the following issue in this application: Was the officer alert, alive and sensitive to the best interests of the child?",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant raises the issue whether the officer was alert, alive and sensitive to the best interests of the child.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The standard of review for this determination is reasonableness, per Dunsmuir v New Brunswick.",
+     "quote": "The standard of review to make this determination is reasonableness (Dunsmuir v New Brunswick, 2008 SCC 9 [Dunsmuir]).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is reasonableness according to Dunsmuir.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The officer made an unsubstantiated conclusion based on selective reading of a psychotherapist report.",
+     "quote": "Mr. Chehade argues that the officer came to an unsubstantiated conclusion based on a selective reading of a psychotherapist report submitted on his behalf.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The psychotherapist's clinical impression links Mr. Chehade's anxiety and depression to threat of removal to Lebanon and predicts deterioration if removed.",
+     "quote": "Specifically, the psychotherapist’s clinical impression highlights that Mr. Chehade’s anxiety and depression are due to the threat of being removed to Lebanon and that removal would likely cause deterioration in his mental health.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Since the officer is not a trained medical professional, he should not have concluded contrary to the psychotherapist's report.",
+     "quote": "Mr. Chehade’s position is that since the immigration officer is not a trained medical professional, it was not open to him to conclude contrary to the psychotherapist’s report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the officer selectively read the psychotherapist report and wrongly concluded contrary to it, lacking medical expertise.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The officer did no analysis of impacts of returning Mr. Chehade to Lebanon despite psychotherapist's firm conclusion of severe harm.",
+     "quote": "Mr. Chehade submits that the officer conducted no analysis of the impacts returning him to Lebanon would have.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The psychotherapist concluded returning to Lebanon would cause permanent, severe emotional suffering.",
+     "quote": "This is despite the psychotherapist’s firm conclusion that returning him to Lebanon would have permanent, negative implications and cause severe emotional suffering.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Given diagnosis, vulnerability, and country conditions, the officer was not alert, alive and sensitive to the child's best interests.",
+     "quote": "It is submitted that the officer was not alert, alive and sensitive to the best interests of the child.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits the officer failed to analyze return impacts despite psychotherapist's conclusion, thus not sensitive to child's best interests.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Decision makers must be alert, alive and sensitive to the best interests of the child (Baker v Canada).",
+     "quote": "In assessing H&C submissions, the decision makers must be “alert, alive and sensitive” to the best interests of the child (Baker v Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Children rarely deserve hardship; hardships warranting relief for children may not for adults (Hawthorne, Kanthasamy).",
+     "quote": "and should bear in mind that “[c]hildren will rarely, if ever, be deserving of any hardship” (Hawthorne v Canada (Minister of Citizenship and Immigration), 2002 FCA 475 at para 9). As children may experience greater hardship than adults faced with a comparable situation, circumstances which may not warrant H&C relief when applied to an adult, may nonetheless entitle a child to relief (Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61 at para 41 [Kanthasamy]).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states decision makers must be alert and sensitive to child's best interests; children rarely deserve hardship and may get relief where adults would not.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Factors to consider for child's welfare include age, dependency, establishment, country conditions, medical issues, education, gender (Kanthasamy).",
+     "quote": "Generally, factors relating to a child’s emotional, social, cultural and physical welfare should be taken into account when raised. Some examples of factors that applicants may raise include but are not limited to (Kanthasamy, above, at para 40): - the age of the child - the level of dependency between the child and the H&C applicant - the degree of the child’s establishment in Canada - the child’s links to the country in relation to which the H&C assessment is being considered - the conditions of that country and the potential impact on the child - medical issues or special needs the child may have - the impact to the child’s education - matters related to the child’s gender.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists factors to consider for child's welfare including age, dependency, establishment, country conditions, medical issues, education, and gender.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "An officer must balance competing priorities including child's best interests and may refuse H&C relief if alert and sensitive.",
+     "quote": "An officer must balance competing priorities, including but not limited to the best interests of the child, when determining whether to grant an exemption on H&C grounds. If an officer is alert, alive and sensitive to the best interests of the child, it is open to them to refuse an application for H&C relief.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states an officer must balance priorities and may refuse H&C relief if alert and sensitive to child's best interests.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The officer concluded it was in Mr. Chehade's best interests to reunite with family in Lebanon after over two and a half years in Canada.",
+     "quote": "A senior immigration officer reviewed Mr. Chehade’s application and came to the conclusion that it was in his best interests to reunite with his family in Lebanon. The officer noted that Mr. Chehade had resided in Canada for a little over two and a half years.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The officer noted Mr. Chehade's anxiety and depression worsened due to immigration status insecurity.",
+     "quote": "He observed that while this would be a short period of time for an adult, it is relatively lengthy for a teenager who has been away from his parents and siblings. The officer also noted that Mr. Chehade continues to experience significant anxiety and depression. The report by the psychotherapist observed that his emotional state had intensified due to the insecurity of his immigration status.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The psychotherapist report did not mention Mr. Chehade's family or impact of separation from them.",
+     "quote": "However, the psychotherapist report notably failed to mention Mr. Chehade’s family, the frequency of their contact and what impact separation from them was having on him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer found it best for Mr. Chehade to reunite with family in Lebanon, noted his anxiety linked to immigration status, and that the psychotherapist report omitted family impact.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court disagrees with Mr. Chehade's argument that the officer overlooked psychotherapist report conclusions.",
+     "quote": "Mr. Chehade argues that the officer overlooked the conclusions contained in the psychotherapist report and just quoted from the overview section. I do not agree.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees that the officer overlooked the psychotherapist report's conclusions.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The psychotherapist after one appointment concluded it was best for Mr. Chehade to remain in Canada to build his life and address mental health.",
+     "quote": "The report was from a psychotherapist, who after one appointment concluded that “it would be in Mr. Chehade’s best interest to allow him to remain in Canada where he can build upon the life he now has which is helping him to learn and thrive.” She then goes on to say that if he stayed then a plan could be made to help him work through the “depression, anxiety and trauma he currently feels.”",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the psychotherapist after one appointment concluded it was best for Mr. Chehade to remain in Canada to build his life and address mental health.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A psychotherapist cannot usurp the officer's role; the officer considered the report but may weigh it with other factors.",
+     "quote": "A physiotherapist cannot usurp the role of the officer. In this case contrary to Mr. Chehade’s arguments, the officer did consider the report’s conclusions which are almost a repetition of the overview.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "Concerns exist about relying on a non-psychiatrist with one appointment and no treatment plan as definitive on remaining in Canada.",
+     "quote": "There is a concern that someone who is: 1) not a psychiatrist or psychologist; 2) only has one appointment with a person; 3) writes about their “clinical impressions” rather than a diagnosis; 4) has no treatment plan or follow-up for the individual; and 5) bases a report specifically drafted for CIC on what they are told by the person should be the definitive answer on whether someone should remain in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Disagreeing with clinical impressions or weighing report comments with other factors does not make the decision reviewable.",
+     "quote": "The officer must of course consider the report but it is not supportable that to disagree with the clinical impressions or weigh the comments in the report with other factors makes the decision reviewable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court holds a psychotherapist cannot replace the officer's role; the officer considered the report but may weigh it with other factors; disagreement does not make decision reviewable.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The officer assessed Mr. Chehade's educational prospects in Canada and Lebanon, concluding he could pursue studies in Lebanon.",
+     "quote": "The officer assessed Mr. Chehade’s educational prospects both in Canada and in Lebanon. Attention was paid to Mr. Chehade’s academic achievements while he has been in Canada. The officer concludes that Mr. Chehade would be able to pursue his studies in Lebanon given the quality of their universities and the availability of financing for student loans there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer assessed educational prospects and concluded Mr. Chehade could pursue studies in Lebanon.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The officer found no significant sectarian violence affecting Mr. Chehade's family but gave some weight to the factor.",
+     "quote": "The officer did not find that Mr. Chehade’s family has been significantly affected by sectarian violence but assigns some weight to this factor nonetheless.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The officer noted Mr. Chehade's parents and siblings still live in Lebanon.",
+     "quote": "In fact, his parents and six other siblings still live in Lebanon.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Research indicates Hezbollah uses enticement and rewards rather than force for recruitment; officer concluded no forced recruitment risk.",
+     "quote": "Also, research was assessed which indicates that contrary to Mr. Chehade’s claim, Hezbollah use enticement and rewards for recruitment rather than force. The officer concluded that Mr. Chehade would not be forcibly recruited into Hezbollah were he to be returned to Lebanon.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer found no significant sectarian violence affecting family, noted family still in Lebanon, and concluded no forced Hezbollah recruitment risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argued officer could not know family is loving due to lack of evidence before him.",
+     "quote": "At the hearing, counsel for Mr. Chehade argued that it was not possible for the officer to know Mr. Chehade’s family is loving, as he had no evidence before him to that effect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Mr. Chehade provided little evidence about his family; no mention in Basis of Claim or psychotherapist report; omissions seem conscious.",
+     "quote": "Mr. Chehade provided little evidence regarding his family in Lebanon and there is no mention of his family in the Basis of Claim and the psychotherapist’s report. The omissions regarding is large family remaining in Lebanon seems to be a conscious decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues officer lacked evidence family is loving; court notes applicant provided little family evidence and omissions seem conscious.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The officer's assessment of family relationship is reasonable, thoughtful, and balanced based on evidence of regular contact and loving parents.",
+     "quote": "I cannot fault the officer’s assessment of the family relationship. The evidence before the officer was that Mr. Chehade works to send money home, that according to the Refugee Protection Division (RPD) decision, he spoke to his family regularly, that his parents sent him to Canada because they wanted the best for him, and according to the group home he had loving parents. The officer’s assessment is reasonable, thoughtful, and balanced as can be seen in the following: It must have been very frightening for the Applicant traveling abroad on his own and being placed in a group home in a foreign country. I have no doubt that his group parents are kind and caring and that the Applicant is close to them; however, they cannot replace his parents who clearly love the Applicant very much and want him to have a bright future.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer's family relationship assessment reasonable, thoughtful, and balanced based on evidence of regular contact and loving parents.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The officer balanced circumstances and found H&C exemption not justified after considering age, medical, psychological, education, country conditions, and ties.",
+     "quote": "The officer balanced Mr. Chehade’s circumstances and determined that an exemption based on H&C considerations was not justified. The officer assessed the best interests of the child by giving due and reasonable consideration to Mr. Chehade’s age, medical reports, psychological assessments, educational achievements/goals, current country conditions in Lebanon, establishment in Canada and Lebanon, and ties to Canada and Lebanon. The officer reasonably determined that H&C considerations were not in favour of Mr. Chehade remaining in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer balanced all factors and reasonably determined H&C exemption was not justified for Mr. Chehade to remain in Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The decision exhibits justification, transparency and intelligibility and is within the range of possible, acceptable outcomes, defensible in fact and law",
+     "quote": "I find that the decision exhibits justification, transparency and intelligibility and is within the range of possible, acceptable outcomes, defensible in fact and law (Dunsmuir; Canada (Citizenship and Immigration) v Khosa, 2009 SCC 12).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the decision justified, transparent, intelligible, and defensible in fact and law.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "No questions for certification were raised",
+     "quote": "No questions for certification were raised.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is dismissed",
+     "quote": "The application is dismissed;",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question is certified",
+     "quote": "No question is certified.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states no certification questions were raised and dismisses the application without certifying any question.",
+   "role": "disposition"
+  }
+ ]
+}

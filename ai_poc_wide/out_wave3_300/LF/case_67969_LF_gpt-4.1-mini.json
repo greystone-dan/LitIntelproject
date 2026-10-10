@@ -1,0 +1,828 @@
+{
+ "case_id": 67969,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0129224,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant, a Jamaican citizen, appeals the RPD decision dated April 25, 2019, dismissing her refugee claim.",
+     "quote": "XXXX XXXX XXXX (Appellant), citizen of Jamaica, appeals a decision of the Refugee Protection Division (RPD) dated April 25, 2019, dismissing her claim for protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant, a Jamaican citizen, appeals the RPD decision dismissing her refugee claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant came to Canada in 2012 as a temporary foreign worker authorized until 2016.",
+     "quote": "The Appellant came to Canada on November 23, 2012, and was authorized to remain in Canada as temporary foreign worker until spring 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2017, the appellant and her sister were detained by CBSA at Niagara Falls and claimed refugee protection that day.",
+     "quote": "On November 10, 2017, the Appellant and her sister were detained by Canadian Border Service Agency (CBSA) officials at Niagara Falls for suspicious conduct after exiting a car heading to the United States (U.S.) on Rainbow Bridge. The Appellant and her sister claimed refugee protection on that day.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Both appellant and sister allege domestic violence by ex-common-law partners in Jamaica; both claims rejected by RPD.",
+     "quote": "They both allege a history of domestic violence perpetrated by their ex-common-law partners in Jamaica. Both claims were rejected by the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The sister filed a separate appeal on May 23, 2019.",
+     "quote": "The sister filed a separate appeal on May 23, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant came to Canada in 2012, claimed refugee protection in 2017 with her sister alleging domestic violence; both claims rejected by RPD; sister appealed separately.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant fears persecution based on gender from her former common-law partner, father of her son.",
+     "quote": "The Appellant fears persecution on the basis of gender from her former common-law partner, who is also the father of her son.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges fear of gender-based persecution from her former common-law partner, father of her son.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found appellant did not prove abusive common-law relationship with XXXX on balance of probabilities.",
+     "quote": "(i) the Appellant had not established, on a balance of probabilities, that she was involved in an abusive common-law relationship with XXXX;",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found appellant's delay in claiming refugee protection indicated lack of subjective fear.",
+     "quote": "(ii) her delay in claiming refugee protection was indicative of a lack of subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found appellant failed to prove abusive relationship and delay indicated lack of subjective fear.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal and confirms the RPD decision.",
+     "quote": "The Refugee Appeal Division (RAD) dismisses the appeal and confirms the decision of the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal and confirms the RPD decision.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant seeks to admit her son's Birth Registration Form as new evidence.",
+     "quote": "The Appellant seeks to admit the Birth Registration Form of her son.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant seeks to admit her son's Birth Registration Form as new evidence.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Under IRPA s.110(4), new evidence must arise after RPD decision, be unavailable then, or not reasonably expected to be brought before RPD.",
+     "quote": "Under subsection 110(4) of Immigration and Refugee Protection Act (IRPA)1, I can only accept evidence that: (i) arose after the RPD decision; or (ii) was not reasonably available at the time of the rejection of the claim; or (iii) could not reasonably have been expected in the circumstances to be brought to the RPD before the rejection of the claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The proposed new evidence does not meet IRPA s.110(4) parameters.",
+     "quote": "I find the proposed new evidence does not meet the parameters of subsection 110(4).",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the proposed new evidence does not meet IRPA s.110(4) criteria for admission.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Birth Registration Form shows son born in 2009 to appellant and ex-common-law partner in Jamaica.",
+     "quote": "The Birth Registration Form indicates that the Appellant's son was born on XXXX XXXX, 20092 to the Appellant and her ex-common-law partner in XXXX XXXX XXXX, Jamaica.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant testified birth certificate was available but not produced before or during RPD hearing.",
+     "quote": "In her testimony before the RPD, the Appellant explained that the birth certificate was available, but she did not produce it before or during the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant's affidavit says she explained problems obtaining son's birth certificate.",
+     "quote": "In her affidavit to support her appeal and the admission of new evidence, the Appellant notes that she explained about the problems obtaining a birth certificate from her son.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant explained she requested amended birth certificate due to son's name misspelling, had copy on phone, was invited to submit it post hearing.",
+     "quote": "During the hearing, the Appellant explained that she had requested an amended birth certificate because her son's name was spelt incorrectly. She indicated that she had a copy of the amended birth certificate on her phone and was invited by the RPD member to submit it post hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant testified amended birth certificate included son's name and ex-common-law partner as father.",
+     "quote": "She testified that the amended birth certificate included her son's name and indicated that her ex-common-law partner was the father.",
+     "answers": 0
+    }
+   ],
+   "summary": "The birth form shows son's birth in 2009; appellant testified birth certificate was available but not produced; she requested amended certificate and had copy on phone.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Birth Registration Form existed before RPD decision and was readily available on appellant's phone.",
+     "quote": "It is evidence that existed prior to the RPD decision and was readily available to the Appellant, as a copy of it was on her phone.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant gave no reason for not submitting birth certificate after RPD invitation before decision.",
+     "quote": "The Appellant has offered no reason for why she did not comply with the RPD invitation to submit the birth certificate, or a copy of it, post hearing and before the decision was made.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court rejects admission of the Birth Registration Form as new evidence.",
+     "quote": "I reject the admission of the Birth Registration Form.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court rejects admission of the Birth Registration Form as new evidence because it existed before RPD decision and was readily available.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court accepts appellant's testimony that ex-common-law partner is father of her son.",
+     "quote": "While I reject the admission of the birth certificate, I accept the Appellant's testimony that her ex-common-law partner is the father of her son.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts appellant's testimony that her ex-common-law partner is the father of her son.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No new evidence to consider means no discretion to hold an oral hearing.",
+     "quote": "As there is no new evidence to consider, I have no discretion to hold an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "No new evidence means no discretion to hold an oral hearing.",
+   "role": "disposition"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD findings were unreasonable, erred on well-foundedness and delay indicating lack of subjective fear.",
+     "quote": "The Appellant submits that the RPD findings were not reasonable. More specifically, she argues that the RPD erred in its assessment of the well-foundedness of the persecution, and erred in finding delay indicating a lack of subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred in assessing well-foundedness and delay indicating lack of subjective fear.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD's role is to independently assess RPD record for legal or factual errors; standard of review is correctness.",
+     "quote": "The role of the RAD is to carry out an independent assessment of the RPD record to determine if the RPD erred in law or fact, or mixed law and fact. The standard of review for the RAD is one of correctness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court reviewed RPD and appellant's record including all appellant's arguments.",
+     "quote": "In coming to my decision, I have reviewed the RPD and the Appellant's Record, including all arguments advanced by the Appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD independently reviews RPD record for errors under correctness standard and reviewed all appellant's arguments.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Chairperson Guideline 4 on women refugee claimants fearing gender-related persecution guides credibility and conclusions assessment.",
+     "quote": "As the allegation is one of domestic violence, I have paid particular attention to the Chairperson Guideline 4: Women Refugee Claimants Fearing Gender-Related Persecution in assessing the Appellant's credibility and when making my conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies Chairperson Guideline 4 on women refugee claimants fearing gender-related persecution to assess credibility and conclusions.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in finding appellant failed to prove on balance of probabilities an abusive common-law relationship with XXXX.",
+     "quote": "I find the RPD did not err in finding the Appellant failed to establish, on a balance of probabilities, that she was involved in a common-law relationship with XXXX in Jamaica during which she was subjected to domestic violence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD did not err in finding appellant failed to prove abusive common-law relationship.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Several issues raise concern about appellant's credibility and allegation of abusive relationship from 2009 to 2012.",
+     "quote": "There are a number of issues that raise concern regarding the credibility of the Appellant and her allegation that she was in an abusive, common-law relationship with XXXX between 2009 to 2012.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds issues raising concern about appellant's credibility and abuse allegation from 2009 to 2012.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant gave contradictory information about relationship status to Canadian authorities twice.",
+     "quote": "First, the Appellant provided contradictory information concerning her relationship status to Canadian authorities on two occasions.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Appellant answered 'no' to question about ever being married or in common-law relationship on work permit extension application.",
+     "quote": "In her application to extend her temporary work permit, the Appellant answered \"no\" to the question \"have you ever been married or in a common-law relationship\" on the application form.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant gave contradictory information about her relationship status, answering 'no' on work permit extension application.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "On Nov 10, 2017, appellant told CBSA officer she had never been married or in common-law partnership.",
+     "quote": "On November 10, 2017, the Appellant made a refugee claim after she was detained by CBSA officers at Niagara Falls. During her interview, the CBSA officer asked: \"Have you ever previously been married or lived in a common-law partnership.\" The Appellant again replied \"no\".",
+     "answers": 0
+    }
+   ],
+   "summary": "On Nov 10, 2017, appellant told CBSA she had never been married or in common-law partnership.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Appellant confirmed understanding questions and that all answers were true and accurate at end of CBSA interview.",
+     "quote": "At the end of her interview with the CBSA officer, the Appellant confirmed that she understood the questions that were asked and that all her answers were true and accurate.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant confirmed understanding questions and truthfulness of answers at CBSA interview end.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant could not explain why she denied common-law relationship to Canadian authorities, casting doubt on credibility.",
+     "quote": "The Appellant was unable to explain why she indicated that she had not been in a common-law relationship during her interview. I find her failure to explain why she did not mention that she had been in a common-law relationship to Canadian authorities casts significant doubt on her overall credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The yes/no questions did not require relationship details, so denial is significant.",
+     "quote": "These were yes or no questions that did not require her to provide detail on the relationship.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's failure to explain denial of common-law relationship casts doubt on credibility; questions were yes/no only.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant fears returning to Jamaica due to crime rate and is really scared",
+     "quote": "I just really don't want to go back to Jamaica, because of the crime rate and I am really scared.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant stated she fears returning to Jamaica because of the crime rate and is really scared.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD asked why Appellant did not mention fearing ex-common-law partner during CBSA interview",
+     "quote": "The RPD asked the Appellant to explain why she had not mentioned that it was her ex-common-law partner whom she feared during her CBSA interview.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant said she was scared and did not know what to say during CBSA interview",
+     "quote": "The Appellant replied that this was because she was so scared and because she did not know what to say.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD asked why the Appellant did not mention fearing her ex-partner during CBSA interview; she said she was scared and did not know what to say.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Victims of domestic violence may be reluctant to disclose abuse details due to fear or trauma",
+     "quote": "I am mindful that victims of domestic and gender-based violence may be reluctant to speak about the circumstances of their abusive relationship and the violence they endured.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Fear of abuser or trauma can explain omissions or contradictions in early statements",
+     "quote": "This can, at times, explain why certain information about the abuser and the abuse may be omitted or contradicted in early statements, or as argued by the Appellant, peripheral details may be left out because of post-traumatic stress and a clouded memory.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes victims of domestic violence may omit or contradict details due to fear or trauma, explaining some early statement inconsistencies.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's failure to disclose common-law relationship twice is different from reluctance to discuss abuse details",
+     "quote": "However, a victim's fear or reluctance to speak about the trauma she experienced is quite different to the Appellant's failure to tell Canadian authorities that she had been in a common-law relationship in the past on two occasions that did not require at the time the disclosure of any difficult details about any alleged abuse.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's failure to disclose her common-law relationship twice differs from reluctance to discuss abuse details.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant told CBSA she feared Jamaica's crime rate and was scared",
+     "quote": "When asked what or who she feared by the CBSA, the Appellant indicated that she did not want to go back to Jamaica as the crime rate is bad and she was really scared.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant has high school education, was informed about refugee claim, and had been in Canada for three years away from ex-partner",
+     "quote": "I note that the Appellant has a high school education and was informed by the CBSA that she could make a refugee claim. She had been away from her ex-common-law partner and in Canada for three years already.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is reasonable to expect Appellant to have said she feared ex-partner specifically, not just Jamaica's crime rate",
+     "quote": "While the Appellant may have been reluctant to share intimate details of abuse, it is reasonable to expect that at the time she was interviewed by the CBSA at Niagara Falls, the Appellant would have been able to explain, at a minimum, that she was scared of her ex-partner in particular, and not Jamaica's crime rate in general.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant, educated and informed, should have said she feared her ex-partner specifically, not just Jamaica's crime rate.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant failed to reasonably explain contradictions and omissions about common-law status and fear of ex-partner",
+     "quote": "I find the Appellant has failed to reasonably explain her contradictions and omissions on these two key issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Gender Guidelines do not explain Appellant's contradictory answers about common-law relationship and fear during initial CBSA interview",
+     "quote": "I find that the Gender Guidelines do not assist in explaining the Appellant's contradictory answers concerning her common-law relationship and her failure to indicate that it was her ex-partner she feared during her initial interview with the CBSA, which occurred three years after she had been in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's failure to explain contradictions and omissions casts doubt on her credibility about her fear",
+     "quote": "I find the Appellant's failure to sufficiently explain these contradictions and omissions brings her credibility about her fear into doubt.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant failed to explain contradictions about her relationship and fear, casting doubt on her credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Documents submitted by Appellant fail to support her claim",
+     "quote": "I find the documents the Appellant has submitted fail to provide support for her claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's submitted documents do not support her claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's testimony that ex-partner is father of her son is accepted",
+     "quote": "The Appellant testified that her ex-common-law partner is the father of her son. I accept her testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This fact does not independently corroborate abuse allegations",
+     "quote": "However, this fact does not provide independent corroboration that her ex-common-law partner abused her for years.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the Appellant's testimony about her ex-partner fathering her son but finds it does not corroborate abuse allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant testified she reported abuse to two police stations in Jamaica",
+     "quote": "The Appellant testified that she reported her ex-partner's abuse to two police stations in Jamaica.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In BOC, Appellant said she went to XXXX Police Station after violence in August 2012",
+     "quote": "In her Basis of Claim (BOC), she indicates that she went to the XXXX Police Station following violence by her ex-partner in August 2012.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Appellant submitted letters requesting police report from late October 2011 to XXXX Police Station",
+     "quote": "However, the Appellant submitted letters to the RPD that she and her counsel wrote to the XXXX Police Station requesting a copy of the police report she made in late October 2011.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified she reported abuse to two police stations but submitted letters requesting a police report from a different date than stated in BOC.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In BOC, Appellant said she reported violence to XXXX XXXX Police Station in late 2011",
+     "quote": "In her BOC, she indicates that she reported violence by her ex-partner to the XXXX XXXX Police Station in late 2011.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Appellant submitted letters requesting records from XXXX Police Station for reports in August or September 2012",
+     "quote": "However, she submitted letters to the XXXX Police Station, XXXX XXXX, requesting records on the reports she made in August or September 2012.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant's BOC and submitted letters show inconsistent dates and police stations for abuse reports.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant did not receive replies from police stations",
+     "quote": "The Appellant testified that she did not receive a reply from either police station.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Inconsistent and vague dates undermine the weight of letters requesting police reports as corroboration",
+     "quote": "Given that she provided inconsistent and vague dates on when and where she reported the violence, I find the fact that she has written to the police stations requesting reports is, on its own, insufficient to corroborate her allegation that she reported her ex-partner's violence to the police.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant did not receive replies and inconsistent dates make letters insufficient corroboration of police reports.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Delay in making refugee claim is a factor indicating lack of subjective fear but not determinative",
+     "quote": "Delay in making a refugee claim is a factor to consider when assessing the merits of a refugee claim. Delay can indicate a lack of subjective fear, but is not determinative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Five-year delay between arrival and refugee claim indicates lack of subjective fear",
+     "quote": "I find the delay of approximately five years between the Appellant's arrival in Canada in 2012, and the filing of a refugee claim in 2017, indicates a lack of subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states delay can indicate lack of fear and finds the Appellant's five-year delay indicates lack of subjective fear.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant had no intention to claim refugee protection until detained by CBSA in 2017",
+     "quote": "The Appellant had no intention of making a refugee claim until she was detained by the CBSA on November 10, 2017, after she exited a friend's car making a wrong turn on Rainbow Bridge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Before detention, Appellant made no inquiries about refugee process despite contact with immigration",
+     "quote": "Prior to that date, she had not made any inquiries into the refugee process, even though she would have had contact with Citizenship and Immigration Canada regarding her work permit and her application to extend it.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant said she did not know she could make a refugee claim after work permit expired",
+     "quote": "When asked why she did not make a refugee claim after her work permit expired, the Appellant said she did not know that she could.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant did not intend to claim refugee protection until detained and was unaware she could claim after work permit expiry.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Even after detention, Appellant claimed protection due to fear of crime rate, not ex-partner violence",
+     "quote": "Even once detained, the Appellant did not claim refugee protection because she feared further violence from her ex-partner. She claimed refugee protection because she did not want to go back to Jamaica as the crime rate is bad and she was scared.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant claimed refugee protection due to fear of Jamaica's crime rate, not ex-partner violence, even after detention.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD did not err in finding delay indicated lack of subjective fear",
+     "quote": "I find the RPD did not err in finding the Appellant's delay in making a refugee claim was indicative of a lack of subjective fear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant lived legally in Canada for four years and likely had exposure to refugee claim information",
+     "quote": "The Appellant was in Canada on a temporary work permit, and living legally in Canada for approximately four years. It is reasonable to expect that she was in contact with, or exposed to Canadians, other individuals in Canada on temporary work permits or individuals seeking refugee protection, or at least would have heard about refugee claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's explanation for delay is not credible given her ability to extend work permit",
+     "quote": "I find her explanation that she did not know what action to take is not credible, particularly given that she was able to take action to extend her work permit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD rightly found delay indicated lack of fear and the Appellant's explanation for delay is not credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Presumption of truth applies to claimant's sworn allegations unless reason to doubt",
+     "quote": "As set out in Maldonado, when a claimant swears to the truth of certain allegations, this creates a presumption that those allegations are true, unless there is a reason to doubt their truthfulness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Credibility concerns rebut presumption of truthfulness of Appellant's allegations",
+     "quote": "Given the various credibility concerns I have with the Appellant's allegations, I find there is reason to doubt the veracity of the Appellant's allegations and therefore this presumption is rebutted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states sworn allegations are presumed true unless doubted, and finds credibility concerns rebut this presumption for the Appellant.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant failed to establish serious possibility of persecution or risk if returned to Jamaica",
+     "quote": "I find the Appellant has failed to establish a serious possibility of persecution or, on a balance of probabilities, a risk to life, or of cruel or unusual punishment, or a danger of torture, if she is returned to Jamaica.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant failed to establish a serious risk of persecution or harm if returned to Jamaica.",
+   "role": "conclusion"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal dismissed; RPD decision confirmed that Appellant is not a Convention refugee or person in need of protection",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection, pursuant to paragraph 111(1)(a) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that the Appellant is not a refugee or person in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

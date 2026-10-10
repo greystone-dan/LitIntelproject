@@ -1,0 +1,465 @@
+{
+ "case_id": 34111,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0077724000000000005,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant claims to be a 30-year-old Somali citizen with unclear entry circumstances into Canada.",
+     "quote": "The applicant claims to be a 30-year-old citizen of Somalia. The circumstances under which she entered Canada are murky.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Applicant claims arrival in September 2018 using another person's Canadian passport but no record exists as described.",
+     "quote": "The applicant claims to have arrived in September 2018 using a Canadian passport in another person’s name but there is no record of her arrival, at least as she describes it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant claims to be a 30-year-old Somali citizen with unclear entry into Canada using another's passport, but no record exists as described.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "procedure",
+     "text": "Applicant submitted inland refugee claim in November 2018 under name Fathia Abdi Guled, Somali national born August 1995.",
+     "quote": "In November 2018, the applicant submitted an inland claim for refugee protection under the name Fathia Abdi Guled, a Somali national born in August 1995.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD rejected claim in March 2021 mainly because applicant did not establish identity.",
+     "quote": "The Refugee Protection Division (RPD) of the Immigration and Refugee Board of Canada (IRB) rejected the claim in March 2021, principally because the applicant had not established her identity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD dismissed applicant's appeal in September 2021, finding no error in RPD's conclusion on identity.",
+     "quote": "In September 2021, the Refugee Appeal Division (RAD) of the IRB dismissed the applicant’s appeal of the RPD’s decision, finding no error in the RPD’s conclusion that the applicant had not established her identity.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submitted refugee claim in 2018; RPD rejected it in 2021 for failure to establish identity; RAD dismissed appeal affirming RPD.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "procedure",
+     "text": "Applicant applied for permanent residence on humanitarian and compassionate grounds in February 2023, identifying as Fathia Abdi Guled.",
+     "quote": "In February 2023, the applicant applied for permanent residence on humanitarian and compassionate (H&C) grounds under subsection 25(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA). Once again, she identified herself as Fathia Abdi Guled.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Applicant sought H&C relief from requirement to return to Somalia based on establishment in Canada and hardship in Somalia.",
+     "quote": "The applicant sought H&C relief from the requirement that she return to Somalia to apply for permanent residence on the basis of her establishment in Canada and the hardship she would face in Somalia.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "procedure",
+     "text": "Applicant's counsel provided written submissions addressing conditions in Somalia in support of H&C application.",
+     "quote": "In addition to the required forms, counsel for the applicant provided written submissions (dated February 21, 2023) in support of the application. Among other things, the submissions addressed conditions in Somalia.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Senior Immigration Officer refused the H&C application in decision dated October 22, 2024.",
+     "quote": "A Senior Immigration Officer with Immigration, Refugees and Citizenship Canada refused the application in a decision dated October 22, 2024.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant applied for permanent residence on H&C grounds in 2023; counsel submitted evidence; officer refused application in 2024.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant applies for judicial review alleging officer's decision is unreasonable and breached procedural fairness.",
+     "quote": "She submits that the officer’s decision is unreasonable and that it was made in breach of the requirements of procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant applies for judicial review alleging unreasonableness and procedural fairness breach in officer's decision.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Decision breached procedural fairness because officer relied on new information applicant could not address.",
+     "quote": "I have concluded that the decision was made in breach of the requirements of procedural fairness because the officer relied on new information bearing on conditions in Somalia that the applicant did not have an opportunity to address.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Since breach suffices to require redetermination, other grounds need not be addressed.",
+     "quote": "Since this is sufficient to require that the matter be redetermined, it is not necessary to address the other grounds on which the applicant has challenged the decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds procedural fairness breach due to new information; redetermination required; other grounds unnecessary to address.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reviewing court must examine decision process and determine fairness in all circumstances (Canadian Pacific Railway Co).",
+     "quote": "a reviewing court must examine the process followed by the decision maker and determine for itself whether that process was fair in all the circumstances (Canadian Pacific Railway Co v Canada (Attorney General), 2018 FCA 69 at paras 54-56).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness inquiry is functionally correctness standard (Canadian Pacific Railway Co; Canadian Association of Refugee Lawyers).",
+     "quote": "it has been said that this inquiry is functionally the same as applying a correctness standard (Canadian Pacific Railway Co, at para 54; Canadian Association of Refugee Lawyers v Canada (Immigration, Refugees and Citizenship), 2020 FCA 196 at para 35).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Court must determine if applicant knew case to meet and had full, fair chance to meet it (Canadian Pacific Railway Co).",
+     "quote": "Fundamentally, I must determine whether the applicant knew the case she had to meet and whether she had a full and fair chance to meet that case (Canadian Pacific Railway Co, at para 56).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains procedural fairness review requires examining process fairness and if applicant had full chance to meet case.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant submitted new evidence of identity in H&C application; officer did not question identity or nationality.",
+     "quote": "Although the applicant had been unable to establish her identity or Somali nationality before the RPD or the RAD, in her H&C application, she provided new evidence to establish her identity. The officer did not question the applicant’s personal identity or her nationality in assessing the request for H&C relief.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Conditions in Somalia were relevant and material to the H&C relief request.",
+     "quote": "As a result, there is no dispute that conditions in Somalia were relevant to the request for relief. As well, given the centrality of this issue to the request for relief, there is no question that it was a material issue before the officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant provided new identity evidence; conditions in Somalia were relevant and material to H&C relief request.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant relied heavily on Canada's Administrative Deferral of Removals (ADR) for parts of Somalia including Mogadishu.",
+     "quote": "In seeking to establish that conditions in Somalia warranted relieving her of the usual requirement... the applicant relied heavily on the fact that Canada has in place an Administrative Deferral of Removals (ADR) for certain regions of Somalia including Mogadishu...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "ADR is a temporary measure deferring removals in humanitarian crisis situations with exceptions.",
+     "quote": "An ADR is a temporary measure that is adopted when immediate action is needed to defer removals (subject to certain exceptions) in situations of humanitarian crisis in a country to which individuals in Canada may be ordered removed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant relied on Canada's ADR for Somalia; ADR is a temporary deferral of removals in humanitarian crises.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer did not err by considering conditions in Somalia despite ADR existence.",
+     "quote": "the officer did not commit the error... of concluding that the existence of an ADR meant that conditions in the applicant’s country of nationality were irrelevant to the H&C application",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Cites cases confirming conditions remain relevant despite ADR (Bawazir, Elshafi, Dziubenko).",
+     "quote": "see, for example, Bawazir v Canada... Elshafi v Canada... and Dziubenko v Canada...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer considered conditions and hardship but conducted independent research with new information not addressed by applicant.",
+     "quote": "the officer considered conditions in Somalia and assessed the hardship... the officer conducted independent research and located additional information the applicant had not addressed in her application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Much of the new information post-dates the H&C application, including UN Security Council reports from 2023 and 2024.",
+     "quote": "a significant amount of this information post-dates the H&C application. For example, the officer relied on reports of meetings of the United Nations Security Council in October 2023, February 2024, and June 2024",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer properly considered conditions and hardship but relied on new post-application information from independent research.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer found credible sources indicate improvement in Somalia's security and economic situation.",
+     "quote": "The officer found that, “based on information from credible sources, there are indications of improvement in the security situation in Somalia” and that “Somalia is on a path towards peace and security.” The officer also found that recently there had been improvements in the economic situation there as well.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer found ADR's probative value less than before due to improvements in Somalia.",
+     "quote": "the fact that there continued to be an ADR for parts of Somalia had less probative value for understanding current conditions there than may once have been the case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Officer concluded applicant did not establish conditions warranting H&C relief after considering all information.",
+     "quote": "the officer concluded that the applicant had not established that conditions in Somalia warranted H&C relief.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found improvements in Somalia and concluded applicant did not establish conditions warranting H&C relief.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant challenges reasonableness and fairness of officer's determination.",
+     "quote": "The applicant challenges both the reasonableness of this determination and the fairness of the process by which it was made.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court finds breach of fairness sufficient; no need to decide on reasonableness.",
+     "quote": "since I am satisfied that this determination was made unfairly, it is not necessary for me to decide whether it is also unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant challenges reasonableness and fairness; court finds fairness breach sufficient to decide case.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues officer could conduct independent research and extrinsic evidence use does not automatically breach fairness.",
+     "quote": "it was open to the officer to conduct independent research... The use of extrinsic evidence “does not automatically trigger a duty to provide an applicant with an opportunity to respond or result in a breach of procedural fairness”",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Contextual approach needed to determine fairness breach when extrinsic evidence used without applicant's response opportunity.",
+     "quote": "a contextual approach is required to determine whether procedural fairness was breached (Shah v Canada... Shen v Canada...)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Relevant considerations include source, availability, novelty, significance, and applicant's knowledge of information.",
+     "quote": "Relevant considerations “include the source, public availability, novelty, and significance of the information, as well as the extent to which the applicant could reasonably be expected to know about the information”",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues independent research and extrinsic evidence use do not automatically breach fairness; contextual approach applies.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Officer relied on reports post-dating H&C application about events unknown to applicant at application time.",
+     "quote": "the additional information the officer relied on included several reports that post-date the application for H&C relief... when the applicant submitted her H&C application, she cannot reasonably be expected to have known about events that had not happened yet.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "New information is significant and not merely confirmation of older known information.",
+     "quote": "There is no question that the new information is significant given the officer’s express reliance on it in the decision. Nor can there be any suggestion that the information simply confirms or repeats older information of which the applicant could have been aware",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer relied on significant new post-application information unknown to applicant at application time.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Date of submissions is appropriate reference point to determine if information is new.",
+     "quote": "when, as in the present case, an H&C application is supported by a single set of submissions, the date of those submissions is the appropriate point of reference for determining whether information is new",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues applicant could have provided supplementary submissions anytime before decision and cannot now complain of fairness breach.",
+     "quote": "the respondent points out that the applicant could have provided supplementary submissions anytime before the decision was made... I am unable to agree... that the applicant cannot now complain about a breach of procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Applicants cannot be expected to constantly update applications on chance of new information; fairness cannot depend on luck.",
+     "quote": "it is neither fair nor feasible to expect applicants to constantly update their applications on the off-chance that they will find the same new information the decision maker is considering. Meeting the requirements of procedural fairness cannot be a matter of luck.",
+     "answers": 2
+    }
+   ],
+   "summary": "Court finds date of submissions is reference for new info; rejects respondent's argument that applicant must update submissions.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If supplementary submissions do not address new info known to decision maker, fairness breach may not arise if applicant could have discovered info with diligence.",
+     "quote": "when supplementary submissions are provided at a later date... the question may arise whether... an applicant could have discovered the new information with the exercise of reasonable diligence... it may be arguable that procedural fairness was not breached",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Whether fairness breach arises depends on case circumstances; issue not relevant here.",
+     "quote": "it all depends on the circumstances of the case. And, in any event, this issue does not arise in the present case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains fairness breach depends on circumstances and applicant diligence; issue not relevant here.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Officer's reliance on important new information without applicant's opportunity to comment breached procedural fairness.",
+     "quote": "I am satisfied that the officer’s reliance on important new information on which the applicant did not have an opportunity to comment breached the requirements of procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judicial review application allowed due to procedural fairness breach.",
+     "quote": "This application for judicial review must, therefore, be allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes procedural fairness breach and allows judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance proposed or found for certification under IRPA s 74(d).",
+     "quote": "The parties did not propose any serious questions of general importance for certification under paragraph 74(d) of the IRPA. I agree that no question arises.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment: judicial review allowed; officer's decision set aside; matter remitted for redetermination by different decision maker.",
+     "quote": "The application for judicial review is allowed. The decision of the Senior Immigration Officer dated October 22, 2024, is set aside and the matter is remitted for redetermination by a different decision maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no question of general importance; allows judicial review, sets aside decision, remits matter for redetermination.",
+   "role": "disposition"
+  }
+ ]
+}

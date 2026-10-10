@@ -1,0 +1,662 @@
+{
+ "case_id": 9544,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.012174,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant seeks judicial review of RAD decision dismissing appeal of RPD decision denying refugee status and protection under IRPA.",
+     "quote": "Mohamed Abdi Aden [the Applicant] seeks judicial review of a decision made by the Refugee Appeal Division [RAD] of the Immigration and Refugee Board of Canada, which dismissed the Applicant’s appeal of a decision of the Refugee Protection Division [RPD], finding that the Applicant was neither a Convention refugee nor a person in need of protection under sections 96 and 97 of the Immigration and Refugee Protection Act SC 2001 c 27 [IRPA].",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of RAD decision dismissing appeal of RPD decision denying refugee status and protection under IRPA, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD erred by failing to admit new evidence.",
+     "quote": "The Applicant argues that the RAD erred by failing to admit new evidence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD misapprehended evidence in the National Documentation Package as new evidence and rejected it.",
+     "quote": "by inappropriately misapprehending evidence in the National Documentation Package [NDP] as being new evidence and inappropriately rejecting it",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RAD failed to evaluate the objective risk of persecution in Somalia.",
+     "quote": "and by failing to evaluate the objective risk of persecution in Somalia",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "conclusion_or_order",
+     "text": "The Applicant asks that the decision be set aside and the appeal re-determined by a different RAD member.",
+     "quote": "The Applicant asks that the decision be set aside and the Applicant’s appeal be re-determined by a different member of the RAD",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the RAD erred on evidence and risk evaluation and asks for the decision to be set aside and re-determined by a different RAD member.",
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The determinative issue is the handling of the Applicant’s sur place claim identified by the RAD.",
+     "quote": "I find the determinative issue in this matter is the handling of the Applicant’s sur place claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The sur place claim is that Al-Shabaab would perceive the Applicant as fraternizing with Westerners due to his visits to the US and Canada.",
+     "quote": "which was identified by the RAD as being that “as a returning citizen who is visited the United States and Canada he cannot return to Somalia because Al-Shabaab would perceive him as having fraternized with Westerners”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Although not described as such by the RAD, this is essentially a sur place claim.",
+     "quote": "While not described as such by the RAD, in essence this is a sur place claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the key issue is the handling of the Applicant's sur place claim about risk from Al-Shabaab due to Western visits.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is allowed because the RAD did not properly analyze the Applicant’s sur place claim.",
+     "quote": "this application is allowed as I agree that the RAD did not appropriately analyse the sur place claim of the Applicant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Reasons will focus only on facts relevant to the determinative issue for brevity.",
+     "quote": "these reasons will only address the facts that are relevant to this determinative issue",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the application, agreeing the RAD failed to analyze the sur place claim properly, and limits reasons to relevant facts.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD and RAD accepted the Applicant was a Somali citizen.",
+     "quote": "The RPD and the RAD both accepted that the Applicant was a citizen of Somalia",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant's father and brother were killed in 1991 clan conflict; mother took him and sister to Kenya.",
+     "quote": "After his father and brother were killed in 1991 in a clan conflict, the Applicant and his sister were brought by their mother to Kenya",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant lived in Dadab refugee camp in Kenya from age 4 until fleeing in December 2014.",
+     "quote": "The Applicant lived in a refugee camp in Dadab, Kenya from the age of four until he fled Kenya in December 2014",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD and RAD accepted the Applicant's Somali citizenship and refugee camp residence in Kenya from age 4 until 2014.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "In 2011, Applicant led a youth group doing volunteer work and awareness sessions in and outside the camp.",
+     "quote": "In 2011, the Applicant and four friends formed a youth group, with the Applicant as its leader. The group carried out volunteer work for development programs inside and outside the camp. They also put on information sessions about HIV/AIDS, female genital mutilation and the importance of peace",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant led a youth group doing volunteer and awareness work inside and outside the refugee camp.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant married June 2014; in October 2014, Al-Shabaab called to stop group programs and accused him of spying.",
+     "quote": "In October 2014, he received a call from someone who identified themselves as belonging to Al-Shabaab... accused him of being a spy",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant was married in June 2014 and received threatening calls from Al-Shabaab accusing him of spying.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On Oct 25, 2014, Al-Shabaab men threatened Applicant's wife; Applicant hid; uncle sold family home and sent proceeds.",
+     "quote": "On October 25, 2014, two men from Al-Shabaab visited the Applicant’s home and asked his wife about his whereabouts... The Applicant and his wife went into hiding. The Applicant’s uncle in Kismayo, Somalia sold the Applicant’s familial home and sent the Applicant the proceeds",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant fled to Nairobi, then used smugglers through South America and Mexico to US, seeking asylum in Feb 2015.",
+     "quote": "The Applicant travelled to Nairobi, and then used smugglers to travel through South America and Mexico to the United States, where he sought asylum in February 2015",
+     "answers": 0
+    }
+   ],
+   "summary": "Al-Shabaab threatened Applicant; he hid, uncle sold home, and Applicant fled via smuggling to the US seeking asylum.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "US asylum claim rejected; released from detention Sept 28, 2015, pending removal to Somalia.",
+     "quote": "The Applicant’s asylum claim in the United States was rejected, and he was released from detention on September 28, 2015, while awaiting removal to Somalia",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant traveled to Minneapolis, then irregularly crossed into Canada; claim referred to RPD.",
+     "quote": "The Applicant travelled to Minneapolis, and then made an irregular crossing of the Canadian border, where he was apprehended and his claim referred to the RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's US asylum was rejected; he then crossed irregularly into Canada and his claim was referred to the RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD heard claim Dec 18, 2015, denied claim orally at hearing end.",
+     "quote": "The RPD heard the Applicant’s claim on December 18, 2015, and denied the claim by oral decision at the end of the hearing",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD accepted Applicant's Somali identity and refugee camp residence but found lack of credible evidence for youth group and volunteer activities.",
+     "quote": "The RPD accepted the Applicant’s identity as a national of Somalia and a resident of the refugee camp in Kenya, but found a lack of credible evidence to prove the existence of his youth group or his volunteer activities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found significant inconsistencies between BOC, oral testimony, and witness testimony.",
+     "quote": "The RPD found that there were significant inconsistencies between his Basis of Claim [BOC] and oral testimony and between his testimony and that of his witness, Ms. Osman",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Dispute exists whether RPD performed microscopic analysis and ignored agreements between Applicant and witness; court does not decide this dispute here.",
+     "quote": "There is a dispute between the parties as to whether the RPD performed a microscopic analysis and failed to take into account the significant points of agreement between the Applicant and his witness... these reasons are not to be taken as supporting or rejecting the position of either party with respect to that dispute",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD denied claim due to lack of credible evidence and inconsistencies; court notes but does not resolve dispute over RPD's analysis.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant raised sur place claim on re-examination that return from North America would risk Al-Shabaab persecution.",
+     "quote": "The sur place claim was put forward by the Applicant when, on re-examination by his counsel, he put forward information that if he was returned from North America, he would face a risk in Somalia from Al-Shabaab",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not address this sur place claim in its decision.",
+     "quote": "This de-facto sur place claim was not addressed in the RPD decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant raised sur place claim about risk from Al-Shabaab if returned; RPD did not address this claim.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Applicant submitted to RAD that RPD made no finding on risk from Al-Shabaab as returnee from West.",
+     "quote": "One of the submissions made to the RAD by the Applicant was that the RPD had not made any finding regarding the Applicant’s risk from Al-Shabaab as a returnee from a western country",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD gave Applicant counsel EASO Report on Somalia and opportunity for additional submissions; report indicated Al-Shabaab did not control Kismayo.",
+     "quote": "on May 11, 2016, the RAD pointed the Applicant’s counsel to an EASO Country of Origin Information Report on Somalia [EASO Report] and gave the Applicant the opportunity to make additional written submissions. This report had information indicating that Al-Shabaab did not control the Applicant’s home city of Kismayo",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant told RAD RPD made no risk finding; RAD gave EASO report showing Al-Shabaab did not control Kismayo and allowed submissions.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Applicant's counsel submitted letter with evidence that Kismayo security remained volatile and Al-Shabaab attacked and controlled surrounding areas.",
+     "quote": "In reply, the Applicant’s counsel submitted a letter with additional documentary evidence to the RAD noting that the security situation in Kismayo remained volatile, that Al-Shabaab still engaged in sporadic attacks in the city, controlled many of the surrounding villages, and manned checkpoints on all roads into and out of Kismayo",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Letter pointed to EASO report parts showing Al-Shabaab attacked towns it did not control against perceived government or international community members.",
+     "quote": "The letter also pointed to portions of the EASO report that indicated that Al-Shabaab carried out attacks in towns it did not control against those perceived to represent the government or the international community",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's counsel submitted evidence that Kismayo remained volatile with Al-Shabaab attacks and control of surrounding areas.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD applied Federal Court of Appeal guidance in Huruglica in reviewing RPD decision.",
+     "quote": "the RAD noted it would apply the guidance of the Federal Court of Appeal in Canada (Citizenship and Immigration) v Huruglica, 2016 FCA 93 [Huruglica] with respect to its review of the RPD decision",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RAD addressed new evidence issues and examined claim merits.",
+     "quote": "It addressed issues dealing with new evidence submitted by the Applicant and then examined the merits of the claim",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD dealt with sur place claim at paragraphs 27-30 and confirmed RPD decision denying refugee or protection status.",
+     "quote": "The sur place claim was dealt with at paragraphs 27 to 30, after which the RAD confirmed the decision of the RPD that the Applicant was neither a convention refugee nor a person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD applied Huruglica, addressed new evidence and sur place claim, and confirmed RPD's denial of refugee status.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD disclosed risk of returning to Kismayo but relied only on EASO report portion showing government recapture.",
+     "quote": "The Applicant noted that it was the RAD that disclosed the risk associated with returning to Kismayo but that it relied only on the portion of the EASO Report indicating that the government had re-captured the city",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD concluded no risk because Al-Shabaab not in full control of territory.",
+     "quote": "From this, the RAD then concluded that the Applicant was not at risk because “there is nothing to indicate that Al-Shabaab is in full control of the territory”",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD disclosed risk but relied only on government control part of EASO report to deny risk from Al-Shabaab.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RAD conflated state protection test by focusing on Al-Shabaab control rather than availability of state protection to Applicant.",
+     "quote": "The Applicant says the RAD conflated the state protection test by saying the terror group did not have full control rather than looking at whether state protection was available to the Applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD conflated state protection test by focusing on Al-Shabaab control instead of state protection availability.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant not at risk due to personal profile; failed to prove youth group membership, so only general Somali risk applies.",
+     "quote": "The Respondent submits that the Applicant is not at risk because of his personal profile, since the RAD agreed with the RPD that he had failed to demonstrate he was a member of the Youth Group in the refugee camp in Kenya. As result, the Respondent says he would not be subject to risk from Al-Shabaab because he would only be perceived as Somalian, which was a general risk",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues Applicant not at risk personally, only general Somali risk, due to failure to prove youth group membership.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant replies he lived in Kenya refugee camp since age 4 and never really lived in Somalia, so would not blend in well.",
+     "quote": "The Applicant replies that he had lived in the refugee camp in Kenya since the age of 4, as result of which he has really never lived in Somalia and would not blend in particularly well as the Somalians suspect everybody they do not know",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant replies he lived in Kenya refugee camp since age 4 and would not blend in well in Somalia.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Standard of review for RAD decisions is reasonableness, per Huruglica para 35.",
+     "quote": "The standard of review for assessing a decision by the RAD is reasonableness: Huruglica at para 35",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review for RAD decisions is reasonableness, citing Huruglica.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness means justified, transparent, intelligible process with defensible outcome on facts and law, per Dunsmuir para 47.",
+     "quote": "A decision is reasonable if the decision-making process is justified, transparent and intelligible resulting in a determination that falls within the range of possible, acceptable outcomes which are defensible on the facts and law: Dunsmuir v New Brunswick, 2008 SCC 9 at para 47 [Dunsmuir]",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains reasonableness means a justified, transparent, intelligible process with defensible outcome, citing Dunsmuir.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Kismayo is not under the direct control of Al-Shabaab",
+     "quote": "the Respondent submits that the evidence suggests Kismayo is not under the direct control of Al-Shabaab",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is no real dispute that Kismayo is not under Al-Shabaab's direct control",
+     "quote": "There is no real dispute of that fact",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Al-Shabaab controls most roads leading to Kismayo, so Applicant likely cannot enter or leave without encountering them",
+     "quote": "documentary evidence which was submitted to the RAD shows that Al-Shabaab controlled most of the roads leading to Kismayo, there was reason to believe the Applicant could not get into or out of Kismayo without encountering Al-Shabaab",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent says Kismayo is not under Al-Shabaab control; court finds no dispute but notes Al-Shabaab controls roads to Kismayo, affecting Applicant's movement.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant failed to show membership in Youth Group",
+     "quote": "With respect to the Respondent’s comment that the Applicant failed to demonstrate he was a member of the Youth Group",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Risk claimed is not Youth Group membership but risk to returnees to Somalia from overseas",
+     "quote": "that is not the risk which the Applicant put forward as part of the sur place claim",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Risk for returnees to Somalia includes vulnerability without clan/family ties and being viewed as foreigners with western agendas",
+     "quote": "People returning to Somalia from overseas are extremely vulnerable unless they have strong clan and family connections, as well as the economic means to establish a life. Somalis that have left, particularly those that have been in western countries, tend to be viewed as foreigners, and may be perceived to have western agendas. This in itself puts them at an increased risk of persecution",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent says Applicant failed to prove Youth Group membership; Applicant says risk is as a returnee from overseas, vulnerable and perceived as foreigner.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Sur place risk concerns perception as returnee from west facing persecution risk by Al-Shabaab",
+     "quote": "The sur place risk was not about whether the Applicant’s testimony was truthful, but about whether he would be perceived to be a member of a group—returnees from western countries—that faced a risk of persecution by Al-Shabaab",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "RAD had to decide if Al-Shabaab would perceive Applicant as returnee or if risk existed despite perception",
+     "quote": "the RAD either had to determine that Al-Shabaab would not perceive the Applicant as a returnee from the west or that he would not face a risk of persecution in spite of Al-Shabaab perceiving him as a returnee from the west",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds sur place risk is about perception as returnee and RAD had to decide if risk existed from that perception.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "EASO Report indicated South Somalia situation volatile but no full Al-Shabaab control",
+     "quote": "the RAD acknowledged that it indicated the situation in South Somalia remained volatile but then found “there is nothing to indicate that Al-Shabaab is in full control of the territory”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found no full Al-Shabaab control and rejected Applicant's claim of danger from Al-Shabaab perception",
+     "quote": "the RAD therefore cannot agree with the submission of the Appellant that, if he returned to his hometown of Kismao, [sic] he would be in danger because Al-Shabaab would perceive him as having fraternized with Westerners",
+     "answers": 1
+    }
+   ],
+   "summary": "RAD found South Somalia volatile but no full Al-Shabaab control and rejected Applicant's danger claim from Al-Shabaab perception.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No clear link between Al-Shabaab control and perception of Applicant as Westerner",
+     "quote": "I do not see the connection between whether or not Al-Shabaab has full control of the territory and whether it would perceive the Applicant as a Westerner",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD may have conflated state protection with terror group control or made unsupported conclusion",
+     "quote": "RAD is conflating state protection with control by a terror group. Alternatively, it is making an entirely separate conclusion without having established the necessary factual basis",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's reasoning is unintelligible and unjustified on facts before it",
+     "quote": "the reasoning is neither intelligible nor is it justified on the facts that were before the RAD",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD's reasoning linking control and perception is unclear, possibly conflated concepts, and unjustified by facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD and RAD failed to assess risk to Applicant as failed refugee claimant returning from US and Canada",
+     "quote": "The RPD and RAD failed to analyse or assess the risk to the Applicant as a failed refugee claimant returning from the United States and Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Court cannot assess risk itself from record; failure to analyze makes decision unreasonable under Dunsmuir",
+     "quote": "That is not an assessment that the court can make by looking at the record to discern the underlying reasons. The failure to provide the analysis coupled with the very confusing concluding wording makes the decision unreasonable on the Dunsmuir criteria",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD and RAD failed to assess risk to Applicant as failed claimant; decision unreasonable under Dunsmuir.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application is allowed and matter returned for redetermination",
+     "quote": "The application is allowed. The matter but will be returned to a different panel for redetermination",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows application and returns matter to different panel for redetermination.",
+   "role": "disposition"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises",
+     "quote": "Neither party posed a question for certification and none arises on these facts",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment: application allowed; matter returned to RAD for redetermination before different panel",
+     "quote": "THIS COURT’S JUDGMENT is that: 1. The application is allowed. 2. The matter is returned to the RAD for re-determination before a different panel",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no certification question; judgment allows application and returns matter to RAD for redetermination.",
+   "role": "disposition"
+  }
+ ]
+}

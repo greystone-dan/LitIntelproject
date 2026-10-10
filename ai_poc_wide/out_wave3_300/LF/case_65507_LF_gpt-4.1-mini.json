@@ -1,0 +1,708 @@
+{
+ "case_id": 65507,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.012814800000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant is a 25-year-old Peruvian citizen appealing the RPD's rejection of his refugee claim.",
+     "quote": "The Appellant is Mr. XXXX XXXX XXXX XXXX who is a 25-year-old citizen of Peru and is appealing a decision of the Refugee Protection Division (RPD) rejecting his claim for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellant has presented new evidence and requested an oral hearing.",
+     "quote": "The Appellant has presented new evidence and has requested an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant is a 25-year-old Peruvian citizen appealing the RPD's rejection and has presented new evidence and requested an oral hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not believe Appellant was at risk of persecution or for an IRPA Section 97 reason",
+     "quote": "the RPD did not believe that the Appellant was at risk of persecution or at risk for an IRPA Section 97 reason",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD concluded Appellant did not meet burden of proof on balance of probabilities",
+     "quote": "it concluded that the Appellant did not meet his burden of establishing that his story was true on a balance of probability",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD confirms RPD's determination that Appellant is not a Convention Refugee or person in need of protection under IRPA",
+     "quote": "the Refugee Appeal Division (RAD) confirms the determination of the RPD, namely, that Mr. XXXX XXXX XXXX XXXX is not a Convention Refugee pursuant to s. 96 of IRPA, nor a person in need of protection pursuant to s. 97 of the IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD did not believe the Appellant was at risk and found he failed to prove his story; the RAD confirms the RPD's decision denying refugee status.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges risk of targeting and possible killing by Mr. XXXX and the XXXX de Puerto Nuevo gang if returned to Peru",
+     "quote": "The Appellant alleges that if he returns to Peru he will be targeted and perhaps killed by an individual, identified as Mr. XXXX XXXX XXXX, and a street gang, identified as the XXXX de Puerto Nuevo",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges risk of harm from Mr. XXXX and a gang if returned to Peru.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges first targeting by Mr. XXXX in July 2010 with robbery and cutting, followed by three more assaults including one with a gun",
+     "quote": "The Appellant alleges he was robbed at knifepoint and cut by Mr. XXXX... assaulted twice more before January 2011... assaulted for a fourth time but this time with a gun",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges multiple assaults by Mr. XXXX starting in July 2010, escalating to gun violence.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges police complaint led to retaliation threats and extortion, prompting him to work and study in Canada",
+     "quote": "Appellant alleged that at this point he made a police complaint but that... he and his business were the target of retaliation threats and extortion",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges he hoped situation would improve but submitted protection claim in Canada in 2015 due to ongoing threats and crime",
+     "quote": "Appellant... hoped the situation would improve but when additional threats arrived... he submitted a protection claim in Canada in XXXX 2015",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges police complaint caused retaliation, leading him to come to Canada and claim protection in 2015.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RAD should accept his refugee claim",
+     "quote": "the Appellant argues that the RAD should \"accept\" the refugee claim of the Appellant",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RAD should accept his refugee claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "New evidence introduced under Section 110(4) includes three police reports related to Mr. XXXX's arrests and alleged criminal activity",
+     "quote": "New evidence has being introduced in this appeal based on Section 110(4). This evidence includes three police reports",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant introduces new police reports as evidence under Section 110(4).",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "All new police reports meet legislative test for admission under section 110(4) as new evidence",
+     "quote": "I conclude that all of this material meets the legislative test of section 110(4) for admission",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "First police report accepted as new evidence despite no explanation due to timing and relation to arrests",
+     "quote": "I would accept that this case would be best accessed as part of a police record check... I find therefore that the first case meets the legislated test of section 110(4)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds all new police reports meet the test for admission as new evidence under section 110(4).",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "New evidence insufficient to require hearing or reverse RPD decision on credibility",
+     "quote": "this material is insufficient to require a hearing because this material cannot provide the bases to reverse the RPD's existing decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "New evidence focuses on Mr. XXXX's situation but does not establish dealings with Appellant or address core credibility issues",
+     "quote": "The new evidence is focused on the situation of Mr. XXXX and does not provide evidence establishing that Mr. XXXX had some dealings with the Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Request for oral hearing under s. 110(6) is denied",
+     "quote": "I am therefore denying the request for an oral hearing under s. 110(6)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court denies oral hearing request, finding new evidence insufficient to overturn RPD's credibility findings.",
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD must review all aspects of RPD decision and independently assess refugee status; some deference on credibility but not on country conditions",
+     "quote": "Justice Phelan in Huruglica1 states that the RAD \"must review all aspects of the RPD's decision and come to an independent assessment...\"",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court guidance states RAD must independently assess RPD decisions, with some deference on credibility issues.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "RAD must not defer to RPD analysis except when credibility is critical or RPD has particular advantage",
+     "quote": "Justice Locke references Huruglica and suggests that \"Except in cases where the credibility of a witness is critical... the RAD must not give any deference to the analysis of the evidence made by the RPD\"",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court says RAD should not defer to RPD except on critical credibility issues or where RPD has advantage.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD grants deference to RPD's credibility assessment but must provide own evidence assessment",
+     "quote": "the RPD's determinative credibility assessment must be granted deference, and I must provide my own assessment of the evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD grants deference to RPD's credibility findings but must independently assess the evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found many consistency, omission, and logic problems undermining credibility on balance of probabilities",
+     "quote": "it found too many consistency, omission and logic problems with the allegations when closely reviewed... to conclude that this is a true story",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found corroborative evidence insufficient to overcome credibility issues",
+     "quote": "the RPD reviewed the corroborative evidence and found that it was not sufficiently authoritative to set aside the identified credibility issues",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found many inconsistencies and insufficient corroboration, undermining the Appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant did not directly challenge RPD's credibility concerns including inconsistencies and omissions",
+     "quote": "the Appellant has not directly challenged the credibility concerns identified by the RPD",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD identified inconsistencies in timing of extortion demands and omissions of written demands in narrative",
+     "quote": "inconsistencies between when the Appellant sets out... and when the Appellant states in testimony these began",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD noted Appellant traveled without seeking asylum and returned to dangerous area multiple times",
+     "quote": "Appellant travelled on several occasions but did not seek to remain... and returns multiple times to the area where he is allegedly in danger",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Appellant did not challenge RPD's credibility concerns about inconsistencies, omissions, and risky behavior.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in not giving serious reasons for discounting Exhibit P-3",
+     "quote": "the Appellant makes specific reference to Exhibit P-3 and argues that the RPD did not give \"serious reasons\" for why this Exhibit was given little weight",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred by not seriously explaining why Exhibit P-3 was given little weight.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found credibility problem with Exhibit P-3 due to conflicting reasons for not reporting earlier incident",
+     "quote": "the RPD identifies a credibility problem... reason... was that he was threatened and afraid. In the denunciation... he simply did not have the time",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found a credibility problem with Exhibit P-3 due to conflicting explanations for not reporting an earlier incident.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD does not accept Exhibit P-3 as probative because a denunciation is not independent evidence",
+     "quote": "a 'denunciation' \"is not independent evidence of the occurrence of the events\", the RPD does not accept this exhibit as probative",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD does not accept Exhibit P-3 as probative evidence because a denunciation is not independent evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD dismisses 'request for guarantees' document as lacking probative value due to lack of certification and sole signature",
+     "quote": "the RPD then goes on to dismiss the \"request for guarantees\"... as lacking in probative value because it is not a certified true copy and it is signed only by the Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court does not view RPD's conclusions on these documents as errors due to real problems identified",
+     "quote": "I do not view the RPD's conclusions on these issues as errors because the RPD has identified real problems with these documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD dismissed a document for lack of probative value; the court finds no error in this conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit P-3 mentions 'XXXX XXXX' as aggressor but not Mr. XXXX or gang connection",
+     "quote": "while it mentions \"XXXX XXXX\" as the aggressor, there is no mention of Mr. XXXX or that this individual is somehow connected to the Puerto Nuevo gang",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Exhibit P-3 accepted as genuine but contents not necessarily true; 'request for guarantees' not sufficiently genuine",
+     "quote": "Exhibit P-3 is accepted as genuine but the contents are viewed as not necessarily true. The request for guarantees (Exhibit P-4) is found not sufficiently genuine",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Exhibit P-3 genuine but not necessarily truthful; the 'request for guarantees' lacks sufficient authenticity.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Question whether Appellant made denunciation against different person than Mr. XXXX",
+     "quote": "The question which might be raised is that perhaps the Appellant did make a denunciation in 2011 but not against Mr. XXXX because these are two different people",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Alias 'XXXX XXXX' not mentioned in news or arrest records for Mr. XXXX despite Appellant's claim everyone knew this alias",
+     "quote": "this alias of 'XXXX XXXX' is not mentioned in the news articles or the arrest records for Mr. XXXX... yet in the denunciation the Appellant has not identified XXXX XXXX as Mr. XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "The court questions whether the denunciation was against a different person than Mr. XXXX, noting the alias is not corroborated.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. XXXX in Exhibit 3 acts alone and lurks at the same place visiting his relative",
+     "quote": "XXXX XXXX in Exhibit 3 is described as acting alone and \"lurks around at the same place every time he goes to visit his relative\" (RPD Record, p. 96).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Mr. XXXX has been arrested twice with other gang members and is a drug seller of cocaine base paste",
+     "quote": "Mr. XXXX has been arrested twice in his car with other gang members and he is clearly a seller of drugs, specifically 'PBC' (pasta base de cocaína - cocaine base paste - 'paco').",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Exhibit P-3 may be genuine but not probative to the allegation that the Appellant was targeted by Mr. XXXX",
+     "quote": "there are alternate ways in which it might be possible to conclude that Exhibit P-3 is genuine but not probative to the allegation that the Appellant has been targeted by Mr. XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mr. XXXX acts alone, has been arrested as a drug seller, and Exhibit P-3 may be genuine but not probative of targeting allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD questioned the Appellant on Exhibit P-3 and identified two problems plus the Appellant's repeated returns to Puerto Nuevo",
+     "quote": "the RPD questioned the Appellant on the document in a hearing setting and identified two problems with the document in addition to the fact that the Appellant returned to Puerto Nuevo on several occasions regardless of the alleged risk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD had an advantage in analyzing Exhibit P-3 and did not err in concluding it has no probative value",
+     "quote": "I conclude that the RPD had an advantage in this analysis and did not error in its conclusion that this corroborative evidence has no probative value.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the RPD properly analyzed Exhibit P-3 and correctly found it has no probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD's credibility concern relates to inconsistency about extortion demands",
+     "quote": "this conclusion directly feeds into the RPD's credibility concern for the inconsistency in the claim related to extortion demands.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Media and police portray Mr. XXXX as a Puerto Nuevo drug dealer and petty thief",
+     "quote": "media and police sourced documentation portrays Mr. XXXX as a Puerto Nuevo based drug dealing thug and petty thief.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant alleges Mr. XXXX targeted him with extortion threats and can act with impunity anywhere in Peru",
+     "quote": "The Appellant's identified risk is that Mr. XXXX is a dangerous gang member who has targeted the Appellant and his business outside Puerto Nuevo with extortion threats and has the resources to act with impunity such that he could find the Appellant wherever he might go in Peru.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the RPD's credibility concerns about extortion inconsistencies and the Appellant's allegation of Mr. XXXX's targeting and impunity.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD identified an inconsistency about when extortion began",
+     "quote": "the first important inconsistency identified by the RPD relates to when Mr. XXXX allegedly began to extort money from the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The narrative might be out of order and not inconsistent",
+     "quote": "The Appellant argues that the narrative is not inconsistent that it might be viewed as having some paragraphs out of order (Oral hearing at minute 2:22).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD rejects the out-of-order explanation as inconsistent with a plain reading including paragraph 12",
+     "quote": "The RPD cannot accept this explanation which is an interpretation which is inconsistent with a plain reading of the narrative including paragraph 12 which sets out that: \"My parents and siblings were witnesses of what was going on, I kept receiving threats and money demands by the members of that gang...\"",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD did not err concluding the Appellant told his story in chronological order",
+     "quote": "I conclude that the RPD did not error when it concluded that the Appellant had told his story in \"chronological order\" (RPD Decision, paragraph 23).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD correctly rejected the Appellant's out-of-order narrative explanation and found the story told chronologically.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The inconsistency about extortion timing might be embellishment or evidence extortion did not happen",
+     "quote": "at best this inconsistency related to when the extortion demands began might be interpreted as embellishment... the RPD concludes that the inconsistency is evidence that the extortion did not happen, on a balance of probability.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "An important omission is the lack of reference to brother receiving written money demands",
+     "quote": "This conclusion is further buttressed with the identification of an important omission in the absence of a reference in the narrative of the Appellant to his brother receiving written demands for money (RPD Decision, paragraph 25 - Oral hearing at minute 45-50).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This omission is a credibility problem with the core allegation that Mr. XXXX targeted the Appellant",
+     "quote": "Again this is a credibility problem with the core allegation that Mr. XXXX has targeted the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds inconsistencies and omissions undermine credibility of the extortion claim and targeting allegation.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "New exhibits confirm the claimant was targeted by a very dangerous man",
+     "quote": "The Appellant argues that \"these new three Exhibits only confirm the allegations of the claimant in the sense that he was targeted by a very dangerous man\" (Appellant's Memorandum, paragraph 15).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "New evidence does not prove the Appellant was targeted by Mr. XXXX",
+     "quote": "I conclude that this new evidence does not provide evidence related to whether the Appellant was targeted by Mr. XXXX.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellant has not met burden to show targeting by Mr. XXXX and Puerto Nuevo gang on balance of probability due to inconsistencies and omissions",
+     "quote": "the Appellant has not met his burden of showing that his story, that he has been targeted by Mr. XXXX and the Puerto Nuevo gang, is true, on a balance of probability because those elements of the allegations related to targeting contain inconsistencies and omission.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's analysis of Appellant's travel into danger zone supports adverse credibility",
+     "quote": "To this must be added the RPD's analysis of the Appellant's travel both out of Peru and back and forth into the danger zone of Puerto Nuevo.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RPD had advantage hearing the Appellant and this conclusion is not an error",
+     "quote": "I conclude that the RPD had an advantage of listening to the Appellant in a hearing setting and that this conclusion is not an error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the Appellant's argument that new evidence confirms targeting, agreeing with the RPD's adverse credibility findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "News video and new evidence show police acted against Mr. XXXX with arrests and conviction",
+     "quote": "it is clear that the police are willing to act against Mr. XXXX... identifies two additional arrests of Mr. XXXX and the fact that the Appellant is aware that Mr. XXXX was tried and convicted and sent to jail",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "This evidence contradicts the allegation that Mr. XXXX can act with impunity",
+     "quote": "I conclude that all this is evidence that contradicts the Appellant's allegations that Mr. XXXX can acting with impunity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This assumes Mr. XXXX is seeking to target the Appellant, which the RPD found not established",
+     "quote": "Of course this assumes that Mr. XXXX is seeking to target the Appellant, which the RPD has determined has not been established.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the RPD's conclusion that targeting was not established",
+     "quote": "I am in agreement with this conclusion.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds police action against Mr. XXXX contradicts impunity claims and agrees targeting was not established.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD had advantage hearing the Appellant and assessing credibility",
+     "quote": "I conclude the RPD had an advantage in having listened to the Appellant and having reviewed the Appellant's evidence during the hearing with the Appellant present and therefore had an advantage in reaching a conclusion with respect to its credibility assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the adverse credibility assessment and finds no new evidence or argument to reverse the RPD",
+     "quote": "After reviewing all the evidence in this case, I am in agreement with this adverse assessment. I also conclude that the Appellant's appeal contains nothing... sufficient or relevant for me to reverse the RPD's first instance determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD's adverse credibility assessment and finds no basis to reverse the decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD's determination that the Appellant is neither a Convention refugee nor a person in need of protection is confirmed",
+     "quote": "I confirm the determination of the RPD, that Mr. XXXX XXXX XXXX XXXX is neither a \"Convention refugee\" nor a \"person in need of protection\".",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the RPD's determination that the Appellant is not a refugee or person in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's appeal is dismissed",
+     "quote": "Therefore, his appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the Appellant's appeal.",
+   "role": "disposition"
+  }
+ ]
+}

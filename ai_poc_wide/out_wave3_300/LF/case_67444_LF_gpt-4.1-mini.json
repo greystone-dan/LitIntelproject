@@ -1,0 +1,688 @@
+{
+ "case_id": 67444,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0112608,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I allow this appeal.",
+     "quote": "I allow this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows this appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a South African citizen fearing return due to sexual orientation, race, social group, and persecution from reported individuals.",
+     "quote": "XXXX XXXX (Appellant) is a citizen of South Africa. He claims that he fears returning to South Africa due to his sexual orientation, his race, and his membership in a particular social group as a white XXXX. He also fears persecution from three individuals that he reported for criminal activity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant fears return to South Africa due to sexual orientation, race, social group, and threats from reported individuals.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant established sexual orientation claims but has an Internal Flight Alternative (IFA) in Cape Town.",
+     "quote": "The Refugee Protection Division (RPD) found that the Appellant had established his claims regarding his sexual orientation, but that he has a Internal Flight Alternative (IFA) in Cape Town.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant credible on sexual orientation but identified Cape Town as an IFA.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant alleges the IFA should be reassessed due to new circumstances and errors in the RPD's assessment, submitting new evidence and requesting an oral hearing.",
+     "quote": "The Appellant alleges that the IFA should be reassessed due to new circumstances in South Africa and due to errors in the RPD's assessment. The Appellant has submitted new evidence to support his appeal and he is requesting an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues for reassessment of the IFA due to new evidence and requests an oral hearing.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's sexual orientation, not other profile aspects, puts him at risk in South Africa.",
+     "quote": "I find that the Appellant's sexual orientation, and not the other aspects of his profile, put him at risk in South Africa.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant does not have a safe Internal Flight Alternative.",
+     "quote": "I further find that he does not have a safe IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's sexual orientation causes risk and that no safe IFA exists.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed and the appellant is recognized as a Convention refugee.",
+     "quote": "The appeal is allowed. I substitute my own decision that the Appellant is a Convention1 refugee.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The new evidence presented by the appellant is accepted.",
+     "quote": "NEW EVIDENCE The evidence presented by the Appellant is accepted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal, recognizes the appellant as a Convention refugee, and accepts new evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Evidence can be accepted only if it arose after the RPD decision, was not reasonably available then, or could not reasonably have been brought before the RPD.",
+     "quote": "According to the law,2 I can only accept evidence that: i. arose after the RPD decision; or ii. was not reasonably available at the time of the decision; or iii. that you could not reasonably have been expected in the circumstances to bring to the RPD before the decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal criteria for accepting new evidence on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If evidence meets criteria, it must be new, credible, and relevant to be accepted.",
+     "quote": "If the evidence meets one or more of these requirements, I must decide if the evidence is new, credible and relevant before I can accept it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains that new evidence must be new, credible, and relevant to be accepted.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant submitted two articles about the Cape's secession declaration dated July 16 and 17, 2018.",
+     "quote": "The Appellant has submitted the following articles: - from The Citizen, \"Khoi-San king declares that the Cape has seceded from SA\", dated July 17, 2018. - from South Africa Today, \"The Cape is now The Sovereign State of Good Hope\", dated July 16, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant submits two articles about the Cape's secession declaration after the RPD decision.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Both articles concern an event after the RPD decision and relate to the IFA assessment, so they are accepted into evidence.",
+     "quote": "Both articles are regarding an event that occurred after the RPD's decision. The Appellant argues that this event is related to an assessment of the proposed IFA. For these reasons, I will accept the articles into evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the articles as new evidence relevant to the IFA assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The new evidence does not raise credibility questions, so no hearing is held.",
+     "quote": "As the newly submitted and accepted evidence does not raise questions regarding the Appellant's credibility, I will not hold a hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court declines to hold a hearing as new evidence does not affect credibility.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The court's role is to review all evidence and decide if the RPD made the correct decision.",
+     "quote": "My role is to look at all the evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review evidence and assess the correctness of the RPD decision.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The court considered Chairperson's Guideline 9 on proceedings involving sexual orientation and gender identity (SOGIE Guideline).",
+     "quote": "When assessing this case, I took into consideration the Chairperson's Guideline 9: Proceedings Before the IRB Involving Sexual Orientation and Gender Identity and Expression6 (SOGIE Guideline).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considered the SOGIE Guideline in assessing the case.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant credible and established sexual orientation claims.",
+     "quote": "The RPD found that the Appellant was credible, and that had established his sexual orientation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court finds no errors in the RPD's credibility and sexual orientation findings and adopts them.",
+     "quote": "I have reviewed these findings and found no errors; I therefore adopt these findings as my own.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The key issue is whether a viable Internal Flight Alternative exists.",
+     "quote": "The determinative issue is whether there is a viable IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court finds no viable IFA in South Africa for the appellant and will explain reasons below.",
+     "quote": "I find that the Appellant does not have a viable IFA in South Africa, my reasons for these findings are below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court adopts the RPD's credibility findings but finds no viable IFA for the appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant's new evidence does not address current conditions in South Africa and does not warrant reassessing Cape Town as an IFA.",
+     "quote": "The Appellant's new evidence does not speak to the current conditions in South Africa. Therefore, the new evidence does not indicate a reason to reassess Cape Town as an IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the new evidence does not justify reassessing Cape Town as an IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the secession declaration of Cape province undermines the IFA premise of legal right to relocate.",
+     "quote": "The Appellant argues that the new evidence regarding the secession of Cape province potentially negates the RPD's finding that the Appellant can relocate to Cape Town as an IFA. ... However, if this secession process were to be ratified, this premise would likely no longer hold.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant acknowledges the secession story is developing and legal implications are unclear.",
+     "quote": "The Appellant acknowledged in his appeal memorandum that this was a developing story, and the long-term legal implications of this secession process were unclear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues potential Cape secession undermines IFA, acknowledging the situation is developing and unclear.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The secession was potential, not actual, and no evidence shows it occurred, so it is irrelevant to the appellant's risk in Cape Town.",
+     "quote": "By the Appellant's own assertions, this was a potential, not actual, secession. The current country documents make no mention of this secession. ... I find that a past, potential secession of Cape province is not relevant to the discussion of the Appellant's forward-facing risk in Cape Town.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the potential secession is speculative and irrelevant to the appellant's risk in Cape Town.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not rely on relativity to assess Cape Town as a safe IFA.",
+     "quote": "The RPD did not indicate that Cape Town is a safe IFA simply because it was safer than the rest of South Africa.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD assessed safety for the appellant in South Africa and then Cape Town specifically.",
+     "quote": "The RPD assessed whether South Africa was safe for the Appellant, who has a diverse SOGIE, and then assessed whether Cape Town is a safe IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD assessed Cape Town's safety directly, not just relatively to other areas.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred by relying on Cape Town's relative safety rather than qualitative difference for IFA viability.",
+     "quote": "The Appellant argues that the RPD erred by relying on the fact that Cape Town is relatively safer than other areas in the South Africa. The Appellant argues that, to establish that a viable IFA exists, a decision maker must be able to demonstrate that the situation in the IFA is qualitatively different than the situation in other parts of the country where there exists a reasonable chance of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred by relying on relative safety rather than qualitative difference for IFA.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD considered safety of LGBTQ persons in South Africa generally and in Cape Town specifically.",
+     "quote": "When assessing whether Cape Town is a safe IFA, the RPD considered both the safety of individuals with a diverse SOGIE in South Africa as a whole, and in Cape Town in particular.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found South Africa has progressive laws protecting diverse SOGIE individuals and government efforts to strengthen anti-discrimination laws.",
+     "quote": "The RPD found that South Africa has some of the most progressive legislation in the world to protect individuals with a diverse SOGIE and that the government is seeking to bolster anti-discrimination laws.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found LGBTQ persons are generally not at risk of serious harm or persecution from state or non-state actors in South Africa.",
+     "quote": "The RPD found that in general, LGBTQ persons in South Africa are not subject to treatment by the state which would be persecutory or cause serious harm, and that while LGBTQ people may face some form of discrimination, harassment and violence from societal actors, the evidence does not establish that they are generally at risk of serious harm or persecution from non-state actors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found South Africa generally safe for LGBTQ persons with progressive laws and no general risk of serious harm.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found LGBTQ situation in South Africa imperfect but Appellant can live safely in Cape Town on balance of probabilities",
+     "quote": "the RPD found that, while the situation for LGBTQ people in South Africa is not perfect, and that there is discrimination and harassment, the Appellant would be able to live safely in Cape Town, on a balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Cape Town is more tolerant and welcoming for LGBTQ community and a destination for LGBTQ people",
+     "quote": "which is a more tolerant and welcoming place for the LGBTQ community and is in fact a destination for people in the LGBTQ community",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant could live safely in Cape Town, a tolerant LGBTQ destination, despite discrimination in South Africa.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant says RPD wrongly summarized Cape Town as better but still unsafe",
+     "quote": "The Appellant's characterization that the RPD's assessment that Cape Town was merely better than the rest of the country, but was still not safe, is not a correct summation of the RPD's findings",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD assessed safety of diverse SOGIE individuals in South Africa generally, then found Cape Town a good safe IFA candidate",
+     "quote": "The RPD first assessed the safety of individuals with a diverse SOGIE in South Africa in general, and then found that Cape Town is a particular good candidate for a safe IFA",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I do not find that RPD used relativity to assess the IFA",
+     "quote": "For these reasons, I do not find that RPD used relativity to assess the IFA",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellant wrongly summarized RPD's findings; RPD assessed South Africa generally then Cape Town specifically; court agrees RPD did not use relativity.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not err by not assessing combined effects of Appellant's profile as white and LGBTQ",
+     "quote": "The RPD did not err by not assessing the combined effects of the Appellant's profile as a white XXXX, and member of the LGBTQ community",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's profile as rape survivor should be assessed with sexual orientation when assessing IFA safety",
+     "quote": "I find that the Appellant's profile as a rape survivor should be assessed along with his sexual orientation when assessing the safety of any IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD rightly did not assess combined effects of race and LGBTQ status; court finds rape survivor status must be assessed with sexual orientation.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred by separating profile aspects instead of holistic risk assessment",
+     "quote": "The Appellant argues that the RPD also erred globally in its assessment of the forward-facing risk faced by the Appellant in that it artificially separated the aspects of the Appellant's profile rather than considering it holistically as giving rise to a specific risk profile",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD erred by separating profile aspects instead of holistic risk assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant's entire profile should be considered to assess combined effects on risk",
+     "quote": "a claimant's entire profile should be considered to ensure that any combined effects which could affect the claimant's risk in a potential IFA are assessed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Each profile element must be established to assess combined effects",
+     "quote": "each of the different elements of a claimant's profile must be established for the combined effects to be assessed",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Appellant established sexuality but not risk due to race or employment identity",
+     "quote": "the RPD found that the Appellant had established his sexuality but found that he had not established that he faced a risk due to his race, and he had not established that his employment or livelihood as a XXXX is not central to his identity",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RPD did not err by not assessing combined effects of unestablished profile elements",
+     "quote": "I find that the RPD did not err by not assessing the combined effects of elements of the Appellant's profile that were not established",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds combined effects require established elements; RPD found only sexuality established; no error in not assessing unestablished elements combined effects.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred by not assessing Appellant's rape survivor profile with diverse SOGIE; court will assess below",
+     "quote": "I find that the RPD erred by not assessing the Appellant's profile as a rape survivor, along with his diverse SOGIE, and I will do that assessment below",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD erred by not assessing rape survivor profile with sexual orientation and will assess it below.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's sexual orientation puts him at risk in South Africa; state protection unavailable for diverse SOGIE individuals",
+     "quote": "The Appellant's sexual orientation puts him at risk in South Africa, and state protection against sexual assault is not available for individuals with a diverse SOGIE",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant's sexual orientation puts him at risk and state protection is unavailable for diverse SOGIE individuals in South Africa.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues rights for LGBTQ South Africans are illusory; RPD misapprehended evidence on living openly; state protection cannot rely on efforts alone",
+     "quote": "The Appellant argues that the objective evidence shows that the rights given to LGBTQ South Africans on paper are illusory and theoretical. The Appellant submits that the RPD misapprehended his evidence with respect to whether he was able to live openly as a gay man in South Africa. The Appellant argues it is trite law that state protection cannot be based on state efforts or intentions alone",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues LGBTQ rights in South Africa are illusory; RPD misapprehended evidence; state protection cannot rely on efforts alone.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Appellant established as gay man and rape survivor; described police laughing when reporting rape",
+     "quote": "The Appellant has established that he is a gay man and a rape survivor.7 He described being laughed at by police when he went to them to report the incident",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant established as gay man and rape survivor; police laughed when he reported rape.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Country documents show discrimination and harassment of LGBT persons by some government officials including police",
+     "quote": "Despite the robust laws and policies protecting LGBT persons' rights some government officials, including police, health workers and educators, reportedly discriminate against persons because of their actual or perceived gender identity and/or sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "SAPS is understaffed, ill equipped, poorly trained, corrupt; some police discriminate, harass, attack, rape LGBT persons",
+     "quote": "While the SAPS continues to professionalize it is reported to be understaffed, ill equipped, poorly trained, and affected by corruption. Some members of the police force have reportedly discriminated against, harassed, physically attacked and raped LGBT persons",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "US State Dept 2016 report: official mistreatment of LGBTI persons including rape by security forces during arrest",
+     "quote": "There were reports of official mistreatment or discrimination based on sexual orientation or gender identity despite clear government policies prohibiting discrimination. Security force members, for example, reportedly raped LGBTI persons during arrest",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Freedom House 2016: South Africa has liberal LGBT laws but frequent physical attacks including corrective rape",
+     "quote": "South Africa has one of the world's most liberal legal environments for LGBT (lesbian, gay, bisexual, and transgender) people... However, there are frequent reports of physical attacks against LGBT people, including instances of so-called corrective rape",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "2003 study: black gay men experience corrective rape at rates matching black lesbians",
+     "quote": "We found that the percentage of black gay men who said they have experienced corrective rape matched that of the black lesbians who partook in the study",
+     "answers": 0
+    }
+   ],
+   "summary": "Country documents report discrimination, harassment, police abuse, and corrective rape against LGBT persons in South Africa.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "On balance, South Africa still poses serious harm risk to diverse SOGIE individuals; state protection unavailable",
+     "quote": "On a balance of probabilities, I find that the country documents as excerpted above indicate that, while South Africa is certainly working towards greater protections for individuals with a diverse SOGIE, there is still a serious possibility for harm, and there is a strong indication that state protection is not available",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence Appellant's rape survivor profile increases future rape risk; police treated him poorly and did not investigate",
+     "quote": "I found no evidence that the Appellant's profile as a rape survivor puts him at a greater risk for rape in the future, however I did find that the country documents support his allegation that the police treated him poorly and did not investigate when he was raped",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds serious harm risk and lack of state protection for diverse SOGIE; no increased future rape risk but police treated Appellant poorly.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "There is serious possibility Appellant could be harmed in South Africa due to sexual orientation; he has well-founded fear of persecution",
+     "quote": "For these reasons, I find that there is a seriously possibility that the Appellant could be harmed in South Africa due to his sexual orientation, and that he therefore has a well-founded fear of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes Appellant has well-founded fear of persecution due to sexual orientation in South Africa.",
+   "role": "conclusion"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant made arguments on RPD's findings on race and occupation risk; court finds no errors and refugee status due to sexual orientation",
+     "quote": "The Appellant has also made arguments regarding the RPD's findings that he was not at risk in South Africa due to his race and occupation. As I have found that the Appellant is a refugee due to his sexual orientation, I will not thoroughly detail my findings regarding these arguments. I note here, however, that I have reviewed the RPD's findings regarding these aspects of the Appellant's claim and I found no errors",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no errors in RPD's findings on race and occupation risk; refugee status based on sexual orientation.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed; court substitutes decision that Appellant is a Convention refugee",
+     "quote": "The appeal is allowed. I substitute my own decision that the Appellant is a Convention refugee",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows appeal and substitutes decision that Appellant is a Convention refugee.",
+   "role": "disposition"
+  }
+ ]
+}

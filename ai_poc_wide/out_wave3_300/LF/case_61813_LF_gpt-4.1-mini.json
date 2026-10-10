@@ -1,0 +1,580 @@
+{
+ "case_id": 61813,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011956400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I dismiss this appeal for the reasons that follow.",
+     "quote": "I dismiss this appeal for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses this appeal for the reasons that follow.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is an Indian citizen fearing serious harm from a named group if returned to India.",
+     "quote": "XXXX XXXX is a citizen of India. He fears that he will be killed or seriously harmed by the XXXX XXXX XXXX XXXX XXXX XXXX if he returns to India.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant alleges attacks in October 2015 and further attacks in December 2015 and June 2016 due to a complaint letter.",
+     "quote": "Mr. XXXX alleged that XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX in October 2015 XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX. After XXXX XXXX XXXX he and his parents consulted a lawyer who drafted a letter of complaint which they sent to the highest authority XXXX XXXX XXXX XXXX XXXX XXXX. Mr. XXXX alleged that the XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX in December 2015 and June 2016, because of the letter of complaint he had sent.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant's family contacted an agent who helped him leave India; he claimed refugee status almost two years later in September 2018.",
+     "quote": "XXXX XXXX XXXX XXXX XXXX his family contacted an agent who assisted Mr. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX He made his refugee claim almost two years later in September 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant is an Indian citizen fearing harm from a group, alleging attacks in 2015 and 2016, and claiming refugee status in 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD denied the appellant's claim orally on the hearing day, finding his account not credible.",
+     "quote": "The Refugee Protection Division (RPD) denied Mr. XXXX claim in an oral decision on the day of the hearing. The RPD did not find credible Mr. XXXX account of the events that led him to leave India and to claim refugee status in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found contradictions in testimony about witness efforts, omission of village sarpanch involvement, and timing of departure steps undermined credibility.",
+     "quote": "The RPD found Mr. XXXX evidence was not credible because of contradictory testimony about his efforts to find witnesses after he was advised to do so by his Indian lawyer, his omission from his written narrative that his village sarpanch and council assisted to get him XXXX XXXX XXXX XXXX XXXX XXXX XXXX and contradictory testimony about the timing of the steps he took to leave India.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant challenges the RPD's credibility findings.",
+     "quote": "Mr. XXXX challenges these findings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD denied the appellant's claim for credibility issues; the appellant challenges these findings.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "My role is to review all evidence and decide if the RPD made the correct decision.",
+     "quote": "My role is to look at all the evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD was correct to find the appellant is neither a Convention refugee nor in need of protection.",
+     "quote": "The RPD was correct to find that Mr. XXXX is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel agrees the RPD erred on one credibility reason but overall the appellant's account was not credible.",
+     "quote": "I agree with Counsel that the RPD erred in relation to one of the reasons it gave for finding Mr. XXXX not credible. However, despite this error, the RPD was correct to find that Mr. XXXX account of the events that led him to leave India and the risk he would face if he returned to India were not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role to review the RPD decision, finds the RPD correct overall despite one error, and notes counsel's agreement on that error.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues the RPD erred in finding inconsistent testimony about witness efforts undermined credibility, citing memory issues and improper credibility search.",
+     "quote": "Mr. XXXX Counsel argued that the RPD erred in finding that Mr. XXXX inability to consistently testify about his efforts to make a complaint XXXX XXXX XXXX XXXX including finding witnesses, undermined the credibility of his allegations. She argued that the RPD did not take into account that the events relating to his claim went back to 2015 and therefore he might not have remembered everything that the lawyer he consulted in India told him about seeking witnesses in order to pursue XXXX XXXX XXXX XXXX XXXX. She argued that the RPD's finding on this issue was an example of the member searching in the evidence to find something to undermine Mr. XXXX credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I do not agree with these arguments for the following reasons.",
+     "quote": "I do not agree with these arguments for the following reasons.",
+     "answers": 1
+    }
+   ],
+   "summary": "Counsel argues the RPD erred on witness testimony credibility; the court disagrees for reasons to follow.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "A key issue is the appellant's allegation about a complaint letter drafted by a lawyer and sent to the highest authority.",
+     "quote": "A key issue in this case was Mr. XXXX allegation that the XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX Mr. XXXX testified that, XXXX XXXX XXXX XXXX XXXX he consulted a lawyer who drafted a detailed complaint which he sent to the highest authority XXXX XXXX XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant testified the lawyer gave no advice beyond drafting the letter.",
+     "quote": "When the RPD asked Mr. XXXX whether the lawyer had given him any other advice other than simply drafting a letter for him, Mr. XXXX said no. When the RPD asked him whether the lawyer had told him anything else, he said no, nothing else.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies a key issue: the appellant's complaint letter and lawyer's advice limited to drafting it.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The lawyer's letter advised the appellant to find witnesses; the father said attempts were made but no one willing to appear.",
+     "quote": "At this point, the RPD noted that in the letter that Mr. XXXX submitted from the lawyer, it said that the lawyer had advised Mr. XXXX to attempt to find witnesses in order to pursue XXXX XXXX XXXX XXXX XXXX. The letter from the lawyer also indicated that Mr. XXXX father had told the lawyer that attempts were made to get witnesses but no one was willing to appear.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The appellant gave contradictory testimony about who tried to find witnesses and his own efforts.",
+     "quote": "The RPD asked Mr. XXXX whether he or anyone in his family tried to get witnesses to assist with XXXX XXXX XXXX XXXX XXXX XXXX He replied that his family may have tried but he did not know anything about it. The RPD later asked him whether he had tried to find witnesses and he said no that he did not leave the house much. When the RPD asked why he did not try to find witnesses, he said that no one would want to get involved in the case. The RPD then asked him how he would know that if he did not ask anyone and, at this point, Mr. XXXX altered his evidence to say that he had asked a friend to be a witness but he did not want to get involved. When the RPD asked him why just a minute before he said that he had not looked for any witnesses, Mr. XXXX said that his family members did it and he only spoke to the one friend and no one else.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted the lawyer's letter advised finding witnesses; the appellant gave contradictory testimony about efforts to find witnesses.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant gave contradictory and evolving testimony about witness search without reasonable explanation at hearing.",
+     "quote": "In my view, Mr. XXXX provided contradictory testimony on several points for which he failed to provide a reasonable explanation at the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Counsel's current memory argument was not given at hearing; appellant's testimony evolved inconsistently about family and friend efforts.",
+     "quote": "While Counsel now seeks to argue that he maybe did not remember everything that his counsel told him several years earlier, Mr. XXXX did not provide this explanation when asked about his failure to mention the advice he had received and his search for witnesses. Instead, he gave evolving testimony, first saying that his family may have searched for witnesses but he knew nothing about it and that he himself had not search for witnesses because no one would want to get involved. He then altered this testimony to say that he asked a friend but he did not want to get involved. He also testified that his family had searched for witnesses but he just asked the one friend which contradicted his previous testimony that his family may have searched for witnesses but he knew nothing about it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant gave contradictory, evolving testimony about witness search without reasonable explanation at hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD was correct to have concerns about the appellant's contradictory and evolving testimony about the complaint.",
+     "quote": "For the above reasons, I find that the RPD was correct to have concerns about Mr. XXXX contradictory and evolving testimony about the complaint he allegedly made XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is concerning the appellant did not seek a copy of the complaint letter sent by his lawyer.",
+     "quote": "I note further that it is concerning that Mr. XXXX did not seek to obtain a copy of the letter of complaint that his lawyer in India had sent XXXX XXXX XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant obtained a letter from the lawyer but not the complaint letter sent to the authority.",
+     "quote": "While Mr. XXXX did obtain a letter from the lawyer, the lawyer did not include a copy of the letter that he had sent to XXXX XXXX XXXX on Mr. XXXX behalf.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD rightly concerned about contradictory testimony and notes the appellant did not obtain the complaint letter copy.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues the RPD erred in finding credibility affected by omission of village sarpanch and council involvement in written narrative.",
+     "quote": "Mr. XXXX Counsel argues that the RPD erred in finding that Mr. XXXX credibility was negatively affected by his omission from his written narrative that his village sarpanch and council assisted him to XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues the RPD failed to consider the appellant's explanation for this omission.",
+     "quote": "Counsel argued that the RPD failed to take into account the explanation offered by Mr.",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel argues the RPD erred in finding credibility affected by omission of village sarpanch involvement and failed to consider appellant's explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I disagree; appellant gave inconsistent testimony about village sarpanch and council involvement.",
+     "quote": "I do not agree with these arguments. As with the issue of the steps Mr. XXXX took as part of his complaint XXXX XXXX XXXX, discussed above, Mr. XXXX gave inconsistent testimony about the involvement of the village sarpanch and council.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant initially said family did not do anything wrong and family would know about help from sarpanch and council.",
+     "quote": "When the RPD asked Mr. XXXX how it was that he came to be XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX Mr. XXXX replied that his family XXXX XXXX XXXX that he had not done anything wrong and that his family XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant said he did not know how help was obtained and family would know; only after prompting mentioned sarpanch involvement.",
+     "quote": "When the RPD asked Mr. XXXX how the XXXX XXXX XXXX XXXX he said he did not know and that his family would know. It was only when the RPD asked him about the village sarpanch that Mr. XXXX said that the village sarpanch also had been involved XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant said family begged sarpanch to get involved and family would know how many times sarpanch helped.",
+     "quote": "When the RPD asked him why, in his written narrative, he had not mentioned the involvement of the village sarpanch and council, Mr. XXXX replied that it was because his family had to literally beg the village sarpanch to get involved. When the RPD asked Mr. XXXX how many times the sarpanch went to help his parents, he said that his family would know that.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant said he knew of sarpanch involvement from family; did not know who else was involved and said family would know.",
+     "quote": "The RPD then asked how he knew that the sarpanch was involved at all and he said that his family told him that reputed members of the village were involved. When the RPD asked Mr. XXXX who else was involved in XXXX XXXX XXXX XXXX he said that he did not know and that his family would know.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant gave many answers deferring knowledge to family; no family members testified or submitted affidavits.",
+     "quote": "Mr. XXXX gave this type of answer several times about his family knowing key information relating to his claim. I note that he did not call any family members to testify at the hearing nor did he file any affidavits or statements from family members to support his claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with counsel, finding appellant gave inconsistent testimony about village sarpanch involvement and deferred knowledge to family who did not testify.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did consider appellant's explanation for omission but found it unsatisfactory.",
+     "quote": "I do not agree with counsel that the RPD failed to take into account Mr. XXXX explanation for his omission of any mention of the sarpanch and council in his written narrative and, I would add, his initial testimony in response to the RPD's questions. The RPD did take into account Mr. XXXX explanations but it did not find them satisfactory to explain the omission.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's explanation that family begged sarpanch to get involved is not satisfactory to explain omission.",
+     "quote": "Mr. XXXX explanation was that his family had to beg the sarpanch to get involved. I agree with the RPD that this does not satisfactorily explain Mr. XXXX omission of the sarpanch's involvement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Affidavits mentioning sarpanch involvement do not excuse omission from written narrative and initial testimony.",
+     "quote": "I also do not agree with Counsel that it is a relevant or satisfactory explanation to say that the affidavits that Mr. XXXX submitted from the sarpanch and his friend mentioned that they worked with Mr. XXXX family to XXXX XXXX XXXX. The issue was that, despite attaching these letters to his claim, Mr. XXXX made no mention of the involvement of the village sarpanch and council either in his written narrative or in his response to the RPD's questions about how he came to be XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD considered but rejected appellant's explanation for omission of sarpanch involvement and finds affidavits insufficient to excuse omission.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's failure to mention village sarpanch involvement is not a peripheral detail given affidavit support and omission until prompted.",
+     "quote": "I do not find that Mr. XXXX failure to mention the involvement of the village sarpanch and council XXXX XXXX XXXX XXXX XXXX XXXX is a mere peripheral detail. Mr. XXXX submitted an affidavit from the sarpanch in support of his claim. In this context, it is significant that he completely omitted any mention of the involvement of the sarpanch until prompted by the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant's omission of village sarpanch involvement significant, not a minor detail, given affidavit and omission until prompted.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not err in finding appellant's omission negatively affected his account.",
+     "quote": "For the above reasons, I do not find that the RPD erred in finding that Mr. XXXX failure to mention the involvement of the village sarpanch and council negatively affected his account of XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in the RPD's finding that omission of village sarpanch involvement negatively affected appellant's account.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues the RPD erred in finding credibility affected by contradictory testimony on timing of departure decision.",
+     "quote": "Mr. XXXX Counsel argued that the RPD erred in finding that Mr. XXXX credibility was negatively affected by contradictory testimony he gave regarding the timing of his decision to leave India.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues the RPD failed to consider appellant's testimony about when he started thinking of leaving India.",
+     "quote": "Mr. XXXX Counsel argues that the RPD failed to take into account Mr. XXXX testimony that he started thinking about leaving India XXXX XXXX XXXX XXXX XXXX XXXX XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel argues the RPD erred in finding credibility affected by contradictory testimony on timing of departure and failed to consider appellant's testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree appellant's testimony was not necessarily contradictory about timing of plans to leave India.",
+     "quote": "I agree with Counsel that Mr. XXXX testimony was not necessarily contradictory as to the timing of his plans to leave India.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Taking an English exam in December 2015 and other facts are neutral, not undermining or bolstering credibility.",
+     "quote": "The fact that he took an English exam in December 2015 but XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX does not undermine the credibility of his account of events. The fact that XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX also does not bolster the credibility of his account XXXX XXXX XXXX XXXX XXXX XXXX. It is simply a neutral factor.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees appellant's testimony on timing of departure plans was not necessarily contradictory and related facts are neutral.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not rely on the two-year delay in claiming refugee status but the delay adversely affects credibility.",
+     "quote": "While the RPD did not rely on Mr. XXXX two-year delay in claiming refugee status in its decision, the issue was fully canvassed at the hearing. In my view, this delay has a significant adverse effect on the credibility of Mr. XXXX allegations as to the risk he would face if he returned to India.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's two-year delay in claiming refugee status adversely affects his credibility despite RPD not relying on it.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant arrived in Canada and delayed claiming refugee status until October 2018.",
+     "quote": "Mr. XXXX arrived in Canada in XXXX XXXX and he did not claim refugee protection until October 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant said he did not know about claiming refugee status and had not asked the agent or friends for advice; claimed after 'uncle' suggested it.",
+     "quote": "When the RPD asked Mr. XXXX why he did not claim refugee status sooner, he said that he did not know anything about claiming in refugee status and he said he had not asked the agent who secured XXXX XXXX XXXX XXXX about it. He also said he was staying with friends but had no relatives in Canada who could provide him with advice. He said he finally claimed refugee status when his \"uncle\" (friend of his brother-in-law) suggested it.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues delay should not affect credibility because appellant had a student visa and legal status in Canada.",
+     "quote": "In her submissions at the hearing, Mr. XXXX Counsel argued that Mr. XXXX delay in claiming refugee status should not affect his credibility because he had a student visa at the time and therefore he had a legal status in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states appellant delayed claiming refugee status, gave reasons, and counsel argues delay should not affect credibility due to student visa.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I disagree that having a student visa negates delay's effect on credibility because appellant was not studying and status was insecure.",
+     "quote": "I disagree with this argument. While it is true that Mr. XXXX had a student visa, he was not in fact studying as required for that visa.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant testified he only XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX and feared similar harm in Canada; sister is now in Canada and he worried about parents.",
+     "quote": "Mr. XXXX testified that he only XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX and he was scared that the same things would happen to him in Canada as in India. He testified that his sister is now in Canada also so he worried about his parents being back in India alone.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Delay is relevant and adversely affects credibility; reasons given for delay are not satisfactory.",
+     "quote": "Regardless of the reasons that Mr. XXXX was not studying, the key issue is that he was not actually pursuing studies in Canada and therefore his student visa - that is, his status in Canada -- was not secure. In these circumstances, I find that Mr. XXXX delay in claiming refugee status is relevant and adversely affects the credibility of his account of the risk he would face if he returned to India. I also do not find the reasons he gave for his delay satisfactory.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is not credible that a college-educated young person would not search the internet for options to stay in Canada.",
+     "quote": "I do not find it credible that, as a college educated young person, Mr. XXXX would not have the ability to search the internet to learn about the options available to him to stay in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant had friends and an 'uncle' to seek assistance from, so lack of relatives is not credible excuse for delay.",
+     "quote": "As for the fact that he did not have relatives in Canada, Mr. XXXX testified that he was staying with friends. Therefore, he had friends from whom he could seek assistance and he also had the \"uncle\" who eventually advised him in relation to claiming refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees that student visa negates delay's effect, finds delay relevant and reasons unsatisfactory, and notes appellant had support to seek help.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The two-year delay adversely affects credibility but is not determinative; it is a factor with other evidence.",
+     "quote": "For all these reasons, I find that Mr. XXXX two-year delay in applying for refugee protection adversely affects the credibility of his account of the risk he would face in returning to India. The issue of delay is not determinative of the claim. However, it is a factor to consider along with the rest of the evidence in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the delay adversely affects credibility but is not determinative, only one factor among all evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Credibility concerns identified by the RPD and appellant's delay rebut the presumption of truthfulness and fail to establish allegations credibly.",
+     "quote": "the credibility concerns on which the RPD was correct, added to Mr. XXXX significant delay in claiming refugee status, are sufficient to rebut the presumption of truthfulness in this case and to find that Mr. XXXX has failed to credibly establish his allegations on a balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Documentary evidence submitted is insufficient to overcome credibility concerns from testimony and delay.",
+     "quote": "the documentary evidence submitted by Mr. XXXX is insufficient to overcome the credibility concerns arising from his testimony and delay in seeking refugee status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Testimony was inconsistent with letter from lawyer and affidavits from village sarpanch and friend in India.",
+     "quote": "Mr. XXXX gave testimony that was inconsistent with the contents of the letter from his lawyer in India as well as the affidavits from the village sarpanch and his friend in India",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD's credibility concerns and appellant's delay rebut truthfulness, documentary evidence is insufficient, and testimony is inconsistent with supporting documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Dismisses the appeal and confirms the RPD decision that appellant is neither a Convention refugee nor a person in need of protection.",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellant is neither a Convention refugee nor a person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision denying refugee or protection status to the appellant.",
+   "role": "disposition"
+  }
+ ]
+}

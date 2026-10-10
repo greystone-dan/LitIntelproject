@@ -1,0 +1,412 @@
+{
+ "case_id": 68006,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.006733600000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The principal appellant and her minor son claim to be citizens of the DRC and no other country.",
+     "quote": "They claim to be citizens of the Democratic Republic of the Congo (DRC) and of no other country.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The principal appellant submits she was persecuted by Congolese authorities for opposing Joseph Kabila's government.",
+     "quote": "The principal appellant submits that she was persecuted by the Congolese authorities because of her opposition to the government presided over by Joseph Kabila.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellants' personal identity and nationality were not established.",
+     "quote": "The Refugee Protection Division (RPD) noted that the personal identity and nationality of each of the appellants were not established.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD's conclusion lacks basis and gave undue weight to contradictions in evidence.",
+     "quote": "The appellants state that this conclusion has no basis because the RPD gave undue weight to what it considered to be contradictions and inconsistencies in the evidence submitted.",
+     "answers": 3
+    }
+   ],
+   "summary": "The appellants claim DRC citizenship and persecution; the RPD found their identity unestablished; appellants argue RPD erred on contradictions.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeals are dismissed because appellants failed to submit acceptable documentary evidence of their identities.",
+     "quote": "The appeals are dismissed. The appellants did not meet their burden of proof, which consists in submitting acceptable documentary evidence of their identities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was not demonstrated that appellants are citizens of the DRC and no other country.",
+     "quote": "It was not demonstrated that they are citizens of the DRC and of no other country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was not established that appellants' personal identities are those they claim.",
+     "quote": "It also was not established that their personal identities are those they claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeals are dismissed as appellants failed to prove their identities and DRC citizenship, says the court.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister argues the principal appellant has a different identity; fingerprints match an Angolan citizen.",
+     "quote": "The Minister of Immigration, Refugees and Citizenship (the Minister) intervened in writing, arguing that the principal appellant has a different personal identity than the one she claims. Her fingerprints match those of a person identified by the US authorities as XXXX XXXX XXXX, a citizen of Angola.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister notes a Facebook account under the appellant's name shows a resident of Luanda, Angola, who studied in Peru.",
+     "quote": "The Minister also indicates that there was a Facebook social network account in the name of a person called XXXX XXXX XXXX whose photograph corresponds to that of the principal appellant. This person identifies herself as a resident of Luanda, in Angola, who has studied at a university in Peru.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister argues the principal appellant's identity differs; fingerprints match an Angolan citizen and a Facebook account shows Angolan residency.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "finding",
+     "text": "Minister's analysis found the appellants' identity documents were not genuine.",
+     "quote": "An analysis conducted by the Minister of the identity documents submitted by the appellants in support of their refugee protection claims established that these documents were not genuine, namely, a DRC voter card in the case of the principal appellant, and a civil identity record in the case of the associate appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister found the appellants' identity documents, including a DRC voter card and civil record, were not genuine.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The principal appellant testified she never studied in Peru and is not an Angolan citizen but lived in Angola and Brazil.",
+     "quote": "During her testimony before the RPD, the principal appellant stated that she has never studied in Peru and that she was not a citizen of Angola. However, she acknowledged that she has lived in Angola and that she spent several months in Brazil in 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "She used a false identity in Angola to obtain genuine Angolan documents, including a passport.",
+     "quote": "She allegedly used a false identity in Angola, under which she was able to obtain Angolan identity documents, including a genuine Angolan passport under this false name.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "She acknowledged the Facebook account was hers, created by a friend with false information.",
+     "quote": "She acknowledged that the Facebook account identified by the Minister was indeed hers and that a friend had created it for her and posted false information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The principal appellant testified she never studied in Peru, used a false identity in Angola, and admitted the Facebook account was hers with false info.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Before the RPD hearing, additional identity documents and certificates were submitted to establish the principal appellant's identity.",
+     "quote": "Just before the first day of the RPD hearing, several additional identity documents were presented to establish the principal appellant's identity, namely, a supplemental judgment, a certificate of non-appeal with respect to this judgment, as well as the birth certificates drawn up for the two appellants based on this supplemental judgment. All of this was accompanied by a certificate of Congolese nationality.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "At the hearing, statements from family members, birth certificate, school certificates, and a criminal record extract were submitted as evidence.",
+     "quote": "Then, at the hearing, the panel received as evidence written statements from persons described as the principal appellant's maternal grandparents and one of her uncles, a birth certificate for the associate appellant, a primary school certificate and report cards for the principal appellant, and a criminal record extract.",
+     "answers": 0
+    }
+   ],
+   "summary": "Additional identity documents and family statements were submitted before and at the hearing to establish the principal appellant's identity.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the evidence insufficient to establish appellants' identities and Congolese citizenship.",
+     "quote": "In its written decision, the RPD indicates that that the evidence submitted was not sufficient to establish that the appellants were in fact who they claimed to be and that they had only Congolese citizenship.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the principal appellant's testimony not credible due to adjusted explanations and contradictions.",
+     "quote": "According to the RPD, the principal appellant's testimony was not credible because she adjusted her explanations as the panel pointed out to her the contradictions and inconsistencies in the evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the principal appellant's voter card not genuine due to irregularities like lack of signature.",
+     "quote": "Her voter card was not genuine because it contained irregularities, such as the fact that it was not signed.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The associate appellant's civil status record was not genuine due to discrepancies and indicating the child is married.",
+     "quote": "The associate appellant's civil status record was also not considered to be genuine because the name of the child's father that was listed on it differs from the one mentioned by the principal appellant during her testimony. It also indicates that the child is married.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The principal appellant's certificate of nationality had an error in the name.",
+     "quote": "The principal appellant's certificate of nationality has an error in the name of the person for whom it was issued.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Irregularities were noted in other submitted documents and family statements were unclear about relationships.",
+     "quote": "Irregularities were also noted in the other documents submitted. The family members' statements are unclear as to the family members' relationships to the principal appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The associate appellant's birth certificate does not indicate nationality of child or parents.",
+     "quote": "Lastly, the associate appellant's birth certificate does not indicate his nationality or that of his parents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the evidence insufficient, testimony not credible, documents irregular or not genuine, and family statements unclear.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD erred in assessing their identity documents and was unfairly influenced by assumptions about fraudulent documents in the DRC.",
+     "quote": "The appellants argue that the RPD erred in its assessment of the identity documents that they submitted. They are of the opinion that the RPD's decision was unfairly influenced by the impression that fraudulent documents are easy to obtain in the DRC.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD failed to consider Guideline 4 on women refugee claimants and lacked cultural sensitivity in assessing credibility.",
+     "quote": "The appellants also argue that the RPD's decision does not take into account the Chairperson's Guideline on Women Refugee Claimants Fearing Gender-Related Persecution (Guideline 4). In particular, they criticize the RPD for not being sensitive to social and cultural differences when assessing the credibility of the principal appellant's testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD erred in document assessment and lacked cultural sensitivity per Guideline 4.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not fail to apply Guideline 4 or show lack of cultural sensitivity in analyzing evidence.",
+     "quote": "The RPD did not fail to apply Guideline 4 or show a lack of cultural sensitivity in its analysis of the evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD faced biometric evidence showing the principal appellant used a different name and nationality in US visa applications in 2017.",
+     "quote": "It was faced with an unusual situation, namely, that objective evidence, biometric data, establishes that the principal appellant identified herself using a name and nationality different from the ones listed in the visa application she filed with the US authorities, on three separate occasions in 2017 in both Brazil and Angola.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The principal appellant acknowledges this biometric evidence undermines her credibility.",
+     "quote": "The principal appellant acknowledges that this is significant evidence that undermines her credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD properly applied Guideline 4 and faced biometric evidence undermining the appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The principal appellant's explanation about using a fictitious name to obtain genuine Angolan documents was not credible.",
+     "quote": "The principal appellant provided an explanation that the RPD did not find credible, namely, that she successfully used a fictitious name to obtain a genuine Angolan identity document and a genuine Angolan passport.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is unlikely the appellant obtained genuine Angolan documents under a false identity.",
+     "quote": "It is not inconceivable that this could have happened, but I am of the opinion that it is unlikely.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD was justified in exercising caution in analyzing other identity documents submitted by the appellant.",
+     "quote": "I consider that the RPD was therefore justified in exercising utmost caution in analyzing other identity documents that the principal appellant submitted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's explanation about false identity use unlikely and supports RPD's caution in document analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court gives significant probative value to the Minister's biometric evidence showing the appellant is an Angolan citizen.",
+     "quote": "I give significant probative value to the evidence submitted by the Minister, particularly because it is based on biometric data. According to this evidence, the principal appellant is a citizen of Angola, contrary to what she claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If the appellant is Angolan, the risk to assess is in Angola, not the DRC.",
+     "quote": "If that is the case, it is not the risk to which she would be subjected in the DRC that is to be assessed, but rather the risk in Angola.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court presumes Angolan authorities conducted sufficient checks to confirm appellant's nationality.",
+     "quote": "Although the principal appellant claims to have used a false identity to obtain a genuine Angolan passport without being a citizen of that country, I rather conclude that the Angolan authorities are presumed to have conducted sufficient checks to ensure that the principal appellant was indeed one of their nationals.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court values biometric evidence showing appellant is Angolan and presumes Angolan authorities verified her nationality.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is wrong to claim the RPD's analysis was influenced by assumptions about easy fraud in the DRC.",
+     "quote": "It is wrong to claim that the RPD's analysis stems from the impression that the DRC is known as a country where it is easy to obtain fraudulent identity documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD explained deficiencies and irregularities in each document submitted by appellants.",
+     "quote": "The RPD clearly explains in its decision the deficiencies and irregularities in each of the documents submitted by the appellants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees the appellants' documentary evidence does not establish on balance of probabilities their DRC citizenship or claimed identities.",
+     "quote": "I agree with its conclusion that the appellants' documentary evidence does not establish, on a balance of probabilities, that they are citizens of the DRC and of no other country. In addition, this evidence does not establish that their personal identities are those that they indicate in their refugee protection claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects claims of bias, agrees RPD explained document deficiencies, and finds appellants failed to prove DRC citizenship or identity.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appellants did not establish DRC citizenship or that their personal identities correspond to their claims.",
+     "quote": "The appellants did not establish that they are citizens of the DRC and of no other country. Furthermore, they did not establish that their personal identities correspond to those they claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellants failed to establish DRC citizenship or their claimed personal identities.",
+   "role": "conclusion"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeals are dismissed.",
+     "quote": "The appeals are therefore dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeals.",
+   "role": "disposition"
+  }
+ ]
+}

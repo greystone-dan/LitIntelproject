@@ -1,0 +1,720 @@
+{
+ "case_id": 62814,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.014538400000000003,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant, a Mexican citizen, appeals the RPD's rejection of his refugee claim.",
+     "quote": "XXXX XXXX XXXX (the appellant), a citizen of Mexico, is appealing against the decision of the Refugee Protection Division (RPD) rejecting his claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant, a Mexican citizen, appeals the RPD's rejection of his refugee claim, court states.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant fears three men who threatened to kill him if he reported their assault.",
+     "quote": "The appellant stated that he fears three men who threatened to kill him if he reported their assault against an individual in the street.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant states he fears three men who threatened to kill him if he reported their assault, appellant states.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant not credible due to his behavior not matching that of a fearful person.",
+     "quote": "The RPD found that the appellant was not credible because his behaviour was not that of a person who is fearful.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant's testimony trustworthy but rejected his claim as he faces a generalized risk.",
+     "quote": "While his testimony was trustworthy, it rejected his claim because it was of the opinion that he faces a generalized risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found appellant not credible due to behavior, but testimony trustworthy; rejected claim as risk was generalized, RPD finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred in finding him not credible based on unreasonable motives for not moving.",
+     "quote": "The appellant argued that the RPD erred in finding that he lacked credibility based simply on his motives for not moving and on the fact that these motives were not reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred by calling the risk generalized when he was specifically targeted.",
+     "quote": "The RPD also erred in referring to the risk as generalized when the appellant had been specifically targeted by his assailants because he had witnessed their crime.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues RPD erred on credibility and risk characterization, appellant argues.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD considers the internal flight alternative (IFA) the determinative issue.",
+     "quote": "The Refugee Appeal Division (RAD) is of the opinion that the determinative issue is the internal flight alternative (IFA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the internal flight alternative is the key issue, court states.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD confirms the RPD's decision and dismisses the appeal.",
+     "quote": "The RAD confirms the RPD's determination and dismisses the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD's decision and dismisses the appeal, court concludes.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "After witnessing assault, appellant was threatened, harassed, changed jobs, opened shop, was found and mistreated, then decided to leave.",
+     "quote": "After the appellant witnessed three men assaulting an individual on XXXX XXXX XXXX 2017, these men allegedly assaulted and threatened to kill the appellant if he reported them. In the weeks and months that followed, these men allegedly pursued, harassed, insulted and threatened to beat the appellant on several occasions. He reportedly changed jobs to avoid them. He allegedly opened a XXXXshop in another neighbourhood in the city. The men reportedly found him, continued to mistreat him, and took his earnings and merchandise. The appellant then supposedly decided to leave the country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant witnessed assault, was threatened and harassed, changed jobs and opened a shop, was found and mistreated, then decided to leave, appellant states.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant left Mexico for Canada in 2018, claiming refugee protection; wife and son stayed in Mexico.",
+     "quote": "On XXXX XXXX XXXX 2018, he allegedly left Mexico for Canada, where he claimed refugee protection. His wife and son reportedly remained in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant left Mexico for Canada in 2018 claiming refugee protection; family remained in Mexico, appellant states.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RAD conducted an independent analysis of all evidence and applied the correctness standard.",
+     "quote": "The RAD conducted an independent analysis of all of the evidence, including listening to the recording of the hearing before the RPD, and it applied the correctness standard.1",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD independently analyzed all evidence and applied the correctness standard, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD questioned relocation to Mérida or Campeche but did not mention it in reasons.",
+     "quote": "After listening to the recording of the hearing, the RAD notes that the RPD questioned the appellant about the possibility of relocating to the cities of Mérida or Campeche in Mexico. However, the RPD did not mention this in its reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RAD asked the appellant for submissions on relocation to Mérida and Campeche, which he provided timely.",
+     "quote": "Seeking to raise this matter in its reasons, the RAD asked the appellant, in accordance with the principles of procedural fairness and natural justice, to provide submissions on the possibility of him relocating to the cities of Mérida and Campeche. The appellant sent his submissions to the RAD within the specified timeframe.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD questioned relocation but omitted it in reasons; RAD asked appellant for submissions on relocation, which he provided, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD will not address generalized risk or credibility arguments unless relevant to IFA analysis.",
+     "quote": "The RAD will not address the arguments the appellant raises in his memorandum regarding the generalized risk, since it is of the opinion that the appellant does not face a prospective risk in the IFA. For the same reason, it will not address the appellant's credibility unless required in the context of the IFA analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD will not address generalized risk or credibility except as relevant to IFA, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Federal Court of Appeal defines a two-prong test for assessing IFA: no serious risk and unreasonableness of seeking refuge there.",
+     "quote": "In Rasaratnam2 and Thirunavukkarasu,3 the Federal Court of Appeal defines the test to be applied when assessing an IFA. There are two prongs to the test: 1. The Board must be satisfied on a balance of probabilities that there is no serious possibility of the claimant being persecuted or, on a balance of probabilities, that he would not be subjected personally to a risk of harm in the part of the country to which it finds an internal flight alternative exists.4 2. Conditions in the part of the country considered to be an IFA must be such that it would not be unreasonable, in all the circumstances, including those particular to the claimant, for him to seek refuge there.5",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal defines a two-prong test for IFA: no serious risk and unreasonableness of seeking refuge, prior court states.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Both prongs must be satisfied to find an IFA exists.",
+     "quote": "Both prongs must be satisfied to find that an IFA exists.",
+     "answers": 0
+    }
+   ],
+   "summary": "Both prongs must be satisfied to find an IFA exists, prior court states.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant failed to prove serious possibility of persecution or personal risk in Mérida or Campeche as IFA.",
+     "quote": "The onus was on the appellant to establish that in the IFA proposed by the RPD in the cities of Mérida and Campeche, he would face a serious possibility of persecution under section 96 of the Immigration and Refugee Protection Act (IRPA), or that he would, under subsection 97(1) of the IRPA, on a balance of probabilities, be personally subjected to a risk to his life or to a risk of cruel and unusual treatment or punishment. The RAD is of the opinion that the appellant did not do so.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant failed to prove serious risk of persecution or harm in Mérida or Campeche as IFA, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD did not analyze section 96 IRPA as no nexus to Convention grounds was established; analysis under subsection 97(1) applies.",
+     "quote": "The RAD did not conduct an analysis under section 96 of the IRPA since the evidence does not establish a nexus to one of the five Convention grounds, namely race, religion, nationality, membership in a particular social group and political opinion. The analysis must be conducted pursuant to subsection 97(1) of the IRPA, specifically paragraph 97(1)(b) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD did not analyze section 96 IRPA due to no nexus to Convention grounds; analysis under subsection 97(1) applies, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The appellant claims the persecutors can find him in the IFA due to their motivation and past tracking.",
+     "quote": "In his submissions,6 the appellant claims that he has established that the agents of persecution have the ability and willingness to find him. His written and oral testimony demonstrate that the three men are motivated to pursue him in the suggested IFA in Campeche or Mérida. After the incident of XXXX XXXX XXXX 2017, the men allegedly tracked him down at his work and harassed him. Then in mid-XXXX, he reportedly opened a XXXX shop in a different neighbourhood from where he used to work, and in less than a month, the men found him. According to the appellant, if the men were to discover that he was back in Mexico, they would look for him again because he is able to identify them. The appellant cited the following excerpt from the National Documentation Package (NDP) on Mexico:7 \"...a large debt or a personal vendetta could motivate a gang to track someone outside their area, and that gangs can use 'corrupt law enforcement agents' to obtain information about people they pursue.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant claims persecutors can find him in the IFA due to motivation and past tracking, appellant argues.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The evidence does not establish the three men's ability to track the appellant in the suggested IFA.",
+     "quote": "The RAD is of the opinion that the evidence does not establish the three men's ability to track the appellant in the suggested IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds no evidence that the three men can track the appellant in the suggested IFA, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant said the men might have ties to armed gangs and corrupt police, but admitted no evidence supports this.",
+     "quote": "After listening to the recording of the hearing before the RPD, the RAD notes that when the appellant was asked what means these men had to find him in the suggested IFA, he responded8 that they could have ties to armed gangs, more dangerous criminal gangs that could be linked to drug traffickers that are sometimes in collusion with police officers and operate with complete impunity. The RPD asked what made him believe that they would have ties to organized crime, and the appellant explained9 that there is tremendous insecurity in Mexico and that these are large-scale criminals who will not think twice before eliminating someone. The appellant then acknowledged10 that he did not have any evidence that these three men were linked to organized crime, but that he fears for his life.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant speculated men had gang ties but admitted no evidence supports this, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the men's alleged organized crime involvement speculative and unsupported by evidence.",
+     "quote": "The RAD is of the opinion that the three men's potential involvement in organized crime or drug trafficking is speculative. Furthermore, the appellant acknowledged that he has no evidence of such an affiliation, and the RAD saw nothing in the facts to support this affiliation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds men's organized crime involvement speculative and unsupported, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD rejects the appellant's argument that men could find him in another region because they found him in another neighborhood.",
+     "quote": "The RAD also failed to accept the appellant's argument that, because the men allegedly found him after he had left his job and started a business in another neighbourhood in the same city where he lived, they would supposedly be able to find him in another region of Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD rejects appellant's argument that men could find him in another region based on prior tracking, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant testified he did not believe the men knew where he lived and tried to evade them.",
+     "quote": "The appellant testified11 that he did not believe the men knew where he lived. He stated that when they were following him as he was getting off the bus, he tried to take different routes home, and when he was headed away from residential neighbourhoods, he waited in areas with bushes to see if people were following him.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The evidence does not establish on a balance of probabilities that the men would find the appellant in another city.",
+     "quote": "If the three men did not manage to follow the appellant and find his home, which is located closer to his store than his previous job,12 the RAD is of the opinion that the evidence does not establish, on a balance of probabilities, that they would find him in another city.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant testified he tried to evade men following him; the RAD finds evidence does not establish men would find him in another city.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The evidence does not establish that the three men would be able to find the appellant in Campeche or Mérida.",
+     "quote": "Contrary to the appellant, the RAD is of the view that the evidence does not establish that the three men would be able to find him in the cities of Campeche or Mérida.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds evidence does not establish the men could find the appellant in Campeche or Mérida.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Since the appellant did not demonstrate the men could find him in the IFA, examining their motivation is not required but RAD proceeds anyway.",
+     "quote": "Since it was concluded that the appellant did not demonstrate that the three men would be able to find him in the suggested IFA, examining their motivation is not technically required. Nevertheless, the RAD chose to proceed with the analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds motivation analysis unnecessary but proceeds despite appellant not showing men could find him in IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The NDP on Mexico cited by appellant does not apply as it concerns drug cartels and the appellant did not establish the men belonged to a cartel.",
+     "quote": "According to the RAD, the NDP on Mexico mentioned earlier and to which the appellant referred13 to support this argument that the men are motivated to find him, does not apply to these circumstances. ... The RAD is of the opinion that the appellant did not establish that the three men belonged to a drug cartel.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The documentary evidence does not support the appellant's statement that the men are motivated to track him down.",
+     "quote": "Therefore, this documentary evidence does not support the appellant's statement that the three men are motivated to track him down.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the NDP on Mexico does not apply and does not support appellant's claim that men are motivated to track him.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The three men have an interest in finding the appellant since he can identify them.",
+     "quote": "The appellant argued in his submissions that the three men allegedly have an interest in finding him since he is able to identify them.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant testified the men would have an interest because they did not want witnesses to the attack.",
+     "quote": "After listening to the recording of the hearing, the RAD notes that the appellant testified14 that the three men would have an interest since they did not want to leave any trace of or witness to the attack.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the men want to find him because he can identify them and they want no witnesses to the attack.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD does not accept the appellant's argument about the men's interest in finding him.",
+     "quote": "The RAD does not accept this argument.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The men had opportunities to eliminate the appellant but did not, despite tracking and threatening him over months.",
+     "quote": "It is of the view that the three men would have had every opportunity to eliminate the appellant if they had wanted to since, according to his written account and his testimony, they tracked him down at his work and then at his store on XXXX XXXX XXXX 2017. For the rest of XXXX 2017 and in XXXX 2018, when the men were intoxicated, they would regularly steal his merchandise and his earnings; they insulted him and threatened to make him disappear.15",
+     "answers": 1
+    }
+   ],
+   "summary": "The RAD rejects appellant's argument, noting men had chances to eliminate him but instead tracked, stole from, insulted, and threatened him.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant claims evidence shows he would not be safe in Mérida or Campeche due to crime prevalence.",
+     "quote": "The appellant notes in his memorandum, in the context of the analysis of the second prong, evidence that he believes demonstrates that he would not be safe in Mérida or Campeche due to the prevalence of crime.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD finds the evidence does not demonstrate the appellant faces a personal risk or is unsafe in those cities.",
+     "quote": "The RAD is of the opinion that the evidence does not demonstrate this, as will be outlined later. It also does not support the claim that the appellant faces a personal risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant claims he is unsafe in Mérida or Campeche due to crime; the RAD finds no evidence supports this personal risk claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant did not demonstrate on a balance of probabilities that he would face personal risk in Mérida or Campeche.",
+     "quote": "The RAD is of the opinion that the appellant did not demonstrate, on a balance of probabilities, that he would be personally subjected to a risk of harm in the cities of Mérida and Campeche.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant did not prove he would face personal risk in Mérida or Campeche.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Federal Court of Appeal requires conditions jeopardizing life and safety with actual concrete evidence to deem an IFA unreasonable.",
+     "quote": "The Federal Court of Appeal set a very high threshold for what makes an IFA unreasonable: \"It requires nothing less than the existence of conditions which would jeopardize the life and safety of a claimant in travelling or temporarily relocating to a safe area. In addition, it requires actual and concrete evidence of such conditions.\"16",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court of Appeal requires actual and concrete evidence of life-jeopardizing conditions to find an IFA unreasonable.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant claims relocating with family would be hard due to settling, employment, housing, and lack of family support.",
+     "quote": "In his submissions, the appellant claims that it would be unreasonable for him to relocate to Campeche or Mérida with his wife and son. He would supposedly have a hard time settling there, and finding employment and housing. He would not be able to rely on his family members since they have all died, except for two sisters who live in the city where he resides, and who are therefore of no help. He has only nine years of education and few options are available to him given that he has always lived in the same city.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues relocating with family would be difficult due to settling, employment, housing, and lack of family support.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues moving with family requires planning, saving money, and is a significant life change.",
+     "quote": "In response to the RPD's opinion that the fact that he did not move-because he did not know where to go-was unreasonable, the appellant argues in his memorandum17 that moving to another state with a wife and son calls for significant planning since it is a life change that requires starting from scratch and finding suitable housing, which is an enormous burden. Moreover, the three pay stubs he produced demonstrated his low salary, and with a son to provide for, he could not afford to leave his work and move without reflecting on it for a while and without having had time to save some money.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues moving with family requires planning, saving money, and is a significant burden.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant states documentary evidence shows he would not be safe in Mérida or Campeche due to limited police presence and crime.",
+     "quote": "The appellant also states in his submissions that the documentary evidence demonstrates that he would not be safe in Mérida or Campeche. To support his statement, he cites a source from the NDP on Mexico which focuses primarily on crime and safety in the states of Quintana Roo, Yucatán, and Campeche:18 Generally, Mexican police must concentrate their limited resources on urban areas. For Quintana Roo, Yucatán, and Campeche, police presence and emergency response are extremely limited outside of the state capitals, population centers, and tourist areas. State Police dedicate some resources to rural areas where there may be little or no municipal rule of law, but response times are usually high, and police prioritize cases of active threats or violent crime. Levels of professionalism vary greatly among police agencies. Consequently, citizens are often indifferent to police authority.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant cites documentary evidence claiming limited police presence and crime make Mérida or Campeche unsafe.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant did not submit actual or concrete evidence that conditions in Mérida or Campeche would jeopardize his life and safety.",
+     "quote": "The RAD is of the opinion that the appellant did not submit any actual or concrete evidence on the conditions in Mérida and Campeche that would jeopardize his life and safety. He did not demonstrate that it would be unreasonable for him to live there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds appellant did not submit concrete evidence that living in Mérida or Campeche would jeopardize his life or safety.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant acknowledged his prior job was common but was unsure if he could find similar work elsewhere.",
+     "quote": "After listening to the recording of the hearing before the RPD, the RAD notes that, in the context of its questions about the IFA, the RPD inquired as to whether it was possible for the appellant to find employment in another city. The appellant acknowledged19 that the job he had prior to opening his XXXXshop was a common occupation in Mexico, but he stated that he did not know if he could find a similar job in another city.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant testified he had enough income from his shop to cover household needs and purchase products.",
+     "quote": "He testified20 that when he ran his shop, he had enough income to cover the household needs and purchase products to sell.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant stated he could probably find employment if he returned to Mexico but would not feel safe.",
+     "quote": "Moreover, in response to a question from his counsel about whether he could find employment if he returned to Mexico, the appellant stated21 that he could probably find one, but he would not feel safe.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant acknowledged his prior job was common, had enough income from his shop, and could probably find work but would not feel safe.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The appellant reported steady employment from 2010 to 2018 in various occupations before arriving in Canada.",
+     "quote": "The RAD notes that in one of the forms the appellant completed upon arriving in Canada,22 he listed all of his occupations from 2008 to 2018. He reported that he was unemployed from 2008 to 2010, and that he had fairly steady employment from 2010 until his arrival in Canada in XXXX 2018. He was a XXXX XXXXaXXXX XXXX XXXX XXXXthen a XXXXand finally a XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant reported steady employment from 2010 to 2018 in various jobs before arriving in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Leaving one's lifelong city is challenging but appellant had various jobs and some success with his shop.",
+     "quote": "The RAD understands that leaving a city where one has lived their entire life can be challenging and comes with its share of difficulties, especially with limited resources and education, and without anyone's help to settle in the new location chosen. That said, the appellant has had various occupations throughout the years. He has not established that he would not be able to find employment in the cities of Mérida or Campeche. The appellant also had some success with his shop since, after opening it in XXXX 2017,23 he had enough income to support his family until his departure from Mexico in XXXX 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds leaving lifelong city is hard but appellant had various jobs and some success with his shop.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The documentary evidence cited by appellant is aimed at American travellers and assesses crime threat to US government interests.",
+     "quote": "The RAD notes that the documentary evidence the appellant referred to on security and crime in the states of Campeche, Yucatán and Quintana Roo is aimed at American travellers. It provides an assessment of the threat of crime against US government interests, and the introduction makes reference to the security level in the states of Campeche and Yucatán:24 This is an annual report produced in conjunction with the Regional Security Office at the U.S. Consulate in Mérida. OSAC encourages travelers to use this report to gain baseline knowledge of security conditions in the three Mexican states on the Yucatán Peninsula: Campeche, Yucatán, and Quintana Roo, which include the tourist destinations of Cancún, Cozumel, Isla Mujeres, Playa del Carmen, Tulum, and the coastal area referred to as the Riviera Maya. ... The U.S. Department of State has assessed Mérida as being a MEDIUM-threat location for crime directed at or affecting official U.S. government interests. According to Government of Mexico statistics, Yucatán and Campeche are among the safest states in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the documentary evidence cited is aimed at US travellers and assesses crime threat to US government interests.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The document reports Campeche and Yucatán as among the safest states; Mérida and Campeche receive police and emergency services.",
+     "quote": "Consequently, this document reports that according to the Government of Mexico, the states of Campeche and Yucatán are among the safest states in Mexico. The RAD is of the view that it does not support the appellant's statement that he would not be safe in Mérida or Campeche. The excerpt cited by the appellant does not support it either since it states that police and emergency services are concentrated in the capitals, urban centres and tourist areas. Mérida and Campeche are both the capitals of their states and urban centres,25 and would therefore receive these types of services.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds Campeche and Yucatán among safest states and Mérida and Campeche receive police and emergency services.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "It has not been established that it would be unreasonable for the appellant to live in Mérida or Campeche.",
+     "quote": "The RAD concludes that it has not been established that it would be unreasonable for the appellant to live in Mérida or Campeche.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes appellant has not shown living in Mérida or Campeche would be unreasonable.",
+   "role": "conclusion"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds the appellant has an IFA in Mérida and Campeche, Mexico.",
+     "quote": "The RAD is of the opinion that the appellant has an IFA in the cities of Mérida and Campeche in Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds the appellant has an IFA in Mérida and Campeche, Mexico.",
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD concludes that the RPD's decision is correct, but for different reasons.",
+     "quote": "The RAD concludes that the RPD's decision is correct, but for different reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes the RPD's decision is correct, but for different reasons, the court states.",
+   "role": "conclusion"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal and confirms the RPD's determination that the appellant is neither a Convention refugee nor a person in need of protection.",
+     "quote": "The RAD dismisses the appeal and confirms the RPD's determination that the appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal and confirms the RPD's determination that the appellant is not a Convention refugee or person in need of protection, the court states.",
+   "role": "disposition"
+  }
+ ]
+}

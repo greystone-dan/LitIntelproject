@@ -1,0 +1,472 @@
+{
+ "case_id": 63178,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0083228,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants are Nigerian citizens from Ilorin appealing an RPD decision rejecting their refugee claims.",
+     "quote": "The appellants are citizens of Nigeria from Ilorin. They appeal a Refugee Protection Division (RPD) decision dated June 3, 2019, rejecting their claims for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The appellants request the RAD to set aside the RPD decision or refer the matter back to the RPD with a different panel.",
+     "quote": "They are requesting that the Refugee Appeal Division (RAD) set aside the RPD's negative determination and find that they are Convention refugees or persons in need of protection. In the alternative, they request that the RAD refer the matter back to the RPD for redetermination by a differently constituted panel.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The appellants have not requested to submit new evidence or an oral hearing.",
+     "quote": "They have not requested to submit new evidence or an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellants are Nigerian citizens appealing the RPD decision and request the RAD to set aside or refer back without new evidence or hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal and confirms the RPD decision that appellants are not Convention refugees or persons in need of protection under IRPA section 111(1)(a).",
+     "quote": "The RAD dismisses the appeal and confirms the decision of the RPD that the appellants are neither Convention refugees nor persons in need of protection, pursuant to section 111(1)(a) of the Immigration and Refugee Protection Act (IRPA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that appellants are not refugees or persons in need of protection under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants fear female genital mutilation, harmful tribal rituals, or other serious harm from the principal appellant's grandfather and extended family.",
+     "quote": "The appellants fear female genital mutilation, harmful tribal rituals and/or other serious harm at the hands of the principal appellant's grandfather and extended family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The rest of the central allegations are summarized in paragraphs 4 to 9 of the RPD decision.",
+     "quote": "The rest of the central allegations in the case are summarized in paragraphs [4] - [9] of the RPD decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellants fear serious harm from family and that other allegations are summarized in the RPD decision paragraphs 4 to 9.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the claims because it found viable internal flight alternatives in Port Harcourt and Ibadan.",
+     "quote": "The RPD rejected the claims because it found they have viable internal flight alternatives (IFA) in Port Harcourt and Ibadan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found viable internal flight alternatives in Port Harcourt and Ibadan and rejected the claims on that basis.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The determinative issue is whether the RPD erred in assessing the internal flight alternative (IFA) issue.",
+     "quote": "The determinative issue in this appeal is whether the RPD erred in assessing the IFA issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD concurs with the RPD that the appellants have viable IFAs in Port Harcourt and Ibadan after independent assessment.",
+     "quote": "the RAD finds that it concurs with the RPD that the appellants have viable IFA's in Port Harcourt and Ibadan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the key issue as whether the RPD erred on IFA and finds it concurs with the RPD that viable IFAs exist.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The RAD considered Chairperson's Guideline 42 and Jurisprudential Guide TB7-19851 and independently assessed the record.",
+     "quote": "the RAD has considered Chairperson's Guideline 42 and Jurisprudential Guide TB7-19851 (the \"JG\"). The RAD has also done an independent assessment of the record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews the RPD decision on a standard of correctness.",
+     "quote": "The RAD is reviewing the RPD decision on a standard of correctness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it considered guidelines and independently reviewed the record, applying a correctness standard to the RPD decision.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found no well-founded fear of persecution or risk of harm in Port Harcourt and Ibadan as the grandfather and agents could not locate or harm appellants there.",
+     "quote": "The RPD found that the appellants do not have a well-founded fear of persecution and do not face, on a balance of probabilities, a risk to life, a risk of cruel and unusual treatment or punishment, or a danger of torture in Port Harcourt and Ibadan because the appellants did not indicate that the principal appellant's grandfather and his agents could locate and harm them in Port Harcourt or Ibadan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no well-founded fear or risk of harm in Port Harcourt and Ibadan as the grandfather could not locate or harm appellants there.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants did not challenge the RPD's finding on no risk in Port Harcourt or Ibadan.",
+     "quote": "The appellants did not challenge this finding by the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD concurs with the RPD that appellants did not indicate the grandfather could locate or harm them in Port Harcourt or Ibadan.",
+     "quote": "The RAD concurs with the RPD. The appellants did not indicate that the principal appellant's grandfather and his agents could locate and harm them in Port Harcourt or Ibadan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds appellants do not have a well-founded fear or risk of harm in Port Harcourt or Ibadan.",
+     "quote": "The RAD therefore finds that the appellants do not have a well-founded fear of persecution and do not face, on a balance of probabilities, a risk to life, a risk of cruel and unusual treatment or punishment, or a danger of torture in Port Harcourt or Ibadan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants did not challenge the RPD's no-risk finding, and the RAD concurs appellants lack well-founded fear or risk in Port Harcourt or Ibadan.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found it not objectively unreasonable to expect appellants to seek refuge in Port Harcourt or Ibadan.",
+     "quote": "The RPD found that it was not objectively unreasonable to expect the appellants to seek refuge in Port Harcourt or Ibadan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Country documents and the JG indicate relocation would not be unduly harsh for appellants' profile.",
+     "quote": "The RPD noted that the country documentary evidence3 and the JG both indicate that relocation would not be unduly harsh for persons of the adult appellants' profile.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Port Harcourt and Ibadan are ethnically diverse cities with people from all over Nigeria.",
+     "quote": "The RPD noted that the country documentary evidence and the JG indicate that Port Harcourt and Ibadan are ethnically diverse cities with people from all over Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD disagreed with appellants' testimony about language difficulties, cost of living, employment, and accommodation in those cities.",
+     "quote": "The RPD disagreed with the appellants' testimony that the appellants could not live in Port Harcourt or Ibadan because of language difficulties, the high cost of living, and uncertain employment and accommodation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found appellants did not present persuasive evidence they could not live there because they are Muslim or that minor appellant would have difficulty accessing education or services.",
+     "quote": "The RPD found that the appellants did not present persuasive evidence that they could not live in Port Harcourt or Ibadan because they are Muslim, nor that their minor appellant would have difficulty accessing education or other services.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found principal appellant went to Qatar for better pay, not because he could not find work in Nigeria.",
+     "quote": "The RPD was not persuaded that the principal appellant went to work in Qatar because he could not find work in Nigeria, and found that he could have gone to Qatar only because jobs there paid better than in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Country documents about security concerns applied to other regions and times, not relevant to IFAs in Port Harcourt and Ibadan now.",
+     "quote": "The RPD found the appellants' country documents about security concerns4 applied to other regions of Nigeria at other times and were not germane to the issue of whether Port Harcourt and Ibadan are reasonable IFAs for the appellants now.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Country documents concerned generalized crime, which is not relevant to the reasonableness issue.",
+     "quote": "Moreover, these documents concerned generalized crime in Nigeria and were therefore not relevant to the reasonableness issue.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found appellants did not present persuasive evidence of difficulties due to Yoruba and Fulani ethnicity in those cities.",
+     "quote": "The RPD found that the appellants did not present persuasive evidence that they would encounter difficulties in Port Harcourt or Ibadan because of their Yoruba and Fulani ethnicity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "The RPD found Port Harcourt and Ibadan are reasonable IFAs for the appellants.",
+     "quote": "The RPD therefore found that Port Harcourt and Ibadan are reasonable IFAs for the appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found it reasonable to expect appellants to seek refuge in Port Harcourt or Ibadan, rejecting appellants' evidence of hardship and security concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue the RPD ignored many country documents about language, cost, employment, and accommodation difficulties in Port Harcourt and Ibadan.",
+     "quote": "The appellants argue that the RPD ignored many country documents indicating that the appellants cannot live in Port Harcourt and Ibadan because of language difficultly, the high cost of living, and uncertain employment and accommodation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD rejects appellants' argument, noting no specific citations and independently finding relocation would not be unduly harsh.",
+     "quote": "The RAD rejects this argument. The appellants have not provided specific citations for the documents that they argue the RPD ignored in this regard. Moreover, having reviewed the relevant country documentary sources5 and the JG as they apply to the appellants, and assessed these matters independently, the RAD finds that it agrees with the RPD and that relocation to Port Harcourt or Ibadan would not be unduly harsh for the appellants.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellants argue RPD ignored documents on hardship; the RAD rejects this and agrees relocation is not unduly harsh.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD misconstrued principal appellant's testimony about going to Qatar due to lack of work in Nigeria.",
+     "quote": "The appellants argue that the RPD misconstrued the principal appellant's testimony when it found that he may have gone to Qatar for a high paying job rather than because he could not find work in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD agrees the principal appellant testified he went to Qatar because he could not find work in Nigeria.",
+     "quote": "The RAD agrees with the appellants. The principal appellant clearly testified that he went to Qatar because he could not find work in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds the RPD's error is not determinative because the past lack of work is not probative of current employment prospects in Port Harcourt or Ibadan.",
+     "quote": "Nevertheless, the RAD finds that the RPD's error here is not determinative of the appeal because the principal appellant went to Qatar several years ago and the fact that he could not find work in his career in Nigeria then is not necessarily probative of whether he can find work in Port Harcourt or Ibadan now.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Viable internal flight allows some hardship as long as it is not undue.",
+     "quote": "Moreover, the concept of viable internal flight does allow for some hardship as long as it is not undue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds that searching for employment in a different field is not undue hardship.",
+     "quote": "The RAD finds that the possible necessity of having to search for employment in a different field of work is not undue hardship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue RPD misconstrued testimony; the RAD agrees but finds the error not determinative and that some hardship is allowed.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD raised the standard of proof in assessing reasonableness.",
+     "quote": "The appellants argue that the RPD inappropriately raised the standard of proof in assessing the reasonableness issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD rejects this argument due to lack of particulars on how the standard was raised.",
+     "quote": "The RAD rejects this argument because the appellants have not provided particulars as to how the RPD raised the standard of proof.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue RPD raised the standard of proof; the RAD rejects this for lack of particulars.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD should not have dismissed country documents about security concerns as irrelevant.",
+     "quote": "The appellants argue that the RPD should not have dismissed the appellants' country documents about security concerns7 as irrelevant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD rejects this argument, finding the evidence applies to other regions and times and is not germane to IFAs in Port Harcourt and Ibadan now.",
+     "quote": "The RAD also rejects this argument. Having reviewed the record and assessed it independently, the RAD concurs with the RPD and finds that this evidence applies to other regions of Nigeria at other times and is not germane to the issue of whether Port Harcourt and Ibadan are reasonable IFAs for the appellants now.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Generalized crime is not a relevant factor in assessing the IFA test under IRPA sections 96 and 97(1).",
+     "quote": "Moreover, while some of these documents are probative of generalized crime in Nigerian cities, section 96 and subsection 97(1) of the IRPA do not protect refugee claimants from generalized crime risks in their country of citizenship, and that is regardless of whether such risks exist in their home town or in a putative IFA. Generalized crime is therefore not a relevant factor in assessing the first or the second prong of the IFA test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue RPD wrongly dismissed security documents; the RAD rejects this and states generalized crime is irrelevant to IFA assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD concurs with the RPD that it is not objectively unreasonable to expect appellants to seek refuge in Ibadan or Port Harcourt.",
+     "quote": "The RAD therefore finds it concurs with the RPD that it would not be objectively unreasonable to expect the appellants to seek internal refuge in Ibadan or Port Harcourt.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agrees with the RPD that expecting appellants to seek refuge in Ibadan or Port Harcourt is not objectively unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD finds Port Harcourt and Ibadan are viable internal flight alternatives for the appellants.",
+     "quote": "Therefore, as the RAD has assessed the first and second prongs of the IFA test in favour of viability, the RAD finds that Port Harcourt and Ibadan are viable IFAs for the appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes Port Harcourt and Ibadan are viable internal flight alternatives for the appellants.",
+   "role": "conclusion"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD concludes the RPD correctly determined appellants have viable IFAs and no well-founded fear of persecution or risk of harm if returned to Nigeria.",
+     "quote": "Having reviewed and independently assessed the evidence, the RAD concludes that the RPD correctly determined that the appellants have viable internal flight alternatives in Port Harcourt and Ibadan, and therefore that they do not have a well-founded fear of persecution on a Convention ground and, on a balance of probabilities, would not be personally subjected to a danger of torture or to a risk to their lives or to a risk of cruel and unusual treatment or punishment if they returned to Nigeria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD concludes the RPD correctly found viable IFAs and no well-founded fear or risk of harm if appellants returned to Nigeria.",
+   "role": "conclusion"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA section 111(1)(a), the RAD confirms the RPD decision that appellants are not Convention refugees or persons in need of protection.",
+     "quote": "Pursuant to section 111(1)(a) of the IRPA, the RAD therefore confirms the decision of the RPD and finds that the appellants are not Convention refugees and not persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD decision that appellants are not refugees or persons in need of protection under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "quote": "The appeal is therefore dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

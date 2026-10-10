@@ -1,0 +1,912 @@
+{
+ "case_id": 69416,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0166676,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants are Kurdish Iraqi citizens appealing the RPD's July 3, 2019 decision rejecting refugee claims.",
+     "quote": "XXXX XXXX XXXX XXXX (Principal Appellant), XXXX XXXX XXXX (Adult Associate Appellant), XXXX XXXX XXXX and XXXX XXXX XXXX (Minor Associate Appellants) are Kurdish and are citizens of Iraq. They appealed a decision of the Refugee Protection Division (RPD), dated July 3, 2019, rejecting their claims for refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They allege persecution from families due to religious conversion and marriage, and persecution due to prior government work.",
+     "quote": "The Appellants allege they face persecution from their families on the basis of the Principal Appellant's religious conversion and their marriage. The Principal Appellant also alleges he faces persecution due to his previous work with the XXXXgovernment in Iraq.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "issue",
+     "text": "The RPD's determinative issue was the viability of an internal flight alternative (IFA).",
+     "quote": "The determinative issue in this case for the RPD was the viability of an internal flight alternative (IFA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellants are Kurdish Iraqis appealing the RPD's rejection, alleging family persecution and prior government work risk; RPD focused on IFA viability.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD agrees the RPD erred in IFA analysis and allows the appeal, finding appellants are Convention refugees.",
+     "quote": "I agree with the Appellants that the RPD erred in its IFA analysis. For the reasons that follow, their appeal is allowed and I find that they are Convention refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the RPD erred on IFA and allows the appeal, finding appellants are Convention refugees.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Principal Appellant was raised Kakai, member of Hawari tribe, worked for government, received threats.",
+     "quote": "The Principal Appellant alleges that he was raised in the Kakai faith and is a member of the Hawari tribe. He alleges that he worked for the XXXX government in Iraq as an XXXX and received threats because of this work.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He obtained US permanent residence, lived there, converted to Islam, married despite family disapproval and threats.",
+     "quote": "He alleges that he obtained permanent residence in the United States (U.S.) and lived in the U.S for some time before returning to Iraq. While in the United States, the Principal Appellant alleges that he converted to Islam. He alleges that he met his wife (the Adult Associate Appellant) when he returned to Iraq and they married despite the disapproval of their families. The Principal Appellant alleges that his family disapproved of his marriage and threatened him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Appellant alleges Kakai faith, government work threats, US residence and conversion, and family disapproval of marriage.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Principal Appellant returned to US to maintain status, renounced US residence for job, moved in Kurdistan to avoid detection.",
+     "quote": "The Principal Appellant alleges he returned to the U.S for some time to maintain his status but was told it would be a long process to sponsor his wife. He renounced his American Permanent residence as a requirement for a job at the XXXX XXXX in Iraq. The Appellants moved to two other cities in Kurdistan to try and avoid detection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Despite moving, family located them in two cities; they fled Iraq after youngest child's birth to US then Canada.",
+     "quote": "They allege that despite moving frequently, they were located by the Principal Appellant's family in XXXX and XXXX. They allege that the fled Iraq after the birth of their youngest child, travelling to the United States and then Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Appellant renounced US residence for job, moved in Kurdistan to avoid family, but family found them; they fled to US then Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Minister argued appellants' US history undermined credibility before RPD.",
+     "quote": "The Minister intervened in writing before the RPD, arguing that the Appellants history in the U.S undermined their credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found appellants credible but rejected claims due to viable IFA in Dohuk.",
+     "quote": "The RPD found that the Appellants' allegations were credible. However, the RPD rejected their claims as it found they have a viable IFA in Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD heard evidence on US status but did not raise Article 1E exclusion or decide on exclusion.",
+     "quote": "The RPD heard evidence about the Principal Appellant's status in the U.S, but did not raise exclusion under Article 1E as an issue and made no determination on whether the Principal Appellant would be excluded.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister argued US history undermined credibility; RPD found appellants credible but rejected claims due to viable IFA; no exclusion issue raised.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RAD reviews RPD decisions on correctness standard, except where RPD has advantage on oral testimony assessment.",
+     "quote": "The Refugee Appeal Division (RAD) reviews decisions of the RPD on a standard of correctness after conducting an independent assessment of the evidence before it. The exception to this rule is where the RPD enjoys a meaningful advantage in the assessment and weighing of oral testimony heard, which in particular cases, attracts deference.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "Unless stated, correctness standard applied in this decision.",
+     "quote": "Unless specifically stated below, I have applied a correctness standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states RAD reviews RPD decisions on correctness standard, except for deference on oral testimony; correctness standard applied here.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD acted unfairly by not raising IFA issue with Principal Appellant during testimony.",
+     "quote": "The Appellants argue that the RPD acted unfairly by not raising the issue of IFA with the Principal Appellant during his testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD failed to properly assess future risk and misapprehended evidence.",
+     "quote": "The Appellants also argue that the RPD failed to properly assess their future risk and misapprehended their evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD erred in IFA analysis by not properly considering risk in Dohuk.",
+     "quote": "The Appellants also argue that the RPD erred in its IFA analysis by failing to properly consider the risk the Appellants face in Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD failed to consider objective evidence making Dohuk unreasonable as IFA.",
+     "quote": "They further argue that the RPD failed to properly consider the objective evidence which would render Dohuk unreasonable as an IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue RPD acted unfairly on IFA questioning, misassessed risk, and failed to consider risk and objective evidence about Dohuk.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) IRPA limits new evidence to post-rejection or unavailable evidence; then Singh factors considered.",
+     "quote": "Section 110(4) of the IRPA2 sets out that an appellant may only present evidence that arose after the rejection of their claim, or that was not reasonably available, or that they could not reasonably have been expected in the circumstances to have presented at the time of the rejection. Where evidence meets the requirements of section 110(4), the RAD will then go on to consider the factors affirmed by the Federal Court of Appeal in Singh.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains section 110(4) IRPA limits new evidence to post-rejection or unavailable evidence, then Singh factors apply.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellants submitted affidavit, news articles, and updated NDP as new evidence, seeking consideration.",
+     "quote": "The Appellants have submitted a number of documents as new evidence with their appeal. They have submitted an affidavit from the Principal Appellant, three news articles about honour killings and an item from the update National Documentation Package (NDP) for Iraq. They are arguing that this evidence meets the requirements of section 110 (4) and are seeking to have it considered in their appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants submitted affidavit, news articles, and updated NDP as new evidence, seeking consideration under section 110(4).",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Affidavit does not meet section 110(4) IRPA as it is not new; issue was raised at RPD hearing.",
+     "quote": "I find that the affidavit submitted by the Appellants do not meet the requirements set out in 110 (4) of the IRPA. The content of the affidavit is not new as it relates to the reasons that the Appellants allege they cannot safely relocate to Dohuk. This issue was raised to the Appellants at the hearing by the RPD and the Adult Associate Appellant was directly questioned about the family's ability to relocate.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD did not ask Principal Appellant about IFA, breaching procedural fairness.",
+     "quote": "The Appellants argue that the RPD did not ask the Principal Appellant these questions and that this amounted to a breach of procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds affidavit not new under section 110(4); appellants argue RPD breached fairness by not questioning Principal Appellant on IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant was aware IFA was considered; RPD did not breach procedural fairness in questioning.",
+     "quote": "I find that the Principal Appellant was aware that IFA was being considered as the RPD identified that at the outset of the second sitting. ... I find that the RPD did not breach procedural fairness in its questioning of the Appellants regarding their ability to relocate to Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Counsel could have questioned Principal Appellant or requested recall; affidavit content overlaps with NDP and is not new.",
+     "quote": "While the RPD asked the questions about IFA primarily to the Adult Associate Appellant, nothing prevented Counsel from asking the Principal Appellant about the viability of the IFA. Also, counsel could have asked to recall the Principal Appellant as a witness after the Adult Associate Appellant testified to illicit more information. ... I would also note that much of the content of the affidavit regarding the requirements to move within Kurdistan is reflected in the NDP and therefore is not new.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD failed to consider objective evidence; court will consider it on appeal.",
+     "quote": "For reasons I will outline, I find that the RPD failed to consider this objective evidence and I will consider it for the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no procedural fairness breach; counsel could have questioned Principal Appellant; affidavit overlaps NDP; RPD failed to consider objective evidence, court will.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence was reasonably available before rejection; appellants should have presented it to RPD.",
+     "quote": "I find that it would be reasonable to expect that the Appellants would have provided this information to the RPD as they were aware that Dohuk was being considered as a possible IFA location. ... I find that this evidence was reasonably available to the Appellants before the rejection of their claim as some of the information is about their family and the rest is reflected in the objective evidence that was before the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Claimants must present all available evidence to RPD; RAD is not a tune-up for deficiencies found by RPD.",
+     "quote": "The Court has held: ... that the Applicant must put her best foot forward before the RPD, and present all the evidence that is available at the time, whether aware of it or not, unless there is an aspect of injustice arising from unexpected new facts, or old facts that no reasonable amount of due diligence could have turned up. It is not intended to be a tune-up procedure for the RAD that upon learning in deficiencies in the Applicant's case, additional evidence that could have been presented to the RPD may be presented as new evidence before the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds evidence was reasonably available before rejection; claimants must present all evidence to RPD; RAD is not for fixing deficiencies.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Responding to RPD inadequacy by submitting existing evidence on appeal wastes time, contrary to Parliament's intent.",
+     "quote": "In other words, responding to an inadequacy identified by the RPD in a party's case cannot be a legitimate foundation for the party to claim that had she known about the deficiency she could have presented better evidence that was always in existence from persons that could have been called, in this case from her cousin. This would make the RPD process a monumental waste of time, which is surely not Parliament's intention in providing appeal rights.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that submitting existing evidence on appeal to fix RPD deficiencies wastes time and is not Parliament's intent.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Affidavit does not meet section 110(4) IRPA; will not assess Singh factors for it.",
+     "quote": "Therefore, I find that this affidavit does not meet the requirements of 110 (4) of IRPA. As such, I will not go on to assess the factors affirmed by the Federal Court of Appeal in Singh.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "News articles will not be accepted on appeal.",
+     "quote": "The news articles will not be accepted on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes affidavit fails section 110(4) and will not assess Singh factors; news articles also rejected on appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "News articles dated before claim rejection; thus not new evidence under section 110(4).",
+     "quote": "The news articles submitted by the Appellants as new evidence are dated between January and April 2019. The Appellants RPD hearing was held in October and December 2018, however, the claim was not rejected until July 2019. In considering the statutory requirements for new evidence, I find that these articles are not new as the did not arise after the rejection of the Appellants' claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "General content of articles about honour killings is not new; objective evidence already establishes this.",
+     "quote": "I would also note that the general content of the articles is not new, as the objective evidence also establishes that honour killings occur in Iraq.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds news articles predate claim rejection and are not new; their content on honour killings is already established.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Articles were publicly available before rejection and could have been submitted to RPD as post-hearing evidence.",
+     "quote": "There is nothing to suggest that these articles we not available before the rejection, as they are published online and are publicly available. They could have been submitted by the Appellants to the RPD as post hearing evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Articles relate to central allegation and could have been reasonably expected to be provided to RPD; do not meet section 110(4).",
+     "quote": "I find that since the articles relate to the Appellants' central allegation that honour killings occur frequently in Iraq, they could have been reasonably expected to provide them to the RPD. As the articles do not meet the criteria in section 110 (4) of IRPA, I will not go on to consider the factors in Singh.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds articles were publicly available and could have been submitted to RPD; they do not meet section 110(4) criteria.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Updated NDP document will be considered without applying section 110(4) test, per IRB policy.",
+     "quote": "The Appellants have disclosed a documented from the updated NDP for Iraq. I will not apply the test in 110 (4) to this document as I am guided by the Immigration and Refugee Board's (IRB) policy on NDPs. This policy sets out that the RPD and the RAD will consider the most recent NDP in assessing forward-looking risk. As such, I will consider this document.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will consider the updated NDP document without section 110(4) test, following IRB policy.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD accepted appellants' evidence and found no negative credibility findings.",
+     "quote": "The RPD did not make any negative credibility findings about the Appellants' evidence and accepted that the events occurred as alleged.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD considered risk from Islamic extremists, Hawari tribe, and family; family risk is determinative.",
+     "quote": "In assessing the risk the Appellants face in the IFA, the RPD considered three possible agents of persecution; Islamic extremists, the Hawari tribe and the Principal Appellant's family. In my independent review of the evidence, I find that the risk posed by the Principal Appellant's family is determinative and therefore, I will focus my analysis on this agent of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD accepted appellants' evidence and considered three persecution agents; family risk is determinative.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found family lacked means to locate appellants in Dohuk; brothers failed despite Peshmerga positions.",
+     "quote": "The RPD concluded that the Principal Appellant's family did not have the means to locate the Appellants in Dohuk. The RPD noted that the Principal Appellant's brothers were unable to locate them while they lived in Kurdistan, despite their positions with the Peshmerga.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found brother located appellants only after chance encounter by Hawari tribe member.",
+     "quote": "The RPD found that the Principal Appellant's brother XXXX, only located the Appellants after a member of the Hawari tribe encountered the Principal Appellant by chance.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found insufficient evidence family had means and motivation to locate appellants in Dohuk.",
+     "quote": "The RPD acknowledged that the Appellants allege XXXX XXXX then confronted the Principal Appellant and his wife but the RPD found that there was insufficient evidence to conclude that the principal Appellant's family would have the means and motivation to locate the Appellants in Dohuk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found family lacked means and motivation to locate appellants in Dohuk; brothers failed despite Peshmerga roles; location was by chance.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD misconstrued evidence about family locating them, ignoring incidents showing means and motivation.",
+     "quote": "The Appellants argue that the RPD misconstrued the Appellants' evidence XXXX XXXX locating them. They argue that while the RPD mentions the confrontation with both Adult Appellants in its overview, it fails to consider the incident with the Adult Associate Appellant in its analysis. Further, the Appellants argue that the RPD failed to consider the incident in XXXX 2017 when a group of men attended the Appellants' housing complex looking for the Principal Appellant. They argue that this series of events demonstrates that the Principal Appellant's family does in fact have the means and motivation to locate the Appellants in Dohuk.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue RPD misconstrued evidence and failed to consider incidents showing family has means and motivation to locate them in Dohuk.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD failed to consider that appellants lived in hiding while avoiding detection",
+     "quote": "The Appellants also argue that the RPD failed to consider that during the time that they avoided detection they were living in hiding.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants cannot reasonably be expected to live in hiding in the proposed IFA",
+     "quote": "They argue that they cannot reasonably be expected to live in hiding in the proposed IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD failed to consider objective evidence that honour killings were prevalent in the proposed IFA",
+     "quote": "Further, the Appellants argue that the RPD failed to consider the objective evidence that honour killings were prevalent in the proposed IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD failed to consider their living in hiding, inability to live in hiding in the IFA, and prevalence of honour killings in the IFA.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred in assessing risk appellants face in Dohuk",
+     "quote": "I have independently reviewed the record and I agree with the Appellants that the RPD erred in its assessment of the risk the Appellants face in Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred in analyzing Principal Appellant's family's means and motivation to locate appellants",
+     "quote": "I agree that the RPD erred in its analysis of the Principal Appellant's family's means and motivation to locate the Appellants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD failed to consider all three incidents despite finding appellants' allegations credible",
+     "quote": "The RPD failed to consider all three incidents in its analysis, despite finding that the Appellants allegations were credible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Record credibly establishes Principal Appellant's family was motivated and able to locate appellants in XXXX",
+     "quote": "I find that the record credibly establishes that the Principal Appellant's family was motivated and able to locate the Appellants in XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant's family member willing and capable of locating and threatening appellants",
+     "quote": "his actions after he learned of this, show he is willing and capable of locating and threatening them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence in NDP establishes objective basis for appellants' fears about honor killings",
+     "quote": "I also find that the evidence in the NDP establishes that there is an objective basis to the Appellants' fears about honor killings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Families may seek retribution for many years for perceived tarnished honour",
+     "quote": "families who perceive that their honour has been tarnished may seek retribution for many years.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is a forward-looking risk from Principal Appellant's family",
+     "quote": "As such, I find that there is a forward-looking risk at the hands of the Principal Appellant's family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred in risk assessment, family motivation, and failed to consider all incidents; finds credible risk of harm from family and honour killings.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD erred by not properly considering objective evidence about relocating within Kurdistan to Dohuk",
+     "quote": "I also find that the RPD erred by not properly considering the objective evidence about the process of relocating within Kurdistan, specifically to Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD accepted appellants' allegation that Principal Appellant's brothers work for Peshmerga",
+     "quote": "The RPD accepted the Appellants' allegation that the Principal Appellant's brothers' work for the Peshmerga in Kurdistan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD failed to consider objective evidence about interaction with security agencies to relocate to Dohuk",
+     "quote": "However, the RPD failed to consider the objective evidence about how the Appellants would be required to interact with the security agencies to relocate to Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Kurds require permission from Asayish office and face security screening to relocate and settle in Dohuk",
+     "quote": "In order for them to relocate and settle they require permission from the Asayish office, which is tied to the security forces and the Peshmerga. The Appellants would also be subject to various checkpoints to enter Dohuk which would involve security screening.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred by not considering objective evidence about relocation process to Dohuk and security interactions required.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Security screening would bring appellants to attention of security forces including Peshmerga where brothers work",
+     "quote": "These restrictions and requirements for security screening would bring the Appellants' to the attention of security forces, including the Peshmerga where the Principal Appellant's brothers work.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Peshmerga is highly organized and effective and can locate individuals of interest in Iraqi Kurdistan",
+     "quote": "The objective evidence also establishes that the Peshmerga is highly organized and effective and can locate individuals of interest in all of Iraqi Kurdistan.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant's brothers can locate appellants and pose harm due to anger and threats",
+     "quote": "I find that this would allow the Principal Appellant's brothers to locate the Appellants. Given their anger about the Appellants' marriage and the religious conversion of the Principal Appellant, as well as the threats XXXX has made, I find that the Appellants continue to face harm from them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants face serious possibility of persecution in Dohuk due to honour killings risk",
+     "quote": "I find that the Appellants face a serious possibility of persecution in Dohuk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given IFA fails first prong, second prong of test will not be assessed",
+     "quote": "Given that the IFA fails on the first prong, I will not assess the second prong of the test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds security screening exposes appellants to harm from brothers; appellants face serious persecution risk; second prong not assessed.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants cannot avail themselves of state protection as brothers work for Peshmerga and are agents of persecution",
+     "quote": "I find that the Appellants could not avail themselves to the protection of the state. In the Appellants' case, the Principal Appellants brothers, who are agents of persecution, all work for the Peshmerga.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants at heightened risk if they approach state for protection",
+     "quote": "Therefore, I find that the Appellants would be at heightened risk if they approached the state for protection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Laws criminalizing honour crimes exist but enforcement is inadequate due to law enforcement sympathy and tribal influence",
+     "quote": "although there are laws criminalizing honour crimes, they remain prevalent in the region. Further, law enforcement is often sympathetic to the families and under the influence of the tribes in the region. As such, enforcement of the law is inadequate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants do not have access to adequate state protection",
+     "quote": "Therefore, I find that the Appellants do not have access to adequate state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellants cannot access state protection due to brothers' roles and inadequate law enforcement.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Must decide if Principal Appellant is excluded under Article 1E given loss of US permanent residence",
+     "quote": "Given that I have found that the Appellants do not have a viable IFA in Dohuk, I must decide if the Principal Appellant is excluded given that he previously held permanent residence in the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD did not raise or mention Principal Appellant's possible exclusion under Article 1E",
+     "quote": "The issue of the Principal Appellant's possible exclusion under Article 1E of the Convention is not raised by the RPD and is not mentioned in its reasons, likely as it found that the IFA was the determinative issue in the claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must decide Principal Appellant's exclusion under Article 1E, which the RPD did not address.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Shamlou requires analysis of basic rights to determine Article 1E applicability",
+     "quote": "In Shamlou, the Court determined that the Board must conduct an analysis of the basic rights enjoyed by a refugee claimant in determining the applicability of Article 1E.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Four basic rights are right of return, right to work freely, right to study, and full access to social services",
+     "quote": "The four basic rights set out by the court are: the right of return to the country of residence, the right to work freely without restrictions, the right to study, and full access to social services in the country of residence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Shamlou requiring analysis of four basic rights to determine Article 1E applicability.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant held status substantially similar to US nationals via special immigrant visa",
+     "quote": "In the Pricipal Appellant's case, it is clear that he held status that was substainally similar to that of U.S Nationals. The Principal Appellant received a special immigrant visa on the basis of his work with XXXX XXXX XXXX Iraq.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Visa allowed Principal Appellant to obtain green card, work in US, and access social services including relocation funds",
+     "quote": "He testified that this visa allowed him to obtain a green card, and work within the United States. The evidence about this program also establishes that individuals can obtain social services, including applying for relocation funds.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Principal Appellant held status similar to US nationals with work and social services access.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant lost US permanent residence status by relinquishing green card for job application",
+     "quote": "The record also clearly establishes that the Principal Appellant lost his permanent residence status in the United States. As part of a job application to work at the XXXX XXXX in Iraq, the Principal Appellant was required to relinquish his green card.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Although he did not work for XXXX, he was shortlisted and relinquishing green card was a requirement",
+     "quote": "Although the Principal Appellant did not ultimately work for the XXXX, the evidence establishes that he was shortlisted for the role and this was a requirement for his prospective employment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Principal Appellant lost US permanent residence by relinquishing green card for job application.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant inquired about sponsoring wife to US but process would take up to five years",
+     "quote": "The Principal Appellant also testified that he had made inquiries into sponsoring his wife the Adult Associate Appellant to come to the United States. He testified that he was advised that the process would be lengthy, taking as long as five years.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant worried about leaving wife alone in Iraq due to family threats",
+     "quote": "The Principal Appellant testified that he was worried about leaving his wife alone in Iraq given the difficulties they had faced and the fear he had that his family might harm her.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant's testimony credible and supported by documentary evidence",
+     "quote": "I find that the Principal Appellant's testimony on this was credible and supported by the documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Principal Appellant's testimony about sponsoring wife credible and supported by evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Zeng requires analysis of reasons for loss of status to determine Article 1E exclusion",
+     "quote": "The Federal court of Appeal has held that when such status is lost by refugee claimants an analysis of the reasons for the loss must occur.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Zeng test: if claimant has status similar to nationals in third country, excluded; if lost status, consider reasons and other factors",
+     "quote": "Considering all relevant factors to the date of the hearing, does the claimant have status, substantially similar to that of its nationals, in the third country? If the answer is yes, the claimant is excluded. If the answer is no, the next question is whether the claimant previously had such status and lost it, or had access to such status and failed to acquire it. If the answer is no, the claimant is not excluded under Article 1E. If the answer is yes, the RPD must consider and balance various factors. These include, but are not limited to, the reason for the loss of status (voluntary or involuntary), whether the claimant could return to the third country, the risk the claimant would face in the home country, Canada's international obligations, and any other relevant facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Zeng requiring analysis of loss of status reasons and factors for Article 1E exclusion.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant voluntarily relinquished US status for compelling reasons including fear and lengthy sponsorship process",
+     "quote": "I find that although the Principal Appellant voluntarily relinquished his status in the U.S, he had compelling reasons to do so.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant's efforts to return to Iraq and reunite with wife were reasonable and justified",
+     "quote": "I find it reasonable that he undertook efforts to return to Iraq and reunite with her. I also accept that the Principal Appellant was required to relinquish his status to pursue employment at the XXXX XXXX. In view of his circumstances at the time, including his desire to reunite and protect his wife, I find that this was justified.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Principal Appellant's voluntary relinquishment of US status was reasonable and justified by circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Nothing suggests Principal Appellant could return to US permanently",
+     "quote": "I find that there is nothing to suggest that he could return to the U.S on a permanent basis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant faces serious possibility of persecution in Iraq",
+     "quote": "I must also consider the risk that the Principal Appellant would face in Iraq. For the reasons I have outlined, I find that he faces a serious possibility of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Principal Appellant is not excluded under Article 1E of the convention",
+     "quote": "In light of weighing these factors, I find that the Principal Appellant is not excluded under Article 1E of the convention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Principal Appellant cannot return to US, faces persecution risk, and is not excluded under Article 1E.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed; RPD determination set aside; appellants are Convention refugees",
+     "quote": "The appeal is allowed. Pursuant to section 111(1)(b) of the Immigration and Refugee Protection Act (IRPA), the RAD sets aside the determination of the RPD and substitutes its own determination that the Appellants are Convention refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal, sets aside the RPD decision, and finds appellants are Convention refugees.",
+   "role": "disposition"
+  }
+ ]
+}

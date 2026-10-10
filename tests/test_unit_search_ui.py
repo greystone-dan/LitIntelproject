@@ -48,3 +48,9 @@ def test_card_html_shows_case_unit_judge_and_escapes_text():
 	assert "Unit 7 · ¶16–44 · Analysis · match at ¶30" in first
 	assert "<script>" not in first and "&lt;script&gt;" in first and "A &lt;b&gt;v&lt;/b&gt; B" in first
 	assert 'data-us-para=""' in second and "no paragraph number" in second and "Untitled decision" in second
+
+
+def test_arrival_highlight_beats_the_readers_own_paragraph_rules():
+	css = (PAGES / "unit_search_ui.css").read_text(encoding="utf-8")
+	assert "#decisionBody .fmt-para.us-flash" in css and "background:#fde68a!important" in css
+	assert "classList.add('us-flash')" in (PAGES / "unit_search_ui.js").read_text(encoding="utf-8")

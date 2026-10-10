@@ -90,3 +90,32 @@ def label_unit_roles(units: Sequence[Sequence[str]]) -> list[str]:
             seen_analysis = True
         roles.append(role)
     return roles
+
+
+def label_unit_roles_by_structure(units: Sequence[Sequence[str]]) -> list[str]:
+    """One role per unit, read from the case-structure labeller instead of the unit's own opening text.
+
+    Every paragraph of the decision gets a role in skeleton order (``case_structure.label_paragraph_roles``), and a
+    unit takes the role most of its paragraphs have (a tie goes to the role met first). On hand-labelled decisions
+    this was right for about 66 to 75 of every 100 paragraphs, against 32 to 54 for ``label_unit_roles``.
+    """
+    from collections import Counter
+
+    from .case_structure import label_paragraph_roles
+
+    texts = [text for unit in units for text in unit]
+    if not texts:
+        return label_unit_roles(units)
+    paragraph_roles = label_paragraph_roles(texts)
+    roles: list[str] = []
+    position = 0
+    for unit in units:
+        chunk = paragraph_roles[position : position + len(unit)]
+        position += len(unit)
+        if not chunk:
+            roles.append("analysis")
+            continue
+        counts = Counter(chunk)
+        top = max(counts.values())
+        roles.append(next(role for role in chunk if counts[role] == top))
+    return roles

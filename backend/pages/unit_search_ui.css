@@ -13,7 +13,7 @@ body:not(.reader-experimental) #unitSearchPanel{display:none!important}
 #unitSearchResults .us-card{text-align:left;width:100%}
 #unitSearchResults .us-where{margin-top:4px;font-size:12px;font-weight:600;color:var(--navy)}
 #unitSearchResults .us-snippet{margin-top:4px;font-size:13px;line-height:1.45;color:var(--text)}
-.us-flash{background:var(--amber-soft);transition:background .6s}
+#decisionBody .us-flash,#decisionBody .fmt-para.us-flash{background:#fde68a!important;box-shadow:0 0 0 4px #fde68a!important;border-radius:4px}
 #unitSearchResults .us-card{display:block;padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:var(--surface);cursor:pointer;font:inherit;color:var(--text)}
 #unitSearchResults .us-card:hover{border-color:var(--blue)}
 #unitSearchResults .us-title{font-weight:600;font-size:14px}

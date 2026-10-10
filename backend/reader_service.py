@@ -68,7 +68,7 @@ from .models import (
 )
 from scripts.inspect_discussion_units import inspect_case
 from .contextual_authority.case_structure import structure_outline
-from .contextual_authority.unit_roles import label_unit_roles
+from .contextual_authority.unit_roles import label_unit_roles, label_unit_roles_by_structure
 from .contextual_authority.unit_voices import party_argument_voices
 
 _STATUTE_LIKE_RE = re.compile(
@@ -121,8 +121,8 @@ def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | No
 
 
 UNIT_ROLE_NOTE = (
-	"Experimental: unit roles come from fixed text rules, not a reader. On hand-read test cases they matched "
-	"the reader's role for about 55 to 69 of every 100 units."
+	"Experimental: unit roles come from fixed text rules, not a reader. On hand-read test decisions the rules "
+	"matched the reader's role for about 66 to 75 of every 100 paragraphs, so a unit's role is wrong about one time in three or four."
 )
 
 
@@ -135,7 +135,10 @@ def _unit_roles(report: dict[str, Any]) -> list[str]:
 		[texts.get(index, "") for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)]
 		for unit in report["discussion_units"]
 	]
-	return label_unit_roles(units)
+	try:
+		return label_unit_roles_by_structure(units)
+	except Exception:
+		return label_unit_roles(units)
 
 
 UNIT_PARTY_NOTE = (

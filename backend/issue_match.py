@@ -34,9 +34,9 @@ STOP = frozenset(
 	"the a an of to in and or is are was were be by for on at with as that this did does do whether it its his her their court err erred unreasonable reasonable".split()
 )
 RESULT_LABELS = {
-	"allowed_for_applicant": "The court agreed with the applicant on this issue.",
-	"dismissed_for_applicant": "The court rejected the applicant on this issue.",
-	"partly_allowed": "The court partly agreed with the applicant on this issue.",
+	"allowed_for_applicant": "The applicant won on this issue.",
+	"dismissed_for_applicant": "The respondent won on this issue (the applicant lost).",
+	"partly_allowed": "The applicant partly won on this issue.",
 	"not_decided": "The court said it did not need to decide this issue.",
 	"moot_or_procedural": "The issue was moot or dealt with as a procedural point.",
 }

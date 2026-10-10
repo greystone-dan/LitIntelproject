@@ -12,7 +12,7 @@ from backend import issue_match, routes
 from backend.database import Base, Case, IssueMap, IssueMapQuestion, get_db
 from backend.main import app
 from backend.pages.live_analysis import live_analysis_page_html
-from scripts.load_issue_maps import DEFAULT_FILE, load, read_rows
+from scripts.load_issue_maps import DEFAULT_FILE, load, read_rows, relink
 
 
 @pytest.fixture
@@ -56,7 +56,7 @@ def test_matches_use_questions_and_return_cards(db):
 	result = issue_match.find_issue_matches(db, "The LMIA showed the worker wants permanent residence, so refusing the work permit was unreasonable.")
 	first = result["matches"][0]
 	assert first["citation"] == "2025 FC 1210" and first["case_url"] == "/data-explorer?case_id=7"
-	assert first["result_label"].startswith("The court agreed") and first["result_paragraph_number"] == 9
+	assert first["result_label"].startswith("The applicant won") and first["result_paragraph_number"] == 9
 	assert "Keyword match to check" in result["basis"] and result["library_issues"] == 2
 	adjourn = issue_match.find_issue_matches(db, "Refusing an adjournment breached procedural fairness for the applicant.")
 	assert adjourn["matches"][0]["citation"] == "2010 FC 1"
@@ -103,3 +103,13 @@ def test_shipped_issue_map_file_is_well_formed():
 	allowed = set(issue_match.RESULT_LABELS)
 	assert all(r["result"] in allowed and r["issue"] and r["text"] for r in rows)
 	assert len({(r["source_key"], r["issue_no"]) for r in rows}) == len(rows)
+
+
+def test_relink_fills_missing_links_by_underscore_citation(db):
+	db.add(IssueMap(source_key="2025_FC_1210", issue_no=1, case_id=None, citation="2025_FC_1210", court="FC", issue="x", text="x", result="allowed_for_applicant"))
+	db.commit()
+	assert relink(db)["linkable"] == 1
+	assert db.execute(select(IssueMap.case_id)).scalar_one() is None
+	relink(db, apply=True)
+	assert db.execute(select(IssueMap.case_id)).scalar_one() == 7
+	assert relink(db)["unlinked"] == 0

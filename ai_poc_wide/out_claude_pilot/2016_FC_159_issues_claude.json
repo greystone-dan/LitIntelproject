@@ -1,0 +1,29 @@
+{
+  "case_id": "2016_FC_159",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the judicial review moot, because the RPD has reopened the claim and the decision has no practical effect?",
+        "paras": "12-15",
+        "applicant_position": "Opposed the motion; raised concern that the RPD would not believe him. No written response was filed.",
+        "respondent_position": "Application is moot: the RPD has reopened the claim, so a decision would not resolve a live controversy.",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "a decision on the application for judicial review would not have any practical effect in solving a live controversy between the parties"
+      },
+      {
+        "issue": "Should the Court exercise its discretion to hear the application despite mootness?",
+        "paras": "16-18",
+        "applicant_position": "Raised concern that the RPD would not believe him in the reopened claim.",
+        "respondent_position": "Judicial economy weighs against hearing a moot case; no public interest in settling the law.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I have not identified any basis for an exercise of discretion to hear the application notwithstanding that it is moot."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2022_FC_1664",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 27,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Member fail to justify departing from the 48-hour detention review decision?",
+        "paras": "17-19",
+        "applicant_position": "Member failed to justify departing from the earlier 48-hour detention review decision.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "There is no merit to the Minister’s assertion that the Member failed to explain their departure from their previous detention decision."
+      },
+      {
+        "issue": "Was the Member's release plan unreasonable because it relied on a bondsperson found not credible?",
+        "paras": "20-25",
+        "applicant_position": "Member relied on a bondsperson it found not credible, without meaningful analysis of his suitability; vulnerability required more care.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "This might be an unconventional approach to take with a bondsperson but, given the circumstances facing the Member, I do not find it an unreasonable one."
+      },
+      {
+        "issue": "Was the $5,000 bond amount a suitable basis for release?",
+        "paras": "26",
+        "applicant_position": "Having found the bondsperson not credible, the Member had no basis to find the $5,000 bond amount suitable.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I do not find this to be a sufficiently serious shortcoming to require that the decision to release be set aside."
+      }
+    ]
+  }
+}

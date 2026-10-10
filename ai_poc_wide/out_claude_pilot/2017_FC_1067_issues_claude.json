@@ -1,0 +1,29 @@
+{
+  "case_id": "2017_FC_1067",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Officer's finding that the sponsor lacked sufficient funds for the study program reasonable?",
+        "paras": "11-17",
+        "applicant_position": "The Officer ignored evidence of the sponsor's financial situation, so the decision is unreasonable.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "It was therefore open to the Officer to determine that Mr. Onyeka’s father did not have sufficient funds"
+      },
+      {
+        "issue": "Was the Officer's finding that he would not leave Canada at the end of his stay, as a genuine student, reasonable?",
+        "paras": "18-22",
+        "applicant_position": "His family and social ties to Nigeria, prior study abroad and career link show he would return.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "the conclusion that Mr. Onyeka had not established that he was a bona fide student who intended to return to Nigeria"
+      }
+    ]
+  }
+}

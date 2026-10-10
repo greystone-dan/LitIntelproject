@@ -1,0 +1,29 @@
+{
+  "case_id": "2016_FCA_159",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 14,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the certified question dispositive of the appeal?",
+        "paras": "8-9",
+        "applicant_position": "Question is dispositive of the appeal because it affects the appellant's right to remain.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "It follows that the certified question is purely academic in nature; the answer to the question will not affect the legal rights of the parties to this appeal."
+      },
+      {
+        "issue": "Can the Appeal Division's failure to order a stay of removal make the certified question dispositive?",
+        "paras": "10-13",
+        "applicant_position": "Appeal Division could have stayed the removal order under s. 68(1), giving a meaningful remedy.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "this issue cannot give rise to a certified question that is dispositive of this appeal."
+      }
+    ]
+  }
+}

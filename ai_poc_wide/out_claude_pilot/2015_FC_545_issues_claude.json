@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FC_545",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the ID err in finding the applicant inadmissible as a member of the JEM under IRPA 34(1)(f)?",
+        "paras": "28-32",
+        "applicant_position": "He worked only for a civilian JEM section, not the mainstream JEM, so the membership finding was wrong.",
+        "respondent_position": "Membership is read broadly; he admitted voluntary membership and held a JEM membership card; no civilian section shown.",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "The intervention of this Court is not warranted."
+      },
+      {
+        "issue": "Does the Ezokola complicity test apply to inadmissibility for membership under IRPA 34(1)(f)?",
+        "paras": "21-22, 29",
+        "applicant_position": "Ezokola's complicity analysis should apply to 34(1)(f) so inadmissibility does not become de facto exclusion.",
+        "respondent_position": "Complicity differs from membership; Ezokola interprets Article 1F(a), so it does not apply to 34(1)(f).",
+        "result": "not_decided",
+        "result_para": 29,
+        "result_quote": "Only the question of membership under paragraph 34(1)(f) of IRPA is to be reviewed."
+      },
+      {
+        "issue": "Can the applicant rely on new arguments (IRPA read as a coherent whole, no de facto exclusion) not raised before the ID?",
+        "paras": "22",
+        "applicant_position": "IRPA must be read as a coherent whole so inadmissibility does not lead to de facto exclusion from protection.",
+        "respondent_position": "Not stated.",
+        "result": "moot_or_procedural",
+        "result_para": 22,
+        "result_quote": "These arguments were however not raised before the ID. They will therefore not be considered in this judicial review"
+      }
+    ]
+  }
+}

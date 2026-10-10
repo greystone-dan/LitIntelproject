@@ -1,0 +1,56 @@
+{
+  "case_id": "2016_FC_778",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD apply the correctness standard to the RPD's findings of fact and mixed fact and law (not oral credibility)?",
+        "paras": "13-25",
+        "applicant_position": "The RAD was too deferential and did not conduct its own independent correctness review of the RPD's findings.",
+        "respondent_position": "The RAD properly undertook its own independent assessment and reached its own conclusion; no basis for intervention.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "In my opinion, the RAD did not apply the applicable standard of review, that is the correctness standard, to its review of the RPD’s findings."
+      },
+      {
+        "issue": "Did the RAD conduct its own independent analysis of the record, including the applicant's oral testimony?",
+        "paras": "26-27",
+        "applicant_position": "The RAD did not make its own independent assessment of the evidence and was too deferential to the RPD.",
+        "respondent_position": "The RAD clearly undertook its own assessment of the evidence (Huruglica).",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I am not persuaded that the RAD conducted an independent analysis of the record."
+      },
+      {
+        "issue": "What standard applies to the RAD's review of the RPD's credibility findings on oral evidence?",
+        "paras": "19-23",
+        "applicant_position": "The RAD was too deferential to the RPD's credibility findings and should have held an oral hearing.",
+        "respondent_position": "The RPD has an advantage hearing oral evidence, so the RAD must show deference to its credibility findings.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "I agree with the Respondent’s argument that the RAD should apply the standard of reasonableness when reviewing the RPD’s credibility assessment of oral evidence."
+      },
+      {
+        "issue": "Did the RAD err on the other grounds, including its treatment of the RPD's credibility findings?",
+        "paras": "8-9, 29",
+        "applicant_position": "The RAD unreasonably dealt with a brother-related issue the RPD never raised, and should have held an oral hearing.",
+        "respondent_position": "Not separately stated; generally, no basis for judicial intervention.",
+        "result": "not_decided",
+        "result_para": 29,
+        "result_quote": "it is not necessary to address the other issues raised by the Applicant, including the RAD’s treatment of the RPD’s credibility findings."
+      },
+      {
+        "issue": "Should the question on the RAD's deference to RPD credibility findings be certified?",
+        "paras": "30-37",
+        "applicant_position": "Certify whether the RAD owes any degree of deference to RPD credibility findings, and what degree.",
+        "respondent_position": "Opposes: already answered in Huruglica FCA and not dispositive of the application.",
+        "result": "dismissed_for_applicant",
+        "result_para": 37,
+        "result_quote": "However, I will not certify that question since it is not dispositive of the within application for judicial review."
+      }
+    ]
+  }
+}

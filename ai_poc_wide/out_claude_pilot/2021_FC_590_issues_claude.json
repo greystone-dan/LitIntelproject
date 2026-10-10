@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_590",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's decision procedurally unfair because the applicant was not told of the concern about the genuineness of the job offer before the interview?",
+        "paras": "14-20",
+        "applicant_position": "She was given no notice of the officer's concern and no meaningful chance to respond before the interview.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I therefore conclude that Ms. Kaur was not given adequate notice of the Officer’s concern regarding whether her offer of employment was genuine, or a meaningful opportunity to respond."
+      },
+      {
+        "issue": "Was the officer's decision reasonable, given its speculation that the employers could not afford the salary?",
+        "paras": "18-19",
+        "applicant_position": "Officer's refusal rested on speculation about the employers' finances, which was unreasonable.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 13,
+        "result_quote": "One of these issues is determinative."
+      }
+    ]
+  }
+}

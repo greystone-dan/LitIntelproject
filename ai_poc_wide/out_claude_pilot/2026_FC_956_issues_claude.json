@@ -1,0 +1,38 @@
+{
+  "case_id": "2026_FC_956",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the application moot now that the work permit decision has been made?",
+        "paras": "6-13",
+        "applicant_position": "Not stated; Mr. Liu did not appear, but the parties dispute whether the processing delay was unreasonable.",
+        "respondent_position": "Disputes that the processing delay was unreasonable; further mootness arguments not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 2,
+        "result_quote": "the matter is not moot because the continuing live dispute between the parties has not disappeared"
+      },
+      {
+        "issue": "Is there a clear right to mandamus, given that a decision has been made?",
+        "paras": "14-19",
+        "applicant_position": "Processing delay was unreasonable and mandamus should issue to finalize the application.",
+        "respondent_position": "Disputes that the delay was unreasonable; further arguments not stated.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "he is unable to establish unreasonable delay, and unable to establish a prima facie entitlement to mandamus"
+      },
+      {
+        "issue": "Should equitable bars to mandamus be considered?",
+        "paras": "21",
+        "applicant_position": "Not stated.",
+        "respondent_position": "Not stated.",
+        "result": "not_decided",
+        "result_para": 21,
+        "result_quote": "There is accordingly no need to consider equitable bars to mandamus"
+      }
+    ]
+  }
+}

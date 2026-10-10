@@ -1,0 +1,38 @@
+{
+  "case_id": "2025_FC_1146",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Who is the correct respondent for the style of cause?",
+        "paras": "15",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 15,
+        "result_quote": "The style of cause shall therefore be amended to identify the Minister of Public Safety and Emergency Preparedness as the Respondent."
+      },
+      {
+        "issue": "Did the IAD reasonably find that Indian wrongful restraint (IPC s. 341) is equivalent to forcible confinement (Criminal Code s. 279(2))?",
+        "paras": "15-19",
+        "applicant_position": "Restraint and confinement differ; the evidence shows intent to assault, not to confine.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "It was reasonably open to the IAD to conclude that the wrongful restraint offence under the IPC"
+      },
+      {
+        "issue": "Did the IAD reasonably find that IPC s. 323 (voluntarily causing hurt) is equivalent to Criminal Code s. 267 (assault with a weapon or causing bodily harm)?",
+        "paras": "20-22",
+        "applicant_position": "Elements of voluntarily causing hurt do not establish assault with a weapon or bodily harm.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "In doing so, the IAD conducted a reasonable equivalency analysis."
+      }
+    ]
+  }
+}

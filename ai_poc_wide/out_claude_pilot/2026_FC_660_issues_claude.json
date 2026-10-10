@@ -1,0 +1,38 @@
+{
+  "case_id": "2026_FC_660",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer consider the applicants' evidence (explanation letter and letters showing ties to Mexico)?",
+        "paras": "4-10",
+        "applicant_position": "Officer failed to consider Mr. Zavala's explanation letter and family letters supporting ties to Mexico.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "This was a reasonable assessment of this evidence."
+      },
+      {
+        "issue": "Was the officer required to address dual intent for an LMIA-based work permit in the permanent residence stream?",
+        "paras": "12-18",
+        "applicant_position": "Officer had to address dual intent; relies on Singh (2025 FC 1210).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "In these circumstances, the Officer was not required to consider the dual intent provisions."
+      },
+      {
+        "issue": "Did the officer make a veiled credibility finding, breaching procedural fairness?",
+        "paras": "18-20",
+        "applicant_position": "Officer effectively found their stated intention to leave Canada was not genuine, without saying so openly.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "The Officer did not disbelieve the Applicants stated intentions that they would leave Canada"
+      }
+    ]
+  }
+}

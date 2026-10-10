@@ -1,0 +1,29 @@
+{
+  "case_id": "2005_FC_834",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the danger opinion disclose an error of law because the Minister's delegate gave no clear, distinct and separate rationale that the applicant is a danger to the public?",
+        "paras": "4-19",
+        "applicant_position": "Opinion never separately found him a danger; danger finding was mixed with risk and balancing, an error of law.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I have not found that they disclose a clear, separate and distinct rationale that the applicant is a danger to the public in Canada."
+      },
+      {
+        "issue": "Did the danger opinion wrongly bypass the section 108 cessation process?",
+        "paras": "2",
+        "applicant_position": "The danger opinion bypassed the section 108 cessation process, which must come first.",
+        "respondent_position": "Cessation provisions in ss. 108-111 have no application; he still continues to be a Convention refugee.",
+        "result": "dismissed_for_applicant",
+        "result_para": 2,
+        "result_quote": "The applicant's suggestion that the danger opinion \"bypassed\" the section 108 cessation process is not well-founded."
+      }
+    ]
+  }
+}

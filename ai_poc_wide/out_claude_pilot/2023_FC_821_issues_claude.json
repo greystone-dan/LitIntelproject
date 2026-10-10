@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_821",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a serious issue to be tried with the PRRA officer's assessment of the evidence?",
+        "paras": "9-13",
+        "applicant_position": "The officer did not fully consider the evidence supporting the PRRA application, so the decision is unreasonable.",
+        "respondent_position": "The officer reasonably assessed the PRRA application in light of the facts and evidence; no serious issue.",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "Having reviewed the parties’ motion materials and the underlying decision, I agree that there is a serious issue to be tried."
+      },
+      {
+        "issue": "Has the applicant shown irreparable harm on removal to the Philippines?",
+        "paras": "14-17",
+        "applicant_position": "Will face persecution in the Philippines for cannabis posts on social media; a serious issue shows irreparable harm.",
+        "respondent_position": "Same risk allegations were already assessed in the PRRA; no clear, non-speculative evidence of risk.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I agree with the Respondent and do not find that irreparable harm is made out in this case."
+      },
+      {
+        "issue": "Does the balance of convenience favour a stay of removal?",
+        "paras": "18-20",
+        "applicant_position": "Risk of harm on removal outweighs the Respondent's inconvenience in not enforcing removal.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "Nonetheless, the balance of convenience weighs in favour of the Respondent, particularly in light of the Applicant’s criminal history."
+      }
+    ]
+  }
+}

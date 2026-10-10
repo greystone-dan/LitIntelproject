@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_886",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 12,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's misrepresentation finding under s 40 IRPA reasonable and procedurally fair?",
+        "paras": "3-8",
+        "applicant_position": "He answered Yes to the prior-refusal question on the correct form and replied to the procedural fairness letter; the officer ignored this.",
+        "respondent_position": "Minister asserted Obafemi failed to answer truthfully and did not show the letter was transmitted to the officer.",
+        "result": "allowed_for_applicant",
+        "result_para": 6,
+        "result_quote": "The refusal of his application and the inadmissibility finding must be overturned as unreasonable and unfair"
+      },
+      {
+        "issue": "Should costs be awarded although the applicant did not request them?",
+        "paras": "11-11",
+        "applicant_position": "Applicant did not request costs.",
+        "respondent_position": "Minister noted no costs were requested and no settlement discussions occurred.",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "costs should be awarded notwithstanding that they were not requested by the applicant."
+      }
+    ]
+  }
+}

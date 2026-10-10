@@ -1,0 +1,29 @@
+{
+  "case_id": "2005_FC_428",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Did Mr. Mark in fact breach a condition of his release by moving before reporting the change of address?",
+        "paras": "12-17",
+        "applicant_position": "Mr. Mark had not moved out before notifying the respondent; notice was given first, so no breach occurred.",
+        "respondent_position": "Mr. Mark moved the day before the interview, as his own change-of-address form shows; the breach is established.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I am satisfied that the Officer's finding that Mr. Mark had breached a condition of his release was one that was open to her"
+      },
+      {
+        "issue": "Did the Officer err in exercising her discretion in forfeiting the $5,000 cash bond?",
+        "paras": "18-30",
+        "applicant_position": "Officer relied only on the breach and gave no reasons, so the discretion to forfeit was not properly exercised.",
+        "respondent_position": "Officer considered the submissions and knew she had discretion; forfeiture of the cash bond was properly decided.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "it is impossible to discern from the Officer's reasons why she decided to exercise her discretion in Ms. Uanseru's favour in relation to the performance bond"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2025_FC_1727",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer unreasonably assess the best interests of the eight grandchildren?",
+        "paras": "13-21",
+        "applicant_position": "The Officer minimized the children's best interests, gave minimal engagement to her caregiving evidence, and compared the family to others.",
+        "respondent_position": "The children's interests were well-identified by the Officer.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "This is a sufficient basis to find the decision unreasonable and send it back for redetermination."
+      },
+      {
+        "issue": "Did the Officer unreasonably assess hardship of return to Pakistan?",
+        "paras": "22-25",
+        "applicant_position": "The Officer required hardship greater than others similarly situated, misstated counsel's submissions, and erred on impediments to return.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "it is unreasonable for an Officer to require that their hardship is greater than others in their country of removal"
+      }
+    ]
+  }
+}

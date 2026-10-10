@@ -1,0 +1,29 @@
+{
+  "case_id": "2017_FC_765",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's assessment of the evidence, including the police report and the persecutors' profile, reasonable?",
+        "paras": "7-12",
+        "applicant_position": "The RAD ignored contrary evidence on the police report's description of the attackers, so its finding on the persecutors was unreasonable.",
+        "respondent_position": "The RAD reasonably weighed the police report, testimony and police practice; the attackers were unknown.",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "I agree with the Applicants that the RAD’s assessment of the evidence is unreasonable as it relates to the Applicants’ alleged persecutor."
+      },
+      {
+        "issue": "Was the RAD's state protection analysis reasonable, given its credibility findings about the persecutors?",
+        "paras": "13-21",
+        "applicant_position": "The state protection finding rested on flawed credibility findings about the alleged Wahhabi persecutors.",
+        "respondent_position": "The Respondent says the RAD decision as a whole is reasonable; no separate state protection submission is shown.",
+        "result": "not_decided",
+        "result_para": 20,
+        "result_quote": "I find that I am not in a position to conclude on the reasonableness of the RAD’s state protection analysis"
+      }
+    ]
+  }
+}

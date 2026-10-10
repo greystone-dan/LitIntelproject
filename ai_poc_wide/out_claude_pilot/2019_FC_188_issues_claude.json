@@ -1,0 +1,47 @@
+{
+  "case_id": "2019_FC_188",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer reasonably find the applicant did not show dual intent (intent to leave after studies)?",
+        "paras": "9-16",
+        "applicant_position": "Dual intent was clearly stated and is no bar; Officer ignored home-country ties and did not explain preferring the negative view.",
+        "respondent_position": "Selling his law office and a paralegal course not advancing his career show a single intent to immigrate; refusal was reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "In these circumstances, the Decision was reasonable."
+      },
+      {
+        "issue": "Did the Officer have to address the applicant's ties to his home country and his lack of ties to Canada?",
+        "paras": "9-10, 16",
+        "applicant_position": "Officer failed to consider or explain evidence of home ties, savings, condo and business that favoured a positive decision.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the Applicant’s lack of ties to Canada and previous travels to other jurisdictions did not require mention in view of the determinative facts."
+      },
+      {
+        "issue": "Was the second application a fresh application or a reconsideration of the first refusal?",
+        "paras": "18-20",
+        "applicant_position": "No fee was paid for the second application, so it was really a reconsideration of the first refusal.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I have concluded that the Decision in this case was made on a fresh second application and not following a reconsideration."
+      },
+      {
+        "issue": "Should the proposed question on fresh application versus reconsideration be certified?",
+        "paras": "21-22",
+        "applicant_position": "Asked the Court to certify whether a second application made without fee after refusal is fresh or a reconsideration.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "This question will not be certified because in my view, its outcome cannot be dispositive of this application."
+      }
+    ]
+  }
+}

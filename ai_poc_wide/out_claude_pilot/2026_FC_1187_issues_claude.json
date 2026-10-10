@@ -1,0 +1,29 @@
+{
+  "case_id": "2026_FC_1187",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the second procedural fairness letter sufficient, so that the decision was procedurally fair?",
+        "paras": "9-17",
+        "applicant_position": "The letter was too vague: it did not disclose the other applications or explain the similarities, so he could not respond meaningfully.",
+        "respondent_position": "The letter was sufficient; the case cannot be distinguished from Brefo, and the matter was within his own knowledge.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The Officer’s decision was procedurally fair."
+      },
+      {
+        "issue": "Was the finding that he used an undeclared representative reasonable?",
+        "paras": "18-22",
+        "applicant_position": "The Officer did not properly consider his affidavit denying a representative, and the finding conflicts with documents he signed himself.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "The Officer’s reasons are transparent, and the decision falls within the range of acceptable outcomes."
+      }
+    ]
+  }
+}

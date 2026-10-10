@@ -1,0 +1,47 @@
+{
+  "case_id": "2026_FC_1121",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "moot_or_procedural",
+    "issues": [
+      {
+        "issue": "Is the judicial review of the December 2024 TRV refusal moot after IRCC reopened and redetermined the application?",
+        "paras": "11-30",
+        "applicant_position": "Not moot: the Court should decide the judicial review and send the matter back; reopening does not end the dispute.",
+        "respondent_position": "Minister says the reopening and June 2026 refusal were valid; matter not moot only because costs are undecided.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I therefore conclude that IRCC’s decision to reopen and redetermine Mr. Gill’s TRV application, despite having been made in error, rendered this application moot."
+      },
+      {
+        "issue": "Should the Court exercise its residual discretion to decide the moot application?",
+        "paras": "31-34",
+        "applicant_position": "Adversarial context exists and judicial economy favours deciding the fully argued matter.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "For the following reasons, I conclude that the Court should not exercise its residual discretion to hear the matter."
+      },
+      {
+        "issue": "Is there a basis for a costs award on this application?",
+        "paras": "29",
+        "applicant_position": "Requests costs in the leave application and memorandum.",
+        "respondent_position": "Treated costs as an undecided issue keeping the matter live (para 9).",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "there is no basis for the Court to grant such an award"
+      },
+      {
+        "issue": "Should the applicant be granted an extension of time to seek leave on the June 2026 refusal?",
+        "paras": "35-37",
+        "applicant_position": "Seeks extension; says the June 2026 refusal was not filed on time because of unclear status.",
+        "respondent_position": "Consents to the extension; no prejudice to the Minister.",
+        "result": "allowed_for_applicant",
+        "result_para": 37,
+        "result_quote": "I conclude there are special reasons to grant Mr. Gill an extension of time to apply for leave and for judicial review of the June 2026 refusal"
+      }
+    ]
+  }
+}

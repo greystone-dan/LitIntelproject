@@ -1,0 +1,38 @@
+{
+  "case_id": "2021_FC_566",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's credibility finding reasonable, given that it relied on an implausibility analysis?",
+        "paras": "11-20",
+        "applicant_position": "Implausibility findings are permissible only in clearest cases; country evidence shows roundups infrequent, so the finding was impermissible.",
+        "respondent_position": "Implausibility analysis was reasonable and rational; inconsistencies in testimony also support the credibility finding.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I find that the implausibility analysis is a reviewable error that undermines the reasonableness of the Decision."
+      },
+      {
+        "issue": "Did the officer fail to assess all grounds of persecution?",
+        "paras": "20-20",
+        "applicant_position": "Officer failed to assess all grounds of persecution.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 20,
+        "result_quote": "it is unnecessary for the Court to consider the other issues raised by the Applicant in this application."
+      },
+      {
+        "issue": "Was the failure to contemporaneously prepare interview notes a breach of procedural fairness?",
+        "paras": "20-20",
+        "applicant_position": "Failure to prepare notes during the interview breached procedural fairness.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 20,
+        "result_quote": "it is unnecessary for the Court to consider the other issues raised by the Applicant in this application."
+      }
+    ]
+  }
+}

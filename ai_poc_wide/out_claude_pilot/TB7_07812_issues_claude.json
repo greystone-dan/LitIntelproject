@@ -1,0 +1,29 @@
+{
+  "case_id": "TB7_07812",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the new evidence admissible under s. 110(4) and may the RAD rely on it?",
+        "paras": "5-19,22",
+        "applicant_position": "Appellant filed new evidence and asks the RAD to set aside the RPD decision and find him a Convention refugee.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Based on the new evidence, the RAD will substitute the decision of the RPD."
+      },
+      {
+        "issue": "Is the Appellant a Convention refugee because of persecution for his conversion to Christianity?",
+        "paras": "20-23",
+        "applicant_position": "Appellant fears persecution in Iran for converting to Christianity; RPD found him not credible on identity as convert.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "The RAD is satisfied that if the Appellant were to return to Iran, he would be persecuted on account of his conversion to Christianity."
+      }
+    ]
+  }
+}

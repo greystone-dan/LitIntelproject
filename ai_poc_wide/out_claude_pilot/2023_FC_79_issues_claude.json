@@ -1,0 +1,29 @@
+{
+  "case_id": "2023_FC_79",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD err by refusing an oral hearing under s. 110(6) without giving any reasons?",
+        "paras": "8-15",
+        "applicant_position": "RAD gave no reasons for refusing an oral hearing under s. 110(6), so its decision is unreasonable.",
+        "respondent_position": "RAD considered the Report at length; a hearing was unnecessary because the decision to hold one is discretionary.",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "Accordingly, I find that the RAD committed a significant error in its omission of reasons for its refusal to hold an oral hearing."
+      },
+      {
+        "issue": "Are the RAD's credibility findings and substantive reasonableness open to review?",
+        "paras": "7, 16",
+        "applicant_position": "RAD's credibility analysis and conclusions are unreasonable, largely on the basis of the psychiatric Report.",
+        "respondent_position": "RAD considered the Report at length and concluded it did not overcome the RPD's credibility concerns.",
+        "result": "not_decided",
+        "result_para": 16,
+        "result_quote": "I will not examine the Applicant’s arguments contesting the substantive reasonableness of the decision"
+      }
+    ]
+  }
+}

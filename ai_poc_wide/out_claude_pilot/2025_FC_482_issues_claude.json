@@ -1,0 +1,29 @@
+{
+  "case_id": "2025_FC_482",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer fetter their discretion in refusing to reconsider the application?",
+        "paras": "10-22",
+        "applicant_position": "Officer took too rigid a view and did not consider the specific circumstances of the reconsideration request, fettering discretion.",
+        "respondent_position": "IRPR s.12 and case law (Gennai) are determinative: an incomplete application no longer exists, so nothing could be reconsidered.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "As such, I find no reviewable error in the Decision provided."
+      },
+      {
+        "issue": "Was the Officer's refusal to reconsider the application unreasonable?",
+        "paras": "10-22",
+        "applicant_position": "Refusal without considering the specific circumstances was unreasonable; Goel is said to parallel this case.",
+        "respondent_position": "Decision was reasonable: an incomplete application cannot be reconsidered under IRPR s.12, and Goel is distinguishable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "As such, I find no reviewable error in the Decision provided."
+      }
+    ]
+  }
+}

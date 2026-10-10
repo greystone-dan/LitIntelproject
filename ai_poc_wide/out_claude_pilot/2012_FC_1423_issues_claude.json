@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FC_1423",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are the Rehaag Report data admissible as evidence of the Member's acceptance and rejection rates?",
+        "paras": "7-8",
+        "applicant_position": "Report data is admissible; applicants rely on the data itself, not the author's opinion, and the respondent's objection is unclear.",
+        "respondent_position": "Report is inadmissible expert opinion; the affidavit attaching it lacks foundation, and the report is brief, web-posted and academic.",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "I therefore accept the data contained within the Rehaag Report as evidence of the acceptance and rejection rates"
+      },
+      {
+        "issue": "Is there a reasonable apprehension of bias arising from the Member's acceptance and rejection rates?",
+        "paras": "9-18",
+        "applicant_position": "Member granted almost no claims (2 of 108), far below predicted rates, raising a reasonable apprehension of bias.",
+        "respondent_position": "Statistics alone are insufficient: no evidence on methodology, significance, case assignment or other variables, and no showing decisions were wrong.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "That something is said to “hint” at a result can hardly be said to raise to the level that one"
+      }
+    ]
+  }
+}

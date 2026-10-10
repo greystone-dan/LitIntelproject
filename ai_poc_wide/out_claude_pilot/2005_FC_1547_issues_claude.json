@@ -1,0 +1,29 @@
+{
+  "case_id": "2005_FC_1547",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the delegate err in finding the applicant a danger to the public in Canada?",
+        "paras": "19-23",
+        "applicant_position": "Convictions were minor non-violent economic offences, which cannot support a danger-to-the-public finding.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "Further, I find that applicant has failed to illustrate that the Minister's delegate improperly exercised his discretion, or made any other reviewable error."
+      },
+      {
+        "issue": "Did the delegate fetter his discretion or fail to weigh relevant evidence, reaching an unfair decision?",
+        "paras": "24-26",
+        "applicant_position": "Delegate failed to consider or weigh evidence showing he was positive and non-violent, fettering his discretion.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I find that the applicant has failed to demonstrate the opposite to be true."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "2017_FC_907",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD reasonably apply the Ribic factors, including the schizophrenia diagnosis?",
+        "paras": "13-20",
+        "applicant_position": "The IAD failed to properly consider his schizophrenia diagnosis when applying the Ribic factors.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "This is all that is required to establish that the IAD made a reasonable decision on this issue."
+      },
+      {
+        "issue": "Did the IAD reasonably consider humanitarian and compassionate factors, including his mental health?",
+        "paras": "21-25",
+        "applicant_position": "The IAD failed to reasonably consider his mental health when assessing the H&C factors.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I conclude that the IAD’s assessment of the H&C factors was balanced and therefore reasonable."
+      }
+    ]
+  }
+}

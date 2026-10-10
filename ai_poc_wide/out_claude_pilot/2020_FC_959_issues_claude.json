@@ -1,0 +1,38 @@
+{
+  "case_id": "2020_FC_959",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 46,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the officer's refusal to defer removal pending the US (USCIS) appeal reasonable, including the treatment of the appeal's timing?",
+        "paras": "17-25",
+        "applicant_position": "Officer treated the appeal's timing as indefinite and ignored the six-month estimate; a six-month deferral was reasonable.",
+        "respondent_position": "Officer reasonably assessed the appeal timing; deferral is limited to short-term impediments; the appeal can continue after removal.",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I therefore conclude that the enforcement officer’s assessment of the nature of Mr. Kalaba’s request, and the treatment of the anticipated length of the USCIS appeal process, was reasonable."
+      },
+      {
+        "issue": "Was the officer's assessment of the consequences of removal on Mr. Kalaba's mental health and family reasonable?",
+        "paras": "26-42",
+        "applicant_position": "Officer discounted the mental health evidence and CAMH treatment and failed to engage with family harm from removal.",
+        "respondent_position": "Officer reasonably considered the medical evidence; family impacts belong to the H&C application, not a deferral.",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "I conclude that the enforcement officer’s assessment of this issue was reasonable."
+      },
+      {
+        "issue": "Is the decision unreasonable when the factors are considered cumulatively as a whole?",
+        "paras": "43-44",
+        "applicant_position": "Even if no single factor justifies deferral, the factors considered holistically do justify it, so the decision is unreasonable.",
+        "respondent_position": "Cumulative factors still concern removal itself, not short-term impediments; a deferral request is not an H&C application.",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "That conclusion was reasonable."
+      }
+    ]
+  }
+}

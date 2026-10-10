@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FC_1211",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 29,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD panel give rise to a reasonable apprehension of bias and a breach of procedural fairness?",
+        "paras": "6-27",
+        "applicant_position": "Panel's comments on non-renewal of its term show a reasonable apprehension of bias; it should have disclosed the issue and not decided.",
+        "respondent_position": "Comments were hypothetical with nothing concrete; no real likelihood of bias, and the presumption of judicial integrity applies.",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "I find in the Minister’s favour on his first point, that there is a reasonable apprehension of bias and a breach of procedural fairness"
+      },
+      {
+        "issue": "Were the panel's findings on the determining factors of the decision unreasonable?",
+        "paras": "2, 8",
+        "applicant_position": "Panel's findings on the determining factors of its decision were unreasonable.",
+        "respondent_position": "Panel's findings on the merits were not unreasonable.",
+        "result": "not_decided",
+        "result_para": 8,
+        "result_quote": "Therefore, it would not be prudent to rule on whether or not the panel’s decision was reasonable on the merits."
+      },
+      {
+        "issue": "Was the panel entitled to decide the appeal after seeking the legal department's advice?",
+        "paras": "15, 24-27",
+        "applicant_position": "Panel treated the legal department's opinion as an instruction to decide, despite a perceived bias problem, and so lacked independence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "The panel erred in treating the legal department’s opinion as an instruction, rather than a recommendation that could be followed or not."
+      }
+    ]
+  }
+}

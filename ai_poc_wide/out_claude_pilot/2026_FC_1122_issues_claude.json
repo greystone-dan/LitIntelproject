@@ -1,0 +1,65 @@
+{
+  "case_id": "2026_FC_1122",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 78,
+    "overall_result": "moot_or_procedural",
+    "issues": [
+      {
+        "issue": "Should the Respondent's motion for judgment dismissing the mandamus application as moot be granted?",
+        "paras": "2-26",
+        "applicant_position": "Respondent should not use the motion to avoid a costs decision; the motion should be heard with the mandamus.",
+        "respondent_position": "Mandamus application is moot since citizenship was granted on May 25, 2026; seeks judgment dismissing it.",
+        "result": "moot_or_procedural",
+        "result_para": 23,
+        "result_quote": "The Respondent’s motion for judgment is dismissed."
+      },
+      {
+        "issue": "Is the mandamus application moot now that citizenship has been granted?",
+        "paras": "35-44",
+        "applicant_position": "Mandamus is not moot because costs and the reasonableness of delay remain live issues.",
+        "respondent_position": "Application is moot: the concrete dispute disappeared when citizenship was granted.",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "Mr. Hussini’s citizenship application was granted; the concrete dispute has disappeared."
+      },
+      {
+        "issue": "Does unreasonable delay remain a live issue that keeps an otherwise moot mandamus application alive (Liu approach)?",
+        "paras": "36-42",
+        "applicant_position": "Following Liu, the reasonableness of the delay remains a live issue, so the application should not be moot.",
+        "respondent_position": "Delay was justified by the ongoing security review; once a decision is rendered there is no refusal to act.",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "Once the decision is rendered, although there may have been some delay, there has been no refusal to act"
+      },
+      {
+        "issue": "Would mandamus have been granted had no decision been made before the hearing?",
+        "paras": "32-34",
+        "applicant_position": "Six-year unexplained delay warrants mandamus; no justification was given for it.",
+        "respondent_position": "Security screening and non-routine review justified the delay; mandamus should not issue.",
+        "result": "not_decided",
+        "result_para": 34,
+        "result_quote": "if Mr. Hussini had not received a decision prior to the hearing of the Mandamus Application, the Court would have granted mandamus"
+      },
+      {
+        "issue": "Should costs be awarded to the applicant on special-reasons grounds despite mootness?",
+        "paras": "45-73",
+        "applicant_position": "Special reasons exist: unexplained delay of about ten times average, ignored inquiries, and opposition to a meritorious application.",
+        "respondent_position": "Opposes costs: no special reasons; delay alone is insufficient; no bad faith or improper conduct.",
+        "result": "allowed_for_applicant",
+        "result_para": 73,
+        "result_quote": "the Court finds that there are special reasons to award costs to Mr. Hussini"
+      },
+      {
+        "issue": "What amount of costs should be awarded?",
+        "paras": "74-78",
+        "applicant_position": "Seeks $9,000 based on ABCD and Farah benchmarks.",
+        "respondent_position": "Opposes costs entirely; no amount argued.",
+        "result": "partly_allowed",
+        "result_para": 78,
+        "result_quote": "The Court finds that the Respondent shall pay costs of $2,000 to Mr. Hussini."
+      }
+    ]
+  }
+}

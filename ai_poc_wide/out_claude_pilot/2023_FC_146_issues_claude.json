@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_146",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer unreasonably assess the psychological evidence, contrary to Kanthasamy?",
+        "paras": "15-24",
+        "applicant_position": "Officer's psychological-evidence analysis mirrors the unreasonable approach in Kanthasamy, demanding proof of treatment and availability.",
+        "respondent_position": "Officer may implicitly have concluded that return to Pakistan would remove the uncertainty causing the symptoms.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I therefore conclude that the officer’s evaluation of the psychological evidence suffered from the same analytical shortcomings that were found unreasonable in Kanthasamy."
+      },
+      {
+        "issue": "Must the whole H&C decision be redetermined because of the unreasonable psychological analysis?",
+        "paras": "25-26",
+        "applicant_position": "Mental health was a material part of the H&C application, so the error requires redetermination.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "The applicants’ H&C application must therefore be remitted for redetermination."
+      },
+      {
+        "issue": "Were the hardship, establishment and best interests of the child findings unreasonable?",
+        "paras": "27",
+        "applicant_position": "Officer erred in assessing hardship in Pakistan, establishment in Canada and the best interests of the children.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 27,
+        "result_quote": "As a result, I do not need to address the applicants’ other arguments related to the officer’s assessment of hardship"
+      }
+    ]
+  }
+}

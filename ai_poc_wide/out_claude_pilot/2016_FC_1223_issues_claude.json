@@ -1,0 +1,29 @@
+{
+  "case_id": "2016_FC_1223",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Do the moving parties have public interest standing to bring the applications and the motion?",
+        "paras": "9-12",
+        "applicant_position": "The Moving Parties have public interest standing, and the Monla stay ruling dictates the same stay result.",
+        "respondent_position": "Standing should be denied because affected individuals can reasonably and effectively challenge the legislation themselves.",
+        "result": "not_decided",
+        "result_para": 12,
+        "result_quote": "the question of the public interest standing of the Moving Parties does not need to be decided"
+      },
+      {
+        "issue": "Have the moving parties shown irreparable harm, so that an interlocutory injunction should issue?",
+        "paras": "13-25",
+        "applicant_position": "Some notice recipients lack resources to sue, so the harm of revocation is unavoidable and a stay should issue.",
+        "respondent_position": "Harm is avoidable: anyone can apply for judicial review and get an automatic stay; the affidavits are mere assertions.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I am not persuaded that the Moving Parties, even if granted public interest standing, can establish irreparable harm."
+      }
+    ]
+  }
+}

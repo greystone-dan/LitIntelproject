@@ -1,0 +1,29 @@
+{
+  "case_id": "2025_FC_1543",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 40,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD unreasonably fail to consider the 2018 application and the claimed legitimate expectation about the age lock-in date?",
+        "paras": "23-31",
+        "applicant_position": "The IAD should have considered the 2018 application, and an unidentified officer's advice created a legitimate expectation fixing the lock-in date.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "The Decision is not unreasonable for not having considered unproven events related to a different proceeding"
+      },
+      {
+        "issue": "Does the daughter qualify as a dependent child at age 23 as a full-time student, reading paragraph (b)(ii) of the definition?",
+        "paras": "33-38",
+        "applicant_position": "She is a dependent child as a continuing full-time student who depended on her parent, even though over 22.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "The Applicant’s argument is rejected accordingly."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2017_FC_369",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD err by refusing to consider post-marriage evidence of genuineness when deciding the primary purpose of the marriage?",
+        "paras": "9-18",
+        "applicant_position": "Post-marriage evidence of commitment is relevant to primary purpose; the IAD erred by ignoring it entirely, misreading Gill 2014 and Singh as conflicting.",
+        "respondent_position": "Only evidence leading up to the marriage counts for primary purpose; Sandhu supports this; Gill 2014 misstates the law.",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I find the IAD’s failure to consider this evidence to render its decision unreasonable."
+      },
+      {
+        "issue": "Did the IAD err by treating s. 4(1) as a disjunctive test and declining to assess whether the marriage was genuine?",
+        "paras": "8-17",
+        "applicant_position": "Gill 2014 and Singh are reconcilable; the IAD wrongly treated them as conflicting, so it skipped post-marriage evidence.",
+        "respondent_position": "Gill 2014 misstates the law; the test is disjunctive, so the IAD needed no genuineness finding once primary purpose was found.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "It therefore did not engage in the analysis regarding the genuineness of the marriage, the second element of the test. In that, I find no error."
+      },
+      {
+        "issue": "Are the other grounds of review argued by the applicant reviewable errors?",
+        "paras": "19",
+        "applicant_position": "Raised other grounds of review; the text does not describe them.",
+        "respondent_position": "Not stated.",
+        "result": "not_decided",
+        "result_para": 19,
+        "result_quote": "It is unnecessary for the Court to consider the other grounds of review argued by Mr. Lawrence."
+      }
+    ]
+  }
+}

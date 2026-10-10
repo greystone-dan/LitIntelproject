@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_113",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a serious issue to be tried in the underlying judicial review?",
+        "paras": "13-16",
+        "applicant_position": "Officer unreasonably assessed the impact on the pending H&C application and failed to adequately assess the best interests of the child.",
+        "respondent_position": "No serious issue: the Officer reasonably assessed and refused the deferral request.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "Having reviewed the parties’ motion materials and the underlying decision, I agree that there is a serious issue to be tried."
+      },
+      {
+        "issue": "Would removal cause the applicant irreparable harm?",
+        "paras": "17-20",
+        "applicant_position": "Removal jeopardizes the pending H&C application; he is sole financial provider for wife and children in India.",
+        "respondent_position": "Risks in India were already assessed by RPD and RAD; financial hardship is inherent in deportation; no objective evidence of precarity.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I agree with the Respondent and do not find that irreparable harm is made out in this case."
+      },
+      {
+        "issue": "Does the balance of convenience favour granting the stay?",
+        "paras": "21-23",
+        "applicant_position": "Pending H&C application, PRRA eligibility in three months and a pending civil claim favour a stay.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "Nonetheless, the balance of convenience weighs in favour of the Respondent."
+      }
+    ]
+  }
+}

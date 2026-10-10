@@ -1,0 +1,29 @@
+{
+  "case_id": "2025_FC_534",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Designated Officer fail to consider the innocent mistake exception to misrepresentation?",
+        "paras": "16-29",
+        "applicant_position": "Officer failed to analyse the innocent mistake exception despite the Response Letter showing she did not know the certificate was inauthentic.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I find the Designated Officer did consider but ultimately rejected the Applicant’s position that she honestly and reasonably believed she was not misrepresenting or withholding information"
+      },
+      {
+        "issue": "Were the reasons responsive to the facts and evidence before the Designated Officer?",
+        "paras": "30-31",
+        "applicant_position": "Reasons ignored the Response Letter and simply relied on the certificate's inauthenticity, contrary to Patel.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I find no reviewable error arising from the Designated Officer’s reasons, which are transparent, intelligible, and justifiable in light of the evidence before them."
+      }
+    ]
+  }
+}

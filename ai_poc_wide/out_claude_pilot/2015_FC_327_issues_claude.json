@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FC_327",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 29,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is mens rea (knowledge or intent) required for a misrepresentation finding under IRPA 40(1)?",
+        "paras": "13-21",
+        "applicant_position": "Mens rea is required; she honestly believed the Adapana job was not necessary to disclose.",
+        "respondent_position": "No intent needed; she knew of the Adapana job and the form required full history, so no honest, reasonable belief.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "intention of the applicant is not required for this provision to apply"
+      },
+      {
+        "issue": "Was the undisclosed Adapana employment a material fact?",
+        "paras": "22-26",
+        "applicant_position": "The Adapana job was not material: her listed experience already earned maximum points, and she disclosed once it mattered.",
+        "respondent_position": "Any failure to supply a truthful, complete application is material because it prevents full assessment of the applicant.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "a failure (innocent or otherwise) to supply a “truthful, complete and correct” application is material"
+      },
+      {
+        "issue": "Should the two proposed questions be certified for appeal?",
+        "paras": "27-29",
+        "applicant_position": "Certify whether mens rea is required under s. 40(1) and whether a self-serving purpose is required.",
+        "respondent_position": "Not certifiable: question 1 is not determinative because s. 127 is not engaged; question 2 is settled law.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "The second question is also not certifiable because the law is well established"
+      }
+    ]
+  }
+}

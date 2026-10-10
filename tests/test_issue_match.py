@@ -56,7 +56,7 @@ def test_matches_use_questions_and_return_cards(db):
 	result = issue_match.find_issue_matches(db, "The LMIA showed the worker wants permanent residence, so refusing the work permit was unreasonable.")
 	first = result["matches"][0]
 	assert first["citation"] == "2025 FC 1210" and first["case_url"] == "/data-explorer?case_id=7"
-	assert first["result_label"].startswith("The court agreed") and first["result_paragraph_number"] == 9
+	assert first["result_label"].startswith("The applicant won") and first["result_paragraph_number"] == 9
 	assert "Keyword match to check" in result["basis"] and result["library_issues"] == 2
 	adjourn = issue_match.find_issue_matches(db, "Refusing an adjournment breached procedural fairness for the applicant.")
 	assert adjourn["matches"][0]["citation"] == "2010 FC 1"

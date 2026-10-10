@@ -251,3 +251,21 @@ def test_capital_operators_quotes_filters_and_minus_still_use_operator_search(mo
 		db = AnalyticsDB()
 		analytics_service.fetch_analytics_search_cases(db, query=query)
 		assert "sentence_word_0" not in db.sql, query
+
+
+def test_court_filter_is_applied_inside_the_ranking_query():
+	reset_cache()
+	seen = []
+
+	class CourtDB(FakeDB):
+		def execute(self, statement, params=None):
+			if params is not None:
+				seen.append((str(statement), params))
+			return super().execute(statement, params)
+
+	db = CourtDB([[row(1, 1.0, 25, 7)]])
+	hits = search_paragraph_cases(db, "officer ignored my medical evidence", courts=["RAD", "Refugee Appeal Division"])
+	assert hits and hits[0]["case_id"] == 1
+	sql, params = seen[0]
+	assert params["courts"] == ["rad", "refugee appeal division"] and "ANY(:courts)" in sql
+	assert "ANY(:courts)" not in str(paragraph_search._RANKED_SQL)

@@ -126,8 +126,11 @@ def build_unit_result(report: dict[str, Any], chunk_index: int, term_sets: list[
 
 
 def rank_results(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
-	"""Numbered paragraphs before headnote and cover-page hits, then more query words and phrases, then case rank."""
-	return sorted(results, key=lambda r: (r["paragraph_number"] is None, -r["match_score"], -r["case_score"]))
+	"""Numbered paragraphs first, boilerplate disposition and cover units last, then query words, then case rank."""
+	return sorted(
+		results,
+		key=lambda r: (r["paragraph_number"] is None, r["role"] in {"disposition", "metadata"}, -r["match_score"], -r["case_score"]),
+	)
 
 
 COURT_NAMES = {
@@ -149,6 +152,16 @@ def _court_filter(court: str) -> set[str]:
 	return wanted
 
 
+def decision_maker_label(court: str | None) -> str:
+	"""What the stored 'judge' is for this court: a tribunal Member, a Justice, or the Supreme Court panel."""
+	name = (court or "").upper()
+	if name in {"RAD", "RPD", "REFUGEE APPEAL DIVISION", "REFUGEE PROTECTION DIVISION"}:
+		return "Member"
+	if name in {"SCC", "SUPREME COURT OF CANADA"}:
+		return "Panel"
+	return "Judge"
+
+
 def _case_meta(case: Case) -> dict[str, Any]:
 	extracted = (case.metadata_json or {}).get("reader_extracted") or {}
 	return {
@@ -157,6 +170,7 @@ def _case_meta(case: Case) -> dict[str, Any]:
 		"court": case.court,
 		"date": case.date.isoformat() if case.date else None,
 		"judge": extracted.get("judge") if isinstance(extracted, dict) else None,
+		"judge_label": decision_maker_label(case.court),
 		"outcome": extracted.get("decision outcome") if isinstance(extracted, dict) else None,
 	}
 
@@ -167,12 +181,13 @@ def search_units(
 	"""Best unit per case, re-ranked; None when the paragraph search cannot run. `court` is a comma list (FC,FCA,RAD)."""
 	query = " ".join((query or "").split())[:MAX_QUERY_CHARS]
 	limit = max(1, min(int(limit), MAX_LIMIT))
-	hits = search_paragraph_cases(db, query)
+	courts = _court_filter(court)
+	# The court filter runs inside the paragraph search, so a small court is not lost behind larger ones.
+	hits = search_paragraph_cases(db, query, courts=sorted(courts)) if courts else search_paragraph_cases(db, query)
 	if not hits:
 		return None
 	term_sets = _term_sets(query)
 	pairs = _query_pairs(query, term_sets)
-	courts = _court_filter(court)
 	started = time.monotonic()
 	results: list[dict[str, Any]] = []
 	truncated = False

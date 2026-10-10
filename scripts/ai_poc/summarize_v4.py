@@ -20,7 +20,7 @@ from split_paras import resplit  # noqa: E402
 from summarize_paragraphs import clean  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
-PROMPT_VERSION = "prop_v5"  # prop_v4 plus opinion parts (majority / concurrence / dissent) in the prompt
+PROMPT_VERSION = "prop_v6"  # prop_v5 plus QA prompt fixes: court evaluations of the tribunal, agreement with a party, sides, headings
 CHUNK = 20
 HOLDERS = ["court", "applicant", "respondent", "earlier_decision_maker", "witness_or_document", "prior_court_or_authority", "other"]
 KINDS = ["issue", "allegation_or_argument", "finding", "rule_of_law", "fact", "conclusion_or_order", "procedure"]
@@ -35,6 +35,12 @@ SYSTEM_P = """You read numbered paragraphs of a Canadian court or tribunal decis
   answers = when this point answers or rejects an earlier point in the SAME paragraph, the 1-based position of that point in this paragraph's list; otherwise 0.
 - summary: ONE plain sentence, at most 25 words, saying what the paragraph says and who makes each point. Use only the paragraph text.
 - role: facts, procedural_history, issue, law, analysis, conclusion, disposition or other: the job the paragraph does in the decision.
+Rules learned from grading:
+- When the decision-maker evaluates an earlier decision ("the RAD did not err", "the officer reasonably found", "it is clear from the decision that", "failed to consider", "the analysis was unreasonable"), the evaluation is the COURT's point (holder court, kind finding). Only the earlier decision-maker's own reported finding or reasoning is holder earlier_decision_maker; write the two as separate propositions.
+- "I agree with the Respondent that X", "the Minister is correct that X", "I accept the Applicant's submission that X": X is the court's finding (holder court) AND the party's argument (holder respondent or applicant, kind allegation_or_argument), as two propositions, the second naming who argued it. Never reduce it to only the party's submission.
+- Sides come from who brings the proceeding, not from the order of the names. When the Minister, the Crown or a public body is the appellant or applicant, it is 'applicant'; the individual is then 'respondent'. 'Counsel' or 'counsel for the appellants' is the appellants' side. When a party says it told an earlier decision-maker something ("in his PRRA submissions", "before the RAD the applicant argued"), keep the party as holder and say in the text that it was said to the earlier decision-maker.
+- Do not reconstruct an argument from the court's numbered rebuttals ("First... Second..."). Report only what the paragraph states, and mark the court's rebuttal as the court's.
+- "[Section heading: ...]" lines and issue questions in a decision are the court's structure, not any party's position.
 A line "[Section heading: ...]" before a paragraph is context only: do not summarize it. Ignore footnote numbers. Do not merge paragraphs and do not skip any."""
 
 SCHEMA_P = {"type": "object", "additionalProperties": False, "required": ["paragraphs"], "properties": {"paragraphs": {"type": "array", "items": {
@@ -51,7 +57,7 @@ SYSTEM_B = """You are given, for a Canadian court or tribunal decision, the prop
 - background_paras and disposition_paras: paragraph ranges as text (for example "1-5, 14-18"; empty when none).
 - If the input says which paragraphs are concurring or dissenting reasons, the overview, court_conclusion and the result come from the MAJORITY paragraphs only; a dissent's view may appear as a position with holder 'other' and text starting 'Dissent:'.
 - blocks: one block per issue the decision actually deals with, in order. Each block: issue (the question in plain words), paras (the range where it is dealt with), positions (each side's or earlier decision-maker's position: holder, text of at most 25 words, paras; write 'not stated' as the text when the propositions do not give that side's position), court_conclusion (at most 30 words, 'not stated' if none), conclusion_paras.
-Do not invent anything the propositions do not support."""
+Do not invent anything the propositions do not support. When a party's position is stated in the propositions only as an agreement by the court ("agree with the Respondent"), still give that party's position from the matching proposition instead of 'not stated'."""
 
 SCHEMA_B = {"type": "object", "additionalProperties": False, "required": ["overview", "background_paras", "disposition_paras", "blocks"], "properties": {
 	"overview": {"type": "string"}, "background_paras": {"type": "string"}, "disposition_paras": {"type": "string"},

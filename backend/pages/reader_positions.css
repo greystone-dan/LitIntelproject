@@ -1,5 +1,5 @@
 /* Whose-position tags (preview). Colour is never the only signal: every tag carries its name. */
-#decisionBody .pos-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 14px;padding:8px 10px;border:1px solid #dde3ec;border-radius:8px;background:#f8fafc;font-size:13px;line-height:1.4}
+#decisionBody .pos-bar{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin:0 0 14px;padding:8px 10px;border:1px solid #dde3ec;border-radius:8px;background:#f8fafc;font-size:13px;line-height:1.4}
 #decisionBody .pos-switch{padding:6px 14px;min-height:36px;border:1px solid #33465f;border-radius:999px;background:#fff;color:#1f3350;font-size:13px;font-weight:600;line-height:1.2;font-family:inherit;cursor:pointer}
 #decisionBody .pos-switch[aria-pressed="true"]{background:#1f3350;color:#fff}
 #decisionBody .pos-switch:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
@@ -46,4 +46,37 @@
  #decisionBody .pos-d2{margin-left:1.4rem}
  #decisionBody .pos-note{padding:.35rem .6rem;font-size:13.5px}
  #decisionBody .pos-tags{display:flex;margin:0 0 3px}
+}
+
+/* Clarity pass: top row, at-a-glance lines, legend with plain explanations, flags, reliability. */
+#decisionBody .pos-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+#decisionBody .pos-title{font-weight:700;color:#1f3350}
+#decisionBody .pos-badge-empty{background:#edf0f4;color:#3f4b5c}
+#decisionBody .pos-bar.is-empty .pos-notice{margin:0;color:#475569;font-size:13.5px}
+#decisionBody .pos-glance{display:flex;flex-direction:column;gap:6px}
+#decisionBody .pos-glance-h{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#475569}
+#decisionBody .pos-g{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:6px 10px;border-left:4px solid #94a3b8;border-radius:0 6px 6px 0;background:#fff}
+#decisionBody .pos-g-l{grid-column:1/-1;font-size:12px;font-weight:700;color:#334155}
+#decisionBody .pos-g-t{overflow-wrap:anywhere;color:#1f2937}
+#decisionBody .pos-g-go{align-self:start;min-height:32px;padding:2px 10px;border:1px solid #cbd5e1;border-radius:999px;background:#fff;color:#1f3350;font:600 12px/1.2 inherit;font-family:inherit;cursor:pointer}
+#decisionBody .pos-g-go:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
+#decisionBody .pos-legend-box,#decisionBody .pos-rely{font-size:12.5px;color:#475569}
+#decisionBody .pos-legend-box summary,#decisionBody .pos-rely summary{cursor:pointer;font-weight:600;color:#1f3350}
+#decisionBody .pos-legend-list{margin:6px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px}
+#decisionBody .pos-legend-list li{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+#decisionBody .pos-help{color:#5b6779;line-height:1.35}
+#decisionBody .pos-rely p{margin:4px 0 0}
+#decisionBody .pos-flag{margin:0;padding:8px 10px;border-radius:6px;font-size:13px;line-height:1.45}
+#decisionBody .pos-flag-memo{background:#fff1c9;color:#5c3f00;border:1px solid #f0d58a}
+#decisionBody .pos-flag-dissent{background:#fde8ec;color:#8a1530;border:1px solid #f3b5c1}
+#decisionBody .pos-dissent{background:#fde8ec;color:#8a1530;border:1px dashed #d9546f}
+#decisionBody .pos-b-dissent{border-left:4px dashed #d9546f}
+#decisionBody .pos-g.pos-b-applicant{border-left-color:#3b6cf0}
+#decisionBody .pos-g.pos-b-respondent{border-left-color:#e08a1e}
+#decisionBody .pos-g.pos-b-court{border-left-color:#2f9a55}
+@media(max-width:700px){
+ #decisionBody .pos-legend-list{grid-template-columns:minmax(0,1fr)}
+ #decisionBody .pos-g{padding:6px 8px}
+ #decisionBody .pos-g-go{min-height:44px;min-width:44px}
+ #decisionBody .pos-legend-box summary,#decisionBody .pos-rely summary{min-height:32px;display:flex;align-items:center}
 }

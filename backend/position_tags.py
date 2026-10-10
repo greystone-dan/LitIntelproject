@@ -29,11 +29,22 @@ LAYERS_DIR = Path(__file__).resolve().parents[1] / "data" / "position_layers"  #
 POSITION_LABELS: dict[str, str] = {
 	"applicant": "Applicant",
 	"respondent": "Respondent",
-	"earlier_decision_maker": "Earlier decision maker",
-	"court": "The Court",
-	"prior_court_or_authority": "Prior authority",
+	"earlier_decision_maker": "Earlier decision-maker",
+	"court": "The judge",
+	"prior_court_or_authority": "Earlier case or law",
 	"witness_or_document": "Witness or document",
 	"other": "Other",
+}
+
+# One plain sentence per tag, for the legend. Written for a reader who has never seen a decision laid out this way.
+POSITION_HELP: dict[str, str] = {
+	"applicant": "The person who brought the case (or appealed). Their side of the argument.",
+	"respondent": "The other side, usually the Minister or the government. Their side of the argument.",
+	"earlier_decision_maker": "The officer, board or tribunal whose decision is being reviewed.",
+	"court": "The judge writing this decision: facts found, reasoning and the ruling.",
+	"prior_court_or_authority": "A past court decision or rule of law that the paragraph leans on.",
+	"witness_or_document": "What a witness said or a document or report shows.",
+	"other": "Not clearly any one voice.",
 }
 
 # Nesting. A judicial review is nested: the judge (level 0) evaluates whether an earlier decision maker's decision
@@ -45,7 +56,7 @@ LAYERS: dict[str, dict[str, Any]] = {
 	"jr_party": {"label": "Argument to the Court", "depth": 1, "detected": True},
 	"earlier_decision": {"label": "Earlier decision", "depth": 1, "detected": True},
 	"first_instance": {"label": "Position reported in the earlier decision", "depth": 2, "detected": True},
-	"framework": {"label": "Legal framework", "depth": 1, "detected": True},
+	"framework": {"label": "Law and tests", "depth": 1, "detected": True},
 	"source": {"label": "Authority or document", "depth": 1, "detected": True},
 	"unknown": {"label": "Level not yet detected", "depth": None, "detected": False},
 }
@@ -62,9 +73,9 @@ LEGEND_NOTE = (
 	"indented furthest). Where the level of a paragraph is not known yet, it says so."
 )
 
-FRAMEWORK_LABEL = "Legal framework"
+FRAMEWORK_LABEL = "Law and tests"
 FRAMEWORK_NOTE = (
-	"Legal framework marks passages that comment on other decisions or on the law itself (what a case stands for, how a "
+	"Law and tests marks passages that comment on other decisions or on the law itself (what a case stands for, how a "
 	"test works). It sits beside the tag in grey and is not linked to the cited cases yet."
 )
 
@@ -77,6 +88,26 @@ KIND_LABELS: dict[str, str] = {
 	"issue": "Issue",
 	"procedure": "Procedure",
 }
+
+RELIABILITY_STORED = (
+	"How reliable are these tags? They were read ahead of time by an AI model and have not been checked by a lawyer. "
+	"In our checks, about 8 in 10 tags named the right voice. Summaries can miss nuance, and a paragraph that mixes "
+	"voices may carry two tags. Read the paragraph itself before relying on a tag."
+)
+RELIABILITY_RULES = (
+	"How reliable are these tags? They come from fixed cue phrases such as “the applicant submits”, with no AI. "
+	"A tag shows only that the phrase appears, not that the paragraph is entirely that voice, and paragraphs "
+	"without a cue phrase are left untagged. Not checked by a lawyer."
+)
+EMPTY_NOTE = (
+	"Not tagged yet. “Whose position” shows who is speaking in each paragraph (the judge, each side, the earlier "
+	"decision-maker). It is prepared ahead of time for a growing set of decisions ({count} so far) and is never "
+	"worked out when you open a page. This decision is not in that set yet."
+)
+EMPTY_NOTE_RULES = (
+	"No clear cue phrases found. For pasted documents the tags come from fixed phrases such as “the applicant "
+	"submits” or “I am not persuaded”. This text has none, so nothing is tagged."
+)
 
 PREVIEW_NOTICE_STORED = (
 	"Preview. Machine-generated from the decision text and not yet checked by a lawyer. "
@@ -173,14 +204,61 @@ def get_position_source() -> PositionSource:
 	return _SOURCE
 
 
+_DECIDED = re.compile(r"\b(dismiss|allows?|allowed|sets? aside|quash|remit|refus|denies|deny)", re.I)
+
+
+def _lead(row: dict[str, Any]) -> str:
+	return row["positions"][0]["key"]
+
+
+def _first(rows: dict[str, dict[str, Any]], key: str) -> tuple[str, dict[str, Any]] | None:
+	"""First paragraph (document order) where ``key`` is the lead voice and the paragraph argues something."""
+	ordered = sorted(rows.items(), key=lambda kv: int(kv[0]) if kv[0].isdigit() else 10**9)
+	for number, row in ordered:
+		if _lead(row) == key and row["summary"] and any(k in ("Argument", "Issue") for k in row["kinds"]):
+			return number, row
+	return None
+
+
+def stored_overview(rows: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+	"""One line per side from the stored summaries: what each side argued and what the judge decided.
+
+	Chosen by fixed rules (the first argument paragraph of each side; the last ruling that dismisses, allows,
+	sets aside or refuses), so the same data always gives the same lines. A side with no argument tagged is
+	simply left out rather than guessed.
+	"""
+	out: list[dict[str, Any]] = []
+	for key, label in (("applicant", "Applicant argued"), ("respondent", "Respondent argued")):
+		hit = _first(rows, key)
+		if hit:
+			out.append({"key": key, "label": label, "para": hit[0], "text": hit[1]["summary"]})
+	ordered = sorted(rows.items(), key=lambda kv: int(kv[0]) if kv[0].isdigit() else -1, reverse=True)
+	for number, row in ordered:
+		if _lead(row) == "court" and "Conclusion or order" in row["kinds"] and _DECIDED.search(row["summary"]):
+			out.append({"key": "court", "label": "The judge decided", "para": number, "text": row["summary"]})
+			break
+	return out
+
+
+def _common(mode: str) -> dict[str, Any]:
+	return {
+		"mode": mode,
+		"preview": True,
+		"reliability": RELIABILITY_STORED if mode == "stored" else RELIABILITY_RULES,
+		"legend_items": [{"key": k, "label": POSITION_LABELS[k], "help": POSITION_HELP[k]} for k in POSITION_LABELS],
+		"framework_label": FRAMEWORK_LABEL,
+	}
+
+
 def case_positions(case_id: int, source: PositionSource | None = None) -> dict[str, Any]:
 	"""The response for one stored decision."""
 	rows = (source or _SOURCE).paragraphs_for(case_id)
 	return {
+		**_common("stored"),
 		"case_id": case_id,
 		"available": rows is not None,
-		"mode": "stored",
-		"preview": True,
+		"overview": stored_overview(rows) if rows else [],
+		"empty_note": EMPTY_NOTE.format(count=len(stored_case_ids())),
 		"notice": PREVIEW_NOTICE_STORED,
 		"legend": LEGEND_NOTE,
 		"framework_note": FRAMEWORK_NOTE,
@@ -303,10 +381,16 @@ def rules_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, dict[s
 def live_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, Any]:
 	"""The response block that rides in the Live Analysis reader payload."""
 	rows = rules_positions(text, blocks)
+	overview = []
+	for key, label in (("applicant", "Applicant argued"), ("respondent", "Respondent argued"), ("court", "The judge wrote")):
+		hit = next(((n, r) for n, r in sorted(rows.items(), key=lambda kv: int(kv[0])) if _lead(r) == key), None)
+		if hit:
+			overview.append({"key": key, "label": label, "para": hit[0], "text": "First cue: \u201c" + (hit[1]["cue"] or "") + "\u201d"})
 	return {
+		**_common("rules"),
 		"available": bool(rows),
-		"mode": "rules",
-		"preview": True,
+		"overview": overview,
+		"empty_note": EMPTY_NOTE_RULES,
 		"notice": PREVIEW_NOTICE_RULES,
 		"legend": LEGEND_NOTE,
 		"framework_note": FRAMEWORK_NOTE,

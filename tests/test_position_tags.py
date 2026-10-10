@@ -128,3 +128,26 @@ def test_reader_script_only_tags_paragraphs_the_page_has() -> None:
 	js = (PAGES / "reader_positions.js").read_text(encoding="utf-8")
 	assert "data.paragraphs[String(p.dataset.para)]" in js  # tags are looked up from the page's own paragraphs
 	assert "real.has(n)" in js  # the legend ignores stored numbers that are not in the decision
+
+
+def test_stored_overview_gives_one_line_per_side_and_the_ruling() -> None:
+	overview = {row["key"]: row for row in case_positions(28105)["overview"]}
+	assert {"applicant", "respondent", "court"} <= set(overview)
+	assert overview["court"]["para"] == "42" and "dismisses" in overview["court"]["text"]
+	assert overview["applicant"]["para"] == "22"
+
+
+def test_responses_carry_plain_language_legend_reliability_and_empty_notes() -> None:
+	stored = case_positions(28105)
+	assert {i["key"] for i in stored["legend_items"]} == set(POSITION_LABELS) and all(i["help"] for i in stored["legend_items"])
+	assert "8 in 10" in stored["reliability"] and "Not tagged yet" in stored["empty_note"]
+	untagged = case_positions(999999999)
+	assert untagged["available"] is False and untagged["overview"] == [] and str(len(stored_case_ids())) in untagged["empty_note"]
+	live = rules_positions("x", [])
+	assert live == {}
+
+
+def test_script_marks_memoranda_dissents_and_tribunal_wording() -> None:
+	js = (PAGES / "reader_positions.js").read_text(encoding="utf-8")
+	for needle in ("not a decision", "has a dissent", "Dissenting judge", "The Member", "Position put to the Member", "Not tagged yet", "data-pos-go"):
+		assert needle in js

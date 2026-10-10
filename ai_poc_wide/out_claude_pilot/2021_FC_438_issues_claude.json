@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_438",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's refusal to admit the new topography evidence reasonable?",
+        "paras": "10-17",
+        "applicant_position": "New articles and reports were relevant and corroborated his testimony on topography work; RAD wrongly excluded them.",
+        "respondent_position": "RAD reasonably found the evidence not relevant to the determinative facts (para 14).",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I agree with the respondent that the RAD acted reasonably in assessing the admissibility of the new evidence"
+      },
+      {
+        "issue": "Does the RAD's conduct or wording raise a reasonable apprehension of bias?",
+        "paras": "18-24",
+        "applicant_position": "RAD had decided the appeal early and made unjustified accusations, showing bias.",
+        "respondent_position": "Allegations rest on impressions and assumptions; no reasonable apprehension of bias (para 23).",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "They do not raise any reasonable apprehension of bias."
+      }
+    ]
+  }
+}

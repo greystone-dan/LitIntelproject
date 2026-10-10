@@ -1,0 +1,20 @@
+{
+  "case_id": "2021_FC_1420",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RAD's state-protection analysis reasonable, given its reasons mostly adopted the RPD's?",
+        "paras": "11-19",
+        "applicant_position": "RAD reasons are conclusory: they mostly adopted the RPD and never addressed the X (Re) decision. Decision fails Vavilov justification.",
+        "respondent_position": "RAD reasons adequate; RAD substantively addressed the race argument (para 16).",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "the RAD Decision does not bear the hallmarks of reasonableness, namely, justification, transparency and intelligibility"
+      }
+    ]
+  }
+}

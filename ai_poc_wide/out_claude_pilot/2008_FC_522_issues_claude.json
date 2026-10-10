@@ -1,0 +1,38 @@
+{
+  "case_id": "2008_FC_522",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review for a state protection finding?",
+        "paras": "6-12",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 11,
+        "result_quote": "I would have decided this matter on the reasonableness standard prior to Dunsmuir."
+      },
+      {
+        "issue": "Did the RPD err in its assessment of state protection for battered women in Ukraine?",
+        "paras": "13-21",
+        "applicant_position": "RPD relied on NGO efforts and laws on the books rather than evidence of actual protection; ignored police chief's evidence.",
+        "respondent_position": "RPD properly considered Ukrainian legislative efforts; protection need not be perfect; the finding was reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "the conclusion that state protection for victims of domestic violence in the Ukraine is adequate was a reasonable finding on all of the evidence."
+      },
+      {
+        "issue": "Did the RPD wrongly give little weight to letters from the applicant's sister and friend?",
+        "paras": "22-23",
+        "applicant_position": "RPD wrongly gave little weight to letters from her sister and friends merely because they were not disinterested parties.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "it was unreasonable of the RPD to give little weight to the letters from the applicant’s friends"
+      }
+    ]
+  }
+}

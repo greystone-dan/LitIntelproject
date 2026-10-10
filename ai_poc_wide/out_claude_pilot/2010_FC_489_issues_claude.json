@@ -1,0 +1,38 @@
+{
+  "case_id": "2010_FC_489",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the challenge to the enforcement officer's refusal to defer removal (IMM-2639-09) moot?",
+        "paras": "1",
+        "applicant_position": "Agreed the deferral challenge is moot (para 1).",
+        "respondent_position": "Agreed the deferral challenge is moot (para 1).",
+        "result": "moot_or_procedural",
+        "result_para": 1,
+        "result_quote": "It is, as the parties agreed, moot because Justice O’Keefe granted an emergency stay"
+      },
+      {
+        "issue": "Did the PRRA officer unreasonably reject the new letter evidence as not 'new' under s. 113(a)?",
+        "paras": "17-26",
+        "applicant_position": "Letters showed a continuing, present risk and differed from RPD evidence; officer skipped the new-evidence factors.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "It was unreasonable to reject the evidence as not new."
+      },
+      {
+        "issue": "Was the state-protection finding reasonable, given it did not address the applicant's personal circumstances?",
+        "paras": "15, 27-28",
+        "applicant_position": "State protection analysis ignored her personal risk and her past unsuccessful efforts to obtain police help.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "The assessment of state protection in this case is unreasonable because it did not address the"
+      }
+    ]
+  }
+}

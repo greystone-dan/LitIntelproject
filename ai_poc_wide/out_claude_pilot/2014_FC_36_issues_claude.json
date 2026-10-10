@@ -1,0 +1,29 @@
+{
+  "case_id": "2014_FC_36",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 49,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the officer's findings on establishment, family support and family in Pakistan reasonable?",
+        "paras": "25-28, 41-43",
+        "applicant_position": "Findings on establishment, family support and family in Pakistan were perverse and ignored evidence of his support.",
+        "respondent_position": "Applicant merely disputes how the officer weighed the evidence; the officer considered it all reasonably.",
+        "result": "dismissed_for_applicant",
+        "result_para": 43,
+        "result_quote": "These findings are reasonable and well within the range set out in para 47 of Dunsmuir"
+      },
+      {
+        "issue": "Did the officer selectively use or ignore country evidence on Hazara-Shia risk and state protection?",
+        "paras": "29-30, 44-48",
+        "applicant_position": "Officer ignored UK report evidence of Shia persecution and police corruption, using evidence selectively.",
+        "respondent_position": "Officer reasonably considered the country evidence, recognised protection gaps, and found safer areas in Pakistan.",
+        "result": "allowed_for_applicant",
+        "result_para": 48,
+        "result_quote": "As these quotations reveal, the Officer made selective use of the evidence and ignored what specifically did not support his or her conclusions."
+      }
+    ]
+  }
+}

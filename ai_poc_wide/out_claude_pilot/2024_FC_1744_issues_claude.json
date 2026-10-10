@@ -1,0 +1,38 @@
+{
+  "case_id": "2024_FC_1744",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 59,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Delegate err by not convening an oral hearing (procedural fairness)?",
+        "paras": "38-44",
+        "applicant_position": "Delegate should have held an oral hearing under s. 10(4) because a serious credibility issue existed.",
+        "respondent_position": "No hearing needed: Onate admitted misrepresentations, did not put credibility in issue, and the facts are undisputed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "The Minister’s Delegate did not breach the duty of procedural fairness owed to Mr. Onate."
+      },
+      {
+        "issue": "Was the revocation decision reasonable in its treatment of personal circumstances and children's best interests?",
+        "paras": "46-58",
+        "applicant_position": "Delegate failed to consider his personal circumstances and children's best interests, and wrongly called hardship premature.",
+        "respondent_position": "Delegate considered submissions; hardship and children's impact premature since revocation is not removal; best-interests analysis not required.",
+        "result": "dismissed_for_applicant",
+        "result_para": 59,
+        "result_quote": "In conclusion, the Minister’s Delegate’s decision is reasonable."
+      },
+      {
+        "issue": "Did the Delegate reasonably conclude citizenship was obtained by misrepresentation despite the claimed innocent mistake?",
+        "paras": "3, 28, 39, 42-43",
+        "applicant_position": "Innocent mistake: he believed his old identity was erased, and used the other name to escape persecution.",
+        "respondent_position": "Ignorance of the law is no excuse; belief not objectively reasonable; misrepresentations were repeated and admitted.",
+        "result": "dismissed_for_applicant",
+        "result_para": 3,
+        "result_quote": "The Minister’s Delegate reasonably concluded that Mr. Onate had obtained his citizenship as a result of his misrepresentation."
+      }
+    ]
+  }
+}

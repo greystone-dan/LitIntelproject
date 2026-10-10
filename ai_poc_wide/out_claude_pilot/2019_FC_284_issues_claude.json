@@ -1,0 +1,38 @@
+{
+  "case_id": "2019_FC_284",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 16,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer wrongly treat the applicant's never having travelled in Canada or outside China as relevant?",
+        "paras": "9-11",
+        "applicant_position": "Lack of travel is irrelevant to a self-employed-class visa and was wrongly weighed against him.",
+        "respondent_position": "Travel and uniqueness were part of the business-plan adequacy assessment, so relevant.",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "The fact that the applicant has never travelled to Canada or outside China is indeed irrelevant"
+      },
+      {
+        "issue": "Did the officer wrongly require the applicant to show uniqueness in his profession?",
+        "paras": "9, 12-13",
+        "applicant_position": "Requiring uniqueness among graphic designers is an unsupported burden the Act and Regulations do not impose.",
+        "respondent_position": "Uniqueness was part of the business-plan adequacy assessment, so relevant.",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "nothing in the Act or Regulations imposes such a high burden on an applicant for a visa in the self-employed class"
+      },
+      {
+        "issue": "Should the visa refusal be set aside and the application sent to another officer?",
+        "paras": "14-16",
+        "applicant_position": "Reliance on irrelevant factors means the refusal must be set aside.",
+        "respondent_position": "Factors were part of the business-plan assessment, so no reason to interfere with the decision.",
+        "result": "allowed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I find that the appropriate solution in the circumstances is to return the case to another visa officer for reconsideration"
+      }
+    ]
+  }
+}

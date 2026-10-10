@@ -1,0 +1,29 @@
+{
+  "case_id": "2009_FC_749",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 35,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Officer misunderstand or fail to properly take into account the psychological report when assessing the testimony?",
+        "paras": "21-31",
+        "applicant_position": "Officer misunderstood the psychological report and failed to consider it when assessing testimony (paras 21, 24).",
+        "respondent_position": "Relied on Garay Moscol: omission to comment on a psychological report is not an error absent a connection (para 29).",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "In the result, I am satisfied that the Applicant simply cannot succeed on this ground"
+      },
+      {
+        "issue": "Was the general non-credibility finding reasonably open to the Officer on the evidence?",
+        "paras": "22, 31-32",
+        "applicant_position": "Credibility and plausibility findings were made without regard to the evidence or on no evidence; the decision is unreasonable (para 21).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "I find no basis to conclude that the Officer ignored or failed to adequately take into account any element of the totality of the evidence"
+      }
+    ]
+  }
+}

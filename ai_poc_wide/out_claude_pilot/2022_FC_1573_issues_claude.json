@@ -1,0 +1,38 @@
+{
+  "case_id": "2022_FC_1573",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 31,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD reasonably assess the political-persecution evidence (principal's role, 2014 warrant, lawyer's letter, death certificate, medical note)?",
+        "paras": "22-25",
+        "applicant_position": "RAD erred in assessing the principal's role, the 2014 warrant, a lawyer's letter, a death certificate and a medical note.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "The RAD’s assessment with respect to the evidence was clear, reasonable and entitled to deference"
+      },
+      {
+        "issue": "Did the RAD reasonably draw a negative inference from the applicants' delay in claiming refugee protection?",
+        "paras": "26-28",
+        "applicant_position": "Delay is seldom decisive; applicants need not seek immediate protection when there is no risk of removal.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "Based on the facts in this case, the RAD reasonably drew a negative inference from the Applicants’ delay."
+      },
+      {
+        "issue": "Did the RAD wrongly import the principal applicant's findings into the associate applicant's claim?",
+        "paras": "29-30",
+        "applicant_position": "RAD failed to consider the associate applicant's claim independently by importing the principal's findings.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "I find no such error in the RAD’s analysis."
+      }
+    ]
+  }
+}

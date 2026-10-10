@@ -1,0 +1,38 @@
+{
+  "case_id": "2018_FC_923",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Manager fail to consider whether the misrepresentation was honestly and reasonably made?",
+        "paras": "14-17",
+        "applicant_position": "Manager ignored his evidence that the misrepresentation was honest and reasonable, given the third party's conduct.",
+        "respondent_position": "Applicant blames a third party; the innocent misrepresentation exception is narrow and not met on this evidence.",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I agree with the Applicant that the Manager failed to consider whether the Applicant honestly and reasonably believed he was not withholding material information."
+      },
+      {
+        "issue": "Was the procedural fairness letter deficient?",
+        "paras": "12, 18",
+        "applicant_position": "Applicant argued the procedural fairness letter was deficient.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 18,
+        "result_quote": "it is unnecessary to consider the remaining issues that arise in this case."
+      },
+      {
+        "issue": "Did the Manager fail to consider the totality of the evidence?",
+        "paras": "12, 18",
+        "applicant_position": "Applicant argued the Manager did not consider the totality of the evidence.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 18,
+        "result_quote": "it is unnecessary to consider the remaining issues that arise in this case."
+      }
+    ]
+  }
+}

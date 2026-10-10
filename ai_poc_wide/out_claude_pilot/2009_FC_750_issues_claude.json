@@ -1,0 +1,29 @@
+{
+  "case_id": "2009_FC_750",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Board commit a reviewable error in its assessment of the applicant's credibility?",
+        "paras": "10-23",
+        "applicant_position": "Board committed a reviewable error in assessing his credibility.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "It was thus not unreasonable for the Board to doubt the applicant’s credibility."
+      },
+      {
+        "issue": "Was the applicant unfairly confronted with exhibit A-3 at the hearing?",
+        "paras": "20-21",
+        "applicant_position": "Applicant was not prepared to be confronted with exhibit A-3 at the hearing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "cannot be accepted because this document was sent to his consultant."
+      }
+    ]
+  }
+}

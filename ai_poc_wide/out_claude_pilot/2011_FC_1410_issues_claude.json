@@ -1,0 +1,38 @@
+{
+  "case_id": "2011_FC_1410",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Board unreasonably draw a negative inference from the absence of PSB summonses?",
+        "paras": "7-9",
+        "applicant_position": "Board ignored documentary evidence that the PSB does not usually leave summonses with family, so the inference was unreasonable.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "the Board’s finding was reasonable."
+      },
+      {
+        "issue": "Did the Board unreasonably find he was not a genuine practising Christian by assessing his knowledge rather than conviction?",
+        "paras": "10-13",
+        "applicant_position": "Board assessed his knowledge rather than his religious conviction, which is the test for sincerity.",
+        "respondent_position": "Board found his answers were based on memory, not genuine faith; no error.",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "it is not an error for the Board to consider the applicant’s level of knowledge of Christianity in assessing the sincerity of his religious beliefs."
+      },
+      {
+        "issue": "Did the Board unreasonably find no risk of religious persecution in Fujian without a recent incident?",
+        "paras": "14-19",
+        "applicant_position": "Board wrongly required at least one incident of persecution since 2006 before finding a risk.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "In sum, the Board’s decision falls within the “range of possible, acceptable outcomes that are defensible in respect of the facts and the law”"
+      }
+    ]
+  }
+}

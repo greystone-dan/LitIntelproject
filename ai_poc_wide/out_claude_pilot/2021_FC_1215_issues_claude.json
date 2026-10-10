@@ -1,0 +1,29 @@
+{
+  "case_id": "2021_FC_1215",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD reasonably make the negative credibility finding on the visa-form work-location contradiction and extend it to the documents?",
+        "paras": "16-27",
+        "applicant_position": "Credibility finding on visa-form work-location contradiction was unreasonable; misreading of the question, Rasheed on false information to escape, and documents wrongly discounted.",
+        "respondent_position": "Explanations (misreading the question, psychological state) were never raised before the RPD; document weight was reasonable given credibility.",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I am not persuaded that a reviewable error arises with respect to the RPD’s credibility findings or its treatment of the Access News Magazine article."
+      },
+      {
+        "issue": "Was the RPD's finding that the claim is manifestly unfounded (s. 107.1) reasonable?",
+        "paras": "28-33",
+        "applicant_position": "A misstatement on a visa form, made to escape persecution, should not make the claim manifestly unfounded; relies on Yuan.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "the RPD reasonably determined that his claim was manifestly unfounded."
+      }
+    ]
+  }
+}

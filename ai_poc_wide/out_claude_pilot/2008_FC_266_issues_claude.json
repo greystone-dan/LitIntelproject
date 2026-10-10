@@ -1,0 +1,38 @@
+{
+  "case_id": "2008_FC_266",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the Board err by not deciding whether the applicant was a practising Christian?",
+        "paras": "21-25",
+        "applicant_position": "Board failed to rule on whether she is a practising Christian, a finding needed before assessing objective fear.",
+        "respondent_position": "Lack of credibility was determinative; the Board's finding that she was not in an underground church was reasonable.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I am of the view that the Board made a reviewable error."
+      },
+      {
+        "issue": "Did the Board misconstrue the evidence on the seized Bible and the interpreter's translation?",
+        "paras": "15, 18",
+        "applicant_position": "Applicant said the PSB only got hold of her Bible, so no receipt was expected; Qian affidavit supports this.",
+        "respondent_position": "Original interpreter's translation should be preferred; the Bible receipt finding is one minor point.",
+        "result": "not_decided",
+        "result_para": 26,
+        "result_quote": "Because of my finding on this issue, I will not decide the remaining issues."
+      },
+      {
+        "issue": "Did the Board err in failing to consider the employer's dismissal letter?",
+        "paras": "16, 19",
+        "applicant_position": "Board had to expressly assess the employer letter, which corroborates underground church practice and contradicts its main finding.",
+        "respondent_position": "Letter lacked testimony or reliable support, so little weight; Board need not mention all evidence.",
+        "result": "not_decided",
+        "result_para": 26,
+        "result_quote": "Because of my finding on this issue, I will not decide the remaining issues."
+      }
+    ]
+  }
+}

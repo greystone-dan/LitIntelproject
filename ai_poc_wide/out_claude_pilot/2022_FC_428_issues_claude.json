@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FC_428",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer refuse reconsideration at the first stage, or reconsider the H&C decision on the merits without adequate reasons?",
+        "paras": "12-20",
+        "applicant_position": "Officer actually reconsidered on the merits, assessing new evidence superficially without adequate justification.",
+        "respondent_position": "Officer refused at the first stage only; reviewed the new evidence and explained the refusal, which is all the law requires.",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "There is little question that, as a second stage decision, the Reconsideration Decision is not reasonable."
+      },
+      {
+        "issue": "Was it unreasonable to refuse reconsideration only because the new evidence could have been submitted earlier?",
+        "paras": "21",
+        "applicant_position": "Refusal rested solely on timing; the officer had to address other IRCC reconsideration factors.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "An officer is not required to refer to factors in the IRCC guidelines that are not relevant to the reconsideration request under review."
+      }
+    ]
+  }
+}

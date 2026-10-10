@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_189",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 54,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the IAD err in concluding Ms. Ukhueduan was not a member of the PDP before 2011?",
+        "paras": "17-24",
+        "applicant_position": "IAD imposed a new active-member threshold; any admitted membership counts, so she was a member from 2006.",
+        "respondent_position": "Argued no 2006 membership appears in her forms; supported the IAD view that pre-2011 involvement was not active membership.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the IAD’s analysis and conclusion is clearly inconsistent with the jurisprudence regarding the unrestricted and broad interpretation of the term"
+      },
+      {
+        "issue": "Did the IAD err in applying a temporal component to whether the PDP engaged in acts under paragraph 34(1)(f)?",
+        "paras": "30-38",
+        "applicant_position": "Paragraph 34(1)(f) has no temporal component; membership need not match when the organization's acts occurred.",
+        "respondent_position": "Change in circumstances after the PDP moved toward democracy; the Abdullah and El Werfalli exception should apply to her.",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "There is no temporal component to the analysis contemplated in paragraph 34(1)(f) of the IRPA, whether for the organization or for its members."
+      },
+      {
+        "issue": "Should the proposed question on active involvement and timing be certified?",
+        "paras": "40-45",
+        "applicant_position": "Question should be certified: must a member be actively involved when the organization acted, and is there a temporal component?",
+        "respondent_position": "Asked the Court to narrow the too-broad definition of member and reconsider the current law.",
+        "result": "dismissed_for_applicant",
+        "result_para": 45,
+        "result_quote": "Accordingly, there are no grounds to certify the proposed question."
+      }
+    ]
+  }
+}

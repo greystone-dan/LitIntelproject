@@ -1,0 +1,29 @@
+{
+  "case_id": "2012_FC_1519",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 46,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the appropriate standard of review?",
+        "paras": "22-24",
+        "applicant_position": "not stated",
+        "respondent_position": "Reasonableness is the appropriate standard of review.",
+        "result": "moot_or_procedural",
+        "result_para": 23,
+        "result_quote": "Assessments of the adequacy of state protection raise questions of mixed fact and law and is also reviewable against a standard of reasonableness"
+      },
+      {
+        "issue": "Did the Board err in rejecting the claim, by misstating the state protection test and weighing the evidence?",
+        "paras": "25-43",
+        "applicant_position": "Board misstated the state protection test (serious efforts, not actual effectiveness), ignored evidence of police failure and weighed documents unfairly.",
+        "respondent_position": "Test is whether protection was adequate; Board weighed the evidence and reasonably found no clear and convincing evidence of inadequate protection.",
+        "result": "allowed_for_applicant",
+        "result_para": 43,
+        "result_quote": "This decision is unreasonable because it conflicts with the Dunsmuir above"
+      }
+    ]
+  }
+}

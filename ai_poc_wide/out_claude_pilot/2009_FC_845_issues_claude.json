@@ -1,0 +1,38 @@
+{
+  "case_id": "2009_FC_845",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review for generalized versus personalized risk?",
+        "paras": "19",
+        "applicant_position": "Reasonableness applies.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 19,
+        "result_quote": "then the standard of review is reasonableness, since this is a question of mixed fact and law."
+      },
+      {
+        "issue": "Did the Board err in finding the risk from gangs to business people was generalized rather than personalized?",
+        "paras": "16-25",
+        "applicant_position": "Targeted because of perceived wealth as business people; a heightened subgroup risk is personalized, not generalized (Salibian).",
+        "respondent_position": "Criminal targeting of business people is generalized risk, settled by recent jurisprudence (Prophète, Vickram).",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "That determination, based on the evidence was not unreasonable; neither was the finding of generalized risk."
+      },
+      {
+        "issue": "Did the Board base its state protection finding on an erroneous finding of fact, ignoring documents?",
+        "paras": "26-29",
+        "applicant_position": "No obligation to seek state protection where it would be unavailable; Board ignored documents showing state protection failures.",
+        "respondent_position": "Applicants failed to rebut the presumption of state protection with clear and convincing evidence.",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "The Applicants failed to lead clear and convincing evidence to rebut the presumption of state protection and the Board’s conclusion was reasonable"
+      }
+    ]
+  }
+}

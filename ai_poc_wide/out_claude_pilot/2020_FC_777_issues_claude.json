@@ -1,0 +1,29 @@
+{
+  "case_id": "2020_FC_777",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 46,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer apply the wrong test in assessing the best interests of the children?",
+        "paras": "17-29",
+        "applicant_position": "Officer gave generic best-interests finding, used a basic-needs approach and an implicit hardship threshold.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "I am not persuaded that the Officer applied the wrong legal test"
+      },
+      {
+        "issue": "Did the officer err in the analysis of the applicants' establishment in Canada?",
+        "paras": "30-45",
+        "applicant_position": "Officer discounted establishment against an unexplained expected standard and ignored supplementary evidence on jobs and work.",
+        "respondent_position": "Officer is presumed to have considered all evidence; the ignored submissions show precarious employment.",
+        "result": "allowed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I am persuaded that the Applicants have demonstrated flaws in the Officer’s analysis of the degree of establishment in Canada"
+      }
+    ]
+  }
+}

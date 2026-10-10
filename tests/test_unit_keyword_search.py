@@ -130,3 +130,11 @@ def test_boilerplate_dispositions_rank_after_analysis():
 		{"paragraph_number": 6, "match_score": 4, "case_score": 0.5, "role": "analysis", "id": "analysis"},
 	]
 	assert [r["id"] for r in unit_search.rank_results(rows)] == ["analysis", "disp"]
+
+
+def test_boilerplate_hits_are_dropped_only_when_enough_real_hits_exist():
+	real = [{"id": f"a{n}", "role": "analysis"} for n in range(3)]
+	boiler = [{"id": "disp", "role": "disposition"}, {"id": "meta", "role": "metadata"}]
+	assert [r["id"] for r in unit_search.drop_boilerplate(real + boiler)] == ["a0", "a1", "a2"]
+	few = real[:2] + boiler
+	assert unit_search.drop_boilerplate(few) == few

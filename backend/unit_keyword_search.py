@@ -133,6 +133,20 @@ def rank_results(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
 	)
 
 
+BOILERPLATE_ROLES = {"disposition", "metadata"}
+MIN_REAL_RESULTS = 3
+
+
+def drop_boilerplate(ranked: list[dict[str, Any]]) -> list[dict[str, Any]]:
+	"""Remove disposition and cover units when at least MIN_REAL_RESULTS other units matched.
+
+	Their matches are mostly dismissal wording, costs and footnotes. With few real hits they stay, so a query whose
+	only matches are in the order block still returns something.
+	"""
+	real = [r for r in ranked if r["role"] not in BOILERPLATE_ROLES]
+	return real if len(real) >= MIN_REAL_RESULTS else ranked
+
+
 COURT_NAMES = {
 	"FC": "FEDERAL COURT",
 	"FCA": "FEDERAL COURT OF APPEAL",
@@ -208,4 +222,4 @@ def search_units(
 		if unit is None:
 			continue
 		results.append({"case_id": case.id, **_case_meta(case), **unit, "case_score": hit["score"]})
-	return {"query": query, "note": UNIT_SEARCH_NOTE, "truncated": truncated, "results": rank_results(results)[:limit]}
+	return {"query": query, "note": UNIT_SEARCH_NOTE, "truncated": truncated, "results": drop_boilerplate(rank_results(results))[:limit]}

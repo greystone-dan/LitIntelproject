@@ -1,0 +1,56 @@
+{
+  "case_id": "VB0_03237",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 67,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's testimony credible enough to rely on?",
+        "paras": "19-30",
+        "applicant_position": "Claimant says the interpreter misunderstood him about the songs; he disputes the credibility concerns.",
+        "respondent_position": "Minister says Tamil sources can be unreliable and evidence may be confected.",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "Given all of these concerns about his testimony, I find that the presumption of truthfulness is unsustainable."
+      },
+      {
+        "issue": "Does the claimant have a genuine fear and a serious chance of detention and torture on return to Sri Lanka?",
+        "paras": "31-63",
+        "applicant_position": "Claimant fears detention and torture as a returning MV Sun Sea passenger with LTTE links.",
+        "respondent_position": "Minister says no reason exists to mistreat him; relatively few passengers found LTTE-linked.",
+        "result": "allowed_for_applicant",
+        "result_para": 63,
+        "result_quote": "On the evidence, I find that there is a serious chance that the claimant will be detained and tortured in Sri Lanka, for the reasons cited above."
+      },
+      {
+        "issue": "Is there a Convention nexus, namely imputed political opinion?",
+        "paras": "43-46",
+        "applicant_position": "Claimant perceived as Tamil with a remote LTTE connection; imputed political opinion.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 46,
+        "result_quote": "Accordingly, I find that the claimant has a nexus to the Convention on the ground of his imputed political opinion"
+      },
+      {
+        "issue": "Are state protection and internal flight alternatives available?",
+        "paras": "64",
+        "applicant_position": "Source of feared torture is the state or its paramilitary allies, so no protection or IFA.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 64,
+        "result_quote": "state protection and internal flight alternatives are not available to the claimant."
+      },
+      {
+        "issue": "Whether other grounds of risk under s.97 must be analysed",
+        "paras": "65",
+        "applicant_position": "Claimant relies on the sur place risk from the MV Sun Sea voyage.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 65,
+        "result_quote": "Given my positive protection finding on the sur place claim, there is no point in analysing any other basis of risk to the claimant in Sri Lanka."
+      }
+    ]
+  }
+}

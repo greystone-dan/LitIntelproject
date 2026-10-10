@@ -1,0 +1,56 @@
+{
+  "case_id": "TB6_01303",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 30,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the new evidence is admissible on appeal",
+        "paras": "12",
+        "applicant_position": "Filed a new evidence statement but identified no new evidence.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "The RAD, therefore, makes a finding that there is no new evidence that is admissible in the appeal."
+      },
+      {
+        "issue": "Whether the RPD erred by not assessing the cumulative effect of discrimination and assaults",
+        "paras": "14-17, 26-27",
+        "applicant_position": "Cumulative discrimination, segregation and assaults amount to persecution; RPD assessed them one by one.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "The RAD agrees with the Appellants' submission that the RPD considered the issues of education, healthcare, housing, employment and physical assaults individually"
+      },
+      {
+        "issue": "Whether the RAD should itself find the Appellants to be Convention refugees or persons in need of protection",
+        "paras": "28",
+        "applicant_position": "Asked the RAD to find them Convention refugees on the existing record.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "The RAD finds that the evidence on the record is not sufficient for the RAD to make its own determination on the cumulative effect of these matters."
+      },
+      {
+        "issue": "Whether state protection and an internal flight alternative are available",
+        "paras": "20, 29",
+        "applicant_position": "No adequate state protection for Roma, and no IFA because racism is not limited to one area.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 29,
+        "result_quote": "Therefore, the RAD is unable to make a decision without hearing evidence that was presented to the RPD."
+      },
+      {
+        "issue": "Whether the matter should go back to the RPD for redetermination",
+        "paras": "29-30",
+        "applicant_position": "Alternatively asked for the matter to be returned to the RPD.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "The matter is returned to the RPD for redetermination."
+      }
+    ]
+  }
+}

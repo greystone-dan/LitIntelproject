@@ -1,0 +1,47 @@
+{
+  "case_id": "MB1_05934",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 31,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's identity as an Indian citizen established?",
+        "paras": "1-2",
+        "applicant_position": "Claimant says he is an Indian citizen and provided a copy of his passport.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 2,
+        "result_quote": "The tribunal is satisfied with the identity of the claimant."
+      },
+      {
+        "issue": "Is the claimant credible, given his student visa misrepresentation and late refugee claim?",
+        "paras": "13-20",
+        "applicant_position": "Claimant says he did not know he could claim refugee status on arrival and that the visa was arranged by an agent.",
+        "respondent_position": "Minister argues claimant lacks credibility, misrepresented his student visa and seeks to enter for economic reasons.",
+        "result": "allowed_for_applicant",
+        "result_para": 14,
+        "result_quote": "the tribunal is satisfied that there were no major inconsistencies nor were there contradictions between his testimony and other evidence before the tribunal which was not explained with satisfaction"
+      },
+      {
+        "issue": "Did the claimant come to Canada for economic reasons or because of fear of persecution?",
+        "paras": "21-23",
+        "applicant_position": "Claimant says he left India out of fear of his uncle and the police, not for economic reasons.",
+        "respondent_position": "Minister argues the claimant is claiming for economic reasons.",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The tribunal does not believe the claimant came to Canada for economic reasons."
+      },
+      {
+        "issue": "Does the claimant face a risk of persecution from his uncle and the Indian police, given state protection and internal flight?",
+        "paras": "13-30",
+        "applicant_position": "Claimant fears his uncle, a politician with police links, and the police who refused his complaint if he returns to India.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "there remains a risk of persecution beyond a \"mere possibility\" by his uncle"
+      }
+    ]
+  }
+}

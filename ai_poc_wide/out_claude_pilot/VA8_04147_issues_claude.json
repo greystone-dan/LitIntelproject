@@ -1,0 +1,56 @@
+{
+  "case_id": "VA8_04147",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant stateless, or is she a citizen of Ethiopia?",
+        "paras": "5-8",
+        "applicant_position": "Claimant says she is stateless and that her Ethiopian passport, obtained by bribe, is not valid.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "I therefore find that the claimant is a citizen of Ethiopia."
+      },
+      {
+        "issue": "Does the claimant face a well-founded fear of persecution in Ethiopia as a woman of Eritrean descent with no family there?",
+        "paras": "7-11",
+        "applicant_position": "Claimant fears being deported to Eritrea and cannot find work or safety in Ethiopia as a woman of Eritrean origin.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "Such mistreatment, on a cumulative basis, would amount to persecution."
+      },
+      {
+        "issue": "Does the claimant face a well-founded fear of gender-related violence as a military conscript in Eritrea?",
+        "paras": "13-15",
+        "applicant_position": "Claimant fears forced drafting into Eritrea's military, where women conscripts face sexual violence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "This evidence leads me to conclude that there is a serious possibility that the claimant will face gender-related violence as a military conscript in Eritrea."
+      },
+      {
+        "issue": "Is state protection or an internal flight alternative available to the claimant in Ethiopia and Eritrea?",
+        "paras": "12-16",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "there is no internal flight alternative available to the claimant."
+      },
+      {
+        "issue": "Is the claimant excluded under Article 1E of the Refugee Convention because of her Saudi Arabia work status?",
+        "paras": "6",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 6,
+        "result_quote": "exclusion according to Article 1 E of the Refugee Convention is not an issue in this claim."
+      }
+    ]
+  }
+}

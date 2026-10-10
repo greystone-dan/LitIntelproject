@@ -1,0 +1,56 @@
+{
+  "case_id": "MB9_09856",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Were the RPD's credibility findings on the Appellants' allegations sound?",
+        "paras": "20",
+        "applicant_position": "RPD identified no credibility concerns; the Appellants' testimony and documents should be accepted.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "Upon reviewing the Appellants' record, I am unable to identify any material contradictions, inconsistencies or omissions that go to the heart of Mrs. XXXX claim."
+      },
+      {
+        "issue": "Should the ten online articles be admitted as new evidence?",
+        "paras": "13-19",
+        "applicant_position": "The online articles are new evidence that should be admitted to show the IFAs are unreasonable.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "As such, I find those articles are inadmissible and do not fall within the meaning of \"new evidence\""
+      },
+      {
+        "issue": "For Mrs. XXXX, is there a serious possibility of persecution in the proposed IFAs (first prong)?",
+        "paras": "21-26",
+        "applicant_position": "Mrs. XXXX faces risk in Ibadan and Port Harcourt given the large government-employed family and her social-media business.",
+        "respondent_position": "RPD found the family could not locate them in the IFAs; respondent position not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "Consequently, I find that Mrs. XXXX faces more than a mere possibility of persecution in the IFAs."
+      },
+      {
+        "issue": "For Mr. XXXX and the Minor Appellant, is there a serious possibility of persecution in the IFAs (first prong)?",
+        "paras": "27-30",
+        "applicant_position": "Threats, the security detail and the family's reach mean Mr. XXXX and the Minor face risk in the IFAs.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 29,
+        "result_quote": "As such and after my independent assessment, I find that there is no more than a mere possibility that Mr. XXXX will be persecuted in Ibadan and/or Port Harcourt."
+      },
+      {
+        "issue": "Are Ibadan and Port Harcourt reasonable IFAs for Mr. XXXX and the Minor Appellant (second prong)?",
+        "paras": "31-35",
+        "applicant_position": "Relocation is unreasonable given health and medical access needs, plus the barriers faced by a single father with a child.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "there is no evidence on the record to indicate that the Minor Appellant would be unable to access education, social, health or other essential services"
+      }
+    ]
+  }
+}

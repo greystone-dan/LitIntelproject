@@ -1,0 +1,47 @@
+{
+  "case_id": "MB8_13552",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 51,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant a stateless Palestinian?",
+        "paras": "12-14",
+        "applicant_position": "Claimant says he is a stateless Palestinian, born in the UAE to a Palestinian father and holding Lebanese travel documents.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 14,
+        "result_quote": "the claimant has established that he is a stateless person, because that evidence shows that he was born in the UAE from a Palestinian father."
+      },
+      {
+        "issue": "Which countries are his countries of former habitual residence for the purposes of the claim?",
+        "paras": "15-27",
+        "applicant_position": "Counsel argues only Lebanon should count, as it is the only country he can return to and where he got his travel documents.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 48,
+        "result_quote": "his two countries of former habitual residence are the United Arab Emirates (UAE) and Jordan"
+      },
+      {
+        "issue": "Does the claimant face a well-founded fear of persecution in Jordan as a Palestinian without proper documents?",
+        "paras": "32-39",
+        "applicant_position": "Claimant says as a Palestinian without documents he cannot work or live decently in Jordan, and fears persecution there.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 38,
+        "result_quote": "The claimant has established a well-founded fear of persecution in Jordan, as a Palestinian."
+      },
+      {
+        "issue": "Does the claimant face a risk of cruel and unusual treatment in the UAE on return?",
+        "paras": "40-47",
+        "applicant_position": "Claimant says he cannot re-enter the UAE without documents and would face harsh detention there.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 46,
+        "result_quote": "the tribunal concludes that he has established, on the balance of probabilities, in the UAE, a risk of cruel and unusual punishment due to the detention conditions"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "TB8_07227",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 37,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the Appellant had status in Morocco substantially similar to Moroccan nationals (Article 1E exclusion, Shamlou factors)",
+        "paras": "12-22",
+        "applicant_position": "He had no right to return to Morocco or work in all jobs, so he never had status similar to nationals.",
+        "respondent_position": "Not stated; the RPD found his Moroccan residence status substantially similar to nationals.",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "the Appellant did not have a right to return to Morocco in a manner that was substantially similar to Moroccan nationals."
+      },
+      {
+        "issue": "Whether, under the Zeng factors, the Appellant should be excluded despite any lost status",
+        "paras": "23-31",
+        "applicant_position": "Any loss of status was involuntary; return was blocked, Syrian risk and Canada's obligations weigh against exclusion.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "I further conclude that the Appellant should not be excluded from refugee protection."
+      },
+      {
+        "issue": "Whether the Appellant has a well-founded fear of persecution in Syria as a young Sunni man objecting to conscription",
+        "paras": "32-36",
+        "applicant_position": "As a Sunni man objecting to Syrian military service, he faces persecution if returned to Syria.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 36,
+        "result_quote": "I conclude that the Appellant does face a well-founded fear of persecution were he to return to that country."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "TB1_13792",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's testimony credible?",
+        "paras": "10-11",
+        "applicant_position": "Claimant testified straightforwardly about years of abuse by her husband in Georgia.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I further find that her testimony regarding the facts in this case was totally credible."
+      },
+      {
+        "issue": "Was her lack of effort to seek state protection reasonable?",
+        "paras": "12-13",
+        "applicant_position": "Her failure to seek protection was reasonable given her age, pregnancies, and family subordination.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "that her lack of effort to seek state protection for a fairly lengthy period in which she was regularly beaten by her husband was reasonable"
+      },
+      {
+        "issue": "Is state protection in Georgia adequate?",
+        "paras": "14-17",
+        "applicant_position": "Domestic violence law exists, but police response is inadequate in practice.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I find, on a balance of probabilities, that it is clear from the documentary evidence that such state protection is not adequate."
+      },
+      {
+        "issue": "Would she face persecution with no state protection if she returned to Georgia with her children?",
+        "paras": "18",
+        "applicant_position": "She fears persecution from her husband and would lack protection if she returned with her children.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "if she were to return to Georgia with her children, she would be at risk of persecution and that she would not have access to protection in that regard"
+      }
+    ]
+  }
+}

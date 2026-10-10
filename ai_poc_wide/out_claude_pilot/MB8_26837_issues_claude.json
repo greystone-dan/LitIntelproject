@@ -1,0 +1,56 @@
+{
+  "case_id": "MB8_26837",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether an oral hearing should be held before the RAD",
+        "paras": "2-3",
+        "applicant_position": "Asked for an oral hearing on appeal.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 3,
+        "result_quote": "Since no new evidence has been presented by the Appellant, the request for a hearing is denied."
+      },
+      {
+        "issue": "Whether the RPD failed to apply Chairperson Guideline 4 on gender-related persecution",
+        "paras": "4-12",
+        "applicant_position": "RPD mentioned the Guidelines but never applied them, so its credibility assessment of an abused woman is wrong.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "which are rooted in that abuse, render the credibility assessment incorrect."
+      },
+      {
+        "issue": "Whether the RPD was right to find the Appellant not credible on her claim",
+        "paras": "13-18",
+        "applicant_position": "Peripheral inconsistencies do not undermine her core account of abuse and forced marriages, which is credible.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 14,
+        "result_quote": "I find that the Appellant has established the facts at the basis of her claim"
+      },
+      {
+        "issue": "Whether the RPD wrongly gave little or no weight to her affidavits and missing-person photograph",
+        "paras": "18-22",
+        "applicant_position": "Copies of affidavits and the photograph should be weighed; the missing originals were reasonably explained.",
+        "respondent_position": "Not stated (the RPD gave the affidavits and photograph no weight).",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "I give both affidavits weight to corroborate that the Appellant was married"
+      },
+      {
+        "issue": "Whether she can access state protection or an internal flight alternative in India",
+        "paras": "23-24",
+        "applicant_position": "State protection is unavailable and her father and brother would locate her anywhere in India.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 1,
+        "result_quote": "she cannot access state protection or an internal flight alternative in India"
+      }
+    ]
+  }
+}

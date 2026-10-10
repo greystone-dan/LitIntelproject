@@ -1,0 +1,56 @@
+{
+  "case_id": "TB9_00834",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the new letters (children's aid society and women's shelter) are admissible as new evidence",
+        "paras": "12-16",
+        "applicant_position": "Letters post-date the RPD decision and show separation and abuse, so should be accepted.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 16,
+        "result_quote": "As a result, the new evidence meets the requirements of the law and the rules"
+      },
+      {
+        "issue": "Whether an oral hearing should be held before the RAD",
+        "paras": "17",
+        "applicant_position": "Asked for an oral hearing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The request for an oral hearing is refused."
+      },
+      {
+        "issue": "Whether the Appellant has a well-founded fear of persecution from her husband and the Badoo cult",
+        "paras": "19-26",
+        "applicant_position": "Fears her husband's abuse and the cult, which is linked to him; the fear is objectively well founded.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "This fear is objectively well founded."
+      },
+      {
+        "issue": "Whether there is state protection for the Appellants in Nigeria",
+        "paras": "27-29",
+        "applicant_position": "Police are unable or unwilling to protect women from domestic violence in Nigeria.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "On a balance of probabilities, there is no state protection for the Appellant and her children in Nigeria."
+      },
+      {
+        "issue": "Whether Port Harcourt is a safe and reasonable internal flight alternative",
+        "paras": "30-44",
+        "applicant_position": "Port Harcourt is not reasonable for a separated woman with minor children; no realistic housing or work.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 43,
+        "result_quote": "Port Harcourt is not a reasonable IFA for the Appellants."
+      }
+    ]
+  }
+}

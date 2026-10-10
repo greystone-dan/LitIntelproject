@@ -1,0 +1,29 @@
+{
+  "case_id": "TB1_08018",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 19,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does the claimant's account establish that he is a Roma man and a gay man?",
+        "paras": "5-6",
+        "applicant_position": "Claimant is Roma and gay; his testimony and corroborative documents support both.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 6,
+        "result_quote": "I accept, on the balance of probabilities, that the claimant is a gay man and a member of the Roma ethnicity."
+      },
+      {
+        "issue": "Does the claimant face a well-founded fear of persecution in Hungary as a Roma and gay man?",
+        "paras": "7-18",
+        "applicant_position": "Claimant fears persecution in Hungary due to ethnicity and sexual orientation, citing discrimination and violence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "In considering the discrimination the claimant is likely to face as a Roma as well as a homosexual man, I find that when considered cumulatively, this treatment amounts to persecution"
+      }
+    ]
+  }
+}

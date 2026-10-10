@@ -1,0 +1,29 @@
+{
+  "case_id": "TB2_00366",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's account credible, and does she have a well-founded fear that her uncle will kill her?",
+        "paras": "12-18",
+        "applicant_position": "Claimant fears her uncle will kill her after abuse; she reported the abuse to police and her mother.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "finds that there is insufficient trustworthy evidence to support her allegation that her uncle wants to kill her"
+      },
+      {
+        "issue": "Is state protection in St. Lucia unavailable to the claimant?",
+        "paras": "19-20",
+        "applicant_position": "Domestic abuse laws exist but police and the state did not protect her; affidavit evidence supports this.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "The panel therefore concludes that there is insufficient evidence to conclude that the police are unwilling or unable to provide adequate protection"
+      }
+    ]
+  }
+}

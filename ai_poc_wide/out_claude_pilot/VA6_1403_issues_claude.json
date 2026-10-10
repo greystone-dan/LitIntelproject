@@ -1,0 +1,47 @@
+{
+  "case_id": "VA6_1403",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 28,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's account credible, despite his UK claim and the different story given there?",
+        "paras": "11-18",
+        "applicant_position": "Claimant says his different UK account was fabricated on his agent's advice, and his core account of LTTE pressure and arrest is true.",
+        "respondent_position": "Minister argues the claimant lacks objective and subjective fear and generally lacked credibility.",
+        "result": "allowed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I have found the claimant to be a credible witness and therefore believe what he has alleged in support of his claim."
+      },
+      {
+        "issue": "Does the claimant face a well-founded fear of persecution or personal risk from Sri Lankan authorities on return as a Tamil with an arrest record?",
+        "paras": "20-25",
+        "applicant_position": "Claimant says he was arrested in Colombo after an attack on an army officer, so authorities will arrest and mistreat him on return.",
+        "respondent_position": "Minister argues the two-day release shows authorities did not regard him as an LTTE activist, so he is unlikely to be targeted.",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "However, I find that the claimant now has a well founded fear of persecution and a personal risk of harm by the Sri Lankan authorities."
+      },
+      {
+        "issue": "Is state protection available to the claimant from Sri Lankan authorities?",
+        "paras": "25-26",
+        "applicant_position": "Claimant says the state is the agent of persecution, so state protection would not be reasonably forthcoming.",
+        "respondent_position": "Minister relies on an email and article suggesting the Sri Lankan Army guarantees security for a referred combatant.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "The panel has also considered whether state protection is available to the claimant and concluded that it is not."
+      },
+      {
+        "issue": "Is there a viable internal flight alternative anywhere in Sri Lanka for the claimant?",
+        "paras": "27",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 27,
+        "result_quote": "I therefore find that he has no viable internal flight alternative available to him."
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "case_id": "VA7_02451",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's testimony credible?",
+        "paras": "8-11",
+        "applicant_position": "Claimant's testimony is sincere and consistent with her PIF, though vague; she fears her brother-in-law.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "Overall, the panel found the claimant to be genuine and accepts her testimony regarding the death of her husband"
+      },
+      {
+        "issue": "Is the claimant's fear of her brother-in-law subjectively genuine and objectively well-founded?",
+        "paras": "11-14",
+        "applicant_position": "Brother-in-law abused her, killed two children and threatens to kill her; fear is legitimate.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "Given the demonstrated ferocious and shocking behaviour of her brother-in-law, the panel finds the claimant's fear to be legitimate and reasonable."
+      },
+      {
+        "issue": "Is there a nexus to a Convention ground (particular social group: victims of domestic violence and widows)?",
+        "paras": "15-16",
+        "applicant_position": "Claimant is a widow and victim of domestic violence, a particular social group under Ward.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "The panel finds that there is a nexus with this Convention ground, in accordance with the principles set out by the Supreme Court of Canada in Ward"
+      },
+      {
+        "issue": "Was it reasonable for the claimant not to seek state protection from Nigerian police?",
+        "paras": "17-21",
+        "applicant_position": "Police do not intervene in such domestic matters; custom and trauma made seeking protection unreasonable.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "it was not unreasonable for the claimant to fail to seek assistance"
+      },
+      {
+        "issue": "Is an internal flight alternative in Nigeria (e.g. Abuja) reasonable?",
+        "paras": "22-25",
+        "applicant_position": "Relocation would be unduly harsh given her age, health, and lack of family support.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "As a result of the claimant's age and health, the panel is of the view that it would be unduly harsh to require the claimant to relocate in Nigeria"
+      }
+    ]
+  }
+}

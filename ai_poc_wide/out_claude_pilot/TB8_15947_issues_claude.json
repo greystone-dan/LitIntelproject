@@ -1,0 +1,56 @@
+{
+  "case_id": "TB8_15947",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 59,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD wrongly assess credibility by focusing on peripheral visa application issues?",
+        "paras": "16-20",
+        "applicant_position": "RPD wrongly focused on peripheral visa application issues when assessing credibility.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 20,
+        "result_quote": "However, it is not necessary for me to address the credibility errors the Appellant has raised."
+      },
+      {
+        "issue": "Should the PSB Written Decision of Administration Penalty be given little weight?",
+        "paras": "21-25",
+        "applicant_position": "Penalty decision is genuine; RPD's comparison to summonses was speculative and insufficient to discount it.",
+        "respondent_position": "RPD gave it little weight for lacking a cited regulation provision; respondent position not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "this comparison of completely different documents is not sufficient to conclude that the Penalty Decision should be given little weight"
+      },
+      {
+        "issue": "Is the Appellant a genuine Christian?",
+        "paras": "26-35",
+        "applicant_position": "Appellant is a genuine Christian; RPD's finding of superficial knowledge ignored his limited education and detailed testimony.",
+        "respondent_position": "RPD found his knowledge simplistic and superficial; respondent position not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "Based on the level of knowledge the Appellant displayed, and the detail in his testimony, I find that he is a genuine Christian."
+      },
+      {
+        "issue": "Is there a well-founded forward-facing risk of persecution in China (sur place claim)?",
+        "paras": "36-57",
+        "applicant_position": "Genuine Christian with PSB interest before leaving, plus tighter 2018 religious regulations, creates a well-founded fear; sur place claim valid.",
+        "respondent_position": "RPD found no evidence Canadian activities reached Chinese authorities; respondent position not stated.",
+        "result": "allowed_for_applicant",
+        "result_para": 57,
+        "result_quote": "there is a well-founded fear of persecution and a valid basis for the sur place claim."
+      },
+      {
+        "issue": "Is there state protection or an internal flight alternative in China?",
+        "paras": "58",
+        "applicant_position": "No state protection or internal flight alternative exists; the state is the agent of persecution.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 58,
+        "result_quote": "There is no state protection or internal flight alternative for the Appellant in China."
+      }
+    ]
+  }
+}

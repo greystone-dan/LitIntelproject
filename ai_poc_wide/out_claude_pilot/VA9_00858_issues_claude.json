@@ -1,0 +1,56 @@
+{
+  "case_id": "VA9_00858",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are the claimants citizens of El Salvador (identity)?",
+        "paras": "11-13",
+        "applicant_position": "Both are Salvadoran; birth certificates establish identity despite earlier aliases.",
+        "respondent_position": "Minister says principal's real name and birth date differ from his PIF; associated claimant used another name.",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I accept on a balance of probabilities that the principal claimant has established his identity"
+      },
+      {
+        "issue": "Is the claimants' evidence credible given the misrepresentations in their original PIFs?",
+        "paras": "14-19",
+        "applicant_position": "Misstatements were made on bad advice; revised PIFs correct the record before the hearing.",
+        "respondent_position": "Minister's disclosure shows false names, arrests and a Texas detention; original PIFs were false.",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I find that the claimants willingly and knowingly made these misrepresentations."
+      },
+      {
+        "issue": "Do the claimants face a real risk of reprisal from Mara 18 gang members if returned?",
+        "paras": "20-21",
+        "applicant_position": "Sister's abuser is a Mara 18 member who threatened reprisals; family fled and fears future harm.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "I do not accept the claimants' allegations concerning fear of future reprisals from XXXXX and other Mara 18 gang members."
+      },
+      {
+        "issue": "Do the claimants have a well-founded fear under section 96 or a section 97 risk in El Salvador?",
+        "paras": "22",
+        "applicant_position": "Fear of gang reprisal in El Salvador; claims refugee protection under sections 96 and 97(1).",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "the claimants have not established by credible and trustworthy evidence that they have a well-founded fear of persecution in El Salvador"
+      },
+      {
+        "issue": "Is there a credible basis for the claims under section 107(2)?",
+        "paras": "23",
+        "applicant_position": "Claims have a credible basis; identity documents and letters support their account.",
+        "respondent_position": "Minister contends there is no credible basis for this refugee claim.",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "pursuant to section 107(2) of the Act, I also find that there is no credible basis for the claims"
+      }
+    ]
+  }
+}

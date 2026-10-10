@@ -1,0 +1,56 @@
+{
+  "case_id": "VB8_01785",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 22,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the appellant waived his complaint about interpretation by not raising it earlier",
+        "paras": "15-17",
+        "applicant_position": "Counsel raised the interpretation concern at the hearing, so the right to raise it was not waived.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I find that the Appellant has met his burden to raise the matter of the adequacy of interpretation at the earliest opportunity"
+      },
+      {
+        "issue": "Whether inadequate interpretation at the RPD hearing breached procedural fairness",
+        "paras": "13-21",
+        "applicant_position": "Interpretation errors made his evidence seem vague, so the RPD decision cannot stand.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "the errors in interpretation at the RPD hearing in this case amounts to a breach in procedural fairness and the RPD decision therefore cannot stand"
+      },
+      {
+        "issue": "Whether the three letters dated after the RPD decision are admissible as new evidence under s. 110(4)",
+        "paras": "7-8",
+        "applicant_position": "The letters are new evidence and should be accepted under s. 110(4) of IRPA.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 8,
+        "result_quote": "The new evidence (a), (b) and (c) submitted by the Appellant is therefore rejected."
+      },
+      {
+        "issue": "Whether the interpreter's affidavit and partial audit are admissible as new evidence",
+        "paras": "10",
+        "applicant_position": "The affidavit is needed to show the RPD interpretation was inadequate.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 10,
+        "result_quote": "I find that this document meets the requirements of subsection 110(4) of IRPA"
+      },
+      {
+        "issue": "Whether an oral hearing should be held before the RAD",
+        "paras": "9",
+        "applicant_position": "Asked for an oral hearing before the RAD.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "there is no provision for me to conduct an oral hearing in this matter and none will be conducted."
+      }
+    ]
+  }
+}

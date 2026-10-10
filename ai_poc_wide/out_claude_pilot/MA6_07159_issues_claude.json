@@ -1,0 +1,38 @@
+{
+  "case_id": "MA6_07159",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 17,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is there a viable internal flight alternative (relocation within Chile) that defeats the section 96 claim?",
+        "paras": "4-15",
+        "applicant_position": "Former military spouse who mistreated her would find and kill her if she returned; relocation is not safe.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 15,
+        "result_quote": "The claim under section 96 of the IRPA is rejected."
+      },
+      {
+        "issue": "Does the claimant face a risk of torture under section 97(1)(a), given no government involvement?",
+        "paras": "16",
+        "applicant_position": "Her former spouse is a military man who mistreated her, including attempted killing during sex.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "Therefore the claim of a fear of torture under section 97 (1) a) is rejected."
+      },
+      {
+        "issue": "Does the claimant face a risk to life or of cruel treatment under section 97(1)(b)?",
+        "paras": "17",
+        "applicant_position": "Fears her former spouse will kill her to keep his affair secret.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "the claim under section 97 (1) b) of the IRPA is also rejected."
+      }
+    ]
+  }
+}

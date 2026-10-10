@@ -1,0 +1,47 @@
+{
+  "case_id": "TB1_05085",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are the claimants citizens of Sri Lanka (identity)?",
+        "paras": "12-14",
+        "applicant_position": "Both are Sri Lankan citizens; national ID, birth certificates and passports support this.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "The panel finds that the principal claimant is a citizen of Sri Lanka based upon his national identity card"
+      },
+      {
+        "issue": "Are the claimants' accounts of their fear (father's CID interrogation, son's LTTE recruitment) credible?",
+        "paras": "14-15",
+        "applicant_position": "Father was interrogated by CID in the IDP camp as an LTTE suspect; son feared LTTE recruitment; both fled.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "In general both claimants testified in a credible fashion."
+      },
+      {
+        "issue": "Is there a well-founded objective risk (section 96) to the claimants if returned to Sri Lanka?",
+        "paras": "16-34",
+        "applicant_position": "Suspected LTTE links; principal claimant was interrogated and mistreated; LTTE suspects remain at risk of detention.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "the panel is not persuaded that there is a well-founded objective risk if the claimants were returned to Sri Lanka."
+      },
+      {
+        "issue": "Are the claimants persons in need of protection under section 97?",
+        "paras": "35",
+        "applicant_position": "Same LTTE-suspect risk exposes them to torture and risk to life on return.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "nor are they persons in need of protection from torture or from risk to life or risk of cruel and unusual treatment or punishment"
+      }
+    ]
+  }
+}

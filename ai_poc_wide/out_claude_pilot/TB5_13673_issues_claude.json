@@ -1,0 +1,56 @@
+{
+  "case_id": "TB5_13673",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's identity established?",
+        "paras": "5",
+        "applicant_position": "Identity shown by her tazkira and passport seized by CBSA; she is an Afghan citizen.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 5,
+        "result_quote": "the panel found that the claimant's identity was established based on her testimony and on the documents in the record"
+      },
+      {
+        "issue": "Is the claimant's account credible (BOC authorship, dates, threat letter, police visit, Pakistan trip, calls)?",
+        "paras": "6-19",
+        "applicant_position": "Elderly widow, diabetic and traumatized; Taliban threats followed her husband's murder; gaps are memory problems.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "For all of the above reasons, the panel finds that this claim is not credible."
+      },
+      {
+        "issue": "Do the vulnerability guidelines (4 and 8) excuse the inconsistencies and make the claim credible?",
+        "paras": "22-31",
+        "applicant_position": "Vulnerability, trauma and cultural barriers explain memory gaps and require accommodation for her.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "the panel must still find that the claim is credible in and of itself."
+      },
+      {
+        "issue": "Is the claimant a Convention refugee under section 96?",
+        "paras": "32",
+        "applicant_position": "Targeted by Taliban as family of a murdered doctor; unaccompanied women face high risk in Afghanistan.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "The panel does not find that the claimant is a Convention refugee."
+      },
+      {
+        "issue": "Is the claimant a person in need of protection under section 97?",
+        "paras": "32",
+        "applicant_position": "Same Taliban threats put her life and safety at risk if she returns.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "The panel does not find sufficient evidence, on a balance of probabilities, that the claimant is a person in need of protection."
+      }
+    ]
+  }
+}

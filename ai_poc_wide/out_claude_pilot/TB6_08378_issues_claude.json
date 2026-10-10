@@ -1,0 +1,47 @@
+{
+  "case_id": "TB6_08378",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Is the principal male claimant at risk in Haiti on religious grounds, and is Port-de-Paix a viable internal flight alternative?",
+        "paras": "9-12",
+        "applicant_position": "Male claimant says rival pastors attacked him in La Croix because of his religious work and he fears persecution if he returns to Haiti.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "the panel finds that the principal male claimant and his children have not established that they face a serious possibility of persecution in Haiti"
+      },
+      {
+        "issue": "Does the child claimant face a well-founded fear as a male Haitian child at risk of gang recruitment or violence?",
+        "paras": "13",
+        "applicant_position": "Counsel argues the child faces persecution as a Haitian male child due to violence, gang recruitment and state incapacity.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I do not find that XXXX XXXX XXXX has a well-founded fear of persecution because he is a Haitian child."
+      },
+      {
+        "issue": "Do the female claimants face a forward-looking well-founded fear of gender-based violence in Haiti, given state protection?",
+        "paras": "14-17",
+        "applicant_position": "Female claimants fear sexual and gender-based violence in Haiti; the principal female claimant was raped there in 2012.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Therefore, I find that female claimants do not have a well-founded fear of persecution in Haiti because of SGBV on a forward-looking assessment."
+      },
+      {
+        "issue": "Are there compelling reasons under s. 108(4) not to return the principal female claimant to Haiti?",
+        "paras": "18-22",
+        "applicant_position": "Principal female claimant says her past rape and resulting severe PTSD are compelling reasons not to return her to Haiti.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 22,
+        "result_quote": "I therefore find compelling reasons for the principal female claimant not to be returned to Haiti."
+      }
+    ]
+  }
+}

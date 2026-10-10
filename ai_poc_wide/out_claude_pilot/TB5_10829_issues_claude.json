@@ -1,0 +1,47 @@
+{
+  "case_id": "TB5_10829",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err in finding no imputed political opinion, so no targeting by the pro-Russian group?",
+        "paras": "8-23",
+        "applicant_position": "The RPD ignored that attackers targeted him for pro-Ukrainian demonstration activity, which imputes a political opinion.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 23,
+        "result_quote": "The RAD concludes that unless and until the aforementioned questions are answered, the perception of the perpetrators cannot be answered."
+      },
+      {
+        "issue": "Is the risk a differentiated risk rather than a generalized risk (s.97)?",
+        "paras": "18-22",
+        "applicant_position": "The repeated attacks and second incident take the risk out of the generalized category.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "the second incident which appears to have targeted the Appellant, heightened the Appellant's risk, thereby taking it out of the \"generalized\" risk category."
+      },
+      {
+        "issue": "Should the RAD substitute a positive refugee decision?",
+        "paras": "24",
+        "applicant_position": "The RAD should overturn the RPD and substitute a positive decision.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the RAD finds it unable to substitute its own decision without responses to the unanswered questions noted above"
+      },
+      {
+        "issue": "Should the matter be remitted to the RPD for redetermination by a differently constituted panel?",
+        "paras": "25",
+        "applicant_position": "The matter should be remitted to a newly constituted RPD panel for redetermination.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "the RAD refers this matter back to the RPD for re-determination by a differently-constituted panel."
+      }
+    ]
+  }
+}

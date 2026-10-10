@@ -185,3 +185,75 @@ class FrameworkTests(unittest.TestCase):
 	def test_party_argument_stays_with_party(self):
 		r = tag_paragraph("The applicant argues that the test is not met.")
 		self.assertEqual(r.layers, [2])
+
+
+class AppealCourtTests(unittest.TestCase):
+	"""Rules added after scoring against reader grades and AI tags (see docs/position-rules-evaluation.md)."""
+
+	def _forum(self, forum):
+		p = parse_parties("Smith v. Canada")
+		p.forum = forum
+		return p
+
+	def test_scc_courts_below_are_earlier_decision_makers(self):
+		p = self._forum("scc")
+		self.assertEqual(sentence_cue("The Federal Court of Appeal found that s. 23 grants jurisdiction.", p).holder, EARLIER)
+		self.assertEqual(sentence_cue("Gagnon J.A. concluded that the onus was on Mr. Rosati.", p).holder, EARLIER)
+		self.assertEqual(sentence_cue("The trial judge accepted the complainant's evidence.", p).holder, EARLIER)
+
+	def test_scc_other_case_stays_authority(self):
+		p = self._forum("scc")
+		cue = sentence_cue("In R. v. Handy, 2002 SCC 56, the Court of Appeal held that the evidence was admissible.", p)
+		self.assertNotEqual(cue.holder, EARLIER)
+
+	def test_fc_forum_unchanged(self):
+		p = self._forum("fc")
+		self.assertNotEqual(sentence_cue("The Federal Court of Appeal found that the test is met.", p).holder, EARLIER)
+
+	def test_capitalised_officer_is_earlier_decision_maker(self):
+		p = self._forum("fc")
+		self.assertEqual(sentence_cue("The Officer scheduled an interview with the applicant.", p).holder, EARLIER)
+		self.assertEqual(sentence_cue("The Commission informed the appellant of its concerns.", p).holder, EARLIER)
+
+	def test_agree_with_party_adds_the_party(self):
+		p = parse_parties("Smith v. Canada (Citizenship and Immigration)")
+		res = tag_paragraph("I agree with the Respondent that the decision was reasonable.", p)
+		self.assertIn(COURT, res.holders)
+		self.assertIn(RESPONDENT, res.holders)
+
+	def test_citation_in_party_sentence_is_not_authority(self):
+		p = parse_parties("Smith v. Canada (Citizenship and Immigration)")
+		res = tag_paragraph("Mr. Smith asserts that the Officer erred (Sosi v Canada, 2008 FC 1300 at para 24).", p)
+		self.assertNotIn(AUTHORITY, res.holders)
+		res = tag_paragraph("The test is well established. See Sosi v Canada, 2008 FC 1300 at para 24.", p)
+		self.assertIn(AUTHORITY, res.holders)
+
+	def test_more_argument_verbs(self):
+		self.assertEqual(holder("The applicant takes issue with the Officer's reasons."), APPLICANT)
+		self.assertEqual(holder("The respondent challenges the standing of the applicant."), RESPONDENT)
+
+
+class ForumAndNumberingTests(unittest.TestCase):
+	def test_court_named_first_in_header_wins(self):
+		from backend.position_holder import detect_forum
+		header = "Smith v. Canada\nCourt (s) Database\nSupreme Court Judgments\nOn appeal from the Federal Court of Appeal\n"
+		self.assertEqual(detect_forum(header), "scc")
+		self.assertEqual(detect_forum("Smith v. Canada\nFederal Court of Appeal Decisions\n"), "fca")
+
+	def test_line_start_numbers_when_no_brackets(self):
+		text = "MEMORANDUM\n\n1. First paragraph about the facts.\n\n2. Second paragraph, with a list:\n1. restarts inside\n\n3. Third.\n\n4. Fourth."
+		paras = split_numbered_paragraphs(text)
+		self.assertEqual(sorted(paras), [1, 2, 3, 4])
+		self.assertTrue(paras[3].startswith("3. Third"))
+
+	def test_brackets_win_over_line_numbers(self):
+		paras = split_numbered_paragraphs("[1] One.\n[2] Two.\n[3] Three.\n1. a list item\n")
+		self.assertEqual(sorted(paras), [1, 2, 3])
+
+
+class EvalSplitTests(unittest.TestCase):
+	def test_split_is_stable_and_by_decision(self):
+		from scripts.eval_position_rules import split_of
+		self.assertEqual(split_of(28105), split_of("28105"))
+		share = sum(split_of(i) == "test" for i in range(2000)) / 2000
+		self.assertTrue(0.25 < share < 0.35)

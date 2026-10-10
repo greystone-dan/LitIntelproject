@@ -27,6 +27,7 @@ from collections import Counter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
 from backend.case_frame import build_frame  # noqa: E402
+from backend.opinion_parts import opinion_parts, part_of  # noqa: E402
 from backend.position_holder import RULES_VERSION, parties_from_frame, split_numbered_paragraphs, tag_paragraph  # noqa: E402
 
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "position_layers")
@@ -52,6 +53,7 @@ def build_case(props: dict, report: dict) -> dict:
 	frame = build_frame(header, "\n".join(p["text"] for p in report["paragraphs"][1:]))
 	parties = parties_from_frame(frame, header.splitlines()[0] if header else "")
 	texts = split_numbered_paragraphs("\n".join(p["text"] for p in report["paragraphs"]))
+	parts = opinion_parts("\n".join(p["text"] for p in report["paragraphs"]))["parts"]
 	out: dict[str, dict] = {}
 	lead = None
 	for num in sorted(int(k["para"]) for k in props["paragraphs"]):
@@ -62,6 +64,9 @@ def build_case(props: dict, report: dict) -> dict:
 		lead = res.lead_out
 		layer, how = paragraph_layer(res)
 		out[str(num)] = {"l": layer, "h": res.holders, "law": res.has_framework, "mixed": res.mixed_layers, "c": how}
+		kind = part_of(parts, num)
+		if kind != "majority":
+			out[str(num)]["o"] = kind  # a dissenting or concurring paragraph: the judges' own view, not the Court's holding
 	return {"case_id": props["case_id"], "source": {"rules": RULES_VERSION}, "frame": frame.text(), "paragraphs": out}
 
 

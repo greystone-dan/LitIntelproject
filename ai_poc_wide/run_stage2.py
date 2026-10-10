@@ -55,7 +55,10 @@ def main() -> int:
 		if a.send and path.exists():
 			return {"case_id": cid, "skipped": True}
 		doc = json.loads((a.inputs / f"case_{cid}.json").read_text(encoding="utf-8"))
-		lf = json.loads(next(a.lf_dir.glob(f"case_{cid}_*.json")).read_text(encoding="utf-8"))
+		lf_files = list(a.lf_dir.glob(f"case_{cid}_*.json"))
+		if not lf_files:
+			return {"case_id": cid, "skipped": True, "reason": "no LF output for this case"}
+		lf = json.loads(lf_files[0].read_text(encoding="utf-8"))
 		text, idmap = listing(lf, a.task)
 		user = f"case: {doc['title']}, {doc['citation']} ({doc['court']}).\nFrame:\n{doc['frame']}\n\nPoints:\n{text}"
 		msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
@@ -79,7 +82,7 @@ def main() -> int:
 	if a.send:
 		print(json.dumps({"done": True, "task": a.task, "ledger_total_usd": round(ledger.total(), 4)}))
 	else:
-		print(json.dumps({"dry_run": True, "task": a.task, "model": a.model, "cases": len(ids), "ceiling_usd": round(sum(r["est_usd_max"] for r in res), 3)}))
+		print(json.dumps({"dry_run": True, "task": a.task, "model": a.model, "cases": len(ids), "ceiling_usd": round(sum(r.get("est_usd_max", 0) for r in res), 3), "skipped_no_lf": sum(1 for r in res if r.get("reason"))}))
 	return 0
 
 if __name__ == "__main__":

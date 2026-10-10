@@ -1,0 +1,401 @@
+{
+ "case_id": 17368,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0050496000000000004,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is a judicial review application by Mayra Aguirre Renteria challenging a Senior Immigration Officer's denial of permanent residency on humanitarian and compassionate grounds.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application by Mayra Aguirre Renteria challenging a Senior Immigration Officer's denial of permanent residency on humanitarian and compassionate grounds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Aguirre is a 30-year-old black woman from Colombia who came to Canada in 2015 and claimed refugee protection, which was denied.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Aguirre gave birth to a daughter in Vancouver in December 2015, and both are expected to return to Colombia if Ms. Aguirre is removed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Aguirre is a 30-year-old black Colombian woman who came to Canada in 2015, had a daughter, and both would return to Colombia if removed.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Aguirre and her brother applied for humanitarian and compassionate relief on September 25, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Aguirre sought relief based on her Canadian child's best interests, establishment factors, and health considerations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Her claim was rejected on May 15, 2018, and this decision is challenged in the current application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Aguirre and her brother applied for humanitarian and compassionate relief in 2017, which was rejected in 2018, and this decision is challenged.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application is allowed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key issue is the sufficiency of the Officer's best interest of a child analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "It is unnecessary to consider all other arguments, but the Officer's treatment of Ms. Aguirre's medical situation was also inadequate.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the application, focusing on the insufficiency of the Officer's best interest of a child analysis and noting inadequate treatment of medical issues.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Ms. Aguirre's challenge to the Officer's best interest of a child analysis raises a mixed fact and law issue reviewed on a reasonableness standard.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kanthasamy v Canada establishes the reasonableness standard for reviewing such issues.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Deference to humanitarian and compassionate decision-makers is significant but not unlimited; reasons must meet transparency, justification, and intelligibility requirements per Dunsmuir v New Brunswick.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "allegation_or_argument",
+     "text": "Justice Alan Diner's views in Miyir v Canada emphasize that deference does not mean a 'blank cheque'.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the challenge raises a mixed fact and law issue reviewed for reasonableness, citing Kanthasamy, Miyir, and Dunsmuir on deference and reasoned decisions.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer's best interest of a child comments lack meaningful analysis of hardships faced by a black child in Colombia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The decision contains unhelpful truisms and only a tepid acknowledgment that conditions for Afro-Colombians are less than favourable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer's best interest of a child comments lack meaningful analysis and only tepidly acknowledge poor conditions for Afro-Colombians.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Half-hearted lip-service to evidence is insufficient for a proper best interest of a child analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Minister argues sufficiency of reasons can be disregarded because evidence was obviously considered and weighed in favour of the family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court rejects the Minister's argument about disregarding sufficiency of reasons concerns on judicial review.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court rejects the Minister's argument that sufficiency of reasons can be disregarded and states half-hearted lip-service to evidence is insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kanthasamy requires best interest of a child analysis to consider many factors including emotional, social, cultural, physical welfare, country conditions, education, special needs, health care, and gender.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Children deserve special consideration and their interests must be given significant weight in humanitarian and compassionate analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "It is insufficient to state best interests were considered without meaningful engagement with evidence when conditions are markedly inferior to Canadian standards.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kanthasamy paragraph 25 requires decision-makers to substantively consider and weigh all relevant facts and factors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Kanthasamy requiring meaningful, substantive best interest of a child analysis considering many factors and giving children significant weight.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Officer's bare acknowledgment of less favourable conditions in Colombia was insufficient.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Ms. Aguirre was entitled to know why those conditions were considered undeserving of relief when weighed in evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer's bare acknowledgment of poor conditions insufficient and Ms. Aguirre was entitled to reasons why relief was denied.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The record contained significant country condition evidence showing women, blacks, and children in Colombia face significant hardships.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A long-standing history of racial inequality and prejudice underlies much of the difficulty faced by Afro-Colombians.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the record shows significant hardships for women, blacks, and children in Colombia due to racial inequality and prejudice.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Black women and children in Colombia are particularly at risk, with discrimination often manifesting in violence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states black women and children in Colombia face particular risks and violence due to discrimination.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "A 2017 UN report highlights pervasive structural discrimination against Afro-Colombians in education, employment, political participation, and justice access.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Afro-Colombian illiteracy is 30% versus 16% national average; nearly 10% of Afro-Colombian children aged 6-10 lack primary education access, higher in some regions.",
+     "answers": 0
+    }
+   ],
+   "summary": "A 2017 UN report describes pervasive structural discrimination and poor education access for Afro-Colombians, including high illiteracy and low school attendance.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Afro-Colombian women are often targets of sexual violence and exploitation.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Sexual exploitation of children is also a reported problem in Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Afro-Colombian women face sexual violence and exploitation, and child sexual exploitation is also reported.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "A non-governmental organization reported poor or very poor educational opportunities for black students in Colombia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a NGO reported poor educational opportunities for black students in Colombia.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Unemployment disproportionately affects women who face hiring and wage discrimination.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "The 2016 US Department of State Report described child abuse and sexual exploitation of children as serious problems in Colombia.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Afro-Colombians face significant economic and social discrimination despite constitutional rights.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "In Choco, 79% live below poverty line, with extreme poverty and low social investment, infrastructure, education, health, and high income inequality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states reports show women face unemployment and discrimination; child abuse and exploitation are serious; Afro-Colombians face poverty and inequality, especially in Choco.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "A 2013 human rights report stated Afro-Colombians suffer high informal labour, unemployment, drop-out rates, illiteracy, poor water and sanitation, child labour, and limited government services.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a 2013 report describes Afro-Colombians facing multiple hardships including unemployment, illiteracy, poor sanitation, and limited services.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The Officer failed to ask or answer whether returning Ms. Aguirre and her child to these conditions would be unacceptable to fair-minded Canadians.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "It is the court's role to ensure this question receives reasonable consideration and articulation, which it did not in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer failed to consider whether returning Ms. Aguirre and her child to poor conditions would be unacceptable, and the court must ensure this is considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The decision is set aside and the matter is to be redetermined on the merits by a different decision-maker.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Applicant may update the evidentiary record due to the passage of time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court sets aside the decision and orders redetermination by a different decision-maker, allowing the Applicant to update evidence.",
+   "role": "disposition"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Neither party proposed a certified question and no issue of general importance arises.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application is allowed with redetermination by a different decision-maker.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no certified question or general issue arises and allows the application with redetermination by a different decision-maker.",
+   "role": "disposition"
+  }
+ ]
+}

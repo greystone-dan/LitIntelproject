@@ -1,0 +1,206 @@
+{
+ "case_id": 50067,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.00444,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants are citizens of Trinidad and Tobago claiming refugee protection under IRPA sections 96 and 97(1)(b).",
+     "quote": "This is the decision in the claims of XXXXXXXXXX (the principal claimant), XXXXX XXXXXXXX (the minor claimant), and XXXXXXXXXX who claim to be citizens of Trinidad and Tobago (Trinidad) and are claiming refugee protection pursuant to section 96 and subsection 97(1)(b)1 of the Immigration and Refugee Protection Act (IRPA).2",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants are Trinidad and Tobago citizens claiming refugee protection under IRPA sections 96 and 97(1)(b).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The principal claimant was designated representative for the minor claimant.",
+     "quote": "The principal claimant was designated representative for the minor claimant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the principal claimant was the minor claimant's designated representative.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court has considered counsel's post-hearing written submissions.",
+     "quote": "I have considered counsel's post-hearing written submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it has considered counsel's post-hearing written submissions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The claimants' citizenship and personal identities are confirmed by certified true copies of their passports.",
+     "quote": "I am satisfied that the claimants are citizens of Trinidad and as to their personal identities based on certified true copies of their passports.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimants are citizens of Trinidad and their identities are confirmed by passports.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants' allegations are detailed in the principal claimant's Personal Information Form and were elaborated orally at the hearing.",
+     "quote": "The details of the claimants' allegations appear in the narrative to the principal claimant's Personal Information Form (PIF)5 and were further elaborated upon orally during the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants' allegations appear in the PIF and were elaborated orally at the hearing.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants are Indo-Trinidadians fearing an Afro-Trinidadian criminal gang that robbed the principal claimant and kidnapped the minor claimant.",
+     "quote": "In short, the claimants are Indo-Trinidadians from a preponderantly Indo-Trinidadian community in XXXXXXX. They allege that they fear for their lives at the hands of an Afro-Trinidadian criminal gang. The principal claimant is a former XXXXXXXXX of some wealth whose business was robbed by the gang. There was also a kidnapping incident involving the minor claimant. In the course of this history of a number of incidents over several years, the gang assaulted and threatened the lives of the claimants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants are Indo-Trinidadians fearing an Afro-Trinidadian gang that robbed and kidnapped them.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The claimants are not Convention refugees and not persons in need of protection.",
+     "quote": "For the following reasons, I find that the claimants are not Convention refugees and not persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimants are not Convention refugees nor persons in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Crime victim situations with opposite race elements do not establish race nexus unless crimes are for race reasons, not general criminal reasons like financial gain.",
+     "quote": "Crime victim situations with some opposite race elements do not produce a nexus to the race ground under the Convention refugee definition, unless it is clearly shown that the agent of persecution is committing the crimes for race reasons and not for general criminal reasons, such as financial gain.6",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The gang committed crimes for financial gain, a general criminal reason, not for race reasons, so no nexus to Convention refugee definition.",
+     "quote": "While there are race elements to the story here, it is clear from the principal claimant's narrative and testimony that the gang committed the crimes against the claimants for financial gain, which is a general criminal reason.7 I therefore find that the claimant's fear of the criminal gang is not related to a Convention ground and that it has no nexus to the Convention refugee definition.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court cites authority that race elements do not establish nexus unless crimes are racially motivated; here crimes were for financial gain, so no nexus.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The risk from the criminal gang is a generalized risk arising from widespread criminal violence in Trinidad.",
+     "quote": "As to IRPA subsection 97(1)(b) protection, while I acknowledge that the claimants are personally targeted by the gang, I still find, considering this matter within the entire context of the country documents, that the basic genesis and nature of the risk to the claimants from the criminal gang is one that nevertheless arose out of, and therefore is, a type of generalized risk: generalized criminal violence in Trinidad. Refugee Protection Division (RPD) and claimant documents in this claim clearly indicate that drugs, gangs, crime, and criminal violence are widespread problems affecting people generally in Trinidad.8",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the risk from the gang is a generalized risk from widespread criminal violence in Trinidad.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Personal targeting is irrelevant to whether the risk is generalized; the risk is generalized as many face similar gang violence in Trinidad.",
+     "quote": "The fact that these claimants have been specifically and personally targeted by the gang is irrelevant to the determination of whether the risk that they face at the hands of the gang is generalized or not. Every generalized crime victim must have a specific, personal story of targeting to tell in terms of whatever specifically criminal happened to them, just as these claimants have in terms of what has happened to them: after all, if that were not true, generalized crime victims would not, in fact, even be victims of crime. Therefore, the fact that these claimants have been specifically and personally targeted by the gang is indeed irrelevant to the determination of whether the risk that they face at the hands of the gang is generalized within the meaning of subsection 97(1)(b)(ii) of the IRPA or not. The fact that does matter is whether the prospective risk that they face at the hands of the gang is a type of risk that is also faced by a generality of others in Trinidad, or not. Based on the documentary evidence mentioned above clearly indicating that criminal gang activity is a widespread problem in Trinidad, I find the risk that they face at the hands of the gang is a type of risk that is faced by a generality of others in Trinidad and, therefore, that it is a generalized risk that is specifically excepted from protection by subsection 97(1)(b)(ii) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds personal targeting irrelevant; the risk is generalized as many in Trinidad face similar gang violence.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Opposite race elements do not displace generalized risk exception unless crimes are racially motivated, not for general criminal reasons.",
+     "quote": "As with nexus to the Convention refugee definition, some opposite race elements within otherwise generalized crime victim situations do not displace the generalized risk exception in subsection 97(1)(b)(ii) of the IRPA, unless it is clearly shown that the agent of harm is committing the crimes for race reasons and not for general criminal reasons, such as financial gain.9",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The gang committed crimes for financial gain, so race elements do not displace the subsection 97(1)(b)(ii) exception.",
+     "quote": "While there are race elements to the story here, it is clear from the principal claimant's narrative that the gang committed the crimes against the claimants for financial gain, which is a general criminal reason.10 I therefore find that the race elements in this case do not operate to displace the application of the subsection 97(1)(b)(ii) exception.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court cites authority that race elements do not displace generalized risk exception unless crimes are racially motivated; here crimes were for financial gain, so exception applies.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The claimants are not Convention refugees nor persons in need of protection; this conclusion is reasonable.",
+     "quote": "For the foregoing reasons, I conclude that the claimants are not Convention refugees under section 96 of the IRPA and not persons in need of protection under subsection 97(1) of the IRPA. Furthermore, having sufficiently considered the facts, the country evidence and the law in a manner consistent with the context and mission of the RPD, I find that these conclusions fall within the range of reasonable outcomes.11",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the claimants are not Convention refugees nor persons in need of protection and that this conclusion is reasonable.",
+   "role": "conclusion"
+  }
+ ]
+}

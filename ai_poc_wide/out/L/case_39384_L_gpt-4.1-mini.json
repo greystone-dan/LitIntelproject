@@ -1,0 +1,775 @@
+{
+ "case_id": 39384,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.014746400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is Tania Zulkoskey appealing the Federal Court's dismissal of her judicial review application.",
+     "quote": "The appellant, Tania Zulkoskey, appeals from the October 29, 2015 decision of the Federal Court (2015 FC 1196) in which the application judge dismissed her application for judicial review",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Federal Court dismissed her application for judicial review of the Canadian Human Rights Commission's decision not to deal with her complaint as vexatious under CHRA paragraph 41(1)(d).",
+     "quote": "dismissed her application for judicial review of the Canadian Human Rights Commission (the Commission)’s decision to not deal with her human rights complaint because it was vexatious within the meaning of paragraph 41(1)(d) of the Canadian Human Rights Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant, Tania Zulkoskey, appeals the Federal Court's dismissal of her judicial review application of the Commission's vexatious complaint decision under CHRA.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant and spouse paid EI premiums for years; appellant gave birth to twins in 2009 and both requested 35 weeks EI parental benefits.",
+     "quote": "The appellant and her spouse have paid Employment Insurance (EI) premiums for many years. The appellant gave birth to twins on July 10, 2009. Due to the work required to care for the twins, the appellant and her spouse each requested 35 weeks of EI parental benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The spouse's request was approved but the appellant's was denied because the spouse had already received maximum parental benefits under the EI Act, which allows one set per pregnancy.",
+     "quote": "The spouse’s request was approved. The EI Commission denied the appellant’s request on the basis that the appellant’s spouse had already received the maximum parental benefits under the Employment Insurance Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant and spouse requested EI parental benefits for twins; spouse's request approved, appellant's denied due to one set per pregnancy rule.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant appealed the EI Commission's decision to the Board of Referees and Umpire; the appeal was stayed pending Martin case outcome.",
+     "quote": "The appellant appealed the EI Commission’s decision to the Board of Referees and then to the Umpire. ... the stay was granted without conditions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant initially proposed Martin's outcome be binding but ultimately the stay was unconditional.",
+     "quote": "The appellant had initially proposed that the outcome in Martin be binding on her appeal but, ultimately, the stay was granted without conditions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant appealed EI decision; appeal stayed pending Martin case, initially proposed binding effect but stay was unconditional.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "In Martin, the Court found EI Act provides 35 weeks per pregnancy, not per child, and is not discriminatory under Charter section 15(1).",
+     "quote": "In Martin, this Court found that the EI Act provides 35 weeks of parental benefits per single pregnancy or adoption, not 35 weeks per child. This Court also found that the EI parental benefits scheme is not discriminatory on the basis of family/parental status",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Supreme Court denied leave to appeal Martin on June 27, 2013.",
+     "quote": "The Supreme Court of Canada denied leave to appeal Martin on June 27, 2013",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found in Martin that EI Act provides 35 weeks per pregnancy and is not discriminatory; Supreme Court denied leave to appeal.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appeals stayed pending Martin were transferred to SST-AD, which dismissed all appeals including appellant's, relying on Martin.",
+     "quote": "All of the appeals before the Umpire that were stayed pending the outcome in Martin were transferred to the Social Security Tribunal, Appeal Division (SST-AD). The SST-AD subsequently dismissed all of the appeals, including the appellant’s appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "SST-AD stated Martin settled all issues including constitutional challenge to EI Act.",
+     "quote": "The SST-AD stated that Martin settled all aspects of the issue of parental benefits and multiple-child pregnancies, including the constitutional challenge to the EI Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant did not seek judicial review of the SST-AD decision.",
+     "quote": "The appellant did not seek judicial review of the SST-AD’s decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states SST-AD dismissed all appeals relying on Martin; appellant did not seek judicial review of SST-AD decision.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant filed a complaint with the Commission alleging the 'per pregnancy' restriction discriminated on family status ground.",
+     "quote": "The appellant filed a complaint with the Commission, alleging that the “per pregnancy” restriction under the EI parental benefits scheme discriminated against her on the ground of family status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant filed a human rights complaint alleging discrimination due to 'per pregnancy' restriction.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission requested a position letter from appellant on whether to not deal with complaint as vexatious under CHRA paragraph 41(1)(d).",
+     "quote": "The Commission requested that the appellant provide a position letter on whether the Commission should not deal with her complaint, pursuant to paragraph 41(1)(d) of the CHRA.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission stated the issue was whether the complaint may be vexatious as it may have been dealt with through another process.",
+     "quote": "the issue is whether or not [the appellant’s] complaint may be vexatious because the human rights allegations may have already been dealt with through another process",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker requested appellant's position on whether complaint was vexatious as it may have been dealt with in another process.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "A Section 40/41 Report was prepared addressing whether complaint was vexatious and recommending Commission not deal with it.",
+     "quote": "A Section 40/41 Report was prepared to address whether the appellant’s complaint was vexatious within the meaning of paragraph 41(1)(d) and to make a recommendation to the Commission on this basis",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Report identified vexatiousness factors, summarized parties' positions, Martin case, and compared CHRA and Charter tests.",
+     "quote": "The Report identified the factors relating to vexatiousness, summarized the parties’ position letters, summarized the Martin case, and compared the legal tests under the CHRA and the Charter.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Report recommended not dealing with complaint as other process addressed discrimination allegations overall.",
+     "quote": "The Report recommended that the Commission not deal with the appellant’s complaint because the appellant’s other process had “addressed the allegations of discrimination overall”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Each party responded to the Report and to each other's submissions.",
+     "quote": "Each party responded to the Report and availed themselves of the opportunity to respond to each other’s submissions to the Report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker prepared a report recommending not dealing with complaint as other process addressed discrimination; parties responded to report.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission decided not to deal with complaint under CHRA paragraph 41(1)(d), adopting the Report's conclusion.",
+     "quote": "The Commission ultimately decided not to deal with the appellant’s complaint, pursuant to paragraph 41(1)(d) of the CHRA. The Commission adopted the Section 40/41 Report’s conclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission accepted SST-AD relied on Martin in dismissing appellant's EI appeal and that allegations were essentially the same as Martin's Charter discrimination claim.",
+     "quote": "The Commission accepted that the SST-AD relied on Martin in dismissing the appellant’s EI Act appeal and that the appellant’s allegations of discrimination were essentially the same as those decided upon by this Court in Martin, even though Martin alleged discrimination under section 15 of the Charter",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker decided not to deal with complaint, adopting report, accepting SST-AD relied on Martin and allegations were essentially the same.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant sought judicial review of the Commission's decision on grounds of unreasonableness and procedural fairness breach.",
+     "quote": "The appellant sought judicial review of the Commission’s decision to not deal with her human rights complaint on the grounds that the decision was unreasonable and that the Commission breached procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellant sought judicial review alleging unreasonableness and procedural fairness breach by the Commission.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge reviewed Commission's decision on reasonableness standard, affording higher deference due to discretion and policy considerations.",
+     "quote": "The application judge reviewed the Commission’s decision to not deal with the appellant’s complaint on a reasonableness standard. The application judge determined that the Commission was entitled to “higher deference” and should be afforded “great latitude” because it was making a discretionary decision based on factual and policy considerations",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The application judge found the Section 40/41 Report erroneously concluded SST-AD finally determined discrimination allegations; appellant raised human rights issues only in CHRA complaint.",
+     "quote": "The application judge found that the Section 40-41 Report erroneously concluded that the SST-AD finally determined the appellant’s allegations of discrimination. He found that the appellant did not raise human rights issues until she filed her CHRA complaint and that the SST-AD proceedings only dealt with the interpretation of the relevant provisions in the EI Act",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Despite error, application judge concluded reliance on Martin justified Commission's decision as it negates prospect of success.",
+     "quote": "The application judge concluded, however, that the Commission’s reliance on Martin, alone, justified its decision not to deal with the appellant’s complaint. ... it “negates any prospect for success in her case”",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found Commission entitled to high deference; Section 40/41 Report erred on SST-AD findings; reliance on Martin justified decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Application judge held procedural fairness standard is correctness; appellant owed lesser degree of fairness per Baker factors.",
+     "quote": "The application judge determined that the standard of review for determining procedural fairness is correctness. Based on the Baker factors, the appellant was owed a lesser degree of procedural fairness",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Application judge found Commission informed appellant of considerations and gave ample opportunity to submit.",
+     "quote": "The application judge found that the Commission informed the appellant of what it would consider in deciding whether to deal with her complaint and gave her ample opportunity to provide submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Section 40/41 Report was neutral, thorough, accurately summarized submissions, and examined vexatious claim factors.",
+     "quote": "The application judge found that the Section 40/41 Report, upon which the Commission based its decision, was neutral and sufficiently thorough, accurately summarized the parties’ submissions, and comprehensively examined the factors to determine whether a claim is vexatious",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found procedural fairness standard correctness; appellant owed lesser fairness; Commission informed appellant and report was thorough and neutral.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Issues on appeal: correct standard of review; reasonableness of Commission's decision; procedural fairness of Commission's decision.",
+     "quote": "I would characterize the issues on appeal as follows: 1. What is the correct standard of review to be applied to the Commission’s decision to not deal with the appellant’s complaint? 2. Was the Commission’s decision to not deal with the appellant’s complaint reasonable? 3. Was the Commission’s decision to not deal with the appellant’s complaint procedurally fair?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issues on appeal: standard of review, reasonableness, and procedural fairness of Commission's decision.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "On judicial review appeal, court must determine if application judge chose and applied correct standard of review, stepping into judge's shoes.",
+     "quote": "On an appeal of an application for judicial review, this Court must determine whether the application judge chose the correct standard of review and applied it properly. In doing so, this Court “step[s] into the shoes” of the Federal Court judge",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it must determine if the application judge chose and applied the correct standard of review, stepping into the judge's shoes.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Parties agreed on reasonableness standard of review; court finds this appropriate and focuses on whether decision was reasonable given vexatious ground.",
+     "quote": "The parties agreed that the Commission’s decision not to deal with the appellant’s complaint is to be reviewed on a reasonableness standard. ... the question to be answered is, given the overall context, was the Commission’s decision not to deal with the appellant’s complaint based upon the vexatious ground set out in paragraph 41(1)(d) reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds reasonableness is the appropriate standard of review and focuses on whether the Commission's vexatious decision was reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Section 40/41 Report is part of Commission's reasons; Commission's decision is verbatim copy of Report's conclusion.",
+     "quote": "This Court should consider the Section 40/41 Report as part of the Commission’s reasons for its decision to not deal with the appellant’s complaint. The Commission’s decision consists of a verbatim copy of the conclusion contained in the Section 40/41 Report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Section 40/41 Report forms part of the Commission's reasons, which are a verbatim copy of the Report's conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission informed appellant it was considering whether complaint was vexatious under CHRA paragraph 41(1)(d).",
+     "quote": "The Commission informed the appellant that it was considering whether or not to deal with her complaint as it may be “vexatious” under paragraph 41(1)(d).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "The Commission considers a complaint vexatious if human rights issues may have been dealt with in another process.",
+     "quote": "The Commission considers a complaint vexatious where “the human rights issues in [the] complaint may have already been dealt with through another process”",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker informed appellant it considered complaint vexatious if human rights issues were dealt with in another process.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Figliola case interprets similar provision allowing dismissal if complaint substance dealt with in another proceeding, reflecting finality doctrines.",
+     "quote": "In British Columbia (Workers’ Compensation Board) v. Figliola, 2011 SCC 52, ... a complaint could be dismissed where “the substance of the complaint or that part of the complaint has been appropriately dealt with in another proceeding”. Justice Abella found that the provision reflected the principles of the doctrines of finality – issue estoppel, collateral attack and abuse of process",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Bergeron summarized Figliola factors: concurrent jurisdiction, same legal issue, opportunity to meet case.",
+     "quote": "In Bergeron, this Court summarized the Figliola factors used to assess whether a human rights complaint has already been dealt with in a prior proceeding: Was there concurrent jurisdiction to decide human rights issues? Was the legal issue in the alternate forum essentially the same as the legal issue in the human rights complaint? Did the complainant have the opportunity to know the case to meet and have a chance to meet it?",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Figliola and Bergeron addressed cases where same complainant had final decision on discrimination then raised it again in human rights proceeding.",
+     "quote": "Figliola and Bergeron addressed circumstances where the same complainant received a final decision on allegations of discrimination in a prior proceeding then raised discrimination again in a human rights proceeding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Figliola and Bergeron cases set factors for dismissing complaints already dealt with, involving finality doctrines and same complainant.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission's approach to vexatiousness reflects Figliola factors, considering final decision, jurisdiction, issue similarity, opportunity to raise issues, and process differences.",
+     "quote": "The Commission’s stated approach to vexatiousness reflects the Figliola factors. ... Has a final decision been made in another process? Did the decision-maker in the other process have the authority to decide human rights issues? Were the issues raised during the other process essentially the same as the issues in this complaint? Were all the human rights issues addressed? Did the complainant have a chance to raise all relevant human rights issues? Is there a significant difference between the other process and the Commission process?",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker states the Commission's vexatiousness approach reflects Figliola factors including final decision, jurisdiction, issue similarity, and opportunity to raise issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Section 40/41 Report identifies appellant's other process as EI Act appeal before SST-AD, which relied on Martin to dismiss appeal.",
+     "quote": "The Section 40/41 Report identifies the appellant’s other process as her EI Act appeal before the SST-AD. The Report emphasizes that the SST-AD relied on this Court’s decision in Martin to dismiss the appellant’s appeal",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commission's reasons state SST-AD and this Court had jurisdiction to decide human rights issues.",
+     "quote": "The Commission’s reasons state that both the SST-AD and this Court had jurisdiction to decide human rights issues",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The reasons state appellant's CHRA complaint discrimination allegations are essentially the same as those decided by SST-AD and this Court in Martin under Charter section 15.",
+     "quote": "The reasons also state that the allegations of discrimination in the appellant’s CHRA complaint are essentially the same as those raised and finally decided on by the SST-AD in the appellant’s EI Act appeal and by this Court in Martin under section 15 of the Charter",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Investigator acknowledges appellant did not raise CHRA before SST-AD but concludes Martin's Charter analysis sufficiently examined discrimination allegations similar to CHRA analysis.",
+     "quote": "The investigator acknowledges that the appellant did not raise the CHRA before the SST-AD. However, the Commission concludes that Martin’s Charter analysis, on which the SST-AD relied, sufficiently examined the appellant’s allegations of discrimination and would be similar to an analysis under the CHRA",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker states the report identifies SST-AD appeal relying on Martin, both had jurisdiction, allegations were essentially the same, and Martin's Charter analysis sufficed.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Commission unreasonably applied paragraph 41(1)(d) to the appellant's complaint.",
+     "quote": "In my view, the Commission unreasonably applied paragraph 41(1)(d) to the appellant’s complaint.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant did not raise human rights issues before filing her CHRA complaint and SST-AD's decision was limited to statutory interpretation.",
+     "quote": "Counsel for the respondent conceded that the appellant did not raise human rights issues prior to filing her CHRA complaint and that the SST-AD’s decision was limited to the statutory interpretation of the relevant EI Act provisions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "SST-AD applied Martin to find appellant entitled to one set of benefits per pregnancy, not per child.",
+     "quote": "The SST-AD only applied Martin to find that, under the EI Act, the appellant was entitled to a single set of benefits per pregnancy, not per child.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The appellant did not raise discrimination allegations under Charter or CHRA to which SST-AD could apply Martin.",
+     "quote": "The appellant did not raise any allegations of discrimination, under the Charter or the CHRA, to which the SST-AD could have applied Martin.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Appellant did not receive a final decision on human rights issues at SST-AD.",
+     "quote": "The appellant did not receive a final decision regarding human rights issues at the SST-AD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Vexatiousness and Figliola factors do not apply to appellant's CHRA complaint as no final decision was received.",
+     "quote": "As the appellant is not attempting to re-litigate an issue on which she has already received a final decision, vexatiousness and the Figliola factors do not apply to the appellant’s CHRA complaint.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commission unreasonably applied paragraph 41(1)(d); respondent concedes no prior human rights issues raised; SST-AD applied Martin only on benefits; appellant did not raise discrimination allegations; no final decision on human rights issues; vexatiousness does not apply.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commission could reasonably dismiss appellant's complaint based on Martin alone.",
+     "quote": "The respondent argues that the Commission could reasonably dismiss the appellant’s complaint based on Martin alone.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "If complaint has no reasonable prospect of success, it may be properly dismissed as frivolous under paragraph 41(1)(d).",
+     "quote": "It may be that the Commission could properly dismiss the appellant’s complaint if, having accepted her allegations, it finds that the complaint has no reasonable prospect of success.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Frivolous complaints are included alongside vexatious in paragraph 41(1)(d) (Love v. Canada).",
+     "quote": "such a complaint would be considered frivolous within the meaning of paragraph 41(1)(d) (Love v. Canada(Privacy Commissioner), 2015 FCA 198 at para. 23, 259 A.C.W.S. (3d) 130).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Commission limited its analysis to vexatiousness and appellant's process, not frivolousness.",
+     "quote": "the Commission clearly limited its analysis to the factors relating to vexatiousness and the appellant’s other process.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Commission asked parties to provide submissions on vexatiousness only, excluding evidence on discrimination allegations.",
+     "quote": "The Commission asked the parties to provide submissions on vexatiousness only and to not include evidence related to the allegations of discrimination (AB, Tab 5(a), pp. 47-49; Tab 5(c), p. 150).",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the Commission could dismiss the complaint based on Martin if no reasonable prospect of success; court finds Commission limited analysis to vexatiousness only.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Vexatious ground in paragraph 41(1)(d) is interpreted flexibly to prevent multiple proceedings and resource waste (Figliola).",
+     "quote": "I recognize that the vexatious ground in paragraph 41(1)(d) is intended to be interpreted flexibly to prevent multiplicity of proceedings and waste of resources on re-litigation (Figliola at para. 36).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "This Court adjudicated Mr. Martin's discrimination allegations under the Charter.",
+     "quote": "This Court adjudicated Mr. Martin’s allegations of discrimination under the Charter.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Martin's discrimination allegations may be essentially the same as appellant's CHRA complaint.",
+     "quote": "The allegations of discrimination in Martin may be essentially the same as those raised in the appellant’s CHRA complaint.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellant's complaint may inevitably fail on this basis.",
+     "quote": "On this basis, the appellant’s complaint may inevitably fail.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Commission based decision solely on vexatiousness requiring final decision on discrimination allegations, which appellant lacks.",
+     "quote": "However, the Commission based its decision to not deal with the appellant’s complaint solely on vexatiousness which raises particular legal principles, specifically that the appellant must have received a final decision on her allegations of discrimination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Martin's adjudication cannot substitute for appellant's final decision on discrimination allegations.",
+     "quote": "The adjudication of Mr. Martin’s allegations of discrimination cannot be used as a substitute.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Commission's decision is not within acceptable outcomes under vexatious ground in paragraph 41(1)(d).",
+     "quote": "As a result, the Commission’s decision does not fall within a range of acceptable and defensible outcomes that could be reached under the ground of vexatious in paragraph 41(1)(d).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains vexatiousness prevents multiple proceedings; Martin's discrimination adjudication is not a substitute final decision; Commission's decision solely on vexatiousness is unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Commission misconceived SST-AD's dismissal basis, leading to vexatiousness inquiry.",
+     "quote": "The Commission misconceived the basis of the SST-AD’s dismissal of the appellant’s appeal from the decision of the EI Commission. This led the Commission to ask itself whether the appellant’s CHRA complaint was vexatious.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If Commission properly understood SST-AD dismissal and Martin's conclusiveness, it could raise this with appellant and consider frivolousness.",
+     "quote": "Had the Commission properly understood the basis of the SST-AD’s dismissal and, had it thought that this Court’s decision in Martin was conclusive on the issue raised in the appellant’s complaint, it could have properly raised this with the appellant. After hearing the appellant’s submissions on this point, the Commission could have decided whether the complaint was frivolous, in the narrow legal sense of having no prospect of success.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Commission may reconsider complaint and not proceed if it has no prospect of success to manage scarce resources.",
+     "quote": "In my view, this approach is still open to the Commission when it reconsiders the matter. The Commission must manage scarce resources; it is open to the Commission to not proceed with a complaint that, in its view, has no prospect of success.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court does not believe appellant's complaint is frivolous in colloquial sense and appreciates its importance.",
+     "quote": "I wish to make it clear that I do not believe that the appellant’s complaint is frivolous in the colloquial sense of the term. I appreciate that this matter is very important to the appellant and to those in similar circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commission misunderstood SST-AD dismissal basis, should have considered frivolousness, may reconsider complaint, and appreciates appellant's complaint importance.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No need to determine procedural fairness breach; appellant's submissions on this are without merit.",
+     "quote": "Given my conclusion above, it is not necessary to determine whether the Commission breached procedural fairness in coming to its decision to not deal with the appellant’s complaint. However, in my view, the appellant’s submissions on this issue are without merit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Commission did not make a clear, unambiguous promise to consider appellant's original position letter.",
+     "quote": "The Commission did not make a clear, unambiguous, and unqualified promise that it would consider the appellant’s original position letter when making its decision on whether to deal with her complaint.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Initial correspondence stated Commission would use parties' submissions to the report.",
+     "quote": "The initial correspondence to the appellant stated that the Commission would use “the parties’ submissions to the report” (AB, Tab 5(a), p. 46).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Correspondence seeking submissions stated Commission would decide based on report, complaint form, and any submissions received.",
+     "quote": "Correspondence seeking the appellant’s submissions to the Section 40/41 Report stated (AB, Tab 5(c), p. 150): The Commission will decide based on the [Report], the complaint form, and any submissions (comments) it has received from the parties.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Commission clearly communicated it would consider submissions made in response to Section 40/41 Report and followed this procedure.",
+     "quote": "The Commission clearly communicated that it would consider the parties’ submissions that were made in response to the Section 40/41 Report. The Commission followed this stated procedure in coming to its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no procedural fairness breach; Commission did not promise to consider original letter but only submissions to the report and followed procedure.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Appellant had full opportunity to present position on why Commission should deal with complaint.",
+     "quote": "The appellant was provided a full opportunity to present her position on why the Commission should deal with her complaint.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Arguments in original position letter were repeated in Section 40/41 Report, including limited SST-AD scope, inapplicability of Martin, and burden on Commission to dismiss only plain and obvious cases.",
+     "quote": "The arguments made in her original position letter were repeated in the Section 40/41 Report, including: the limited scope of the SST-AD proceeding; the inapplicability of Martin; and the heavy burden on the Commission to only dismiss complaints in plain and obvious cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Commission reviewed appellant's submissions to the Report and response to respondent's submissions.",
+     "quote": "In addition to the Section 40/41 Report, the Commission specifically reviewed the appellant’s submissions to the Report and the appellant’s response to the respondent’s submissions to the Report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant had full opportunity to present position; arguments repeated in report; Commission reviewed all submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed with costs; matter referred back to Commission for reconsideration.",
+     "quote": "I would allow the appeal, with costs, and refer the matter back to the Commission for reconsideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal with costs and refers the matter back to the Commission for reconsideration.",
+   "role": "disposition"
+  }
+ ]
+}

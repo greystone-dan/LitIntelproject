@@ -1,0 +1,815 @@
+{
+ "case_id": 16980,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.014066,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This judicial review challenges a visa officer's June 28, 2018 decision refusing Ms. Kwan's permanent resident visa application.",
+     "quote": "This application for judicial review challenges a visa officer’s [the Visa Officer] decision dated June 28, 2018 refusing the application of Chi Kan Kwan for a permanent resident visa as a member of the Start-up Business Class.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer found Ms. Kwan's application was primarily to acquire immigration status, not to engage in authorized business activity.",
+     "quote": "The stated basis for the decision was a finding that Ms. Kwan’s application for landing was primarily brought for the purpose of acquiring immigration status and not for the required purpose of engaging in an authorized business activity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this judicial review challenges the Visa Officer's refusal of Ms. Kwan's visa, based on finding her purpose was immigration status, not business.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Kwan met initial technical requirements for the Start-up Business Class, including intention to operate a business and agreement with a designated entity.",
+     "quote": "It is common ground that Ms. Kwan’s application met the initial technical requirements to qualify as a start-up business venture under the applicable program.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Kwan had an agreement with Empowered Startups Ltd., a Vancouver-based designated business incubator.",
+     "quote": "In Ms. Kwan’s case, an agreement was reached with a designated business incubator based in Vancouver, namely Empowered Startups Ltd.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The proposed joint venture was a fee-based financial website linking Chinese investors with Canadian financial product institutions.",
+     "quote": "The agreement described the proposed joint venture as a fee based “one stop information platform (Financial Website)” linking Chinese investors with institutions offering Canadian financial products.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Kwan met initial program requirements and had an agreement with Empowered for a financial website linking Chinese investors to Canadian products.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "A concern arose about Empowered supporting a conflicting venture, raising concerns about assisting applicants to acquire status under IRPA.",
+     "quote": "The reviewing Visa Officer noted that this “raises concerns about possible [Empowered] involvement in assisting applicants in acquiring status or privilege under IRPA”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Visa Officer requested a peer review from CABI, which identified problems and noted significant changes to the business model.",
+     "quote": "CABI’s peer review report dated February 16, 2018 identified problems with the proposal and noted that the business model had “changed significantly since the initial application was submitted”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "CABI noted Ms. Kwan committed to paying $300,000 for incubation services, which is not normal for Canadian incubators.",
+     "quote": "The report also stated that Ms. Kwan “has committed to paying $300,000 for a year of incubation services. This is not normal for an incubator in Canada”.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Visa Officer raised concerns about Empowered's conflicting ventures and obtained a CABI peer review noting business model changes and unusual incubation fees.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Visa Officer requested status updates on Ms. Kwan's business establishment and operation on February 28 and March 9, 2018.",
+     "quote": "On February 28, 2018, Ms. Kwan was asked to provide a status update on the establishment and operation of her business. This request was followed up with a second request on March 9, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Kwan provided a three-page update describing a new chatbot platform business model, abandoning the initial model due to financial regulation concerns.",
+     "quote": "Ms. Kwan then provided a three page “Venture Update” describing a new business model involving a chatbot platform connecting financial institutions with potential customers. She also explained that the initial business model had been abandoned because of financial regulation concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Visa Officer requested updates; Ms. Kwan replied with a new chatbot business model, abandoning the initial one due to regulation concerns.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer found lack of seriousness due to significant business model change and insufficient evidence of progress.",
+     "quote": "Ms. Kwan’s update gave rise to a new concern about “lack of seriousness”.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Ministerial Instructions exclude applicants intending to acquire status primarily, not to engage in business activity.",
+     "quote": "Item 2(5) of the Ministerial Instructions (MIs) states that an applicant is not to be considered a member of the start-up business class if they intend to participate...primarily for the purpose of acquiring a status or privilege under the Act and not for the purpose of engaging in the business activity for which the commitment was intended.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Empowered accepted and invested in a competing business similar to Ms. Kwan's initial proposal, which is atypical for a venture capital investor.",
+     "quote": "I also note that Empowered Startups Ltd. has accepted and is investing in a business venture similar to her initial proposal which would have directly competed with her business. This is atypical of a venture capital investor.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer concluded Ms. Kwan's intentions were other than carrying out business in Canada, suspecting she sought permanent residence primarily.",
+     "quote": "The lack of seriousness by PA and designated entity in entering the proposal leads me to conclude that her intentions were other than carrying out a business in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Visa Officer found Ms. Kwan lacked seriousness, noted competing investments by Empowered, and concluded her intent was primarily to acquire permanent residence.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "Visa Officer sent a procedural fairness letter to Ms. Kwan raising concerns and questioning the bona fides of her application.",
+     "quote": "The Visa Officer followed up with a procedural fairness letter to Ms. Kwan raising all of the same concerns and questioning the bona fides of her application.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The letter specifically noted lack of information about business progress during the previous year.",
+     "quote": "Included in the letter was a specific concern about the lack of information provided about the progress of the venture during the previous year.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Visa Officer sent a fairness letter to Ms. Kwan raising concerns about her application and lack of business progress information.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Ms. Kwan responded with a four-page reply explaining the business model change and her work on the new proposal.",
+     "quote": "Ms. Kwan responded to the fairness letter in a four page reply and enclosed copies of her communications with the representatives from Empowered.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "She claimed about 10 hours per week engagement and said Empowered's other chatbot venture did not compete with hers.",
+     "quote": "She claimed to have been actively engaged in the incubation process to the extent of “about” 10 hours of work per week. Ms. Kwan also explained that the work being done by Empowered in the development of another chatbot venture did not compete with her business idea.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Ms. Kwan criticized the Visa Officer for second guessing her business decisions and threatened legal options if negative decision issued.",
+     "quote": "Her letter concluded with a criticism that the Visa Officer was second guessing her business decisions and with a threat that she was exploring her legal options in the event of a negative decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Despite Empowered's involvement, Ms. Kwan provided no supporting evidence from Empowered with her response.",
+     "quote": "It is of some significance that, despite Empowered’s significant involvement in the development of Ms. Kwan’s venture, nothing from that source was provided with her response.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Kwan replied explaining her business changes, claimed active engagement, denied competition, criticized the officer, and provided no Empowered evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer concluded Ms. Kwan's application was primarily motivated by desire to acquire immigration status, not a legitimate business opportunity.",
+     "quote": "Notwithstanding Ms. Kwan’s answers, the Visa Officer concluded that the application was primarily motivated by a desire to acquire immigration status in Canada and not to pursue a legitimate business opportunity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Visa Officer concluded Ms. Kwan's application was primarily to acquire immigration status, despite her responses.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Visa Officer reviewed Ms. Kwan's submissions including explanation letter, emails, WeChat logs, incorporation documents, and agreements.",
+     "quote": "On June 6, 2018, the PA made the following submissions in response to my PFL on May 15, 2018: explanation letter, emails with Empowered, WeChat logs, incorporation documents, screenshots of website, Collaborative Research Agreement, and e‑mails between UBC and Empowered.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer acknowledged terminology concerns but found them not impacting clarity of concerns.",
+     "quote": "I acknowledge that the PA raised concerns with regards to Empowered Startups Ltd. being referred to as a venture capital investor in my PFL. However, I am satisfied that this terminology does not impact the clarity of my concerns conveyed to the application.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Kwan incorporated the business on March 1, 2017, after arrival, and obtained a work permit on February 25, 2017.",
+     "quote": "Certificate of Incorporation provided indicates that the PA’s business venture was incorporated on March 1, 2017 in BC, after her arrival in Canada. PA obtained work permit #W302370595 on February 25, 2017 in order to work on her business venture in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Chat logs show Ms. Kwan was not in Canada as of March 17, 2017, and business discussions occurred remotely.",
+     "quote": "According to the chat logs provided between the PA and Chang of Empowered Startups Ltd., the PA was no longer in Canada as of at least March 17, 2017. In her letter of explanation, the PA repeatedly indicates that the discussions about the business took place over email, WeChat call, and WeChat message.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer not satisfied Ms. Kwan actively used her work permit to develop the business or will manage it actively from Canada.",
+     "quote": "Based on the information provided by the PA, I am not satisfied that the PA has been in Canada exercising her work permit to develop her business venture. I am not satisfied that the PA will provide active and ongoing management of this business from within Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Chat logs suggest Empowered's Chang developed the business and provided updates to Ms. Kwan.",
+     "quote": "The chat logs (Appendix B) suggest that Chang of Empowered Startups Ltd. was developing the PA’s business venture and providing the PA with updates.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Emails show Chang created survey questions and built the company website, with Ms. Kwan's friends testing it.",
+     "quote": "According to the April 2, 2017 e-mail between the PA and Chang (Appendix A), it appears as though Chang created the survey questions. Furthermore, Chang built the company website as per the April 21, 2017 e-mail between the PA and Chang. Chang continued to make changes and develop the websites and informed the PA when to have her friends test the website.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Ms. Kwan did not hear from Chang on the venture after February 20, 2018 email.",
+     "quote": "According to the February 20, 2018 e-mail, the PA did not hear from Chang on her venture.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer found insufficient evidence Ms. Kwan was actively involved in developing the business.",
+     "quote": "The PA has failed to provide sufficient evidence to satisfy me that she is actively involved in developing her business.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Collaborative Research Agreement was between UBC and Empowered, excluding Ms. Kwan and her business.",
+     "quote": "Moreover, I note that the Collaborative Research Agreement was signed by UBC and Empowered (Appendix F). It did not include the PA or name her business venture.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Emails were between UBC and Empowered without Ms. Kwan's inclusion.",
+     "quote": "All e-mail correspondence provided took place between UBC and Empowered as well. I note that the PA was not CC’d on these e-mails (Appendix G).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Visa Officer carefully considered Ms. Kwan's response but remained unsatisfied and concerned.",
+     "quote": "The PA’s response to my PFL was carefully considered; however, it did not satisfactorily disabuse all of my concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Visa Officer reviewed Ms. Kwan's evidence but found insufficient active involvement and remained concerned about her business engagement.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Ms. Kwan challenges the decision's reasonableness and alleges procedural unfairness.",
+     "quote": "Ms. Kwan challenges the reasonableness of the decision and argues, as well, that it is tainted by procedural unfairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonableness standard applies to the first issue; correctness standard applies to the fairness issue.",
+     "quote": "The first issue attracts a deferential standard of review and the fairness issue must be examined for correctness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Kwan challenges the decision's reasonableness and procedural fairness; court states standards of review for each issue.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Ms. Kwan argues it was unreasonable to attribute improper purpose based solely on lack of business progress.",
+     "quote": "Ms. Kwan asserts that it was unreasonable for the Visa Officer to attribute an improper purpose to her application based solely on a lack of progress in the development of her business.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This argument mischaracterizes the Visa Officer's primary concern.",
+     "quote": "This argument, however, mischaracterizes the Visa Officer’s primary concern.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Kwan argues unreasonableness based on lack of progress alone; court finds this mischaracterizes the Visa Officer's concern.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Visa Officer doubted Ms. Kwan's motives due to lack of meaningful engagement and early return to Hong Kong.",
+     "quote": "It was Ms. Kwan’s lack of meaningful engagement in the development of the business that led the Visa Officer to doubt her motives.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Kwan's minimal engagement contrasts with her stated commitment to business development.",
+     "quote": "This history of minimal engagement stands in stark contrast to Ms. Kwan’s stated commitment to the development of her business.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Visa Officer doubted Ms. Kwan's motives due to minimal engagement contrasting with her commitments.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Kwan's Commitment Certificate stated she was essential, Director, primary shareholder, CEO, and would work full-time in Vancouver.",
+     "quote": "Ms. Kwan’s Commitment Certificate stated that she was “essential” to the business and would be a Director, the primary shareholder, and the Chief Executive Officer of the company to be incorporated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Certificate described Ms. Kwan's operational role in detail and her full-time employment in Vancouver with Empowered's premises.",
+     "quote": "The Certificate also described Ms. Kwan’s operational role in considerable detail and stated that she would be employed in a full‑time position based in Vancouver working out of premises supplied by Empowered.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A work permit was requested for urgent business reasons to allow Ms. Kwan to assume employment in Canada.",
+     "quote": "A work permit was also requested for “urgent business reasons” to permit Ms. Kwan to assume her employment responsibilities within Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Ms. Kwan's Commitment Certificate detailed her essential, full-time role in Vancouver and requested a work permit for urgent business reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Empowered provided a letter supporting Ms. Kwan's project, stating she would attend and remain in Vancouver in 2017.",
+     "quote": "It is also noteworthy that Empowered provided a letter of support for the project stating that Ms. Kwan would “attend and remain located in Vancouver” between January 2017 and December 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Empowered's letter supporting Ms. Kwan's attendance and residence in Vancouver during 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ms. Kwan visited Canada only one week from Feb 28 to Mar 7, 2017, then returned to Hong Kong and stayed there.",
+     "quote": "Notwithstanding these assurances and the issuance of a work permit on February 25, 2017, Ms. Kwan came to Canada for only one week between the dates of February 28, 2017 and March 7, 2017 after which she returned to Hong Kong and remained there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "During her brief visit, she incorporated the business and met Empowered representatives twice.",
+     "quote": "During her brief visit to Vancouver she incorporated the business and met twice with Empowered representatives.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "After that, Ms. Kwan's involvement was limited to cursory email and WeChat exchanges with Empowered representatives.",
+     "quote": "After that visit, Ms. Kwan’s active operational involvement in the business venture was limited to mostly cursory email and WeChat exchanges with representatives of Empowered.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Ms. Kwan visited Canada briefly, incorporated the business, met Empowered twice, then had limited remote involvement.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Ms. Kwan reneged on her commitment to live in Vancouver and devote time to her business in Canada.",
+     "quote": "This history shows that Ms. Kwan almost immediately reneged on her firm commitment to live in Vancouver and to devote her time and energy in Canada to her business.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "She did not inform visa authorities of her departure or the significant business model change in a timely manner.",
+     "quote": "No effort was made to inform the visa authorities that Ms. Kwan had left Canada and was working from Hong Kong. Similarly, Ms. Kwan neglected to inform program officials in a timely way about the significant change that had been made to the business model.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This is surprising given her WeChat exchanges with Empowered and the advice she received.",
+     "quote": "All of this is surprising in the face of Ms. Kwan’s WeChat exchanges with Empowered representatives about these issues and the advice she was given (see CTR at pages 158 and 163).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Ms. Kwan failed to live in Vancouver, inform authorities of changes, despite WeChat exchanges and advice.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court rejects Ms. Kwan's argument that Visa Officer erred by assessing motives after application date.",
+     "quote": "I reject Ms. Kwan’s argument that the Visa Officer erred by assessing her motivations at a time subsequent to the application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Good faith obligation continues beyond application initiation, justifying ongoing assessment of commitments and progress.",
+     "quote": "In my view, a good faith obligation continues to exist beyond the initiation of an application under this program.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Ongoing commitments, progress reporting, and peer review serve a purpose beyond initial application.",
+     "quote": "If it were otherwise, no purpose would be served by requiring a commitment from the applicant going forward, for regular progress reporting, and for a post-application peer review.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects argument that motives cannot be assessed post-application, affirming ongoing good faith obligations and reporting requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Visa Officer assessed past motivations reasonably by examining subsequent behaviour, especially failure to honour commitments.",
+     "quote": "A person’s past motivations can be reasonably assessed by examining their subsequent behaviour and clearly that was what happened here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No suggestion Visa Officer ascertained motives after application date; assessment based on behaviour after application.",
+     "quote": "I would add that there is nothing in the Visa Officer’s decision suggesting that Ms. Kwan’s motives were ascertained at some point subsequent to the date of her application.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Visa Officer reasonably assessed past motives by examining subsequent behaviour and commitments.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Ministerial Instruction 7 excludes applicants intending to acquire status primarily, without temporal limitation on motive assessment.",
+     "quote": "Ministerial Instruction 7 provides that an applicant will not be considered a member of the start-up business class “if they intend to participate, or have participated, in an agreement or arrangement in respect of a commitment primarily for the purpose of acquiring [immigration] status”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This language contradicts Ms. Kwan's argument of a temporal limitation on motive assessment.",
+     "quote": "This language belies Ms. Kwan’s argument that a temporal limitation applied to the assessment of her motives.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Ministerial Instruction 7 excludes applicants with primary intent to acquire status, contradicting temporal limitation argument.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Visa Officer's finding of lack of bona fide intent by Ms. Kwan was reasonable.",
+     "quote": "I am satisfied that the Visa Officer’s finding of a lack of a bona fide intent on the part of Ms. Kwan was reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants may delay business activity until permanent residency, but Ms. Kwan did not; she failed clear commitments and had minimal activity.",
+     "quote": "While it may well be open to applicants in Ms. Kwan’s situation to hold back from initiating business activity until permanent residency has been obtained, that is not what Ms. Kwan did. She gave clear commitments that she failed to honour and the level of her business activity was minimal at best.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Problem was Ms. Kwan's lack of active engagement, not Empowered's involvement.",
+     "quote": "The problem was not that Empowered was actively engaged with the business venture but, rather the problem was that Ms. Kwan was not.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Visa Officer was entitled to conclude Ms. Kwan was not serious and primarily seeking immigration status.",
+     "quote": "On this record it was open to the Visa Officer to conclude that Ms. Kwan was not serious about the business and was instead primarily seeking immigration status.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes Visa Officer reasonably found Ms. Kwan lacked bona fide intent, was minimally active, and primarily sought immigration status.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Ms. Kwan argues Visa Officer must have considered extrinsic evidence and had duty to inform her.",
+     "quote": "Ms. Kwan contends that the Visa Officer must have taken this extrinsic evidence into account and, therefore, had a duty to bring it to her attention.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Visa Officer's rejection was due to concern about Empowered's motivations, not hers.",
+     "quote": "Ms. Kwan argues that the Visa Officer’s actual rationale for rejecting her application had more to do with a concern about Empowered’s motivations than hers.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Visa Officer's file note of Sept 12, 2017 shows concern not fully addressed in fairness letter.",
+     "quote": "This suspicion, she says, was also reflected in the Visa Officer’s file note of September 12, 2017 – a concern that was not fully addressed in the Visa Officer’s procedural fairness letter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant Ms. Kwan argues Visa Officer considered extrinsic evidence and had duty to inform her; rejection was due to Empowered's motives, shown in file note.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Visa Officer initially concerned about Empowered's motives and did not inform Ms. Kwan.",
+     "quote": "I accept Ms. Kwan’s point that the Visa Officer harboured an initial concern about Empowered’s business model and its motives. It is also apparent that Ms. Kwan was not told about the issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No indication Empowered's conduct was considered in rejecting Ms. Kwan's application.",
+     "quote": "there is nothing in the Visa Officer’s decision indicating that Empowered’s conduct was ultimately taken into account in the rejection of Ms. Kwan’s application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Decision based on Ms. Kwan's lack of meaningful operational involvement, a reasonable justification.",
+     "quote": "The stated basis for the decision was Ms. Kwan’s lack of meaningful operational involvement with the start-up and that was, on its own, a reasonable justification for the decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No basis to conclude Visa Officer had disguised motive; Empowered's assistance explanation accepted.",
+     "quote": "there is simply no basis to conclude that the Visa Officer harboured some disguised motive for the decision. Indeed, if an inference is to be drawn it would be that Ms. Kwan’s explanation for Empowered’s assistance to a similar venture was accepted and the Visa Officer’s conflict of interest concern was dispelled.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Visa Officer initially concerned but did not consider Empowered's conduct in decision; decision based on Ms. Kwan's involvement; no disguised motive found.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence Visa Officer's initial concerns about Empowered influenced decision, so no duty to inform Ms. Kwan.",
+     "quote": "In the absence of evidence that the Visa Officer’s initial concerns about Empowered were a factor in the decision, there was no requirement to bring that issue to Ms. Kwan’s attention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "This case differs from Sapojnikov involving failure to disclose a 'poison pen' letter before procedural fairness letter.",
+     "quote": "This situation is very different from the case of Sapojnikov v Canada (Immigration, Refugees and Citizenship), 2017 FC 964, 285 ACWS (3d) 153, involving a failure to disclose a “poison pen” letter received one day before the sending of a procedural fairness letter.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no evidence Visa Officer's concerns influenced decision, so no duty to inform; distinguishes from Sapojnikov case.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "In Sapojnikov, letter impugned credibility and was inferred to influence procedural fairness letter decision.",
+     "quote": "The content of the letter directly impugned the applicant’s credibility and Justice Anne Mactavish drew an inference that it must have been a factor in the decision to send the procedural fairness letter.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Duty to disclose such a letter to the applicant arises when it influences procedural fairness letter decision.",
+     "quote": "Accordingly, there was a duty to disclose the letter to the applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Sapojnikov case held duty to disclose letter impugning credibility if it influenced procedural fairness letter decision.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Visa Officer's reservations about Empowered were irrelevant to Ms. Kwan's motives or credibility assessment.",
+     "quote": "In this case, the Visa Officer’s tentative reservations about Empowered had no relevance to the assessment of Ms. Kwan’s motives or her credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "CABI's reference to Ms. Kwan's $300,000 commitment was never pursued by Visa Officer.",
+     "quote": "In fact, CABI’s reference to Ms. Kwan’s $300,000 commitment to Empowered was, not surprisingly, never taken up by the Visa Officer as a point of subsequent interest.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Visa Officer's reservations irrelevant to Ms. Kwan's motives; CABI's $300,000 reference not pursued.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application is dismissed for the reasons given.",
+     "quote": "For the foregoing reasons, this application is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses the application for the reasons stated.",
+   "role": "disposition"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "No certified question proposed and no general importance issue arises.",
+     "quote": "Neither party proposed a certified question and no issue of general importance arises on this record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Judgment is that the application is dismissed.",
+     "quote": "THIS COURT’S JUDGMENT is that this application is dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Hearing held in Vancouver on January 10, 2019; judgment dated January 22, 2019; appearances and solicitors listed.",
+     "quote": "PLACE OF HEARING: Vancouver, British Columbia DATE OF HEARING: January 10, 2019 JUDGMENT AND REASONS: BARNES J. DATED: January 22, 2019 APPEARANCES: Steven Meurrens For The Applicant Mark East For The Respondent SOLICITORS OF RECORD: Larlee Rosenberg Barristers and Solicitors Vancouver, British Columbia For The Applicant Attorney General of Canada Vancouver, British Columbia For The Respondent",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes no certified question, dismisses application, and records hearing details and counsel appearances.",
+   "role": "disposition"
+  }
+ ]
+}

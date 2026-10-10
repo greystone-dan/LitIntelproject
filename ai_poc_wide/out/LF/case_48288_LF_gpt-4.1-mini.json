@@ -1,0 +1,1533 @@
+{
+ "case_id": 48288,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.028094000000000008,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants are citizens of Burundi, with specified ages and names for the family members.",
+     "quote": "The claimants are citizens of Burundi. XXX XXXXX (the male claimant) is 57 years old. His spouse, XXXX XXXXX (the female claimant), is 42 years old. Their three children are XXXX XXXX XXXX, 11 years old, XXXX XXXX XXXX, 9 years old, and XXXX XXXX XXXX, 6 years old.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants are Burundian citizens with specified ages and names for the family members.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The female claimant was appointed designated representative for her three minor daughters.",
+     "quote": "The female claimant was appointed the designated representative for her three minor daughters.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the female claimant is the designated representative for her three minor daughters.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants arrived in Canada on April 9, 2007, and claimed refugee protection that day.",
+     "quote": "The claimants arrived in Canada on April 9, 2007, and claimed refugee protection that day.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They allege a well-founded fear of persecution due to membership in a particular social group and political opinion.",
+     "quote": "They made the claim because they allege a well-founded fear of persecution by reason of their membership in a particular social group and their political opinion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They also claim protection as persons at risk of death, cruel treatment, or torture.",
+     "quote": "They are also claiming refugee protection as persons in need of protection because they allege that they would be subjected to a risk to their lives or a risk of cruel and unusual treatment or punishment, as well as to a danger of torture.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants arrived in Canada and claimed refugee protection alleging fear of persecution and risk of death or torture, as claimed by the applicants.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant's Personal Information Form (PIF) contains his allegations.",
+     "quote": "In his Personal Information Form (PIF), the male claimant alleges the following.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the male claimant's allegations are in his Personal Information Form.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The male claimant is an ethnic Tutsi born in northwest Burundi.",
+     "quote": "He is an ethnic Tutsi, born in northwest Burundi.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant alleges he is an ethnic Tutsi born in northwest Burundi.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "In 1966, a southern Burundi captain took power, leading to discrimination against northern Tutsis and Hutus.",
+     "quote": "In November 1966, a captain from southern Burundi (Bururi) assumed power, and after that, Tutsis in the south discriminated against those in the north and, to a much greater extent, all Hutus in the country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant alleges southern Burundi's 1966 takeover led to discrimination against northern Tutsis and Hutus.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In 1971, non-southern army officers were charged and convicted for an attempted coup.",
+     "quote": "In 1971, non-southern army officers were charged and convicted for an attempted coup.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant states that in 1971, non-southern army officers were charged for an attempted coup.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In 1972, Hutus were victims of genocide, and hundreds of non-southern Tutsis were also killed.",
+     "quote": "In 1972, Hutus were victims of a genocide, but hundreds of non-southern Tutsis were also killed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant states the 1972 genocide targeted Hutus and non-southern Tutsis.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "The male claimant joined the army in 1973, unaware of its involvement in genocide, as it had stopped targeting Hutus at his school.",
+     "quote": "The male claimant joined the army in 1973, at the invitation of the chief of staff. He was not aware of the army's involvement in the genocide, especially since the army had stopped going after Hutus at his school in XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant joined the army in 1973, unaware of its genocide involvement, as it had stopped targeting Hutus at his school.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He studied in the USSR 1973-77 and 1987-90, faced discrimination for not being southern Tutsi, but was promoted in 1993.",
+     "quote": "The male claimant participated in XXXX XXXX in the USSR from 1973 to 1977 and again from 1987 to 1990. After achieving the rank of XXXX, he was subjected to discrimination because he was not a southern Tutsi. He was nevertheless promoted to XXXX in 1993.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant studied in USSR, faced discrimination for not being southern Tutsi, but was promoted in 1993.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Southern officers attempted coups in 1993; the male claimant opposed rebels and was arrested and detained for 21 months.",
+     "quote": "The officers from the south attempted a coup on XXXX, 1993. Another attempt, on October 21, 1993, led to the assassination of President Ndadaye. The male claimant explained in his PIF how he opposed the rebels. He referred in particular to Exhibits P-281 and P-292 for information. He went to XXXX on XXXX, 1993, where he was arrested and detained for 21 months.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant opposed southern officers' 1993 coups, was arrested and detained for 21 months.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "He was charged with murder of President Ndadaye but charge withdrawn; later charged with desertion and sentenced conditionally; appeal pending.",
+     "quote": "The male claimant was charged with the murder of President Ndadaye, but that charge was eventually withdrawn. Eighteen months after leaving for XXXX, he was charged with deserting the army and received a conditional six-month sentence. That sentence was appealed, and the Supreme Court proceedings have not yet been completed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant was charged with murder but charge withdrawn; later charged with desertion and appealed sentence.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Upon return, he faced problems: grenade attack on business, brief arrest, tax increase, and failed pardon application.",
+     "quote": "Upon his return to Burundi, the male claimant's statements caused him serious problems. In 1997, a grenade was thrown at his business. In 2001, he was arrested and detained for four hours. In 2003 or 2004, his taxes increased considerably. Finally, his application for a pardon was unsuccessful.",
+     "answers": 0
+    }
+   ],
+   "summary": "Upon return, the male claimant faced threats, arrest, tax hikes, and failed pardon application.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "In 2006, he held a press conference to explain his position and seek pardon and court action, using political change to do so.",
+     "quote": "On XXXX, 2006, the male claimant XXXX XXXX XXXX XXXX XXXX XXXX: to explain that he had no role in the events of XXXX, 1993; to obtain a pardon; to press the Supreme Court to process his case; and to explain his position with respect to the coup. The male claimant took advantage of a change in the political environment to XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "In 2006, the male claimant held a press conference to explain his position and seek pardon and court action.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "After the press conference, he received threats endangering his and family's lives, prompting flight and refugee claim.",
+     "quote": "After the press conference, the male claimant received numerous threats, to the point that he realized that his and his family's lives were at risk. That is why he left his country and claimed refugee protection in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "After the press conference, the male claimant received threats and fled, claiming refugee protection in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "The wife and children base their claim on the male claimant's claim.",
+     "quote": "The male claimant's wife, XXXX XXXX, and his children, XXXX XXXX XXXX, XXXX XXXX XXXX and XXXX XXXX XXXX, base their claim on that of their husband and father.",
+     "answers": 0
+    }
+   ],
+   "summary": "The wife and children base their refugee claim on the male claimant's claim.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister alleges the male claimant was in the army 1976-1993, promoted to XXXX rank.",
+     "quote": "The Minister alleges that the male claimant was a member of the Burundian army from 1976 [sic] to 1993 and that he had been promoted to the rank of XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister alleges the army committed human rights violations and the claimant may have participated or been complicit in crimes against humanity.",
+     "quote": "He also alleges that the Burundian army committed human and international rights violations and that the male claimant could have participated in or been complicit in crimes against humanity or acts contrary to the purposes and principles of the United Nations.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Minister argues the male claimant should be excluded under articles 1F(a) and (c) of the Convention.",
+     "quote": "He is therefore of the opinion that the male claimant should be excluded under articles 1F(a) and (c) of the Convention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister alleges the male claimant was in the army, possibly complicit in crimes, and should be excluded under Convention articles.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The panel determines the male claimant is not a refugee or person in need of protection.",
+     "quote": "The panel determines that the male claimant, XXX XXXX, is not a refugee or a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel determines the male claimant is not a refugee or person in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The female claimants are Convention refugees.",
+     "quote": "However, the female claimants, XXXX XXXX, XXXX XXXX XXXX, XXXX XXXX XXXX and XXXX XXXX XXXX, are Convention refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel determines the female claimants are Convention refugees.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants have valid identity documents establishing their identities.",
+     "quote": "The claimants have valid identity documents, namely, passports issued by the Burundian authorities and several other documents. Their identities have therefore been established.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimants have valid identity documents establishing their identities.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The male claimant's testimony was lengthy, spontaneous, without contradictions, and corroborated by documentary evidence.",
+     "quote": "The male claimant testified at length. His testimony contained no contradictions. He answered spontaneously and without hesitation. Moreover, much of his testimony was corroborated by an abundant amount of documentary evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The panel did not accept all of the male claimant's statements.",
+     "quote": "However, as will be mentioned later on, the panel did not accept all of his statements.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The female claimant testified briefly and credibly.",
+     "quote": "The female claimant XXXX XXXX testified briefly, and her testimony was credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the male claimant's testimony credible but not fully accepted; the female claimant's brief testimony was credible.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant answered questions about his military career upon arrival in Canada and in his PIF response and testimony.",
+     "quote": "Upon his arrival in Canada on April 9, 2007, the male claimant answered the questions of an immigration officer who questioned him, among other things, about his military career. The male claimant also addressed this topic in his response to question 31 of the PIF, and he added some details when he testified.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the male claimant addressed his military career in immigration questioning, PIF, and testimony.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant joined the army in 1973, trained in USSR for four years, and was regularly promoted up to 1983.",
+     "quote": "The male claimant joined the army in XXXX 1973, at the age of 20, at the invitation of the chief of staff at the time. He then began four years of training in the USSR. Up to the rank of XXXX, the male claimant, like his colleagues, was promoted regularly: he became a XXXX after six months, a XXXX XXXX XXXX after a year, and XXXX XXXX after two years. He returned to Burundi in 1977 and was promoted to XXXX in XXXX 1978. Finally, he became a XXXX in XXXX 1983.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the male claimant's army enlistment, USSR training, and regular promotions until 1983.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant held various military ranks from 1979 to 1993, including specialty as an XXXX-XXXX XXXX XXXX.",
+     "quote": "The male claimant was a XXXX XXXX XXXX in XXXX 1979 and a XXXX XXXX in XXXX 1980. After a six-month stay in the USSR, from the end of 1982 to early 1983, the male claimant had XXXX XXXX XXXX. He returned to the USSR from 1987 to 1990. At the time, he was a XXXX-XXXX. Upon his return to the USSR, the male claimant was promoted to XXXX, XXXX XXXX XXXX XXXX. He then XXXX XXXX, XXXX, XXXX XXXX. This was an XXXX-XXXX XXXX XXXX, the male claimant's specialty. After a failed coup in XXXX 1993, in which the male claimant was not involved, he was transferred to XXXX XXXX, where he had the same duties.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court details the male claimant's military ranks and specialty from 1979 to 1993, noting his transfer after a failed coup.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant, a Tutsi from northeast, claimed slower career advancement and protested this injustice but was a XXXX - XXXX XXXX in 1990.",
+     "quote": "The male claimant stated that as a Tutsi from the northeast, he did not advance in his career as quickly as the southern Tutsis and that he had to protest to have this injustice corrected. Nevertheless, he was a XXXX - XXXX XXXX in 1990.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the male claimant's claim of ethnic career discrimination but notes his rank in 1990.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 1993 elections, UPRONA lost to FRODEBU; army resisted and attempted coups including October 21, 1993, when President Ndadaye was assassinated.",
+     "quote": "In the presidential elections on June 1, 1993, and the parliamentary elections on June 29, 1993, the UPRONA party, which had led Burundi since 1965, lost to FRODEBU, a primarily Hutu party.3 Part of the Burundian army resisted the change and assisted with a first coup attempt on July 3, 1993. On October 21, 1993, during another coup attempt, the newly elected president, Melchior Ndadaye was assassinated along with some ministers and parliamentarians.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant left Burundi after the October 21, 1993 coup attempt to XXXX (now XXXX XXXX XXXX XXXX, XXXX).",
+     "quote": "It was in this context that the male claimant left Burundi on XXXX, 1993, and went to XXXX (now called the XXXX XXXX XXXX XXXX, XXXX).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the 1993 elections, coups, assassination, and the male claimant's departure from Burundi.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The male claimant's testimony about October 21-22, 1993 events and forced stay in XXXX is largely corroborated by documentary evidence.",
+     "quote": "The male claimant's testimony about his role in the events on October 21 and 22, 1993, and his forced stay in XXXX is largely corroborated by the documentary evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The first and eleventh battalions were behind the coup; the male claimant went to XXXX at 1:00 a.m. on October 21, 1993, to XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "quote": "In short, the first and eleventh battalions were behind the coup. The male claimant, who XXXX XXXX XXXX, went to XXXX at around 1:00 a.m. on October 21, 1993, in order to XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant's efforts were unsuccessful due to XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "quote": "Unfortunately, XXXX XXXX XXXX XXXX, XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX, where XXXX XXXX was conducting operations. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX who were to go to the XXXX XXXX XXXX XXXX XXXX. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX, XXXX XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the male claimant's testimony on the 1993 coup and forced stay in XXXX corroborated, describing his actions and failure.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant stated that XXXX XXXX XXXX XXXX XXXX XXXX and gave a specific name.",
+     "quote": "The male claimant stated that XXXX XXXX XXXX XXXX XXXX XXXX. He stated that his name was XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the male claimant's statement including a specific name.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The panel finds the male claimant's statement plausible and that he XXXX XXXXXXXXXXXXXXXXXXXXXXX.",
+     "quote": "The panel is of the opinion that this statement is plausible and that the male claimant XXXX XXXXXXXXXXXXXXXXXXXXXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant talked XXXX XXXX and submitted four accounts and a DVD; the panel notes approximately XXXX XXXX.",
+     "quote": "The male claimant talked XXXX XXXX. Note that he XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXX.4 The male claimant also XXXX XXXX XXXX XXXX, 2006, and XXXX XXXX for this is on file.5 He submitted four accounts of XXXX XXXX XXXX XXXX XXXX.6 He also submitted the DVD XXXX XXXX,7 and the panel notes that approximately XXXX XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The panel notes XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "quote": "XXXX XXXX XXXX XXXX XXXX XXXX. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds the male claimant's statement plausible and notes his submissions including accounts and a DVD.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The panel notes the male claimant XXXX XXXX of the XXXX on XXXX, 1993.",
+     "quote": "The panel notes that the male claimant XXXX XXXX of the XXXX on XXXX, 1993.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel notes the male claimant's XXXX XXXX of the XXXX on XXXX, 1993.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On October 21, 1993, a national public safety council announced the coup's success and army and police uprising.",
+     "quote": "At 9:00 p.m. on October 21, 1993, a national public safety council broadcast the message that the coup had succeeded and that the entire army and police force had risen against the government.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On October 22, the international community and Burundian civil society condemned the coup.",
+     "quote": "On October 22, the international community and Burundian civil society condemned the coup, to the extent that on October 23, Colonel Bikomagu read a news release on the radio and on television announcing that some parts of the armed forces had attempted a coup, but that the military command had ensured that constitutional legality would return.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the public announcement of the coup and its condemnation by international and local actors.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant fled Burundi on XXXX, 1993, surrendered to XXXX authorities, was placed under house arrest, then transferred and imprisoned in XXXX.",
+     "quote": "In the meantime, the male claimant fled Burundi at 10:00 a.m. on XXXX, 1993, to distance himself, according to him, from the coup attempt. He turned himself in to XXXX authorities and was placed under house arrest. From XXXX, he was transferred to XXXX, and on XXXX, 1993, he was transferred to XXXX and imprisoned.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Two others involved in coup attempts were detained with the male claimant in Bukavu for 21 months, having left Burundi with help from XXXX XXXX XXXX.",
+     "quote": "By coincidence, XXXX XXXX, XXXX of the coup attempt on July 3, 1993, and one XXXX XXXX coup on October 21, 1993, was also in Bukavu, as was his cousin XXXX, a XXXX XXXX. The documentation9 indicates that they left Burundi with help from the XXXX XXXX XXXX. The male claimant was detained in XXXX with these two individuals for 21 months.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the male claimant fled, surrendered, was imprisoned in XXXX with two others for 21 months.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant was detained at Burundi's request for extradition for complicity in President Ndadaye's assassination; only he requested repatriation.",
+     "quote": "The male claimant was detained at the request of the Burundian government, which had requested his extradition for complicity in the assassination of President Ndadaye. The other two detainees faced the same charge. Only the male claimant requested that he be returned to Burundi to face the charges.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant requested repatriation on XXXX, 1993, and sent letters to XXXX and Burundian authorities.",
+     "quote": "He made this request on XXXX, 1993.10 The list of letters that he sent to both XXXX and Burundian authorities in order to be repatriated to Burundi can be found in the article in the weekly newspaper XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the male claimant was detained for extradition but requested repatriation and sent letters to authorities.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 1994, a UN Special Rapporteur reported the male claimant was illegally detained and a political prisoner who wished to return to Burundi.",
+     "quote": "On XXXX, 1994, XXXX XXXX, Special Rapporteur for XXXX with the United Nations Commission on Human Rights, wrote a report specifically concerning the male claimant's case.12 He stated in particular that the male claimant wished to be returned to his country and concluded that the male claimant was being detained illegally and was a political prisoner.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Despite the report, the male claimant was held at Burundi's request until XXXX, 1995.",
+     "quote": "Despite this report, the male claimant continued to be held at the request of the Government of Burundi until XXXX, 1995.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts a 1994 UN report declaring the male claimant a political prisoner illegally detained, yet he was held until 1995.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The charge of attempt on head of state life was withdrawn in 1995, but the male claimant was charged with desertion in 1995, 18 months after incarceration began.",
+     "quote": "The charge [translation] \"of attempt on the life of a head of state\" was withdrawn according to a letter from the Burundian minister of justice dated XXXX, 1995,13 but according to the male claimant, he was charged with desertion in XXXX 1995, that is, 18 months after his incarceration began.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the initial charge was withdrawn but the male claimant was later charged with desertion in 1995.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The male claimant's lengthy detention in XXXX constituted persecution.",
+     "quote": "There is no doubt that the male claimant's lengthy detention in XXXX constituted persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the male claimant's lengthy detention in XXXX was persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Upon return to Burundi in 1995, the male claimant faced court martial for desertion, was convicted in 1996, sentenced to six months, and the sentence was upheld but suspended in 1999; appeal ongoing.",
+     "quote": "Upon his return to Burundi in XXXX 1995, court martial proceedings for desertion began. On XXXX, 1996, the male claimant was convicted of desertion and was sentenced to six months' imprisonment.14 On XXXX, 1999, this sentence was upheld, but was suspended.15 This matter is still being appealed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the male claimant's desertion conviction, sentence, suspension, and ongoing appeal after 1995 return.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant did not rejoin the army, lived with brother until 1997, opened a XXXX, and faced escalating problems including grenade attack, threats, arrest, administrative issues, worsening after 2006.",
+     "quote": "The male claimant did not seek to rejoin the army upon his return to Burundi in XXXX 1995. He lived with his brother until 1997, when he opened a XXXX. At that time, he started having a number of problems. In XXXX 1997, someone threw a grenade into his business, fortunately causing little damage. In 2000, a colonel threatened officers who frequented his XXXX. In 2001, he was arrested and detained for four hours. From 2002 to 2004, he experienced administrative problems. But it was following the XXXX XXXX XXXX XXXX XXXX, 2006, that his problems became very serious.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the male claimant's post-return life, business, and escalating problems culminating after 2006.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant returned to face accusers but realized coup supporters remained in power and promoted.",
+     "quote": "The male claimant explained that he had returned to Burundi to face his accusers, but stated that that he had been mistaken about the power structure and that several supporters of the coup on October 21, 1993, were still in power and had even been promoted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the male claimant returned to face accusers but found coup supporters still powerful and promoted.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 1999 court martial decision was never legally served; lawyers advised not to request it; political change in 2006 prompted reopening the case.",
+     "quote": "The 1999 court martial decision was never legally served on him. The male claimant's lawyers had advised him not to request it. Since the political situation changed in 2006 and there was a new government and a new minister of justice, the male claimant felt it was a good time to relaunch his case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "He requested proper service of the 1999 decision to start appeal time and wanted to rebuild reputation and publicly deny coup involvement.",
+     "quote": "He requested that the 1999 decision be properly served on him, and the time frame for the appeal began from the moment it was served. It is in this context of political change and a new judicial remedy that the male claimant decided to publicly reopen his case. He wanted the right to have witnesses heard in his case, a right that had previously been denied. But, in particular, he wanted to rebuild his reputation, to testify about what he knew about the attempted coup on October 21, 1993, and to state publicly that he had never been involved in the conspiracy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the male claimant's efforts to reopen his case in 2006 to appeal and clear his name.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The DVD of XXXX 16 shows the male claimant spoke freely and provocatively, naming soldiers involved in the coup who were promoted.",
+     "quote": "The DVD of XXXX 16 confirms that the male claimant talked with some freedom and even with a hint of provocation, naming soldiers involved in the coup who had been promoted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The DVD confirms the male claimant spoke freely and provocatively, naming promoted soldiers involved in the coup, says the court.",
+   "role": "facts"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "After the conference, the male claimant received frequent threatening calls accusing him of being a traitor, FRODEBU member, and genocide perpetrator.",
+     "quote": "After the conference, the male claimant received a series of threatening calls on his cellphone... He was called a traitor. He was accused of being a member of FRODEBU and a perpetrator of genocide.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant received frequent threatening calls accusing him of betrayal and genocide, the court finds.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 2007, an anonymous call threatened the male claimant referencing a killed friend; he applied for a US visa after tire and window damage with a threatening message.",
+     "quote": "In XXXX 2007, during an anonymous call, the caller referred to a friend who had been killed... someone punctured his tires, broke a window and the rear-view mirror, and left a message: \"Remember that you have a wife and children\".",
+     "answers": 0
+    }
+   ],
+   "summary": "In 2007, the male claimant was threatened and damaged to his vehicle, prompting a US visa application, the court notes.",
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A friend provided the male claimant with trustworthy soldiers to help him cross the border, knowing it would be difficult.",
+     "quote": "Knowing that it would be difficult for him to cross the border, a friend provided him with trustworthy soldiers to help him.",
+     "answers": 0
+    }
+   ],
+   "summary": "A friend helped the male claimant with soldiers to cross the border, the court states.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claimants come from a country with 250,000 killed since 1993; male claimant fears attack due to political opinion; family fears due to social group membership.",
+     "quote": "The claimants come from a country where 250,000 people have been killed since 1993... His fear is well founded by reason of his political opinion... Their fear is also well founded.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Ward defines political opinion as any opinion involving state, government, or policy machinery engagement.",
+     "quote": "Ward defines political opinion as any opinion on any matter in which the machinery of state, government and policy may be engaged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the male claimant's political opinion fear well founded and cites Ward's definition of political opinion.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given the reputation and political connections of those the male claimant accused, claimants cannot expect adequate state protection or refuge in Burundi.",
+     "quote": "Given the reputation of the people whom the male claimant attacked and their connection with political structure, the claimants cannot expect to receive adequate state protection or find refuge in the small country of Burundi.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimants cannot expect adequate state protection or refuge in Burundi due to accused persons' reputation.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Minister intervened to exclude the male claimant from protection under the Act; no similar request for other claimants.",
+     "quote": "The Minister intervened to have the male claimant, XXX XXXX, excluded from the protection that could be granted to him under the Act. A similar request was not made for the other claimants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister seeks to exclude the male claimant from protection; no such request for others, the court notes.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Sections 96 and 97 of the Immigration and Refugee Protection Act define 'refugee' and 'person in need of protection'; section 98 excludes certain persons.",
+     "quote": "Sections 96 and 97 of the Immigration and Refugee Protection Act define the terms \"refugee\" and \"person in need of protection\". Section 98 of the Act reads as follows: 98. A person referred to in section E or F of Article 1 of the Refugee Convention is not a Convention refugee or a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains relevant sections of the Act defining refugee status and exclusions under section 98.",
+   "role": "law"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Sections E and F of the Refugee Convention are incorporated into the Act; section F excludes persons with serious reasons for crimes or acts against UN principles.",
+     "quote": "Sections E and F of the Convention have been incorporated into the Act. In this case, section F of article 1 of the Convention is relevant...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section F of the Convention excludes persons with serious reasons for crimes or acts against UN principles.",
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "There must be serious reasons for considering the crimes or acts specified in section F were committed to exclude a person.",
+     "quote": "As section F indicates, there must be serious reasons for considering that the crimes mentioned were committed or that the acts specified were carried out.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states exclusion requires serious reasons to consider crimes or acts were committed under section F.",
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Minister bears the burden to prove the male claimant is an excluded person; Minister does not claim direct crimes but alleges complicity due to position.",
+     "quote": "The burden is on the Minister to prove that the male claimant falls within the category of excluded persons... Counsel for the Minister did not claim that the male claimant himself had directly committed crimes against humanity. However, he claimed that because of the position that he held, he must be considered an accomplice...",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister must prove exclusion; alleges male claimant's complicity due to position, not direct crimes, the court notes.",
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "De Montigny J. summarizes principles on complicity from Federal Court of Appeal cases, including personal and knowing participation and shared common purpose.",
+     "quote": "De Montigny J., in Pineda Collins v. M.C.I., summarizes the principles previously established by the Federal Court of Appeal in Ramirez, Moreno and Sivakumar...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites De Montigny J.'s summary of complicity principles from Federal Court of Appeal cases.",
+   "role": "law"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant was in the Burundian army 1973-1993, dominated by Tutsi ethnic group, with serious human rights violations documented.",
+     "quote": "The male claimant was a member of the Burundian army for 20 years, from 1973 to 1993. Numerous documents entered on the record show the army's complete domination by the Tutsi ethnic group during that period... and the extremely serious human rights violations of which the army was guilty.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the male claimant served 20 years in a Tutsi-dominated army guilty of serious human rights violations.",
+   "role": "facts"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Events before 1973 are important context but not held against male claimant; Minority Rights Group report summarizes Tutsi dominance and Hutu victimization.",
+     "quote": "It is important to mention the events that happened before the male claimant joined the army in 1973... Minority Rights Group International report... provides a good summary...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes pre-1973 events provide context but are not held against claimant; cites Minority Rights Group report on ethnic dominance.",
+   "role": "facts"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 1965, a failed coup was violently repressed, killing the entire Hutu political elite and ending Hutu political involvement for years.",
+     "quote": "Reyntjens then explains that in 1965, a failed coup was violently repressed. The entire Hutu political elite was killed, which ended all Hutu political involvement for many years...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts 1965 failed coup repression killing Hutu political elite, ending their political involvement.",
+   "role": "facts"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 1972, a coup attempt led to massacre of 100,000-200,000 Hutus and exile of 300,000; almost no Hutus remained in army; no prosecutions for genocide.",
+     "quote": "In 1972, another attempted coup was followed by the massacre of 100,000 to 200,000 Hutus and the exile of another 300,000. There were almost no Hutus left in the army. No one was prosecuted for this genocide.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states 1972 coup attempt led to massive Hutu massacre and exile, with no prosecutions.",
+   "role": "facts"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "From 1976 to 1987, Tutsi southern elites dominated army and government; human rights deteriorated with political prisoners and Hutu discrimination.",
+     "quote": "In November 1976, Colonel Bagaza overturned the Micombero regime... the army remained a major force... From 1984 to 1987, the human rights situation seriously deteriorated... Pierre Buyoya... came to power in September 1987... the army continued to be dominated by the Tutsi-Hima elite... and the Hutus continued to be discriminated against and prosecuted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes Tutsi elite dominance and worsening human rights with Hutu discrimination from 1976 to 1987.",
+   "role": "facts"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 1972 massacre of 100,000-200,000 Hutus is corroborated by many documents on record.",
+     "quote": "The preceding events, specifically, of course, the massacre of 100,000 to 200,000 Hutus in 1972, are corroborated by many of the documents entered on the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 1972 Hutu massacre corroborated by many documents on record.",
+   "role": "facts"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "In 1988, Burundian army was 99.7% Tutsi; after Hutu gangs massacred Tutsis, army massacred ~20,000 Hutus and 60,000 fled to Rwanda; government admitted 5,000 deaths but denied responsibility.",
+     "quote": "In 1988, the Burundian army was almost entirely made up of Tutsis... Hutu gangs massacred hundreds of Tutsis... the army massacred approximately 20,000 Hutus... 60,000 Hutus fled to Rwanda... The government admitted that 5,000 people had died, but did not take responsibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 1988 army massacre of Hutus and refugee flight, with government denial of responsibility.",
+   "role": "facts"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Reyntjens describes 1988 army repression as indiscriminate mass executions of Hutus, not civil war, with many women and children victims.",
+     "quote": "Reyntjens described... the army shot at anything that moved... troops were engaged... in a repression of the entire Hutu civilian population... many women and children who were victims...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Reyntjens describing 1988 army repression as indiscriminate mass executions of Hutus including women and children.",
+   "role": "facts"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The facts about the August 1988 massacre are documented in other record documents.",
+     "quote": "The facts relating to this massacre in August 1988 are reported in other documents entered on the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that facts about the August 1988 massacre are documented in other record documents.",
+   "role": "facts"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Buyoya implemented changes integrating Hutus into public institutions under international pressure.",
+     "quote": "Pressed by the international community, Buyoya implemented significant changes and began to integrate Hutus into public institutions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The army resisted these changes and opposed Buyoya's message, shown by November 1991 events.",
+     "quote": "However, the army resisted the change. Buyoya's message did not go over well in the military establishments, which is reflected in the events of November 1991.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Buyoya integrated Hutus under pressure, but the army resisted, shown by November 1991 events.",
+   "role": "facts"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On November 23, 1991, Hutu militants attacked police and military posts in Burundi.",
+     "quote": "On November 23, 1991, poorly armed Hutu militants attacked a police station in XXXX and a military post in the province of Cibitoke.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The army's retaliation killed over 1,000 people per reports; government admitted 500 deaths.",
+     "quote": "The army's retaliation caused the deaths of more than 1,000 people, according to the various reports. The government admitted that 500 people died.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that on November 23, 1991, Hutu militants attacked posts and army retaliation killed over 1,000 people, government admitted 500.",
+   "role": "facts"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Documentary evidence shows Burundian army committed crimes against humanity over many years.",
+     "quote": "This documentary evidence leaves no doubt that the Burundian army committed, over numerous years, crimes against humanity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence from key international human rights monitors is credible and not contradicted.",
+     "quote": "This evidence comes from key international human rights monitors and is not contradicted. The panel finds it to be credible and trustworthy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds credible evidence that the Burundian army committed crimes against humanity over many years.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Mugesera v. Canada defines crime against humanity with four elements: proscribed act, widespread/systematic attack, civilian target, knowledge of attack.",
+     "quote": "Mugesera v. Canada36 defines crime against humanity as follows: 119 As we shall see, based on the provisions of the Criminal Code and the principles of international law, a criminal act rises to the level of a crime against humanity when four elements are made out: 1. An enumerated proscribed act was committed (this involves showing that the accused committed the criminal act and had the requisite guilty state of mind for the underlying act); 2. The act was committed as part of a widespread or systematic attack; 3. The attack was directed against any civilian population or any identifiable group of persons; and 4. The person committing the proscribed act knew of the attack and knew or took the risk that his or her act comprised a part of that attack.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Mugesera v. Canada defining crime against humanity with four elements.",
+   "role": "law"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Murder is a proscribed act meeting the first criterion for crimes against humanity.",
+     "quote": "Murder is clearly a proscribed act and meets the first criterion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Thousands of victims means the attack is at least systematic, meeting the second criterion.",
+     "quote": "When the victims are in the thousands, it must be concluded that the attack is necessarily a systematic attack at the least. The second criterion is therefore met.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The attack targeted Hutu civilians, meeting the third criterion.",
+     "quote": "The third criterion requires that the attack be directed against a civilian population or an identified group; the documentary evidence shows that the Hutu civilian population was the victim of attacks by the army for years.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Burundian army knew of the attack context, meeting the fourth criterion.",
+     "quote": "Finally, the person, that is, the Burundian army, was aware of the context of the attack. That also goes without saying.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds all four criteria for crimes against humanity met regarding the Burundian army's attacks on Hutu civilians.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The panel concludes Burundian army committed crimes against humanity in 1965, 1972, 1988, and 1991 against Hutu civilians.",
+     "quote": "The panel therefore concludes that in 1965, 1972, 1988 and 1991, the Burundian army committed crimes against humanity against the Hutu civilian population.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Burundian army committed crimes against humanity against Hutu civilians in 1965, 1972, 1988, and 1991.",
+   "role": "conclusion"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Minister did not allege the Burundian army was an organization with a limited brutal purpose; it had other functions.",
+     "quote": "However, the Minister did not allege that the Burundian army was an organization directed toward a limited and brutal purpose. In fact, it certainly had other functions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Minister did not allege the Burundian army had a limited brutal purpose; it had other functions.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister alleges male claimant was complicit by association in crimes as army member, not personally in massacres.",
+     "quote": "The Minister also did not allege that the male claimant had participated personally in any massacres. Rather, he alleged that it was as a member of the army that he was complicit in crimes against humanity committed by the Burundian army.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Male claimant argues he was unaware of army crimes and dissociated from it.",
+     "quote": "The male claimant primarily argued that he was not aware of the crimes committed by the Burundian army and that, ultimately, he dissociated himself from it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister alleges the male claimant was complicit by association; the claimant argues he was unaware and dissociated.",
+   "role": "issue"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant's dissociation in 1993 was due to coup attempt, not prior army crimes when he was a member.",
+     "quote": "The male claimant might have dissociated himself from the army in 1993, but he allegedly dissociated himself because of those who had attempted the coup. His dissociation had nothing to do with the crimes committed by the army previously, when the male claimant was not only a member of the army, but also a member of XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's 1993 dissociation was due to coup attempt, not prior army crimes when he was a member.",
+   "role": "analysis"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant's claim of ignorance about army crimes is not credible and contradicted by his own PIF and documents.",
+     "quote": "As for his knowledge of the crimes committed by the army, the male claimant alleged that information was not circulating and that he did not know what was going on. The panel finds that this statement is not credible. First, it is contradicted in his own PIF and in XXXX XXXX XXXX, 2006.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's ignorance claim not credible and contradicted by his PIF and documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant knew about 1965 massacre and 1972 genocide when he joined army in 1973; impossible he was unaware.",
+     "quote": "The male claimant wrote in his PIF that he did not consider in 1973, when he was 20 years old, the army's involvement in the genocide. The 1972 genocide was preceded in 1965 by the massacre of the Hutu political elite. There were allegedly between 2,500 and 5,000 deaths, and 300,000 people were exiled. This could not have been unknown, even by a young man of 20. As for the 1972 genocide, during which 100,000 to 200,000 people were killed, in part by the army, it is impossible that the male claimant did not know this fact at the time he joined the army.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant knew about 1965 massacre and 1972 genocide when joining army in 1973; ignorance impossible.",
+   "role": "analysis"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant's PIF states southern Tutsis had power in 1966 and Hutus faced segregation and elimination.",
+     "quote": "In his response to question 31 of his PIF, in the second paragraph on page 1, the male claimant spoke of the power that the southern Tutsis had in 1966 and of the discrimination against all other Tutsis at the time. He added as follows: [translation] Of course, the Hutus continued to be subjected to the most segregation, when they were not simply physically eliminated.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant's PIF states southern Tutsis had power in 1966 and Hutus faced segregation and elimination.",
+   "role": "facts"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Some northern Tutsis held high-ranking positions, including the chief of staff who helped claimant become a soldier.",
+     "quote": "Nevertheless, some northern Tutsis held high-ranking positions. For example, the chief of staff who helped the male claimant become a soldier was from the north.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes some northern Tutsis held high positions, including chief of staff who helped claimant become soldier.",
+   "role": "facts"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant's PIF states army supported authoritarian regimes and coups, and army members were silent but aware.",
+     "quote": "In his PIF, the male claimant also stated37 that the army has always been the main supporter of the authoritarian regimes and the perpetrators of the coups. Finally, still according to his PIF,38 the male claimant called the army \"la grande muette\" [the great silent one], implying that army members did not speak, but that does not mean that they did not know anything.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant's PIF states army supported authoritarian regimes and coups, and members were silent but aware.",
+   "role": "facts"
+  },
+  {
+   "para": 76,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Claimant's 2006 press release states he was a powerless witness to the 1972 genocide killing hundreds of thousands.",
+     "quote": "In the press release of XXXX, 2006,39 the male claimant wrote the following: [translation] The lesson was learned in 1972; I XXXX and a student at the Collège du XXXX XXXX. Hundreds of thousands of innocent human lives were taken by the war. I was a powerless witness to this tragedy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant's 2006 press release states he was a powerless witness to the 1972 genocide killing hundreds of thousands.",
+   "role": "facts"
+  },
+  {
+   "para": 77,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Panel concludes claimant must have known army's role in 1965 and 1972 massacres when he joined in 1973.",
+     "quote": "The panel concludes from all of this that the male claimant must have had a good idea of the army's role in the massacres in 1965 and 1972 when he joined the army in 1973.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimant must have known army's role in 1965 and 1972 massacres when joining in 1973.",
+   "role": "conclusion"
+  },
+  {
+   "para": 78,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant heard rumours of army blunders in 1988 massacre while in USSR; court disbelieves he knew nothing more.",
+     "quote": "As for the 1988 massacre (nearly 20,000 people died during the army's reprisals), the male claimant stated that, when he was in the USSR, he had heard rumours that the army had committed some blunders. The panel cannot believe that the male claimant knew nothing else, when he was already a XXXX-XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant heard rumours of 1988 massacre but disbelieves he knew nothing more.",
+   "role": "analysis"
+  },
+  {
+   "para": 79,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claimant, with rank and location, could not have known little about November 1991 massacre, government admitted 500 deaths.",
+     "quote": "The massacre in November 1991 took place in the province of Cibitoke and in XXXX. It is impossible that the male claimant, who XXXX XXXX XXXX in XXXX and who had the rank XXXX, knew very little about this, especially since the government had admitted that 500 people had died.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant could not have known little about November 1991 massacre, government admitted 500 deaths.",
+   "role": "analysis"
+  },
+  {
+   "para": 80,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Panel concludes claimant was aware of crimes against humanity by Burundian army when he was a member.",
+     "quote": "Consequently, the panel concludes that the male claimant was aware of the crimes against humanity committed by the Burundian army when he was a member.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimant was aware of crimes against humanity by Burundian army when he was a member.",
+   "role": "conclusion"
+  },
+  {
+   "para": 81,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Complicity involves participation in an organization knowing it commits crimes against humanity plus failure to stop or disassociate.",
+     "quote": "there is complicity when there is \"participation in an organization knowing it commits crimes against humanity, when combined with a failure to stop the crimes or disassociate oneself\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is uncertain if the male claimant had enough influence to oppose the army's actions.",
+     "quote": "It is not certain that the male claimant had enough influence to oppose the army's actions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The male claimant did not try to dissociate himself from the army.",
+     "quote": "Regardless, he did not try to dissociate himself.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant knew only one colleague who resigned and suffered economic hardship due to army restrictions.",
+     "quote": "The male claimant stated that he knew only one colleague who had resigned, and that person suffered economic hardship as a result because of an order preventing him from being hired without the army's authorization.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Economic hardship did not affect the colleague's safety and is not a valid reason to maintain army association.",
+     "quote": "The panel is of the opinion that these problems did not affect his safety and could not be a valid reason for the male claimant to maintain his association with the army.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The male claimant could have left the army well before 1993.",
+     "quote": "The panel is therefore of the opinion that the male claimant could have left the army well before 1993.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds complicity requires knowledge and failure to dissociate; the male claimant did not dissociate and could have left the army before 1993.",
+   "role": "analysis"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The male claimant held a very high position within the army.",
+     "quote": "the male claimant had a very XXXX XXXX within the army.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Leadership positions entail greater moral responsibility for organizational crimes and increase likelihood of complicity.",
+     "quote": "Those in leadership positions must bear more moral responsibility for crimes committed by their organizations than non-leaders.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Holding a leadership position with full knowledge of crimes may constitute accomplice liability.",
+     "quote": "A person who continues to hold a leadership position in such an organization with full knowledge that the organization is responsible for crimes may be considered an accomplice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the male claimant's high army rank and cites authority that leaders bear more responsibility and may be accomplices if aware of crimes.",
+   "role": "analysis"
+  },
+  {
+   "para": 83,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The panel believes there are serious reasons to consider the male claimant committed a crime against humanity and must be excluded from protection.",
+     "quote": "the panel is of the opinion that there are serious reasons for considering that the male claimant committed a crime against humanity and must be excluded from the protection that can be granted under the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concludes the male claimant likely committed crimes against humanity and must be excluded from protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The male claimant is a person referred to in article 1F(a) of the Convention and cannot be considered a refugee or person in need of protection.",
+     "quote": "the panel determines that the male claimant, XXX XXXX, is a person referred to in article 1F(a) of the Convention. Consequently, as required by section 98 of the Act, the male claimant cannot be considered a refugee or a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel determines the male claimant is excluded under article 1F(a) and cannot be a refugee or protected person.",
+   "role": "disposition"
+  },
+  {
+   "para": 85,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The female claimants have established a serious possibility of persecution based on membership in a particular social group and are Convention refugees.",
+     "quote": "they have satisfactorily discharged their burden of establishing a serious possibility of persecution on one of the grounds set out in the Convention, that is, their membership in a particular social group. Consequently, they are Convention refugees in accordance with section 96 of the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds the female claimants are Convention refugees based on serious possibility of persecution due to social group membership.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,525 @@
+{
+ "case_id": 35431,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.013306000000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Le demandeur se présente in extremis pour un sursis judiciaire avant son renvoi au Mexique prévu le 10 janvier.",
+     "quote": "Le demandeur (M. Magana) se présente in extremis afin d’obtenir une sursis judiciaire à sa mesure de renvoi vers son pays de nationalité, le Mexique. Le départ est prévu le 10 janvier, à 17 h 55, avec comme destination Cancún.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur demande in extremis un sursis judiciaire avant son renvoi au Mexique prévu le 10 janvier.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Le défendeur demande que la demande de sursis ne soit pas entendue à cause du retard à la présenter.",
+     "quote": "Le défendeur a soumis une lettre requérant de la Cour que la demande de sursis ne soit pas entendue étant donné le retard à la présenter, le demandeur sachant depuis le 18 novembre que son départ est prévu pour le 10 janvier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "J’ai préféré entendre la demande de sursis au cas où elle serait méritoire, mais elle ne l’est pas.",
+     "quote": "J’ai préféré entendre la demande de sursis au cas où celle-ci serait méritoire. Celle-ci ne l’est pas.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le défendeur demande de ne pas entendre la demande de sursis à cause du retard, mais la Cour l'entend quand même et la juge non méritoire.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "fact",
+     "text": "Le demandeur a 31 ans, est peu bavard sur son arrivée au Canada, a quitté le Mexique en avril 2018 et est arrivé au Canada le 25 avril 2018.",
+     "quote": "Le demandeur a 31 ans. Il est peu bavard à l’égard de son arrivée au Canada. Il indique avoir quitté le Mexique en avril 2018, avoir fait une demande d’asile à laquelle il ne donnera pas suite. Il serait arrivé au Canada le 25 avril 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur a 31 ans, peu bavard sur son arrivée, a quitté le Mexique en avril 2018 et est arrivé au Canada le 25 avril 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On ne sait pas ce que le demandeur fait après son arrivée, mais l'ASFC le contacte en 2023 et il fait une demande ERAR le 2 février 2023.",
+     "quote": "On ne sait pas ce qu’il fait par la suite. On apprend seulement que l’Agence des services frontaliers du Canada (ASFC) entre en contact avec lui en 2023. Il fait alors une demande d’examen des risques avant renvoi (ERAR) le 2 février 2023.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Le demandeur allègue avoir reçu des menaces d'organisations criminelles cherchant sa collaboration.",
+     "quote": "Essentiellement, M. Magana allègue avoir reçu des menaces de la part d’organisations criminelles recherchant sa collaboration.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "La décision ERAR conclut à une absence de preuve suffisante pour soutenir les allégations du demandeur.",
+     "quote": "La décision ERAR conclut à une absence de preuve suffisante pour soutenir les allégations faites.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur fait une demande ERAR en 2023 alléguant des menaces, mais la décision ERAR conclut à une absence de preuve suffisante.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Les allégations du demandeur sont vagues, sans précision sur l'organisation ou les menaces, et il n'indique pas les risques actuels au Mexique.",
+     "quote": "On peut lire à la décision que les allégations sont vagues, sans précision même quant au nom de l’organisation ou même quant aux fonctions pour lesquelles on rechercherait sa collaboration. De fait, on ne sait rien de l’organisation. On ne sait même pas la nature des menaces qui auraient été faites. Le demandeur n’indique pas davantage les circonstances de ses fuites alléguées dans d’autres régions du Mexique ni en quoi consistaient les persécutions subies. Le demandeur n’indique pas non plus en 2023 quels pourraient être les risques qu’il prétendrait être encore présents plusieurs années après son départ du Mexique.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "conclusion_or_order",
+     "text": "L'absence d'information détaillée et de preuve est fatale; le demandeur ne peut établir un risque sérieux au Mexique selon la balance des probabilités.",
+     "quote": "L’absence d’information détaillée, de preuve ou de documentation est donc fatale puisque le demandeur ne peut établir, selon la balance des probabilités, qu’il ferait face à des risques sérieux advenant un retour au Mexique.",
+     "answers": 0
+    }
+   ],
+   "summary": "La décision ERAR trouve les allégations vagues et insuffisantes pour établir un risque sérieux au Mexique selon la balance des probabilités.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "La décision ERAR est prise le 11 janvier 2025 et communiquée le 18 novembre dernier.",
+     "quote": "La décision ERAR est prise le 11 janvier 2025. Il semble qu’elle ait été communiquée le 18 novembre dernier.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "procedure",
+     "text": "La décision ERAR est contestée par une demande de contrôle judiciaire datée du 1er décembre 2025.",
+     "quote": "Cette décision est maintenant contestée par demande de contrôle judiciaire en date du 1er décembre 2025.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "La demande de contrôle judiciaire est un texte passe-partout ne révélant aucun vice allégué dans la décision attaquée.",
+     "quote": "Comme c’est trop souvent le cas en matière d’immigration, la demande d’autorisation et de contrôle judiciaire n’est qu’un texte passe-partout qui ne révèle aucunement le vice allégué dans la décision attaquée.",
+     "answers": 0
+    }
+   ],
+   "summary": "La décision ERAR prise en janvier 2025 est contestée par une demande de contrôle judiciaire en décembre 2025, qui ne révèle aucun vice allégué.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Pour obtenir un sursis judiciaire, le demandeur doit satisfaire un test tripartite: question sérieuse, préjudice irréparable, balance des inconvénients favorable.",
+     "quote": "Pour obtenir un sursis judiciaire, un demandeur doit satisfaire le test tripartite bien connu : une question sérieuse quant au contrôle sous-jacent doit être établie ; un préjudice irréparable doit découler si le sursis n’est pas accordé ; La balance des inconvénients doit favoriser le demandeur.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le test tripartite pour un sursis judiciaire exige question sérieuse, préjudice irréparable et balance des inconvénients favorable, dit la Cour.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Les trois éléments du test tripartite doivent être satisfaits; ne pas satisfaire l'un est fatal.",
+     "quote": "Contrairement à ce que certains cherchent à prétendre, le test tripartite ne peut se fonder en un seul. Les trois éléments doivent être satisfaits (Janssen Inc. c. AbbVie Corporation, 2014 CAF 112, par. 49). Ne pas satisfaire l’une des branches sera fatal (Canada (Citoyenneté et Immigration) c. Ishaq, 2015 CAF 212, par. 15 ; Western Oilfield Equipment Rentals Ltd. c. M-I LLC, 2020 CAF 3, par. 7).",
+     "answers": 0
+    }
+   ],
+   "summary": "La Cour rappelle que les trois éléments du test tripartite doivent être satisfaits, sinon la demande échoue.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Les trois éléments du test ne sont pas étanches, mais aucun ne peut être vide et reposer sur les autres.",
+     "quote": "Ce qui est vrai, par ailleurs, c’est que les trois éléments ne constituent pas des compartiments étanches. Mais aucun des compartiments ne peut être vide, s’en remettant ainsi aux autres.",
+     "answers": 0
+    }
+   ],
+   "summary": "Les trois éléments du test tripartite ne sont pas étanches, mais aucun ne peut être vide, dit la Cour.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "La question sérieuse serait une atteinte à l’équité procédurale liée à l'absence d'une lettre d’équité par le décideur ERAR.",
+     "quote": "En notre espèce, la question sérieuse à trancher sur contrôle judiciaire, qui n’apparaît pas à la face de la demande de contrôle judiciaire, serait une atteinte à l’équité procédurale en ce que le décideur ERAR aurait dû faire parvenir au demandeur ce qu’il a été convenu d’appeler une « lettre d’équité ».",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Le demandeur affirme que le décideur ERAR n’a pas répondu adéquatement au questionnaire et aurait dû chercher des précisions, invoquant sa vulnérabilité.",
+     "quote": "Selon le demandeur, il n’aurait pas répondu adéquatement aux questions se trouvant au questionnaire. On se plaint que le décideur aurait dû exercer une certaine discrétion pour rechercher des précisions. On nous dit que le demandeur aurait été une personne vulnérable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Aucune preuve ne soutient l'affirmation de vulnérabilité, qui est seulement une déclaration du demandeur.",
+     "quote": "Outre que de faire cette déclaration, rien n’appuie cette assertion autre que ce que dit maintenant le demandeur.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le demandeur a fait ses soumissions complètes, mais invoque maintenant une atteinte à la règle audi alteram partem.",
+     "quote": "Alors que le demandeur a fait ses soumissions complètes, on invoque maintenant une atteinte à la règle audi alteram partem.",
+     "answers": 0
+    }
+   ],
+   "summary": "La question sérieuse alléguée est une atteinte à l’équité procédurale; le demandeur invoque sa vulnérabilité sans preuve, après ses soumissions complètes.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Un demandeur très dépourvu pourrait ne pas faire de représentations valides, mais ce n'est pas le cas ici; le demandeur n'a pas fourni d'information suffisante.",
+     "quote": "Il se pourrait qu’un demandeur soit si dépourvu que ses représentations n’en soient pas. Mais il s’agirait alors d’un cas beaucoup plus sévère que celui du demandeur. Le demandeur n’a tout simplement pas fourni l’information suffisante per se.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur n'est pas si dépourvu que ses représentations soient invalides, mais il n'a pas fourni d'information suffisante.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "L’insuffisance de la preuve ne constitue pas une violation de l’équité procédurale.",
+     "quote": "Le défendeur a raison de rappeler que l’insuffisance de la preuve ne donne pas ouverture à une violation de l’équité procédurale (Farooq c. Canada (Citoyenneté et Immigration), 2013 CF 164 ; Procedural Fairness When Credibility is an Issue, by Steven Meurrens, Immigration & Citizenship Bulletin, 2017, vol. 28, no 2 ; Azzam c. Canada (Citoyenneté et Immigration), 2019 CF 549 ; Garces Canga c. Canada (Citoyenneté et Immigration), 2020 CF 749, par. 28).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "La crédibilité du demandeur n’a pas été remise en question dans la décision ERAR.",
+     "quote": "Je n’ai trouvé nulle part que la crédibilité du demandeur était remise en question dans la décision ERAR.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le défendeur rappelle que l’insuffisance de preuve ne viole pas l’équité procédurale; la crédibilité du demandeur n’a pas été remise en question.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le demandeur tente de transformer l’insuffisance de preuve en atteinte à la crédibilité, mais rien ne le prouve.",
+     "quote": "Le demandeur a bien tenté de transformer l’insuffisance de la preuve présentée en une atteinte déguisée à la crédibilité. J’ai scruté la documentation fournie pour l’obtention du sursis. Je n’ai trouvé rien de tel.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le demandeur n’a jamais fourni de détails suffisants pour rendre ses prétentions crédibles; c’était à lui d’avancer ses meilleurs arguments.",
+     "quote": "De fait, j’ai trouvé dans le matériel fourni par le demandeur des zones d’ombre. Il n’a tout simplement jamais fourni des détails qui rendraient ses prétentions granuleuses, permettant d’en voir la suffisance. C’était au demandeur d’avancer ses meilleurs arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Un demandeur d’ERAR doit établir qu’il est une personne à protéger selon la prépondérance des probabilités et avancer ses meilleurs arguments.",
+     "quote": "Il importe de rappeler, d’entrée de jeu, qu’il incombe aux personnes qui demandent une ERAR d’établir, suivant la prépondérance des probabilités, qu’elles sont des personnes à protéger (Adetunji c Canada (Citoyenneté et Immigration), 2012 CF 708 au para 19 ; Ferguson c Canada (Citoyenneté et Immigration), 2008 CF 1067 [Ferguson] au para 22). Il leur revient, à cette fin, d’« avancer [leurs] meilleurs arguments » (« to put [their] best foot forward ») (Ikeji c Canada (Citoyenneté et Immigration), 2016 CF 1422 au para 49). En d’autres termes, un demandeur d’ERAR se doit de placer devant l’agent « tous les éléments de preuve qui permettront à ce dernier de prendre une décision », l’agent n’ayant aucun rôle à jouer dans la présentation de la preuve et, surtout, n’ayant aucune obligation d’aviser le demandeur des lacunes ou de l’insuffisance de sa preuve (Lupsa c Canada (Citoyenneté et Immigration), 2007 CF 311 aux para 12-13). En conséquence, le demandeur n’a pas établi l’existence d’une question sérieuse.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur n’a pas fourni de détails suffisants; la jurisprudence exige qu’un demandeur d’ERAR avance ses meilleurs arguments et preuves.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "La demande de sursis est rejetée car le demandeur ne satisfait pas les critères, notamment le préjudice irréparable.",
+     "quote": "Cela suffit pour disposer de la demande de sursis. J’ajoute que je n’aurais pas non plus conclu à l’existence d’un préjudice irréparable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Le préjudice irréparable est un critère rigoureux, exigeant preuve au-delà des conséquences inhérentes à un départ forcé.",
+     "quote": "C’est qu’il s’agit d’un critère rigoureux, qui requiert une preuve au-delà des conséquences inhérentes à un départ forcé (Palka c. Canada (Sécurité publique et Protection civile), 2008 CAF 165, para. 12 ; Singh Atwal c. Canada (Citoyenneté et Immigration), 2004 CAF 427, 330 N.R. 300, para. 16-19).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Le retour au pays de nationalité ne constitue pas un préjudice irréparable, selon la jurisprudence.",
+     "quote": "Personne ne se réjouit des conséquences d’un retour au pays de nationalité (Kanthasamy c. Canada (Citoyenneté et Immigration), 2015 CSC 61, [2015] 3 RCS 909, para. 23). Mais il n’en reste pas moins que cela ne constitue pas un préjudice irréparable.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Le droit fondamental en immigration est que les non-citoyens n'ont pas un droit absolu d'entrer ou de demeurer au Canada.",
+     "quote": "Qu’on se souvienne que « Le principe le plus fondamental du droit de l’immigration veut que les non-citoyens n’aient pas un droit absolu d’entrer ou de demeurer au Canada : Chiarelli c. Canada (Ministre de l’Emploi et de l’Immigration), [1992] 1 RCS 711, p. 733 » ; tel que repris dans Medovarski c. Canada (MCI), 2005 CSC 51, [2005] 2 RCS 539, para 46.",
+     "answers": 0
+    }
+   ],
+   "summary": "La demande de sursis est rejetée; le préjudice irréparable est un critère rigoureux et le retour au pays ne le constitue pas.",
+   "role": "conclusion"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "La Cour d’appel fédérale exige une preuve rigoureuse pour établir un préjudice irréparable, rejetant affirmations générales non prouvées.",
+     "quote": "Le caractère rigoureux du critère se manifeste par ce que la Cour d’appel fédérale requiert pour la qualité de la preuve nécessaire à l’établissement du préjudice. Qu’il suffise de rappeler les paragraphes 14 à 16 de l’arrêt Gateway City Church c. Canada (Revenu national), 2013 CAF 126, cités pour certains d’entre eux près de 200 fois : [14] Cette affirmation générale ne suffit pas pour établir l’existence d’un préjudice irréparable : Holy Alpha and Omega Church of Toronto c. Canada (Procureur général), 2009 CAF 265, au paragraphe 22. Ce type d’affirmation générale peut être formulé dans toutes les affaires. L’acceptation de cette affirmation comme élément de preuve établissant en soi un préjudice irréparable affaiblirait indûment le pouvoir que le législateur a accordé au ministre, soit celui de protéger l’intérêt public dans les cas pertinents en publiant son avis et en révoquant l’enregistrement même avant que la décision soit rendue au sujet de l’opposition et, plus tard, de l’appel. [15] Les affirmations générales ne peuvent établir l’existence d’un préjudice irréparable, car elles ne prouvent rien: Il est beaucoup trop facile pour ceux qui demandent un sursis dans une affaire comme celle‑ci d’énumérer diverses difficultés, de les qualifier de graves, puis, au moment de préciser le préjudice qui risque d’en découler, d’employer des termes généraux et expressifs qui ne servent pour l’essentiel qu’à affirmer – et non à prouver à la satisfaction de la Cour – que le préjudice est irréparable. (Première Nation de Stoney c. Shotclose, 2011 CAF 232, au paragraphe 48.) En conséquence, « [l]es hypothèses, les conjectures et les affirmations discutables non étayées par les preuves n’ont aucune valeur probante » : Glooscap Heritage Society c. Ministre du Revenu national, 2012 CAF 255, au paragraphe 31.",
+     "answers": 0
+    }
+   ],
+   "summary": "La Cour d’appel fédérale exige une preuve rigoureuse pour le préjudice irréparable, rejetant affirmations générales non prouvées.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Il faut des preuves probantes montrant une forte probabilité de préjudice irréparable inévitable sans sursis.",
+     "quote": "Il faut plutôt « produire des éléments de preuve suffisamment probants, dont il ressort une forte probabilité que, faute de sursis, un préjudice irréparable sera inévitablement causé » : arrêt Glooscap, précité, au paragraphe 31.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le demandeur affirme un préjudice irréparable sans preuve, malgré la décision ERAR concluant à l’insuffisance de preuve de lien avec la criminalité organisée.",
+     "quote": "Ici, le demandeur affirme plutôt qu’il ne démontre preuve à l’appui. Alors même que la décision ERAR conclut à l’insuffisance de la preuve de lien avec la criminalité organisée, le demandeur s’en réclame pour prétendre au premier chef au préjudice irréparable. C’est beaucoup trop mince.",
+     "answers": 0
+    }
+   ],
+   "summary": "La preuve doit montrer une forte probabilité de préjudice irréparable; le demandeur n’en fournit pas, malgré la décision ERAR.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Le demandeur soumet avoir fait une demande de réouverture de sa requête ERAR, mais cette démarche est aléatoire et sa pertinence inconnue.",
+     "quote": "Le demandeur soumet aussi qu’il a fait récemment une demande de réouverture de sa requête ERAR. Cette démarche est au mieux aléatoire.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le sursis demandé dépend de la demande de contrôle judiciaire, pas d’autres remèdes incertains comme la réouverture.",
+     "quote": "D’ailleurs on n’en connait pas la pertinence puisque le sursis demandé est fonction de la demande de contrôle judiciaire, pas d’autres tentatives d’obtention d’autres remèdes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "La demande de réouverture suggère un résultat incertain et la nouvelle preuve invoquée est vague et critiquable.",
+     "quote": "Alors qu’il prétend à l’imminence d’une décision, rien ne permet d’avancer qu’une décision à court terme serait reçue ou, mieux encore, qu’elle pourrait être positive. La demande même de réouverture que j’ai lue, suggère un résultat très incertain. De fait, la nouvelle preuve qui est invoquée me semble elle-même sujette à critique sérieuse à cause du même caractère vague des allégations présentées originellement : appels anonymes, pancartes apposées à l’extérieur.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Les allégations récentes de menaces sont douteuses car le demandeur a quitté le Mexique en 2018; cela nécessite une explication.",
+     "quote": "Cela n’arrange en rien que les allégations de menaces seraient survenues récemment, alors que le demandeur a quitté le Mexique en avril 2018. Ce soudain intérêt pour le demandeur devrait requérir une certaine explication, tout au moins pour en établir les circonstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur a fait une demande de réouverture incertaine; la nouvelle preuve est vague et les allégations récentes douteuses nécessitent explication.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "L’absence de question sérieuse est déterminante et la balance des inconvénients favorise le défendeur.",
+     "quote": "Quoi qu’il en soit, l’absence de question sérieuse est déterminante. Il va de soi que, dans les circonstances, la balance des inconvénients ne pourrait que favoriser le défendeur.",
+     "answers": 0
+    }
+   ],
+   "summary": "L’absence de question sérieuse est déterminante et la balance des inconvénients favorise le défendeur, dit la Cour.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Le dossier ne satisfait aucun volet du test tripartite; le syllogisme du demandeur ne fonctionne pas car les trois volets doivent être établis.",
+     "quote": "Le dossier, tel que présenté, ne rencontre aucun des volets du test tripartite. De fait, la théorie du demandeur était d’établir une question sérieuse, qui aurait fait en sorte qu’un préjudice irréparable serait exposé. De là, on déduirait que la balance des inconvénients le favoriserait. Or, ce syllogisme ne fonctionne pas parce que les trois volets doivent être établis, tout en reconnaissant que des éléments de l’un peuvent être considérés pour d’autres volets.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le dossier ne satisfait aucun volet du test tripartite; les trois volets doivent être établis, dit la Cour.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Un demandeur doit établir une question sérieuse à débattre sur le contrôle judiciaire sous-jacent, souvent selon une norme de vraisemblance.",
+     "quote": "D’abord et avant tout, un demandeur doit établir une question sérieuse à être débattue sur le contrôle judiciaire sous-jacent. Lorsque le sursis correspond aux remèdes recherchés sur contrôle judiciaire, on peut penser que le demandeur sera tenu à une norme de vraisemblance que le contrôle judiciaire sera accordé (Wang c. Canada (Ministre de la Citoyenneté et de l'Immigration) (1re inst.), 2001 CFPI 148, [2001] 3 CF 682, tel qu’entériné dans Baron c. Canada (Ministre de la Sécurité publique et de la Protection civile), 2009 CAF 81, [2009] 2 RCF 311).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "La compétence quant au renvoi est du ministre de la Sécurité publique, qui n’est pas partie à l’instance, mais l’ordre de renvoi est contesté.",
+     "quote": "De fait, la compétence quant au renvoi est celle du ministre de la Sécurité publique et de la protection civile, qui n’est pas partie à l’instance alors que c’est l’ordre de renvoi, dont ce ministre est responsable, qui fait l’objet des contestations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Même en acceptant que le demandeur doit démontrer que son recours n’est pas futile, il ne satisfait pas la question sérieuse en alléguant une absence d’équité procédurale liée à l’absence de lettre d’équité.",
+     "quote": "Mais même en acceptant pour nos fins que le demandeur devait démontrer que son recours en contrôle judiciaire n’est pas futile et vexatoire, il ne satisfait pas au volet de la question sérieuse en prétendant devant cette Cour que la question est l’absence d’équité procédurale par le décideur ERAR qui n’a pas envoyé une lettre d’équité procédurale pour ce qui n’était rien d’autre qu’un rejet à cause de l’insuffisance de la preuve.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "L’insuffisance de la preuve ne donne pas ouverture à une atteinte à l’équité procédurale; le décideur peut décider sur la base du dossier présenté.",
+     "quote": "Il n’y a pas été établi que le droit sur la question n’est plus ce qu’il était depuis plusieurs années; l’insuffisance de la preuve ne donne pas ouverture à une atteinte à l’équité procédurale. Le décideur est autorisé à décider sur la base du dossier présenté.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "La demande de contrôle judiciaire est muette sur le motif précis; le dossier ne montre aucune question sérieuse autre que l’allégation futile de vice procédural.",
+     "quote": "La demande de contrôle judiciaire essentiellement muette au sujet du motif précis pour la demande. Le dossier sur sursis n’établit aucunement qu’une question sérieuse, outre le vice à l’équité procédurale, se pose. Cette seule allégation de vice procédural est futile.",
+     "answers": 0
+    }
+   ],
+   "summary": "Le demandeur ne satisfait pas la question sérieuse; l’insuffisance de preuve ne viole pas l’équité procédurale; l’allégation procédurale est futile.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "La demande de sursis judiciaire ne peut qu’être rejetée.",
+     "quote": "la demande de sursis judiciaire ne peut qu’être rejetée.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Le préjudice irréparable n’avait pas été établi avec la qualité de preuve offerte dans ce dossier.",
+     "quote": "le préjudice irréparable n’avait pas non plus été établi avec la qualité de preuve offerte dans ce dossier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "La demande de sursis judiciaire de la mesure de renvoi à être exécutée par l’ASFC le 10 janvier 2026, à l’égard du demandeur, est rejetée.",
+     "quote": "La demande de sursis judiciaire de la mesure de renvoi à être exécutée par l’ASFC le 10 janvier 2026, à l’égard du demandeur, est rejetée.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the judicial stay request, finds irreparable harm not proven, and orders the removal measure to proceed on January 10, 2026.",
+   "role": "disposition"
+  }
+ ]
+}

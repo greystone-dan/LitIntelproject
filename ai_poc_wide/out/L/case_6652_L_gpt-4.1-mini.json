@@ -1,0 +1,702 @@
+{
+ "case_id": 6652,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.012041200000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicants are a family from Mexico: mother, father (adult Applicants) and two minor children (minor Applicants) at the time of the decision.",
+     "quote": "The Applicants are a family from Mexico: mother, father (“adult Applicants”) and at the time of the underlying decision, two minor children (“minor Applicants”).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A third child, the youngest son, is excluded from this judicial review because his refugee claim was accepted by the RAD.",
+     "quote": "A third child, the youngest son, is not included in this application for judicial review because his refugee claim was accepted by the Refugee Appeal Division [RAD].",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicants are a Mexican family with two minor children and a youngest son excluded from review as his claim was accepted by the RAD.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the minor Applicants' claims because they have US citizenship and did not establish their claim against the US.",
+     "quote": "The claims of the two minor Applicants were rejected by the Refugee Protection Division [RPD] because they also have citizenship in the United States and had not established their claim against the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "This RPD determination was not challenged at the RAD and not raised in this judicial review.",
+     "quote": "This determination by the RPD was not challenged at the RAD and accordingly, also not raised on this application for judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the minor Applicants' claims due to US citizenship; this was not challenged at RAD or in this review, court reports.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Applicants' claim was based on fear of the Sinaloa cartel threatening the adult male Applicant.",
+     "quote": "The Applicants’ claim, along with their youngest son, who does not have citizenship in the United States, was based upon their fear of the Sinaloa cartel, who had threatened and attacked the adult male Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the claim for lack of personalized, connected threats and found an internal flight alternative (IFA).",
+     "quote": "The RPD rejected this claim on the basis that the Applicants had not demonstrated that the threats and attack were personalized and connected, and that the family had an internal flight alternative (“IFA”).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD overturned the RPD on the risk's personal nature and connection but confirmed the IFA for adult Applicants in Campeche and Merida.",
+     "quote": "The RAD overturned the RPD’s finding with respect to the nature of the risk faced by the Applicants and determined that the risk was a personal one and the incidents were connected. The RAD, however, confirmed the RPD’s determination that there was an IFA in Campeche and Merida for the adult Applicants.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RAD found the IFAs unreasonable for the youngest son due to his Down Syndrome and COVID-19 susceptibility.",
+     "quote": "The RAD found the suggested IFAs unreasonable for the youngest son, who has Down Syndrome, because of his increased susceptibility to severe consequences from COVID-19.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the RPD rejected the claim; the RAD found the risk personal and connected but confirmed IFA for adults, unreasonable for youngest son due to health.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicants argue the RAD erred by not accepting news articles predating the RPD decision as new evidence.",
+     "quote": "First, they argue that the RAD erred in not accepting news articles that pre-dated the RPD decision as new evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "They also argue the RAD's IFA analysis on both prongs was unreasonable.",
+     "quote": "Second, they argue that the RAD’s determination on both prongs of the IFA analysis was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicants argue the RAD erred rejecting pre-RPD news articles as new evidence and that the RAD's IFA analysis was unreasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court disagrees that the RAD erred in rejecting new evidence predating the RPD decision due to lack of argument on availability.",
+     "quote": "I do not agree that the RAD erred in not accepting the new evidence that pre-dated the RPD decision because no arguments were made to the RAD as to why these documents were either not reasonably available or could not have been reasonably expected to have been available at that time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error by the RAD rejecting pre-RPD new evidence due to no argument on its availability.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The key issue is the RAD's IFA analysis, especially the reasonableness of proposed IFA locations.",
+     "quote": "The determinative issue is the RAD’s IFA analysis, and in particular, the second prong — the reasonableness of the proposed IFA locations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was unreasonable for the RAD not to consider separation of adult Applicants from their youngest son in the IFA analysis.",
+     "quote": "I find it unreasonable that the RAD did not consider the separation of the adult Applicants from their youngest son.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD found IFAs unreasonable for youngest son due to medical condition but failed to consider impact on parents' IFA analysis.",
+     "quote": "The RAD determined that the proposed IFAs were unduly harsh, or unreasonable, for the adult Applicants’ youngest son because of his medical condition but then failed to consider how this finding impacted their analysis of the second prong of the IFA test for the youngest son’s parents, the adult Applicants in this judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD unreasonably failed to consider family separation in the IFA analysis for the adult Applicants.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court grants the judicial review for reasons set out below.",
+     "quote": "For the reasons set out below, I grant this judicial review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the judicial review.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Applicants are Mexican citizens.",
+     "quote": "The Applicants are citizens of Mexico.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "In March 2018, the adult male Applicant and cousin witnessed a Sinaloa cartel attempted murder near their home in Culiacan.",
+     "quote": "In March 2018, the adult male Applicant and his cousin witnessed members of the Sinaloa cartel attempt to murder someone near the family’s home in Culiacan, Mexico.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The adult male Applicant did not report the incident to police due to fear of cartel retribution.",
+     "quote": "The adult male Applicant did not report what he had witnessed to the police due to his fear of retribution by the cartel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicants are Mexican citizens; the adult male Applicant witnessed a cartel attempted murder and did not report it due to fear.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "In July 2018, the adult male Applicant was threatened at gunpoint by a man with Sinaloa cartel markings while driving to work.",
+     "quote": "A few months later, in July 2018, when the adult male Applicant was driving to work, a man on a motorcycle with the markings of the Sinaloa cartel approached him. He pointed a gun at his head and threatened to kill him.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The adult male Applicant continued driving to a hotel and saw a police officer who pursued the man.",
+     "quote": "He did not stop his vehicle and continued driving to a hotel where he saw a police officer, who then pursued the man.",
+     "answers": 0
+    }
+   ],
+   "summary": "The adult male Applicant was threatened at gunpoint by a cartel member but escaped and police pursued the man, court reports.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Weeks later, the adult male Applicant was stopped, beaten, and threatened by cartel members referencing the March shooting.",
+     "quote": "A few weeks after this incident, when the adult male Applicant was driving to work, he was stopped by individuals driving a truck bearing the markings of the Sinaloa cartel. The adult male Applicant was then beaten, a gun was put to his head and he was asked if he had seen anything. The adult male Applicant understood that the members of the cartel were referring to the shooting he had witnessed in March 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Weeks later, the adult male Applicant was beaten and threatened by cartel members about the March shooting, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "The adult male Applicant relocated to Queretaro for 15 days but returned to Culiacan due to lack of work.",
+     "quote": "In fear of his safety, the adult male Applicant relocated to Queretaro for about 15 days but was unable to find work, so he returned to Culiacan.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "He stayed home and delegated work to employees out of fear of cartel.",
+     "quote": "He stayed at home and delegated work to his employees out of fear of being stopped by the cartel again.",
+     "answers": 0
+    }
+   ],
+   "summary": "The adult male Applicant briefly relocated but returned due to no work and stayed home fearing cartel, court reports.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "About a year later, the Applicants left Mexico with youngest son and claimed refugee protection.",
+     "quote": "Approximately a year later, the Applicants left Mexico, along with the adult Applicants’ youngest son, and made a claim for refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicants left Mexico with youngest son and claimed refugee protection about a year later, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RPD heard the claim on March 5, 2020 and refused it on March 13, 2020 due to viable IFA in Campeche or Merida.",
+     "quote": "Their claim before the RPD was heard on March 5, 2020. In a decision dated March 13, 2020, the RPD refused the Applicants’ claim on the basis that they had a viable IFA in Campeche or Merida.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Applicants were unrepresented by counsel at the RAD.",
+     "quote": "The Applicants were not represented by counsel at the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD refused the Applicants' claim in March 2020 due to IFA; Applicants were unrepresented at RAD, court reports.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The RAD requested further submissions about COVID-19 impact and refused the Applicants' claim but accepted youngest son's claim on March 27, 2021.",
+     "quote": "The RAD asked for further submissions from the Applicants about COVID-19 and the impact on their claim. The RAD refused the Applicants’ claim and accepted the youngest son’s claim on March 27, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD refused the Applicants' claim but accepted youngest son's claim after COVID-19 submissions, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Two issues on judicial review: RAD's refusal to admit pre-RPD evidence and RAD's IFA analysis.",
+     "quote": "There are two issues raised in this judicial review: i) the RAD’s decision to not admit evidence that had pre-dated the RPD decision; and ii) the RAD’s IFA analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies two issues: RAD's refusal to admit pre-RPD evidence and RAD's IFA analysis.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The reasonableness standard applies to review of the Officer's decision per Vavilov, 2019 SCC 65.",
+     "quote": "In reviewing the decision of the Officer, I will apply a reasonableness standard of review. The Supreme Court of Canada in Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] confirmed that reasonableness is the presumptive standard of review when reviewing administrative decisions on their merits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No issue justifies departing from the reasonableness presumption in this case.",
+     "quote": "This case raises no issue that would justify a departure from that presumption.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the reasonableness standard applies to review per Vavilov, with no justification to depart here.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No basis to interfere with RAD's admission of new evidence decision; RAD accepted post-RPD evidence but refused pre-RPD evidence without explanation.",
+     "quote": "I do not see any basis to interfere with the RAD’s determination on the admission of new evidence. The RAD accepted the new evidence that post-dated the rejection of the refugee claim, but refused to admit evidence that pre-dated it where no explanation was provided as to either why the evidence was not reasonably available or could not have been reasonably expected to be available at the time of the RPD decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no basis to interfere with RAD's decision on new evidence admission, accepting post-RPD but refusing pre-RPD evidence without explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) IRPA limits new evidence admission to three circumstances: arose after claim rejection, not reasonably available, or not reasonably expected at rejection time.",
+     "quote": "Section 110(4) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA] limits the admission of new evidence on appeal to the following three circumstances where the evidence: i) arose after the rejection of the claim; ii) was not reasonably available at the time of the rejection of the claim; or iii) could not have reasonably been expected to be presented at the time of the rejection of the claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains s 110(4) IRPA limits new evidence admission to three specific circumstances.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Common law criteria like relevance and credibility are additional to statutory requirements for evidence admission.",
+     "quote": "The criteria applicable to the admission of evidence found at common law, such as relevance and credibility (Canada (Minister of Citizenship and Immigration) v Singh, 2016 FCA 96 at paras 38-39, citing to Raza v Canada (Minister of Citizenship and Immigration), 2007 FCA 385 at paras 13-15), are additional requirements over and above the statutory requirements.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicants' argument that common law criteria must be weighed against statutory ones is rejected; statutory requirements must be met first.",
+     "quote": "There is no basis for the Applicants’ argument that these additional requirements need to be weighed against the statutory ones. If the new evidence does not meet the statutory requirements for admission in s 110(4), there is no need to consider the further constraints at common law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains common law criteria supplement statutory ones and rejects Applicants' argument to weigh them against statutory requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The determinative issue for the RAD was IFA availability.",
+     "quote": "The determinative issue for the RAD was the availability of an IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was unreasonable for the RAD to consider adult Applicants' claim separately from youngest son at second IFA stage.",
+     "quote": "I find it unreasonable for the RAD to have considered the adult Applicants’ claim separately from their youngest son at the second stage of the IFA assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Having considered claims separately, RAD had to consider if it was objectively reasonable for parents to live separately from youngest son in proposed locations.",
+     "quote": "Moreover, having considered their claims separately at this stage, the RAD had to have at least considered whether it was objectively reasonable for the parents to live separately from their youngest son in the proposed locations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD unreasonably considered adult Applicants separately from youngest son and failed to consider reasonableness of family separation.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD agreed with RPD that Sinaloa cartel members were not motivated to seek Applicants if relocated to Campeche or Merida",
+     "quote": "The RAD agreed with the RPD that members of the Sinaloa cartel were not motivated or interested to continue to seek out the Applicants if they were to relocate to Campeche or Merida.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Adult Applicants' and youngest son's risk claims were linked and assessed together",
+     "quote": "Given that the basis of the adult Applicants’ risk and their youngest son’s risk were based on the same facts, this assessment was performed together. Their claims were linked.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "Youngest son's medical condition was not relevant in evaluating adult Applicants' risk",
+     "quote": "The issue of the youngest son’s medical condition was not a relevant factor in evaluating the adult Applicants’ risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD agreed with the RPD that cartel members would not seek Applicants if relocated; Applicants' claims were linked; son's medical condition irrelevant to adult risk, all found by earlier decision-maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD considered youngest son's circumstances separately only at second prong of IFA test",
+     "quote": "It was only at the second prong of the IFA test where the RAD considered the youngest son’s circumstances apart from his parents.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Second stage of IFA test is flexible, considering claimant's particular circumstances in proposed location",
+     "quote": "The second stage of the IFA test is a flexible assessment, taking into account the particular circumstances of a claimant in the proposed location (Haastrup v Canada...; Thirunavukkarasu v Canada...).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RAD found it unreasonable for youngest son with Down Syndrome to live in proposed IFAs but not for parents",
+     "quote": "The RAD determined that it was unreasonable for the youngest son with Down Syndrome to live in the proposed IFAs, but not unreasonable for his parents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD's presupposition that adult Applicants would be separated from son is unreasonable",
+     "quote": "In order to engage in this exercise, the RAD had to presuppose that the adult Applicants would be separated from their minor son. I find this to be unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD considered youngest son's circumstances separately only at second IFA prong; RAD found son's living in IFAs unreasonable but not parents'; court finds presupposed separation unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Principle of family unity not applicable to individual protection claims under ss 96 or 97(1) IRPA",
+     "quote": "The Respondent has directed me to a number of cases that discuss how the principle of family unity is not applicable to an assessment of an individual’s claim for protection under ss 96 or 97(1) of IRPA...",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court accepts that family unity principle is not applicable in refugee definition assessment",
+     "quote": "I accept this point.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Issue here differs; does not concern importing family unity or best interests of child into refugee definition",
+     "quote": "The issue in this case is different. It does not concern importing the concepts of family unity or the best interests of the child test into the refugee definition.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues family unity principle not applicable to individual claims under IRPA; court accepts but finds issue here different, not about importing family unity or best interests tests.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Adult Applicants' and youngest son's claims were inextricably linked facing same cartel risk",
+     "quote": "The adult Applicants’ claims and that of their youngest son were inextricably linked. He faced the same risk as his parents in Mexico because of the cartel.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Youngest son's disability raised only at second stage of IFA analysis regarding reasonableness of proposed IFAs",
+     "quote": "The only site where his disability was raised was at the second stage of the IFA analysis in relation to the objective reasonability of the proposed IFAs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Reasonableness of IFA is separate from question of risk",
+     "quote": "The reasonableness of the IFA—the second stage of the IFA analysis — is a separate consideration from the question of risk.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Disability not basis to find s 96 or s 97(1) risk; considered only for reasonableness of IFA locations",
+     "quote": "The youngest son’s disability was not a basis to find that he faced a s 96 or s 97(1) risk in Mexico; his disability was considered with respect to the reasonability of the IFA locations being proposed for his family.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants' and son's claims linked; son's disability considered only for IFA reasonableness, not risk under ss 96 or 97(1).",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Even if considering son's IFA test separately was appropriate, RAD's IFA assessment for adult Applicants is flawed",
+     "quote": "In any case, even supposing it was appropriate for the RAD to consider the second prong of the IFA test separately for the youngest son from his parents, the IFA assessment for the adult Applicants remains flawed.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Separation of parents from dependent child is relevant in assessing objective reasonableness of proposed IFA",
+     "quote": "The separation of parents from their dependent child is a factor that had to be considered in assessing whether the proposed IFA was objectively unreasonable (Ramachanthran v Canada...; Sooriyakumaran v Canada...).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD failed to consider impact of separating adult Applicants from dependent son with Down Syndrome",
+     "quote": "The RAD’s assessment of the objective reasonability of the proposed IFA locations for the adult Applicants failed to consider the impact of separating the adult Applicants from their dependent son with Down Syndrome.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Forced separation from disabled child may jeopardize life and safety of parents and must be considered",
+     "quote": "The RAD did not consider whether this forced separation from their son with a disability would jeopardize the life and safety of the adult Applicants (Ranganathan v Canada... at para 15).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD's IFA assessment flawed for not considering separation impact on Applicants from disabled son, citing relevant case law.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Minister proposes certification question on whether RPD/RAD limited to family unity only when claims are inextricably linked",
+     "quote": "The Minister proposed the following question for certification: On an assessment of section 96 and/or section 97 refugee protection by the Refugee Protection Division (RPD) or the Refugee Appeal Division (RAD) under IRPA, are the RPD/RAD limited to considering the principle of family unity solely in situations where the claims of family members are inextricably linked?",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister proposes certification question on whether RPD/RAD can consider family unity only when claims are inextricably linked.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Proposed certification question not determinative of issue before Court",
+     "quote": "I do not find that the proposed question is determinative of the issue before this Court (Lunyamila v Canada... at para 46).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Claims were inextricably linked in RPD and RAD assessments but separated only in IFA reasonableness consideration",
+     "quote": "As noted above, the claims were already inextricably linked in the RPD’s and RAD’s assessment of the claim for protection, but only separated in considering whether or not the proposed IFA locations were objectively reasonable for the family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Separation of family is relevant in assessing objective reasonableness of IFA location",
+     "quote": "This Court has already found that in considering whether an IFA location is objectively unreasonable, separation of family is a relevant consideration (Ramachanthran at paras 77-81; Sooriyakumaran at paras 7-9; Pajarillo v Canada... at paras 31-32).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD did not consider family separation despite finding IFAs unreasonable for youngest son",
+     "quote": "The RAD did not turn their mind to this issue in any way despite their finding that the IFAs were not objectively reasonable for the adult Applicants’ youngest son.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds certification question not determinative; claims linked except in IFA reasonableness; family separation relevant but RAD ignored it.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD’s IFA analysis was unreasonable; judicial review application allowed",
+     "quote": "Based on the reasons set out above, I find that the RAD’s IFA analysis was unreasonable. The application for judicial review is allowed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review allowed; matter sent back to RAD for redetermination by different Member; no question certified",
+     "quote": "THIS COURT’S JUDGMENT is that: The application for judicial review is allowed; The matter is sent back to the RAD for redetermination by a different Member; and No question of general importance is not certified.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court concludes RAD’s IFA analysis unreasonable; allows judicial review; remands to RAD with different Member; no question certified.",
+   "role": "disposition"
+  }
+ ]
+}

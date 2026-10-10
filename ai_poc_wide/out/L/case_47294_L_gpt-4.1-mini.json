@@ -1,0 +1,760 @@
+{
+ "case_id": 47294,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.012140000000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Jennifer Virgo is the appellant bringing an appeal from a Federal Court order dated December 17, 2018.",
+     "quote": "The appellant, Jennifer Virgo, has brought an appeal to this Court from an order of the Federal Court dated December 17, 2018",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "There is a serious problem with the appeal that requires action due to a vexatious litigant order breach.",
+     "quote": "However, there is now a most serious problem with this appeal. Action has to be taken. Vexatious litigant order flagrantly breached",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant Jennifer Virgo appeals a Federal Court order, but the court identifies a serious problem: a vexatious litigant order breach requiring action.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Jennifer Virgo is spouse of Ade Olumide, who was declared a vexatious litigant by this Court in 2017.",
+     "quote": "The appellant, Jennifer Virgo, is the spouse of Ade Olumide. Ade Olumide has been declared a vexatious litigant by this Court",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "The Court declared Ade Olumide a vexatious litigant prohibiting him from starting new proceedings without leave.",
+     "quote": "In declaring Ade Olumide a vexatious litigant, this Court prohibited him from starting new proceedings without leave",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that appellant Virgo is spouse of Ade Olumide, who is a vexatious litigant prohibited from starting new proceedings without leave.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Ade Olumide is litigating through Jennifer Virgo without leave, breaching the vexatious litigant order flagrantly.",
+     "quote": "Ade Olumide is litigating his interests through Jennifer Virgo. He has not sought leave to do so. Therefore, he is breaching the prohibition",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Ade Olumide is litigating through Virgo without leave, flagrantly breaching the vexatious litigant order.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Prothonotary and Federal Court found Virgo's name disguises Olumide as the directing mind behind proceedings.",
+     "quote": "both the Prothonotary and the Federal Court found that Jennifer Virgo’s name was “a thin veneer to disguise [Ade] Olumide as the directing mind behind these proceedings.”",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "These findings are not challenged in this Court by Virgo.",
+     "quote": "These findings are not challenged in this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-makers found Virgo's name disguises Olumide as the directing mind; Virgo does not challenge these findings here.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The true appellant is Olumide, not Virgo, who has no interest; documents filed are authored by Olumide.",
+     "quote": "The material filed shows that the true appellant is Ade Olumide, not Jennifer Virgo. Jennifer Virgo has no interest in this appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Documents filed by Virgo are indistinguishable from Olumide's other appeals, showing breach of vexatious litigant order.",
+     "quote": "They are indistinguishable from documents that Ade Olumide has filed in his other appeals in this Court. Ade Olumide has started a new proceeding without leave",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Olumide is the true appellant, Virgo has no interest, and documents show Olumide breached the vexatious litigant order.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Court will describe background showing full and fair opportunity given to Olumide and Virgo to explain and address conduct.",
+     "quote": "The background shows that this Court has given Ade Olumide and Jennifer Virgo a full and fair opportunity to offer explanations for their conduct",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes it has given Olumide and Virgo full and fair opportunity to explain and address their conduct.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A motion by Virgo was quickly reviewed and raised suspicion Olumide was litigating through her, as respondent also indicated.",
+     "quote": "Within seconds of reviewing the motion materials, the Court apprehended that Ade Olumide may be litigating his interests through Jennifer Virgo",
+     "answers": 0
+    }
+   ],
+   "summary": "The court quickly suspected Olumide was litigating through Virgo in a motion, a point also made by the respondent.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Rule 74 requires removal of documents filed contrary to court orders, but only after submissions and if warranted.",
+     "quote": "Rule 74 provides that a document that is filed contrary to an order of the Court “must be removed from the Court file.” But Rule 74 also provides that this can happen only after the parties have been given an opportunity to make submissions and only where it is warranted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Rule 74 mandates removal of documents filed contrary to orders, but only after submissions and if warranted.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Court's plenary powers allow it to restrain abuses and stop meritless proceedings.",
+     "quote": "these plenary powers allow the Court to restrain abuses of its process and to stop meritless proceedings in their tracks.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Fabrikant and Federal Courts Act establish the Court's plenary powers as superior courts of record.",
+     "quote": "see, e.g., Fabrikant v. Canada, 2018 FCA 171 at para. 3 ... see also section 4 of the Federal Courts Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its plenary powers allow restraining abuses and stopping meritless proceedings, citing Fabrikant and the Federal Courts Act.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The Court issued a direction under Rule 74, giving parties opportunity to file evidence and address five specific questions.",
+     "quote": "the Court issued a direction... The Court gave the parties... an opportunity to file evidence and written representations on the matter. In particular, the Court asked the parties to address five questions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court issued a direction under Rule 74, inviting parties to file evidence and address five questions about the vexatious litigant issue.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Virgo and Olumide did not file any evidence or representations in response to the Court's direction.",
+     "quote": "Jennifer Virgo and Ade Olumide were invited to file first. They did not file anything. ... They did not file representations in reply.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Attorney General filed representations in response to the Court's direction.",
+     "quote": "The Attorney General then filed representations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Virgo and Olumide did not file evidence or representations; the Attorney General did file representations.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Court is satisfied Virgo and Olumide had full and fair opportunity to address the matter.",
+     "quote": "the Court is satisfied that Jennifer Virgo and Ade Olumide have had a full and fair opportunity to speak to this matter",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Virgo and Olumide had full and fair opportunity to address the matter.",
+   "role": "conclusion"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The Court must decide if one judge or three judges should determine this matter.",
+     "quote": "One other preliminary issue needs to be addressed: the composition of the Court to deal with this matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court raises the issue whether one judge or three judges should decide this matter.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 16 of the Federal Courts Act requires three judges for appeals unless otherwise provided.",
+     "quote": "Section 16 of the Federal Courts Act provides that ... every appeal ... shall be heard ... before not fewer than three judges",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The matter before the Court is not a hearing of an appeal.",
+     "quote": "Is the matter before the Court a hearing of an appeal? No.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s.16 requires three judges for appeals but finds this matter is not a hearing of an appeal.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A single judge can make and address vexatious litigant orders under section 40 of the Federal Courts Act.",
+     "quote": "A single judge can make a vexatious litigant order under section 40 ... It stands to reason that a single judge can address the issue of how to deal with non-compliance",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a single judge can make and address vexatious litigant orders under s.40 of the Federal Courts Act.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "An order removing the notice of appeal under Rule 74 enforces the vexatious litigant order and does not dispose of the appeal on merits.",
+     "quote": "the order is merely a way of ensuring compliance with the vexatious litigant order and in no way disposes of the appeal on its merits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds removing the notice of appeal under Rule 74 enforces the vexatious litigant order without disposing of the appeal merits.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Rule 74 can terminate appeals for lack of jurisdiction, which is a merits issue, as in Rock-St Laurent and Wong cases.",
+     "quote": "This is different from the use of Rule 74 to terminate an appeal because the Court has no jurisdiction to hear it: see, e.g., Rock-St Laurent ... Wong",
+     "answers": 0
+    }
+   ],
+   "summary": "The court distinguishes Rule 74 use here from cases terminating appeals for lack of jurisdiction, citing Rock-St Laurent and Wong.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The Court considers the severe potential consequences of breaching the vexatious litigant order.",
+     "quote": "Now to the potential consequences that can follow from the breach of the vexatious litigant order. They are among the most severe possible",
+     "answers": 0
+    }
+   ],
+   "summary": "The court introduces the severe potential consequences of breaching the vexatious litigant order.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Court can start contempt proceedings against Olumide for breaching the vexatious litigant order, with severe penalties.",
+     "quote": "This Court can start contempt proceedings against Ade Olumide for breaching the vexatious litigant order. ... imprisonment for up to five years, a fine ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it can start contempt proceedings against Olumide for breaching the vexatious litigant order, with severe penalties.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Given the breach and importance of the order, the Court is certain it can start contempt proceedings against Olumide now.",
+     "quote": "this Court is certain that it can now start contempt proceedings against Ade Olumide.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes it can now start contempt proceedings against Olumide due to the flagrant breach and importance of the order.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Contempt proceedings can be started but their initiation is discretionary.",
+     "quote": "just because contempt proceedings can be started does not mean that they should be started. It is a discretionary call.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that contempt proceedings can be started but their initiation is discretionary.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Court examined all decisions against Ade Olumide in various Canadian jurisdictions including vexatious litigant declarations.",
+     "quote": "this Court has examined all of the decisions in various jurisdictions across Canada in which orders have been made against Ade Olumide, including all the jurisdictions in which he has been declared a vexatious litigant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "All jurisdictions have contempt provisions similar to this Court's.",
+     "quote": "Each of these jurisdictions has provisions for contempt of court similar to our own.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Ade Olumide was told about possible contempt proceedings but not about their serious consequences in detail.",
+     "quote": "while Ade Olumide has been told about the possibility of contempt proceedings, he has never been told in detail about the serious consequences that can follow from them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court examined all decisions against Ade Olumide and found he was told about contempt proceedings but not their serious consequences.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This case is a close call but a clear and strong warning about serious consequences is appropriate now.",
+     "quote": "This case is a close call. But on this one occasion, delivery of a clear and strong warning outlining the serious consequences is appropriate.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds this case close but decides a clear strong warning about serious consequences is appropriate.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Ade Olumide is warned that recurrence of conduct will lead to contempt proceedings.",
+     "quote": "Ade Olumide is warned that he is playing with fire: evidence of a recurrence of the conduct here or conduct similar to it in breach of any of this Court’s orders will be met with proceedings for contempt.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Jennifer Virgo is warned that complicity in breach of Court orders may lead to contempt proceedings against her.",
+     "quote": "Jennifer Virgo is warned that if evidence arises suggesting complicity with Ade Olumide in a breach of an order of the Court, she may have contempt proceedings brought against her.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If found guilty of contempt, severe consequences including imprisonment and fines may apply.",
+     "quote": "If those proceedings result in a guilty verdict, the potential severe consequences discussed above will all be in play.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court warns Ade Olumide and Jennifer Virgo about contempt proceedings and severe consequences if breaches recur or complicity is found.",
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "The Court chose to write widely accessible reasons instead of a less-accessible speaking order and questions why.",
+     "quote": "In this case, the Court has chosen to write widely accessible reasons in this matter rather than issuing a less-accessible speaking order. Why?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court questions why it chose to write widely accessible reasons instead of a less-accessible speaking order.",
+   "role": "other"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Court wants judges and judicial officers to know Ade Olumide and Jennifer Virgo have been strongly warned to comply with court orders.",
+     "quote": "The Court wants the judges and Prothonotaries in the Federal Courts system and judges and judicial officers in other jurisdictions’ courts to know that Ade Olumide and Jennifer Virgo have been given a strong warning to comply with court orders, particularly vexatious litigant orders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Ade Olumide and Jennifer Virgo now know contempt proceedings can be started easily and have serious consequences including imprisonment and fines.",
+     "quote": "Ade Olumide and Jennifer Virgo now know about the ease with which, in circumstances like these, contempt proceedings can be started and the serious consequences that can follow. In particular, they now know that a long period of imprisonment and a substantial fine are a real possibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "If Ade Olumide or Jennifer Virgo ignore this warning in future, they may face dangerous proceedings.",
+     "quote": "If, in the future, here or elsewhere, Ade Olumide, Jennifer Virgo or both ignore the warning given in these reasons, they may well find themselves enmeshed in proceedings fraught with danger.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court wants judicial officers to know Ade Olumide and Jennifer Virgo have been strongly warned about contempt proceedings and serious consequences.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent complained that Ade Olumide was breaching the vexatious litigant order and was appropriate to do so.",
+     "quote": "the respondent has complained that Ade Olumide was breaching the vexatious litigant order. The respondent was most appropriate in doing so.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court should have considered the respondent’s complaint and taken action sooner but did not criticize the respondent for timing.",
+     "quote": "Ideally, this Court should have considered the respondent’s complaint and taken action sooner. This being said, and I mean no criticism by this, right after receiving the notice of appeal the respondent could have forced the Court to deal with the breach",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "The respondent could have asked the Court to grant relief under Rule 74 or plenary power immediately after receiving the notice of appeal.",
+     "quote": "the respondent could have asked the Court to grant relief under Rule 74 or its plenary power.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent complained about Ade Olumide breaching the vexatious litigant order; the court finds the complaint appropriate but could have been acted on sooner.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Multiple means exist to summarily terminate illegitimate or doomed proceedings, including Rule 74 and plenary power.",
+     "quote": "Multiple means exist by which this Court can summarily terminate illegitimate proceedings or proceedings doomed to fail and many of these means can be pursued immediately after proceedings are started in this Court",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "References to cases illustrating powers to quash or summarily terminate proceedings are given.",
+     "quote": "see Fabrikant No. 1, above at para. 3 and Fabrikant v. Canada, 2018 FCA 224 at para. 26 (Fabrikant No. 2); for the general power to quash, see Canada (National Revenue) v. J.P. Morgan Asset Management (Canada) Inc., 2013 FCA 250, [2014] 2 F.C.R. 557, Lee v. Canada (Correctional Service), 2017 FCA 228 and Forner v. Professional Institute of the Public Service of Canada, 2016 FCA 35.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A search for cases where the Court exercised plenary jurisdiction will yield many more useful cases.",
+     "quote": "A search for cases where this Court has invoked and exercised its plenary jurisdiction will yield many more useful cases.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states multiple means exist to summarily terminate illegitimate proceedings and cites cases illustrating these powers.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Early quashing of illegitimate or hopeless proceedings frees resources for other cases.",
+     "quote": "The early quashing of messy, time-consuming, illegitimate or hopeless proceedings—particularly those that spawn multiple motions—can free up resources better spent elsewhere.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Court recently emphasized the resource issue and the need to root out unmeritorious cases early (Fabrikant No. 2 para. 25).",
+     "quote": "Our Court has recently underscored this point (at para. 25 of Fabrikant No. 2): Most certainly there is a resource issue, even at the best of times: Olumide at paras. 17-21.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Court's legal complement has fallen behind population growth, causing docket difficulties.",
+     "quote": "The legal complement of the Court has fallen behind Canada’s population growth. Sprawling, multifarious cases with complexity as great as this Court has ever seen now vie for space in an already full, difficult docket.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Court adopts proactive litigation management to root out unmeritorious cases early and simplify others.",
+     "quote": "We have tried to cope by adopting a proactive approach to litigation management guided by two principles: unnecessary and unmeritorious cases should be rooted out and quashed as early as possible—or, even better, prevented in the first place—and other cases should be simplified to the extent they can.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Despite efforts, resource issues remain pressing and impair timely justice.",
+     "quote": "Despite this, the resource issue remains pressing, impairing litigants’ access to timely justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds early quashing of illegitimate cases frees resources; despite efforts, resource issues remain pressing and impair justice.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court is baffled why many messy, illegitimate proceedings are allowed to fester despite available tools and Supreme Court encouragement.",
+     "quote": "I am baffled why so many messy, time-consuming, illegitimate and hopeless proceedings are allowed to fester in our court system.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The Supreme Court encourages courts and parties to develop and use tools to address litigation problems (Hryniak v. Mauldin).",
+     "quote": "Given all of the available tools and given the Supreme Court’s strong encouragement to courts and parties to develop and use tools to address this problem (see Hryniak v. Mauldin, 2014 SCC 9, [2014] 1 S.C.R. 87)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court is baffled why illegitimate proceedings persist despite tools and Supreme Court encouragement to address them.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal and filing of the notice of appeal are contrary to the vexatious litigant order.",
+     "quote": "this appeal, and in particular the filing of the notice of appeal, are contrary to the vexatious litigant order.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Under Rule 74 and plenary power, the notice of appeal is ordered removed and the file closed.",
+     "quote": "Therefore, under Rule 74 and this Court’s plenary power, I would order that the notice of appeal be removed from the file and the file closed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The respondent does not seek global costs of the appeal.",
+     "quote": "The respondent does not seek its global costs of the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders removal of the notice of appeal and file closure as contrary to vexatious litigant order; respondent does not seek global costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent requests an order prohibiting Ade Olumide from representing or conducting litigation for others, beyond the vexatious litigant order.",
+     "quote": "The respondent also requests an order that Ade Olumide be prohibited from representing or otherwise conducting litigation on behalf of his spouse or any other individual.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The requested order goes beyond the vexatious litigant order by preventing Ade Olumide from conducting litigation for others regardless of interest.",
+     "quote": "This goes a little beyond the prohibition contained in the vexatious litigant order against Ade Olumide against starting new proceedings without leave, whether acting for himself or through others: the requested order would prevent Ade Olumide from conducting litigation for another party in any circumstance regardless of whether he has an interest in the litigation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent requests an order prohibiting Ade Olumide from representing others; the court finds this goes beyond the vexatious litigant order.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Under plenary power and Rule 55, the court would make the requested order prohibiting Ade Olumide from conducting litigation for others without leave.",
+     "quote": "Under the Court’s plenary power to prevent abuses and Rule 55, I would make the requested order.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Rule 119 already prohibits Ade Olumide from representing others without leave of the Court.",
+     "quote": "Rule 119 already prohibits Ade Olumide from representing others unless he gets leave of the Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The requested order is broader than Rule 119 but justified given Ade Olumide's vexatious litigant status and breaches.",
+     "quote": "The requested order is somewhat broader than that envisaged by Rule 119 but is justified in these special circumstances: absent leave, a vexatious litigant of this sort, especially one who has breached a vexatious litigant order, should not be participating in litigation in any way whatsoever, absent leave of this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would order Ade Olumide prohibited from conducting litigation for others without leave, broader than Rule 119 but justified here.",
+   "role": "disposition"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A motion within this appeal led the Court to call for submissions under Rule 74 but the Court has not decided the motion.",
+     "quote": "It will be recalled that the bringing of a motion within this appeal led this Court to call for submissions under Rule 74. The Court has not decided this motion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Since the appeal no longer exists, the motion must be dismissed.",
+     "quote": "Since the appeal before this Court will no longer exist, the motion must necessarily be dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The respondent seeks costs on the motion and this is appropriate.",
+     "quote": "On the motion, the respondent seeks his costs. That is appropriate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court would dismiss the motion with costs.",
+     "quote": "Therefore, I would dismiss the motion with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the motion as the appeal no longer exists and grants costs to the respondent.",
+   "role": "disposition"
+  }
+ ]
+}

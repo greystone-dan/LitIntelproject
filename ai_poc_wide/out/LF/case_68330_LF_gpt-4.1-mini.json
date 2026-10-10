@@ -1,0 +1,611 @@
+{
+ "case_id": 68330,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.011056400000000001,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant is a citizen of Burundi appealing the RPD decision dated January 9, 2019.",
+     "quote": "The appellant, XXXX XXXX, a citizen of Burundi, is appealing against the Refugee Protection Division (RPD) decision dated January 9, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant, a Burundian citizen, appeals the RPD decision dated January 9, 2019, as stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed and the RPD determination is set aside; the appellant is a Convention refugee.",
+     "quote": "The appeal is allowed. The Refugee Appeal Division (RAD) sets aside the determination of the RPD and substitutes the determination that, in its opinion, should have made, namely, that the appellant is a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal, sets aside the RPD decision, and finds the appellant is a Convention refugee.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The appellant is a Tutsi who joined the party in 2013 while studying in Uganda and recruited members there.",
+     "quote": "The appellant is a Tutsi who became a member of the XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX party on XXXX XXXX, 2013, while he was studying in Uganda. He attended seminars and recruited members among his university's student body.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "After returning to Burundi, Imbonerakure militants arrested two colleagues; appellant feared arrest and fled.",
+     "quote": "After he returned to Burundi, Imbonerakure militants went to his XXXX neighbourhood on XXXX XXXX, 2016, and arrested two of his XXXX colleagues. Out of fear of being arrested himself, he took steps to leave the country.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Family of a detainee said appellant was named under torture.",
+     "quote": "According to the family of one of the detained individuals, the appellant was named under torture.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "A friend warned appellant on January 5, 2018, that police sought him; he hid and left with a Canadian visa in 2018.",
+     "quote": "On January 5, 2018, a friend told him not to go home because Imbonerakure and police officers had gone there to get him. He hid until he left the country with a Canadian visa on XXXX XXXX, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant, a Tutsi party member since 2013 in Uganda, fled Burundi fearing arrest after militants detained colleagues and was warned police sought him.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD rejected the claim due to credibility issues including vague testimony and lack of evidence.",
+     "quote": "The RPD rejected the claim for the following reasons: i) The appellant's testimony was vague regarding his political activities in Uganda. ii) No reasonable explanation was given for the fact that the original XXXX party membership card was not provided. iii) The appellant made no reasonable effort to obtain evidence of his political activities in Uganda. iv) The appellant's testimony regarding the XXXX policies and platform was vague. v) The appellant's testimony on his recruitment and fundraising work was vague.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the claim due to vague testimony and lack of evidence, finding credibility issues, as reported by the earlier decision-maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD breached natural justice by not expressing its concerns and disregarding a letter confirming party membership.",
+     "quote": "Did the RPD breach natural justice by failing to express the concerns on which it based itself? The RPD disregarded the letter from the XXXX president confirming the appellant's membership in the party.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD's credibility assessment is unreasonable and ignores evidence of party membership.",
+     "quote": "Is the RPD's credibility assessment unreasonable, based on incorrect plausibility findings, or unreasonable, given that the RPD did not take into account the evidence that the appellant was a member of the XXXX?",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by failing to assess objective risk; appellant faces risk as Tutsi and party member.",
+     "quote": "Did the RPD err in failing to assess the objective risk or, if the RAD should substitute a decision, does the appellant have an objective risk? As a Tutsi and XXXX member, the appellant is subjected to an objective risk. The RPD did not analyze this risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges the RPD breached natural justice, made an unreasonable credibility assessment, and failed to assess objective risk.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The correctness standard of review applies as the RPD had no meaningful advantage over the RAD.",
+     "quote": "I applied the correctness standard of review. In this case, the RPD did not enjoy a meaningful advantage over the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies the correctness standard of review because the RPD had no meaningful advantage over the RAD.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant requests admission of evidence under IRPA subsection 110(4) and a hearing under subsection 110(6).",
+     "quote": "The appellant is requesting the admission of a piece of evidence that is described in subsection 110(4) of the Immigration and Refugee Protection Act (IRPA) and a document that was provided after the appeal record was perfected. He is also asking that a hearing be held pursuant to subsection 110(6) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant requests admission of evidence under IRPA 110(4) and a hearing under 110(6).",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "A digital audio recording and transcript of the hearing are available on the appeal record.",
+     "quote": "A digital audio recording of the hearing is available, as is a transcript that is on the appeal record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes a digital audio recording and transcript of the hearing are on the appeal record.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The National Documentation Package before the RPD is dated April 30, 2018.",
+     "quote": "The version of the National Documentation Package (NDP) before the RPD is dated April 30, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the NDP before the RPD is dated April 30, 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant submitted an affidavit from party president confirming appellant's active membership and recruitment in Uganda and Canada.",
+     "quote": "The appellant submitted an affidavit from XXXX XXXX, president of the XXXX, after the appeal record was filed. Mr. XXXX confirms that he authored the letter filed with the RPD. He was able to verify with local members that the appellant was an active party member. The appellant recruited new members among the Burundians in Uganda while he was studying there. He continues to be a member in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant submitted an affidavit from the party president confirming active membership and recruitment activities in Uganda and Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The affidavit is inadmissible because appellant failed to explain why it was not submitted earlier as required by rule 29.",
+     "quote": "However, he did not address the requirements set out under rule 29. Specifically, he failed to explain why the affidavit could not be obtained and submitted with the record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Rule 29 requires explanation for late evidence and consideration of relevance, probative value, and efforts to obtain evidence earlier.",
+     "quote": "Under subrule 29(4), the RAD must consider any relevant factors, including its relevance and probative value, what the document brings to the appeal, and whether, with reasonable effort, the document could have been provided with the appeal record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The affidavit was received nine months late without adequate explanation, so it is inadmissible.",
+     "quote": "The RAD received the affidavit on November 28, 2019, without any explanation for the delay other than that the document was under the control of a third party. ... a delay of nine months without an explanation is not. The document is not admissible on grounds of non-compliance with rule 29.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the affidavit inadmissible due to failure to explain late submission under rule 29 and nine-month unexplained delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "A few months' delay is understandable given the author lives in Belgium, but nine months without explanation is not.",
+     "quote": "Given that the author lives in Belgium, a late filing of a few months is understandable. However, a delay of nine months without an explanation is not.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a few months' delay understandable but nine months without explanation is not.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "Appellant filed a letter from the party representative in Canada confirming genuineness of membership card and active membership in Toronto.",
+     "quote": "The appellant filed a letter from the XXXX representative in Canada on the appeal record. The author examined the original membership card and confirmed that it is genuine. The appellant is a party member in Toronto and began attending events shortly after his arrival.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant filed a letter from the party's Canadian representative confirming genuine membership card and active membership.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "IRPA subsection 110(4) limits evidence to that arising after claim rejection or not reasonably available before.",
+     "quote": "Subsection 110(4) of the IRPA states that \"the person who is the subject of the appeal may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.\"",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "In Singh, credibility, relevance and newness must be considered for new evidence.",
+     "quote": "In addition, in Singh, the Federal Court of Appeal held that credibility, relevance and newness must be taken into account.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Evidence is new if it can contradict a finding of fact, including credibility findings by the RPD.",
+     "quote": "Evidence may be new if it is capable of contradicting a finding of fact made by the RPD, including a credibility finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites IRPA 110(4) and Singh for rules on new evidence's admissibility and relevance to credibility findings.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues the letter and membership card are new evidence contradicting unexpected negative credibility findings.",
+     "quote": "The appellant could not reasonably have expected that the original letter from the president would be disregarded and that his membership card would not be accepted as genuine. This document is admissible as new evidence because it contradicts an unanticipated negative credibility finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the letter and membership card are new evidence contradicting unexpected negative credibility findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The new evidence is credible, relevant, probative, and does not raise credibility issues; no hearing is required under IRPA 110(6).",
+     "quote": "This new evidence is from a credible source, is relevant and has significant probative value because it contradicts a negative finding of fact by the RPD. Given that the document does not raise an issue with respect to the appellant's credibility, a hearing is not required pursuant to subsection 110(6) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the new evidence credible and probative, and no hearing is required under IRPA 110(6).",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found no documentary evidence corroborating political work in Uganda and found appellant's explanation vague and evasive.",
+     "quote": "In the RPD's view, the appellant did not present any documentary evidence to corroborate his political work in Uganda. His explanation for the lack of documentary evidence was vague and evasive.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found appellant made no effort to obtain documents after arriving in Canada, undermining credibility.",
+     "quote": "He testified that he left all the documents in Uganda because they would have put him in danger in Burundi. However, this does not explain why he made no effort to obtain them after he arrived in Canada. This factor undermines his credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The university attestations from Uganda are not genuine due to differing stickers; visa was rejected over school record concerns.",
+     "quote": "Furthermore, the university attestations from Uganda are not genuine because the stickers are different on each document. A Canadian visa application was rejected because of concerns as to the genuineness of the school records.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no corroborating documents, vague explanations, and questioned university attestations' genuineness, undermining credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant says the transcript error was typographical and did not prevent visa issuance or university admission.",
+     "quote": "According to the appellant, this was a typographical error (transcripts) that did not prevent a visa from being issued in 2018 or his admission to a Canadian university.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD did not question the transcript's genuineness at the hearing.",
+     "quote": "In addition, the RPD did not question the genuineness of the transcript at the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the transcript error was typographical and did not affect visa or admission; the RPD did not question genuineness at hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court agrees the transcript concern should have been addressed and different seals may have valid reasons.",
+     "quote": "I agree that this concern should have been addressed at the hearing. Furthermore, this error has nothing to do with the seals. As the appellant notes, there are many reasons why different seals may have been used on different documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the transcript concern should have been addressed and different seals may have valid reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellant reasonably explained not bringing documents to Burundi and relying on party president's letter and membership card.",
+     "quote": "The appellant provided a reasonable explanation for not having brought back XXXX documents to Burundi. He took no steps to obtain them after he arrived in Canada because he was relying on the letter of attestation from the party president and his membership card.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Failure to obtain supporting documents is not serious enough to justify negative credibility inference given all circumstances.",
+     "quote": "Although the appellant would have been wise to try to obtain all the relevant supporting documents, the fact that he failed to do so is not sufficiently serious, in light of all the circumstances, to justify a negative inference being drawn with respect to his credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant reasonably explained not obtaining documents, and the court finds this failure insufficient to justify negative credibility inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the absence of the original membership card was not reasonably explained and undermined credibility.",
+     "quote": "In the opinion of the RPD, this does not reasonably explain the absence of the original, given that he had brought the originals of the other documents and was represented by a specialized lawyer. The appellant did not ask for authorization to submit the original after the hearing. This significantly undermines his credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant's failure to produce the original membership card undermined his credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD breached natural justice by not informing him the genuineness of the card was questioned.",
+     "quote": "The appellant argues that the RPD breached the principles of natural justice by failing to inform him that this was an issue that called into question the genuineness of the card.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant says he should not have to guess the panel's concerns to request admission after the hearing.",
+     "quote": "The appellant should not be expected to have read the panel's mind in order to ask that it be admitted after the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD breached natural justice by not informing him about the card issue and that he should not guess the panel's mind.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I agree the RPD should have raised the card issue to allow appellant to respond.",
+     "quote": "I agree with this submission. The RPD should have raised the issue in order for the appellant to know that his card would otherwise be rejected.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD disregarded the original letter from the XXXX president and the letter from the colleague's mother without explanation.",
+     "quote": "Furthermore, the RPD disregarded the original copy of the letter from the XXXX president with his identity card. The RPD also failed to take into account the letter from the mother of the colleague who was detained on XXXX XXXX, 2016, and killed on XXXX XXXX, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "I agree the RPD should have raised the card issue and improperly disregarded important letters without explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the appellant's testimony on the XXXX platform vague and insufficiently detailed.",
+     "quote": "In the view of the RPD, his testimony regarding the XXXX platform was vague. He was unable to explain the party's specific policies. He did not provide a reasonable explanation for how he raised funds. He was vague with respect to the number of people recruited for the party.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellant's testimony about the XXXX platform vague and lacking detail.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the RPD erred in concluding his testimony was vague and in assessing plausibility without evidence.",
+     "quote": "The appellant argues that it is unclear as to how the RPD concluded that his testimony was vague and insufficient. It also erred in assessing plausibility considering the lack of evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the RPD erred in finding his testimony vague and in assessing plausibility without evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I agree the RPD erred; the appellant gave reasonable responses and the RPD should have asked for more details.",
+     "quote": "I agree. The RPD asked several open-ended questions and received an adequate response to each of them. His responses were reasonable. If the RPD wanted more details, it should have asked. It is unfair to conclude that his testimony was vague after asking a single question on each subject, given the detailed responses that were given.",
+     "answers": 0
+    }
+   ],
+   "summary": "I agree the RPD erred; the appellant's responses were reasonable and the RPD should have asked for more details.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I found the appellant's testimony credible and supported by letters and attestation, and the RPD unjustified in rejecting it.",
+     "quote": "I listened to the audio recording and read the transcript. The appellant's responses were spontaneous and reasonably detailed. His testimony was consistent and supported by letters from the XXXX president and his colleague's mother. Furthermore, the attestation of the XXXX representative in Canada confirms his membership in the party. The RPD did not justify its rejection of his testimony or the genuineness of the supporting evidence. The RPD also disregarded important evidence without explanation. My independent assessment leads me to find that the appellant is credible and that the evidence on the record is likely genuine.",
+     "answers": 0
+    }
+   ],
+   "summary": "I find the appellant credible and supported by evidence, and the RPD unjustified in rejecting his testimony and evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant presented evidence of political situation and treatment of XXXX members establishing objective basis for fear.",
+     "quote": "The appellant presented a summary of the political situation in Burundi. Specifically, a Response to Information Request concerning the treatment of XXXX members establishes an objective basis for his subjective fear.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "fact",
+     "text": "Human Rights Watch reports opposition members arrested, ill-treated, detained without warrants in Burundi.",
+     "quote": "'[s]cores of opposition party members have been arrested, ill-treated, and illegally detained, and other detainees taken to unknown destinations,' yet arrest warrants were almost never produced by the police.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellant's Tutsi ethnicity aggravates risk of arrest and ill-treatment to persecution level.",
+     "quote": "The fact that he is an ethnic Tutsi is an aggravating factor. There is a serious possibility that the appellant would be arrested and seriously ill-treated to the point of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant presented evidence of political persecution risk, including Human Rights Watch reports and his Tutsi ethnicity aggravating risk.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "State protection is unavailable; there is a nexus to political opinion and a well-founded fear of persecution.",
+     "quote": "Given that the agents of persecution represent the government, state protection is not available and the risk is present throughout the country. There is a nexus between his situation and the definition of a Convention refugee on the ground of political opinion. The appellant has a well-founded fear of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "State protection is unavailable; nexus to political opinion exists; appellant has well-founded fear of persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The appellant did not raise Tutsi ethnicity risk in claim or hearing; RPD did not err and issue is not new on appeal.",
+     "quote": "The appellant tried to raise the issue of persecution based on his Tutsi ethnicity separately from his political activities. The appellant does not mention this risk in his Basis of Claim Form and it was not raised at the hearing. The RPD did not err on this issue. Given that this issue could reasonably be expected to have been raised at the hearing, it is not new for the purposes of the appeal. This submission is rejected.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant did not raise Tutsi ethnicity risk earlier; RPD did not err; issue is not new on appeal and is rejected.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed; the RAD sets aside the RPD decision and finds the appellant is a Convention refugee.",
+     "quote": "The appeal is allowed. Pursuant to paragraph 111(1)(b) of the IRPA, the RAD sets aside the determination of the RPD and substitutes the determination that, in its opinion, should have been made, namely, that the appellant is a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is allowed; the RAD sets aside the RPD decision and finds the appellant is a Convention refugee.",
+   "role": "disposition"
+  }
+ ]
+}

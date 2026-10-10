@@ -1,0 +1,968 @@
+{
+ "case_id": 70678,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.017166400000000002,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal.",
+     "quote": "The Refugee Appeal Division (RAD) dismisses the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants are mother and son, citizens of China, fearing persecution due to Falun Gong practice.",
+     "quote": "XXXX XXXX (Principal Appellant) and XXXX XXXX (Minor Appellant) are citizens of China. The Appellants are mother and son. The Appellants fear persecution in China because of the Principal Appellant's profile as a Falun Gong practitioner.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant joined Falun Gong in 2019, joined underground group, PSB raided in 2020, she went into hiding, summons issued, then left China for Canada.",
+     "quote": "The Principal Appellant was introduced to Falun Gong by a friend around XXXX 2019. The Principal Appellant soon joined an underground practice group. The Public Security Bureau (PSB) raided the group on XXXX XXXX, 2020. The Principal Appellant went into hiding. The PSB issued a summons for her arrest to her family home on XXXX XXXX, 2020. With the assistance of a smuggler, the Appellants left China for Canada on XXXX XXXX, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal; appellants are mother and son fearing persecution for Falun Gong; principal appellant joined in 2019, was pursued by PSB, then fled China.",
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RPD heard the claim in Dec 2021 and Apr 2022 and rejected it on credibility grounds in April 2022.",
+     "quote": "The Refugee Protection Division (RPD) heard the Appellants' claim on December 6, 2021, and on April 8, 2022. The RPD rejected their claim in its written decision, signed on April 11, 2022, on the determinative issue of credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD erred in its credibility assessment.",
+     "quote": "The Appellants submit that the RPD erred in its credibility assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The RAD carefully considered the merits of the appeal in its decision below.",
+     "quote": "The RAD carefully considered the merits of their appeal in its decision below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the claim on credibility; appellants argue error; RAD considered the appeal merits.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RAD dismisses the appeal and finds the RPD correct that appellants are not refugees or in need of protection.",
+     "quote": "The RAD dismisses the appeal. The RPD was correct in finding that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No new evidence or oral hearing request was submitted.",
+     "quote": "No new evidence and no request for an oral hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD dismisses the appeal, agrees RPD was correct, and notes no new evidence or oral hearing requested.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The appellants are not submitting new evidence and are not requesting an oral hearing.",
+     "quote": "The Appellants are not submitting new evidence and are not requesting an oral hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants do not submit new evidence or request oral hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews all evidence to decide if the RPD made the correct decision.",
+     "quote": "The RAD's role is to look at all the evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD's role is to review all evidence and decide if the RPD decision was correct.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD made some errors, including minor inconsistencies about timing and PSB searches.",
+     "quote": "After reviewing the RPD's decision, the RAD finds that the RPD made some errors. The Appellants submit that the RPD was microscopic in finding inconsistencies in the month the Principal Appellant began Falun Gong and the number of times the PSB looked for her in China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "These minor inconsistencies do not affect central allegations and cannot be upheld.",
+     "quote": "The RAD agrees that these are minor inconsistencies that do not impact the central allegations and cannot be upheld.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Despite errors, the Principal Appellant is not a genuine Falun Gong practitioner on balance of probabilities after independent assessment.",
+     "quote": "Nonetheless, despite these errors, the RAD finds that the Principal Appellant is not a genuine Falun Gong practitioner on a balance of probabilities, after its independent assessment below.",
+     "answers": 2
+    }
+   ],
+   "summary": "The RAD finds minor RPD errors but holds Principal Appellant is not a genuine Falun Gong practitioner on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found inconsistent evidence about PSB pursuit: Schedule 12 said no family sought/arrested, but BOC and testimony said PSB sought her arrest.",
+     "quote": "The RPD found that the Principal Appellant provided inconsistent evidence about the PSB's pursuit of her in China. In her Schedule 12, the Principal Appellant was required to indicate whether she or any of her family members had been sought, arrested, or detained by the authorities in her country. The Principal Appellant checked \"no\" as the response to this question. However, the Principal Appellant alleges in her Basis of Claim (BOC) narrative and in her oral testimony that the PSB sought her arrest because of her illegal participation in the underground Falun Gong group while she was in China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Principal Appellant gave inconsistent evidence about PSB pursuit in Schedule 12 versus BOC and testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The appellants argue the RPD unreasonably fixated on one Schedule 12 answer to diminish credibility.",
+     "quote": "The Appellants submit that the RPD unreasonably fixated on one answer in the Schedule 12 to diminish their credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant is unsophisticated and had no prior PSB encounters before 2019.",
+     "quote": "The Principal Appellant is unsophisticated and never had encounters with the PSB before XXXX 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "It is not unreasonable they did not understand summons implications.",
+     "quote": "The Appellants submit that it is not unreasonable that they did not understand the implications of the summons.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "BOC signed same day as Schedule 12, and BOC explicitly stated she received a summons.",
+     "quote": "The Appellants further submit that the BOC was signed the same day as the Schedule 12, where the BOC explicitly stated she received a summons.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue RPD unreasonably focused on Schedule 12 answer; Principal Appellant unsophisticated; BOC signed same day states summons received.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD disagrees; Principal Appellant was represented by counsel who assisted with forms.",
+     "quote": "The RAD disagrees with the Appellants. Regardless of the Principal Appellant's level of education and sophistication, she was represented by counsel who assisted her with both her BOC and the rest of her refugee intake forms.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "All forms must be signed and declared truthful, complete, and correct by the Principal Appellant.",
+     "quote": "All forms, including the Schedule 12, must be signed and declared by the Principal Appellant as being truthful, complete, and correct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Being a person of interest to PSB is significant to the claim and persecution level.",
+     "quote": "Being a person of interest to the PSB is a significant aspect of the Principal Appellant's claim, as it relates to the level of persecution she faces if she returns to China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "BOC mentions PSB pursuit but is inconsistent with Schedule 12; RAD will not speculate which is correct.",
+     "quote": "The RAD acknowledges that the Principal Appellant mentioned in her BOC that she was being pursued by the PSB, but this is inconsistent with her Schedule 12.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant signed declarations verifying truthfulness of both forms and failed to provide consistent evidence without satisfactory explanation.",
+     "quote": "The RAD will not speculate on whether the BOC or the Schedule 12 is correct, as the Principal Appellant signed declarations verifying the truthfulness of both these forms. The Principal Appellant bore the responsibility to provide consistent evidence and failed to do so, without a satisfactory explanation.",
+     "answers": 4
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD finds RPD correct to draw negative inference from inconsistency.",
+     "quote": "Therefore, the RAD finds that the RPD was correct in drawing a negative inference.",
+     "answers": 5
+    }
+   ],
+   "summary": "The RAD disagrees with appellants, noting counsel assistance, signed truthful forms, inconsistency without explanation, and upholds RPD's negative inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Principal Appellant's arrest notice did not match sample notices and had inconsistent punctuation; DHL envelope from Hong Kong, not China.",
+     "quote": "The Principal Appellant provided a copy of her summons document and the arrest notice for the friend who introduced her to Falun Gong. The RPD found that the Principal Appellant's arrest notice did not match the sample notices provided in the objective evidence. The Principal Appellant said that she did not know why there were inconsistencies and indicated that this document was given to her mother from her friend's family. The RPD also noted that there was inconsistent punctuation between the Principal Appellant's summons and the sample documents in the objective evidence. The RPD also found that the DHL envelope containing these documents were sent from an address in Hong Kong and not from China, where the Principal Appellant was living. The RPD relied on the objective evidence, which indicated that China did not have any new notices of detention and arrest since 2013, and the same forms are still in use. The RPD concluded that the Principal Appellant's summons was fraudulent, and this diminished the overall credibility of the claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the arrest notice and summons did not match samples, had inconsistencies, came from Hong Kong, and concluded summons was fraudulent.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue the 'notice to arrestee's family or employer' is not in objective evidence samples and formatting variations exist.",
+     "quote": "The Appellants submit that the \"notice to arrestee's family member or employer\" is not a sample included in the objective evidence. If it contains variations in formatting, they are not comparable to the samples provided.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD rejected summons based on a comma inconsistency not present in summons, so RPD's finding is unreasonable.",
+     "quote": "The Appellants submit that the RPD rejected the summons based on an inconsistency with a comma which was not on the submitted summons. The Appellants submit that the RPD's finding is, therefore, unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue the notice is not in samples and RPD's comma-based rejection is unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RAD reviewed the sample PSB documents and the appellants' documents and agrees with the RPD's conclusion.",
+     "quote": "The RAD disagrees with the Appellants. The RAD has reviewed the sample PSB documents contained in the objective evidence and the Principal Appellant's summons, and the friend's arrest notice and comes to the same conclusion as the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reviewed documents and agrees with the RPD's conclusion on authenticity.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Arrest and detention notices are uniform with slight formatting variations; appellants' notice does not match samples and no evidence of other templates exists.",
+     "quote": "The RAD acknowledges that arrest and detention notices are uniform in appearance with very slight variations in formatting and vary in where the seal is placed. The Appellants' copy of the \"notice to arrestee's family member of employer\" does not match any of the sample notices of arrest provided in the objective evidence, and the RAD finds this problematic. There is no objective evidence to indicate that any other templates for arrest notices exist outside of the samples provided.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No new forms for arrest notices since 2013; same forms still in use; PSB has stringent guidelines for notices.",
+     "quote": "The RAD notes that there have been no new forms for notices of detention and arrest since 2013, and these same forms are still in use. The objective evidence indicates that the PSB has very stringent guidelines for how these notices are written and printed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Chinese Ministry of Public Security specifies paper, spacing, margins, wording for arrest and detention notices.",
+     "quote": "According to the Chinese Ministry of Public Security, there are very specific instructions for the type of paper used, the spacing and the margins and the wording to be used for these arrest and detention notices.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds arrest notices uniform, appellants' notice does not match samples, and PSB has strict formatting rules.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Significant discrepancies in appellants' notice format and wording lead to finding it likely inauthentic on balance of probabilities.",
+     "quote": "The RAD finds that there are a significant number of discrepancies in the format and wording of the Appellant's notice, which leads to finding that the Appellant's notice was not issued by the PSB and is likely inauthentic, on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Notices must contain specific information including authority, case number, law reference, arresting officer, suspect details, detention centre, official stamp, dates, and signatures.",
+     "quote": "Notices of arrest must contain information include the following information: * the authority; * [the] case number; * the reference of the law (Criminal Procedure Law, Art[icle] 81); * the person who authorizes the arrest; * the arresting officer's name; * the suspected offence(s); * the suspect's name, gender, age, and address; * the detention centre where the suspect is to be detained; * the credential from the authority (official stamp); * [the] issuing date; * the date and time when the arrest warrant is delivered; * the date and time when the person is detained in the detention centre; * the name of the handling police officer from the detention centre; * the date when ... received by the detention centre, and the stamp of the detention centre.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds many discrepancies in the notice making it likely inauthentic; arrest notices must contain detailed required information.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds additional discrepancies in arrest notice: missing friend's gender, age, arrest time, receipt time; references wrong law article; missing salutation line; presence of unexplained Chinese character.",
+     "quote": "In addition to the RPD's findings, the RAD finds that there are additional discrepancies in the notice after conducting its independent analysis. The Principal Appellant's arrest notice does not include her friend's gender or age, the time of her friend's arrest, or the time that the friend's family member received the notice. The Principal Appellant's arrest notice also references Article 91 of the Criminal Procedure Law and not Article 81. The sample notice of arrest includes a salutation line where the name of the notice recipient can be written on the top left-hand side of the notice below the letterhead. No such salutation line is found on either the Chinese or English translated version of the Principal Appellant's notice. There is also a Chinese character present on the lefthand side of the arrest notice number \"0104\". No such character appears on the sample notice beside where the notice number would normally be.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds further discrepancies in the arrest notice including missing details, wrong law article, missing salutation, and unexplained Chinese character.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Objective evidence shows arrest notices sometimes given to suspect's family but silent on employer receiving notice; appellants' notice title includes family or employer, which is concerning.",
+     "quote": "The objective evidence indicates that these arrest notices are sometimes given to the suspect's family members when the suspect is arrested. The objective evidence is silent on whether an employer ever receives an arrest notice. None of the sample arrest and detention notices indicate an option for the notice to be given to an employer. The RAD finds this concerning, given that the Principal Appellant's arrest notice indicates in the title of its document that this notice could go to either the family member or an employer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Arrest notices sometimes go to family but not employers; appellants' notice title allowing employer is concerning.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Summons notices are standardized with mostly uniform appearance and small differences.",
+     "quote": "Similarly, summons notices are also standardized forms with a mostly uniform appearance across the country, with very small differences.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD considers comma discrepancy in summons significant given numerous arrest notice discrepancies.",
+     "quote": "While the difference of a comma may seem insignificant, the RAD considers this discrepancy in light of the numerous discrepancies on the arrest notice.",
+     "answers": 0
+    }
+   ],
+   "summary": "Summons notices are standardized; RAD finds comma discrepancy significant given many arrest notice discrepancies.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants did not challenge RPD's finding that DHL envelope came from Hong Kong, not China.",
+     "quote": "Also, the RAD considers that the Appellants did not challenge the RPD's findings on the DHL envelope containing the arrest notice and summons which originated in Hong Kong, rather than from the Appellants' residence in China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Considering discrepancies and unchallenged findings, RAD finds arrest notice and summons fraudulent on balance of probabilities.",
+     "quote": "Considering all the discrepancies and the unchallenged findings from the RPD's decision, the RAD finds that the Principal Appellant's arrest notice and the summons are fraudulent on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RPD's finding is correct; Principal Appellant's friend was not arrested after PSB raid; Principal Appellant not a person of interest to PSB for Falun Gong participation.",
+     "quote": "Therefore, the RPD's finding is correct. The RAD consequently finds that the Principal Appellant's friend was not arrested after a PSB raid, on a balance of probabilities. The RAD further finds that the Principal Appellant is not a person of interest to the PSB because of her participation in any Falun Gong group while in China.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants did not challenge DHL origin; RAD finds arrest notice and summons fraudulent; friend not arrested; Principal Appellant not PSB interest.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found Principal Appellant gave inconsistent testimony about Falun Gong practice, including exercises done, sending righteous thoughts, and knowledge of exercises.",
+     "quote": "The RPD found that the Principal Appellant provided internally inconsistent testimony regarding her Falun Gong practice. She initially testified that she performed the exercises and sometimes studied Zhuan Falun and did not do anything else. The Principal Appellant later testified that she also sent righteous thoughts four times a day. The Principal Appellant did not know the purposes of the second and third exercises, although she named them correctly. The Principal Appellant provided support letters from fellow practitioners which contradicted her own testimony regarding the frequency of her attendance and the location of her practice group.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found inconsistent testimony from Principal Appellant about Falun Gong practice and support letters contradicted her.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD failed to consider Principal Appellant's education and unsophisticated profile affecting understanding of doctrine.",
+     "quote": "The Appellants submit that the RPD failed to consider the Principal Appellant's education level and profile as an unsophisticated person, as this could have built a hurdle to her understanding of Falun Gong doctrine.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD weighed genuineness against misguided idea of what Principal Appellant should understand.",
+     "quote": "The RPD weighed the Principal Appellant's genuine practice against its own misguided idea of what a person in the Principal Appellant's position should or would understand.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Knowing second or third exercises is not indicative of genuineness; personal interpretation possible.",
+     "quote": "Whether the Principal Appellant knew the second or third exercises is not indicative of her genuineness, as one can have their own personal interpretation.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "RPD did not consider stress of testifying in hearing room setting.",
+     "quote": "The Appellants further submit that the RPD did not consider the stress of testifying in a hearing room setting.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue RPD failed to consider education, personal interpretation, and stress affecting Principal Appellant's testimony and understanding.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD disagrees with Appellants that RPD failed to consider education or stress factors affecting testimony",
+     "quote": "The RAD disagrees with the Appellants. The RPD did not explicitly mention the Principal Appellant's minimal education level or the stress of testifying in a hearing which may have impacted the Principal Appellant's testimony, but there is no evidence that the RPD failed to consider these factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "RPD not obliged to mention every piece of evidence; failure to mention does not mean ignoring it",
+     "quote": "The RPD is not obliged to explicitly mention every piece of evidence on the record, and failure to mention a piece of evidence does not mean that it has been ignored or discounted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's negative credibility finding unrelated to education but based on Principal Appellant's inconsistent description of practice",
+     "quote": "This negative credibility finding is unrelated to the Principal Appellant's education or sophistication. Rather, the negative credibility findings are drawn from the Principal Appellant's own description of her practice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant initially testified practicing five exercises and occasionally reading Zhuan Falun, later said she sent righteous thoughts four times daily",
+     "quote": "She initially testified that her Falun Gong practice involved practicing the five exercises and occasionally reading Zhuan Falun. However, she later testified that she, in fact, sent righteous thoughts four times a day.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD finds RPD considered education and stress; negative credibility based on inconsistent practice description by Principal Appellant, not education.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds significant internal inconsistency about sending righteous thoughts, important for Falun Gong",
+     "quote": "The RAD finds that this is a significant internal inconsistency, given the importance of sending righteous thoughts for Falun Gong practitioners to ward off evil beings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant's explanation for inconsistency unsatisfactory; sending righteous thoughts is distinct from five exercises",
+     "quote": "The RAD also finds that the Principal Appellant did not provide a satisfactory explanation for this inconsistency, as she explained that she did not mention righteous thoughts previously in her testimony because it was not one of the exercises.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD asked open-ended question about all practice elements, not just exercises",
+     "quote": "The RPD did not simply ask the Principal Appellant to describe the exercises but rather asked an open-ended question for her to describe all elements of her practice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds RPD correct to draw negative credibility finding",
+     "quote": "The RAD find that the RPD was correct in drawing a negative credibility finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD finds internal inconsistency about sending righteous thoughts; Principal Appellant's explanation unsatisfactory; RPD's negative credibility finding correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant's testimony about practice frequency and partners inconsistent with two support letters",
+     "quote": "The Principal Appellant's testimony regarding the frequency of her practice, with whom she practiced and where she practiced is inconsistent with the evidence contained in the two support letters.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Two fellow practitioners wrote support letters confirming weekend practice sessions with Principal Appellant",
+     "quote": "Two fellow practitioners, JY and YZ, wrote support letters to confirm that they met with the Principal Appellant in XXXX 2020. Both letters include the identical sentence: \"after that, we have practiced, learned Fa and shared experiences together on the weekends\".",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant testified practicing with JY but not with YZ, contradicting letters",
+     "quote": "However, in oral testimony, the Principal Appellant explained that she practiced Falun Gong with JY but not with YZ.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds support letters unreliable and gives them no weight",
+     "quote": "The RAD finds this to be a clear inconsistency and finds that the support letters are unreliable evidence and cannot be given any weight.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Appellant's testimony conflicts with support letters; RAD finds letters unreliable and gives no weight.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD accepts hearing stress can impact testimony",
+     "quote": "The RAD accepts that the inherent stress of a hearing room can impact a refugee claimant's ability to testify and answer questions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant was instructed to ask for breaks and to ask for question clarifications",
+     "quote": "the Principal Appellant was given clear instructions to ask for a break if she needed one during her testimony. The RPD also cautioned the Principal Appellant against guessing her responses if she was unsure and to ask for questions to be rephrased if the question was unclear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant understood instructions and did not ask for breaks during questioning",
+     "quote": "The Principal Appellant indicated that she understood these instructions. However, while being questioned on the support letters and on other aspects of her Falun Gong practice, the Principal Appellant did not ask for a break, and questions were rephrased and clarified when requested.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds no satisfactory explanation for inconsistencies about knowledge and practice frequency/location",
+     "quote": "Hence, the RAD finds that there is no satisfactory explanation for the inconsistencies regarding the Principal Appellant's knowledge of Falun Gong and the frequency and location of her practice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant unable to provide consistent testimony about frequency of group practice attendance",
+     "quote": "It is unclear how often the Principal Appellant exercises her right to attend group practices, as she was unable to provide consistent testimony about the frequency of her attendance.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD accepts hearing stress but finds no satisfactory explanation for inconsistencies; Principal Appellant gave inconsistent testimony on practice frequency.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds Principal Appellant shows little interest in cultivating Falun Gong practice despite fleeing China",
+     "quote": "The RAD finds it concerning that the Principal Appellant has demonstrated very little interest in cultivating her personal Falun Gong practice despite risking her life to flee China for the very purpose of being able to express her beliefs freely.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant testified she does not really practice all five exercises at home",
+     "quote": "At the hearing, the Principal Appellant testified that she does \"not really\" practice all five exercises at home.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant's favourite is third exercise, practiced daily; others once or twice a week if time",
+     "quote": "She explained that the third exercise was her favourite, and she would practice it daily. She would practice other exercises if she had time, once or twice a week.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It is concerning Principal Appellant cannot explain purpose of daily practiced third exercise",
+     "quote": "Since the third exercise is the only exercise she practices daily, it is even more concerning that the Principal Appellant is unable to explain the purpose of this exercise.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD finds Principal Appellant shows little interest in practice; she practices only one exercise daily but cannot explain its purpose.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD found Principal Appellant not a person of interest to PSB in China",
+     "quote": "The RAD has already found that the Principal Appellant is not a person of interest to the PSB in China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Considering vague knowledge and insufficient evidence, RAD finds Principal Appellant not a genuine Falun Gong practitioner in China or currently",
+     "quote": "Considering the Principal Appellant's vague knowledge of basic Falun Gong principles and insufficient evidence of her own personal and group practice, the RAD finds that the Principal Appellant was not a genuine Falun Gong practitioner in China, and she is not currently a genuine practitioner, on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD was correct to find no sur place claim for Appellants",
+     "quote": "RPD was correct to find that there is no sur place claim for the Appellants",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD finds Principal Appellant not a genuine Falun Gong practitioner and no sur place claim; RPD was correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found no credible evidence that Principal Appellant's Falun Gong activities in Canada came to attention of Chinese security authorities",
+     "quote": "The RPD found that there was no credible evidence to establish that any of the Principal Appellant's Falun Gong activities in Canada have come to the attention of the Chinese security authorities on a balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found no credible evidence that Principal Appellant's Canadian Falun Gong activities attracted Chinese authorities' attention.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Appellants submit Principal Appellant's activities in Canada place her at risk of harm upon return to China",
+     "quote": "The Appellants submit that the Principal Appellant's activities in Canada place her at risk of harm upon return to China.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant would be unable to practice freely if returned to China",
+     "quote": "The Principal Appellant would be unable to practice freely if she returned to China.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "No evidence reasonably contributed to RPD's conclusion that Principal Appellant would not practice Falun Gong if returned",
+     "quote": "There is no evidence that reasonably contributed to the RPD's conclusion that the Principal Appellant would not practice Falun Gong if she returned to China.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue Principal Appellant's Canadian activities put her at risk and she would be unable to practice freely in China; no evidence supports RPD's contrary conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD disagrees with Appellants; finds Principal Appellant was not and is not a Falun Gong practitioner in Canada or China",
+     "quote": "The RAD disagrees with the Appellants. After its independent analysis above, the RAD finds that the Principal Appellant was not, and is not currently, a Falun Gong practitioner in Canada or in China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Principal Appellant bears burden to prove she would practice or be perceived as practitioner if returned to China",
+     "quote": "The Principal Appellant bears the burden to prove that she would practice Falun Gong if she returned to China, or that she would be perceived to be a Falun Gong practitioner if she returned to China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds Principal Appellant has not met burden",
+     "quote": "The RAD finds that the Principal Appellant has not met this burden.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD finds Principal Appellant not a practitioner and has not met burden to prove she would practice or be perceived as such if returned to China.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant provided inconsistent evidence about being a person of interest to PSB",
+     "quote": "The Principal Appellant provided inconsistent evidence in her refugee intake forms regarding whether she is a person of interest to the PSB.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant provided fraudulent summons and arrest notice to bolster claim",
+     "quote": "The Principal Appellant was found to have provided a fraudulent summons and a fraudulent arrest notice to bolster her refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Consequently, Principal Appellant is not a person of interest to PSB and did not join practice group where friend was arrested",
+     "quote": "Consequently, the Principal Appellant is not a person of interest to the PSB, and the Principal Appellant did not join a practice group where her friend was arrested on a balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "Principal Appellant gave inconsistent evidence and submitted fraudulent documents; thus not a person of interest to PSB and did not join arrested friend's group.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds it unlikely Principal Appellant's Canadian activities place her at risk in China",
+     "quote": "The RAD finds it unlikely that the Principal Appellant's activities in Canada would place her at risk in China on a balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Frequency and public nature of practice unclear due to unreliable support letters",
+     "quote": "The frequency and public nature of the Principal Appellant's practice are unclear, given the unreliable evidence in the support letters.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "layer": 5,
+     "kind": "fact",
+     "text": "Principal Appellant provided two scanned, undated photos of one group practice session",
+     "quote": "The Principal Appellant provided two scanned, undated photographs taken on the same day depicting her attendance at one group practice session.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD accepts Principal Appellant attended at least one session",
+     "quote": "The RAD accepts that the Principal Appellant attended at least this one session.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Principal Appellant did not explain how photos would put her at risk or how authorities would know of attendance",
+     "quote": "However, the Principal Appellant has not explained how these two photographs would put her at risk of harm if she returned to China or how the authorities would have knowledge of her attendance at this one event.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds no sur place claim based on Canadian activities",
+     "quote": "For these reasons, the RAD finds that the Principal Appellant does not have a sur place claim, based on her activities in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD finds unlikely risk from Canadian activities; photos show one session attendance but no risk explained; no sur place claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD finds Principal Appellant not genuine Falun Gong practitioner and would not be perceived as such if returned to China",
+     "quote": "After considering all the evidence in this claim, the RAD finds that the Principal Appellant is not a genuine Falun Gong practitioner, and she would not be perceived to be a Falun Gong practitioner if she returned to China, nor would she engage in Falun Gong activities upon her return.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Minor Appellant relies on Principal Appellant's claim",
+     "quote": "The Minor Appellant relies on the Principal Appellant's claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD finds Principal Appellant not genuine practitioner and would not be perceived as such; Minor Appellant relies on her claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD finds Appellants would not face serious persecution or risk of death, torture, or cruel treatment if returned to China",
+     "quote": "For these reasons, the RAD finds that the Appellants would not face a serious possibility of persecution if they returned to China, nor would they face a risk to their lives, of torture, or of cruel and unusual punishment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RPD's decision is correct",
+     "quote": "The RPD's decision is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD concludes Appellants face no serious persecution or risk; RPD decision is correct.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD dismisses appeal and confirms RPD decision that Appellants are neither Convention refugees nor persons in need of protection",
+     "quote": "The RAD dismisses the appeal and confirms the decision of the RPD that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD dismisses appeal and confirms RPD decision that Appellants are not refugees or persons in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

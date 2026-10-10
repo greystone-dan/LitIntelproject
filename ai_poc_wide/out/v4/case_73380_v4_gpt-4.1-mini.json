@@ -1,0 +1,837 @@
+{
+ "case_id": 73380,
+ "arm": "v4",
+ "model": "gpt-4.1-mini",
+ "usd": 0.010387599999999999,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "If returned to Turkey, he will be persecuted for political opinion and religion",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Refugee Protection Division refused claim due to lack of credibility and Article 1E exclusion",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He appeals to the Refugee Appeal Division",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant claims persecution in Turkey; the earlier decision-maker refused protection due to credibility and Article 1E; the applicant appeals.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Confirms RPD decision that appellant is not a refugee or person in need of protection; appeal dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirms the earlier decision and dismisses the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claims membership in Kurdish party HDP and Alevi organizations",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claims detention, interrogation and torture by Turkish authorities due to political activities",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applied for Canadian visa via agent/smuggler using documents claiming residence and work in Germany",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Arrived in Canada and made inland refugee claim on March 27, 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant claims political and religious membership, alleges torture, used documents claiming German residence to get visa, and made refugee claim in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Requests admission of two new documents: German Consulate letter and affidavit from friend Mr. XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant requests admission of two new documents at appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 110(4) IRPA limits new evidence admission to evidence arising after RPD rejection, not reasonably available before, or not reasonably expected to be presented",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD rule 3(3)(g)(iii) requires detailed submissions on how new evidence meets subsection 110(4) and relates to appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If admissible, must consider Singh factors: newness, credibility, relevance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Threshold for new evidence admission before RAD is high",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal rules for admitting new evidence under IRPA and RAD rules, including Singh factors and high threshold.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant offers no explanation why German Consulate letter was not obtained before RPD rejection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No argument why letter was not reasonably available or expected to be presented before RPD rejection",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the appellant did not explain why the German Consulate letter was not obtained or presented before the RPD rejection.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Fairness requires examining background: hearing adjourned to allow Ministry to contact German authorities with appellant's permission",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ministry declined to intervene after receiving permission",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reasonable for appellant not to contact German authorities given Ministry's initial interest",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant could not reasonably have been expected to present German Consulate letter at RPD rejection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds fairness requires considering Ministry's initial interest; thus appellant could not reasonably present the German Consulate letter earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "German Consulate letter is credible, new, and highly relevant to RPD's finding of German residency",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Letter is admissible as new evidence",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the German Consulate letter credible, new, relevant, and admits it as evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant offers no argument how affidavit from Mr. XXXX meets subsection 110(4)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Affidavit contains no information unavailable before RPD rejection",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Affidavit is inadmissible",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the affidavit inadmissible as appellant offers no argument and it contains no new information.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Requests RAD hearing on new evidence, citing affidavit and RPD's failure to address credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant requests a hearing before RAD on new evidence and credibility issues.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 110(3) IRPA requires RAD to proceed without hearing unless subsection 110(6) conditions met",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 110(6) allows hearing if new evidence raises serious credibility issue, is central, and justifies claim outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal standard for holding a hearing on new evidence under IRPA subsections 110(3) and 110(6).",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Affidavit is inadmissible, so subsection 110(6) conditions need not be considered for it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "German Consulate letter does not justify allowing or rejecting claim despite impact on Article 1E exclusion",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Credibility issue remains despite admitted letter",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds affidavit inadmissible and German Consulate letter insufficient to justify claim outcome; credibility remains an issue.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether appellant is excluded under Article 1E due to German residency",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Credibility of appellant",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the key issues as Article 1E exclusion and appellant's credibility.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review is correctness except where RPD has advantage assessing oral testimony, then reasonableness applies",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review as correctness or reasonableness depending on RPD's advantage.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found appellant had permanent residence in Germany and lacked credibility due to falsified passport",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues he was not German resident and RPD erred on credibility finding",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found German residency and lack of credibility; the appellant disputes both findings.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found visa application documents authentic and appellant had permanent German residency",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the visa documents authentic and appellant a German resident.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Argues visa application documents except passport were forgeries",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Argues RPD erred in assuming visa officials verified document genuineness",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Documents may have fooled visa officers but not genuine",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the visa documents were forged and RPD erred in assuming their genuineness.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Admitted German Consulate letter shows residency card was invalid",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter appears authentic",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RPD's finding of permanent German residency is undermined and must be reviewed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the German Consulate letter authentic and undermining RPD's residency finding, requiring review.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Other visa documents not found invalid",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Residency card invalid means appellant not a German resident on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RPD erred in finding Article 1E exclusion due to German residency",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant not a German resident and that RPD erred in applying Article 1E exclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found two versions of appellant's passport, one with extensive travel, one with altered pages",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found two versions of the appellant's passport with discrepancies.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD suggested two versions of passport exist because real passport was modified to hide German connections",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant denied knowledge of fraud and attributed it to agent/smuggler",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejected Appellant's explanation and noted Canadian officials would have noticed tampering before visa issuance",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the passport was modified to hide German connections; the Appellant denied knowledge and blamed smugglers; the RPD rejected this explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant claims he provided valid passport to smuggler but never travelled outside Turkey",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "How to reconcile passport with travel stamps and Appellant's claim of no travel outside Turkey",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in assuming Canadian official verified genuineness of documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant claims he gave a valid passport and never travelled outside Turkey; he argues RPD erred in assuming Canadian officials verified document genuineness.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Examined two passport versions and confirmed they differ in passport numbers on various pages",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Canadian visa linked to passport number XXXX; other pages show inconsistent numbers",
+     "answers": 0
+    }
+   ],
+   "summary": "The court confirmed the two passport versions differ in passport numbers on pages; Canadian visa linked to one number, others inconsistent.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, passport submitted to Canadian visa officials was authentic",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "If clumsily modified version had been submitted, visa officials would have noticed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the passport submitted to Canadian visa officials was authentic and tampered version would have been noticed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Version submitted with refugee claim had substituted pages removing travel evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, there was an attempt to fraudulently modify the passport to hide travel stamps",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the refugee claim passport had substituted pages to hide travel stamps, indicating fraudulent modification.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says agent/smuggler modified passport and replaced pages after visa process",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether agent/smuggler could have modified passport after visa officials returned it but before returning to Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Such scenario is implausible and illogical as it would show altered passport at Canadian border",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant claims smugglers modified passport after visa process; court finds this implausible and illogical due to border checks.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Implausible that CBSA officials would not have noticed clumsily doctored passport at entry",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, Appellant travelled to Canada on unaltered passport",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it implausible CBSA missed doctored passport and concludes Appellant travelled on unaltered passport.",
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, Appellant tampered with passport after arrival in Canada before refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Appellant may have removed travel evidence to strengthen refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This fraud seriously undermines Appellant's credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Appellant tampered with passport after arrival to hide travel, seriously undermining his credibility.",
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Travel stamps showing extensive travel including Germany are valid",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's testimony denying travel outside Turkey is fabricated",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Fabrication seriously undermines Appellant's credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds travel stamps valid, Appellant's denial fabricated, and this seriously undermines his credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Before final credibility finding, court reviews supporting documents submitted to RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documents include Turkish identity card, membership receipts, letter, and photographs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reviews supporting documents including identity card, membership receipts, letter, and photos before final credibility finding.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Receipts for HDP membership fees appear valid and support Appellant's claim of membership",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds HDP membership fee receipts valid and supportive of Appellant's membership claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Pir Sultan Abdal Cultural Association membership fees and card appear valid and support Appellant's Alevi Muslim claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds membership fees and card from cultural association valid and supportive of Appellant's Alevi Muslim claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter from Canadian Alevi Culture Centre states Appellant is Alevi member since March 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter's basis for membership finding is unclear but has some probative value",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes letter stating Appellant's Alevi membership with unclear basis but assigns some probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Six photographs submitted do not clearly show Appellant; first three show protests with many people",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Photos have no probative value; other three photos of limited probative value as Canadian events don't prove Turkish participation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds photos do not clearly show Appellant and have limited or no probative value regarding his claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Weighing fraudulent behavior against documents, Appellant is overall lacking credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant's claims of persecution by Turkish state on HDP basis are, on balance, false",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant lacks credibility and his persecution claims on HDP basis are false on balance of probabilities.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Despite credibility findings, court must consider if Alevi Muslims face serious persecution or harm in Turkey",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must consider if Alevi Muslims face serious persecution or harm in Turkey despite Appellant's credibility issues.",
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Reviewed Appellant's documents and National Documentation Package; only two articles relate to Alevi situation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Articles are of limited value; one from 1993, other briefly mentions 2016 attack",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reviewed documents and found only two limited-value articles relating to Alevi situation in Turkey.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Alevi Muslims face inequalities including lack of official worship recognition, education issues, and ID card religion restrictions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Some reports of ill-treatment mainly during demonstrations; isolated societal discrimination and violence reported",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Most Alevis coexist with other communities with few daily problems",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Alevi Muslims face inequalities and some ill-treatment but mostly coexist peacefully with others.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "UK Home Office summary: Alevi treatment does not generally amount to persecution or serious harm",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees Alevi Muslims generally do not face serious possibility of persecution in Turkey",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with UK Home Office that Alevi treatment in Turkey generally does not amount to persecution or serious harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant will not face serious possibility of persecution on return to Turkey",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance, Appellant will not face harm described in subsection 97(1) of IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Appellant will not face serious persecution or harm under IRPA on return to Turkey.",
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

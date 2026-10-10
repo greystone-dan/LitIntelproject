@@ -1,0 +1,584 @@
+{
+ "case_id": 67428,
+ "arm": "L",
+ "model": "gpt-4.1-mini",
+ "usd": 0.0096864,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Principal, Co-, and Minor Appellants from Colombia appeal the RPD decision rejecting their claim.",
+     "quote": "The Principal Appellant, XXXX XXXX XXXX XXXX, the Co-Appellant, XXXX XXXX XXXX XXXX, and the Minor Appellant, XXXX XXXX XXXX XXXX, citizens of Colombia, appeal the decision of the RPD which rejected their claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Co-Appellant is the designated representative of the Minor Appellant.",
+     "quote": "The Co-Appellant was appointed the designated representative of the Minor Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants submit new evidence and request an oral hearing.",
+     "quote": "The Appellants are submitting new evidence and are requesting an oral hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is not allowed for the reasons that follow.",
+     "quote": "For the reasons which follow, the Appeal is not allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Colombian appellants appeal the RPD decision, submit new evidence, request oral hearing, but appeal is denied.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellants fear the FARC.",
+     "quote": "The Appellants fear the FARC.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appellants fear the FARC.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The standard of correctness applies to questions of fact, mixed fact and law, and law as per Huruglica.",
+     "quote": "For questions of fact, mixed fact and law, and law, I will apply the standard of correctness as per Huruglica.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it will apply the correctness standard per Huruglica for fact and law questions.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "The court will conduct its own analysis of the Record to determine if the RPD erred.",
+     "quote": "Accordingly, I will conduct my own analysis of the Record to determine if the RPD erred.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will independently analyze the record to determine if the RPD erred.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants submitted new evidence: a Google translation of 'Camioneta' and a December 11, 2018 article about possible FARC regrouping.",
+     "quote": "The Appellants have submitted the following documents as new evidence: a) the Google translation of the Spanish word \"Camioneta\" which translates the word into Van or truck.2; b) an article dated December 11 2018 which discusses the fact that the FARC might be regrouping3.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants submit new evidence: a translation of 'Camioneta' and an article on possible FARC regrouping.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Admissibility of new evidence is analyzed under subsection 110(4) and Singh decision.",
+     "quote": "I will analyse the admissibility of the proposed new evidence pursuant to the test set out in subsection 110(4) and in accordance with the Federal Court of Appeal Decision in Singh.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will analyze new evidence admissibility under subsection 110(4) and Singh.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The court accepts that 'Camioneta' translates to van or truck and accepts that document as new evidence.",
+     "quote": "I accept that the word \"Camioneta\" does translate into a van or truck. Therefore I accept the document as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the translation of 'Camioneta' and admits that document as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The article was published after the RPD decision and meets statutory requirement but gives no evidentiary weight due to lack of relevance to appellants' risk.",
+     "quote": "The article was published after the RPD rendered its decision and therefore meets the statutory requirement. I note that it indicates that there is information with respect to a \"possible' regrouping of the FARC, but it also states that the majority of the FARC fighters have laid down their arms. The article gives no indication as to whether the Appellants would still be at risk if they were to return to Columbia. I therefore give the article no evidentiary weight.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the article meets timing requirements but gives it no evidentiary weight due to lack of risk indication.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The request for a new hearing is denied given the disposition on new evidence.",
+     "quote": "Given the above disposition with respect to the new evidence, the request for a new hearing is denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court denies the request for a new hearing based on the new evidence disposition.",
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD concluded appellants would not be persecuted if returned and state protection is available.",
+     "quote": "The RPD concluded that the Appellants would not be persecuted if they were to return to Columbia and that there is state protection available to them.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found appellants failed to file a refugee claim in the United States.",
+     "quote": "The RPD also found that the Appellants had failed to file a refugee claim in the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "issue",
+     "text": "Appellants raise three issues: credibility assessment error, ignoring/misconstruing evidence, and unreasonable preconceptions in analysis.",
+     "quote": "The Appellants raise three issues: a) Did the Board err in its credibility assessment? b) Did the Board err by ignoring and misconstruing evidence? c) Did the Board err in its analysis of Appellant's case due to unreasonable preconceptions about the Appellant's case?",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no persecution risk and failure to claim asylum in US; appellants raise three issues on RPD errors.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant alleges assault by FARC on a specific date in 2014.",
+     "quote": "The Appellants allege that the Principal Appellant was assaulted by the FARC on XXXX XXXX, 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD did not find assault allegation credible due to discrepancy about truck or car and issues with neighbor's letter.",
+     "quote": "The RPD did not find this particular allegation credible as it concluded that there was a discrepancy in the Principal Appellant's testimony as to whether he was referring to truck or car. The RPD also had issues with respect to a supporting letter by one of the Principal Appellant's neighbors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court accepts new evidence that vehicle was a truck and finds assault occurred on that day.",
+     "quote": "I have accepted the new evidence which indicates that the vehicle was in fact a truck and therefore I find that the Principal Appellant was assaulted on the day in question.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellants allege assault; RPD disbelieved it due to discrepancies; court accepts new evidence and finds assault occurred.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 4,
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant alleges receiving threatening call from persecutors in 2014.",
+     "quote": "He also alleges that in XXXX of 2014 he received a threatening telephone call from the agents of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It took over a year after the assault for appellants to leave Colombia.",
+     "quote": "However, it would take well over a year after the assault in XXXX of 2014 for the Appellants to leave Columbia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Appellant alleges a threatening call in 2014; court notes appellants left Colombia over a year later.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Last contact with persecutors was over 4.5 years ago; no reliable evidence FARC still interested in Principal Appellant.",
+     "quote": "I note that the last contact that the Principal Appellant had with the agents of persecution was in XXXX of 2014, well over four and half years ago and the Appellants have not produced any reliable evidence which would indicate that the FARC is still interested in the Principal Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Principal Appellant testified no contact with family since leaving Colombia in 2015 and family would notify if threatened.",
+     "quote": "He testified that he had not had any contact with his family since he had left Columbia in XXXX of 2015. He also stated that if his family would have been threatened by the FARC, they would have notified him.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court concludes appellants and family have not been threatened since leaving Colombia and would expect threats if still targeted.",
+     "quote": "I therefore conclude, based on the testimony of the Principal Appellant, that the Appellants nor their family in Columbia have been threatened by the FARC since the appellants left Columbia. It is reasonable to expect that, if the Principal Appellant was of interest to the FARC, he or his family would have continued to receive threats after they left Columbia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Nearly five years since last threat and no reliable evidence of ongoing interest by FARC.",
+     "quote": "It has been nearly five years since the Principal Appellant was last threatened by the FARC and he has failed to produce any reliable evidence which would indicate that he is a person of interest to the FARC.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no recent threats or evidence FARC still targets appellants or family since 2015 departure.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with RPD that appellants would not be at risk or threatened by FARC if returned to Colombia.",
+     "quote": "I therefore agree with the RPD that the appellants would not be at risk nor would they be threatened by the FARC if they were to return to Columbia.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that appellants face no risk or threat from FARC if returned.",
+   "role": "conclusion"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "RPD found appellants failed to file asylum claim in US during 2.5 years residence.",
+     "quote": "The RPD also concluded that the Appellants failed to file an asylum claim while living for two and half years in the United States.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "RPD asked why no US claim filed; Principal Appellant said advised it was not beneficial; RPD rejected explanation.",
+     "quote": "They were asked by the RPD why they had not filed a claim in the United States and the Principal Appellant replied that they had been advised that it would not be beneficial for them to make such an application. The RPD rejected this explanation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Court agrees with RPD in rejecting appellants' explanation for not filing US asylum claim.",
+     "quote": "I agree with the RPD in rejecting this explanation.",
+     "answers": 1
+    }
+   ],
+   "summary": "RPD found appellants failed to file US asylum claim; court agrees with RPD rejecting their explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants did not challenge RPD's finding on failure to file US claim.",
+     "quote": "I note that the Appellants did not challenge this particular finding of the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "It is reasonable to expect appellants would have submitted arguments if RPD erred on this finding.",
+     "quote": "It is reasonable to expect that they would have provided submissions to indicate whether the RPD had erred with respect to this particular conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes appellants did not challenge RPD's finding on US claim failure and would expect submissions if error alleged.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Bobic decision states reasons for not claiming refugee status abroad must be valid to avoid adverse inference.",
+     "quote": "In the Bobic decision,6 the Federal Court has stated that: \"... an applicant's reasons for not claiming refugee status in a foreign country must be valid in order to avoid an adverse inference.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonable to expect someone fearing return to seek refuge in first signatory country, here US for 2.5 years without claim.",
+     "quote": "It is reasonable to expect that someone who allegedly fears returning to her country of residence would make every effort to seek refuge in the first country that she arrives at, especially if that country is a signatory to the Convention. The appellants lived in the United States for two and a half years without seeking such protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Bobic: valid reasons needed for not claiming refugee status abroad; appellants lived 2.5 years in US without claim.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Lack of effort to file US asylum claim is troubling and undermines existence of fear.",
+     "quote": "I find this lack of effort on the part of the Principal Appellant to find out and file a claim for asylum troubling and not demonstrative of the existence of her fear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Reasonable expectation that a person fearing persecution seeks protection immediately upon arrival in safe country.",
+     "quote": "It is a reasonable expectation that a person with genuine fear of persecution or harm in his country of residence will, absent a good reason, seek refugee protection immediately upon arrival in a safe country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants' lack of urgency contradicts claim of fear; no legal impairment to claim in US.",
+     "quote": "The fact that the Appellants did not take this step soon upon their arrival in the United States of America puts into question the genuineness of their fear. From my point of view, the apparent lack of urgency in their actions belies their claim of fear. Furthermore, there was no legal impairment for the Appellant to have made an asylum claim in the United States.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants' failure to seek US asylum timely undermines fear claim; no legal barrier existed.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Hathaway states inquiry into delay in refugee claim is appropriate to evaluate sincerity of need for protection.",
+     "quote": "Professor Hathaway has said that it is appropriate to inquire into the circumstances of any protracted postponement of a refugee claim as a means of evaluating the sincerity of the claimant's need for protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Hathaway that delay in refugee claim is relevant to assessing sincerity of protection need.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Purpose of asylum claim is to seek refuge promptly; not to choose best country for claim.",
+     "quote": "The purpose of initiating a claim for asylum is to seek refuge in a host country. The goal of asylum seekers is not to pick and choose which country best suits their needs before they make a refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Goal of refugee claimant is to leave persecution country and find refuge diligently and hastily.",
+     "quote": "The goal of a refugee claimant is to leave their alleged country of persecution and find refuge in a host country. This goal should be pursued with diligence and haste.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Federal Court stated delay explanation is unacceptable and indicates lack of subjective fear.",
+     "quote": "The Federal Court stated: \"This explanation, in the Court's view, is an unacceptable reason to delay seeking asylum in another country and strongly indicates a lack of subjective fear of persecution.\"",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Garzon decision states choosing Canada over US for easier asylum or faster PR is invalid to negate adverse inference of lack of fear.",
+     "quote": "In the Garzon decision,11 the Federal Court stated: The Applicant's submission that he did not apply for asylum because it would be granted more easily in Canada or because he would gain permanent residence faster in Canada are not valid reasons for negating the adverse inference that he lacked subjective fear by not applying for asylum in the United States.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains asylum claim purpose is prompt refuge seeking; cites cases rejecting delay or country choice as valid reasons.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "Federal Court upheld Board denying claim for lack of subjective fear due to failure to claim refugee status in a Convention signatory country",
+     "quote": "The Federal Court has upheld this Board when denying a claim when making a finding of lack of subjective fear based on failure of the claimant to make a refugee claim in a country which is a signatory to the Convention.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "In Bobic, applicant's reasons for not claiming refugee status abroad must be valid to avoid adverse inference",
+     "quote": "In the Bobic case13 the court stated that an applicant's reasons for not claiming refugee status in a foreign country must be valid in order to avoid adverse inference.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "In Cortes, failure to pursue asylum over 5 years inconsistent with subjective fear of persecution",
+     "quote": "In the Cortes case, the court stated: \"... this failure to pursue asylum during a period of more than 5 years is markedly inconsistent with a subjective fear of persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "In Gebetas, failure to claim asylum in US during two-day stay shows lack of subjective fear",
+     "quote": "In the Gebetas decision15 the Federal Court stated that even a failure to claim in the United States during a two day stay is sufficient to demonstrate a lack of subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Federal Court cases finding failure to claim asylum abroad indicates lack of subjective fear.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "finding",
+     "text": "In Garzon, failure to apply for asylum in US alone suffices to deny refugee claim",
+     "quote": "In the Garzon decision, the court stated: \"A finding that the applicant lacked subjective fear due to his failure to apply for asylum in the United States is sufficient, alone, for the Board to reasonably deny the refugee claim.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Garzon holding failure to seek US asylum alone justifies denying refugee claim.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Appellants' failure to file for asylum in the US indicates lack of subjective fear",
+     "quote": "I find that the Appellants' failure to file for asylum in the United States is indicative of a lack of subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellants' failure to seek US asylum indicates lack of subjective fear.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No need to analyze other issues in this appeal given above conclusions",
+     "quote": "Given the above conclusions, I see no need to analyze any other issue in this Appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court declines to analyze other issues given its conclusions.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "RAD confirms RPD's determination appellants are not Convention refugees or persons in need of protection",
+     "quote": "Pursuant to paragraph 111(1)(a) of IRPA, the RAD confirms the determination of the RPD that the Appellants are not Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD confirms the RPD's decision that appellants are not refugees or protected persons.",
+   "role": "disposition"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed",
+     "quote": "The Appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

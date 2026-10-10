@@ -1,0 +1,1275 @@
+{
+ "case_id": 30930,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.022418000000000004,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The proceeding involves the application of the 'due care' standard for annual patent maintenance fees.",
+     "quote": "This proceeding involves the application of the “due care” standard in relation to the payment of annual patent maintenance fees.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 'due care' standard was introduced into the Patent Act in October 2019 to satisfy obligations under the Patent Law Treaty.",
+     "quote": "The “due care” standard was introduced into the Patent Act, RSC, 1985, c P-4 [Patent Act] in October 2019 to satisfy obligations under the Patent Law Treaty [PLT]",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Patent Law Treaty is administered by WIPO to simplify and harmonize national intellectual property offices' administrative practices.",
+     "quote": "an agreement administered by the World Intellectual Property Organization [WIPO] to simplify and harmonize the administrative practices of national intellectual property offices.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the proceeding concerns the 'due care' standard introduced in 2019 Patent Act amendments to meet Patent Law Treaty obligations administered by WIPO.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "procedure",
+     "text": "This is a judicial review of the December 20, 2022 decision of the Commissioner of Patents denying reinstatement of Canadian Patent No. 2,690,767.",
+     "quote": "This is a judicial review of a December 20, 2022 decision [Decision] of the Commissioner of Patents [Commissioner] that denied the Applicant’s request for reinstatement of Canadian Patent No. 2,690,767 [767 Patent]",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The patent was deemed expired for failure to pay the tenth anniversary maintenance fee on the issued patent.",
+     "quote": "after it was deemed to have expired for failure to pay the tenth anniversary maintenance fee on the issued patent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains this judicial review challenges the Commissioner's December 2022 decision denying reinstatement of the 767 Patent after expiry for non-payment of the tenth anniversary fee.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Commissioner was not satisfied the failure to pay the maintenance fee occurred despite due care.",
+     "quote": "The Commissioner was not satisfied that the failure to pay the maintenance fee by the prescribed due date occurred in spite of the due care required by the circumstances having been taken.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Commissioner refused to reverse the deemed expiry of the 767 Patent.",
+     "quote": "As such, the Commissioner refused to make the determination required to reverse the deemed expiry of the 767 Patent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the failure to pay was not despite due care and refused to reverse the patent's deemed expiry.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court finds the Decision was reasonable and there was no breach of procedural fairness.",
+     "quote": "I find the Decision was reasonable and that there was no breach of procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review shall be dismissed.",
+     "quote": "As such, the application shall be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Decision reasonable with no procedural fairness breach and dismisses the application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Under subsections 27.1(1) and 46(1) of the Patent Act, annual maintenance fees must be paid to maintain a patent application and issued patent in good standing.",
+     "quote": "Pursuant to subsections 27.1(1) and 46(1) of the Patent Act, an applicant must pay annual maintenance fees to maintain a patent application and once it has issued its corresponding patent, in good standing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal requirement to pay annual maintenance fees under the Patent Act to keep patents in good standing.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "If maintenance fees are unpaid by due date, subsection 46(3) allows a six-month late fee period to pay and maintain the patent.",
+     "quote": "If the prescribed maintenance fee for an issued patent is not paid by its due date, subsection 46(3) of the Patent Act provides a further time-period (late fee period) of six months where a patentee may still pay the maintenance fee with a late fee to maintain the patent in good standing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Commissioner must notify potential deemed expiration if fees remain unpaid after the late fee period.",
+     "quote": "The Commissioner is required to provide notice of the potential for deemed expiration where the maintenance fee and late fee are not paid by the end of the late fee period.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A patent is deemed expired if fees are unpaid after the later of the late fee period or two months after notice from the Commissioner (subsection 46(4)).",
+     "quote": "The term of a patent will be deemed to expire where the maintenance fee and late fee have not been paid before the later of the late fee period and the end of two months after the date when the Commissioner provides notice (subsection 46(4)).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the late fee period, notice requirement, and deemed expiration rules under the Patent Act.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "A deemed expired patent may be reinstated if subsection 46(5) requirements are met: request within 12 months, explanation, fees paid, and due care shown.",
+     "quote": "A patent that has been deemed to expire may by reinstated if the requirements of subsection 46(5) of the Patent Act are satisfied.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The Commissioner must be satisfied the failure to pay occurred despite due care required by the circumstances.",
+     "quote": "the Commissioner must be satisfied that the failure to pay the maintenance fee “occurred in spite of the due care required by the circumstances having been taken.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The due care requirement arises from Patent Act amendments after Canada joined the PLT.",
+     "quote": "The requirement for the Commissioner to be satisfied that there has been due care arises from amendments to the Patent Act flowing from Canada joining the PLT.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines reinstatement conditions including due care, a requirement from Patent Act amendments after joining the PLT.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant and Respondent are named inventors and owners of the 767 Patent titled 'Wide Ice Resurfacing Machine'.",
+     "quote": "The Applicant, Robert Taillefer, and the Respondent, Sylvain Fredette, are named inventors and owners of the 767 Patent, titled “Wide Ice Resurfacing Machine”.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 767 Patent covers an ice resurfacing machine with wider surface capacity than traditional machines.",
+     "quote": "The 767 Patent is a patent for an ice resurfacing machine (traditionally called a “Zamboni”) that is described as having the capacity to resurface a wider surface area than traditional ice resurfacing machines.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant allegedly implemented the invention on the Rideau Canal skating surface.",
+     "quote": "Mr. Taillefer is alleged to have implemented the invention claimed in the 767 Patent on the skating surface on the Rideau Canal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Applicant's patent portfolio includes two patents, including the 767 Patent.",
+     "quote": "His patent portfolio consists of two patents, one of which is the 767 Patent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the parties are inventors and owners of the 767 Patent for a wide ice resurfacing machine, allegedly implemented on the Rideau Canal.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 767 Patent application was filed January 21, 2010 and issued January 19, 2016.",
+     "quote": "The application for the 767 Patent was filed on January 21, 2010 and issued to patent on January 19, 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The patent has been managed from the outset by a patent agency firm appointed by the Applicant.",
+     "quote": "It has been managed from the outset by a patent agency firm [Agent] appointed by the Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the 767 Patent was filed in 2010, issued in 2016, and managed by an appointed patent agency.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "From 2012, Applicant was required to pay annual maintenance fees for the 767 application and patent.",
+     "quote": "Beginning in 2012, the Applicant was required to pay annual maintenance fees for the 767 application and then the 767 Patent, pursuant to subsections 27.1(1) and 46(1) of the Patent Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Maintenance fees were due around January 20 each year.",
+     "quote": "The maintenance fees were due on or about January 20th of each year.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The arrangement was that the Agent required instructions from Applicant before paying fees.",
+     "quote": "The arrangement between Mr. Taillefer and his Agent was that the Agent required instructions from Mr. Taillefer before paying the annual maintenance fee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant had to pay annual fees due January 20, with the Agent requiring instructions before payment.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "From 2010 to 2019, Applicant and Agent consistently communicated by email, including about fee payments from 2012.",
+     "quote": "From 2010 to 2019, Mr. Taillefer and his Agent consistently communicated by email, including starting in 2012 with respect to payment of the annual maintenance fee.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Communication was through the same email address for the full period.",
+     "quote": "Communication was made with Mr. Taillefer through the same email address for the full time period.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant and Agent communicated consistently by the same email from 2010 to 2019 about fee payments.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Agent sought payment instructions for the 2020 fee early, sending correspondence on September 18, 2019.",
+     "quote": "In accordance with the Agent’s usual practice of paying the maintenance fee in advance of the deadline, the Agent sought instructions for payment of the January 20, 2020 maintenance fee early, by sending correspondence to Mr. Taillefer’s email five months before the deadline, on September 18, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Agent sought early payment instructions for the 2020 fee by email on September 18, 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "No response was received, so the Agent sent reminders on December 17, 2019, January 6, 2020, and January 20, 2020.",
+     "quote": "In the case of the 2020 maintenance fee, when no response was received, further reminders were sent to Mr. Taillefer by email on December 17, 2019, January 6, 2020 and January 20, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Reminder emails stated the fee would not be paid without specific instructions.",
+     "quote": "The reminder emails indicated that the maintenance fee would not be paid without specific instructions to do so.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Agent sent multiple reminders for 2020 fee payment instructions, stating payment required specific instructions.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "As no instructions were received, the Agent did not pay the 2020 maintenance fee by January 20, 2020.",
+     "quote": "As instructions were not received, the Agent did not pay the maintenance fee by January 20, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Agent did not pay the 2020 fee by the deadline due to no instructions.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On March 31, 2020, the Agent emailed Applicant advising payment was not made and late fee deadline was July 21, 2020.",
+     "quote": "On March 31, 2020, the Agent sent email correspondence to Mr. Taillefer, advising that payment had not been made and that the deadline for correction through payment of a late fee was July 21, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Two further reminders were sent on July 16 and 17, 2020.",
+     "quote": "Two further communications were sent to Mr. Taillefer’s email as reminders on July 16, 2020 and July 17, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Agent informed Applicant of unpaid fees and late fee deadline in March 2020, with two July 2020 reminders.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On October 20, 2020, the Agent notified Applicant that CIPO advised the patent was deemed expired.",
+     "quote": "On October 20, 2020, the Agent notified Mr. Taillefer by email of correspondence received from the Canadian Intellectual Property Office [CIPO] advising that the 767 Patent was deemed expired.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On October 29, 2020, Applicant found the correspondence in junk email and instructed the Agent to seek reinstatement.",
+     "quote": "On October 29, 2020, Mr. Taillefer found the correspondence in his junk email folder and instructed the Agent to seek reinstatement of the 767 Patent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Agent notified Applicant of expiry in October 2020; Applicant found notice in junk mail and sought reinstatement.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "On November 16, 2020, the Agent filed a reinstatement request with fees and explanation about emails found in junk folder.",
+     "quote": "On November 16, 2020, the Agent filed a request to reinstate the 767 Patent under subsection 46(5) of the Patent Act, along with payment of the required fees.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Agent explained emails were found in junk folder and Applicant had no reason to check junk folder regularly.",
+     "quote": "the emails were only found in the Applicant’s junk folder on October 29, 2020. The Agent indicated that “[t]o the best of his knowledge, the patent owner did not take any actions which would cause [the] emails to be directed to his junk folder, and had no reason to regularly check his junk folder for relevant emails.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Agent highlighted prior fees were paid ahead of deadline and Applicant acted immediately upon learning of expiry.",
+     "quote": "The Agent highlighted that prior maintenance fees had always been paid ahead of the deadline and that the Applicant acted immediately upon learning that the 767 Patent was deemed expired.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Agent filed reinstatement with explanation about junk mail and prompt Applicant action after expiry notice.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "On August 3, 2021, the Manager of Patent Policy at CIPO advised the Agent of the Commissioner's preliminary intent to refuse reinstatement.",
+     "quote": "On August 3, 2021, the Manager of Patent Policy at CIPO, acting for and on behalf of the Commissioner, advised the Agent that the Commissioner intended to refuse the request to reinstate the 767 Patent under subsection 46(5) of the Patent Act by providing a preliminary response to the Agent’s request for reinstatement [Preliminary Decision].",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "procedure",
+     "text": "The Agent was invited to respond to the Preliminary Decision and submitted a response on August 31, 2021.",
+     "quote": "The Agent was invited to submit a response to the Preliminary Decision before a final decision was made, and submitted a further response on August 31, 2021 [Response].",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker gave preliminary refusal notice in August 2021 and received the Agent's response.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "On December 20, 2022, the Commissioner refused reinstatement, not satisfied due care was met.",
+     "quote": "On December 20, 2022, the Commissioner issued the Decision, refusing the Applicant’s request to reverse the deemed expiry of the 767 Patent. The Commissioner indicated that they were “not satisfied that the failure to pay the prescribed fees on or before the due date occurred in spite of the due care required by the circumstances having been taken”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The patentee failed to meet the due care standard under paragraph 46(5)(b) of the Patent Act.",
+     "quote": "and that the patentee had failed to meet the due care standard as enacted in paragraph 46(5)(b) of the Patent Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker refused reinstatement in December 2022, finding the patentee failed the due care standard.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Commissioner found an unexpected communication breakdown between Applicant and Agent.",
+     "quote": "While the Commissioner found that there was an unexpected breakdown in communication between the Applicant and Agent,",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Commissioner did not find Applicant took all measures a reasonably prudent patent holder would to avoid the failure.",
+     "quote": "they did not find that the Applicant had taken all measures that a reasonably prudent patent holder would have taken given the set of circumstances to avoid the failure, and for the failure to have occurred despite having taken those measures.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found a communication breakdown but that Applicant did not take all reasonable measures to avoid failure.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "There are two broad issues: whether the Decision was reasonable and whether there was a breach of procedural fairness.",
+     "quote": "There are two broad issues raised by this application. First, was the Decision reasonable; and second, has there been a breach of procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the two main issues: reasonableness of the Decision and breach of procedural fairness.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness is the presumptive standard of review for merits of a decision, focusing on judicial restraint and coherence.",
+     "quote": "Reasonableness is the presumptive standard of review of the merits of a decision: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at paras 23-25.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Reasonableness review examines if the decision is justified, transparent, and intelligible in relation to facts and law.",
+     "quote": "Reasonableness review focusses on whether the decision is “based on an internally coherent and rational chain of analysis” that is “justified in relation to the facts and law that constrain the decision maker”: Vavilov at para 85; Canada Post Corp v Canadian Union of Postal Workers, 2019 SCC 67 at paras 2, 31.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "A reasonable decision bears hallmarks of justification, transparency, and intelligibility when read as a whole in its administrative context.",
+     "quote": "A decision will be reasonable if when read as a whole and taking into account the administrative setting, it bears the hallmarks of justification, transparency, and intelligibility: Vavilov at paras 91-95, 99‑100.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the reasonableness standard of review, citing Vavilov and related cases, emphasizing coherence and justification.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Procedural fairness questions whether the applicant knew the case to meet and had a full and fair chance to respond.",
+     "quote": "Questions of procedural fairness ask whether the procedure was fair having regard to all of the circumstances with the ultimate question being whether the applicant knew the case it had to meet and had a full and fair chance to respond: Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 at paras 54, 56.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states procedural fairness requires the applicant to know the case and have a fair chance to respond.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commissioner applied a higher due care standard than a reasonable patentee, making the Decision unreasonable and procedurally unfair.",
+     "quote": "The Applicant takes issue with the standard of due care applied by the Commissioner. He asserts that the Decision is both objectively unreasonable as the Commissioner applied a standard of due care other than that of a reasonable patentee, and procedurally unfair as the Commissioner applied a different standard of due care than the standard communicated to the public (through the Manual of Patent Office Practice [MOPOP]) and to the patentee.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commissioner’s reasoning was illogical and confusing, preventing the Applicant from knowing the case to meet, thus procedurally unfair.",
+     "quote": "He argues that the Commissioner applied illogical and confusing reasoning that was both unreasonable and procedurally unfair as it prevented Mr. Taillefer from knowing the case he had to meet.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The delay in rendering the Decision was also procedurally unfair.",
+     "quote": "He further asserts that the delay in rendering the Decision was procedurally unfair.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the Commissioner applied an incorrect due care standard, used confusing reasoning, and delayed the Decision, causing unfairness.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Commissioner defined due care as measures a reasonably prudent patentee would take to avoid failure despite those measures.",
+     "quote": "In the Decision, the Commissioner refers to the standard of due care as being “whether the patentee took all measures that a reasonably prudent patentee would have taken, given the particular set of circumstances to avoid the failure – and despite taking those measures – the failure nevertheless occurred.”",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commissioner cited section 27.03 of MOPOP and paragraph 166M of WIPO PCT Guidelines as authority for the due care standard.",
+     "quote": "The Commissioner makes reference to section 27.03 of the MOPOP as authority for this view, which recites the same standard of due care, noting that regard must also be given to paragraph 166M of the WIPO, Patent Cooperation Treaty (PCT) Receiving Office Guidelines [Guidelines],",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Commissioner acknowledged no two cases have identical facts or circumstances.",
+     "quote": "while acknowledging that no two cases will have identical sets of facts or circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner defined due care as measures a reasonable patentee would take, citing MOPOP and WIPO Guidelines, noting case differences.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Section 27.03.06 of MOPOP requires considering if anything else could reasonably have been done to avoid failure, including customary diligence.",
+     "quote": "As set out in section 27.03.06 of the MOPOP, the Commissioner is to consider whether anything else could have been reasonably expected to have been done to avoid the failure in view of the surrounding circumstances, as well as the customary diligence that a prudent party would have exercised in the circumstances:",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "rule_of_law",
+     "text": "Measures taken after failure are not considered; the Commissioner considers customary diligence and WIPO Guidelines paragraph 166M.",
+     "quote": "Measures taken by the patentee after the failure occurred will not be taken into consideration in making the determination. In making this determination, the Commissioner will consider the customary diligence that a prudent party would have exercised in the circumstances. In making this determination, the Patent Office will have regard to considerations that are taken into account by the International Bureau and Receiving Offices as described in paragraph 166M of the Receiving Office Guidelines,",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "No two cases have identical facts or circumstances, per MOPOP and Guidelines.",
+     "quote": "while acknowledging that no two cases have identical sets of facts or circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "MOPOP section 27.03.06 requires considering reasonable actions and customary diligence, excluding post-failure measures, with regard to WIPO Guidelines.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Paragraph 166M of WIPO Guidelines guides reasonable steps during communication breakdowns between applicant and agent.",
+     "quote": "Like the Commissioner, section 27.03.06 makes reference to paragraph 166M of the Guidelines, which although relevant to priority patent documents, provides guidance as to steps that might be considered reasonable, including during a communication breakdown between a patentee and their agent.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Paragraph 166M(d) states that both applicant and agent must act with due care in communication, with examples of prudent behavior and alternative communication methods.",
+     "quote": "Paragraph 166M(d) states the following with respect to miscommunication between an applicant and their agent: (d) Miscommunication between the Applicant and the Agent Where the applicant appoints an agent, both the applicant and the agent must act with “due care” in their communication with each other. A prudent applicant instructs the agent in a clear and timely manner to file the international application. A prudent agent acts upon instructions received from the applicant and clarifies with the applicant in case of doubt. A prudent agent advises the applicant of all important matters in relation to the timely filing of an international application and the consequences of a late filing in a clear manner. A prudent applicant or agent finds alternative ways to communicate with the other person if the usual communication channels fail. Where the failure to timely file an international application was caused by technical difficulties (e.g. unexpected email delivery failure between the applicant and the agent), both the applicant and the agent may have acted with “due care” if they can demonstrate that the system had worked reliably in the past and that the breakdown could not have been anticipated by either party.",
+     "answers": 0
+    }
+   ],
+   "summary": "The WIPO Guidelines paragraph 166M(d) guides due care in applicant-agent communication, including prudent actions and alternative communication methods.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Commissioner applied a higher due care standard than MOPOP conveyed, citing 'all possible actions' as higher than 'all measures'.",
+     "quote": "The Applicant argues that the Commissioner applied a higher standard than the one conveyed to the Applicant and set out in the MOPOP. He refers to two primary passages from the Decision to support his argument. First, the Applicant refers to the statement in the Decision that to establish due care it was expected that “all possible actions” would be taken.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the Respondent that the 'all possible actions' statement must be read in context and is not a higher standard.",
+     "quote": "While the Applicant asserts that this is a higher standard than “all measures that a reasonably prudent patentee would have taken”, I agree with the Respondent, this statement must be read in context.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues the Commissioner applied a higher due care standard, but the court agrees with the Respondent that context shows otherwise.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Commissioner’s 'all possible actions' means all measures a reasonably prudent patentee would take, consistent with MOPOP.",
+     "quote": "As stated by the Commissioner, “to show due care, it is expected to take “all possible actions”, considering the circumstances of the case”. [emphasis added] ... it is clear that the reference to “all possible actions, considering the circumstances of the case” is the same standard as that stated in the MOPOP, which requires “all measures” that a reasonably prudent patentee would have taken in the circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commissioner’s 'all possible actions' phrase aligns with MOPOP’s standard of all measures a reasonable patentee would take.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues the Commissioner mischaracterized their argument by suggesting due care includes unreasonable measures.",
+     "quote": "Second, the Applicant points to the Commissioner’s characterization of one of the arguments made by the Applicant in their Response, where the Commissioner states: “The standard of due care doesn’t require ‘all that was possible’, as suggested by the [Preliminary Decision]. Due care is generally understood to mean appropriate measures, reasonable or unreasonable, whereas “all that was possible” suggests that any and all measures, reasonable or unreasonable.” The Applicant asserts that this is a mischaracterization of their argument and is reflective of the higher standard that was applied - i.e., one that required both reasonable and unreasonable measures.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court does not find the Applicant’s argument persuasive.",
+     "quote": "I do not find this argument persuasive.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant claims mischaracterization of their argument about due care, but the court rejects this claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Commissioner’s statement was a summary of Applicant’s arguments, not the analysis applied.",
+     "quote": "This section of the Decision is simply a summary of arguments made by the Applicant. It does not reflect the analysis applied by the Commissioner in the Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Commissioner consistently applied the MOPOP due care standard requiring reasonable measures to avoid failure.",
+     "quote": "The interpretation of the standard is consistent throughout the Decision. It is, in my view, the same standard as that published in section 27.03 of the MOPOP. It is one that requires all measures that a reasonably prudent patentee would have taken, given the set of circumstances related to the failure, to avoid the failure, and for the failure to have occurred despite having taken those measures.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is no suggestion the Commissioner sought unreasonable measures or that 'all possible actions' implies that.",
+     "quote": "There is no suggestion that the Commissioner was looking to unreasonable measures and for the reasons I stated earlier, I do not view the Commissioner’s reference to “all possible actions, considering the circumstances of the case” to be inferring this.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commissioner summarized Applicant’s arguments but consistently applied the MOPOP standard without requiring unreasonable measures.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues that under paragraph 166M(d), reliable past email systems and unanticipated breakdowns should establish due care, making contrary findings unreasonable and unfair.",
+     "quote": "The Applicant relies on the example cited in the passage from paragraph 166M(d) of the Guidelines (i.e., an unexpected email delivery failure between the applicant and the agent) to argue that where it is demonstrated that a system of email communication worked reliably in the past, and that the breakdown could not have been anticipated, due care should be found. He argues that it was both unreasonable to find otherwise and procedurally unfair, as the reference to section 27.03 of the MOPOP and the example provided in paragraph 166M(d) created a legitimate expectation as to a standard that would be followed and if the conditions in the example were satisfied that due care would be found.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court rejects both the unreasonableness and procedural unfairness arguments.",
+     "quote": "In my view, neither of these arguments can succeed.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues due care should be found under paragraph 166M(d) example, but the court rejects these arguments.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The court finds no procedural fairness issue as the Applicant was notified of the due care standard and had opportunity to respond.",
+     "quote": "First, I do not consider this to be an issue of procedural fairness. I agree with the Respondent that the same standard of due care that was identified in the Decision was set out in the Preliminary Decision. The Applicant was provided with notice of this standard and of the Commissioner’s concerns in the Preliminary Decision and was provided with an opportunity to respond.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Any issue with the due care standard application relates to substantive reasonableness review, not procedural fairness.",
+     "quote": "Any issue with the application of the standard within the Decision relates to substantive review of the Decision and the standard of reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no procedural fairness breach as the Applicant was notified and could respond; issues relate to substantive reasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The doctrine of legitimate expectations does not apply as paragraph 166M(d) is a non-binding guideline, not a clear procedural framework.",
+     "quote": "It is also my view that the doctrine of legitimate expectations does not apply here. The example provided in paragraph 166M(d) does not create a clear and unqualified framework for the handling of reinstatement requests, and thus a legitimate expectation as to a procedural framework or anticipated result: Agraira v Canada, 2013 SCC 36 at paras 94-95; Congrégation des témoins de Jéhovah de St-Jérôme-Lafontaine v Lafontaine (Village), 2004 SCC 48.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court holds legitimate expectations doctrine does not apply as paragraph 166M(d) is a non-binding guideline, not a procedural framework.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Paragraph 166M(d) uses 'may' not 'will', indicating due care may be found if conditions are met, not guaranteed.",
+     "quote": "Paragraph 166M(d) does not state that in all circumstances where there is an unexpected email delivery failure between the applicant and agent that both the applicant and agent “will” be found to have acted with due care. To the contrary, the example expressly uses the word “may” instead of “will” - “both the applicant and the agent may have acted with “due care” if they can demonstrate that the system had worked reliably in the past and that the breakdown could not have been anticipated by either party.” [emphasis added]",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes paragraph 166M(d) states due care may be found if conditions are met, not that it will always be found.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Each case depends on its facts; Guidelines examples are non-binding and address international priority filings, not maintenance fee communications.",
+     "quote": "As stressed in the preamble to paragraph 166M, and by the Commissioner in the Decision, each case will turn on its own facts and the issues must be decided on a case-by-case basis. The examples provided were not intended to be binding and those found in the Guidelines were formulated to address international priority filings, not communications relating to the payment of annual maintenance fees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Guidelines examples are non-binding and meant for international priority filings, not maintenance fee communications.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Applicant’s focus on the email failure example is too narrow; prudent parties must find alternative communication if usual channels fail.",
+     "quote": "Further, the Applicant has also taken too restrictive a view of paragraph 166M(d) by focussing exclusively on the example without noting the remainder of the text. As set out in the preceding sentence to the example in paragraph 166M(d) of the Guidelines, “[a] prudent applicant or agent finds alternative ways to communicate with the other person if the usual communication channels fail.”",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Unexpected technical difficulties may justify failure in some cases but do not excuse parties from adopting common sense measures to maintain communication.",
+     "quote": "While unexpected technical difficulties “may” justify the failure to meet a deadline in certain circumstances, I agree with the Respondent, such difficulties do not relieve the responsible parties from adopting other common sense measures to ensure that they maintain effective communication in the face of important deadlines.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicant’s view too narrow; prudent parties must find alternative communication and adopt common sense measures despite technical difficulties.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Commissioner acknowledged the Agent’s explanation and efforts but found them limited and insufficient to meet due care standard.",
+     "quote": "In the Decision, the Commissioner acknowledged the explanation given by the Agent in their Response as to the circumstances around the failure to pay the maintenance fee, the efforts made by the Agent to remind the Applicant of the due date through email, and the unanticipated nature of the email correspondence going to the junk folder when correspondence to the same email address had been used reliably for years as the method of communication. However, the Commissioner found that the efforts made by the Agent and the Applicant as described in the Response, were limited and insufficient to meet the standard of due care in the circumstances at issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner found the Agent’s efforts limited and insufficient to meet the due care standard despite acknowledging explanations.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Response lacked description of other actions or supporting mechanisms to ensure effective communication and fee payment.",
+     "quote": "The Commissioner noted that the Response only focussed on email communication efforts to reach the Applicant and did not describe “any other action that was taken, or even considered, by the agent or the patentee, to ensure that communication channels remain[ed] effective and the Fees [we]re paid on time, despite the circumstances surrounding [the] case.” The Agent did not describe any other supporting mechanisms in place to mitigate the risk associated with the primary channel of communication between the Applicant and Agent. Nor was there any information provided in the Response to address whether the Applicant had a system in place to monitor payment of the maintenance fee, or how email communication was managed to ensure it remained effective.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner found no evidence of other actions or systems to ensure communication or fee payment beyond email efforts.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The email failure involved a year-long string of reminders critical to fee payment, not a single correspondence failure.",
+     "quote": "In this instance, it is relevant that the email failure did not relate to a single piece of correspondence between the Agent and Applicant, but rather a string of email reminders and reporting emails that spanned over a year.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Communication between Applicant and Agent was critical for payment of the annual maintenance fee requiring instructions and correspondence.",
+     "quote": "The communication related to the payment of an annual maintenance fee upon which correspondence and instructions were required to complete payment and for which correspondence between the Applicant and Agent was critical.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the email failure was a prolonged issue affecting critical communication for fee payment between Applicant and Agent.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable for the Commissioner to expect the Agent to have additional communication mechanisms to avoid communication failure.",
+     "quote": "it was reasonable for the Commissioner to have looked at steps that could have avoided the communication failure and to have expected that the Agent would have additional communication mechanisms in place",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable to expect alternative measures to ensure the patentee was aware of deadlines after numerous unanswered notices.",
+     "quote": "it was reasonable to have expected that in circumstances where numerous notices from the Agent had gone unanswered and where non-compliance could lead to expiry of patent rights that these alternative measures would have been used",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "There had been a consistent pattern of payment since 2012.",
+     "quote": "Particularly as there had been a consistent pattern of payment since 2012.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it reasonable for the Commissioner to expect the Agent to have communication mechanisms and the Applicant to be aware of deadlines, given past payment patterns.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable for the Commissioner to expect a prudent patentee to ensure their email system was working if relying on it for fee payment.",
+     "quote": "it was reasonable for the Commissioner to expect that a reasonably prudent patentee would have a system in place to make sure that their email was operating effectively if they were relying on this as the primary communication means",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Applicant retained responsibility to instruct the Agent yearly to pay maintenance fees.",
+     "quote": "the Applicant retained the responsibility to instruct the Agent on a yearly basis to pay the maintenance fee",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was incumbent on the Applicant to exercise due care to ensure timely instructions to the Agent via email.",
+     "quote": "it was incumbent on the Applicant to exercise due care to ensure that his email was properly receiving messages so that he could provide instructions to the Agent in a timely manner",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commissioner reasonably expected the Applicant to maintain effective email communication and instruct the Agent yearly for fee payment.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Disagreement with the Commissioner's factual consideration does not constitute a reviewable error.",
+     "quote": "disagreement does not constitute a reviewable error",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that disagreement with the Commissioner's facts is not a reviewable error.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant argues the Decision is illogical and confusing.",
+     "quote": "The Applicant argues that the Decision is illogical and confusing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The issue is one of reasonableness, not procedural fairness.",
+     "quote": "this is again an issue of reasonableness rather than one of procedural fairness",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues the Decision is illogical; the court finds this is a reasonableness issue, not procedural fairness.",
+   "role": "issue"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is no confusion in the Decision regarding the standard of due care applied.",
+     "quote": "I do not consider there to be any confusion in the Decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Decision is not inconsistent or contradictory with paragraphs 166K or 166M(a) of the Guidelines.",
+     "quote": "Nor do I consider the Decision to be inconsistent or contradictory with paragraphs 166K or 166M(a) of the Guidelines",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no confusion or inconsistency in the Decision regarding due care and the Guidelines.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Paragraph 166M(a) requires a prudent applicant to acquire PCT knowledge or appoint a competent agent.",
+     "quote": "Paragraph 166M(a) of the Guidelines provides that, '[a] prudent applicant acquires the requisite knowledge of the PCT system... or appoints a competent agent'",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Paragraph 166K states appointing a qualified agent generally satisfies due care.",
+     "quote": "As set out in paragraph 166K, the appointment of a qualified representative, or agent... is generally sufficient to satisfy the criterion of 'due care'",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Guidelines paragraphs 166M(a) and 166K on due care and agent appointment.",
+   "role": "law"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "It was reasonable for the Commissioner to find the Applicant must ensure communication with the Agent is working to provide instructions.",
+     "quote": "it was reasonable for the Commissioner to find that the Applicant must ensure the communication system between themselves and their Agent is working",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Both Agent and Applicant must have mitigation systems to complete the Agent's role.",
+     "quote": "Both the Agent and the Applicant must ensure that mitigation systems are in place so that the Agent’s role can be completed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commissioner reasonably required the Applicant to ensure communication and mitigation systems with the Agent.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Respondent notes consistency with WIPO practice on due care and applicant obligations when selecting an agent.",
+     "quote": "this is consistent with International Bureau practice when assessing due care... which refers to an applicant’s obligation when selecting an agent",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues the Decision aligns with WIPO practice on due care and applicant obligations.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Commissioner's highlighting of the Applicant's failure to describe efforts to pay fees is not contradictory to Guidelines paragraphs 166K or 166M(a).",
+     "quote": "this is not, in my view, contradictory to paragraphs 166K or 166M(a)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The expectation was that the Applicant knew the yearly fee importance and would check email and Agent when notices were not received.",
+     "quote": "it is reflective of the expectation that the Applicant would have been aware of the yearly maintenance fee... and would have made checks of his email system, and of his Agent",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Commissioner's expectations align with Guidelines and the Applicant's duty to monitor fees and communication.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant argues the 764-day delay in decision-making was unreasonable, unfair, and prejudicial.",
+     "quote": "The Applicant asserts that this timing was unreasonable, unfair, and prejudicial to the Applicant and to third parties",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "There were 260 days between request and Preliminary Decision, 476 days after Response until Decision, and only one month to respond to Preliminary Decision.",
+     "quote": "there were 260 days between the Agent’s request... and the Preliminary Decision; and 476 days after the Response was filed until the Decision was issued. However, only one month was provided to respond",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the lengthy delay in decision-making was unreasonable and prejudicial, detailing the timeline.",
+   "role": "issue"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Applicant argues risk of third party infringement during delay with no remedy due to safe harbour provision.",
+     "quote": "he faced the risk of third party infringement during the delay period for which he has no remedy in view of the safe harbour provision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "There is no evidence of actual third party infringers.",
+     "quote": "there is no evidence of any actual third party infringers",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant alleges risk of infringement during delay; the court finds no evidence of actual infringement.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Blencoe sets a three-step test for delay abuse: delay must be inordinate and cause significant prejudice.",
+     "quote": "the Supreme Court of Canada set out a three-step test to determine whether delay... amounts to an abuse of process",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "To satisfy first two parts, delay must be inordinate and cause significant prejudice (Abrametz).",
+     "quote": "To satisfy the first two parts of the test, the delay must be inordinate and must have directly caused significant prejudice",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Prejudice is a question of fact requiring evidence to establish abuse of process due to delay.",
+     "quote": "As prejudice is a question of fact... evidence is necessary to establish that an administrative delay amounts to an abuse of process",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Supreme Court tests requiring inordinate delay and evidence of prejudice to find abuse of process.",
+   "role": "law"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Applicant provided no evidence of direct prejudice from delay, so no abuse of process found.",
+     "quote": "he has not provided any evidence to establish that there was direct prejudice as a result of delay",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No basis to conclude abuse of process through unreasonable delay.",
+     "quote": "there is no basis to conclude that there was an abuse of process through unreasonable delay",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no evidence of prejudice and no abuse of process from delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The application is dismissed for all reasons stated.",
+     "quote": "the application is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application for all stated reasons.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "No costs awarded as this is the first judicial review substantively considering 'due care' under subsection 46(5).",
+     "quote": "I will not award costs for the application",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application and declines to award costs due to the novel 'due care' issue.",
+   "role": "disposition"
+  }
+ ]
+}

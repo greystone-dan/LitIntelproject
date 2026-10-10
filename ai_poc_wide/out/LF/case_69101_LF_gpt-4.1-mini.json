@@ -1,0 +1,973 @@
+{
+ "case_id": 69101,
+ "arm": "LF",
+ "model": "gpt-4.1-mini",
+ "usd": 0.018796,
+ "dropped_rows": 0,
+ "paragraphs_missing": [],
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Principal Appellant is a Haitian citizen and his minor daughters are US citizens; he is their designated representative.",
+     "quote": "The Appellants, XXXX XXXX (Principal Appellant) is a citizen of Haiti, and his minor daughters XXXX XXXX XXXX and XXXX XXXX XXXX are citizens of the United States of America (U.S.). The Principal Appellant is the designated representative of the minor Appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Appellant is a Haitian citizen and his minor daughters are US citizens; he is their designated representative, the court states.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the spouse/mother established nexus to a social group and risk of gender-based persecution.",
+     "quote": "The claim of the Appellants' spouse/mother was joined to those of the Appellants, and the Refugee Protection Division (RPD) found that she established a nexus to membership in a particular social group and that she would face more than a mere possibility of gender-based persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the spouse/mother established nexus to a social group and risk of gender-based persecution, the earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the Principal Appellant did not establish nexus to a Convention ground and had credibility issues.",
+     "quote": "The RPD found the Principal Appellant did not establish a nexus to a Convention ground, identified credibility issues and concluded that the Principal Appellant did not provide sufficient credible evidence that he is personally at risk in Haiti.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The RPD found the minor Appellants made no allegations against the US.",
+     "quote": "The RPD also found that the minor Appellants did not make any allegations against the U.S.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Principal Appellant lacked nexus and credibility; minor Appellants made no US allegations, the earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants identify issues with the RPD decision and submit new evidence under IRPA section 110(4).",
+     "quote": "The Appellants identify several issues with the RPD decision. The Appellants submit new evidence under section 110(4) of the Immigration and Refugee Protection Act (IRPA) and seek a hearing pursuant to section 110(6).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "Some new evidence is accepted but the request for a hearing is denied.",
+     "quote": "I have accepted some of the new evidence but deny their request for a hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants identify issues and submit new evidence; the court accepts some evidence but denies hearing request.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Principal Appellant did not establish prospective risk in Haiti or minor Appellants risk in the US.",
+     "quote": "Following my own review, I find that the Principal Appellant did not establish that he faces a prospective risk in Haiti or that the minor Appellants face a serious possibility of persecution or risk in the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Appellant and minor Appellants did not establish prospective risk in Haiti or US.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed; the RPD was correct that the Appellants are not Convention refugees or persons in need of protection.",
+     "quote": "I dismiss the appeal. The RPD was correct in finding that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Some of the evidence presented by the Appellants is accepted as new evidence.",
+     "quote": "Some the evidence presented by the Appellants is accepted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, finds RPD correct, and accepts some new evidence from the Appellants.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The claims were heard in February 2020; new evidence was presented with the appeal in September 2020.",
+     "quote": "The Appellants' claims were heard on February 17, 2020, and the RPD gave its decision on February 24, 2020. The Appellants presented new evidence with the perfection of their appeal on September 25, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the hearing and decision dates and that new evidence was presented with the appeal.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 110(4) IRPA allows new evidence only if it arose after rejection or was not reasonably available before.",
+     "quote": "Section 110(4) of the IRPA provides that an appellant may present only evidence that arose after the rejection of their claim or that was not reasonably available, or that the person could not reasonably have been expected in the circumstances to have presented, at the time of the rejection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Singh requires a narrow interpretation of section 110(4) with no RAD discretion; new evidence must meet credibility, relevance, newness.",
+     "quote": "In Singh,1 the Federal Court of Appeal dictates a narrow interpretation of section 110(4): the conditions set out therein must be met, and there is no room for discretion on the part of the Refugee Appeal Division (RAD) . If the section 110(4) threshold is met, then the new evidence must also meet jurisprudential requirements of credibility, relevance and newness.2",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains section 110(4) IRPA and Singh require narrow new evidence admission with credibility, relevance, and newness.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "fact",
+     "text": "The Appellants presented ten new documents including letters and country condition reports.",
+     "quote": "The Appellants presented the following new evidence with the perfection of their appeal: A. Letter dated \"XXXX XXXX XXXX XXXX\" from the Principal Appellant's friend, XXXX XXXX XXXX;3 B. Letter undated from the Principal Appellant's friend, XXXX XXXX XXXX;4 C. Letter dated Tuesday, XXXX XXXX XXXX 2020, from the Principal Appellant's friend, XXXX XXXX;5 D. Immigration and Refugee Board of Canada, Haiti: Treatment by society of Haitians who have lived for a long time abroad, especially in Canada, after they return to their country; whether they are at risk of being victims of violence, and including the type of violence and from whom; whether their return could represent a threat to their families (2018-August 2020), HTI200334.FE, 27 August 2020;6 E. JosÚ Miguel Vivanco, Concerns Raised Over Planned Gang Raid in Haiti, Human Rights Watch, April 28, 2020;7 F. Unattributed, The bandits control the territory\": resurgence of armed violence in Haiti, France Media Agency, August 5, 2020;8 G. Jacqueline Charles, Criminal gangs for hire: Corrupt cops and the fight for votes in Haiti's next elections, Miami Herald, June 26, 2020;9 H. Unattributed, Haiti - Insecurity : 616 victims of homicides in 5 months, Haiti Libre, June 23, 2020;10 I. Haiti 2020 Crime & Safety Report, Overseas Security Advisory Council, Bureau of Diplomatic Security, U.S. Department of State, April 29, 2020;11 J. Unattributed, US Urges Citizens to Stay Away From Haiti, PRIDE, March 6, 2020.12",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants presented ten new documents including letters and country condition reports, the court states.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "RAD Rules require detailed submissions on how new evidence meets section 110(4); Appellants made no such submissions.",
+     "quote": "The RAD Rules are very clear that the appellant's memorandum must include full and detailed submissions regarding how any new evidence meets the requirements of section 110(4).13 The Appellants did not make any submissions about the new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellants failed to submit detailed arguments on how new evidence meets section 110(4).",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Documents A, B, C are unsigned, undated or incomplete letters lacking credibility and are inadmissible as new evidence.",
+     "quote": "Documents A, B and C are typewritten letters from friends of the Principal Appellant. Document A does not specify the year in the date, document B is not dated at all and none of documents A, B or C are signed. There is no indication how these letters were received by the Appellants and no documents to confirm the identity of the authors are provided. I do not find that documents A, B and C are credible on their face and, therefore, are not admissible as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds documents A, B, C lack credibility and are inadmissible as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Documents D-J meet temporal threshold and are credible, relevant, and admissible as new evidence.",
+     "quote": "Documents D-J were produced after the RPD decision, so they meet the temporal threshold of section 110(4). Documents D14 and I15 are found in the current version of the National Documentation Package (NDP) for Haiti. Documents E, F, G, H and J are new, published by credible news sources and are relevant to the appeal as an update to country conditions. I find that documents D-J are admissible as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds documents D-J meet section 110(4) and are admissible as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants request a hearing before the RAD.",
+     "quote": "The Appellants request that the Refugee Appeal Division (RAD) hold a hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Section 110(6) IRPA allows a hearing only if new evidence raises serious credibility issues, is central, and would justify claim allowance or rejection.",
+     "quote": "Section 110(6) of the IRPA says the RAD may only hold a hearing if there is new evidence that (a) raises a serious issue with respect to the credibility of the Appellant, (b) is central to the RPD's decision, and (c) if accepted, would justify allowing or rejecting the refugee protection claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The new evidence relates to country conditions and does not raise credibility issues; hearing request is denied.",
+     "quote": "Since the new evidence I accepted relates to country conditions and does not raise an issue with respect to the credibility of the Appellants, it does not meet the 110(6) criteria. The hearing request is denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants request a hearing; the court denies it as new evidence does not raise credibility issues or meet section 110(6).",
+   "role": "disposition"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "The RAD reviews RPD decisions on correctness standard, except for deference on oral testimony assessment.",
+     "quote": "The RAD reviews decisions of the RPD on a standard of correctness after conducting an independent assessment of the evidence before it. The exception to this rule is where the RPD enjoys a meaningful advantage in assessing and weighing the oral testimony heard, which in particular cases attracts deference.16 Unless specifically stated below, I have applied the correctness standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD standard of review is correctness, except deference for oral testimony assessment.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "issue",
+     "text": "Whether the RPD was correct in finding the Principal Appellant did not provide credible evidence of personal risk in Haiti.",
+     "quote": "The determinative issue is whether the RPD was correct in finding that the Principal Appellant did not provide sufficient credible evidence that he is personally at risk if he returns to Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the issue as whether the RPD was correct about the Principal Appellant's personal risk evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants argue the RPD erred by making a perverse decision, failing to analyze corroborating evidence, and failing to assess forward-looking risk.",
+     "quote": "The Appellants argue that the RPD erred in: making its decision in a perverse or capricious manner without regard to the evidence presented; failing to analyze evidence which corroborated the personal risk of the Principal Appellant as a wealthy returnee; and failing to assess and consider the evidence and provide a forward-looking assessment of risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants argue the RPD erred by making a perverse decision and failing to analyze corroborating and forward-looking risk evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Appellants make no arguments about minor Appellants' risk in the US; the court sees no reason to disturb RPD's finding.",
+     "quote": "The Appellants do not make any arguments about the RPD finding that the minor Appellants do not face a serious possibility of persecution or risk in the U.S. and I see no reason to disturb the RPD finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no reason to disturb the RPD's finding on minor Appellants' risk in the US as no arguments were made.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not fully analyze the Principal Appellant's prospective risk; the court has done so and finds no established risk on balance of probabilities.",
+     "quote": "Following my review of the record, the testimony, the Appellants' arguments and new evidence, I agree that the RPD did not undertake a fulsome analysis of the Principal Appellant's prospective risk, so I have done so. I find that the Appellants did not establish, on a balance of probabilities, that they face a prospective risk to their lives or to cruel and unusual punishment in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not fully analyze risk; after review, the court finds no established prospective risk for the Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant testified about fear of an unknown gang attacking his home in 2018.",
+     "quote": "The Principal Appellant originally testified that he was afraid of \"the gang\" who attacked his home on XXXX XXXX, 2018, who were \"not people that [he] knew.\"17",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant initially did not know why he was attacked but later said it was because they believed he was rich.",
+     "quote": "When the RPD asked why he thought he was attacked, the Principal Appellant answered, \"Well, I don't know the reason.\"18 When his counsel asked him later in the hearing, the Principal Appellant said that \"because for some reason they believe that I am rich.\"19",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Appellant testified to fear of an unknown gang attack in 2018 and later said attackers believed he was rich, the earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant testified about multiple incidents in 2018-2019 including threats, attacks, robbery, and family harm.",
+     "quote": "The Principal Appellant testified that his problems in Haiti started in XXXX 2018 and he presented the evidence about the following incidents: Date Target Event BOC Testimony Other XXXX and XXXX 2018 Principal Appellant Anonymous telephone death threats to Principal Appellant \"I received some messages and anonymous phone calls from my work wanting me to do corruption\"20 Certificat de plainte, Le XXXX XXXX 201821 XXXX XXXX, 2018 Principal Appellant and spouse Attack by unidentified armed and masked individuals who fired on their car \"XXXX 2018, we were mistreated by a mask person...he fired two gun shot on my vehicle\"22 Spouse's statement23 Certificat de plainte Le XXXX XXXX 201824 XXXX XXXX, 2018 Appellants' residence Intrusion, damage and robbery by armed unidentified individuals XXXX 2018 house was attacked by gang of armed people, broke the gate and the front of the house, stole a lot of stuff and killed dogs25 \"...on XXXX XXXX, 2018 ...gangsters entered my house and they were shooting and they said that they would rape and kill my family\"26 Spouse's statement27 Certificat de plainte Le XXXX XXXX 201828 XXXX XXXX, 2018 Principal Appellant's father-in-law's bag Two armed and unidentified bandits stole bag DÚclaration de perte29 XXXX XXXX, 2019 Principal Appellant's father-in-law's business Fire which started at a neighbour's burnt construction materials Extrait des minutes du Greffe30 XXXX XXXX, 2019 Principal Appellant's mother Victim of physical aggression ...when they attacked my mom they said if they found me they would kill me because I left and they are still looking for me.31 ProcÞs-verbal du XXXX XXXX 201932 Certificat mÚdical33",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Appellant testified about multiple 2018-2019 incidents including threats, attacks, robbery, and family harm, the earlier decision-maker found.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant and family travelled to Canada after the 2018 attack on their home.",
+     "quote": "The Principal Appellant's BOC said that all the Appellants and their spouse/mother travelled to Canada the day after the attack on their home.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant testified he returned to Haiti and came back to Canada in 2018.",
+     "quote": "he returned to Haiti and came back to Canada on XXXX XXXX, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant did not make an asylum claim in Canada immediately due to pressure and uncertainty.",
+     "quote": "he said, \"No, I didn't do that yet because I was somewhat under pressure so much. I was not sure exactly what am I going to do next.\"",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant travelled extensively before leaving Haiti, including five visits to the U.S.",
+     "quote": "He said that he visited the U.S. five times.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Principal Appellant and family came to Canada after the 2018 attack; he returned to Haiti and back; did not claim asylum immediately; travelled extensively before leaving Haiti.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Principal Appellant did not establish a nexus to a Convention ground; claim fails under section 96.",
+     "quote": "the RPD found that he did not establish a nexus to a Convention ground and his claim fails under section 96.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants do not challenge the RPD's finding on nexus and claim failure.",
+     "quote": "The Appellants do not make submissions about this finding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The RPD did not err in its finding on nexus and claim failure.",
+     "quote": "I find that the RPD did not err.",
+     "answers": 2
+    }
+   ],
+   "summary": "The RPD found no nexus to a Convention ground; Appellants do not challenge this; I find no error in that finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Principal Appellant's failure to claim asylum and re-availment to Haiti undermines his credibility and evidence of personal risk.",
+     "quote": "The RPD found that the Principal Appellant's \"failure to make an asylum claim in Canada and re-availment to Haiti undermines his credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Principal Appellant did not provide sufficient credible evidence of personal risk if returned to Haiti.",
+     "quote": "the panel finds that the [Principal Appellant] has not provided sufficient credible evidence that he is personally at risk if he returns to Haiti.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "Objective evidence indicates increasing crime and gang activity in Haiti.",
+     "quote": "Mindful of objective evidence indicating that crime, including by various gangs, throughout Haiti is increasing",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "finding",
+     "text": "The Principal Appellant did not establish he faces a personal risk if returned to Haiti.",
+     "quote": "the RPD restated its finding that the Principal Appellant did not establish that he faces a personal risk if he returns to Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Principal Appellant's credibility undermined by failure to claim asylum and re-availment; he did not establish personal risk despite increasing crime in Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by deciding perverse or capriciously, ignoring corroborating evidence, and failing to assess forward-looking risk.",
+     "quote": "The Appellants submit that the RPD erred in: making its decision in a perverse or capricious manner without regard to the evidence presented; failing to analyze evidence which corroborated the personal risk of the Principal Appellant as a wealthy returnee; and failing to assess and consider the evidence and provide a forward-looking assessment of risk.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Appellants make several arguments supporting their submissions.",
+     "quote": "The Appellants make a number of arguments to support their submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants argue the RPD erred by ignoring evidence and failing to assess forward-looking risk, supporting these submissions with multiple arguments.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD's positive determination for the Principal Appellant's spouse corroborates his allegations.",
+     "quote": "The Appellants argue that the RPD's positive determination of the refugee claim of the Principal Appellant's spouse was highly probative and corroborated his allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I disagree; the spouse's positive determination was based on her social group and gender-based persecution risk.",
+     "quote": "I do not agree, The RPD made its positive determination based on the Principal Appellant's spouse's membership in a particular social group and that she would face more than a mere possibility of gender-based persecution.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellants say the spouse's positive determination corroborates the Principal Appellant's claim; I disagree, it was based on her social group and gender risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by searching for inconsistencies to discredit the Principal Appellant's testimony.",
+     "quote": "The Appellants argue that the RPD erred as it simply searched through the Principal Appellant's testimony, looking for inconsistencies or evidence that lacks credibility in order to build a case against his credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "I disagree; the RPD's credibility finding was based on failure to claim protection and re-availment to Haiti.",
+     "quote": "I do not agree. The RPD based its credibility finding on the Principal Appellant's failure to claim refugee protection after the XXXX XXXX, 2018, attack and his re-availment to Haiti.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellants argue the RPD unfairly discredited the Principal Appellant; I disagree, credibility was based on failure to claim protection and re-availment.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD unreasonably rejected the Principal Appellant's explanation for returning to Haiti, corroborated by spouse and employer.",
+     "quote": "The Appellants argue that the RPD unreasonably rejected the Principal Appellant's explanation for his return to Haiti which was corroborated by his spouse and employer.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The Principal Appellant testified he was threatened by bandits after transfer at work, leading to resignation and fleeing Haiti in 2018.",
+     "quote": "The Principal Appellant \"testified that due to safety of his life his employer, XXXX XXXX transferred him to another place, department XXXX, where he was traced and had threats from bandits who started following him demanding money he carried from the XXXX XXXX XXXX XXXX employees wages and fearing risk to his life he resigned and fled Haiti on XXXX XXXX, 2018, and claimed protection of Canada.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants argue the RPD unreasonably rejected the Principal Appellant's return explanation, corroborated by spouse and employer, involving threats and fleeing Haiti.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The RPD did not reference the explanation for the Principal Appellant's return to Haiti; I will consider that evidence.",
+     "quote": "I agree with the Appellants that the RPD did not reference the explanation for the Principal Appellant's return to Haiti, so I will consider that evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "I find the RPD did not reference the Principal Appellant's return explanation, so I will consider that evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Neither the Principal Appellant nor spouse testified about why he returned to Haiti; counsel made detailed submissions.",
+     "quote": "I have reviewed the transcript of the RPD hearing and note that neither the Principal Appellant nor his spouse gave any testimony about why the Principal Appellant returned to Haiti; however, their counsel did make detailed submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The Principal Appellant's BOC says he returned home but work was unsuccessful and attacks continued.",
+     "quote": "The Principal Appellant's BOC says, \"I went back home, I think I could work in a different place but it was not a success. I continued to receive attack from different people.\"",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 3,
+     "kind": "fact",
+     "text": "The spouse's statement closely matches the Appellants' argument about threats and fleeing Haiti.",
+     "quote": "His spouse's statement makes the Appellants' argument referenced above almost verbatim.",
+     "answers": 0
+    }
+   ],
+   "summary": "Neither Principal Appellant nor spouse testified on return reasons; counsel submitted; BOC and spouse's statement describe unsuccessful work and continued attacks.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Employer letters are inconsistent and do not corroborate threats or transfer explanations.",
+     "quote": "The evidence from the Principal Appellant's employer is mixed. One letter dated XXXX XXXX XXXX 2020, not on XXXX XXXX XXXX XXXX letterhead, references a transfer to XXXX but does not give any dates and makes no reference to the Principal Appellant's being traced and threatened in XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Another employer letter and identity card do not mention transfer or threats; immigration form shows work in Port-au-Prince.",
+     "quote": "Another letter on XXXX XXXX XXXX XXXX letterhead dated XXXX XXXX, 2018, makes no reference to any transfer and the Principal Appellant's XXXX XXXX XXXX XXXX identity card, valid until XXXX XXXX, 2018, says that he is based in Port-au-Prince.",
+     "answers": 0
+    }
+   ],
+   "summary": "Employer letters and identity card are inconsistent and do not corroborate transfer or threats; immigration form shows work in Port-au-Prince.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Evidence corroborating the Principal Appellant's return explanation is inconsistent and contradictory, harming credibility.",
+     "quote": "I find that the evidence which would corroborate the Principal Appellant's explanation for returning to Haiti in July 2018 is inconsistent and contradictory, which adversely impacts the credibility of his explanation.",
+     "answers": 0
+    }
+   ],
+   "summary": "I find evidence corroborating the Principal Appellant's return explanation inconsistent and contradictory, harming credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by failing to assess crucial documentary evidence in the section 97 prospective risk analysis.",
+     "quote": "The Appellants submit that the RPD erred as it failed to acknowledge and assess crucial documentary evidence in its section 97 analysis of the prospective personal risk of the Principal Appellant as a wealthy returnee.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "I agree the RPD did not undertake a full prospective risk analysis or reference the Appellants' documentary evidence, so I have done so.",
+     "quote": "I agree that the RPD did not undertake a fulsome prospective risk analysis or reference the Appellants documentary evidence, so I have done so.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Appellants say the RPD failed to assess key documentary evidence on prospective risk; I agree and have done so.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Determining protection need involves analyzing risk nature, likelihood, and whether risk is general or personal.",
+     "quote": "A determination of whether the Principal Appellant is a person in need of protection involves an analysis of the nature of the risk at issue, of the likelihood that the Principal Appellant would be subject to that risk, and, if so, whether the same risk is faced generally by others.",
+     "answers": 0
+    }
+   ],
+   "summary": "Determining protection need requires analyzing risk nature, likelihood, and whether risk is personal or general.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Section 97 test: identify ongoing future risk and compare claimant's risk to significant group risk.",
+     "quote": "The Federal Court recently summarized the two-part test applicable to a section 97 analysis: First, the RPD should consider whether there is an ongoing future risk, and if so, what precisely the risk is. Once this is done, the RPD must next compare the risk faced by the claimant to that faced by a significant group in the country of nationality to determine whether the risks are of the same nature and degree.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "If risks differ, claimant is entitled to protection under section 97.",
+     "quote": "If the risks are not the same, the claimant will be entitled to protection under section 97.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "The second step is forward-looking, focusing on likelihood of future harm compared to general population.",
+     "quote": "the second step in the inquiry \"is a forward-looking inquiry and is concerned not so much with the cause of the risk but rather with the likelihood of what will happen to the claimant in the future as compared to all or a significant segment of the general population\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court summarized section 97 test: identify ongoing risk, then compare claimant's risk to significant group; if different, protection applies.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "First step: characterize the nature of the ongoing future risk and determine if it is cruel or unusual treatment.",
+     "quote": "First, the RPD must correctly characterize the nature of the risk faced by the claimant. This requires the Board to consider whether there is an ongoing future risk, and if so, whether the risk is one of cruel or unusual treatment or punishment.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "layer": 6,
+     "kind": "rule_of_law",
+     "text": "Most importantly, the Board must determine precisely what the risk is.",
+     "quote": "Most importantly, the Board must determine what precisely the risk is.",
+     "answers": 0
+    }
+   ],
+   "summary": "The first step requires characterizing the ongoing future risk and determining if it involves cruel or unusual treatment, specifying the precise risk.",
+   "role": "law"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The Principal Appellant was not personally targeted in the 2018 incidents; attackers were unknown.",
+     "quote": "I find that the Principal Appellant has not established that he was personally targeted in the XXXX and XXXX 2018 incidents. The evidence is that he did not know and could not identify any of the attackers in any of the incidents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "Incidents involving the father-in-law in 2018 and 2019 were unrelated to the Principal Appellant.",
+     "quote": "There was no evidence presented to suggest that the two incidents faced by the Principal Appellant's father-in-law in 2018 and 2019 had anything to do with the Principal Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The fire destroying father-in-law's merchandise started on neighboring property.",
+     "quote": "In fact, the evidence presented says that the fire that destroyed the merchandise of his father-in-law in 2019 started on a neighbouring property.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Principal Appellant's mother was attacked by unknown motorcycle assailants in 2019 who threatened to kill him if found.",
+     "quote": "The Principal Appellant testified that \"people on motorcycles that they don't recognize\" attacked his mother in XXXX 2019 and \"said if they had found me they would kill me because I left and they are still looking for me.\"",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "This testimony embellishes the police report filed by his mother.",
+     "quote": "This testimony, however, embellishes the police report filed by his mother.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "No evidence shows the same unidentified criminals were involved in all incidents.",
+     "quote": "There is nothing in the evidence which demonstrated that it was the same \"unidentified\" criminals who were involved in each of the incidents.",
+     "answers": 0
+    }
+   ],
+   "summary": "I find the Principal Appellant was not personally targeted in 2018 incidents; father-in-law's incidents unrelated; mother's attack threats embellish police report; no evidence same criminals involved.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "finding",
+     "text": "The risk faced by the Principal Appellant is random criminal acts by unidentified perpetrators perceiving him as wealthy, an ongoing future risk in Haiti.",
+     "quote": "I find that the nature of the risk faced by the Principal Appellant is that of random criminal acts by unidentified perpetrators who possibly perceive him to be wealthy and it is an ongoing future risk in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "I find the Principal Appellant faces ongoing future risk of random criminal acts by unidentified perpetrators perceiving him as wealthy in Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "rule_of_law",
+     "text": "Next step is to compare the claimant's risk to that faced by a significant group in the country to determine similarity in nature and degree.",
+     "quote": "The next step is to compare the risk faced by the Principal Appellant to that faced by a significant group in Haiti to determine whether the risks are of the same nature and degree.",
+     "answers": 0
+    }
+   ],
+   "summary": "The next step is to compare the Principal Appellant's risk to that of a significant group in Haiti to assess similarity.",
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "layer": 2,
+     "kind": "allegation_or_argument",
+     "text": "If returned to Haiti, Appellants will face serious threats, robbery, kidnapping, and death as wealthy individuals.",
+     "quote": "Making a general reference to the documentary and new evidence, the Appellants submit that \"if they return to Haiti they will face serious threats, robbed, kidnapped and killed as they are considered wealthy and subjected to cruelty, torture and risk of life.\"",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants submit they will face serious threats and harm if returned to Haiti due to perceived wealth.",
+   "role": "issue"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Objective evidence shows pervasive, indiscriminate criminality in Haiti affecting rich and poor alike.",
+     "quote": "The objective evidence says that criminality is pervasive in Haiti and affects a large segment of the population and appears to be indiscriminate, affecting rich and poor alike.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "layer": 1,
+     "kind": "fact",
+     "text": "New evidence confirms an upsurge in violence caused by armed gangs, especially in slums and impoverished neighborhoods.",
+     "quote": "The new evidence presented by the Appellants confirms \"an upsurge in violence caused by armed gangs\" especially in the slums and impoverished neighbourhoods of Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "Objective and new evidence show pervasive, indiscriminate criminality and increased gang violence in Haiti's impoverished areas.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Appellants' new evidence, document D,55, is mixed regarding risks to Haitians returning after a long stay abroad.",
+     "quote": "The Appellants' new evidence, document D,55 an Immigration and Refugee Board Response to Information Request (2020 RIR)56 is mixed.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 2020 RIR says Haitians returning after a long stay abroad risk targeting by criminals as they are considered wealthy.",
+     "quote": "It says that Haitians returning to Haiti after a long stay abroad risk being targeted by criminals because they are considered to be wealthy",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "fact",
+     "text": "Young returnees are more frequent targets of criminals than senior citizens, who receive some respect and compassion.",
+     "quote": "and that young returnees are more frequent targets of criminals than senior citizens who are treated with a measure of respect and compassion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker finds the Appellants' new evidence mixed, noting young returnees face more criminal targeting than respected senior citizens.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 2020 RIR identifies factors affecting risks to returnees: fleeing political violence, witnessing crime, accused of crime, unpaid loans, communal violence allegiance.",
+     "quote": "The 2020 RIR says that risks a returnee will face depend on the following factors: whether or not the individual fled the community because of political violence; was the witness of a crime; has been accused of a crime; incurred loans that they will not be able to repay; and was caught up in communal violence and has allegiance to a faction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker states the 2020 RIR lists factors influencing returnee risks including political violence, crime involvement, loans, and faction allegiance.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The 2020 RIR says kidnapping risk is indiscriminate and widespread, affecting all Haitians regardless of rank or social class.",
+     "quote": "The 2020 RIR also says the risk of kidnapping for ransom, for example, is indiscriminate and widespread; members of the general Haitian population, regardless of their rank or social class, are at risk of being kidnapped and everyone is at risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker notes the 2020 RIR states kidnapping risk is widespread and indiscriminate among Haitians.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "finding",
+     "text": "All Haitians, rich and poor, face risk from bandits and gangs.",
+     "quote": "The evidence is that all Haitians, rich and poor, are at risk of being targeted by bandits and gangs.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "fact",
+     "text": "The Principal Appellant has not lived in Canada long, is nearly 40, and is not in high-risk categories per 2020 RIR.",
+     "quote": "The Principal Appellant has not lived in Canada for a long time, is approaching 40 years old and is not in the high-risk categories identified in the 2020 RIR.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The Principal Appellant has not shown on balance of probabilities a personal risk different from most Haitians.",
+     "quote": "I find that the Principal Appellant has not established, on a balance of probabilities, that his personal situation would subject him to a risk any different from that faced by most of the Haitian population.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker finds the Principal Appellant not in a high-risk group and not at greater risk than most Haitians.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "layer": 1,
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed and the RPD decision confirmed that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "quote": "I dismiss the appeal and confirm the decision of the RPD that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker dismisses the appeal and confirms the RPD decision denying refugee or protection status.",
+   "role": "disposition"
+  }
+ ]
+}

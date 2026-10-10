@@ -1,0 +1,29 @@
+{
+  "case_id": "2008_FCA_42",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the Agency's interpretation of the provisions defining its jurisdiction?",
+        "paras": "12-17",
+        "applicant_position": "Correctness applies because the question concerns the Agency's jurisdiction under the definitions.",
+        "respondent_position": "Reasonableness applies, following Via Rail; the Agency interprets its home statute.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "It follows that this Court is bound to apply the standard of review applied in Via Rail, which is reasonableness."
+      },
+      {
+        "issue": "Are the pipeline portions beside the tracks a utility crossing within the Agency's jurisdiction under s. 101(3)?",
+        "paras": "18-25",
+        "applicant_position": "\"Over or under a railway line\" means track only; valves beside the track are outside the definition.",
+        "respondent_position": "\"Railway line\" includes the right of way, so the pipeline on it is a utility crossing; the Agency's reading is reasonable.",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "In my view, the Agency’s interpretation of the definition of “utility line” is reasonable. I see no basis for the intervention of this Court."
+      }
+    ]
+  }
+}

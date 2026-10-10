@@ -1,0 +1,38 @@
+{
+  "case_id": "2001_FCA_58",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Deltaport container terminal a 'project' under CEAA, given construction began before CEAA came into force?",
+        "paras": "8-11",
+        "applicant_position": "An environmental assessment under section 5 of CEAA was required for the project.",
+        "respondent_position": "Construction began before CEAA took effect, so there was no 'project' under the Act; the judge was right.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "We can see no error in this reasoning."
+      },
+      {
+        "issue": "Does the transitional provision (CEAA s. 74) bring the project under CEAA?",
+        "paras": "14",
+        "applicant_position": "No Minister referral occurred, so CEAA applies to the project under the transitional provision.",
+        "respondent_position": "Section 74 only preserves EARPGO reviews already under way; it does not bring construction projects under CEAA.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "In our view, the transitional provision of CEAA (s. 74) does not assist the appellant."
+      },
+      {
+        "issue": "Could the Minister have referred the project to a mediator under CEAA s. 48(1) and s. 29?",
+        "paras": "15-16",
+        "applicant_position": "Section 48(1) allowed a referral to a mediator, and the Minister's refusal was wrong.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 15,
+        "result_quote": "We, therefore, make no comment on the validity of his submission, on the substance of that section."
+      }
+    ]
+  }
+}

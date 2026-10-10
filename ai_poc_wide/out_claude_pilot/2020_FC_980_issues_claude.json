@@ -1,0 +1,29 @@
+{
+  "case_id": "2020_FC_980",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the officer reasonably assess the evidence of farm management experience?",
+        "paras": "13-17, 23, 28-34",
+        "applicant_position": "Officer unduly discounted his Ontario farmland experience and his Chinese company experience as farm management.",
+        "respondent_position": "Decision reasonable; applicant lacked two one-year periods of farm management; he merely disagrees with the assessment.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "When reviewed as a whole, I find the Officer’s treatment of the evidence to be reasonable."
+      },
+      {
+        "issue": "Were the reasons adequate?",
+        "paras": "12, 18-22, 35-36",
+        "applicant_position": "Officer gave no reasons for rejecting his business experience, so it is impossible to understand why it was rejected.",
+        "respondent_position": "Reasons adequate and readily understandable; the decision letter and GCMS notes explain the statutory shortfall.",
+        "result": "dismissed_for_applicant",
+        "result_para": 36,
+        "result_quote": "I find that it justifies the Officer’s Decision."
+      }
+    ]
+  }
+}

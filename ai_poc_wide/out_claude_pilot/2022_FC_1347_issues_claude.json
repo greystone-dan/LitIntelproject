@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FC_1347",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RAD misapply the Ezokola complicity test by requiring control or supervisory responsibility over those who committed the crimes?",
+        "paras": "23-44",
+        "applicant_position": "Minister: RAD wrongly imposed a control or supervisory requirement from Ezokola, making its complicity finding unreasonable.",
+        "respondent_position": "Kurt framed the case as one about omissions, and conceded the RAD's old-test reference was misguided (paras 27, 43).",
+        "result": "allowed_for_applicant",
+        "result_para": 45,
+        "result_quote": "The misapplication of the test for complicity is enough to render the RAD decision unreasonable and to set it aside."
+      },
+      {
+        "issue": "Did the RAD mischaracterize the RPD's findings in a way that could have changed the outcome?",
+        "paras": "45",
+        "applicant_position": "Minister: RAD mischaracterized RPD findings, and the decision may have differed without those errors.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 45,
+        "result_quote": "Given my finding on the RAD’s application of the test for complicity set out in Ezokola, I need not address the second issue raised by the Minister."
+      }
+    ]
+  }
+}

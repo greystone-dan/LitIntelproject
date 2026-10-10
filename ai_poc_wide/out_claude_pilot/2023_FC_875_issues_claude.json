@@ -1,0 +1,29 @@
+{
+  "case_id": "2023_FC_875",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 68,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court entertain a new argument, raised for the first time on judicial review, that the proposed IFA is unsafe because the family would have to hide their whereabouts from relatives?",
+        "paras": "21-67",
+        "applicant_position": "Hiding from family is unreasonable, so the IFA fails the first prong; an alternative argument within the IFA issue.",
+        "respondent_position": "The argument is a new issue never raised before the RPD or RAD, so the Court should not entertain it.",
+        "result": "moot_or_procedural",
+        "result_para": 67,
+        "result_quote": "The Court must respectfully decline to entertain a new issue presented for the first time on judicial review"
+      },
+      {
+        "issue": "Was the RAD's finding that the Applicants have a reasonable internal flight alternative in India reasonable?",
+        "paras": "2, 68",
+        "applicant_position": "The RAD's IFA finding is unreasonable because the proposed IFAs are unsafe for the family.",
+        "respondent_position": "The Applicants showed no unreasonableness in the RAD's IFA finding.",
+        "result": "dismissed_for_applicant",
+        "result_para": 68,
+        "result_quote": "it has not been shown to this Court that it is unreasonable"
+      }
+    ]
+  }
+}

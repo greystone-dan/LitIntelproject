@@ -1,0 +1,38 @@
+{
+  "case_id": "2007_FCA_109",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 11,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Must the Attorney General apply to the Federal Court under s. 38.04(2) of the Canada Evidence Act?",
+        "paras": "6-9",
+        "applicant_position": "AG must bring a s. 38.04(2) application: his letter limited disclosure, and the documents referred to are in his possession.",
+        "respondent_position": "AG unconditionally authorized disclosure of all information in the notice, so no s. 38.04(2) application is needed.",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "That compels the conclusion that there is no foundation for an application under subsection 38.04(2)"
+      },
+      {
+        "issue": "Is there a factual basis for a declaration that Lopez may give any evidence in his defence if the AG does not apply?",
+        "paras": "10",
+        "applicant_position": "If the AG does not apply under s. 38.04(2), he may give any evidence in his own defence at the hearing.",
+        "respondent_position": "Respondents moved to strike the application; no factual foundation yet exists for this remedy.",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "Until he does so, the application discloses no factual foundation for the third remedy listed above."
+      },
+      {
+        "issue": "Is there a factual basis for a declaration that certain Canada Evidence Act provisions are unconstitutional?",
+        "paras": "10",
+        "applicant_position": "Certain provisions of the Canada Evidence Act are unconstitutional.",
+        "respondent_position": "Respondents moved to strike; no factual foundation yet exists for a constitutional challenge.",
+        "result": "dismissed_for_applicant",
+        "result_para": 10,
+        "result_quote": "Similarly, until the proper procedure is played out, there is no factual foundation for a constitutional challenge."
+      }
+    ]
+  }
+}

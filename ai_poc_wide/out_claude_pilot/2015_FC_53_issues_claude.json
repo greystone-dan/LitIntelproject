@@ -1,0 +1,47 @@
+{
+  "case_id": "2015_FC_53",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What is the standard of review?",
+        "paras": "19-20",
+        "applicant_position": "Correctness for the procedural fairness and natural justice issues; no mention of reasonableness for the marriage finding.",
+        "respondent_position": "No submission made on the standard of review.",
+        "result": "partly_allowed",
+        "result_para": 19,
+        "result_quote": "Here, the applicant submits the standard of correctness should be adopted for this judicial review. I agree."
+      },
+      {
+        "issue": "Did the officer provide adequate reasons?",
+        "paras": "14, 16, 20-21",
+        "applicant_position": "Officer's reasons, under one page, are not detailed enough and fail the Baker and Thalang criteria.",
+        "respondent_position": "Applicant should have requested the CAIPS notes, which give detailed reasons; insufficiency alone is not a basis to quash.",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I agree with the respondent that the visa officer provided sufficient reasons and did not breach procedural fairness."
+      },
+      {
+        "issue": "Was the applicant denied procedural fairness by not being given a fair chance to answer the genuineness concerns?",
+        "paras": "15, 17-19, 22",
+        "applicant_position": "Under the Baker factors she expected only security and medical review, and had no appeal right, so she should have been heard on the concerns.",
+        "respondent_position": "Genuineness is a statutory requirement, not a PF issue; she was given the site visit concerns and a written response.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "Therefore, the visa officer did not breach procedural fairness."
+      },
+      {
+        "issue": "Was the officer's assessment of the genuineness of the marriage reasonable?",
+        "paras": "20, 22-25",
+        "applicant_position": "not stated",
+        "respondent_position": "Officer reasonably relied on conflicting answers between applicant and husband; cannot be reweighed by the Court.",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "Therefore, the officer did not commit a reviewable error and his decision is reasonable."
+      }
+    ]
+  }
+}

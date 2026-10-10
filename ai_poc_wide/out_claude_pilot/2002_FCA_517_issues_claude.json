@@ -1,0 +1,38 @@
+{
+  "case_id": "2002_FCA_517",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are Westshore's lease payments 'fees' subject to the fairness and non-discrimination rules of ss. 49-50 of the Canada Marine Act?",
+        "paras": "5-6, 14",
+        "applicant_position": "Lease payments are fees under s. 53, so the fair, reasonable and non-discriminatory requirements of ss. 49-50 apply.",
+        "respondent_position": "Lease payments are not fees for the reasons below; even if they are, they are agreed fees under s. 53.",
+        "result": "dismissed_for_applicant",
+        "result_para": 14,
+        "result_quote": "we are of the view that even if lease payments are fees, they fall under section 53."
+      },
+      {
+        "issue": "Do the requirements of ss. 49-52 apply to fees agreed under s. 53?",
+        "paras": "8-13",
+        "applicant_position": "Sections 49-52 apply to any fee, including agreed fees, so unjust-discrimination relief is available.",
+        "respondent_position": "Agreed fees under s. 53 fall outside ss. 49-52, and no regulatory relief applies to them.",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "when fees are agreed upon according to section 53, the requirements of sections 49 to 52 are not applicable."
+      },
+      {
+        "issue": "Can the Court grant the rental-rate relief sought in the judicial review application (question 5)?",
+        "paras": "16-17",
+        "applicant_position": "The Court should remit the rental rates for redetermination and grant the broad relief sought after paragraph 57.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The answer to question 5 is that the Court cannot grant the relief as set out in the particulars following paragraph 57 of the judicial review application."
+      }
+    ]
+  }
+}

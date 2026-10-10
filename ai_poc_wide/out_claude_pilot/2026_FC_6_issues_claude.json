@@ -1,0 +1,38 @@
+{
+  "case_id": "2026_FC_6",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 38,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Were the ID's credibility findings and weighing of the evidence reasonable?",
+        "paras": "13-14",
+        "applicant_position": "ID's credibility findings and weighing of the evidence were unreasonable (para 13).",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 14,
+        "result_quote": "therefore refrain from expressing an opinion on the other issues raised by the Applicant"
+      },
+      {
+        "issue": "Did the ID reasonably assess all six Ezokola factors, including the size and nature of the PPS and his rank?",
+        "paras": "28-37",
+        "applicant_position": "ID's complicity assessment under Ezokola was unreasonable; he was not involved in and did not contribute to the crimes.",
+        "respondent_position": "Minister submitted Malhi made a voluntary, knowing and significant contribution to the PPS's crimes (para 15).",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "I find the reasons are deficient in at least one respect: the ID failed to consider all six factors from Ezokola"
+      },
+      {
+        "issue": "Were the ID's reasons on the significance of his contribution adequate?",
+        "paras": "37-38",
+        "applicant_position": "His role was restricted and his authority limited; he did not conduct interrogations (para 16).",
+        "respondent_position": "Minister said Malhi made a significant contribution to the PPS's crimes (para 15).",
+        "result": "not_decided",
+        "result_para": 28,
+        "result_quote": "This is sufficient to dispose of the judicial review."
+      }
+    ]
+  }
+}

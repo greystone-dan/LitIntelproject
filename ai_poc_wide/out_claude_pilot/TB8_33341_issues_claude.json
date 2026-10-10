@@ -1,0 +1,65 @@
+{
+  "case_id": "TB8_33341",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD wrongly treat Mrs. A's reavailment (trips to the UK and US) as showing no subjective fear and as damaging her credibility?",
+        "paras": "9-12",
+        "applicant_position": "Her trips to the UK were to recover from abuse while she still hoped for the marriage, so they show no lack of fear.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 12,
+        "result_quote": "I find her reavailment is neither egregious nor indicative of a lack of subjective/ongoing fear."
+      },
+      {
+        "issue": "Was it procedurally unfair that the RPD did not raise reavailment as an issue at the hearing?",
+        "paras": "13",
+        "applicant_position": "The RPD relied heavily on reavailment without telling them at the hearing that it was a concern.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 13,
+        "result_quote": "However, it is moot given my finding on reavailment."
+      },
+      {
+        "issue": "Does Mrs. A face a serious possibility of persecution by her husband in Lagos or Ibadan (first prong of the IFA)?",
+        "paras": "14-17",
+        "applicant_position": "The husband has the motive and means to find her there: he holds her property, has a government job and connections, and found her before.",
+        "respondent_position": "not stated (the RPD found the husband lacked the reach or influence to locate them in Lagos or Ibadan)",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "Consequently, I find that Mrs. A faces a serious possibility of persecution in the IFAs."
+      },
+      {
+        "issue": "Did the RPD err in holding that the failure to claim asylum in the US undermined Mrs. A's credibility?",
+        "paras": "18-22",
+        "applicant_position": "Failure to claim in the US was reasonable: they had valid US visitor visas and no removal risk, and the RPD never flagged it.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "her actions in assessing her options does not negatively impact her credibility."
+      },
+      {
+        "issue": "Does the Associate Appellant face a serious possibility of persecution in the IFAs (first prong of the IFA)?",
+        "paras": "23-24",
+        "applicant_position": "His father threatened to kill him and he fears harm if he returns, so there is a real risk in Lagos or Ibadan.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Consequently, I find there is no more than a mere possibility that the Associate Appellant will face persecution in the IFAs."
+      },
+      {
+        "issue": "Are Lagos and Ibadan reasonable IFAs for the Associate Appellant (second prong of the IFA)?",
+        "paras": "25",
+        "applicant_position": "He is a young student with no family support or work experience, so relocating alone would jeopardize his safety and life.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "As such, I find the IFAs are unreasonable."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FC_1190",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the arbitrator's decision unreasonable for failing to consider mandatory statutory factors on CN's obligations and operational restrictions?",
+        "paras": "6-10, 32",
+        "applicant_position": "The arbitrator ignored CN's obligations to other shippers and its operational restrictions, which the Act makes mandatory.",
+        "respondent_position": "The decision is reasonable, based on evidence of LDC's needs, occasional short rationing, and CN's capacity to serve others.",
+        "result": "allowed_for_applicant",
+        "result_para": 32,
+        "result_quote": "By effectively eliminating the possibility of rationing cars in appropriate circumstances, the arbitrator ignored CN’s obligations to other shippers and its operational restrictions"
+      },
+      {
+        "issue": "Can CN ration rail cars during peak demand and harsh winter weather under the Act?",
+        "paras": "17-19, 33",
+        "applicant_position": "Rationing is permissible in exceptional circumstances for short periods, and the arbitrator wrongly ruled it out.",
+        "respondent_position": "Rationing should be rare and short; CN should have enough inventory to supply LDC's requested cars.",
+        "result": "allowed_for_applicant",
+        "result_para": 33,
+        "result_quote": "I see no justification for the arbitrator’s conclusion that CN’s service obligation to LDC should not take account of the possibility of rationing."
+      },
+      {
+        "issue": "What is the remedy: should the decision be overturned and the matter referred to another arbitrator?",
+        "paras": "34",
+        "applicant_position": "The decision should be overturned and the matter referred to another arbitrator, with costs to CN.",
+        "respondent_position": "LDC asks that the arbitrator's decision be upheld.",
+        "result": "allowed_for_applicant",
+        "result_para": 34,
+        "result_quote": "I must, therefore, overturn his decision and refer the matter to another arbitrator, with costs to CN."
+      }
+    ]
+  }
+}

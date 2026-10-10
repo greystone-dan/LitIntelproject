@@ -1,0 +1,38 @@
+{
+ "case_id": "TB1_08341",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 29,
+  "overall_result": "dismissed_for_applicant",
+  "issues": [
+   {
+    "issue": "Can the panel decide exclusion when the Minister does not take part?",
+    "paras": "3-6",
+    "applicant_position": "not stated",
+    "respondent_position": "Minister declined to participate at the resumed hearing; no Minister submission shown.",
+    "result": "moot_or_procedural",
+    "result_para": 5,
+    "result_quote": "the fact that the Minister does not participate in the hearing does not alter the right of the Board to render a determination on the issue of exclusion"
+   },
+   {
+    "issue": "Did the Government of the DRC commit crimes against humanity during the claimant's service (1993-2011)?",
+    "paras": "12-18",
+    "applicant_position": "Did not dispute the existence of Mobutu-regime crimes (para 15); no position on Kabila-era crimes shown.",
+    "respondent_position": "Minister declined to participate; no submission on the crimes shown.",
+    "result": "dismissed_for_applicant",
+    "result_para": 12,
+    "result_quote": "the panel determines that the Government of the DRC committed crimes against humanity during the period of the claimant's service"
+   },
+   {
+    "issue": "Is the claimant complicit in those crimes (Ishaku factors), so excluded under Art. 1F(a)?",
+    "paras": "19-28",
+    "applicant_position": "Low-ranking post with no role in the crimes; Sungu should apply, so she was not complicit.",
+    "respondent_position": "Minister declined to participate; no submission shown.",
+    "result": "dismissed_for_applicant",
+    "result_para": 28,
+    "result_quote": "the panel determines that there are serious reasons to consider the claimant is complicity in crimes against humanity"
+   }
+  ]
+ }
+}

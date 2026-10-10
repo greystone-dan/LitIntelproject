@@ -1,0 +1,38 @@
+{
+  "case_id": "2018_FC_795",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 57,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the visa officer's finding of misrepresentation, based on the applicant's unexplained 'forgot' explanation for omitting the U.S. visa refusal, reasonable?",
+        "paras": "8-19",
+        "applicant_position": "Honest forgetting after a long U.S. processing delay is an honest mistake outside s.40; officer should have treated it as a relevant factor.",
+        "respondent_position": "Misrepresentation needs no intent; the explanation was considered and rejected, and the officer need not accept it.",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "The argument made by the applicant in this case does not rise to the level of establishing that the visa officer’s decision lacks reasonableness."
+      },
+      {
+        "issue": "Should the Court entertain a new argument, raised for the first time at the hearing, that the omission was not material because a study permit had been renewed?",
+        "paras": "20-43",
+        "applicant_position": "New argument is an elaboration of the written case; the Court should exercise discretion in his favour to hear it.",
+        "respondent_position": "New argument was never pleaded; hearing it would prejudice the respondent and the record is deficient.",
+        "result": "moot_or_procedural",
+        "result_para": 42,
+        "result_quote": "I have come to the conclusion that the discretion ought not to be exercised in favour of the applicant in this case."
+      },
+      {
+        "issue": "Was the omitted U.S. visa refusal a material misrepresentation under s.40(1)(a) that could induce an error in administering the Act?",
+        "paras": "44-56",
+        "applicant_position": "Misrepresentation is not material because a study permit was issued; the refusal did not matter.",
+        "respondent_position": "Omitted visa refusal is material and relevant to a Canadian visa, so it could induce an error.",
+        "result": "dismissed_for_applicant",
+        "result_para": 47,
+        "result_quote": "The refusal of a visa is material within the meaning of paragraph 40(1)(a)"
+      }
+    ]
+  }
+}

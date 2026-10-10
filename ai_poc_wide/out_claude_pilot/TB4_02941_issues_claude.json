@@ -1,0 +1,65 @@
+{
+  "case_id": "TB4_02941",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 83,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the RPD's findings?",
+        "paras": "12-14",
+        "applicant_position": "Correctness applies to issues of law raised in the appeal.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "The RAD finds, however, that the questions raised in this case concern issues of mixed fact and law, and further finds the standard of review is reasonableness."
+      },
+      {
+        "issue": "Did the principal Appellant know of the BNP's violent actions, and was the RPD's finding of such knowledge reasonable?",
+        "paras": "68-69",
+        "applicant_position": "RPD identified no specific criminal acts he knew of or should have known of, so knowledge was not shown.",
+        "respondent_position": "Minister argued the RPD analyzed the Ezokola factors and properly found he knew of the BNP's criminal purpose.",
+        "result": "dismissed_for_applicant",
+        "result_para": 69,
+        "result_quote": "The RAD finds the RPD's finding in this regard is reasonable."
+      },
+      {
+        "issue": "Was the RPD's finding that the principal Appellant tacitly supported BNP violence supported by evidence?",
+        "paras": "71-73",
+        "applicant_position": "Minister failed to show the RPD's imputed-knowledge and influence findings had evidentiary support.",
+        "respondent_position": "Minister argued the appellant's activities made a voluntary, significant contribution to the BNP's criminal purpose.",
+        "result": "allowed_for_applicant",
+        "result_para": 73,
+        "result_quote": "lacks a sufficient evidentiary base, is speculative, and is therefore unreasonable."
+      },
+      {
+        "issue": "Does the evidence show the principal Appellant's conduct was a significant and knowing contribution to BNP crimes (Ezokola exclusion)?",
+        "paras": "66-78",
+        "applicant_position": "Minister failed to show how his activities knowingly and significantly contributed to the BNP's crimes; he held no office.",
+        "respondent_position": "Minister asks the RAD to uphold exclusion under article 1F(a), or reach the same decision itself.",
+        "result": "allowed_for_applicant",
+        "result_para": 78,
+        "result_quote": "the RPD's determination that the Appellant be excluded from refugee protection fails to meet the test as prescribed in Ezokola, and is therefore unreasonable."
+      },
+      {
+        "issue": "Should the principal Appellant's claim be decided by the RAD or returned to the RPD?",
+        "paras": "79",
+        "applicant_position": "Claim should be decided by the RAD or returned to the RPD for redetermination by a differently constituted panel.",
+        "respondent_position": "Minister asks the RAD to uphold exclusion or reach the same decision itself.",
+        "result": "allowed_for_applicant",
+        "result_para": 79,
+        "result_quote": "the RAD finds this matter must be returned to the RPD for consideration."
+      },
+      {
+        "issue": "Should the female Appellant's claim be reconsidered together with the principal's?",
+        "paras": "80-82",
+        "applicant_position": "Her claim rests on the principal's basis of claim and her marriage to him, so it should be decided with his.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 82,
+        "result_quote": "the RPD's determination in regard to the female Appellant's claim should be reconsidered together with that of the principal Appellant"
+      }
+    ]
+  }
+}

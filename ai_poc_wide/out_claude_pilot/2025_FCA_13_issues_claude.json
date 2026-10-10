@@ -1,0 +1,47 @@
+{
+  "case_id": "2025_FCA_13",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 163,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does \"railway line\" in the definition of \"utility crossing\" include the railway right of way?",
+        "paras": "24-141",
+        "applicant_position": "\"Railway line\" means only the tracks; a utility line that does not pass over or under the tracks is not a utility crossing.",
+        "respondent_position": "The District and Agency: \"railway line\" is ambiguous and, read in context and purpose, includes the contiguous right of way, as ATCO held.",
+        "result": "dismissed_for_applicant",
+        "result_para": 141,
+        "result_quote": "the Agency did not err by interpreting “railway line” in the definition of “utility crossing” as including the railway right of way."
+      },
+      {
+        "issue": "Did the Agency wrongly treat the rerouting works as related works to the utility lines rather than to a utility crossing?",
+        "paras": "28-30",
+        "applicant_position": "The Agency's authority covers related works to a utility crossing only, not to a utility line; its wording was wrong.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "While the Agency’s statement is perhaps less precise than ideal, it is not wrong"
+      },
+      {
+        "issue": "Should the ATCO precedent be revisited in light of Vavilov?",
+        "paras": "34-45",
+        "applicant_position": "Vavilov requires a fresh statutory interpretation, so the prior ATCO and Agency decisions should be revisited.",
+        "respondent_position": "The District and Agency defend reliance on ATCO and prior Agency decisions.",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "ATCO provides more than helpful guidance. It is a highly persuasive precedent."
+      },
+      {
+        "issue": "Is the Agency's interpretation of the 1979 agreement reviewable on this appeal, and did the Agency err in finding that agreement did not apply?",
+        "paras": "142-158",
+        "applicant_position": "The 1979 agreement covers construct, maintain and repair, so the Agency had no authority; the interpretation error is reviewable.",
+        "respondent_position": "Interpreting the 1979 agreement is mixed fact and law; no extricable legal error, so it is not reviewable on appeal.",
+        "result": "moot_or_procedural",
+        "result_para": 158,
+        "result_quote": "Accordingly, the Agency’s interpretation is not reviewable by this Court on appeal"
+      }
+    ]
+  }
+}

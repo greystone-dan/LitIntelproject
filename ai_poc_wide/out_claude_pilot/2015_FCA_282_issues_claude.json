@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FCA_282",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 43,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the judge err in refusing to decide the claim by summary trial under Rules 213 and 216?",
+        "paras": "30-38",
+        "applicant_position": "Summary trial was appropriate: the issue is lease construction, with no credibility issues and no further evidence needed.",
+        "respondent_position": "Port Authority defended the judge's refusal, though it had not argued below that the matter was unsuitable.",
+        "result": "allowed_for_applicant",
+        "result_para": 38,
+        "result_quote": "Consequently, the Judge was in error in concluding, as she did, that the matter before her was not one that should be determined by way of summary trial."
+      },
+      {
+        "issue": "Should the Court itself decide the merits: the lease construction and the pure economic loss exception?",
+        "paras": "39-42",
+        "applicant_position": "The Court should decide the lease meaning and whether the exception applies, as the parties invited.",
+        "respondent_position": "Port Authority joined the request that the Court decide the merits.",
+        "result": "dismissed_for_applicant",
+        "result_para": 40,
+        "result_quote": "In my view, we should not accede to this request."
+      },
+      {
+        "issue": "Is the Port Authority's claim for lost participation rent barred by the pure economic loss rule?",
+        "paras": "12, 43",
+        "applicant_position": "Port Authority has no proprietary or possessory interest, so its pure economic loss claim is barred and should be struck.",
+        "respondent_position": "Port Authority has a proprietary or possessory interest in the damaged property, so an exception to the rule applies.",
+        "result": "not_decided",
+        "result_para": 43,
+        "result_quote": "it would be preferable to return the matter to the Federal Court for determination of the issues raised by the motion for summary trial."
+      }
+    ]
+  }
+}

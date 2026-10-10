@@ -1,0 +1,29 @@
+{
+  "case_id": "2022_FC_322",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 46,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's finding that Mr. Al-Fahham was complicit in crimes against humanity reasonable?",
+        "paras": "18-36",
+        "applicant_position": "RPD's findings were guilt by association; it never identified his significant contribution to the criminal purpose.",
+        "respondent_position": "Minister supported the complicity finding; the RPD agreed with its position (para 26).",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "I therefore conclude that Mr. Al-Fahham has not demonstrated that the RPD’s conclusion on complicity was unreasonable."
+      },
+      {
+        "issue": "Were the RPD's adverse credibility findings reasonable?",
+        "paras": "37-44",
+        "applicant_position": "Credibility findings cannot replace a significant-contribution finding, and the findings themselves were unreasonable.",
+        "respondent_position": "Minister said the RPD made no material credibility errors (para 44).",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "I agree with the Minister that the RPD did not make any material errors in assessing credibility that would justify this Court’s intervention."
+      }
+    ]
+  }
+}

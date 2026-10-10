@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FCA_86",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the Immigration Division's decision, including its reading of 'member'?",
+        "paras": "3-9",
+        "applicant_position": "Correctness applies: the meaning of 'member' is a legal question of general importance outside the tribunal's expertise.",
+        "respondent_position": "Reasonableness applies; this Court has applied reasonableness to the Immigration Division's reading of 'member' before (Poshteh).",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "That said, the substance of the decision of the Immigration Division is to be reviewed on the standard of reasonableness."
+      },
+      {
+        "issue": "Did Ezokola change the existing legal test for membership in a terrorist organization under paragraph 34(1)(f)?",
+        "paras": "9-25",
+        "applicant_position": "Ezokola's concern about excluding the innocent should shape 'member': only a true member who significantly contributed and joined without coercion.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "Ezokola v. Canada (Minister of Citizenship and Immigration), 2013 SCC 40, [2013] 2 S.C.R. 678 does not change the existing legal test for assessing membership in terrorist organizations"
+      },
+      {
+        "issue": "Was the Immigration Division's finding that TNA membership amounted to LTTE membership reasonable?",
+        "paras": "25-33",
+        "applicant_position": "The Immigration Division ignored evidence favourable to him.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "The decision was therefore reasonable."
+      }
+    ]
+  }
+}

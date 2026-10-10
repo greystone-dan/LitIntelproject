@@ -1,0 +1,38 @@
+{
+  "case_id": "2015_FC_252",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "partly_allowed",
+    "issues": [
+      {
+        "issue": "Was the Port Authority obliged to name the decision-maker, and what follows from failing to?",
+        "paras": "13-18",
+        "applicant_position": "Fairness requires that the affected party know who made the decision; the Port Authority must name who terminated its licence (Wah Shing).",
+        "respondent_position": "No obligation to name the decision-maker; relies on Wihksne, Gramaglia and Gosselin.",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "Accordingly, the court finds that when this application was filed, Kimberly Transport would have been entitled to the relief sought"
+      },
+      {
+        "issue": "Is the application for judicial review timely, or should time be extended?",
+        "paras": "19-25",
+        "applicant_position": "Time ran from the implied refusal after the September 24, 2014 request, so the application is in time; alternatively, extend time.",
+        "respondent_position": "The 30-day period began August 22, 2014, so the application is late and an extension is needed; no reasons for the delay given.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "For these reasons, I will order that this application for judicial review is timely"
+      },
+      {
+        "issue": "What relief should be ordered: mandamus, or an extension of time to bring judicial review of the merits?",
+        "paras": "26-32",
+        "applicant_position": "Sought mandamus to name the decision-maker; conceded mandamus is no longer appropriate and asked for an extension to challenge the merits.",
+        "respondent_position": "Mandamus would not have issued because the CUPE test was not met; no explanation for delay since November 28, 2014.",
+        "result": "partly_allowed",
+        "result_para": 32,
+        "result_quote": "the appropriate remedy is to extend the time for Kimberly Transport to file an application to judicially review the merits"
+      }
+    ]
+  }
+}

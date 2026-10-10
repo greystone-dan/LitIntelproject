@@ -1,0 +1,29 @@
+{
+  "case_id": "2019_FCA_94",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 11,
+    "overall_result": "moot_or_procedural",
+    "issues": [
+      {
+        "issue": "Should the Court decide the appeal on its merits even though it is moot?",
+        "paras": "5-11",
+        "applicant_position": "Appellants ask the Court to exercise its discretion and decide the appeal on the merits.",
+        "respondent_position": "Port Authority does not deny the discretion exists but says circumstances do not warrant it; FSD takes no position.",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "I am of the view that this appeal is moot and that we should not exercise our discretion to decide the matter."
+      },
+      {
+        "issue": "Does the Port Authority's bonus scheme create a reasonable apprehension of bias in approving the FSD project?",
+        "paras": "2, 9-11",
+        "applicant_position": "Bonuses tied to predetermined objectives gave executives a pecuniary incentive to approve the FSD project.",
+        "respondent_position": "Decisions were fair and untainted by bias; the allegation is fact-dependent, and the judge so found.",
+        "result": "not_decided",
+        "result_para": 11,
+        "result_quote": "I am of the view that this appeal is moot and that we should not exercise our discretion to decide the matter."
+      }
+    ]
+  }
+}

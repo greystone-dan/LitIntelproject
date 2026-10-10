@@ -1,0 +1,47 @@
+{
+  "case_id": "TB7_19145",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err in its credibility findings, which rested mainly on a lack of corroborating documents?",
+        "paras": "7-15",
+        "applicant_position": "RPD wrongly relied mainly on lack of corroboration and wrongly rejected or ignored documents, without relevant credibility concerns.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I find that the RPD erred in basing its credibility findings mainly on a lack of corroboration"
+      },
+      {
+        "issue": "Did the RPD consider all elements of the claim, including Oromo identity and political beliefs?",
+        "paras": "16-17",
+        "applicant_position": "RPD did not address his Oromo ethnic identity or his refusal to join the ruling political party.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I agree with the Appellant and find that the RPD erred in failing to consider these elements of his claim"
+      },
+      {
+        "issue": "Other arguments: treatment of medical evidence and the finding on the cancelled temporary resident visa.",
+        "paras": "18",
+        "applicant_position": "RPD erred in its treatment of his medical evidence and in its finding on the use of a cancelled visa.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 18,
+        "result_quote": "Because I find that the issues discussed above are sufficient to allow his appeal, I will not address these arguments."
+      },
+      {
+        "issue": "Whether new evidence can be admitted and whether an oral hearing is needed.",
+        "paras": "19",
+        "applicant_position": "Appellant presented new evidence and requested an oral hearing.",
+        "respondent_position": "not stated",
+        "result": "moot_or_procedural",
+        "result_para": 19,
+        "result_quote": "Because I have allowed his appeal, the issue of new evidence is moot."
+      }
+    ]
+  }
+}

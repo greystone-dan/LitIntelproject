@@ -1,0 +1,47 @@
+{
+ "case_id": "2020_FC_856",
+ "task": "issues",
+ "model": "claude-pilot",
+ "result": {
+  "order_para": 31,
+  "overall_result": "allowed_for_applicant",
+  "issues": [
+   {
+    "issue": "Can the refusal rest on the late restoration filing, with the officer's other comments treated as obiter?",
+    "paras": "17-19",
+    "applicant_position": "Officer did not separate reasons from ancillary comments; all comments were part of the refusal.",
+    "respondent_position": "Refusal rested on the late restoration filing; other comments were observations only, akin to obiter.",
+    "result": "allowed_for_applicant",
+    "result_para": 18,
+    "result_quote": "The Respondent’s submission is not persuasive for two reasons."
+   },
+   {
+    "issue": "Were the officer's factual findings (three prior restorations; no school 2015-2016) accurate and reasonable?",
+    "paras": "20-23",
+    "applicant_position": "Officer wrongly found three prior restorations (there was one) and no schooling in 2015-2016; transcripts show otherwise.",
+    "respondent_position": "Number of restorations was immaterial; one prior restoration still supported a finding of familiarity (para 21).",
+    "result": "allowed_for_applicant",
+    "result_para": 20,
+    "result_quote": "The Officer’s factual errors and resulting adverse conclusions are sufficient to render the Decision unreasonable."
+   },
+   {
+    "issue": "Did the officer consider all relevant circumstances and evidence in exercising TRP discretion under s. 24(1)?",
+    "paras": "24-29",
+    "applicant_position": "Officer ignored her sworn evidence of filing attempts within the window, McMaster's late acceptance and IRCC correspondence.",
+    "respondent_position": "Officer had no duty to weigh all circumstances; late filing was the basis; no evidence of attempts within window.",
+    "result": "allowed_for_applicant",
+    "result_para": 26,
+    "result_quote": "I find that the Officer did not do so in Ms. Kazembe’s case."
+   },
+   {
+    "issue": "Was the officer's process procedurally fair (notice of concerns)?",
+    "paras": "10-11",
+    "applicant_position": "Officer should have told her about concerns on paper restoration and study-permit compliance.",
+    "respondent_position": "not stated",
+    "result": "not_decided",
+    "result_para": 11,
+    "result_quote": "I will not assess her arguments concerning the fairness of the Officer’s process."
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "2023_FC_1123",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 32,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should the Court entertain the new procedural fairness argument (no notice that credibility was in issue) raised for the first time at the hearing?",
+        "paras": "16-20",
+        "applicant_position": "Officer breached procedural fairness by failing to give notice that credibility was in issue.",
+        "respondent_position": "Objected; the new argument should not be entertained as it was not in the leave memorandum.",
+        "result": "moot_or_procedural",
+        "result_para": 20,
+        "result_quote": "I decline to consider the new argument raised by the Applicant."
+      },
+      {
+        "issue": "Was the Officer's finding that the Applicant lacked a genuine intent to reside in Quebec reasonable?",
+        "paras": "21-27",
+        "applicant_position": "Officer focused on the son's marital status rather than assessing the sufficiency of the evidence on intent to reside.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 27,
+        "result_quote": "it was reasonable for the Officer to conclude that the Applicant had failed to demonstrate a genuine intent to reside in Quebec."
+      },
+      {
+        "issue": "Was the adverse credibility finding about the son's marital status reasonably extended to the application as a whole?",
+        "paras": "28-31",
+        "applicant_position": "Officer merely extended disbelief about the son's marital status to the intent assessment without the required justification.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 31,
+        "result_quote": "It was also open to the Officer to make a general finding of a lack of credibility based on the specific credibility concerns identified with the son’s marital status"
+      }
+    ]
+  }
+}

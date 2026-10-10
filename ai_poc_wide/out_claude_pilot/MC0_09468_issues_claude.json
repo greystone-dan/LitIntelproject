@@ -1,0 +1,38 @@
+{
+  "case_id": "MC0_09468",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 24,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD fail to consider all the evidence about the intelligence service's operations?",
+        "paras": "6-8, 22",
+        "applicant_position": "RPD misinterpreted the evidence and ignored his background and the post-2004 leadership change, so he could not be complicit.",
+        "respondent_position": "Minister argued there were serious reasons he was complicit in the service's crimes against humanity.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "your arguments that the RPD did not consider all of the evidence before it"
+      },
+      {
+        "issue": "Did the RPD apply Ezokola properly, rather than relying on guilt by association?",
+        "paras": "9-16, 22",
+        "applicant_position": "RPD relied on his membership alone, the 'guilt by association' Ezokola rejected; no significant contribution was shown.",
+        "respondent_position": "Minister argued there were serious reasons for considering a knowing and significant contribution to the crimes.",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "the RPD did follow the Supreme Court of Canada's decision and did not err in concluding that there was more than a suspicion with respect to your complicity"
+      },
+      {
+        "issue": "Were the appellant's own duties and knowledge a voluntary, significant and knowing contribution to the crimes?",
+        "paras": "17-21",
+        "applicant_position": "His duties (patrols, surveillance, intelligence gathering) were not significant contributions; weapons and arrests were not needed.",
+        "respondent_position": "Minister argued there were serious reasons for considering complicity through his role in the service.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "the RPD relied on the evidence before it in drawing this conclusion, while respecting the criteria set out in Ezokola, and did not err"
+      }
+    ]
+  }
+}

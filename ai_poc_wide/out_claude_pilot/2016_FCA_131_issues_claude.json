@@ -1,0 +1,38 @@
+{
+  "case_id": "2016_FCA_131",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 46,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the judicial review application before the Federal Court premature?",
+        "paras": "16-20",
+        "applicant_position": "The judicial review was premature, and the Judge should have declined to hear it while the RPD cessation process was pending.",
+        "respondent_position": "not stated beyond the Judge's decision to hear the application",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I am not prepared to conclude that the Judge made an error in exercising his discretion and that it was premature to address the issues at bar."
+      },
+      {
+        "issue": "Does a Hearings Officer have discretion to consider H&C factors, including the best interests of a child, before filing a cessation application under s. 108(2) against a permanent resident?",
+        "paras": "21-34",
+        "applicant_position": "No such discretion: s. 108 is mandatory, and H&C factors belong to s. 25 and not to the cessation filing decision.",
+        "respondent_position": "The Hearings Officer may consider H&C factors and best interests, and failing to do so fettered her discretion.",
+        "result": "allowed_for_applicant",
+        "result_para": 33,
+        "result_quote": "I cannot agree that the Hearings Officer has discretion to consider H&C factors in determining whether a cessation application should be made."
+      },
+      {
+        "issue": "Did the Hearings Officer breach the duty of procedural fairness by ignoring the respondent's material?",
+        "paras": "38-45",
+        "applicant_position": "No breach: the duty is minimal, the respondent had an interview and counsel's submissions, and no evidence shows the material was ignored.",
+        "respondent_position": "He was entitled to a full pre-hearing opportunity to make H&C submissions, and about 200 pages of his material were disregarded.",
+        "result": "allowed_for_applicant",
+        "result_para": 45,
+        "result_quote": "I see no reason to interfere with the Hearings Officer’s decision."
+      }
+    ]
+  }
+}

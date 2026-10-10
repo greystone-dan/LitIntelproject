@@ -1,0 +1,47 @@
+{
+  "case_id": "2010_FCA_166",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 36,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the CTA's interpretation of the interchange and interswitching definitions?",
+        "paras": "21-23",
+        "applicant_position": "Correctness applies: the issue is jurisdictional and turns on the statutory definitions of interchange and interswitching.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 23,
+        "result_quote": "The appropriate standard of review is reasonableness."
+      },
+      {
+        "issue": "Is there an interchange at Fort Rouge Yard, given the connecting tracks and storage are 1.9 miles apart?",
+        "paras": "24-27",
+        "applicant_position": "An interchange needs the connection and storage at the same place; 1.9 miles apart is too far, unlike Celgar.",
+        "respondent_position": "\"Place\" is broad; the two elements need not coincide exactly, and the CTA is best placed to define place.",
+        "result": "dismissed_for_applicant",
+        "result_para": 26,
+        "result_quote": "These are precisely the kinds of distinctions which the CTA is in the best position to make and it is not for this Court to interfere."
+      },
+      {
+        "issue": "Does BNSF have a line of railway at Fort Rouge Yards through the 1913 Transfer Track Agreement?",
+        "paras": "28-33",
+        "applicant_position": "The 1913 agreement is only a cost-sharing deal and gives BNSF no interest in CN's land, so BNSF has no line of railway.",
+        "respondent_position": "The agreement gave BNSF rights to designated land and transfer facilities, enough for a line of railway; the CTA so found.",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "We ought not to substitute our view for the CTA’s in a matter which is so close to its core expertise."
+      },
+      {
+        "issue": "Is CN's status as a local carrier relevant to whether interswitching occurs?",
+        "paras": "34-35",
+        "applicant_position": "Interswitching requires CN to deliver traffic over its own lines, so CN's use of CP track to reach Patterson defeats it.",
+        "respondent_position": "Local carrier status matters only for competitive line rates, not interswitching, as the CTA held.",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "I have nothing to add to what the Board said."
+      }
+    ]
+  }
+}

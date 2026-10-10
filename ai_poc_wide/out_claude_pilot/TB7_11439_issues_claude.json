@@ -1,0 +1,47 @@
+{
+  "case_id": "TB7_11439",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 25,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD err by failing to apply Chairperson's Gender Guideline 4?",
+        "paras": "6-12",
+        "applicant_position": "RPD did not show it considered the Gender Guideline; relied on cases such as Sy and Khon.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 12,
+        "result_quote": "As a result, I find that the RPD did not err in failing to consider and apply the Gender Guideline."
+      },
+      {
+        "issue": "Did the RPD err in dismissing the domestic violence claim for lack of corroborative evidence?",
+        "paras": "13-17",
+        "applicant_position": "Sworn testimony should be taken as true unless reasons suggest otherwise; lack of corroboration alone cannot sustain a negative credibility finding.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I find that the RPD did not err in considering the lack of corroboration"
+      },
+      {
+        "issue": "Did the RPD err in finding that Somali nationality was not established?",
+        "paras": "19-20",
+        "applicant_position": "Identity finding rested only on lack of corroboration, which is an insufficient basis for a negative determination.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "I find that the RPD did not err in its determination that the Appellant had not established her Somali identity"
+      },
+      {
+        "issue": "Did the RPD err in ignoring contradictory evidence on state protection for domestic violence in the Netherlands?",
+        "paras": "21-24",
+        "applicant_position": "RPD ignored documentary evidence showing shortcomings in Dutch state protection, which directly contradicts its adequacy finding.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "I find that the documentary evidence cited by the Appellant does not directly contradict this finding"
+      }
+    ]
+  }
+}

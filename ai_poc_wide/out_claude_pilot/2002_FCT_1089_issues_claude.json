@@ -1,0 +1,47 @@
+{
+  "case_id": "2002_FCT_1089",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 6,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Does paragraph 23(c) of the Federal Court Act give this Court a statutory grant of jurisdiction?",
+        "paras": "24-26",
+        "applicant_position": "CPR and RaiLink are railway undertakings connecting provinces or extending beyond them, so s. 23(c) grants jurisdiction.",
+        "respondent_position": "CPR took no position; RaiLink agreed the question could be decided in its absence.",
+        "result": "allowed_for_applicant",
+        "result_para": 26,
+        "result_quote": "I am satisfied that paragraph 23(c) of the Federal Court Act constitutes a statutory grant of jurisdiction to this Court by the Federal Parliament."
+      },
+      {
+        "issue": "Is there an existing body of federal law essential to the claim that nourishes the statutory grant?",
+        "paras": "27-28",
+        "applicant_position": "The Canada Transportation Act provisions, including s. 113(1)(c) and s. 116(5), are federal law on which the claim rests.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 28,
+        "result_quote": "constitute a body of federal law, essential to the disposition of this action, which nourishes the statutory grant of jurisdiction."
+      },
+      {
+        "issue": "Has the Agency's role under the Canada Transportation Act \"otherwise specially assigned\" the claim, ousting this Court's jurisdiction?",
+        "paras": "29-34",
+        "applicant_position": "The Agency's determinations are not a precondition to a s. 116(5) action for breach of the s. 113(1)(c) duty of care.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 29,
+        "result_quote": "I am satisfied that such jurisdiction has not been \"otherwise specially assigned\"."
+      },
+      {
+        "issue": "Is the Canada Transportation Act a \"law of Canada\" under s. 101 of the Constitution Act, 1867?",
+        "paras": "35-37",
+        "applicant_position": "The Canada Transportation Act is validly enacted federal law, so it is a \"law of Canada\" under s. 101.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 37,
+        "result_quote": "the whole of the Canada Transportation Act read as a comprehensive scheme is, \"a law of Canada\""
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "2011_FC_849",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 9,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the Board's adverse credibility finding, based on the lack of corroborating documents, reasonable?",
+        "paras": "3-6",
+        "applicant_position": "Board relied on an utter lack of corroboration though corroborating documents existed, never specified what was missing, and never asked for an explanation.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 3,
+        "result_quote": "the reasons for the decision do not meet the threshold."
+      },
+      {
+        "issue": "Did the Board breach procedural fairness by not putting its concerns about the corroborating documents and the AG-office document to the applicants at the hearing?",
+        "paras": "3, 5, 7",
+        "applicant_position": "Concerns about the documents and the fabrication finding were never put to the witnesses at the hearing.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 7,
+        "result_quote": "It is however, sufficient for the purposes of these reasons to note"
+      },
+      {
+        "issue": "Was the Board's finding that the Attorney General's office document was a fabrication, which undermined the female applicant's credibility, reasonable?",
+        "paras": "7",
+        "applicant_position": "The fabrication finding had no basis in the record or on the face of the document.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 7,
+        "result_quote": "Nor was any explanation given as to how the conclusion was reached that the documentation was a fabrication"
+      },
+      {
+        "issue": "Was the Board's credibility finding that nothing had happened to the applicant's family in Colombia reasonable?",
+        "paras": "8",
+        "applicant_position": "The finding is contrary to evidence that his mother had been contacted and threatened in Medellin.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "the finding on credibility is not supported by the evidence."
+      }
+    ]
+  }
+}

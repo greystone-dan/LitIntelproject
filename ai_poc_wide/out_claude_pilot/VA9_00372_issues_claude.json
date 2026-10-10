@@ -1,0 +1,38 @@
+{
+  "case_id": "VA9_00372",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 29,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant's fear of persecution as a member of a minority clan in Somalia is well founded (s.96)",
+        "paras": "9-24",
+        "applicant_position": "Belongs to a minority clan mistreated by larger clans; fears persecution if he returns to Somalia.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 24,
+        "result_quote": "the claimant's fears based on that fact in XXXXX are not well founded"
+      },
+      {
+        "issue": "Whether the killings of his father, son and mother show a clan-based or Convention nexus",
+        "paras": "12-25",
+        "applicant_position": "Clan-related violence killed his father, son and mother; claims clan-based targeting.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 25,
+        "result_quote": "The events which occurred to his son and mother were untargeted killings which I found did not have a nexus type of motivation."
+      },
+      {
+        "issue": "Whether the claimant faces a personal risk from clan warfare and Islamist rule in his home area rather than a generalised risk (s.96 and s.97)",
+        "paras": "26-28",
+        "applicant_position": "Faces danger from clan warfare and strict Islamist rule in his home area.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "whatever risk he would face, as stated, would be faced by others in the country"
+      }
+    ]
+  }
+}

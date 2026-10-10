@@ -1,0 +1,56 @@
+{
+  "case_id": "TB2_03273",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 45,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant has established his personal identity and Ukrainian citizenship",
+        "paras": "8",
+        "applicant_position": "Claimant is a Ukrainian citizen, shown by a copy of his passport.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "The claimant's personal identity and status as a citizen of Ukraine is established on a balance of probabilities."
+      },
+      {
+        "issue": "Whether the claimant's account of ethnic persecution as a Jew in Ukraine is credible",
+        "paras": "9-13",
+        "applicant_position": "Attacked, beaten and vandalised by nationalists for being Jewish; police gave no help.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 11,
+        "result_quote": "The panel believes and so finds on a balance of probabilities that the claimant made the story up"
+      },
+      {
+        "issue": "Whether delay in claiming refugee protection and the claimant's explanation undermine subjective fear",
+        "paras": "12-21",
+        "applicant_position": "Told to stay two weeks in Vancouver to study before claiming; fear was genuine.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "this panel finds no basis of a subjective fear in this claim"
+      },
+      {
+        "issue": "Whether adequate state protection is available to the claimant in Ukraine",
+        "paras": "22-42",
+        "applicant_position": "Made three police complaints and got no help; the authorities were unable or unwilling to protect him.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "adequate state protection is available to the claimant in Ukraine, and it was available to the claimant when he resided in Ukraine"
+      },
+      {
+        "issue": "Whether the claimant faces a serious possibility of persecution or risk on return to Ukraine",
+        "paras": "43-44",
+        "applicant_position": "Cannot return; the authorities cannot protect him from nationalists.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 44,
+        "result_quote": "the claimant has failed to satisfy his onus of establishing a serious possibility that he would be persecuted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "MA9_03464",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 18,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's identity established?",
+        "paras": "8",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 8,
+        "result_quote": "I am satisfied as to the claimant's identity."
+      },
+      {
+        "issue": "Is the claimant credible, given PIF omissions about the proceedings and reports and his lack of steps to get documents?",
+        "paras": "9-15",
+        "applicant_position": "Counsel Dostaler says PIF forms must not be applied in a petty way; claimant says he planned to explain details at the hearing.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "I find that his overall credibility is undermined and, therefore, that he has not established"
+      },
+      {
+        "issue": "Does the claimant have a credible basis for protection under s.96 or s.97?",
+        "paras": "16-17",
+        "applicant_position": "Claimant says he fears persecution and risk to life because of pending proceedings against police and army officers.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I find that there is no credible basis for this claim."
+      }
+    ]
+  }
+}

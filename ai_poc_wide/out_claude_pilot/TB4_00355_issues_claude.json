@@ -1,0 +1,29 @@
+{
+  "case_id": "TB4_00355",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 20,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the applicants were given a reasonable opportunity to be heard before their claims were declared abandoned",
+        "paras": "11-17",
+        "applicant_position": "Did not know they had to appear at the February 3, 2014 special hearing; relied on consultant's advice.",
+        "respondent_position": "Minister did not respond to the application.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "I find that the claimants were given a reasonable opportunity to be heard in regard to the abandonment of their claims"
+      },
+      {
+        "issue": "Whether the former consultant's mistaken advice on the filing deadline is a breach of natural justice",
+        "paras": "12-19",
+        "applicant_position": "Consultant advised them they had until March 2014 to file; they relied on that advice (affidavit).",
+        "respondent_position": "Minister did not respond to the application.",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "An applicant remains bound by the immigration consultant's conduct, as would be the case if she had retained legal counsel"
+      }
+    ]
+  }
+}

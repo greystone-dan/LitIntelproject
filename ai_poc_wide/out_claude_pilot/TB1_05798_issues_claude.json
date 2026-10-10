@@ -1,0 +1,56 @@
+{
+  "case_id": "TB1_05798",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant's identity and citizenship established?",
+        "paras": "9",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 9,
+        "result_quote": "The panel is persuaded, on a balance of probabilities, that the claimant is who he claims to be and is a citizen of Sri Lanka."
+      },
+      {
+        "issue": "Is the claimant credible, given inconsistencies with CBSA interviews and family statements?",
+        "paras": "10-16",
+        "applicant_position": "Claimant says the family's inconsistent statements have reasonable explanations, such as fear of deportation.",
+        "respondent_position": "Minister says the claimant's account conflicts with his PIF, CBSA interviews and family members' statements.",
+        "result": "dismissed_for_applicant",
+        "result_para": 16,
+        "result_quote": "the panel must therefore question the credibility of the allegations made by the claimant."
+      },
+      {
+        "issue": "Does the claimant have a well-founded fear of persecution on return (LTTE suspicion, UNHCR risk profiles, failed asylum-seeker)?",
+        "paras": "17-27",
+        "applicant_position": "Claimant fears questioning, torture and worse as a suspected LTTE member who travelled on an LTTE-linked ship.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "the panel finds that the claimant does not have a well-founded fear of persecution."
+      },
+      {
+        "issue": "Is the claimant at risk as a sur place claimant or failed asylum-seeker from the Canadian Tamil diaspora?",
+        "paras": "28-32",
+        "applicant_position": "Counsel argues travel on the LTTE-linked ship and a Canadian Tamil diaspora profile create a sur place risk.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 32,
+        "result_quote": "The panel finds that there is insufficient evidence to conclude that the claimant would be at risk were he to be returned to Sri Lanka."
+      },
+      {
+        "issue": "Is the claimant at risk of torture or cruel treatment on return (s.97)?",
+        "paras": "33",
+        "applicant_position": "Claimant says he would face torture and a risk of cruel treatment on return to Sri Lanka.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "that he would be subject personally to a danger of torture, or face a risk of cruel and unusual treatment or punishment"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "MB4_01899",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 43,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard applies to the credibility finding: error of fact (palpable and overriding) or error of law?",
+        "paras": "16-30",
+        "applicant_position": "The RPD's credibility finding is unreasonable and an error of law.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 30,
+        "result_quote": "the error alleged by the appellants regarding the assessment of their credibility is one of fact, and not an error of law as they submit."
+      },
+      {
+        "issue": "Did the RPD make a palpable and overriding error in assessing the credibility of the corruption allegations?",
+        "paras": "33-41",
+        "applicant_position": "Testimony was specific and credible; RPD's implausibility and documentary findings are wrong.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 34,
+        "result_quote": "I find that the answer to this question is that it did not"
+      }
+    ]
+  }
+}

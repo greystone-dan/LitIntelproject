@@ -1,0 +1,47 @@
+{
+  "case_id": "TB9_20981",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Was the RPD's finding that the affair did not occur a reasonable implausibility finding?",
+        "paras": "10-15",
+        "applicant_position": "The affair is plausible; the RPD's findings were implausibility findings made outside the clearest of cases.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 15,
+        "result_quote": "I disagree with this finding of the RPD and I set it aside."
+      },
+      {
+        "issue": "Did the RPD err in not assessing the Taliban letter?",
+        "paras": "16-18",
+        "applicant_position": "The RPD ignored the highly probative Taliban letter, which is central to the claim.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "I find that the RPD erred in not assessing the letter from the Taliban."
+      },
+      {
+        "issue": "Can the remaining RPD findings (marriage date, changed testimony, US asylum rejection) sustain the negative decision?",
+        "paras": "19-20",
+        "applicant_position": "The remaining findings (marriage date, changed testimony, US asylum rejection) cannot sustain the refusal.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 20,
+        "result_quote": "cannot maintain the determination that the Appellant is not a Convention refugee or a person in need of protection."
+      },
+      {
+        "issue": "Should the RAD substitute a positive determination or refer the matter back to the RPD?",
+        "paras": "21-22",
+        "applicant_position": "RAD should substitute a positive determination; alternatively refer the matter back to the RPD.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 22,
+        "result_quote": "I refer the matter back to the RPD for redetermination by a differently constituted panel."
+      }
+    ]
+  }
+}

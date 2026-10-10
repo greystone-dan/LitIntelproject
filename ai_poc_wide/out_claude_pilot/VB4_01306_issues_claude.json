@@ -1,0 +1,56 @@
+{
+  "case_id": "VB4_01306",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 2,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the respondent re-availed herself of China's protection by obtaining passports and making trips",
+        "paras": "9-20, 24-25",
+        "applicant_position": "Minister: two Chinese passports and 12 trips to China show she re-availed herself of China's protection.",
+        "respondent_position": "Trips were for family reasons; re-availment needs intent to permanently reside, citing Kaissi.",
+        "result": "allowed_for_applicant",
+        "result_para": 25,
+        "result_quote": "I find that the Minister has established that the respondent has re-availed herself of the protection of her country of nationality."
+      },
+      {
+        "issue": "Whether re-availment requires an intention to permanently reside in the country of nationality",
+        "paras": "21-23",
+        "applicant_position": "Intent to re-avail is enough; the permanent-residence test concerns re-establishment, not re-availment.",
+        "respondent_position": "Re-availment requires intent to permanently reside in China, per Kaissi and Camargo.",
+        "result": "allowed_for_applicant",
+        "result_para": 23,
+        "result_quote": "There is no requirement for the respondent to have the intention to permanently reside in China"
+      },
+      {
+        "issue": "Whether the reasons for the claim have ceased to exist (s. 108(1)(e), Falun Gong)",
+        "paras": "26-30",
+        "applicant_position": "Respondent no longer practises Falun Gong, so the reasons for her original claim have ceased.",
+        "respondent_position": "Fears a record of her Falun Gong affiliation with Chinese authorities.",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "The panel finds that the reasons for which she sought refugee protection have ceased to exist as she is no longer a Falun Gong practitioner."
+      },
+      {
+        "issue": "Whether compelling reasons under s. 108(4) except her from cessation",
+        "paras": "31",
+        "applicant_position": "not stated",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 31,
+        "result_quote": "The compelling reasons exception does not apply in this application."
+      },
+      {
+        "issue": "Whether the cessation clauses must be applied in time order (change before re-availment)",
+        "paras": "32-34",
+        "applicant_position": "Minister: the change in circumstances may have come before re-availment, so the clauses should be applied in order.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "Without knowing whether this occurred before or after her application for a Chinese passport and return to China in 2004, the Minister cannot establish"
+      }
+    ]
+  }
+}

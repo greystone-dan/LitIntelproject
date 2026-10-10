@@ -1,0 +1,38 @@
+{
+  "case_id": "TB2_07580",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 23,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant is homosexual, so as to be a member of a particular social group (sexual orientation) under s.96",
+        "paras": "7-21",
+        "applicant_position": "Claims he is homosexual and fears persecution in Turkey after his father beat him and threatened him with a gun.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 21,
+        "result_quote": "the panel is not persuaded, on a balance of probabilities, that the claimant is homosexual"
+      },
+      {
+        "issue": "Whether the claimant faces a danger of torture in Turkey (s.97(1)(a))",
+        "paras": "6",
+        "applicant_position": "Did not allege a danger of torture in Turkey.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "The panel determines that the claimant does not face a danger of torture in Turkey."
+      },
+      {
+        "issue": "Whether the claimant faces a personalized risk to life or cruel treatment in Turkey (s.97(1)(b))",
+        "paras": "22",
+        "applicant_position": "Risk to life and cruel treatment flows from his alleged sexual orientation.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 22,
+        "result_quote": "the panel is not persuaded that the claimant faces a personalized risk upon return to Turkey"
+      }
+    ]
+  }
+}

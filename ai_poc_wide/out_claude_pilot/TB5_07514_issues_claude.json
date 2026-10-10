@@ -1,0 +1,47 @@
+{
+  "case_id": "TB5_07514",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 41,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Did the RPD properly assess the corroborative documents (Georgian complaint responses and medical records)?",
+        "paras": "23-32",
+        "applicant_position": "RPD gave no reasons for assigning no weight to official Georgian complaint responses and hospital records.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 30,
+        "result_quote": "The RAD agrees with the Appellant that the panel failed to provide a sufficient assessment of the corroborative evidence"
+      },
+      {
+        "issue": "Was the RPD's finding about the photograph with \"police\" on the jacket reasonable?",
+        "paras": "17-18, 26, 33",
+        "applicant_position": "The finding on the 'police' jacket photo is unreasonable and speculative; the word 'police' is a universal term.",
+        "respondent_position": "not stated",
+        "result": "partly_allowed",
+        "result_para": 33,
+        "result_quote": "The RAD finds, in regard to the use of the word \"police\" on the back of the jacket of a person alleged to be Georgian policeman strains credulity."
+      },
+      {
+        "issue": "Did the RPD properly address the identity and profile of the agents of persecution?",
+        "paras": "19, 28, 34-35, 39",
+        "applicant_position": "The agents were three brothers (two senior police, one other); the RPD made no finding against this evidence.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 39,
+        "result_quote": "The RAD further notes the panel made no clear finding that challenged the Appellant's evidence that the agents of persecution were XXXX brothers"
+      },
+      {
+        "issue": "Did the Appellant rebut the presumption of state protection in Georgia?",
+        "paras": "20-22, 25, 27, 36-38, 40",
+        "applicant_position": "Complaints were ignored and police impunity shows no state protection, so the presumption is rebutted.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 40,
+        "result_quote": "the Appellant has presented clear and convincing evidence of the absence of state protection, and the presumption of protection is rebutted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "TB7_21870",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Should an oral hearing be held?",
+        "paras": "1, 7",
+        "applicant_position": "Appellants request an oral hearing, with no new evidence submitted.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 7,
+        "result_quote": "their request for an oral hearing is denied."
+      },
+      {
+        "issue": "Did the RPD err in its credibility finding on when the co-appellant started working at the company?",
+        "paras": "8-14",
+        "applicant_position": "The eleven-month discrepancy is a minor inconsistency, and the RPD's credibility finding is wrong.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 13,
+        "result_quote": "The RAD cannot agree with this submission."
+      },
+      {
+        "issue": "Is the employer's tax letter credible and entitled to weight?",
+        "paras": "15-17",
+        "applicant_position": "The co-appellant's explanation for the tax letter is reasonable and the letter should be given weight.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 17,
+        "result_quote": "the RAD does not give any evidentiary weight to this letter"
+      },
+      {
+        "issue": "Were the appellants targeted by the agent of persecution?",
+        "paras": "18-19",
+        "applicant_position": "Appellants were targeted by the employer because he pursued the co-appellant and fired the principal appellant.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 18,
+        "result_quote": "the RAD agrees with the RPD that the Appellants were not targeted by XXXX."
+      }
+    ]
+  }
+}

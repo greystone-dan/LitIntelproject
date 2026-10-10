@@ -1,0 +1,92 @@
+{
+  "case_id": "TB3_09545",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 52,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Are the claimants citizens of Turkey?",
+        "paras": "18",
+        "applicant_position": "Claimants say they are Turkish citizens; copies of Turkish passports were filed.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 18,
+        "result_quote": "On a balance of probabilities, the panel accepts the claimants are citizens of Turkey based on their testimony, and copies of their Turkish passports"
+      },
+      {
+        "issue": "Is the principal claimant Kurdish and of the Alevi faith?",
+        "paras": "19",
+        "applicant_position": "Principal claimant says he is ethnic Kurdish and of the Alevi faith.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 19,
+        "result_quote": "the panel is also willing to accept on a balance of probabilities that the principal claimant is Kurdish and of the Alevi faith"
+      },
+      {
+        "issue": "Is the principal claimant credible overall about his problems in Turkey?",
+        "paras": "20-49",
+        "applicant_position": "Claimant says police detained, beat and tortured him in Turkey and later sought him as an informer.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 49,
+        "result_quote": "the panel finds that the principal claimant is not a credible or trustworthy witness with respect to the central allegations of his case."
+      },
+      {
+        "issue": "Is the claimant's CHP membership established, given omissions and inconsistent CHP letters?",
+        "paras": "26-35",
+        "applicant_position": "Claimant says he joined the CHP in 2011, attended branch activities and that the letters confirm membership.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 35,
+        "result_quote": "The panel finds the principal claimant not credible about his activities and membership in the CHP party as outlined above."
+      },
+      {
+        "issue": "Is the account of the 2013 police visit to his parents' home credible?",
+        "paras": "36-38",
+        "applicant_position": "Claimant says six officers came to his parents' home in 2013; he learned the details from his wife.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 38,
+        "result_quote": "The panel finds on a balance of probabilities that the principal claimant's account of events did not happen as alleged."
+      },
+      {
+        "issue": "Are the omitted detentions in the POE forms and interview credibly explained?",
+        "paras": "39-42",
+        "applicant_position": "Claimant says his uncle filled in the POE forms without asking him, and an interpreter was on the phone.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 42,
+        "result_quote": "The panel draws a negative inference as to the credibility of the principal claimant."
+      },
+      {
+        "issue": "Was the claimant pursued by police to become an informer?",
+        "paras": "43-48",
+        "applicant_position": "Claimant says police asked him to name BDP and PKK-linked people and to become an informer.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 48,
+        "result_quote": "finds on a balance of probabilities the pursuit of the principal claimant by the police did not take place as alleged"
+      },
+      {
+        "issue": "Should the s.97 claim be considered?",
+        "paras": "50",
+        "applicant_position": "Claimant claims a risk of torture or harm to life on return.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 50,
+        "result_quote": "In light of the panel's finding that the principal claimant is not a credible witness, it is unnecessary to consider his claim under s.97"
+      },
+      {
+        "issue": "Is the claimant a Convention refugee under s.96?",
+        "paras": "51",
+        "applicant_position": "Claimant fears persecution as a CHP member, a Kurdish Alevi, and a refuser of the police informer role.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 51,
+        "result_quote": "the panel determines the principal claimant has not satisfied the burden of establishing a serious possibility of persecution on a Convention ground"
+      }
+    ]
+  }
+}

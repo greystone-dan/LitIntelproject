@@ -1,0 +1,38 @@
+{
+  "case_id": "VA8_02738",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 21,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the claimant is excluded under Article 1F(b) for serious non-political crimes before entering Canada",
+        "paras": "4-13",
+        "applicant_position": "Crimes were committed under age 12 with no home or food, so they are not serious crimes; mitigating circumstances apply.",
+        "respondent_position": "Minister sought exclusion for repeated breaking and entering; the text gives no further argument.",
+        "result": "allowed_for_applicant",
+        "result_para": 13,
+        "result_quote": "I find the claimant is not excluded pursuant to section 1(F)(b)."
+      },
+      {
+        "issue": "Whether fear of a poor life, general crime and family matters gives protection under s. 96 or 97",
+        "paras": "14-16, 20",
+        "applicant_position": "Claimant fears a bad life and general crime in Honduras and wants to work in Canada.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 20,
+        "result_quote": "Crime, a fear of crime, is not a Convention ground unless crime is tied to a Convention ground, and none has been alleged in this case."
+      },
+      {
+        "issue": "Whether Tegucigalpa is a viable internal flight alternative",
+        "paras": "17-19",
+        "applicant_position": "Fears the powerful XXXXX family in his home city; the text does not show he argued against the capital.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 19,
+        "result_quote": "I find that Tegucigalpa is an appropriate internal flight alternative."
+      }
+    ]
+  }
+}

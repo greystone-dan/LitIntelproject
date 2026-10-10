@@ -1,0 +1,38 @@
+{
+  "case_id": "MB9_19412",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 26,
+    "overall_result": "allowed_for_applicant",
+    "issues": [
+      {
+        "issue": "Whether the articles on Acapulco and Manzanillo are admissible new evidence",
+        "paras": "4-7",
+        "applicant_position": "The articles describing Acapulco and Manzanillo as dangerous cities should be admitted.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 6,
+        "result_quote": "I find that the evidence included in these articles are not admissible and here is why."
+      },
+      {
+        "issue": "Whether an oral hearing should be held",
+        "paras": "8-9",
+        "applicant_position": "The RPD decided without letting the claimant state her case, so a hearing should be held.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 9,
+        "result_quote": "Under the circumstances, no oral hearing should be held."
+      },
+      {
+        "issue": "Whether an internal flight alternative in Acapulco or Manzanillo is viable",
+        "paras": "10-24",
+        "applicant_position": "Cities are dangerous for a woman; the former spouse's cartel can track her there; RPD erred on the IFA.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 24,
+        "result_quote": "Accordingly, I conclude that the RPD erred in its analysis of an IFA for you, and that there is reason to set aside its decision"
+      }
+    ]
+  }
+}

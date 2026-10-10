@@ -1,0 +1,38 @@
+{
+  "case_id": "TB7_22324",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 33,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "Is the claimant credible about the land dispute, the punchayat decision and the threats?",
+        "paras": "12-22",
+        "applicant_position": "Claimant says the land dispute and punchayat decision happened; he gave no corroboration of the influence.",
+        "respondent_position": "not stated",
+        "result": "not_decided",
+        "result_para": 22,
+        "result_quote": "However, the panel finds that, even if the claimant's allegations as to the land dispute and the punchayat's decision are true"
+      },
+      {
+        "issue": "Did the claimant fail to claim protection in the US, and does the family-member exception apply?",
+        "paras": "20-21",
+        "applicant_position": "Did not claim in the US: wife's brother lives in Canada and the US process is very long.",
+        "respondent_position": "not stated",
+        "result": "allowed_for_applicant",
+        "result_para": 21,
+        "result_quote": "The panel finds that the family member exception to the Safe Third Country Agreement allows for the claimants to seek protection in Canada"
+      },
+      {
+        "issue": "Is an internal flight alternative available in Hyderabad?",
+        "paras": "22-32",
+        "applicant_position": "Claimant says he could live in Hyderabad but would constantly fear being found through his ID card.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "Having found that the claimants have an IFA available to them in Hyderabad, the panel further finds that they do not require the protection of Canada."
+      }
+    ]
+  }
+}

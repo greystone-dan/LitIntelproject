@@ -1,0 +1,29 @@
+{
+  "case_id": "TB3_08689",
+  "task": "issues",
+  "model": "claude-pilot",
+  "result": {
+    "order_para": 34,
+    "overall_result": "dismissed_for_applicant",
+    "issues": [
+      {
+        "issue": "What standard of review applies to the RPD's findings (deference or de novo)?",
+        "paras": "12-28",
+        "applicant_position": "RAD owes no deference to the RPD and should decide afresh, like the IAD.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 28,
+        "result_quote": "The appropriate standard of review in these appeals is one of reasonableness."
+      },
+      {
+        "issue": "Were the RPD's credibility findings (POE address inconsistency and continuing abuse) reasonable?",
+        "paras": "29-33",
+        "applicant_position": "RPD's findings are contradictory; having accepted the abuse, it could not find her not credible on addresses.",
+        "respondent_position": "not stated",
+        "result": "dismissed_for_applicant",
+        "result_para": 33,
+        "result_quote": "The RAD finds that RPD decision was reasonable, justifiable, intelligible, and transparent"
+      }
+    ]
+  }
+}

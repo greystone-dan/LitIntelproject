@@ -321,3 +321,20 @@ def test_a_case_name_does_not_run_back_over_the_end_of_a_sentence():
 	text = "Eclectic cross-examined Mr. Poirier. Per Baker v Canada, 1999 SCC 1, the court held."
 	rows = [row for row in refine_case_citations(text).rows if row.kind == "case"]
 	assert [row.citation_text for row in rows] == ["Baker v Canada, 1999 SCC 1"]
+
+
+def test_pinpoint_of_that_decision_belongs_to_the_case_just_cited():
+	text = (
+		"In Canada v Colaco, 2007 FCA 282, the Court applied the notion. At paragraph 5 of that decision, "
+		"Justice Létourneau wrote that x. The reasons are at paragraph 22 of the decision under review."
+	)
+	rows = [row for row in refine_case_citations(text).rows if row.kind == "case_short"]
+	assert [row.pinpoint for row in rows] == ["at para. 5"]
+	assert "2007 FCA 282" in rows[0].normalized_citation
+
+
+def test_name_above_without_an_earlier_citation_is_kept_unlinked_with_its_pinpoint():
+	text = "The test is set out in Plavix, cited above, at paragraph 67. See also the Official Languages Act, supra, and This, above."
+	rows = [row for row in refine_case_citations(text).rows if row.kind == "case_short"]
+	assert [row.case_name for row in rows] == ["Plavix"]
+	assert rows[0].pinpoint == "at para. 67" and not rows[0].anchor_citation_text

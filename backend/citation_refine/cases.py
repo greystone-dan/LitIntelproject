@@ -715,6 +715,15 @@ SUPRA_RE = re.compile(
 	rf"(?P<word>(?:cited\s+)?(?:supra|above)|précitée?s?|ci-dessus|ci-haut)(?P<note>\s*(?:,\s*)?(?:note|n\.)\s*\d{{1,4}})?(?P<tail>{_PINPOINT_TAIL})",
 )
 
+# "At paragraph 43 of that decision": the pinpoint belongs to the case cited just before.
+THAT_DECISION_RE = re.compile(
+	rf"(?P<tail>(?:\bat\s+|\bau\s+)?(?:paragraphs?|paragraphes?|paras?\.?|par\.?)\s*{_PIN_RANGE}(?:\s*(?:,|and|et|&)\s*{_PIN_RANGE})*)\s+"
+	r"(?:of|in|de|dans)\s+(?P<word>(?:that|the same|this)\s+(?:decision|case|judgment|ruling)|cette\s+(?:décision|affaire)|le même arrêt)\b",
+	re.IGNORECASE,
+)
+_THAT_DECISION_GAP = 600
+_UNANCHORED_NAME_STOP = re.compile(r"\b(?:Act|Code|Regulations?|Rules?|Charter|Constitution|Loi|Règlement|Convention|Treaty|Guidelines?)\b")
+
 
 _LEADING_STOP = frozenset({"regina", "attorney", "minister", "canada", "ontario", "alberta", "quebec", "british", "federal", "supreme", "citizenship", "immigration", "refugee", "public", "national", "canadian", "general", "royal", "bank", "first", "former", "unknown"})
 
@@ -867,10 +876,15 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 			for alias, row in table
 			if row.offset_end <= match.start() and (alias == key or alias == words[-1].casefold() or key.startswith(alias))
 		]
+		start = match.start("name") + len(name) - len(" ".join(words))
 		if not candidates:
+			row = _unanchored_supra_row(content, match, words, start)
+			if row is not None:
+				ok, _inside = free(row.offset_start, row.offset_end, allow_inside_short=False)
+				if ok:
+					added.append(row)
 			continue
 		target = max(candidates, key=lambda item: item[1].offset_end)[1]
-		start = match.start("name") + len(name) - len(" ".join(words))
 		ok, inside = free(start, match.end(), allow_inside_short=True)
 		if not ok:
 			continue
@@ -888,10 +902,58 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 			)
 		added.append(row)
 
+	for match in THAT_DECISION_RE.finditer(content):
+		ok, _inside = free(match.start(), match.end(), allow_inside_short=False)
+		if not ok:
+			continue
+		previous = [row for row in ordered if row.offset_end <= match.start() and row.kind in CASE_CITATION_KINDS and row.kind != "case_name"]
+		previous += [row for row in added if row.offset_end <= match.start() and row.anchor_citation_text]
+		if not previous:
+			continue
+		latest = max(previous, key=lambda row: row.offset_end)
+		if match.start() - latest.offset_end > _THAT_DECISION_GAP:
+			continue
+		target = _anchor_for(latest, rows_by_span)
+		added.append(_backref_row(content, match, target, match.group("word"), "C2_backrefs"))
+
 	result = [row for row in rows if (row.offset_start, row.offset_end) not in removed]
 	result.extend(added)
 	result.sort(key=lambda row: (row.offset_start, row.offset_end))
 	return result
+
+
+def _unanchored_supra_row(content: str, match: re.Match[str], words: list[str], start: int) -> RefinedCitation | None:
+	""""Plavix, cited above, at para 67" when the decision never gives the full citation: keep it as a name-only short form.
+
+	Nothing to link, but the reference and its pinpoint are real. Statute and rule names ("the Official Languages Act, supra")
+	and sentence-start words are left out.
+	"""
+	name = " ".join(words)
+	if _UNANCHORED_NAME_STOP.search(name) or not name[:1].isupper() or len(name) < 3:
+		return None
+	if words[0].casefold() in _UNANCHORED_ONE_WORD_STOP and len(words) == 1 or words[-1].casefold() in _UNANCHORED_LAST_WORD_STOP:
+		return None
+	text = content[start : match.end()].rstrip(" ,")
+	pinpoint = parse_pinpoint(match.group("tail")) if match.group("tail") else None
+	normalized = f"{name}, {pinpoint_phrase(pinpoint)}" if pinpoint else name
+	return RefinedCitation(
+		kind="case_short",
+		citation_text=text,
+		normalized_citation=normalized,
+		offset_start=start,
+		offset_end=start + len(text),
+		step="C2_backrefs",
+		action=ACTION_ADDED,
+		confidence=0.6,
+		pinpoint=pinpoint_phrase(pinpoint) if pinpoint else None,
+		pinpoints=(pinpoint,) if pinpoint else (),
+		case_name=name,
+		notes=("backref:supra", "unanchored"),
+	)
+
+
+_UNANCHORED_LAST_WORD_STOP = frozenset({"court", "board", "tribunal", "division", "decision", "reasons", "judgment", "paragraph", "section"})
+_UNANCHORED_ONE_WORD_STOP = frozenset({"the", "a", "an", "le", "la", "les", "this", "that", "these", "those", "it", "see", "also", "and", "but", "however", "therefore", "here", "there", "section", "paragraph", "article", "rule", "above", "below", "court", "board", "act", "applicant", "respondent", "minister", "decision", "reasons", "order", "judgment", "statute"})
 
 
 # --------------------------------------------------------------------------- defined names and pinpoint-first forms

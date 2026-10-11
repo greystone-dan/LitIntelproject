@@ -713,13 +713,18 @@ def tag_citation_sections(citations: Sequence[Any], outline: Sequence[dict], off
 
 
 def citation_offset(row: Any) -> int | None:
-	"""Character offset of a citation in the decision text: the paragraph-layer span when mapped, else its own offset."""
+	"""Character offset of the citation itself in the decision text.
+
+	The full-case layer gives it directly; a paragraph chunk's own start is not the citation (a chunk spans several paragraphs).
+	"""
 	spans = row.get("layer_spans") if isinstance(row, dict) else getattr(row, "layer_spans", None)
 	if spans:
-		for layer in ("paragraph", *spans):
-			span = spans.get(layer)
+		whole = spans.get("full_case")
+		if whole and whole.get("absolute_start") is not None and whole.get("local_start") is not None:
+			return whole["absolute_start"] + whole["local_start"]
+		for layer, span in spans.items():
 			if span and span.get("absolute_start") is not None:
-				return span["absolute_start"]
+				return span["absolute_start"] + (span.get("local_start") or 0)
 	chunk_id = row.get("chunk_id") if isinstance(row, dict) else getattr(row, "chunk_id", None)
 	start = row.get("offset_start") if isinstance(row, dict) else getattr(row, "offset_start", None)
 	return start if chunk_id is None else None

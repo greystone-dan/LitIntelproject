@@ -209,8 +209,11 @@ def test_supra_pinpoint_does_not_swallow_following_words():
 	assert short[0].citation_text == "Baker, supra, at para. 61"
 
 
-def test_supra_without_known_case_is_ignored():
-	assert [row for row in _cases("Unknown, supra at para 4.") if row.kind == "case_short"] == []
+def test_supra_without_known_case_is_kept_unanchored():
+	rows = [row for row in _cases("Unknown, supra at para 4.") if row.kind == "case_short"]
+	assert len(rows) == 1
+	assert rows[0].normalized_citation == "Unknown, at para. 4"
+	assert rows[0].notes == ("backref:supra", "unanchored") and not rows[0].anchor_citation_text and rows[0].confidence < 0.7
 
 
 # --------------------------------------------------------------------------- case layer: validation

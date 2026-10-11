@@ -89,6 +89,11 @@ class LiveAnalysisReferenceResponse(BaseModel):
 	authority_section_text: str | None = None
 	source_title: str | None = None
 	source_text: str | None = None
+	# Which part of this decision the citation sits in (Background, Issues, Analysis, Disposition) and the sub-point
+	# under it; set only with ILIT_OUTLINE_V2=1.
+	section: str | None = None
+	section_title: str | None = None
+	section_point: str | None = None
 	source_url: str | None = None
 	resolution_status: str | None = None
 	section_number: str | None = None
@@ -272,6 +277,10 @@ class CaseReaderCitationResponse(BaseModel):
 	statute_version_label: str | None = None
 	# Stored paragraph cited-by summary for the cited paragraph (batch job; None until it has run).
 	target_cited_by: dict | None = None
+	# Outline section the citation sits in (background/issues/analysis/disposition), when ILIT_OUTLINE_V2 is on.
+	section: str | None = None
+	section_title: str | None = None
+	section_point: str | None = None
 
 
 class LegislationCaseOccurrenceResponse(BaseModel):
@@ -372,15 +381,25 @@ class CaseSubThemeSummaryResponse(BaseModel):
 	evidence: list[CaseEvidenceSpanResponse] = Field(default_factory=list)
 
 
+class CaseUnitPartyArgumentResponse(BaseModel):
+	paragraph_index: int
+	paragraph_number: int | None = None  # printed paragraph number, when the text has one
+	party: str  # "applicant" or "respondent"
+
+
 class CaseDiscussionUnitSummaryResponse(BaseModel):
 	discussion_unit_id: str
 	unit_index: int
 	start_paragraph: int
 	end_paragraph: int
 	paragraph_count: int
+	start_number: int | None = None  # printed paragraph numbers of the unit's first and last paragraph
+	end_number: int | None = None
 	subthemes: list[CaseSubThemeSummaryResponse] = Field(default_factory=list)
 	# Experimental, rule-based role (metadata, overview, facts, issues, analysis, disposition); see role_note.
 	role: str | None = None
+	# Experimental, rule-based: paragraphs in this unit that report a party's argument; see party_note.
+	party_arguments: list[CaseUnitPartyArgumentResponse] = Field(default_factory=list)
 
 
 class CaseEvidenceSummaryResponse(BaseModel):
@@ -391,6 +410,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
 	role_note: str | None = None
+	party_note: str | None = None
 
 
 class CaseSummarySectionItemResponse(BaseModel):

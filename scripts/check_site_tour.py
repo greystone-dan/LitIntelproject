@@ -97,27 +97,58 @@ def validate_steps(data: dict) -> list[str]:
     return problems
 
 
+
+LOCAL_TOUR = False   # --local-tour: the walk uses this checkout's tour on another site's data
+
+
+def _new_context(browser, **options):
+    """A browser context; with --local-tour, the site's tour script and style are swapped for this checkout's."""
+    context = browser.new_context(**options)
+    if LOCAL_TOUR:
+        sys.path.insert(0, str(ROOT))
+        from backend.site_tour import tour_css, tour_js
+        context.route("**/site-tour.js*", lambda route: route.fulfill(status=200, content_type="application/javascript", body=tour_js()))
+        context.route("**/site-tour.css*", lambda route: route.fulfill(status=200, content_type="text/css", body=tour_css()))
+    return context
+
 def run_probes(base: str) -> int:
     """Search the example data the tour relies on (read-only GETs). Returns how many came back short."""
+    import urllib.parse
     import urllib.request
 
     short = 0
-    for probe in json.loads(STEPS_FILE.read_text(encoding="utf-8")).get("probes") or []:
+    data = json.loads(STEPS_FILE.read_text(encoding="utf-8"))
+    cases = data.get("cases") or {}
+
+    def case_id(name: str) -> str:                       # a {name} in a probe URL is that tour case, found by citation
+        want = re.sub(r"\s+", " ", cases[name]["citation"]).lower()
+        found = _get_json(base, "/analytics/search/cases?" + urllib.parse.urlencode({"query": cases[name]["citation"], "limit": 8, "facets": 0}))
+        return next((str(r["case_id"]) for r in found.get("results") or [] if want in str(r.get("citation")).lower()), "0")
+
+    for probe in data.get("probes") or []:
+        first = ""
         try:
-            request = urllib.request.Request(base + probe["url"], headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
+            url = re.sub(r"\{(\w+)\}", lambda m: case_id(m.group(1)), probe["url"])
+            request = urllib.request.Request(base + url, headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
             with urllib.request.urlopen(request, timeout=60) as response:
-                count = len(json.load(response).get(probe.get("key", "results"), []))
+                body = json.load(response)
+            rows = body if isinstance(body, list) else body.get(probe.get("key", "results"), [])   # a list endpoint (judge profiles)
+            count = len(rows)
+            first = str(rows[0].get("citation")) if rows and isinstance(rows[0], dict) else ""
         except Exception as error:  # noqa: BLE001
             count, note = -1, f" ({str(error)[:60]})"
         else:
             note = ""
         verdict = "ok" if count >= probe["min"] else "NO DATA"
+        if verdict == "ok" and probe.get("first"):          # this case must head the list
+            if cases[probe["first"]]["citation"] not in first:
+                verdict, note = "WRONG FIRST", f" (first is {first or 'nothing'})"
         short += verdict != "ok"
         print(f"probe {probe['id']:<32} {count:>3} results  {verdict}{note}  - {probe.get('note', '')}")
     return short
 
 
-PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&limit=25&facets=0"
+PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Csri%20lanka&government_outcome=won&case_type=refugee_cessation&limit=25&facets=0"   # only real cessation decisions (tags alone also match other kinds)
 
 
 def _get_json(base: str, path: str):
@@ -152,7 +183,7 @@ def pick_example_case(base: str) -> int:
         acts = sum(1 for c in statutes or [] if c.get("instrument_key") or c.get("legislation_url"))
         cited_by = int((reader.get("metrics") or {}).get("in_degree") or row.get("cited_by_cases") or 0)
         judge = bool(row.get("judge"))
-        usable = outline >= 4 and pins >= 1 and acts >= 1 and judge
+        usable = outline >= 4 and pins >= 1 and acts >= 1 and judge and cited_by >= 1   # the tour shows how it has been cited
         score = (100 if usable else 0) + min(outline, 10) * 3 + min(pins, 5) * 2 + min(cited_by, 20) * 2 - rank
         ranked.append((score, rank, row, outline, pins, acts, cited_by, judge, usable))
     ranked.sort(key=lambda item: -item[0])
@@ -161,7 +192,7 @@ def pick_example_case(base: str) -> int:
         print(f"{score:>5} {rank:>4}  {str(row.get('citation')):<16} {outline:>7} {pins:>9} {acts:>8} {cited_by:>8}  {'yes' if judge else 'no ':<5}  {str(row.get('title'))[:60]}{'' if usable else '  (not usable)'}")
     best = next((item for item in ranked if item[8]), None)
     if not best:
-        print("no decision has an outline, a pinpoint citation, a statute and a judge")
+        print("no decision has an outline, a pinpoint citation, a statute, a judge and a citing decision")
         return 1
     print(f"BEST: {best[2].get('citation')} (case {best[2]['case_id']}): {best[2].get('title')}")
     return 0
@@ -192,7 +223,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
     with sync_playwright() as pw:
         browser = launch(pw)
         for index, step in enumerate(steps):
-            context = browser.new_context(viewport={"width": width, "height": 900 if width > 700 else 800})
+            context = _new_context(browser, viewport={"width": width, "height": 900 if width > 700 else 800})
             if demo:
                 sign_in(context, base)
             page = context.new_page()
@@ -403,7 +434,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
     size = f"{width}x{height or (900 if width > 700 else 800)}"
     with sync_playwright() as pw:
         browser = launch(pw)
-        context = browser.new_context(viewport={"width": width, "height": height or (900 if width > 700 else 800)})
+        context = _new_context(browser, viewport={"width": width, "height": height or (900 if width > 700 else 800)})
         context.add_init_script(MOTION_RECORDER)
         page = context.new_page()
         errors: list[str] = []
@@ -421,6 +452,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights   (ms: Next to result; 'say' and 'lead' cards are not timed here)")
         last_page, last_y = "", 0
         previous_card = None
+        first_result = None                                    # the top result once the filter demo has run
 
         def check_geometry(label: str) -> list[str]:
             nonlocal previous_card
@@ -482,6 +514,14 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
             ):
                 data_notes.append("citation card has NO PINPOINT")
+            # The filter demo must end with the tour's decision at the top of the list, and that is the one it opens.
+            if step_id == "adv-won":
+                first_result = page.evaluate("() => document.querySelector('#searchResults .case-result')?.dataset.caseId || ''")
+            if step_id == "reader-open":
+                opened = page.evaluate("() => new URLSearchParams(location.search).get('case_id') || ''")
+                if first_result is not None and opened != first_result:
+                    notes.append(f"the decision opened ({opened}) is NOT the first result of the filter demo ({first_result})")
+                    problems += 1
             if require_data:
                 problems += len(data_notes)
             index = next((k for k, step in enumerate(steps) if step["id"] == step_id), -1)
@@ -523,7 +563,7 @@ def run_controls(base: str, width: int) -> int:
     problems: list[str] = []
     with sync_playwright() as pw:
         browser = launch(pw)
-        context = browser.new_context(viewport={"width": width, "height": 900 if width > 700 else 800})
+        context = _new_context(browser, viewport={"width": width, "height": 900 if width > 700 else 800})
         page = context.new_page()
         errors: list[str] = []
         page.on("pageerror", lambda error: errors.append(str(error)))
@@ -551,8 +591,10 @@ def run_controls(base: str, width: int) -> int:
             problems.append("a refresh lost the place")
         page.click(".ilit-tour-btn:has-text('Skip section')")
         after_skip = counter()
-        if after_skip.startswith("Step 1 ") or after_skip.startswith("Step 2 "):
-            problems.append(f"Skip section did not leave the section ({after_skip})")
+        sections = [step["section"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]]
+        next_section = next((k for k, name in enumerate(sections) if name != sections[0]), len(sections)) + 1   # 1-based
+        if not after_skip.startswith(f"Step {next_section} "):
+            problems.append(f"Skip section did not go to the next section ({after_skip}, expected step {next_section})")
         page.keyboard.press("Escape")
         page.wait_for_timeout(300)
         if page.locator(".ilit-tour").count() or page.evaluate("sessionStorage.getItem('ilit.tour.v1')"):
@@ -580,8 +622,11 @@ def main() -> int:
     parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
     parser.add_argument("--part", default="", help="with --walk: walk only steps FIRST:LAST (step ids), e.g. plain-search:adv-won")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
+    parser.add_argument("--local-tour", action="store_true", help="use this checkout's tour steps and script on the site at --base-url (to check an unmerged tour on the real library)")
     parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
+    global LOCAL_TOUR
+    LOCAL_TOUR = args.local_tour
     if args.pick_case:
         return pick_example_case(args.base_url.rstrip("/"))
 

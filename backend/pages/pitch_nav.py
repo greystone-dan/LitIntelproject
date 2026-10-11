@@ -11,7 +11,8 @@ from __future__ import annotations
 import json
 import re
 
-from .coming_soon_page import LABELS as ROADMAP_LABELS, ORDER as ROADMAP_ORDER
+from .coming_soon_page import ORDER as ROADMAP_ORDER
+from .roadmap_page import REDIRECT_ANCHORS
 
 # (key, name, plain explainer)
 COMING_SOON = [
@@ -55,10 +56,10 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Research</button>
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
-<button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
+<button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Roadmap</button>
 <button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Development</button>
 <button type="button" data-group="testing" aria-pressed="false" aria-controls="researchViews">Testing</button>
-<a class="primary-link" id="modeSwitch" href="/welcome" title="Back to the Welcome page">Welcome</a>
+<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: development tabs, Testing, units, Find the unit and unfinished reader tools">Experimental: off</button>
 </nav>"""
 
 
@@ -79,7 +80,7 @@ def _subnav() -> str:
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
     ]
-    rows += [_tab("roadmap", f"roadmap-{key}", "comingSoonPanel", ROADMAP_LABELS[key]) for key in ROADMAP_ORDER]
+    rows.append(_tab("roadmap", "roadmap-overview", "comingSoonPanel", "Roadmap"))
     rows += [_tab("soon", f"soon-{key}", "comingSoonPanel", name.replace("&", "&amp;")) for key, name, _ in COMING_SOON]
     rows += [
         _tab("testing", "research-bench", "researchBenchPanel", "Research Bench"),
@@ -89,7 +90,7 @@ def _subnav() -> str:
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap" id="comingSoonRoadmap"><span aria-hidden="true">&#9776;</span> Open the Roadmap</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
@@ -122,11 +123,16 @@ def _script() -> str:
     for key, name, text in COMING_SOON:
         kind, target = SOON_TARGETS.get(key, ("text", ""))
         info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target, "group": "soon"}
+    # One Roadmap page. Every older address (one per area, the demos) opens it at the matching place.
     for key in ROADMAP_ORDER:
-        info[f"roadmap-{key}"] = {"name": ROADMAP_LABELS[key], "text": "", "kind": "page", "target": f"/coming-soon/{key}", "group": "roadmap"}
+        anchor = REDIRECT_ANCHORS.get(key, "")
+        info[f"roadmap-{key}"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "roadmap"}
+    info["roadmap-tour"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap#tour", "group": "roadmap"}
+    info["roadmap-future-features"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "roadmap"}
+    info["roadmap-demos"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap#demos", "group": "roadmap"}
     return (
         "const pitchSoon=" + json.dumps(info) + ";\n"
-        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',soon:'Development',testing:'Testing',direct:'Other'};\n"
+        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Roadmap',soon:'Development',testing:'Testing',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
         "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],soon:['soon'],testing:['research-bench']});\n"
@@ -178,7 +184,7 @@ def _script() -> str:
         "    lastGroupTabs[item.group]=soon;pitchShowSoonNav(soon,item.group);\n"
         "    const frame=document.getElementById('comingSoonFrame'),head=document.getElementById('comingSoonHead');\n"
         "    const framed=item.kind==='page';\n"
-        "    if(frame){const flat=item.group==='roadmap';try{frame.setAttribute('data-auto',flat?'1':'0');frame.setAttribute('class',flat?'cs-frame cs-frame-flat':'cs-frame');if(!flat)frame.style.height=''}catch(error){}frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (coming soon)':' (in development)')}\n"
+        "    if(frame){const flat=item.group==='roadmap';try{frame.setAttribute('data-auto',flat?'1':'0');frame.setAttribute('class',flat?'cs-frame cs-frame-flat':'cs-frame');if(!flat)frame.style.height=''}catch(error){}frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (roadmap)':' (in development)')}\n"
         "    if(head){head.hidden=item.kind!=='text';document.getElementById('comingSoonTitle').textContent=item.name;document.getElementById('comingSoonText').textContent=item.text}\n"
         "    if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',soon);url.searchParams.set('group',item.group);url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}\n"
         "  }\n"

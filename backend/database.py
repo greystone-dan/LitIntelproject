@@ -1110,6 +1110,77 @@ class CaseFingerprintRecord(Base):
 	computed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
 
 
+class IssueMap(Base):
+	"""One decided issue from a stored issue map: what was argued, who won, and the paragraph stating the result.
+
+	Written at ingest from public decisions (see scripts/load_issue_maps.py). Live Analysis matches a user's
+	argument against these rows with plain keyword search; no model runs at site-use time.
+	"""
+
+	__tablename__ = "issue_maps"
+	__table_args__ = (UniqueConstraint("source_key", "issue_no", name="uq_issue_map_source_issue"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_key: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	issue_no: Mapped[int] = mapped_column(Integer, nullable=False)
+	case_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("cases.id", ondelete="SET NULL"), nullable=True, index=True)
+	citation: Mapped[str | None] = mapped_column(String(120), nullable=True)
+	court: Mapped[str | None] = mapped_column(String(20), nullable=True)
+	issue: Mapped[str] = mapped_column(Text, nullable=False)
+	text: Mapped[str] = mapped_column(Text, nullable=False)
+	result: Mapped[str] = mapped_column(String(30), nullable=False)
+	result_para: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	soften: Mapped[str | None] = mapped_column(Text, nullable=True)
+	result_paragraph: Mapped[str | None] = mapped_column(Text, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class IssueMapQuestion(Base):
+	"""A plain-language question that one stored issue answers (written once at ingest, kept as ordinary text)."""
+
+	__tablename__ = "issue_map_questions"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	issue_map_id: Mapped[int] = mapped_column(Integer, ForeignKey("issue_maps.id", ondelete="CASCADE"), nullable=False, index=True)
+	position: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	question: Mapped[str] = mapped_column(Text, nullable=False)
+
+
+class CaseFrame(Base):
+	"""The simple pass-1 frame of one decision: parties, earlier decisions, issues, arguments, challenged part.
+
+	Written once at ingest (see scripts/load_case_frames.py), stored as ordinary data. The reader shows it
+	behind CASELIBRARY_CASE_FRAME_ENABLED=1; no model runs at site-use time.
+	"""
+
+	__tablename__ = "case_frames"
+	__table_args__ = (UniqueConstraint("case_id", "version", name="uq_case_frame_case_version"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	version: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+	frame: Mapped[dict] = mapped_column(JSON, nullable=False)
+	source: Mapped[str] = mapped_column(String(40), nullable=False)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class ParagraphPosition(Base):
+	"""Whose-position tags for every numbered paragraph of one decision (rules plus the small learned tagger).
+
+	Written at ingest by scripts/load_position_tags.py; the reader only reads it. ``paragraphs`` maps the printed
+	paragraph number (as text) to ``{"h": holder, "p": probability}``. No model runs at site-use time.
+	"""
+
+	__tablename__ = "paragraph_positions"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, unique=True)
+	tagger: Mapped[str] = mapped_column(String(40), nullable=False)
+	paragraph_count: Mapped[int] = mapped_column(Integer, nullable=False)
+	paragraphs: Mapped[dict] = mapped_column(JSON, nullable=False)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
 class WorkbenchCase(Base):
 	"""One IMM file on a demo analyst's Workbench case list, with the activity state last seen."""
 

@@ -9,7 +9,7 @@
  const E=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const N=value=>Number(value||0).toLocaleString('en-CA');
  const getJson=async url=>{const response=await fetch(url);if(!response.ok)throw new Error(`Request failed (${response.status})`);return response.json();};
- const v6={caseId:null,tab:'about',isub:'intel',open:null,outline:false,view:null,stack:[],filter:'',af:'all',cursor:{},cfind:{},intel:new Map(),judges:new Map(),cards:new Map()};
+ const v6={caseId:null,tab:'about',isub:'intel',open:null,outline:false,units:false,view:null,stack:[],filter:'',af:'all',cursor:{},cfind:{},intel:new Map(),judges:new Map(),cards:new Map()};
  const fullCaseUrl=id=>`/data-explorer?case_id=${encodeURIComponent(id)}`;
  const openFull=id=>{if(id)window.open(fullCaseUrl(id),'_blank','noopener');};
  const SHOW_COMPARE=false; /* the Compare page is not pitch-ready; set true to bring the button back */
@@ -72,7 +72,11 @@
 
  /* ---------- left panel ---------- */
  const subTabs=(items,current,attr)=>`<div class="v6-subtabs">${items.map(([key,label])=>`<button type="button" ${attr}="${key}" class="${current===key?'on':''}">${label}</button>`).join('')}</div>`;
- function outlineRows(d){const sec=(d.readerData&&d.readerData.structure_outline)||[],heads=headings(d);if(!sec.length)return heads;const have=new Set(sec.map(r=>r.start)),extra=heads.filter(h=>!have.has(h.start)).map(h=>({title:h.title,start:h.start,para:h.para,level:2}));return sec.concat(extra).sort((a,b)=>a.start-b.start);}
+ const SECTION_ORDER=['Background','Issues','Analysis','Disposition'];
+ function outlineCount(rows){const tops=rows.filter(r=>r.section&&r.level===1);if(tops.length){const pts=rows.length-tops.length;return `${tops.length} section${tops.length===1?'':'s'}${pts?` · ${pts} sub-point${pts===1?'':'s'}`:''}`;}return `${rows.length} section${rows.length===1?'':'s'}`;}
+ function sectionLine(row){return row&&row.section_title?row.section_title+(row.section_point?' · '+row.section_point:''):'';}
+ function sectionCounts(rows){const c=new Map();rows.forEach(r=>{if(r.section_title)c.set(r.section_title,(c.get(r.section_title)||0)+1);});return SECTION_ORDER.filter(t=>c.has(t)).map(t=>`${t} ×${c.get(t)}`).join(' · ');}
+ function outlineRows(d){const sec=(d.readerData&&d.readerData.structure_outline)||[],heads=headings(d);if(!sec.length)return heads;if(sec[0].section)return sec.slice().sort((a,b)=>a.start-b.start||a.level-b.level);const have=new Set(sec.map(r=>r.start)),extra=heads.filter(h=>!have.has(h.start)).map(h=>({title:h.title,start:h.start,para:h.para,level:2}));return sec.concat(extra).sort((a,b)=>a.start-b.start);}
  function headings(d){const blocks=d.readerData.format_blocks||[],text=Array.from(d.item.full_text||''),out=[];blocks.forEach((b,i)=>{if(b.type!=='heading')return;const title=text.slice(b.start,b.end).join('').replace(/\s+/g,' ').trim();if(!title)return;const next=blocks.slice(i+1).find(x=>x.type==='para'&&x.num!=null);out.push({title,start:b.start,para:next?next.num:null,level:b.level||1});});return out;}
  const kv=rows=>{const list=rows.filter(row=>row&&row[1]!==''&&row[1]!=null);return list.length?`<div class="v6-kv">${list.map(([k,v])=>`<div><small>${E(k)}</small><b>${E(v)}</b></div>`).join('')}</div>`:'';};
  const LANG={en:'English',fr:'French',english:'English',french:'French'};
@@ -87,7 +91,37 @@
   return `<div class="v6-outrow"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}${disposition?`<button type="button" class="v6-lk" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)} ↓</button>`:''}</div>${outcome&&outcome.note?`<div class="v6-small v6-outnote">${E(outcome.note)}</div>`:''}
   ${details||links||status?`<div class="v6-sec v6-compact"><h4>Case details</h4>${details}${links?`<div class="v6-links">${links}</div>`:''}${status?`<div class="v6-small">${E(status)}</div>`:''}</div>`:''}
   ${tags.length?`<div class="v6-sec v6-compact"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
-  ${outl.length?`<div class="v6-sec v6-compact"><button type="button" class="v6-outbtn${v6.outline?' open':''}" data-v6-outl-toggle aria-expanded="${v6.outline}"><span class="v6-ot">Outline<small>${outl.length} section${outl.length===1?'':'s'}</small></span>${TAPE}<span class="v6-chev">${v6.outline?'▾':'▸'}</span></button>${v6.outline?`<div class="v6-outline">${outl.map(h=>`<button type="button" class="v6-orow${h.level>1?' v6-sub':''}" data-v6-outline="${h.start}"><span>${E(h.title)}</span>${h.para?`<span class="v6-ct">${E(h.para)}</span>`:''}</button>`).join('')}</div>`:''}</div>`:''}`;}
+  ${outl.length?`<div class="v6-sec v6-compact"><button type="button" class="v6-outbtn${v6.outline?' open':''}" data-v6-outl-toggle aria-expanded="${v6.outline}"><span class="v6-ot">Outline<small>${outlineCount(outl)}</small></span>${TAPE}<span class="v6-chev">${v6.outline?'▾':'▸'}</span></button>${v6.outline?`<div class="v6-outline">${outl.map(h=>`<button type="button" class="v6-orow${h.level>2?' v6-sub v6-sub3':h.level>1?' v6-sub':h.section?' v6-top':''}" data-v6-outline="${h.start}"><span>${E(h.title)}</span>${h.para?`<span class="v6-ct">${E(h.para_end&&h.para_end!==h.para?h.para+'–'+h.para_end:h.para)}</span>`:''}</button>`).join('')}</div>`:''}</div>`:''}${unitsSectionHtml(d)}`;}
+
+
+ /* unit-rows:start */
+ /* Discussion units for the left panel: where each unit starts and ends (printed paragraph numbers), the rule-based role
+    of the unit, and the paragraphs the position rules read as the applicant's or respondent's argument. Stored data only. */
+ const UNIT_ROLE_NAMES={metadata:'Header / footer',overview:'Overview',facts:'Facts',issues:'Issues',analysis:'Analysis',disposition:'Disposition'};
+ function unitOutlineRows(rd){
+  const es=rd&&rd.evidence_summary,units=(es&&es.units)||[],chunks=(rd&&rd.chunks)||[],blocks=(rd&&rd.format_blocks)||[];
+  const numAt=i=>{const c=chunks[i],m=c&&/^\s*\[(\d{1,3})\]/.exec(String(c.text||''));return m?Number(m[1]):null;};
+  const startOf=n=>{const b=blocks.find(x=>x.type==='para'&&x.num===n);return b?b.start:null;};
+  const rows=[];
+  for(const u of units){
+   let first=null,last=null;
+   if(u.start_number!=null&&u.end_number!=null){first=u.start_number;last=u.end_number;}
+   else for(let i=u.start_paragraph;i<=u.end_paragraph;i++){const n=numAt(i);if(n!==null){if(first===null)first=n;last=n;}}
+   const by={};
+   for(const a of u.party_arguments||[]){const n=a.paragraph_number!=null?a.paragraph_number:numAt(a.paragraph_index);if(n!==null)(by[a.party]=by[a.party]||[]).push(n);}
+   rows.push({index:u.unit_index,first:first,last:last,start:first===null?null:startOf(first),role:u.role||null,roleName:u.role?(UNIT_ROLE_NAMES[u.role]||u.role):'',
+    parties:['applicant','respondent'].filter(k=>by[k]).map(k=>({party:k,label:k==='applicant'?'Applicant':'Respondent',nums:by[k]}))});
+  }
+  return {rows:rows,roleNote:(es&&es.role_note)||'',partyNote:(es&&es.party_note)||''};
+ }
+ /* unit-rows:end */
+ function unitsSectionHtml(d){
+  const info=unitOutlineRows(d.readerData);if(!info.rows.length)return '';
+  const range=r=>r.first===null?'No paragraph number':'¶'+r.first+(r.last!==r.first?'–'+r.last:'');
+  const rows=v6.units?`<div class="v6-uwhy">Experimental. Roles and party arguments come from fixed text rules, not a reader.${info.roleNote?' '+E(info.roleNote):''}${info.partyNote?' '+E(info.partyNote):''}</div><div class="v6-outline">${info.rows.map(r=>{
+   const label=`<span>${E(range(r))}${r.roleName?' · '+E(r.roleName):''}</span>`,sub=r.parties.length?`<small class="v6-uparty">${r.parties.map(p=>E(p.label)+' '+p.nums.map(n=>'¶'+n).join(', ')).join(' · ')}</small>`:'';
+   return r.start!=null?`<button type="button" class="v6-orow v6-urow" data-v6-outline="${r.start}">${label}${sub}</button>`:`<div class="v6-orow v6-urow">${label}${sub}</div>`;}).join('')}</div>`:'';
+  return `<div class="v6-sec v6-compact v6-exp"><button type="button" class="v6-outbtn${v6.units?' open':''}" data-v6-units-toggle aria-expanded="${v6.units}"><span class="v6-ot">Discussion units<small>${info.rows.length} unit${info.rows.length===1?'':'s'} · experimental</small></span><span class="v6-chev">${v6.units?'▾':'▸'}</span></button>${rows}</div>`;}
 
  function authorityRows(d){
   const q=v6.filter.toLowerCase(),cases=v6.af==='stat'?[]:sideAuthorityGroups(d.citations).filter(g=>!q||(g.label+' '+g.citation).toLowerCase().includes(q)).map(g=>({k:'case',key:'c:'+g.key,g})),
@@ -105,7 +139,7 @@
   const chips=[['all','All',nCase+nStat],['case','Cases',nCase],['stat','Statutes',nStat]].map(([k,l,n])=>`<button type="button" class="v6-fchip${v6.af===k?' on':''}" data-v6-af="${k}">${l}<b>${N(n)}</b></button>`).join('');
   const rows=all.map(r=>{const open=v6.open===r.key,g=r.g,toggle=label=>`<button type="button" class="v6-ab${open?' on':''}" data-v6-row="${E(r.key)}" aria-expanded="${open}" title="${open?'Hide':'Show'} the paragraph text">${label} ${open?'▾':'▸'}</button>`;
    if(r.k==='case'){const n=g.rows.length,paras=[...g.paras].slice(0,4).join(', ');
-    return `<div class="v6-arow case${open?' open':''}"><div class="v6-ah"${g.caseId?` data-v6-case="${g.caseId}"`:''}><span class="v6-at"><strong>${E(g.label)}</strong>${g.citation&&g.citation!==g.label?`<small>${E(g.citation)}</small>`:''}</span><span class="v6-cnt" title="Times cited in this decision"><b>${n}</b>${n===1?'citation':'citations'}</span></div>${paras?`<div class="v6-asub">at ${E(paras)}</div>`:''}<div class="v6-aact">${findGroup('cite',[...g.jump].join('|'),r.key)}${g.caseId?`<button type="button" class="v6-ab pri" data-v6-ent="${g.caseId}" data-v6-title="${E(g.label)}" data-v6-cite="${E(g.citation)}">Citation intelligence</button><button type="button" class="v6-ab" data-v6-newtab="${g.caseId}">Full case ↗</button>${toggle('Text')}`:'<span class="v6-small">Not matched to a case in the library</span>'}</div>${open?caseBody(g,d):''}</div>`;}
+    return `<div class="v6-arow case${open?' open':''}"><div class="v6-ah"${g.caseId?` data-v6-case="${g.caseId}"`:''}><span class="v6-at"><strong>${E(g.label)}</strong>${g.citation&&g.citation!==g.label?`<small>${E(g.citation)}</small>`:''}</span><span class="v6-cnt" title="Times cited in this decision"><b>${n}</b>${n===1?'citation':'citations'}</span></div>${paras?`<div class="v6-asub">at ${E(paras)}</div>`:''}${sectionCounts(g.rows)?`<div class="v6-asub v6-where" title="Which part of this decision cites it">Cited in: ${E(sectionCounts(g.rows))}</div>`:''}<div class="v6-aact">${findGroup('cite',[...g.jump].join('|'),r.key)}${g.caseId?`<button type="button" class="v6-ab pri" data-v6-ent="${g.caseId}" data-v6-title="${E(g.label)}" data-v6-cite="${E(g.citation)}">Citation intelligence</button><button type="button" class="v6-ab" data-v6-newtab="${g.caseId}">Full case ↗</button>${toggle('Text')}`:'<span class="v6-small">Not matched to a case in the library</span>'}</div>${open?caseBody(g,d):''}</div>`;}
    const needles=g.sections.flatMap(s=>[...s.jump]).join('|');
    return `<div class="v6-arow stat${open?' open':''}"><div class="v6-ah"><span class="v6-at"><strong>${E(g.title)}</strong><small>${E(g.sections.slice(0,3).map(s=>s.number?`s. ${s.number}`:'general').join(' · '))}</small></span><span class="v6-cnt" title="Times cited in this decision"><b>${g.total}</b>${g.total===1?'citation':'citations'}</span></div><div class="v6-aact">${findGroup('act',needles,r.key)}<button type="button" class="v6-ab pri" data-v6-stat="${E(g.title)}" data-v6-sub="${E(g.sections.slice(0,3).map(s=>s.number?`s. ${s.number}`:'').filter(Boolean).join(' · '))}">Statute intelligence</button>${g.url?`<a class="v6-ab" href="${E(g.url)}" target="_blank" rel="noopener noreferrer">Read the Act ↗</a>`:''}${toggle('Text')}</div>${open?actBody(g):''}</div>`;}).join('');
   return `<div class="v6-legend2"><span><i class="c"></i>Case citations</span><span><i class="s"></i>Statutes and regulations</span></div><input class="v6-filter" type="search" data-v6-filter placeholder="Filter authorities" value="${E(v6.filter)}"><div class="v6-fchips">${chips}</div>${rows||'<div class="v6-note">Nothing matches.</div>'}`;}
@@ -198,6 +232,7 @@
   if(m=t.closest('[data-v6-af]')){v6.af=m.dataset.v6Af;return renderPanel();}
   if(t.closest('[data-v6-collapse]')){document.getElementById('toggleCaseInformation')?.click();return;}
   if(m=t.closest('[data-v6-outl-toggle]')){v6.outline=!v6.outline;return renderPanel();}
+  if(m=t.closest('[data-v6-units-toggle]')){v6.units=!v6.units;return renderPanel();}
   if(m=t.closest('[data-v6-find]'))return runFind(m,Number(m.dataset.v6Dir||1));
   if(m=t.closest('[data-v6-stat]'))return go({type:'statute',title:m.dataset.v6Stat,sub:m.dataset.v6Sub||''});
   if(m=t.closest('[data-v6-outline]'))return jumpOutline(m.dataset.v6Outline);
@@ -234,7 +269,7 @@
   const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null;
   if(!row)return `<div class="v6-ck">${kind==='stat'?'Statute or regulation':'Cited case'}</div><div class="v6-ct2">${E(el.textContent)}</div>`;
   const info=hoverCitationInfo(row);if(info.fetch&&!row._hoverFetched)hoverFetchText(row).then(ok=>{if(!ok)return;const card=v6.cards.get(cardKey(el));if(card&&card.isConnected){const btns=card.querySelector('.v6-cbtns');card.innerHTML=citationCardHtml(el);card.appendChild(btns);}});
-  return `<div class="v6-ck">${E(info.kind)}</div><div class="v6-ct2">${E(info.title)}</div>${info.label?`<div class="v6-cl">${E(info.label)}</div>`:''}${info.text?citedTextHtml(info.text,kind==='stat'):`<div class="v6-cn">${E(info.note||'')}</div>`}${row.target_case_id?'<div class="v6-dh">Double-click the citation to open this case in a new tab</div>':''}`;}
+  return `<div class="v6-ck">${E(info.kind)}</div><div class="v6-ct2">${E(info.title)}</div>${info.label?`<div class="v6-cl">${E(info.label)}</div>`:''}${sectionLine(row)?`<div class="v6-cw">Cited in the ${E(sectionLine(row))}</div>`:''}${info.text?citedTextHtml(info.text,kind==='stat'):`<div class="v6-cn">${E(info.note||'')}</div>`}${row.target_case_id?'<div class="v6-dh">Double-click the citation to open this case in a new tab</div>':''}`;}
  /* Card buttons: an "i" that opens the citation in the left panel's Intelligence view (a statute goes to its Coming soon page) and a pin. */
  const INFO_I='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="4.9" r="1" fill="currentColor"/><path d="M8 7.3v4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
  function cardButtons(el){const kind=el?kindOf(el):'para',row=el&&el.dataset.citeId?hoverRow(el.dataset.citeId):null;

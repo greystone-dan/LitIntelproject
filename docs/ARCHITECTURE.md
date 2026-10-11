@@ -159,6 +159,9 @@ test checks that these paths continue to exist.
 | `backend/case_fingerprint.py` | Case fingerprint: deterministic "similar cases by subject" and "shares authorities" (no AI) |
 | `backend/case_fingerprint_store.py` | Stored case fingerprints: compute at ingest/batch time, read back into a similarity index |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
+| `backend/case_frame.py` | Deterministic case frame (court, proceeding, earlier decision maker, which side the Minister is on) built before any paragraph is read; no model |
+| `backend/case_frame_plus.py` | Pass 1 of the argument breakdown: a plain "what is this case" frame, built before any paragraph is classified |
+| `backend/case_frame_store.py` | Stored case frames for the reader: read one decision's frame from case_frames |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
@@ -194,11 +197,16 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/case_structure.py` | Case structure: label every paragraph of a decision with its structural role (no AI) |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |
 | `backend/contextual_authority/discussion_units.py` | Deterministic paragraph features and discussion-unit boundaries |
+| `backend/contextual_authority/learned_roles.py` | Paragraph roles from a small learned word/position model blended with the case-structure rules |
+| `backend/contextual_authority/learned_roles_weights.npz` | TODO: describe this file |
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |
 | `backend/contextual_authority/observations.py` | Observation and evidence structures for contextual analysis |
+| `backend/contextual_authority/outline_v2.py` | Reader outline, second version: four sections with sub-points, and the section a citation sits in (no AI) |
+| `backend/contextual_authority/structure_units.py` | Discussion units cut along the decision's skeleton (no AI) |
 | `backend/contextual_authority/subthemes.py` | Groups discussion-unit subthemes |
 | `backend/contextual_authority/teacher_contract.py` | Validates report-only teacher/evaluation outputs |
 | `backend/contextual_authority/unit_roles.py` | Deterministic coarse role labels (facts, issues, analysis, disposition...) for discussion units |
+| `backend/contextual_authority/unit_voices.py` | Flags the paragraphs in a discussion unit that the position rules read as the applicant's or respondent's argument (experimental, no AI) |
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
@@ -215,11 +223,14 @@ test checks that these paths continue to exist.
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/instrument_resolver.py` | Map the act name in a stored statute reference to a registered instrument key, deterministically |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
+| `backend/issue_match.py` | Live Analysis issue matches: find decided issues close to one argument from a user's draft |
 | `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/judge_aliases.py` | Read-side helpers for the reversible judge alias layer |
 | `backend/judge_fc_activity.py` | Attach Federal Court docket activity (leave, JR, motions, stays) to a canonical judge profile |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
 | `backend/judge_normalization.py` | Deterministic judge-name normalization (no database, no AI) |
+| `backend/learned_positions.py` | Whose-position tags from the cue rules plus a small learned model (numpy only, no model call) |
+| `backend/learned_positions_weights.npz` | TODO: describe this file |
 | `backend/legal_tagger.py` | Deterministic evidence-bearing legal tags |
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
@@ -237,6 +248,7 @@ test checks that these paths continue to exist.
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/opinion_parts.py` | Majority, concurring and dissenting parts of a decision, found by code from the text's own markers |
 | `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/overruling_risk.py` | Editable source-backed seeds and cautious direct/indirect indicator response shaping |
 | `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
@@ -250,8 +262,11 @@ test checks that these paths continue to exist.
 | `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
+| `backend/pages/coming_soon_argument.py` | Coming soon: the long page on the argument-breakdown work (whose position) |
 | `backend/pages/coming_soon_content.py` | Words for the Coming soon pages |
+| `backend/pages/coming_soon_demo.html` | Seven clickable Coming soon demos (reference library, smarter tags, coverage, Supreme Court data expansion, profiles and teams, argument breakdown, live document reader) that run on fixed, invented data in the browser with no network calls. |
 | `backend/pages/coming_soon_page.py` | Coming soon: the roadmap, one overview page plus one page per section |
+| `backend/pages/coming_soon_preview.html` | Guided, Next-only tour of the Coming soon ideas (library, tags, teams, future local AI) using real screenshots and clearly labelled mock-ups. |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
 | `backend/pages/deidentify.py` | De-identification page builder |
 | `backend/pages/discussion_units_sandbox.py` | Experimental discussion-unit page builder |
@@ -262,6 +277,7 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page: the research page with a view that opens your own document in the reader's markup mode |
+| `backend/pages/live_analysis_matches.py` | Live Analysis: "Find decided issues" block (default off; see backend/issue_match.py) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
 | `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
@@ -271,11 +287,20 @@ test checks that these paths continue to exist.
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/pitch_nav.py` | Pitch navigation: four top-level tabs on the main explorer page |
 | `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
+| `backend/pages/preview_img/authorities.webp` | Real Authorities-panel screenshot used by the Coming soon preview. |
+| `backend/pages/preview_img/live.webp` | Real Live Analysis screenshot used by the Coming soon preview. |
+| `backend/pages/preview_img/reader.webp` | Real case-reader screenshot used by the Coming soon preview. |
+| `backend/pages/preview_img/workbench.webp` | Real Workbench screenshot used by the Coming soon preview. |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
+| `backend/pages/reader_frame.css` | TODO: describe this file |
+| `backend/pages/reader_frame.js` | TODO: describe this file |
+| `backend/pages/reader_positions.css` | TODO: describe this file |
+| `backend/pages/reader_positions.js` | TODO: describe this file |
 | `backend/pages/reader_v6.css` | TODO: describe this file |
 | `backend/pages/reader_v6.js` | TODO: describe this file |
 | `backend/pages/research.py` | Experimental research page builder |
+| `backend/pages/roadmap_page.py` | The Roadmap: one long, expandable page that replaces the separate Coming soon pages |
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/search_v6.css` | TODO: describe this file |
 | `backend/pages/search_v6.js` | TODO: describe this file |
@@ -289,7 +314,9 @@ test checks that these paths continue to exist.
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
-| `backend/pages/welcome.py` | Welcome page (the site's front door) and the Demo / Admin mode switch |
+| `backend/pages/unit_search_ui.css` | TODO: describe this file |
+| `backend/pages/unit_search_ui.js` | TODO: describe this file |
+| `backend/pages/welcome.py` | Admin / experimental switch (hides development tabs unless turned on) |
 | `backend/pages/workbench.py` | Workbench page: demo sign-in, then three views (Analyst home, Live analysis, De-identifier) |
 | `backend/pages/workbench_brief.py` | Printable Workbench briefs: one page of plain HTML with print styles (no scripts that send data anywhere) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
@@ -297,6 +324,8 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
 | `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/position_holder.py` | Deterministic "whose position is this paragraph reporting" rules (applicant, respondent, earlier decision maker, court, authority, witness); no model |
+| `backend/position_tags.py` | Whose-position tags for the reader (preview) |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
@@ -326,6 +355,8 @@ test checks that these paths continue to exist.
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
+| `backend/tour_cache.py` | A short-lived server cache for the site tour's fixed demo requests |
+| `backend/unit_keyword_search.py` | Find the discussion unit, not just the case (no model, no AI call) |
 | `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 | `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/workbench.py` | Workbench: a demo analyst's own space (case list with activity flags, pinned decisions, notes) |

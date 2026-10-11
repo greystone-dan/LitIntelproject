@@ -25,6 +25,40 @@ def _is_heading(chunk: CaseChunk) -> bool:
     }
 
 
+_NUMBERED_LINE_RE = re.compile(r"(?m)^[ \t]*\[\d+\]")
+_MULTI_PARAGRAPH_MIN = 5
+_PIECE_HEADING_RE = re.compile(
+    r"^(?:[IVX]+\.|[A-Z]\.|\(\d+\)|\d+\.)\s+\S[^.]{0,120}$|^[A-Z][A-Za-z,'\u2019\-]*(?: [A-Za-z,'\u2019\-]+){0,7}$"
+)
+
+
+def _numbered_piece_spans(text: str) -> list[tuple[int, int, bool]] | None:
+    """Split a chunk that holds many numbered paragraphs (Supreme Court decisions are stored as a dozen big chunks).
+
+    A new piece starts at every line that begins ``[n]`` and at every short heading line ("III. Issue"); other lines
+    stay with the piece before them. Returns None when the chunk is an ordinary one-paragraph chunk.
+    """
+    if len(_NUMBERED_LINE_RE.findall(text)) < _MULTI_PARAGRAPH_MIN:
+        return None
+    starts: dict[int, bool] = {0: False}
+    for line in re.finditer(r"(?m)^.*$", text):
+        stripped = line.group(0).strip()
+        if not stripped or line.start() == 0:
+            continue
+        if re.match(r"\[\d+\]", stripped):
+            starts[line.start()] = False
+        elif len(stripped) < 130 and _PIECE_HEADING_RE.match(stripped):
+            starts[line.start()] = True
+    ordered = sorted(starts)
+    spans = []
+    for position, start in enumerate(ordered):
+        end = ordered[position + 1] if position + 1 < len(ordered) else len(text)
+        piece = text[start:end].rstrip()
+        if piece.strip():
+            spans.append((start, start + len(piece), starts[start]))
+    return spans
+
+
 def _heading_match(text: str) -> re.Match[str] | None:
     text = text.strip()
     first_line = text.splitlines()[0].strip() if text else ""
@@ -54,15 +88,16 @@ def _paragraph_features(session, chunks: list[CaseChunk], case_id: int) -> tuple
     citations = session.scalars(select(Citation).where(Citation.source_case_id == case_id, Citation.chunk_id.in_(chunk_ids))).all()
     statutes = session.scalars(select(StatuteReference).where(StatuteReference.source_case_id == case_id, StatuteReference.chunk_id.in_(chunk_ids))).all()
     tags = session.scalars(select(CaseTag).where(CaseTag.case_id == case_id, CaseTag.chunk_id.in_(chunk_ids))).all()
-    citations_by_chunk: dict[int, list[int]] = {chunk_id: [] for chunk_id in chunk_ids}
-    statutes_by_chunk: dict[int, list[int]] = {chunk_id: [] for chunk_id in chunk_ids}
-    tags_by_chunk: dict[int, list[str]] = {chunk_id: [] for chunk_id in chunk_ids}
+    citations_by_chunk: dict[int, list[tuple[int, int | None]]] = {chunk_id: [] for chunk_id in chunk_ids}
+    statutes_by_chunk: dict[int, list[tuple[int, int | None]]] = {chunk_id: [] for chunk_id in chunk_ids}
+    tags_by_chunk: dict[int, list[tuple[str, int | None]]] = {chunk_id: [] for chunk_id in chunk_ids}
+    # Each row keeps its offset inside the chunk so a chunk split into several pieces can hand every piece its own rows.
     for citation in citations:
-        citations_by_chunk[citation.chunk_id].append(citation.id)
+        citations_by_chunk[citation.chunk_id].append((citation.id, citation.offset_start))
     for statute in statutes:
-        statutes_by_chunk[statute.chunk_id].append(statute.id)
+        statutes_by_chunk[statute.chunk_id].append((statute.id, statute.offset_start))
     for tag in tags:
-        tags_by_chunk[tag.chunk_id].append(f"{tag.category}:{tag.value}")
+        tags_by_chunk[tag.chunk_id].append((f"{tag.category}:{tag.value}", tag.offset_start))
     features: list[ParagraphFeatures] = []
     next_index = 0
     for chunk in chunks:
@@ -75,6 +110,13 @@ def _paragraph_features(session, chunks: list[CaseChunk], case_id: int) -> tuple
             "subsection",
         }
         spans = ((0, split_at, False), (split_at, len(text), True)) if split_at else ((0, len(text), bool(match) or label_is_heading),)
+        numbered_spans = _numbered_piece_spans(text)
+        spans = numbered_spans or spans
+
+        def rows_in(rows, start, end):
+            # Whole-chunk rows for an ordinary chunk; for a split chunk only the rows whose offset falls in this piece.
+            return [value for value, offset in rows if numbered_spans is None or offset is None or start <= offset < end]
+
         for start, end, is_heading in spans:
             segment_text = text[start:end]
             if not segment_text:
@@ -89,9 +131,9 @@ def _paragraph_features(session, chunks: list[CaseChunk], case_id: int) -> tuple
                     text=segment_text,
                     source_text_hash=chunk.text_hash,
                     source_paragraph_index=chunk.chunk_index,
-                    citation_ids=tuple(sorted(set(citations_by_chunk[chunk.id]))),
-                    statute_ids=tuple(sorted(set(statutes_by_chunk[chunk.id]))),
-                    tag_ids=tuple(sorted(set(tags_by_chunk[chunk.id]))),
+                    citation_ids=tuple(sorted(set(rows_in(citations_by_chunk[chunk.id], start, end)))),
+                    statute_ids=tuple(sorted(set(rows_in(statutes_by_chunk[chunk.id], start, end)))),
+                    tag_ids=tuple(sorted(set(rows_in(tags_by_chunk[chunk.id], start, end)))),
                     is_heading=is_heading,
                 )
             )

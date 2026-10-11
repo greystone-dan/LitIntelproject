@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-08T09:09:02.971608+00:00
+Generated: 2026-10-11T20:16:54.616991+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 134 across 131 paths
-Hidden operations: 96 excluded from OpenAPI
+OpenAPI operations: 137 across 134 paths
+Hidden operations: 105 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -548,6 +548,21 @@ Get Case
 - `200`: Successful Response; `application/json`: `CaseResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/case-frame`
+
+Get Case Frame
+
+The stored case frame (parties, earlier decisions, issues, arguments, challenged part). Off unless CASELIBRARY_CASE_FRAME_ENABLED=1.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/citation-metrics`
 
 Get Case Citation Metrics
@@ -680,6 +695,21 @@ Word file of the decision with the margin notes the browser sends as Word commen
 ### `GET /cases/{case_id}/paragraph-assessments`
 
 Get Case Paragraph Assessments
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-positions`
+
+Get Case Paragraph Positions
+
+Whose-position tags and one-line summaries for a decision (preview). Stored data only; no model call.
 
 **Parameters**
 
@@ -1558,6 +1588,21 @@ Live Analysis Analyze
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/issue-matches`
+
+Live Analysis Issue Matches
+
+Decided issues close to one pasted argument. Keyword search only, nothing stored, no model.
+
+**Request body (required)**
+
+- `application/json`: `IssueMatchRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /live-analysis/reader`
@@ -2580,6 +2625,60 @@ Handler: `backend.routes.citation_pass_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /coming-soon`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_index`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-demo`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_demo_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-preview`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_preview_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-preview/img/{name}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_preview_image`
+
+**Handler parameters**
+
+- `name` (str; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon/`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_index`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /coming-soon/{section}`
 
 **Hidden from OpenAPI.**
@@ -2805,6 +2904,10 @@ Handler: `backend.routes.judge_profile_page`
 
 Handler: `backend.routes.live_analysis_page`
 
+**Handler parameters**
+
+- `request` (Request; required)
+
 **Responses**
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
@@ -2854,6 +2957,36 @@ Handler: `backend.routes.quick_search_interface`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.research_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.roadmap_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/internal.json`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.roadmap_internal_notes`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/tour`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.roadmap_tour_page`
 
 **Responses**
 
@@ -2969,11 +3102,28 @@ Handler: `backend.routes.theme_explorer_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /unit-search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_unit_search`
+
+**Handler parameters**
+
+- `q` (str; default `Query(PydanticUndefined)`)
+- `limit` (int; default `Query(8)`)
+- `court` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /welcome`
 
 **Hidden from OpenAPI.**
 
-Handler: `backend.main.welcome_page`
+Handler: `backend.main.welcome_page_moved`
 
 **Responses**
 

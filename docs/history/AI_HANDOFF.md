@@ -2,8 +2,8 @@
 
 ## Status note (read first)
 
-This file is historical context and may not contain the latest endpoint surface,
-test totals, or overnight outcomes.
+This is a superseded historical record and may not contain the latest endpoint
+surface, test totals, or overnight outcomes.
 
 Use these files as the current operational source of truth:
 

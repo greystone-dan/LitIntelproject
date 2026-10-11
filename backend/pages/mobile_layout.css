@@ -9,8 +9,8 @@
  .page-header h1{font-size:1.45rem!important;line-height:1.15!important;margin:2px 0 4px!important}
  .page-header p{font-size:12.5px!important;margin:0 0 6px!important}
  .page-header .eyebrow{font-size:10px!important}
- .view-tabs{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:2px;margin-top:6px!important}
- .view-tabs .tab{flex:0 0 auto!important;min-height:44px;white-space:nowrap;padding:0 14px!important}
+ .view-tabs{display:flex!important;flex-wrap:wrap!important;overflow:visible!important;gap:2px;margin-top:6px!important}
+ .view-tabs .tab{flex:0 1 auto!important;min-height:44px;white-space:normal;padding:0 14px!important}
 
  /* search form: stack the field and the buttons, 16px text so iOS does not zoom */
  #searchPanel.search-layout{padding:14px 12px!important}
@@ -25,14 +25,16 @@
  #searchPanel .search-actions button,#searchPanel .sq-go{flex:1 1 140px;min-height:48px;height:auto!important;padding:0 14px!important;letter-spacing:.04em}
  #searchPanel .search-actions .secondary,#searchPanel .search-actions a{flex:1 1 140px}
  #searchPanel .search-examples{margin-top:8px}
- #searchPanel .search-examples button{min-height:36px}
+ #searchPanel .search-examples button{min-height:44px}
  /* quick filters: one scrolling row per group instead of a tall wrapped block */
  .quick-filters{display:block!important;padding:8px 10px!important}
  .quick-filters .qf-group{display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;padding:4px 0}
  .quick-filters .qf-group>*{flex:0 0 auto}
- .qf-chip{min-height:40px;padding:0 14px!important}
+ .qf-chip{min-height:44px;padding:0 14px!important}
  .qf-tools{display:flex!important;flex-wrap:wrap;gap:4px 14px!important;margin:6px 0 0!important}
- .qf-link{min-height:40px}
+ .qf-link{min-height:44px}
+ #searchPanel .sp-pick-list button{min-height:44px}
+ #searchPanel .sp-more{min-height:44px}
  .advanced-actions button{min-height:44px}
  #advancedSearchOptions{padding:10px!important}
  #advancedSearchOptions .search-form,#advancedSearchOptions fieldset{grid-template-columns:1fr!important}

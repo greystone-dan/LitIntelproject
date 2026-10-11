@@ -1,6 +1,6 @@
 # AI CaseLibrary - Current Stage Summary (2026-07-31)
 
-## Status note (historical snapshot)
+## Status note (superseded historical snapshot)
 
 This file captures project state on 2026-07-31 and is not a live status
 document.

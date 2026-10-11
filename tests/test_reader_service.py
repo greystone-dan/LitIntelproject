@@ -403,15 +403,78 @@ def test_unit_roles_come_from_stored_paragraph_text_and_skip_reports_without_it(
 
     report = {
         "paragraphs": [
-            {"paragraph_index": 0, "text": "[1] This is an application for judicial review of a RAD decision."},
-            {"paragraph_index": 1, "text": "[2] I find that the RAD erred."},
-            {"paragraph_index": 2, "text": "[3] For these reasons, the application is allowed."},
+            {"paragraph_index": 0, "text": "Smith v. Canada (Citizenship and Immigration) Federal Court Decisions"},
+            {"paragraph_index": 1, "text": "[1] This is an application for judicial review of a RAD decision."},
+            {"paragraph_index": 2, "text": "[2] I find that the RAD erred."},
+            {"paragraph_index": 3, "text": "[3] For these reasons, the application is allowed."},
         ],
         "discussion_units": [
             {"start_paragraph": 0, "end_paragraph": 0},
             {"start_paragraph": 1, "end_paragraph": 1},
             {"start_paragraph": 2, "end_paragraph": 2},
+            {"start_paragraph": 3, "end_paragraph": 3},
         ],
     }
-    assert reader_service._unit_roles(report) == ["overview", "analysis", "disposition"]
+    assert reader_service._unit_roles(report) == ["metadata", "overview", "analysis", "disposition"]
     assert reader_service._unit_roles({"discussion_units": report["discussion_units"]}) == []
+
+
+def test_unit_party_arguments_flag_only_paragraphs_that_report_a_party():
+    from backend import reader_service
+
+    report = {
+        "paragraphs": [
+            {"paragraph_index": 0, "text": "[1] This is an application for judicial review of a RAD decision."},
+            {"paragraph_index": 1, "text": "[2] The applicant argues that the RAD ignored the evidence."},
+            {"paragraph_index": 2, "text": "[3] The respondent submits that the decision was reasonable."},
+            {"paragraph_index": 3, "text": "[4] I find that the RAD did not err."},
+        ]
+    }
+    assert reader_service._unit_party_arguments(report, "Smith v. Canada (Citizenship and Immigration)") == {
+        1: "applicant", 2: "respondent",
+    }
+    assert reader_service._unit_party_arguments({"paragraphs": []}, "") == {}
+
+
+def test_unit_indexes_follow_the_reader_chunk_list_when_a_chunk_is_split_at_a_heading():
+    from types import SimpleNamespace
+
+    from backend import reader_service
+
+    chunks = [SimpleNamespace(id=10 + n, chunk_index=n, chunk_set="paragraph") for n in range(4)]
+    chunks.append(SimpleNamespace(id=99, chunk_index=0, chunk_set="section"))  # other sets never count
+    # The report splits chunk 1 in two (a heading glued to its end), so its later indexes run one ahead.
+    report = {
+        "paragraphs": [
+            {"paragraph_index": 0, "source_paragraph_index": 0},
+            {"paragraph_index": 1, "source_paragraph_index": 1},
+            {"paragraph_index": 2, "source_paragraph_index": 1},
+            {"paragraph_index": 3, "source_paragraph_index": 2},
+            {"paragraph_index": 4, "source_paragraph_index": 3},
+        ]
+    }
+    at = reader_service._chunk_position_mapper(report, chunks)
+    assert [at(index) for index in range(5)] == [0, 1, 1, 2, 3]
+    assert reader_service._chunk_position_mapper(report, None)(4) == 4  # no chunk list: unchanged
+    broken = {"paragraphs": [{"paragraph_index": 0, "source_paragraph_index": 77}]}
+    assert reader_service._chunk_position_mapper(broken, chunks)(0) == 0  # unknown chunk: unchanged
+
+
+def test_unit_printed_numbers_come_from_the_text_and_skip_pieces_without_one():
+    from backend import reader_service
+
+    report = {
+        "paragraphs": [
+            {"paragraph_index": 0, "text": "III. Issue"},
+            {"paragraph_index": 1, "text": "[88] The issue is whether."},
+            {"paragraph_index": 2, "text": "II. Background [3] Glued heading and paragraph."},
+            {"paragraph_index": 3, "text": "[89] More."},
+            {"paragraph_index": 4, "text": "SOLICITORS OF RECORD"},
+        ]
+    }
+    numbers = reader_service._printed_numbers(report)
+    assert numbers == {0: None, 1: 88, 2: 3, 3: 89, 4: None}
+    assert reader_service._unit_number_range(numbers, 0, 4) == (88, 89)
+    assert reader_service._unit_number_range(numbers, 4, 4) == (None, None)
+    # a quoted paragraph out of order does not reverse the range (unit read as 26, 14, 15, 16, 17, 18)
+    assert reader_service._unit_number_range({0: 26, 1: 14, 2: 15, 3: 16, 4: 17, 5: 18}, 0, 5) == (14, 18)

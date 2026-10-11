@@ -238,6 +238,7 @@
   function build(){
     if(ui)return ui;
     var root=el('div','ilit-tour');root.setAttribute('data-ilit-tour','');
+    root.appendChild(el('div','ilit-tour-block'));                  // the page underneath cannot be clicked during the tour (Daniel, 10-09)
     var svg=document.createElementNS(SVGNS,'svg');svg.setAttribute('class','ilit-tour-dim');svg.setAttribute('aria-hidden','true');
     var path=document.createElementNS(SVGNS,'path');path.setAttribute('fill-rule','evenodd');svg.appendChild(path);root.appendChild(svg);
     var rings=el('div','ilit-tour-rings');root.appendChild(rings);
@@ -262,7 +263,7 @@
     var back=el('button','ilit-tour-btn','Back');back.type='button';
     var skip=el('button','ilit-tour-btn quiet','Skip section');skip.type='button';
     var next=el('button','ilit-tour-btn primary','Next');next.type='button';
-    var exitX=el('button','ilit-tour-x','×');exitX.type='button';exitX.setAttribute('aria-label','Exit the tour');exitX.title='Exit the tour';
+    var exitX=el('button','ilit-tour-x','× Exit tour');exitX.type='button';exitX.setAttribute('aria-label','Exit the tour');exitX.title='Exit the tour (Esc)';
     [where,back,skip,next,exitX].forEach(function(n){dock.appendChild(n)});
     root.appendChild(dock);
     var live=el('div','ilit-tour-live');live.setAttribute('aria-live','polite');root.appendChild(live);
@@ -273,6 +274,7 @@
     skip.onclick=skipSection;
     ui={root:root,path:path,rings:rings,cursor:cursor,card:card,dock:dock,kicker:kicker,title:title,text:text,extra:extra,fill:fill,count:count,back:back,skip:skip,next:next,live:live,items:[],focus:0};
     slowScrolling(true);
+    lockPage(true);
     return ui;
   }
   function destroy(){
@@ -280,7 +282,24 @@
     if(ui&&ui.root.parentNode)ui.root.parentNode.removeChild(ui.root);
     document.documentElement.classList.remove('ilit-tour-on');
     slowScrolling(false);
+    lockPage(false);
     ui=null;
+  }
+  // While the tour runs the visitor only steers it: the card scrolls, the dock's buttons and Esc work, and nothing else on the page
+  // takes a click, a wheel or touch scroll, or a key. The tour's own actions are synthetic events, so they still go through.
+  var SCROLL_KEYS=/^(Spacebar|PageUp|PageDown|Home|End|ArrowUp|ArrowDown|Enter)$/,PAGE_KEYS=/^(PageUp|PageDown|Home|End|ArrowUp|ArrowDown)$/;
+  function hold(e){
+    if(!ui||!e.isTrusted)return;
+    var scroll=e.type==='wheel'||e.type==='touchmove'||(e.type==='keydown'&&PAGE_KEYS.test(e.key));   // these scroll the page even from the dock
+    var inside=e.target&&e.target.closest&&e.target.closest(scroll?'.ilit-tour-card':'.ilit-tour-card,.ilit-tour-dock');
+    if(inside)return;                                              // the card's own text scrolls, the buttons press
+    if(e.type==='keydown'&&(e.ctrlKey||e.metaKey||e.altKey||!(SCROLL_KEYS.test(e.key)||e.key.length===1)))return;   // Esc, the arrows that step the tour, Tab, browser shortcuts
+    e.preventDefault();e.stopPropagation();
+  }
+  var HELD=['wheel','touchmove','mousedown','pointerdown','click','dblclick','contextmenu','auxclick','keydown'];
+  function lockPage(on){
+    HELD.forEach(function(t){(on?window.addEventListener:window.removeEventListener).call(window,t,hold,{capture:true,passive:false})});
+    document.documentElement.classList.toggle('ilit-tour-locked',!!on);
   }
   // What a step lights up: its target, plus any "also" regions.
   function itemsFor(s,target){
@@ -1022,7 +1041,17 @@
   // An entry is a URL; {url,top:{by,key,then}} also loads the item with the highest "by" from that list;
   // {post,sample} or {post,file} runs the demo document through the reader (only the tour's own fictional samples are
   // cached by the server; anything a person pastes or uploads is read once and dropped).
+  // The tour's fixed demo requests ("cache" in the steps file) are also kept by the server for a few hours
+  // (backend/tour_cache.py), so asking for them early makes every later step quick. A few at a time, in step order.
+  var cacheWarmed=false;
+  function warmCache(){
+    if(cacheWarmed)return;cacheWarmed=true;
+    var queue=(DATA.cache||[]).filter(function(u){return !/\{(\w+)\}/.test(u)||u.match(/\{(\w+)\}/g).every(function(m){return caseIds[m.slice(1,-1)]!=null})}).map(fillIds);
+    function next(){var u=queue.shift();if(u)fetch(u,{credentials:'same-origin'}).catch(function(){}).then(next)}
+    for(var k=0;k<3;k++)next();
+  }
   function warm(){
+    warmCache();
     (DATA.warm||[]).forEach(function(w){
       try{
         if(typeof w==='string'){fetch(w,{credentials:'same-origin'}).catch(function(){});return}
@@ -1100,7 +1129,14 @@
   function boot(){
     var wants=new URLSearchParams(location.search).get('tour')==='1';
     if(wants&&!(state&&state.active)){start();return}
-    if(state&&state.active)show(Math.min(state.i||0,STEPS.length-1),state.dir||direction);
+    if(state&&state.active){show(Math.min(state.i||0,STEPS.length-1),state.dir||direction);return}
+    setTimeout(prewarm,2500);                                       // the page with the tour button: get the demo data ready
+  }
+  async function prewarm(){
+    if(!document.querySelector('[data-ilit-tour-start]')||(state&&state.active))return;
+    try{if(sessionStorage.getItem('ilit.tour.warm'))return;sessionStorage.setItem('ilit.tour.warm','1')}catch(e){return}
+    await Promise.all(Object.keys(CASES).map(resolveCase));
+    warmCache();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,30)});
   else setTimeout(boot,30);

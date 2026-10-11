@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-11T21:10:04.651498+00:00
-Tables: 43
+Generated: 2026-10-11T21:11:31.472096+00:00
+Tables: 47
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -62,6 +62,14 @@ erDiagram
         JSON role_chars
         Integer text_length
         DATETIME computed_at
+    }
+    case_frames {
+        Integer id PK
+        Integer case_id  FK
+        Integer version
+        JSON frame
+        String(40) source
+        DATETIME created_at
     }
     case_judge_profiles {
         Integer id PK
@@ -412,6 +420,27 @@ erDiagram
         Integer records_failed
         JSON metadata_json
     }
+    issue_map_questions {
+        Integer id PK
+        Integer issue_map_id  FK
+        Integer position
+        TEXT question
+    }
+    issue_maps {
+        Integer id PK
+        String(60) source_key
+        Integer issue_no
+        Integer case_id  FK
+        String(120) citation
+        String(20) court
+        TEXT issue
+        TEXT text
+        String(30) result
+        Integer result_para
+        TEXT soften
+        TEXT result_paragraph
+        DATETIME created_at
+    }
     judge_profile_aliases {
         Integer id PK
         Integer alias_profile_id  FK
@@ -462,6 +491,14 @@ erDiagram
         Integer algo_version
         Integer edges
         DATETIME computed_at
+    }
+    paragraph_positions {
+        Integer id PK
+        Integer case_id  FK
+        String(40) tagger
+        Integer paragraph_count
+        JSON paragraphs
+        DATETIME created_at
     }
     recent_case_chunk_embeddings {
         Integer chunk_id PK FK
@@ -610,6 +647,7 @@ erDiagram
     case_chunks ||--o{ case_chunk_embeddings : "chunk_id"
     cases ||--o{ case_chunks : "case_id"
     cases ||--o{ case_fingerprints : "case_id"
+    cases ||--o{ case_frames : "case_id"
     cases ||--o{ case_judge_profiles : "case_id"
     judge_profiles ||--o{ case_judge_profiles : "judge_profile_id"
     cases ||--o{ case_outcomes : "case_id"
@@ -635,12 +673,15 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
+    issue_maps ||--o{ issue_map_questions : "issue_map_id"
+    cases ||--o{ issue_maps : "case_id"
     judge_profiles ||--o{ judge_profile_aliases : "alias_profile_id"
     judge_profiles ||--o{ judge_profile_aliases : "canonical_profile_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
     cases ||--o{ paragraph_citation_edges : "source_case_id"
     cases ||--o{ paragraph_citation_edges : "target_case_id"
     cases ||--o{ paragraph_citation_status : "source_case_id"
+    cases ||--o{ paragraph_positions : "case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     cases ||--o{ search_alerts : "case_id"
@@ -667,6 +708,7 @@ erDiagram
 | `case_chunk_embeddings` | 6 | `id` |
 | `case_chunks` | 13 | `id` |
 | `case_fingerprints` | 7 | `case_id` |
+| `case_frames` | 6 | `id` |
 | `case_judge_profiles` | 5 | `id` |
 | `case_outcomes` | 18 | `id` |
 | `case_sources` | 14 | `id` |
@@ -688,12 +730,15 @@ erDiagram
 | `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
+| `issue_map_questions` | 4 | `id` |
+| `issue_maps` | 13 | `id` |
 | `judge_profile_aliases` | 5 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
 | `paragraph_citation_edges` | 9 | `id` |
 | `paragraph_citation_status` | 4 | `source_case_id` |
+| `paragraph_positions` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
@@ -835,6 +880,31 @@ erDiagram
 ### Indexes
 
 - `ix_case_fingerprints_version`: index on `version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `case_frames`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `version` | `Integer` | no | NOT NULL; default=1 |
+| `frame` | `JSON` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_frames_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_case_frame_case_version`: `case_id`, `version`
 
 ### Foreign Keys
 
@@ -1553,6 +1623,58 @@ erDiagram
 - `ix_ingestion_runs_source_type`: index on `source_type`
 - `ix_ingestion_runs_status`: index on `status`
 
+## `issue_map_questions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `issue_map_id` | `Integer` | no | FK -> issue_maps.id; NOT NULL |
+| `position` | `Integer` | no | NOT NULL; default=0 |
+| `question` | `TEXT` | no | NOT NULL |
+
+### Indexes
+
+- `ix_issue_map_questions_issue_map_id`: index on `issue_map_id`
+
+### Foreign Keys
+
+- `issue_map_id` -> `issue_maps.id`; on delete `CASCADE`
+
+## `issue_maps`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_key` | `String(60)` | no | NOT NULL |
+| `issue_no` | `Integer` | no | NOT NULL |
+| `case_id` | `Integer` | yes | FK -> cases.id |
+| `citation` | `String(120)` | yes | - |
+| `court` | `String(20)` | yes | - |
+| `issue` | `TEXT` | no | NOT NULL |
+| `text` | `TEXT` | no | NOT NULL |
+| `result` | `String(30)` | no | NOT NULL |
+| `result_para` | `Integer` | yes | - |
+| `soften` | `TEXT` | yes | - |
+| `result_paragraph` | `TEXT` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_issue_maps_case_id`: index on `case_id`
+- `ix_issue_maps_source_key`: index on `source_key`
+
+### Unique Constraints
+
+- `uq_issue_map_source_issue`: `source_key`, `issue_no`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `SET NULL`
+
 ## `judge_profile_aliases`
 
 ### Columns
@@ -1682,6 +1804,27 @@ erDiagram
 ### Foreign Keys
 
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_positions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `tagger` | `String(40)` | no | NOT NULL |
+| `paragraph_count` | `Integer` | no | NOT NULL |
+| `paragraphs` | `JSON` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Unique Constraints
+
+- `unnamed`: `case_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `recent_case_chunk_embeddings`
 

@@ -6,6 +6,9 @@ HTML source sanitization and citation markup wrapping, and citation-pass details
 
 from __future__ import annotations
 
+import logging
+
+import os
 import re
 import time
 from collections import OrderedDict
@@ -49,6 +52,7 @@ from .metadata import extract_metadata_observations
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
 	CaseDiscussionUnitSummaryResponse,
+	CaseUnitPartyArgumentResponse,
 	CaseEvidenceSpanResponse,
 	CaseEvidenceSummaryResponse,
 	CaseReaderChunkResponse,
@@ -67,7 +71,10 @@ from .models import (
 )
 from scripts.inspect_discussion_units import inspect_case
 from .contextual_authority.case_structure import structure_outline
-from .contextual_authority.unit_roles import label_unit_roles
+from .contextual_authority.outline_v2 import citation_offset, tag_citation_sections
+from .contextual_authority.structure_units import structure_report
+from .contextual_authority.unit_roles import label_unit_roles, label_unit_roles_by_structure
+from .contextual_authority.unit_voices import party_argument_voices
 
 _STATUTE_LIKE_RE = re.compile(
 	r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE
@@ -99,7 +106,7 @@ _INSPECT_CACHE_TTL_SECONDS = 3600
 _INSPECT_CACHE_LOCK = RLock()
 
 
-def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
+def _cached_inspect_base(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
 	"""Discussion-unit segmentation is pure compute (seconds per case), so reuse it per case until its chunks change."""
 	key = None
 	if chunks is not None:
@@ -118,9 +125,29 @@ def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | No
 	return report
 
 
+def structure_units_enabled() -> bool:
+	"""ILIT_STRUCTURE_UNITS=1 cuts units along the decision's skeleton instead of by paragraph similarity (default off)."""
+	return os.getenv("ILIT_STRUCTURE_UNITS", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
+	"""The unit report for a case: similarity units, or structure units when the flag is on (the originals stay as fallback)."""
+	report = _cached_inspect_base(db, case_id, chunks)
+	if not structure_units_enabled():
+		return report
+	memo = report.get("_structure_report")
+	if memo is None:
+		try:
+			memo = structure_report(report)
+		except Exception:
+			memo = report
+		report["_structure_report"] = memo
+	return memo
+
+
 UNIT_ROLE_NOTE = (
-	"Experimental: unit roles come from fixed text rules, not a reader. On hand-read test cases they matched "
-	"the reader's role for about 55 to 69 of every 100 units."
+	"Experimental: unit roles come from fixed text rules, not a reader. On hand-read test decisions the rules "
+	"matched the reader's role for about 66 to 75 of every 100 paragraphs, so a unit's role is wrong about one time in three or four."
 )
 
 
@@ -133,7 +160,82 @@ def _unit_roles(report: dict[str, Any]) -> list[str]:
 		[texts.get(index, "") for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)]
 		for unit in report["discussion_units"]
 	]
-	return label_unit_roles(units)
+	try:
+		return label_unit_roles_by_structure(units)
+	except Exception:
+		return label_unit_roles(units)
+
+
+UNIT_PARTY_NOTE = (
+	"Experimental: party arguments are found by fixed text rules, not a reader. On hand-read test paragraphs about 6 "
+	"in 10 of the paragraphs flagged were really a party's argument, and some party arguments are not flagged."
+)
+
+
+def _unit_party_arguments(report: dict[str, Any], title: str) -> dict[int, str]:
+	"""Paragraph index -> 'applicant' or 'respondent' for paragraphs reporting a party's argument (no AI)."""
+	paragraphs = sorted(report.get("paragraphs", []), key=lambda paragraph: paragraph["paragraph_index"])
+	indexes = [paragraph["paragraph_index"] for paragraph in paragraphs]
+	voices = party_argument_voices([paragraph.get("text") or "" for paragraph in paragraphs], title)
+	return {indexes[position]: party for position, party in voices.items()}
+
+
+_PRINTED_NUMBER_RE = re.compile(r"^[^\[\n]{0,80}\[(\d{1,3})\]")
+
+
+def _printed_numbers(report: dict[str, Any]) -> dict[int, int | None]:
+	"""Report paragraph index -> the decision's printed paragraph number (``[12]``), None for a heading or footer piece."""
+	numbers: dict[int, int | None] = {}
+	for paragraph in report.get("paragraphs", []):
+		match = _PRINTED_NUMBER_RE.match(paragraph.get("text") or "")
+		numbers[paragraph["paragraph_index"]] = int(match.group(1)) if match else None
+	return numbers
+
+
+def _unit_number_range(numbers: dict[int, int | None], start: int, end: int) -> tuple[int | None, int | None]:
+	"""First and last printed paragraph number of a unit.
+
+	A quoted or cited numbered paragraph can sit inside a unit out of order (a unit running 26, 14, 15 ... 18), so the
+	range comes from the longest run of increasing numbers, which is the unit's own paragraphs.
+	"""
+	found = [numbers[i] for i in range(start, end + 1) if numbers.get(i) is not None]
+	if not found:
+		return None, None
+	length = [1] * len(found)
+	parent = [-1] * len(found)
+	for i, value in enumerate(found):
+		for j in range(i):
+			if found[j] < value and length[j] + 1 > length[i]:
+				length[i], parent[i] = length[j] + 1, j
+	cursor = length.index(max(length))
+	run = []
+	while cursor != -1:
+		run.append(found[cursor])
+		cursor = parent[cursor]
+	run.reverse()
+	return run[0], run[-1]
+
+
+def _chunk_position_mapper(report: dict[str, Any], chunks: list[CaseChunk] | None):
+	"""Map the report's paragraph indexes to positions in the reader's paragraph chunk list.
+
+	The report counts text pieces: a chunk with a section heading glued to its end becomes two pieces, so after the
+	first such chunk every report index runs ahead of the chunk list the reader and markup mode index into. Returns
+	a function from a report index to a chunk position (the same index when the chunk list is not available).
+	"""
+	if chunks is None:
+		return lambda index: index
+	paragraph_chunks = sorted(
+		(chunk for chunk in chunks if (chunk.chunk_set or "") == "paragraph"), key=lambda chunk: (chunk.chunk_index, chunk.id or 0)
+	)
+	position_of_chunk = {chunk.chunk_index: position for position, chunk in enumerate(paragraph_chunks)}
+	mapped = {
+		paragraph["paragraph_index"]: position_of_chunk.get(paragraph.get("source_paragraph_index"))
+		for paragraph in report.get("paragraphs", [])
+	}
+	if not mapped or any(value is None for value in mapped.values()):
+		return lambda index: index
+	return lambda index: mapped.get(index, index)
 
 
 def _build_evidence_summary(
@@ -143,11 +245,15 @@ def _build_evidence_summary(
 	has_paragraph_chunks: bool,
 	chunks: list[CaseChunk] | None = None,
 	citations: list[CaseReaderCitationResponse] | None = None,
+	title: str = "",
 ) -> CaseEvidenceSummaryResponse | None:
 	if not has_paragraph_chunks:
 		return None
 	report = _cached_inspect_case(db, case_id, chunks)
 	unit_roles = _unit_roles(report)
+	party_by_paragraph = _unit_party_arguments(report, title)
+	at = _chunk_position_mapper(report, chunks)
+	numbers = _printed_numbers(report)
 	units = []
 	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
@@ -159,7 +265,7 @@ def _build_evidence_summary(
 					chunk_id=item["chunk_id"],
 					start_offset=item["start_offset"],
 					end_offset=item["end_offset"],
-					paragraph_index=item["paragraph_index"],
+					paragraph_index=at(item["paragraph_index"]),
 					context_text=item["context_text"],
 					source_text_hash=item["source_text_hash"],
 				)
@@ -168,7 +274,7 @@ def _build_evidence_summary(
 			subthemes.append(
 				CaseSubThemeSummaryResponse(
 					subtheme_id=subtheme["subtheme_id"],
-					paragraph_indices=subtheme["paragraph_indices"],
+					paragraph_indices=list(dict.fromkeys(at(index) for index in subtheme["paragraph_indices"])),
 					key_terms=subtheme["key_terms"],
 					display_key_terms=subtheme.get("display_key_terms", subtheme["key_terms"]),
 					argument_roles=subtheme["argument_roles"],
@@ -176,15 +282,25 @@ def _build_evidence_summary(
 					evidence=evidence,
 				)
 			)
+		first_number, last_number = _unit_number_range(numbers, unit["start_paragraph"], unit["end_paragraph"])
 		units.append(
 			CaseDiscussionUnitSummaryResponse(
 				discussion_unit_id=unit["discussion_unit_id"],
 				unit_index=int(unit["discussion_unit_id"].rsplit(":", 1)[-1]),
-				start_paragraph=unit["start_paragraph"],
-				end_paragraph=unit["end_paragraph"],
+				start_paragraph=at(unit["start_paragraph"]),
+				end_paragraph=at(unit["end_paragraph"]),
 				paragraph_count=unit["paragraph_count"],
+				start_number=first_number,
+				end_number=last_number,
 				subthemes=subthemes,
 				role=unit_roles[position] if position < len(unit_roles) else None,
+				party_arguments=[
+					CaseUnitPartyArgumentResponse(
+						paragraph_index=at(feature), paragraph_number=numbers.get(feature), party=party_by_paragraph[feature]
+					)
+					for feature in range(unit["start_paragraph"], unit["end_paragraph"] + 1)
+					if feature in party_by_paragraph
+				],
 			)
 		)
 
@@ -223,6 +339,7 @@ def _build_evidence_summary(
 		units=units,
 		citation_mappings=citation_mappings,
 		role_note=UNIT_ROLE_NOTE if unit_roles else None,
+		party_note=UNIT_PARTY_NOTE if party_by_paragraph else None,
 	)
 
 
@@ -1248,6 +1365,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 			has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
 			chunks=all_chunks,
 			citations=citation_responses,
+			title=case.title or "",
 		)
 		if include_evidence
 		else None
@@ -1260,6 +1378,11 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		outline_rows = structure_outline(case.full_text, format_blocks)
 	except Exception:  # noqa: BLE001 - an outline problem must never break the reader
 		outline_rows = []
+	if outline_rows and outline_rows[0].get("section"):
+		try:
+			tag_citation_sections(citation_responses, outline_rows, citation_offset, case.full_text)
+		except Exception:  # noqa: BLE001 - section tags are optional, but a failure must be visible
+			logging.getLogger(__name__).exception("citation section tagging failed")
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.
 	try:
 		with db.begin_nested():

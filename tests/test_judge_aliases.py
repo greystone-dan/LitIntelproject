@@ -74,3 +74,19 @@ def test_prune_keeps_rows_in_the_same_group_even_if_canonical_changed(db):
 	db.add(JudgeProfileAlias(alias_profile_id=7, canonical_profile_id=6, source="rule"))
 	db.commit()
 	assert [(r.alias_profile_id, r.canonical_profile_id) for r in stale_rows(db)] == [(7, 6)]
+
+
+def test_list_can_return_more_than_a_hundred_judges(db):
+	db.add_all([
+		JudgeProfile(id=100 + n, slug=f"judge-x{n}", display_name=f"Judge X{n}", normalized_name=f"judge x{n}", primary_court="FC")
+		for n in range(150)
+	])
+	db.commit()
+	assert len(_fetch_judge_profiles_impl(db, limit=500)) == 153
+	assert len(_fetch_judge_profiles_impl(db, q="X14", limit=500)) == 11
+
+
+def test_server_cap_covers_every_judge_with_decisions():
+	from backend.analytics_service import JUDGE_PROFILE_MAX_LIMIT
+
+	assert JUDGE_PROFILE_MAX_LIMIT >= 1500

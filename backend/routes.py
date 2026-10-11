@@ -107,6 +107,7 @@ from .pages.research import research_page_html
 from .pages.saved_searches import saved_searches_page_html
 from .pages.tag_finder import tag_finder_page_html
 from .pages.theme_explorer import theme_explorer_page_html
+from . import issue_match
 from .live_analysis import MAX_DOCX_BYTES, analyze_document, extract_document, paragraphs_from_pasted_text
 from .live_reader import build_live_reader_payload
 from .memo_citation_check import analyze_memo_citations
@@ -219,6 +220,8 @@ from .reader_service import (
 	_stored_case_citation_details,
 	_stored_statute_reference_details,
 )
+from .position_tags import case_positions
+from .case_frame_store import case_frame as _case_frame
 from .case_reader_ui import (
 	case_reader_with_statutes_html,
 	statute_viewer_page_html,
@@ -952,6 +955,24 @@ def get_case_reader_data(case_id: int, evidence: bool = True, db: Session = Depe
 	return build_case_reader_data(case_id, db, include_evidence=evidence)
 
 
+@router.get("/unit-search", response_model=dict[str, Any], include_in_schema=False)
+def get_unit_search(
+	q: str = Query(..., min_length=3, max_length=300),
+	limit: int = Query(default=8, ge=1, le=20),
+	court: str = Query(default="", max_length=60, description="Comma-separated courts, e.g. FC,FCA,RAD,RPD"),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Discussion units matching a plain-language query (experimental, off unless ILIT_UNIT_SEARCH is set)."""
+	from .unit_keyword_search import search_units, unit_search_enabled
+
+	if not unit_search_enabled():
+		raise HTTPException(status_code=404, detail="Not found")
+	found = search_units(db, q, limit=limit, court=court)
+	if found is None:
+		raise HTTPException(status_code=404, detail="No paragraph matches (or the paragraph index is not available)")
+	return found
+
+
 @router.get("/cases/{case_id}/evidence-summary", response_model=dict[str, Any])
 def get_case_evidence_summary(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
 	"""Discussion-unit evidence and case summary, loaded after the decision text so they never delay it."""
@@ -1239,7 +1260,7 @@ async def precedent_finder_analyze(request: Request, db: Session = Depends(get_d
 
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
-def live_analysis_page() -> HTMLResponse:
+def live_analysis_page(request: Request) -> Response:
 	return HTMLResponse(content=live_analysis_page_html(), status_code=status.HTTP_200_OK)
 
 
@@ -1278,6 +1299,18 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
 	response = LiveAnalysisResponse.model_validate(payload)
 	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
+
+
+class IssueMatchRequest(BaseModel):
+	text: str = Field(min_length=issue_match.MIN_QUERY_CHARS, max_length=issue_match.MAX_QUERY_CHARS)
+
+
+@router.post("/live-analysis/issue-matches")
+def live_analysis_issue_matches(body: IssueMatchRequest, db: Session = Depends(get_db)) -> JSONResponse:
+	"""Decided issues close to one pasted argument. Keyword search only, nothing stored, no model."""
+	if not issue_match.is_enabled():
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+	return JSONResponse(content=issue_match.find_issue_matches(db, body.text), headers=_NO_STORE)
 
 
 class LiveReaderTextRequest(BaseModel):
@@ -1524,20 +1557,64 @@ def site_tour_sample_memo() -> Response:
 	)
 
 
+@router.get("/roadmap", include_in_schema=False)
+def roadmap_page() -> HTMLResponse:
+	from .pages.roadmap_page import render
+
+	return HTMLResponse(render(), headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/roadmap/internal.json", include_in_schema=False)
+def roadmap_internal_notes() -> JSONResponse:
+	from .pages.roadmap_page import internal_notes
+
+	return JSONResponse(internal_notes(), headers={"Cache-Control": "no-store"})
+
+
+@router.get("/roadmap/tour", include_in_schema=False)
+def roadmap_tour_page() -> HTMLResponse:
+	from .pages.roadmap_page import tour_html
+
+	return HTMLResponse(tour_html(), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/future-features", include_in_schema=False)
-def future_features_page() -> HTMLResponse:
-	page = Path(__file__).resolve().parent / "pages" / "future_features.html"
+def future_features_page() -> RedirectResponse:
+	return RedirectResponse(url="/roadmap#future-features", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/coming-soon-preview", include_in_schema=False)
+def coming_soon_preview_page() -> RedirectResponse:
+	return RedirectResponse(url="/roadmap#tour", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/coming-soon-demo", include_in_schema=False)
+def coming_soon_demo_page() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "coming_soon_demo.html"
 	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
 
 
-@router.get("/coming-soon/{section}", include_in_schema=False)
-def coming_soon_page(section: str) -> HTMLResponse:
-	from .pages.coming_soon_page import render
+@router.get("/coming-soon-preview/img/{name}", include_in_schema=False)
+def coming_soon_preview_image(name: str) -> Response:
+	if name not in {"reader.webp", "workbench.webp", "live.webp", "authorities.webp"}:
+		raise HTTPException(status_code=404, detail="Unknown image")
+	image = Path(__file__).resolve().parent / "pages" / "preview_img" / name
+	return Response(image.read_bytes(), media_type="image/webp", headers={"Cache-Control": "public, max-age=86400"})
 
-	page = render(section)
-	if page is None:
+
+@router.get("/coming-soon", include_in_schema=False)
+@router.get("/coming-soon/", include_in_schema=False)
+def coming_soon_index() -> Response:
+	return RedirectResponse(url="/roadmap", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/coming-soon/{section}", include_in_schema=False)
+def coming_soon_page(section: str) -> RedirectResponse:
+	from .pages.roadmap_page import REDIRECT_ANCHORS
+
+	if section not in REDIRECT_ANCHORS:
 		raise HTTPException(status_code=404, detail="Unknown Coming soon page")
-	return HTMLResponse(page, headers={"Cache-Control": "public, max-age=300"})
+	return RedirectResponse(url="/roadmap" + REDIRECT_ANCHORS[section], status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
 @router.get("/business-case", include_in_schema=False)
@@ -2267,6 +2344,18 @@ def export_search_analytics_cases(
 		media_type="text/csv",
 		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
 	)
+
+
+@router.get("/cases/{case_id}/paragraph-positions", response_model=dict[str, Any])
+def get_case_paragraph_positions(case_id: int) -> dict[str, Any]:
+	"""Whose-position tags and one-line summaries for a decision (preview). Stored data only; no model call."""
+	return case_positions(case_id)
+
+
+@router.get("/cases/{case_id}/case-frame", response_model=dict[str, Any])
+def get_case_frame(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""The stored case frame (parties, earlier decisions, issues, arguments, challenged part). Off unless CASELIBRARY_CASE_FRAME_ENABLED=1."""
+	return _case_frame(case_id, db)
 
 
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])

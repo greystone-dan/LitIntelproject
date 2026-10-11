@@ -2078,15 +2078,6 @@ def _extract_anchored_provision_candidates(
 	rows: list[RawCitationMatch] = []
 	context_anchors = list(anchors)
 	anchors_overlap = _span_overlap_checker([(anchor.offset_start, anchor.offset_end) for anchor in anchors])
-	authority_cache: dict[int, str | None] = {}
-
-	def authority_name(anchor: RawCitationMatch) -> str | None:
-		# Pure in the anchor; computed once per anchor, not once per provision that looks at it.
-		key = id(anchor)
-		if key not in authority_cache:
-			authority_cache[key] = _anchored_authority_name(anchor)
-		return authority_cache[key]
-
 	all_sentence_breaks = _sentence_break_ends(content)
 	for match in re.finditer(r"\b(IRPA|IRPR|Criminal Code)\b", content, re.IGNORECASE):
 		instrument = _full_statute_citation_name(match.group(1))
@@ -2099,7 +2090,7 @@ def _extract_anchored_provision_candidates(
 	by_end: dict[str, list[tuple[int, int]]] = defaultdict(list)
 	by_start: dict[str, list[tuple[int, int]]] = defaultdict(list)
 	for position, anchor in enumerate(context_anchors):
-		if authority_name(anchor):
+		if _anchored_authority_name(anchor):
 			by_end[anchor.kind].append((anchor.offset_end, position))
 			by_start[anchor.kind].append((anchor.offset_start, position))
 	for index_list in (*by_end.values(), *by_start.values()):
@@ -2201,10 +2192,10 @@ def _extract_anchored_provision_candidates(
 					if defined is not None:
 						anchor = defined
 					else:
-						guessed = parse_legislation_citation(authority_name(anchor) or "")
+						guessed = parse_legislation_citation(_anchored_authority_name(anchor) or "")
 						if guessed is not None and guessed.instrument_key:
 							continue
-		authority = authority_name(anchor)
+		authority = _anchored_authority_name(anchor)
 		if not authority:
 			continue
 

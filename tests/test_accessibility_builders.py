@@ -1,4 +1,6 @@
 from backend.pages.citation_map import citation_map_html
+from backend.pages.quick_search import quick_search_page_html
+from backend.pages.research import research_page_html
 from backend.pages.data_explorer import data_explorer_page_html
 
 
@@ -30,3 +32,14 @@ def test_citation_map_search_is_named_and_controls_have_visible_focus():
     assert 'b.setAttribute(\'aria-pressed\',String(b.dataset.mode===state.mode))' in html
     assert '<button class="tab active" data-tab="links" aria-pressed="true">' in html
     assert 'x.setAttribute(\'aria-pressed\',String(x===t))' in html
+
+
+def test_standalone_search_builders_keep_visible_focus_and_mobile_targets():
+    for html in (research_page_html(), quick_search_page_html()):
+        assert "<main " in html and "</main>" in html
+        assert ":focus-visible" in html
+        assert "min-height: 44px" in html or "min-height: 44px;" in html
+    assert 'aria-label="Prototype navigation"' in research_page_html()
+    quick_search_html = quick_search_page_html()
+    assert 'id="status" class="status" role="status" aria-live="polite"' in quick_search_html
+    assert 'id="results" aria-label="Search results"' in quick_search_html

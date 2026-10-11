@@ -120,3 +120,22 @@ def test_markdown_bounds_large_section_text_without_losing_the_artifact():
     markdown = _render_markdown(report, max_unit_text_chars=20)
 
     assert "Section text truncated at 20 characters" in markdown
+
+def test_numbered_piece_spans_split_a_multi_paragraph_chunk_and_leave_ordinary_chunks_alone():
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    from inspect_discussion_units import _numbered_piece_spans
+
+    assert _numbered_piece_spans("[1] One ordinary paragraph.\nWith a second line.") is None
+    text = "\n".join(
+        ["[1] First paragraph.", "II. Background", "[2] Second paragraph.", "continues here.", "[3] Third.", "[4] Fourth.", "[5] Fifth."]
+    )
+    spans = _numbered_piece_spans(text)
+    pieces = [text[start:end] for start, end, _ in spans]
+    assert pieces == [
+        "[1] First paragraph.", "II. Background", "[2] Second paragraph.\ncontinues here.", "[3] Third.", "[4] Fourth.", "[5] Fifth.",
+    ]
+    assert [heading for _, _, heading in spans] == [False, True, False, False, False, False]
+    assert all(text[start:end] == piece for (start, end, _), piece in zip(spans, pieces))

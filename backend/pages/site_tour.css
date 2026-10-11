@@ -1,6 +1,7 @@
 /* iLit site tour. Colours match the site (cream surface, ink buttons, rust accents). */
 .ilit-tour{position:fixed;inset:0;z-index:900;pointer-events:none;font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;color:#202522}
 /* The page stays usable underneath: a light shade, and a clear border round what the step is about. */
+.ilit-tour-block{position:fixed;inset:0;pointer-events:auto;cursor:default;background:transparent}   /* nothing under the tour takes a click while it runs */
 .ilit-tour-dim{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .3s ease}
 .ilit-tour-dim path{fill:rgba(32,37,34,.14)}
 .ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:3px solid #176c68;border-radius:8px;box-shadow:0 0 0 4px rgba(23,108,104,.16);pointer-events:none}
@@ -27,7 +28,7 @@
 .ilit-tour-count{font-size:13px;color:#5f6863;white-space:nowrap}
 .ilit-tour-bar{width:150px;height:4px;border-radius:2px;background:#e6e3d8;overflow:hidden}
 .ilit-tour-bar i{display:block;height:100%;background:#176c68;transition:width .25s ease}
-.ilit-tour-x{flex:0 0 auto;width:34px;height:34px;margin-left:2px;border:0;border-radius:5px;background:transparent;color:#5f6863;font-size:22px;line-height:1;cursor:pointer}
+.ilit-tour-x{flex:0 0 auto;height:34px;margin-left:2px;padding:0 10px;border:0;border-radius:5px;background:transparent;color:#5f6863;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer}
 .ilit-tour-x:hover{background:#f1efe8;color:#202522}
 .ilit-tour-btn{min-height:40px;padding:7px 16px;border:1px solid #d8d5ca;border-radius:6px;background:#fff;color:#202522;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
 .ilit-tour-btn:hover:not(:disabled){border-color:#202522}

@@ -23,9 +23,9 @@ from .request_context import (
 )
 from .overruling_risk_routes import router as overruling_risk_router
 from .routes import router
-from .pages.welcome import welcome_page_html
 from .workbench import router as workbench_router
 from .security_headers import SecurityHeadersMiddleware
+from .tour_cache import TourCacheMiddleware
 
 
 @asynccontextmanager
@@ -38,6 +38,7 @@ app = FastAPI(lifespan=lifespan)
 register_timeout_handlers(app)
 load_shedding.register(app)
 register_degraded_mode(app)
+app.add_middleware(TourCacheMiddleware)   # innermost: inside the access gate, audit and load shedding
 
 
 ACCESS_COOKIE = "caselibrary_access"
@@ -141,12 +142,13 @@ app.include_router(workbench_router)
 
 @app.get("/")
 def root():
-    return RedirectResponse(url="/welcome", status_code=307)
+    return RedirectResponse(url="/data-explorer", status_code=307)
 
 
-@app.get("/welcome", response_class=HTMLResponse, include_in_schema=False)
-def welcome_page() -> HTMLResponse:
-    return HTMLResponse(welcome_page_html())
+@app.get("/welcome", include_in_schema=False)
+def welcome_page_moved() -> RedirectResponse:
+    # The old Demo / Admin chooser is gone; old bookmarks open the site.
+    return RedirectResponse(url="/data-explorer", status_code=307)
 
 
 @app.get("/health")

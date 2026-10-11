@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 200
+Active scripts documented: 214
 
 ## Catalog
 
@@ -57,6 +57,10 @@ Active scripts documented: 200
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
+| `build_position_layers.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_layers.py --help` |
+| `build_position_preview.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview.py --help` |
+| `build_position_preview_lf.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help` |
+| `build_position_tags.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_tags.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
@@ -90,6 +94,7 @@ Active scripts documented: 200
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
 | `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
+| `eval_position_rules.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_position_rules.py --help` |
 | `evaluate_case_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_case_structure.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
@@ -116,6 +121,8 @@ Active scripts documented: 200
 | `fc_activity_laptop.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
+| `fetch_position_texts.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help` |
+| `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
 | `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
 | `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
@@ -143,6 +150,9 @@ Active scripts documented: 200
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
+| `load_case_frames.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_case_frames.py --help` |
+| `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
+| `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
@@ -190,6 +200,7 @@ Active scripts documented: 200
 | `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
+| `run_position_tags_library.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
 | `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
@@ -198,6 +209,7 @@ Active scripts documented: 200
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
+| `score_position_holder.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_position_holder.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
@@ -207,6 +219,8 @@ Active scripts documented: 200
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
 | `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
+| `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
+| `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
@@ -869,6 +883,62 @@ Active scripts documented: 200
 .\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
 ```
 
+## `scripts/build_position_layers.py`
+
+**Purpose:** Build per-paragraph rule-based holder and layer files for the reader preview. Offline: reads two folders of JSON (propositions files for the paragraph numbers, case reports for the text), no database, no model, no network. Output ``data/position_layers/case_<id>.json``: {"case_id": 28105, "source": {...}, "frame": "...", "paragraphs": {"13": {"l": 2, "h": ["respondent"], "law": false, "mixed": false, "c": "explicit"}}} ``l`` is the one layer the reader shows (1 judge, 2 submissions to the court, 3 earlier decision maker, 4 first-instance party as reported, 5 witness or document, 6 legal framework / precedent commentary), the same field name the reader preview uses for a stored layer. ``h`` are the rules' holders, ``law`` marks a paragraph with any layer-6 sentence, ``mixed`` marks two or more of layers 1-4 in the paragraph, ``c`` is how the paragraph layer was decided (explicit cue, lead_in, carried, default). python scripts/build_position_layers.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_layers.py --help
+```
+
+## `scripts/build_position_preview.py`
+
+**Purpose:** Build the compact per-decision "whose position" files the reader preview reads. Input: the propositions run (batch 4) JSON files, one per decision, e.g. ``case_28105_prop_prop_v4_gpt-4.1-mini.json``. Output: ``data/position_preview/case_<id>.json``. Offline and read-only against the database: no AI calls. python scripts/build_position_preview.py --src path/to/bundle5/props
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview.py --help
+```
+
+## `scripts/build_position_preview_lf.py`
+
+**Purpose:** Build "whose position" preview files from the proof-of-concept labelling runs (arm LF, one JSON per decision). Input: folders of ``case_<id>_LF_<model>.json`` files (paragraphs with propositions: holder, layer, kind, text, quote). Output: ``data/position_preview/case_<id>.json`` in the format the reader already loads (see ``build_position_preview.py``), plus a paragraph level ``l`` derived the way the proof of concept found most reliable: a rule-of-law point about the law is the legal framework, otherwise the level follows the holder (the model's own layer answers were less reliable). Offline: no database, no model, no network. Decisions that already have a file are left alone. python scripts/build_position_preview_lf.py --src ai_poc_wide/out/LF --src ai_poc_wide/out_wave2/LF --src ai_poc_wide/out_wave3_300/LF
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help
+```
+
+## `scripts/build_position_tags.py`
+
+**Purpose:** Tag decisions with the rules + learned whose-position tagger and write one compact file per decision. Offline: reads decision texts from a folder of <id>.json files (title, full_text; ``scripts/fetch_position_texts.py`` writes them) and writes ``<out>/case_<id>.json`` in the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1. No database, no network, no model call. Nothing is loaded anywhere by this script. python scripts/build_position_tags.py --texts position_texts --out data/position_learned [--limit 100]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_tags.py --help
+```
+
 ## `scripts/build_prototype_cohort.py`
 
 **Purpose:** Build and operationalize prototype cohort for immigration case research. Pipeline: 1) Combine the 300-case core list with exact-matched seed/canon cases. 2) Embed cohort cases that are not yet embedded. 3) Export citation map edges restricted to cohort-internal citations.
@@ -1331,6 +1401,20 @@ Active scripts documented: 200
 .\venv\Scripts\python.exe scripts\eval_models.py --help
 ```
 
+## `scripts/eval_position_rules.py`
+
+**Purpose:** Score the deterministic whose-position rules against graded labels, with a fixed train / held-out split. Offline, no model. Inputs: --gold one or more JSON files {case_id: {para: {"h": [holders], "l": [layers], "src": ...}}} (reader grades: data/eval/position_gold_reader.json; AI tags: data/eval/position_gold_ai.json; both hold labels only) --texts folder of case_<id>.json or <id>.json files holding {"title", "court", "full_text"} (``scripts/fetch_position_texts.py`` writes them from the public pages; nothing is stored in the database) The split is by decision (sha1 of the case id), so a decision is never in both sets. Develop on ``train``; ``test`` is the held-out set and is reported, never tuned on. Metrics are per paragraph: the set of holders the rules found against the set the label says. Layers are compared with the one layer the reader shows for the paragraph (``paragraph_layer``) and count as right when it is among the labelled layers.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\eval_position_rules.py --help
+```
+
 ## `scripts/evaluate_case_structure.py`
 
 **Purpose:** Score deterministic case-structure labelling against hand-labelled decisions. Gold: 22 Federal Court decisions from 2001-2004 (data/eval/case_structure/gold_fc_2001_2004_v2.json, paragraphs from the stored reports), 30 more hand-labelled FC / FCA / SCC decisions (gold_new_cases.json) and 18 RPD decisions (gold_rpd_labels.json, text read from an extract that is not in the repository). Each case has a 'dev', 'holdout' or 'holdout2' split. Only dev cases may be used for tuning; the holdouts are scored at declared checkpoints. Approaches (all offline, no database, network or AI): main the segmentation on main (continuity + boundary rules) with deterministic unit role labels structure paragraph role labelling by cues + ordered skeleton, units from role changes structure+h the same plus a split at each major heading inside the analysis Run: python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdout holdout2]
@@ -1693,6 +1777,34 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help
+```
+
+## `scripts/fetch_position_texts.py`
+
+**Purpose:** Fetch decision texts for the position-rule scorer from the public pages of the live site. Read-only: one GET per decision on the public ``/cases/<id>`` page, no database and no login. Writes ``<out>/<id>.json`` with title, court, citation and full_text, the folder ``scripts/eval_position_rules.py --texts`` reads. python scripts/fetch_position_texts.py --gold data/eval/position_gold_reader.json --gold data/eval/position_gold_ai.json --out position_texts
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help
+```
+
+## `scripts/fill_paragraph_search.py`
+
+**Purpose:** Add decisions that are missing from the paragraph keyword index (table paragraph_search). Dry run by default. The index behind the case search box and unit search was filled once by a one-off SQL file. Decisions whose paragraph chunks were created after that, or below the id it resumed from, are not in it, so they never show up in search. The dry run counts, per court, paragraph chunks and how many are indexed. --apply adds only the missing rows (nothing is changed or deleted), in small committed batches, so it can be stopped and run again. python scripts/fill_paragraph_search.py # dry run: counts per court python scripts/fill_paragraph_search.py --apply --court RAD # add the missing RAD rows Undo: DELETE FROM paragraph_search WHERE case_id IN (SELECT id FROM cases WHERE court ILIKE '%Refugee Appeal%'); (only valid when the dry run showed no RAD rows indexed before). If a court shows no paragraph chunks at all, it needs `scripts/chunk_cases.py` first; this script cannot help.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help
 ```
 
 ## `scripts/fingerprint_pilot.py`
@@ -2071,6 +2183,48 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help
+```
+
+## `scripts/load_case_frames.py`
+
+**Purpose:** Load stored case frames (one JSON file per decision) into case_frames. Dry run by default. Additive only: it adds frames that are missing and never updates or deletes existing ones. A file is named <COURT>_<case id>.json (for example FC_1445.json) and holds the frame with "id" inside. A frame is skipped when its case does not exist, its "id" does not match the file name, or it fails the text-match check (a frame written for a different decision). python scripts/load_case_frames.py DIR # dry run: counts, nothing written python scripts/load_case_frames.py DIR --apply # write (live database: needs the go-ahead) Undo: DROP TABLE case_frames; (or alembic downgrade 0046_paragraph_positions) Run `alembic upgrade head` first so the table exists.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_case_frames.py --help
+```
+
+## `scripts/load_issue_maps.py`
+
+**Purpose:** Load the stored issue maps (data/issue_maps/issue_maps.jsonl.gz) into issue_maps and issue_map_questions. Dry run by default. Additive only: it adds rows that are missing and never updates or deletes existing ones. Each row is linked to a library case by the live case id in the file when that case exists, otherwise by an exact citation match. python scripts/load_issue_maps.py # dry run: counts, how many rows link to a case, nothing written python scripts/load_issue_maps.py --apply # write (live database: needs the go-ahead) Undo: DROP TABLE issue_map_questions; DROP TABLE issue_maps; (or alembic downgrade 0044_refined_pinpoints) Run `alembic upgrade head` first so the tables exist.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_issue_maps.py --help
+```
+
+## `scripts/load_position_tags.py`
+
+**Purpose:** Load the whose-position tag files (one case_<id>.json per decision) into paragraph_positions. Dry run by default. Additive only: it adds a row for each decision that has none and never updates or deletes existing rows. Files whose decision is not in the library are skipped and counted. python scripts/load_position_tags.py --dir data/position_learned # dry run: counts, nothing written python scripts/load_position_tags.py --dir data/position_learned --apply # write (live database: needs the go-ahead) Undo: DROP TABLE paragraph_positions; (or alembic downgrade 0045_issue_maps) Run `alembic upgrade head` first so the table exists. Reading the tags in the reader still needs ILIT_LEARNED_POSITIONS=1.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_position_tags.py --help
 ```
 
 ## `scripts/map_fc_seed_to_local_cases.py`
@@ -2731,6 +2885,20 @@ Active scripts documented: 200
 .\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help
 ```
 
+## `scripts/run_position_tags_library.py`
+
+**Purpose:** Tag the library's immigration decisions (2005 or later) with the rules + learned whose-position tagger. READ-ONLY against the database (SELECT only, no commit). Writes one compact file per decision (``<out>/case_<id>.json``, the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1) and one summary JSON. No model call, no network. Safe to stop and rerun: decisions already written are skipped unless --force. python scripts/run_position_tags_library.py --out data/position_learned --summary position-learned-summary.json python scripts/run_position_tags_library.py --out scratch_positions --summary scratch.json --sample 500 # dry run Scope: courts FC, FCA, RAD, RPD, IAD; decision date 2005-01-01 or later; not French; immigration (the same test the tagger was trained and measured on: title, tribunal, or the Immigration and Refugee Protection Act in the first 20,000 characters); at least one numbered paragraph.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help
+```
+
 ## `scripts/run_scc_text_only.py`
 
 **Purpose:** Run the SCC-specific text-only enrichment pipeline.
@@ -2843,6 +3011,20 @@ Active scripts documented: 200
 .\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
 ```
 
+## `scripts/score_position_holder.py`
+
+**Purpose:** Score backend/position_holder.py against stored model labels. Offline only: reads two folders of JSON (no database, no network). --props folder of proposition files (para number, propositions with holder) --reports folder of deterministic case reports holding the paragraph text Example: python scripts/score_position_holder.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports --out position_holder_scores.json The stored labels are model output, not a lawyer's truth; this measures agreement only.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_position_holder.py --help
+```
+
 ## `scripts/score_search_gold.py`
 
 **Purpose:** Score the case search box against a gold query set (read-only; run on the PC). Modes: legacy (exact-phrase only, the behaviour before the sentence fix), words (most-of-the-words ILIKE), paragraph (paragraph index; needs the paragraph_search table). Example: python scripts/score_search_gold.py --mode paragraph --out scores_paragraph.json python scripts/score_search_gold.py --compare scores_legacy.json scores_paragraph.json Nothing is written to the database. Landmark and citation queries count a hit when an expected citation is in the top 10; topic and French queries count a hit when a top-10 case text matches every oracle regex (a weak, loose check), and the top 3 titles are printed so a person can read them.
@@ -2859,7 +3041,7 @@ Active scripts documented: 200
 
 ## `scripts/seed_tour_fixture.py`
 
-**Purpose:** Fill an empty local database with a test library for checking the site tour (scripts/check_site_tour.py). The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes wrong on long lists. This adds the 9 example decisions the tour opens (Vavilov, Baker, Dunsmuir, Khosa and five made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find: best interests of the child, non-refoulement statutory interpretation, and cessation involving India won by the Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles and pinpoint linking the real library has. Local only: it refuses any base URL other than localhost, and needs --yes. python scripts/seed_tour_fixture.py --base-url http://localhost:8001 --yes python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --sizes 1440x900,1920x1080
+**Purpose:** Fill an empty local database with a test library for checking the site tour (scripts/check_site_tour.py). The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes wrong on long lists. This adds the 10 example decisions the tour opens (Vavilov, Abadi, Baker, Dunsmuir, Khosa and five made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find: best interests of the child, non-refoulement statutory interpretation, and cessation involving Sri Lanka won by the Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles and pinpoint linking the real library has. Local only: it refuses any base URL other than localhost, and needs --yes. python scripts/seed_tour_fixture.py --base-url http://localhost:8001 --yes python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --sizes 1440x900,1920x1080
 
 **Operational class:** Utility
 
@@ -2967,6 +3149,34 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
+```
+
+## `scripts/train_learned_positions.py`
+
+**Purpose:** Train the learned whose-position weights used by backend/learned_positions.py. Labels: data/position_preview/case_<id>.json (main holder of each printed paragraph, from the stored propositions run: model output, not a lawyer's truth). Text: a folder of <id>.json files with title, court, date and full_text (``scripts/fetch_position_texts.py`` writes them). Decisions dated 2005 or later that concern immigration and whose id is a multiple of 5 are the untouched hold-out: never trained on, only scored. Stage 1 is a logistic model over opening words and rule results; stage 2 reads stage 1's out-of-fold guesses (5 folds by decision) for the neighbouring paragraphs. Needs scikit-learn (training only; the site runs numpy only). python scripts/train_learned_positions.py --texts position_texts [--haiku-labels hk_labels.json] [--write]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_learned_positions.py --help
+```
+
+## `scripts/train_learned_roles.py`
+
+**Purpose:** Train the learned paragraph-role weights used by backend/contextual_authority/learned_roles.py. Training data (Haiku labels, never the hand-labelled decisions, so evaluate_case_structure.py scores those as a clean hold-out): - data/eval/case_structure/haiku_drafts_v1.json (text from the core_300_run reports) - data/eval/case_structure/haiku_labels_export_v1.json, "train" split only (text from --export-dir, a folder of case_<id>.json files with a "paragraphs" list). Without --export-dir only the drafts are used. Stage 1 is a word + position model; stage 2 is trained on stage-1 log-probabilities from 5-fold (by decision) cross-fitting. Needs scikit-learn (training only; the site runs numpy only). Run: python scripts/train_learned_roles.py [--export-dir PATH] [--c 1.0]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_learned_roles.py --help
 ```
 
 ## `scripts/validate_precision.py`

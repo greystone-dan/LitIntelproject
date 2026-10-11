@@ -2,7 +2,7 @@
 
 ## Status note (read first)
 
-This file contains historical checkpoints and milestone commentary.
+This file contains superseded historical checkpoints and milestone commentary.
 
 For live operational status and recent feature surface, prefer:
 
@@ -164,7 +164,7 @@ AI CaseLibrary/
  `-- PROJECT_NOTES.md   This durable project handoff
  ```
 
-For forward-looking product and architecture decisions, see [GUIDANCE.md](GUIDANCE.md). For a full technical continuation brief, see [AI_HANDOFF.md](AI_HANDOFF.md). This file describes the current implementation and verified local setup; `CHANGELOG.md` records completed changes.
+For forward-looking product and architecture decisions, see [GUIDANCE.md](../../GUIDANCE.md). For a full technical continuation brief, see [AI_HANDOFF.md](AI_HANDOFF.md). This file describes the current implementation and verified local setup; `CHANGELOG.md` records completed changes.
 
 ## Current architecture
 

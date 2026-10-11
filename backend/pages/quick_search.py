@@ -85,6 +85,10 @@ def quick_search_page_html() -> str:
 			font-weight: 700;
 			background: linear-gradient(135deg, var(--accent), var(--accent-2));
 		}
+		input:focus-visible, select:focus-visible, button:focus-visible {
+			outline: 3px solid var(--accent-2);
+			outline-offset: 2px;
+		}
 		.status {
 			margin-top: 10px;
 			font-size: 0.88rem;
@@ -130,11 +134,14 @@ def quick_search_page_html() -> str:
 			.filters {
 				grid-template-columns: 1fr;
 			}
+			input, select, button {
+				min-height: 44px;
+			}
 		}
 	</style>
 </head>
 <body>
-	<div class="wrap">
+	<main class="wrap">
 		<h1>Quick Semantic Search</h1>
 		<p class="sub">Chunk-level semantic and hybrid retrieval over the current case library.</p>
 
@@ -175,11 +182,11 @@ def quick_search_page_html() -> str:
 			</div>
 
 			<button id="searchBtn">Search</button>
-			<div id="status" class="status">Ready.</div>
+			<div id="status" class="status" role="status" aria-live="polite">Ready.</div>
 		</section>
 
-		<section id="results"></section>
-	</div>
+		<section id="results" aria-label="Search results"></section>
+	</main>
 
 	<script>
 		function clip(text, maxLen) {

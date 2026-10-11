@@ -2,6 +2,12 @@
 
 Your laptop is now configured as an always-on deployment hub. Claude can connect via Remote Control to deploy changes, run database operations, and manage the site.
 
+The current site and tunnel run through the Windows scheduled task `iLitSite`.
+Keep the site worktree on `main`; after `git pull origin main`, restart with
+`Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`. The
+`scripts\refresh_site.ps1` script is only a fallback if that task has been
+removed and must not be run while the task is installed.
+
 ## What You Need
 
 ### 1. Claude CLI (If Not Installed)
@@ -64,7 +70,7 @@ Or create a scheduled task (similar to iLitSite) to auto-start a Remote Control 
 1. Start the idle Remote Control session (see above)
 2. Tell Claude: *"Deploy the latest main to production"* or *"Pull the latest changes"*
 3. Claude connects to your PC via Remote Control
-4. Claude pulls latest code, restarts the site, verifies it's running
+4. Claude runs `git pull origin main`, restarts `iLitSite` with `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`, and verifies it's running
 5. Done — site is live
 
 ### Database Work

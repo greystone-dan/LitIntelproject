@@ -6,6 +6,7 @@ stored CaseChunk rows (evaluation texts). The labeller is added below.
 
 from __future__ import annotations
 
+import os
 import re
 from collections import OrderedDict
 
@@ -89,7 +90,7 @@ _DISPOSITION_RE = re.compile(
     r"|\b(?:application|appeal|motion)s?\s+(?:for judicial review\s+)?(?:is|are)\s+(?:therefore |accordingly )?(?:allowed|dismissed|granted|denied)\b"
     r"|\bin the result\b|\bfor (?:all )?(?:of )?(?:these|the foregoing|the above|those) reasons\b|\bno (?:serious )?question[s]?\b[^.]{0,60}\bcertif|\bcertif(?:y|ied|ication)\b[^.]{0,60}\bquestion"
     r"|^(?:Appeal|Application|Motion)s? (?:allowed|dismissed|granted)\b|\bwith costs\b"
-    r"|\btherefore (?:rejects?|accepts?)\b|\b(?:rejects?|accepts?) the (?:refugee )?(?:claim|appeal)s?\b|\bis neither a convention refugee\b|\bare neither convention refugees\b|\bthat concludes my reasons\b",
+    r"|\btherefore (?:rejects?|accepts?)\b|\b(?:rejects?|accepts?) the (?:refugee )?(?:claim|appeal)s?\b|\b(?:is|are) (?:neither|not) (?:a |an )?[\"“”'‘’]*convention refugees?\b|\bpersons? described in (?:section|article|s\.) (?:98|1F)\b|\bare neither convention refugees\b|\bthat concludes my reasons\b",
     re.I,
 )
 _OVERVIEW_RE = re.compile(
@@ -198,8 +199,11 @@ def _emissions(paragraphs: Sequence[str]) -> list[dict[str, float]]:
             pass  # an unnamed heading keeps whatever section it sits in
         # content cues
         sample = body[:900]
-        if _DISPOSITION_RE.search(sample) and pos > 0.45:
-            weight = 3.0 if (pos > 0.7 or i >= last_numbered - 2) else 1.2
+        # position within the reasons (first to last numbered paragraph), so a long counsel/footer block after
+        # the reasons does not push a short decision's order out of the disposition window
+        body_pos = min(1.0, max(0.0, (i - first_body) / max(1, last_numbered - first_body)))
+        if _DISPOSITION_RE.search(sample) and max(pos, body_pos) > 0.45:
+            weight = 3.0 if (max(pos, body_pos) > 0.7 or i >= last_numbered - 2) else 1.2
             score["disposition"] += weight
             if len(body) < 400:
                 score["disposition"] += 0.8
@@ -250,12 +254,9 @@ def _transition_cost(prev: str, cur: str) -> float:
     return 4.0
 
 
-def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
-    """Label every paragraph with one of ROLES. Deterministic, no AI, reads only the text."""
-    if not paragraphs:
-        return []
-    emissions = _emissions(paragraphs)
-    n = len(paragraphs)
+def _viterbi_roles(emissions: list[dict[str, float]]) -> list[str]:
+    """Best ordered path through the section states given per-paragraph scores."""
+    n = len(emissions)
     best = [{s: (-emissions[0][s] if s in ("head", "overview", "facts") else 1e9, None) for s in _STATES}]
     for i in range(1, n):
         row: dict[str, tuple[float, str | None]] = {}
@@ -272,6 +273,28 @@ def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
         path.append(state)
     path.reverse()
     return [_STATE_ROLE.get(s, s) for s in path]
+
+
+def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
+    """Label every paragraph with one of ROLES. Deterministic, no AI, reads only the text.
+
+    With ILIT_LEARNED_ROLES=1 the rule scores are blended with a small learned word/position model
+    (learned_roles.py, fixed weights, numpy only).
+    """
+    if not paragraphs:
+        return []
+    if os.environ.get("ILIT_LEARNED_ROLES") == "1":
+        from backend.contextual_authority import learned_roles
+
+        return learned_roles.label_paragraph_roles(paragraphs)
+    return label_paragraph_roles_rules(paragraphs)
+
+
+def label_paragraph_roles_rules(paragraphs: Sequence[str]) -> list[str]:
+    """The rule-only labeller."""
+    if not paragraphs:
+        return []
+    return _viterbi_roles(_emissions(paragraphs))
 
 
 _OPENER_RE = re.compile(
@@ -327,6 +350,15 @@ def structure_outline(text: str | None, blocks: Sequence[dict]) -> list[dict]:
     """Cached wrapper: labelling a long decision takes tens of milliseconds, so repeat opens reuse the rows."""
     if not text:
         return []
+    from .outline_v2 import outline_v2, outline_v2_enabled
+
+    if outline_v2_enabled():
+        try:
+            rows = outline_v2(text, blocks)
+        except Exception:  # noqa: BLE001 - fall back to the first outline
+            rows = []
+        if rows:
+            return rows
     key = tuple((b.get("type"), b.get("start"), b.get("end"), b.get("num")) for b in blocks)
     return [dict(row) for row in _structure_outline_cached(text, key, [dict(b) for b in blocks])]
 

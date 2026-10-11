@@ -22,7 +22,7 @@ _CSS = """
 .cl-head .cl-sub{margin:8px 0 0;font:600 17px/1.3 "Newsreader",serif}
 .cl-head p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.65;max-width:none}
 .cl-filters{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 4px}
-.cl-chip{border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:999px;padding:5px 11px;font-family:inherit;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer}
+.cl-chip{min-height:44px;border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:999px;padding:5px 11px;font-family:inherit;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer}
 .cl-chip[aria-pressed="true"]{background:var(--rust);border-color:var(--rust);color:#fff}
 .cl-chip small{font-weight:500;opacity:.8;margin-left:3px}
 .cl-chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}

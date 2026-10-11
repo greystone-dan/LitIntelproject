@@ -86,6 +86,15 @@ def test_changelog_data_is_an_escaped_attribute_not_a_script():
 	assert json.loads(html_lib.unescape(attribute))["entries"]
 
 
+def test_about_mobile_navigation_and_changelog_filters_have_large_targets():
+	how = (ROOT / "backend" / "pages" / "about_how.html").read_text(encoding="utf-8")
+	html = about_panel_html("<p>overview</p>")
+	assert ".ilit-about .howsteps a{display:inline-flex;align-items:center;min-height:44px" in how
+	assert ".ilit-about .howsteps a:focus-visible" in how
+	assert ".cl-chip{min-height:44px" in html
+	assert ".cl-chip:focus-visible" in html
+
+
 def test_build_script_check_passes():
 	result = subprocess.run([sys.executable, str(ROOT / "scripts" / "build_changelog.py"), "--check"], capture_output=True, text=True)
 	assert result.returncode == 0, result.stderr

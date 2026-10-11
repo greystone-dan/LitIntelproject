@@ -87,7 +87,30 @@ def normalize_footer(starts: list[int], roles: list[str], paragraphs: list[str])
     return new_starts, new_roles, sorted(set(changed))
 
 
+def apply_convention(case: Case) -> Case:
+    """Labelling convention v3: every paragraph before the first printed paragraph number is metadata.
+
+    The 2001-04 labels called that block 'overview' and the newer labels called it 'metadata'.
+    """
+    cut = next((i for i, text in enumerate(case.paragraphs) if case_structure._strip_number(text)[0] is not None), None)
+    if not cut:
+        return case
+    roles = case.paragraph_roles()
+    roles = ["metadata"] * cut + roles[cut:]
+    starts, run_roles = [], []
+    for i, role in enumerate(roles):
+        if i == 0 or role != roles[i - 1]:
+            starts.append(i)
+            run_roles.append(role)
+    case.starts, case.roles = starts, run_roles
+    return case
+
+
 def load_cases(gold_dir: Path = GOLD_DIR, reports_dir: Path = REPORTS_DIR) -> list[Case]:
+    return [apply_convention(case) for case in _load_cases(gold_dir, reports_dir)]
+
+
+def _load_cases(gold_dir: Path = GOLD_DIR, reports_dir: Path = REPORTS_DIR) -> list[Case]:
     cases: list[Case] = []
     old = json.loads((gold_dir / "gold_fc_2001_2004_v2.json").read_text())
     hold = set(old["hold_out"])
@@ -160,6 +183,23 @@ def predict_main(case: Case) -> tuple[list[int], list[str]]:
     return starts, roles
 
 
+def predict_main_structure_roles(case: Case) -> tuple[list[int], list[str]]:
+    """Main's unit boundaries, with each unit's role read from the structure labeller (plurality of its paragraphs)."""
+    from collections import Counter
+
+    starts, _ = predict_main(case)
+    paragraph_roles = case_structure.label_paragraph_roles(case.paragraphs)
+    bounds = starts + [len(case.paragraphs)]
+    roles: list[str] = []
+    for a, b in zip(bounds, bounds[1:]):
+        counts = Counter(paragraph_roles[a:b])
+        top = max(counts.values())
+        # ties go to the earliest role in case order (first seen), so a unit that starts as facts stays facts
+        winner = next(role for role in paragraph_roles[a:b] if counts[role] == top)
+        roles.extend([winner] * (b - a))
+    return starts, roles
+
+
 def predict_structure(case: Case, split_headings: bool = False, openers: bool = False) -> tuple[list[int], list[str]]:
     roles = case_structure.label_paragraph_roles(case.paragraphs)
     starts = case_structure.structural_unit_starts(case.paragraphs, roles, split_analysis_headings=split_headings, split_issue_openers=openers)
@@ -181,6 +221,7 @@ def predict_hybrid(case: Case) -> tuple[list[int], list[str]]:
 
 APPROACHES: dict[str, Callable[[Case], tuple[list[int], list[str]]]] = {
     "main": predict_main,
+    "main+structure-roles": predict_main_structure_roles,
     "structure": predict_structure,
     "structure+h": lambda case: predict_structure(case, True),
     "structure+h+openers": lambda case: predict_structure(case, True, True),

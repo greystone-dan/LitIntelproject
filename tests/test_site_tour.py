@@ -163,7 +163,7 @@ def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
     assert all(not s.get("also") for s in fc_steps)    # one box per statistics step
     assert {"la-safety", "la-drop", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
     assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "india-tag", "cessation-india-won", "plain-search-2", "tour-decision"}
+    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "sri-lanka-tag", "cessation-sri-lanka-won", "case-name-search", "tour-decision", "judge-brouwer"}
     assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
 
 
@@ -172,20 +172,21 @@ def test_card_follows_the_highlight_and_controls_stay_in_the_dock():
     assert "function placeCard(" in js and "ilit-tour-dock" in js
 
 
-def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
-    page = client.get("/future-features")
-    assert page.status_code == 200
-    assert "/site-tour.js" not in page.text and "<script" not in page.text
-    assert "Future state, not built yet" in page.text and "Concept mock-up, not built yet" in page.text
-    assert page.text.count('class="facts"') >= 8
-    html = routes._data_explorer_page_html()
-    assert html.count('href="/future-features"') >= 2
+def test_future_features_now_lives_on_the_roadmap_page():
+    page = client.get("/future-features", follow_redirects=False)
+    assert page.status_code == 307 and page.headers["location"] == "/roadmap#future-features"
+    roadmap = client.get("/roadmap")
+    assert roadmap.status_code == 200
+    assert "/site-tour.js" not in roadmap.text
+    assert "Concept mock-up, not built yet" in roadmap.text
+    assert roadmap.text.count('class="facts"') >= 8
+    assert "future-features" in routes._data_explorer_page_html()
 
 
 def test_sections_follow_the_header_tabs_without_going_back():
     sections = [step["section"] for step in tour_steps()["steps"]]
     order = list(dict.fromkeys(sections))
-    assert order == ["Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
+    assert order == ["Welcome", "Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Summing up"]
     for name in order:                                   # each section is one unbroken run of steps
         first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
         assert set(sections[first:last + 1]) == {name}, name
@@ -193,7 +194,9 @@ def test_sections_follow_the_header_tabs_without_going_back():
 
 def test_tour_is_calm_and_leaves_the_page_usable():
     css, js, steps = tour_css(), tour_js(), tour_steps()["steps"]
-    assert "ilit-tour-block" not in css and "ilit-tour-tag" not in css      # no click blocker, no labels on the borders
+    assert "ilit-tour-tag" not in css                                        # no labels on the borders
+    assert ".ilit-tour-block{position:fixed;inset:0;pointer-events:auto" in css   # Daniel 10-09: the page cannot be clicked or scrolled
+    assert "lockPage(true)" in js and "'wheel','touchmove'" in js and "e.isTrusted" in js and "Exit tour" in js
     assert ".ilit-tour-dim path{fill:rgba(32,37,34,.14)}" in css             # a light shade, not a dark one
     assert "ilit-tour-cursor" in css and "pointAt(" in js                    # a pointer shows what the tour presses
     by_id = {step["id"]: step for step in steps}
@@ -201,17 +204,27 @@ def test_tour_is_calm_and_leaves_the_page_usable():
         assert by_id[name].get("top") and by_id[name].get("lead"), name
     data = tour_steps()                                                      # a feature tour for now: the About introduction
     assert data["introOn"] is False and data["intro"][0]["id"] == "welcome"  # is kept, switched off, until those pages are final
-    assert steps[0]["id"] == "search-page" and "DATA.introOn" in js
+    assert steps[0]["id"] == "tour-welcome" and steps[0]["target"] is None and "DATA.introOn" in js
+    assert "Please click Next at the bottom" in steps[0]["text"]
     la = by_id["la-private"]["text"]                                         # Live analysis: worded as the code behaves
     assert "never saved" in la and "never added to the library" in la and "AI model" in la
     assert by_id["la-coming"]["text"].startswith("Not built yet")
     for step in steps:                                                       # text first, then the action on Next
         assert bool(step.get("act")) == bool(step.get("say")), step["id"]
     assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
-    typed = {a.get("text") for name in ("plain-search", "plain-search-2") for a in by_id[name]["act"] if a.get("do") == "type"}
-    assert typed == {"best interests of the child", "non-refoulement statutory interpretation"}
-    filters = json.dumps([by_id[n].get("act") for n in ("adv-tag", "adv-tag-india", "adv-cites")])
-    assert "cessation" in filters and "india" in filters and "2019 SCC 65" in filters
+    typed = [a.get("text") for name in ("case-search", "plain-search") for a in by_id[name]["act"] if a.get("do") == "type"]
+    assert typed == ["Vavilov", "best interests of the child"]                # a case, then plain words (marked a work in progress)
+    assert "work in progress" in by_id["plain-search"]["text"] and "work in progress" in by_id["adv-case-type"]["text"]
+    filters = json.dumps([by_id[n].get("act") for n in ("adv-tag", "adv-tag-country", "adv-won")])
+    assert "cessation" in filters and "sri lanka" in filters and "citesFilter" not in json.dumps(steps)
+    assert "Sri Lanka" in by_id["adv-tag-country"]["say"] and by_id["adv-sort"]["target"] == "#quickSort"
+    pins = [s for s in steps if "v6-pinbtn" in json.dumps(s.get("act"))]
+    assert [s["id"] for s in pins] == ["reader-cite-pin"]                     # the pin is shown once
+    assert "v6-ibtn" in json.dumps(by_id["reader-cite-info"]["act"])          # and the i icon is pressed
+    assert by_id["citation-intelligence"]["url"].endswith("case_id={vavilov}") and "Brouwer" in json.dumps(by_id["judge-open"]["act"])
+    wrap = by_id["wrap"]
+    assert wrap["url"] == "/data-explorer?tab=about" and "not rely on" in wrap["text"] and "public information" in wrap["text"]
+    assert "French support" in by_id["done"]["text"] and "security settings" in by_id["done"]["text"]
     assert not any(a.get("do") in ("type", "fill") and a.get("selector") == "#searchQuery"   # filters only, no typed query
                    for step in steps if step["id"].startswith("adv-") for a in step.get("before", []) + (step.get("act") or []))
     click = by_id["reader-cite-card"]["act"][0]                              # clicks a citation that has a pinpoint
@@ -231,7 +244,7 @@ def test_live_analysis_drops_the_fictional_word_file():
 
 
 def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
-    text = {step["id"]: step for step in tour_steps()["steps"]}["fresh"]["text"]
+    text = {step["id"]: step for step in tour_steps()["steps"]}["wrap"]["text"]
     assert "built" in text and "run by hand" in text and "not yet scheduled" in text
 
 
@@ -308,3 +321,65 @@ def test_card_and_rings_follow_the_layout_rules():
     assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
     assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps
     assert "u.skip.style.visibility" in js                          # Next keeps its place when Skip section is not offered
+
+
+def test_cards_state_what_is_shown_and_the_decision_is_a_cessation_case():
+    data = tour_steps()
+    for step in data["steps"]:                      # no narration of the tour's own buttons ("Next clicks it", "I'll...")
+        for key in ("text", "say", "lead", "leadText"):
+            words = step.get(key) or ""
+            if step["id"] != "tour-welcome":           # the welcome card asks for Next, in Daniel's words
+                assert "Next " not in words and "click next" not in words.lower(), (step["id"], key)
+            assert "I'll" not in words and "I will" not in words, (step["id"], key)
+    cessation = data["cases"]["cessation"]
+    assert cessation["citation"] == "2024 FC 639" and "case_type=refugee_cessation" in cessation["search"]   # Veerasingam (Daniel, 10-09)
+    assert "sri%20lanka" in cessation["search"] and "cites_case_id" not in cessation["search"]
+    tour_decision = next(p for p in data["probes"] if p["id"] == "tour-decision")
+    assert "case_type=refugee_cessation" in tour_decision["url"]
+
+
+def test_opening_fc_analytics_drops_another_tab_s_judge():
+    # a judge profile's ?judge=slug used to carry into Federal Court Analytics as a judge filter, showing 0 files;
+    # the other tabs that read judge (the Testing tabs) keep it
+    assert "if(selected==='fc-analytics'&&from!=='fc-analytics')url.searchParams.delete('judge')" in routes._data_explorer_page_html()
+
+
+def test_tour_never_opens_the_outline():
+    assert "outl" not in json.dumps(tour_steps()["steps"])   # Daniel: the tour should not click on the Outline at all
+
+
+def test_filter_demo_is_checked_to_put_the_tour_decision_first():
+    data = tour_steps()
+    probe = next(p for p in data["probes"] if p["id"] == "cessation-sri-lanka-won")
+    assert probe["first"] == "cessation" and "sri%20lanka" in probe["url"] and "sort_by=newest" in probe["url"]
+    assert "case_type=refugee_cessation" in probe["url"]          # without it a non-cessation decision comes first
+    assert next(p for p in data["probes"] if p["id"] == "case-name-search")["first"] == "vavilov"
+    script = (Path(__file__).resolve().parents[1] / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
+    assert "NOT the first result of the filter demo" in script and "WRONG FIRST" in script
+
+
+def test_guided_tour_is_a_section_of_the_roadmap():
+    client = TestClient(app)
+    assert client.get("/coming-soon-preview", follow_redirects=False).headers["location"] == "/roadmap#tour"
+    page = client.get("/roadmap/tour")
+    assert page.status_code == 200
+    assert "Future local AI" in page.text and 'id="next"' in page.text
+    assert 'id="tour"' in client.get("/roadmap").text and 'data-src="/roadmap/tour"' in client.get("/roadmap").text
+    assert 'id="comingSoonPreviewStart"' in client.get("/data-explorer").text
+    assert client.get("/coming-soon-preview/img/reader.webp").status_code == 200
+    assert client.get("/coming-soon-preview/img/secret.webp").status_code == 404
+
+
+def test_coming_soon_demo_page_is_served_linked_and_makes_no_requests():
+    client = TestClient(app)
+    page = client.get("/coming-soon-demo")
+    assert page.status_code == 200
+    for label in ("Reference library", "Smarter tags", "Profiles and teams", "Argument breakdown", "Live document reader", "Future local AI"):
+        assert label in page.text
+    # demos run on fixed data in the browser: no network calls of any kind
+    for call in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket"):
+        assert call not in page.text
+    explorer = client.get("/data-explorer").text
+    assert "roadmap-demos" in explorer and "/roadmap#demos" in explorer
+    roadmap = client.get("/roadmap").text
+    assert 'id="demos"' in roadmap and 'data-src="/coming-soon-demo#ai"' in roadmap and 'href="#demo-ai"' in roadmap

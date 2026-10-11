@@ -7,7 +7,11 @@ markup mode. Nothing is stored and no model is called; see ``backend/live_reader
 
 from __future__ import annotations
 
+import re
+
+from .. import issue_match
 from .data_explorer import data_explorer_page_html
+from .live_analysis_matches import MATCH_HTML, SCRIPT as MATCH_SCRIPT, STYLE as MATCH_STYLE
 
 PANEL_HTML = r'''<section id="liveAnalysisPanel" class="panel-card search-layout live-analysis-panel" hidden>
 <div class="page-header"><div class="eyebrow">Workbench</div><h2>Live Analysis</h2><p>Bring a memo, factum or decision and read it the way the case reader shows a decision: its case citations and statute references marked in the text, with the cited paragraph, the Act's provision text and the library's cited-by counts in the margin.</p></div>
@@ -201,8 +205,34 @@ def _replace_once(html: str, old: str, new: str) -> str:
 	return html.replace(old, new, 1)
 
 
+_MAIN_BAR = (
+	'<header class="topbar">\n'
+	'<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>\n'
+	'<nav class="research-nav primary-groups" aria-label="Primary navigation">\n'
+	'<a class="primary-link" href="/data-explorer?tab=about&amp;group=info">About</a>\n'
+	'<a class="primary-link" href="/data-explorer?tab=search&amp;group=research">Research</a>\n'
+	'<a class="primary-link" href="/data-explorer?tab=judge-profile&amp;group=intel">Intelligence / Statistics</a>\n'
+	'<a class="primary-link active" href="/workbench" aria-current="page">Workbench</a>\n'
+	'<a class="primary-link" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Roadmap</a>\n'
+	'<a class="primary-link" data-nav-extra href="/data-explorer?tab=soon-themes&amp;group=soon">Development</a>\n'
+	'<a class="primary-link" data-nav-extra href="/data-explorer?tab=research-bench&amp;group=testing">Testing</a>\n'
+	'<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: development tabs, Testing, units, Find the unit and unfinished reader tools">Experimental: off</button>\n'
+	"</nav>\n</header>"
+)
+_MAIN_BAR_STYLE = (
+	"<style>.topbar .brand-home{display:flex;align-items:baseline;gap:13px;margin:0 auto 0 0;padding:6px 10px;border-radius:6px;color:inherit;text-decoration:none;min-width:0}"
+	".topbar .brand-home:hover{background:#f1efe6}.topbar .primary-groups{margin-left:auto}"
+	".research-nav a.primary-link{display:flex;align-items:center;justify-content:center;min-width:72px;min-height:40px;padding:8px 12px;border-radius:5px;color:var(--muted);font-size:12px;font-weight:600;text-decoration:none}"
+	".research-nav a.primary-link:hover{color:var(--teal)}.research-nav a.primary-link.active{background:var(--ink);color:#fff}"
+	".ilit-demo a[data-nav-extra]{display:none}html.wb-embedded .topbar{display:none!important}"
+	"@media(max-width:600px){.topbar .brand-home{flex-basis:100%;margin:0}.topbar .primary-groups{margin-left:0}}</style>"
+)
+
+
 def live_analysis_page_html() -> str:
 	html = data_explorer_page_html(pitch_navigation=False)
+	# Same top bar as the main site; the tabs are plain links, so this page keeps its own tab handling.
+	html = re.sub(r'<header class="topbar">.*?</header>', lambda _m: _MAIN_BAR, html, count=1, flags=re.S)
 	html = _replace_once(
 		html,
 		'<span class="tab tab-coming-soon" data-nav-group="workbench" aria-disabled="true" title="Live Analysis is coming soon" hidden>Live Analysis</span>',
@@ -216,9 +246,12 @@ def live_analysis_page_html() -> str:
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'search'),false)",
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
 	)
-	html = _replace_once(html, '<section id="caseReaderPanel"', PANEL_HTML + '<section id="caseReaderPanel"')
+	# The decided-issue search is off unless CASELIBRARY_ISSUE_MATCHES_ENABLED=1; with it off the page is unchanged.
+	matches = issue_match.is_enabled()
+	panel_html = PANEL_HTML.replace("</section>", MATCH_HTML + "</section>", 1) if matches else PANEL_HTML
+	html = _replace_once(html, '<section id="caseReaderPanel"', panel_html + '<section id="caseReaderPanel"')
 	# This page reads your document in markup mode, so the paused-markup lock on the case reader is lifted here.
 	html = _replace_once(html, ' data-coming-soon disabled aria-disabled="true" title="Markup mode is coming soon"', ' title="Markup mode: the decision with notes in the margin"')
 	html = _replace_once(html, "<title>Immigration Litigation Intelligence Tool | iLIT</title>", "<title>Live Analysis | iLIT</title>")
-	html = html.replace("</head>", STYLE + "</head>", 1)
-	return html.replace("</body>", SCRIPT + "</body>", 1)
+	html = html.replace("</head>", _MAIN_BAR_STYLE + STYLE + (MATCH_STYLE if matches else "") + "</head>", 1)
+	return html.replace("</body>", SCRIPT + (MATCH_SCRIPT if matches else "") + "</body>", 1)

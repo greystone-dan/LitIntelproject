@@ -186,3 +186,19 @@ def test_provision_of_an_unregistered_named_act_is_not_keyed_to_an_earlier_regis
     # A registered act named after the provision, or the decision's own "the Act", behaves as before.
     assert keys("The Fisheries Act is relevant. Section 5 of the Controlled Drugs and Substances Act applies.")[0][1] == "canada.controlled_drugs_substances_act"
     assert keys("The Income Tax Act applies. Section 85(1) of the Income Tax Act defers gain.")[0][1] == "canada.income_tax_act"
+
+
+def test_anchor_authority_names_do_not_depend_on_object_identity(monkeypatch):
+    # The extractor used to cache an anchor's authority name by id(anchor). A short-lived anchor freed and
+    # replaced by another at the same address then returned the earlier anchor's name (a Charter "section 7"
+    # keyed to the IRPA, only on some runs). With every id() equal, a cache keyed by it fails every run.
+    from backend import citations
+
+    text = (
+        "Docket: IMM-1-24 The IRPA applies. He relies on subsection 108(4) of the IRPA. "
+        "He says his section 7 rights under the Charter were breached. The IRPA, the IRPA, the IRPA and the IRPA."
+    )
+    monkeypatch.setattr(citations, "id", lambda _obj: 0, raising=False)
+    keyed = _keyed(text)
+    assert ("section 7", "canada.charter", "7") in keyed
+    assert not [k for k in keyed if k[1] == "canada.irpa" and k[2] == "7"]

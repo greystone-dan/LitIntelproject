@@ -60,17 +60,17 @@ Back up a production/shared database before repair. Do not manually mark a migra
 
 ### UI Shows Old Code Or Routes Behave Inconsistently
 
-Identify the process that owns the configured port. Multiple Uvicorn instances can serve different code revisions. Refresh the controlled local process/tunnel workflow:
-
-```powershell
-.\scripts\refresh_site.ps1
-```
+The Windows scheduled task `iLitSite` is the primary site and tunnel process.
+If deploying, run `git pull origin main`, then restart it with
+`Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`. Keep the site
+worktree on `main`. Do not run `scripts\refresh_site.ps1` while the task is
+installed; that script is only a fallback if the task has been removed.
 
 Then check the local route and a lightweight API route. For reader/UI failures, check browser console errors before changing backend logic: inline JavaScript escaping in `routes.py` can break the page while Python still imports.
 
 ### Local Service Works But Tunnel Returns 502/Unavailable
 
-First verify `http://127.0.0.1:8000/health`. A short initial 502 can occur while the server process binds. If local health is good, inspect the active Cloudflare process/config and wait only for normal startup; otherwise restart with the controlled refresh script. Do not assume a tunnel provides authentication.
+First verify `http://127.0.0.1:8001/health`. A short initial 502 can occur while the server process binds. If local health is good, inspect the active Cloudflare process/config and wait only for normal startup; otherwise restart the `iLitSite` task. Use `scripts\refresh_site.ps1` only if the task has been removed, never while it is installed. Do not assume a tunnel provides authentication.
 
 ### Reader Highlights Or Linked Context Missing
 

@@ -30,14 +30,37 @@ TIERS = {
 	"untested": ("Untested", "Nothing of it is on the default site, it is built but sits behind the Experimental switch or has not been applied, or it has not been measured."),
 }
 
-# One tier per roadmap item. Everything not listed here is Untested.
-LIVE_ITEMS = {
-	"citation-extraction", "statute-references", "case-types", "outcome-coding", "judges", "parties",
-	"more-cases", "more-tags", "fc-record", "fc-analytics", "fc-follow", "fc-deadlines",
-	"argument-identification", "deidentify", "citation-treatment", "discussion-units",
-	"decision-maker-insights", "data-safety", "export",
+# Where each item stands: on the default site, behind the Experimental switch, built but only as code or files,
+# planned (including concepts), or paused. One value per item.
+PLACES = {
+	"live": ("On the site", "Works on the default site today."),
+	"experimental": ("Experimental", "Built and reachable, but only with the Experimental switch on."),
+	"files": ("Files only", "Built as code, reports or downloads, but not shown on any page."),
+	"planned": ("Planned", "Decided or imagined. Nothing of it is built yet."),
+	"paused": ("Paused", "Code exists and work has been stopped on purpose."),
 }
+PLACE = {
+	"citation-extraction": "live", "citation-resolving": "files", "case-types": "live", "outcome-coding": "live",
+	"statute-references": "live", "judges": "live", "parties": "live", "measuring": "files",
+	"more-cases": "live", "daily-intake": "files", "more-tags": "live", "laws-regulations": "experimental",
+	"fc-record": "live", "french": "planned", "id-iad": "planned",
+	"fc-analytics": "live", "fc-follow": "live", "fc-deadlines": "live", "fc-collection": "files",
+	"review-pack": "files", "public-only": "planned", "hosting": "planned", "backups": "planned",
+	"accessibility": "live", "french-ui": "planned", "hardening": "live",
+	"internal-documents": "planned", "agency-repositories": "planned", "handling-marks": "planned",
+	"argument-identification": "live", "memo-check": "experimental", "institutional-memory": "planned", "deidentify": "live",
+	"citation-treatment": "live", "citation-enhancements": "planned", "discussion-units": "live", "whose-position": "live",
+	"themes": "experimental", "authority-trends": "files", "neighbourhoods": "experimental", "fingerprints": "experimental",
+	"decision-maker-insights": "live", "case-at-a-glance": "experimental", "passage-search": "experimental", "show-your-work": "planned",
+	"accounts": "planned", "teams": "planned", "annotations": "experimental", "alerts": "experimental", "export": "live", "history": "planned",
+	"on-prem-model": "files", "data-safety": "live", "embeddings": "paused", "stored-as-data": "planned", "human-review": "planned",
+}
+LIVE_ITEMS = {slug for slug, place in PLACE.items() if place == "live"}
 TESTED_ITEMS = {"whose-position"}
+
+
+def place_of(slug: str) -> str:
+	return PLACE.get(slug, "planned")
 
 
 def tier_of(slug: str) -> str:
@@ -74,6 +97,10 @@ def _tier_chip(tier: str) -> str:
 	return f'<span class="rm-tier {tier}" title="{_e(TIERS[tier][1])}">{TIERS[tier][0]}</span>'
 
 
+def _place_chip(place: str) -> str:
+	return f'<span class="rm-place {place}" title="{_e(PLACES[place][1])}">{PLACES[place][0]}</span>'
+
+
 def _status_chip(status: str) -> str:
 	return f'<span class="tag {status}">{STATUSES[status]}</span>'
 
@@ -97,22 +124,40 @@ def _demo_links(slug: str) -> str:
 	return f'<div class="note"><strong>See it working.</strong> Click through a demo on fixed, invented data: {items}.</div>'
 
 
-def _item(entry: tuple) -> str:
+def _item(entry: tuple, area_slug: str = "") -> str:
 	anchor, title, status, paragraphs, example, today, needs, *rest = entry
-	tier = tier_of(anchor)
+	tier, place = tier_of(anchor), place_of(anchor)
 	paras = "".join(f"<p>{_e(text)}</p>" for text in paragraphs)
 	if anchor == "whose-position":
 		paras += '<p><a href="#argument-breakdown"><strong>Read the full write-up on this work below &darr;</strong></a></p>'
 	elsewhere = f'<div><strong>What exists elsewhere</strong><span>{_e(rest[0])}</span></div>' if rest else ""
 	return (
-		f'<details class="rm-item" id="{anchor}" data-tier="{tier}"><summary><span class="rm-title">{_e(title)}</span>'
-		f'<span class="rm-chips">{_tier_chip(tier)}{_status_chip(status)}</span>'
-		f'<span class="rm-line">{_e(_first_sentence(today))}</span></summary>'
+		f'<details class="rm-item" id="{anchor}" data-tier="{tier}" data-place="{place}" data-area="{area_slug}"><summary><span class="rm-title">{_e(title)}</span>'
+		f'<span class="rm-chips">{_tier_chip(tier)}{_place_chip(place)}</span>'
+		f'<span class="rm-line"><b>What it is:</b> {_e(_first_sentence(paragraphs[0]))}</span>'
+		f'<span class="rm-line"><b>Depends on:</b> {_e(_first_sentence(needs))}</span></summary>'
 		f'<div class="rm-body">{paras}<div class="status-list">'
 		f"<div><strong>What you could do</strong><span>{_e(example)}</span></div>"
 		f"<div><strong>What exists today</strong><span>{_e(today)}</span></div>"
 		f"<div><strong>What it needs</strong><span>{_e(needs)}</span></div>"
+		f"<div><strong>Work label</strong><span>{_status_chip(status)} {_e(STATUS_MEANING[status])}</span></div>"
 		f"{elsewhere}</div></div></details>"
+	)
+
+
+def _glance() -> str:
+	rows = ""
+	for area_slug, area in SECTIONS.items():
+		for entry in area["items"]:
+			anchor, title = entry[0], entry[1]
+			rows += (
+				f'<tr data-tier="{tier_of(anchor)}" data-place="{place_of(anchor)}" data-area="{area_slug}">'
+				f'<td><a href="#{anchor}">{_e(title)}</a></td><td>{_e(area["label"])}</td><td>{_tier_chip(tier_of(anchor))}</td>'
+				f'<td>{_place_chip(place_of(anchor))}</td><td>{_e(_first_sentence(entry[6]))}</td></tr>'
+			)
+	return (
+		'<div class="table-wrap"><table class="glance rm-glance"><thead><tr><th>Item</th><th>Area</th><th>Evidence</th><th>Where it stands</th><th>Depends on</th></tr></thead>'
+		f"<tbody>{rows}</tbody></table></div>"
 	)
 
 
@@ -129,7 +174,7 @@ def _areas() -> str:
 				f'<span class="rm-chips">{_tier_counts(item_slugs)}</span>'
 				f'<span class="rm-line">{_e(area["summary"])}</span></summary>'
 				f'<div class="rm-body"><p class="lede">{_e(area["lede"])}</p><p>{_e(area["why"])}</p>{note}{_demo_links(slug)}'
-				f'{"".join(_item(entry) for entry in area["items"])}</div></details>'
+				f'{"".join(_item(entry, slug) for entry in area["items"])}</div></details>'
 			)
 		out += "</div>"
 	return out
@@ -144,8 +189,8 @@ def _built_tools() -> str:
 		for key, name, text in COMING_SOON
 	)
 	return (
-		'<details class="rm-area" id="built-tools" data-tier="untested"><summary><span class="rm-title">Built tools off the main menu</span>'
-		f'<span class="rm-chips">{_tier_chip("untested")}</span>'
+		'<details class="rm-area" id="built-tools" data-tier="untested" data-place="experimental"><summary><span class="rm-title">Built tools off the main menu</span>'
+		f'<span class="rm-chips">{_tier_chip("untested")}{_place_chip("experimental")}</span>'
 		f'<span class="rm-line">{len(COMING_SOON)} working pages that sit behind the Experimental switch while they are checked.</span></summary>'
 		'<div class="rm-body"><p class="lede">These pages run today but are not on the main menu. They appear under Development when the Experimental switch (top right) is on. None has a measured accuracy yet, so each is listed as Untested.</p>'
 		f'<div class="status-list">{rows}</div></div></details>'
@@ -204,8 +249,8 @@ def _future() -> str:
 		body = inner[head.end() :].replace("exists in Coming soon", "exists behind the Experimental switch").replace("sit in Coming soon", "sit behind the Experimental switch")
 		item = FF_TO_ITEM.get(anchor)
 		tier = tier_of(item) if item else None
-		chips = (_tier_chip(tier) if tier else "") + (f'<span class="tag ffl">{label.group(1)}</span>' if label else "")
-		data = f' data-tier="{tier}"' if tier else ""
+		chips = (_tier_chip(tier) + _place_chip(place_of(item)) if tier else "") + (f'<span class="tag ffl">{label.group(1)}</span>' if label else "")
+		data = f' data-tier="{tier}" data-place="{place_of(item)}"' if tier else ""
 		out += (
 			f'<details class="rm-item rm-ff-item" id="ff-{anchor}"{data}><summary><span class="rm-title">{title}</span>'
 			f'<span class="rm-chips">{chips}</span></summary><div class="rm-body rm-ff">{body}</div></details>'
@@ -247,8 +292,8 @@ def _demos() -> str:
 	)
 	for key, name, chip, what in DEMOS:
 		out += (
-			f'<details class="rm-item" id="demo-{key}" data-lazy="1" data-tier="untested"><summary><span class="rm-title">{_e(name)}</span>'
-			f'<span class="rm-chips">{_tier_chip("untested")}<span class="tag concept">{_e(chip)}</span></span>'
+			f'<details class="rm-item" id="demo-{key}" data-lazy="1" data-tier="untested" data-place="planned"><summary><span class="rm-title">{_e(name)}</span>'
+			f'<span class="rm-chips">{_tier_chip("untested")}{_place_chip("planned")}<span class="tag concept">{_e(chip)}</span></span>'
 			f'<span class="rm-line">{_e(what)}</span></summary><div class="rm-body">'
 			f'<iframe class="rm-frame" title="{_e(name)} demo" data-src="/coming-soon-demo#{key}" loading="lazy"></iframe></div></details>'
 		)
@@ -257,8 +302,8 @@ def _demos() -> str:
 
 def _tour() -> str:
 	return (
-		'<details class="rm-item" id="tour" data-lazy="1" data-tier="untested"><summary><span class="rm-title">Guided tour of what is coming</span>'
-		f'<span class="rm-chips">{_tier_chip("untested")}<span class="tag concept">Mock-ups</span></span>'
+		'<details class="rm-item" id="tour" data-lazy="1" data-tier="untested" data-place="planned"><summary><span class="rm-title">Guided tour of what is coming</span>'
+		f'<span class="rm-chips">{_tier_chip("untested")}{_place_chip("planned")}<span class="tag concept">Mock-ups</span></span>'
 		'<span class="rm-line">A short paced tour in three parts: better data, profiles and teams, and a future local AI layer.</span></summary>'
 		'<div class="rm-body"><p>The screens use invented names and numbers. Some of what the tour shows is on the site now and says so on its own label.</p>'
 		'<iframe class="rm-frame tall" title="Guided tour" data-src="/roadmap/tour" loading="lazy"></iframe></div></details>'
@@ -278,6 +323,16 @@ _CSS = """
 .ilit-about .rm-tier.live{background:var(--teal-soft);color:var(--teal)}
 .ilit-about .rm-tier.tested{background:var(--blue-soft);color:var(--blue)}
 .ilit-about .rm-tier.untested{background:#ecebe4;color:var(--muted)}
+.ilit-about .rm-place{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid var(--border);background:var(--surface);color:var(--text)}
+.ilit-about .rm-place.live{border-color:var(--teal);color:var(--teal)}.ilit-about .rm-place.experimental{border-color:var(--blue);color:var(--blue)}
+.ilit-about .rm-place.files{border-color:var(--amber);color:var(--amber)}.ilit-about .rm-place.paused{border-color:var(--rust);color:var(--rust)}
+.ilit-about .rm-filters{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 0;align-items:center}
+.ilit-about .rm-filters .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ilit-about .rm-filters select{font:inherit;font-size:12.5px;padding:8px;border:1px solid var(--border);border-radius:5px;background:var(--surface);color:var(--text);max-width:100%}
+.ilit-about .rm-glance td:nth-child(5){color:var(--muted)}
+.ilit-about .rm-internal{margin-top:12px;padding:10px 14px;border:1px dashed var(--rust);border-radius:6px;background:var(--rust-soft);font-size:13px}
+.ilit-about .rm-internal b{color:var(--rust);letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.ilit-about summary .rm-line b{color:var(--text);font-weight:600}
 .ilit-about .tag.ffl{background:var(--amber-soft);color:var(--amber)}
 .ilit-about .rm-legend{margin-top:16px}
 .ilit-about .rm-legend div{grid-template-columns:140px minmax(0,1fr)!important}
@@ -324,17 +379,39 @@ function setAll(open){all('details').forEach(function(d){if(d.hasAttribute('data
 document.getElementById('rmExpand').addEventListener('click',function(){setAll(true);});
 document.getElementById('rmCollapse').addEventListener('click',function(){setAll(false);});
 all('details[data-lazy]').forEach(function(d){d.addEventListener('toggle',function(){if(!d.open)return;var f=d.querySelector('iframe[data-src]');if(f&&!f.getAttribute('src'))f.setAttribute('src',f.getAttribute('data-src'));});});
-var buttons=all('[data-tier-filter]');
-function applyFilter(tier){
-  buttons.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-tier-filter')===tier));});
-  all('details.rm-item[data-tier]').forEach(function(d){d.hidden=tier!=='all'&&d.getAttribute('data-tier')!==tier;});
-  all('details.rm-area').forEach(function(a){var items=a.querySelectorAll('details.rm-item[data-tier]');if(!items.length){return;}var any=Array.prototype.some.call(items,function(i){return !i.hidden;});a.hidden=tier!=='all'&&!any;if(tier!=='all'&&any)a.open=true;});
+var state={tier:'all',place:'all',area:'all'};
+var fbtn=all('[data-filter]');
+function matches(el){return(state.tier==='all'||el.getAttribute('data-tier')===state.tier)&&(state.place==='all'||el.getAttribute('data-place')===state.place)&&(state.area==='all'||el.getAttribute('data-area')===state.area);}
+function applyFilter(){
+  fbtn.forEach(function(b){b.setAttribute('aria-pressed',String(state[b.getAttribute('data-filter')]===b.getAttribute('data-value')));});
+  var filtering=state.tier!=='all'||state.place!=='all'||state.area!=='all';
+  all('details.rm-item[data-tier],tr[data-tier]').forEach(function(d){d.hidden=!matches(d);});
+  all('details.rm-area').forEach(function(a){
+    var items=a.querySelectorAll('details.rm-item[data-tier]');
+    if(!items.length){a.hidden=filtering&&!matches(a);return;}
+    var any=Array.prototype.some.call(items,function(i){return !i.hidden;});
+    a.hidden=filtering&&!any;if(filtering&&any)a.open=true;
+  });
+  var none=document.getElementById('rmNone');if(none)none.hidden=!filtering||!!all('details.rm-item[data-tier]:not([hidden])').length;
 }
-buttons.forEach(function(b){b.addEventListener('click',function(){applyFilter(b.getAttribute('data-tier-filter'));});});
+fbtn.forEach(function(b){b.addEventListener('click',function(){state[b.getAttribute('data-filter')]=b.getAttribute('data-value');applyFilter();});});
+var areaSel=document.getElementById('rmArea');areaSel.addEventListener('change',function(){state.area=areaSel.value;applyFilter();});
+document.getElementById('rmReset').addEventListener('click',function(){state={tier:'all',place:'all',area:'all'};areaSel.value='all';applyFilter();});
+function experimental(){try{return localStorage.getItem('ilit.reader.experimental')==='1';}catch(e){return false;}}
+if(experimental()&&window.fetch){
+  fetch('/roadmap/internal.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).then(function(notes){
+    Object.keys(notes||{}).forEach(function(key){
+      var el=document.getElementById(key),body=el&&el.querySelector('.rm-body');if(!body)return;
+      var box=document.createElement('div');box.className='rm-internal';
+      var tag=document.createElement('b');tag.textContent='Internal, Experimental only';box.appendChild(tag);
+      var text=document.createElement('div');text.textContent=String(notes[key]);box.appendChild(text);body.appendChild(box);
+    });
+  }).catch(function(){});
+}
 function openHash(){
   var id=decodeURIComponent((location.hash||'').slice(1));if(!id)return;
   var el=document.getElementById(id);if(!el)return;
-  if(el.hidden){applyFilter('all');}
+  if(el.hidden){state={tier:'all',place:'all',area:'all'};areaSel.value='all';applyFilter();}
   for(var p=el;p&&p!==document.body;p=p.parentElement){if(p.tagName==='DETAILS')p.open=true;}
   if(el.scrollIntoView)el.scrollIntoView();
 }
@@ -346,33 +423,45 @@ if(window.top===window.self){var top=document.querySelector('.rm-top');if(top)to
 
 def _counts_line() -> str:
 	slugs = [entry[0] for area in SECTIONS.values() for entry in area["items"]]
-	total = len(slugs)
-	return f"{total} items in {len(SECTIONS)} areas. " + ", ".join(f"{sum(1 for s in slugs if tier_of(s) == t)} {TIERS[t][0].lower()}" for t in TIERS) + "."
+	by_tier = ", ".join(f"{sum(1 for s in slugs if tier_of(s) == t)} {TIERS[t][0].lower()}" for t in TIERS)
+	by_place = ", ".join(f"{sum(1 for s in slugs if place_of(s) == k)} {PLACES[k][0].lower()}" for k in PLACES)
+	return f"{len(slugs)} items in {len(SECTIONS)} areas. Evidence: {by_tier}. Where they stand: {by_place}."
 
 
 def render() -> str:
 	legend = "".join(f'<div class="chiprow"><strong>{_tier_chip(t)}</strong><span>{_e(text)}</span></div>' for t, (_n, text) in TIERS.items())
-	filters = "".join(
-		f'<button type="button" data-tier-filter="{t}" aria-pressed="false">{label}</button>'
-		for t, label in (("all", "All"), ("live", "Live"), ("tested", "Tested"), ("untested", "Untested"))
-	).replace('data-tier-filter="all" aria-pressed="false"', 'data-tier-filter="all" aria-pressed="true"')
+	def group(key: str, options: list[tuple[str, str]]) -> str:
+		buttons = "".join(
+			f'<button type="button" data-filter="{key}" data-value="{value}" aria-pressed="{"true" if value == "all" else "false"}">{label}</button>'
+			for value, label in options
+		)
+		return f'<span class="grp">{buttons}</span>'
+
+	tier_filter = group("tier", [("all", "All")] + [(t, TIERS[t][0]) for t in TIERS])
+	place_filter = group("place", [("all", "All")] + [(k, PLACES[k][0]) for k in PLACES])
+	area_options = '<option value="all">All areas</option>' + "".join(f'<option value="{k}">{_e(v["label"])}</option>' for k, v in SECTIONS.items())
+	place_legend = "".join(f'<div class="chiprow"><strong>{_place_chip(k)}</strong><span>{_e(text)}</span></div>' for k, (_n, text) in PLACES.items())
 	body = (
 		'<p class="rm-top"><a href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Open this inside the site &rarr;</a></p>'
 		'<header><p class="eyebrow">Roadmap</p><h1>Where iLit is today and where it is going</h1>'
-		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. This one page lists everything planned, built or imagined, in four parts: the eight areas of work, the tools that are built but off the main menu, the longer future-features write-up with concept pictures, and the demos and guided tour. Each item is open or closed with the arrow, and each carries one evidence tier.</p>'
-		f'<div class="status-list rm-legend">{legend}</div>'
+		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. This one page lists everything planned, built or imagined, in seven parts: a table of every item, the eight areas of work, the tools that are built but off the main menu, the longer future-features write-up with concept pictures, and the demos and guided tour. Each item says what it is, how well it is proven, where it stands and what it depends on, and opens or closes with the arrow.</p>'
+		f'<div class="status-list rm-legend">{legend}</div><div class="status-list rm-legend">{place_legend}</div>'
 		f'<p class="small">{_e(_counts_line())} Other test results exist outside the repository; none is shown here until its source has been checked.</p>'
 		f'<div class="note">{_RULE}</div>'
 		'<div class="rm-controls"><button type="button" id="rmExpand">Expand all</button><button type="button" id="rmCollapse">Collapse all</button>'
-		f'<span class="sep"></span><span class="small">Show:</span>{filters}</div></header>'
-		'<section id="areas"><h2>1. The eight areas of work</h2>'
+		'</div>'
+		f'<div class="rm-filters"><span class="small">Evidence</span>{tier_filter}<span class="small">Where it stands</span>{place_filter}'
+		f'<label class="small" for="rmArea">Area</label><select id="rmArea">{area_options}</select><button type="button" id="rmReset">Reset</button></div>'
+		'<p class="small" id="rmNone" hidden>No item matches these filters.</p></header>'
+		f'<section id="glance"><h2>1. Every item at a glance</h2><p class="intro">One row per item. The filters above narrow this table and the lists below it. Click an item to jump to its full entry.</p>{_glance()}</section>'
+		'<section id="areas"><h2>2. The eight areas of work</h2>'
 		'<p class="intro">Better data improves every page at once, new features sit on top of it, and the last part is the groundwork a deployment inside the Agency would need.</p>'
 		f"{_areas()}</section>"
-		f'<section id="tools"><h2>2. Built, but off the main menu</h2>{_built_tools()}</section>'
-		f'<section id="future-features"><h2>3. Future features in depth</h2>{_future()}</section>'
-		f'<section id="argument-breakdown"><h2>4. Whose position: breaking a decision into arguments</h2>{_argument()}</section>'
-		f'<section id="demos"><h2>5. Demos</h2>{_demos()}</section>'
-		f'<section id="tour-section"><h2>6. Guided tour</h2>{_tour()}</section>'
+		f'<section id="tools"><h2>3. Built, but off the main menu</h2>{_built_tools()}</section>'
+		f'<section id="future-features"><h2>4. Future features in depth</h2>{_future()}</section>'
+		f'<section id="argument-breakdown"><h2>5. Whose position: breaking a decision into arguments</h2>{_argument()}</section>'
+		f'<section id="demos"><h2>6. Demos</h2>{_demos()}</section>'
+		f'<section id="tour-section"><h2>7. Guided tour</h2>{_tour()}</section>'
 		'<section id="labels"><h2>How to read the labels</h2><p class="intro">The evidence tier says how far the claim is proven. The label beside it says how far the work has got.</p>'
 		f'<div class="status-list">{_meanings()}</div></section>'
 		"<footer>The Roadmap lists work that is not finished. “Concept only” means no part of it exists. Nothing here is a promise.</footer>"
@@ -393,3 +482,19 @@ def tour_html() -> str:
 
 # Old address -> anchor on the Roadmap, so every earlier link still lands in the right place.
 REDIRECT_ANCHORS = {"overview": "", "argument-breakdown": "#argument-breakdown", **{slug: f"#{slug}" for slug in SECTIONS}}
+
+
+def internal_notes() -> dict[str, str]:
+	"""Private working notes keyed by item id, read from ``data/roadmap_internal.json`` when that file exists.
+
+	The file is not in the repository. The page asks for it only when the Experimental switch is on. The switch
+	is a display mode, not a lock, so nothing confidential belongs in this file.
+	"""
+	import json
+
+	path = HERE.parent.parent / "data" / "roadmap_internal.json"
+	try:
+		data = json.loads(path.read_text(encoding="utf-8"))
+	except (OSError, ValueError):
+		return {}
+	return {str(k): str(v) for k, v in data.items()} if isinstance(data, dict) else {}

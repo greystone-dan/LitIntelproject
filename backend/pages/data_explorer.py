@@ -1788,6 +1788,11 @@ window.addEventListener('afterprint',()=>{
   pos_js = (here / 'reader_positions.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + pos_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + pos_js + '</script>\n</body>', 1)
+  # Case summary card (preview): parties, earlier decisions, issues, arguments, challenged part. Shows only when the flag is on and a frame is stored.
+  frame_css = (here / 'reader_frame.css').read_text(encoding='utf-8')
+  frame_js = (here / 'reader_frame.js').read_text(encoding='utf-8')
+  html = html.replace('</head>', '<style>\n' + frame_css + '</style>\n</head>', 1)
+  html = html.replace('</body>', '<script>\n' + frame_js + '</script>\n</body>', 1)
   # Case search page: floating search bar, left filter panel, boxed result rows. Desktop layout; injected after the reader redesign so it shares its look.
   search_css = (here / 'search_v6.css').read_text(encoding='utf-8')
   search_js = (here / 'search_v6.js').read_text(encoding='utf-8')

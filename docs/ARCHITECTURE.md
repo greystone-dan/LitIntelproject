@@ -160,6 +160,8 @@ test checks that these paths continue to exist.
 | `backend/case_fingerprint_store.py` | Stored case fingerprints: compute at ingest/batch time, read back into a similarity index |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_frame.py` | Deterministic case frame (court, proceeding, earlier decision maker, which side the Minister is on) built before any paragraph is read; no model |
+| `backend/case_frame_plus.py` | Pass 1 of the argument breakdown: a plain "what is this case" frame, built before any paragraph is classified |
+| `backend/case_frame_store.py` | Stored case frames for the reader: read one decision's frame from case_frames |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
@@ -291,6 +293,8 @@ test checks that these paths continue to exist.
 | `backend/pages/preview_img/workbench.webp` | Real Workbench screenshot used by the Coming soon preview. |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
+| `backend/pages/reader_frame.css` | TODO: describe this file |
+| `backend/pages/reader_frame.js` | TODO: describe this file |
 | `backend/pages/reader_positions.css` | TODO: describe this file |
 | `backend/pages/reader_positions.js` | TODO: describe this file |
 | `backend/pages/reader_v6.css` | TODO: describe this file |

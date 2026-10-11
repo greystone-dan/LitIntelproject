@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 213
+Active scripts documented: 214
 
 ## Catalog
 
@@ -150,6 +150,7 @@ Active scripts documented: 213
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
+| `load_case_frames.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_case_frames.py --help` |
 | `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
 | `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
@@ -2182,6 +2183,20 @@ Active scripts documented: 213
 
 ```powershell
 .\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help
+```
+
+## `scripts/load_case_frames.py`
+
+**Purpose:** Load stored case frames (one JSON file per decision) into case_frames. Dry run by default. Additive only: it adds frames that are missing and never updates or deletes existing ones. A file is named <COURT>_<case id>.json (for example FC_1445.json) and holds the frame with "id" inside. A frame is skipped when its case does not exist, its "id" does not match the file name, or it fails the text-match check (a frame written for a different decision). python scripts/load_case_frames.py DIR # dry run: counts, nothing written python scripts/load_case_frames.py DIR --apply # write (live database: needs the go-ahead) Undo: DROP TABLE case_frames; (or alembic downgrade 0046_paragraph_positions) Run `alembic upgrade head` first so the table exists.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_case_frames.py --help
 ```
 
 ## `scripts/load_issue_maps.py`

@@ -172,14 +172,15 @@ def test_card_follows_the_highlight_and_controls_stay_in_the_dock():
     assert "function placeCard(" in js and "ilit-tour-dock" in js
 
 
-def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
-    page = client.get("/future-features")
-    assert page.status_code == 200
-    assert "/site-tour.js" not in page.text and "<script" not in page.text
-    assert "Future state, not built yet" in page.text and "Concept mock-up, not built yet" in page.text
-    assert page.text.count('class="facts"') >= 8
-    html = routes._data_explorer_page_html()
-    assert html.count('href="/future-features"') >= 2
+def test_future_features_now_lives_on_the_roadmap_page():
+    page = client.get("/future-features", follow_redirects=False)
+    assert page.status_code == 307 and page.headers["location"] == "/roadmap#future-features"
+    roadmap = client.get("/roadmap")
+    assert roadmap.status_code == 200
+    assert "/site-tour.js" not in roadmap.text
+    assert "Concept mock-up, not built yet" in roadmap.text
+    assert roadmap.text.count('class="facts"') >= 8
+    assert "future-features" in routes._data_explorer_page_html()
 
 
 def test_sections_follow_the_header_tabs_without_going_back():
@@ -357,12 +358,13 @@ def test_filter_demo_is_checked_to_put_the_tour_decision_first():
     assert "NOT the first result of the filter demo" in script and "WRONG FIRST" in script
 
 
-def test_coming_soon_preview_page_is_served_and_linked():
+def test_guided_tour_is_a_section_of_the_roadmap():
     client = TestClient(app)
-    page = client.get("/coming-soon-preview")
+    assert client.get("/coming-soon-preview", follow_redirects=False).headers["location"] == "/roadmap#tour"
+    page = client.get("/roadmap/tour")
     assert page.status_code == 200
     assert "Future local AI" in page.text and 'id="next"' in page.text
-    assert 'href="/coming-soon-preview"' in client.get("/data-explorer").text
+    assert 'id="tour"' in client.get("/roadmap").text and 'data-src="/roadmap/tour"' in client.get("/roadmap").text
     assert 'id="comingSoonPreviewStart"' in client.get("/data-explorer").text
     assert client.get("/coming-soon-preview/img/reader.webp").status_code == 200
     assert client.get("/coming-soon-preview/img/secret.webp").status_code == 404
@@ -378,7 +380,6 @@ def test_coming_soon_demo_page_is_served_linked_and_makes_no_requests():
     for call in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket"):
         assert call not in page.text
     explorer = client.get("/data-explorer").text
-    assert "roadmap-demos" in explorer and "/coming-soon-demo" in explorer and 'id="comingSoonDemos"' in explorer
-    overview = client.get("/coming-soon/overview")
-    assert overview.status_code == 200 and "roadmap-demos" in overview.text
-    assert "/coming-soon-demo#ai" in client.get("/coming-soon/local-ai").text
+    assert "roadmap-demos" in explorer and "/roadmap#demos" in explorer
+    roadmap = client.get("/roadmap").text
+    assert 'id="demos"' in roadmap and 'data-src="/coming-soon-demo#ai"' in roadmap and 'href="#demo-ai"' in roadmap

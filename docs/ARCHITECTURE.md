@@ -300,6 +300,7 @@ test checks that these paths continue to exist.
 | `backend/pages/reader_v6.css` | TODO: describe this file |
 | `backend/pages/reader_v6.js` | TODO: describe this file |
 | `backend/pages/research.py` | Experimental research page builder |
+| `backend/pages/roadmap_page.py` | The Roadmap: one long, expandable page that replaces the separate Coming soon pages |
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/search_v6.css` | TODO: describe this file |
 | `backend/pages/search_v6.js` | TODO: describe this file |

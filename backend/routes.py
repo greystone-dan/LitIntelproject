@@ -1560,16 +1560,35 @@ def site_tour_sample_memo() -> Response:
 	)
 
 
+@router.get("/roadmap", include_in_schema=False)
+def roadmap_page() -> HTMLResponse:
+	from .pages.roadmap_page import render
+
+	return HTMLResponse(render(), headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/roadmap/internal.json", include_in_schema=False)
+def roadmap_internal_notes() -> JSONResponse:
+	from .pages.roadmap_page import internal_notes
+
+	return JSONResponse(internal_notes(), headers={"Cache-Control": "no-store"})
+
+
+@router.get("/roadmap/tour", include_in_schema=False)
+def roadmap_tour_page() -> HTMLResponse:
+	from .pages.roadmap_page import tour_html
+
+	return HTMLResponse(tour_html(), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/future-features", include_in_schema=False)
-def future_features_page() -> HTMLResponse:
-	page = Path(__file__).resolve().parent / "pages" / "future_features.html"
-	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+def future_features_page() -> RedirectResponse:
+	return RedirectResponse(url="/roadmap#future-features", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
 @router.get("/coming-soon-preview", include_in_schema=False)
-def coming_soon_preview_page() -> HTMLResponse:
-	page = Path(__file__).resolve().parent / "pages" / "coming_soon_preview.html"
-	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+def coming_soon_preview_page() -> RedirectResponse:
+	return RedirectResponse(url="/roadmap#tour", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
 @router.get("/coming-soon-demo", include_in_schema=False)
@@ -1587,13 +1606,12 @@ def coming_soon_preview_image(name: str) -> Response:
 
 
 @router.get("/coming-soon/{section}", include_in_schema=False)
-def coming_soon_page(section: str) -> HTMLResponse:
-	from .pages.coming_soon_page import render
+def coming_soon_page(section: str) -> RedirectResponse:
+	from .pages.roadmap_page import REDIRECT_ANCHORS
 
-	page = render(section)
-	if page is None:
+	if section not in REDIRECT_ANCHORS:
 		raise HTTPException(status_code=404, detail="Unknown Coming soon page")
-	return HTMLResponse(page, headers={"Cache-Control": "public, max-age=300"})
+	return RedirectResponse(url="/roadmap" + REDIRECT_ANCHORS[section], status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
 @router.get("/business-case", include_in_schema=False)

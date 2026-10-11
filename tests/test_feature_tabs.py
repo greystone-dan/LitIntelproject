@@ -590,7 +590,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):
+    for label in ('About', 'Research', 'Intelligence / Statistics', 'Roadmap', 'Development', 'Testing'):
         assert f'>{label}</button>' in header
 
 
@@ -606,7 +606,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert 'soon-fc-analytics' not in soon
     roadmap = {tab: group for tab, group in views.items() if tab.startswith('roadmap-')}
     assert set(roadmap.values()) == {'roadmap'}
-    assert list(roadmap) == ['roadmap-overview', 'roadmap-demos', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-intelligence', 'roadmap-fc-files', 'roadmap-team', 'roadmap-readiness', 'roadmap-internal', 'roadmap-local-ai']
+    assert list(roadmap) == ['roadmap-overview']  # one Roadmap page; older tab keys still open it at the right place
     assert {tab: group for tab, group in views.items() if tab not in soon and tab not in roadmap} == {
         'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
@@ -1349,16 +1349,28 @@ def test_main_tab_clicks_reset_state_in_page_without_reloading():
         assert step in html
 
 
-def test_coming_soon_roadmap_pages_serve_overview_and_every_section():
+def test_roadmap_is_one_expandable_page_and_old_coming_soon_addresses_redirect():
     from fastapi import HTTPException
 
     from backend.pages.coming_soon_page import ORDER, SECTIONS, STATUSES
+    from backend.pages.roadmap_page import TIERS, render, tier_of
 
+    html = render()
+    # every item of every area is on the page, open or closed, with one tier
+    for area in SECTIONS.values():
+        for item in area['items']:
+            assert f'id="{item[0]}"' in html and item[2] in STATUSES and len(item) in (7, 8)
+            assert tier_of(item[0]) in TIERS
+    assert html.count('class="rm-item"') >= sum(len(a['items']) for a in SECTIONS.values())
+    for label in ("Internal documentation", "Increased intelligence", "Future features in depth", "Whose position", "Demos", "Guided tour"):
+        assert label in html
     for slug in ORDER:
-        page = routes.coming_soon_page(slug)
-        assert page.status_code == 200 and b"Coming soon" in page.body
+        response = routes.coming_soon_page(slug)
+        assert response.status_code == 307 and response.headers['location'].startswith('/roadmap')
+    assert routes.coming_soon_page('local-ai').headers['location'] == '/roadmap#local-ai'
     with pytest.raises(HTTPException):
         routes.coming_soon_page("nope")
-    assert all(item[2] in STATUSES and len(item) in (7, 8) for area in SECTIONS.values() for item in area['items'])
-    assert b"Internal documentation" in routes.coming_soon_page("overview").body
-    assert "/coming-soon/overview" in routes._data_explorer_page_html()
+    assert routes.future_features_page().headers['location'] == '/roadmap#future-features'
+    assert routes.coming_soon_preview_page().headers['location'] == '/roadmap#tour'
+    assert routes.roadmap_page().status_code == 200
+    assert "/roadmap" in routes._data_explorer_page_html()

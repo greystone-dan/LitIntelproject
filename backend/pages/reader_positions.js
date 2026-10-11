@@ -26,7 +26,7 @@
   if(!pos.loading.has(id)){
    pos.loading.add(id);
    fetch('/cases/'+encodeURIComponent(id)+'/paragraph-positions').then(r=>r.ok?r.json():{available:false}).catch(()=>({available:false})).then(data=>{
-    pos.loading.delete(id);pos.cache.set(id,data&&data.available?data:{unavailable:true,empty_note:(data&&data.empty_note)||'Not tagged yet. Whose-position tags are prepared ahead of time for a growing set of decisions, and this one is not in it yet.'});schedule();});
+    pos.loading.delete(id);pos.cache.set(id,data&&data.available?data:{unavailable:true,empty_note:(data&&data.empty_note)||'Not tagged yet. Whose-position tags are prepared ahead of time for English-language immigration decisions from 2005 on, and this one is not in that set.'});schedule();});
   }
   return null;
  }

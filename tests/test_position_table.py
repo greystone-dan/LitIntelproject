@@ -94,3 +94,51 @@ def test_live_analysis_uses_learned_tags_only_behind_the_flag(monkeypatch):
 	live = position_tags.live_positions(text, blocks)
 	assert live["mode"] == "learned" and live["available"]
 	assert all("unsure" in r for r in live["paragraphs"].values())
+
+
+def test_confidence_bar_is_exactly_seventy_percent_everywhere():
+	"""A holder is named only at 0.7 or higher; below it, or with no probability, the paragraph says Unsure."""
+	assert position_tags.CONFIDENT == 0.7
+	for p, shown in ((0.99, True), (0.7, True), (0.699, False), (0.4, False), (None, False)):
+		row = position_tags._learned_row("applicant", p)
+		assert (row["positions"][0]["key"] == "applicant") is shown and row["unsure"] is (not shown)
+		if not shown:
+			assert row["positions"] == [{"key": "unsure", "label": "Unsure"}] and row["layer"]["key"] == "unknown"
+
+
+def test_every_learned_source_applies_the_bar(tmp_path, monkeypatch):
+	rows = {"1": {"h": "respondent", "p": 0.95}, "2": {"h": "court", "p": 0.69}, "3": {"h": "applicant"}}
+	keys = {"1": "respondent", "2": "unsure", "3": "unsure"}
+	_write(tmp_path / "learned", 777003, rows)
+	empty = tmp_path / "empty"
+	empty.mkdir()
+	monkeypatch.setenv(position_tags.LEARNED_FLAG, "1")
+	monkeypatch.setattr(position_tags, "_database_rows", lambda cid: None)
+	data = position_tags.case_positions(777003, position_tags.FilePositionSource(empty, None, tmp_path / "learned"))
+	assert {n: r["positions"][0]["key"] for n, r in data["paragraphs"].items()} == keys
+	# the table source goes through the same function
+	monkeypatch.undo()
+	from backend import database
+
+	class _Result:
+		def scalar_one_or_none(self):
+			return rows
+
+	class _Session:
+		def __enter__(self):
+			return self
+
+		def __exit__(self, *a):
+			return False
+
+		def execute(self, *a, **k):
+			return _Result()
+
+	monkeypatch.setattr(database, "SessionLocal", lambda: _Session())
+	assert {n: r["positions"][0]["key"] for n, r in position_tags._database_rows(777003).items()} == keys
+
+
+def test_empty_note_describes_the_library_wide_tags():
+	note = position_tags.case_positions(999999999)["empty_note"]
+	assert "665" not in note and "growing set" not in note
+	assert "2005" in note and "Federal Court of Appeal" in note and "Refugee Protection Division" in note

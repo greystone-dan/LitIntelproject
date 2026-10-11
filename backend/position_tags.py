@@ -108,9 +108,11 @@ RELIABILITY_RULES = (
 	"without a cue phrase are left untagged. Not checked by a lawyer."
 )
 EMPTY_NOTE = (
-	"Not tagged yet. “Whose position” shows who is speaking in each paragraph (the judge, each side, the earlier "
-	"decision-maker). It is prepared ahead of time for a growing set of decisions ({count} so far) and is never "
-	"worked out when you open a page. This decision is not in that set yet."
+	"Not tagged yet. \u201cWhose position\u201d shows who is speaking in each paragraph (the judge, each side, the earlier "
+	"decision-maker). It is prepared ahead of time, never worked out when you open a page, and covers English-language "
+	"immigration decisions from 2005 on (Federal Court, Federal Court of Appeal, Refugee Appeal Division, Refugee "
+	"Protection Division and Immigration Appeal Division). This decision is outside that set or has no numbered "
+	"paragraphs, so nothing is shown."
 )
 EMPTY_NOTE_RULES = (
 	"No clear cue phrases found. For pasted documents the tags come from fixed phrases such as “the applicant "
@@ -173,7 +175,7 @@ def _row(
 
 def _learned_row(holder: str, probability: float | None, cue: str | None = None) -> dict[str, Any]:
 	"""A tag from the rules + learned tagger. Below ``CONFIDENT`` the voice is not named: the paragraph says "unsure"."""
-	if holder not in POSITION_LABELS or (probability is not None and probability < CONFIDENT):
+	if holder not in POSITION_LABELS or probability is None or probability < CONFIDENT:
 		row = _row(["unsure"], "", [], None, cue=cue)
 		row["unsure"] = True
 		return row
@@ -342,7 +344,7 @@ def case_positions(case_id: int, source: PositionSource | None = None) -> dict[s
 		"case_id": case_id,
 		"available": rows is not None,
 		"overview": stored_overview(rows) if rows else [],
-		"empty_note": EMPTY_NOTE.format(count=len(stored_case_ids())),
+		"empty_note": EMPTY_NOTE,
 		"notice": PREVIEW_NOTICE_LEARNED if learned else PREVIEW_NOTICE_STORED,
 		"legend": LEGEND_NOTE,
 		"framework_note": FRAMEWORK_NOTE,

@@ -142,7 +142,7 @@ def test_responses_carry_plain_language_legend_reliability_and_empty_notes() -> 
 	assert {i["key"] for i in stored["legend_items"]} == set(POSITION_LABELS) and all(i["help"] for i in stored["legend_items"])
 	assert "8 in 10" in stored["reliability"] and "Not tagged yet" in stored["empty_note"]
 	untagged = case_positions(999999999)
-	assert untagged["available"] is False and untagged["overview"] == [] and str(len(stored_case_ids())) in untagged["empty_note"]
+	assert untagged["available"] is False and untagged["overview"] == [] and "2005" in untagged["empty_note"] and "665" not in untagged["empty_note"]
 	live = rules_positions("x", [])
 	assert live == {}
 

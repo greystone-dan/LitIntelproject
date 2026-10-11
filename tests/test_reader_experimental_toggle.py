@@ -47,7 +47,7 @@ def test_admin_toggle_replaces_welcome_page():
         response = client.get(path)
         assert response.status_code == 307 and response.headers["location"] == "/data-explorer"
     for html in (data_explorer_page_html(), live_analysis_page_html()):
-        assert 'id="siteExperimentalToggle"' in html and ">Admin</button>" in html
+        assert 'id="siteExperimentalToggle"' in html and ">Experimental: off</button>" in html
         assert "!=='1')document.documentElement.classList.add('ilit-demo')" in html  # normal mode unless switched on
         assert "classList.toggle('ilit-demo',!experimentalState.on)" in html  # one switch governs tabs and reader tools
         assert 'href="/welcome"' not in html and 'id="modeSwitch"' not in html

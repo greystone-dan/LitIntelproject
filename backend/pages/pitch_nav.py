@@ -58,7 +58,7 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
 <button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Development</button>
 <button type="button" data-group="testing" aria-pressed="false" aria-controls="researchViews">Testing</button>
-<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="Turn on admin and experimental features (development tabs and unfinished tools)">Admin</button>
+<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: development tabs, Testing, units, Find the unit and unfinished reader tools">Experimental: off</button>
 </nav>"""
 
 

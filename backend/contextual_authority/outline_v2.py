@@ -327,9 +327,14 @@ def _opener_title(text: str) -> str | None:
 	return None
 
 
+_NOISE_HEADING_RE = re.compile(r"^\s*(?:(?:IMM|[TA])-\d|(?:division|section|part|subdivision|chapter|schedule|article|rule)\s+\d+\s*$)", re.I)
+
+
 def _heading_point(unit: dict[str, Any], *, opens_section: bool) -> dict[str, Any] | None:
 	"""The sub-point a heading makes, or None when the heading is just the section's own title (a sub-heading run into it counts)."""
 	main, sub = _heading_parts(unit["text"])
+	if _NOISE_HEADING_RE.match(unit["text"]):
+		return None  # file numbers and quoted statute headings ("DIVISION 3") are not the court's own headings
 	generic = _heading_section(unit["text"])
 	if generic == "issues" and re.sub(r"^(?:[IVX]{1,5}|[A-H]|\d{1,2})[.)]\s+", "", _heading_parts(unit["text"])[0]).strip().lower() in {"issue", "issues", "the issues", "the issue"}:
 		generic = "issues-title"
@@ -340,6 +345,14 @@ def _heading_point(unit: dict[str, Any], *, opens_section: bool) -> dict[str, An
 	if generic and generic != "issues":
 		return None  # "I. Background" inside Background, "JUDGMENT" inside the Disposition: the section's own title again
 	return {"title": _heading_title(main), "level": _heading_rank(main), "source": "heading"}
+
+
+def _topic_in_title(topic: str, title: str) -> bool:
+	"""True when a heading already names the topic ("IFA" for "Internal flight alternative"; "Section 10" for "Section 10 ...")."""
+	if topic.startswith("Section "):
+		return topic.lower() in title.lower()
+	pattern = next((p for label, p in _TOPICS if label == topic), None)
+	return bool(pattern and pattern.search(title))
 
 
 def _analysis_points(units: list[dict[str, Any]], indices: list[int]) -> list[dict[str, Any]]:
@@ -377,6 +390,9 @@ def _analysis_points(units: list[dict[str, Any]], indices: list[int]) -> list[di
 			if not shared:
 				continue
 			topic = max(shared, key=lambda t: (cur[t] + nxt[t], -_TOPIC_RANK.get(t, 99)))
+			parent = points.get(lo)
+			if parent and (_topic_in_title(topic, parent["title"])):
+				continue
 			if topic != last_title:
 				points[i] = {"title": topic, "level": 2 if lo not in points else min(3, points[lo]["level"] + 1), "source": "topic"}
 				last_title, since = topic, 0
@@ -384,7 +400,7 @@ def _analysis_points(units: list[dict[str, Any]], indices: list[int]) -> list[di
 		if stretch and stretch[0] not in points:
 			first_scores = scores[stretch[0]]
 			opening = max(first_scores, key=first_scores.get) if first_scores else None
-			if opening and (stretch[1:2] and opening in scores.get(stretch[1], {})):
+			if opening and lo not in points and (stretch[1:2] and opening in scores.get(stretch[1], {})):
 				points[stretch[0]] = {"title": opening, "level": 2 if lo not in points else min(3, points[lo]["level"] + 1), "source": "topic"}
 	ordered = sorted(points.items())
 	kept: list[tuple[int, dict[str, Any]]] = []
@@ -422,10 +438,55 @@ def outline_v2(text: str | None, blocks: Sequence[dict]) -> list[dict]:
 	return [dict(row) for row in hit]
 
 
+_INLINE_NOTE_RE = re.compile(r"(?<![\d\[])\b\d{1,3} (?:Exhibit|Ibid|[Ss]upra)\b")
+_FOOTNOTE_LINE_RE = re.compile(r"(?m)^(\d{1,3})[ \t]+\S")
+
+
+def footnote_start(text: str, after: int) -> int | None:
+	"""Offset where the notes printed after the reasons begin ("1 Exhibit 3 ...", "2 Ibid."), found as a 1, 2, ... run."""
+	lines = [(m.start(), int(m.group(1))) for m in _FOOTNOTE_LINE_RE.finditer(text, after)]
+	for i, (offset, number) in enumerate(lines):
+		if number == 1 and (i + 1 == len(lines) or lines[i + 1][1] == 2):
+			return offset
+	# notes run together on one line ("19 Exhibit 3, item 2.4. 20 Ibid. 21 Ibid. ...")
+	for match in re.finditer(r"(?m)^.+$", text[after:]):
+		if len(_INLINE_NOTE_RE.findall(match.group(0))) >= 3:
+			return after + match.start()
+	return None
+
+
+def footnote_markers(text: str, start: int) -> list[tuple[int, int, int | None]]:
+	"""(note number, note offset, offset of its marker in the reasons) for each note after ``start``."""
+	notes: list[tuple[int, int]] = []
+	expected = 1
+	for match in _FOOTNOTE_LINE_RE.finditer(text, start):
+		if int(match.group(1)) == expected:
+			notes.append((expected, match.start()))
+			expected += 1
+	out: list[tuple[int, int, int | None]] = []
+	cursor = 0
+	for number, offset in notes:
+		found = re.compile(rf"(?<=[^\d\s\[])(?<!\d){number}(?!\d)(?=[\s.,;)]|$)").search(text, cursor, start)
+		out.append((number, offset, found.start() if found else None))
+		if found:
+			cursor = found.end()
+	return out
+
+
 def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 	units = _units(text, blocks)
 	if sum(1 for u in units if u["body"]) < 4:
 		return []
+	last_numbered = [u for u in units if u["num"] is not None]
+	# notes can be glued to the last numbered paragraph as unnumbered lines, so look from that paragraph's second line on
+	last_body = (last_numbered[-1]["start"] + len(last_numbered[-1]["text"].split("\n", 1)[0]) + 1) if last_numbered else 0
+	notes_at = footnote_start(text, last_body) if last_body else None
+	if notes_at is not None:
+		units = [u for u in units if u["start"] < notes_at]
+		for u in units:
+			if u["end"] > notes_at:  # notes glued to the last paragraph
+				u["end"] = notes_at
+				u["text"] = text[u["start"] : notes_at].strip()
 	section = _assign_sections(units)
 	_fold_thin_sections(units, section)
 	if not any(u["num"] is not None for u in units):
@@ -463,6 +524,7 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 				made = _heading_point(units[i], opens_section=i == a) if units[i]["heading"] else None
 				if made:
 					starts.append({"unit": i, **made})
+		starts = _drop_thin_points(units, starts, b, name)
 		for n, point in enumerate(starts):
 			first = point["unit"]
 			stop = (starts[n + 1]["unit"] if n + 1 < len(starts) else b + 1) - 1
@@ -485,6 +547,23 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 			)
 	_normalise_levels(rows)
 	return rows
+
+
+def _drop_thin_points(units: list[dict[str, Any]], starts: list[dict[str, Any]], end: int, section: str) -> list[dict[str, Any]]:
+	"""Topic and opener points under three paragraphs are noise; headings with no paragraph of their own stay only in Issues."""
+	changed = True
+	while changed:
+		changed = False
+		for n, point in enumerate(starts):
+			stop = starts[n + 1]["unit"] if n + 1 < len(starts) else end + 1
+			body = sum(1 for u in units[point["unit"] : stop] if u["body"])
+			thin = point["source"] != "heading" and body < _MIN_POINT_PARAS and n + 1 < len(starts)
+			empty_heading = point["source"] == "heading" and body == 0 and (section != "issues" or units[point["unit"]]["text"][:1] not in "123456789")
+			if thin or empty_heading:
+				starts = starts[:n] + starts[n + 1 :]
+				changed = True
+				break
+	return starts
 
 
 def _normalise_levels(rows: list[dict]) -> None:
@@ -514,10 +593,26 @@ def section_for_offset(outline: Sequence[dict], offset: int | None) -> dict[str,
 	return {"section": section_row["section"], "section_title": section_row["title"], "point": point["title"] if point else None}
 
 
-def tag_citation_sections(citations: Sequence[Any], outline: Sequence[dict], offset_of) -> None:
-	"""Set ``section``, ``section_title`` and ``section_point`` on each citation row (dicts or objects) from its offset."""
+def tag_citation_sections(citations: Sequence[Any], outline: Sequence[dict], offset_of, text: str | None = None) -> None:
+	"""Set ``section``, ``section_title`` and ``section_point`` on each citation row (dicts or objects) from its offset.
+
+	With ``text``, a citation printed in the notes after the reasons takes the section of its note's marker.
+	"""
+	notes: list[tuple[int, int, int | None]] = []
+	notes_start = None
+	if text and outline:
+		notes_start = footnote_start(text, max(r["end"] for r in outline))
+		if notes_start is not None:
+			notes = footnote_markers(text, notes_start)
 	for row in citations:
-		found = section_for_offset(outline, offset_of(row))
+		offset = offset_of(row)
+		if notes and offset is not None and offset >= notes_start:
+			holder = None
+			for number, note_offset, marker in notes:
+				if note_offset <= offset:
+					holder = marker
+			offset = holder
+		found = section_for_offset(outline, offset)
 		for key, value in (
 			("section", found["section"] if found else None),
 			("section_title", found["section_title"] if found else None),
@@ -540,3 +635,4 @@ def citation_offset(row: Any) -> int | None:
 	chunk_id = row.get("chunk_id") if isinstance(row, dict) else getattr(row, "chunk_id", None)
 	start = row.get("offset_start") if isinstance(row, dict) else getattr(row, "offset_start", None)
 	return start if chunk_id is None else None
+

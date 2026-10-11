@@ -250,7 +250,7 @@ def build_live_reader_payload(
 	outline = _outline(text, format_blocks)
 	if outline and outline[0].get("section"):
 		try:
-			tag_citation_sections(rows, outline, citation_offset)
+			tag_citation_sections(rows, outline, citation_offset, text)
 		except Exception:  # noqa: BLE001 - section tags are optional
 			pass
 	return {

@@ -1378,7 +1378,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		outline_rows = []
 	if outline_rows and outline_rows[0].get("section"):
 		try:
-			tag_citation_sections(citation_responses, outline_rows, citation_offset)
+			tag_citation_sections(citation_responses, outline_rows, citation_offset, case.full_text)
 		except Exception:  # noqa: BLE001 - section tags are optional
 			pass
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.

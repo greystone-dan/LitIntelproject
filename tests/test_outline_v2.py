@@ -103,3 +103,32 @@ def test_flag_switches_structure_outline(monkeypatch):
 	assert not structure_outline(DECISION, blocks)[0].get("section")
 	monkeypatch.setenv("ILIT_OUTLINE_V2", "1")
 	assert structure_outline(DECISION, blocks)[0]["section"] == "background"
+
+
+NOTED = "\n".join(
+	[
+		"Doe v. Canada",
+		"Date: 20200101",
+		"REASONS FOR DECISION",
+		"[1] The appellant appeals a decision of the Refugee Protection Division refusing his claim for protection.",
+		"[2] The appellant is a citizen of Nigeria who arrived in Canada in March 2016 and claimed protection.",
+		"[3] The RPD rejected the claim on credibility and the appellant says it erred in doing so.",
+		"ANALYSIS",
+		"[4] I find that the RPD was correct that the appellant's account of events was inconsistent.1",
+		"[5] In my view the appellant's explanation for the omission was not persuasive and the finding was open to the RPD.2",
+		"[6] Moreover, the RPD was entitled to draw an adverse inference. However, the point is not determinative.",
+		"[7] The appeal is dismissed and the decision of the RPD is confirmed.",
+		"(signed) Jane Member",
+		"1 Smith v. Canada, 2015 FC 100.",
+		"2 Ibid.",
+	]
+)
+
+
+def test_citation_in_an_endnote_takes_the_section_of_its_marker():
+	blocks = format_decision(NOTED, {})
+	rows = outline_v2(NOTED, blocks)
+	assert max(r["end"] for r in rows) <= NOTED.index("1 Smith")
+	citation = {"offset_start": NOTED.index("2015 FC 100"), "chunk_id": None}
+	tag_citation_sections([citation], rows, citation_offset, NOTED)
+	assert citation["section"] == "analysis"

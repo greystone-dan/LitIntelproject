@@ -132,3 +132,50 @@ def test_citation_in_an_endnote_takes_the_section_of_its_marker():
 	citation = {"offset_start": NOTED.index("2015 FC 100"), "chunk_id": None}
 	tag_citation_sections([citation], rows, citation_offset, NOTED)
 	assert citation["section"] == "analysis"
+
+
+def _no_overlap(rows):
+	sections = [r for r in rows if r["kind"] == "section"]
+	for a, b in zip(sections, sections[1:]):
+		assert a["end"] <= b["start"]
+		if a.get("para_end") and b.get("para"):
+			assert a["para_end"] < b["para"]
+
+
+def test_rad_early_role_heading_does_not_swallow_the_decision():
+	paras = []
+	for n in range(1, 6):
+		paras.append(f"[{n}] The Appellant appeals the decision of the Refugee Protection Division that rejected the claim for refugee protection, number {n}.")
+	text = "REASONS FOR DECISION\nINTRODUCTION\n" + "\n".join(paras[:2]) + "\nROLE OF THE RAD\n" + "\n".join(paras[2:])
+	n = 6
+	body = []
+	for _ in range(8):
+		body.append(f"[{n}] I find that the RPD was correct to conclude the Appellant is not credible; I am not persuaded that the explanation is reasonable.")
+		n += 1
+	text += "\n" + "\n".join(body)
+	text += f"\n[{n}] For these reasons, the appeal is dismissed and the decision of the RPD is confirmed.\nCONCLUSION\nThe appeal is dismissed.\n"
+	rows = outline_v2(text, format_decision(text, {}))
+	_no_overlap(rows)
+	sections = [r["section"] for r in rows if r["kind"] == "section"]
+	if rows:
+		assert sections[-1] == "disposition"
+		assert sections == sorted(sections, key=["background", "issues", "analysis", "disposition"].index)
+
+
+def test_live_reader_and_case_reader_citations_carry_section_keys(monkeypatch):
+	from backend.live_reader import build_live_reader_payload
+	from backend.live_analysis import paragraphs_from_pasted_text
+	from backend.models import CaseReaderCitationResponse
+
+	monkeypatch.setenv("ILIT_OUTLINE_V2", "1")
+	text = DECISION.replace(
+		"[9] The applicant argues",
+		"[9] See Baker v Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817 at para 22. The applicant argues",
+	)
+	text, paragraphs = paragraphs_from_pasted_text(text)
+	rows = build_live_reader_payload(text, paragraphs, "Pasted text", None)["citations"]
+	assert rows and all("section" in r for r in rows)
+	assert any(r["section"] == "analysis" for r in rows)
+	model = CaseReaderCitationResponse(id=1)
+	tag_citation_sections([model], _outline(), lambda row: DECISION.index("ties to India"))
+	assert model.section == "analysis" and model.section_point == "Ties to home country"

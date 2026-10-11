@@ -6,6 +6,8 @@ HTML source sanitization and citation markup wrapping, and citation-pass details
 
 from __future__ import annotations
 
+import logging
+
 import os
 import re
 import time
@@ -1379,8 +1381,8 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 	if outline_rows and outline_rows[0].get("section"):
 		try:
 			tag_citation_sections(citation_responses, outline_rows, citation_offset, case.full_text)
-		except Exception:  # noqa: BLE001 - section tags are optional
-			pass
+		except Exception:  # noqa: BLE001 - section tags are optional, but a failure must be visible
+			logging.getLogger(__name__).exception("citation section tagging failed")
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.
 	try:
 		with db.begin_nested():

@@ -586,8 +586,8 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('class="brand-home"') < header.index('primary-groups')
     assert 'href="/data-explorer?tab=about&amp;group=info"' in header
-    assert 'siteExperimentalToggle' not in header and 'Show experimental' not in header
-    assert header.count('<a ') == 3 and 'href="/welcome"' in header and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link, the Workbench page and the Welcome link
+    assert 'id="siteExperimentalToggle"' in header and 'Show experimental' not in header and 'href="/welcome"' not in header
+    assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):
@@ -1297,7 +1297,7 @@ def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
 
     hide_rule = 'body:not(.reader-experimental) :is([data-group="testing"],#displayCoreCases,#cohortSearchPanel){display:none!important}'
     assert hide_rule in html
-    assert 'id="siteExperimentalToggle"' not in html
+    assert 'id="siteExperimentalToggle"' in html  # the top-right Admin switch
     assert "#readerExperimentalToggle,#siteExperimentalToggle" in html
 
 

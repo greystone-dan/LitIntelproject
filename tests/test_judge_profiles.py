@@ -122,7 +122,7 @@ def test_judge_search_asks_the_server_so_judges_past_the_first_500_are_found():
 	from pathlib import Path
 
 	js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "explorer_snapshots.js").read_text(encoding="utf-8")
-	assert "/api/judge-profiles?limit=500&q='+encodeURIComponent" in js
+	assert "/api/judge-profiles?limit=2000&q='+encodeURIComponent" in js
 	assert "jpSearchServer()" in js
 	# The typed text is not filtered again in the browser when the server already answered.
 	assert "serverRows?'':jp.q.toLowerCase()" in js

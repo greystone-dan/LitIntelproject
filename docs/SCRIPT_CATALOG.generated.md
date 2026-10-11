@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 211
+Active scripts documented: 212
 
 ## Catalog
 
@@ -198,6 +198,7 @@ Active scripts documented: 211
 | `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
+| `run_position_tags_library.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
 | `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
@@ -2852,6 +2853,20 @@ Active scripts documented: 211
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help
+```
+
+## `scripts/run_position_tags_library.py`
+
+**Purpose:** Tag the library's immigration decisions (2005 or later) with the rules + learned whose-position tagger. READ-ONLY against the database (SELECT only, no commit). Writes one compact file per decision (``<out>/case_<id>.json``, the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1) and one summary JSON. No model call, no network. Safe to stop and rerun: decisions already written are skipped unless --force. python scripts/run_position_tags_library.py --out data/position_learned --summary position-learned-summary.json python scripts/run_position_tags_library.py --out scratch_positions --summary scratch.json --sample 500 # dry run Scope: courts FC, FCA, RAD, RPD, IAD; decision date 2005-01-01 or later; not French; immigration (the same test the tagger was trained and measured on: title, tribunal, or the Immigration and Refugee Protection Act in the first 20,000 characters); at least one numbered paragraph.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help
 ```
 
 ## `scripts/run_scc_text_only.py`

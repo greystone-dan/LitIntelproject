@@ -25,7 +25,7 @@ from typing import Any, Protocol
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "position_preview"
 LAYERS_DIR = Path(__file__).resolve().parents[1] / "data" / "position_layers"  # rules output: level per paragraph
-LEARNED_DIR = Path(__file__).resolve().parents[1] / "data" / "position_learned"  # rules + learned tagger output (holder only)
+LEARNED_DIR = Path(os.environ.get("ILIT_POSITION_LEARNED_DIR") or Path(__file__).resolve().parents[1] / "data" / "position_learned")  # rules + learned tagger output (holder only)
 LEARNED_FLAG = "ILIT_LEARNED_POSITIONS"  # "1" lets a decision with no stored preview read LEARNED_DIR; default off
 
 # key -> label shown on the tag. The keys match the stored holder names.

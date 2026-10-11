@@ -236,3 +236,52 @@ def test_pinpoint_columns_for_the_refined_table():
 		"target_paragraph": 38,
 	}
 	assert pinpoint_columns(refine_case_citations("See Zed v Canada, 2008 FC 539.").rows[0]) == {}
+
+
+def test_a_different_year_of_the_same_report_is_not_a_self_citation():
+	# The decision is [2019] 1 SCR 3; "[2015] 1 S.C.R. 3" is another case.
+	text = "See Mounted Police Association of Ontario v. Canada (Attorney General), 2015 SCC 1, [2015] 1 S.C.R. 3 at para 139."
+	rows = refine_case_citations(text, source_citations=["2019 SCC 1", "[2019] 1 SCR 3"]).rows
+	assert len(rows) == 1 and "2015 SCC 1" in rows[0].citation_text
+	own = refine_case_citations("Frank v. Canada, 2019 SCC 1, [2019] 1 S.C.R. 3.", source_citations=["2019 SCC 1", "[2019] 1 SCR 3"])
+	assert own.rows == []
+
+
+def test_two_citations_joined_by_a_semicolon_become_two_rows():
+	text = "See Bisaillon v. Keable, [1983] 2 S.C.R. 60; R. v. McClure, 2001 SCC 14, [2001] 1 S.C.R. 445; Other v. Thing, 2008 SCC 41."
+	rows = [row for row in refine_case_citations(text).rows if row.kind == "case"]
+	assert [row.citation_text for row in rows] == [
+		"Bisaillon v. Keable, [1983] 2 S.C.R. 60",
+		"R. v. McClure, 2001 SCC 14, [2001] 1 S.C.R. 445",
+		"Other v. Thing, 2008 SCC 41",
+	]
+
+
+def test_fcj_without_no_volume_less_scr_and_tribunal_cites():
+	rows = refine_case_citations(
+		"See Kikeshian v X, 2011 FC 658 at para 15, [2011] FCJ 832 [Kikeshian]; Cullen v. The King, [1949] S.C.R. 658; "
+		"Nav Canada, 2002 CIRB 168, [2002] C.I.R.B. No. 168 at para. 227."
+	).rows
+	texts = [row.citation_text for row in rows]
+	assert "Kikeshian v X, 2011 FC 658 at para 15, [2011] FCJ 832 [Kikeshian]" in texts
+	assert any("[1949] S.C.R. 658" in text for text in texts)
+	assert any(text.startswith("Nav Canada, 2002 CIRB 168") and text.endswith("para. 227") for text in texts)
+
+
+def test_first_word_of_a_party_name_is_a_short_form_with_above_or_a_pinpoint():
+	text = (
+		"Mikisew Cree First Nation v. Canada (Minister of Canadian Heritage), 2005 SCC 69, [2005] 3 S.C.R. 388. "
+		"Later: Mikisew, above at para. 1; Mikisew at para 40. Then Apotex, cited above, at paragraph 67."
+		" Apotex Inc. v. Sanofi-Synthelabo Canada Inc., 2008 SCC 61."
+	)
+	rows = refine_case_citations(text).rows
+	short = {row.citation_text: row.pinpoint for row in rows if row.kind == "case_short"}
+	assert short["Mikisew, above at para. 1"] == "at para. 1"
+	assert short["Mikisew at para 40"] == "at para. 40"
+
+
+def test_narrative_words_before_a_case_name_do_not_hide_the_parallel_cites():
+	text = "Also Ahousaht Indian Band v. Canada (Minister of Fisheries and Oceans), 2008 FCA 212, [2008] FCJ No 946 at para. 54; then in Ahousaht, above at para. 34, the court."
+	rows = refine_case_citations(text).rows
+	assert rows[0].citation_text.startswith("Ahousaht Indian Band v.") and rows[0].pinpoint == "at para. 54"
+	assert any(row.citation_text == "Ahousaht, above at para. 34" for row in rows)

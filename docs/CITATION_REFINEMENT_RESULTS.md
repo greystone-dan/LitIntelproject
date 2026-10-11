@@ -74,3 +74,26 @@ Paragraph 44 cites Lubana (`2003 FCT 116, 2003 FCJ No 162 at para 12`) and Santo
 - **Name and year** (`Singh 2020 at para 26`) resolves to the case declared as `[Singh 2020]` or the one with that year.
 
 Measured on 140 FC/FCA decisions (spread over 2002 to 2026; sample of live full text, refine run locally): rows with a pinpoint 913 to 990. Of the places where a pinpoint phrase follows a citation in the same clause, 13 of 114 were kept before and 32 of 62 after (the rest are mostly "At paragraph 5 of that decision" and "above" forms that name no citation). On 2012 FC 319 the rows with a pinpoint went from 14 of 54 to 27 of 50.
+
+## Audit of what v2 misses, by type (2026-10-11)
+
+Sample: 372 FC, FCA and SCC decisions from 2005 on (live full text, refine run locally, no database writes). Each type has an independent regex detector; a hit counts as covered when a refined row overlaps it. Old code is `origin/main` before this change.
+
+| Type | Detector hits missed, before | After |
+|---|---|---|
+| Neutral citations (2020 FC 350, [2006] FCA 425) | 46 | 2 |
+| Reporters (SCR, FCR, W.W.R., O.A.C., C.C.E.L. and others) | 395 | 32 |
+| Quicklaw, Carswell, CIRB | 21 | 1 |
+| Rows with a pinpoint | 4,284 | 4,530 |
+| Pass-one short forms (noise removed, not lost) | 4,966 | 4,168 |
+
+Statute and regulation references are 95.5% covered; the rest are "the Act" never defined (statute-layer work, not built here).
+
+Fixes (all in `backend/citation_refine/`, deterministic):
+- A cite that shares a year-less key with the decision itself was wrongly dropped as a self-citation; it now counts only when no differing year-bearing key is present.
+- Joined cites ("A, [1983] 2 SCR 60; R. v. McClure, 2001 SCC 14") are split; a cite that starts mid-sentence is no longer merged with the narrative words before it.
+- Bracketed neutral forms ("[2006] FCA 425"), reporters without a volume, more reporters and tribunals.
+- Name-and-year, name-straight-before-pinpoint and "supra / cited above / précitée / ci-dessus" forms resolve to the case; bracketed aliases may contain digits ("[Singh 2020]").
+- Noise rules: a short form that is a party of the decision's own title, a person named with a given name ("Dr. Gillian Frank", "Bryan A. Garner"), and place words (river, lake, township) are no longer cases.
+
+Hand-checked precision on random rows: case and neutral rows about 98 to 100%; short forms with a pinpoint about 100%; short forms without a pinpoint 77 to 85% before the noise rules above (not re-measured after). Still missed: litigant or firm names in subject position with no cue, "Name, above" with no earlier anchor, "At paragraph 5 of that decision". Rows stored by the earlier 6,000-decision test rebuild do not have these fixes until a rebuild.

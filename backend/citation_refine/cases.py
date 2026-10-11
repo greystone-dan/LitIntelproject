@@ -183,7 +183,7 @@ _GAP_PINPOINT = (
 # ("2004 FC 303 at para 22, 131 A.C.W.S. (3d) 508").
 _CHAIN_GAP_RE = re.compile(rf"^\s*(?:{_TAG}\s*)?{_GAP_PINPOINT}?\s*,\s*(?:{_TAG}\s*,?\s*)?$")
 _TRAILING_TAG_RE = re.compile(rf"^\s*{_TAG}")
-_DECLARED_ALIAS_RE = re.compile(r"^\s*(?:\[\s*(?P<a>[A-Z][A-Za-z .'’\-]{1,60}?)\s*\]|\(\s*[\"“](?P<b>[A-Z][A-Za-z .'’\-]{1,60}?)\s*[\"”]\s*\))")
+_DECLARED_ALIAS_RE = re.compile(r"^\s*(?:\[\s*(?P<a>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*\]|\(\s*[\"“](?P<b>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*[\"”]\s*\))")
 
 # --------------------------------------------------------------------------- case names
 _CONNECTORS = {"of", "and", "the", "for", "de", "du", "des", "la", "le", "les", "et", "&", "in", "on", "to"}

@@ -169,6 +169,12 @@ def _heading_parts(text: str) -> tuple[str, str | None]:
 _PRELIMINARY_RE = re.compile(r"^\s*(?:(?:[IVX]{1,5}|[A-H]|\d{1,2})[.)]\s+)?(?:(?:admissibility of )?new evidence|request for an oral hearing|oral hearing|role of the (?:rad|refugee appeal division)|scope of the rad review|preliminary (?:matters?|issues?))\b", re.I)
 
 
+_PREFIX = r"^\s*(?:(?:[IVX]{1,5}|[A-H]|\d{1,2})[.)]\s+)?"
+_ISSUES_HEAD_RE = re.compile(_PREFIX + r"(?:(?:errors|grounds|issues) (?:alleged|raised|on appeal|of appeal)|grounds of (?:appeal|review)|standard of review|errors alleged)\b", re.I)
+_BELOW_HEAD_RE = re.compile(_PREFIX + r"(?:reasons|decision|judgment|findings|determination) (?:of|by) the (?!court|appeal division|board)|the decision (?:under review|under appeal|appealed from|below)|decision under (?:review|appeal)|impugned decision", re.I)
+_DISP_HEAD_RE = re.compile(_PREFIX + r"(?:proposed )?disposition\b", re.I)
+
+
 def _heading_section(text: str) -> str | None:
 	"""The section a heading announces ("Issues", "Analysis", "Conclusion"), None for an ordinary heading.
 
@@ -176,7 +182,14 @@ def _heading_section(text: str) -> str | None:
 	"""
 	if _PRELIMINARY_RE.match(_heading_parts(text)[0]):
 		return "issues"
-	kind = cs.heading_kind(_heading_parts(text)[0])
+	head = _heading_parts(text)[0]
+	if _DISP_HEAD_RE.match(head):
+		return "disposition"
+	if _ISSUES_HEAD_RE.match(head):
+		return "issues"
+	if _BELOW_HEAD_RE.match(head):
+		return "background"
+	kind = cs.heading_kind(head)
 	return _ROLE_SECTION.get(kind) if kind else None
 
 
@@ -302,6 +315,18 @@ def _assign_sections(units: list[dict[str, Any]]) -> list[str | None]:
 				break
 		if taken and any(section[j] == "background" for j in range(start)):
 			pass
+	# a bare order block ("JUDGMENT ... is dismissed") with numbered closing paragraphs before it: those paragraphs are the disposition
+	if "disposition" in section and not any(units[i]["body"] and section[i] == "disposition" for i in range(len(units))):
+		cut = None
+		for i in reversed([j for j in numbered if j > first_num][-3:]):
+			t = units[i]["text"]
+			if roles[i] == "disposition" or cs._DISPOSITION_RE.search(t[:900]) or (len(t) < 400 and re.search(r"\bcertif|\bcosts?\b", t, re.I)):
+				cut = i
+			else:
+				break
+		if cut is not None:
+			for i in range(cut, last_num + 1):
+				section[i] = "disposition"
 	# a heading that announces the disposition keeps the short unnumbered order printed under it
 	kept_tail = set()
 	for i, name in anchors:
@@ -324,7 +349,7 @@ def _fold_thin_sections(units: list[dict[str, Any]], section: list[str | None]) 
 		if name in {"analysis", "disposition"}:
 			continue
 		count = sum(1 for i in range(a, b + 1) if units[i]["body"])
-		if count < 2:
+		if count < 2 and not any(units[i]["body"] and cs._ISSUES_RE.search(units[i]["text"][:900]) for i in range(a, b + 1)):
 			previous = runs[idx - 1][2]
 			for i in range(a, b + 1):
 				section[i] = previous
@@ -368,6 +393,8 @@ def _heading_point(unit: dict[str, Any], *, opens_section: bool) -> dict[str, An
 	main, sub = _heading_parts(unit["text"])
 	if _NOISE_HEADING_RE.match(unit["text"]):
 		return None  # file numbers and quoted statute headings ("DIVISION 3") are not the court's own headings
+	if re.match(r"\s*Q\.\s", unit["text"]):
+		return None  # a transcript question quoted in the reasons
 	generic = _heading_section(unit["text"])
 	if generic == "issues" and re.sub(r"^(?:[IVX]{1,5}|[A-H]|\d{1,2})[.)]\s+", "", _heading_parts(unit["text"])[0]).strip().lower() in {"issue", "issues", "the issues", "the issue"}:
 		generic = "issues-title"

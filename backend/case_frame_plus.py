@@ -483,8 +483,10 @@ def frame_matches_text(frame: dict[str, Any], full_text: str) -> bool:
 	"""
 	text = (full_text or "").lower()
 	parties = frame.get("parties") or {}
-	words = {w.lower() for key in ("applicant", "respondent") for w in re.findall(r"[A-Za-z]{5,}", str(parties.get(key) or ""))}
-	words -= {"minister", "citizenship", "immigration", "canada", "applicant", "respondent", "appellant", "claimant", "individual", "organization", "redacted", "refugee"}
+	# Notes in brackets ("(anonymized appellant, citizen of China)") are the writer's words, not names.
+	names = [re.sub(r"\([^)]*\)", " ", str(parties.get(key) or "")) for key in ("applicant", "respondent")]
+	words = {w.lower() for name in names for w in re.findall(r"[A-Za-z]{5,}", name)}
+	words -= {"anonymized", "anonymised", "counsel", "appeared", "submissions", "reported", "minister", "citizenship", "immigration", "canada", "applicant", "respondent", "appellant", "claimant", "individual", "organization", "redacted", "refugee"}
 	checks = [w in text for w in words]
 	for level in frame.get("levels") or []:
 		date = str(level.get("date") or "")

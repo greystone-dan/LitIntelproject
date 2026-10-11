@@ -472,3 +472,27 @@ def build_frame_plus(header: str, body: str, paragraphs: Sequence[str], numbers:
 	fp.arguments = _arguments(paragraphs, numbers, base, fp.applicant)
 	fp.challenged, fp.challenged_decision = _challenged(paragraphs, numbers, fp.levels, fp.forum, fp.arguments, fp.applicant_role)
 	return fp
+
+
+def frame_matches_text(frame: dict[str, Any], full_text: str) -> bool:
+	"""Guard for model-written frames: false when the frame looks like it was written for a different decision.
+
+	A swapped frame (one extractor call writing another decision's frame) names parties and dates that never
+	appear in the text. Checks that most of the frame's party-name words, quoted dates and paragraph numbers
+	are found in the decision. Anonymised names (XXXX) are skipped; with nothing checkable the frame passes.
+	"""
+	text = (full_text or "").lower()
+	parties = frame.get("parties") or {}
+	words = {w.lower() for key in ("applicant", "respondent") for w in re.findall(r"[A-Za-z]{5,}", str(parties.get(key) or ""))}
+	words -= {"minister", "citizenship", "immigration", "canada", "applicant", "respondent", "appellant", "claimant", "individual", "organization", "redacted", "refugee"}
+	checks = [w in text for w in words]
+	for level in frame.get("levels") or []:
+		date = str(level.get("date") or "")
+		year = re.search(r"\b(?:19|20)\d{2}\b", date)
+		if year:
+			checks.append(year.group(0) in text)
+	paras = [p.get("para") for key in ("arguments", "issues", "challenged") for p in (frame.get(key) or []) if isinstance(p.get("para"), int)]
+	max_para = max((int(m) for m in re.findall(r"\[(\d{1,3})\]", full_text or "")), default=0)
+	if paras and max_para:
+		checks.append(max(paras) <= max_para + 1)
+	return not checks or sum(checks) / len(checks) >= 0.6

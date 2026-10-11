@@ -53,3 +53,13 @@ class FramePlusTests(unittest.TestCase):
 
 if __name__ == "__main__":
 	unittest.main()
+
+
+class FrameGuardTests(unittest.TestCase):
+	def test_guard_catches_frame_for_another_decision(self):
+		from backend.case_frame_plus import frame_matches_text
+		text = "[1] Mr. Vuu applied in 2019 for permanent residence. [2] The Officer refused on January 7, 2021."
+		good = {"parties": {"applicant": "Michael Vuu", "respondent": "The Minister"}, "levels": [{"date": "2021-01-07"}], "arguments": [{"para": 2}]}
+		bad = {"parties": {"applicant": "Hamzah Mohammed", "respondent": "The Minister"}, "levels": [{"date": "2019-07"}, {"date": "2021-11-29"}, {"date": "2022-04"}], "arguments": [{"para": 17}]}
+		self.assertTrue(frame_matches_text(good, text))
+		self.assertFalse(frame_matches_text(bad, text))

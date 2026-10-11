@@ -315,7 +315,7 @@ test checks that these paths continue to exist.
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/pages/unit_search_ui.css` | TODO: describe this file |
 | `backend/pages/unit_search_ui.js` | TODO: describe this file |
-| `backend/pages/welcome.py` | Welcome page (the site's front door) and the Demo / Admin mode switch |
+| `backend/pages/welcome.py` | Admin / experimental switch (hides development tabs unless turned on) |
 | `backend/pages/workbench.py` | Workbench page: demo sign-in, then three views (Analyst home, Live analysis, De-identifier) |
 | `backend/pages/workbench_brief.py` | Printable Workbench briefs: one page of plain HTML with print styles (no scripts that send data anywhere) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |

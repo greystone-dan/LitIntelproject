@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-11T16:08:13.929075+00:00
+Generated: 2026-10-11T17:05:48.488765+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 137 across 134 paths
@@ -3069,7 +3069,7 @@ Handler: `backend.routes.get_unit_search`
 
 **Hidden from OpenAPI.**
 
-Handler: `backend.main.welcome_page`
+Handler: `backend.main.welcome_page_moved`
 
 **Responses**
 

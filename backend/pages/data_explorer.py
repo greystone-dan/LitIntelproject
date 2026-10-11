@@ -399,7 +399,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="brand-name">ILIT</div>
 <div class="brand-sub">Immigration Litigation Intelligence System</div>
 </div>
-<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="Show or hide tools that are not finished yet">Show experimental</button>
+<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="Turn on admin and experimental features (development tabs and unfinished tools)">Admin</button>
 </div>
 </header>
 <div class="workspace">
@@ -1606,7 +1606,7 @@ const sidePreviousSetReaderMode=setReaderMode;setReaderMode=function(mode){sideP
 const extractedSummaryState={open:false};
 const experimentalState={on:false};
 try{experimentalState.on=localStorage.getItem('ilit.reader.experimental')==='1'}catch(error){}
-function setReaderExperimental(on){experimentalState.on=Boolean(on);try{localStorage.setItem('ilit.reader.experimental',on?'1':'0')}catch(error){}document.body.classList.toggle('reader-experimental',experimentalState.on);for(const toggle of document.querySelectorAll('#readerExperimentalToggle,#siteExperimentalToggle')){toggle.setAttribute('aria-pressed',String(experimentalState.on));toggle.textContent=experimentalState.on?'Hide experimental':'Show experimental'}if(!experimentalState.on&&typeof researchGroups!=='undefined'&&new URLSearchParams(location.search).get('group')==='testing'&&typeof activateResearchTab==='function')activateResearchTab('search');document.dispatchEvent(new CustomEvent('reader-experimental-change',{detail:experimentalState.on}))}
+function setReaderExperimental(on){experimentalState.on=Boolean(on);try{localStorage.setItem('ilit.reader.experimental',on?'1':'0')}catch(error){}document.body.classList.toggle('reader-experimental',experimentalState.on);document.documentElement.classList.toggle('ilit-demo',!experimentalState.on);for(const toggle of document.querySelectorAll('#readerExperimentalToggle,#siteExperimentalToggle')){toggle.setAttribute('aria-pressed',String(experimentalState.on));toggle.textContent=toggle.id==='siteExperimentalToggle'?(experimentalState.on?'Admin: on':'Admin'):(experimentalState.on?'Hide experimental':'Show experimental')}if(!experimentalState.on&&typeof researchGroups!=='undefined'&&new URLSearchParams(location.search).get('group')==='testing'&&typeof activateResearchTab==='function')activateResearchTab('search');document.dispatchEvent(new CustomEvent('reader-experimental-change',{detail:experimentalState.on}))}
 document.getElementById('readerExperimentalToggle')?.addEventListener('click',()=>setReaderExperimental(!experimentalState.on));
 document.getElementById('siteExperimentalToggle')?.addEventListener('click',()=>setReaderExperimental(!experimentalState.on));
 setReaderExperimental(experimentalState.on);

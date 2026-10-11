@@ -295,7 +295,7 @@ SECTIONS = {
 				"The end goal is Live Analysis of a one-sided draft argument: the user’s draft would be matched to decided issues and the results those arguments met, so counsel can see where a point has worked and where it has not.",
 				"AI is used only when decisions are added, on public case law, and what it finds is stored as data that points back to the source paragraph. Nothing typed on the site, and no draft, is sent to a model. The reader preview is live and labelled Preview; the draft-matching step is a concept, not a finished feature.",
 			], "Opening a decision, switching on “Show whose position” and seeing which paragraphs are the applicant’s argument, which are the respondent’s and which are the Court’s own conclusion on each issue.",
-			"“Show whose position” now reads from a tagger run across the library. A tag is shown only where the tagger is at least 70% sure; other paragraphs say “Unsure”. In an earlier small test graded by Claude, not by lawyers, the position holder was right about 8 times in 10. That figure is indicative only and is being re-measured; the draft-matching step has not been tested.",
+			"“Show whose position” now reads from a tagger. Stored position tags cover 39,617 decisions (Federal Court 19,892, Refugee Appeal Division 14,212, Refugee Protection Division 5,013, Federal Court of Appeal 500; none yet for the Supreme Court), a live database count on 11 Oct 2026. A tag is shown only where the tagger is at least 70% sure; other paragraphs say “Unsure”. In an earlier small test graded by Claude, not by lawyers, the position holder was right about 8 times in 10. That figure is indicative only and is being re-measured; the draft-matching step has not been tested.",
 			"Better handling of memoranda and split decisions (where the dissent can be mistaken for the holding), review of a sample by lawyers, and the draft-matching step in Live Analysis."),
 			("themes", "Themes", "partly", [
 				"Themes group the arguments that recur across decisions, such as the recurring complaints about credibility findings or about reasons for a refusal, and show which statutory provisions each one leans on.",
@@ -334,7 +334,7 @@ SECTIONS = {
 				"A compact card at the top of each decision: the issue and type of case, the outcome, the sections applied, and a short summary made of the decision’s own holding paragraph, chosen by rule.",
 				"Because the summary is the court’s own words, it can always be traced back, and nothing is written by AI.",
 			], "Opening ten search results and knowing in a few seconds which three are worth reading in full.",
-			"The card and the rule-based summary are built and hidden behind the reader’s “Show experimental” switch.",
+			"The card and the rule-based summary are built and hidden behind the reader’s “Show experimental” switch. Stored case frames exist for 100 decisions (live database count, 11 Oct 2026).",
 			"A check of the chosen paragraphs on a sample, then switching the card on.",
 			"CanLII shows short AI-written summaries for some areas of law. These would be the court’s own words, picked by rule."),
 			("passage-search", "Search by passage, without AI", "partly", [

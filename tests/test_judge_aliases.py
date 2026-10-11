@@ -84,3 +84,9 @@ def test_list_can_return_more_than_a_hundred_judges(db):
 	db.commit()
 	assert len(_fetch_judge_profiles_impl(db, limit=500)) == 153
 	assert len(_fetch_judge_profiles_impl(db, q="X14", limit=500)) == 11
+
+
+def test_server_cap_covers_every_judge_with_decisions():
+	from backend.analytics_service import JUDGE_PROFILE_MAX_LIMIT
+
+	assert JUDGE_PROFILE_MAX_LIMIT >= 1500

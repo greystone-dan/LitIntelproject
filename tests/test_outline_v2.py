@@ -179,3 +179,46 @@ def test_live_reader_and_case_reader_citations_carry_section_keys(monkeypatch):
 	model = CaseReaderCitationResponse(id=1)
 	tag_citation_sections([model], _outline(), lambda row: DECISION.index("ties to India"))
 	assert model.section == "analysis" and model.section_point == "Ties to home country"
+
+
+def test_appeal_headings_place_lower_decision_standard_of_review_and_disposition():
+	lines = ["REASONS FOR JUDGMENT", "I. Introduction"]
+	n = 1
+
+	def add(count, sentence):
+		nonlocal n
+		for _ in range(count):
+			lines.append(f"[{n}] {sentence} (paragraph {n}).")
+			n += 1
+
+	add(3, "The appellant bank appeals a judgment of the Tax Court about a payment system")
+	lines.append("II. Reasons of the Tax Court judge")
+	add(3, "The Tax Court judge found that the supply was a financial service")
+	lines.append("III. Errors alleged and standard of review")
+	add(2, "The standard of review is correctness for questions of law and the appeal raises two issues")
+	lines.append("IV. Analysis")
+	lines.append("Q. Okay, and why is that?")
+	add(6, "I am not persuaded that the judge erred and I find that the conclusion was correct; however the argument fails")
+	lines.append("V. Proposed disposition")
+	add(1, "I would dismiss the appeal with costs")
+	text = "\n".join(lines)
+	rows = outline_v2(text, format_decision(text, {}))
+	sections = {r["section"]: r for r in rows if r["kind"] == "section"}
+	assert list(sections) == ["background", "issues", "analysis", "disposition"]
+	assert sections["background"]["para_end"] == 6 and sections["issues"]["para"] == 7
+	assert not any(r["title"].startswith("Q.") for r in rows)
+	_no_overlap(rows)
+
+
+def test_numbered_closing_paragraphs_become_the_disposition_before_a_bare_order_block():
+	lines = ["REASONS FOR JUDGMENT"]
+	for n in range(1, 8):
+		lines.append(f"[{n}] The applicant argues that the officer erred; I do not agree and I find the decision reasonable, point {n}.")
+	lines.append("[8] For these reasons the application for judicial review is dismissed.")
+	lines.append("[9] No question of general importance is certified.")
+	lines.append("JUDGMENT")
+	lines.append("THIS COURT'S JUDGMENT is that the application is dismissed.")
+	text = "\n".join(lines)
+	rows = outline_v2(text, format_decision(text, {}))
+	disposition = [r for r in rows if r["section"] == "disposition" and r["kind"] == "section"]
+	assert disposition and disposition[0]["para"] == 8

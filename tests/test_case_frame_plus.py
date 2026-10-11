@@ -64,7 +64,7 @@ class FrameGuardTests(unittest.TestCase):
 		self.assertTrue(frame_matches_text(good, text))
 		self.assertFalse(frame_matches_text(bad, text))
 
-
-def test_guard_ignores_the_writers_notes_in_brackets():
-	frame = {"parties": {"applicant": "XXXX XXXX (anonymized appellant, citizen of China)", "respondent": "The Minister (did not appear)"}, "levels": [], "arguments": [], "issues": [], "challenged": []}
-	assert frame_matches_text(frame, "[1] The appellant, a citizen of Iran, appeals.") is True
+	def test_guard_ignores_the_writers_notes_in_brackets(self):
+		from backend.case_frame_plus import frame_matches_text
+		frame = {"parties": {"applicant": "XXXX XXXX (anonymized appellant, citizen of China)", "respondent": "The Minister (did not appear)"}, "levels": [], "arguments": [], "issues": [], "challenged": []}
+		self.assertTrue(frame_matches_text(frame, "[1] The appellant, a citizen of Iran, appeals."))

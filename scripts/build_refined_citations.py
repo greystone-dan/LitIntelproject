@@ -63,6 +63,7 @@ def refined_rows_for(case: Case):
 		source_citations=[case.citation, case.secondary_citation],
 		include_dockets=False,
 		source_dockets=[case.docket_number],
+		source_title=case.title,
 	)
 	return result.rows
 

@@ -38,7 +38,7 @@ from .models import (
 	RefinedCitation,
 )
 from .landmarks import landmark_rows
-from .short_forms import _GENERIC as _GENERIC_WORDS, is_weak_short_form
+from .short_forms import _GENERIC as _GENERIC_WORDS, is_weak_short_form, own_party_words
 from .pinpoints import BARE_PAGE_RE, TRAILING_PINPOINT_RE, parse_all_pinpoints, parse_bare_page_pinpoint, parse_pinpoint, pinpoint_phrase
 
 CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C4b_landmarks", "C4c_defined_names", "C5_validate")
@@ -611,7 +611,14 @@ def _starts_with_narrative(row: RefinedCitation, entry: RefinedCitation) -> bool
 	"""Pass one's name begins with narrative words ("Also Ahousaht Indian Band v. ...") that our name does not."""
 	if not (row.offset_start < entry.offset_start < row.offset_end <= entry.offset_end):
 		return False
-	words = re.findall(r"[A-Za-zÀ-ÿ’']+", row.citation_text[: entry.offset_start - row.offset_start])
+	prefix = row.citation_text[: entry.offset_start - row.offset_start]
+	boundary = list(re.finditer(r"[.!?;:]\s+", prefix))
+	if boundary:
+		# "Mr. Poirier. Per Baker v Canada, 1999 SCC 1": pass one's name ran back over the end of an earlier sentence.
+		prefix = prefix[boundary[-1].end() :]
+		if not prefix.strip():
+			return True
+	words = re.findall(r"[A-Za-zÀ-ÿ’']+", prefix)
 	return bool(words) and all(word.casefold() in _NARRATIVE or word.casefold() in {"on", "upon", "to", "by"} for word in words)
 
 
@@ -1207,12 +1214,14 @@ def refine_case_citations(
 	include_dockets: bool = True,
 	current_year: int | None = None,
 	source_dockets: Iterable[str | None] | None = None,
+	source_title: str | None = None,
 ) -> LayerResult:
 	"""Run the case refinement layer over a whole decision.
 
 	``pass_one_rows`` defaults to ``extract_raw_citation_matches(text)`` (only the
 	case kinds and S.C.R. "secondary" rows are used). ``source_citations`` are the
 	decision's own citations; matching rows are dropped as self-citations.
+	``source_title`` is the decision's own title: a bare short form that is one of its parties is a litigant mention, not a citation.
 	``source_dockets`` are the decision's own docket numbers (pass it, even empty, to skip own dockets); docket rows that are
 	one of them, or sit in the same header list of consolidated dockets, are skipped.
 	"""
@@ -1272,6 +1281,7 @@ def refine_case_citations(
 		rows = _defined_name_rows(content, rows)
 
 	dropped: list[RefinedCitation] = []
+	own_parties = own_party_words(source_title)
 	if "C5_validate" in enabled:
 		self_keys: set[str] = set()
 		for value in source_citations:
@@ -1279,7 +1289,7 @@ def refine_case_citations(
 		validated: list[RefinedCitation] = []
 		for row in rows:
 			checked = _validate(row, year_limit, self_keys)
-			if checked is not None and is_weak_short_form(checked, content):
+			if checked is not None and is_weak_short_form(checked, content, own_parties):
 				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, "weak_short_form")))
 				continue
 			if checked is None:

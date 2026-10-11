@@ -306,3 +306,18 @@ def test_bracketed_neutral_and_other_reporters_are_found():
 	assert any("[1971] C.A. 554" in text for text in texts)
 	assert any("61 C.P.R. (3d) 12" in text for text in texts)
 	assert any("[2017] 4 C.N.L.R. 89" in text for text in texts)
+
+
+def test_a_bare_party_of_the_decision_itself_is_not_a_short_form():
+	text = "Eclectic Edge Inc v Victoria's Secret Stores Brand Management Inc., 2015 FC 100. Later Eclectic cross-examined Mr. Poirier. Eclectic at para 12 argued."
+	title = "Eclectic Edge Inc v Victoria's Secret Stores Brand Management Inc"
+	with_title = [row.citation_text for row in refine_case_citations(text, source_title=title).rows if row.kind == "case_short"]
+	without_title = [row.citation_text for row in refine_case_citations(text).rows if row.kind == "case_short"]
+	assert "Eclectic" in without_title and "Eclectic" not in with_title
+	assert "Eclectic at para 12" in with_title  # a pinpoint always makes it a citation
+
+
+def test_a_case_name_does_not_run_back_over_the_end_of_a_sentence():
+	text = "Eclectic cross-examined Mr. Poirier. Per Baker v Canada, 1999 SCC 1, the court held."
+	rows = [row for row in refine_case_citations(text).rows if row.kind == "case"]
+	assert [row.citation_text for row in rows] == ["Baker v Canada, 1999 SCC 1"]

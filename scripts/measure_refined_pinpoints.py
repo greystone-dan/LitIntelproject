@@ -57,7 +57,9 @@ def main(argv: list[str] | None = None) -> None:
 			case = session.get(Case, case_id)
 			if case is None or not case.full_text:
 				continue
-			kwargs = dict(source_citations=[case.citation, case.secondary_citation], include_dockets=False, source_dockets=[case.docket_number])
+			kwargs = dict(
+				source_citations=[case.citation, case.secondary_citation], include_dockets=False, source_dockets=[case.docket_number], source_title=case.title
+			)
 			first = refine_case_citations(case.full_text, steps=["C4_pinpoints"], **kwargs).rows
 			fresh = refine_case_citations(case.full_text, **kwargs).rows
 			stored = session.scalar(

@@ -108,8 +108,31 @@ def _party_mention(row: RefinedCitation, content: str) -> bool:
 	return bool(_HONORIFIC_BEFORE_RE.search(before) or _PARTY_AFTER_RE.match(after))
 
 
-def is_weak_short_form(row: RefinedCitation, content: str | None = None) -> bool:
+def own_party_words(title: str | None) -> list[list[str]]:
+	"""Word lists of each party named in the decision's own title ("Eclectic Edge Inc v Victoria's Secret ...")."""
+	if not title:
+		return []
+	parties = [part.strip() for part in _PARTY_SPLIT_RE.split(title) if part.strip()]
+	return [_without_article(_words(party)) for party in parties]
+
+
+def _is_own_party(row: RefinedCitation, own_parties: list[list[str]]) -> bool:
+	"""A bare short form with no pinpoint that is a party of this very decision: a litigant mention, not a citation."""
+	if row.kind != "case_short" or row.step != "pass1" or row.declared_alias or row.pinpoint or row.pinpoints:
+		return False
+	words = _words(alias_of(row))
+	if not words or len(words) > 3:
+		return False
+	size = len(words)
+	return any(
+		tokens[start : start + size] == words for tokens in own_parties for start in range(max(len(tokens) - size + 1, 0))
+	)
+
+
+def is_weak_short_form(row: RefinedCitation, content: str | None = None, own_parties: list[list[str]] | None = None) -> bool:
 	if _weak_by_alias(row):
+		return True
+	if own_parties and _is_own_party(row, own_parties):
 		return True
 	if content is not None and row.kind == "case_short" and row.step == "pass1" and not row.declared_alias:
 		return _party_mention(row, content)

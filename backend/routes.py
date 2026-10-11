@@ -1260,7 +1260,10 @@ async def precedent_finder_analyze(request: Request, db: Session = Depends(get_d
 
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
-def live_analysis_page() -> HTMLResponse:
+def live_analysis_page(request: Request) -> Response:
+	# Opened on its own in the browser it shows the Workbench, which has the site's main navigation; the Workbench frames this page.
+	if request.headers.get("sec-fetch-dest") == "document" and not request.query_params.get("embed"):
+		return RedirectResponse(url="/workbench#live", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 	return HTMLResponse(content=live_analysis_page_html(), status_code=status.HTTP_200_OK)
 
 

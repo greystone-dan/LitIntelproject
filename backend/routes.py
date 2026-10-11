@@ -1261,9 +1261,6 @@ async def precedent_finder_analyze(request: Request, db: Session = Depends(get_d
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
 def live_analysis_page(request: Request) -> Response:
-	# Opened on its own in the browser it shows the Workbench, which has the site's main navigation; the Workbench frames this page.
-	if request.headers.get("sec-fetch-dest") == "document" and not request.query_params.get("embed"):
-		return RedirectResponse(url="/workbench#live", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 	return HTMLResponse(content=live_analysis_page_html(), status_code=status.HTTP_200_OK)
 
 
@@ -1603,6 +1600,12 @@ def coming_soon_preview_image(name: str) -> Response:
 		raise HTTPException(status_code=404, detail="Unknown image")
 	image = Path(__file__).resolve().parent / "pages" / "preview_img" / name
 	return Response(image.read_bytes(), media_type="image/webp", headers={"Cache-Control": "public, max-age=86400"})
+
+
+@router.get("/coming-soon", include_in_schema=False)
+@router.get("/coming-soon/", include_in_schema=False)
+def coming_soon_index() -> Response:
+	return RedirectResponse(url="/roadmap", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
 @router.get("/coming-soon/{section}", include_in_schema=False)

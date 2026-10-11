@@ -20,15 +20,19 @@ def test_position_item_has_no_stale_decision_count():
 		assert "665" not in html and "about 660" not in html
 
 
-def test_live_analysis_opened_directly_goes_to_workbench():
+def test_live_analysis_serves_to_direct_visits_with_the_main_site_bar():
 	response = routes.live_analysis_page(_request({"sec-fetch-dest": "document"}))
-	assert response.status_code == 307 and response.headers["location"] == "/workbench#live"
+	assert response.status_code == 200
+	html = response.body.decode()
+	header = html[html.index('<header class="topbar"'):html.index("</header>")]
+	assert "tab=roadmap-overview" in header and "siteExperimentalToggle" in header
+	assert "Coming soon" not in header
 
 
-def test_live_analysis_frame_and_plain_requests_still_serve_the_page():
-	assert routes.live_analysis_page(_request({"sec-fetch-dest": "iframe"})).status_code == 200
-	assert routes.live_analysis_page(_request()).status_code == 200
-	assert routes.live_analysis_page(_request({"sec-fetch-dest": "document"}, b"embed=1")).status_code == 200
+def test_bare_coming_soon_redirects_to_roadmap():
+	for path in ("/coming-soon", "/coming-soon/"):
+		response = routes.coming_soon_index()
+		assert response.status_code == 307 and response.headers["location"] == "/roadmap"
 
 
 def test_every_roadmap_item_has_a_tier_a_place_and_a_dependency_line():

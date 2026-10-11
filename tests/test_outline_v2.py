@@ -222,3 +222,18 @@ def test_numbered_closing_paragraphs_become_the_disposition_before_a_bare_order_
 	rows = outline_v2(text, format_decision(text, {}))
 	disposition = [r for r in rows if r["section"] == "disposition" and r["kind"] == "section"]
 	assert disposition and disposition[0]["para"] == 8
+
+
+def test_citation_offset_uses_the_citation_not_its_chunk_start():
+	where = DECISION.index("ties to India")
+	row = {
+		"chunk_id": 7,
+		"offset_start": 40,
+		"layer_spans": {
+			"full_case": {"absolute_start": 0, "local_start": where},
+			"paragraph": {"absolute_start": DECISION.index("Background"), "local_start": where - DECISION.index("Background")},
+		},
+	}
+	assert citation_offset(row) == where
+	chunk_only = {"chunk_id": 7, "layer_spans": {"paragraph": {"absolute_start": DECISION.index("[10]"), "local_start": 5}}}
+	assert citation_offset(chunk_only) == DECISION.index("[10]") + 5

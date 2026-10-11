@@ -59,7 +59,7 @@
  body.addEventListener('toggle',ev=>{if(ev.target.matches&&ev.target.matches('[data-frame-card]'))fr.open=ev.target.open;},true);
  new MutationObserver(muts=>{
   if(fr.busy)return;
-  const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&n.hasAttribute('data-frame-card'))));
+  const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&(n.hasAttribute('data-frame-card')||n.hasAttribute('data-pos-bar')||n.hasAttribute('data-pos-note')))));
   if(real)schedule();
  }).observe(body,{childList:true});
  schedule();

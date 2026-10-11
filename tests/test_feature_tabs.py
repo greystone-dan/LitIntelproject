@@ -1171,7 +1171,7 @@ def test_panel_helper_is_included_once_before_all_callers():
         ("loadSearch", "/analytics/search/cases?", "resultCard"),
         ("loadPersistedReaderStatutes", "/statute-references", "setReaderMode"),
         ("loadReaderActs", "/statute-references", "render(rows)"),
-        ("loadJudgeProfiles", "/api/judge-profiles?limit=100", ".judge-profile-result"),
+        ("loadJudgeProfiles", "/api/judge-profiles?limit=", ".judge-profile-result"),
         ("loadJudgeProfile", "/api/judge-profiles/${encodeURIComponent(slug)}", "syncJudgeMinisterCheckboxes()"),
         ("searchJudgeProfiles", "/api/judge-profiles?q=", ".judge-profile-result"),
         ("loadFcHistory", "/api/fc-history?", "data.entries_json"),

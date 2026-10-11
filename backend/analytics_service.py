@@ -771,6 +771,9 @@ def _fetch_fc_activity_analytics_impl(
 	}
 
 
+JUDGE_PROFILE_MAX_LIMIT = 2000  # was 100, which hid every judge past the first hundred
+
+
 def _fetch_judge_profiles_impl(
 	db: Session,
 	*,
@@ -806,7 +809,7 @@ def _fetch_judge_profiles_impl(
 		return len({link.case_id for profile in [row, *extra] for link in profile.case_links})
 
 	counted = [(row, case_count(row)) for row in rows]
-	ordered = sorted(counted, key=lambda pair: (-pair[1], pair[0].display_name.lower()))[: max(1, min(100, limit))]
+	ordered = sorted(counted, key=lambda pair: (-pair[1], pair[0].display_name.lower()))[: max(1, min(JUDGE_PROFILE_MAX_LIMIT, limit))]
 	return [
 		{
 			"slug": row.slug,

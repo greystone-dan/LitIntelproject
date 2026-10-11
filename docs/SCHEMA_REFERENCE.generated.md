@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-11T15:44:21.611536+00:00
-Tables: 46
+Generated: 2026-10-11T16:02:10.538565+00:00
+Tables: 47
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -62,6 +62,14 @@ erDiagram
         JSON role_chars
         Integer text_length
         DATETIME computed_at
+    }
+    case_frames {
+        Integer id PK
+        Integer case_id  FK
+        Integer version
+        JSON frame
+        String(40) source
+        DATETIME created_at
     }
     case_judge_profiles {
         Integer id PK
@@ -639,6 +647,7 @@ erDiagram
     case_chunks ||--o{ case_chunk_embeddings : "chunk_id"
     cases ||--o{ case_chunks : "case_id"
     cases ||--o{ case_fingerprints : "case_id"
+    cases ||--o{ case_frames : "case_id"
     cases ||--o{ case_judge_profiles : "case_id"
     judge_profiles ||--o{ case_judge_profiles : "judge_profile_id"
     cases ||--o{ case_outcomes : "case_id"
@@ -699,6 +708,7 @@ erDiagram
 | `case_chunk_embeddings` | 6 | `id` |
 | `case_chunks` | 13 | `id` |
 | `case_fingerprints` | 7 | `case_id` |
+| `case_frames` | 6 | `id` |
 | `case_judge_profiles` | 5 | `id` |
 | `case_outcomes` | 18 | `id` |
 | `case_sources` | 14 | `id` |
@@ -870,6 +880,31 @@ erDiagram
 ### Indexes
 
 - `ix_case_fingerprints_version`: index on `version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `case_frames`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `version` | `Integer` | no | NOT NULL; default=1 |
+| `frame` | `JSON` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_frames_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_case_frame_case_version`: `case_id`, `version`
 
 ### Foreign Keys
 

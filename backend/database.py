@@ -1146,6 +1146,24 @@ class IssueMapQuestion(Base):
 	question: Mapped[str] = mapped_column(Text, nullable=False)
 
 
+class CaseFrame(Base):
+	"""The simple pass-1 frame of one decision: parties, earlier decisions, issues, arguments, challenged part.
+
+	Written once at ingest (see scripts/load_case_frames.py), stored as ordinary data. The reader shows it
+	behind CASELIBRARY_CASE_FRAME_ENABLED=1; no model runs at site-use time.
+	"""
+
+	__tablename__ = "case_frames"
+	__table_args__ = (UniqueConstraint("case_id", "version", name="uq_case_frame_case_version"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	version: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+	frame: Mapped[dict] = mapped_column(JSON, nullable=False)
+	source: Mapped[str] = mapped_column(String(40), nullable=False)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
 class ParagraphPosition(Base):
 	"""Whose-position tags for every numbered paragraph of one decision (rules plus the small learned tagger).
 

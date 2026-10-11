@@ -221,6 +221,7 @@ from .reader_service import (
 	_stored_statute_reference_details,
 )
 from .position_tags import case_positions
+from .case_frame_store import case_frame as _case_frame
 from .case_reader_ui import (
 	case_reader_with_statutes_html,
 	statute_viewer_page_html,
@@ -2325,6 +2326,12 @@ def export_search_analytics_cases(
 def get_case_paragraph_positions(case_id: int) -> dict[str, Any]:
 	"""Whose-position tags and one-line summaries for a decision (preview). Stored data only; no model call."""
 	return case_positions(case_id)
+
+
+@router.get("/cases/{case_id}/case-frame", response_model=dict[str, Any])
+def get_case_frame(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""The stored case frame (parties, earlier decisions, issues, arguments, challenged part). Off unless CASELIBRARY_CASE_FRAME_ENABLED=1."""
+	return _case_frame(case_id, db)
 
 
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])

@@ -69,6 +69,7 @@ from .models import (
 )
 from scripts.inspect_discussion_units import inspect_case
 from .contextual_authority.case_structure import structure_outline
+from .contextual_authority.outline_v2 import citation_offset, tag_citation_sections
 from .contextual_authority.structure_units import structure_report
 from .contextual_authority.unit_roles import label_unit_roles, label_unit_roles_by_structure
 from .contextual_authority.unit_voices import party_argument_voices
@@ -1375,6 +1376,11 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		outline_rows = structure_outline(case.full_text, format_blocks)
 	except Exception:  # noqa: BLE001 - an outline problem must never break the reader
 		outline_rows = []
+	if outline_rows and outline_rows[0].get("section"):
+		try:
+			tag_citation_sections(citation_responses, outline_rows, citation_offset, case.full_text)
+		except Exception:  # noqa: BLE001 - section tags are optional
+			pass
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.
 	try:
 		with db.begin_nested():

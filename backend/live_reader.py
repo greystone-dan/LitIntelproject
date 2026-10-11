@@ -22,6 +22,7 @@ from sqlalchemy.orm import Session
 from .database import Case
 from .live_analysis import LiveParagraph, analyze_extracted
 from .contextual_authority.case_structure import structure_outline
+from .contextual_authority.outline_v2 import citation_offset, tag_citation_sections
 from .live_decision import decision_details, decision_format_blocks, looks_like_decision
 from .position_tags import live_positions
 from .paragraph_cited_by_db import load_pinpoint_cited_by
@@ -246,6 +247,12 @@ def build_live_reader_payload(
 		"rule_outcome": (details or {}).get("outcome"),
 	}
 	format_blocks = decision_format_blocks(text) if is_decision else format_blocks_for_text(text)
+	outline = _outline(text, format_blocks)
+	if outline and outline[0].get("section"):
+		try:
+			tag_citation_sections(rows, outline, citation_offset, text)
+		except Exception:  # noqa: BLE001 - section tags are optional
+			pass
 	return {
 		"item": item,
 		"citations": rows,
@@ -258,7 +265,7 @@ def build_live_reader_payload(
 			"position_tags": live_positions(text, format_blocks),
 			"extracted_metadata": [],
 			"evidence_summary": None,
-			"structure_outline": _outline(text, format_blocks),
+			"structure_outline": outline,
 			"case_type": {"primary": details["case_type"]} if details and details.get("case_type") else None,
 		},
 		"summary": {

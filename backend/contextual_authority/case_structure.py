@@ -350,6 +350,15 @@ def structure_outline(text: str | None, blocks: Sequence[dict]) -> list[dict]:
     """Cached wrapper: labelling a long decision takes tens of milliseconds, so repeat opens reuse the rows."""
     if not text:
         return []
+    from .outline_v2 import outline_v2, outline_v2_enabled
+
+    if outline_v2_enabled():
+        try:
+            rows = outline_v2(text, blocks)
+        except Exception:  # noqa: BLE001 - fall back to the first outline
+            rows = []
+        if rows:
+            return rows
     key = tuple((b.get("type"), b.get("start"), b.get("end"), b.get("num")) for b in blocks)
     return [dict(row) for row in _structure_outline_cached(text, key, [dict(b) for b in blocks])]
 

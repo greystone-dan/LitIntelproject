@@ -1369,7 +1369,7 @@ function initReaderHoverTooltips(){
   const row=element.dataset.citeId?hoverRow(element.dataset.citeId):null;tooltip.classList.toggle('is-card',Boolean(row));tooltip.replaceChildren();
   if(!row){tooltip.textContent=String(element.dataset.authority||'').replace(/_/g,' ');return Boolean(tooltip.textContent)}
   const info=hoverCitationInfo(row),add=(tag,cls,text)=>{const node=document.createElement(tag);node.className=cls;node.textContent=text;tooltip.appendChild(node)};
-  add('div','hv-kind',info.kind);add('div','hv-title',info.title);if(info.label)add('div','hv-label',info.label);
+  add('div','hv-kind',info.kind);add('div','hv-title',info.title);if(info.label)add('div','hv-label',info.label);if(row.section_title)add('div','hv-label','Cited in the '+row.section_title+(row.section_point?' \u00b7 '+row.section_point:''));
   if(info.text)add('div','hv-text',hoverClip(info.text,600));else add('div','hv-note',info.note);
   if(info.fetch&&!row._hoverFetched)hoverFetchText(row).then(()=>{if(active===element&&fill(element))place(element)});
   return true;

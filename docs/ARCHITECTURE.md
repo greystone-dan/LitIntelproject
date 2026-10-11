@@ -226,6 +226,8 @@ test checks that these paths continue to exist.
 | `backend/judge_fc_activity.py` | Attach Federal Court docket activity (leave, JR, motions, stays) to a canonical judge profile |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
 | `backend/judge_normalization.py` | Deterministic judge-name normalization (no database, no AI) |
+| `backend/learned_positions.py` | Whose-position tags from the cue rules plus a small learned model (numpy only, no model call) |
+| `backend/learned_positions_weights.npz` | TODO: describe this file |
 | `backend/legal_tagger.py` | Deterministic evidence-bearing legal tags |
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |

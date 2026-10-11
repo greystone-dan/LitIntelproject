@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 209
+Active scripts documented: 212
 
 ## Catalog
 
@@ -60,6 +60,7 @@ Active scripts documented: 209
 | `build_position_layers.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_layers.py --help` |
 | `build_position_preview.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview.py --help` |
 | `build_position_preview_lf.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help` |
+| `build_position_tags.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_tags.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
@@ -197,6 +198,7 @@ Active scripts documented: 209
 | `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
+| `run_position_tags_library.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
 | `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
@@ -215,6 +217,7 @@ Active scripts documented: 209
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
 | `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
+| `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
 | `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
@@ -918,6 +921,20 @@ Active scripts documented: 209
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help
+```
+
+## `scripts/build_position_tags.py`
+
+**Purpose:** Tag decisions with the rules + learned whose-position tagger and write one compact file per decision. Offline: reads decision texts from a folder of <id>.json files (title, full_text; ``scripts/fetch_position_texts.py`` writes them) and writes ``<out>/case_<id>.json`` in the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1. No database, no network, no model call. Nothing is loaded anywhere by this script. python scripts/build_position_tags.py --texts position_texts --out data/position_learned [--limit 100]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_tags.py --help
 ```
 
 ## `scripts/build_prototype_cohort.py`
@@ -2838,6 +2855,20 @@ Active scripts documented: 209
 .\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help
 ```
 
+## `scripts/run_position_tags_library.py`
+
+**Purpose:** Tag the library's immigration decisions (2005 or later) with the rules + learned whose-position tagger. READ-ONLY against the database (SELECT only, no commit). Writes one compact file per decision (``<out>/case_<id>.json``, the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1) and one summary JSON. No model call, no network. Safe to stop and rerun: decisions already written are skipped unless --force. python scripts/run_position_tags_library.py --out data/position_learned --summary position-learned-summary.json python scripts/run_position_tags_library.py --out scratch_positions --summary scratch.json --sample 500 # dry run Scope: courts FC, FCA, RAD, RPD, IAD; decision date 2005-01-01 or later; not French; immigration (the same test the tagger was trained and measured on: title, tribunal, or the Immigration and Refugee Protection Act in the first 20,000 characters); at least one numbered paragraph.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help
+```
+
 ## `scripts/run_scc_text_only.py`
 
 **Purpose:** Run the SCC-specific text-only enrichment pipeline.
@@ -3088,6 +3119,20 @@ Active scripts documented: 209
 
 ```powershell
 .\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
+```
+
+## `scripts/train_learned_positions.py`
+
+**Purpose:** Train the learned whose-position weights used by backend/learned_positions.py. Labels: data/position_preview/case_<id>.json (main holder of each printed paragraph, from the stored propositions run: model output, not a lawyer's truth). Text: a folder of <id>.json files with title, court, date and full_text (``scripts/fetch_position_texts.py`` writes them). Decisions dated 2005 or later that concern immigration and whose id is a multiple of 5 are the untouched hold-out: never trained on, only scored. Stage 1 is a logistic model over opening words and rule results; stage 2 reads stage 1's out-of-fold guesses (5 folds by decision) for the neighbouring paragraphs. Needs scikit-learn (training only; the site runs numpy only). python scripts/train_learned_positions.py --texts position_texts [--haiku-labels hk_labels.json] [--write]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_learned_positions.py --help
 ```
 
 ## `scripts/train_learned_roles.py`

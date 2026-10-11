@@ -17,6 +17,7 @@ where citation use will attach later.
 from __future__ import annotations
 
 import json
+import os
 import re
 from functools import lru_cache
 from pathlib import Path
@@ -24,6 +25,8 @@ from typing import Any, Protocol
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "position_preview"
 LAYERS_DIR = Path(__file__).resolve().parents[1] / "data" / "position_layers"  # rules output: level per paragraph
+LEARNED_DIR = Path(os.environ.get("ILIT_POSITION_LEARNED_DIR") or Path(__file__).resolve().parents[1] / "data" / "position_learned")  # rules + learned tagger output (holder only)
+LEARNED_FLAG = "ILIT_LEARNED_POSITIONS"  # "1" lets a decision with no stored preview read LEARNED_DIR; default off
 
 # key -> label shown on the tag. The keys match the stored holder names.
 POSITION_LABELS: dict[str, str] = {
@@ -109,6 +112,17 @@ EMPTY_NOTE_RULES = (
 	"submits” or “I am not persuaded”. This text has none, so nothing is tagged."
 )
 
+RELIABILITY_LEARNED = (
+	"How reliable are these tags? They were worked out ahead of time by fixed cue phrases plus a small statistical "
+	"model trained on labelled decisions, with no summary. Against a second reader they named the same voice for "
+	"about 3 paragraphs in 4, and about 5 in 6 when the judge, authorities and documents are counted as one group. "
+	"Not checked by a lawyer."
+)
+PREVIEW_NOTICE_LEARNED = (
+	"Preview. Machine-generated from the decision text and not yet checked by a lawyer. Some tags will be wrong, "
+	"so check the paragraph itself before relying on one."
+)
+
 PREVIEW_NOTICE_STORED = (
 	"Preview. Machine-generated from the decision text and not yet checked by a lawyer. "
 	"Some tags will be wrong, so check the paragraph itself before relying on one."
@@ -172,14 +186,35 @@ def _framework(kinds: list[str], role: str | None) -> str:
 class FilePositionSource:
 	"""Compact per-decision files built from the propositions run."""
 
-	def __init__(self, directory: Path = DATA_DIR, layers_directory: Path | None = LAYERS_DIR) -> None:
+	def __init__(self, directory: Path = DATA_DIR, layers_directory: Path | None = LAYERS_DIR, learned_directory: Path = LEARNED_DIR) -> None:
 		self.directory = directory
 		self.layers_directory = layers_directory
+		self.learned_directory = learned_directory
+
+	def kind_for(self, case_id: int) -> str:
+		"""``stored`` (propositions run) or ``learned`` (rules + learned tagger, only when the flag is on)."""
+		if (self.directory / f"case_{int(case_id)}.json").is_file():
+			return "stored"
+		return "learned" if self._learned_path(case_id) else "stored"
+
+	def _learned_path(self, case_id: int) -> Path | None:
+		if os.environ.get(LEARNED_FLAG) != "1":
+			return None
+		path = self.learned_directory / f"case_{int(case_id)}.json"
+		return path if path.is_file() else None
+
+	def _learned_rows(self, path: Path) -> dict[str, dict[str, Any]] | None:
+		try:
+			stored = json.loads(path.read_text(encoding="utf-8"))
+		except (OSError, ValueError):
+			return None
+		return {n: _row([r["h"]], "", [], r.get("r")) for n, r in stored.get("paragraphs", {}).items()} or None
 
 	def paragraphs_for(self, case_id: int) -> dict[str, dict[str, Any]] | None:
 		path = self.directory / f"case_{int(case_id)}.json"
 		if not path.is_file():
-			return None
+			learned = self._learned_path(case_id)
+			return self._learned_rows(learned) if learned else None
 		try:
 			stored = json.loads(path.read_text(encoding="utf-8"))
 		except (OSError, ValueError):
@@ -252,14 +287,17 @@ def _common(mode: str) -> dict[str, Any]:
 
 def case_positions(case_id: int, source: PositionSource | None = None) -> dict[str, Any]:
 	"""The response for one stored decision."""
-	rows = (source or _SOURCE).paragraphs_for(case_id)
+	source = source or _SOURCE
+	rows = source.paragraphs_for(case_id)
+	learned = rows is not None and getattr(source, "kind_for", lambda _c: "stored")(case_id) == "learned"
 	return {
 		**_common("stored"),
+		**({"reliability": RELIABILITY_LEARNED, "source": "learned"} if learned else {}),
 		"case_id": case_id,
 		"available": rows is not None,
 		"overview": stored_overview(rows) if rows else [],
 		"empty_note": EMPTY_NOTE.format(count=len(stored_case_ids())),
-		"notice": PREVIEW_NOTICE_STORED,
+		"notice": PREVIEW_NOTICE_LEARNED if learned else PREVIEW_NOTICE_STORED,
 		"legend": LEGEND_NOTE,
 		"framework_note": FRAMEWORK_NOTE,
 		"layers": LAYERS,

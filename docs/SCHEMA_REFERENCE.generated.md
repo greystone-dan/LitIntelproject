@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-11T00:46:30.292871+00:00
-Tables: 45
+Generated: 2026-10-11T01:50:03.646396+00:00
+Tables: 46
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -484,6 +484,14 @@ erDiagram
         Integer edges
         DATETIME computed_at
     }
+    paragraph_positions {
+        Integer id PK
+        Integer case_id  FK
+        String(40) tagger
+        Integer paragraph_count
+        JSON paragraphs
+        DATETIME created_at
+    }
     recent_case_chunk_embeddings {
         Integer chunk_id PK FK
         Integer case_id  FK
@@ -664,6 +672,7 @@ erDiagram
     cases ||--o{ paragraph_citation_edges : "source_case_id"
     cases ||--o{ paragraph_citation_edges : "target_case_id"
     cases ||--o{ paragraph_citation_status : "source_case_id"
+    cases ||--o{ paragraph_positions : "case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     cases ||--o{ search_alerts : "case_id"
@@ -719,6 +728,7 @@ erDiagram
 | `legislation_sections` | 6 | `id` |
 | `paragraph_citation_edges` | 9 | `id` |
 | `paragraph_citation_status` | 4 | `source_case_id` |
+| `paragraph_positions` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
@@ -1759,6 +1769,27 @@ erDiagram
 ### Foreign Keys
 
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_positions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `tagger` | `String(40)` | no | NOT NULL |
+| `paragraph_count` | `Integer` | no | NOT NULL |
+| `paragraphs` | `JSON` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Unique Constraints
+
+- `unnamed`: `case_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `recent_case_chunk_embeddings`
 

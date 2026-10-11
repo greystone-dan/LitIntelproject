@@ -37,7 +37,11 @@ POSITION_LABELS: dict[str, str] = {
 	"prior_court_or_authority": "Earlier case or law",
 	"witness_or_document": "Witness or document",
 	"other": "Other",
+	"unsure": "Unsure",
 }
+
+# A learned tag is shown only at this confidence or higher; below it the paragraph is marked "unsure" instead.
+CONFIDENT = 0.7
 
 # One plain sentence per tag, for the legend. Written for a reader who has never seen a decision laid out this way.
 POSITION_HELP: dict[str, str] = {
@@ -48,6 +52,7 @@ POSITION_HELP: dict[str, str] = {
 	"prior_court_or_authority": "A past court decision or rule of law that the paragraph leans on.",
 	"witness_or_document": "What a witness said or a document or report shows.",
 	"other": "Not clearly any one voice.",
+	"unsure": "The tagger is not confident enough to name a voice for this paragraph. Read it yourself.",
 }
 
 # Nesting. A judicial review is nested: the judge (level 0) evaluates whether an earlier decision maker's decision
@@ -116,6 +121,7 @@ RELIABILITY_LEARNED = (
 	"How reliable are these tags? They were worked out ahead of time by fixed cue phrases plus a small statistical "
 	"model trained on labelled decisions, with no summary. Against a second reader they named the same voice for "
 	"about 3 paragraphs in 4, and about 5 in 6 when the judge, authorities and documents are counted as one group. "
+	"Tags are shown only where the tagger is at least 70% sure; other paragraphs say \u201cUnsure\u201d. "
 	"Not checked by a lawyer."
 )
 PREVIEW_NOTICE_LEARNED = (
@@ -165,6 +171,18 @@ def _row(
 	}
 
 
+def _learned_row(holder: str, probability: float | None, cue: str | None = None) -> dict[str, Any]:
+	"""A tag from the rules + learned tagger. Below ``CONFIDENT`` the voice is not named: the paragraph says "unsure"."""
+	if holder not in POSITION_LABELS or (probability is not None and probability < CONFIDENT):
+		row = _row(["unsure"], "", [], None, cue=cue)
+		row["unsure"] = True
+		return row
+	row = _row([holder], "", [], None, cue=cue)
+	row["unsure"] = False
+	row["probability"] = probability
+	return row
+
+
 _RULE_LAYER = {1: "judge", 2: "jr_party", 3: "earlier_decision", 4: "first_instance", 5: "source", 6: "framework"}
 
 
@@ -183,6 +201,22 @@ def _framework(kinds: list[str], role: str | None) -> str:
 	return "yes" if role == "law" or (kinds and kinds[0] == "rule_of_law") else "no"
 
 
+def _database_rows(case_id: int) -> dict[str, dict[str, Any]] | None:
+	"""Tags loaded into the paragraph_positions table (scripts/load_position_tags.py). None when absent or unreadable."""
+	try:
+		from sqlalchemy import select
+
+		from .database import ParagraphPosition, SessionLocal
+
+		with SessionLocal() as session:
+			stored = session.execute(select(ParagraphPosition.paragraphs).where(ParagraphPosition.case_id == int(case_id))).scalar_one_or_none()
+	except Exception:  # table not created yet, database down: fall back to the files
+		return None
+	if not stored:
+		return None
+	return {n: _learned_row(r["h"], r.get("p")) for n, r in stored.items()} or None
+
+
 class FilePositionSource:
 	"""Compact per-decision files built from the propositions run."""
 
@@ -195,7 +229,7 @@ class FilePositionSource:
 		"""``stored`` (propositions run) or ``learned`` (rules + learned tagger, only when the flag is on)."""
 		if (self.directory / f"case_{int(case_id)}.json").is_file():
 			return "stored"
-		return "learned" if self._learned_path(case_id) else "stored"
+		return self.lookup(case_id)[1]
 
 	def _learned_path(self, case_id: int) -> Path | None:
 		if os.environ.get(LEARNED_FLAG) != "1":
@@ -208,17 +242,26 @@ class FilePositionSource:
 			stored = json.loads(path.read_text(encoding="utf-8"))
 		except (OSError, ValueError):
 			return None
-		return {n: _row([r["h"]], "", [], r.get("r")) for n, r in stored.get("paragraphs", {}).items()} or None
+		return {n: _learned_row(r["h"], r.get("p")) for n, r in stored.get("paragraphs", {}).items()} or None
 
 	def paragraphs_for(self, case_id: int) -> dict[str, dict[str, Any]] | None:
+		return self.lookup(case_id)[0]
+
+	def lookup(self, case_id: int) -> tuple[dict[str, dict[str, Any]] | None, str]:
+		"""(rows, kind) in one read, so the database is asked once per request."""
 		path = self.directory / f"case_{int(case_id)}.json"
 		if not path.is_file():
-			learned = self._learned_path(case_id)
-			return self._learned_rows(learned) if learned else None
+			if os.environ.get(LEARNED_FLAG) != "1":
+				return None, "stored"
+			rows = _database_rows(case_id)
+			if rows is None:
+				learned = self._learned_path(case_id)
+				rows = self._learned_rows(learned) if learned else None
+			return rows, ("learned" if rows else "stored")
 		try:
 			stored = json.loads(path.read_text(encoding="utf-8"))
 		except (OSError, ValueError):
-			return None
+			return None, "stored"
 		rules = _rule_layers(self.layers_directory, case_id) if self.layers_directory else None
 		out = {}
 		for number, row in stored.get("paragraphs", {}).items():
@@ -229,7 +272,7 @@ class FilePositionSource:
 			# With a rules export for this decision, a paragraph it only defaulted stays "not detected".
 			layer = row.get("l") or (_RULE_LAYER[rule["l"]] if rule else ("unknown" if rules is not None else None))
 			out[number] = _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"), layer=layer, framework=framework)
-		return out or None
+		return out or None, "stored"
 
 
 _SOURCE: PositionSource = FilePositionSource()
@@ -288,8 +331,11 @@ def _common(mode: str) -> dict[str, Any]:
 def case_positions(case_id: int, source: PositionSource | None = None) -> dict[str, Any]:
 	"""The response for one stored decision."""
 	source = source or _SOURCE
-	rows = source.paragraphs_for(case_id)
-	learned = rows is not None and getattr(source, "kind_for", lambda _c: "stored")(case_id) == "learned"
+	if hasattr(source, "lookup"):
+		rows, kind = source.lookup(case_id)
+	else:
+		rows, kind = source.paragraphs_for(case_id), "stored"
+	learned = rows is not None and kind == "learned"
 	return {
 		**_common("stored"),
 		**({"reliability": RELIABILITY_LEARNED, "source": "learned"} if learned else {}),
@@ -416,8 +462,34 @@ def rules_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, dict[s
 	return out
 
 
+def learned_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, dict[str, Any]] | None:
+	"""Rules + learned tags for the numbered paragraphs of a document, in memory (nothing stored, no model call).
+
+	Below ``CONFIDENT`` a paragraph says "unsure". When the fixed cue rules also fired on a paragraph with the same
+	voice, the phrase that triggered them is kept as the visible cue. None when the learned weights are missing.
+	"""
+	from . import learned_positions as lp
+
+	if not lp.available():
+		return None
+	paras = [(str(b["num"]), text[b["start"] : b["end"]]) for b in blocks if b.get("type") == "para" and b.get("num") is not None]
+	if not paras:
+		return {}
+	header, body = lp.split_header(text)
+	tags = lp.tag_paragraphs([t for _, t in paras], "", header, body)
+	cues = rules_positions(text, blocks)
+	out: dict[str, dict[str, Any]] = {}
+	for (num, _), tag in zip(paras, tags):
+		cue = cues.get(num)
+		out[num] = _learned_row(tag["holder"], tag["p"], cue["cue"] if cue and _lead(cue) == tag["holder"] else None)
+	return out
+
+
 def live_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, Any]:
 	"""The response block that rides in the Live Analysis reader payload."""
+	learned = learned_positions(text, blocks) if os.environ.get(LEARNED_FLAG) == "1" else None
+	if learned is not None:
+		return _live_learned(learned)
 	rows = rules_positions(text, blocks)
 	overview = []
 	for key, label in (("applicant", "Applicant argued"), ("respondent", "Respondent argued"), ("court", "The judge wrote")):
@@ -434,6 +506,27 @@ def live_positions(text: str, blocks: list[dict[str, Any]]) -> dict[str, Any]:
 		"framework_note": FRAMEWORK_NOTE,
 		"layers": LAYERS,
 		"paragraphs": rows,
+	}
+
+
+def _live_learned(rows: dict[str, dict[str, Any]]) -> dict[str, Any]:
+	overview = []
+	for key, label in (("applicant", "Applicant argued"), ("respondent", "Respondent argued"), ("court", "The judge wrote")):
+		hit = next(((n, r) for n, r in sorted(rows.items(), key=lambda kv: int(kv[0]) if kv[0].isdigit() else 10**9) if not r["unsure"] and _lead(r) == key), None)
+		if hit:
+			overview.append({"key": key, "label": label, "para": hit[0], "text": f"First paragraph tagged with this voice (\u00b6{hit[0]})."})
+	return {
+		**_common("learned"),
+		"reliability": RELIABILITY_LEARNED + " Trained on decisions, not on drafts, so it may be less sure on a one-sided argument.",
+		"available": bool(rows),
+		"overview": overview,
+		"empty_note": EMPTY_NOTE_RULES,
+		"notice": PREVIEW_NOTICE_LEARNED,
+		"legend": LEGEND_NOTE,
+		"framework_note": FRAMEWORK_NOTE,
+		"layers": LAYERS,
+		"paragraphs": rows,
+		"source": "learned",
 	}
 
 

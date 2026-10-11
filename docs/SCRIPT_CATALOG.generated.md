@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 212
+Active scripts documented: 213
 
 ## Catalog
 
@@ -151,6 +151,7 @@ Active scripts documented: 212
 | `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
+| `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
@@ -2195,6 +2196,20 @@ Active scripts documented: 212
 
 ```powershell
 .\venv\Scripts\python.exe scripts\load_issue_maps.py --help
+```
+
+## `scripts/load_position_tags.py`
+
+**Purpose:** Load the whose-position tag files (one case_<id>.json per decision) into paragraph_positions. Dry run by default. Additive only: it adds a row for each decision that has none and never updates or deletes existing rows. Files whose decision is not in the library are skipped and counted. python scripts/load_position_tags.py --dir data/position_learned # dry run: counts, nothing written python scripts/load_position_tags.py --dir data/position_learned --apply # write (live database: needs the go-ahead) Undo: DROP TABLE paragraph_positions; (or alembic downgrade 0045_issue_maps) Run `alembic upgrade head` first so the table exists. Reading the tags in the reader still needs ILIT_LEARNED_POSITIONS=1.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_position_tags.py --help
 ```
 
 ## `scripts/map_fc_seed_to_local_cases.py`

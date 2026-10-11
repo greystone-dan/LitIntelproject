@@ -97,3 +97,14 @@ Fixes (all in `backend/citation_refine/`, deterministic):
 - Noise rules: a short form that is a party of the decision's own title, a person named with a given name ("Dr. Gillian Frank", "Bryan A. Garner"), and place words (river, lake, township) are no longer cases.
 
 Hand-checked precision on random rows: case and neutral rows about 98 to 100%; short forms with a pinpoint about 100%; short forms without a pinpoint 77 to 85% before the noise rules above (not re-measured after). Still missed: litigant or firm names in subject position with no cue, "Name, above" with no earlier anchor, "At paragraph 5 of that decision". Rows stored by the earlier 6,000-decision test rebuild do not have these fixes until a rebuild.
+
+## "Of that decision" pinpoints and unanchored "Name, above" (2026-10-11)
+
+Same 372-decision sample as the audit above (FC, FCA, SCC from 2005 on, local run, no database writes). Two new rules in step `C2_backrefs`:
+
+- **"At paragraph 43 of that decision"** (also "of the same case", "of this judgment", "au paragraphe 5 de cette décision") becomes a short form with that pinpoint, anchored to the case cited just before (at most 600 characters back). "The decision" alone is not used: it usually means the decision under review. Only 4 genuine cases in the sample, all read by hand and correct.
+- **"Plavix, cited above, at para 67"** when the decision never gives the full citation: kept as a name-only short form with its pinpoint, flagged `unanchored` (confidence 0.6, nothing to link). Statute and rule names ("Official Languages Act, supra"), one-word sentence starters ("The above") and names ending in Court, Board or Decision are left out.
+
+Measured: "name + above/supra" mentions not covered by any row 65 of 359 to 5 (the 5 are correct exclusions: a statute, a "JUDGMENT For the Reasons above", "the Supreme Court cited above"). 64 unanchored rows in the sample; on 45 read by hand 43 were real references and the 2 wrong ones ("The above", "the Supreme Court cited above") are now excluded. Rows with a pinpoint 4,530 to 4,599.
+
+Not built: litigant, person and firm names in subject position with no cue word. Any rule loose enough to catch them also catches real cases, so they stay out until there is a way to tell them apart.

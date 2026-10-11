@@ -166,8 +166,16 @@ def _heading_parts(text: str) -> tuple[str, str | None]:
 	return parts[0], parts[1] if len(parts) > 1 else None
 
 
+_PRELIMINARY_RE = re.compile(r"^\s*(?:(?:[IVX]{1,5}|[A-H]|\d{1,2})[.)]\s+)?(?:(?:admissibility of )?new evidence|request for an oral hearing|oral hearing|role of the (?:rad|refugee appeal division)|scope of the rad review|preliminary (?:matters?|issues?))\b", re.I)
+
+
 def _heading_section(text: str) -> str | None:
-	"""The section a heading announces ("Issues", "Analysis", "Conclusion"), None for an ordinary heading."""
+	"""The section a heading announces ("Issues", "Analysis", "Conclusion"), None for an ordinary heading.
+
+	RAD preliminary matters (new evidence, oral hearing, role of the RAD) come before the merits, so they count as Issues.
+	"""
+	if _PRELIMINARY_RE.match(_heading_parts(text)[0]):
+		return "issues"
 	kind = cs.heading_kind(_heading_parts(text)[0])
 	return _ROLE_SECTION.get(kind) if kind else None
 

@@ -1146,6 +1146,23 @@ class IssueMapQuestion(Base):
 	question: Mapped[str] = mapped_column(Text, nullable=False)
 
 
+class ParagraphPosition(Base):
+	"""Whose-position tags for every numbered paragraph of one decision (rules plus the small learned tagger).
+
+	Written at ingest by scripts/load_position_tags.py; the reader only reads it. ``paragraphs`` maps the printed
+	paragraph number (as text) to ``{"h": holder, "p": probability}``. No model runs at site-use time.
+	"""
+
+	__tablename__ = "paragraph_positions"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, unique=True)
+	tagger: Mapped[str] = mapped_column(String(40), nullable=False)
+	paragraph_count: Mapped[int] = mapped_column(Integer, nullable=False)
+	paragraphs: Mapped[dict] = mapped_column(JSON, nullable=False)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
 class WorkbenchCase(Base):
 	"""One IMM file on a demo analyst's Workbench case list, with the activity state last seen."""
 

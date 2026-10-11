@@ -285,3 +285,24 @@ def test_narrative_words_before_a_case_name_do_not_hide_the_parallel_cites():
 	rows = refine_case_citations(text).rows
 	assert rows[0].citation_text.startswith("Ahousaht Indian Band v.") and rows[0].pinpoint == "at para. 54"
 	assert any(row.citation_text == "Ahousaht, above at para. 34" for row in rows)
+
+
+def test_person_names_and_generic_place_words_are_not_short_forms():
+	text = (
+		"Frank v. Canada (Attorney General), 2019 SCC 1. Two citizens, Dr. Gillian Frank and Jamie Duong, challenged. "
+		"Scalia and Bryan A. Garner wrote. Clyde River (Hamlet) v. Petroleum Geo Services Inc., 2017 SCC 40. Hay River is north."
+	)
+	rows = refine_case_citations(text).rows
+	assert [row.kind for row in rows] == ["case", "case"]
+
+
+def test_bracketed_neutral_and_other_reporters_are_found():
+	text = (
+		"Marine v. Canada (Attorney General), [2006] FCA 425, [2006] F.C.J. No. 1946 (QL); Rémy v. Gagnon, [1971] C.A. 554; "
+		"Unitel Communications Inc. c. Bell Canada, 61 C.P.R. (3d) 12; Davis v. Samsung, [2017] 4 C.N.L.R. 89."
+	)
+	texts = [row.citation_text for row in refine_case_citations(text).rows]
+	assert any("[2006] FCA 425" in text for text in texts)
+	assert any("[1971] C.A. 554" in text for text in texts)
+	assert any("61 C.P.R. (3d) 12" in text for text in texts)
+	assert any("[2017] 4 C.N.L.R. 89" in text for text in texts)

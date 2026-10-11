@@ -64,6 +64,7 @@ NEUTRAL_COURTS: dict[str, int | None] = {
 	"IRB": None, "RPD": None, "RAD": None, "IAD": None, "ID": None,
 	# Federal and provincial tribunals the Federal Court and Supreme Court decisions cite (no first-year check).
 	"CIRB": None, "CHRT": None, "PSDPT": None, "PSLREB": None, "PSSRB": None, "TMOB": None, "MBHR": None, "HRTO": None,
+	"UKHL": None, "UKSC": None, "UKPC": None, "EWCA": None, "EWHC": None, "HCA": None, "NZSC": None, "NZCA": None, "ZACC": None,
 	"BCHRT": None, "SST": None, "PESCAD": None, "QCTAQ": None, "QCTAT": None, "QCTDP": None, "FCTD": None,
 }
 FRENCH_TO_ENGLISH_COURT = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT", "CCI": "TCC", "CACM": "CMAC"}
@@ -71,6 +72,10 @@ _FRENCH_COURTS = set(FRENCH_TO_ENGLISH_COURT)
 
 _COURT_ALTERNATION = "|".join(sorted(NEUTRAL_COURTS, key=len, reverse=True))
 NEUTRAL_RE = re.compile(rf"(?<![\w/])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
+# Neutral citations written like reporter cites: "[2006] FCA 425", "[2005] F.C.A. 1778".
+BRACKET_NEUTRAL_RE = re.compile(
+	rf"(?<![\w/])\[(?P<year>(?:19|20)\d{{2}})\]\s*(?P<court>{_COURT_ALTERNATION}|F\.C\.A\.|F\.C\.T\.)\s*(?P<number>\d{{1,5}})\b"
+)
 CANLII_RE = re.compile(
 	r"(?<![\w/])(?P<year>(?:19|20)\d{2})\s+CanLII\s+(?P<number>\d{1,9})(?:\s*\((?P<court>[A-Za-z][A-Za-z .]{1,20})\))?",
 	re.IGNORECASE,
@@ -108,6 +113,14 @@ _REPORTERS: tuple[_Reporter, ...] = (
 	_Reporter("W.L.R.", "WLR", False),
 	_Reporter("All E.R.", "ALLER", True),
 	_Reporter("U.S.", "US", False),
+	_Reporter("C.P.R.", "CPR", False),
+	_Reporter("C.N.L.R.", "CNLR", True),
+	_Reporter("C.A.", "CA", True),
+	_Reporter("C.S.", "CS", True),
+	_Reporter("R.D.J.", "RDJ", True),
+	_Reporter("T.A.Q.", "TAQ", True),
+	_Reporter("K.B.", "KB", True),
+	_Reporter("N.Z.L.R.", "NZLR", True),
 	_Reporter("R.J.Q.", "RJQ", True),
 	_Reporter("R.R.A.", "RRA", True),
 	_Reporter("W.W.R.", "WWR", True),
@@ -177,7 +190,7 @@ _CONNECTORS = {"of", "and", "the", "for", "de", "du", "des", "la", "le", "les", 
 _NARRATIVE = {
 	"see", "in", "cf", "citing", "quoting", "applying", "following", "per", "also", "contra", "compare", "accord",
 	"but", "as", "under", "from", "unlike", "like", "distinguishing", "approved", "adopted", "affirmed", "considering",
-	"eg", "where", "when", "while", "since", "after", "before", "that", "this", "these", "then", "thus", "however",
+	"eg", "relying", "relied", "noting", "reviewing", "referring", "discussing", "where", "when", "while", "since", "after", "before", "that", "this", "these", "then", "thus", "however",
 	"moreover", "further", "finally", "indeed", "here", "there", "although", "because", "if", "both", "dans", "voir",
 	"aussi", "selon", "arrêt", "affaire", "decision", "judgment", "case", "court", "justice", "judge", "held", "found",
 }
@@ -327,6 +340,14 @@ def _find_cores(content: str) -> list[_Core]:
 				int(year),
 				court,
 				"fr" if court in _FRENCH_COURTS else "en",
+			)
+		)
+	for match in BRACKET_NEUTRAL_RE.finditer(content):
+		year, court, number = match.group("year"), match.group("court").replace(".", ""), match.group("number")
+		cores.append(
+			_Core(
+				match.start(), match.end(), "neutral", f"{year} {court} {int(number)}", _neutral_keys(year, court, number),
+				int(year), court, "fr" if court in _FRENCH_COURTS else "en",
 			)
 		)
 	for match in CANLII_RE.finditer(content):
@@ -591,7 +612,7 @@ def _starts_with_narrative(row: RefinedCitation, entry: RefinedCitation) -> bool
 	if not (row.offset_start < entry.offset_start < row.offset_end <= entry.offset_end):
 		return False
 	words = re.findall(r"[A-Za-zÀ-ÿ’']+", row.citation_text[: entry.offset_start - row.offset_start])
-	return bool(words) and all(word.casefold() in _NARRATIVE for word in words)
+	return bool(words) and all(word.casefold() in _NARRATIVE or word.casefold() in {"on", "upon", "to", "by"} for word in words)
 
 
 def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], cores: list[_Core] | None = None) -> list[RefinedCitation]:

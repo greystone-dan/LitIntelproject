@@ -19,7 +19,7 @@ _GENERIC = frozenset(
 		"holdings", "society", "association", "minister", "canada", "court", "crown", "queen", "king", "city", "county",
 		"commission", "council", "authority", "services", "industries", "limited", "ltd", "inc", "co", "national", "general",
 		"attorney", "citizenship", "immigration", "refugee", "province", "state", "united", "the", "la", "le", "les", "de", "du", "service", "services", "band", "companies", "associated", "judgment", "international",
-		"refugees", "employment", "marine", "revenue", "public", "commissioner", "ontario", "alberta", "quebec", "board", "union", "school", "centre", "center",
+		"refugees", "employment", "river", "lake", "hamlet", "village", "township", "municipality", "district", "island", "bay", "marine", "revenue", "public", "commissioner", "ontario", "alberta", "quebec", "board", "union", "school", "centre", "center",
 	}
 )
 _NAME_END_RE = re.compile(r",\s*(?:\[|\(|(?:19|20)\d\d|\d+\s+[A-Z]|at\s|à\s|au\s|aux\s)")
@@ -88,6 +88,12 @@ _PARTY_AFTER_RE = re.compile(
 )
 
 
+# "Dr. Gillian Frank", "Mr. John Smith": a person named in the decision, whose surname is not a case.
+_GIVEN_NAME_BEFORE_RE = re.compile(r"(?:\b(?:Mr|Ms|Mrs|Dr|Mme|Mlle|Miss|Justice|Judge|Professor|Prof)\.?)\s+(?:[A-Z][\w’'-]+\s+){1,2}$")
+# "Bryan A. Garner": the name is followed by a middle initial.
+_INITIAL_AFTER_RE = re.compile(r"^\s+[A-Z]\.\s+[A-Z]")
+
+
 def _party_mention(row: RefinedCitation, content: str) -> bool:
 	"""A bare name that is a litigant in this decision ("Ms. Kostic", "Tervita's", "Apotex argued"), not a citation.
 
@@ -97,6 +103,8 @@ def _party_mention(row: RefinedCitation, content: str) -> bool:
 		return False
 	before = content[max(0, row.offset_start - 12) : row.offset_start]
 	after = content[row.offset_end : row.offset_end + 24]
+	if _INITIAL_AFTER_RE.match(after) or _GIVEN_NAME_BEFORE_RE.search(content[max(0, row.offset_start - 40) : row.offset_start]):
+		return True
 	return bool(_HONORIFIC_BEFORE_RE.search(before) or _PARTY_AFTER_RE.match(after))
 
 

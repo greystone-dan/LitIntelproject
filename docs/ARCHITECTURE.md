@@ -199,6 +199,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/learned_roles_weights.npz` | TODO: describe this file |
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |
 | `backend/contextual_authority/observations.py` | Observation and evidence structures for contextual analysis |
+| `backend/contextual_authority/outline_v2.py` | Reader outline, second version: four sections with sub-points, and the section a citation sits in (no AI) |
 | `backend/contextual_authority/structure_units.py` | Discussion units cut along the decision's skeleton (no AI) |
 | `backend/contextual_authority/subthemes.py` | Groups discussion-unit subthemes |
 | `backend/contextual_authority/teacher_contract.py` | Validates report-only teacher/evaluation outputs |

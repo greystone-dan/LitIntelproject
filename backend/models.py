@@ -89,6 +89,11 @@ class LiveAnalysisReferenceResponse(BaseModel):
 	authority_section_text: str | None = None
 	source_title: str | None = None
 	source_text: str | None = None
+	# Which part of this decision the citation sits in (Background, Issues, Analysis, Disposition) and the sub-point
+	# under it; set only with ILIT_OUTLINE_V2=1.
+	section: str | None = None
+	section_title: str | None = None
+	section_point: str | None = None
 	source_url: str | None = None
 	resolution_status: str | None = None
 	section_number: str | None = None

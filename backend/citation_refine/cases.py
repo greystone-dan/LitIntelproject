@@ -38,7 +38,7 @@ from .models import (
 	RefinedCitation,
 )
 from .landmarks import landmark_rows
-from .short_forms import is_weak_short_form
+from .short_forms import _GENERIC as _GENERIC_WORDS, is_weak_short_form, own_party_words
 from .pinpoints import BARE_PAGE_RE, TRAILING_PINPOINT_RE, parse_all_pinpoints, parse_bare_page_pinpoint, parse_pinpoint, pinpoint_phrase
 
 CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C4b_landmarks", "C4c_defined_names", "C5_validate")
@@ -62,12 +62,20 @@ NEUTRAL_COURTS: dict[str, int | None] = {
 	"YKCA": 2000, "YKSC": 2000,
 	# Immigration and Refugee Board divisions (pass one already accepts these).
 	"IRB": None, "RPD": None, "RAD": None, "IAD": None, "ID": None,
+	# Federal and provincial tribunals the Federal Court and Supreme Court decisions cite (no first-year check).
+	"CIRB": None, "CHRT": None, "PSDPT": None, "PSLREB": None, "PSSRB": None, "TMOB": None, "MBHR": None, "HRTO": None,
+	"UKHL": None, "UKSC": None, "UKPC": None, "EWCA": None, "EWHC": None, "HCA": None, "NZSC": None, "NZCA": None, "ZACC": None,
+	"BCHRT": None, "SST": None, "PESCAD": None, "QCTAQ": None, "QCTAT": None, "QCTDP": None, "FCTD": None,
 }
 FRENCH_TO_ENGLISH_COURT = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT", "CCI": "TCC", "CACM": "CMAC"}
 _FRENCH_COURTS = set(FRENCH_TO_ENGLISH_COURT)
 
 _COURT_ALTERNATION = "|".join(sorted(NEUTRAL_COURTS, key=len, reverse=True))
 NEUTRAL_RE = re.compile(rf"(?<![\w/])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
+# Neutral citations written like reporter cites: "[2006] FCA 425", "[2005] F.C.A. 1778".
+BRACKET_NEUTRAL_RE = re.compile(
+	rf"(?<![\w/])\[(?P<year>(?:19|20)\d{{2}})\]\s*(?P<court>{_COURT_ALTERNATION}|F\.C\.A\.|F\.C\.T\.)\s*(?P<number>\d{{1,5}})\b"
+)
 CANLII_RE = re.compile(
 	r"(?<![\w/])(?P<year>(?:19|20)\d{2})\s+CanLII\s+(?P<number>\d{1,9})(?:\s*\((?P<court>[A-Za-z][A-Za-z .]{1,20})\))?",
 	re.IGNORECASE,
@@ -105,6 +113,23 @@ _REPORTERS: tuple[_Reporter, ...] = (
 	_Reporter("W.L.R.", "WLR", False),
 	_Reporter("All E.R.", "ALLER", True),
 	_Reporter("U.S.", "US", False),
+	_Reporter("C.P.R.", "CPR", False),
+	_Reporter("C.N.L.R.", "CNLR", True),
+	_Reporter("C.A.", "CA", True),
+	_Reporter("C.S.", "CS", True),
+	_Reporter("R.D.J.", "RDJ", True),
+	_Reporter("T.A.Q.", "TAQ", True),
+	_Reporter("K.B.", "KB", True),
+	_Reporter("N.Z.L.R.", "NZLR", True),
+	_Reporter("R.J.Q.", "RJQ", True),
+	_Reporter("R.R.A.", "RRA", True),
+	_Reporter("W.W.R.", "WWR", True),
+	_Reporter("N.S.R.", "NSR", False),
+	_Reporter("O.A.C.", "OAC", False),
+	_Reporter("C.C.E.L.", "CCEL", False),
+	_Reporter("C.H.R.R.", "CHRR", False),
+	_Reporter("C.P.C.", "CPC", False),
+	_Reporter("Q.A.C.", "QAC", False),
 )
 
 
@@ -128,18 +153,18 @@ for _index, _reporter in enumerate(sorted(_REPORTERS, key=lambda item: -len(item
 _SERIES = r"(?:\(\s*(?P<series>\d{1,2}\s*(?:d|nd|rd|th|st|e)|2d|3d)\s*\))"
 REPORTED_RE = re.compile(
 	r"(?<![\w/])(?:\[(?P<bracket_year>(?:18|19|20)\d{2})\]|\((?P<paren_year>(?:18|19|20)\d{2})\)\s*,?)?\s*"
-	rf"(?P<volume>\d{{1,4}})\s+(?:{'|'.join(_REPORTER_ALTERNATION_PARTS)})\s*{_SERIES}?\s*(?P<page>\d{{1,5}})\b"
+	rf"(?:(?P<volume>\d{{1,4}})\s+)?(?:{'|'.join(_REPORTER_ALTERNATION_PARTS)})\s*{_SERIES}?\s*(?P<page>\d{{1,5}})\b"
 )
 # Quicklaw / Lexis numbers: [2003] F.C.J. No. 123 (QL), [2003] A.C.F. no 123
 _DATABASES = {
 	"FCJ": "F.C.J.", "SCJ": "S.C.J.", "ACF": "A.C.F.", "ACS": "A.C.S.", "IADD": "I.A.D.D.", "RPDD": "R.P.D.D.",
-	"RADD": "R.A.D.D.", "IDD": "I.D.D.", "CRDD": "C.R.D.D.", "OJ": "O.J.", "BCJ": "B.C.J.", "AJ": "A.J.", "QJ": "Q.J.",
+	"RADD": "R.A.D.D.", "IDD": "I.D.D.", "CRDD": "C.R.D.D.", "CIRB": "C.I.R.B.", "CIRBD": "C.I.R.B.D.", "OJ": "O.J.", "BCJ": "B.C.J.", "AJ": "A.J.", "QJ": "Q.J.",
 }
 _DATABASE_ALTERNATION = "|".join(
 	_reporter_fragment(value).removesuffix(r"\.?\s?") + r"\.?" for value in sorted(_DATABASES.values(), key=len, reverse=True)
 )
 DATABASE_RE = re.compile(
-	rf"(?<![\w/])\[?(?P<year>(?:19|20)\d{{2}})\]?\s*(?P<db>{_DATABASE_ALTERNATION})\s*(?:No|no|n[°o])\.?\s*(?P<number>\d{{1,6}})"
+	rf"(?<![\w/])\[?(?P<year>(?:19|20)\d{{2}})\]?\s*(?P<db>{_DATABASE_ALTERNATION})\s*(?:(?:No|no|n[°o])\.?\s*)?(?P<number>\d{{1,6}})"
 	r"(?:\s*\((?:QL|Lexis|QuickLaw)\))?"
 )
 # Westlaw Carswell numbers, the usual parallel cite in Federal Court reasons: 2007 CarswellNat 950
@@ -158,14 +183,14 @@ _GAP_PINPOINT = (
 # ("2004 FC 303 at para 22, 131 A.C.W.S. (3d) 508").
 _CHAIN_GAP_RE = re.compile(rf"^\s*(?:{_TAG}\s*)?{_GAP_PINPOINT}?\s*,\s*(?:{_TAG}\s*,?\s*)?$")
 _TRAILING_TAG_RE = re.compile(rf"^\s*{_TAG}")
-_DECLARED_ALIAS_RE = re.compile(r"^\s*(?:\[\s*(?P<a>[A-Z][A-Za-z .'’\-]{1,60}?)\s*\]|\(\s*[\"“](?P<b>[A-Z][A-Za-z .'’\-]{1,60}?)\s*[\"”]\s*\))")
+_DECLARED_ALIAS_RE = re.compile(r"^\s*(?:\[\s*(?P<a>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*\]|\(\s*[\"“](?P<b>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*[\"”]\s*\))")
 
 # --------------------------------------------------------------------------- case names
 _CONNECTORS = {"of", "and", "the", "for", "de", "du", "des", "la", "le", "les", "et", "&", "in", "on", "to"}
 _NARRATIVE = {
 	"see", "in", "cf", "citing", "quoting", "applying", "following", "per", "also", "contra", "compare", "accord",
 	"but", "as", "under", "from", "unlike", "like", "distinguishing", "approved", "adopted", "affirmed", "considering",
-	"eg", "where", "when", "while", "since", "after", "before", "that", "this", "these", "then", "thus", "however",
+	"eg", "relying", "relied", "noting", "reviewing", "referring", "discussing", "where", "when", "while", "since", "after", "before", "that", "this", "these", "then", "thus", "however",
 	"moreover", "further", "finally", "indeed", "here", "there", "although", "because", "if", "both", "dans", "voir",
 	"aussi", "selon", "arrêt", "affaire", "decision", "judgment", "case", "court", "justice", "judge", "held", "found",
 }
@@ -317,6 +342,14 @@ def _find_cores(content: str) -> list[_Core]:
 				"fr" if court in _FRENCH_COURTS else "en",
 			)
 		)
+	for match in BRACKET_NEUTRAL_RE.finditer(content):
+		year, court, number = match.group("year"), match.group("court").replace(".", ""), match.group("number")
+		cores.append(
+			_Core(
+				match.start(), match.end(), "neutral", f"{year} {court} {int(number)}", _neutral_keys(year, court, number),
+				int(year), court, "fr" if court in _FRENCH_COURTS else "en",
+			)
+		)
 	for match in CANLII_RE.finditer(content):
 		year, number, court = match.group("year"), match.group("number"), match.group("court")
 		normalized = f"{year} CanLII {int(number)}" + (f" ({' '.join(court.split())})" if court else "")
@@ -326,18 +359,21 @@ def _find_cores(content: str) -> list[_Core]:
 		year = match.group("bracket_year") or match.group("paren_year")
 		if reporter.needs_year and not match.group("bracket_year"):
 			continue
-		volume, page = int(match.group("volume")), int(match.group("page"))
+		if match.group("volume") is None and not match.group("bracket_year"):
+			continue  # "S.C.R. 12" alone; a volume-less cite needs its bracketed year ("[1949] S.C.R. 658")
+		volume, page = (int(match.group("volume")) if match.group("volume") else None), int(match.group("page"))
+		volume_text = f"{volume} " if volume is not None else ""
 		series = re.sub(r"\s+", "", match.group("series") or "")
 		series_text = f" ({series})" if series else ""
 		if match.group("bracket_year"):
-			normalized = f"[{year}] {volume} {reporter.canonical}{series_text} {page}"
+			normalized = f"[{year}] {volume_text}{reporter.canonical}{series_text} {page}"
 		elif year:
-			normalized = f"({year}), {volume} {reporter.canonical}{series_text} {page}"
+			normalized = f"({year}), {volume_text}{reporter.canonical}{series_text} {page}"
 		else:
-			normalized = f"{volume} {reporter.canonical}{series_text} {page}"
-		keys = [f"{volume} {reporter.key}{series.upper()} {page}"]
+			normalized = f"{volume_text}{reporter.canonical}{series_text} {page}"
+		keys = [f"{volume_text}{reporter.key}{series.upper()} {page}"] if volume is not None else []
 		if year:
-			keys.insert(0, f"{year} {volume} {reporter.key}{series.upper()} {page}")
+			keys.insert(0, f"{year} {volume_text}{reporter.key}{series.upper()} {page}")
 		start = match.start() + (len(match.group(0)) - len(match.group(0).lstrip()))
 		cores.append(
 			_Core(
@@ -561,7 +597,29 @@ def _is_malformed(row: RefinedCitation, cores: list[_Core]) -> bool:
 		return True
 	if not re.match(r"[A-Za-z0-9\[(]", row.citation_text):
 		return True
-	return any(core.start < row.offset_start < core.end for core in cores)
+	if any(core.start < row.offset_start < core.end for core in cores):
+		return True
+	# One row holding two separate citations ("Bisaillon v. Keable, [1983] 2 SCR 60; R. v. McClure, 2001 SCC 14").
+	inside = [core for core in cores if row.offset_start <= core.start and core.end <= row.offset_end]
+	return any(
+		not _CHAIN_GAP_RE.match(row.citation_text[left.end - row.offset_start : right.start - row.offset_start])
+		for left, right in zip(inside, inside[1:])
+	)
+
+
+def _starts_with_narrative(row: RefinedCitation, entry: RefinedCitation) -> bool:
+	"""Pass one's name begins with narrative words ("Also Ahousaht Indian Band v. ...") that our name does not."""
+	if not (row.offset_start < entry.offset_start < row.offset_end <= entry.offset_end):
+		return False
+	prefix = row.citation_text[: entry.offset_start - row.offset_start]
+	boundary = list(re.finditer(r"[.!?;:]\s+", prefix))
+	if boundary:
+		# "Mr. Poirier. Per Baker v Canada, 1999 SCC 1": pass one's name ran back over the end of an earlier sentence.
+		prefix = prefix[boundary[-1].end() :]
+		if not prefix.strip():
+			return True
+	words = re.findall(r"[A-Za-zÀ-ÿ’']+", prefix)
+	return bool(words) and all(word.casefold() in _NARRATIVE or word.casefold() in {"on", "upon", "to", "by"} for word in words)
 
 
 def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], cores: list[_Core] | None = None) -> list[RefinedCitation]:
@@ -576,7 +634,9 @@ def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], 
 			continue
 		rows = [pass_one[index] for index in overlapping]
 		covers = all(
-			index in malformed or (entry.offset_start <= pass_one[index].offset_start and pass_one[index].offset_end <= entry.offset_end)
+			index in malformed
+			or (entry.offset_start <= pass_one[index].offset_start and pass_one[index].offset_end <= entry.offset_end)
+			or _starts_with_narrative(pass_one[index], entry)
 			for index in overlapping
 		)
 		if not covers:
@@ -585,6 +645,25 @@ def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], 
 				if index in consumed:
 					continue
 				row = pass_one[index]
+				if len(overlapping) == 1 and row.offset_start < entry.offset_start < row.offset_end < entry.offset_end:
+					# Pass one's name starts earlier than ours but we found parallel cites and a pinpoint past its end
+					# ("Next, Lubana v Canada, 2003 FCT 116, 2003 FCJ No 162 at para 12"): keep its start, take our end.
+					merged_text = row.citation_text[: entry.offset_start - row.offset_start] + entry.citation_text
+					pass_one[index] = replace(
+						row,
+						citation_text=merged_text,
+						normalized_citation=entry.normalized_citation,
+						offset_end=entry.offset_end,
+						identifiers=tuple(dict.fromkeys((*row.identifiers, *entry.identifiers))),
+						pinpoints=entry.pinpoints,
+						pinpoint=entry.pinpoint,
+						declared_alias=row.declared_alias or entry.declared_alias,
+						language=entry.language,
+						step="C3_parallel",
+						action=ACTION_CORRECTED,
+						replaces=((row.offset_start, row.offset_end, row.normalized_citation),),
+					)
+					continue
 				if row.offset_start <= entry.offset_start and entry.offset_end <= row.offset_end:
 					pass_one[index] = replace(
 						row,
@@ -633,8 +712,32 @@ _PINPOINT_TAIL = (
 IBID_RE = re.compile(rf"(?<![\w.])(?P<word>Ibid(?:em)?\.?|Id\.)(?P<tail>{_PINPOINT_TAIL})", re.UNICODE)
 SUPRA_RE = re.compile(
 	rf"(?P<name>[A-Z][\w'’\-]+(?:\s+(?:v\.?\s+)?[A-Z][\w'’\-]+){{0,3}})\s*,?\s+"
-	rf"(?P<word>supra|above|précitée?s?|ci-dessus)(?P<note>\s*(?:,\s*)?(?:note|n\.)\s*\d{{1,4}})?(?P<tail>{_PINPOINT_TAIL})",
+	rf"(?P<word>(?:cited\s+)?(?:supra|above)|précitée?s?|ci-dessus|ci-haut)(?P<note>\s*(?:,\s*)?(?:note|n\.)\s*\d{{1,4}})?(?P<tail>{_PINPOINT_TAIL})",
 )
+
+
+_LEADING_STOP = frozenset({"regina", "attorney", "minister", "canada", "ontario", "alberta", "quebec", "british", "federal", "supreme", "citizenship", "immigration", "refugee", "public", "national", "canadian", "general", "royal", "bank", "first", "former", "unknown"})
+
+
+def _leading_alias(case_name: str | None) -> str | None:
+	"""First word of a multi-word first party ("Mikisew" for Mikisew Cree First Nation, "Ahousaht" for Ahousaht Indian Band).
+
+	Courts shorten such names to their distinctive first word; pass one only offers the last word or the whole party.
+	"""
+	if not case_name:
+		return None
+	first = re.split(r"\s+(?:v\.?|c\.?)\s+|\s+\(Re\)", case_name)[0].strip()
+	tokens = first.split()
+	if tokens and tokens[0].casefold() in {"the", "la", "le", "les", "re"}:
+		tokens = tokens[1:]
+	if len(tokens) < 2:
+		return None
+	word = tokens[0]
+	if len(word) < 5 or not re.fullmatch(r"[A-Z][a-zà-ÿ’'\-]+", word):
+		return None
+	if word.casefold() in _LEADING_STOP or word.casefold() in _GENERIC_WORDS:
+		return None
+	return word
 
 
 def _alias_table(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCitation]]:
@@ -647,6 +750,9 @@ def _alias_table(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCitation
 			aliases.add(row.declared_alias.casefold())
 		first = re.split(r"\s+(?:v\.|c\.)\s+|\s+\(Re\)", row.case_name)[0]
 		aliases.add(first.casefold())
+		leading = _leading_alias(row.case_name)
+		if leading:
+			aliases.add(leading.casefold())
 		for alias in aliases:
 			if len(alias) >= 3:
 				table.append((alias, row))
@@ -751,7 +857,7 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 		name = match.group("name")
 		words = name.split()
 		# Allow "See Vavilov, supra": drop leading narrative words.
-		while words and words[0].casefold() in {"see", "in", "also", "cf", "per", "voir"}:
+		while words and words[0].casefold() in _NARRATIVE:
 			words = words[1:]
 		if not words:
 			continue
@@ -815,7 +921,7 @@ def _defined_aliases(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCita
 		if first and first not in seen and _IDENTIFIER_NAME_RE.match(first):
 			out.append((first, row, True))
 			seen.add(first)
-		for alias in _extract_short_aliases(row.case_name):
+		for alias in [*_extract_short_aliases(row.case_name), _leading_alias(row.case_name)]:
 			if alias and alias not in seen and len(alias) >= 3:
 				out.append((alias, row, False))
 				seen.add(alias)
@@ -913,6 +1019,21 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 				)
 			added.append(row)
 
+	# A name straight before a pinpoint ("Mikisew, at para 57", "Ahousaht at para 34") is a short form of the case.
+	for alias in sorted({name for name, _, _ in aliases}, key=len, reverse=True):
+		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r"(?![\w’'-])(?=\s*,?\s*(?:at|aux?)\s)")
+		for match in pattern.finditer(content):
+			target = target_before(alias, match.start())
+			if target is None or (match.start() >= 5 and re.search(r"\b(?:v\.?|c\.)\s+$", content[max(0, match.start() - 6) : match.start()])):
+				continue
+			pin = TRAILING_PINPOINT_RE.match(content[match.end() : match.end() + 80])
+			if pin is None:
+				continue
+			start, end = match.start(), match.end() + pin.end()
+			if blocked(start, end, replace_short=False)[0]:
+				continue
+			added.append(make(start, end, target, alias, "name_pinpoint", pin.group("pinpoint")))
+
 	# Bare mentions of a name the decision defines or a distinctive identifier ("Mason and CCR", "(Suresh, Febles, B010)").
 	for alias in sorted({name for name, _, distinctive in aliases if distinctive}, key=len, reverse=True):
 		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r"(?![\w’'-])(?!\s+(?:v\.?|c\.?)\s)(?!\])")
@@ -959,8 +1080,25 @@ def _with_pinpoints(content: str, row: RefinedCitation) -> RefinedCitation:
 	return replace(row, pinpoints=tuple(pinpoints), pinpoint=row.pinpoint or pinpoint_phrase(pinpoints[0]))
 
 
+_YEAR_KEY_RE = re.compile(r"^(?:18|19|20)\d{2} ")
+
+
+def _is_self_citation(identifiers, self_keys: set[str]) -> bool:
+	"""True when a row names the decision itself.
+
+	A shared key without a year ("1 SCR 3") only counts when the row has no year-bearing key of its own that differs:
+	"[2015] 1 SCR 3" is not "[2019] 1 SCR 3".
+	"""
+	shared = set(identifiers) & self_keys
+	if not shared:
+		return False
+	if any(_YEAR_KEY_RE.match(key) for key in shared):
+		return True
+	return not any(_YEAR_KEY_RE.match(key) for key in identifiers)
+
+
 def _validate(row: RefinedCitation, current_year: int, self_keys: set[str]) -> RefinedCitation | None:
-	if self_keys and row.kind in {"case", "neutral"} and set(row.identifiers) & self_keys:
+	if self_keys and row.kind in {"case", "neutral"} and _is_self_citation(row.identifiers, self_keys):
 		return None
 	notes = list(row.notes)
 	confidence = row.confidence
@@ -1076,12 +1214,14 @@ def refine_case_citations(
 	include_dockets: bool = True,
 	current_year: int | None = None,
 	source_dockets: Iterable[str | None] | None = None,
+	source_title: str | None = None,
 ) -> LayerResult:
 	"""Run the case refinement layer over a whole decision.
 
 	``pass_one_rows`` defaults to ``extract_raw_citation_matches(text)`` (only the
 	case kinds and S.C.R. "secondary" rows are used). ``source_citations`` are the
 	decision's own citations; matching rows are dropped as self-citations.
+	``source_title`` is the decision's own title: a bare short form that is one of its parties is a litigant mention, not a citation.
 	``source_dockets`` are the decision's own docket numbers (pass it, even empty, to skip own dockets); docket rows that are
 	one of them, or sit in the same header list of consolidated dockets, are skipped.
 	"""
@@ -1141,6 +1281,7 @@ def refine_case_citations(
 		rows = _defined_name_rows(content, rows)
 
 	dropped: list[RefinedCitation] = []
+	own_parties = own_party_words(source_title)
 	if "C5_validate" in enabled:
 		self_keys: set[str] = set()
 		for value in source_citations:
@@ -1148,11 +1289,11 @@ def refine_case_citations(
 		validated: list[RefinedCitation] = []
 		for row in rows:
 			checked = _validate(row, year_limit, self_keys)
-			if checked is not None and is_weak_short_form(checked, content):
+			if checked is not None and is_weak_short_form(checked, content, own_parties):
 				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, "weak_short_form")))
 				continue
 			if checked is None:
-				reason = "self_citation" if set(row.identifiers) & self_keys else "noise"
+				reason = "self_citation" if _is_self_citation(row.identifiers, self_keys) else "noise"
 				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, reason)))
 			else:
 				validated.append(checked)

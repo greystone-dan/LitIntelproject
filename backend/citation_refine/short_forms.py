@@ -19,7 +19,7 @@ _GENERIC = frozenset(
 		"holdings", "society", "association", "minister", "canada", "court", "crown", "queen", "king", "city", "county",
 		"commission", "council", "authority", "services", "industries", "limited", "ltd", "inc", "co", "national", "general",
 		"attorney", "citizenship", "immigration", "refugee", "province", "state", "united", "the", "la", "le", "les", "de", "du", "service", "services", "band", "companies", "associated", "judgment", "international",
-		"refugees", "employment", "marine", "revenue", "public", "commissioner", "ontario", "alberta", "quebec", "board", "union", "school", "centre", "center",
+		"refugees", "employment", "river", "lake", "hamlet", "village", "township", "municipality", "district", "island", "bay", "marine", "revenue", "public", "commissioner", "ontario", "alberta", "quebec", "board", "union", "school", "centre", "center",
 	}
 )
 _NAME_END_RE = re.compile(r",\s*(?:\[|\(|(?:19|20)\d\d|\d+\s+[A-Z]|at\s|à\s|au\s|aux\s)")
@@ -88,6 +88,12 @@ _PARTY_AFTER_RE = re.compile(
 )
 
 
+# "Dr. Gillian Frank", "Mr. John Smith": a person named in the decision, whose surname is not a case.
+_GIVEN_NAME_BEFORE_RE = re.compile(r"(?:\b(?:Mr|Ms|Mrs|Dr|Mme|Mlle|Miss|Justice|Judge|Professor|Prof)\.?)\s+(?:[A-Z][\w’'-]+\s+){1,2}$")
+# "Bryan A. Garner": the name is followed by a middle initial.
+_INITIAL_AFTER_RE = re.compile(r"^\s+[A-Z]\.\s+[A-Z]")
+
+
 def _party_mention(row: RefinedCitation, content: str) -> bool:
 	"""A bare name that is a litigant in this decision ("Ms. Kostic", "Tervita's", "Apotex argued"), not a citation.
 
@@ -97,11 +103,36 @@ def _party_mention(row: RefinedCitation, content: str) -> bool:
 		return False
 	before = content[max(0, row.offset_start - 12) : row.offset_start]
 	after = content[row.offset_end : row.offset_end + 24]
+	if _INITIAL_AFTER_RE.match(after) or _GIVEN_NAME_BEFORE_RE.search(content[max(0, row.offset_start - 40) : row.offset_start]):
+		return True
 	return bool(_HONORIFIC_BEFORE_RE.search(before) or _PARTY_AFTER_RE.match(after))
 
 
-def is_weak_short_form(row: RefinedCitation, content: str | None = None) -> bool:
+def own_party_words(title: str | None) -> list[list[str]]:
+	"""Word lists of each party named in the decision's own title ("Eclectic Edge Inc v Victoria's Secret ...")."""
+	if not title:
+		return []
+	parties = [part.strip() for part in _PARTY_SPLIT_RE.split(title) if part.strip()]
+	return [_without_article(_words(party)) for party in parties]
+
+
+def _is_own_party(row: RefinedCitation, own_parties: list[list[str]]) -> bool:
+	"""A bare short form with no pinpoint that is a party of this very decision: a litigant mention, not a citation."""
+	if row.kind != "case_short" or row.step != "pass1" or row.declared_alias or row.pinpoint or row.pinpoints:
+		return False
+	words = _words(alias_of(row))
+	if not words or len(words) > 3:
+		return False
+	size = len(words)
+	return any(
+		tokens[start : start + size] == words for tokens in own_parties for start in range(max(len(tokens) - size + 1, 0))
+	)
+
+
+def is_weak_short_form(row: RefinedCitation, content: str | None = None, own_parties: list[list[str]] | None = None) -> bool:
 	if _weak_by_alias(row):
+		return True
+	if own_parties and _is_own_party(row, own_parties):
 		return True
 	if content is not None and row.kind == "case_short" and row.step == "pass1" and not row.declared_alias:
 		return _party_mention(row, content)

@@ -26,7 +26,7 @@ HERE = Path(__file__).resolve().parent
 
 TIERS = {
 	"live": ("Live", "Something real of this item is on the site today. The item says exactly what, and what is still missing."),
-	"tested": ("Tested", "A measured result is stated on the item, with what was tested and who graded it. No item is called Tested without one."),
+	"tested": ("Tested", "A measured result is stated on the item, with the sample and who graded it. Every figure so far was graded by a model, not a lawyer. No item is called Tested without one."),
 	"untested": ("Untested", "Nothing of it is on the default site, it is built but sits behind the Experimental switch or has not been applied, or it has not been measured."),
 }
 
@@ -56,7 +56,28 @@ PLACE = {
 	"on-prem-model": "files", "data-safety": "live", "embeddings": "paused", "stored-as-data": "planned", "human-review": "planned",
 }
 LIVE_ITEMS = {slug for slug, place in PLACE.items() if place == "live"}
-TESTED_ITEMS = {"whose-position"}
+# Measured results, each with its sample and who graded it. Sources are project test notes dated 11 Oct 2026:
+# discussion-units/position-tagger-2026-10-11, labelling-rulebook/HANDOFF.md, case-frame/README.md,
+# embeddings/paragraph-embeddings-for-matching.md, open-models/local-issue-maps/RESULTS.md, ai-proof-of-concept,
+# discussion-units/case-structure-report.md. An item is Tested only if it has an entry here.
+EVIDENCE = {
+	"whose-position": [
+		"Position tagger on 122 held-out immigration decisions (4,171 paragraphs, never used for training): the main speaker matched the stored labels for 76.2% of paragraphs. On 24 decisions read independently by Haiku (747 paragraphs) it matched 74.0%. Where a tag is shown (tagger at least 70% sure) about 86% were right; that covers 65% of paragraphs.",
+		"Two model readers (Haiku and Sonnet) applying the same written rulebook agreed on who is speaking for 93.1% of 1,067 paragraphs (30 decisions) and on the paragraph's role for 95.8%.",
+	],
+	"case-at-a-glance": [
+		"Case frame (parties, earlier decisions with outcomes, subject, issues, arguments by side) on 29 scored immigration decisions from 2005 on, none used for tuning, read by Haiku and graded by Sonnet: parties fully correct 90%, earlier decisions 100%, subject 100%, issues 100%, challenged part of the earlier decision 83%. Arguments: 99% of those listed were real, and 93% of the true arguments were found (151 of 162).",
+		"The grader was more lenient than on earlier rounds, so treat these as a few points optimistic. The sample is small.",
+	],
+	"argument-identification": [
+		"Matching an argument to decided issues, 60 fresh arguments against a library of 3,083 decided issues: by word match, 40 of 60 arguments had a useful earlier issue in the top three. A local embedding model run on the stored questions raised that to 45 of 60. A blind Sonnet grader marked what was useful. The embedding step is not on the site.",
+		"Issue maps for new decisions: Haiku got the result of the issue right for 94% of 85 issues (30 decisions). A free local model (Qwen3.5-9B) got 94% of 36 issues right on 18 decisions it had not been tuned on. Graded blind by Sonnet.",
+	],
+	"discussion-units": [
+		"Splitting decisions into units by structure and headings, scored once against labelled sets with no tuning: on 24 untouched Refugee Protection Division decisions, 50.0% of unit boundaries were exact and 83.0% of paragraphs had the right role. On 16 further decisions, 70.2% exact and 85.3% of roles. The labels were made in this project and have not been checked by a lawyer.",
+	],
+}
+TESTED_ITEMS = set(EVIDENCE)
 
 
 def place_of(slug: str) -> str:
@@ -131,6 +152,12 @@ def _item(entry: tuple, area_slug: str = "") -> str:
 	if anchor == "whose-position":
 		paras += '<p><a href="#argument-breakdown"><strong>Read the full write-up on this work below &darr;</strong></a></p>'
 	elsewhere = f'<div><strong>What exists elsewhere</strong><span>{_e(rest[0])}</span></div>' if rest else ""
+	measured = ""
+	if anchor in EVIDENCE:
+		measured = (
+			'<div class="rm-evidence"><b>Measured results</b><ul>' + "".join(f"<li>{_e(line)}</li>" for line in EVIDENCE[anchor])
+			+ "</ul><p><strong>Graded by a model, not a lawyer.</strong> No lawyer has reviewed these figures.</p></div>"
+		)
 	return (
 		f'<details class="rm-item" id="{anchor}" data-tier="{tier}" data-place="{place}" data-area="{area_slug}"><summary><span class="rm-title">{_e(title)}</span>'
 		f'<span class="rm-chips">{_tier_chip(tier)}{_place_chip(place)}</span>'
@@ -141,7 +168,7 @@ def _item(entry: tuple, area_slug: str = "") -> str:
 		f"<div><strong>What exists today</strong><span>{_e(today)}</span></div>"
 		f"<div><strong>What it needs</strong><span>{_e(needs)}</span></div>"
 		f"<div><strong>Work label</strong><span>{_status_chip(status)} {_e(STATUS_MEANING[status])}</span></div>"
-		f"{elsewhere}</div></div></details>"
+		f"{elsewhere}</div>{measured}</div></details>"
 	)
 
 
@@ -330,6 +357,9 @@ _CSS = """
 .ilit-about .rm-filters .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .ilit-about .rm-filters select{font:inherit;font-size:12.5px;padding:8px;border:1px solid var(--border);border-radius:5px;background:var(--surface);color:var(--text);max-width:100%}
 .ilit-about .rm-glance td:nth-child(5){color:var(--muted)}
+.ilit-about .rm-evidence{margin-top:12px;padding:12px 16px;border:1px solid var(--blue);border-radius:6px;background:var(--blue-soft);font-size:13.5px}
+.ilit-about .rm-evidence b{color:var(--blue);letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.ilit-about .rm-evidence ul{margin:6px 0;padding-left:18px}.ilit-about .rm-evidence p{margin:4px 0 0}
 .ilit-about .rm-internal{margin-top:12px;padding:10px 14px;border:1px dashed var(--rust);border-radius:6px;background:var(--rust-soft);font-size:13px}
 .ilit-about .rm-internal b{color:var(--rust);letter-spacing:.06em;text-transform:uppercase;font-size:11px}
 .ilit-about summary .rm-line b{color:var(--text);font-weight:600}
@@ -446,7 +476,7 @@ def render() -> str:
 		'<header><p class="eyebrow">Roadmap</p><h1>Where iLit is today and where it is going</h1>'
 		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. This one page lists everything planned, built or imagined, in seven parts: a table of every item, the eight areas of work, the tools that are built but off the main menu, the longer future-features write-up with concept pictures, and the demos and guided tour. Each item says what it is, how well it is proven, where it stands and what it depends on, and opens or closes with the arrow.</p>'
 		f'<div class="status-list rm-legend">{legend}</div><div class="status-list rm-legend">{place_legend}</div>'
-		f'<p class="small">{_e(_counts_line())} Other test results exist outside the repository; none is shown here until its source has been checked.</p>'
+		f'<p class="small">{_e(_counts_line())} Only results with a sample size and a named grader are shown.</p>'
 		f'<div class="note">{_RULE}</div>'
 		'<div class="rm-controls"><button type="button" id="rmExpand">Expand all</button><button type="button" id="rmCollapse">Collapse all</button>'
 		'</div>'

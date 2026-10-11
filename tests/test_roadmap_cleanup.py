@@ -41,7 +41,7 @@ def test_every_roadmap_item_has_a_tier_a_place_and_a_dependency_line():
 			assert PLACE[entry[0]] in PLACES and tier_of(entry[0]) in TIERS
 			assert f'id="{entry[0]}" data-tier="{tier_of(entry[0])}" data-place="{PLACE[entry[0]]}"' in html
 	assert set(PLACE) == {entry[0] for area in SECTIONS.values() for entry in area["items"]}
-	assert html.count("<b>Depends on:</b>") >= 56 and 'id="rmArea"' in html and 'id="glance"' in html
+	assert html.count("<b>Depends on:</b>") >= 56 and html.count("Graded by a model, not a lawyer.") >= 4 and 'id="rmArea"' in html and 'id="glance"' in html
 
 
 def test_internal_notes_stay_out_of_the_page_and_come_from_an_untracked_file(tmp_path, monkeypatch):

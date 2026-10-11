@@ -277,6 +277,10 @@ class CaseReaderCitationResponse(BaseModel):
 	statute_version_label: str | None = None
 	# Stored paragraph cited-by summary for the cited paragraph (batch job; None until it has run).
 	target_cited_by: dict | None = None
+	# Outline section the citation sits in (background/issues/analysis/disposition), when ILIT_OUTLINE_V2 is on.
+	section: str | None = None
+	section_title: str | None = None
+	section_point: str | None = None
 
 
 class LegislationCaseOccurrenceResponse(BaseModel):

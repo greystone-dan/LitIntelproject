@@ -12,6 +12,8 @@ outcome, judge or tags: those are computed per library decision, not per upload.
 
 from __future__ import annotations
 
+import logging
+
 import re
 import types
 from typing import Any
@@ -251,8 +253,8 @@ def build_live_reader_payload(
 	if outline and outline[0].get("section"):
 		try:
 			tag_citation_sections(rows, outline, citation_offset, text)
-		except Exception:  # noqa: BLE001 - section tags are optional
-			pass
+		except Exception:  # noqa: BLE001 - section tags are optional, but a failure must be visible
+			logging.getLogger(__name__).exception("citation section tagging failed")
 	return {
 		"item": item,
 		"citations": rows,

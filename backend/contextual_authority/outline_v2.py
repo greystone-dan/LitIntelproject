@@ -166,8 +166,16 @@ def _heading_parts(text: str) -> tuple[str, str | None]:
 	return parts[0], parts[1] if len(parts) > 1 else None
 
 
+_PRELIMINARY_RE = re.compile(r"^\s*(?:(?:[IVX]{1,5}|[A-H]|\d{1,2})[.)]\s+)?(?:(?:admissibility of )?new evidence|request for an oral hearing|oral hearing|role of the (?:rad|refugee appeal division)|scope of the rad review|preliminary (?:matters?|issues?))\b", re.I)
+
+
 def _heading_section(text: str) -> str | None:
-	"""The section a heading announces ("Issues", "Analysis", "Conclusion"), None for an ordinary heading."""
+	"""The section a heading announces ("Issues", "Analysis", "Conclusion"), None for an ordinary heading.
+
+	RAD preliminary matters (new evidence, oral hearing, role of the RAD) come before the merits, so they count as Issues.
+	"""
+	if _PRELIMINARY_RE.match(_heading_parts(text)[0]):
+		return "issues"
 	kind = cs.heading_kind(_heading_parts(text)[0])
 	return _ROLE_SECTION.get(kind) if kind else None
 
@@ -222,23 +230,26 @@ def _assign_sections(units: list[dict[str, Any]]) -> list[str | None]:
 				current = anchors[pointer][1]
 				pointer += 1
 			section[i] = current
-	else:
+	# no heading names the analysis: the labeller finds where it starts and where the order is, from the last anchor on
+	# (a "Role of the RAD" heading must not carry its section to the end of the decision)
+	if not any(name == "analysis" for _i, name in anchors):
+		pre = [i for i, name in anchors if _ORDER[name] < _ORDER["analysis"]]
+		fill_from = max(pre[-1] + 1 if pre else 0, first_num - 1, 0)
+		fill_to = next((i for i, name in anchors if _ORDER[name] > _ORDER["analysis"] and i >= fill_from), len(units))
 		analysis_start = next(
-			(i for i in range(first_num, last_num + 1) if model[i] == "analysis" and any(model[j] == "analysis" for j in range(i + 1, min(i + 4, last_num + 1)))),
+			(i for i in range(max(first_num, fill_from), last_num + 1) if model[i] == "analysis" and any(model[j] == "analysis" for j in range(i + 1, min(i + 4, last_num + 1)))),
 			None,
 		)
 		disp_runs = [r for r in _runs([m or "-" for m in model]) if r[2] == "disposition"]
 		disposition_start = next((a for a, _b, _s in reversed(disp_runs) if a > first_num and numbered_from(a) <= closing), None)
-		for i in range(max(0, first_num - 1), len(units)):
+		for i in range(fill_from, fill_to):
 			m = model[i]
 			if disposition_start is not None and i >= disposition_start:
 				section[i] = "disposition"
 			elif analysis_start is not None and i >= analysis_start:
 				section[i] = "analysis"
-			elif m == "disposition":  # a stray order cue before the analysis
-				section[i] = "issues" if i > first_num else "background"
-			else:
-				section[i] = m
+			elif not anchors:
+				section[i] = ("issues" if i > first_num else "background") if m == "disposition" else m  # a stray order cue before the analysis
 	# before the analysis a section never moves backwards by a lone paragraph: facts after issues fold into issues
 	high = 0
 	for i in range(first_num, len(units)):
@@ -276,9 +287,31 @@ def _assign_sections(units: list[dict[str, Any]]) -> list[str | None]:
 		if cut is not None and (cut > first_num + 2):
 			for i in range(cut, last_num + 1):
 				section[i] = "disposition"
+	# no Issues section: the opening paragraphs of the analysis that state the issues or the standard of review are the Issues
+	if "issues" not in section and "analysis" in section:
+		start = section.index("analysis")
+		taken = 0
+		for i in range(start, last_num + 1):
+			if not units[i]["body"]:
+				continue
+			t = units[i]["text"][:900]
+			if section[i] == "analysis" and cs._ISSUES_RE.search(t) and len(cs._ANALYSIS_RE.findall(t)) < 2 and taken < 3:
+				section[i] = "issues"
+				taken += 1
+			else:
+				break
+		if taken and any(section[j] == "background" for j in range(start)):
+			pass
+	# a heading that announces the disposition keeps the short unnumbered order printed under it
+	kept_tail = set()
+	for i, name in anchors:
+		if name == "disposition" and i > last_num:
+			kept_tail.update(j for j in range(i, min(i + 4, len(units))) if len(units[j]["text"]) < 600)
 	# after the last numbered paragraph only the order itself is kept (not counsel lists, signatures or file numbers)
 	for i in range(last_num + 1, len(units)):
-		if units[i]["type"] in {"footer", "signature", "meta"} or section[i] != "disposition" or roles[i] != "disposition":
+		if units[i]["type"] in {"footer", "signature", "meta"} or section[i] != "disposition":
+			section[i] = None
+		elif roles[i] != "disposition" and not (i in kept_tail):
 			section[i] = None
 	return section
 
@@ -419,6 +452,20 @@ _CACHE: "OrderedDict[tuple, list[dict]]" = OrderedDict()
 _CACHE_SIZE = 256
 
 
+def _number_range(units: Sequence[dict[str, Any]]) -> tuple[int | None, int | None]:
+	"""First and last printed paragraph number, ignoring numbers that run backwards (a quoted or restarted numbering)."""
+	first = last = None
+	for u in units:
+		n = u.get("num")
+		if n is None or not u["body"]:
+			continue
+		if first is None:
+			first = last = n
+		elif last <= n <= last + 12:  # a far jump is a quoted paragraph number, not the next paragraph
+			last = n
+	return first, last
+
+
 def outline_v2(text: str | None, blocks: Sequence[dict]) -> list[dict]:
 	"""Outline rows for the reader. ``[]`` when the decision is too short or has too few numbered paragraphs to label.
 
@@ -507,8 +554,8 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 				"section": name,
 				"start": members[0]["start"],
 				"end": members[-1]["end"],
-				"para": numbered[0]["num"] if numbered else None,
-				"para_end": numbered[-1]["num"] if numbered else None,
+				"para": _number_range(numbered)[0],
+				"para_end": _number_range(numbered)[1],
 				"count": len(numbered),
 				"level": 1,
 				"kind": "section",
@@ -537,8 +584,8 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 					"section": name,
 					"start": span[0]["start"],
 					"end": span[-1]["end"],
-					"para": nums[0]["num"] if nums else None,
-					"para_end": nums[-1]["num"] if nums else None,
+					"para": _number_range(nums)[0],
+					"para_end": _number_range(nums)[1],
 					"count": len(nums),
 					"level": point["level"],
 					"kind": "point",
@@ -546,7 +593,21 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 				}
 			)
 	_normalise_levels(rows)
+	_clamp_section_ranges(rows)
 	return rows
+
+
+def _clamp_section_ranges(rows: list[dict]) -> None:
+	"""Top-level sections never overlap: a section's last paragraph stays below the next section's first."""
+	tops = [r for r in rows if r["kind"] == "section"]
+	for a, b in zip(tops, tops[1:]):
+		if a["para_end"] is not None and b["para"] is not None and a["para_end"] >= b["para"]:
+			a["para_end"] = max(a["para"] or 0, b["para"] - 1)
+			if a["para"] is not None and a["para"] > a["para_end"]:
+				a["para"] = a["para_end"]
+	for r in rows:
+		if r["kind"] == "point" and r["para_end"] is not None and r["para"] is not None and r["para_end"] < r["para"]:
+			r["para_end"] = r["para"]
 
 
 def _drop_thin_points(units: list[dict[str, Any]], starts: list[dict[str, Any]], end: int, section: str) -> list[dict[str, Any]]:

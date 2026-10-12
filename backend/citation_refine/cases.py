@@ -911,7 +911,7 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 			row = _unanchored_supra_row(content, match, words, start)
 			if row is not None:
 				ok, inside = free(row.offset_start, row.offset_end, allow_inside_short=True)
-				if ok:
+				if ok and not any(item.anchor_offset_start is not None for item in inside):  # keep a pass-one row that already has its anchor
 					removed.update((item.offset_start, item.offset_end) for item in inside)
 					added.append(row)
 			continue

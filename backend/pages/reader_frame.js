@@ -14,8 +14,8 @@
 
  const experimental=()=>typeof experimentalState!=='undefined'&&!!experimentalState.on;
  const NOTES_KEY='ilit.notes.on';
- const noteStore={get(){try{return window.localStorage.getItem(NOTES_KEY)!=='0';}catch(e){return true;}},set(on){try{window.localStorage.setItem(NOTES_KEY,on?'1':'0');}catch(e){}}};
- fr.notesOn=noteStore.get();fr.issuesOpen=false;
+ const noteStore={get(){try{return window.localStorage.getItem(NOTES_KEY)==='1';}catch(e){return false;}},set(on){try{window.localStorage.setItem(NOTES_KEY,on?'1':'0');}catch(e){}}};
+ fr.notesOn=noteStore.get();fr.panel='';
  const ROUTES={frame:'case-frame',issues:'issue-map',notes:'paragraph-notes'};
  /* Stored data for the open decision, or null while it loads. Fetched only when Experimental is on. */
  function data(kind){
@@ -38,7 +38,7 @@
   const sideCount=side=>f.arguments.filter(a=>a.side===side).length;
   const argList=(side,title)=>{const rows=mainArgs(side);return '<div class="frame-col"><h4>'+title+'</h4>'+(rows.length?'<ul>'+rows.map(a=>'<li>'+E(a.text)+link(a.para)+'</li>').join('')+'</ul>':'<p class="frame-none">None reported in the decision.</p>')+'</div>';};
   const more=f.arguments.length>f.arguments.filter(a=>a.main).length;
-  let h='<details class="frame-card" data-frame-card'+(fr.open?' open':'')+'><summary>Case summary <span class="frame-tag">preview</span></summary>';
+  let h='<section class="frame-card" data-frame-card aria-label="Case summary">';
   h+='<p class="frame-note">'+E(d.note||'')+'</p>';
   if(f.subject)h+='<p class="frame-subject">'+E(f.subject)+'</p>';
   h+='<p class="frame-parties"><strong>Applicant:</strong> '+(who(p,'applicant')||'not stated')+'<br><strong>Respondent:</strong> '+(who(p,'respondent')||'not stated')+'</p>';
@@ -48,7 +48,7 @@
   h+='<div class="frame-cols">'+argList('applicant','Applicant argues')+argList('respondent','Respondent argues')+'</div>';
   if(more)h+='<p><button type="button" class="frame-more" data-frame-more>'+(fr.all?'Show main arguments only':'Show all '+f.arguments.length+' arguments')+'</button></p>';
   if(f.challenged.length)h+='<h4>Earlier finding challenged</h4><ul>'+f.challenged.map(c=>'<li><strong>'+E(c.target||'')+':</strong> '+E(c.finding||'')+link(c.para)+'</li>').join('')+'</ul>';
-  return h+'</details>';
+  return h+'</section>';
  }
 
  const CHIP={allowed_for_applicant:['won','Applicant won'],dismissed_for_applicant:['lost','Applicant lost'],partly_allowed:['part','Partly won'],not_decided:['none','Not decided'],moot_or_procedural:['none','Moot or procedural']};
@@ -67,30 +67,37 @@
   const flagged=rows.filter(i=>(i.checks||[]).length).length;
   /* The Minister-brought warning applies to the whole decision, so it is said once at the top, not under every issue. */
   const mini=rows.map(i=>(i.checks||[]).find(c=>c.code==='minister_applicant')).find(Boolean);
-  return '<details class="frame-card iss-card" data-issue-card'+(fr.issuesOpen?' open':'')+'><summary>How the court decided each issue <span class="frame-tag">preview</span>'+(flagged?' <span class="iss-check-tag">'+flagged+' to check</span>':'')+'</summary>'
-   +'<p class="frame-note">'+E(d.note||'')+'</p>'+(mini?'<p class="iss-check"><span class="iss-check-tag">Check this</span> '+E(mini.text)+'</p>':'')+'<ol class="iss-list">'+rows.map(item).join('')+'</ol></details>';
+  return '<section class="frame-card iss-card" data-issue-card aria-label="How the court decided each issue">'+(flagged?'<p class="iss-flagged"><span class="iss-check-tag">'+flagged+' to check</span></p>':'')
+   +'<p class="frame-note">'+E(d.note||'')+'</p>'+(mini?'<p class="iss-check"><span class="iss-check-tag">Check this</span> '+E(mini.text)+'</p>':'')+'<ol class="iss-list">'+rows.map(item).join('')+'</ol></section>';
  }
 
- function notesBar(d){
-  const n=Object.keys(d.paragraphs||{}).length;
-  return '<div class="pn-bar" data-notes-bar><button type="button" class="pn-switch" aria-pressed="'+fr.notesOn+'" data-notes-switch>'+(fr.notesOn?'Hide':'Show')+' paragraph notes</button>'
-   +'<span class="pn-hint">'+n+' one-line notes <span class="frame-tag">preview</span></span>'
-   +'<details class="pn-rely"><summary>How reliable are these?</summary><p>'+E(d.note||'')+'</p></details></div>';
+ /* One compact row replaces three stacked boxes. Everything is closed by default; at most one panel is open under the row. */
+ function bar(f,iss,nt){
+  const b=[];
+  if(f)b.push(['frame','Summary']);
+  if(iss)b.push(['issues','Issues ('+iss.issues.length+')']);
+  if(nt)b.push(['notes','Paragraph notes']);
+  const on=k=>k==='notes'?fr.notesOn:fr.panel===k;
+  return '<div class="ly-bar" data-layers-bar role="group" aria-label="Reader layers (preview)"><span class="ly-title">Layers <span class="frame-tag">preview</span></span>'
+   +b.map(x=>'<button type="button" class="ly-btn" data-ly="'+x[0]+'" aria-pressed="'+on(x[0])+'">'+x[1]+'</button>').join('')
+   +(nt&&fr.notesOn?'<span class="ly-help">'+E(nt.note||'')+'</span>':'')+'</div>';
  }
 
  function sync(){
   fr.busy=true;
   try{
-   body.querySelectorAll('[data-frame-card],[data-issue-card],[data-notes-bar],[data-pn-note]').forEach(n=>n.remove());
+   body.querySelectorAll('[data-frame-card],[data-issue-card],[data-layers-bar],[data-pn-note]').forEach(n=>n.remove());
    if(!experimental())return;
-   const f=data('frame'),iss=data('issues'),nt=data('notes');
-   let anchor=null;
-   if(f&&f.available&&f.frame){body.insertAdjacentHTML('afterbegin',card(f));anchor=body.querySelector('[data-frame-card]');}
-   if(iss&&iss.available&&iss.issues&&iss.issues.length){const h=issuesCard(iss);if(anchor)anchor.insertAdjacentHTML('afterend',h);else body.insertAdjacentHTML('afterbegin',h);anchor=body.querySelector('[data-issue-card]');}
-   if(nt&&nt.available&&nt.paragraphs){
-    const h=notesBar(nt);if(anchor)anchor.insertAdjacentHTML('afterend',h);else body.insertAdjacentHTML('afterbegin',h);
-    if(fr.notesOn)body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const t=nt.paragraphs[String(p.dataset.para)];if(t)p.insertAdjacentHTML('afterend','<aside class="pn-note" data-pn-note><span class="pn-label">Note</span> '+E(t)+'</aside>');});
-   }
+   const f0=data('frame'),i0=data('issues'),n0=data('notes');
+   /* Draw once, when all three answers are in, so the row never appears and then moves. */
+   if(!f0||!i0||!n0)return;
+   const f=f0.available&&f0.frame?f0:null,iss=i0.available&&i0.issues&&i0.issues.length?i0:null,nt=n0.available&&n0.paragraphs?n0:null;
+   if(!f&&!iss&&!nt)return;
+   let html=bar(f,iss,nt);
+   if(fr.panel==='frame'&&f)html+=card(f);
+   if(fr.panel==='issues'&&iss)html+=issuesCard(iss);
+   body.insertAdjacentHTML('afterbegin',html);
+   if(nt&&fr.notesOn)body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const t=nt.paragraphs[String(p.dataset.para)];if(t)p.insertAdjacentHTML('afterend','<aside class="pn-note" data-pn-note><span class="pn-label">Note</span> '+E(t)+'</aside>');});
   }finally{fr.busy=false;}
  }
  function schedule(){window.clearTimeout(fr.timer);fr.timer=window.setTimeout(sync,30);}
@@ -99,14 +106,13 @@
   const go=ev.target.closest&&ev.target.closest('[data-frame-go]');
   if(go){ev.preventDefault();const t=body.querySelector('.fmt-para[data-para="'+String(go.dataset.frameGo).replace(/"/g,'')+'"]');if(t&&t.scrollIntoView)t.scrollIntoView({block:'center',behavior:'smooth'});return;}
   if(ev.target.closest&&ev.target.closest('[data-frame-more]')){fr.all=!fr.all;fr.open=true;sync();return;}
-  if(ev.target.closest&&ev.target.closest('[data-notes-switch]')){fr.notesOn=!fr.notesOn;noteStore.set(fr.notesOn);sync();}
+  const ly=ev.target.closest&&ev.target.closest('[data-ly]');
+  if(ly){const k=ly.dataset.ly;if(k==='notes'){fr.notesOn=!fr.notesOn;noteStore.set(fr.notesOn);}else{fr.panel=fr.panel===k?'':k;}sync();}
  });
  body.addEventListener('toggle',ev=>{
   if(!ev.target.matches)return;
-  if(ev.target.matches('[data-frame-card]'))fr.open=ev.target.open;
-  if(ev.target.matches('[data-issue-card]'))fr.issuesOpen=ev.target.open;
  },true);
- const OWN=['data-frame-card','data-issue-card','data-notes-bar','data-pn-note','data-pos-bar','data-pos-note'];
+ const OWN=['data-frame-card','data-issue-card','data-layers-bar','data-pn-note','data-pos-bar','data-pos-note'];
  new MutationObserver(muts=>{
   if(fr.busy)return;
   const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&OWN.some(a=>n.hasAttribute(a)))));

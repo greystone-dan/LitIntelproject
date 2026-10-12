@@ -158,7 +158,7 @@
  });
  new MutationObserver(muts=>{
   if(pos.busy)return;
-  const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&(n.hasAttribute('data-pos-bar')||n.hasAttribute('data-pos-note')||n.hasAttribute('data-frame-card')||n.hasAttribute('data-issue-card')||n.hasAttribute('data-notes-bar')||n.hasAttribute('data-pn-note')))));
+  const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&(n.hasAttribute('data-pos-bar')||n.hasAttribute('data-pos-note')||n.hasAttribute('data-frame-card')||n.hasAttribute('data-issue-card')||n.hasAttribute('data-layers-bar')||n.hasAttribute('data-pn-note')))));
   if(real)schedule();
  }).observe(body,{childList:true,subtree:true});
  schedule();

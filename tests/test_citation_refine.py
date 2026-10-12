@@ -594,3 +594,37 @@ def test_the_act_still_resolves_in_immigration_decisions_and_by_definition():
 	)
 	# A sole non-procedural Act named earlier in the decision is still the default reading.
 	assert ("12", "canada.citizenship_act") in provisions("This is an appeal under the Citizenship Act. Section 12 of the Act applies.")
+
+
+def test_name_above_replaces_pass_one_fragment_and_allows_parentheses():
+	text = (
+		"Merck Frosst v. Apotex Inc., 2005 FCA 10. The test in Slattery (T.D.), above, applies; "
+		"see Friends of the West Country Assn. (above), at para. 20; Haskett v Equifax Canada Inc., above, that"
+	)
+	texts = [row.citation_text for row in _cases(text) if row.kind == "case_short"]
+	assert "Slattery (T.D.), above" in texts
+	assert "Friends of the West Country Assn. (above), at para. 20" in texts
+	assert "Haskett v Equifax Canada Inc., above" in texts
+
+
+def test_name_above_pinpoint_row_replaces_pass_one_noise():
+	rows = _cases("Thus in Marshall, supra, at para. 4, the majority held.")
+	short = [row for row in rows if row.kind == "case_short"]
+	assert [row.citation_text for row in short] == ["Marshall, supra, at para. 4"]
+	assert not [row for row in rows if row.kind == "neutral"]
+
+
+def test_affidavit_and_record_names_are_not_cases():
+	assert not _cases("As the Poliquin Affidavit, above, at para 32 shows, the risk is low.")
+
+
+def test_alias_in_brackets_on_a_neutral_cite_anchors_above():
+	text = "See 2000 SCC 31 [Firearms Reference]. The pith and substance: Firearms Reference, above, at para 16."
+	short = [row for row in _cases(text) if row.kind == "case_short"]
+	assert len(short) == 1 and short[0].anchor_citation_text and "unanchored" not in short[0].notes
+
+
+def test_name_pinpoint_replaces_pass_one_fragment_once():
+	text = "Kirkbi AG v. Ritvik Holdings Inc., [2005] 3 S.C.R. 302, 2005 SCC 65. Later: as held in Kirkbi, at para. 43, trade-marks."
+	short = [row for row in _cases(text) if row.kind == "case_short"]
+	assert [row.citation_text for row in short] == ["Kirkbi, at para. 43"]

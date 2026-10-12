@@ -711,9 +711,11 @@ _PINPOINT_TAIL = (
 )
 IBID_RE = re.compile(rf"(?<![\w.])(?P<word>Ibid(?:em)?\.?|Id\.)(?P<tail>{_PINPOINT_TAIL})", re.UNICODE)
 SUPRA_RE = re.compile(
-	rf"(?P<name>[A-Z][\w'’\-]+(?:\s+(?:v\.?\s+)?[A-Z][\w'’\-]+){{0,3}})\s*,?\s+"
-	rf"(?P<word>(?:cited\s+)?(?:supra|above)|précitée?s?|ci-dessus|ci-haut)(?P<note>\s*(?:,\s*)?(?:note|n\.)\s*\d{{1,4}})?(?P<tail>{_PINPOINT_TAIL})",
+	rf"(?P<name>[A-Z][\w'’\-]+(?:\s+(?:(?:of|the|and|for|de|du|des|la|le|et)\s+){{0,2}}(?:v\.?\s+)?[A-Z][\w'’\-]+(?:\.(?=\s*[,(]))?){{0,4}})(?:\s*\((?:T\.D\.|C\.A\.|F\.C\.A?\.?|S\.C\.C\.)\))?(?:\s*,\s*\(?|\s+\(?|\s*\()"
+	rf"(?P<word>(?:cited\s+)?(?:supra|above)|précitée?s?|ci-dessus|ci-haut)\)?(?P<note>\s*(?:,\s*)?(?:note|n\.)\s*\d{{1,4}})?(?P<tail>{_PINPOINT_TAIL})",
 )
+
+_BARE_ABOVE_ROW_RE = re.compile(r"(?:cited\s+)?(?:supra|above)\b|précitée?s?\b|ci-dessus\b", re.IGNORECASE)
 
 # "At paragraph 43 of that decision": the pinpoint belongs to the case cited just before.
 THAT_DECISION_RE = re.compile(
@@ -722,7 +724,7 @@ THAT_DECISION_RE = re.compile(
 	re.IGNORECASE,
 )
 _THAT_DECISION_GAP = 600
-_UNANCHORED_NAME_STOP = re.compile(r"\b(?:Act|Code|Regulations?|Rules?|Charter|Constitution|Loi|Règlement|Convention|Treaty|Guidelines?)\b")
+_UNANCHORED_NAME_STOP = re.compile(r"\b(?:Act|Code|Regulations?|Rules?|Charter|Constitution|Loi|Règlement|Convention|Treaty|Guidelines?|Principles|Affidavit|Affidavits|Factum|Record|Memorandum|Transcript|Exhibit|Submissions?|Report|Reports)\b")
 
 
 _LEADING_STOP = frozenset({"regina", "attorney", "minister", "canada", "ontario", "alberta", "quebec", "british", "federal", "supreme", "citizenship", "immigration", "refugee", "public", "national", "canadian", "general", "royal", "bank", "first", "former", "unknown"})
@@ -749,9 +751,32 @@ def _leading_alias(case_name: str | None) -> str | None:
 	return word
 
 
+_CORPORATE_SUFFIX_RE = re.compile(r"(?:,?\s+(?:Inc|Ltd|Ltée|Limited|Corp|Corporation|Co|Company|LLP|L\.P|ULC)\.?)+$")
+
+
+def _first_party_alias(case_name: str | None) -> str | None:
+	"""The first two words of a multi-word first party ("Husky Oil", "Deans Knight"), which courts use as the short name."""
+	if not case_name:
+		return None
+	first = re.split(r"\s+(?:v\.?|c\.?)\s+|\s+\(Re\)", case_name)[0].strip()
+	first = _CORPORATE_SUFFIX_RE.sub("", first).strip(" ,")
+	tokens = first.split()
+	if len(tokens) < 2:
+		return None
+	tokens = tokens[:2]  # courts shorten "Deans Knight Capital Management" to its first two words
+	if any(not re.fullmatch(r"[A-Z][a-zà-ÿ’'\-]{2,}", token) for token in tokens):
+		return None
+	if any(token.casefold() in _LEADING_STOP or token.casefold() in _GENERIC_WORDS for token in tokens):
+		return None
+	return " ".join(tokens)
+
+
 def _alias_table(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCitation]]:
 	table: list[tuple[str, RefinedCitation]] = []
 	for row in rows:
+		if row.kind == "neutral" and row.declared_alias and len(row.declared_alias) >= 3 and row.identifiers:
+			table.append((row.declared_alias.casefold(), row))  # "2000 SCC 31 [Firearms Reference]" with no case name beside it
+			continue
 		if row.kind != "case" or not row.case_name:
 			continue
 		aliases = set(alias.casefold() for alias in _extract_short_aliases(row.case_name))
@@ -839,6 +864,9 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 			if allow_inside_short and row.kind in {"case_short", "case_name"} and start <= row.offset_start and row.offset_end <= end:
 				inside.append(row)
 				continue
+			if start <= row.offset_start and row.offset_end <= end and _BARE_ABOVE_ROW_RE.match(row.citation_text):
+				inside.append(row)  # pass one read ", above, at para 16" as a citation; the name in front is the real reference
+				continue
 			return False, []
 		for row in added:
 			if not (row.offset_end <= start or end <= row.offset_start):
@@ -877,11 +905,14 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 			if row.offset_end <= match.start() and (alias == key or alias == words[-1].casefold() or key.startswith(alias))
 		]
 		start = match.start("name") + len(name) - len(" ".join(words))
+		if start and content[start - 1] in "'’-‑":
+			continue  # the name starts inside a longer word or name ("l'Immigration (supra)")
 		if not candidates:
 			row = _unanchored_supra_row(content, match, words, start)
 			if row is not None:
-				ok, _inside = free(row.offset_start, row.offset_end, allow_inside_short=False)
+				ok, inside = free(row.offset_start, row.offset_end, allow_inside_short=True)
 				if ok:
+					removed.update((item.offset_start, item.offset_end) for item in inside)
 					added.append(row)
 			continue
 		target = max(candidates, key=lambda item: item[1].offset_end)[1]
@@ -965,6 +996,11 @@ _PIN_FIRST_TMPL = (
 )
 
 
+def _is_pass_one_noise(row: RefinedCitation) -> bool:
+	"""A pass-one reporter-only fragment with no identifier ("Kirkbi, at para. 43"): validation drops it."""
+	return row.kind == "neutral" and not row.identifiers and "reporter_only" in row.notes
+
+
 def _defined_aliases(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCitation, bool]]:
 	"""(alias, full citation row, distinctive) for names a later bare mention can use.
 
@@ -983,7 +1019,7 @@ def _defined_aliases(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCita
 		if first and first not in seen and _IDENTIFIER_NAME_RE.match(first):
 			out.append((first, row, True))
 			seen.add(first)
-		for alias in [*_extract_short_aliases(row.case_name), _leading_alias(row.case_name)]:
+		for alias in [*_extract_short_aliases(row.case_name), _leading_alias(row.case_name), _first_party_alias(row.case_name)]:
 			if alias and alias not in seen and len(alias) >= 3:
 				out.append((alias, row, False))
 				seen.add(alias)
@@ -1005,6 +1041,9 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 				continue
 			if replace_short and row.kind in {"case_short", "case_name"} and start <= row.offset_start and row.offset_end <= end:
 				inside.append(row)
+				continue
+			if _is_pass_one_noise(row):
+				inside.append(row)  # C5 drops these anyway; the better row below takes their place
 				continue
 			return True, []
 		return False, inside
@@ -1059,7 +1098,7 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 
 	# Name and year: "(Singh 2020 at para 26)", "Khadr 2010 at para 14".
 	for alias in sorted({name for name, _, _ in aliases}, key=len, reverse=True):
-		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r",?\s+(?P<year>(?:19|20)\d{2}),?(?=\s+(?:at|aux?)\s)")
+		pattern = re.compile(r"(?<![\w’'.\[\-‑–])" + re.escape(alias) + r",?\s+(?P<year>(?:19|20)\d{2}),?(?=\s+(?:at|aux?)\s)")
 		for match in pattern.finditer(content):
 			target = target_before(alias, match.start())
 			if target is None or match.group("year") not in target.citation_text:
@@ -1083,7 +1122,7 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 
 	# A name straight before a pinpoint ("Mikisew, at para 57", "Ahousaht at para 34") is a short form of the case.
 	for alias in sorted({name for name, _, _ in aliases}, key=len, reverse=True):
-		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r"(?![\w’'-])(?=\s*,?\s*(?:at|aux?)\s)")
+		pattern = re.compile(r"(?<![\w’'.\[\-‑–])" + re.escape(alias) + r"(?![\w’'-])(?=\s*,?\s*(?:at|aux?)\s)")
 		for match in pattern.finditer(content):
 			target = target_before(alias, match.start())
 			if target is None or (match.start() >= 5 and re.search(r"\b(?:v\.?|c\.)\s+$", content[max(0, match.start() - 6) : match.start()])):
@@ -1091,14 +1130,16 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 			pin = TRAILING_PINPOINT_RE.match(content[match.end() : match.end() + 80])
 			if pin is None:
 				continue
-			start, end = match.start(), match.end() + pin.end()
-			if blocked(start, end, replace_short=False)[0]:
-				continue
+			start, end = match.start(), match.end() + len(pin.group(0).rstrip())
+			is_blocked, inside = blocked(start, end)
+			if is_blocked or any(item.offset_start != start and not _is_pass_one_noise(item) for item in inside):
+				continue  # only a pass-one short form that is the first word(s) of this very name ("Deans") is replaced
+			removed.update((item.offset_start, item.offset_end) for item in inside)
 			added.append(make(start, end, target, alias, "name_pinpoint", pin.group("pinpoint")))
 
 	# Bare mentions of a name the decision defines or a distinctive identifier ("Mason and CCR", "(Suresh, Febles, B010)").
 	for alias in sorted({name for name, _, distinctive in aliases if distinctive}, key=len, reverse=True):
-		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r"(?![\w’'-])(?!\s+(?:v\.?|c\.?)\s)(?!\])")
+		pattern = re.compile(r"(?<![\w’'.\[\-‑–])" + re.escape(alias) + r"(?![\w’'-])(?!\s+(?:v\.?|c\.?)\s)(?!\])")
 		for match in pattern.finditer(content):
 			target = target_before(alias, match.start())
 			if target is None:
@@ -1119,7 +1160,11 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 			added.append(row)
 
 	result = [row for row in rows if (row.offset_start, row.offset_end) not in removed]
-	result.extend(added)
+	taken = {(row.offset_start, row.offset_end) for row in result}
+	for row in added:  # two rules can reach the same words ("Kaulius, at para. 58"); keep the first
+		if (row.offset_start, row.offset_end) not in taken:
+			taken.add((row.offset_start, row.offset_end))
+			result.append(row)
 	result.sort(key=lambda row: (row.offset_start, row.offset_end))
 	return result
 

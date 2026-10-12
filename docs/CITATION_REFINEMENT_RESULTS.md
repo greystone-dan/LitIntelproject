@@ -108,3 +108,25 @@ Same 372-decision sample as the audit above (FC, FCA, SCC from 2005 on, local ru
 Measured: "name + above/supra" mentions not covered by any row 65 of 359 to 5 (the 5 are correct exclusions: a statute, a "JUDGMENT For the Reasons above", "the Supreme Court cited above"). 64 unanchored rows in the sample; on 45 read by hand 43 were real references and the 2 wrong ones ("The above", "the Supreme Court cited above") are now excluded. Rows with a pinpoint 4,530 to 4,599.
 
 Not built: litigant, person and firm names in subject position with no cue word. Any rule loose enough to catch them also catches real cases, so they stay out until there is a way to tell them apart.
+
+## More short forms: "Name, at para N" and "Name, above" variants (2026-10-12)
+
+Sample: 372 FC, FCA and SCC decisions from 2005 on, drawn at random from the open A2AJ dataset (124 per court, seed 11), refine run locally, no database writes. Neutral and reporter citations are already saturated here (7 uncovered hits left across 12,500 detector hits, and the decision's own header citation is correctly dropped), so this round targets short forms. Code is `backend/citation_refine/cases.py`.
+
+What was being lost:
+- Pass one reads "Kirkbi, at para. 43" and ", above, at para 16" as reporter-only fragments; validation then drops them, and the rules that should have kept the short form were blocked by the fragment sitting on the same words. Those fragments are now replaced by the better row.
+- "Name, above" variants: a court in brackets ("Slattery (T.D.), above"), parentheses ("Apotex (cited above)", "Friends of the West Country Assn. (above)"), names with "Inc." or lowercase connectors ("Haskett v Equifax Canada Inc., above").
+- A neutral cite that defines its own short name ("2000 SCC 31 [Firearms Reference]") now anchors later "Firearms Reference, above".
+- Courts shorten a long first party to its first two words ("Husky Oil", "Deans Knight", "Mikisew Cree"); that is now a usable short name for "Name, at para N".
+
+Not added on purpose: names that are an affidavit, factum, record, report, code or "principles" ("Poliquin Affidavit, above"), names that start right after an apostrophe or hyphen, and the bare litigant or firm names with no cue word.
+
+Measured (uncovered mentions, detector-based):
+
+| | Before | After |
+|---|---|---|
+| "Name, above / supra" mentions of cases not covered by a row (346 hits) | 26 | 12 |
+| "Name, at para N" where Name is a case cited in that decision (2,149 hits) | 453 | 161 |
+| Refined rows in the sample | 21,064 | 21,342 |
+
+388 rows are new (326 name-pinpoint, 60 above/supra, 2 pinpoint-first). Hand check of the new rows against the surrounding text: 90 of 90 sampled "Name, at para N" rows are genuine references to a cited case, and 59 of the 60 "above / supra" rows are (the one exception is a text citation, "Lederman and Bryant, supra", a book rather than a case). A first pass produced 11 "X Affidavit, above" rows and two bad truncations ("l'Immigration (supra)"); both are now excluded and covered by tests. Remaining misses are mostly names that are too ambiguous to add without a cue (single common words, surnames of litigants).

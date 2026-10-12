@@ -21,7 +21,7 @@
   return null;
  }
 
- function who(p,key){const name=p[key]||'',role=p[key+'_role']||'';return name?E(name)+(role?' <span class="frame-role">('+E(role)+')</span>':''):'';}
+ function who(p,key){const name=p[key]||'';return name?E(name):'';}
 
  function card(d){
   const f=d.frame,p=f.parties||{};
@@ -33,6 +33,7 @@
   h+='<p class="frame-note">'+E(d.note||'')+'</p>';
   if(f.subject)h+='<p class="frame-subject">'+E(f.subject)+'</p>';
   h+='<p class="frame-parties"><strong>Applicant:</strong> '+(who(p,'applicant')||'not stated')+'<br><strong>Respondent:</strong> '+(who(p,'respondent')||'not stated')+'</p>';
+  if(d.result&&d.result.text)h+='<p class="frame-result"><strong>Result:</strong> '+E(d.result.text)+' <span class="frame-rel">('+E(d.result.reliability||'')+'. '+E(d.result.source||'')+')</span></p>';
   if(f.levels.length)h+='<h4>Earlier decisions</h4><ol class="frame-levels">'+f.levels.map(l=>'<li>'+E(l.body||'')+(l.date?' ('+E(l.date)+')':'')+(l.outcome?': '+E(l.outcome):'')+link(l.para)+'</li>').join('')+'</ol>';
   if(f.issues.length)h+='<h4>Issues</h4><ul>'+f.issues.map(i=>'<li>'+E(i.text)+link(i.para)+'</li>').join('')+'</ul>';
   h+='<div class="frame-cols">'+argList('applicant','Applicant argues')+argList('respondent','Respondent argues')+'</div>';

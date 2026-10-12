@@ -11,7 +11,7 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from .database import CaseFrame
+from .database import CaseFrame, CaseOutcome
 
 ENABLED_ENV = "CASELIBRARY_CASE_FRAME_ENABLED"
 NOTE = (
@@ -19,6 +19,17 @@ NOTE = (
 	"check it against the decision before relying on it."
 )
 LISTS = ("levels", "issues", "arguments", "challenged")
+
+# What the stored ruling word means in plain words, for the "Result" line.
+RESULT_WORDS = {
+	"allowed": "Allowed",
+	"granted": "Granted",
+	"dismissed": "Dismissed",
+	"set_aside": "Set aside",
+	"remitted": "Sent back to be decided again",
+	"mixed": "Partly allowed",
+	"withdrawn": "Withdrawn",
+}
 
 
 def is_enabled() -> bool:
@@ -37,6 +48,24 @@ def clean_frame(frame: dict[str, Any]) -> dict[str, Any]:
 	return out
 
 
+def drop_own_decision(levels: list[dict[str, Any]]) -> list[dict[str, Any]]:
+	"""Stored frames end the levels list with this decision itself; the card lists only the earlier ones."""
+	return levels[:-1]
+
+
+def result_line(outcome: Any) -> dict[str, str] | None:
+	"""The ruling of this decision as read by the outcome rules, with a plain reliability label. None when unknown."""
+	word = RESULT_WORDS.get(getattr(outcome, "decision_outcome", None) or "")
+	if not word:
+		return None
+	clear = (getattr(outcome, "confidence", 0) or 0) >= 0.75 and bool(getattr(outcome, "disposition_evidence", None))
+	return {
+		"text": word,
+		"reliability": "Matched a clear ruling in the text" if clear else "Less certain: check the decision",
+		"source": "Read by fixed rules, not by AI",
+	}
+
+
 def case_frame(case_id: int, db: Session) -> dict[str, Any]:
 	if not is_enabled():
 		return {"available": False}
@@ -45,4 +74,9 @@ def case_frame(case_id: int, db: Session) -> dict[str, Any]:
 	).scalar_one_or_none()
 	if row is None:
 		return {"available": False, "empty_note": "No summary has been prepared for this decision yet."}
-	return {"available": True, "note": NOTE, "version": row.version, "frame": clean_frame(row.frame or {})}
+	frame = clean_frame(row.frame or {})
+	frame["levels"] = drop_own_decision(frame["levels"])
+	outcome = db.execute(
+		select(CaseOutcome).where(CaseOutcome.case_id == case_id).order_by(CaseOutcome.updated_at.desc(), CaseOutcome.id.desc()).limit(1)
+	).scalars().first()
+	return {"available": True, "note": NOTE, "version": row.version, "frame": frame, "result": result_line(outcome)}

@@ -112,13 +112,25 @@
   return el;
  }
 
- function note(row,mode,minority){
+ /* The section of the decision a paragraph sits in (Background, Issues, Analysis, Disposition), from the outline. */
+ function sectionOf(num){
+  const rd=(readerState.payload||{}).readerData||{},outline=(rd.structure_outline||[]).filter(r=>r.section&&r.level===1),blocks=rd.format_blocks||[];
+  if(!outline.length)return '';
+  const block=blocks.find(b=>b.type==='para'&&String(b.num)===String(num));
+  if(!block)return '';
+  let found=null;outline.forEach(r=>{if(r.start<=block.start&&(!found||r.start>=found.start))found=r;});
+  return found?String(found.title||''):'';
+ }
+ function note(row,mode,minority,num){
   const lead=row.positions[0].key,mino=minority&&lead==='court';
-  const chips=row.positions.map((p,i)=>'<span class="pos-chip pos-'+E(i===0&&mino?'dissent':p.key)+'">'+E(i===0&&mino?minority:posLabel(p))+'</span>').join('')+(row.framework==='yes'?'<span class="pos-chip pos-framework">Law and tests</span>':'');
+  /* A bare "The judge" tag says nothing, so the judge's own paragraphs show the section they are in instead (or nothing). */
+  const chips=row.positions.filter((p,i)=>!(i===0&&p.key==='court'&&!mino)).map((p,i)=>'<span class="pos-chip pos-'+E(i===0&&mino?'dissent':p.key)+'">'+E(i===0&&mino?minority:posLabel(p))+'</span>').join('')+(row.framework==='yes'?'<span class="pos-chip pos-framework">Law and tests</span>':'');
   const kinds=row.kinds&&row.kinds.length?'<span class="pos-kinds">'+E(row.kinds.slice(0,2).join(' · '))+'</span>':'';
   const text=mode==='rules'?(row.cue?'<span class="pos-cue">Cue: “'+E(row.cue)+'”</span>':''):(row.summary?'<span class="pos-sum">'+E(row.summary)+'</span>':'');
   const lay=row.layer||{key:'unknown',label:'Level not yet detected',depth:null},depth=lay.depth==null?'u':lay.depth;
-  const layer='<span class="pos-layer'+(lay.detected===false?' is-unknown':'')+'">'+E(layerLabel(lay))+'</span>';
+  const label=lay.key==='judge'?sectionOf(num):layerLabel(lay);
+  const layer=label?'<span class="pos-layer'+(lay.detected===false?' is-unknown':'')+'">'+E(label)+'</span>':'';
+  if(!layer&&!chips&&!kinds&&!text)return '';
   return '<aside class="pos-note pos-d'+depth+' pos-b-'+E(mino?'dissent':lead)+'" data-pos-note data-pos-layer="'+E(lay.key)+'">'+layer+'<span class="pos-tags">'+chips+kinds+'</span>'+text+'<span class="pos-cites" data-pos-cites hidden></span></aside>';
  }
 
@@ -133,7 +145,7 @@
    if(!pos.on)return;
    if(data.unavailable)return;
    const info=docInfo(),minority=info.start?(info.kind==='dissent'?'Dissenting judge':'Concurring judge'):'';
-   body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const row=data.paragraphs[String(p.dataset.para)];if(row)p.insertAdjacentHTML('afterend',note(row,data.mode,afterStart(info,p)?minority:''));});
+   body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const row=data.paragraphs[String(p.dataset.para)];if(row)p.insertAdjacentHTML('afterend',note(row,data.mode,afterStart(info,p)?minority:'',p.dataset.para));});
   }finally{pos.busy=false;}
  }
  function schedule(){window.clearTimeout(pos.timer);pos.timer=window.setTimeout(sync,30);}

@@ -170,3 +170,10 @@ def test_new_stored_decisions_load_from_the_same_reader_path() -> None:
 		assert data["available"] and data["paragraphs"]
 		row = next(iter(data["paragraphs"].values()))
 		assert row["positions"][0]["key"] in POSITION_LABELS and row["layer"]["key"] in {"judge", "jr_party", "earlier_decision", "first_instance", "framework", "source", "unknown"}
+
+
+def test_judge_paragraphs_show_the_section_not_a_bare_judge_tag() -> None:
+	js = (PAGES / "reader_positions.js").read_text(encoding="utf-8")
+	assert "function sectionOf" in js and "structure_outline" in js  # the section comes from the outline
+	assert "p.key==='court'&&!mino" in js  # the court chip is dropped for the judge's own paragraphs
+	assert "lay.key==='judge'?sectionOf(num)" in js

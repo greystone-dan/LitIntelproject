@@ -183,7 +183,9 @@ _GAP_PINPOINT = (
 # ("2004 FC 303 at para 22, 131 A.C.W.S. (3d) 508").
 _CHAIN_GAP_RE = re.compile(rf"^\s*(?:{_TAG}\s*)?{_GAP_PINPOINT}?\s*,\s*(?:{_TAG}\s*,?\s*)?$")
 _TRAILING_TAG_RE = re.compile(rf"^\s*{_TAG}")
-_DECLARED_ALIAS_RE = re.compile(r"^\s*(?:\[\s*(?P<a>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*\]|\(\s*[\"“](?P<b>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*[\"”]\s*\))")
+_DECLARED_ALIAS_RE = re.compile(r"^\s*(?:\[\s*(?P<a>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*\]|\(\s*[\"“](?P<b>[A-Z][A-Za-z0-9 .'’\-]{1,60}?)\s*[\"”]\s*\)|\(\s*(?P<c>[A-Z][A-Z0-9]{2,9})\s*\))")
+# "(CLAO)" after a citation defines a short name; court, reporter and database markers do not.
+_NOT_AN_ALIAS = frozenset({"SCC", "FCA", "FCT", "CAF", "QCCA", "BCCA", "ONCA", "ABCA", "BCSC", "ONSC", "QCCS", "CanLII", "QL", "WL", "TCC", "PCC", "HCA", "UKHL", "UKSC", "EWCA", "SCR", "FCR", "CCC", "DLR", "NR", "QCCQ", "ABQB", "NSCA", "NBCA", "MBCA", "SKCA", "NLCA", "PECA", "YKCA", "CMAC", "CHRT", "CITT", "IRB", "RPD", "RAD", "IAD", "CBSA", "IRCC", "CIC", "FCJ", "OJ", "AJ", "BCJ", "CPC", "NSSC", "ONCJ", "ONSCDC", "BCCA", "SKQB", "MBQB", "NBQB"})
 
 # --------------------------------------------------------------------------- case names
 _CONNECTORS = {"of", "and", "the", "for", "de", "du", "des", "la", "le", "les", "et", "&", "in", "on", "to"}
@@ -477,7 +479,9 @@ def _trailing_extras(content: str, end: int, last_core: _Core) -> tuple[int, lis
 	for _ in range(4):
 		window = content[end : end + 160]
 		tag = _TRAILING_TAG_RE.match(window)
-		if tag is not None and not re.match(r"^\s*\(\s*[\"“]", window):
+		bare = _DECLARED_ALIAS_RE.match(window)
+		bare_acronym = bare is not None and bare.group("c") is not None and bare.group("c") not in _NOT_AN_ALIAS and alias is None
+		if tag is not None and not bare_acronym and not re.match(r"^\s*\(\s*[\"“]", window):
 			end += tag.end()
 			continue
 		pin = TRAILING_PINPOINT_RE.match(window)
@@ -495,8 +499,10 @@ def _trailing_extras(content: str, end: int, last_core: _Core) -> tuple[int, lis
 				pinpoints.append(parsed_bare)
 				continue
 		declared = _DECLARED_ALIAS_RE.match(content[end : end + 96])
+		if declared is not None and alias is None and declared.group("c") is not None and declared.group("c") in _NOT_AN_ALIAS:
+			declared = None
 		if declared is not None and alias is None:
-			alias = " ".join((declared.group("a") or declared.group("b")).split())
+			alias = " ".join((declared.group("a") or declared.group("b") or declared.group("c")).split())
 			end += declared.end()
 			continue
 		if not pinpoints:
@@ -771,6 +777,38 @@ def _first_party_alias(case_name: str | None) -> str | None:
 	return " ".join(tokens)
 
 
+def _party_run_aliases(case_name: str | None) -> list[str]:
+	"""Short names a court takes from either party: "Carrier Sekani" (Carrier Sekani Tribal Council), "Criminal Lawyers’ Association",
+	and the surname of "R. v. Paré". Only the leading capitalised words of a party are used, never a generic word."""
+	if not case_name:
+		return []
+	sides = re.split(r"\s+(?:v\.?|c\.?)\s+", case_name)
+	out: list[str] = []
+	for index, side in enumerate(sides[:2]):
+		side = _CORPORATE_SUFFIX_RE.sub("", side.split("(")[0].strip()).strip(" ,")
+		run: list[str] = []
+		for token in side.split():
+			if not re.fullmatch(r"[A-Z][\w’'\-]+", token):
+				break
+			run.append(token)
+		while len(run) > 1 and (run[0].casefold() in {"the", "la", "le", "les", "re"} or run[0] in {"R", "R."}):
+			run = run[1:]
+		if len(run) == 1 and index == 1 and sides[0].strip() in {"R.", "R"} and len(run[0]) >= 2:
+			out.append(run[0])  # "R. v. Le", "R. v. Paré"
+			continue
+		if len(run) == 1 and index == 1 and len(sides) == 2 and sides[0].strip() == run[0] and len(run[0]) >= 4 and run[0].casefold() not in _GENERIC_WORDS:
+			out.append(run[0])  # "Prud’homme v. Prud’homme": both parties share the name
+			continue
+		if len(run) < 2 or run[0].casefold() in _LEADING_STOP or run[0].casefold() in _GENERIC_WORDS:
+			continue
+		if run[1].casefold() in _GENERIC_WORDS or run[1].casefold() in _LEADING_STOP:
+			continue
+		out.append(" ".join(run[:2]))
+		if len(run) == 3:
+			out.append(" ".join(run))
+	return out
+
+
 def _alias_table(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCitation]]:
 	table: list[tuple[str, RefinedCitation]] = []
 	for row in rows:
@@ -1019,8 +1057,8 @@ def _defined_aliases(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCita
 		if first and first not in seen and _IDENTIFIER_NAME_RE.match(first):
 			out.append((first, row, True))
 			seen.add(first)
-		for alias in [*_extract_short_aliases(row.case_name), _leading_alias(row.case_name), _first_party_alias(row.case_name)]:
-			if alias and alias not in seen and len(alias) >= 3:
+		for alias in [*_extract_short_aliases(row.case_name), _leading_alias(row.case_name), _first_party_alias(row.case_name), *_party_run_aliases(row.case_name)]:
+			if alias and alias not in seen and len(alias) >= 2:
 				out.append((alias, row, False))
 				seen.add(alias)
 	return out
@@ -1132,8 +1170,8 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 				continue
 			start, end = match.start(), match.end() + len(pin.group(0).rstrip())
 			is_blocked, inside = blocked(start, end)
-			if is_blocked or any(item.offset_start != start and not _is_pass_one_noise(item) for item in inside):
-				continue  # only a pass-one short form that is the first word(s) of this very name ("Deans") is replaced
+			if is_blocked or any(item.offset_start != start and item.offset_end != end and not _is_pass_one_noise(item) for item in inside):
+				continue  # only a pass-one short form that is the first or last word(s) of this very name ("Deans", "homme") is replaced
 			removed.update((item.offset_start, item.offset_end) for item in inside)
 			added.append(make(start, end, target, alias, "name_pinpoint", pin.group("pinpoint")))
 

@@ -40,7 +40,7 @@ function card(m){
   const cite=esc(m.citation||'No neutral citation')+(m.court?' ('+esc(m.court)+')':'');
   const link=m.case_url?`<a href="${esc(m.case_url)}" target="_blank" rel="noopener">${cite}</a>`:cite;
   const para=m.result_paragraph?`<blockquote>${m.result_paragraph_number?'['+esc(m.result_paragraph_number)+'] ':''}${esc(m.result_paragraph)}</blockquote>`:'';
-  return `<div class="la-card"><div class="la-cite">${link}</div><div class="la-issue">${esc(m.issue)}</div><div class="la-res">${esc(m.result_label)}</div>${para}${m.note?`<div class="la-warn">${esc(m.note)}</div>`:''}</div>`;
+  return `<div class="la-card"><div class="la-cite">${link}</div><div class="la-issue">${esc(m.issue)}</div><div class="la-res">${esc(m.result_label)}</div>${para}${m.note?`<div class="la-warn">${esc(m.note)}</div>`:''}${(m.checks||[]).map(c=>`<div class="la-warn"><strong>Check this:</strong> ${esc(c)}</div>`).join('')}</div>`;
 }
 go.addEventListener('click',async()=>{
   err.hidden=true;err.textContent='';out.innerHTML='';go.disabled=true;status.textContent='Searching…';

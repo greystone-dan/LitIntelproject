@@ -1132,6 +1132,10 @@ class IssueMap(Base):
 	result_para: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	soften: Mapped[str | None] = mapped_column(Text, nullable=True)
 	result_paragraph: Mapped[str | None] = mapped_column(Text, nullable=True)
+	# Added in 0048 for the reader: each side's stated position, and "check this" flags (a list of short codes).
+	applicant_position: Mapped[str | None] = mapped_column(Text, nullable=True)
+	respondent_position: Mapped[str | None] = mapped_column(Text, nullable=True)
+	review_flags: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
 	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
 
 
@@ -1144,6 +1148,24 @@ class IssueMapQuestion(Base):
 	issue_map_id: Mapped[int] = mapped_column(Integer, ForeignKey("issue_maps.id", ondelete="CASCADE"), nullable=False, index=True)
 	position: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
 	question: Mapped[str] = mapped_column(Text, nullable=False)
+
+
+class ParagraphNote(Base):
+	"""A one-line margin note for one paragraph of a decision, written once ahead of time and stored as ordinary text.
+
+	Loaded by scripts/load_core150_layers.py; the reader shows it only with Experimental on. No model runs at site-use time.
+	"""
+
+	__tablename__ = "paragraph_notes"
+	__table_args__ = (UniqueConstraint("case_id", "para", "version", name="uq_paragraph_note_case_para_version"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	para: Mapped[int] = mapped_column(Integer, nullable=False)
+	version: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+	note: Mapped[str] = mapped_column(Text, nullable=False)
+	source: Mapped[str] = mapped_column(String(40), nullable=False)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
 
 
 class CaseFrame(Base):

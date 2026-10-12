@@ -145,7 +145,7 @@
    if(!pos.on)return;
    if(data.unavailable)return;
    const info=docInfo(),minority=info.start?(info.kind==='dissent'?'Dissenting judge':'Concurring judge'):'';
-   body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const row=data.paragraphs[String(p.dataset.para)];if(row)p.insertAdjacentHTML('afterend',note(row,data.mode,afterStart(info,p)?minority:'',p.dataset.para));});
+   body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const row=data.paragraphs[String(p.dataset.para)];/* a paragraph note (Experimental) sits first, directly under the paragraph */if(row)(p.nextElementSibling&&p.nextElementSibling.hasAttribute('data-pn-note')?p.nextElementSibling:p).insertAdjacentHTML('afterend',note(row,data.mode,afterStart(info,p)?minority:'',p.dataset.para));});
   }finally{pos.busy=false;}
  }
  function schedule(){window.clearTimeout(pos.timer);pos.timer=window.setTimeout(sync,30);}
@@ -158,7 +158,7 @@
  });
  new MutationObserver(muts=>{
   if(pos.busy)return;
-  const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&(n.hasAttribute('data-pos-bar')||n.hasAttribute('data-pos-note')||n.hasAttribute('data-frame-card')))));
+  const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&(n.hasAttribute('data-pos-bar')||n.hasAttribute('data-pos-note')||n.hasAttribute('data-frame-card')||n.hasAttribute('data-issue-card')||n.hasAttribute('data-layers-bar')||n.hasAttribute('data-pn-note')))));
   if(real)schedule();
  }).observe(body,{childList:true,subtree:true});
  schedule();

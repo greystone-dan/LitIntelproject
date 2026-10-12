@@ -628,3 +628,19 @@ def test_name_pinpoint_replaces_pass_one_fragment_once():
 	text = "Kirkbi AG v. Ritvik Holdings Inc., [2005] 3 S.C.R. 302, 2005 SCC 65. Later: as held in Kirkbi, at para. 43, trade-marks."
 	short = [row for row in _cases(text) if row.kind == "case_short"]
 	assert [row.citation_text for row in short] == ["Kirkbi, at para. 43"]
+
+
+def test_party_name_prefixes_and_bare_acronym_alias_are_short_forms():
+	text = (
+		"Rio Tinto Alcan Inc. v. Carrier Sekani Tribal Council, 2010 SCC 43; Ontario v. Criminal Lawyers’ Association of Ontario, "
+		"2013 SCC 43, [2013] 3 S.C.R. 3 (CLAO); R. v. Le, 2019 SCC 34; Prud’homme v. Prud’homme, 2002 SCC 85. "
+		"See Carrier Sekani, at para. 37; Criminal Lawyers’ Association, at para. 28; CLAO, at para. 44; Le, at para. 155; Prud’homme, at para. 29."
+	)
+	short = [row.citation_text for row in _cases(text) if row.kind == "case_short"]
+	for expected in ("Carrier Sekani, at para. 37", "Criminal Lawyers’ Association, at para. 28", "CLAO, at para. 44", "Le, at para. 155", "Prud’homme, at para. 29"):
+		assert expected in short
+
+
+def test_court_markers_in_parentheses_are_not_aliases():
+	rows = _cases("Baker v. Canada, [1999] 2 S.C.R. 817 (SCC). Later: SCC, at para. 5.")
+	assert not [row for row in rows if row.declared_alias == "SCC"]

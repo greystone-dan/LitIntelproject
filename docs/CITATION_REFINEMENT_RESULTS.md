@@ -130,3 +130,15 @@ Measured (uncovered mentions, detector-based):
 | Refined rows in the sample | 21,064 | 21,342 |
 
 388 rows are new (326 name-pinpoint, 60 above/supra, 2 pinpoint-first). Hand check of the new rows against the surrounding text: 90 of 90 sampled "Name, at para N" rows are genuine references to a cited case, and 59 of the 60 "above / supra" rows are (the one exception is a text citation, "Lederman and Bryant, supra", a book rather than a case). A first pass produced 11 "X Affidavit, above" rows and two bad truncations ("l'Immigration (supra)"); both are now excluded and covered by tests. Remaining misses are mostly names that are too ambiguous to add without a cue (single common words, surnames of litigants).
+
+## Short names taken from either party, and "(CLAO)" definitions (2026-10-12)
+
+Same 372-decision sample as above, measured against the code after PR 496. "Name, at para N" where Name is part of a case cited in the decision and has no refined row: 161 of 2,149 before, 86 after. Refined rows 21,351 to 21,445 (116 new rows: 97 "Name, at para N", 17 bare mentions of a defined name, 2 other).
+
+- **Short names from either party.** Courts shorten "Rio Tinto Alcan Inc. v. Carrier Sekani Tribal Council" to "Carrier Sekani", "Alberta v. Hutterian Brethren of Wilson Colony" to "Hutterian Brethren", "Ontario v. Criminal Lawyers’ Association of Ontario" to "Criminal Lawyers’ Association", "R. v. Paré" to "Paré", and "Prud’homme v. Prud’homme" to "Prud’homme". The leading capitalised words of each party (two, or three when the party has exactly three) and the surname of an "R. v. X" case now count as short names for "Name, at para N". Generic words (Court, Board, Attorney General and so on) never start a short name, and the existing weak-short-form check still applies.
+- **Bare acronym definitions.** "(CLAO)" right after a citation now defines a short name like "[CLAO]" and "(“CLAO”)" already did. Court, reporter and database markers such as (SCC), (CanLII), (QL) are never treated as definitions.
+- **Pass-one fragments.** A pass-one short form that is the first or last word of the same name (for example "homme" from "Prud’homme") is replaced instead of blocking the better row.
+
+Hand check of the new rows (about 100 of the 116 read in context): all were genuine references to a cited case. One rule was tried and removed: stripping "Inc." and "Ltd." before the acronym test made a litigant of the decision itself ("AIC Limited") match every time its name appeared, so that stays as before.
+
+What is left (86): names that are not part of any cited case name (an institution cited by a name the decision never gives), "Reference" and similar generic words, a few multi-case parentheticals, and abbreviations that were never defined, such as "CPR" for a railway. None has a safe rule on this sample.

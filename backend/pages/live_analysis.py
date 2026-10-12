@@ -213,9 +213,8 @@ _MAIN_BAR = (
 	'<a class="primary-link" href="/data-explorer?tab=search&amp;group=research">Research</a>\n'
 	'<a class="primary-link" href="/data-explorer?tab=judge-profile&amp;group=intel">Intelligence / Statistics</a>\n'
 	'<a class="primary-link active" href="/workbench" aria-current="page">Workbench</a>\n'
-	'<a class="primary-link" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Roadmap</a>\n'
-	'<a class="primary-link" data-nav-extra href="/data-explorer?tab=soon-themes&amp;group=soon">Development</a>\n'
-	'<a class="primary-link" data-nav-extra href="/data-explorer?tab=research-bench&amp;group=testing">Testing</a>\n'
+	'<a class="primary-link" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Coming soon</a>\n'
+	'<a class="primary-link" data-nav-extra href="/data-explorer?tab=soon-themes&amp;group=lab">Lab</a>\n'
 	'<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: development tabs, Testing, units, Find the unit and unfinished reader tools">Experimental: off</button>\n'
 	"</nav>\n</header>"
 )

@@ -12,7 +12,7 @@ MODE_KEY = "ilit.reader.experimental"
 # Added to <head> of every explorer page: hides the development groups before first paint unless the switch is on.
 MODE_HEAD = (
     "<script>try{if(localStorage.getItem('" + MODE_KEY + "')!=='1')document.documentElement.classList.add('ilit-demo')}catch(e){document.documentElement.classList.add('ilit-demo')}</script>\n"
-    "<style>.ilit-demo [data-group='soon'],.ilit-demo [data-group='testing'],.ilit-demo [data-nav-group='soon'],.ilit-demo [data-nav-group='testing']{display:none!important}"
+    "<style>.ilit-demo [data-group='lab'],.ilit-demo [data-nav-group='lab'],.ilit-demo #labCats{display:none!important}"
     "#siteExperimentalToggle{position:relative}</style>\n"
 )
 

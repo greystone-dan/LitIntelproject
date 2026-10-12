@@ -212,14 +212,14 @@ def _built_tools() -> str:
 
 	rows = "".join(
 		f'<div class="chiprow"><strong>{_e(name)}</strong><span>{_e(text)} '
-		f'<a href="/data-explorer?tab=soon-{key}&amp;group=soon" target="_top">Open it (Experimental on) &rarr;</a></span></div>'
+		f'<a href="/data-explorer?tab=soon-{key}&amp;group=lab" target="_top">Open it (Experimental on) &rarr;</a></span></div>'
 		for key, name, text in COMING_SOON
 	)
 	return (
 		'<details class="rm-area" id="built-tools" data-tier="untested" data-place="experimental"><summary><span class="rm-title">Built tools off the main menu</span>'
 		f'<span class="rm-chips">{_tier_chip("untested")}{_place_chip("experimental")}</span>'
 		f'<span class="rm-line">{len(COMING_SOON)} working pages that sit behind the Experimental switch while they are checked.</span></summary>'
-		'<div class="rm-body"><p class="lede">These pages run today but are not on the main menu. They appear under Development when the Experimental switch (top right) is on. None has a measured accuracy yet, so each is listed as Untested.</p>'
+		'<div class="rm-body"><p class="lede">These pages run today but are not on the main menu. They appear in the Lab when the Experimental switch (top right) is on. None has a measured accuracy yet, so each is listed as Untested.</p>'
 		f'<div class="status-list">{rows}</div></div></details>'
 	)
 
@@ -472,8 +472,8 @@ def render() -> str:
 	area_options = '<option value="all">All areas</option>' + "".join(f'<option value="{k}">{_e(v["label"])}</option>' for k, v in SECTIONS.items())
 	place_legend = "".join(f'<div class="chiprow"><strong>{_place_chip(k)}</strong><span>{_e(text)}</span></div>' for k, (_n, text) in PLACES.items())
 	body = (
-		'<p class="rm-top"><a href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Open this inside the site &rarr;</a></p>'
-		'<header><p class="eyebrow">Roadmap</p><h1>Where iLit is today and where it is going</h1>'
+		'<p class="rm-top"><a href="/data-explorer?tab=soon-status&amp;group=lab">Open this inside the site &rarr;</a></p>'
+		'<header><p class="eyebrow">Status board · private side</p><h1>Where iLit is today and where it is going</h1>'
 		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. This one page lists everything planned, built or imagined, in seven parts: a table of every item, the eight areas of work, the tools that are built but off the main menu, the longer future-features write-up with concept pictures, and the demos and guided tour. Each item says what it is, how well it is proven, where it stands and what it depends on, and opens or closes with the arrow.</p>'
 		f'<div class="status-list rm-legend">{legend}</div><div class="status-list rm-legend">{place_legend}</div>'
 		f'<p class="small">{_e(_counts_line())} Only results with a sample size and a named grader are shown.</p>'

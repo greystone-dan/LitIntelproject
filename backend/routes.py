@@ -222,6 +222,7 @@ from .reader_service import (
 )
 from .position_tags import case_positions
 from .case_frame_store import case_frame as _case_frame
+from .reader_layers import case_issue_map as _case_issue_map, case_paragraph_notes as _case_paragraph_notes
 from .case_reader_ui import (
 	case_reader_with_statutes_html,
 	statute_viewer_page_html,
@@ -2363,6 +2364,18 @@ def get_case_paragraph_positions(case_id: int) -> dict[str, Any]:
 def get_case_frame(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
 	"""The stored case frame (parties, earlier decisions, issues, arguments, challenged part). Off unless CASELIBRARY_CASE_FRAME_ENABLED=1."""
 	return _case_frame(case_id, db)
+
+
+@router.get("/cases/{case_id}/issue-map", response_model=dict[str, Any])
+def get_case_issue_map(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""The stored issue map of a decision: each issue the court decided, who won, and the paragraph that says so. Stored data only."""
+	return _case_issue_map(case_id, db)
+
+
+@router.get("/cases/{case_id}/paragraph-notes", response_model=dict[str, Any])
+def get_case_paragraph_notes(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""One-line notes for the paragraphs of a decision, keyed by paragraph number. Stored data only; no model call."""
+	return _case_paragraph_notes(case_id, db)
 
 
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])

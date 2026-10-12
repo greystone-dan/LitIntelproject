@@ -40,10 +40,23 @@ RESULT_LABELS = {
 	"not_decided": "The court said it did not need to decide this issue.",
 	"moot_or_procedural": "The issue was moot or dealt with as a procedural point.",
 }
+# "Check this" flags stored with an issue by the loader: short code -> plain words.
+REVIEW_TEXT = {
+	"order_para_only": "The only paragraph cited is the final order. Check that the court decided this issue itself.",
+	"minister_applicant": "The Minister brought this case, so \"applicant\" here means the Minister. Check which side won.",
+}
 BASIS = (
 	"Keyword match to check, not a confirmed precedent. The search compares wording only (no AI is used) and "
 	"covers the decisions in the issue-map library; read the paragraph before relying on it."
 )
+
+
+def review_items(flags: list[str] | None) -> list[dict[str, str]]:
+	return [{"code": f, "text": REVIEW_TEXT[f]} for f in (flags or []) if f in REVIEW_TEXT]
+
+
+def review_notes(flags: list[str] | None) -> list[str]:
+	return [REVIEW_TEXT[f] for f in (flags or []) if f in REVIEW_TEXT]
 
 
 def is_enabled() -> bool:
@@ -65,6 +78,7 @@ class IssueRow:
 	result_para: int | None
 	soften: str | None
 	result_paragraph: str | None
+	review_flags: tuple[str, ...] = ()
 
 
 class IssueIndex:
@@ -119,7 +133,7 @@ def _build_index(db: Session) -> IssueIndex:
 	texts: list[str] = []
 	for m in db.execute(select(IssueMap).order_by(IssueMap.id)).scalars():
 		rows.append(
-			IssueRow(m.id, m.case_id, m.citation, m.court, m.issue, m.result, m.result_para, m.soften, m.result_paragraph)
+			IssueRow(m.id, m.case_id, m.citation, m.court, m.issue, m.result, m.result_para, m.soften, m.result_paragraph, tuple(m.review_flags or ()))
 		)
 		texts.append(" ".join([m.text, *questions.get(m.id, [])]))
 	return IssueIndex(rows, texts)
@@ -156,6 +170,7 @@ def _card(row: IssueRow) -> dict[str, Any]:
 		"result_paragraph_number": row.result_para or None,
 		"result_paragraph": row.result_paragraph,
 		"note": note,
+		"checks": review_notes(list(row.review_flags)),
 		"case_url": f"/data-explorer?case_id={row.case_id}" if row.case_id else None,
 	}
 

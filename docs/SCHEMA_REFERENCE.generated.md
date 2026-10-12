@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-12T15:46:01.229379+00:00
-Tables: 47
+Generated: 2026-10-12T21:04:34.377458+00:00
+Tables: 48
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -439,6 +439,9 @@ erDiagram
         Integer result_para
         TEXT soften
         TEXT result_paragraph
+        TEXT applicant_position
+        TEXT respondent_position
+        JSON review_flags
         DATETIME created_at
     }
     judge_profile_aliases {
@@ -491,6 +494,15 @@ erDiagram
         Integer algo_version
         Integer edges
         DATETIME computed_at
+    }
+    paragraph_notes {
+        Integer id PK
+        Integer case_id  FK
+        Integer para
+        Integer version
+        TEXT note
+        String(40) source
+        DATETIME created_at
     }
     paragraph_positions {
         Integer id PK
@@ -681,6 +693,7 @@ erDiagram
     cases ||--o{ paragraph_citation_edges : "source_case_id"
     cases ||--o{ paragraph_citation_edges : "target_case_id"
     cases ||--o{ paragraph_citation_status : "source_case_id"
+    cases ||--o{ paragraph_notes : "case_id"
     cases ||--o{ paragraph_positions : "case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
@@ -731,13 +744,14 @@ erDiagram
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `issue_map_questions` | 4 | `id` |
-| `issue_maps` | 13 | `id` |
+| `issue_maps` | 16 | `id` |
 | `judge_profile_aliases` | 5 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
 | `paragraph_citation_edges` | 9 | `id` |
 | `paragraph_citation_status` | 4 | `source_case_id` |
+| `paragraph_notes` | 7 | `id` |
 | `paragraph_positions` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
@@ -1660,6 +1674,9 @@ erDiagram
 | `result_para` | `Integer` | yes | - |
 | `soften` | `TEXT` | yes | - |
 | `result_paragraph` | `TEXT` | yes | - |
+| `applicant_position` | `TEXT` | yes | - |
+| `respondent_position` | `TEXT` | yes | - |
+| `review_flags` | `JSON` | yes | - |
 | `created_at` | `DATETIME` | no | NOT NULL; default=now() |
 
 ### Indexes
@@ -1804,6 +1821,32 @@ erDiagram
 ### Foreign Keys
 
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_notes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `para` | `Integer` | no | NOT NULL |
+| `version` | `Integer` | no | NOT NULL; default=1 |
+| `note` | `TEXT` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_paragraph_notes_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_paragraph_note_case_para_version`: `case_id`, `para`, `version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `paragraph_positions`
 

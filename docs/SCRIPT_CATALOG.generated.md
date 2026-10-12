@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 214
+Active scripts documented: 215
 
 ## Catalog
 
@@ -151,6 +151,7 @@ Active scripts documented: 214
 | `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `load_case_frames.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_case_frames.py --help` |
+| `load_core150_layers.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_core150_layers.py --help` |
 | `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
 | `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
@@ -2197,6 +2198,20 @@ Active scripts documented: 214
 
 ```powershell
 .\venv\Scripts\python.exe scripts\load_case_frames.py --help
+```
+
+## `scripts/load_core150_layers.py`
+
+**Purpose:** Load the three stored layers for the 150 core Federal Court decisions: case frames, issue maps, paragraph notes. Dry run by default. Reads data/core150/{frames,issue_maps,paragraph_notes}.jsonl.gz. Each row is keyed by the neutral citation written with underscores (2005_FC_1103) and linked to the library case with that exact citation. Additive only: it adds rows that are missing and never updates or deletes existing ones. python scripts/load_core150_layers.py # dry run: counts per layer, nothing written python scripts/load_core150_layers.py --apply # write (live database: needs the go-ahead) python scripts/load_core150_layers.py --undo # dry run of the undo: what would be removed python scripts/load_core150_layers.py --undo --apply # remove only the rows this script added Skipped, and counted in the output: a citation with no single library case; a case that already has the layer (frames at this version, any issue map, any notes at this version); a frame that fails the text-match check; a case whose notes do not line up with its paragraphs (the first words of a note's paragraph must be found in the stored text for at least --min-match of the notes). Undo also works by hand: DELETE FROM case_frames WHERE source = 'core150-haiku-v3'; DELETE FROM paragraph_notes WHERE source = 'core150-v12'; DELETE FROM issue_maps WHERE source_key ~ '^[0-9]{4}_[A-Z]+_[0-9]+$'; Run `alembic upgrade head` first (0048 adds paragraph_notes and the new issue_maps columns).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_core150_layers.py --help
 ```
 
 ## `scripts/load_issue_maps.py`

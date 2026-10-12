@@ -340,6 +340,7 @@ test checks that these paths continue to exist.
 | `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
 | `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
+| `backend/reader_layers.py` | Stored layers for one decision in the reader: decided issues and one-line paragraph notes |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/request_context.py` | Request ID generation, validation, and optional slow-request logging for observability |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |

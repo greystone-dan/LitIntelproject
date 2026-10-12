@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-12T15:45:59.831994+00:00
+Generated: 2026-10-12T21:04:32.741191+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 137 across 134 paths
+OpenAPI operations: 139 across 136 paths
 Hidden operations: 106 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -673,6 +673,21 @@ Discussion-unit evidence and case summary, loaded after the decision text so the
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/issue-map`
+
+Get Case Issue Map
+
+The stored issue map of a decision: each issue the court decided, who won, and the paragraph that says so. Stored data only.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /cases/{case_id}/markup-export`
 
 Export Case Markup Docx
@@ -695,6 +710,21 @@ Word file of the decision with the margin notes the browser sends as Word commen
 ### `GET /cases/{case_id}/paragraph-assessments`
 
 Get Case Paragraph Assessments
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-notes`
+
+Get Case Paragraph Notes
+
+One-line notes for the paragraphs of a decision, keyed by paragraph number. Stored data only; no model call.
 
 **Parameters**
 

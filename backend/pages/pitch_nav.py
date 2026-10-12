@@ -50,16 +50,19 @@ SOON_TARGETS = {
 
 # Extra Lab tools that are not Coming soon items: the Research Bench panel and two internal check pages.
 LAB_EXTRA = [
+    ("status", "Status board", "Everything planned, built or imagined, one row each, with how well it is proven, where it stands and what it depends on. Filters by evidence, status and area."),
     ("research-bench", "Research Bench", "A personal and team workspace for saving decisions, tracking live court files and testing decision-level analysis. Concept prototype."),
     ("units-sandbox", "Discussion Units Sandbox", "A separate search and reader for the 300-case discussion unit test group."),
     ("citation-pass", "Citation Pass QA", "An internal check of how well the citation pass finds and resolves references."),
 ]
+SOON_TARGETS["status"] = ("page", "/roadmap")
 SOON_TARGETS["research-bench"] = ("panel", "research-bench")
 SOON_TARGETS["units-sandbox"] = ("page", "/discussion-units-sandbox")
 SOON_TARGETS["citation-pass"] = ("page", "/citation-pass")
 
 # The Lab: every built-but-experimental tool, in four categories (key, label, one-line description, tools).
 LAB = [
+    ("status", "Status and evidence", "The private side of Coming soon: every item with its evidence, status and what it depends on.", ["status"]),
     ("search", "Search and issues", "New ways to find decisions, issues and passages.",
      ["themes", "tag-analytics", "quick-search", "precedent-finder", "tag-finder", "issue-brief"]),
     ("authorities", "Citations and statutes", "Follow authorities, compare decisions and read the law.",
@@ -69,7 +72,7 @@ LAB = [
     ("checks", "Checks and testing", "Internal checks on how the data and the tools behave.",
      ["units-sandbox", "citation-pass", "site-architecture"]),
 ]
-LAB_FIRST_TAB = "soon-themes"
+LAB_FIRST_TAB = "soon-status"
 
 _BRAND = """<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
 """
@@ -79,7 +82,7 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Research</button>
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
-<button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Roadmap</button>
+<button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
 <button type="button" data-group="lab" aria-pressed="false" aria-controls="researchViews" title="Experimental tools that are built but not yet proven">Lab</button>
 <button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: the Lab, units, Find the unit and unfinished reader tools">Experimental: off</button>
 </nav>"""
@@ -109,7 +112,7 @@ def _subnav() -> str:
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
     ]
-    rows.append(_tab("roadmap", "roadmap-overview", "comingSoonPanel", "Roadmap"))
+    rows.append(_tab("roadmap", "roadmap-overview", "comingSoonPanel", "Coming soon"))
     for cat, _label, _blurb, keys in LAB:
         for key in keys:
             tab = _tab("lab", f"soon-{key}", "comingSoonPanel", names[key][0].replace("&", "&amp;"))
@@ -123,11 +126,11 @@ def _subnav() -> str:
             "")
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner lab-notice" hidden><span class="lab-flag">Experimental</span><span class="lab-notice-text" id="labNotice">Built and reachable, but not yet proven. Nothing in the Lab is a finished feature.</span><a id="comingSoonRoadmap" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">See how well each is proven on the Roadmap &rarr;</a></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner lab-notice" hidden><span class="lab-flag">Experimental</span><span class="lab-notice-text" id="labNotice">Built and reachable, but not yet proven. Nothing in the Lab is a finished feature.</span><a id="comingSoonRoadmap" href="/data-explorer?tab=soon-status&amp;group=lab">See how well each is proven on the Status board &rarr;</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
-<div class="page-header" id="comingSoonHead"><h2 id="comingSoonTitle"></h2><p id="comingSoonText"></p><p class="cs-more"><a href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">There is no separate page for this one yet. See its entry on the Roadmap &rarr;</a></p></div>
+<div class="page-header" id="comingSoonHead"><h2 id="comingSoonTitle"></h2><p id="comingSoonText"></p><p class="cs-more"><a href="/data-explorer?tab=soon-status&amp;group=lab">There is no separate page for this one yet. See its entry on the Status board &rarr;</a></p></div>
 <iframe id="comingSoonFrame" class="cs-frame" title="Coming soon preview" hidden></iframe>
 </section>
 """
@@ -168,26 +171,31 @@ def _script() -> str:
         kind, target = SOON_TARGETS.get(key, ("text", ""))
         info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target, "group": "lab"}
     labCats = {cat: {"label": label, "blurb": blurb, "tabs": [f"soon-{key}" for key in keys]} for cat, label, blurb, keys in LAB}
-    # One Roadmap page. Every older address (one per area, the demos) opens it at the matching place.
+    # Coming soon is the public preview; the Status board (the old long Roadmap page) is the private side inside the Lab.
+    # Every older Roadmap address opens the Status board at the matching place, except the overview, tour and demos.
     for key in ROADMAP_ORDER:
         anchor = REDIRECT_ANCHORS.get(key, "")
-        info[f"roadmap-{key}"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "roadmap"}
-    info["roadmap-tour"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap#tour", "group": "roadmap"}
-    info["roadmap-future-features"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "roadmap"}
-    info["roadmap-demos"] = {"name": "Roadmap", "text": "", "kind": "page", "target": "/roadmap#demos", "group": "roadmap"}
+        if key == "overview":
+            info["roadmap-overview"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview", "group": "roadmap", "flat": True}
+        else:
+            info[f"roadmap-{key}"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "lab", "navTab": "soon-status", "flat": True}
+    info["roadmap-tour"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#tour", "group": "roadmap", "flat": True}
+    info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#demos", "group": "roadmap", "flat": True}
+    info["roadmap-future-features"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "lab", "navTab": "soon-status", "flat": True}
+    info["soon-status"]["flat"] = True
     return (
         "const pitchSoon=" + json.dumps(info) + ";\nconst pitchLabCats=" + json.dumps(labCats) + ";\n"
-        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Roadmap',lab:'Lab',direct:'Other'};\n"
+        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',lab:'Lab',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
         "const pitchOldTab={'research-bench':'soon-research-bench'};\n\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
         "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],lab:['soon','research-bench'],soon:['soon'],testing:['soon']});\n"
         "researchGroups.direct=Object.keys(activeResearchPanels).filter(key=>!Object.values(researchGroups).some(list=>list.includes(key)));\n"
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
-        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-themes',soon:'soon-themes',testing:'soon-research-bench'});\n"
+        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-status',soon:'soon-status',testing:'soon-research-bench'});\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
         "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav,header.top,header:has(.brand),p:has(>a[href*=explorer]){display:none!important}';doc.head.appendChild(style);if(pitchFrame.getAttribute('data-auto')==='1'){const fit=()=>{pitchFrame.style.height=Math.ceil(doc.documentElement.scrollHeight)+'px'};fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(doc.documentElement);if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(fit)}}catch(error){}});\n"
-        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-themes'};\n"
+        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-status'};\n"
         "function pitchResetState(){\n"
         "  const attempt=step=>{try{step()}catch(error){}};\n"
         "  attempt(()=>{const reader=document.getElementById('caseReaderPanel');if(reader&&!reader.hidden&&typeof closeDecisionReader==='function')closeDecisionReader()});\n"
@@ -235,15 +243,15 @@ def _script() -> str:
         "  const aboutParam=!updateUrl?new URLSearchParams(location.search).get('about'):null;\n"
         "  const aboutView=wanted.indexOf('about-')===0?wanted.slice(6):wanted==='about'?(aboutParam==='changelog'||aboutParam==='how'?aboutParam:'overview'):null;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
-        "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||pitchSoon[soon].group!=='lab';\n"
+        "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||pitchSoon[soon].group!=='lab'||Boolean(pitchSoon[soon].flat);\n"
         "  if(!soon)pitchLabSync(null);\n"
         "  if(!soon){pitchBaseActivate(target,updateUrl);if(aboutView&&window.showAboutView)window.showAboutView(aboutView,updateUrl)}\n"
         "  else{\n"
         "    pitchBaseActivate(item.kind==='panel'?item.target:'soon',false);\n"
-        "    lastGroupTabs[item.group]=soon;pitchShowSoonNav(soon,item.group);pitchLabSync(item.group==='lab'?soon:null);\n"
+        "    lastGroupTabs[item.group]=item.navTab||soon;pitchShowSoonNav(item.navTab||soon,item.group);pitchLabSync(item.group==='lab'?(item.navTab||soon):null);\n"
         "    const frame=document.getElementById('comingSoonFrame'),head=document.getElementById('comingSoonHead');\n"
         "    const framed=item.kind==='page';\n"
-        "    if(frame){const flat=item.group==='roadmap';try{frame.setAttribute('data-auto',flat?'1':'0');frame.setAttribute('class',flat?'cs-frame cs-frame-flat':'cs-frame');if(!flat)frame.style.height=''}catch(error){}frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (roadmap)':' (in development)')}\n"
+        "    if(frame){const flat=Boolean(item.flat);try{frame.setAttribute('data-auto',flat?'1':'0');frame.setAttribute('class',flat?'cs-frame cs-frame-flat':'cs-frame');if(!flat)frame.style.height=''}catch(error){}frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (roadmap)':' (in development)')}\n"
         "    if(head){head.hidden=item.kind!=='text';document.getElementById('comingSoonTitle').textContent=item.name;document.getElementById('comingSoonText').textContent=item.text}\n"
         "    if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',soon);url.searchParams.set('group',item.group);url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}\n"
         "  }\n"

@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-12T15:40:52.171213+00:00
+Generated: 2026-10-12T15:45:59.831994+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 137 across 134 paths
-Hidden operations: 105 excluded from OpenAPI
+Hidden operations: 106 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -2977,6 +2977,16 @@ Handler: `backend.routes.roadmap_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.roadmap_internal_notes`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/preview`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_preview_html`
 
 **Responses**
 

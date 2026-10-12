@@ -1564,6 +1564,13 @@ def roadmap_page() -> HTMLResponse:
 	return HTMLResponse(render(), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/roadmap/preview", include_in_schema=False)
+def coming_soon_preview_html() -> HTMLResponse:
+	from .pages.coming_soon_preview_page import render
+
+	return HTMLResponse(render(), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/roadmap/internal.json", include_in_schema=False)
 def roadmap_internal_notes() -> JSONResponse:
 	from .pages.roadmap_page import internal_notes

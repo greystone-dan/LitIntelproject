@@ -26,7 +26,7 @@ def test_live_analysis_serves_to_direct_visits_with_the_main_site_bar():
 	html = response.body.decode()
 	header = html[html.index('<header class="topbar"'):html.index("</header>")]
 	assert "tab=roadmap-overview" in header and "siteExperimentalToggle" in header
-	assert "Coming soon" not in header
+	assert "tab-coming-soon" not in header and "tab=soon-themes&amp;group=lab" in header  # the old greyed tab is gone; one Lab link
 
 
 def test_bare_coming_soon_redirects_to_roadmap():

@@ -590,7 +590,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('About', 'Research', 'Intelligence / Statistics', 'Roadmap', 'Lab'):
+    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Lab'):
         assert f'>{label}</button>' in header
 
 
@@ -602,8 +602,8 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map'} <= set(soon)
     assert not ({'soon-live-analysis', 'soon-deidentify'} & set(soon))  # both live in the Workbench now
     assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
-    assert len(soon) == 16 and 'soon-business-case' not in soon  # 13 former Coming soon items, Research Bench and the two internal checks
-    assert {'soon-research-bench', 'soon-units-sandbox', 'soon-citation-pass'} <= set(soon)
+    assert len(soon) == 17 and 'soon-business-case' not in soon  # 13 former Coming soon items, Research Bench and the two internal checks
+    assert {'soon-status', 'soon-research-bench', 'soon-units-sandbox', 'soon-citation-pass'} <= set(soon)
     assert 'soon-fc-analytics' not in soon
     roadmap = {tab: group for tab, group in views.items() if tab.startswith('roadmap-')}
     assert set(roadmap.values()) == {'roadmap'}
@@ -621,9 +621,9 @@ def test_lab_sorts_every_tool_into_one_of_four_sections():
 
     html = routes._data_explorer_page_html()
     keys = [key for _, _, _, tools in LAB for key in tools]
-    assert len(LAB) == 4 and len(keys) == len(set(keys))
+    assert len(LAB) == 5 and len(keys) == len(set(keys))
     assert set(keys) == {key for key, _, _ in COMING_SOON} | {key for key, _, _ in LAB_EXTRA}  # nothing dropped, nothing doubled
-    assert html.count('class="tab lab-cat"') == 4 and 'id="labCats"' in html
+    assert html.count('class="tab lab-cat"') == 5 and 'id="labCats"' in html
     for _, label, _, tools in LAB:
         assert label in html
         assert all(f'data-tab="soon-{key}"' in html for key in tools)
@@ -638,7 +638,7 @@ def test_lab_sorts_every_tool_into_one_of_four_sections():
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
     ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'direct'), ('?tab=fc-analytics', 'fc-analytics', 'intel'),
     ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'lab'),
-    ('?tab=soon-citation-map', 'soon', 'lab'), ('?group=soon', 'themes', 'lab'), ('?group=lab', 'themes', 'lab'), ('?tab=soon-units-sandbox', 'soon', 'lab'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'roadmap'), ('?tab=soon-themes', 'themes', 'lab'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?tab=soon-citation-map', 'soon', 'lab'), ('?group=soon', 'soon', 'lab'), ('?group=lab', 'soon', 'lab'), ('?tab=soon-units-sandbox', 'soon', 'lab'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'lab'), ('?tab=soon-themes', 'themes', 'lab'), ('?group=intel', 'judge-profile', 'intel'),
     ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'lab'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
@@ -1358,7 +1358,7 @@ def test_main_tab_clicks_reset_state_in_page_without_reloading():
     html = routes._data_explorer_page_html()
     assert "function pitchResetState()" in html and "function pitchCleanOpen(group)" in html
     assert "location.assign('/data-explorer" not in html
-    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-themes'}" in html
+    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-status'}" in html
     for step in ("closeDecisionReader()", "getElementById('clearSearch')?.click()", "ciState.caseId=null", "document.getElementById('fcxClear')?.click()"):
         assert step in html
 
@@ -1388,3 +1388,19 @@ def test_roadmap_is_one_expandable_page_and_old_coming_soon_addresses_redirect()
     assert routes.coming_soon_preview_page().headers['location'] == '/roadmap#tour'
     assert routes.roadmap_page().status_code == 200
     assert "/roadmap" in routes._data_explorer_page_html()
+
+
+def test_coming_soon_is_a_public_preview_and_the_detail_lives_in_the_lab_status_board():
+    from backend.pages import coming_soon_preview_page
+    from backend.pages.coming_soon_content import SECTIONS
+
+    page = coming_soon_preview_page.render()
+    for area in SECTIONS.values():
+        assert area['label'] in page and all(entry[1] in page for entry in area['items'])  # nothing dropped
+    assert 'data-src="/coming-soon-demo#ai"' in page and 'data-src="/roadmap/tour"' in page
+    # The preview carries plain availability labels only; evidence tiers, dependencies and internal notes stay on the Status board.
+    for private in ('Untested', 'Depends on', 'Evidence', 'roadmap_internal', 'Graded by a model'):
+        assert private not in page
+    html = routes._data_explorer_page_html()
+    assert 'data-tab="soon-status"' in html and '>Coming soon</button>' in html
+    assert [r for r in routes.router.routes if getattr(r, 'path', '') == '/roadmap/preview']

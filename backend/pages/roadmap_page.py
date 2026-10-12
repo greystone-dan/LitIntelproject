@@ -212,7 +212,7 @@ def _built_tools() -> str:
 
 	rows = "".join(
 		f'<div class="chiprow"><strong>{_e(name)}</strong><span>{_e(text)} '
-		f'<a href="/data-explorer?tab=soon-{key}&amp;group=soon" target="_top">Open it (Experimental on) &rarr;</a></span></div>'
+		f'<a href="/data-explorer?tab=soon-{key}&amp;group=lab" target="_top">Open it (Experimental on) &rarr;</a></span></div>'
 		for key, name, text in COMING_SOON
 	)
 	return (

@@ -122,7 +122,7 @@ _BODY = r'''<body>
 <a href="/data-explorer?tab=search">Research</a>
 <a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a>
 <a href="/workbench" class="active" aria-current="page">Workbench</a>
-<a href="/data-explorer?tab=soon-themes&group=soon">Coming soon</a>
+<a href="/data-explorer?tab=roadmap-overview&group=roadmap">Roadmap</a>
 </nav>
 <div class="userpill hidden" id="userPill"><span class="demo-flag">Demo</span><span>Signed in as <b id="userName"></b></span><button class="linkbtn" id="signOut" type="button">Sign out</button></div>
 </header>

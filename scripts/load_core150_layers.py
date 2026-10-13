@@ -15,6 +15,11 @@ Skipped, and counted in the output: a citation with no single library case; a ca
 whose notes do not line up with its paragraphs (the first words of a note's paragraph must be found in the stored
 text for at least --min-match of the notes).
 
+A second set (e.g. the next 158) is loaded with its own labels so its undo never touches the core rows:
+  python scripts/load_core150_layers.py --data data/next158 --frame-source next158-haiku-v3 --note-source next158-v12 [--apply]
+  python scripts/load_core150_layers.py --data data/next158 --frame-source next158-haiku-v3 --note-source next158-v12 --undo [--apply]
+Without those arguments the labels are core150-haiku-v3 and core150-v12 as before.
+
 Undo also works by hand: DELETE FROM case_frames WHERE source = 'core150-haiku-v3';
 DELETE FROM paragraph_notes WHERE source = 'core150-v12'; DELETE FROM issue_maps WHERE source_key ~ '^[0-9]{4}_[A-Z]+_[0-9]+$';
 Run `alembic upgrade head` first (0048 adds paragraph_notes and the new issue_maps columns).
@@ -64,7 +69,7 @@ def _count(session, model) -> int:
 	return session.execute(select(func.count()).select_from(model)).scalar_one()
 
 
-def load_frames(session, rows: list[dict], ids: dict[str, int | None], apply: bool) -> dict[str, int]:
+def load_frames(session, rows: list[dict], ids: dict[str, int | None], apply: bool, source: str = FRAME_SOURCE) -> dict[str, int]:
 	stats = {"file": len(rows), "before": _count(session, CaseFrame), "skipped_no_case": 0, "skipped_present": 0, "skipped_guard": 0, "to_add": 0}
 	have = set(session.execute(select(CaseFrame.case_id).where(CaseFrame.version == 1)).scalars())
 	cases = {i: c for i, c in session.execute(select(Case.id, Case.full_text).where(Case.id.in_([v for v in ids.values() if v]))).all()}
@@ -82,7 +87,7 @@ def load_frames(session, rows: list[dict], ids: dict[str, int | None], apply: bo
 	stats["to_add"] = len(todo)
 	if apply:
 		for case_id, frame in todo:
-			session.add(CaseFrame(case_id=case_id, version=1, frame=frame, source=FRAME_SOURCE))
+			session.add(CaseFrame(case_id=case_id, version=1, frame=frame, source=source))
 		session.commit()
 		stats["after"] = _count(session, CaseFrame)
 	return stats
@@ -130,7 +135,7 @@ def load_issue_maps(session, rows: list[dict], ids: dict[str, int | None], apply
 	return stats
 
 
-def load_notes(session, rows: list[dict], ids: dict[str, int | None], apply: bool, min_match: float) -> dict[str, int]:
+def load_notes(session, rows: list[dict], ids: dict[str, int | None], apply: bool, min_match: float, source: str = NOTE_SOURCE) -> dict[str, int]:
 	stats = {"file": len(rows), "before": _count(session, ParagraphNote), "skipped_no_case": 0, "cases_skipped_present": 0, "cases_skipped_misaligned": 0, "to_add": 0, "cases_to_add": 0}
 	by_case: dict[str, list[dict]] = defaultdict(list)
 	for row in rows:
@@ -156,21 +161,21 @@ def load_notes(session, rows: list[dict], ids: dict[str, int | None], apply: boo
 	stats["to_add"] = len(todo)
 	if apply:
 		for case_id, n in todo:
-			session.add(ParagraphNote(case_id=case_id, para=n["para"], version=1, note=n["note"], source=NOTE_SOURCE))
+			session.add(ParagraphNote(case_id=case_id, para=n["para"], version=1, note=n["note"], source=source))
 		session.commit()
 		stats["after"] = _count(session, ParagraphNote)
 	return stats
 
 
-def undo(session, issue_keys: set[str], apply: bool) -> dict[str, int]:
+def undo(session, issue_keys: set[str], apply: bool, frame_source: str = FRAME_SOURCE, note_source: str = NOTE_SOURCE) -> dict[str, int]:
 	counts = {
-		"case_frames": session.execute(select(func.count()).select_from(CaseFrame).where(CaseFrame.source == FRAME_SOURCE)).scalar_one(),
-		"paragraph_notes": session.execute(select(func.count()).select_from(ParagraphNote).where(ParagraphNote.source == NOTE_SOURCE)).scalar_one(),
+		"case_frames": session.execute(select(func.count()).select_from(CaseFrame).where(CaseFrame.source == frame_source)).scalar_one(),
+		"paragraph_notes": session.execute(select(func.count()).select_from(ParagraphNote).where(ParagraphNote.source == note_source)).scalar_one(),
 		"issue_maps": session.execute(select(func.count()).select_from(IssueMap).where(IssueMap.source_key.in_(issue_keys))).scalar_one(),
 	}
 	if apply:
-		session.execute(delete(CaseFrame).where(CaseFrame.source == FRAME_SOURCE))
-		session.execute(delete(ParagraphNote).where(ParagraphNote.source == NOTE_SOURCE))
+		session.execute(delete(CaseFrame).where(CaseFrame.source == frame_source))
+		session.execute(delete(ParagraphNote).where(ParagraphNote.source == note_source))
 		session.execute(delete(IssueMap).where(IssueMap.source_key.in_(issue_keys)))
 		session.commit()
 	return counts
@@ -181,13 +186,15 @@ def main() -> None:
 	parser.add_argument("--apply", action="store_true", help="Write (or, with --undo, remove).")
 	parser.add_argument("--undo", action="store_true", help="Remove only what this script added.")
 	parser.add_argument("--data", default=str(DATA), help="Folder holding the three .jsonl.gz files.")
+	parser.add_argument("--frame-source", default=FRAME_SOURCE, help="Source label written to (and undone from) case_frames.")
+	parser.add_argument("--note-source", default=NOTE_SOURCE, help="Source label written to (and undone from) paragraph_notes.")
 	parser.add_argument("--min-match", type=float, default=0.9, help="Share of a case's notes whose paragraph start must be found in the stored text.")
 	args = parser.parse_args()
 	folder = Path(args.data)
 	frames, issues, notes = (read_jsonl(folder / f"{n}.jsonl.gz") for n in ("frames", "issue_maps", "paragraph_notes"))
 	with SessionLocal() as session:
 		if args.undo:
-			counts = undo(session, {r["source_key"] for r in issues}, args.apply)
+			counts = undo(session, {r["source_key"] for r in issues}, args.apply, args.frame_source, args.note_source)
 			print(("removed: " if args.apply else "would remove: ") + ", ".join(f"{v} {k}" for k, v in counts.items()))
 			if not args.apply:
 				print("Dry run: nothing removed. Add --apply to remove.")
@@ -200,9 +207,9 @@ def main() -> None:
 		if len(missing) > 20:
 			print(f"  ... and {len(missing) - 20} more not found")
 		layers = (
-			("case frames", load_frames(session, frames, ids, args.apply)),
+			("case frames", load_frames(session, frames, ids, args.apply, args.frame_source)),
 			("issue maps", load_issue_maps(session, issues, ids, args.apply)),
-			("paragraph notes", load_notes(session, notes, ids, args.apply, args.min_match)),
+			("paragraph notes", load_notes(session, notes, ids, args.apply, args.min_match, args.note_source)),
 		)
 		for name, stats in layers:
 			print(f"\n{name}")

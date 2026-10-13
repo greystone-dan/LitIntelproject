@@ -302,6 +302,7 @@ test checks that these paths continue to exist.
 | `backend/pages/reader_frame.js` | TODO: describe this file |
 | `backend/pages/reader_positions.css` | TODO: describe this file |
 | `backend/pages/reader_positions.js` | TODO: describe this file |
+| `backend/pages/reader_sources.py` | The reader's "Where each piece comes from" strip |
 | `backend/pages/reader_v6.css` | TODO: describe this file |
 | `backend/pages/reader_v6.js` | TODO: describe this file |
 | `backend/pages/research.py` | Experimental research page builder |

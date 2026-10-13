@@ -105,3 +105,14 @@ def test_shipped_data_files_are_consistent():
 	assert {r["citation_key"] for r in issues} <= keys and {r["citation_key"] for r in notes} <= keys
 	assert all(r["note"].strip() and not r["note"].upper().startswith("NONE") for r in notes)
 	assert len({(r["source_key"], r["issue_no"]) for r in issues}) == len(issues)
+
+
+def test_separate_source_labels_keep_undo_apart(db):
+	ids = loader.resolve(db, ["2020_FC_1172"])
+	loader.load_frames(db, [{"citation_key": "2020_FC_1172", "frame": FRAME}], ids, True, "next158-haiku-v3")
+	loader.load_notes(db, NOTES, ids, True, 0.9, "next158-v12")
+	assert db.scalar(select(CaseFrame.source)) == "next158-haiku-v3" and db.scalar(select(ParagraphNote.source)) == "next158-v12"
+	assert loader.undo(db, set(), False) == {"case_frames": 0, "paragraph_notes": 0, "issue_maps": 0}
+	assert loader.undo(db, set(), False, "next158-haiku-v3", "next158-v12") == {"case_frames": 1, "paragraph_notes": 2, "issue_maps": 0}
+	loader.undo(db, set(), True, "next158-haiku-v3", "next158-v12")
+	assert db.scalar(select(CaseFrame.id)) is None and db.scalar(select(ParagraphNote.id)) is None

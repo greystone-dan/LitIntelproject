@@ -265,6 +265,7 @@ test checks that these paths continue to exist.
 | `backend/pages/coming_soon_argument.py` | Coming soon: the long page on the argument-breakdown work (whose position) |
 | `backend/pages/coming_soon_content.py` | Words for the Coming soon pages |
 | `backend/pages/coming_soon_demo.html` | Seven clickable Coming soon demos (reference library, smarter tags, coverage, Supreme Court data expansion, profiles and teams, argument breakdown, live document reader) that run on fixed, invented data in the browser with no network calls. |
+| `backend/pages/coming_soon_examples.json` | TODO: describe this file |
 | `backend/pages/coming_soon_page.py` | Coming soon: the roadmap, one overview page plus one page per section |
 | `backend/pages/coming_soon_preview.html` | Guided, Next-only tour of the Coming soon ideas (library, tags, teams, future local AI) using real screenshots and clearly labelled mock-ups. |
 | `backend/pages/coming_soon_preview_page.py` | Coming soon: the public preview of what iLit is adding, written to be shown in a demo |

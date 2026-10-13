@@ -477,7 +477,7 @@
    "what": "Parties, how the case got here, subject, issues and each side's main arguments, in one card.",
    "status": "check",
    "where": "Live in the Experimental reader for about 100 decisions.",
-   "number": "90–100%",
+   "number": "83–100%",
    "number_label": "parties 90%, subject and issues 100%, challenged part 83%, true arguments found 93% (151 of 162)",
    "sample": "29 scored recent immigration decisions, none used for tuning.",
    "grader": "Read by Haiku, graded by Sonnet (models, not lawyers).",
@@ -494,7 +494,7 @@
    "number_label": "result right and cited paragraph right",
    "sample": "152 decisions graded, about 95% on both counts.",
    "grader": "Maps written by a free local model (Qwen3.5-9B); graded blind by Haiku.",
-   "caveat": "A few maps read the direction the wrong way round or marked a decided issue as undecided (3 decisions among the graded sets). Issues the grader never saw are not measured.",
+   "caveat": "A few maps read the direction the wrong way round or marked a decided issue as undecided (3 decisions among the graded sets). Issues the grader never saw are not measured. In the most recent batch of 50 decisions, 92% of issue results and 95% of cited paragraphs were right.",
    "source": "open-models/local-issue-maps-batch2/README.md"
   },
   {
@@ -533,8 +533,9 @@
    "number_label": "right role for a unit (50% of unit boundaries exactly right)",
    "sample": "24 untouched Refugee Protection Division decisions.",
    "grader": "Scored against hand-labelled sets, once, with no tuning.",
-   "caveat": "Exact boundaries are the hard part; the role is usually right even when the edge is a paragraph out. A small learned step added to the rules reached about 85% right role per paragraph on 47 hand-labelled decisions (about 90% for facts, reasoning and disposition). Finding where the analysis starts is only 55% within one paragraph. The labels themselves disagree, so about 92% is the practical ceiling.",
-   "source": "discussion-units/case-structure-report.md; discussion-units/pipeline-2026-10-11/pipeline-and-cost.md"
+   "caveat": "Exact boundaries are the hard part; the role is usually right even when the edge is a paragraph out. Finding where the analysis starts is only 55% within one paragraph.",
+   "source": "discussion-units/case-structure-report.md; discussion-units/pipeline-2026-10-11/pipeline-and-cost.md",
+   "extra": "Adding a small learned step to the rules reached about 85% right role per paragraph on 47 hand-labelled decisions (about 90% for facts, reasoning and disposition). The labels themselves disagree, so about 92% is the practical ceiling."
   },
   {
    "key": "matching",
@@ -547,7 +548,7 @@
    "sample": "60 fresh arguments against the 3,083 decided issues, by word match.",
    "grader": "Judged by a model, not a lawyer.",
    "caveat": "Small sample. Matching your own draft is not built; nothing here reads or stores a draft.",
-   "source": "ai-proof-of-concept and open-models/local-issue-maps"
+   "source": "embeddings/paragraph-embeddings-for-matching.md"
   },
   {
    "key": "outcomes",
@@ -595,5 +596,47 @@
   "Paragraph notes and issue maps exist for a hand-picked set of about 150 important Federal Court decisions, not the whole library.",
   "Reading your own draft against all this is planned. Nothing on this page reads or stores a draft.",
   "Layout and wording are for review. This page is a picture built from real stored outputs, not the working feature."
- ]
+ ],
+ "helps": {
+  "title": "Where this helps in hearings and litigation work",
+  "text": "Five everyday jobs, each tied to the part that does it and to the evidence for it. The label beside each job says how far that part has got, and the last line says where it stops.",
+  "items": [
+   {
+    "who": "Hearings officer or analyst",
+    "job": "Get the point of a long decision before reading it in full",
+    "how": "A case summary and a map of the questions the court decided, each with a link to the paragraph that decided it.",
+    "pass": "issues",
+    "scope": "Built so far for a hand-picked set of about 150 decisions."
+   },
+   {
+    "who": "Litigation counsel",
+    "job": "See whose argument a paragraph is dealing with",
+    "how": "Each paragraph carries a tag for the party or decision maker whose position it reports; the reader can show or hide the tags.",
+    "pass": "position",
+    "scope": "Stored for 39,617 decisions; a tag is shown only where the tagger is confident."
+   },
+   {
+    "who": "Litigation counsel",
+    "job": "Check how a cited case actually ended",
+    "how": "The outcome is read from the ruling text by fixed rules, with the sentence it relied on stored beside it. Unclear cases are left blank, not guessed.",
+    "pass": "outcomes",
+    "scope": "Read from the ruling text, so it covers decisions with a clear disposition."
+   },
+   {
+    "who": "Hearings officer or counsel",
+    "job": "Find earlier decisions on the same question",
+    "how": "Given an argument, finds decided issues from earlier Federal Court decisions.",
+    "pass": "matching",
+    "scope": "Matching your own draft is not built. Tested on a small set of arguments."
+   },
+   {
+    "who": "Anyone citing the law",
+    "job": "Land on the right paragraph from a short-form citation",
+    "how": "Being built: short forms such as “at para 44” would resolve to the right case and paragraph.",
+    "pass": "citations",
+    "scope": "No accuracy figure yet; the rebuild has not been run on the live library."
+   }
+  ]
+ },
+ "as_of": "Figures as of 13 October 2026."
 }

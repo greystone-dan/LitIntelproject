@@ -1762,6 +1762,9 @@ window.addEventListener('afterprint',()=>{
   about_how_path = about_fragment_path.with_name('about_how.html')
   about_how = about_how_path.read_text(encoding='utf-8') if about_how_path.exists() else ''
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_panel_html(about_fragment, about_how) + '\n</section>\n' + html[about_end:]
+  from .reader_sources import strip_html as reader_source_strip
+  summary_detail = '<div class="reader-evidence-detail" id="readerCaseSummaryDetail" hidden aria-live="polite"></div>'
+  html = html.replace(summary_detail, summary_detail + reader_source_strip(), 1)
   here = Path(__file__).resolve().parent
   snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')

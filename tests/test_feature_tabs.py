@@ -1444,3 +1444,18 @@ def test_preview_tier_tiles_link_to_groups_and_every_use_states_its_scope():
         assert f'id="{anchor}"' in page  # a tile never links to a group that is not drawn
     assert all(item.get('scope') for item in data['helps']['items'])  # each job says where it stops
     assert data.get('as_of') and data['as_of'] in page
+
+
+def test_reader_source_strip_describes_each_piece_with_numbers_from_the_examples_file():
+    import json
+
+    from backend.pages import coming_soon_preview_page as preview
+    from backend.pages.reader_sources import strip_html
+
+    strip = strip_html()
+    assert strip.count('<li>') == 4 and 'Stored AI pass' in strip and 'Learned' in strip and 'Rules only' in strip
+    passes = {p['key']: p for p in json.loads(preview.EXAMPLES_FILE.read_text(encoding='utf-8'))['passes']}
+    for key in ('frame', 'issues', 'notes', 'position'):
+        assert passes[key]['number'] in strip  # the number is the one on the Coming soon card
+    html = routes._data_explorer_page_html()
+    assert html.count('id="readerSourceStrip"') == 1 and 'body:not(.reader-experimental) .src-strip{display:none!important}' in html

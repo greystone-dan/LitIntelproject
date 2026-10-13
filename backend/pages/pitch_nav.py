@@ -153,6 +153,8 @@ _CSS = """<style>
 .lab-notice[hidden]{display:none}
 .cs-more{margin-top:10px}.cs-more a{color:var(--teal);font-weight:600;text-decoration:none}
 @media(max-width:600px){.lab-cats:not([hidden]){display:grid!important;grid-template-columns:1fr 1fr;gap:6px!important;overflow:visible!important}.lab-cats .tab{justify-content:space-between;white-space:normal!important;padding:6px 12px!important;font-size:12px;border-radius:12px}.lab-notice a{margin-left:0}}
+.lab-cats .tab{border:1px solid var(--border);background:#fffdf9}.lab-cats .tab.active{border-color:var(--teal)}
+@media(max-width:600px){.primary-groups{display:grid!important;grid-template-columns:repeat(3,1fr);gap:4px!important}.primary-groups button{min-width:0!important;padding:8px 4px!important;text-align:center;line-height:1.25}.site-experimental-toggle{padding:6px 10px!important;font-size:12px!important;min-height:0!important}}
 .pitch-embedded #labCats{display:none!important}
 .cs-strip{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0 0 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,#111 0 14px,#f5c400 14px 28px)}
 .cs-strip span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:3px;font-size:13px}

@@ -261,7 +261,7 @@ def _script() -> str:
         "  const group=soon?item.group:Object.keys(researchGroups).find(key=>researchGroups[key].includes(activeResearchPanels[target]?target:'search'));\n"
         "  const nav=document.getElementById('researchViews');\n"
         "  if(nav)nav.setAttribute('aria-label',(pitchLabels[group]||'Site')+' views');\n"
-        "  document.documentElement.classList.toggle('ilit-in-preview',group==='roadmap');\n"
+        "  try{document.documentElement.classList.toggle('ilit-in-preview',group==='roadmap')}catch(error){}\n"
         "  if(nav)nav.hidden=[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<2;\n"
         "};\n"
     )

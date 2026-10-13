@@ -581,7 +581,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     html = routes._data_explorer_page_html()
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     controls = NavigationParser(header).controls
-    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'roadmap', 'dev', 'lab']
+    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'roadmap', 'dev']
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('class="brand-home"') < header.index('primary-groups')
@@ -590,7 +590,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Lab'):
+    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development'):
         assert f'>{label}</button>' in header
 
 
@@ -599,10 +599,10 @@ def test_secondary_navigation_has_no_lab_or_about_sub_tabs():
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
     assert views == {
         'about': 'info', 'search': 'research', 'judge-profile': 'intel', 'citation-intelligence': 'intel',
-        'fc-analytics': 'intel', 'roadmap-overview': 'roadmap', 'dev-changelog': 'dev', 'soon-home': 'lab',
+        'fc-analytics': 'intel', 'roadmap-overview': 'roadmap', 'dev-changelog': 'dev', 'soon-home': 'dev',
     }  # the 17 Lab tool tabs, 5 Lab pills and About's How it works / Changelog tabs became cards and sections
     assert not [attrs for tag, attrs in controls if tag == 'a']
-    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'lab', 'dev', 'roadmap'))
+    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'dev', 'roadmap'))
 
 
 def test_lab_home_lists_every_tool_under_five_headings_at_its_old_address():
@@ -631,9 +631,9 @@ def test_lab_home_lists_every_tool_under_five_headings_at_its_old_address():
     ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
     ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'direct'), ('?tab=fc-analytics', 'fc-analytics', 'intel'),
-    ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'lab'),
-    ('?tab=soon-citation-map', 'soon', 'lab'), ('?group=soon', 'soon', 'lab'), ('?group=lab', 'soon', 'lab'), ('?tab=soon-home', 'soon', 'lab'), ('?tab=about-how', 'about', 'info'), ('?tab=about-changelog', 'soon', 'dev'), ('?tab=dev-changelog', 'soon', 'dev'), ('?group=dev', 'soon', 'dev'), ('?tab=soon-units-sandbox', 'soon', 'lab'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'lab'), ('?tab=soon-themes', 'themes', 'lab'), ('?group=intel', 'judge-profile', 'intel'),
-    ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'lab'),
+    ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'dev'),
+    ('?tab=soon-citation-map', 'soon', 'dev'), ('?group=soon', 'soon', 'dev'), ('?group=lab', 'soon', 'dev'), ('?tab=soon-home', 'soon', 'dev'), ('?tab=about-how', 'about', 'info'), ('?tab=about-changelog', 'soon', 'dev'), ('?tab=dev-changelog', 'soon', 'dev'), ('?group=dev', 'soon', 'dev'), ('?tab=soon-units-sandbox', 'soon', 'dev'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'dev'), ('?tab=soon-themes', 'themes', 'dev'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'dev'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
     ('?tab=themes&group=info', 'themes', 'direct'),
@@ -669,7 +669,7 @@ assert.ok(Object.entries(activeResearchPanels).every(([key,id])=>panels[id].hidd
 location.href=original;window.popstate();
 assert.equal(controls.find(item=>item.dataset.group&&item.classList.active)?.dataset.group,GROUP==='direct'?undefined:GROUP);
 activateResearchTab('research-bench');
-assert.equal(location.searchParams.get('group'),'lab');
+assert.equal(location.searchParams.get('group'),'dev');
 assert.equal(panels.researchBenchPanel.hidden,false);
 assert.equal(location.searchParams.get('judge'),new URL(original).searchParams.get('judge'));
 assert.equal(location.searchParams.get('imm'),new URL(original).searchParams.get('imm'));
@@ -1352,7 +1352,7 @@ def test_main_tab_clicks_reset_state_in_page_without_reloading():
     html = routes._data_explorer_page_html()
     assert "function pitchResetState()" in html and "function pitchCleanOpen(group)" in html
     assert "location.assign('/data-explorer" not in html
-    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'dev-changelog'}" in html
+    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',dev:'soon-home'}" in html
     for step in ("closeDecisionReader()", "getElementById('clearSearch')?.click()", "ciState.caseId=null", "document.getElementById('fcxClear')?.click()"):
         assert step in html
 

@@ -84,8 +84,7 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
 <button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
-<button type="button" data-group="dev" aria-pressed="false" aria-controls="researchViews" title="How the site is built and what has changed: the changelog">Development</button>
-<button type="button" data-group="lab" aria-pressed="false" aria-controls="researchViews" title="Experimental tools that are built but not yet proven">Lab</button>
+<button type="button" data-group="dev" aria-pressed="false" aria-controls="researchViews" title="Experimental: the Lab of built-but-unproven tools, and the changelog">Development</button>
 <button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: the Lab, units, Find the unit and unfinished reader tools">Experimental: off</button>
 </nav>"""
 
@@ -113,8 +112,8 @@ def _subnav() -> str:
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
         _tab("roadmap", "roadmap-overview", "comingSoonPanel", "Coming soon"),
+        _tab("dev", "soon-home", "comingSoonPanel", "Lab"),
         _tab("dev", "dev-changelog", "comingSoonPanel", "Changelog"),
-        _tab("lab", "soon-home", "comingSoonPanel", "The Lab"),
     ]
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
@@ -161,7 +160,7 @@ def pitch_soon_info() -> dict:
     info = {}
     for key, (name, text) in _lab_names().items():
         kind, target = SOON_TARGETS.get(key, ("text", ""))
-        info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target, "group": "lab"}
+        info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target, "group": "dev", "navTab": "soon-home", "lab": True}
     # Coming soon is the public preview; the Status board (the old long Roadmap page) is the private side inside the Lab.
     # Every older Roadmap address opens the Status board at the matching place, except the overview, tour and demos.
     for key in ROADMAP_ORDER:
@@ -169,13 +168,13 @@ def pitch_soon_info() -> dict:
         if key == "overview":
             info["roadmap-overview"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview", "group": "roadmap", "flat": True}
         else:
-            info[f"roadmap-{key}"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "lab", "navTab": "soon-status", "flat": True}
+            info[f"roadmap-{key}"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "dev", "navTab": "soon-home", "lab": True, "status": True, "flat": True}
     info["roadmap-tour"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#tour", "group": "roadmap", "flat": True}
     info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#demos", "group": "roadmap", "flat": True}
-    info["roadmap-future-features"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "lab", "navTab": "soon-status", "flat": True}
-    info["soon-status"]["flat"] = True
+    info["roadmap-future-features"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "dev", "navTab": "soon-home", "lab": True, "status": True, "flat": True}
+    info["soon-status"].update(flat=True, status=True)
     info["dev-changelog"] = {"name": "Changelog", "text": "", "kind": "page", "target": "/changelog", "group": "dev", "flat": True}
-    info["soon-home"] = {"name": "The Lab", "text": "", "kind": "page", "target": "/lab", "group": "lab", "flat": True}
+    info["soon-home"] = {"name": "The Lab", "text": "", "kind": "page", "target": "/lab", "group": "dev", "flat": True}
     return info
 
 
@@ -187,13 +186,13 @@ def _script() -> str:
         "activeResearchPanels.soon='comingSoonPanel';\n"
         "const pitchOldTab={'research-bench':'soon-research-bench','about-changelog':'dev-changelog','changelog':'dev-changelog'};\n\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
-        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],lab:['soon','research-bench'],dev:['soon'],soon:['soon'],testing:['soon']});\n"
+        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],lab:['soon','research-bench'],dev:['soon','research-bench'],soon:['soon'],testing:['soon']});\n"
         "researchGroups.direct=Object.keys(activeResearchPanels).filter(key=>!Object.values(researchGroups).some(list=>list.includes(key)));\n"
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
-        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'dev-changelog',soon:'soon-home',testing:'soon-research-bench'});\n"
+        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'soon-home',soon:'soon-home',testing:'soon-research-bench'});\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
         "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav,header.top,header:has(.brand),p:has(>a[href*=explorer]){display:none!important}';doc.head.appendChild(style);if(pitchFrame.getAttribute('data-auto')==='1'){const fit=()=>{pitchFrame.style.height=Math.ceil(doc.documentElement.scrollHeight)+'px'};fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(doc.documentElement);if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(fit)}}catch(error){}});\n"
-        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'dev-changelog'};\n"
+        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',dev:'soon-home'};\n"
         "function pitchResetState(){\n"
         "  const attempt=step=>{try{step()}catch(error){}};\n"
         "  attempt(()=>{const reader=document.getElementById('caseReaderPanel');if(reader&&!reader.hidden&&typeof closeDecisionReader==='function')closeDecisionReader()});\n"
@@ -219,7 +218,7 @@ def _script() -> str:
         "},true);\n"
         "const pitchBaseActivate=activateResearchTab;\n"
         "function pitchLabBack(soon,item){\n"
-        "  try{const status=document.getElementById('comingSoonRoadmap');if(status)status.hidden=(item.navTab||soon)==='soon-status'}catch(error){}\n"
+        "  try{const status=document.getElementById('comingSoonRoadmap');if(status)status.hidden=Boolean(item.status)}catch(error){}\n"
         "}\n"
         "function pitchShowSoonNav(soon,groupKey){\n"
         "  document.querySelectorAll('[data-group]').forEach(button=>{const on=button.dataset.group===groupKey;button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on))});\n"
@@ -233,7 +232,7 @@ def _script() -> str:
         "  if(wanted==='about'&&aboutParam==='changelog')return activateResearchTab('dev-changelog',updateUrl);\n"
         "  const aboutView=wanted.indexOf('about-')===0?wanted.slice(6):wanted==='about'?(aboutParam==='changelog'||aboutParam==='how'?aboutParam:'overview'):null;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
-        "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||pitchSoon[soon].group!=='lab'||soon==='soon-home';\n"
+        "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||!pitchSoon[soon].lab;\n"
         "  if(!soon){pitchBaseActivate(target,updateUrl);if(aboutView&&window.showAboutView)window.showAboutView(aboutView,updateUrl)}\n"
         "  else{\n"
         "    pitchBaseActivate(item.kind==='panel'?item.target:'soon',false);\n"
@@ -248,7 +247,7 @@ def _script() -> str:
         "  const nav=document.getElementById('researchViews');\n"
         "  if(nav)nav.setAttribute('aria-label',(pitchLabels[group]||'Site')+' views');\n"
         "  try{document.documentElement.classList.toggle('ilit-in-preview',group==='roadmap'||soon==='soon-home')}catch(error){}\n"
-        "  if(nav)nav.hidden=[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<(group==='dev'?1:2);\n"
+        "  if(nav)nav.hidden=[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<2;\n"
         "};\n"
     )
 

@@ -84,6 +84,7 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
 <button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
+<button type="button" data-group="dev" aria-pressed="false" aria-controls="researchViews" title="How the site is built and what has changed: the changelog">Development</button>
 <button type="button" data-group="lab" aria-pressed="false" aria-controls="researchViews" title="Experimental tools that are built but not yet proven">Lab</button>
 <button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: the Lab, units, Find the unit and unfinished reader tools">Experimental: off</button>
 </nav>"""
@@ -112,6 +113,7 @@ def _subnav() -> str:
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
         _tab("roadmap", "roadmap-overview", "comingSoonPanel", "Coming soon"),
+        _tab("dev", "dev-changelog", "comingSoonPanel", "Changelog"),
         _tab("lab", "soon-home", "comingSoonPanel", "The Lab"),
     ]
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
@@ -172,6 +174,7 @@ def pitch_soon_info() -> dict:
     info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#demos", "group": "roadmap", "flat": True}
     info["roadmap-future-features"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "lab", "navTab": "soon-status", "flat": True}
     info["soon-status"]["flat"] = True
+    info["dev-changelog"] = {"name": "Changelog", "text": "", "kind": "page", "target": "/changelog", "group": "dev", "flat": True}
     info["soon-home"] = {"name": "The Lab", "text": "", "kind": "page", "target": "/lab", "group": "lab", "flat": True}
     return info
 
@@ -180,17 +183,17 @@ def _script() -> str:
     info = pitch_soon_info()
     return (
         "const pitchSoon=" + json.dumps(info) + ";\n"
-        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',lab:'Lab',direct:'Other'};\n"
+        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',lab:'Lab',dev:'Development',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
-        "const pitchOldTab={'research-bench':'soon-research-bench'};\n\n"
+        "const pitchOldTab={'research-bench':'soon-research-bench','about-changelog':'dev-changelog','changelog':'dev-changelog'};\n\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
-        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],lab:['soon','research-bench'],soon:['soon'],testing:['soon']});\n"
+        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],lab:['soon','research-bench'],dev:['soon'],soon:['soon'],testing:['soon']});\n"
         "researchGroups.direct=Object.keys(activeResearchPanels).filter(key=>!Object.values(researchGroups).some(list=>list.includes(key)));\n"
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
-        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',soon:'soon-home',testing:'soon-research-bench'});\n"
+        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'dev-changelog',soon:'soon-home',testing:'soon-research-bench'});\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
         "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav,header.top,header:has(.brand),p:has(>a[href*=explorer]){display:none!important}';doc.head.appendChild(style);if(pitchFrame.getAttribute('data-auto')==='1'){const fit=()=>{pitchFrame.style.height=Math.ceil(doc.documentElement.scrollHeight)+'px'};fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(doc.documentElement);if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(fit)}}catch(error){}});\n"
-        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home'};\n"
+        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'dev-changelog'};\n"
         "function pitchResetState(){\n"
         "  const attempt=step=>{try{step()}catch(error){}};\n"
         "  attempt(()=>{const reader=document.getElementById('caseReaderPanel');if(reader&&!reader.hidden&&typeof closeDecisionReader==='function')closeDecisionReader()});\n"
@@ -227,6 +230,7 @@ def _script() -> str:
         "  const wanted0=tabKey==='info'?'about':String(tabKey||'search'),wanted=pitchOldTab[wanted0]||wanted0;\n"
         "  const target=wanted.indexOf('about-')===0?'about':wanted;\n"
         "  const aboutParam=!updateUrl?new URLSearchParams(location.search).get('about'):null;\n"
+        "  if(wanted==='about'&&aboutParam==='changelog')return activateResearchTab('dev-changelog',updateUrl);\n"
         "  const aboutView=wanted.indexOf('about-')===0?wanted.slice(6):wanted==='about'?(aboutParam==='changelog'||aboutParam==='how'?aboutParam:'overview'):null;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
         "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||pitchSoon[soon].group!=='lab'||soon==='soon-home';\n"
@@ -244,7 +248,7 @@ def _script() -> str:
         "  const nav=document.getElementById('researchViews');\n"
         "  if(nav)nav.setAttribute('aria-label',(pitchLabels[group]||'Site')+' views');\n"
         "  try{document.documentElement.classList.toggle('ilit-in-preview',group==='roadmap'||soon==='soon-home')}catch(error){}\n"
-        "  if(nav)nav.hidden=[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<2;\n"
+        "  if(nav)nav.hidden=[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<(group==='dev'?1:2);\n"
         "};\n"
     )
 

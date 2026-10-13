@@ -4,7 +4,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from backend.pages.changelog_tab import about_panel_html
+from backend.pages.changelog_tab import about_panel_html, changelog_page_html
 from backend.pages.data_explorer import data_explorer_page_html
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,19 +68,22 @@ def test_uncovered_pr_becomes_an_auto_entry(monkeypatch):
 	assert first["title"] == "Add colour-blind friendly search chips" and first["theme"] == "search"
 
 
-def test_about_page_has_overview_and_changelog_views_without_network_calls():
+def test_about_has_overview_and_how_it_works_and_the_changelog_lives_in_development():
 	html = data_explorer_page_html()
-	assert 'data-tab="about-changelog"' in html and 'id="aboutChangelogPane"' in html
-	assert 'id="changelogData"' in html and 'id="aboutChangelogPane"' in html
-	assert 'data-tab="about-how"' in data_explorer_page_html() and 'id="aboutHowPane"' in html
-	script = re.search(r"<script>\s*\(function\(\)\{\nconst data=JSON.parse.*?</script>", html, re.S).group(0)
+	assert 'data-tab="about-changelog"' not in html and 'id="aboutChangelogPane"' not in html  # no changelog on About
+	assert 'id="aboutOverviewPane"' in html and 'id="aboutHowPane"' in html
+	assert 'data-group="dev"' in html and 'data-tab="dev-changelog"' in html  # Development > Changelog
+	assert "'about-changelog':'dev-changelog'" in html  # the old tab key still opens it
+	page = changelog_page_html()
+	assert 'id="aboutChangelogPane"' in page and 'id="changelogData"' in page
+	script = re.search(r"<script>\s*\(function\(\)\{\nconst data=JSON.parse.*?</script>", page, re.S).group(0)
 	assert "fetch(" not in script
 
 
 def test_changelog_data_is_an_escaped_attribute_not_a_script():
 	import html as html_lib
 
-	html = about_panel_html("<p>overview</p>")
+	html = changelog_page_html()
 	attribute = re.search(r'id="changelogData" data-json="([^"]*)"', html).group(1)
 	assert "<" not in attribute
 	assert json.loads(html_lib.unescape(attribute))["entries"]
@@ -88,7 +91,7 @@ def test_changelog_data_is_an_escaped_attribute_not_a_script():
 
 def test_about_mobile_navigation_and_changelog_filters_have_large_targets():
 	how = (ROOT / "backend" / "pages" / "about_how.html").read_text(encoding="utf-8")
-	html = about_panel_html("<p>overview</p>")
+	html = changelog_page_html()
 	assert ".ilit-about .howsteps a{display:inline-flex;align-items:center;min-height:44px" in how
 	assert ".ilit-about .howsteps a:focus-visible" in how
 	assert ".cl-chip{min-height:44px" in html

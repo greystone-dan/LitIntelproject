@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 215
+Active scripts documented: 216
 
 ## Catalog
 
@@ -153,6 +153,7 @@ Active scripts documented: 215
 | `load_case_frames.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_case_frames.py --help` |
 | `load_core150_layers.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_core150_layers.py --help` |
 | `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
+| `load_note_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_note_links.py --help` |
 | `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
@@ -2226,6 +2227,20 @@ Active scripts documented: 215
 
 ```powershell
 .\venv\Scripts\python.exe scripts\load_issue_maps.py --help
+```
+
+## `scripts/load_note_links.py`
+
+**Purpose:** Load stored "possibly the same point" links between paragraph notes. Dry run by default. Reads data/note_links/links.jsonl.gz: rows {citation_key, para, other_citation_key, other_para, score}. Each end is linked to the library case with that exact citation (neutral citation written with underscores). A link is added only when both decisions are in the library and both paragraph notes are already stored (run scripts/load_core150_layers.py first). Additive: existing links are never updated or deleted. python scripts/load_note_links.py # dry run: counts, nothing written python scripts/load_note_links.py --apply # write (live database: needs the go-ahead) python scripts/load_note_links.py --undo # dry run of the undo python scripts/load_note_links.py --undo --apply # remove only rows with this --source label Undo by hand: DELETE FROM paragraph_note_links WHERE source = 'links-v1'; (or DROP TABLE paragraph_note_links). Run `alembic upgrade head` first (0049 adds the table).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_note_links.py --help
 ```
 
 ## `scripts/load_position_tags.py`

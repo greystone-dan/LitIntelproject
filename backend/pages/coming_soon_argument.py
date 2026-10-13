@@ -33,7 +33,7 @@ _SECTIONS = [
 	]),
 	("results", "Results so far, with the caveats", [
 		"These are early tests on a small graded sample. The grading was done by Claude readers, not by lawyers, and no lawyer has reviewed the sheets yet. Please read the figures as indications.",
-		"- Whose position. On the graded sample the holder was right about 8 times in 10.",
+		"- Whose position. On 122 held-out decisions the main speaker matched the stored labels for about 76% of paragraphs (about 86% where a tag is shown).",
 		"- Issue results. The result of an issue (who won it) was right about 88% of the time.",
 		"- The readers disagreed less with each other than with the first AI pass: two independent Claude readers agreed on about 9 paragraphs in 10, which is why the fixed rules and a second reading are used as checks.",
 		"- Known problems. Memoranda and written submissions can be mistaken for decisions. In split Supreme Court decisions the dissent can be reported as the holding. Paragraphs where the rules cannot tell are shown as “not yet detected” instead of guessed.",

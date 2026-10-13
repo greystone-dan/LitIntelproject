@@ -20,6 +20,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from .coming_soon_content import PARTS, SECTIONS
+from .feature_inventory import inventory, label_of, meta
 from .coming_soon_page import STATUSES, STATUS_MEANING, _EXTRA_CSS, _RULE, _about_css, _first_sentence
 
 HERE = Path(__file__).resolve().parent
@@ -122,6 +123,32 @@ def _place_chip(place: str) -> str:
 	return f'<span class="rm-place {place}" title="{_e(PLACES[place][1])}">{PLACES[place][0]}</span>'
 
 
+def _inv_chips(slug: str) -> str:
+	info = meta(slug)
+	if not info:
+		return ""
+	return (
+		f'<span class="rm-place rm-when {info["horizon"]}" title="When it is proposed to go live">{_e(label_of("horizons", info["horizon"]))}</span>'
+		f'<span class="rm-place rm-ai {info["ai"]}" title="Whether it needs AI">{_e(label_of("ai", info["ai"]))}</span>'
+	)
+
+
+def _inv_attrs(slug: str) -> str:
+	info = meta(slug)
+	return f' data-when="{info["horizon"]}" data-ai="{info["ai"]}" data-workflow="{info["workflow"]}"' if info else ""
+
+
+def _inv_facts(slug: str) -> str:
+	info = meta(slug)
+	if not info:
+		return ""
+	return (
+		f'<div><strong>Workflow</strong><span>{_e(label_of("workflows", info["workflow"]))}</span></div>'
+		f'<div><strong>Who it helps</strong><span>{_e(inventory()["audiences"][info["audience"]])}</span></div>'
+		f'<div><strong>Needs AI?</strong><span>{_e(label_of("ai", info["ai"]))}</span></div>'
+	)
+
+
 def _status_chip(status: str) -> str:
 	return f'<span class="tag {status}">{STATUSES[status]}</span>'
 
@@ -159,8 +186,8 @@ def _item(entry: tuple, area_slug: str = "") -> str:
 			+ "</ul><p><strong>Graded by a model, not a lawyer.</strong> No lawyer has reviewed these figures.</p></div>"
 		)
 	return (
-		f'<details class="rm-item" id="{anchor}" data-tier="{tier}" data-place="{place}" data-area="{area_slug}"><summary><span class="rm-title">{_e(title)}</span>'
-		f'<span class="rm-chips">{_tier_chip(tier)}{_place_chip(place)}</span>'
+		f'<details class="rm-item" id="{anchor}" data-tier="{tier}" data-place="{place}" data-area="{area_slug}"{_inv_attrs(anchor)}><summary><span class="rm-title">{_e(title)}</span>'
+		f'<span class="rm-chips">{_tier_chip(tier)}{_place_chip(place)}{_inv_chips(anchor)}</span>'
 		f'<span class="rm-line"><b>What it is:</b> {_e(_first_sentence(paragraphs[0]))}</span>'
 		f'<span class="rm-line"><b>Depends on:</b> {_e(_first_sentence(needs))}</span></summary>'
 		f'<div class="rm-body">{paras}<div class="status-list">'
@@ -168,7 +195,7 @@ def _item(entry: tuple, area_slug: str = "") -> str:
 		f"<div><strong>What exists today</strong><span>{_e(today)}</span></div>"
 		f"<div><strong>What it needs</strong><span>{_e(needs)}</span></div>"
 		f"<div><strong>Work label</strong><span>{_status_chip(status)} {_e(STATUS_MEANING[status])}</span></div>"
-		f"{elsewhere}</div>{measured}</div></details>"
+		f"{_inv_facts(anchor)}{elsewhere}</div>{measured}</div></details>"
 	)
 
 
@@ -178,12 +205,12 @@ def _glance() -> str:
 		for entry in area["items"]:
 			anchor, title = entry[0], entry[1]
 			rows += (
-				f'<tr data-tier="{tier_of(anchor)}" data-place="{place_of(anchor)}" data-area="{area_slug}">'
+				f'<tr data-tier="{tier_of(anchor)}" data-place="{place_of(anchor)}" data-area="{area_slug}"{_inv_attrs(anchor)}>'
 				f'<td><a href="#{anchor}">{_e(title)}</a></td><td>{_e(area["label"])}</td><td>{_tier_chip(tier_of(anchor))}</td>'
-				f'<td>{_place_chip(place_of(anchor))}</td><td>{_e(_first_sentence(entry[6]))}</td></tr>'
+				f'<td>{_place_chip(place_of(anchor))}</td><td>{_inv_chips(anchor)}</td><td>{_e(_first_sentence(entry[6]))}</td></tr>'
 			)
 	return (
-		'<div class="table-wrap"><table class="glance rm-glance"><thead><tr><th>Item</th><th>Area</th><th>Evidence</th><th>Where it stands</th><th>Depends on</th></tr></thead>'
+		'<div class="table-wrap"><table class="glance rm-glance"><thead><tr><th>Item</th><th>Area</th><th>Evidence</th><th>Where it stands</th><th>When / AI</th><th>Depends on</th></tr></thead>'
 		f"<tbody>{rows}</tbody></table></div>"
 	)
 
@@ -352,9 +379,11 @@ _CSS = """
 .ilit-about .rm-tier.untested{background:#ecebe4;color:var(--muted)}
 .ilit-about .rm-place{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid var(--border);background:var(--surface);color:var(--text)}
 .ilit-about .rm-place.live{border-color:var(--teal);color:var(--teal)}.ilit-about .rm-place.experimental{border-color:var(--blue);color:var(--blue)}
+.ilit-about .rm-when.now{background:var(--teal);border-color:var(--teal);color:#fff}.ilit-about .rm-when.next{border-color:var(--amber);color:var(--amber)}.ilit-about .rm-when.later{color:var(--muted)}
+.ilit-about .rm-ai.local{border-color:var(--blue);color:var(--blue)}.ilit-about .rm-ai.ingest{border-color:var(--amber);color:var(--amber)}.ilit-about .rm-ai.none{border-color:var(--teal);color:var(--teal)}
 .ilit-about .rm-place.files{border-color:var(--amber);color:var(--amber)}.ilit-about .rm-place.paused{border-color:var(--rust);color:var(--rust)}
 .ilit-about .rm-filters{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 0;align-items:center}
-.ilit-about .rm-filters .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ilit-about .rm-filters .fgrp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.ilit-about .rm-filters .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .ilit-about .rm-filters select{font:inherit;font-size:12.5px;padding:8px;border:1px solid var(--border);border-radius:5px;background:var(--surface);color:var(--text);max-width:100%}
 .ilit-about .rm-glance td:nth-child(5){color:var(--muted)}
 .ilit-about .rm-evidence{margin-top:12px;padding:12px 16px;border:1px solid var(--blue);border-radius:6px;background:var(--blue-soft);font-size:13.5px}
@@ -409,12 +438,12 @@ function setAll(open){all('details').forEach(function(d){if(d.hasAttribute('data
 document.getElementById('rmExpand').addEventListener('click',function(){setAll(true);});
 document.getElementById('rmCollapse').addEventListener('click',function(){setAll(false);});
 all('details[data-lazy]').forEach(function(d){d.addEventListener('toggle',function(){if(!d.open)return;var f=d.querySelector('iframe[data-src]');if(f&&!f.getAttribute('src'))f.setAttribute('src',f.getAttribute('data-src'));});});
-var state={tier:'all',place:'all',area:'all'};
+var state={tier:'all',place:'all',area:'all',when:'all',ai:'all'};
 var fbtn=all('[data-filter]');
-function matches(el){return(state.tier==='all'||el.getAttribute('data-tier')===state.tier)&&(state.place==='all'||el.getAttribute('data-place')===state.place)&&(state.area==='all'||el.getAttribute('data-area')===state.area);}
+function matches(el){return(state.tier==='all'||el.getAttribute('data-tier')===state.tier)&&(state.place==='all'||el.getAttribute('data-place')===state.place)&&(state.area==='all'||el.getAttribute('data-area')===state.area)&&(state.when==='all'||el.getAttribute('data-when')===state.when)&&(state.ai==='all'||el.getAttribute('data-ai')===state.ai);}
 function applyFilter(){
   fbtn.forEach(function(b){b.setAttribute('aria-pressed',String(state[b.getAttribute('data-filter')]===b.getAttribute('data-value')));});
-  var filtering=state.tier!=='all'||state.place!=='all'||state.area!=='all';
+  var filtering=state.tier!=='all'||state.place!=='all'||state.area!=='all'||state.when!=='all'||state.ai!=='all';
   all('details.rm-item[data-tier],tr[data-tier]').forEach(function(d){d.hidden=!matches(d);});
   all('details.rm-area').forEach(function(a){
     var items=a.querySelectorAll('details.rm-item[data-tier]');
@@ -426,7 +455,7 @@ function applyFilter(){
 }
 fbtn.forEach(function(b){b.addEventListener('click',function(){state[b.getAttribute('data-filter')]=b.getAttribute('data-value');applyFilter();});});
 var areaSel=document.getElementById('rmArea');areaSel.addEventListener('change',function(){state.area=areaSel.value;applyFilter();});
-document.getElementById('rmReset').addEventListener('click',function(){state={tier:'all',place:'all',area:'all'};areaSel.value='all';applyFilter();});
+document.getElementById('rmReset').addEventListener('click',function(){state={tier:'all',place:'all',area:'all',when:'all',ai:'all'};areaSel.value='all';applyFilter();});
 function experimental(){try{return localStorage.getItem('ilit.reader.experimental')==='1';}catch(e){return false;}}
 if(experimental()&&window.fetch){
   fetch('/roadmap/internal.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).then(function(notes){
@@ -469,6 +498,8 @@ def render() -> str:
 
 	tier_filter = group("tier", [("all", "All")] + [(t, TIERS[t][0]) for t in TIERS])
 	place_filter = group("place", [("all", "All")] + [(k, PLACES[k][0]) for k in PLACES])
+	when_filter = group("when", [("all", "All")] + [(h["key"], h["label"]) for h in inventory()["horizons"]])
+	ai_filter = group("ai", [("all", "All")] + [(a["key"], a["label"]) for a in inventory()["ai"]])
 	area_options = '<option value="all">All areas</option>' + "".join(f'<option value="{k}">{_e(v["label"])}</option>' for k, v in SECTIONS.items())
 	place_legend = "".join(f'<div class="chiprow"><strong>{_place_chip(k)}</strong><span>{_e(text)}</span></div>' for k, (_n, text) in PLACES.items())
 	body = (
@@ -480,7 +511,8 @@ def render() -> str:
 		f'<div class="note">{_RULE}</div>'
 		'<div class="rm-controls"><button type="button" id="rmExpand">Expand all</button><button type="button" id="rmCollapse">Collapse all</button>'
 		'</div>'
-		f'<div class="rm-filters"><span class="small">Evidence</span>{tier_filter}<span class="small">Where it stands</span>{place_filter}'
+		f'<div class="rm-filters"><div class="fgrp"><span class="small">Evidence</span>{tier_filter}</div><div class="fgrp"><span class="small">Where it stands</span>{place_filter}</div>'
+		f'<div class="fgrp"><span class="small">When</span>{when_filter}</div><div class="fgrp"><span class="small">AI</span>{ai_filter}</div>'
 		f'<label class="small" for="rmArea">Area</label><select id="rmArea">{area_options}</select><button type="button" id="rmReset">Reset</button></div>'
 		'<p class="small" id="rmNone" hidden>No item matches these filters.</p></header>'
 		f'<section id="glance"><h2>1. Every item at a glance</h2><p class="intro">One row per item. The filters above narrow this table and the lists below it. Click an item to jump to its full entry.</p>{_glance()}</section>'

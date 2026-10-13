@@ -14,8 +14,9 @@ import json
 from functools import lru_cache
 from pathlib import Path
 
-from .coming_soon_content import PARTS, SECTIONS
-from .coming_soon_page import _DEMO_LINKS, _EXTRA_CSS, _about_css, _first_sentence
+from .coming_soon_content import SECTIONS
+from .coming_soon_page import _EXTRA_CSS, _about_css
+from .feature_inventory import inventory, label_of, meta
 from .roadmap_page import DEMOS, place_of
 
 # One plain label per item, from where it stands. Concept and paused work never reads as available.
@@ -39,50 +40,6 @@ AVAILABILITY = {
 
 def _e(value: str) -> str:
     return html.escape(value, quote=False)
-
-
-def _chip(place: str) -> str:
-    label, kind = AVAILABILITY[place]
-    return f'<span class="cp-chip cp-{kind}">{label}</span>'
-
-
-def _area_chip(places: list[str]) -> str:
-    live = sum(1 for p in places if p == "live")
-    if live == len(places):
-        return '<span class="cp-chip cp-now">Available now</span>'
-    if live:
-        return f'<span class="cp-chip cp-part">{live} of {len(places)} available now</span>'
-    if any(p in ("experimental", "files") for p in places):
-        return '<span class="cp-chip cp-check">Being checked</span>'
-    return '<span class="cp-chip cp-plan">Planned</span>'
-
-
-def _card(slug: str) -> str:
-    area = SECTIONS[slug]
-    entries = area["items"]
-    places = [place_of(entry[0]) for entry in entries]
-    # Up to three items are shown on the card with what you could do; the rest sit under "All items".
-    shown = "".join(
-        f'<li><span class="cp-row"><span class="cp-it">{_e(entry[1])}</span>{_chip(place_of(entry[0]))}</span>'
-        f'<span class="cp-what">{_e(entry[4])}</span></li>'
-        for entry in entries[:3]
-    )
-    rest = "".join(
-        f'<li><span class="cp-row"><span class="cp-it">{_e(entry[1])}</span>{_chip(place_of(entry[0]))}</span>'
-        f'<span class="cp-what">{_e(_first_sentence(entry[3][0]))}</span></li>'
-        for entry in entries[3:]
-    )
-    more = f'<details><summary>{len(entries) - 3} more in this area</summary><ul class="cp-list">{rest}</ul></details>' if rest else ""
-    demos = "".join(
-        f'<a class="cp-demo" href="#demo-{key}" data-open="demo-{key}">&#9654; {_e(label)}</a>'
-        for key, label, _what in _DEMO_LINKS.get(slug, [])
-    )
-    return (
-        f'<article class="cp-card" id="{slug}"><div class="cp-head"><h3>{_e(area["label"])}</h3>{_area_chip(places)}</div>'
-        f'<p class="cp-sum">{_e(area["summary"])}</p>'
-        f'<ul class="cp-list">{shown}</ul>{more}'
-        f'{f"<div class=cp-demos>{demos}</div>" if demos else ""}</article>'
-    )
 
 
 def _layers() -> str:
@@ -178,16 +135,79 @@ def _helps() -> str:
     return f'<section class="cp-part-block" id="helps"><h2>{_e(helps["title"])}</h2><p class="cp-lede">{_e(helps["text"])}</p><ul class="cp-helps">{rows}</ul></section>'
 
 
-def _parts() -> str:
-    out = ""
-    for key, label, text, slugs in PARTS:
-        out += f'<section class="cp-part-block" id="part-{key}"><h2>{_e(label)}</h2><p class="cp-lede">{_e(text)}</p><div class="cp-grid">'
-        out += "".join(_card(slug) for slug in slugs if slug in SECTIONS)
-        out += "</div></section>"
+def _feature_row(entry: tuple, area_label: str) -> str:
+    slug, name, _status, paragraphs, example, today, needs, *_rest = entry
+    info = meta(slug)
+    place = place_of(slug)
+    label, kind = AVAILABILITY[place]
+    horizon, ai = info["horizon"], info["ai"]
+    audience = inventory()["audiences"][info["audience"]]
+    # "Now" beside "Available now" (or "Later" beside "Planned") says nothing new, so the timing chip is dropped there.
+    redundant = (horizon == "now" and place == "live") or (horizon == "later" and place in ("planned", "paused"))
+    evidence = (
+        f'<a href="#pass-{_e(info["evidence"])}">See the test number</a>' if info.get("evidence")
+        else "No measured number yet."
+    )
+    passes = {pass_["key"]: pass_ for pass_ in examples()["passes"]}
+    tested = passes.get(info.get("evidence", ""), {}).get("number")
+    tested_chip = f'<span class="cp-chip cp-part">{_e(tested)} tested</span>' if tested else ""
+    timing = "" if redundant else f'<span class="cp-chip cp-h-{horizon}">{_e(label_of("horizons", horizon))}</span>'
     return (
-        '<details class="cp-roadmap" id="roadmap-all" open><summary><h2>The wider roadmap</h2>'
-        '<span class="cp-lede">More data, new features and what an agency deployment would need. Tap to open or close.</span></summary>'
-        + out + "</details>"
+        f'<li class="cp-feat" id="f-{_e(slug)}" data-workflow="{info["workflow"]}" data-horizon="{horizon}" data-ai="{ai}" data-place="{place}">'
+        f'<details><summary><span class="cp-ft">{_e(name)}</span>'
+        f'<span class="cp-fchips"><span class="cp-chip cp-{kind}">{label}</span>{tested_chip}'
+        f'{timing}'
+        f'<span class="cp-chip cp-ai-{ai}">{_e(label_of("ai", ai))}</span></span>'
+        f'<span class="cp-fp">{_e(info["purpose"])}</span></summary>'
+        f'<dl class="cp-facts"><div><dt>What you could do</dt><dd>{_e(example)}</dd></div>'
+        f'<div><dt>Where it stands</dt><dd>{_e(today)}</dd></div>'
+        f'<div><dt>What it needs</dt><dd>{_e(needs)}</dd></div>'
+        f'<div><dt>Who it helps</dt><dd>{_e(audience)}</dd></div>'
+        f'<div><dt>Part of</dt><dd>{_e(area_label)}</dd></div>'
+        f'<div><dt>Evidence</dt><dd>{evidence}</dd></div></dl></details></li>'
+    )
+
+
+def _feature_groups(mode: str, rows: list[tuple[dict, str]]) -> str:
+    """Server-rendered grouping (by workflow); the page script regroups the same rows by timing or AI use."""
+    inv = inventory()
+    out = ""
+    for group in inv[{"workflow": "workflows", "horizon": "horizons", "ai": "ai"}[mode]]:
+        members = [html_row for info, html_row in rows if info[mode] == group["key"]]
+        if not members:
+            continue
+        out += (
+            f'<section class="cp-fg" data-group="{group["key"]}"><header><h3>{_e(group["label"])} <span>{len(members)}</span></h3>'
+            f'<p>{_e(group["blurb"])}</p></header><ul class="cp-flist">{"".join(members)}</ul></section>'
+        )
+    return out
+
+
+def _roadmap() -> str:
+    inv = inventory()
+    rows = []
+    for area in SECTIONS.values():
+        for entry in area["items"]:
+            rows.append((meta(entry[0]), _feature_row(entry, area["label"])))
+    legend = "".join(
+        f'<li><span class="cp-chip cp-h-{h["key"]}">{_e(h["label"])}</span> {_e(h["blurb"])}</li>' for h in inv["horizons"]
+    ) + "".join(
+        f'<li><span class="cp-chip cp-ai-{a["key"]}">{_e(a["label"])}</span> {_e(a["blurb"])}</li>' for a in inv["ai"]
+    )
+    counts = {h["key"]: sum(1 for info, _ in rows if info["horizon"] == h["key"]) for h in inv["horizons"]}
+    summary = " · ".join(f'{counts[h["key"]]} {h["label"].lower()}' for h in inv["horizons"])
+    modes = (("workflow", "By workflow"), ("horizon", "By timing"), ("ai", "By AI use"))
+    switch = "".join(
+        f'<button type="button" data-mode="{key}" aria-pressed="{"true" if key == "workflow" else "false"}">{label}</button>' for key, label in modes
+    )
+    meta_json = json.dumps({key: inv[name] for key, name in (("workflow", "workflows"), ("horizon", "horizons"), ("ai", "ai"))}, ensure_ascii=False).replace("</", "<\\/")
+    return (
+        '<details class="cp-roadmap" id="roadmap-all" open><summary><h2>The roadmap: every feature in one list</h2>'
+        f'<span class="cp-lede">{len(rows)} features, {summary}. Tap a feature for an example, where it stands and what it needs. The order is a proposal for review, not a promise. Tap to open or close.</span></summary>'
+        f'<div class="cp-switch cp-modes" role="group" aria-label="Group the roadmap">{switch}</div>'
+        f'<div id="cp-feats">{_feature_groups("workflow", rows)}</div>'
+        f'<details class="cp-key"><summary>What the labels mean</summary><ul>{legend}</ul></details>'
+        f'<script type="application/json" id="cp-inv">{meta_json}</script></details>'
     )
 
 
@@ -238,7 +258,17 @@ _CSS = """
 .cp-helps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
 .cp-helps li{background:#fffdf9;border:1px solid var(--line,#ddd6c8);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
 .cp-scope{font-size:12px;color:#5f6368;border-left:3px solid #ddd6c8;padding-left:8px;line-height:1.4}.cp-part-block .cp-group{margin:26px 0 12px;font-size:16px}.cp-group span{font-size:12px;font-weight:600;background:#eeeeea;border-radius:999px;padding:1px 8px;color:#555;margin-left:6px}.cp-who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#5f6368}.cp-ev{margin-top:auto;font-size:13px;text-decoration:none;color:var(--teal,#0b6e63)}.cp-ev .cp-chip{margin-right:6px}
-.cp-roadmap>summary{cursor:pointer;list-style:none;margin-top:30px}.cp-roadmap>summary::-webkit-details-marker{display:none}.cp-roadmap>summary h2{margin:0 0 4px}.cp-roadmap>summary h2::after{content:" \25BE";font-size:16px;color:#5f6368}.cp-roadmap:not([open])>summary h2::after{content:" \25B8"}
+.cp-roadmap>summary{cursor:pointer;list-style:none;margin-top:30px}.cp-roadmap>summary::-webkit-details-marker{display:none}.cp-roadmap>summary h2{margin:0 0 4px}.cp-roadmap>summary h2::after{content:" \\25BE";font-size:16px;color:#5f6368}.cp-roadmap:not([open])>summary h2::after{content:" \\25B8"}
+.cp-roadmap .cp-switch{margin:14px 0}
+.cp-fg{margin:18px 0 0}.cp-fg header h3{margin:0;font-size:18px}.cp-fg header h3 span{font-size:12px;font-weight:600;background:#eeeeea;border-radius:999px;padding:1px 8px;color:#555;margin-left:6px}.cp-fg header p{margin:2px 0 10px;color:#5f6368;font-size:14px}
+.cp-flist{align-items:start;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:10px}
+.cp-feat{background:#fffdf9;border:1px solid var(--line,#ddd6c8);border-radius:10px;padding:0}.cp-feat>details>summary{display:grid;gap:5px;padding:12px 14px;cursor:pointer;list-style:none}.cp-feat>details>summary::-webkit-details-marker{display:none}
+.cp-feat>details[open]{background:#fbf8f0;border-radius:10px}.cp-feat .cp-facts{padding:0 14px 12px;margin:0}
+.cp-ft{font-weight:600;font-size:15px}.cp-fp{font-size:13px;color:#5f6368;line-height:1.45}.cp-fchips{display:flex;flex-wrap:wrap;gap:5px}
+.cp-h-now{background:#0b5d52;color:#fff;border-color:#0b5d52}.cp-h-next{background:#fbf1d6;color:#7a5a00;border-color:#ebd593}.cp-h-later{background:#eeeeea;color:#555;border-color:#d4d2c9}
+.cp-ai-none{background:#fff;color:#0b5d52;border-color:#a9d8cf}.cp-ai-ingest{background:#fff;color:#7a5a00;border-color:#ebd593}.cp-ai-local{background:#e7f0f8;color:#1d4f7a;border-color:#b7d0e6}
+.cp-key{margin-top:18px}.cp-key summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--teal,#0b6e63)}.cp-key ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px;font-size:13px;color:#5f6368}.cp-key .cp-chip{margin-right:6px}
+@media(max-width:600px){.cp-flist{grid-template-columns:1fr}}
 .cp-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .cp-switch{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}.cp-switch button{font:500 13px inherit;font-family:inherit;border:1px solid var(--line,#ddd6c8);background:#fffdf9;border-radius:999px;padding:6px 14px;cursor:pointer}
 .cp-switch button span{color:#5f6368;margin-left:4px}.cp-switch button[aria-pressed=true]{background:#315d8d;border-color:#315d8d;color:#fff}.cp-switch button[aria-pressed=true] span{color:#e7eef6}
@@ -306,8 +336,20 @@ root.addEventListener('click',function(e){var b=e.target.closest('button');if(!b
  else if(b.dataset.issue)S.issues=true;
  draw();
  if(jump){var t=document.getElementById('rdp'+jump),box=document.getElementById('rdb');if(t){t.classList.add('hl');if(box)box.scrollTop=t.offsetTop-box.offsetTop-8}}});
-document.querySelectorAll('.cp-switch button').forEach(function(b){b.addEventListener('click',function(){cur=+b.dataset.case;S.one={};document.querySelectorAll('.cp-switch button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});draw()})});
+document.querySelectorAll('.cp-switch:not(.cp-modes) button').forEach(function(b){b.addEventListener('click',function(){cur=+b.dataset.case;S.one={};document.querySelectorAll('.cp-switch:not(.cp-modes) button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});draw()})});
 draw();
+})();
+(function(){var meta;try{meta=JSON.parse(document.getElementById('cp-inv').textContent)}catch(e){return}
+var host=document.getElementById('cp-feats');if(!host)return;
+var rows=[].slice.call(host.querySelectorAll('.cp-feat'));
+function build(mode){var defs=meta[mode],out=document.createDocumentFragment();
+ defs.forEach(function(g){var m=rows.filter(function(r){return r.dataset[mode]===g.key});if(!m.length)return;
+  var sec=document.createElement('section');sec.className='cp-fg';sec.dataset.group=g.key;
+  var h=document.createElement('header');h.innerHTML='<h3></h3><p></p>';h.firstChild.textContent=g.label+' ';var c=document.createElement('span');c.textContent=m.length;h.firstChild.appendChild(c);h.lastChild.textContent=g.blurb;sec.appendChild(h);
+  var ul=document.createElement('ul');ul.className='cp-flist';m.forEach(function(r){ul.appendChild(r)});sec.appendChild(ul);out.appendChild(sec)});
+ host.innerHTML='';host.appendChild(out)}
+document.querySelectorAll('.cp-roadmap [data-mode]').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.cp-roadmap [data-mode]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});build(b.dataset.mode)})});
 })();
 """
 
@@ -328,10 +370,11 @@ def render() -> str:
         '<div class="cp-nav"><a class="cp-demo" href="#layers" data-go="layers">&#9654; See it on a decision</a> '
         '<a class="cp-demo" href="#helps" data-go="helps">Where it helps</a> '
         '<a class="cp-demo" href="#evidence" data-go="evidence">How well it works</a> '
+        '<a class="cp-demo" href="#roadmap-all" data-go="roadmap-all">The roadmap</a> '
         '<a class="cp-demo" href="#tour" data-go="tour">Guided tour</a> '
         '<a class="cp-demo" href="#demos" data-go="demos">Try a demo</a></div>'
         f'<div class="cp-legend small">{legend}</div>{_tiers()}</header>'
-        f"{_layers()}{_helps()}{_evidence()}{_parts()}{_demos()}"
+        f"{_layers()}{_helps()}{_evidence()}{_roadmap()}{_demos()}"
         '<p class="cp-foot">Nothing here is a promise. Demos use invented data. Features marked Planned do not exist yet.</p>'
     )
     return (

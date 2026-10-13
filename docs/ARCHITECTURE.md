@@ -275,6 +275,8 @@ test checks that these paths continue to exist.
 | `backend/pages/explorer_snapshots.css` | Styles for Explorer snapshot views |
 | `backend/pages/explorer_snapshots.js` | Browser behavior for Explorer snapshot views |
 | `backend/pages/fc_analytics.py` | Federal Court activity analytics page |
+| `backend/pages/feature_inventory.json` | TODO: describe this file |
+| `backend/pages/feature_inventory.py` | The single inventory of future features and tabs |
 | `backend/pages/future_features.html` | TODO: describe this file |
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |

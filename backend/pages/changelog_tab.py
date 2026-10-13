@@ -15,6 +15,9 @@ from .pitch_nav import COMING_SOON
 CHANGELOG_PATH = Path(__file__).resolve().parents[2] / "data" / "changelog" / "changelog.json"
 
 _CSS = """
+.about-onpage{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 18px;padding:9px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface);font-size:13px}
+.about-onpage span{color:var(--muted);font-weight:600}.about-onpage a{color:var(--teal);font-weight:600;text-decoration:none}.about-onpage a:hover{text-decoration:underline}
+.about-section{margin-top:44px;padding-top:28px;border-top:1px solid var(--border);scroll-margin-top:12px}
 .about-subtabs{display:flex;gap:6px;margin:0 0 14px;padding:0 0 2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .about-subtabs .tab{flex:0 0 auto}
 .cl{max-width:none;color:var(--text)}
@@ -75,9 +78,10 @@ const views={overview:document.getElementById('aboutOverviewPane'),how:document.
 const navTabs={overview:'[data-tab="about"]',how:'[data-tab="about-how"]',changelog:'[data-tab="about-changelog"]'};
 function showAboutView(name,updateUrl){
   if(!views[name])name='overview';
-  Object.entries(views).forEach(([key,pane])=>{pane.hidden=key!==name});
+  Object.entries(views).forEach(([key,pane])=>{pane.hidden=false});
   Object.entries(navTabs).forEach(([key,selector])=>{document.querySelectorAll(selector).forEach(b=>{const on=key===name;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))})});
   if(updateUrl){try{const url=new URL(location.href);if(name==='overview')url.searchParams.delete('about');else url.searchParams.set('about',name);history.replaceState(null,'',url.pathname+url.search+url.hash)}catch(e){}}
+  if(name!=='overview'&&views[name].scrollIntoView)setTimeout(()=>views[name].scrollIntoView({block:'start'}),0);
 }
 window.showAboutView=showAboutView;
 try{showAboutView(new URLSearchParams(location.search).get('about')||'overview',false)}catch(e){}
@@ -100,9 +104,10 @@ def about_panel_html(overview_fragment: str, how_fragment: str = "") -> str:
 	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
 	return (
 		f"<style>{_CSS}</style>\n"
+		'<nav class="about-onpage" aria-label="On this page"><span>On this page</span><a href="#aboutOverviewPane">Overview</a><a href="#aboutHowPane">How it works</a><a href="#aboutChangelogPane">Changelog</a></nav>\n'
 		f'<div id="aboutOverviewPane">\n{overview_fragment}\n</div>\n'
-		f'<div id="aboutHowPane" hidden>\n{how_fragment}\n</div>\n'
-		'<div id="aboutChangelogPane" class="cl" hidden>\n'
+		f'<div id="aboutHowPane" class="about-section">\n{how_fragment}\n</div>\n'
+		'<div id="aboutChangelogPane" class="cl about-section">\n'
 		'<div class="cl-head"><div class="about-kicker">About \u00b7 Project timeline</div><h2>Changelog</h2><p class="cl-sub">What has been added, and when</p>'
 		"<p>A running record of what has been added to iLit, newest first. It is built from the project\u2019s GitHub history "
 		"(merged changes and commits) and written in plain language. Small fixes, documentation-only changes and test or build "

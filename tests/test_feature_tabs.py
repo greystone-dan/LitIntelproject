@@ -594,39 +594,33 @@ def test_primary_navigation_has_brand_left_and_groups_right():
         assert f'>{label}</button>' in header
 
 
-def test_secondary_navigation_groups_existing_views_and_functional_tools():
+def test_secondary_navigation_has_no_lab_or_about_sub_tabs():
     controls = NavigationParser(routes._data_explorer_page_html()).controls
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
-    soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
-    assert set(soon.values()) == {'lab'}  # Development and Testing became one Lab with four sections
-    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map'} <= set(soon)
-    assert not ({'soon-live-analysis', 'soon-deidentify'} & set(soon))  # both live in the Workbench now
-    assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
-    assert len(soon) == 17 and 'soon-business-case' not in soon  # 13 former Coming soon items, Research Bench and the two internal checks
-    assert {'soon-status', 'soon-research-bench', 'soon-units-sandbox', 'soon-citation-pass'} <= set(soon)
-    assert 'soon-fc-analytics' not in soon
-    roadmap = {tab: group for tab, group in views.items() if tab.startswith('roadmap-')}
-    assert set(roadmap.values()) == {'roadmap'}
-    assert list(roadmap) == ['roadmap-overview']  # one Roadmap page; older tab keys still open it at the right place
-    assert {tab: group for tab, group in views.items() if tab not in soon and tab not in roadmap} == {
-        'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
-        'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
-    }
+    assert views == {
+        'about': 'info', 'search': 'research', 'judge-profile': 'intel', 'citation-intelligence': 'intel',
+        'fc-analytics': 'intel', 'roadmap-overview': 'roadmap', 'soon-home': 'lab',
+    }  # the 17 Lab tool tabs, 5 Lab pills and About's How it works / Changelog tabs became cards and sections
     assert not [attrs for tag, attrs in controls if tag == 'a']
     assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'lab', 'roadmap'))
 
 
-def test_lab_sorts_every_tool_into_one_of_four_sections():
-    from backend.pages.pitch_nav import LAB, LAB_EXTRA, COMING_SOON
+def test_lab_home_lists_every_tool_under_five_headings_at_its_old_address():
+    from backend.pages.lab_page import render
+    from backend.pages.pitch_nav import LAB, LAB_EXTRA, COMING_SOON, pitch_soon_info
 
-    html = routes._data_explorer_page_html()
+    page = render()
     keys = [key for _, _, _, tools in LAB for key in tools]
     assert len(LAB) == 5 and len(keys) == len(set(keys))
     assert set(keys) == {key for key, _, _ in COMING_SOON} | {key for key, _, _ in LAB_EXTRA}  # nothing dropped, nothing doubled
-    assert html.count('class="tab lab-cat"') == 5 and 'id="labCats"' in html
+    assert page.count('class="lab-card"') == 17 == page.count('<section class="lab-sec"') + 12
     for _, label, _, tools in LAB:
-        assert label in html
-        assert all(f'data-tab="soon-{key}"' in html for key in tools)
+        assert label in page
+        assert all(f'href="/data-explorer?tab=soon-{key}&amp;group=lab"' in page for key in tools)
+    info = pitch_soon_info()
+    assert all(f'soon-{key}' in info for key in keys) and info['soon-home']['target'] == '/lab'
+    html = routes._data_explorer_page_html()
+    assert 'id="labCats"' not in html and 'lab-cat' not in html and 'id="labBack"' in html
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     assert 'data-group="testing"' not in header and 'data-group="soon"' not in header
 
@@ -638,7 +632,7 @@ def test_lab_sorts_every_tool_into_one_of_four_sections():
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
     ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'direct'), ('?tab=fc-analytics', 'fc-analytics', 'intel'),
     ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'lab'),
-    ('?tab=soon-citation-map', 'soon', 'lab'), ('?group=soon', 'soon', 'lab'), ('?group=lab', 'soon', 'lab'), ('?tab=soon-units-sandbox', 'soon', 'lab'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'lab'), ('?tab=soon-themes', 'themes', 'lab'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?tab=soon-citation-map', 'soon', 'lab'), ('?group=soon', 'soon', 'lab'), ('?group=lab', 'soon', 'lab'), ('?tab=soon-home', 'soon', 'lab'), ('?tab=about-how', 'about', 'info'), ('?tab=about-changelog', 'about', 'info'), ('?tab=soon-units-sandbox', 'soon', 'lab'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'lab'), ('?tab=soon-themes', 'themes', 'lab'), ('?group=intel', 'judge-profile', 'intel'),
     ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'lab'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
@@ -701,7 +695,7 @@ def test_fc_activity_panel_exposes_three_non_overlapping_charts():
 def test_research_bench_tab_exposes_three_prototype_views():
     html = routes._data_explorer_page_html()
 
-    assert 'data-tab="soon-research-bench"' in html
+    assert "'research-bench':'soon-research-bench'" in html  # old address still opens it, now from a Lab card
     assert 'id="researchBenchPanel" class="panel-card search-layout research-bench-panel"' in html
     assert 'data-bench-tab="library"' in html
     assert 'data-bench-tab="tracker"' in html
@@ -1358,7 +1352,7 @@ def test_main_tab_clicks_reset_state_in_page_without_reloading():
     html = routes._data_explorer_page_html()
     assert "function pitchResetState()" in html and "function pitchCleanOpen(group)" in html
     assert "location.assign('/data-explorer" not in html
-    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-status'}" in html
+    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home'}" in html
     for step in ("closeDecisionReader()", "getElementById('clearSearch')?.click()", "ciState.caseId=null", "document.getElementById('fcxClear')?.click()"):
         assert step in html
 
@@ -1402,7 +1396,7 @@ def test_coming_soon_is_a_public_preview_and_the_detail_lives_in_the_lab_status_
     for private in ('Untested', 'Depends on', 'roadmap_internal', 'project-files', 'README.md'):
         assert private not in page
     html = routes._data_explorer_page_html()
-    assert 'data-tab="soon-status"' in html and '>Coming soon</button>' in html
+    assert '"target": "/roadmap"' in html and '>Coming soon</button>' in html  # the Status board is a Lab card
     assert [r for r in routes.router.routes if getattr(r, 'path', '') == '/roadmap/preview']
 
 

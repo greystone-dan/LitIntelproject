@@ -1399,8 +1399,25 @@ def test_coming_soon_is_a_public_preview_and_the_detail_lives_in_the_lab_status_
         assert area['label'] in page and all(entry[1] in page for entry in area['items'])  # nothing dropped
     assert 'data-src="/coming-soon-demo#ai"' in page and 'data-src="/roadmap/tour"' in page
     # The preview carries plain availability labels only; evidence tiers, dependencies and internal notes stay on the Status board.
-    for private in ('Untested', 'Depends on', 'Evidence', 'roadmap_internal', 'Graded by a model'):
+    for private in ('Untested', 'Depends on', 'roadmap_internal', 'project-files', 'README.md'):
         assert private not in page
     html = routes._data_explorer_page_html()
     assert 'data-tab="soon-status"' in html and '>Coming soon</button>' in html
     assert [r for r in routes.router.routes if getattr(r, 'path', '') == '/roadmap/preview']
+
+
+def test_preview_numbers_come_from_the_examples_file_():
+    import json
+
+    from backend.pages import coming_soon_preview_page as preview
+
+    data = json.loads(preview.EXAMPLES_FILE.read_text(encoding='utf-8'))
+    page = preview.render()
+    for item in data['passes']:
+        assert item['title'] in page
+        if item.get('number'):
+            assert item['number'] in page and item['sample'] and item['grader']  # a number always names its sample and grader
+        else:
+            assert 'Not measured yet' in page  # no number is never dressed up as one
+    assert len(data['cases']) >= 3 and all(case['issues'] and case['notes'] for case in data['cases'])
+    assert '</script><script' not in page.split('id="cp-data"', 1)[1].split('</script>', 1)[0]

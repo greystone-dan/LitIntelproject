@@ -280,6 +280,7 @@ test checks that these paths continue to exist.
 | `backend/pages/future_features.html` | TODO: describe this file |
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
+| `backend/pages/lab_page.py` | The Lab home: one page that lists every experimental tool as a card, under five headings |
 | `backend/pages/live_analysis.py` | Live Analysis page: the research page with a view that opens your own document in the reader's markup mode |
 | `backend/pages/live_analysis_matches.py` | Live Analysis: "Find decided issues" block (default off; see backend/issue_match.py) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |

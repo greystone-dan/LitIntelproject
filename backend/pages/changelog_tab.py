@@ -15,6 +15,10 @@ from .pitch_nav import COMING_SOON
 CHANGELOG_PATH = Path(__file__).resolve().parents[2] / "data" / "changelog" / "changelog.json"
 
 _CSS = """
+.cl-head .about-kicker{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);margin:0 0 8px}
+.about-onpage{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 18px;padding:9px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface);font-size:13px}
+.about-onpage span{color:var(--muted);font-weight:600}.about-onpage a{color:var(--teal);font-weight:600;text-decoration:none}.about-onpage a:hover{text-decoration:underline}
+.about-section{margin-top:44px;padding-top:28px;border-top:1px solid var(--border);scroll-margin-top:12px}
 .about-subtabs{display:flex;gap:6px;margin:0 0 14px;padding:0 0 2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .about-subtabs .tab{flex:0 0 auto}
 .cl{max-width:none;color:var(--text)}
@@ -71,13 +75,16 @@ renderFilters();renderList();
 const summary=document.getElementById('changelogSummary');
 if(summary&&data.entries.length){const dates=data.entries.map(e=>e.date).sort();summary.textContent=data.entries.length+' entries, from '+nice(dates[0])+' to '+nice(dates[dates.length-1])+'.'}
 
-const views={overview:document.getElementById('aboutOverviewPane'),how:document.getElementById('aboutHowPane'),changelog:document.getElementById('aboutChangelogPane')};
-const navTabs={overview:'[data-tab="about"]',how:'[data-tab="about-how"]',changelog:'[data-tab="about-changelog"]'};
+})();
+"""
+
+_VIEWS_JS = """
+(function(){
+const views={overview:document.getElementById('aboutOverviewPane'),how:document.getElementById('aboutHowPane')};
 function showAboutView(name,updateUrl){
   if(!views[name])name='overview';
-  Object.entries(views).forEach(([key,pane])=>{pane.hidden=key!==name});
-  Object.entries(navTabs).forEach(([key,selector])=>{document.querySelectorAll(selector).forEach(b=>{const on=key===name;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))})});
   if(updateUrl){try{const url=new URL(location.href);if(name==='overview')url.searchParams.delete('about');else url.searchParams.set('about',name);history.replaceState(null,'',url.pathname+url.search+url.hash)}catch(e){}}
+  if(name!=='overview'&&views[name].scrollIntoView)setTimeout(()=>views[name].scrollIntoView({block:'start'}),0);
 }
 window.showAboutView=showAboutView;
 try{showAboutView(new URLSearchParams(location.search).get('about')||'overview',false)}catch(e){}
@@ -92,18 +99,28 @@ def load_changelog() -> dict:
 
 
 def about_panel_html(overview_fragment: str, how_fragment: str = "") -> str:
-	"""Wrap the About overview, the How it works page and the changelog in switchable views."""
-	# Kept in an escaped attribute rather than a script block so no entry text can end a script early.
+	"""The About page: the overview and How it works stacked on one page. The changelog lives in Development."""
 	soon = "".join(f"<li><b>{html.escape(name)}</b>{html.escape(text)}</li>" for _key, name, text in COMING_SOON)
 	how_fragment = how_fragment.replace("<!--COMING_SOON_LIST-->", soon)
 	overview_fragment = overview_fragment.replace("<!--COMING_SOON_LIST-->", soon)
-	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
 	return (
 		f"<style>{_CSS}</style>\n"
+		'<nav class="about-onpage" aria-label="On this page"><span>On this page</span><a href="#aboutOverviewPane">Overview</a><a href="#aboutHowPane">How it works</a></nav>\n'
 		f'<div id="aboutOverviewPane">\n{overview_fragment}\n</div>\n'
-		f'<div id="aboutHowPane" hidden>\n{how_fragment}\n</div>\n'
-		'<div id="aboutChangelogPane" class="cl" hidden>\n'
-		'<div class="cl-head"><div class="about-kicker">About \u00b7 Project timeline</div><h2>Changelog</h2><p class="cl-sub">What has been added, and when</p>'
+		f'<div id="aboutHowPane" class="about-section">\n{how_fragment}\n</div>\n'
+		f"<script>{_VIEWS_JS}</script>"
+	)
+
+
+def changelog_page_html() -> str:
+	"""The changelog as its own page (``/changelog``), shown under Development in the explorer. Built from stored data, no AI."""
+	from .coming_soon_page import _doc
+
+	# Kept in an escaped attribute rather than a script block so no entry text can end a script early.
+	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
+	body = (
+		'<div id="aboutChangelogPane" class="cl">\n'
+		'<div class="cl-head"><div class="about-kicker">Development \u00b7 Project timeline</div><h2>Changelog</h2><p class="cl-sub">What has been added, and when</p>'
 		"<p>A running record of what has been added to iLit, newest first. It is built from the project\u2019s GitHub history "
 		"(merged changes and commits) and written in plain language. Small fixes, documentation-only changes and test or build "
 		'changes are left out. <span id="changelogSummary"></span></p></div>\n'
@@ -115,3 +132,4 @@ def about_panel_html(overview_fragment: str, how_fragment: str = "") -> str:
 		f'<div id="changelogData" data-json="{data}" hidden></div>\n'
 		f"<script>{_JS}</script>"
 	)
+	return _doc("changelog", f"<style>{_CSS}</style>{body}").replace("<title>iLit: coming soon, changelog</title>", "<title>iLit: changelog</title>")

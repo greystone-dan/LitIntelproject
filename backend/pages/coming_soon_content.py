@@ -334,7 +334,7 @@ SECTIONS = {
 				"A compact card at the top of each decision: the issue and type of case, the outcome, the sections applied, and a short summary made of the decision’s own holding paragraph, chosen by rule.",
 				"Because the summary is the court’s own words, it can always be traced back, and nothing is written by AI.",
 			], "Opening ten search results and knowing in a few seconds which three are worth reading in full.",
-			"The card and the rule-based summary are built and hidden behind the reader’s “Show experimental” switch. Stored case frames exist for about 250 decisions (13 Oct 2026; more are being loaded).",
+			"The card and the rule-based summary are built and hidden behind the reader’s “Show experimental” switch. Stored case frames exist for about 660 decisions (live database count, 13 Oct 2026).",
 			"A check of the chosen paragraphs on a sample, then switching the card on.",
 			"CanLII shows short AI-written summaries for some areas of law. These would be the court’s own words, picked by rule."),
 			("passage-search", "Search by passage, without AI", "partly", [

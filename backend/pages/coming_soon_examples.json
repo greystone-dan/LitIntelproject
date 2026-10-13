@@ -1,16 +1,16 @@
 {
- "_readme": "All example content for the Coming soon page lives here. Edit numbers, sources and wording in this file; the page code does not need to change. Every figure is graded by a model on a small sample, not by a lawyer. Never paste raw paragraph notes that still contain personal names: use masked or role-worded examples.",
+ "_readme": "All example content for the Coming soon page lives here. Edit numbers, sources and wording in this file; the page code does not need to change. Every figure is graded by a model on a small sample, not by a lawyer. Names are shown as they appear in the published decisions (Daniel, 2026-10-13); no masking is needed for examples from published decisions.",
  "layers_intro": {
   "title": "Three layers on a decision, one tap away",
   "text": "The decision text stays the page. Three optional layers sit on top of it, each opened with a button: a summary of the case, a map of the questions the court decided, and one plain sentence on what each paragraph does. Try the buttons below.",
-  "limits": "These are real stored outputs for decisions from the hand-picked set of 150 important Federal Court immigration decisions. Names are masked and paragraph text is shortened. It is a picture of the feature, not the working reader."
+  "limits": "These are real stored outputs for decisions from the hand-picked set of 150 important Federal Court immigration decisions. Names are as published in the decisions; paragraph text is shortened. It is a picture of the feature, not the working reader."
  },
  "cases": [
   {
    "id": "2013_FC_431",
    "cite": "2013 FC 431",
    "tag": "Federal Skilled Worker refusal",
-   "applicant": "An individual skilled-worker applicant",
+   "applicant": "Komolafe",
    "respondent": "Minister of Citizenship and Immigration",
    "level": "Visa agent form-letter refusal, then Federal Court",
    "subject": "Whether a visa agent's unexplained form-letter refusal of a Federal Skilled Worker application (NOC 7372 duties under s.75(2) Regulations) was reasonable and adequately reasoned, and whether an agent's later affidavit can supply the reasons.",
@@ -109,7 +109,7 @@
    "id": "2008_FC_98",
    "cite": "2008 FC 98",
    "tag": "Refugee claim, state protection",
-   "applicant": "A family of four (two adults, two minor children)",
+   "applicant": "Rodriguez Capitaine",
    "respondent": "Minister of Citizenship and Immigration",
    "level": "Refugee Protection Division, then Federal Court",
    "subject": "Whether the RPD wrongly treated approaching Mexican police as a legal precondition to state protection, and whether its state protection analysis was adequately reasoned",
@@ -303,7 +303,7 @@
    "id": "2009_FC_736",
    "cite": "2009 FC 736",
    "tag": "Citizenship, residence",
-   "applicant": "An individual permanent resident",
+   "applicant": "El Falah",
    "respondent": "Minister of Citizenship and Immigration",
    "level": "Citizenship Judge, then Federal Court appeal",
    "subject": "Moroccan permanent resident denied citizenship for failing to prove physical presence in Canada during the four-year reference period",
@@ -507,7 +507,7 @@
    "number_label": "faithful, 0 wrong speaker, states the legal test in 94%",
    "sample": "80 fresh paragraphs, strict grading.",
    "grader": "Written by a hosted open model, graded blind by Haiku.",
-   "caveat": "Soft qualifiers such as “partially” or “at most” are dropped in about 14% of notes. The notes still contain personal names until a masking pass is done, so they are not shown raw here.",
+   "caveat": "Soft qualifiers such as “partially” or “at most” are dropped in about 14% of notes. The notes name people by role (applicant, officer) rather than by name.",
    "source": "core-150/summary-lab/FINAL_METHOD.md"
   },
   {

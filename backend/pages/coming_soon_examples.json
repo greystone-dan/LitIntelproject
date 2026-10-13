@@ -533,8 +533,8 @@
    "number_label": "right role for a unit (50% of unit boundaries exactly right)",
    "sample": "24 untouched Refugee Protection Division decisions.",
    "grader": "Scored against hand-labelled sets, once, with no tuning.",
-   "caveat": "Exact boundaries are the hard part; the role is usually right even when the edge is a paragraph out.",
-   "source": "discussion-units/case-structure-report.md"
+   "caveat": "Exact boundaries are the hard part; the role is usually right even when the edge is a paragraph out. A small learned step added to the rules reached about 85% right role per paragraph on 47 hand-labelled decisions (about 90% for facts, reasoning and disposition). Finding where the analysis starts is only 55% within one paragraph. The labels themselves disagree, so about 92% is the practical ceiling.",
+   "source": "discussion-units/case-structure-report.md; discussion-units/pipeline-2026-10-11/pipeline-and-cost.md"
   },
   {
    "key": "matching",

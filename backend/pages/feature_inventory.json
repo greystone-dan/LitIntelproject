@@ -1,0 +1,480 @@
+{
+ "_readme": "One list of every future feature and tab. The Coming soon page and the Lab status board both read it, so they cannot disagree. A feature's tier (live / tested / untested) and place come from roadmap_page.py; this file adds the workflow it belongs to, when it is planned, whether it needs AI, who it helps, a one-line purpose and a link to its evidence card. The order (now / next / later) is a proposal for review, not a promise.",
+ "workflows": [
+  {
+   "key": "find",
+   "label": "Finding cases",
+   "blurb": "Ways to locate the right decisions."
+  },
+  {
+   "key": "read",
+   "label": "Reading a case",
+   "blurb": "What a decision says, laid out so it is quick to read."
+  },
+  {
+   "key": "analyse",
+   "label": "Analysing your own draft",
+   "blurb": "Putting your own memo or draft against the case law."
+  },
+  {
+   "key": "cite",
+   "label": "Citations and statutes",
+   "blurb": "Finding, linking and checking the authorities a decision relies on."
+  },
+  {
+   "key": "track",
+   "label": "Court files and teamwork",
+   "blurb": "Following live files and working with colleagues."
+  },
+  {
+   "key": "library",
+   "label": "The library itself",
+   "blurb": "Making what is already in the library more correct and more complete."
+  },
+  {
+   "key": "agency",
+   "label": "Ready for the agency",
+   "blurb": "What an approval and a deployment inside the agency would need."
+  }
+ ],
+ "horizons": [
+  {
+   "key": "now",
+   "label": "Now",
+   "blurb": "On the site today."
+  },
+  {
+   "key": "next",
+   "label": "Next",
+   "blurb": "Built or being built; proposed to go live next."
+  },
+  {
+   "key": "later",
+   "label": "Later",
+   "blurb": "Decided or imagined; not built yet."
+  }
+ ],
+ "ai": [
+  {
+   "key": "local",
+   "label": "Needs a local model",
+   "blurb": "Would run only on computers the agency controls."
+  },
+  {
+   "key": "ingest",
+   "label": "AI at intake only",
+   "blurb": "A model runs once when a decision is added; the result is stored as data."
+  },
+  {
+   "key": "none",
+   "label": "No AI when used",
+   "blurb": "Fixed rules or a small trained step. Nothing is sent to an AI service."
+  }
+ ],
+ "audiences": {
+  "both": "Hearings and litigation",
+  "litigation": "Litigation counsel",
+  "hearings": "Hearings officers",
+  "security": "Security, privacy and IT reviewers"
+ },
+ "items": {
+  "passage-search": {
+   "workflow": "find",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Type a sentence, get the paragraphs that say it, with no AI."
+  },
+  "themes": {
+   "workflow": "find",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Group the arguments that keep coming up across decisions."
+  },
+  "fingerprints": {
+   "workflow": "find",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Describe a decision by its tags and citations to find similar ones."
+  },
+  "embeddings": {
+   "workflow": "find",
+   "horizon": "later",
+   "ai": "local",
+   "audience": "both",
+   "purpose": "Search by meaning, not just words. Paused until it measures better."
+  },
+  "decision-maker-insights": {
+   "workflow": "find",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "See how a judge or Board member has ruled on an issue."
+  },
+  "case-at-a-glance": {
+   "workflow": "read",
+   "horizon": "next",
+   "ai": "ingest",
+   "audience": "both",
+   "purpose": "A small card on top of a decision: parties, subject, issues, arguments, built once at intake.",
+   "evidence": "frame"
+  },
+  "discussion-units": {
+   "workflow": "read",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Split a decision into facts, issues, reasoning and outcome.",
+   "evidence": "units"
+  },
+  "whose-position": {
+   "workflow": "read",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Show whose argument each paragraph is dealing with.",
+   "evidence": "position"
+  },
+  "show-your-work": {
+   "workflow": "read",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Show how each label or link was worked out, beside the label."
+  },
+  "argument-identification": {
+   "workflow": "analyse",
+   "horizon": "now",
+   "ai": "local",
+   "audience": "litigation",
+   "purpose": "List the cases and statutes in your memo with paragraph links; spotting its arguments needs a local model.",
+   "evidence": "matching"
+  },
+  "memo-check": {
+   "workflow": "analyse",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Check the authorities a memo cites and what treatment each got."
+  },
+  "deidentify": {
+   "workflow": "analyse",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Remove names and identifiers before a decision or memo is shared."
+  },
+  "institutional-memory": {
+   "workflow": "analyse",
+   "horizon": "later",
+   "ai": "local",
+   "audience": "hearings",
+   "purpose": "Search the Division's earlier positions and what persuaded members."
+  },
+  "citation-extraction": {
+   "workflow": "cite",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Find every citation in a decision and link it to the case."
+  },
+  "citation-resolving": {
+   "workflow": "cite",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Decide which case a citation means and land on the right paragraph.",
+   "evidence": "citations"
+  },
+  "citation-treatment": {
+   "workflow": "cite",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "See whether later decisions followed, distinguished or doubted a case."
+  },
+  "citation-enhancements": {
+   "workflow": "cite",
+   "horizon": "later",
+   "ai": "local",
+   "audience": "litigation",
+   "purpose": "A one-line plain reason beside each citing paragraph."
+  },
+  "neighbourhoods": {
+   "workflow": "cite",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "From one case, see what it relies on and what cites it."
+  },
+  "authority-trends": {
+   "workflow": "cite",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Sort authorities into emerging, dominant and fading."
+  },
+  "statute-references": {
+   "workflow": "cite",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Link the sections of the Act and Regulations a decision cites."
+  },
+  "laws-regulations": {
+   "workflow": "cite",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Add more statutes, regulations and guidance to the reference library."
+  },
+  "fc-analytics": {
+   "workflow": "track",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Charts of how Federal Court immigration files progress and end."
+  },
+  "fc-follow": {
+   "workflow": "track",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Follow a list of file numbers and see what is new on each."
+  },
+  "fc-deadlines": {
+   "workflow": "track",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Attach a deadline to a file and see what is due."
+  },
+  "fc-collection": {
+   "workflow": "track",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Collect new entries on the Court's record automatically."
+  },
+  "fc-record": {
+   "workflow": "track",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Read more of the Court's free-text record with fixed rules."
+  },
+  "alerts": {
+   "workflow": "track",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Save a search and get a short list of new matching decisions."
+  },
+  "accounts": {
+   "workflow": "track",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Sign in as yourself and keep your saved work."
+  },
+  "teams": {
+   "workflow": "track",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Shared folders of cases, searches and notes for a team."
+  },
+  "annotations": {
+   "workflow": "track",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "litigation",
+   "purpose": "Highlight a passage and add a note, private or shared."
+  },
+  "export": {
+   "workflow": "track",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Turn a folder into a Word or CSV case list or short brief."
+  },
+  "history": {
+   "workflow": "track",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "A record of what was searched, opened and noted, by whom."
+  },
+  "case-types": {
+   "workflow": "library",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Label each decision by kind, such as a judicial review."
+  },
+  "outcome-coding": {
+   "workflow": "library",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Record who won, from the ruling text, by fixed rules.",
+   "evidence": "outcomes"
+  },
+  "parties": {
+   "workflow": "library",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Tidy the many spellings of the Minister and party names."
+  },
+  "judges": {
+   "workflow": "library",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Tidy judge and Board member names into one person each."
+  },
+  "measuring": {
+   "workflow": "library",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Give every automated step a measured accuracy number."
+  },
+  "more-cases": {
+   "workflow": "library",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Add more courts and tribunals, such as the Refugee Appeal Division."
+  },
+  "more-tags": {
+   "workflow": "library",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Add more tags for issues and grounds, such as inadmissibility."
+  },
+  "daily-intake": {
+   "workflow": "library",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Add new decisions every day without anyone running a script."
+  },
+  "french": {
+   "workflow": "library",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Add French-language counterparts of decisions."
+  },
+  "id-iad": {
+   "workflow": "library",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "hearings",
+   "purpose": "Add Immigration Division and Appeal Division decisions."
+  },
+  "review-pack": {
+   "workflow": "agency",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Plain documents a security or privacy reviewer would ask for."
+  },
+  "public-only": {
+   "workflow": "agency",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "One switch that makes a public-law-only version of the site."
+  },
+  "hosting": {
+   "workflow": "agency",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Where the site and any model would run for the agency."
+  },
+  "backups": {
+   "workflow": "agency",
+   "horizon": "next",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Regular database copies and a tested way to restore them."
+  },
+  "accessibility": {
+   "workflow": "agency",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Meet the government web accessibility standard."
+  },
+  "french-ui": {
+   "workflow": "agency",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Every label and page available in French."
+  },
+  "hardening": {
+   "workflow": "agency",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Standard protections for a government web service."
+  },
+  "internal-documents": {
+   "workflow": "agency",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "both",
+   "purpose": "Search the agency's own briefs and memos beside public decisions."
+  },
+  "agency-repositories": {
+   "workflow": "agency",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "hearings",
+   "purpose": "Add the agency's private decisions and files to the library."
+  },
+  "handling-marks": {
+   "workflow": "agency",
+   "horizon": "later",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Show where each result came from and how it must be handled."
+  },
+  "on-prem-model": {
+   "workflow": "agency",
+   "horizon": "next",
+   "ai": "local",
+   "audience": "security",
+   "purpose": "A language model on agency computers, used only for optional features."
+  },
+  "data-safety": {
+   "workflow": "agency",
+   "horizon": "now",
+   "ai": "none",
+   "audience": "security",
+   "purpose": "Show where each document is stored and who can read it."
+  },
+  "stored-as-data": {
+   "workflow": "agency",
+   "horizon": "later",
+   "ai": "ingest",
+   "audience": "security",
+   "purpose": "Any AI work runs once when a decision is added and is stored as data."
+  },
+  "human-review": {
+   "workflow": "agency",
+   "horizon": "later",
+   "ai": "ingest",
+   "audience": "security",
+   "purpose": "No AI-written label is shown until a sample has been reviewed by a person."
+  }
+ }
+}

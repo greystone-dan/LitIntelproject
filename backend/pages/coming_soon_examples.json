@@ -476,11 +476,11 @@
    "title": "Case at a glance",
    "what": "Parties, how the case got here, subject, issues and each side's main arguments, in one card.",
    "status": "check",
-   "where": "Live in the Experimental reader for about 100 decisions.",
+   "where": "Live in the Experimental reader for about 250 decisions (13 Oct 2026); more are being loaded.",
    "number": "83–100%",
    "number_label": "parties 90%, subject and issues 100%, challenged part 83%, true arguments found 93% (151 of 162)",
    "sample": "29 scored recent immigration decisions, none used for tuning.",
-   "grader": "Read by Haiku, graded by Sonnet (models, not lawyers).",
+   "grader": "Written by a small AI model and graded by a larger one (neither is a lawyer).",
    "caveat": "Small sample, and the grader was more lenient than in earlier rounds, so treat the figures as a few points optimistic.",
    "source": "case-frame/README.md"
   },
@@ -493,10 +493,10 @@
    "number": "~95%",
    "number_label": "result right and cited paragraph right",
    "sample": "152 decisions graded, about 95% on both counts.",
-   "grader": "Maps written by a free local model (Qwen3.5-9B); graded blind by Haiku.",
+   "grader": "Maps written by a free model that runs on the site computer, then graded blind by a small AI model.",
    "caveat": "A few maps read the direction the wrong way round or marked a decided issue as undecided (3 decisions among the graded sets). Issues the grader never saw are not measured. In the most recent batch of 50 decisions, 92% of issue results and 95% of cited paragraphs were right.",
    "source": "open-models/local-issue-maps-batch2/README.md",
-   "extra": "The next 158 decisions were mapped by a hosted open-weight model (qwen3.5-35b-a3b). On 60 of them, graded blind by Haiku, 97% of issue results (131 of 135) and 98% of cited paragraphs (132 of 135) were right, with 1 harmful error."
+   "extra": "The next 158 decisions were mapped by a larger open model hosted by a third party. On 60 of them, graded blind by a small AI model, 97% of issue results (131 of 135) and 98% of cited paragraphs (132 of 135) were right, with 1 harmful error."
   },
   {
    "key": "notes",
@@ -507,7 +507,7 @@
    "number": "85%",
    "number_label": "faithful, 0 wrong speaker, states the legal test in 94%",
    "sample": "80 fresh paragraphs, strict grading.",
-   "grader": "Written by a hosted open model, graded blind by Haiku.",
+   "grader": "Written by an open model hosted by a third party, graded blind by a small AI model.",
    "caveat": "Soft qualifiers such as “partially” or “at most” are dropped in about 14% of notes. The notes name people by role (applicant, officer) rather than by name.",
    "source": "core-150/summary-lab/FINAL_METHOD.md"
   },
@@ -550,7 +550,7 @@
    "grader": "Judged by a model, not a lawyer.",
    "caveat": "Small sample. Matching your own draft is not built; nothing here reads or stores a draft.",
    "source": "embeddings/paragraph-embeddings-for-matching.md; matching/paragraph-note-matching-test.md",
-   "extra": "A second test ranked one-line paragraph notes (8,302 notes from 308 decisions; 100 query notes; 1,543 pairs graded blind by Haiku). Plain word match put a note making the same point in the top three 44% of the time. Asking a hosted model to re-order the top ten raised that to 52% (a gain of about 7 points). Adding issue text, or removing names, gave nothing. Not live: the re-ordering needs a model, so it would run when decisions are added, not when someone searches."
+   "extra": "A second test ranked one-line paragraph notes (8,302 notes from 308 decisions; 100 query notes; 1,543 pairs graded blind by a small AI model). Plain word match put a note making the same point in the top three 44% of the time. Asking a hosted model to re-order the top ten raised that to 52% (a gain of about 7 points). Adding issue text, or removing names, gave nothing. Not live: the re-ordering needs a model, so it would run when decisions are added, not when someone searches."
   },
   {
    "key": "outcomes",

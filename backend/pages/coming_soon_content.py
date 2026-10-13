@@ -237,7 +237,7 @@ SECTIONS = {
 			"The agency’s handling categories, a place to store the mark with each document and rules for exports."),
 			("argument-identification", "Argument identification on your own file", "partly", [
 				"Open a memorandum, list each argument it makes, show which the other side has answered, and point to the authorities that bear on each. A person decides what to file; the tool only organises the file.",
-				"Live Analysis in the Workbench already lists the cases and statutes a memo cites, with paragraph links. Identifying the arguments themselves is not built.",
+				"Live Analysis in the Workbench already lists the cases and statutes a memo cites, with paragraph links. Identifying the arguments themselves is not built. Finding earlier paragraph notes that make the same point is being tested (see the matching result under ‘What has been tested, and how well’) but is not on the site.",
 			], "Dropping in an applicant’s memorandum and seeing a table of arguments, with a flag where the respondent has not yet replied.",
 			"Live Analysis reads an uploaded file in memory, lists its cases and statutes and keeps nothing. When the file is itself a decision, it also reads its court, date, outcome and type with the same fixed rules.",
 			"A way to identify arguments without sending text outside the agency, and lawyer review of the suggestions on real memoranda."),
@@ -245,7 +245,7 @@ SECTIONS = {
 				"A citation check lists the authorities a memo cites, shows how each has since been treated, and flags those that look overturned or questioned. A gap check suggests commonly cited authorities on related issues that the memo does not mention.",
 				"Early versions exist. The gap check works on decisions already in the library, not on uploaded briefs.",
 			], "Running a draft factum through the check the day before filing and finding a case that was overturned last year.",
-			"Early versions exist in the development area, outside the main site.",
+			"Early versions exist in the Lab (under Development, with Experimental on), outside the main menu.",
 			"Reliable treatment labels (see Increased intelligence) and a version that works on uploaded documents without storing them.",
 			"Citation checkers come with paid services the Division does not hold. CanLII has no such check."),
 			("institutional-memory", "The Division’s earlier positions", "concept", [
@@ -301,7 +301,7 @@ SECTIONS = {
 				"Themes group the arguments that recur across decisions, such as the recurring complaints about credibility findings or about reasons for a refusal, and show which statutory provisions each one leans on.",
 				"A first Legal Themes page exists. It is built on tags and will be sharper once discussion units are stored.",
 			], "Seeing the three most common ways applicants attack a credibility finding, with a sample decision for each.",
-			"A Legal Themes and Statutes page exists in the development area, outside the main site.",
+			"A Legal Themes and Statutes page exists in the Lab (under Development, with Experimental on), outside the main menu.",
 			"Stored discussion units, better tags and a plain-language label for each theme."),
 			("authority-trends", "Authority trends", "partly", [
 				"Across the whole library, sort authorities into emerging, dominant and declining, spot decisions on their way to becoming leading cases, and notice when one authority replaces another on an issue.",
@@ -314,7 +314,7 @@ SECTIONS = {
 				"Start from one case and see what it relies on, what cites it and what is cited alongside it, grouped by issue. Compare two cases and see the authorities they share.",
 				"The Citation Map page does the first part today, and a Case Compare page puts two decisions side by side. Grouping by issue and showing neighbourhoods inside the reader come next.",
 			], "Starting from a leading decision and finding the other authorities that are always cited with it.",
-			"A Citation Map page exists in the development area, outside the main site.",
+			"A Citation Map page exists in the Lab (under Development, with Experimental on), outside the main menu.",
 			"Cleaner citation links, grouping by issue and a neighbourhood panel in the reader."),
 			("fingerprints", "Case fingerprints and similar cases", "partly", [
 				"A fingerprint describes a decision by its tags, statute sections and cited authorities. Two decisions with similar fingerprints are similar cases, and the site can say why.",
@@ -341,7 +341,7 @@ SECTIONS = {
 				"Type a sentence and get the paragraphs that say it, across the whole library. A hand-reviewed list of immigration terms widens the search, so “doctor” also finds “physician” and “psychologist”.",
 				"Search operators already work for those who want them: AND, OR, NOT, and filters such as court:, year: and judge: typed in the box.",
 			], "Typing “officer relied on extrinsic evidence without notice” and getting the paragraphs where judges discuss exactly that.",
-			"A passage search page and the term list exist in the development area. The full paragraph index is not yet built on the live library.",
+			"A passage search page and the term list exist in the Lab (under Development, with Experimental on). The full paragraph index is not yet built on the live library.",
 			"Building the paragraph index on the site computer, and tuning the ranking on a set of real research questions.",
 			"CanLII Search+ answers plain-language questions using hosted AI. This would do it with fixed rules, and nothing typed would leave the site."),
 			("show-your-work", "Showing how each label was assigned", "planned", [
@@ -375,18 +375,18 @@ SECTIONS = {
 				"Highlight a passage in the reader, write a note, and choose whether it is private or shared with the team. The note stays attached to that paragraph whenever anyone opens the case.",
 				"Notes would carry into exports so that the reasoning travels with the citation.",
 			], "Highlighting the test in a decision, adding “distinguishable, no notice given”, and having a colleague see it on the same paragraph.",
-			"Not built. The Markup Reader in the development area is a layout study; it saves nothing, but can already export a decision to Word with margin notes as Word comments.",
+			"Not built. The Markup Reader in the Lab is a layout study; it saves nothing, but can already export a decision to Word with margin notes as Word comments.",
 			"Accounts and a place to store notes, and the reader changes to show them."),
 			("alerts", "Saved searches and alerts", "partly", [
 				"Save a search and get a short list of new decisions that match it, with a note when an authority you rely on is later distinguished. For the Division the useful version is outcome-aware: tell me when the Minister loses on an issue I follow.",
 				"A saved-searches page and a digest builder exist. They are early versions, and they depend on the daily intake being scheduled.",
 			], "A Monday digest of every new Federal Court decision on section 34, with the Minister’s result on each.",
-			"Saved searches and an offline digest builder exist in the development area, outside the main site.",
+			"Saved searches and an offline digest builder exist in the Lab (under Development, with Experimental on), outside the main menu.",
 			"A scheduled daily intake, owners for saved searches and delivery of the digest in the Workbench or by email.",
 			"myCanLII sends alerts on new matching decisions and new citing cases. These would add the outcome, and the Minister’s side of it."),
 			("export", "Export and hand-off", "partly", [
 				"Turn a folder into a case list in Word or CSV, or a short issue brief that shows the number of decisions behind every figure.",
-				"Much of this exists already: search results download as a spreadsheet or Word file, the Workbench case list and pins download as spreadsheets and print as a brief, and an issue brief page is in the development area.",
+				"Much of this exists already: search results download as a spreadsheet or Word file, the Workbench case list and pins download as spreadsheets and print as a brief, and an issue brief page is in the Lab (under Development).",
 				"Exports would carry the source and handling marks, and the date the research was done.",
 			], "Exporting a folder as a Word table to attach to a file note.",
 			"Search, Workbench and brief exports work. Folder exports and handling marks do not exist.",

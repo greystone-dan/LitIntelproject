@@ -74,10 +74,10 @@ def test_undo_removes_only_what_the_loader_added(db):
 	db.add(IssueMap(source_key="7", issue_no=1, case_id=7, issue="x", text="x", result="dismissed_for_applicant"))
 	db.commit()
 	_run(db, True)
-	assert loader.undo(db, {"2020_FC_1172"}, False) == {"case_frames": 1, "paragraph_notes": 2, "issue_maps": 0}
-	db.add(IssueMap(source_key="2020_FC_1172", issue_no=1, case_id=7, issue="y", text="y", result="allowed_for_applicant"))
+	assert loader.undo(db, [ISSUE], False) == {"case_frames": 1, "paragraph_notes": 2, "issue_maps": 0}
+	db.add(IssueMap(source_key="2020_FC_1172", issue_no=1, case_id=7, issue=ISSUE["issue"], text="y", result="allowed_for_applicant"))
 	db.commit()
-	assert loader.undo(db, {"2020_FC_1172"}, True)["issue_maps"] == 1
+	assert loader.undo(db, [ISSUE], True)["issue_maps"] == 1
 	assert len(db.scalars(select(IssueMap)).all()) == 1 and db.scalar(select(ParagraphNote.id)) is None
 
 
@@ -112,7 +112,18 @@ def test_separate_source_labels_keep_undo_apart(db):
 	loader.load_frames(db, [{"citation_key": "2020_FC_1172", "frame": FRAME}], ids, True, "next158-haiku-v3")
 	loader.load_notes(db, NOTES, ids, True, 0.9, "next158-v12")
 	assert db.scalar(select(CaseFrame.source)) == "next158-haiku-v3" and db.scalar(select(ParagraphNote.source)) == "next158-v12"
-	assert loader.undo(db, set(), False) == {"case_frames": 0, "paragraph_notes": 0, "issue_maps": 0}
-	assert loader.undo(db, set(), False, "next158-haiku-v3", "next158-v12") == {"case_frames": 1, "paragraph_notes": 2, "issue_maps": 0}
-	loader.undo(db, set(), True, "next158-haiku-v3", "next158-v12")
+	assert loader.undo(db, [], False) == {"case_frames": 0, "paragraph_notes": 0, "issue_maps": 0}
+	assert loader.undo(db, [], False, "next158-haiku-v3", "next158-v12") == {"case_frames": 1, "paragraph_notes": 2, "issue_maps": 0}
+	loader.undo(db, [], True, "next158-haiku-v3", "next158-v12")
 	assert db.scalar(select(CaseFrame.id)) is None and db.scalar(select(ParagraphNote.id)) is None
+
+
+def test_undo_leaves_an_older_map_on_the_same_decision_key(db):
+	# The decision already has an older map under the same key (other wording, so it differs from the file): undo must not touch it.
+	db.add(IssueMap(source_key="2020_FC_1172", issue_no=1, case_id=7, issue="An older map's issue", text="x", result="dismissed_for_applicant"))
+	db.add(IssueMap(source_key="2020_FC_1172", issue_no=2, case_id=7, issue=ISSUE["issue"], text="y", result="allowed_for_applicant"))
+	db.commit()
+	rows = [ISSUE, dict(ISSUE, issue_no=2)]
+	assert loader.undo(db, rows, False)["issue_maps"] == 1
+	loader.undo(db, rows, True)
+	assert [r.issue for r in db.scalars(select(IssueMap))] == ["An older map's issue"]

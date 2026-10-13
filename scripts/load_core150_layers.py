@@ -20,6 +20,8 @@ A second set (e.g. the next 158) is loaded with its own labels so its undo never
   python scripts/load_core150_layers.py --data data/next158 --frame-source next158-haiku-v3 --note-source next158-v12 --undo [--apply]
 Without those arguments the labels are core150-haiku-v3 and core150-v12 as before.
 
+The issue-map undo removes only rows identical to the file (same decision key, issue number and issue text), so an older map stored for the same decision is never touched.
+
 Undo also works by hand: DELETE FROM case_frames WHERE source = 'core150-haiku-v3';
 DELETE FROM paragraph_notes WHERE source = 'core150-v12'; DELETE FROM issue_maps WHERE source_key ~ '^[0-9]{4}_[A-Z]+_[0-9]+$';
 Run `alembic upgrade head` first (0048 adds paragraph_notes and the new issue_maps columns).
@@ -167,16 +169,31 @@ def load_notes(session, rows: list[dict], ids: dict[str, int | None], apply: boo
 	return stats
 
 
-def undo(session, issue_keys: set[str], apply: bool, frame_source: str = FRAME_SOURCE, note_source: str = NOTE_SOURCE) -> dict[str, int]:
+def _loaded_issue_ids(session, issue_rows: list[dict]) -> list[int]:
+	"""Ids of stored issue maps that are exactly the rows in the file (same decision key, issue number and issue text).
+
+	An older map for the same decision (a different run, other wording) is not matched, so undo never removes it.
+	"""
+	want = {(r["source_key"], r["issue_no"]): r["issue"] for r in issue_rows}
+	keys = {k for k, _ in want}
+	if not keys:
+		return []
+	found = session.execute(select(IssueMap.id, IssueMap.source_key, IssueMap.issue_no, IssueMap.issue).where(IssueMap.source_key.in_(keys))).all()
+	return [i for i, key, no, text in found if want.get((key, no)) == text]
+
+
+def undo(session, issue_rows: list[dict], apply: bool, frame_source: str = FRAME_SOURCE, note_source: str = NOTE_SOURCE) -> dict[str, int]:
+	issue_ids = _loaded_issue_ids(session, issue_rows)
 	counts = {
 		"case_frames": session.execute(select(func.count()).select_from(CaseFrame).where(CaseFrame.source == frame_source)).scalar_one(),
 		"paragraph_notes": session.execute(select(func.count()).select_from(ParagraphNote).where(ParagraphNote.source == note_source)).scalar_one(),
-		"issue_maps": session.execute(select(func.count()).select_from(IssueMap).where(IssueMap.source_key.in_(issue_keys))).scalar_one(),
+		"issue_maps": len(issue_ids),
 	}
 	if apply:
 		session.execute(delete(CaseFrame).where(CaseFrame.source == frame_source))
 		session.execute(delete(ParagraphNote).where(ParagraphNote.source == note_source))
-		session.execute(delete(IssueMap).where(IssueMap.source_key.in_(issue_keys)))
+		if issue_ids:
+			session.execute(delete(IssueMap).where(IssueMap.id.in_(issue_ids)))
 		session.commit()
 	return counts
 
@@ -194,7 +211,7 @@ def main() -> None:
 	frames, issues, notes = (read_jsonl(folder / f"{n}.jsonl.gz") for n in ("frames", "issue_maps", "paragraph_notes"))
 	with SessionLocal() as session:
 		if args.undo:
-			counts = undo(session, {r["source_key"] for r in issues}, args.apply, args.frame_source, args.note_source)
+			counts = undo(session, issues, args.apply, args.frame_source, args.note_source)
 			print(("removed: " if args.apply else "would remove: ") + ", ".join(f"{v} {k}" for k, v in counts.items()))
 			if not args.apply:
 				print("Dry run: nothing removed. Add --apply to remove.")

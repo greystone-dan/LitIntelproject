@@ -117,7 +117,7 @@ def _pass_card(p: dict) -> str:
         return "".join(f'<div><dt>{name}</dt><dd>{_e(p[key])}</dd></div>' for name, key in pairs if p.get(key))
 
     more = facts((("Written / graded by", "grader"), ("Where it is", "where")))
-    rows = facts((("Tested on", "sample"), ("Limits", "caveat")))
+    rows = facts((("Tested on", "sample"), ("Limits", "caveat"), ("Also tested", "extra")))
     details = f'<details><summary>Who graded it, and where it is</summary><dl class="cp-facts">{more}</dl></details>' if more else ""
     return (
         f'<article class="cp-card cp-pass" id="pass-{_e(p["key"])}"><div class="cp-head"><h3>{_e(p["title"])}</h3><span class="cp-chip cp-{kind}">{label}</span></div>'
@@ -127,12 +127,21 @@ def _pass_card(p: dict) -> str:
 
 def _evidence() -> str:
     data = examples()
-    cards = "".join(_pass_card(p) for p in data["passes"])
+    passes = data["passes"]
+    groups = (
+        ("ev-live", "Live and measured", [p for p in passes if p["status"] == "now" and p.get("number")]),
+        ("ev-check", "Tested, still being checked", [p for p in passes if p["status"] != "now" and p.get("number")]),
+        ("ev-none", "Not measured yet", [p for p in passes if not p.get("number")]),
+    )
+    body = "".join(
+        f'<h3 class="cp-group" id="{gid}">{_e(name)} <span>{len(items)}</span></h3><div class="cp-grid">{"".join(_pass_card(p) for p in items)}</div>'
+        for gid, name, items in groups if items
+    )
     limits = "".join(f"<li>{_e(line)}</li>" for line in data["limits"])
     return (
         '<section class="cp-part-block" id="evidence"><h2>What has been tested, and how well</h2>'
-        '<p class="cp-lede">Each part of the reading layer, with the number it earned, what it was tested on, who graded it and where it falls short. A part with no number says so.</p>'
-        f'<div class="cp-grid">{cards}</div>'
+        f'<p class="cp-lede">Each part of the reading layer, with the number it earned, what it was tested on, who graded it and where it falls short. A part with no number says so. {_e(data.get("as_of", ""))}</p>'
+        f'{body}'
         f'<aside class="cp-say"><h3>{_e(data["limits_title"])}</h3><ul>{limits}</ul></aside></section>'
     )
 
@@ -143,13 +152,13 @@ def _tiers() -> str:
     tested = sum(1 for p in passes if p["status"] != "now" and p.get("number"))
     none = sum(1 for p in passes if not p.get("number"))
     tiles = (
-        (live, "cp-now", "Live and measured", "On the site today, with a test number."),
-        (tested, "cp-check", "Tested, not live", "Built and scored on a small sample, still being checked."),
-        (none, "cp-plan", "Not measured yet", "Built or planned, with no accuracy number."),
+        (live, "cp-now", "Live and measured", "On the site today, with a test number.", "ev-live"),
+        (tested, "cp-check", "Tested, still being checked", "Scored on a small sample; on the site for some decisions or not yet.", "ev-check"),
+        (none, "cp-plan", "Not measured yet", "Built or planned, with no accuracy number.", "ev-none"),
     )
     return '<div class="cp-tiers" aria-label="Evidence at a glance">' + "".join(
-        f'<a class="cp-tier cp-t-{kind[3:]}" href="#evidence"><b>{n}</b><span><strong>{_e(name)}</strong>{_e(text)}</span></a>'
-        for n, kind, name, text in tiles
+        f'<a class="cp-tier cp-t-{kind[3:]}" href="#{anchor}"><b>{n}</b><span><strong>{_e(name)}</strong>{_e(text)}</span></a>'
+        for n, kind, name, text, anchor in tiles
     ) + "</div>"
 
 
@@ -163,7 +172,7 @@ def _helps() -> str:
         label, kind = AVAILABILITY[{"now": "live", "check": "experimental", "plan": "planned"}[p["status"]]]
         number = f' <b>{_e(p["number"])}</b>' if p.get("number") else " not measured yet"
         rows += (
-            f'<li><span class="cp-who">{_e(item["who"])}</span><strong>{_e(item["job"])}</strong><span class="cp-what">{_e(item["how"])}</span>'
+            f'<li><span class="cp-who">{_e(item["who"])}</span><strong>{_e(item["job"])}</strong><span class="cp-what">{_e(item["how"])}</span><span class="cp-scope">{_e(item["scope"])}</span>'
             f'<a class="cp-ev" href="#pass-{_e(p["key"])}"><span class="cp-chip cp-{kind}">{label}</span>{number} &middot; see the evidence</a></li>'
         )
     return f'<section class="cp-part-block" id="helps"><h2>{_e(helps["title"])}</h2><p class="cp-lede">{_e(helps["text"])}</p><ul class="cp-helps">{rows}</ul></section>'
@@ -228,7 +237,7 @@ _CSS = """
 .cp-t-now{border-left:4px solid #0b5d52}.cp-t-check{border-left:4px solid #b88a00}.cp-t-plan{border-left:4px solid #999}
 .cp-helps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
 .cp-helps li{background:#fffdf9;border:1px solid var(--line,#ddd6c8);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
-.cp-who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#5f6368}.cp-ev{margin-top:auto;font-size:13px;text-decoration:none;color:var(--teal,#0b6e63)}.cp-ev .cp-chip{margin-right:6px}
+.cp-scope{font-size:12px;color:#5f6368;border-left:3px solid #ddd6c8;padding-left:8px;line-height:1.4}.cp-part-block .cp-group{margin:26px 0 12px;font-size:16px}.cp-group span{font-size:12px;font-weight:600;background:#eeeeea;border-radius:999px;padding:1px 8px;color:#555;margin-left:6px}.cp-who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#5f6368}.cp-ev{margin-top:auto;font-size:13px;text-decoration:none;color:var(--teal,#0b6e63)}.cp-ev .cp-chip{margin-right:6px}
 .cp-roadmap>summary{cursor:pointer;list-style:none;margin-top:30px}.cp-roadmap>summary::-webkit-details-marker{display:none}.cp-roadmap>summary h2{margin:0 0 4px}.cp-roadmap>summary h2::after{content:" \25BE";font-size:16px;color:#5f6368}.cp-roadmap:not([open])>summary h2::after{content:" \25B8"}
 .cp-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .cp-switch{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}.cp-switch button{font:500 13px inherit;font-family:inherit;border:1px solid var(--line,#ddd6c8);background:#fffdf9;border-radius:999px;padding:6px 14px;cursor:pointer}

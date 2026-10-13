@@ -476,7 +476,7 @@
    "title": "Case at a glance",
    "what": "Parties, how the case got here, subject, issues and each side's main arguments, in one card.",
    "status": "check",
-   "where": "Live in the Experimental reader for about 250 decisions (13 Oct 2026); more are being loaded.",
+   "where": "Live in the Experimental reader for 661 decisions (live database count, 13 Oct 2026).",
    "number": "83–100%",
    "number_label": "parties 90%, subject and issues 100%, challenged part 83%, true arguments found 93% (151 of 162)",
    "sample": "29 scored recent immigration decisions, none used for tuning.",
@@ -489,7 +489,7 @@
    "title": "Issue map",
    "what": "Each question the court decided, how it answered, and a jump to the paragraph that says so, with a \"Check this\" flag when the result is less certain.",
    "status": "check",
-   "where": "Built for about 308 decisions (the core 150 and a next 158); live in Experimental.",
+   "where": "Stored for 1,438 decisions (live database count, 13 Oct 2026); shown in the Experimental reader. The 95% test below used 152 decisions.",
    "number": "~95%",
    "number_label": "result right and cited paragraph right",
    "sample": "152 decisions graded, about 95% on both counts.",
@@ -503,7 +503,7 @@
    "title": "Paragraph notes",
    "what": "One plain sentence on what each paragraph does, starting with who is speaking.",
    "status": "check",
-   "where": "Built for the core 150 and the next 158 decisions (about 8,300 notes); shown in the Experimental reader.",
+   "where": "Stored for 464 decisions (live database count, 13 Oct 2026); shown in the Experimental reader. The 85% test used a hand-picked set.",
    "number": "85%",
    "number_label": "faithful, 0 wrong speaker, states the legal test in 94%",
    "sample": "80 fresh paragraphs, strict grading.",
@@ -595,7 +595,7 @@
  "limits_title": "Say it plainly",
  "limits": [
   "Every figure on this page was graded by a model on a small sample. No lawyer has reviewed them.",
-  "Paragraph notes and issue maps exist for a hand-picked set of about 308 Federal Court decisions, not the whole library.",
+  "Issue maps exist for 1,438 decisions and paragraph notes for 464 (live database count, 13 Oct 2026), out of about 75,700 in the library. Summaries cover 661.",
   "Reading your own draft against all this is planned. Nothing on this page reads or stores a draft.",
   "Layout and wording are for review. This page is a picture built from real stored outputs, not the working feature."
  ],
@@ -608,7 +608,7 @@
     "job": "Get the point of a long decision before reading it in full",
     "how": "A case summary and a map of the questions the court decided, each with a link to the paragraph that decided it.",
     "pass": "issues",
-    "scope": "Built so far for a hand-picked set of about 308 decisions."
+    "scope": "Summaries for 661 decisions and issue maps for 1,438, out of about 75,700."
    },
    {
     "who": "Litigation counsel",

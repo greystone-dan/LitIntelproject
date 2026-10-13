@@ -547,7 +547,7 @@
    "sample": "60 fresh arguments against the 3,083 decided issues, by word match.",
    "grader": "Judged by a model, not a lawyer.",
    "caveat": "Small sample. Matching your own draft is not built; nothing here reads or stores a draft.",
-   "source": "ai-proof-of-concept and open-models/local-issue-maps"
+   "source": "embeddings/paragraph-embeddings-for-matching.md"
   },
   {
    "key": "outcomes",
@@ -595,5 +595,41 @@
   "Paragraph notes and issue maps exist for a hand-picked set of about 150 important Federal Court decisions, not the whole library.",
   "Reading your own draft against all this is planned. Nothing on this page reads or stores a draft.",
   "Layout and wording are for review. This page is a picture built from real stored outputs, not the working feature."
- ]
+ ],
+ "helps": {
+  "title": "Where this helps in hearings and litigation work",
+  "text": "Five everyday jobs, each tied to the part that does it and to the evidence for it. The label beside each job says how far that part has got.",
+  "items": [
+   {
+    "who": "Hearings officer or analyst",
+    "job": "Get the point of a long decision before reading it in full",
+    "how": "A case summary and a map of the questions the court decided, each with a link to the paragraph that decided it.",
+    "pass": "issues"
+   },
+   {
+    "who": "Litigation counsel",
+    "job": "See whose argument a paragraph is dealing with",
+    "how": "Each paragraph is tagged with the party or decision maker whose position it addresses, and you can filter by it.",
+    "pass": "position"
+   },
+   {
+    "who": "Litigation counsel",
+    "job": "Check how a cited case actually ended",
+    "how": "The outcome is read from the ruling text, with the quoted sentence beside it. Unclear cases are left blank, not guessed.",
+    "pass": "outcomes"
+   },
+   {
+    "who": "Hearings officer or counsel",
+    "job": "Find earlier decisions on the same question",
+    "how": "Given an argument, finds decided issues from earlier Federal Court decisions. Matching your own draft is not built.",
+    "pass": "matching"
+   },
+   {
+    "who": "Anyone citing the law",
+    "job": "Cite to the right paragraph every time",
+    "how": "Short forms such as “at para 44” resolve to the right case and paragraph. This is the least measured part.",
+    "pass": "citations"
+   }
+  ]
+ }
 }

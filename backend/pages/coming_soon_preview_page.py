@@ -137,13 +137,49 @@ def _evidence() -> str:
     )
 
 
+def _tiers() -> str:
+    passes = examples()["passes"]
+    live = sum(1 for p in passes if p["status"] == "now" and p.get("number"))
+    tested = sum(1 for p in passes if p["status"] != "now" and p.get("number"))
+    none = sum(1 for p in passes if not p.get("number"))
+    tiles = (
+        (live, "cp-now", "Live and measured", "On the site today, with a test number."),
+        (tested, "cp-check", "Tested, not live", "Built and scored on a small sample, still being checked."),
+        (none, "cp-plan", "Not measured yet", "Built or planned, with no accuracy number."),
+    )
+    return '<div class="cp-tiers" aria-label="Evidence at a glance">' + "".join(
+        f'<a class="cp-tier cp-t-{kind[3:]}" href="#evidence"><b>{n}</b><span><strong>{_e(name)}</strong>{_e(text)}</span></a>'
+        for n, kind, name, text in tiles
+    ) + "</div>"
+
+
+def _helps() -> str:
+    data = examples()
+    helps = data["helps"]
+    passes = {p["key"]: p for p in data["passes"]}
+    rows = ""
+    for item in helps["items"]:
+        p = passes[item["pass"]]
+        label, kind = AVAILABILITY[{"now": "live", "check": "experimental", "plan": "planned"}[p["status"]]]
+        number = f' <b>{_e(p["number"])}</b>' if p.get("number") else " not measured yet"
+        rows += (
+            f'<li><span class="cp-who">{_e(item["who"])}</span><strong>{_e(item["job"])}</strong><span class="cp-what">{_e(item["how"])}</span>'
+            f'<a class="cp-ev" href="#pass-{_e(p["key"])}"><span class="cp-chip cp-{kind}">{label}</span>{number} &middot; see the evidence</a></li>'
+        )
+    return f'<section class="cp-part-block" id="helps"><h2>{_e(helps["title"])}</h2><p class="cp-lede">{_e(helps["text"])}</p><ul class="cp-helps">{rows}</ul></section>'
+
+
 def _parts() -> str:
     out = ""
     for key, label, text, slugs in PARTS:
         out += f'<section class="cp-part-block" id="part-{key}"><h2>{_e(label)}</h2><p class="cp-lede">{_e(text)}</p><div class="cp-grid">'
         out += "".join(_card(slug) for slug in slugs if slug in SECTIONS)
         out += "</div></section>"
-    return out
+    return (
+        '<details class="cp-roadmap" id="roadmap-all" open><summary><h2>The wider roadmap</h2>'
+        '<span class="cp-lede">More data, new features and what an agency deployment would need. Tap to open or close.</span></summary>'
+        + out + "</details>"
+    )
 
 
 def _demos() -> str:
@@ -186,6 +222,14 @@ _CSS = """
 .cp-frame{width:100%;height:640px;border:1px solid #ddd6c8;border-radius:8px;margin-top:12px;background:#fff}.cp-frame.cp-tall{height:760px}
 .cp-tour{margin-top:14px}.cp-foot{margin:34px 0 8px;font-size:13px;color:#5f6368}
 @media(max-width:600px){.cp-frame{height:520px}.cp-card{padding:14px}}
+.cp-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:16px 0 0}
+.cp-tier{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;border:1px solid var(--line,#ddd6c8);border-radius:10px;padding:10px 14px;background:#fffdf9}
+.cp-tier b{font-size:30px;font-family:Newsreader,Georgia,serif;line-height:1}.cp-tier span{font-size:12px;color:#5f6368;line-height:1.35}.cp-tier strong{display:block;font-size:13px;color:#222}
+.cp-t-now{border-left:4px solid #0b5d52}.cp-t-check{border-left:4px solid #b88a00}.cp-t-plan{border-left:4px solid #999}
+.cp-helps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.cp-helps li{background:#fffdf9;border:1px solid var(--line,#ddd6c8);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.cp-who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#5f6368}.cp-ev{margin-top:auto;font-size:13px;text-decoration:none;color:var(--teal,#0b6e63)}.cp-ev .cp-chip{margin-right:6px}
+.cp-roadmap>summary{cursor:pointer;list-style:none;margin-top:30px}.cp-roadmap>summary::-webkit-details-marker{display:none}.cp-roadmap>summary h2{margin:0 0 4px}.cp-roadmap>summary h2::after{content:" \25BE";font-size:16px;color:#5f6368}.cp-roadmap:not([open])>summary h2::after{content:" \25B8"}
 .cp-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .cp-switch{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}.cp-switch button{font:500 13px inherit;font-family:inherit;border:1px solid var(--line,#ddd6c8);background:#fffdf9;border-radius:999px;padding:6px 14px;cursor:pointer}
 .cp-switch button span{color:#5f6368;margin-left:4px}.cp-switch button[aria-pressed=true]{background:#315d8d;border-color:#315d8d;color:#fff}.cp-switch button[aria-pressed=true] span{color:#e7eef6}
@@ -223,6 +267,7 @@ _JS = r"""
 function open(id){var d=document.getElementById(id);if(!d)return;d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'})}
 document.querySelectorAll('details[data-lazy]').forEach(function(d){d.addEventListener('toggle',function(){if(!d.open)return;var f=d.querySelector('iframe[data-src]');if(f&&!f.getAttribute('src'))f.setAttribute('src',f.getAttribute('data-src'))})});
 document.querySelectorAll('[data-open]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();open(a.getAttribute('data-open'))})});
+if(window.innerWidth<=600){var rm=document.getElementById('roadmap-all');if(rm)rm.open=false}
 document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('data-go'),t=document.getElementById(id);if(t&&t.tagName==='DETAILS')t.open=true;if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 var dataEl=document.getElementById('cp-data'),root=document.getElementById('rd');
 if(!dataEl||!root)return;
@@ -272,11 +317,12 @@ def render() -> str:
         '<p class="cp-lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and links to the law. '
         'This page previews what is being added, in plain words. Each area says honestly how far it has got, and you can click through demos of the screens.</p>'
         '<div class="cp-nav"><a class="cp-demo" href="#layers" data-go="layers">&#9654; See it on a decision</a> '
+        '<a class="cp-demo" href="#helps" data-go="helps">Where it helps</a> '
         '<a class="cp-demo" href="#evidence" data-go="evidence">How well it works</a> '
         '<a class="cp-demo" href="#tour" data-go="tour">Guided tour</a> '
         '<a class="cp-demo" href="#demos" data-go="demos">Try a demo</a></div>'
-        f'<div class="cp-legend small">{legend}</div></header>'
-        f"{_layers()}{_evidence()}{_parts()}{_demos()}"
+        f'<div class="cp-legend small">{legend}</div>{_tiers()}</header>'
+        f"{_layers()}{_helps()}{_evidence()}{_parts()}{_demos()}"
         '<p class="cp-foot">Nothing here is a promise. Demos use invented data. Features marked Planned do not exist yet.</p>'
     )
     return (

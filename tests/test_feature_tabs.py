@@ -1421,3 +1421,18 @@ def test_preview_numbers_come_from_the_examples_file_():
             assert 'Not measured yet' in page  # no number is never dressed up as one
     assert len(data['cases']) >= 3 and all(case['issues'] and case['notes'] for case in data['cases'])
     assert '</script><script' not in page.split('id="cp-data"', 1)[1].split('</script>', 1)[0]
+
+
+def test_preview_shows_evidence_tiers_and_helps_section_tied_to_passes():
+    import json
+
+    from backend.pages import coming_soon_preview_page as preview
+
+    data = json.loads(preview.EXAMPLES_FILE.read_text(encoding='utf-8'))
+    page = preview.render()
+    keys = {p['key'] for p in data['passes']}
+    assert data['helps']['items'] and all(item['pass'] in keys for item in data['helps']['items'])  # every use names a tested part
+    for item in data['helps']['items']:
+        assert f'href="#pass-{item["pass"]}"' in page
+    live = sum(1 for p in data['passes'] if p['status'] == 'now' and p.get('number'))
+    assert f'<b>{live}</b>' in page and 'Not measured yet' in page and 'id="roadmap-all"' in page

@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-13T15:51:09.223645+00:00
-Tables: 48
+Generated: 2026-10-13T21:53:33.569638+00:00
+Tables: 49
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -495,6 +495,16 @@ erDiagram
         Integer edges
         DATETIME computed_at
     }
+    paragraph_note_links {
+        Integer id PK
+        Integer case_id  FK
+        Integer para
+        Integer other_case_id  FK
+        Integer other_para
+        Integer score
+        String(40) source
+        DATETIME created_at
+    }
     paragraph_notes {
         Integer id PK
         Integer case_id  FK
@@ -693,6 +703,8 @@ erDiagram
     cases ||--o{ paragraph_citation_edges : "source_case_id"
     cases ||--o{ paragraph_citation_edges : "target_case_id"
     cases ||--o{ paragraph_citation_status : "source_case_id"
+    cases ||--o{ paragraph_note_links : "case_id"
+    cases ||--o{ paragraph_note_links : "other_case_id"
     cases ||--o{ paragraph_notes : "case_id"
     cases ||--o{ paragraph_positions : "case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
@@ -751,6 +763,7 @@ erDiagram
 | `legislation_sections` | 6 | `id` |
 | `paragraph_citation_edges` | 9 | `id` |
 | `paragraph_citation_status` | 4 | `source_case_id` |
+| `paragraph_note_links` | 8 | `id` |
 | `paragraph_notes` | 7 | `id` |
 | `paragraph_positions` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
@@ -1821,6 +1834,34 @@ erDiagram
 ### Foreign Keys
 
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_note_links`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `para` | `Integer` | no | NOT NULL |
+| `other_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `other_para` | `Integer` | no | NOT NULL |
+| `score` | `Integer` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_paragraph_note_links_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_note_link_pair`: `case_id`, `para`, `other_case_id`, `other_para`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `other_case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `paragraph_notes`
 

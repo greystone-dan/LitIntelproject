@@ -1168,6 +1168,26 @@ class ParagraphNote(Base):
 	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
 
 
+class ParagraphNoteLink(Base):
+	"""A stored "possibly the same point" link from one paragraph note to the same-point note in another decision.
+
+	Scored once at ingest by a hosted model on public notes, stored as ordinary data (see scripts/load_note_links.py).
+	Only links scoring 8 or more are stored. No model runs at site-use time.
+	"""
+
+	__tablename__ = "paragraph_note_links"
+	__table_args__ = (UniqueConstraint("case_id", "para", "other_case_id", "other_para", name="uq_note_link_pair"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	para: Mapped[int] = mapped_column(Integer, nullable=False)
+	other_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False)
+	other_para: Mapped[int] = mapped_column(Integer, nullable=False)
+	score: Mapped[int] = mapped_column(Integer, nullable=False)
+	source: Mapped[str] = mapped_column(String(40), nullable=False)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
 class CaseFrame(Base):
 	"""The simple pass-1 frame of one decision: parties, earlier decisions, issues, arguments, challenged part.
 

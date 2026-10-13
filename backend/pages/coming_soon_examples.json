@@ -3,7 +3,7 @@
  "layers_intro": {
   "title": "Three layers on a decision, one tap away",
   "text": "The decision text stays the page. Three optional layers sit on top of it, each opened with a button: a summary of the case, a map of the questions the court decided, and one plain sentence on what each paragraph does. Try the buttons below.",
-  "limits": "These are real stored outputs for decisions from the hand-picked set of 150 important Federal Court immigration decisions. Names are as published in the decisions; paragraph text is shortened. It is a picture of the feature, not the working reader."
+  "limits": "These are real stored outputs for decisions from the hand-picked set of about 308 Federal Court immigration decisions (the 150 most cited, a topic set, and a next 158). Names are as published in the decisions; paragraph text is shortened. It is a picture of the feature, not the working reader."
  },
  "cases": [
   {
@@ -489,20 +489,21 @@
    "title": "Issue map",
    "what": "Each question the court decided, how it answered, and a jump to the paragraph that says so, with a \"Check this\" flag when the result is less certain.",
    "status": "check",
-   "where": "Built for the core 150 decisions; live in Experimental.",
+   "where": "Built for about 308 decisions (the core 150 and a next 158); live in Experimental.",
    "number": "~95%",
    "number_label": "result right and cited paragraph right",
    "sample": "152 decisions graded, about 95% on both counts.",
    "grader": "Maps written by a free local model (Qwen3.5-9B); graded blind by Haiku.",
    "caveat": "A few maps read the direction the wrong way round or marked a decided issue as undecided (3 decisions among the graded sets). Issues the grader never saw are not measured. In the most recent batch of 50 decisions, 92% of issue results and 95% of cited paragraphs were right.",
-   "source": "open-models/local-issue-maps-batch2/README.md"
+   "source": "open-models/local-issue-maps-batch2/README.md",
+   "extra": "The next 158 decisions were mapped by a hosted open-weight model (qwen3.5-35b-a3b). On 60 of them, graded blind by Haiku, 97% of issue results (131 of 135) and 98% of cited paragraphs (132 of 135) were right, with 1 harmful error."
   },
   {
    "key": "notes",
    "title": "Paragraph notes",
    "what": "One plain sentence on what each paragraph does, starting with who is speaking.",
    "status": "check",
-   "where": "Built for the core 150 decisions; shown in the Experimental reader.",
+   "where": "Built for the core 150 and the next 158 decisions (about 8,300 notes); shown in the Experimental reader.",
    "number": "85%",
    "number_label": "faithful, 0 wrong speaker, states the legal test in 94%",
    "sample": "80 fresh paragraphs, strict grading.",
@@ -548,7 +549,8 @@
    "sample": "60 fresh arguments against the 3,083 decided issues, by word match.",
    "grader": "Judged by a model, not a lawyer.",
    "caveat": "Small sample. Matching your own draft is not built; nothing here reads or stores a draft.",
-   "source": "embeddings/paragraph-embeddings-for-matching.md"
+   "source": "embeddings/paragraph-embeddings-for-matching.md; matching/paragraph-note-matching-test.md",
+   "extra": "A second test ranked one-line paragraph notes (8,302 notes from 308 decisions; 100 query notes; 1,543 pairs graded blind by Haiku). Plain word match put a note making the same point in the top three 44% of the time. Asking a hosted model to re-order the top ten raised that to 52% (a gain of about 7 points). Adding issue text, or removing names, gave nothing. Not live: the re-ordering needs a model, so it would run when decisions are added, not when someone searches."
   },
   {
    "key": "outcomes",
@@ -593,7 +595,7 @@
  "limits_title": "Say it plainly",
  "limits": [
   "Every figure on this page was graded by a model on a small sample. No lawyer has reviewed them.",
-  "Paragraph notes and issue maps exist for a hand-picked set of about 150 important Federal Court decisions, not the whole library.",
+  "Paragraph notes and issue maps exist for a hand-picked set of about 308 Federal Court decisions, not the whole library.",
   "Reading your own draft against all this is planned. Nothing on this page reads or stores a draft.",
   "Layout and wording are for review. This page is a picture built from real stored outputs, not the working feature."
  ],
@@ -606,7 +608,7 @@
     "job": "Get the point of a long decision before reading it in full",
     "how": "A case summary and a map of the questions the court decided, each with a link to the paragraph that decided it.",
     "pass": "issues",
-    "scope": "Built so far for a hand-picked set of about 150 decisions."
+    "scope": "Built so far for a hand-picked set of about 308 decisions."
    },
    {
     "who": "Litigation counsel",

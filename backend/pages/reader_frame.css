@@ -11,7 +11,7 @@
 .frame-para{text-decoration:none;font-size:12px;white-space:nowrap}
 .frame-more{border:1px solid #c9d3e3;background:#fff;border-radius:6px;padding:3px 10px;cursor:pointer}
 /* Stored layers (Experimental only): nothing shows, and nothing is fetched, while Experimental is off. */
-body:not(.reader-experimental) :is([data-frame-card],[data-issue-card],[data-layers-bar],[data-pn-note]){display:none!important}
+body:not(.reader-experimental) :is([data-frame-card],[data-issue-card],[data-links-card],[data-layers-bar],[data-pn-note]){display:none!important}
 .frame-card .iss-list{margin:6px 0 0;padding:0;list-style:none}
 .iss{padding:10px 0;border-top:1px solid #dbe2ee}
 .iss:first-child{border-top:0;padding-top:4px}
@@ -45,3 +45,13 @@ body:not(.reader-experimental) .ly-bar{display:none!important}
 #decisionBody .fmt-para.mk-folded+.pn-note{display:none}
 @media (max-width:640px){#decisionBody .pn-note{margin-left:.4rem}}
 @media (max-width:640px){.ly-bar{position:sticky;top:0;z-index:5}.ly-btn{flex:1 1 auto}.ly-title{flex-basis:100%}.frame-card{padding:8px 10px}}
+.frame-card .rl-h{margin:0 0 4px;font-size:14px;text-transform:none;letter-spacing:0;color:#1f3350}
+.frame-card .rl-items{margin:6px 0 0;padding:0;list-style:none}
+.rl{padding:10px 0;border-top:1px solid #dbe2ee}
+.rl:first-child{border-top:0;padding-top:4px}
+.rl-src{font-weight:500;overflow-wrap:anywhere}
+.frame-card .rl-list{margin:6px 0 0;padding:0 0 0 12px;list-style:none;border-left:2px solid #c9d3e3}
+.rl-list li{margin:0 0 8px}
+.rl-case{font-size:13px;font-weight:600;overflow-wrap:anywhere}
+.rl-title{font-weight:400;color:#5a6679}
+.rl-note{font-size:13px;color:#46536d;overflow-wrap:anywhere}

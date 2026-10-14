@@ -10,9 +10,9 @@ from __future__ import annotations
 from typing import Any
 
 from sqlalchemy import select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, aliased
 
-from .database import IssueMap, ParagraphNote
+from .database import Case, IssueMap, ParagraphNote, ParagraphNoteLink
 from .issue_match import RESULT_LABELS, review_items
 
 ISSUES_NOTE = (
@@ -60,3 +60,38 @@ def case_paragraph_notes(case_id: int, db: Session) -> dict[str, Any]:
 		select(ParagraphNote.para, ParagraphNote.note).where(ParagraphNote.case_id == case_id, ParagraphNote.version == row_version)
 	).all()
 	return {"available": True, "note": NOTES_NOTE, "version": row_version, "paragraphs": {str(p): n for p, n in rows}}
+
+
+LINKS_LABEL = "Related paragraphs in other decisions (automatic, may differ)"
+LINKS_NOTE = (
+	"Found ahead of time by an AI model comparing the one-line notes, not the decisions themselves. In a blind check about 60% "
+	"were the same point and about 92 to 98% were the same or a related point; some are generic. Read both paragraphs before relying on one."
+)
+LINKS_PER_NOTE = 2
+
+
+def case_note_links(case_id: int, db: Session) -> dict[str, Any]:
+	"""Stored links from this decision's paragraph notes to notes in other decisions. Stored rows only; no model call."""
+	other_note = aliased(ParagraphNote)
+	mine = aliased(ParagraphNote)
+	rows = db.execute(
+		select(
+			ParagraphNoteLink.para, mine.note, ParagraphNoteLink.score, ParagraphNoteLink.other_case_id, ParagraphNoteLink.other_para,
+			other_note.note, Case.title, Case.citation,
+		)
+		.join(mine, (mine.case_id == ParagraphNoteLink.case_id) & (mine.para == ParagraphNoteLink.para) & (mine.version == 1))
+		.join(other_note, (other_note.case_id == ParagraphNoteLink.other_case_id) & (other_note.para == ParagraphNoteLink.other_para) & (other_note.version == 1))
+		.join(Case, Case.id == ParagraphNoteLink.other_case_id)
+		.where(ParagraphNoteLink.case_id == case_id)
+		.order_by(ParagraphNoteLink.para, ParagraphNoteLink.score.desc(), ParagraphNoteLink.other_case_id, ParagraphNoteLink.other_para)
+	).all()
+	items: dict[int, dict[str, Any]] = {}
+	for para, note, score, other_id, other_para, other_text, title, citation in rows:
+		item = items.setdefault(para, {"para": para, "note": note, "links": []})
+		if len(item["links"]) < LINKS_PER_NOTE:
+			item["links"].append(
+				{"case_id": other_id, "title": title, "citation": citation, "para": other_para, "note": other_text, "score": score}
+			)
+	if not items:
+		return {"available": False}
+	return {"available": True, "label": LINKS_LABEL, "note": LINKS_NOTE, "items": list(items.values())}

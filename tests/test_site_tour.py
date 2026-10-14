@@ -401,3 +401,8 @@ def test_intelligence_steps_show_the_rest_of_citation_and_judge_pages_and_the_fi
 def test_tour_hides_the_experimental_whose_position_bar():
     css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
     assert "html.ilit-tour-on [data-pos-bar]{display:none!important}" in css
+
+
+def test_phone_reader_puts_the_side_panel_above_the_text_and_lets_the_page_scroll_in_the_tour():
+    css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
+    assert "@media(max-width:760px){html.ilit-tour-on .inline-case-reader{height:auto!important}html.ilit-tour-on .reader-pane.target{order:-1}}" in css

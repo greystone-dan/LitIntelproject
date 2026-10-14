@@ -60,6 +60,7 @@
 html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */
 html.ilit-tour-on body{padding-bottom:120px}   /* room to lift the end of a page above the control bar */
 html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}   /* the whole reader fits above the control bar, so its ring goes right round it */
+@media(max-width:760px){html.ilit-tour-on .inline-case-reader{height:auto!important}html.ilit-tour-on .reader-pane.target{order:-1}}   /* phones: the reader's panes stack and the page scrolls, so the frame is as tall as its contents, and the side panel the tour talks about sits above the long text instead of 17,000 px below it */
 html.ilit-tour-on .la-modal{padding-bottom:96px}   /* a dialog's buttons stay clear of the control bar */
 html.ilit-tour-on .la-modal{justify-content:flex-start;padding-left:24px}html.ilit-tour-on .la-dialog{width:min(980px,calc(100vw - 480px))}   /* and the dialog leaves room beside it for the card */
 /* The tour shows the plain reader: the Experimental "Whose position" bar is left out of every step. */

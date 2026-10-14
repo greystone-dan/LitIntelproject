@@ -561,7 +561,7 @@
    "status": "check",
    "where": "Stored at ingest for 740 decisions (19,553 links; Federal Court and Federal Court of Appeal only, none for the Supreme Court); shown behind the Experimental switch. No model runs when the page opens.",
    "number": "60%",
-   "number_label": "of shown links make the same point; 92–98% are the same or a closely related point",
+   "number_label": "of shown links make the same point; 92–98% are the same or a closely related point. 19,553 links are stored, on 740 decisions.",
    "sample": "Two blind samples of linked pairs: 150 links before the filter (same point 60%, same or related 98%) and 60 fresh links after it (same point 60%, same or related 92%, 5 clearly unrelated).",
    "grader": "Candidates scored by an open model hosted by a third party, once, when the notes were stored; pairs graded blind by a small AI model, not a lawyer.",
    "caveat": "About 3 in 10 shown links are a related point rather than the same one, about 1 in 12 is wrong, and about 1 in 4 is too generic to help. Shown as “may differ”, never as “same point”.",
@@ -611,7 +611,7 @@
  "limits_title": "Say it plainly",
  "limits": [
   "Every figure on this page was graded by a model on a small sample. No lawyer has reviewed them.",
-  "Issue maps exist for 1,599 decisions and paragraph notes for 740 (live database count, 14 Oct 2026), out of about 75,700 in the library. Summaries cover 938. Supreme Court notes and maps are held back for now because they were too often wrong.",
+  "Issue maps exist for 1,599 decisions and paragraph notes for 740 (live database count, 14 Oct 2026), out of about 75,700 in the library. Summaries cover 938. Supreme Court notes, issue maps and related-paragraph links are held back for now because the notes and maps were too often wrong.",
   "Reading your own draft against all this is planned. Nothing on this page reads or stores a draft.",
   "Layout and wording are for review. This page is a picture built from real stored outputs, not the working feature."
  ],
@@ -624,7 +624,7 @@
     "job": "Get the point of a long decision before reading it in full",
     "how": "A case summary and a map of the questions the court decided, each with a link to the paragraph that decided it.",
     "pass": "issues",
-    "scope": "Summaries for 938 decisions and issue maps for 1,599, out of about 75,700. Supreme Court maps are held back."
+    "scope": "Summaries for 938 decisions and issue maps for 1,599, out of about 75,700. Supreme Court maps, notes and links are held back."
    },
    {
     "who": "Litigation counsel",
@@ -645,7 +645,7 @@
     "job": "Find earlier decisions on the same question",
     "how": "Given an argument, finds decided issues from earlier Federal Court decisions. Beside a paragraph note, the reader can also list paragraphs in other decisions that may make the same point.",
     "pass": "matching",
-    "scope": "Matching your own draft is not built. Tested on small sets; the paragraph links are automatic and may differ."
+    "scope": "Matching your own draft is not built. Tested on small sets; the paragraph links are automatic and may differ. 19,553 paragraph links are stored on 740 decisions (none for the Supreme Court)."
    },
    {
     "who": "Anyone citing the law",

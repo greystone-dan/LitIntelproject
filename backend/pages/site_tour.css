@@ -53,3 +53,4 @@ html.ilit-tour-on body{padding-bottom:120px}   /* room to lift the end of a page
 html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}   /* the whole reader fits above the control bar, so its ring goes right round it */
 html.ilit-tour-on .la-modal{padding-bottom:96px}   /* a dialog's buttons stay clear of the control bar */
 html.ilit-tour-on .la-modal{justify-content:flex-start;padding-left:24px}html.ilit-tour-on .la-dialog{width:min(980px,calc(100vw - 480px))}   /* and the dialog leaves room beside it for the card */
+html.ilit-tour-on #decisionBody .pos-bar,html.ilit-tour-on #decisionBody [data-pos-note]{display:none!important}   /* the experimental whose-position preview stays out of the tour */

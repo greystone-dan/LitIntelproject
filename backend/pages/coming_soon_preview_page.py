@@ -84,38 +84,36 @@ def _pass_card(p: dict) -> str:
 
 def _evidence() -> str:
     data = examples()
-    passes = data["passes"]
-    groups = (
-        ("ev-live", "Live and measured", [p for p in passes if p["status"] == "now" and p.get("number")]),
-        ("ev-check", "Tested, still being checked", [p for p in passes if p["status"] != "now" and p.get("number")]),
-        ("ev-none", "Not measured yet", [p for p in passes if not p.get("number")]),
-    )
+    by_key = {p["key"]: p for p in data["passes"]}
     body = "".join(
-        f'<h3 class="cp-group" id="{gid}">{_e(name)} <span>{len(items)}</span></h3><div class="cp-grid">{"".join(_pass_card(p) for p in items)}</div>'
-        for gid, name, items in groups if items
+        f'<h3 class="cp-group">{_e(g["title"])} <span>{len(g["keys"])}</span></h3><p class="cp-groupnote">{_e(g["text"])}</p>'
+        f'<div class="cp-grid">{"".join(_pass_card(by_key[k]) for k in g["keys"])}</div>'
+        for g in data["evidence_groups"]
     )
     limits = "".join(f"<li>{_e(line)}</li>" for line in data["limits"])
     return (
         '<section class="cp-part-block" id="evidence"><h2>What has been tested, and how well</h2>'
-        f'<p class="cp-lede">Each part of the reading layer, with the number it earned, what it was tested on, who graded it and where it falls short. A part with no number says so. {_e(data.get("as_of", ""))}</p>'
+        f'<p class="cp-lede">Each part, grouped by what it does, with the number it earned, what it was tested on, who graded it and where it falls short. The label on each card says how far it has got; a part with no number says so. {_e(data.get("as_of", ""))}</p>'
         f'{body}'
         f'<aside class="cp-say"><h3>{_e(data["limits_title"])}</h3><ul>{limits}</ul></aside></section>'
     )
 
 
 def _tiers() -> str:
-    passes = examples()["passes"]
-    live = sum(1 for p in passes if p["status"] == "now" and p.get("number"))
-    tested = sum(1 for p in passes if p["status"] != "now" and p.get("number"))
-    none = sum(1 for p in passes if not p.get("number"))
+    data = examples()
+    by_key = {p["key"]: p for p in data["passes"]}
+    ordered = [by_key[k] for g in data["evidence_groups"] for k in g["keys"]]
+    live = [p for p in ordered if p["status"] == "now" and p.get("number")]
+    tested = [p for p in ordered if p["status"] != "now" and p.get("number")]
+    none = [p for p in ordered if not p.get("number")]
     tiles = (
-        (live, "cp-now", "Live and measured", "On the site today, with a test number.", "ev-live"),
-        (tested, "cp-check", "Tested, still being checked", "Scored on a small sample; on the site for some decisions or not yet.", "ev-check"),
-        (none, "cp-plan", "Not measured yet", "Built or planned, with no accuracy number.", "ev-none"),
+        (live, "cp-now", "Live and measured", "On the site today, with a test number."),
+        (tested, "cp-check", "Tested, still being checked", "Scored on a small sample; on the site for some decisions or not yet."),
+        (none, "cp-plan", "Not measured yet", "Built or planned, with no accuracy number."),
     )
     return '<div class="cp-tiers" aria-label="Evidence at a glance">' + "".join(
-        f'<a class="cp-tier cp-t-{kind[3:]}" href="#{anchor}"><b>{n}</b><span><strong>{_e(name)}</strong>{_e(text)}</span></a>'
-        for n, kind, name, text, anchor in tiles
+        f'<a class="cp-tier cp-t-{kind[3:]}" href="#pass-{_e(items[0]["key"])}"><b>{len(items)}</b><span><strong>{_e(name)}</strong>{_e(text)}</span></a>'
+        for items, kind, name, text in tiles if items
     ) + "</div>"
 
 
@@ -257,7 +255,7 @@ _CSS = """
 .cp-t-now{border-left:4px solid #0b5d52}.cp-t-check{border-left:4px solid #b88a00}.cp-t-plan{border-left:4px solid #999}
 .cp-helps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
 .cp-helps li{background:#fffdf9;border:1px solid var(--line,#ddd6c8);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
-.cp-scope{font-size:12px;color:#5f6368;border-left:3px solid #ddd6c8;padding-left:8px;line-height:1.4}.cp-part-block .cp-group{margin:26px 0 12px;font-size:16px}.cp-group span{font-size:12px;font-weight:600;background:#eeeeea;border-radius:999px;padding:1px 8px;color:#555;margin-left:6px}.cp-who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#5f6368}.cp-ev{margin-top:auto;font-size:13px;text-decoration:none;color:var(--teal,#0b6e63)}.cp-ev .cp-chip{margin-right:6px}
+.cp-scope{font-size:12px;color:#5f6368;border-left:3px solid #ddd6c8;padding-left:8px;line-height:1.4}.cp-groupnote{margin:-6px 0 12px;font-size:13px;color:#5f6368;max-width:68ch}.cp-part-block .cp-group{margin:26px 0 12px;font-size:16px}.cp-group span{font-size:12px;font-weight:600;background:#eeeeea;border-radius:999px;padding:1px 8px;color:#555;margin-left:6px}.cp-who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#5f6368}.cp-ev{margin-top:auto;font-size:13px;text-decoration:none;color:var(--teal,#0b6e63)}.cp-ev .cp-chip{margin-right:6px}
 .cp-roadmap>summary{cursor:pointer;list-style:none;margin-top:30px}.cp-roadmap>summary::-webkit-details-marker{display:none}.cp-roadmap>summary h2{margin:0 0 4px}.cp-roadmap>summary h2::after{content:" \\25BE";font-size:16px;color:#5f6368}.cp-roadmap:not([open])>summary h2::after{content:" \\25B8"}
 .cp-roadmap .cp-switch{margin:14px 0}
 .cp-fg{margin:18px 0 0}.cp-fg header h3{margin:0;font-size:18px}.cp-fg header h3 span{font-size:12px;font-weight:600;background:#eeeeea;border-radius:999px;padding:1px 8px;color:#555;margin-left:6px}.cp-fg header p{margin:2px 0 10px;color:#5f6368;font-size:14px}

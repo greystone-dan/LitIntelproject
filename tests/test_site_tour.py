@@ -389,3 +389,15 @@ def test_control_bar_keeps_next_and_exit_on_screen_on_phones():
     css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
     phone = css[css.index("@media (max-width:560px)"):]
     assert ".ilit-tour-dock{left:12px;right:12px" in phone and "flex-wrap:wrap" in phone
+
+
+def test_intelligence_steps_show_the_rest_of_citation_and_judge_pages_and_the_files_by_year_chart():
+    steps = [s["id"] for s in json.loads((Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]]
+    assert steps.index("citation-detail") == steps.index("citation-intelligence") + 1
+    assert steps.index("judge-detail") == steps.index("judge-open") + 1
+    assert "fc-by-year" in steps and "fc-people" not in steps
+
+
+def test_tour_hides_the_experimental_whose_position_bar():
+    css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
+    assert "html.ilit-tour-on [data-pos-bar]{display:none!important}" in css

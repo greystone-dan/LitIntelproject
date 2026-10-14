@@ -383,3 +383,9 @@ def test_coming_soon_demo_page_is_served_linked_and_makes_no_requests():
     assert "roadmap-demos" in explorer and "/roadmap/preview#demos" in explorer
     roadmap = client.get("/roadmap").text
     assert 'id="demos"' in roadmap and 'data-src="/coming-soon-demo#ai"' in roadmap and 'href="#demo-ai"' in roadmap
+
+
+def test_control_bar_keeps_next_and_exit_on_screen_on_phones():
+    css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
+    phone = css[css.index("@media (max-width:560px)"):]
+    assert ".ilit-tour-dock{left:12px;right:12px" in phone and "flex-wrap:wrap" in phone

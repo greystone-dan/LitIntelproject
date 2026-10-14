@@ -46,6 +46,15 @@
 .ilit-tour-start.alt{margin-top:14px;background:#fff;color:#202522;text-decoration:none}
 .ilit-tour-start.alt:hover{background:#a4412b;color:#fff}
 .ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
+/* Phones: the bar is two rows (progress on top, buttons below) so Next and Exit tour are never pushed off the right edge. */
+@media (max-width:560px){
+.ilit-tour-dock{left:12px;right:12px;bottom:12px;flex-wrap:wrap;gap:6px 8px;max-width:none;padding:9px 10px;transform:none}
+.ilit-tour-where{flex:1 1 100%;flex-direction:row;align-items:center;gap:10px;min-width:0;margin-right:0}
+.ilit-tour-bar{flex:1 1 auto;width:auto}
+.ilit-tour-btn{padding:7px 10px}
+.ilit-tour-btn.primary{flex:1 1 auto;min-width:64px}
+.ilit-tour-x{margin-left:0;padding:0 6px}
+}
 @media (prefers-reduced-motion:reduce){.ilit-tour-bar i,.ilit-tour-cursor,.ilit-tour.moving .ilit-tour-ring,.ilit-tour-card,.ilit-tour-dim{transition:none}.ilit-tour-cursor.press::after{animation:none}}
 @media print{.ilit-tour{display:none}}
 html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */

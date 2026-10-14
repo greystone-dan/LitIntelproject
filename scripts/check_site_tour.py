@@ -339,7 +339,8 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
             main = (g.get("items") or [{}])[g.get("focus", 0)]
             mf, room = main.get("full"), item.get("room")
             together = mf and room and max(full["y"] + full["h"], mf["y"] + mf["h"]) - min(full["y"], mf["y"]) > room["h"]
-            if k != g.get("focus", 0) and not item.get("seen") and together:
+            scrolled_off = full["y"] + full["h"] <= 0 or full["y"] >= floor      # the page moved on to the target and left this region above or below the screen
+            if k != g.get("focus", 0) and ((not item.get("seen") and together) or scrolled_off):
                 problems.append(f"note: {name} out of view (it and the target do not fit on the screen together)")
             else:
                 problems.append(f"{name} has no ring")

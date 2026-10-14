@@ -476,40 +476,42 @@
    "title": "Case at a glance",
    "what": "Parties, how the case got here, subject, issues and each side's main arguments, in one card.",
    "status": "check",
-   "where": "Live in the Experimental reader for 661 decisions (live database count, 13 Oct 2026).",
+   "where": "Live in the Experimental reader for 938 decisions (live database count, 14 Oct 2026), including 23 Supreme Court decisions.",
    "number": "83–100%",
    "number_label": "parties 90%, subject and issues 100%, challenged part 83%, true arguments found 93% (151 of 162)",
    "sample": "29 scored recent immigration decisions, none used for tuning.",
    "grader": "Written by a small AI model and graded by a larger one (neither is a lawyer).",
    "caveat": "Small sample, and the grader was more lenient than in earlier rounds, so treat the figures as a few points optimistic.",
-   "source": "case-frame/README.md"
+   "source": "case-frame/README.md",
+   "extra": "The newest batch was graded strictly by a larger AI model: 23 Supreme Court and 40 Federal Court of Appeal decisions. Parties, earlier levels and subject were right in all 63. The challenged part was right in 91% (Supreme Court) and 95% (Court of Appeal); listed arguments were 99% and 97% precise, with 92% and 94% found. Supreme Court cards are thin on the respondent's and interveners' arguments, because the Court often does not recite them."
   },
   {
    "key": "issues",
    "title": "Issue map",
    "what": "Each question the court decided, how it answered, and a jump to the paragraph that says so, with a \"Check this\" flag when the result is less certain.",
    "status": "check",
-   "where": "Stored for 1,438 decisions (live database count, 13 Oct 2026); shown in the Experimental reader. The 95% test used 152 decisions.",
+   "where": "Stored for 1,599 decisions (live database count, 14 Oct 2026); shown in the Experimental reader. The 95% test used 152 decisions. Supreme Court maps are held back (about 1 in 7 issue results wrong); the 10 stored for that court are older ones.",
    "number": "~95%",
    "number_label": "result right and cited paragraph right",
    "sample": "152 decisions graded, about 95% on both counts.",
    "grader": "Maps written by a free model that runs on the site computer, then graded blind by a small AI model.",
    "caveat": "A few maps read the direction the wrong way round or marked a decided issue as undecided (3 decisions among the graded sets). Issues the grader never saw are not measured. In the most recent batch of 50 decisions, 92% of issue results and 95% of cited paragraphs were right.",
    "source": "open-models/local-issue-maps-batch2/README.md",
-   "extra": "The next 158 decisions were mapped by a larger open model hosted by a third party. On 60 of them, graded blind by a small AI model, 97% of issue results (131 of 135) and 98% of cited paragraphs (132 of 135) were right, with 1 harmful error."
+   "extra": "The next 158 decisions were mapped by a larger open model hosted by a third party. On 60 of them, graded blind by a small AI model, 97% of issue results (131 of 135) and 98% of cited paragraphs (132 of 135) were right, with 1 harmful error. On 60 Federal Court of Appeal decisions graded strictly, about 90% of issue results were right and the cited paragraph supported the result in all of them."
   },
   {
    "key": "notes",
    "title": "Paragraph notes",
    "what": "One plain sentence on what each paragraph does, starting with who is speaking.",
    "status": "check",
-   "where": "Stored for 464 decisions (live database count, 13 Oct 2026); shown in the Experimental reader. The 85% test used a hand-picked set.",
+   "where": "Stored for 740 decisions (25,887 notes; live database count, 14 Oct 2026), Federal Court and Federal Court of Appeal only; shown in the Experimental reader. Notes on Supreme Court decisions are held back: 7.6% were wrong, mostly because the model could not tell the majority from a dissent.",
    "number": "85%",
    "number_label": "faithful, 0 wrong speaker, states the legal test in 94%",
    "sample": "80 fresh paragraphs, strict grading.",
    "grader": "Written by an open model hosted by a third party, graded blind by a small AI model.",
    "caveat": "Soft qualifiers such as “partially” or “at most” are dropped in about 14% of notes. The notes name people by role (applicant, officer) rather than by name.",
-   "source": "core-150/summary-lab/FINAL_METHOD.md"
+   "source": "core-150/summary-lab/FINAL_METHOD.md",
+   "extra": "Federal Court of Appeal notes (150 sampled, graded strictly by a larger AI model): 1.3% wrong, the speaker right in about 95%, and 98% rated useful. The 85% figure above is for the earlier Federal Court set."
   },
   {
    "key": "position",
@@ -557,13 +559,14 @@
    "title": "Related paragraphs in other decisions",
    "what": "Beside a paragraph note, up to two paragraphs from other decisions that may make the same point, each with a link.",
    "status": "check",
-   "where": "Stored at ingest for 464 decisions (9,488 links, 463 decisions with at least one); shown behind the Experimental switch. No model runs when the page opens.",
+   "where": "Stored at ingest for 740 decisions (19,553 links; Federal Court and Federal Court of Appeal only, none for the Supreme Court); shown behind the Experimental switch. No model runs when the page opens.",
    "number": "60%",
    "number_label": "of shown links make the same point; 92–98% are the same or a closely related point",
    "sample": "Two blind samples of linked pairs: 150 links before the filter (same point 60%, same or related 98%) and 60 fresh links after it (same point 60%, same or related 92%, 5 clearly unrelated).",
    "grader": "Candidates scored by an open model hosted by a third party, once, when the notes were stored; pairs graded blind by a small AI model, not a lawyer.",
    "caveat": "About 3 in 10 shown links are a related point rather than the same one, about 1 in 12 is wrong, and about 1 in 4 is too generic to help. Shown as “may differ”, never as “same point”.",
-   "source": "data/note_links/README.md; matching/paragraph-note-matching-test.md"
+   "source": "data/note_links/README.md; matching/paragraph-note-matching-test.md",
+   "extra": "On 60 newer Federal Court of Appeal links graded the same way: 63% make the same point, 100% are the same or a related point, and 17% are too generic to help."
   },
   {
    "key": "outcomes",
@@ -608,7 +611,7 @@
  "limits_title": "Say it plainly",
  "limits": [
   "Every figure on this page was graded by a model on a small sample. No lawyer has reviewed them.",
-  "Issue maps exist for 1,438 decisions and paragraph notes for 464 (live database count, 13 Oct 2026), out of about 75,700 in the library. Summaries cover 661.",
+  "Issue maps exist for 1,599 decisions and paragraph notes for 740 (live database count, 14 Oct 2026), out of about 75,700 in the library. Summaries cover 938. Supreme Court notes and maps are held back for now because they were too often wrong.",
   "Reading your own draft against all this is planned. Nothing on this page reads or stores a draft.",
   "Layout and wording are for review. This page is a picture built from real stored outputs, not the working feature."
  ],
@@ -621,7 +624,7 @@
     "job": "Get the point of a long decision before reading it in full",
     "how": "A case summary and a map of the questions the court decided, each with a link to the paragraph that decided it.",
     "pass": "issues",
-    "scope": "Summaries for 661 decisions and issue maps for 1,438, out of about 75,700."
+    "scope": "Summaries for 938 decisions and issue maps for 1,599, out of about 75,700. Supreme Court maps are held back."
    },
    {
     "who": "Litigation counsel",
@@ -653,5 +656,5 @@
    }
   ]
  },
- "as_of": "Figures as of 13 October 2026."
+ "as_of": "Figures as of 14 October 2026."
 }

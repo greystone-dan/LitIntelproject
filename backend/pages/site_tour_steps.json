@@ -1421,6 +1421,25 @@
       "timeout": 45
     },
     {
+      "id": "citation-intelligence-more",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
+      "title": "What the page shows for Vavilov",
+      "text": "Further down: citing decisions by year, the outcomes of the cases that cite it, the courts and judges that cite it, the statutes it appears with, the authorities most often cited alongside it, and every place it is cited, with the citation as written. A network view shows what cites it and what it cites.",
+      "target": "#ciTime",
+      "span": [
+        "#ciOut"
+      ],
+      "timeout": 45,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#ciTime",
+          "timeout": 40
+        }
+      ]
+    },
+    {
       "id": "judges",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=judge-profile",
@@ -1478,6 +1497,54 @@
       "span": [
         "#jpMain .ix-tiles",
         "#jpMain .ix-grid > .ix-card:first-child"
+      ]
+    },
+    {
+      "id": "judge-more",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=judge-profile",
+      "title": "The rest of the profile",
+      "text": "Further down: the judge's key decisions, ranked by how often they are cited, how decisions ended, the types of matter, a full list of decisions that can be filtered and sorted, and outcome patterns by issue.",
+      "target": [
+        "#jpKey",
+        "#jpMain .ix-grid > .ix-card:nth-child(2)"
+      ],
+      "span": [
+        "#jpMain .ix-grid > .ix-card:nth-child(3)",
+        "#jpMain .ix-grid > .ix-card:nth-child(4)"
+      ],
+      "timeout": 15,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#jpList .jp-item"
+        },
+        {
+          "do": "type",
+          "selector": "#jpSearch",
+          "text": "Brouwer",
+          "unless": "#jpMain .ix-hero"
+        },
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#jpList .jp-item",
+            "text": "Brouwer"
+          },
+          "timeout": 10,
+          "unless": "#jpMain .ix-hero"
+        },
+        {
+          "do": "click",
+          "selector": "#jpList .jp-item",
+          "match": "Brouwer",
+          "unless": "#jpMain .ix-hero"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#jpMain .ix-grid > .ix-card:nth-child(2)",
+          "timeout": 15
+        }
       ]
     },
     {
@@ -1545,12 +1612,12 @@
       "timeout": 12
     },
     {
-      "id": "fc-people",
+      "id": "fc-years",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "Judges and counsel",
-      "text": "Each dot is a judge with at least 25 leave decisions, placed by how often they grant leave and judicial review. Clicking a dot filters to that judge's files. Counsel are listed below the same way.",
-      "target": ".fcx-card:has(#fcxJudges)",
+      "title": "Files by year",
+      "text": "Each bar is one year of files, split by how they ended: leave refused, judicial review granted or dismissed, discontinued, still open and so on. Clicking a year filters the whole page to that year's files.",
+      "target": ".fcx-card:has(#fcxOutcomes)",
       "needsData": true,
       "before": [
         {

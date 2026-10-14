@@ -1406,7 +1406,7 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
       "title": "Citation Intelligence",
-      "text": "Citation Intelligence is the full version of the reader's small citation snapshot. Here it is for Vavilov: who relies on it, which courts and judges cite it, the outcomes of the cases citing it, and how its use has changed over the years.",
+      "text": "Citation Intelligence is the full version of the reader's small citation snapshot. Here it is for Vavilov: how many decisions cite it, how often, and with what results.",
       "target": {
         "css": "#ciBody .ix-hero",
         "text": "cited alongside|No other decision"
@@ -1419,6 +1419,17 @@
         "#ciBody .ix-tiles"
       ],
       "timeout": 45
+    },
+    {
+      "id": "citation-detail",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
+      "title": "The rest of the page",
+      "text": "Further down, one section for each chip: how many decisions cited it each year, who won in them, the courts and judges that cite it most, the statutes and other cases that appear alongside it, and every place it is cited. Each related case opens as its own snapshot.",
+      "target": "#ciBody .ix-nav",
+      "span": [
+        "#ciTime"
+      ]
     },
     {
       "id": "judges",
@@ -1441,7 +1452,7 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=judge-profile",
       "title": "One judge's record",
-      "text": "Justice Brouwer's profile: decisions year by year, how often the government and individuals succeeded, the kinds of matters decided, and the most cited decisions.",
+      "text": "Justice Brouwer's profile opens with the headline figures: how many decisions, how often the government and individuals succeeded, and the busiest year.",
       "target": "#jpMain .ix-hero",
       "before": [
         {
@@ -1478,6 +1489,17 @@
       "span": [
         "#jpMain .ix-tiles",
         "#jpMain .ix-grid > .ix-card:first-child"
+      ]
+    },
+    {
+      "id": "judge-detail",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=judge-profile",
+      "title": "The rest of the profile",
+      "text": "Further down: decisions year by year, the most cited decisions, how decisions ended, the kinds of matter decided, and the full list of decisions. Outcome coding is rule-based, and the page says where it is uncertain.",
+      "target": "#jpMain .ix-grid > .ix-card:first-child",
+      "span": [
+        "#jpKey"
       ]
     },
     {
@@ -1529,7 +1551,7 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "What happens to a file",
-      "text": "How many filed files reach a leave decision, a hearing and a judgment, and how each year's files ended. Published decisions alone cannot show this.",
+      "text": "How many filed files reach a leave decision, a hearing and a judgment, and how the grant rates have moved by year filed. Published decisions alone cannot show this.",
       "target": ".fcx-card:has(#fcxFunnel)",
       "needsData": true,
       "before": [
@@ -1545,12 +1567,12 @@
       "timeout": 12
     },
     {
-      "id": "fc-people",
+      "id": "fc-by-year",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "Judges and counsel",
-      "text": "Each dot is a judge with at least 25 leave decisions, placed by how often they grant leave and judicial review. Clicking a dot filters to that judge's files. Counsel are listed below the same way.",
-      "target": ".fcx-card:has(#fcxJudges)",
+      "title": "Files by year",
+      "text": "One bar for each year files were filed, split by how they ended: leave refused, discontinued, dismissed, granted, settled and others. Click a year to filter the whole page to it.",
+      "target": ".fcx-card:has(#fcxOutcomes)",
       "needsData": true,
       "before": [
         {

@@ -42,3 +42,8 @@ def test_a_feature_with_a_test_number_shows_it_on_its_row():
     page = preview.render()
     row = page.split('id="f-whose-position"', 1)[1].split("</li>", 1)[0]
     assert "76% tested" in row and 'href="#pass-position"' in row
+
+
+def test_workflows_open_with_reading_a_case():
+    keys = [w["key"] for w in inventory()["workflows"]]
+    assert keys[:2] == ["read", "find"]

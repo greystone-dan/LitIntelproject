@@ -222,7 +222,7 @@ from .reader_service import (
 )
 from .position_tags import case_positions
 from .case_frame_store import case_frame as _case_frame
-from .reader_layers import case_issue_map as _case_issue_map, case_paragraph_notes as _case_paragraph_notes
+from .reader_layers import case_issue_map as _case_issue_map, case_paragraph_notes as _case_paragraph_notes, case_note_links as _case_note_links
 from .case_reader_ui import (
 	case_reader_with_statutes_html,
 	statute_viewer_page_html,
@@ -2390,6 +2390,12 @@ def get_case_issue_map(case_id: int, db: Session = Depends(get_db)) -> dict[str,
 def get_case_paragraph_notes(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
 	"""One-line notes for the paragraphs of a decision, keyed by paragraph number. Stored data only; no model call."""
 	return _case_paragraph_notes(case_id, db)
+
+
+@router.get("/cases/{case_id}/note-links", response_model=dict[str, Any])
+def get_case_note_links(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Stored "possibly the same point" links from this decision's paragraph notes to notes in other decisions. No model call."""
+	return _case_note_links(case_id, db)
 
 
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])

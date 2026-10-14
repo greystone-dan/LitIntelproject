@@ -16,7 +16,7 @@
  const NOTES_KEY='ilit.notes.on';
  const noteStore={get(){try{return window.localStorage.getItem(NOTES_KEY)==='1';}catch(e){return false;}},set(on){try{window.localStorage.setItem(NOTES_KEY,on?'1':'0');}catch(e){}}};
  fr.notesOn=noteStore.get();fr.panel='';
- const ROUTES={frame:'case-frame',issues:'issue-map',notes:'paragraph-notes'};
+ const ROUTES={frame:'case-frame',issues:'issue-map',notes:'paragraph-notes',links:'note-links'};
  /* Stored data for the open decision, or null while it loads. Fetched only when Experimental is on. */
  function data(kind){
   const id=readerState.caseId;
@@ -71,12 +71,21 @@
    +'<p class="frame-note">'+E(d.note||'')+'</p>'+(mini?'<p class="iss-check"><span class="iss-check-tag">Check this</span> '+E(mini.text)+'</p>':'')+'<ol class="iss-list">'+rows.map(item).join('')+'</ol></section>';
  }
 
+
+ /* Related paragraphs in other decisions: stored links between paragraph notes. Closed by default; never says "same point". */
+ function linksCard(d){
+  const rows=(d.items||[]).map(it=>'<li class="rl"><div class="rl-src"><a href="#" class="frame-para" data-frame-go="'+Number(it.para)+'">['+Number(it.para)+']</a> '+E(it.note)+'</div><ul class="rl-list">'
+   +it.links.map(l=>'<li><a class="rl-case" href="/data-explorer?tab=search&case_id='+Number(l.case_id)+'&paragraph='+Number(l.para)+'">'+E(l.citation||l.title||'Decision')+(l.citation&&l.title?' <span class="rl-title">'+E(l.title)+'</span>':'')+' at ['+Number(l.para)+']</a><div class="rl-note">'+E(l.note)+'</div></li>').join('')+'</ul></li>').join('');
+  return '<section class="frame-card rl-card" data-links-card aria-label="'+E(d.label)+'"><h4 class="rl-h">'+E(d.label)+'</h4><p class="frame-note">'+E(d.note||'')+'</p><ol class="rl-items">'+rows+'</ol></section>';
+ }
+
  /* One compact row replaces three stacked boxes. Everything is closed by default; at most one panel is open under the row. */
- function bar(f,iss,nt){
+ function bar(f,iss,nt,lk){
   const b=[];
   if(f)b.push(['frame','Summary']);
   if(iss)b.push(['issues','Issues ('+iss.issues.length+')']);
   if(nt)b.push(['notes','Paragraph notes']);
+  if(lk)b.push(['links','Related paragraphs']);
   const on=k=>k==='notes'?fr.notesOn:fr.panel===k;
   return '<div class="ly-bar" data-layers-bar role="group" aria-label="Reader layers (preview)"><span class="ly-title">Layers <span class="frame-tag">preview</span></span>'
    +b.map(x=>'<button type="button" class="ly-btn" data-ly="'+x[0]+'" aria-pressed="'+on(x[0])+'">'+x[1]+'</button>').join('')
@@ -86,16 +95,17 @@
  function sync(){
   fr.busy=true;
   try{
-   body.querySelectorAll('[data-frame-card],[data-issue-card],[data-layers-bar],[data-pn-note]').forEach(n=>n.remove());
+   body.querySelectorAll('[data-frame-card],[data-issue-card],[data-links-card],[data-layers-bar],[data-pn-note]').forEach(n=>n.remove());
    if(!experimental())return;
-   const f0=data('frame'),i0=data('issues'),n0=data('notes');
+   const f0=data('frame'),i0=data('issues'),n0=data('notes'),l0=data('links');
    /* Draw once, when all three answers are in, so the row never appears and then moves. */
-   if(!f0||!i0||!n0)return;
-   const f=f0.available&&f0.frame?f0:null,iss=i0.available&&i0.issues&&i0.issues.length?i0:null,nt=n0.available&&n0.paragraphs?n0:null;
+   if(!f0||!i0||!n0||!l0)return;
+   const f=f0.available&&f0.frame?f0:null,iss=i0.available&&i0.issues&&i0.issues.length?i0:null,nt=n0.available&&n0.paragraphs?n0:null,lk=l0.available&&l0.items&&l0.items.length?l0:null;
    if(!f&&!iss&&!nt)return;
-   let html=bar(f,iss,nt);
+   let html=bar(f,iss,nt,nt&&lk?lk:null);
    if(fr.panel==='frame'&&f)html+=card(f);
    if(fr.panel==='issues'&&iss)html+=issuesCard(iss);
+   if(fr.panel==='links'&&nt&&lk)html+=linksCard(lk);
    body.insertAdjacentHTML('afterbegin',html);
    if(nt&&fr.notesOn)body.querySelectorAll('.fmt-para[data-para]').forEach(p=>{const t=nt.paragraphs[String(p.dataset.para)];if(t)p.insertAdjacentHTML('afterend','<aside class="pn-note" data-pn-note><span class="pn-label">Note</span> '+E(t)+'</aside>');});
   }finally{fr.busy=false;}
@@ -112,7 +122,7 @@
  body.addEventListener('toggle',ev=>{
   if(!ev.target.matches)return;
  },true);
- const OWN=['data-frame-card','data-issue-card','data-layers-bar','data-pn-note','data-pos-bar','data-pos-note'];
+ const OWN=['data-frame-card','data-issue-card','data-links-card','data-layers-bar','data-pn-note','data-pos-bar','data-pos-note'];
  new MutationObserver(muts=>{
   if(fr.busy)return;
   const real=muts.some(m=>[...m.addedNodes,...m.removedNodes].some(n=>!(n.nodeType===1&&OWN.some(a=>n.hasAttribute(a)))));

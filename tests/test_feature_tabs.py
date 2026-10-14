@@ -1446,6 +1446,26 @@ def test_preview_tier_tiles_link_to_groups_and_every_use_states_its_scope():
     assert data.get('as_of') and data['as_of'] in page
 
 
+def test_preview_evidence_opens_with_the_outline_and_case_cards_and_the_argument_card_comes_after():
+    import re
+
+    from backend.pages import coming_soon_preview_page as preview
+
+    page = preview.render()
+    order = re.findall(r'class="cp-card cp-pass" id="pass-(\w+)"', page)
+    assert order[:4] == ['units', 'frame', 'issues', 'notes']  # the outline and the three layers first
+    assert order.index('position') > order.index('notes')  # the argument card is one piece among them, not the opening
+    data = json.loads(preview.EXAMPLES_FILE.read_text(encoding='utf-8'))
+    assert sorted(order) == sorted(p['key'] for p in data['passes'])  # every tested part is still shown once
+
+
+def test_guided_tour_keeps_the_explanation_in_view_and_lets_the_visitor_jump_between_steps():
+    html = routes.roadmap_tour_page().body.decode('utf-8')
+    assert 'id="toc-btn"' in html and 'id="toc"' in html  # a Steps list to jump by title
+    assert 'brightness(.62)' not in html and 'rgba(32,37,34,.13)' not in html  # no dark wash over the screens
+    assert 'scrollIntoView({block:\'center\'})' not in html.split('function ring(){', 1)[1].split('function show(){', 1)[0]  # phone: the page does not scroll the card away
+
+
 def test_reader_source_strip_describes_each_piece_with_numbers_from_the_examples_file():
     import json
 

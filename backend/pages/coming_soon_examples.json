@@ -489,7 +489,7 @@
    "title": "Issue map",
    "what": "Each question the court decided, how it answered, and a jump to the paragraph that says so, with a \"Check this\" flag when the result is less certain.",
    "status": "check",
-   "where": "Stored for 1,438 decisions (live database count, 13 Oct 2026); shown in the Experimental reader. The 95% test below used 152 decisions.",
+   "where": "Stored for 1,438 decisions (live database count, 13 Oct 2026); shown in the Experimental reader. The 95% test used 152 decisions.",
    "number": "~95%",
    "number_label": "result right and cited paragraph right",
    "sample": "152 decisions graded, about 95% on both counts.",
@@ -516,7 +516,7 @@
    "title": "Whose argument is this paragraph?",
    "what": "Tags each paragraph with who is speaking: the applicant, the respondent, an earlier decision-maker or the judge.",
    "status": "now",
-   "where": "Stored for 39,617 decisions (live database count, 11 Oct 2026). Shown only above a confidence bar; the rest say Unsure.",
+   "where": "Stored for 39,617 decisions (live database count, 13 Oct 2026). Shown only above a confidence bar; the rest say Unsure.",
    "number": "76%",
    "number_label": "matches the stored labels (86% where a tag is shown)",
    "sample": "4,171 held-out paragraphs from 122 immigration decisions. Two model readers agreed on the speaker for 93.1% of 1,067 paragraphs.",
@@ -550,7 +550,20 @@
    "grader": "Judged by a model, not a lawyer.",
    "caveat": "Small sample. Matching your own draft is not built; nothing here reads or stores a draft.",
    "source": "embeddings/paragraph-embeddings-for-matching.md; matching/paragraph-note-matching-test.md",
-   "extra": "A second test ranked one-line paragraph notes (8,302 notes from 308 decisions; 100 query notes; 1,543 pairs graded blind by a small AI model). Plain word match put a note making the same point in the top three 44% of the time. Asking a hosted model to re-order the top ten raised that to 52% (a gain of about 7 points). Adding issue text, or removing names, gave nothing. Not live: the re-ordering needs a model, so it would run when decisions are added, not when someone searches."
+   "extra": "A second test ranked one-line paragraph notes (8,302 notes from 308 decisions; 100 query notes; 1,543 pairs graded blind by a small AI model). Plain word match put a note making the same point in the top three 44% of the time. Asking a hosted model to re-order the top ten raised that to 52% (a gain of about 7 points). Adding issue text, or removing names, gave nothing. Search does not use the re-ordering, because it needs a model. It was run once, when the notes were stored, to make the stored links in the next card."
+  },
+  {
+   "key": "links",
+   "title": "Related paragraphs in other decisions",
+   "what": "Beside a paragraph note, up to two paragraphs from other decisions that may make the same point, each with a link.",
+   "status": "check",
+   "where": "Stored at ingest for 464 decisions (9,488 links, 463 decisions with at least one); shown behind the Experimental switch. No model runs when the page opens.",
+   "number": "60%",
+   "number_label": "of shown links make the same point; 92–98% are the same or a closely related point",
+   "sample": "Two blind samples of linked pairs: 150 links before the filter (same point 60%, same or related 98%) and 60 fresh links after it (same point 60%, same or related 92%, 5 clearly unrelated).",
+   "grader": "Candidates scored by an open model hosted by a third party, once, when the notes were stored; pairs graded blind by a small AI model, not a lawyer.",
+   "caveat": "About 3 in 10 shown links are a related point rather than the same one, about 1 in 12 is wrong, and about 1 in 4 is too generic to help. Shown as “may differ”, never as “same point”.",
+   "source": "data/note_links/README.md; matching/paragraph-note-matching-test.md"
   },
   {
    "key": "outcomes",
@@ -627,9 +640,9 @@
    {
     "who": "Hearings officer or counsel",
     "job": "Find earlier decisions on the same question",
-    "how": "Given an argument, finds decided issues from earlier Federal Court decisions.",
+    "how": "Given an argument, finds decided issues from earlier Federal Court decisions. Beside a paragraph note, the reader can also list paragraphs in other decisions that may make the same point.",
     "pass": "matching",
-    "scope": "Matching your own draft is not built. Tested on a small set of arguments."
+    "scope": "Matching your own draft is not built. Tested on small sets; the paragraph links are automatic and may differ."
    },
    {
     "who": "Anyone citing the law",

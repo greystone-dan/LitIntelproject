@@ -37,7 +37,7 @@ _SECTIONS = [
 		"- Issue results. The result of an issue (who won it) was right about 88% of the time.",
 		"- The readers disagreed less with each other than with the first AI pass: two independent Claude readers agreed on about 9 paragraphs in 10, which is why the fixed rules and a second reading are used as checks.",
 		"- Known problems. Memoranda and written submissions can be mistaken for decisions. In split Supreme Court decisions the dissent can be reported as the holding. Paragraphs where the rules cannot tell are shown as “not yet detected” instead of guessed.",
-		"A reader preview, “Show whose position”, is live, with stored tags for 39,617 decisions (live database count, 11 Oct 2026). A tag is shown only where the tagger is at least 70% sure; other paragraphs say “Unsure”. It carries a Preview label and will keep it until lawyers have checked a sample.",
+		"A reader preview, “Show whose position”, is live, with stored tags for 39,617 decisions (live database count, 13 Oct 2026). A tag is shown only where the tagger is at least 70% sure; other paragraphs say “Unsure”. It carries a Preview label and will keep it until lawyers have checked a sample.",
 	]),
 	("next", "What is next", [
 		"- Fix the known errors above, starting with memoranda and split decisions.",

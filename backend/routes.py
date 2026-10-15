@@ -1586,6 +1586,18 @@ def coming_soon_preview_html() -> HTMLResponse:
 	return HTMLResponse(render(), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/roadmap/coming-soon", include_in_schema=False)
+def coming_soon_home_page() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "coming_soon_home.html"
+	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/roadmap/coming-soon-demo", include_in_schema=False)
+def coming_soon_home_demo() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "coming_soon_home_demo.html"
+	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/roadmap/internal.json", include_in_schema=False)
 def roadmap_internal_notes() -> JSONResponse:
 	from .pages.roadmap_page import internal_notes

@@ -600,7 +600,7 @@ def test_secondary_navigation_has_no_lab_or_about_sub_tabs():
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
     assert views == {
         'about': 'info', 'search': 'research', 'judge-profile': 'intel', 'citation-intelligence': 'intel',
-        'fc-analytics': 'intel', 'roadmap-overview': 'info', 'dev-changelog': 'dev', 'soon-home': 'dev', 'dev-about': 'dev',
+        'fc-analytics': 'intel', 'roadmap-overview': 'info', 'dev-changelog': 'dev', 'soon-home': 'dev', 'dev-about': 'dev', 'dev-coming-soon': 'dev',
     }  # the 17 Lab tool tabs, 5 Lab pills and About's How it works / Changelog tabs became cards and sections
     assert not [attrs for tag, attrs in controls if tag == 'a']
     assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'dev'))

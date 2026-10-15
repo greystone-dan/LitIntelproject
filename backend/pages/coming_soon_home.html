@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coming soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+/* Layout: same workshop sheet as the About mock-up. Sticky outline on the left, the proposed Coming soon page drawn as it would read on the right, amber notes below. */
+:root{
+  --bg:#f1f3f1; --panel:#ffffff; --ink:#1c2321; --muted:#5a6561; --line:#d8dcd9;
+  --note-bg:#fff3cf; --note-ink:#573f0c; --note-line:#e4cd88; --accent:#a4412b;
+  --s-bg:#fffef9; --s-alt:#f8f6ef; --s-line:#d8d5ca; --s-ink:#202522; --s-muted:#5f6863;
+  --s-rust:#a4412b; --s-rust-soft:#f7e8e3; --s-blue:#315d8d; --s-blue-soft:#e7eef6;
+  --s-teal:#176c68; --s-teal-soft:#edf5f3; --s-amber:#8a6418; --s-amber-soft:#f8f0dc;
+  --s-purple:#5b3f86; --s-purple-soft:#efe9f6;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Inter","Segoe UI",system-ui,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14181a; --panel:#1d2224; --ink:#e7ebe9; --muted:#9ba7a2; --line:#323a38;
+  --note-bg:#3a3118; --note-ink:#f0d88f; --note-line:#5d4b1c; --accent:#e08a70; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14181a; --panel:#1d2224; --ink:#e7ebe9; --muted:#9ba7a2; --line:#323a38;
+  --note-bg:#3a3118; --note-ink:#f0d88f; --note-line:#5d4b1c; --accent:#e08a70; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;margin:0}
+.shell{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:36px;align-items:start}
+.rail{position:sticky;top:20px;font-size:13.5px}
+.rail h2{font:600 11px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.rail ol{margin:0;padding:0;list-style:none;display:grid;gap:2px;counter-reset:s}
+.rail li{counter-increment:s}
+.rail a{display:grid;grid-template-columns:22px 1fr;gap:6px;padding:7px 8px;border-radius:5px;color:var(--ink);text-decoration:none;line-height:1.35}
+.rail a::before{content:counter(s);color:var(--muted);font-variant-numeric:tabular-nums}
+.rail a:hover{background:var(--panel)}
+.rail small{display:block;color:var(--muted);font-size:12px}
+.rail .legend{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.5}
+.swatch{display:inline-block;width:11px;height:11px;border-radius:2px;background:var(--note-bg);border:1px solid var(--note-line);vertical-align:-1px;margin-right:6px}
+main{min-width:0}
+.lead h1{font:600 26px/1.2 var(--serif);margin:0 0 8px}
+.lead p{margin:0 0 8px;max-width:68ch;color:var(--muted)}
+.lead p strong{color:var(--ink);font-weight:600}
+.homebar{margin:22px 0 26px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.homebar .top{display:flex;align-items:center;gap:6px;padding:10px 16px;background:var(--s-bg);color:var(--s-ink);border-bottom:1px solid var(--s-line);flex-wrap:wrap}
+.homebar .brand{font:600 20px/1 var(--serif);margin-right:auto;letter-spacing:.02em}
+.homebar .brand small{font:400 11px var(--sans);color:var(--s-muted);margin-left:10px;letter-spacing:0}
+.homebar .t{padding:7px 12px;border-radius:5px;font-size:12.5px;font-weight:600;color:var(--s-muted)}
+.homebar .t.on{background:var(--s-ink);color:#fff}
+.homebar .sub{display:flex;gap:6px;padding:8px 16px;background:var(--s-alt);color:var(--s-ink);border-bottom:1px solid var(--s-line);font-size:12.5px;font-weight:600}
+.homebar .sub span{padding:5px 12px;border-radius:4px;color:var(--s-muted)}
+.homebar .sub span.on{background:var(--s-bg);border:1px solid var(--s-line);color:var(--s-ink)}
+.homebar p{margin:0;padding:10px 16px;font-size:13px;color:var(--muted)}
+.note{margin:0 0 14px;padding:10px 14px;border:1px solid var(--note-line);border-radius:6px;background:var(--note-bg);color:var(--note-ink);font-size:13px;line-height:1.5}
+.note b{font-weight:700}
+.sec-tag{display:flex;align-items:baseline;gap:10px;margin:34px 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sec-tag::after{content:"";flex:1;height:1px;background:var(--line)}
+/* the proposed page */
+.page{background:var(--s-bg);color:var(--s-ink);border:1px solid var(--s-line);border-radius:8px;padding:26px 30px;font-size:15px;line-height:1.65}
+.page h1{font:600 38px/1.05 var(--serif);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.page h2{font:600 24px/1.2 var(--serif);margin:0 0 10px;text-wrap:balance}
+.page h3{margin:0;font-size:14.5px;line-height:1.35}
+.page p{margin:8px 0 0}
+.eyebrow{margin:0 0 8px;color:var(--s-rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.lede{font-size:17px;max-width:70ch;margin-top:12px}
+.page section{margin-top:34px;padding-top:26px;border-top:1px solid var(--s-line)}
+.small{color:var(--s-muted);font-size:12.5px}
+.banner{margin-top:18px;padding:14px 18px;border:1px solid var(--s-amber);border-radius:6px;background:var(--s-amber-soft);color:var(--s-ink);max-width:78ch}
+.banner b{color:var(--s-amber)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 18px;border:1px solid var(--s-ink);border-radius:6px;background:var(--s-ink);color:#fff;font:600 14px var(--sans);cursor:pointer;text-decoration:none}
+.btn.alt{background:var(--s-bg);color:var(--s-ink)}
+.tag{display:inline-block;padding:1px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap;vertical-align:1px}
+.tag.live{background:var(--s-teal-soft);color:var(--s-teal)}
+.tag.test{background:var(--s-blue-soft);color:var(--s-blue)}
+.tag.con{background:var(--s-purple-soft);color:var(--s-purple)}
+.key3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
+.key3>div{padding:11px 14px;border-left:1px solid var(--s-line);font-size:13.5px;line-height:1.5}
+.key3>div:first-child{border-left:0}
+.key3 .tag{margin-bottom:5px}
+.fig{margin:16px 0 0}
+.fig .svgwrap{overflow-x:auto;background:var(--s-bg);border:1px solid var(--s-line);border-radius:6px;padding:14px}
+.fig svg{display:block;width:100%;min-width:700px;height:auto}
+.fig figcaption{margin-top:9px;font-size:13px;color:var(--s-muted);line-height:1.55}
+svg text{font-family:var(--sans)}
+svg .bx{fill:var(--s-bg);stroke:var(--s-line);stroke-width:1.5}
+svg .bxt{fill:var(--s-teal-soft);stroke:var(--s-teal);stroke-width:1.5}
+svg .bxb{fill:var(--s-blue-soft);stroke:var(--s-blue);stroke-width:1.5}
+svg .bxp{fill:var(--s-purple-soft);stroke:var(--s-purple);stroke-width:1.5;stroke-dasharray:6 4}
+svg .bxa{fill:var(--s-amber-soft);stroke:var(--s-amber);stroke-width:1.5;stroke-dasharray:5 4}
+svg .t{fill:var(--s-ink);font-size:14px;font-weight:600}
+svg .tt{fill:var(--s-teal);font-size:14px;font-weight:600}
+svg .tb{fill:var(--s-blue);font-size:14px;font-weight:600}
+svg .tp{fill:var(--s-purple);font-size:14px;font-weight:600}
+svg .ta{fill:var(--s-amber);font-size:14px;font-weight:600}
+svg .n{fill:var(--s-ink);font-size:22px;font-weight:600;font-family:var(--serif)}
+svg .s{fill:var(--s-muted);font-size:12px}
+svg .i{fill:var(--s-muted);font-size:12px;font-style:italic}
+svg .cap{fill:var(--s-rust);font-size:11px;font-weight:700;letter-spacing:.09em}
+svg .ln{stroke:var(--s-muted);stroke-width:1.5;fill:none}
+svg .fa{fill:var(--s-muted)}
+.facts{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.facts li{position:relative;padding-left:24px}
+.facts li::before{content:"";position:absolute;left:4px;top:.72em;width:9px;height:2px;background:var(--s-rust)}
+.facts b{font-weight:600}
+.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.docs div{padding:11px 14px;border:1px dashed var(--s-purple);border-radius:6px;background:var(--s-purple-soft);font-size:14px;line-height:1.5}
+.docs b{display:block;font-weight:600;color:var(--s-purple)}
+/* improvements browser */
+.browser{margin-top:16px;border:1px solid var(--s-line);border-radius:8px;overflow:hidden;background:var(--s-bg)}
+.tabs{display:flex;flex-wrap:wrap;gap:0;background:var(--s-alt);border-bottom:1px solid var(--s-line)}
+.tabs button{appearance:none;border:0;border-right:1px solid var(--s-line);background:transparent;color:var(--s-muted);font:600 13px var(--sans);padding:12px 16px;cursor:pointer;text-align:left;line-height:1.3}
+.tabs button:hover{background:var(--s-bg);color:var(--s-ink)}
+.tabs button[aria-selected="true"]{background:var(--s-bg);color:var(--s-ink);box-shadow:inset 0 -3px 0 var(--s-rust)}
+.tabs button small{display:block;font-weight:500;font-size:11.5px;color:var(--s-muted)}
+.panel{padding:20px 22px 22px}
+.panel[hidden]{display:none}
+.panel .intro{margin:0 0 14px;max-width:72ch;color:var(--s-muted)}
+.items{display:grid;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
+.items>div{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:18px;padding:13px 16px;border-top:1px solid var(--s-line)}
+.items>div:first-child{border-top:0}
+.items p{margin:3px 0 0;font-size:14px;color:var(--s-muted)}
+.items p b{color:var(--s-ink);font-weight:600}
+.items .st{text-align:right}
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:14px;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
+.stages>div{padding:14px 16px;border-left:1px solid var(--s-line);font-size:14px}
+.stages>div:first-child{border-left:0}
+.stages h3{margin:6px 0 4px;font:600 17px/1.2 var(--serif)}
+.stages p{margin:4px 0 0;color:var(--s-muted)}
+.stages p b{color:var(--s-ink);font-weight:600}
+.limits{margin:14px 0 0;padding:12px 16px;border:1px solid var(--s-line);border-radius:6px;background:var(--s-alt);font-size:14px}
+.ask{margin-top:34px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px 24px}
+.ask h2{font:600 20px/1.2 var(--serif);margin:0 0 4px}
+.ask p{margin:0 0 12px;color:var(--muted)}
+.ask ol{margin:0;padding-left:20px;display:grid;gap:10px}
+.ask li b{font-weight:600}
+.ask li span{color:var(--muted)}
+@media (max-width:980px){.shell{grid-template-columns:minmax(0,1fr)}.rail{position:static}.rail ol{grid-template-columns:repeat(2,minmax(0,1fr))}.key3,.stages,.docs{grid-template-columns:minmax(0,1fr)}.key3>div,.stages>div{border-left:0;border-top:1px solid var(--s-line)}.key3>div:first-child,.stages>div:first-child{border-top:0}.items>div{grid-template-columns:minmax(0,1fr)}.items .st{text-align:left}.page{padding:20px 18px}.page h1{font-size:32px}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:16px;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
+.proof div{padding:12px 16px;border-left:1px solid var(--s-line)}
+.proof div:first-child{border-left:0}
+.proof b{display:block;font:600 26px/1.1 var(--serif);color:var(--s-rust);font-variant-numeric:tabular-nums}
+.proof span{display:block;margin-top:4px;font-size:12.5px;color:var(--s-muted);line-height:1.4}
+.proof-h{margin:22px 0 0;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}
+.dotc{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 14px}
+.chips button{appearance:none;border:1px solid var(--s-line);background:var(--s-bg);color:var(--s-ink);font:600 12.5px var(--sans);padding:6px 12px;border-radius:999px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--s-ink);color:#fff;border-color:var(--s-ink)}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.col h3{font:600 17px/1.2 var(--serif);margin:0 0 2px}
+.col .sub{font-size:12.5px;color:var(--s-muted);margin:0 0 10px;min-height:2.6em}
+.col .stack{display:grid;gap:8px}
+.card{border:1px solid var(--s-line);border-radius:6px;background:var(--s-bg);padding:11px 13px}
+.card .cl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--s-muted)}
+.card h4{margin:3px 0 2px;font-size:14.5px;line-height:1.3}
+.card p{margin:0;font-size:13.5px;line-height:1.5;color:var(--s-muted)}
+.card .big{margin-top:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card .big b{font:600 20px/1 var(--serif);color:var(--s-ink);font-variant-numeric:tabular-nums}
+.card .big span{font-size:12px;color:var(--s-muted)}
+.card details{margin-top:8px;font-size:12.5px;color:var(--s-muted)}
+.card summary{cursor:pointer;color:var(--s-blue);font-weight:600}
+.card details p{margin-top:5px;font-size:12.5px}
+.card .tags{margin-top:8px;display:flex;gap:5px;flex-wrap:wrap}
+.grp{margin:22px 0 8px;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted);display:flex;align-items:center;gap:10px}
+.grp::after{content:"";flex:1;height:1px;background:var(--s-line)}
+.tiles2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tile2{appearance:none;text-align:left;font:inherit;color:inherit;border:1px solid var(--s-line);border-radius:8px;background:var(--s-bg);padding:14px 16px;cursor:pointer;display:grid;gap:6px;align-content:start}
+.tile2:hover{background:var(--s-alt)}
+.tile2[aria-pressed="true"]{border-color:var(--s-ink);box-shadow:0 0 0 2px var(--s-ink) inset;background:var(--s-alt)}
+.tile2.wide{grid-column:1/-1}.tile2.wide p{max-width:80ch}
+.tile2 .tg{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.tile2 h3{margin:0;font:600 19px/1.2 var(--serif)}
+.tile2 p{margin:0;font-size:13.5px;color:var(--s-muted);line-height:1.5}
+.tile2 .bar{display:flex;height:7px;border-radius:4px;overflow:hidden;background:var(--s-line)}
+.tile2 .bar i{display:block;height:100%}
+.tile2 .cnt{font-size:12px;color:var(--s-muted)}
+.sb-l{background:var(--s-teal)}.sb-t{background:var(--s-blue)}.sb-c{background:#9b86bd}
+.detail{margin-top:18px;border:1px solid var(--s-line);border-radius:8px;background:var(--s-bg);padding:18px 20px}
+.detail h3{margin:0;font:600 22px/1.2 var(--serif)}
+.detail .dp{margin:4px 0 12px;color:var(--s-muted);max-width:72ch}
+.rows{display:grid;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
+.rows>div{display:grid;grid-template-columns:128px minmax(0,1fr) 108px;gap:16px;padding:13px 16px;border-top:1px solid var(--s-line);align-items:start}
+.rows>div:first-child{border-top:0}
+.rows .fig2 b{display:block;font:600 21px/1.1 var(--serif);font-variant-numeric:tabular-nums}
+.rows .fig2 span{display:block;margin-top:3px;font-size:11.5px;line-height:1.35;color:var(--s-muted)}
+.rows h4{margin:0;font-size:14.5px}
+.rows p{margin:3px 0 0;font-size:14px;color:var(--s-muted)}
+.rows .ev{font-size:13px}
+.rows .tg2{text-align:right;display:flex;gap:5px;justify-content:flex-end;flex-wrap:wrap}
+.journey{display:grid;grid-template-columns:230px minmax(0,1fr);gap:0;border:1px solid var(--s-line);border-radius:8px;overflow:hidden;margin-top:18px;background:var(--s-bg)}
+.steps{background:var(--s-alt);border-right:1px solid var(--s-line);display:grid;align-content:start}
+.steps button{appearance:none;text-align:left;font:inherit;border:0;border-top:1px solid var(--s-line);background:transparent;color:var(--s-muted);padding:14px 16px;cursor:pointer;display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:center}
+.steps button:first-child{border-top:0}
+.steps button:hover{background:var(--s-bg)}
+.steps button[aria-selected="true"]{background:var(--s-bg);color:var(--s-ink);box-shadow:inset 3px 0 0 var(--s-rust)}
+.steps .nn{width:26px;height:26px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font:700 12px var(--sans)}
+.steps b{font-size:14.5px;display:block}
+.steps small{display:block;font-size:11.5px;color:var(--s-muted);line-height:1.3}
+.stp{padding:22px 26px}
+.stp h3{margin:0;font:600 26px/1.15 var(--serif)}
+.ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:0;margin:14px 0 18px;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
+.ba>div{padding:12px 16px;font-size:14px}
+.ba>div+div{border-left:1px solid var(--s-line);background:var(--s-teal-soft)}
+.ba b{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--s-rust);margin-bottom:3px}
+.twocol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.twocol h5{margin:0 0 8px;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}
+.mini{display:grid;gap:8px}
+.mini>div{border:1px solid var(--s-line);border-radius:6px;padding:10px 12px;background:var(--s-bg)}
+.mini h4{margin:0;font-size:14px}
+.mini p{margin:2px 0 0;font-size:13px;color:var(--s-muted);line-height:1.5}
+.mini .tags{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap}
+.mini .st{font-size:12px;margin-top:5px;color:var(--s-ink)}
+.mini .st b{font:600 16px var(--serif)}
+.empty{font-size:13px;color:var(--s-muted);padding:8px 0}
+@media (max-width:980px){.proof,.board,.tiles2,.twocol{grid-template-columns:minmax(0,1fr)}.proof div{border-left:0;border-top:1px solid var(--s-line)}.proof div:first-child{border-top:0}.tile2.wide{grid-template-columns:minmax(0,1fr)}.rows>div{grid-template-columns:minmax(0,1fr)}.rows .tg2{justify-content:flex-start;text-align:left}.journey{grid-template-columns:minmax(0,1fr)}.steps{border-right:0;border-bottom:1px solid var(--s-line)}.ba{grid-template-columns:minmax(0,1fr)}.ba>div+div{border-left:0;border-top:1px solid var(--s-line)}}
+
+.xc{border:1px solid var(--s-line);border-radius:8px;background:var(--s-bg);overflow:hidden}
+.xc+.xc{margin-top:8px}
+.xh{appearance:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;padding:12px 14px;cursor:pointer}
+.xh:hover{background:var(--s-alt)}
+.xt{display:block;min-width:0}
+.xt .cl{display:block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--s-muted)}
+.xt b{display:block;font-size:15px;line-height:1.3;margin-top:2px}
+.xt .xp{display:block;font-size:13.5px;line-height:1.5;color:var(--s-muted);margin-top:2px}
+.xr{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.xr .xs{font:600 18px/1 var(--serif);font-variant-numeric:tabular-nums}
+.xr .xs small{display:block;font:400 11px/1.3 var(--sans);color:var(--s-muted);max-width:110px;margin-top:2px}
+.xr .tg{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.xr .chev{font-size:12px;color:var(--s-blue);font-weight:600}
+.xc[data-open="true"] .chev::after{content:"Close"}
+.xc[data-open="false"] .chev::after{content:"Open"}
+.xc[data-open="true"]{border-color:var(--s-ink)}
+.xb{padding:2px 14px 14px;border-top:1px solid var(--s-line);font-size:13.5px}
+.xb .ev{margin:10px 0 0;color:var(--s-muted);line-height:1.55}
+.illn{margin:12px 0 8px;font-size:11.5px;font-weight:600;color:var(--s-amber);background:var(--s-amber-soft);border-radius:4px;padding:3px 8px;display:inline-block}
+.dm{border:1px solid var(--s-line);border-radius:6px;background:var(--s-alt);padding:12px 14px;display:grid;gap:10px}
+.dm-h{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--s-line);padding-bottom:6px}
+.dm-h span{color:var(--s-muted);font-size:12.5px}
+.dm-dl{margin:0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:7px 12px;font-size:13px}
+.dm-dl dt{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--s-rust);padding-top:2px}
+.dm-dl dd{margin:0}
+.sd{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:0 6px;border-radius:3px;margin-right:4px}
+.sd.r{background:var(--s-blue-soft);color:var(--s-blue)}
+.iss{background:var(--s-bg);border:1px solid var(--s-line);border-radius:6px;padding:9px 12px}
+.iss p{margin:0}.iss p+p{margin-top:5px}
+.iss .q{font-weight:600}
+.iss .lbl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--s-rust)}
+.iss blockquote{margin:6px 0 0;padding-left:10px;border-left:2px solid var(--s-line);color:var(--s-muted);font-style:italic}
+.res{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--s-teal-soft);color:var(--s-teal)}
+.pj{font-size:12px;color:var(--s-blue);font-weight:600}
+.pn{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;background:var(--s-bg);border:1px solid var(--s-line);border-radius:6px;padding:8px 10px}
+.pnn{font:700 12px var(--sans);color:var(--s-muted);text-align:right;padding-top:2px}
+.lk{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}
+.lk>div:not(.ar){background:var(--s-bg);border:1px solid var(--s-line);border-radius:6px;padding:8px 10px}
+.lk b{display:block;font-size:13px}.lk span{font-size:12.5px;color:var(--s-muted)}
+.lk .ar{font-size:12px;font-weight:700;color:var(--s-rust)}
+.bars{display:grid;gap:8px}
+.bars>div{font-size:14px !important;display:grid;grid-template-columns:190px minmax(0,1fr) 64px;gap:10px;align-items:center;font-size:12.5px}
+.bars i{display:block;height:16px;border-radius:3px;background:var(--s-blue)}
+.bars i.g{background:#8e99a1}
+.bars b{font-variant-numeric:tabular-nums;font-size:13px}
+.mt{width:100%;border-collapse:collapse;font-size:13px;background:var(--s-bg)}
+.mt th,.mt td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--s-line)}
+.mt th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--s-rust)}
+.mt td+td,.mt th+th{text-align:right;font-variant-numeric:tabular-nums}
+.srch{padding:8px 12px;border:1px solid var(--s-line);border-radius:6px;background:var(--s-bg);color:var(--s-muted)}
+.rs{padding:8px 12px;border:1px solid var(--s-line);border-radius:6px;background:var(--s-bg)}
+.rs b{display:inline-block;min-width:62px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--s-teal)}
+.rs.ph{border-style:dashed;color:var(--s-muted);background:var(--s-purple-soft)}
+.rs.ph b{color:var(--s-purple)}
+.ctl{display:flex;gap:8px;margin:14px 0 0}
+.ctl button{appearance:none;font:600 12.5px var(--sans);border:1px solid var(--s-line);background:var(--s-bg);color:var(--s-ink);border-radius:6px;padding:6px 12px;cursor:pointer}
+.stk{display:grid;gap:0}
+.sech{margin:18px 0 8px;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}.sech:first-of-type{margin-top:0}@media (max-width:980px){.bars>div{grid-template-columns:minmax(0,1fr)}.lk{grid-template-columns:minmax(0,1fr)}.dm-dl{grid-template-columns:minmax(0,1fr)}.xh{grid-template-columns:minmax(0,1fr)}.xr{align-items:flex-start;text-align:left}}
+.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.vs>div{border:1px solid var(--s-line);border-radius:8px;padding:16px 18px;background:var(--s-bg)}
+.vs>div.pv{background:var(--s-teal-soft);border-color:var(--s-teal)}
+.vs h3{margin:0 0 4px;font:600 19px/1.2 var(--serif)}
+.vs .flow{display:grid;gap:6px;margin:12px 0 0;font-size:13.5px}
+.vs .flow div{padding:8px 10px;border:1px solid var(--s-line);border-radius:6px;background:var(--s-bg)}
+.vs .flow .out{border-style:dashed;color:var(--s-rust);border-color:var(--s-rust)}
+.vs .flow .in{color:var(--s-teal);border-color:var(--s-teal)}
+.vs .ar{text-align:center;color:var(--s-muted);font-size:12px;padding:0 !important;border:0 !important;background:transparent !important}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.four>div{border:1px solid var(--s-line);border-radius:6px;padding:12px 14px;background:var(--s-bg);font-size:13.5px;line-height:1.5}
+.four b{display:block;font:600 15px var(--serif);margin-bottom:3px}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--s-line);border-radius:6px;overflow:hidden;margin:16px 0 20px}
+.trio>div{padding:13px 16px;font-size:14.5px;line-height:1.5}
+.trio>div+div{border-left:1px solid var(--s-line)}
+.trio b{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--s-rust);margin-bottom:3px}
+.trio>div:nth-child(2){background:var(--s-alt)}
+.trio>div:nth-child(3){background:var(--s-teal-soft)}
+.steps small{display:block;font-size:11.5px;color:var(--s-muted);line-height:1.3;font-weight:400}
+.stairs{display:flex;align-items:flex-end;gap:6px;margin:16px 0 0;height:96px}
+.stairs div{flex:1;border-radius:6px 6px 0 0;padding:8px 10px;font-size:12px;font-weight:700;color:#fff;display:flex;align-items:flex-start}
+@media (max-width:980px){.vs,.four,.trio{grid-template-columns:minmax(0,1fr)}.trio>div+div{border-left:0;border-top:1px solid var(--s-line)}}
+.adv{display:inline-block;margin-bottom:5px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s-rust)}.page h3.sub3{margin:30px 0 10px;font:600 21px/1.2 var(--serif);color:var(--s-ink)}.page .vs h3{margin:0 0 4px}.page #s4>p{max-width:78ch}.tabsbar{display:flex;gap:6px;margin:-4px 0 22px;border-bottom:1px solid var(--s-line)}
+.tabsbar button{appearance:none;border:0;background:transparent;font:600 14px var(--sans);color:var(--s-muted);padding:10px 16px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabsbar button:hover{color:var(--s-ink)}
+.tabsbar button[aria-selected="true"]{color:var(--s-ink);border-bottom-color:var(--s-rust)}
+.stg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:16px;border:1px solid var(--s-line);border-radius:8px;overflow:hidden}
+.stg>div{padding:16px 18px;border-left:1px solid var(--s-line)}
+.stg>div:first-child{border-left:0}
+.stg .k{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--s-rust)}
+.stg h3{margin:4px 0 4px;font:600 20px/1.2 var(--serif)}
+.stg p{margin:0;font-size:14px;color:var(--s-muted)}
+.stg>div:nth-child(2){background:var(--s-alt)}
+.stg>div:nth-child(3){background:var(--s-purple-soft)}
+.cat{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;padding:24px 0;border-top:1px solid var(--s-line)}
+.cat h3{margin:0;font:600 22px/1.2 var(--serif)}
+.cat .cd{margin:6px 0 0;font-size:14px;color:var(--s-muted)}
+.cat ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.cat li{position:relative;padding-left:22px;line-height:1.5}
+.cat li::before{content:"";position:absolute;left:3px;top:.7em;width:9px;height:2px;background:var(--s-rust)}
+.cat li b{font-weight:600}
+.cat li span{color:var(--s-muted)}
+.cats{margin-top:12px}
+.cats .cat:first-child{border-top:0}
+.linkrow{margin-top:8px;padding:16px 18px;border:1px solid var(--s-line);border-radius:8px;background:var(--s-alt);display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.chips button{appearance:none;border:1px solid var(--s-line);background:var(--s-bg);color:var(--s-ink);font:600 12.5px var(--sans);padding:6px 12px;border-radius:999px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--s-ink);color:#fff;border-color:var(--s-ink)}
+
+.demoframe{width:100%;height:900px;border:1px solid var(--s-line);border-radius:8px;background:var(--s-alt);margin-top:10px}
+.rchips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px}
+.rchips button{appearance:none;font:600 13.5px var(--sans);border:1px solid var(--s-line);background:var(--s-bg);color:var(--s-ink);border-radius:999px;padding:7px 14px;cursor:pointer}
+.rchips button[aria-pressed="true"]{background:var(--s-ink);color:var(--s-bg);border-color:var(--s-ink)}
+.rrow{border:1px solid var(--s-line);border-radius:8px;background:var(--s-bg);margin-bottom:8px}
+.rrow summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:12px 16px;cursor:pointer;list-style:none}
+.rrow summary::-webkit-details-marker{display:none}
+.rrow summary b{font-size:16px}.rrow summary small{display:block;color:var(--s-muted);font-size:13px;margin-top:2px}
+.rrow[open]{border-color:var(--s-ink)}
+.rbody{padding:2px 16px 14px;border-top:1px solid var(--s-line);display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 20px;font-size:15px}
+.rbody .rl{font:700 11.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--s-rust);padding-top:3px}
+.rbody p{margin:10px 0 0}
+.pl{font:700 11.5px var(--sans);border-radius:999px;padding:3px 10px;border:1px solid var(--s-line);white-space:nowrap}
+.pl.live{background:var(--s-teal-soft);color:var(--s-teal);border-color:var(--s-teal)}.pl.experimental{background:var(--s-amber-soft);color:var(--s-amber);border-color:var(--s-amber)}.pl.files{background:var(--s-blue-soft);color:var(--s-blue);border-color:var(--s-blue)}.pl.planned{background:var(--s-purple-soft);color:var(--s-purple);border-color:var(--s-purple)}.pl.paused{background:var(--s-alt);color:var(--s-muted)}
+.rg{margin:18px 0 8px;font:600 19px var(--serif)}
+.bens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0 18px}.bens>div{border:1px solid var(--s-line);border-radius:10px;padding:16px 18px;background:var(--s-bg);display:grid;gap:6px;align-content:start}.bens b{font:600 18px/1.25 var(--serif)}.bens p{margin:0;font-size:15px;line-height:1.5;color:var(--s-muted)}.pieces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0 0}.pieces>div{border:1px solid var(--s-line);border-radius:10px;padding:16px 18px;background:var(--s-bg);display:grid;gap:6px;align-content:start}.pieces b{font:600 18px var(--serif)}.pieces p{margin:0;font-size:15px;line-height:1.5;color:var(--s-muted)}.lbl2{margin:12px 0 4px;font:700 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--s-muted)}.sees{margin:0;padding-left:18px;font-size:13.5px;line-height:1.55}.hb .xc{margin-top:8px}.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fc{border:1px solid var(--s-line);border-radius:8px;padding:16px 18px;background:var(--s-bg);display:grid;gap:8px;align-content:start}
+.fc .top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.fc .ct{font:700 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--s-muted)}
+.fc h3{margin:0;font:600 19px/1.25 var(--serif)}
+.fc p{margin:0;font-size:14px;line-height:1.55}
+.fc .st{font-size:13px;color:var(--s-muted);padding-top:8px;border-top:1px solid var(--s-line)}
+.fc .st b{color:var(--s-ink);font-weight:600}
+.fcat{margin:24px 0 10px;font:600 20px/1.2 var(--serif);display:flex;align-items:baseline;gap:10px}
+.fcat small{font:400 13px var(--sans);color:var(--s-muted)}
+.page h2.cap2{font:600 24px/1.2 var(--serif);margin:0 0 10px}
+@media (max-width:980px){.stg,.cat,.fgrid{grid-template-columns:minmax(0,1fr)}.stg>div{border-left:0;border-top:1px solid var(--s-line)}.stg>div:first-child{border-top:0}}
+
+.ico{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--s-rust-soft);color:var(--s-rust);flex:none}
+.ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ico.b{background:var(--s-blue-soft);color:var(--s-blue)}.ico.t{background:var(--s-teal-soft);color:var(--s-teal)}.ico.p{background:var(--s-purple-soft);color:var(--s-purple)}.ico.a{background:var(--s-amber-soft);color:var(--s-amber)}
+.path3{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr) 36px minmax(0,1fr);align-items:stretch;margin-top:16px}
+.path3 .st{border:1px solid var(--s-line);border-radius:10px;padding:16px 18px;background:var(--s-bg);display:grid;gap:6px;align-content:start}
+.path3 .st.n2{background:var(--s-alt)}.path3 .st.n3{background:var(--s-purple-soft);border-style:dashed;border-color:var(--s-purple)}
+.path3 .st .k{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--s-rust)}
+.path3 .st h3{margin:0;font:600 20px/1.2 var(--serif)}
+.path3 .st p{margin:0;font-size:14px;color:var(--s-muted)}
+.path3 .ar{display:grid;place-items:center;color:var(--s-muted);font-size:22px}
+.tiles4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.tl{border:1px solid var(--s-line);border-radius:10px;padding:18px 20px;background:var(--s-bg);display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px}
+.tl h3{margin:0;font:600 21px/1.2 var(--serif);align-self:center}
+.tl p{grid-column:1/-1;margin:6px 0 0;font-size:14.5px;color:var(--s-muted);line-height:1.55}
+.tl .cp{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.cp span{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--s-alt);border:1px solid var(--s-line)}
+.grp4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.gc4{border:1px solid var(--s-line);border-radius:10px;padding:18px 20px;background:var(--s-bg);display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px}
+.gc4 h3{margin:0;font:600 20px/1.2 var(--serif);align-self:center}
+.gc4 ul{grid-column:1/-1;margin:8px 0 0;padding:0;list-style:none;display:grid;gap:7px}
+.gc4 li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.5}
+.gc4 li::before{content:"";position:absolute;left:3px;top:.7em;width:8px;height:2px;background:var(--s-purple)}
+.gc4 .sd2{grid-column:1/-1;margin:4px 0 0;font-size:13.5px;color:var(--s-muted)}
+.pathl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:14px;counter-reset:p}
+.pathl>div{border:1px solid var(--s-line);border-radius:8px;padding:12px 14px;background:var(--s-bg);font-size:13.5px;line-height:1.45;counter-increment:p}
+.pathl>div::before{content:counter(p);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--s-ink);color:#fff;font:700 12px var(--sans);margin-bottom:6px}
+.pathl b{display:block;font-size:14px;margin-bottom:2px}
+@media (max-width:980px){.path3,.tiles4,.grp4,.pathl{grid-template-columns:minmax(0,1fr)}.path3 .ar{transform:rotate(90deg);height:24px}}
+
+.hc{border:1px solid var(--s-line);border-radius:10px;background:var(--s-bg);overflow:hidden}
+.hc+.hc{margin-top:12px}
+.hh{appearance:none;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;padding:18px 20px;cursor:pointer}
+.hh:hover{background:var(--s-alt)}
+.hx b{display:block;font:600 21px/1.2 var(--serif)}
+.hx .hp{display:block;margin-top:4px;font-size:14.5px;color:var(--s-muted);line-height:1.5}
+.hx .cp{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.hh .chev{font-size:13px;font-weight:600;color:var(--s-blue)}
+.hc[data-open="true"]>.hh .chev::after{content:"Close"}
+.hc[data-open="false"]>.hh .chev::after{content:"See more"}
+.hc[data-open="true"]{border-color:var(--s-ink)}
+
+.hb .intro{margin:14px 0 4px;color:var(--s-muted);max-width:72ch}
+.gc5{border:1px solid var(--s-line);border-radius:10px;padding:20px 22px;background:var(--s-bg);display:grid;grid-template-columns:44px minmax(0,1fr);gap:6px 16px;align-content:start}
+.gc5 h3{margin:0;font:600 20px/1.2 var(--serif);align-self:center}
+.gc5 .tgs{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.gc5 .adv{font:700 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--s-rust)}
+.gc5 .sd3{grid-column:1/-1;margin:2px 0 0;font-size:15.5px;line-height:1.5}
+.gc5 .lb{grid-column:1/-1;margin:10px 0 0;font:700 11px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--s-rust)}
+.gc5 ul{grid-column:1/-1;margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.gc5 li{position:relative;padding-left:20px;font-size:15px;line-height:1.5}
+.gc5 li::before{content:"";position:absolute;left:3px;top:.7em;width:8px;height:2px;background:var(--s-purple)}
+.gc5 .stand{grid-column:1/-1;margin-top:12px;border-left:3px solid var(--s-line);background:var(--s-alt);border-radius:0 6px 6px 0;padding:10px 14px}
+.gc5 .stand.L{border-color:var(--s-teal)}.gc5 .stand.T{border-color:var(--s-blue)}.gc5 .stand.C{border-color:var(--s-purple)}
+.gc5 .stand b{display:block;font-size:14.5px}
+.gc5 .stand p{margin:3px 0 0;font-size:14px;line-height:1.5;color:var(--s-muted)}
+.gc5 .exbtn{grid-column:1/-1;justify-self:start;margin-top:12px;appearance:none;font:600 14px var(--sans);color:var(--s-blue);background:transparent;border:1px solid var(--s-line);border-radius:6px;padding:7px 12px;cursor:pointer}
+.gc5 .exbtn:hover{background:var(--s-alt)}
+.gc5 .exb{grid-column:1/-1;margin-top:10px}
+.gc5 .exb .illn{margin-top:0}
+
+.xab .row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 22px;padding:14px 0;border-top:1px solid var(--s-line)}.xab .row:first-child{border-top:0}
+.xab .rl{font:700 11.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--s-rust);padding-top:3px}
+.sees{margin:0;padding:0;list-style:none;display:grid;gap:6px}.sees li{position:relative;padding-left:20px;font-size:15px;line-height:1.5}.sees li::before{content:"";position:absolute;left:3px;top:.7em;width:8px;height:2px;background:var(--s-purple)}.sees.muted li{color:var(--s-muted)}
+.acc{margin-top:16px;display:grid;gap:8px}
+.xa{border:1px solid var(--s-line);border-radius:10px;background:var(--s-bg);overflow:hidden}
+.xa[data-open="true"]{border-color:var(--s-ink)}
+.xah{appearance:none;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;padding:14px 18px;cursor:pointer}
+.xah:hover{background:var(--s-alt)}
+.xat b{display:block;font:600 18px/1.25 var(--serif)}
+.xat span{display:block;font-size:15px;line-height:1.45;color:var(--s-muted);margin-top:2px}
+.xat .advt{display:inline-block;margin:0 0 0 8px;font:700 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--s-rust)}
+.xar{display:flex;gap:6px;align-items:center}
+.xar .chv{font:600 13px var(--sans);color:var(--s-blue);min-width:44px;text-align:right}
+.xa[data-open="true"] .chv::after{content:"Close"}.xa[data-open="false"] .chv::after{content:"Open"}
+.xab{padding:2px 22px 8px;border-top:1px solid var(--s-line)}
+.stt{margin:0 0 6px;font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.stt span{font-weight:600}
+.inv{border:1px solid var(--s-line);border-radius:10px;background:var(--s-bg);padding:18px 20px;margin-top:16px}
+.invh{display:flex;justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap}.invh b{font:600 20px var(--serif)}
+.invs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:12px 0}
+.invs>div{background:var(--s-alt);border-radius:8px;padding:10px 12px}.invs b{display:block;font:700 20px var(--serif)}.invs span{font-size:12.5px;color:var(--s-muted)}
+.inv .lbl{margin:6px 0 6px;font:700 11px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--s-rust)}
+.grp5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.dm-dl{font-size:14px}.iss{font-size:14px}
+.hb{padding:4px 20px 22px;border-top:1px solid var(--s-line)}
+.hb>p.in{margin:14px 0 14px;color:var(--s-muted);max-width:72ch}
+.hc.five .ico{background:var(--s-purple-soft);color:var(--s-purple)}
+.hc.five{border-style:dashed;border-color:var(--s-purple)}
+@media (max-width:980px){.hh{grid-template-columns:minmax(0,1fr)}}
+
+.ch span.plan{border-style:dashed;color:var(--s-muted)}.mk{display:inline-block;font:700 11.5px var(--sans);border-radius:6px;padding:2px 8px;white-space:nowrap;vertical-align:1px;background:var(--s-alt);color:var(--s-muted);border:1px solid var(--s-line)}
+.mk.g{background:var(--s-teal-soft);color:var(--s-teal);border-color:var(--s-teal)}.mk.b{background:var(--s-blue-soft);color:var(--s-blue);border-color:var(--s-blue)}.mk.a{background:var(--s-amber-soft);color:var(--s-amber);border-color:var(--s-amber)}.mk.r{background:var(--s-rust-soft);color:var(--s-rust);border-color:var(--s-rust)}.mk.p{background:var(--s-purple-soft);color:var(--s-purple);border-color:var(--s-purple)}
+.mr{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:7px 0;border-top:1px solid var(--s-line);font-size:14px}.mr:first-child{border-top:0}.mr.hd{padding-top:0}.mr>span:last-child{text-align:right;color:var(--s-muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.mt2{margin:0 0 6px;font:600 13.5px var(--sans);color:var(--s-muted)}
+.two2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ch{display:flex;gap:6px;flex-wrap:wrap}.ch span{border:1px solid var(--s-line);background:var(--s-bg);border-radius:6px;padding:4px 10px;font-size:13.5px}.ch.ok span,.ch span.on{background:var(--s-teal-soft);border-color:var(--s-teal);color:var(--s-teal);font-weight:600}
+.rail2{display:grid;gap:4px;align-content:start}.rail2 b{font:600 13.5px var(--sans);color:var(--s-muted);margin-bottom:2px}.rail2 span{padding:6px 10px;border-radius:6px;border:1px solid var(--s-line);background:var(--s-bg);font-size:13.5px}.rail2 span.on{background:var(--s-ink);color:var(--s-bg);border-color:var(--s-ink)}
+.ln2{height:7px;border-radius:3px;background:var(--s-line);margin:6px 0}.ln2.s{width:70%}
+.dm-dl dt,.iss .lbl,.mt th,.inv .lbl,.xab .rl{font:600 14px var(--sans);letter-spacing:0;text-transform:none}
+.dm-dl dt,.iss .lbl,.mt th,.inv .lbl{color:var(--s-muted)}.xab .rl{color:var(--s-ink)}
+.xat .advt{font:600 12.5px var(--sans);letter-spacing:0;text-transform:none}
+svg .cap{fill:var(--s-muted);font-size:12.5px;font-weight:600;letter-spacing:0}
+.tag,.res,.pl,.cp span,.chips button,.rchips button{border-radius:6px !important}
+.steps .nn,.pathl>div::before,.dotc{border-radius:6px !important}
+
+/* On the site: the page stands on the site's own background, no workshop frame around it */
+body{background:var(--s-bg);color:var(--s-ink);padding-block:0}
+.page{max-width:1100px;margin:0 auto;border:0;border-radius:0;background:transparent;padding:22px 24px 48px}
+:root:not([data-theme="x"]){color-scheme:light}
+</style></head><body>
+  <div class="page">
+    <h1>Where iLit is going</h1>
+    <p class="lede">iLit is a personal proof of concept. It is not a finished product. Today it is a working library of immigration decisions that you can search. There are many significant improvements still to come, and this page is a preview of them.</p>
+    <div class="banner"><b>Proof of concept.</b> Built by one person, run on a personal laptop, and using only public information. Not affiliated with the Government of Canada. Anything marked Concept has not been built.</div>
+    <div class="key3" aria-label="Status key">
+      <div><span class="tag live">Live</span><br>Working on the site today. Some parts are marked experimental and can be wrong.</div>
+      <div><span class="tag test">Tested</span><br>Tried on a sample, with the result shown. May not be on the site yet.</div>
+      <div><span class="tag con">Concept</span><br>An idea. Not built and not tested. Written as "could" and "in theory".</div>
+    </div>
+
+    <section id="s2">
+      <h2>Built to become an agency tool, not a public website</h2>
+      <p class="lede">iLit is public today so that people can see it and try it. That is not where it is meant to end up. The goal is an official CBSA tool, run by the CBSA, for CBSA staff. It was built with that in mind, and there is a plan to get there in three steps.</p>
+      <div class="path3">
+        <div class="st"><span class="ico t"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span><span class="k">Now</span><h3>My laptop</h3><p>A personal computer, as a proof of concept.</p></div><div class="ar">&rarr;</div>
+        <div class="st n2"><span class="ico b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01"/></svg></span><span class="k">Next</span><h3>A private server</h3><p>A private site on a server, at minimal cost.</p></div><div class="ar">&rarr;</div>
+        <div class="st n3"><span class="ico p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h9v17M14 9h5v12M3 21h18M8 8h2M8 12h2M8 16h2"/></svg></span><span class="k">Later</span><h3>CBSA servers</h3><p>Hosted inside the agency.</p></div>
+      </div>
+      <p style="color:var(--s-muted);font-size:14px;margin:12px 0 0">The same software moves at each step. Moving does not mean rebuilding.</p>
+      <ul class="facts">
+        <li><b>Easy to move. <span class="tag live">Live</span></b> The site is packaged so it can be picked up and placed on another computer. It does not depend on any outside AI service to run, and pasted text is never saved.</li>
+        <li><b>Only public information. <span class="tag live">Live</span></b> The library holds public case law and what has been worked out from it. Nothing private is in it today.</li>
+        <li><b>The middle step has a plan. <span class="tag test">Tested</span></b> A rented private server in Canada would cost about CA$32 a month. Nothing is bought yet.</li>
+        <li><b>The last step is a conversation, not a build. <span class="tag con">Concept</span></b> It would need the CBSA to approve it and to run it on its own systems.</li>
+      </ul>
+    </section>
+
+    <section id="s3">
+      <h2>It works on text, so it can work on any document</h2>
+      <p class="lede">iLit does not need neat, organized data. It simply reads text, the way a person would. Court decisions came first because they are public. The same reading works on any document, wherever it came from.</p>
+      <figure class="fig"><div class="svgwrap">
+        <svg viewBox="0 0 960 270" role="img" aria-label="Public decisions go in at the left and are live today. Internal documents, shown dashed as a concept, could go through the same reading. Both pass through the same steps: break into paragraphs, find citations and names, link to everything else. The output is one library with the same layers on every document.">
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" class="fa"/></marker></defs>
+          <text class="cap" x="20" y="22">Text in</text>
+          <rect class="bxt" x="20" y="34" width="250" height="84" rx="8"/>
+          <text class="tt" x="145" y="62" text-anchor="middle">Public decisions · live</text>
+          <text class="s" x="145" y="84" text-anchor="middle">FC, FCA, SCC, RAD, RPD:</text><text class="s" x="145" y="100" text-anchor="middle"><tspan data-live="cases">75,677</tspan> in the library</text>
+          <rect class="bxp" x="20" y="136" width="250" height="110" rx="8"/>
+          <text class="tp" x="145" y="164" text-anchor="middle">Internal documents · concept</text>
+          <text class="s" x="145" y="186" text-anchor="middle">decisions not published, manuals,</text><text class="s" x="145" y="202" text-anchor="middle">guidance, draft agreements:</text><text class="s" x="145" y="218" text-anchor="middle">could be added in theory</text>
+          <rect class="bx" x="340" y="60" width="280" height="150" rx="8"/>
+          <text class="cap" x="358" y="86">The same reading</text>
+          <text class="t" x="358" y="112">Split into paragraphs</text>
+          <text class="t" x="358" y="138">Find cases, statutes, names</text>
+          <text class="t" x="358" y="164">Link to everything else</text>
+          <text class="s" x="358" y="190">Stored once, as data</text>
+          <rect class="bxb" x="690" y="60" width="250" height="150" rx="8"/>
+          <text class="cap" x="708" y="86">One library</text>
+          <text class="tb" x="708" y="112">Search across everything</text>
+          <text class="tb" x="708" y="138">Citations in both directions</text>
+          <text class="tb" x="708" y="164">Layers on every document</text>
+          <text class="s" x="708" y="190">Same screens as today</text>
+          <path class="ln" d="M272 76L338 110" marker-end="url(#ah2)"/><path class="ln" d="M272 190L338 160" marker-end="url(#ah2)"/><path class="ln" d="M622 135H688" marker-end="url(#ah2)"/>
+        </svg></div>
+        <figcaption>Dashed means it has not been built or tried. Only the top path exists today.</figcaption></figure>
+      <p><b>What could be included, in theory, if the agency adopted it:</b></p>
+      <div class="docs">
+        <div><b>Deferral decisions</b>Searched together with the published decisions.</div>
+        <div><b>Private ID decisions</b>Decisions that are never published, read the same way.</div>
+        <div><b>ENF manuals and internal guidance</b>Linked to the decisions that apply them.</div>
+        <div><b>Drafts of MOAs and RMOAs</b>Checked against the library, as a draft is today.</div>
+      </div>
+      <p>This is where the real power would come from. A public website can only hold public material. A tool inside the agency could put the public case law and the agency's own files in one place, so a single search covers both. That is a concept. It would need CBSA approval, and a private AI that stays inside the agency, which the next section explains.</p>
+      <ul class="facts">
+        <li><b>What supports it. <span class="tag test">Tested</span></b> Checking a pasted draft already works on plain text with no special formatting. A 40,000 character draft that cites 68 cases was fully checked in about one second.</li>
+        <li><b>What does not support it yet.</b> Nothing has been tried on internal documents. Every test used public decisions and sample drafts, so how well it would work on internal documents is unknown.</li>
+      </ul>
+    </section>
+
+    <section id="s4">
+      <h2>A private AI that stays in the building</h2>
+      <p class="lede">An AI model is a program that reads and writes text. Most are rented from a technology company, so your text travels over the internet to their computer. A private model is the same kind of program, running on a computer the agency owns. Nothing leaves the building.</p>
+      <div class="vs">
+        <div><h3>A rented AI</h3><p class="small">How most AI tools work today.</p><div class="flow"><div>Your text</div><div class="ar">sent over the internet</div><div class="out">A company’s computer reads it</div><div class="ar">answer comes back</div><div>You</div></div></div>
+        <div class="pv"><h3>A private AI</h3><p class="small">The idea for an agency version. A concept.</p><div class="flow"><div>Your text</div><div class="ar">stays on the agency network</div><div class="in">An agency computer reads it</div><div class="ar">answer appears</div><div>You</div></div></div>
+      </div>
+      <h3 class="sub3">Why a private AI is worth having</h3>
+      <div class="bens">
+        <div><span class="ico t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></span><b>Resilient</b><p>It keeps working when the AI market changes. A model that has been downloaded does not stop if a company raises its prices, retires a model or changes its rules.</p></div>
+        <div><span class="ico a"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h9v17M14 9h5v12M3 21h18M8 8h2M8 12h2M8 16h2"/></svg></span><b>Does not depend on any company</b><p>If an AI company goes bankrupt, is sold or shuts a service down, nothing changes for the agency. The model files and the computer stay where they are.</p></div>
+        <div><span class="ico b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><b>Controlled inside the agency</b><p>The agency decides who can use it, what it can see and when it is updated. It can be paused or switched off at any time.</p></div>
+        <div><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M4 7h16M4 17h10"/></svg></span><b>Stays the same until you change it</b><p>The version is fixed. Results do not shift because a supplier quietly updated its model.</p></div>
+        <div><span class="ico p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><path d="M4 4l16 16"/></svg></span><b>Nothing leaves the building</b><p>Documents and questions are never sent to an outside company.</p></div>
+        <div><span class="ico t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></span><b>A cost you can predict</b><p>There is no fee for each use. The cost is the computer and its electricity.</p></div>
+      </div>
+      <figure class="fig"><div class="svgwrap"><svg viewBox="0 0 960 230" role="img" aria-label="If an AI company fails or changes its terms, a rented AI tool stops or changes, while a private AI tool keeps running."><defs><marker id="ahv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" class="fa"/></marker></defs>
+<rect class="bxa" x="20" y="75" width="230" height="80" rx="10"/><text class="t" x="135" y="110" text-anchor="middle">An AI company fails,</text><text class="t" x="135" y="130" text-anchor="middle">or changes its terms</text>
+<path class="ln" d="M252 105L338 55" marker-end="url(#ahv)"/><path class="ln" d="M252 125L338 175" marker-end="url(#ahv)"/>
+<rect class="bx" x="340" y="22" width="250" height="68" rx="9" stroke-dasharray="5 4"/><text class="t" x="465" y="52" text-anchor="middle">A rented AI</text><text class="s" x="465" y="72" text-anchor="middle">depends on the company</text>
+<rect class="bxt" x="340" y="140" width="250" height="68" rx="9"/><text class="tt" x="465" y="170" text-anchor="middle">A private AI</text><text class="s" x="465" y="190" text-anchor="middle">runs on agency computers</text>
+<path class="ln" d="M592 56H668" marker-end="url(#ahv)"/><path class="ln" d="M592 174H668" marker-end="url(#ahv)"/>
+<rect class="bx" x="670" y="22" width="270" height="68" rx="9" stroke-dasharray="5 4"/><text class="t" x="805" y="52" text-anchor="middle">The tool stops or changes</text><text class="s" x="805" y="72" text-anchor="middle">and the work stops with it</text>
+<rect class="bxt" x="670" y="140" width="270" height="68" rx="9"/><text class="tt" x="805" y="170" text-anchor="middle">The tool keeps running</text><text class="s" x="805" y="190" text-anchor="middle">nothing changes for the agency</text></svg></div><figcaption>The point of owning the model. A picture of the idea.</figcaption></figure>
+      <h3 class="sub3">What it takes</h3>
+      <div class="pieces">
+        <div><span class="ico t"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="11" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></span><b>A strong computer</b><p>One machine with a powerful graphics card, owned by the agency. It is a one-time purchase, not a subscription.</p></div>
+        <div><span class="ico b"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></span><b>A model downloaded once</b><p>Free, openly shared models can be downloaded and run offline. After that, no internet connection is needed.</p></div>
+        <div><span class="ico p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span><b>Easy to swap</b><p>Better models keep appearing. The agency could change to a newer one without changing the site.</p></div>
+      </div>
+      <h3 class="sub3">How the site would use it</h3>
+      <p>The site already follows one rule that makes this possible: AI reads each decision once, when it is added, and the result is saved. Searching uses no AI, and nothing you type is sent to one. A private model would do that reading inside the agency. It could also read the agency’s own documents, which a rented AI should never be sent. The specific things it could do are listed under Local AI integration, below.</p>
+      <p><b>What it asks in return.</b> A computer to buy and look after, and models that are somewhat smaller than the very largest rented ones. Those are real costs, and the agency would be choosing them in exchange for the benefits above.</p>
+      <p class="small">So far the AI reading on the site was done on public case law only. A private model has not been set up. Everything about it here is a concept.</p>
+    </section>
+
+    <section id="s5">
+      <h2>Six areas of work</h2>
+      <p class="lede">Open any card for the detail.</p>
+      <div id="hz"></div>
+    </section>
+
+    <section id="s6">
+      <h2>Try it</h2>
+      <p class="lede">Eight working demos you can click through. They run on invented data in your browser. Nothing here reads the library or calls an AI. Each is labelled as a mock-up or a future idea.</p>
+      <iframe class="demoframe" title="Demos" src="/roadmap/coming-soon-demo"></iframe>
+    </section>
+
+    <section id="s7">
+      <h2>What is real today</h2>
+      <p>The library of <b data-live="cases">75,677</b> decisions, <b data-live="citations">1.6 million</b> citations and the Federal Court activity data are live. The case layers are live on a few hundred to a few thousand decisions, labelled experimental. Everything marked Concept is an idea about where it could go, and none of it is promised.</p>
+      <div class="btns"><a class="btn alt" href="/data-explorer?tab=about&amp;group=info" target="_top" id="backAbout">Back to About</a></div>
+    </section>
+  </div>
+
+<script>
+var SIDE={respondent:'Respondent',applicant:'Applicant'};
+function ill(t){return '<div class="illn">'+t+'</div>'}
+var DEMO={
+read:function(){return ill('Real result for one decision, 2013 FC 431, shortened.')+'<div class="dm"><div class="dm-h"><b>2013 FC 431</b><span>Federal Skilled Worker refusal</span></div><dl class="dm-dl"><dt>About</dt><dd>Whether a visa agent\u2019s unexplained form-letter refusal was reasonable, and whether a later affidavit can supply the missing reasons.</dd><dt>Question decided</dt><dd>Can the agent\u2019s affidavit stand in for reasons? <span class="res">Applicant succeeds</span> <span class="pj">paragraphs 5 to 6</span></dd><dt>Note, paragraph 6</dt><dd>The Court finds the affidavit inadmissible: no contemporaneous notes, sworn months later.</dd><dt>Outcome</dt><dd>Judicial review granted; sent back for a new decision.</dd></dl></div>'},
+glance:function(){return ill('Real result for one decision, 2013 FC 431, shortened.')+'<div class="dm"><div class="dm-h"><b>2013 FC 431</b><span>Federal Skilled Worker refusal</span></div><dl class="dm-dl"><dt>Parties</dt><dd>Komolafe (applicant) against the Minister of Citizenship and Immigration</dd><dt>How it got here</dt><dd>Visa agent form-letter refusal, then Federal Court</dd><dt>About</dt><dd>Whether a visa agent’s unexplained form-letter refusal was reasonable and adequately reasoned, and whether the agent’s later affidavit can supply the reasons.</dd><dt>Arguments</dt><dd><span class="sd r">Respondent</span> The agent’s affidavit explains the reasoning.<br><span class="sd r">Respondent</span> Under Newfoundland Nurses the court may fill gaps in thin reasons.</dd><dt>Outcome</dt><dd>Judicial review granted; sent back for reconsideration by a different agent.</dd></dl></div>'},
+issues:function(){return ill('Real result for one decision, 2013 FC 431.')+'<div class="dm"><div class="iss"><p class="q">Whether the decision maker’s affidavit can serve as valid reasons in place of contemporaneous notes.</p><p><span class="res">Applicant succeeds</span> <span class="pj">paragraphs 5 to 6</span></p><blockquote>“The affidavit is therefore inadmissible.”</blockquote></div><div class="iss"><p class="q">Whether the decision maker provided sufficient reasons to allow meaningful judicial review.</p><p><span class="res">Applicant succeeds</span> <span class="pj">paragraphs 7 to 10</span></p><blockquote>“It is entirely unclear why the decision was reached.”</blockquote></div></div>'},
+notes:function(){var n=[[4,'The decision was a form letter, and the agent later swore an affidavit claiming experience in only two main duties.'],[5,'The Court states decision makers may not supplement reasons by affidavit, citing Taleb v Canada.'],[6,'The Court finds the affidavit inadmissible: no contemporaneous notes, sworn months later.'],[9,'The decision gives no insight into the agent’s reasoning. The agent merely stated her conclusion.'],[11,'Newfoundland Nurses does not let the Court supply reasons where the decision is silent. Application granted.']];return ill('Real notes from one decision, 2013 FC 431. Five of eleven shown.')+'<div class="dm">'+n.map(function(x){return '<div class="pn"><span class="pnn">'+x[0]+'</span><span>'+x[1]+'</span></div>'}).join('')+'</div>'},
+args:function(){return ill('Real result for one decision, 2013 FC 431.')+'<div class="dm"><div class="iss"><p><span class="sd r">Respondent</span> The agent’s affidavit explains the reasoning: the applicant showed experience in only two of the listed main duties.</p></div><div class="iss"><p><span class="sd r">Respondent</span> Under Newfoundland Nurses the court may fill gaps and draw inferences from the record to uphold thin reasons.</p></div></div>'},
+match:function(){return ill('The draft sentence was written for this page. The match is a real stored issue.')+'<div class="dm"><div class="iss"><p class="lbl">Your draft says</p><blockquote>The officer’s later affidavit cannot supply the reasons that were missing from the refusal.</blockquote></div><div class="iss"><p class="lbl">Closest decided issue</p><p class="q">Whether the decision maker’s affidavit can serve as valid reasons in place of contemporaneous notes. <span class="pj">2013 FC 431</span></p><p><span class="res">Applicant succeeds</span> <span class="pj">paragraphs 5 to 6</span></p></div></div>'},
+cites:function(){return ill('How a link reads, with the two ends recorded.')+'<div class="dm"><div class="lk"><div><b>Case A, paragraph 41</b><span>“…as held in Case B, at paragraph 84…”</span></div><div class="ar">cites →</div><div><b>Case B, paragraph 84</b><span>the passage Case A relies on</span></div></div><div class="lk"><div><b>Case B, paragraph 84</b><span>shows who cites it</span></div><div class="ar">← cited by</div><div><b>Case A, paragraph 41</b><span>and how that file ended</span></div></div></div>'},
+docket:function(){return ill('Counts from the library.')+'<div class="dm"><div class="bars"><div><span>Files filed, Federal Court</span><i style="width:100%"></i><b>316,940</b></div><div><span>Published decisions</span><i class="g" style="width:11.4%"></i><b>35,999</b></div></div><p class="small">Research sites hold only the second bar. iLit holds both, joined by file number.</p></div>'},
+speed:function(){return ill('Measured on one long decision.')+'<div class="dm"><div class="bars"><div><span>Reading the laws cited, before a fix</span><i style="width:100%"></i><b>11.4 s</b></div><div><span>After the fix</span><i class="g" style="width:2.4%"></i><b>0.27 s</b></div></div><p class="small">A text three times longer used to time out. It now takes under a second, with the same results.</p></div>'},
+models0:function(){return ill('Open-weight model against the paid model, from the test reports.')+'<div class="dm"><table class="mt"><thead><tr><th>Test</th><th>Open</th><th>Paid</th></tr></thead><tbody><tr><td>Issue results right, fresh decisions</td><td>94%</td><td>94%</td></tr><tr><td>Cited paragraph right</td><td>94%</td><td>99%</td></tr><tr><td>Faithful matching questions</td><td>93%</td><td>98%</td></tr><tr><td>Best passage, 60 arguments</td><td>36</td><td>35</td></tr><tr><td>Earlier, smaller open model</td><td>78%</td><td>93%</td></tr></tbody></table><p class="small">Open is a free 9 billion parameter model (the last row, a 20 billion one). Paid is a Haiku model. Small samples, graded by a model.</p></div>'},
+internal:function(){return ill('Concept illustration. Nothing internal has been added.')+'<div class="dm"><div class="srch">Search: affidavit as reasons</div><div class="rs"><b>Public</b> 2013 FC 431, paragraphs 5 to 6</div><div class="rs ph"><b>Internal</b> A deferral decision from the agency would appear here</div><div class="rs ph"><b>Internal</b> The relevant ENF manual section would appear here</div></div>'}
+};
+DEMO.models=function(){return ill('Free model against paid model, from the test reports.')+'<div class="dm"><table class="mt"><thead><tr><th>Test</th><th>Free</th><th>Paid</th></tr></thead><tbody><tr><td>Pick the best passage for an argument (out of 60)</td><td>36</td><td>35</td></tr><tr><td>List the questions a judge decided</td><td>94%</td><td>94%</td></tr><tr><td>Write faithful one-line questions</td><td>93%</td><td>98%</td></tr></tbody></table><p class="small">Graded by a model, small samples. Smaller free models did worse on summaries.</p></div>'};
+
+var AI=[
+ {t:'Read new material as it arrives',p:'Every new decision, and later internal document, gets a summary card, a list of the questions decided and a note on each paragraph, without leaving the agency.',s:['T'],proof:'Tried on public law with free models: about 9 in 10 were right on samples. Doing it privately is the idea.',demo:'read'},
+ {t:'Check a draft in private',p:'Paste a draft and have it compared with earlier arguments, without the draft going anywhere.',s:['L','T'],proof:'The matching already runs on the site with no AI, and memos are never stored. An AI step to pick the best match was tested: a free model chose well on 36 of 60 arguments, a paid one on 35.',demo:'match'},
+ {t:'Ask a case a question',p:'Type a question in plain words and get an answer with the paragraphs it came from.',s:['C'],proof:'Not built. It would use the private model, so questions stay inside the agency.',demo:'ask'},
+ {t:'Explain it in plain words',p:'Turn a long decision or document into a short plain-language summary a hearings officer can read quickly.',s:['T'],proof:'Paragraph notes are already a small version of this: about 87% were faithful on one sample, and none were wrong. Small models were too weak, so a bigger private computer is needed.',demo:null},
+ {t:'Search by meaning',p:'Find the paragraph that answers a question even when it uses different words.',s:['T'],proof:'A small test found the right paragraph in the top two on 5 of 5 queries. It is paused, and the index is empty on the live site.',demo:null}
+];
+var TIERS=[
+ {n:'Today',sub:'No new funding',h:'What works now',holds:'One person, one laptop, free and low-cost tools.',cost:'About C$841 spent out of pocket so far.',proves:'The idea works on public law.',cards:[
+  {t:'Summary cards and question lists',p:'On about 940 decisions today, marked experimental.',s:['L','T'],proof:'Right roughly 9 times in 10 on samples checked by a second AI model.',demo:'read'},
+  {t:'Citations and statutes, linked',p:'About 1.6 million links, down to the paragraph.',s:['L'],proof:'Both directions: what a decision relied on, and who has relied on it.',demo:'cites'},
+  {t:'Judges, outcomes and the Federal Court docket',p:'316,940 files and 3.59 million docket entries.',s:['L'],proof:'Every step of every Federal Court immigration file, not only the ones with a published decision.',demo:'docket'},
+  {t:'Check a draft\u2019s citations',p:'Every case and law in a pasted draft, checked in about a second.',s:['L'],proof:'A 40,000 character draft citing 68 cases. Nothing is stored.',demo:'speed'}]},
+ {n:'Services',sub:'About C$2,000, then CA$35 a month',h:'Pay for AI reading and an always-on server',holds:'AI reading costs money, and the site runs on a laptop that is sometimes off.',cost:'From about C$2,000 for AI services, then about CA$35 a month for a Canadian server. Estimates.',proves:'The layers hold up across the whole library at low cost, still on public law.',cards:[
+  {t:'Every decision gets the full treatment',p:'Summary cards, question lists and notes for all 75,677 decisions, not about 940.',s:['T'],proof:'About 4,000 paragraph notes cost about US$0.92 on a hosted free model. A full pass is estimated at about C$100 to 125 that way, against about C$6,800 on a paid model. Estimates from list prices I have not verified. Text goes to the host, so this is for public law only.',demo:'cost'},
+  {t:'Always on, always fresh',p:'A private server in Canada that never switches off, with new decisions added every day.',s:['C'],proof:'Costed in the hosting plan: about CA$32 a month plus under CA$1 for nightly backups. The import tools are built. The daily schedule is not switched on, and a full backup comes first.',demo:null},
+  {t:'Better matching of arguments',p:'Find the earlier argument that really makes your point.',s:['T'],proof:'A re-ranking step added 7.3 points to the top-three result in a test. It has to run when a decision is added, which costs AI reading.',demo:null},
+  {t:'Exact pinpoints',p:'Each citation points to the right paragraph.',s:['C'],proof:'About 6,000 decisions would be re-read. Not started.',demo:null}]},
+ {n:'Hardware',sub:'About C$5,000 to 20,000',h:'Run a private AI on a computer you own',holds:'No computer powerful enough to run a good model in-house. On today\u2019s laptop the library would take about ten months.',cost:'About C$5,000 for a used 32 GB machine to start. About C$15,000 to 20,000 later for a larger one. My estimates, not quotes.',proves:'A private model reads decisions at useful speed and accuracy. Goal: 1,000 decisions a day, and 90% right on 100 fresh decisions with 25 checked by a lawyer.',cards:[
+  {t:'A private AI that stays inside',p:'The same AI reading as above, done on your own computer. No fee per use, nothing leaves.',s:['T','C'],proof:'Early tests with a free 9 billion parameter model were close to a paid model on two tasks. Smaller models failed on summaries.',demo:'models'},
+  {t:'Take arguments apart across the library',p:'What each side argued, and how courts treated each case they relied on.',s:['T','C'],adv:true,proof:'Advanced research. In a test 99% of listed arguments were real and about 9 in 10 were found. Judging how a case was used (followed, doubted, set aside) is designed but not built.',demo:'args'},
+  {t:'Ask a case a question',p:'Plain-language questions, answers with the paragraphs behind them.',s:['C'],proof:'Not built. Needs a bigger private model.',demo:'ask'},
+  {t:'Check drafts privately with AI',p:'Your draft is read by the private model and compared with earlier arguments.',s:['C'],proof:'The matching without AI is live. The AI step was tested on 60 arguments.',demo:'match'}]},
+ {n:'CBSA',sub:'Approvals and servers',h:'Bring it inside the agency',holds:'Approvals, a security assessment and servers that only CBSA can provide.',cost:'CBSA\u2019s own process. I have not priced it.',proves:'The tool can safely hold documents the public never sees.',cards:[
+  {t:'The agency\u2019s own documents',p:'Deferral decisions, private ID decisions, ENF manuals, internal guidance and draft MOAs and RMOAs, searched beside the case law.',s:['C'],proof:'Never tried on internal documents. iLit reads plain text, so in theory any document works. Needs CBSA approval.',demo:'internal'},
+  {t:'Your own login and workspace',p:'Each user signs in, saves work privately, and teams share folders, with a log of who opened what.',s:['C'],proof:'Not built. A first workspace for pinning decisions is in development. Pages on data flow, logging and privacy-assessment inputs already exist as a starting point.',demo:null},
+  {t:'Immigration Division and Appeal Division decisions',p:'Decisions most public sites do not hold.',s:['C'],proof:'There is no open bulk source. The first step is asking the Refugee Law Lab and the IRB. Agency copies could be added.',demo:null},
+  {t:'Results a lawyer has checked',p:'Counsel review a set of results, so the figures can be relied on.',s:['C'],proof:'Every figure today was graded by a model or by me. No lawyer has checked any.',demo:null},
+  {t:'Running on CBSA servers',p:'Handed over as a container and a backup file, inside the agency\u2019s network.',s:['C'],proof:'The repository already has a container recipe. CBSA\u2019s security assessment comes first.',demo:null}]}
+];
+DEMO.library=function(){return ill('What the library holds today, by court.')+'<div class="dm"><div class="bars"><div data-court="FC"><span>Federal Court</span><i style="width:100%"></i><b>35,999</b></div><div data-court="RAD"><span>Refugee Appeal Division</span><i style="width:39.5%"></i><b>14,214</b></div><div data-court="SCC"><span>Supreme Court</span><i style="width:30.3%"></i><b>10,893</b></div><div data-court="FCA"><span>Federal Court of Appeal</span><i style="width:21.7%"></i><b>7,817</b></div><div data-court="RPD"><span>Refugee Protection Division</span><i style="width:18.7%"></i><b>6,729</b></div></div></div>'};
+DEMO.ask=function(){return ill('Concept illustration, built from the stored notes for 2013 FC 431. Not a working feature.')+'<div class="dm"><div class="srch">Can an agent\u2019s later affidavit stand in for missing reasons?</div><div class="iss"><p>No. The Court found the affidavit inadmissible: there were no contemporaneous notes, and it was sworn months after the decision.</p><p><span class="pj">2013 FC 431, paragraphs 5 to 6</span></p></div></div>'};
+DEMO.cost=function(){return ill('Estimates for one full pass over 75,677 decisions. List prices I have not verified.')+'<div class="dm"><table class="mt"><thead><tr><th>Route</th><th>About</th></tr></thead><tbody><tr><td>Paid model, larger</td><td>C$25,000</td></tr><tr><td>Paid model, smaller</td><td>C$6,800</td></tr><tr><td>Hosted free model (public law only)</td><td>C$100 to 125</td></tr><tr><td>Private model on your own computer</td><td>Electricity</td></tr></tbody></table></div>'};
+
+function mk(c,t){return '<span class="mk '+c+'">'+t+'</span>'}
+function mrow(l,r){return '<div class="mr"><span>'+l+'</span><span>'+r+'</span></div>'}
+var CI=function(){return ill('Concept illustration. Invented names and figures.')};
+DEMO.judge=function(){return CI()+'<div class="dm"><div class="two2"><div><p class="mt2">Before: the same judge, three ways</p><div class="ch"><span>J. Smith</span><span>John Smith</span><span>Justice John Smith</span></div></div><div><p class="mt2">After: one judge</p><div class="ch ok"><span>Justice John Smith</span></div><p class="small" style="margin:6px 0 0">All of his decisions in one list, with outcomes that add up.</p></div></div></div>'};
+DEMO.statute=function(){return CI()+'<div class="dm"><div class="ch"><span class="on">As of 2013-06-19 (current)</span><span>2012-12-15</span><span>2010-06-29</span></div><div class="iss"><p class="q">Immigration and Refugee Protection Act, section 34(1)(f)</p><blockquote>being a member of an organization that there are reasonable grounds to believe engages, has engaged or will engage in acts referred to in paragraph (a), (b), (b.1) or (c).</blockquote><p style="margin-top:8px">'+mk('b','12 decisions discuss this paragraph')+' '+mk('n','Wording shown is the version in force at the time')+'</p></div></div>'};
+DEMO.quality=function(){return CI()+'<div class="dm"><div class="iss"><p class="q">Case at a glance '+mk('r','Experimental')+'</p><div class="bars" style="margin-top:8px"><div><span>Checked by counsel</span><i class="g" style="width:90%"></i><b>45 of 50</b></div><div><span>Mistakes found</span><i style="width:10%;background:var(--s-rust)"></i><b>5</b></div></div><p class="small" style="margin:8px 0 0">An accuracy figure like this would sit beside each feature, with the known weak spots listed.</p></div></div>'};
+DEMO.intake=function(){return CI()+'<div class="dm"><div class="mr hd"><b>Just added</b><span class="small">updates when new decisions are published</span></div>'+mrow('<b>Federal Court</b> 2026 FC 1412','added today')+mrow('<b>Federal Court</b> 2026 FC 1409','added today')+mrow('<b>Refugee Appeal Division</b> 2026 RAD 87','added yesterday')+mrow('<b>Federal Court of Appeal</b> 2026 FCA 201','added yesterday')+'</div>'};
+DEMO.outline=function(){return CI()+'<div class="dm"><div class="two2" style="grid-template-columns:170px 1fr"><div class="rail2"><b>Outline</b><span class="on">Facts and background</span><span>What each side argues</span><span>The Court’s analysis</span><span>Disposition</span></div><div><p class="mt2">What each side argues</p><div class="ln2"></div><div class="ln2 s"></div><p class="mt2" style="margin-top:12px">The Court’s analysis</p><div class="ln2"></div><div class="ln2 s"></div><div class="ln2"></div></div></div></div>'};
+DEMO.fp=function(){return CI()+'<div class="dm"><p class="mt2">Decisions built like the one you are reading</p>'+mrow('<b>Bernier v. Canada</b> 2023 FC 804',mk('g','Very similar')+' '+mk('n','no shared citations'))+mrow('<b>Fontaine v. Canada</b> 2021 FC 118',mk('g','Very similar'))+mrow('<b>Haddad v. Canada</b> 2020 FC 455',mk('b','Similar')+' '+mk('n','no shared citations'))+'</div>'};
+DEMO.stint=function(){return CI()+'<div class="dm"><p class="mt2">Section 34(1)(f): cases that considered it, and how they ended</p><div class="bars"><div><span>Allowed</span><i class="g" style="width:42%"></i><b>5</b></div><div><span>Dismissed</span><i style="width:58%"></i><b>7</b></div></div><p class="small" style="margin:6px 0 0">Cases per year: 2019 ▂ 2020 ▄ 2021 ▆ 2022 ▅ 2023 ▇</p></div>'};
+DEMO.citint=function(){return CI()+'<div class="dm"><p class="mt2">Vavilov: the most relied-on paragraphs</p>'+mrow('<b>Paragraph 85</b> reasons must be justified',mk('b','cited in many decisions'))+mrow('<b>Paragraph 99</b> transparent and intelligible',mk('b','cited in many decisions'))+mrow('<b>Paragraph 10</b> presumption of reasonableness',mk('g','still followed'))+'</div>'};
+DEMO.draftcheck=function(){return CI()+'<div class="dm"><div class="two2" style="grid-template-columns:1fr 1fr"><div class="iss"><p class="mt2">Your draft</p><p style="margin:0">Membership is read broadly: <u>Poshteh v. Canada, 2005 FCA 85</u>. The finding must be justified: <u>Canada (MCI) v. Vavilov, 2019 SCC 65</u>.</p></div><div><p class="mt2">Found in the draft</p>'+mrow('Poshteh, 2005 FCA 85',mk('g','Found'))+mrow('Vavilov, 2019 SCC 65',mk('g','Found'))+mrow('IRPA, s 34(1)(f)',mk('g','Found'))+'</div></div></div>'};
+DEMO.fared=function(){return CI()+'<div class="dm"><p class="mt2">Cases your draft cites</p>'+mrow('<b>Poshteh</b> 2005 FCA 85',mk('g','Still followed'))+mrow('<b>Lopez</b> 2015 FC 300',mk('a','Questioned since')+' <span class="small">see 2022 FC 410</span>')+mrow('<b>Smith</b> 2021 FC 9999',mk('r','Not found'))+'</div>'};
+DEMO.missed=function(){return CI()+'<div class="dm"><p class="mt2">Cases similar decisions cite that your draft does not</p>'+mrow('<b>Hassan v. Canada</b> 2019 FC 700','cited in 9 of 12 similar decisions')+mrow('<b>Okafor v. Canada</b> 2020 FC 311','cited in 7 of 12 similar decisions')+'<p class="small" style="margin:6px 0 0">Prompts to look at, not advice on who is right.</p></div>'};
+DEMO.answered=function(){return CI()+'<div class="dm"><p class="mt2">Arguments in the draft</p>'+mrow('Attendance alone is thin evidence',mk('g','Answered by the other side'))+mrow('The officer must say what the person did',mk('a','Not yet answered'))+mrow('Reasons must be justified',mk('a','Not yet answered'))+'</div>'};
+DEMO.semantic=function(){return CI()+'<div class="dm"><div class="srch">Can a later statement fill in for reasons that were never written?</div><div class="rs"><b>Match</b> “The Court cannot accept an affidavit sworn months later as a substitute for the decision maker’s reasons.” <span class="small">2013 FC 431, paragraph 6</span></div><p class="small" style="margin:6px 0 0">Found by meaning: it shares almost no words with the question.</p></div>'};
+DEMO.treat=function(){return CI()+'<div class="dm"><p class="mt2">Beside each citation, how the court used it</p>'+mrow('Poshteh, 2005 FCA 85',mk('g','Followed'))+mrow('Vavilov, 2019 SCC 65',mk('b','Applied the test'))+mrow('Ezokola, 2013 SCC 40',mk('r','Contrasted'))+'</div>'};
+DEMO.plain=function(){return CI()+'<div class="dm"><div class="two2" style="grid-template-columns:1fr 1.4fr"><div class="iss"><p class="mt2">The decision</p><div class="ln2"></div><div class="ln2 s"></div><div class="ln2"></div><div class="ln2"></div><div class="ln2 s"></div><p class="small" style="margin:6px 0 0">45 pages</p></div><div class="iss"><p class="mt2">In plain words</p><p style="margin:0">An officer found a man inadmissible for attending two public meetings. The Court said that is not enough unless the officer explains what he did. The finding was set aside and sent back.</p></div></div></div>'};
+DEMO.login=function(){return CI()+'<div class="dm"><div class="two2"><div class="iss"><p class="q">Sign in</p><p class="small" style="margin:2px 0 8px">With your agency account</p><div class="srch">A. Morin</div></div><div class="iss"><p class="q">Your profile</p>'+mrow('Team','Hearings and Litigation')+mrow('Role','Analyst')+mrow('Saved libraries','3')+'</div></div></div>'};
+DEMO.teamfeed=function(){return CI()+'<div class="dm"><p class="mt2">Hearings and Litigation: shared folder</p><div class="iss"><p style="margin:0"><b>S. Kaur</b> <span class="small">2 hours ago</span><br>Two decisions on attendance and membership. The second distinguishes the first.</p></div><div class="iss"><p style="margin:0"><b>T. Lavoie</b> <span class="small">yesterday</span><br>Added the Vavilov paragraphs to the hearing folder.</p></div></div>'};
+DEMO.libs=function(){return CI()+'<div class="dm"><p class="mt2">My libraries</p>'+mrow('<b>Hearing prep</b>','14 decisions')+mrow('<b>Study permits</b>','9 decisions')+mrow('<b>Judicial review</b>','22 decisions')+'</div>'};
+DEMO.alerts=function(){return CI()+'<div class="dm"><div class="srch">Saved search: membership AND attendance</div>'+mrow('<b>2 new decisions fit</b> since Monday',mk('a','New'))+mrow('2026 FC 1412','Federal Court')+mrow('2026 FC 1409','Federal Court')+'</div>'};
+DEMO.pnotes=function(){return CI()+'<div class="dm"><div class="iss"><p style="margin:0"><mark style="background:var(--s-amber-soft)">The officer must say what those things were.</mark></p></div><div class="iss" style="border-style:dashed"><p style="margin:0">'+mk('p','Only you')+' Use this at the hearing: officer gave no conduct.</p></div></div>'};
+DEMO.audit=function(){return CI()+'<div class="dm"><p class="mt2">Who opened what, and when</p>'+mrow('S. Kaur opened 2023 FC 804','today 10:42')+mrow('A. Morin ran a saved search','today 09:15')+mrow('T. Lavoie shared a folder','yesterday 16:03')+'</div>'};
+
+var SL={L:['live','Live'],T:['test','Tested'],C:['con','Concept']};
+function el(id){return document.getElementById(id)}
+function tags(s){return s.map(function(x){return '<span class="tag '+SL[x][0]+'">'+SL[x][1]+'</span>'}).join('')}
+function xcard(i){return '<div class="xc" data-open="false"><button type="button" class="xh" aria-expanded="false"><span class="xt">'+(i.adv?'<span class="adv">Advanced proof of concept</span>':'')+'<b>'+i.t+'</b><span class="xp">'+i.p+'</span></span><span class="xr"><span class="tg">'+tags(i.s)+'</span><span class="chev"></span></span></button><div class="xb" hidden>'+(i.sees?'<p class="lbl2">What you would see</p><ul class="sees">'+i.sees.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>':'')+'<p class="ev">'+i.proof+'</p>'+(i.demo?DEMO[i.demo]():'')+'</div></div>'}
+function wire(root){root.querySelectorAll('.xh').forEach(function(b){b.addEventListener('click',function(){var c=b.parentNode,o=c.getAttribute('data-open')!=='true';c.setAttribute('data-open',o?'true':'false');b.setAttribute('aria-expanded',o?'true':'false');c.querySelector('.xb').hidden=!o})})}
+
+
+var CATS=[
+ {k:'ext',n:'Extraction improvements and expansion',d:'Reading the decisions more accurately, and growing the library.'},
+ {k:'feat',n:'Additional features',d:'New ways to work with a decision, built on what is already stored.'},
+ {k:'live',n:'Live analysis of a draft',d:'Check a draft against the library while you write it.'},
+ {k:'ai',n:'Local AI integration',d:'A private model running on agency hardware, so AI work can happen without sending text out.'},
+ {k:'ws',n:'Analyst workspace',d:'A place for each analyst and team to keep their own work.'}
+];
+var F=[
+{
+"k": "ext",
+"t": "Citation quality",
+"p": "Each citation points to the right paragraph, with fewer false matches.",
+"sees": [
+"A citation that lands on the exact paragraph, not only the case",
+"Fewer fragments mistaken for case names",
+"Links that work in both directions: what a decision relied on, and who relied on it"
+],
+"stands": "About 1.6 million citation links work today. Pointing each one to the exact paragraph is partly done. Re-reading about 6,000 decisions to improve this is planned, not started.",
+"s": [
+"L"
+],
+"demo": "cites",
+"adv": false
+},
+{
+"k": "ext",
+"t": "Better extraction",
+"p": "More reliable judges, panels, outcomes and case types for every court.",
+"sees": [
+"Filters that can be trusted across the whole library",
+"Outcomes and statistics that match what the decision says",
+"The same judge shown under one name"
+],
+"stands": "Works well for some courts and less well for others. Outcome labels matched hand-checked answers on 99.1% of 587 decisions, but they cover only about 14,000 decisions so far.",
+"s": [
+"L"
+],
+"demo": "judge",
+"adv": false
+},
+{
+"k": "ext",
+"t": "Law library expansion",
+"p": "More decisions, more years and more tribunals, added automatically every day.",
+"sees": [
+"New decisions appearing soon after they are published",
+"Older years filled in",
+"More courts and tribunals"
+],
+"stands": "The library holds 75,677 decisions today, as the inventory above shows. The tools to add new decisions are built. The daily schedule is not switched on, so new decisions are not yet added automatically.",
+"s": [
+"C"
+],
+"demo": "intake",
+"adv": false
+},
+{
+"k": "ext",
+"t": "Statute library",
+"p": "The main Acts and Regulations, as they read on the date of each decision.",
+"sees": [
+"Open a section and see the wording that applied at the time",
+"Jump from a decision to the exact section it discusses",
+"See how a section changed over time"
+],
+"stands": "Text for the main immigration Act and Regulations is on the site. The rest is planned.",
+"s": [
+"C"
+],
+"demo": "statute",
+"adv": false
+},
+{
+"k": "ext",
+"t": "Quality checks",
+"p": "Samples of results reviewed by counsel, so accuracy can be measured and reported plainly.",
+"sees": [
+"A plain accuracy figure beside each feature",
+"Known weak spots listed, not hidden"
+],
+"stands": "Today every figure was graded by a model or by me. No lawyer has checked any of it.",
+"s": [
+"C"
+],
+"demo": "quality",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Case outline",
+"p": "See the shape of a decision at a glance: facts, reasoning and disposition, and where each begins.",
+"sees": [
+"A map down the side of the page",
+"Click a part to jump to it",
+"Each paragraph labelled by what it does, such as facts or reasoning"
+],
+"stands": "Works in the reader when the Experimental switch is on. Its labels matched hand-made labels about 88% of the time on a test set.",
+"s": [
+"L",
+"T"
+],
+"demo": "outline",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Case at a glance",
+"p": "A short card at the top of a decision: who is involved, how it got here and what it is about.",
+"sees": [
+"Parties and the court path",
+"The subject in plain words",
+"The questions that were decided"
+],
+"stands": "On about 940 decisions, labelled experimental because it can be wrong. Another AI model checked a sample: parties right about 90% of the time, subject and questions about 100%.",
+"s": [
+"L",
+"T"
+],
+"demo": "glance",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Questions decided and how each was answered",
+"p": "The questions the judge decided, each with the result and the paragraphs behind it.",
+"sees": [
+"One line per question",
+"Who succeeded on it",
+"The paragraphs and a quote behind the answer"
+],
+"stands": "On a set of decisions, labelled experimental. About 9 in 10 were right on samples checked by another AI model.",
+"s": [
+"L",
+"T"
+],
+"demo": "issues",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Paragraph notes",
+"p": "A one-line note on each paragraph, so a long decision can be skimmed.",
+"sees": [
+"A note beside each paragraph",
+"Related paragraphs in other decisions, shown on request"
+],
+"stands": "On a set of decisions, labelled experimental. On one sample about 98% of notes were useful and 1.3% were wrong. Related paragraphs made the same point about 6 times in 10.",
+"s": [
+"L",
+"T"
+],
+"demo": "notes",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Case fingerprints",
+"p": "Find decisions that look like the one you are reading, even when they share no citations, by comparing how the cases are built.",
+"sees": [
+"A list of decisions built like the one you are reading",
+"Matches found with no shared citations"
+],
+"stands": "Not on the site yet.",
+"s": [
+"T"
+],
+"demo": "fp",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Statute intelligence",
+"p": "Every case that considered a section of an Act, how those cases ended, and how the section has been treated over time.",
+"sees": [
+"Open a section and see its cases",
+"How those cases came out",
+"Whether courts are reading it differently over time"
+],
+"stands": "The law references are stored. Linking them to exact sections is planned.",
+"s": [
+"C"
+],
+"demo": "stint",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Citation intelligence, enhanced",
+"p": "Beyond who cited whom: which paragraphs matter most and whether a case is still carrying weight.",
+"sees": [
+"The most relied-on paragraphs of a case",
+"A sense of whether a case is still followed"
+],
+"stands": "The basic version is live. The enhancements are planned.",
+"s": [
+"L",
+"C"
+],
+"demo": "citint",
+"adv": false
+},
+{
+"k": "feat",
+"t": "Judge and docket insights",
+"p": "Patterns across judges and across Federal Court files, from filing to decision.",
+"sees": [
+"How a judge has ruled on a kind of case",
+"Every step of a file, not only the ones with a published decision"
+],
+"stands": "The data is live. Richer views are planned.",
+"s": [
+"L"
+],
+"demo": "docket",
+"adv": false
+},
+{
+"k": "live",
+"t": "Check the citations in a draft",
+"p": "Paste or open a draft and see every case and law it cites, each one checked.",
+"sees": [
+"A list of every case and statute in the draft",
+"A link from each one to the exact paragraph",
+"Nothing about the draft is kept"
+],
+"stands": "Works today in the Workbench. A long draft citing 68 cases was fully checked in about one second. The draft is read in memory and never saved.",
+"s": [
+"L"
+],
+"demo": "draftcheck",
+"adv": false
+},
+{
+"k": "live",
+"t": "See how the cases you cite have fared",
+"p": "Flag cited cases that look overturned or questioned, before you file.",
+"sees": [
+"A warning beside a case that has since been questioned",
+"How each cited case was treated afterwards"
+],
+"stands": "An early version exists in the Lab, with the Experimental switch on. It has not been measured yet.",
+"s": [
+"L",
+"C"
+],
+"demo": "fared",
+"adv": false
+},
+{
+"k": "live",
+"t": "Find authorities the draft missed",
+"p": "Suggest commonly cited cases on the same points that the draft does not mention.",
+"sees": [
+"A short list of cases others cite on the same issue",
+"Possible cases against the draft\u2019s position"
+],
+"stands": "An early version works on decisions already in the library. It does not yet work on a draft you upload.",
+"s": [
+"C"
+],
+"demo": "missed",
+"adv": false
+},
+{
+"k": "live",
+"t": "Match each argument to earlier ones",
+"p": "List the arguments in a draft and find earlier decided questions that make the same point.",
+"sees": [
+"Each argument listed on its own",
+"The closest earlier question, with the paragraph it came from"
+],
+"stands": "Tried on 60 fresh arguments. Word matching alone found a useful earlier question in the top three for 40 of 60. Adding a meaning-based step raised that to 45 of 60. That extra step is not on the site. A model did the grading.",
+"s": [
+"T"
+],
+"demo": "match",
+"adv": false
+},
+{
+"k": "live",
+"t": "See which arguments the other side has answered",
+"p": "Flag an argument the other side has not yet replied to.",
+"sees": [
+"A table of arguments, each marked answered or not"
+],
+"stands": "Not built. It needs the argument matching above to be reliable first.",
+"s": [
+"C"
+],
+"demo": "answered",
+"adv": false
+},
+{
+"k": "ai",
+"t": "A private model that stays inside",
+"p": "The same AI reading and writing, done on a computer the agency owns.",
+"sees": [
+"Nothing leaves the agency",
+"No fee per use",
+"The agency decides who uses it and can switch it off",
+"The screens stay the same"
+],
+"stands": "Early tests with a free model came close to a paid one on two tasks. Smaller free models did badly at summaries. Nothing has run on agency computers.",
+"s": [
+"T",
+"C"
+],
+"demo": "models",
+"adv": false
+},
+{
+"k": "ai",
+"t": "Read new material as it arrives",
+"p": "Every new decision, and later every internal document, gets a summary card, a list of the questions decided and a note on each paragraph.",
+"sees": [
+"Layers added without anyone doing it by hand",
+"Done inside the agency"
+],
+"stands": "Tested on public law with free models rented from a hosting service: about 9 in 10 correct on samples. Running it privately is the concept.",
+"s": [
+"T"
+],
+"demo": "read",
+"adv": false
+},
+{
+"k": "ai",
+"t": "Search by meaning",
+"p": "Find the paragraph that answers a question even when it uses different words.",
+"sees": [
+"Type what you mean, not the exact words",
+"Results grouped by the point they make"
+],
+"stands": "A small test found the right paragraph in the top two results on 5 of 5 questions. It is paused and is not on the site.",
+"s": [
+"T"
+],
+"demo": "semantic",
+"adv": false
+},
+{
+"k": "ai",
+"t": "Argument extraction and analysis",
+"p": "Pull out what each side argued, find similar arguments in other decisions, and compare how they fared.",
+"sees": [
+"Each side\u2019s arguments listed, with the paragraphs behind them",
+"Similar arguments found in other decisions"
+],
+"stands": "In a test, 99% of the arguments it listed were real and it found 93% of those actually made. Another AI model did the grading. No lawyer has checked it.",
+"s": [
+"T"
+],
+"demo": "args",
+"adv": true
+},
+{
+"k": "ai",
+"t": "Citation treatment",
+"p": "Show how a case was treated when later cases cited it: followed, set apart, doubted or overturned.",
+"sees": [
+"Beside each citation, how the court used it",
+"Cases that have lost weight"
+],
+"stands": "Designed and tried on the side. Not on the site.",
+"s": [
+"C"
+],
+"demo": "treat",
+"adv": true
+},
+{
+"k": "ai",
+"t": "Check a draft in private",
+"p": "Paste a draft and have it compared with earlier arguments, without the draft going anywhere.",
+"sees": [
+"Your sentence beside the closest decided question",
+"The paragraph it came from"
+],
+"stands": "Matching a draft to earlier arguments already works on the site without AI, and pasted drafts are never saved. An extra AI step to pick the best match was tried: a free model chose well on 36 of 60 arguments, a paid one on 35.",
+"s": [
+"L",
+"T"
+],
+"demo": "match",
+"adv": false
+},
+{
+"k": "ai",
+"t": "Ask a case a question",
+"p": "Type a question in plain words and get an answer with the paragraphs it came from.",
+"sees": [
+"An answer in a sentence or two",
+"The paragraphs shown beside it"
+],
+"stands": "Not built. It would use the private model, so questions stay inside the agency.",
+"s": [
+"C"
+],
+"demo": "ask",
+"adv": false
+},
+{
+"k": "ai",
+"t": "Explain it in plain words",
+"p": "Turn a long decision or document into a short plain-language summary.",
+"sees": [
+"A page-long summary a hearings officer can read quickly"
+],
+"stands": "Paragraph notes are already a version of this: about 87% faithful on one sample, none wrong. Small models were too weak, so a bigger private model is needed.",
+"s": [
+"T"
+],
+"demo": "plain",
+"adv": false
+},
+{
+"k": "ws",
+"t": "Logins and profiles",
+"p": "Each analyst signs in, with their own settings and their own saved work.",
+"sees": [
+"A personal space",
+"Settings that stay put"
+],
+"stands": "Not built.",
+"s": [
+"C"
+],
+"demo": "login",
+"adv": false
+},
+{
+"k": "ws",
+"t": "Teams and shared folders",
+"p": "A team shares a set of decisions and notes, so the next person picks up where the last one stopped.",
+"sees": [
+"Regional or unit teams",
+"Shared libraries"
+],
+"stands": "Not built.",
+"s": [
+"C"
+],
+"demo": "teamfeed",
+"adv": false
+},
+{
+"k": "ws",
+"t": "Saved case libraries",
+"p": "Collect decisions into named libraries for a file, an issue or a hearing.",
+"sees": [
+"A library per file or hearing",
+"Add a decision with one click"
+],
+"stands": "A pinned-decisions workspace is in development.",
+"s": [
+"C"
+],
+"demo": "libs",
+"adv": false
+},
+{
+"k": "ws",
+"t": "Saved searches and alerts",
+"p": "Save a search and be told when something new matches.",
+"sees": [
+"A note when a new decision fits",
+"A weekly digest, if wanted"
+],
+"stands": "A first version was drafted. It is not on the site.",
+"s": [
+"C"
+],
+"demo": "alerts",
+"adv": false
+},
+{
+"k": "ws",
+"t": "Notes on cases",
+"p": "Private notes and highlights on a decision, kept with the case.",
+"sees": [
+"Highlight a passage",
+"Notes that stay private"
+],
+"stands": "Not built.",
+"s": [
+"C"
+],
+"demo": "pnotes",
+"adv": false
+},
+{
+"k": "ws",
+"t": "Records for oversight",
+"p": "A log of who opened what and when, as agencies usually require.",
+"sees": [
+"An audit trail",
+"Reports for oversight"
+],
+"stands": "Not built.",
+"s": [
+"C"
+],
+"demo": "audit",
+"adv": false
+}
+];
+var TG={Live:'live',Tested:'test',Concept:'con'};
+function cname(k){for(var i=0;i<CATS.length;i++)if(CATS[i].k===k)return CATS[i].n}
+
+var ICONS={"live": "<span class=\"ico a\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"6\"/><path d=\"M16 16l5 5\"/></svg></span>", "ext": "<span class=\"ico \"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 4v16M10 4v16M15 6l4 14\"/><path d=\"M3 20h18\"/></svg></span>", "feat": "<span class=\"ico b\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l9 5-9 5-9-5 9-5z\"/><path d=\"M3 13l9 5 9-5\"/></svg></span>", "ai": "<span class=\"ico t\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"7\" y=\"7\" width=\"10\" height=\"10\" rx=\"1.5\"/><path d=\"M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4\"/></svg></span>", "ws": "<span class=\"ico p\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"8\" r=\"3.2\"/><path d=\"M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5\"/><path d=\"M16 9h5M16 13h5\"/></svg></span>", "cbsa": "<span class=\"ico p\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 21V4h9v17M14 9h5v12M3 21h18M8 8h2M8 12h2M8 16h2\"/></svg></span>"};
+var CBSA="<figure class=\"fig\"><div class=\"svgwrap\"><svg viewBox=\"0 0 960 330\" role=\"img\" aria-label=\"Inside the CBSA network sit the iLit library, the agency's internal documents, the agency's private data, a private AI and the users. Public case law comes in from outside.\">\n<defs><marker id=\"ahC\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" class=\"fa\"/></marker></defs>\n<rect x=\"150\" y=\"14\" width=\"660\" height=\"304\" rx=\"14\" class=\"bxp\"/><text class=\"cap\" x=\"172\" y=\"40\">Inside the agency</text>\n<rect class=\"bxt\" x=\"330\" y=\"2\" width=\"300\" height=\"0\" rx=\"0\" style=\"display:none\"/>\n<rect class=\"bx\" x=\"390\" y=\"120\" width=\"180\" height=\"90\" rx=\"10\"/><text class=\"t\" x=\"480\" y=\"158\" text-anchor=\"middle\">iLit</text><text class=\"s\" x=\"480\" y=\"178\" text-anchor=\"middle\">one searchable library</text>\n<rect class=\"bx\" x=\"176\" y=\"64\" width=\"170\" height=\"64\" rx=\"8\"/><text class=\"t\" x=\"261\" y=\"92\" text-anchor=\"middle\">Internal documents</text><text class=\"s\" x=\"261\" y=\"112\" text-anchor=\"middle\">manuals, guidance, drafts</text>\n<rect class=\"bx\" x=\"176\" y=\"208\" width=\"170\" height=\"64\" rx=\"8\"/><text class=\"t\" x=\"261\" y=\"236\" text-anchor=\"middle\">Private data</text><text class=\"s\" x=\"261\" y=\"256\" text-anchor=\"middle\">the agency\u2019s own records</text>\n<rect class=\"bx\" x=\"614\" y=\"64\" width=\"170\" height=\"64\" rx=\"8\"/><text class=\"t\" x=\"699\" y=\"92\" text-anchor=\"middle\">Private AI</text><text class=\"s\" x=\"699\" y=\"112\" text-anchor=\"middle\">runs on agency hardware</text>\n<rect class=\"bx\" x=\"614\" y=\"208\" width=\"170\" height=\"64\" rx=\"8\"/><text class=\"t\" x=\"699\" y=\"236\" text-anchor=\"middle\">Analysts and teams</text><text class=\"s\" x=\"699\" y=\"256\" text-anchor=\"middle\">logins, saved libraries</text>\n<path class=\"ln\" d=\"M346 112L392 138\" marker-end=\"url(#ahC)\"/><path class=\"ln\" d=\"M346 224L392 192\" marker-end=\"url(#ahC)\"/><path class=\"ln\" d=\"M614 112L568 138\" marker-end=\"url(#ahC)\"/><path class=\"ln\" d=\"M614 224L568 192\" marker-end=\"url(#ahC)\"/>\n<rect class=\"bxt\" x=\"20\" y=\"130\" width=\"112\" height=\"70\" rx=\"8\"/><text class=\"tt\" x=\"76\" y=\"160\" text-anchor=\"middle\">Public</text><text class=\"tt\" x=\"76\" y=\"178\" text-anchor=\"middle\">case law</text>\n<path class=\"ln\" d=\"M132 165H388\" marker-end=\"url(#ahC)\"/>\n</svg></div><figcaption>A picture of the idea. Everything inside the box is a concept.</figcaption></figure>\n      <div class=\"grp4\">\n        <div class=\"gc4\"><span class=\"ico p\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 3h7l4 4v14H7z\"/><path d=\"M14 3v4h4M10 12h5M10 16h5\"/></svg></span><h3>Bring in agency material</h3><p class=\"sd2\">Searched beside the public case law.</p><ul><li>Immigration Division and Appeal Division decisions, most of which are not public</li><li>Deferral decisions</li><li>Private ID decisions</li><li>ENF manuals and internal guidance</li><li>Drafts of MOAs and RMOAs</li></ul></div>\n        <div class=\"gc4\"><span class=\"ico t\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><ellipse cx=\"12\" cy=\"6\" rx=\"7\" ry=\"3\"/><path d=\"M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3\"/></svg></span><h3>Use the agency\u2019s own data</h3><p class=\"sd2\">Private data, kept private.</p><ul><li>Internal case records</li><li>Outcomes and statistics only the agency holds</li><li>Links between internal files and public decisions</li></ul></div>\n        <div class=\"gc4\"><span class=\"ico b\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 21V4h9v17M14 9h5v12M3 21h18M8 8h2M8 12h2M8 16h2\"/></svg></span><h3>Run it inside</h3><p class=\"sd2\">Nothing leaves the building.</p><ul><li>Hosted on CBSA servers</li><li>A private AI on agency hardware</li><li>Security assessment and IT approval</li><li>Backups and support</li></ul></div>\n        <div class=\"gc4\"><span class=\"ico a\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"8\" cy=\"9\" r=\"2.7\"/><circle cx=\"16\" cy=\"9\" r=\"2.7\"/><path d=\"M2.5 19c0-2.8 2.4-4.5 5.5-4.5M21.5 19c0-2.8-2.4-4.5-5.5-4.5M8 19c0-2.8 1.8-4.5 4-4.5s4 1.7 4 4.5\"/></svg></span><h3>Fit how people work</h3><p class=\"sd2\">Built around analysts and counsel.</p><ul><li>Logins by role</li><li>Regional teams and shared libraries</li><li>Saved searches and alerts</li><li>Access for partners, where approved</li></ul></div>\n        <div class=\"gc4\"><span class=\"ico \"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z\"/><path d=\"M8.5 12l2.5 2.5L16 9.5\"/></svg></span><h3>Earn trust</h3><p class=\"sd2\">So the tool can be relied on.</p><ul><li>A log of who opened what</li><li>Privacy review</li><li>Results checked by counsel</li><li>Plain limits on every feature</li></ul></div>\n        <div class=\"gc4\"><span class=\"ico t\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"5\" y=\"11\" width=\"14\" height=\"9\" rx=\"1.5\"/><path d=\"M8 11V8a4 4 0 018 0v3\"/></svg></span><h3>Keep control</h3><p class=\"sd2\">The agency stays in charge.</p><ul><li>The agency decides who sees what</li><li>Sensitive material stays in the agency</li><li>Can be paused or switched off</li></ul></div>\n      </div>\n      <h3 style=\"margin:28px 0 0;font:600 20px var(--serif)\">One possible path, for discussion</h3>\n      <div class=\"pathl\">\n        <div><b>Agree</b>Approval to explore.</div>\n        <div><b>Assess</b>Security and privacy review.</div>\n        <div><b>Install</b>On CBSA servers.</div>\n        <div><b>Add material</b>Internal documents and data.</div>\n        <div><b>Roll out</b>Logins and teams.</div>\n      </div>\n      ";
+var HZ=[
+ {k:'ext',chips:['Citation quality','Better extraction','Law library expansion']},
+ {k:'feat',chips:['Case fingerprints','Case outline','Statute intelligence','Citation intelligence']},
+ {k:'live',chips:['Citation check','Cases that fared badly','Missed authorities','Argument matching']},
+ {k:'ai',chips:['Semantic search','Argument analysis','Citation treatment']},
+ {k:'ws',chips:['Logins','Teams','Saved case libraries','Alerts']},
+ {k:'cbsa',n:'Full CBSA integration',d:'The big picture if the agency adopted it: internal documents, private data and running inside the agency.',chips:['Internal documents','Private data','CBSA servers','Logins by role']}
+];
+var IC={doc:'<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>',link:'<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',search:'<circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/>',layers:'<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>',chart:'<path d="M4 20V10M10 20V4M16 20v-7M3 20h18"/>',people:'<circle cx="8" cy="9" r="2.7"/><circle cx="16" cy="9" r="2.7"/><path d="M2.5 19c0-2.8 2.4-4.5 5.5-4.5M21.5 19c0-2.8-2.4-4.5-5.5-4.5M8 19c0-2.8 1.8-4.5 4-4.5s4 1.7 4 4.5"/>',lock:'<rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',book:'<path d="M5 4v16M10 4v16M15 6l4 14M3 20h18"/>',list:'<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',chat:'<path d="M4 5h16v11H9l-5 4z"/>',bell:'<path d="M6 16v-5a6 6 0 0112 0v5l2 2H4z"/><path d="M10 20a2 2 0 004 0"/>',compare:'<path d="M4 7h7M4 12h7M4 17h7M15 7h5M15 12h5M15 17h5"/>',shield:'<path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/>',chip:'<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>',scale:'<path d="M12 4v16M6 20h12M5 8h14"/><path d="M5 8l-3 6a3 3 0 006 0zM19 8l-3 6a3 3 0 006 0z"/>'};
+var TI={'Citation quality':'link','Better extraction':'scale','Law library expansion':'book','Statute library':'doc','Immigration Division and Appeal Division decisions':'lock','Quality checks':'shield','Case outline':'list','Case at a glance':'doc','Questions decided and how each was answered':'chat','Paragraph notes':'list','Case fingerprints':'compare','Statute intelligence':'scale','Citation intelligence, enhanced':'link','Check the citations in a draft':'list','See how the cases you cite have fared':'shield','Find authorities the draft missed':'search','Match each argument to earlier ones':'compare','See which arguments the other side has answered':'chat','Judge and docket insights':'chart','A private model that stays inside':'lock','Read new material as it arrives':'doc','Search by meaning':'search','Argument extraction and analysis':'layers','Citation treatment':'link','Check a draft in private':'compare','Ask a case a question':'chat','Explain it in plain words':'list','Logins and profiles':'people','Teams and shared folders':'people','Saved case libraries':'book','Saved searches and alerts':'bell','Notes on cases':'doc','Records for oversight':'clock'};
+var CC={ext:'',feat:'b',live:'a',ai:'t',ws:'p'};
+function ico(f){return '<span class="ico '+CC[f.k]+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+IC[TI[f.t]||'doc']+'</svg></span>'}
+var STW={L:'Working on the site today',T:'Tried on a sample, not on the site',C:'An idea, not built yet'};
+function status(f){var l=f.s.indexOf('L')>-1,t=f.s.indexOf('T')>-1,c=f.s.indexOf('C')>-1;if(l&&c)return['Partly working, partly an idea','L'];if(t&&c)return['Tried in part, not built yet','T'];if(l&&t)return['Working on the site, with tested figures','L'];return[STW[f.s[0]],f.s[0]]}
+function sentsP(t){var p=t.split(/(?<=\.)\s+/).filter(Boolean);return p.map(function(x){return '<p>'+x+'</p>'}).join('')}
+var exN=0;
+function xa(f){var st=status(f);
+ var body='<div class="row"><div class="rl">What you would see</div><div><ul class="sees">'+f.sees.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'+
+ '<div class="row"><div class="rl">Where it stands</div><div><p class="stt">'+tags(f.s)+' <span>'+st[0]+'</span></p><ul class="sees muted">'+f.stands.split(/(?<=\.)\s+/).filter(Boolean).map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'+
+ (f.demo?'<div class="row"><div class="rl">An example</div><div>'+DEMO[f.demo]()+'</div></div>':'');
+ return '<div class="xa" data-open="false"><button type="button" class="xah" aria-expanded="false">'+ico(f)+'<span class="xat"><b>'+f.t+(f.adv?' <span class="advt">Advanced proof of concept</span>':'')+'</b><span>'+f.p+'</span></span><span class="xar">'+tags(f.s)+'<span class="chv"></span></span></button><div class="xab" hidden>'+body+'</div></div>'}
+function HUB(o){var id='h'+o.id,L=o.left,B=o.boxes,out=o.out,ar=function(d){return '<path class="ln" d="'+d+'" marker-end="url(#a'+id+')"/>'};
+ var p='<figure class="fig"><div class="svgwrap"><svg viewBox="0 0 960 330" role="img" aria-label="'+o.alt+'"><defs><marker id="a'+id+'" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" class="fa"/></marker></defs>';
+ if(o.inside)p+='<rect x="150" y="14" width="660" height="304" rx="14" class="bxp"/><text class="cap" x="172" y="40">'+o.inside+'</text>';
+ p+='<rect class="'+o.cc+'" x="390" y="120" width="180" height="90" rx="10"/><text class="t" x="480" y="158" text-anchor="middle">'+o.c[0]+'</text><text class="s" x="480" y="178" text-anchor="middle">'+o.c[1]+'</text>';
+ var pos=[[176,64],[176,208],[614,64],[614,208]];
+ B.forEach(function(b,i){p+='<rect class="bx" x="'+pos[i][0]+'" y="'+pos[i][1]+'" width="170" height="64" rx="8"/><text class="t" x="'+(pos[i][0]+85)+'" y="'+(pos[i][1]+28)+'" text-anchor="middle">'+b[0]+'</text><text class="s" x="'+(pos[i][0]+85)+'" y="'+(pos[i][1]+48)+'" text-anchor="middle">'+b[1]+'</text>'});
+ var e=out?[['M392 138L346 112'],['M392 192L346 224'],['M568 138L614 112'],['M568 192L614 224']]:[['M346 112L392 138'],['M346 224L392 192'],['M614 112L568 138'],['M614 224L568 192']];
+ e.forEach(function(d,i){if(B[i])p+=ar(d[0])});
+ if(L){p+='<rect class="bxt" x="20" y="130" width="112" height="70" rx="8"/><text class="tt" x="76" y="160" text-anchor="middle">'+L[0]+'</text><text class="tt" x="76" y="178" text-anchor="middle">'+L[1]+'</text>'+ar('M132 165H388')}
+ return p+'</svg></div><figcaption>'+o.cap+'</figcaption></figure>'}
+var HD={
+ ext:{id:'e',alt:'Public decisions are read more carefully. Four improvements feed one bigger library: exact citations, reliable judges and outcomes, the law as it read at the time, and more courts and years.',cc:'bxb',c:['iLit library','75,677 decisions today'],boxes:[['Exact citations','to the right paragraph'],['Judges and outcomes','shown correctly'],['Law as it read','at the time of the decision'],['More courts, more years','added every day']],left:['Public','decisions'],cap:'Four improvements to how decisions are read and how many are held.'},
+ feat:{id:'f',alt:'One decision at the centre, with four views of it around it: an outline, a short card, the questions decided, and a note on each paragraph.',cc:'bxb',c:['One decision','read once, shown four ways'],boxes:[['Outline','facts, reasoning, outcome'],['Short card','who, what, how it got here'],['Questions decided','and how each was answered'],['Paragraph notes','one line on each paragraph']],out:true,cap:'New ways to read the same decision. Several of these already work on a set of decisions.'},
+ ai:{id:'a',alt:'Inside the agency, a private AI reads the case law and the agency material. It reads new material, searches by meaning, takes arguments apart and checks your draft. Nothing leaves the agency.',cc:'bxt',inside:'Inside the agency',c:['Private AI','runs on agency computers'],boxes:[['Reads new material','summary, questions, notes'],['Searches by meaning','not only by exact words'],['Takes arguments apart','and finds similar ones'],['Checks your draft','nothing leaves the agency']],left:['Public','case law'],out:true,cap:'A picture of the idea. The private AI is a concept. Pieces of it have been tried on public case law.'},
+ ws:{id:'w',alt:'You sign in to your own workspace. It holds four things: your team, your saved libraries, your alerts and your private notes.',cc:'bxp',c:['Your workspace','a place of your own'],boxes:[['Your team','shared folders'],['Saved libraries','one per file or hearing'],['Alerts','when something new fits'],['Private notes','kept with the case']],left:['You','signed in'],out:true,cap:'A picture of the idea. None of this is built yet.'}
+};
+var INTRO={live:'Today the site can already read a draft you give it. These are the checks that could sit on top of that.',ext:'Everything else on this page depends on how well decisions are read and how many are held. A mistake early in the pipeline carries through to every stage after it, so work at each stage helps.',feat:'Different ways to look at the same decision. Several already work on a set of decisions.',ai:'Everything below would run on a computer the agency owns, so no text is sent out. This is what a private AI could do for the site.',ws:'Today the site is the same for everyone. These ideas would give each person and team a place of their own.'};
+var INV="<div class=\"inv\"><div class=\"invh\"><b>Live inventory</b><span class=\"small\">Read from the library each time this page opens, so it follows new decisions as they are added. The two layer counts (decisions with a short card, paragraph notes) are as of 14 October 2026.</span></div><div class=\"invs\"><div><b data-live=\"cases\">75,677</b><span>decisions</span></div><div><b data-live=\"citations\">1.6 million</b><span>citation links</span></div><div><b data-live=\"files\">316,940</b><span>Federal Court files</span></div><div><b data-live=\"docket\">3.59 million</b><span>docket entries</span></div><div><b>about 940</b><span>decisions with a short card</span></div><div><b>25,887</b><span>paragraph notes</span></div></div><p class=\"lbl\">Decisions by court</p><div class=\"bars\"><div data-court=\"FC\"><span>Federal Court</span><i style=\"width:100%\"></i><b>35,999</b></div><div data-court=\"RAD\"><span>Refugee Appeal Division</span><i style=\"width:39.5%\"></i><b>14,214</b></div><div data-court=\"SCC\"><span>Supreme Court</span><i style=\"width:30.3%\"></i><b>10,893</b></div><div data-court=\"FCA\"><span>Federal Court of Appeal</span><i style=\"width:21.7%\"></i><b>7,817</b></div><div data-court=\"RPD\"><span>Refugee Protection Division</span><i style=\"width:18.7%\"></i><b>6,729</b></div></div><p class=\"lbl\" style=\"margin-top:12px\">Acts and regulations</p><div class=\"ch\"><span>Immigration and Refugee Protection Act</span><span>Immigration and Refugee Protection Regulations</span><span class=\"plan\">More planned</span></div></div>";
+var DG={ext:"<figure class=\"fig\"><div class=\"svgwrap\"><svg viewBox=\"0 0 960 270\" role=\"img\" aria-label=\"The pipeline in seven stages: collect decisions, split them into paragraphs, find citations, link them to the case and paragraph, label judge outcome and type, add AI layers, and keep it all in one library. Under each stage is an idea for extra work that could improve accuracy.\"><defs><marker id=\"mp\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" class=\"fa\"/></marker></defs><text class=\"cap\" x=\"14\" y=\"22\">The pipeline today</text><rect class=\"bx\" x=\"12\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"71\" y=\"68\" text-anchor=\"middle\">Collect</text><text class=\"s\" x=\"71\" y=\"90\" text-anchor=\"middle\">public decisions</text><path class=\"ln\" d=\"M132 75H146\" marker-end=\"url(#mp)\"/><path class=\"ln\" d=\"M71 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"12\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"71\" y=\"176\" text-anchor=\"middle\">More courts,</text><text class=\"s\" x=\"71\" y=\"193\" text-anchor=\"middle\">more years,</text><text class=\"s\" x=\"71\" y=\"210\" text-anchor=\"middle\">added daily</text><rect class=\"bx\" x=\"148\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"207\" y=\"68\" text-anchor=\"middle\">Split</text><text class=\"s\" x=\"207\" y=\"90\" text-anchor=\"middle\">by paragraph</text><path class=\"ln\" d=\"M268 75H282\" marker-end=\"url(#mp)\"/><path class=\"ln\" d=\"M207 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"148\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"207\" y=\"176\" text-anchor=\"middle\">Better handling</text><text class=\"s\" x=\"207\" y=\"193\" text-anchor=\"middle\">of unusual</text><text class=\"s\" x=\"207\" y=\"210\" text-anchor=\"middle\">layouts</text><rect class=\"bx\" x=\"284\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"343\" y=\"68\" text-anchor=\"middle\">Find citations</text><text class=\"s\" x=\"343\" y=\"90\" text-anchor=\"middle\">cases, laws</text><path class=\"ln\" d=\"M404 75H418\" marker-end=\"url(#mp)\"/><path class=\"ln\" d=\"M343 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"284\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"343\" y=\"176\" text-anchor=\"middle\">Rules for short</text><text class=\"s\" x=\"343\" y=\"193\" text-anchor=\"middle\">forms and exact</text><text class=\"s\" x=\"343\" y=\"210\" text-anchor=\"middle\">pinpoints</text><rect class=\"bx\" x=\"420\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"479\" y=\"68\" text-anchor=\"middle\">Link</text><text class=\"s\" x=\"479\" y=\"90\" text-anchor=\"middle\">to the paragraph</text><path class=\"ln\" d=\"M540 75H554\" marker-end=\"url(#mp)\"/><path class=\"ln\" d=\"M479 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"420\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"479\" y=\"176\" text-anchor=\"middle\">Re-read 6,000</text><text class=\"s\" x=\"479\" y=\"193\" text-anchor=\"middle\">decisions for exact</text><text class=\"s\" x=\"479\" y=\"210\" text-anchor=\"middle\">paragraphs</text><rect class=\"bx\" x=\"556\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"615\" y=\"68\" text-anchor=\"middle\">Label</text><text class=\"s\" x=\"615\" y=\"90\" text-anchor=\"middle\">judge, outcome</text><path class=\"ln\" d=\"M676 75H690\" marker-end=\"url(#mp)\"/><path class=\"ln\" d=\"M615 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"556\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"615\" y=\"176\" text-anchor=\"middle\">Corrected outcome</text><text class=\"s\" x=\"615\" y=\"193\" text-anchor=\"middle\">rules, one name</text><text class=\"s\" x=\"615\" y=\"210\" text-anchor=\"middle\">per judge</text><rect class=\"bx\" x=\"692\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"751\" y=\"68\" text-anchor=\"middle\">AI layers</text><text class=\"s\" x=\"751\" y=\"90\" text-anchor=\"middle\">card and notes</text><path class=\"ln\" d=\"M812 75H826\" marker-end=\"url(#mp)\"/><path class=\"ln\" d=\"M751 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"692\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"751\" y=\"176\" text-anchor=\"middle\">Stronger models,</text><text class=\"s\" x=\"751\" y=\"193\" text-anchor=\"middle\">samples checked</text><text class=\"s\" x=\"751\" y=\"210\" text-anchor=\"middle\">by counsel</text><rect class=\"bxb\" x=\"828\" y=\"34\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"t\" x=\"887\" y=\"68\" text-anchor=\"middle\">Library</text><text class=\"s\" x=\"887\" y=\"90\" text-anchor=\"middle\">75,677 decisions</text><path class=\"ln\" d=\"M887 118V148\" stroke-dasharray=\"4 3\"/><rect class=\"bxp\" x=\"828\" y=\"150\" width=\"118\" height=\"82\" rx=\"9\"/><text class=\"s\" x=\"887\" y=\"176\" text-anchor=\"middle\">Show how sure</text><text class=\"s\" x=\"887\" y=\"193\" text-anchor=\"middle\">each result is</text><text class=\"cap\" x=\"14\" y=\"256\">Where more work could improve accuracy</text></svg></div><figcaption>How a decision gets into the library today, and where extra work at each stage could make the results more accurate. The dashed boxes are ideas.</figcaption></figure>",feat:"<figure class=\"fig\"><div class=\"svgwrap\"><svg viewBox=\"0 0 960 300\" role=\"img\" aria-label=\"A decision page with four things added: a short card at the top, an outline down the side, the questions decided highlighted, and a one-line note beside each paragraph.\"><defs><marker id=\"mf\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" class=\"fa\"/></marker></defs><rect class=\"bx\" x=\"300\" y=\"12\" width=\"360\" height=\"276\" rx=\"10\"/><rect class=\"bxb\" x=\"312\" y=\"24\" width=\"336\" height=\"40\" rx=\"6\"/><text class=\"tb\" x=\"480\" y=\"49\" text-anchor=\"middle\">Who, what, how it got here</text><rect class=\"bxt\" x=\"312\" y=\"74\" width=\"64\" height=\"202\" rx=\"6\"/><rect x=\"320\" y=\"92\" width=\"48\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"320\" y=\"124\" width=\"48\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"320\" y=\"156\" width=\"48\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"320\" y=\"188\" width=\"48\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"320\" y=\"220\" width=\"48\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"384\" y=\"116\" width=\"168\" height=\"30\" rx=\"5\"/><rect x=\"392\" y=\"82\" width=\"150\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"392\" y=\"94\" width=\"118\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxp\" x=\"558\" y=\"80\" width=\"84\" height=\"22\" rx=\"4\"/><rect x=\"392\" y=\"114\" width=\"150\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"392\" y=\"126\" width=\"118\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxp\" x=\"558\" y=\"112\" width=\"84\" height=\"22\" rx=\"4\"/><rect x=\"392\" y=\"146\" width=\"150\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"392\" y=\"158\" width=\"118\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxp\" x=\"558\" y=\"144\" width=\"84\" height=\"22\" rx=\"4\"/><rect x=\"392\" y=\"178\" width=\"150\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"392\" y=\"190\" width=\"118\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxp\" x=\"558\" y=\"176\" width=\"84\" height=\"22\" rx=\"4\"/><rect x=\"392\" y=\"210\" width=\"150\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"392\" y=\"222\" width=\"118\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxp\" x=\"558\" y=\"208\" width=\"84\" height=\"22\" rx=\"4\"/><rect x=\"392\" y=\"242\" width=\"150\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"392\" y=\"254\" width=\"118\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxp\" x=\"558\" y=\"240\" width=\"84\" height=\"22\" rx=\"4\"/><text class=\"t\" x=\"24\" y=\"56\">Short card</text><text class=\"s\" x=\"24\" y=\"74\">the top of the page</text><path class=\"ln\" d=\"M150 52H310\" marker-end=\"url(#mf)\"/><text class=\"t\" x=\"24\" y=\"176\">Outline</text><text class=\"s\" x=\"24\" y=\"194\">facts, reasoning, outcome</text><path class=\"ln\" d=\"M180 172H310\" marker-end=\"url(#mf)\"/><text class=\"t\" x=\"690\" y=\"128\">Questions decided</text><text class=\"s\" x=\"690\" y=\"146\">and how each was answered</text><path class=\"ln\" d=\"M684 132H555\" marker-end=\"url(#mf)\"/><text class=\"t\" x=\"690\" y=\"238\">Paragraph notes</text><text class=\"s\" x=\"690\" y=\"256\">one line on each paragraph</text><path class=\"ln\" d=\"M684 232H648\" marker-end=\"url(#mf)\"/></svg></div><figcaption>One decision, four ways in. Several of these already work on a set of decisions.</figcaption></figure>",live:"<figure class=\"fig\"><div class=\"svgwrap\"><svg viewBox=\"0 0 960 300\" role=\"img\" aria-label=\"A draft goes in on the left. It is checked in about a second, and nothing is saved. Three results come out: cases and laws found, cases that look questioned, and similar earlier arguments.\"><defs><marker id=\"ml\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" class=\"fa\"/></marker></defs><rect class=\"bx\" x=\"20\" y=\"14\" width=\"230\" height=\"272\" rx=\"10\"/><text class=\"cap\" x=\"38\" y=\"40\">Your draft</text><rect x=\"38\" y=\"58\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"38\" y=\"84\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"70\" y=\"82\" width=\"96\" height=\"10\" rx=\"3\"/><rect x=\"38\" y=\"110\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"38\" y=\"136\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"38\" y=\"162\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"70\" y=\"160\" width=\"96\" height=\"10\" rx=\"3\"/><rect x=\"38\" y=\"188\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect x=\"38\" y=\"214\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"70\" y=\"212\" width=\"96\" height=\"10\" rx=\"3\"/><rect x=\"38\" y=\"240\" width=\"190\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><path class=\"ln\" d=\"M252 150H318\" marker-end=\"url(#ml)\"/><rect class=\"bxb\" x=\"320\" y=\"100\" width=\"220\" height=\"100\" rx=\"9\"/><text class=\"tb\" x=\"430\" y=\"146\" text-anchor=\"middle\">Checked in about a second</text><text class=\"s\" x=\"430\" y=\"166\" text-anchor=\"middle\">nothing is saved</text><rect class=\"bxt\" x=\"640\" y=\"20\" width=\"300\" height=\"72\" rx=\"9\"/><text class=\"tt\" x=\"790\" y=\"52\" text-anchor=\"middle\">68 cases and laws found</text><text class=\"s\" x=\"790\" y=\"72\" text-anchor=\"middle\">a long draft, today</text><path class=\"ln\" d=\"M542 150L638 56\" marker-end=\"url(#ml)\"/><rect class=\"bxp\" x=\"640\" y=\"116\" width=\"300\" height=\"72\" rx=\"9\"/><text class=\"t\" x=\"790\" y=\"148\" text-anchor=\"middle\">Cases that look questioned</text><text class=\"s\" x=\"790\" y=\"168\" text-anchor=\"middle\">early version, in the Lab</text><path class=\"ln\" d=\"M542 150L638 152\" marker-end=\"url(#ml)\"/><rect class=\"bx\" x=\"640\" y=\"212\" width=\"300\" height=\"72\" rx=\"9\"/><text class=\"t\" x=\"790\" y=\"244\" text-anchor=\"middle\">Similar earlier arguments</text><text class=\"s\" x=\"790\" y=\"264\" text-anchor=\"middle\">tried on a sample</text><path class=\"ln\" d=\"M542 150L638 248\" marker-end=\"url(#ml)\"/></svg></div><figcaption>The draft is read in memory and never stored. The first result works today. The others are early or tried on samples.</figcaption></figure>",ws:"<figure class=\"fig\"><div class=\"svgwrap\"><svg viewBox=\"0 0 960 300\" role=\"img\" aria-label=\"A mock workspace window: your saved libraries on the left, the decisions in a library in the middle, your team and a new-decisions alert on the right.\"><rect class=\"bxp\" x=\"110\" y=\"12\" width=\"740\" height=\"276\" rx=\"12\"/><rect x=\"111\" y=\"13\" width=\"738\" height=\"34\" rx=\"11\" fill=\"var(--s-alt)\"/><circle cx=\"130\" cy=\"30\" r=\"4\" fill=\"var(--s-line)\"/><circle cx=\"146\" cy=\"30\" r=\"4\" fill=\"var(--s-line)\"/><circle cx=\"162\" cy=\"30\" r=\"4\" fill=\"var(--s-line)\"/><text class=\"s\" x=\"760\" y=\"35\">Alerts</text><circle cx=\"812\" cy=\"30\" r=\"12\" class=\"bxt\"/><text class=\"tt\" x=\"812\" y=\"35\" text-anchor=\"middle\">you</text><text class=\"cap\" x=\"130\" y=\"72\">My libraries</text><rect class=\"bx\" x=\"128\" y=\"84\" width=\"170\" height=\"36\" rx=\"7\"/><text class=\"t\" x=\"142\" y=\"107\">Hearing prep</text><rect class=\"bx\" x=\"128\" y=\"130\" width=\"170\" height=\"36\" rx=\"7\"/><text class=\"t\" x=\"142\" y=\"153\">Study permits</text><rect class=\"bx\" x=\"128\" y=\"176\" width=\"170\" height=\"36\" rx=\"7\"/><text class=\"t\" x=\"142\" y=\"199\">Judicial review</text><text class=\"cap\" x=\"330\" y=\"72\">Decisions in this library</text><rect class=\"bx\" x=\"328\" y=\"84\" width=\"300\" height=\"52\" rx=\"7\"/><rect x=\"342\" y=\"95\" width=\"150\" height=\"7\" rx=\"3\" fill=\"var(--s-ink)\" opacity=\".55\"/><rect x=\"342\" y=\"110\" width=\"230\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"342\" y=\"120\" width=\"140\" height=\"10\" rx=\"3\"/><rect class=\"bx\" x=\"328\" y=\"146\" width=\"300\" height=\"52\" rx=\"7\"/><rect x=\"342\" y=\"157\" width=\"150\" height=\"7\" rx=\"3\" fill=\"var(--s-ink)\" opacity=\".55\"/><rect x=\"342\" y=\"172\" width=\"230\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"342\" y=\"182\" width=\"140\" height=\"10\" rx=\"3\"/><rect class=\"bx\" x=\"328\" y=\"208\" width=\"300\" height=\"52\" rx=\"7\"/><rect x=\"342\" y=\"219\" width=\"150\" height=\"7\" rx=\"3\" fill=\"var(--s-ink)\" opacity=\".55\"/><rect x=\"342\" y=\"234\" width=\"230\" height=\"6\" rx=\"3\" fill=\"var(--s-line)\"/><rect class=\"bxa\" x=\"342\" y=\"244\" width=\"140\" height=\"10\" rx=\"3\"/><text class=\"cap\" x=\"656\" y=\"72\">My team</text><rect class=\"bx\" x=\"654\" y=\"84\" width=\"180\" height=\"104\" rx=\"7\"/><circle cx=\"680\" cy=\"112\" r=\"14\" class=\"bxb\"/><circle cx=\"714\" cy=\"112\" r=\"14\" class=\"bxb\"/><circle cx=\"748\" cy=\"112\" r=\"14\" class=\"bxb\"/><text class=\"s\" x=\"668\" y=\"150\">shared folder and notes</text><text class=\"s\" x=\"668\" y=\"168\">seen only by the team</text><rect class=\"bxa\" x=\"654\" y=\"204\" width=\"180\" height=\"46\" rx=\"7\"/><text class=\"t\" x=\"668\" y=\"224\">2 new decisions fit</text><text class=\"s\" x=\"668\" y=\"240\">a saved search</text></svg></div><figcaption>A picture of the idea, not a screen from the site. None of it is built yet.</figcaption></figure>"};
+function cardsFor(k){return (DG[k]||HD[k])?'<p class="intro">'+INTRO[k]+'</p>'+(DG[k]||HUB(HD[k]))+(k==='ext'?INV:'')+'<div class="acc">'+F.filter(function(f){return f.k===k}).map(xa).join('')+'</div>':''}
+document.getElementById('hz').innerHTML=HZ.map(function(h){
+  var c=h.k==='cbsa'?{n:h.n,d:h.d}:CATS.filter(function(x){return x.k===h.k})[0];
+  var body=h.k==='cbsa'?'<p class="in">This is the end state: iLit running inside the agency, on the agency\u2019s own material, for the agency\u2019s own people. It is a set of ideas for discussion. None of it is built, and all of it would need CBSA approval.</p>'+CBSA:cardsFor(h.k);
+  return '<div class="hc'+(h.k==='cbsa'?' five':'')+'" data-open="false"><button type="button" class="hh" aria-expanded="false">'+ICONS[h.k]+'<span class="hx"><b>'+c.n+'</b><span class="hp">'+c.d+'</span><span class="cp">'+h.chips.map(function(x){return '<span>'+x+'</span>'}).join('')+'</span></span><span class="chev"></span></button><div class="hb" hidden>'+body+'</div></div>'}).join('');
+document.querySelectorAll('#hz .xah').forEach(function(b){b.addEventListener('click',function(){var c=b.parentNode,o=c.getAttribute('data-open')!=='true';c.setAttribute('data-open',o?'true':'false');b.setAttribute('aria-expanded',o?'true':'false');c.querySelector('.xab').hidden=!o})});
+document.querySelectorAll('#hz .hh').forEach(function(b){b.addEventListener('click',function(){var c=b.parentNode,o=c.getAttribute('data-open')!=='true';c.setAttribute('data-open',o?'true':'false');b.setAttribute('aria-expanded',o?'true':'false');c.querySelector('.hb').hidden=!o})});
+
+
+(function(){
+var L={},C={};
+function fmt(n){return Number(n).toLocaleString('en-CA')}
+function big(n){var t=(n/1e6).toFixed(2);t=t.replace(/0+$/,'').replace(/\.$/,'');return t+' million'}
+function apply(root){
+  var key={cases:function(){return fmt(L.cases)},citations:function(){return big(L.citations)},files:function(){return fmt(L.files)},docket:function(){return big(L.docket)}};
+  root.querySelectorAll('[data-live]').forEach(function(e){var k=e.getAttribute('data-live');if(L[k]!=null&&key[k]){var t=key[k]();if(e.textContent!==t)e.textContent=t}});
+  var max=0;Object.keys(C).forEach(function(c){if(C[c]>max)max=C[c]});
+  if(max)root.querySelectorAll('[data-court]').forEach(function(r){var n=C[r.getAttribute('data-court')];if(n==null)return;var b=r.querySelector('b'),i=r.querySelector('i');var t=fmt(n),w=(Math.round(1000*n/max)/10)+'%';if(b&&b.textContent!==t)b.textContent=t;if(i&&i.style.width!==w)i.style.width=w});
+}
+function all(){apply(document)}
+fetch('/api/about/stats').then(function(r){return r.ok?r.json():null}).then(function(d){if(!d)return;L.cases=d.cases;L.citations=d.citations;L.files=d.fc_activity_cases;L.docket=d.fc_activity_documents;all()}).catch(function(){});
+fetch('/api/about/library').then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.courts)return;d.courts.forEach(function(c){C[c.court]=c.decisions});all()}).catch(function(){});
+if(window.MutationObserver){var busy=false;new MutationObserver(function(){if(busy)return;busy=true;setTimeout(function(){busy=false;all()},30)}).observe(document.body,{childList:true,subtree:true})}
+// the demo's own Back link and the page's own anchors work inside the site frame
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var t=document.getElementById(a.getAttribute('href').slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}});
+if(location.hash){setTimeout(function(){var t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView()},400)}
+})();
+</script>
+</body></html>

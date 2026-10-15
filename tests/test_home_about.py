@@ -54,15 +54,15 @@ def test_home_counts_are_read_live_not_typed_in():
         assert f'data-home="{key}"' in page
 
 
-def test_the_tour_starts_on_home_and_every_home_step_points_at_something_real():
+def test_home_is_not_a_presentation_and_the_tour_button_is_only_at_the_bottom():
     steps = json.loads((PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]
-    assert steps[0]["id"] == "tour-welcome" and steps[1]["id"] == "home-what"
-    home_ids = [step["id"] for step in steps if step["id"].startswith("home-")]
-    assert home_ids == ["home-what", "home-counts", "home-who-what", "home-where-why-how", "home-connects", "home-citations", "home-files", "home-how", "home-parts"]
-    assert steps[1 + len(home_ids)]["id"] == "search-page"                            # then the existing tour carries on
+    assert not [step["id"] for step in steps if step["id"].startswith("home-")]       # the reader moves through About themselves
+    assert steps[0]["id"] == "tour-welcome" and steps[1]["id"] == "search-page"       # the tour goes straight into the site
     page = (PAGES / "home_about.html").read_text(encoding="utf-8")
+    assert page.count("data-ilit-tour-start") == 1 and page.count('id="homeButtons"') == 1
+    assert page.index("data-ilit-tour-start") > page.index('id="homeNot"')          # below everything else on the page
     by_id = {step["id"]: step for step in steps}
-    for name in home_ids + ["wrap", "done"]:
+    for name in ("wrap", "done"):
         selectors = [by_id[name]["target"]] + list(by_id[name].get("span", []))
         for selector in selectors:
             first = selector.split()[0]

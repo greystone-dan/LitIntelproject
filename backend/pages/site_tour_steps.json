@@ -825,6 +825,35 @@
       ]
     },
     {
+      "id": "reader-intel-intro",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "Overall intelligence features",
+      "text": "Before we get into the decision itself, let's look at some of iLit's overall intelligence features. First, we will check out the judge who decided this case.",
+      "target": ".reader-pane.target",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
+        {
+          "do": "click",
+          "selector": "#decisionTarget [data-v6-tab='about']",
+          "unless": "#decisionTarget [data-v6-tab='about'].on"
+        }
+      ]
+    },
+    {
       "id": "reader-judge",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
@@ -865,8 +894,8 @@
       "id": "reader-intel",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
-      "title": "How it has been cited",
-      "text": "How many decisions cite this one and how often, the outcomes of those cases, and citing cases by year and by court.",
+      "title": "Citation intelligence",
+      "text": "This tab shows how other decisions in the library have used this one. The top figures count the citing cases and their mentions. Below are who won in those cases, how many cited it each year, and which courts. The button at the bottom opens the full page.",
       "target": ".reader-pane.target",
       "timeout": 15,
       "before": [
@@ -890,7 +919,7 @@
           "unless": "#decisionTarget [data-v6-isub]"
         }
       ],
-      "say": "Beside the judge is Citation intelligence.",
+      "say": "We also have intelligence features for this case as a whole. Beside the judge is Citation intelligence.",
       "act": [
         {
           "do": "click",
@@ -923,7 +952,7 @@
         }
       ],
       "optional": true,
-      "say": "Back in the text: a gold citation that names a paragraph.",
+      "say": "Back in the text: a gold citation that names a paragraph. Hovering the mouse over it shows the text of the paragraph this decision is citing.",
       "act": [
         {
           "do": "hover",
@@ -934,7 +963,8 @@
             },
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ]
+          ],
+          "high": 0.6
         },
         {
           "do": "waitFor",
@@ -1140,7 +1170,7 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "A statute, previewed",
-      "text": "The preview shows the text of the provision, from the statute library.",
+      "text": "Hovering over a statute shows the text of the provision, taken from the statute library, just as a citation shows its paragraph.",
       "target": ".reader-hover-tooltip.is-visible",
       "also": [
         {
@@ -1148,7 +1178,7 @@
         }
       ],
       "optional": true,
-      "say": "Statutes, in purple, work the same way.",
+      "say": "Next, statutes. They work the same way as cases, but are marked in purple. Here is one in the text.",
       "act": [
         {
           "do": "hover",
@@ -1184,7 +1214,7 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "And as a card",
-      "text": "The card holds the text of the provision. Double-clicking the statute opens the section in the statute library.",
+      "text": "A click opens the provision as a card, with the same two buttons as a case card: the i icon and the pin. Statute intelligence is not a finished feature yet, so the i icon only leads to a Coming soon page for now. Double-clicking the statute opens the section in the statute library.",
       "target": "#decisionBody .v6-card2.v6-stat",
       "also": [
         {
@@ -1228,9 +1258,9 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "Authorities",
-      "text": "Every case and statute the decision cites, with how many times and at which paragraphs. The arrow on a row shows the cited passage, and the filter at the top finds one quickly.",
+      "text": "The Authorities tab helps you navigate the decision by citation: every case and statute it cites, with how many times and at which paragraphs. The arrow on a row shows the cited passage, and the filter at the top finds one quickly.",
       "target": ".reader-pane.target",
-      "say": "The Authorities tab.",
+      "say": "Now the Authorities tab, a way to move through the decision by its citations.",
       "act": [
         {
           "do": "click",
@@ -1415,9 +1445,6 @@
       "lead": "Next, let's go to Intelligence / Statistics",
       "leadText": "The full versions of the reader's judge and citation snapshots.",
       "point": "nav.primary-groups [data-group='intel']",
-      "span": [
-        "#ciBody .ix-tiles"
-      ],
       "timeout": 45
     },
     {
@@ -1425,10 +1452,18 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
       "title": "The rest of the page",
-      "text": "Further down, one section for each chip: how many decisions cited it each year, who won in them, the courts and judges that cite it most, the statutes and other cases that appear alongside it, and every place it is cited. Each related case opens as its own snapshot.",
+      "text": "Each chip opens a section. The first three: citing decisions by year, who won in them, and the courts and judges that cite it most. Further down are the statutes and cases that appear with it, and every place it is cited.",
       "target": "#ciBody .ix-nav",
-      "span": [
-        "#ciTime"
+      "also": [
+        {
+          "sel": "#ciTime"
+        },
+        {
+          "sel": "#ciOut"
+        },
+        {
+          "sel": "#ciWho"
+        }
       ]
     },
     {
@@ -1507,7 +1542,7 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "Federal Court Analytics",
-      "text": "Built from the Federal Court's own registry of immigration files: every application for leave and judicial review as filed, including the many that end without published reasons, such as leave refused, discontinued or settled. Published case law shows only the files that reach written reasons.",
+      "text": "Every other platform out there only offers information about cases that have resulted in decisions. However, the vast majority of files never reach a final decision. iLit goes further, and can provide general information about every single immigration ALJR (application for leave and judicial review) ever filed with the Federal Court. The page is built from the Federal Court's own registry of immigration files.",
       "target": "#fcAnalyticsPanel .page-header",
       "needsData": true,
       "before": [
@@ -1522,8 +1557,8 @@
       ],
       "timeout": 12,
       "top": true,
-      "lead": "Next, Federal Court Analytics",
-      "leadText": "The Federal Court's own registry of immigration files.",
+      "lead": "Next, FC Analytics",
+      "leadText": "We will now move on to the final section of intelligence and statistics: the FC Analytics page.",
       "via": "#researchViews [data-tab='fc-analytics']"
     },
     {
@@ -1571,8 +1606,8 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "Files by year",
-      "text": "One bar for each year files were filed, split by how they ended: leave refused, discontinued, dismissed, granted, settled and others. Click a year to filter the whole page to it.",
-      "target": ".fcx-card:has(#fcxOutcomes)",
+      "text": "One bar for each year files were filed, split by how they ended. Click a year to filter the whole page to it.",
+      "target": "#fcxOutcomes",
       "needsData": true,
       "before": [
         {
@@ -1631,8 +1666,8 @@
       "text": "The Workbench is your own space. You are signed in as Demo analyst, a demonstration account with no password; the name only keeps lists apart. Your case list follows your IMM files and flags when the Federal Court docket has moved.",
       "target": "#view-home .homegrid > .stack:first-child > .card:first-child",
       "top": true,
-      "lead": "Next, let's go to the Workbench",
-      "leadText": "Your own space for cases, saved decisions and document tools.",
+      "lead": "Next, the analyst workbench",
+      "leadText": "This is still in development, but will eventually serve as a personal workspace, accessed by a username and password.",
       "via": "nav.primary-groups a.primary-link[href='/workbench']",
       "before": [
         {
@@ -2012,48 +2047,6 @@
       "url": "/live-analysis",
       "title": "Why analysts use it",
       "text": "A memo or decision that once took hours to check can be checked in minutes: every authority is found, the ones the library holds open at the cited paragraphs, and the statutes show their text. It works the same on a decision just received, before it reaches the library, and nothing about the document is kept.",
-      "target": ".reader-pane.source",
-      "before": [
-        {
-          "do": "drop",
-          "selector": "#laDrop",
-          "file": "/site-tour/sample-memo.docx",
-          "name": "Memorandum of Argument (fictional).docx",
-          "unless": "#decisionBody span.citation-link",
-          "when": "#laDrop"
-        },
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#laStatus",
-            "text": "docx"
-          },
-          "timeout": 8,
-          "unless": "#decisionBody span.citation-link"
-        },
-        {
-          "do": "click",
-          "selector": "#laAnalyze",
-          "unless": "#decisionBody span.citation-link"
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody span.citation-link",
-          "timeout": 40
-        },
-        {
-          "do": "click",
-          "selector": "#laModalClose",
-          "when": "#laModalClose"
-        }
-      ]
-    },
-    {
-      "id": "la-coming",
-      "section": "Live analysis",
-      "url": "/live-analysis",
-      "title": "Planned: arguments and themes",
-      "text": "Not built yet. The next stage is argument and theme parsing. With more development, iLit should be able to identify the arguments raised in submissions, point to decisions that support or refute each one, suggest supporting citations, and flag citations that may be AI fabrications: cases that do not exist, or that do not say what they are cited for.",
       "target": ".reader-pane.source",
       "before": [
         {

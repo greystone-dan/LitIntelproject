@@ -190,7 +190,7 @@
       if(live&&ui&&a.do!=='fill'){
         ui.items=[{node:node,sel:null}];
         await bringIntoView(node,token);
-        if(a.high)await lift(node,token);
+        if(a.high)await lift(node,token,a.high);
         place();
         await pointAt(node,token);
         if(token!==run)return false;
@@ -645,8 +645,10 @@
     for(var t=0;t<3&&token===run&&underBar(node);t++)await clearSticky(node,token);
   }
   // For something that opens below itself (a citation card): bring it into the upper part of its panel first.
-  async function lift(node,token){
+  // "at" (a fraction, for something that opens above itself too, like a preview): put it that far down the panel instead.
+  async function lift(node,token,at){
     var box=scrollParent(node),r=node.getBoundingClientRect(),top=box?Math.max(0,box.getBoundingClientRect().top):0,h=box?box.getBoundingClientRect().bottom-top:dockTop();
+    if(typeof at==='number'){var fr=(r.top-top)/h;if(fr<at-0.2||fr>at+0.15)await glide(box,r.top-top-h*at,token);return}
     if(r.top-top>h*0.4)await glide(box,r.top-top-h*0.2,token);
   }
   // Every lit region should be seen whole, so its ring goes right round it. After the main region is in view, move the
@@ -913,6 +915,7 @@
       if(token!==run)return;
       if(!node&&!s.sayTarget&&first){if(s.optional)return skipOver(i,token,'say-target')}
       if(node)await bringIntoView(node,token);
+      if(node&&first&&first.high&&token===run)await lift(node,token,first.high);   // something that opens below itself: well up the panel, not on its last line
       if(token!==run)return;
       state.phase='say';
       render(i,node?[{node:node,sel:spotSel}]:[],'say');ready(i,'say');

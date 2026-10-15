@@ -208,7 +208,7 @@ def test_tour_is_calm_and_leaves_the_page_usable():
     assert "Please click Next at the bottom" in steps[0]["text"]
     la = by_id["la-private"]["text"]                                         # Live analysis: worded as the code behaves
     assert "never saved" in la and "never added to the library" in la and "AI model" in la
-    assert by_id["la-coming"]["text"].startswith("Not built yet")
+    assert "la-coming" not in by_id                                          # the arguments-and-themes card is gone (Daniel, 10-15)
     for step in steps:                                                       # text first, then the action on Next
         assert bool(step.get("act")) == bool(step.get("say")), step["id"]
     assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
@@ -406,3 +406,28 @@ def test_tour_hides_the_experimental_whose_position_bar():
 def test_phone_reader_puts_the_side_panel_above_the_text_and_lets_the_page_scroll_in_the_tour():
     css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
     assert "@media(max-width:760px){html.ilit-tour-on .inline-case-reader{height:auto!important}html.ilit-tour-on .reader-pane.target{order:-1}}" in css
+
+
+def test_polish_of_10_15_transitions_wording_and_scroll_bar():
+    root = Path(__file__).resolve().parent.parent / "backend" / "pages"
+    steps = json.loads((root / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]
+    ids = [s["id"] for s in steps]
+    by_id = {s["id"]: s for s in steps}
+    assert ids.index("reader-intel-intro") == ids.index("reader-about") + 1 and ids.index("reader-judge") == ids.index("reader-intel-intro") + 1
+    assert "judge who decided this case" in by_id["reader-intel-intro"]["text"] and not by_id["reader-intel-intro"].get("act")
+    assert by_id["reader-intel"]["say"].startswith("We also have intelligence features for this case as a whole")
+    assert "text of the paragraph this decision is citing" in by_id["reader-cite-hover"]["say"]
+    assert "marked in purple" in by_id["reader-stat-hover"]["say"]
+    assert "same two buttons" in by_id["reader-stat-card"]["text"] and "not a finished feature" in by_id["reader-stat-card"]["text"]
+    assert "navigate the decision by citation" in by_id["reader-authorities"]["text"]
+    assert [a["sel"] for a in by_id["citation-detail"]["also"]] == ["#ciTime", "#ciOut", "#ciWho"]   # the three main sections each ringed
+    assert by_id["fc-intro"]["leadText"].startswith("We will now move on to the final section of intelligence and statistics")
+    assert by_id["fc-intro"]["text"].startswith("Every other platform out there only offers information about cases that have resulted in decisions.")
+    assert by_id["workbench-home"]["leadText"].startswith("This is still in development, but will eventually serve as a personal workspace")
+    js = (root / "reader_v6.js").read_text(encoding="utf-8")
+    css = (root / "reader_v6.css").read_text(encoding="utf-8")
+    assert '<div class="v6-cscroll">${citedTextHtml(info.text' in js                  # a long cited passage scrolls inside its card
+    assert ".v6-card2 .v6-cscroll{max-height:min(40vh,18rem);overflow-y:auto" in css
+    assert ".v6-abody .v6-cited{max-height:280px;overflow:auto}" in css
+    assert [a["high"] for a in by_id["reader-cite-hover"]["act"] if a["do"] == "hover"] == [0.6]   # the preview opens above: mid-panel, not on the last line
+    assert by_id["fc-by-year"]["target"] == "#fcxOutcomes"                                       # the chart alone, so the card has room beside or below it

@@ -420,7 +420,7 @@ def test_polish_of_10_15_transitions_wording_and_scroll_bar():
     assert "marked in purple" in by_id["reader-stat-hover"]["say"]
     assert "same two buttons" in by_id["reader-stat-card"]["text"] and "not a finished feature" in by_id["reader-stat-card"]["text"]
     assert "navigate the decision by citation" in by_id["reader-authorities"]["text"]
-    assert [a["sel"] for a in by_id["citation-detail"]["also"]] == ["#ciTime", "#ciOut", "#ciWho"]   # the three main sections each ringed
+    assert [a["sel"] for a in by_id["citation-detail"]["also"]] == ["#ciTime", "#ciOut"]   # the first two sections ringed; a third made the ring run off a 1440x900 screen
     assert by_id["fc-intro"]["leadText"].startswith("We will now move on to the final section of intelligence and statistics")
     assert by_id["fc-intro"]["text"].startswith("Every other platform out there only offers information about cases that have resulted in decisions.")
     assert by_id["workbench-home"]["leadText"].startswith("This is still in development, but will eventually serve as a personal workspace")

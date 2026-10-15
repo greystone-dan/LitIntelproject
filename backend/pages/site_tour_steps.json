@@ -191,85 +191,6 @@
       "target": null
     },
     {
-      "id": "home-what",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "What iLit is",
-      "text": "An enhanced CanLII for CBSA immigration litigation: every decision processed and linked for insight.",
-      "target": "#homeLede"
-    },
-    {
-      "id": "home-counts",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "The library today",
-      "text": "These counts are read from the database when the page opens: the decisions in the library and the citations found in them.",
-      "target": "#homeCounts"
-    },
-    {
-      "id": "home-who-what",
-      "title": "Who it is for and what it is",
-      "text": "Built for the CBSA Hearings and Litigation Division, though hearings officers, regions and partners such as DOJ and IRCC may find it useful. It is a proof of concept with no Government of Canada affiliation. What it holds: a searchable library of decisions, the Federal Court's file records and every case and law the decisions cite.",
-      "target": "#homeFive .five > div:nth-child(1)",
-      "span": [
-        "#homeFive .five > div:nth-child(2)"
-      ],
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about"
-    },
-    {
-      "id": "home-where-why-how",
-      "title": "Where, why and how",
-      "text": "It runs privately on a personal computer and uses only public information. It exists because a great deal of public information has never been collected and used. Code processes each decision into paragraphs, citations and judges, and stores the result in a database.",
-      "target": "#homeFive .five > div:nth-child(3)",
-      "span": [
-        "#homeFive .five > div:nth-child(4)",
-        "#homeFive .five > div:nth-child(5)"
-      ],
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about"
-    },
-    {
-      "id": "home-connects",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "What it connects",
-      "text": "Three kinds of public information, joined. Federal Court activity records exist for Federal Court files only. Published decisions come from several courts and tribunals. The cases and statutes those decisions cite are found in their text.",
-      "target": "#homeConnects .fig"
-    },
-    {
-      "id": "home-citations",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "Citations, explained",
-      "text": "Every citation is a link with two ends: Case A cites Case B at paragraph 84, and paragraph 84 links back to Case A. Statutes work the same way. This record is what the intelligence features are built on.",
-      "target": "#homeCitations .fig"
-    },
-    {
-      "id": "home-files",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "Files and decisions",
-      "text": "Most Federal Court files never end in a published decision, so a tool that holds only decisions misses them. iLit also holds the Court's record of the files themselves.",
-      "target": "#homeFiles .fig"
-    },
-    {
-      "id": "home-how",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "How it works",
-      "text": "Code processes each decision once, breaking it into paragraphs and extracting citations, judges and other details into a database. The import tools for new decisions and new Federal Court activity updates are built. Automatic daily updates are not switched on yet.",
-      "target": "#homeHow .fig"
-    },
-    {
-      "id": "home-parts",
-      "section": "Welcome",
-      "url": "/data-explorer?tab=about",
-      "title": "The website in three parts",
-      "text": "Case search and reader, Intelligence and the Workbench. The tour now visits each, starting with Research.",
-      "target": "#homeParts"
-    },
-    {
       "id": "search-page",
       "section": "Research",
       "url": "/data-explorer?tab=search",
@@ -1531,7 +1452,7 @@
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
       "title": "The rest of the page",
-      "text": "Each chip opens a section. The first three: citing decisions by year, who won in them, and the courts and judges that cite it most. Further down are the statutes and cases that appear with it, and every place it is cited.",
+      "text": "Each chip opens a section. The first two shown here: citing decisions by year, and who won in them. Courts and judges that cite it most come next. Further down are the statutes and cases that appear with it, and every place it is cited.",
       "target": "#ciBody .ix-nav",
       "also": [
         {
@@ -1539,9 +1460,6 @@
         },
         {
           "sel": "#ciOut"
-        },
-        {
-          "sel": "#ciWho"
         }
       ]
     },

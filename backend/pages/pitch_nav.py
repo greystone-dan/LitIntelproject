@@ -1,8 +1,8 @@
-"""Pitch navigation: four top-level tabs on the main explorer page.
+"""Pitch navigation: the top-level tabs on the main explorer page.
 
-About, Research, Intelligence / Statistics (Judge Profiles, Citation
-Intelligence, Federal Court Analytics) and Coming soon (every other feature, each with a
-short explainer). The real pages stay in the code and stay reachable by direct
+Home (the About page and Coming soon), Research, Intelligence / Statistics (Judge Profiles, Citation
+Intelligence, Federal Court Analytics), Workbench and Development (the Lab, the changelog and the stored
+earlier About page). The real pages stay in the code and stay reachable by direct
 URL, for example ``/data-explorer?tab=themes`` or ``/live-analysis``.
 """
 
@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+from pathlib import Path
 
 from .coming_soon_page import ORDER as ROADMAP_ORDER
 from .roadmap_page import REDIRECT_ANCHORS
@@ -75,15 +76,14 @@ LAB = [
 LAB_FIRST_TAB = "soon-home"
 SOON_TARGETS["home"] = ("page", "/lab")
 
-_BRAND = """<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
+_BRAND = """<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to Home" aria-label="ILIT, Immigration Litigation Intelligence System: back to Home"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
 """
 
 _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navigation">
-<button type="button" data-group="info" aria-pressed="false" aria-controls="researchViews">About</button>
+<button type="button" data-group="info" aria-pressed="false" aria-controls="researchViews">Home</button>
 <button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Research</button>
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
-<button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
 <button type="button" data-group="dev" aria-pressed="false" aria-controls="researchViews" title="Experimental: the Lab of built-but-unproven tools, and the changelog">Development</button>
 <button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: the Lab, units, Find the unit and unfinished reader tools">Experimental: off</button>
 </nav>"""
@@ -103,17 +103,18 @@ def _lab_names() -> dict[str, tuple[str, str]]:
 
 
 def _subnav() -> str:
-    """The sub-tab row. The Lab has one entry (its home page of cards) and About has one (the whole page), so
-    those two groups show no sub-row; every Lab tool is a card on /lab and keeps its own address."""
+    """The sub-tab row. Home has two entries (About and Coming soon). The Lab has one entry (its home page of cards),
+    so that group shows no sub-row on its own; every Lab tool is a card on /lab and keeps its own address."""
     rows = [
-        _tab("info", "about", "aboutPanel", "About"),
+        _tab("info", "about", "homeAboutPanel", "About"),
+        _tab("info", "roadmap-overview", "comingSoonPanel", "Coming soon"),
         _tab("research", "search", "searchPanel", "Research", active=True),
         _tab("intel", "judge-profile", "judgeProfilePanel", "Judge Profiles"),
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
-        _tab("roadmap", "roadmap-overview", "comingSoonPanel", "Coming soon"),
         _tab("dev", "soon-home", "comingSoonPanel", "Lab"),
         _tab("dev", "dev-changelog", "comingSoonPanel", "Changelog"),
+        _tab("dev", "dev-about", "aboutPanel", "About (stored)"),
     ]
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
@@ -166,11 +167,11 @@ def pitch_soon_info() -> dict:
     for key in ROADMAP_ORDER:
         anchor = REDIRECT_ANCHORS.get(key, "")
         if key == "overview":
-            info["roadmap-overview"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview", "group": "roadmap", "flat": True}
+            info["roadmap-overview"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview", "group": "info", "navTab": "roadmap-overview", "flat": True}
         else:
             info[f"roadmap-{key}"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "dev", "navTab": "soon-home", "lab": True, "status": True, "flat": True}
-    info["roadmap-tour"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#tour", "group": "roadmap", "flat": True}
-    info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#demos", "group": "roadmap", "flat": True}
+    info["roadmap-tour"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#tour", "group": "info", "navTab": "roadmap-overview", "flat": True}
+    info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#demos", "group": "info", "navTab": "roadmap-overview", "flat": True}
     info["roadmap-future-features"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "dev", "navTab": "soon-home", "lab": True, "status": True, "flat": True}
     info["soon-status"].update(flat=True, status=True)
     info["dev-changelog"] = {"name": "Changelog", "text": "", "kind": "page", "target": "/changelog", "group": "dev", "flat": True}
@@ -182,18 +183,19 @@ def _script() -> str:
     info = pitch_soon_info()
     return (
         "const pitchSoon=" + json.dumps(info) + ";\n"
-        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',lab:'Lab',dev:'Development',direct:'Other'};\n"
+        "const pitchLabels={info:'Home',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',lab:'Lab',dev:'Development',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
-        "const pitchOldTab={'research-bench':'soon-research-bench','about-changelog':'dev-changelog','changelog':'dev-changelog'};\n\n"
+        "activeResearchPanels.about='homeAboutPanel';activeResearchPanels['dev-about']='aboutPanel';\n"
+        "const pitchOldTab={'research-bench':'soon-research-bench','about-changelog':'dev-changelog','changelog':'dev-changelog','about-how':'dev-about','about-overview':'dev-about'};\n\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
-        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],lab:['soon','research-bench'],dev:['soon','research-bench'],soon:['soon'],testing:['soon']});\n"
+        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],lab:['soon','research-bench'],dev:['soon','research-bench','dev-about'],soon:['soon'],testing:['soon']});\n"
         "researchGroups.direct=Object.keys(activeResearchPanels).filter(key=>!Object.values(researchGroups).some(list=>list.includes(key)));\n"
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
-        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',lab:'soon-home',dev:'soon-home',soon:'soon-home',testing:'soon-research-bench'});\n"
+        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',lab:'soon-home',dev:'soon-home',soon:'soon-home',testing:'soon-research-bench'});\n"
         "try{if(window.matchMedia&&matchMedia('(max-width:480px)').matches){const q=document.getElementById('searchQuery');if(q)q.placeholder='Case name or citation, e.g. Vavilov'}}catch(error){}\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
         "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav,header.top,header:has(.brand),p:has(>a[href*=explorer]){display:none!important}';doc.head.appendChild(style);if(pitchFrame.getAttribute('data-auto')==='1'){const fit=()=>{pitchFrame.style.height=Math.ceil(doc.documentElement.scrollHeight)+'px'};fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(doc.documentElement);if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(fit)}}catch(error){}});\n"
-        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',dev:'soon-home'};\n"
+        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',dev:'soon-home'};\n"
         "function pitchResetState(){\n"
         "  const attempt=step=>{try{step()}catch(error){}};\n"
         "  attempt(()=>{const reader=document.getElementById('caseReaderPanel');if(reader&&!reader.hidden&&typeof closeDecisionReader==='function')closeDecisionReader()});\n"
@@ -227,16 +229,16 @@ def _script() -> str:
         "  document.querySelectorAll('[data-tab]').forEach(tab=>{const on=tab.dataset.tab===soon;tab.classList.toggle('active',on);tab.setAttribute('aria-pressed',String(on))});\n"
         "}\n"
         "activateResearchTab=function(tabKey,updateUrl=true){\n"
-        "  const wanted0=tabKey==='info'?'about':String(tabKey||'search'),wanted=pitchOldTab[wanted0]||wanted0;\n"
-        "  const target=wanted.indexOf('about-')===0?'about':wanted;\n"
+        "  const wanted0=tabKey==='info'?'about':String(tabKey||'search'),wanted1=pitchOldTab[wanted0]||wanted0;\n"
         "  const aboutParam=!updateUrl?new URLSearchParams(location.search).get('about'):null;\n"
-        "  if(wanted==='about'&&aboutParam==='changelog')return activateResearchTab('dev-changelog',updateUrl);\n"
-        "  const aboutView=wanted.indexOf('about-')===0?wanted.slice(6):wanted==='about'?(aboutParam==='changelog'||aboutParam==='how'?aboutParam:'overview'):null;\n"
+        "  if(wanted1==='about'&&aboutParam==='changelog')return activateResearchTab('dev-changelog',updateUrl);\n"
+        "  if(wanted1==='about'&&aboutParam==='how')return activateResearchTab('dev-about',updateUrl);\n"
+        "  const wanted=wanted1,target=wanted;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
         "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||!pitchSoon[soon].lab;\n"
-        "  if(!soon){pitchBaseActivate(target,updateUrl);if(aboutView&&window.showAboutView)window.showAboutView(aboutView,updateUrl)}\n"
+        "  if(!soon){pitchBaseActivate(target,updateUrl);if(wanted==='dev-about'){try{if(typeof loadAbout==='function')loadAbout();if(window.showAboutView)window.showAboutView(new URLSearchParams(location.search).get('about')==='how'?'how':'overview',false)}catch(error){}}}\n"
         "  else{\n"
-        "    pitchBaseActivate(item.kind==='panel'?item.target:'soon',false);\n"
+        "    const savedTabs=Object.assign({},lastGroupTabs);pitchBaseActivate(item.kind==='panel'?item.target:'soon',false);Object.assign(lastGroupTabs,savedTabs);\n"
         "    lastGroupTabs[item.group]=item.navTab||soon;pitchShowSoonNav(item.navTab||soon,item.group);pitchLabBack(soon,item);\n"
         "    const frame=document.getElementById('comingSoonFrame'),head=document.getElementById('comingSoonHead');\n"
         "    const framed=item.kind==='page';\n"
@@ -253,6 +255,12 @@ def _script() -> str:
     )
 
 
+def _home_panel() -> str:
+    """Home > About: the one-page introduction. Its counts are read live by a small script inside the fragment."""
+    fragment = (Path(__file__).resolve().with_name("home_about.html")).read_text(encoding="utf-8")
+    return '<section id="homeAboutPanel" class="panel-card search-layout" hidden>\n' + fragment + "</section>\n"
+
+
 def apply_pitch_navigation(html: str) -> str:
     html, n = re.subn(r'<header class="topbar">.*?</header>', lambda _m: '<header class="topbar">\n' + _BRAND + _PRIMARY + '\n</header>', html, count=1, flags=re.S)
     if n != 1:
@@ -262,7 +270,7 @@ def apply_pitch_navigation(html: str) -> str:
         raise RuntimeError("pitch navigation: view tabs not found")
     if html.count('<section id="aboutPanel"') != 1:
         raise RuntimeError("pitch navigation: about panel not found")
-    html = html.replace('<section id="aboutPanel"', _PANEL + '<section id="aboutPanel"', 1)
+    html = html.replace('<section id="aboutPanel"', _PANEL + _home_panel() + '<section id="aboutPanel"', 1)
     marker = "function restoreResearchNavigation(){"
     if html.count(marker) != 1:
         raise RuntimeError("pitch navigation: restore function not found")

@@ -116,13 +116,12 @@ button.tile{cursor:pointer}button.tile:hover{border-color:var(--teal)}
 
 _BODY = r'''<body>
 <header class="topbar">
-<a class="brand" href="/data-explorer?tab=about&group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
+<a class="brand" href="/data-explorer?tab=about&group=info" title="Back to Home" aria-label="ILIT, Immigration Litigation Intelligence System: back to Home"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
 <nav class="topnav" style="margin-left:auto" aria-label="Primary navigation">
-<a href="/data-explorer?tab=about">About</a>
+<a href="/data-explorer?tab=about">Home</a>
 <a href="/data-explorer?tab=search">Research</a>
 <a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a>
 <a href="/workbench" class="active" aria-current="page">Workbench</a>
-<a href="/data-explorer?tab=roadmap-overview&group=roadmap">Coming soon</a>
 </nav>
 <div class="userpill hidden" id="userPill"><span class="demo-flag">Demo</span><span>Signed in as <b id="userName"></b></span><button class="linkbtn" id="signOut" type="button">Sign out</button></div>
 </header>

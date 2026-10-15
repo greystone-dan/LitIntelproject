@@ -109,6 +109,10 @@ def _new_context(browser, **options):
         from backend.site_tour import tour_css, tour_js
         context.route("**/site-tour.js*", lambda route: route.fulfill(status=200, content_type="application/javascript", body=tour_js()))
         context.route("**/site-tour.css*", lambda route: route.fulfill(status=200, content_type="text/css", body=tour_css()))
+        from backend import routes
+
+        page_html = routes._data_explorer_page_html()   # this checkout's explorer page too, so new pages (Home) can be walked before they are live
+        context.route(re.compile(r"^https?://[^/]+/data-explorer(\?.*)?$"), lambda route: route.fulfill(status=200, content_type="text/html; charset=utf-8", body=page_html) if route.request.resource_type == "document" else route.continue_())
     return context
 
 def run_probes(base: str) -> int:
@@ -623,7 +627,7 @@ def main() -> int:
     parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
     parser.add_argument("--part", default="", help="with --walk: walk only steps FIRST:LAST (step ids), e.g. plain-search:adv-won")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
-    parser.add_argument("--local-tour", action="store_true", help="use this checkout's tour steps and script on the site at --base-url (to check an unmerged tour on the real library)")
+    parser.add_argument("--local-tour", action="store_true", help="use this checkout's explorer page, tour steps and script on the site at --base-url (to check an unmerged tour on the real library)")
     parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
     global LOCAL_TOUR

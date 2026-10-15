@@ -80,7 +80,7 @@ def test_home_coming_soon_is_the_new_preview_and_the_old_one_is_kept_under_devel
     assert page.status_code == 200
     assert "Where iLit is going" in page.text and "personal proof of concept" in page.text
     assert "/roadmap/coming-soon-demo" in page.text and 'id="hz"' in page.text
-    assert "Take a tour" not in page.text and "Amber notes" not in page.text and "mock-up to workshop" not in page.text
+    assert "Take a tour" in page.text and "ilitTour.start" in page.text and "Amber notes" not in page.text and "mock-up to workshop" not in page.text
     for key in ("cases", "citations", "files", "docket"):
         assert re.search(r'data-live=\\?"' + key + r'\\?"', page.text), key   # some sit inside a script string, with escaped quotes
     assert "fetch('/api/about/stats')" in page.text and "fetch('/api/about/library')" in page.text

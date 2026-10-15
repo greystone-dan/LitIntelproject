@@ -454,7 +454,7 @@ svg .cap{fill:var(--s-muted);font-size:12.5px;font-weight:600;letter-spacing:0}
 
 /* On the site: the page stands on the site's own background, no workshop frame around it */
 body{background:var(--s-bg);color:var(--s-ink);padding-block:0}
-.page{max-width:1100px;margin:0 auto;border:0;border-radius:0;background:transparent;padding:22px 24px 48px}
+.page{max-width:972px;margin:0 auto;border:0;border-radius:0;background:transparent;padding:26px 30px 48px}
 :root:not([data-theme="x"]){color-scheme:light}
 </style></head><body>
   <div class="page">
@@ -577,7 +577,7 @@ body{background:var(--s-bg);color:var(--s-ink);padding-block:0}
     <section id="s7">
       <h2>What is real today</h2>
       <p>The library of <b data-live="cases">75,677</b> decisions, <b data-live="citations">1.6 million</b> citations and the Federal Court activity data are live. The case layers are live on a few hundred to a few thousand decisions, labelled experimental. Everything marked Concept is an idea about where it could go, and none of it is promised.</p>
-      <div class="btns"><a class="btn alt" href="/data-explorer?tab=about&amp;group=info" target="_top" id="backAbout">Back to About</a></div>
+      <div class="btns"><button type="button" class="btn" id="takeTour">&#9654; Take a tour</button><a class="btn alt" href="/data-explorer?tab=about&amp;group=info" target="_top" id="backAbout">Back to About</a></div>
     </section>
   </div>
 
@@ -1239,6 +1239,7 @@ function all(){apply(document)}
 fetch('/api/about/stats').then(function(r){return r.ok?r.json():null}).then(function(d){if(!d)return;L.cases=d.cases;L.citations=d.citations;L.files=d.fc_activity_cases;L.docket=d.fc_activity_documents;all()}).catch(function(){});
 fetch('/api/about/library').then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.courts)return;d.courts.forEach(function(c){C[c.court]=c.decisions});all()}).catch(function(){});
 if(window.MutationObserver){var busy=false;new MutationObserver(function(){if(busy)return;busy=true;setTimeout(function(){busy=false;all()},30)}).observe(document.body,{childList:true,subtree:true})}
+var tt=document.getElementById('takeTour');if(tt)tt.addEventListener('click',function(){try{window.top.ilitTour.start()}catch(e){}});
 // the demo's own Back link and the page's own anchors work inside the site frame
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var t=document.getElementById(a.getAttribute('href').slice(1));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}});
 if(location.hash){setTimeout(function(){var t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView()},400)}

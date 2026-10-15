@@ -114,6 +114,7 @@ def _subnav() -> str:
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
         _tab("dev", "soon-home", "comingSoonPanel", "Lab"),
         _tab("dev", "dev-changelog", "comingSoonPanel", "Changelog"),
+        _tab("dev", "dev-coming-soon", "comingSoonPanel", "Coming soon (stored)"),
         _tab("dev", "dev-about", "aboutPanel", "About (stored)"),
     ]
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
@@ -167,11 +168,12 @@ def pitch_soon_info() -> dict:
     for key in ROADMAP_ORDER:
         anchor = REDIRECT_ANCHORS.get(key, "")
         if key == "overview":
-            info["roadmap-overview"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview", "group": "info", "navTab": "roadmap-overview", "flat": True}
+            info["roadmap-overview"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/coming-soon", "group": "info", "navTab": "roadmap-overview", "flat": True}
         else:
             info[f"roadmap-{key}"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap" + anchor, "group": "dev", "navTab": "soon-home", "lab": True, "status": True, "flat": True}
-    info["roadmap-tour"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#tour", "group": "info", "navTab": "roadmap-overview", "flat": True}
-    info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/preview#demos", "group": "info", "navTab": "roadmap-overview", "flat": True}
+    info["roadmap-tour"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/coming-soon", "group": "info", "navTab": "roadmap-overview", "flat": True}
+    info["roadmap-demos"] = {"name": "Coming soon", "text": "", "kind": "page", "target": "/roadmap/coming-soon#demos", "group": "info", "navTab": "roadmap-overview", "flat": True}
+    info["dev-coming-soon"] = {"name": "Coming soon (stored)", "text": "", "kind": "page", "target": "/roadmap/preview", "group": "dev", "navTab": "dev-coming-soon", "flat": True}
     info["roadmap-future-features"] = {"name": "Status board", "text": "", "kind": "page", "target": "/roadmap#future-features", "group": "dev", "navTab": "soon-home", "lab": True, "status": True, "flat": True}
     info["soon-status"].update(flat=True, status=True)
     info["dev-changelog"] = {"name": "Changelog", "text": "", "kind": "page", "target": "/changelog", "group": "dev", "flat": True}

@@ -380,7 +380,7 @@ def test_coming_soon_demo_page_is_served_linked_and_makes_no_requests():
     for call in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket"):
         assert call not in page.text
     explorer = client.get("/data-explorer").text
-    assert "roadmap-demos" in explorer and "/roadmap/preview#demos" in explorer
+    assert "roadmap-demos" in explorer and "/roadmap/coming-soon#demos" in explorer
     roadmap = client.get("/roadmap").text
     assert 'id="demos"' in roadmap and 'data-src="/coming-soon-demo#ai"' in roadmap and 'href="#demo-ai"' in roadmap
 

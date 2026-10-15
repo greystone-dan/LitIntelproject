@@ -4,7 +4,10 @@ import json
 import re
 from pathlib import Path
 
+from fastapi.testclient import TestClient
+
 from backend import routes
+from backend.main import app
 from backend.pages.pitch_nav import pitch_soon_info
 
 PAGES = Path(__file__).resolve().parents[1] / "backend" / "pages"
@@ -69,3 +72,23 @@ def test_home_is_not_a_presentation_and_the_tour_button_is_only_at_the_bottom():
             assert first.startswith("#home"), (name, selector)
             assert f'id="{first[1:]}"' in page, (name, selector)
         assert by_id[name]["url"] == "/data-explorer?tab=about"
+
+
+def test_home_coming_soon_is_the_new_preview_and_the_old_one_is_kept_under_development():
+    client = TestClient(app)
+    page = client.get("/roadmap/coming-soon")
+    assert page.status_code == 200
+    assert "Where iLit is going" in page.text and "personal proof of concept" in page.text
+    assert "/roadmap/coming-soon-demo" in page.text and 'id="hz"' in page.text
+    assert "Take a tour" not in page.text and "Amber notes" not in page.text and "mock-up to workshop" not in page.text
+    for key in ("cases", "citations", "files", "docket"):
+        assert re.search(r'data-live=\\?"' + key + r'\\?"', page.text), key   # some sit inside a script string, with escaped quotes
+    assert "fetch('/api/about/stats')" in page.text and "fetch('/api/about/library')" in page.text
+    demo = client.get("/roadmap/coming-soon-demo")
+    assert demo.status_code == 200 and "Argument breakdown" in demo.text
+    for call in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket"):
+        assert call not in demo.text
+    explorer = client.get("/data-explorer").text
+    assert '"target": "/roadmap/coming-soon"' in explorer or "/roadmap/coming-soon" in explorer
+    assert "Coming soon (stored)" in explorer and "/roadmap/preview" in explorer
+    assert client.get("/roadmap/preview").status_code == 200

@@ -25,7 +25,7 @@ def test_live_analysis_serves_to_direct_visits_with_the_main_site_bar():
 	assert response.status_code == 200
 	html = response.body.decode()
 	header = html[html.index('<header class="topbar"'):html.index("</header>")]
-	assert "tab=roadmap-overview" in header and "siteExperimentalToggle" in header
+	assert ">Home</a>" in header and "tab=roadmap-overview" not in header and "siteExperimentalToggle" in header  # Coming soon lives under Home now
 	assert "tab-coming-soon" not in header and "tab=soon-themes&amp;group=lab" in header  # the old greyed tab is gone; one Lab link
 
 

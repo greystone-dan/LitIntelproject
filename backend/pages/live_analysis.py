@@ -207,13 +207,12 @@ def _replace_once(html: str, old: str, new: str) -> str:
 
 _MAIN_BAR = (
 	'<header class="topbar">\n'
-	'<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>\n'
+	'<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to Home" aria-label="ILIT, Immigration Litigation Intelligence System: back to Home"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>\n'
 	'<nav class="research-nav primary-groups" aria-label="Primary navigation">\n'
-	'<a class="primary-link" href="/data-explorer?tab=about&amp;group=info">About</a>\n'
+	'<a class="primary-link" href="/data-explorer?tab=about&amp;group=info">Home</a>\n'
 	'<a class="primary-link" href="/data-explorer?tab=search&amp;group=research">Research</a>\n'
 	'<a class="primary-link" href="/data-explorer?tab=judge-profile&amp;group=intel">Intelligence / Statistics</a>\n'
 	'<a class="primary-link active" href="/workbench" aria-current="page">Workbench</a>\n'
-	'<a class="primary-link" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Coming soon</a>\n'
 	'<a class="primary-link" data-nav-extra href="/data-explorer?tab=soon-themes&amp;group=lab">Lab</a>\n'
 	'<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="One click turns all experimental features on or off: development tabs, Testing, units, Find the unit and unfinished reader tools">Experimental: off</button>\n'
 	"</nav>\n</header>"

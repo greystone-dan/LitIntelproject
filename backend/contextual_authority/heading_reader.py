@@ -16,6 +16,23 @@ import re
 from dataclasses import dataclass
 
 _PARA = re.compile(r"^\[\d{1,3}\]")
+_BARE_PARA = re.compile(r"^(\d{1,3}) (?=\S)")
+
+
+def _para_lines(lines: list[str]) -> set[int]:
+    """Line indexes that open a numbered paragraph: "[12] text", or, when the reasons number without brackets
+    (Supreme Court of Canada 2000 to 2007: "12 text"), the lines that continue a 1, 2, 3 ... run."""
+    bracket = {i for i, line in enumerate(lines) if _PARA.match(line)}
+    if len(bracket) >= 3:
+        return bracket
+    bare: set[int] = set()
+    want = 1
+    for i, line in enumerate(lines):
+        match = _BARE_PARA.match(line)
+        if match and int(match.group(1)) == want:
+            bare.add(i)
+            want += 1
+    return bare if len(bare) >= 3 else bracket
 _ROMAN = r"(?:X{0,2}(?:IX|IV|V?I{0,3}))"
 _PREFIX = re.compile(
     r"^\s*(?:(?P<rom>(?=[IVX])" + _ROMAN + r")|(?P<let>[A-Ha-h])|(?P<dig>\d{1,2})|\((?P<par>[a-h]|[ivx]{1,4}|\d{1,2})\))\s*[.)]?\s+(?P<title>\S.*)$"
@@ -154,9 +171,9 @@ def _form(line: str) -> tuple[str, str | None, str] | None:
     return kind, numeral, body.rstrip(":").strip()
 
 
-def _body_span(lines: list[str]) -> tuple[int, int, int, int] | None:
+def _body_span(lines: list[str], paras: set[int]) -> tuple[int, int, int, int] | None:
     """(first line to read, first numbered paragraph, last numbered paragraph, end of the reasons) as line indexes."""
-    numbered = [i for i, line in enumerate(lines) if _PARA.match(line)]
+    numbered = sorted(paras)
     if not numbered:
         return None
     first = numbered[0]
@@ -207,7 +224,8 @@ def read_headings(text: str | None) -> list[PrintedHeading]:
     for raw in raw_lines:
         offsets.append(position)
         position += len(raw) + 1
-    span = _body_span(lines)
+    paras = _para_lines(lines)
+    span = _body_span(lines, paras)
     if not span:
         return []
     start, first, last, end = span
@@ -217,7 +235,7 @@ def read_headings(text: str | None) -> list[PrintedHeading]:
         line = lines[i]
         if not line:
             continue
-        if not _PARA.match(line):
+        if i not in paras:
             glued = _glued_headings(line)
             if glued:
                 for kind, numeral, title in glued:
@@ -239,7 +257,7 @@ def read_headings(text: str | None) -> list[PrintedHeading]:
         while True:
             while j < len(lines) and not lines[j]:
                 j += 1
-            if j >= end or (j < len(lines) and _PARA.match(lines[j])):
+            if j >= end or j in paras:
                 reaches_paragraph = True
                 break
             glued_next = _glued_headings(lines[j]) if j < len(lines) else []

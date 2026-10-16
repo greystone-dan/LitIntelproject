@@ -24,3 +24,10 @@ Measured on 1,760 Federal Court decisions (80 a year, 2004-2025). Rules only, no
 | Analysis | 78% | 93% (98% within one paragraph) |
 | Issues | 71% | 76% |
 | Disposition | 92% | 92% |
+
+## Supreme Court of Canada and Federal Court of Appeal (flag `ILIT_OUTLINE_HEADINGS`)
+Measured on 1,034 SCC and 1,000 FCA decisions.
+- SCC paragraphs are numbered "1 text" from 2000 to 2007 and "[1] text" after; the heading reader reads both.
+- Separate opinions (`backend/contextual_authority/opinions.py`): the SCC header index ("Dissenting Reasons: (paras. 46 to 123)", 77% of decisions) first, then the reasons' opening lines ("... was delivered by", "Abella J. (dissenting) —"). On indexed decisions the opening lines match the index count in 95%. FCA decisions take the author and concurring judges from the cover block ("REASONS FOR JUDGMENT BY / CONCURRED IN BY").
+- A decision with several opinions gets one `opinion` row per opinion (level 0) and its own sections under each. Only the lead opinion has a Disposition; before this, 86% of multi-opinion SCC decisions put it inside a dissent, now 4% do.
+- Single sets of reasons get one author row when the header or cover block names the author.

@@ -19,20 +19,56 @@ _PARA = re.compile(r"^\[\d{1,3}\]")
 _BARE_PARA = re.compile(r"^(\d{1,3}) (?=\S)")
 
 
+_NOTE_OPENER = re.compile(r"(?i)^\d{1,3} (?:ibid|idem|supra|exhibit|see\b|immigration and refugee protection|irpa\b|refugee protection division rules|[A-Z][\w'’.\-]+ v\.? )")
+_NOTE_RUN_SHARE = 0.25
+_NOTE_RUN_MIN_CHARS = 60
+
+
+def _bare_run(lines: list[str]) -> list[int]:
+    """Line indexes of a 1, 2, 3 ... run of "12 text" lines, when they read as paragraphs and not as footnotes
+    (tribunal decisions number their footnotes the same way, with short lines that open with "Ibid." or "Exhibit")."""
+    run: list[int] = []
+    want = 1
+    for i, line in enumerate(lines):
+        match = _BARE_PARA.match(line)
+        if match and int(match.group(1)) == want:
+            run.append(i)
+            want += 1
+    if len(run) < 3:
+        return []
+    notes = sum(1 for i in run if _NOTE_OPENER.match(lines[i]))
+    sizes = sorted(len(lines[i]) for i in run)
+    if notes / len(run) > _NOTE_RUN_SHARE or sizes[len(sizes) // 2] < _NOTE_RUN_MIN_CHARS:
+        return []
+    return run
+
+
 def _para_lines(lines: list[str]) -> set[int]:
     """Line indexes that open a numbered paragraph: "[12] text", or, when the reasons number without brackets
     (Supreme Court of Canada 2000 to 2007: "12 text"), the lines that continue a 1, 2, 3 ... run."""
     bracket = {i for i, line in enumerate(lines) if _PARA.match(line)}
     if len(bracket) >= 3:
         return bracket
-    bare: set[int] = set()
-    want = 1
-    for i, line in enumerate(lines):
-        match = _BARE_PARA.match(line)
-        if match and int(match.group(1)) == want:
-            bare.add(i)
-            want += 1
-    return bare if len(bare) >= 3 else bracket
+    return set(_bare_run(lines)) or bracket
+
+
+def bare_paragraphs(text: str | None) -> dict[int, int]:
+    """Offset -> number of each paragraph opening in a text that numbers without brackets; empty when it uses "[n]" or has no run."""
+    if not text:
+        return {}
+    raw_lines = text.split("\n")
+    lines = [line.strip() for line in raw_lines]
+    if len([line for line in lines if _PARA.match(line)]) >= 3:
+        return {}
+    run = _bare_run(lines)
+    offsets = []
+    position = 0
+    for raw in raw_lines:
+        offsets.append(position)
+        position += len(raw) + 1
+    return {offsets[i]: n for n, i in enumerate(run, 1)}
+
+
 _ROMAN = r"(?:X{0,2}(?:IX|IV|V?I{0,3}))"
 _PREFIX = re.compile(
     r"^\s*(?:(?P<rom>(?=[IVX])" + _ROMAN + r")|(?P<let>[A-Ha-h])|(?P<dig>\d{1,2})|\((?P<par>[a-h]|[ivx]{1,4}|\d{1,2})\))\s*[.)]?\s+(?P<title>\S.*)$"
@@ -70,9 +106,10 @@ _LABELS: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
         ("issues_analysis", r"^(issues?|questions?)( at issue| in issue)?( and (analysis|discussion))|^(analysis|discussion) and (issues?|decision)"),
         ("standard", r"standards? of review"),
         ("issues", r"^(the )?(issues?|questions?( at issue| in issue| to be decided| raised)?|points? in issue)\b|^(the )?(following )?issues?\b"),
-        ("overview", r"^(aperçu|introduction|contexte)|^(overview|nature of the (matter|application|proceeding|case|motion)|summary|synopsis|preliminary (statement|remarks)|the application|application|purpose of the (application|motion))\b"),
-        ("background", r"^(the )?(background|facts|factual (background|context|matrix)|relevant facts|procedural (history|background)|history|context|chronology|summary of (the )?facts|background facts|statement of facts|the proceedings?|proceedings? below)"),
+        ("overview", r"^determination$|^(aperçu|introduction|contexte)|^(overview|nature of the (matter|application|proceeding|case|motion)|summary|synopsis|preliminary (statement|remarks)|the application|application|purpose of the (application|motion))\b"),
+        ("background", r"^(the )?(allegations?|alleged facts|background|facts|factual (background|context|matrix)|relevant facts|procedural (history|background)|history|context|chronology|summary of (the )?facts|background facts|statement of facts|the proceedings?|proceedings? below)"),
         ("decision_under_review", r"(decision|reasons?|determination|finding|ruling)s? (under review|challenged|at issue|impugned|being reviewed|of the (board|rpd|rad|iad|officer|delegate|minister|member|visa officer|citizenship judge|panel|tribunal|[a-z ]{0,25}(court|judge|justice)))|^(the )?(impugned|challenged|contested) (decision|reasons?)|^(the )?(board|rpd|rad|iad|officer|delegate|visa officer|tribunal|panel|member)[’' s]*(s )?(decision|reasons?|determination)|^decision (of|by)|^reasons of the"),
+        ("issues", r"^(the )?role of the (rad|rpd|board|division)|^(request for )?(an )?oral hearing$"),
         ("legislation", r"(relevant|applicable|statutory|legislative|regulatory) (provisions?|framework|scheme|legislation|background|context)|^(statutes?|legislation|statutory provisions?|legislative scheme|the legislation|regulatory framework|the law|applicable law|legal framework|relevant law)"),
         ("submissions", r"\b(submissions?|arguments?|positions?|contentions|claims|representations)\b|^the (applicants?|respondents?|appellants?|minister|plaintiffs?|defendants?)$|^(applicants?|respondents?)[’' s]*$|^reply"),
         ("certified_question", r"certif(ied|ication)|question for certification|serious question|proposed question"),
@@ -213,6 +250,30 @@ def _glued_headings(line: str) -> list[tuple[str, str | None, str]]:
     return [] if found and found[0][0] == "digit" else found
 
 
+_FOOTNOTE_TITLE = re.compile(r"(?i)^(ibid|idem|supra|exhibit|see\b|infra|id\b)|\bv\.? [A-Z]|\bat paras?\b|\bsupra note\b|^immigration and refugee protection")
+_PROSE_CHARS = 150
+_PROSE_MIN = 60
+
+
+def _unnumbered_headings(lines: list[str], offsets: list[int]) -> list[PrintedHeading]:
+    """Reasons with no paragraph numbers (Refugee Protection Division 2002 to 2009) still print their standard headings
+    in capitals on a line of their own: ALLEGATIONS, DETERMINATION, ANALYSIS, CONCLUSION. Only those standard names count,
+    each followed by prose, and only when three or more are found."""
+    found: list[PrintedHeading] = []
+    for i, line in enumerate(lines):
+        title = line.rstrip(":. ")
+        if not (4 <= len(title) <= 40) or title != title.upper() or not re.fullmatch(r"[A-ZÀ-Ý ,&'’-]+", title):
+            continue
+        label = heading_label(title)
+        if label in {"topic", "question"}:
+            continue
+        nxt = [t for t in lines[i + 1 : i + 6] if t][:2]
+        if title.startswith("REASONS") or not nxt or not (len(nxt[0]) >= _PROSE_MIN or sum(len(t) for t in nxt) >= _PROSE_CHARS):
+            continue
+        found.append(PrintedHeading(offsets[i], "plain", None, title, label, False))
+    return found if len(found) >= 3 else []
+
+
 def read_headings(text: str | None) -> list[PrintedHeading]:
     """Headings the court printed in the body of its reasons, in order. Empty when the text has no numbered paragraphs."""
     if not text:
@@ -227,7 +288,7 @@ def read_headings(text: str | None) -> list[PrintedHeading]:
     paras = _para_lines(lines)
     span = _body_span(lines, paras)
     if not span:
-        return []
+        return _unnumbered_headings(lines, offsets)
     start, first, last, end = span
     found: list[PrintedHeading] = []
     line_of: dict[int, int] = {}
@@ -245,7 +306,7 @@ def read_headings(text: str | None) -> list[PrintedHeading]:
         if not form:
             continue
         kind, numeral, title = form
-        if _ADDRESS.search(title):
+        if _ADDRESS.search(title) or (kind == "digit" and _FOOTNOTE_TITLE.search(title)):
             continue
         nxt = i + 1
         while nxt < len(lines) and not lines[nxt]:

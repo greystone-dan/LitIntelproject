@@ -561,6 +561,12 @@ _GLUED_HEAD_RE = re.compile(r"^(?P<head>[^\[]{3,300}?)\s+(?P<mark>\[(?P<n>\d{1,3
 _LIST_LINE_RE = re.compile(r"^\d{1,2}[.)]\s")
 _ADDRESS_RE = hr._ADDRESS
 _SHORT_DECISION_PARAS = 15
+_SHORT_DECISION_PARAS_FCA = 4  # Court of Appeal reasons are short as a rule (44% under 15 paragraphs), so only the very short (under 4 paragraphs) lose their outline
+_FCA_RE = re.compile(r"Federal Court of Appeal|\b\d{4} FCA \d+")
+
+
+def _short_decision_limit(text: str) -> int:
+	return _SHORT_DECISION_PARAS_FCA if _FCA_RE.search(text[:1500]) else _SHORT_DECISION_PARAS
 
 
 def _mark_printed_headings(text: str, blocks: Sequence[dict], printed: Sequence[hr.PrintedHeading]) -> list[dict]:
@@ -699,7 +705,7 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 	_clamp_section_ranges(rows)
 	if headings_mode:
 		_mark_row_sources(rows, anchored)
-		if sum(1 for u in units if u["body"]) < _SHORT_DECISION_PARAS and len(printed_headings) < 3:
+		if sum(1 for u in units if u["body"]) < _short_decision_limit(text) and len(printed_headings) < 3:
 			# a short decision with next to no headings has no structure worth an outline: keep only where it ends
 			rows = [r for r in rows if r["kind"] == "section" and r["section"] == "disposition"]
 	return rows

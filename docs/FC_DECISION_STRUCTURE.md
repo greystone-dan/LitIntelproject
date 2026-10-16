@@ -16,7 +16,7 @@ Measured on 1,760 Federal Court decisions (80 a year, 2004-2025). Rules only, no
 ## Using them in the outline (`ILIT_OUTLINE_HEADINGS`, default off)
 - Printed headings set the section starts; printed sub-headings become the sub-points; numbered list lines are dropped as points.
 - Rows the court did not print carry `printed: false`, and the reader shows "inferred" beside them.
-- Decisions with fewer than 15 numbered paragraphs and fewer than 3 printed headings show only the Disposition.
+- Decisions with fewer than 15 numbered paragraphs (fewer than 4 for the Federal Court of Appeal, where 44% are short) and fewer than 3 printed headings show only the Disposition.
 
 ## Check against the sample (section start equals the printed heading's paragraph)
 | Section | Before | With headings on |

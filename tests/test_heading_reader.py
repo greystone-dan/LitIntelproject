@@ -121,3 +121,12 @@ def test_report_citation_line_is_not_a_paragraph_number():
 		["Yugraneft Corp. v. Rexx", "[2010] 1 SCR 649", "Docket: 32738", "The judgment of the Court was delivered by", "Rothstein J. —", "I. Introduction", _para(1), "II. Facts", _para(2), "III. Analysis", _para(3), "Appeal dismissed.", "Solicitors for the appellant: Smith."]
 	)
 	assert [h.title for h in read_headings(text)] == ["Introduction", "Facts", "Analysis"]
+
+
+def test_court_of_appeal_decision_of_ten_paragraphs_keeps_its_outline(monkeypatch):
+	monkeypatch.setenv("ILIT_OUTLINE_HEADINGS", "1")
+	body = [_para(n, "I find that the judge made no error and that the evidence supports the decision made below.") for n in range(1, 10)] + [_para(10, "The appeal is dismissed with costs.")]
+	fc = _decision(body)
+	fca = fc.replace("Smith v. Canada", "Smith v. Canada\nFederal Court of Appeal Decisions\nCitation: 2020 FCA 5", 1)
+	assert all(r["section"] == "disposition" for r in outline_v2(fc, format_decision(fc, {})))
+	assert any(r["section"] != "disposition" for r in outline_v2(fca, format_decision(fca, {})))

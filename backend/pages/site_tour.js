@@ -58,13 +58,16 @@
     }catch(e){}
     return false;
   }
-  async function waitFor(sel,seconds,token){
-    var end=Date.now()+(seconds||8)*1000;
+  // nudge: a field to poke with an input event every 2 seconds while waiting, for a pick list that the page closes on any
+  // click elsewhere (it would otherwise stay empty for the whole wait) or that lost its answer on a slow connection.
+  async function waitFor(sel,seconds,token,nudge){
+    var end=Date.now()+(seconds||8)*1000,poke=Date.now()+2000;
     for(;;){
       if(token!==run)return null;
       var el=findVisible(sel);
       if(el)return el;
       if(Date.now()>end)return null;
+      if(nudge&&Date.now()>=poke){poke=Date.now()+2000;var f=qs(nudge);if(f&&f.value)f.dispatchEvent(new Event('input',{bubbles:true}))}
       await sleep(100);
     }
   }
@@ -182,7 +185,7 @@
     if(a.unless&&findVisible(a.unless))return true;
     if(a.when&&!findVisible(a.when))return true;
     if(a.do==='wait'){await sleep(a.ms||300);return true}
-    if(a.do==='waitFor')return !!(await waitFor(a.selector,a.timeout||10,token));
+    if(a.do==='waitFor')return !!(await waitFor(a.selector,a.timeout||10,token,a.nudge));
     var times=Math.max(1,a.times||1);
     for(var n=0;n<times;n++){
       var node=await findNode(a,token);
@@ -849,6 +852,11 @@
     u.count.textContent='Step '+(i+1)+' of '+STEPS.length;
     clearTimeout(u.slow);
     if(pending)u.slow=setTimeout(function(){if(ui&&ui.card.classList.contains('pending'))ui.count.textContent='Loading…'},900);   // only a slow step says so
+    clearTimeout(u.stuck);
+    if(pending){                                                    // nothing a step does may leave the card waiting for ever: after 30 seconds it moves on, as a missing element does
+      var at=run;
+      u.stuck=setTimeout(function(){if(ui&&at===run&&ui.card.classList.contains('pending'))skipOver(i,++run,'stuck')},30000);
+    }
     u.fill.style.width=Math.round(((i+1)/STEPS.length)*100)+'%';
     u.back.disabled=i===0;
     u.next.textContent=i===STEPS.length-1&&mode==='show'?'Done':'Next';
@@ -932,12 +940,14 @@
   async function perform(i){
     var token=++run,s=STEPS[i];
     render(i,null,'pending');
-    for(var k=0;k<s.act.length;k++){
-      var ok=await doAction(s.act[k],token,true);
-      if(token!==run)return;
-      if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token,'act');
-    }
-    await settleScroll(token);
+    try{
+      for(var k=0;k<s.act.length;k++){
+        var ok=await doAction(s.act[k],token,true);
+        if(token!==run)return;
+        if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token,'act');
+      }
+      await settleScroll(token);
+    }catch(e){return skipOver(i,token,'error')}                    // an action that throws must not leave the card waiting
     return result(i,token);
   }
   // Next on "lead": the pointer goes to the tab or link and presses it.

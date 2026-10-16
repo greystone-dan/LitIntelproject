@@ -198,7 +198,7 @@
       "text": "One box takes a case name, a citation such as 2019 SCC 65, or words from the reasons. Filters on the left narrow any search.",
       "target": "#caseSearch",
       "top": true,
-      "lead": "Next, let's go to Research",
+      "lead": "First, let's go to Research",
       "leadText": "Research is where most work starts.",
       "via": "nav.primary-groups [data-group='research']"
     },
@@ -380,7 +380,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*cessation"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",
@@ -434,7 +435,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*cessation"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",
@@ -467,7 +469,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*sri[ _]lanka"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",
@@ -527,7 +530,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*cessation"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",
@@ -557,7 +561,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*sri[ _]lanka"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",
@@ -633,7 +638,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*cessation"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",
@@ -663,7 +669,8 @@
           "unless": {
             "css": "#tagChips .sp-tag",
             "text": "^\\s*sri[ _]lanka"
-          }
+          },
+          "nudge": "#tagSearch"
         },
         {
           "do": "click",

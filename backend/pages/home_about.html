@@ -1,24 +1,24 @@
 <style>
-.home-about{--s-bg:#fffef9;--s-alt:#f8f6ef;--s-line:#d8d5ca;--s-ink:#202522;--s-muted:#5f6863;--s-rust:#a4412b;--s-rust-soft:#f7e8e3;--s-blue:#315d8d;--s-blue-soft:#e7eef6;--s-teal:#176c68;--s-teal-soft:#edf5f3;--s-amber:#8a6418;--s-amber-soft:#f8f0dc;--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"Inter","Segoe UI",system-ui,Arial,sans-serif}
+.home-about{--s-bg:#fffef9;--s-alt:#f8f6ef;--s-line:#d8d5ca;--s-ink:#202522;--s-muted:#5f6863;--s-rust:#a4412b;--s-rust-soft:#f7e8e3;--s-blue:#315d8d;--s-blue-soft:#e7eef6;--s-teal:#176c68;--s-teal-soft:#edf5f3;--s-amber:#8a6418;--s-amber-soft:#f8f0dc;--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans","Segoe UI",system-ui,Arial,sans-serif}
 .home-about,.home-about *{box-sizing:border-box}
-.home-about{padding:26px 30px;color:var(--s-ink);font-size:15px;line-height:1.65}
+.home-about{padding:0;color:var(--s-ink);font-size:14px;line-height:1.65}
 .home-about a.btn{text-decoration:none}
 .home-about button.btn{font-family:inherit;cursor:pointer}
 .home-about .btn:focus-visible,.home-about a:focus-visible{outline:2px solid var(--s-teal);outline-offset:2px}
 .home-about dl,.home-about ul{margin-block:0}
-.home-about{background:var(--s-bg);color:var(--s-ink);border:1px solid var(--s-line);border-radius:8px;padding:26px 30px;font-size:15px;line-height:1.65}
-.home-about h1{font:600 38px/1.05 var(--serif);margin:0;letter-spacing:-.01em}
-.home-about h2{font:600 24px/1.2 var(--serif);margin:0 0 10px}
+.home-about{background:transparent;color:var(--s-ink);border:0;padding:0;font-size:14px;line-height:1.65}
+.home-about h1{font:700 24px/1.2 var(--sans);margin:0}
+.home-about h2{font:600 19px/1.25 var(--serif);margin:0 0 10px}
 .home-about p{margin:8px 0 0}
 .home-about .eyebrow{margin:0 0 8px;color:var(--s-rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.home-about .lede{font-size:17px;margin-top:12px}
+.home-about .lede{font-size:14px;margin-top:12px}
 .home-about .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px;border:1px solid var(--s-line);border-radius:6px;overflow:hidden;background:var(--s-bg)}
 .home-about .tiles div{padding:14px 18px;border-left:1px solid var(--s-line)}
 .home-about .tiles div:first-child{border-left:0}
-.home-about .tiles b{display:block;font:600 28px/1.1 var(--serif);color:var(--s-rust);font-variant-numeric:tabular-nums}
+.home-about .tiles b{display:block;font:600 24px/1.1 var(--serif);color:var(--s-rust);font-variant-numeric:tabular-nums}
 .home-about .tiles div:nth-child(2) b{color:var(--s-teal)}
-.home-about .tiles span{display:block;margin-top:5px;color:var(--s-muted);font-size:12.5px;line-height:1.4}
-.home-about .small{color:var(--s-muted);font-size:12.5px}
+.home-about .tiles span{display:block;margin-top:5px;color:var(--s-muted);font-size:12px;line-height:1.4}
+.home-about .small{color:var(--s-muted);font-size:12px}
 .home-about .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .home-about .btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 18px;border:1px solid var(--s-ink);border-radius:6px;background:var(--s-ink);color:#fff;font-weight:600;font-size:14px}
 .home-about .btn.alt{background:var(--s-bg);color:var(--s-ink)}
@@ -30,7 +30,7 @@
 .home-about .five dd{margin:0}
 .home-about .fig{margin:16px 0 0}
 .home-about .fig .svgwrap{overflow-x:auto;background:var(--s-bg);border:1px solid var(--s-line);border-radius:6px;padding:14px}
-.home-about .fig svg{display:block;width:100%;min-width:640px;max-width:1400px;height:auto;margin:0 auto}
+.home-about .fig svg{display:block;width:100%;min-width:640px;max-width:960px;height:auto;margin:0 auto}
 .home-about .fig figcaption{margin-top:9px;font-size:14px;color:var(--s-muted);line-height:1.55}
 .home-about svg text{font-family:var(--sans)}
 .home-about svg .bx{fill:var(--s-bg);stroke:var(--s-line);stroke-width:1.5}
@@ -42,7 +42,7 @@
 .home-about svg .tr{fill:var(--s-rust);font-size:14px;font-weight:600}
 .home-about svg .tb{fill:var(--s-blue);font-size:14px;font-weight:600}
 .home-about svg .ta{fill:var(--s-amber);font-size:14px;font-weight:600}
-.home-about svg .n{fill:var(--s-ink);font-size:22px;font-weight:600;font-family:var(--serif)}
+.home-about svg .n{fill:var(--s-ink);font-size:19px;font-weight:600;font-family:var(--serif)}
 .home-about svg .s{fill:var(--s-muted);font-size:12px}
 .home-about svg .i{fill:var(--s-muted);font-size:12px;font-style:italic}
 .home-about svg .cap{fill:var(--s-rust);font-size:11px;font-weight:700;letter-spacing:.09em}
@@ -55,7 +55,7 @@
 .home-about .parts{margin:12px 0 0;display:grid;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
 .home-about .parts>div{display:grid;grid-template-columns:170px minmax(0,1fr);gap:18px;padding:13px 16px;border-top:1px solid var(--s-line)}
 .home-about .parts>div:first-child{border-top:0}
-.home-about .parts h3{margin:0;font-size:14.5px;line-height:1.35}
+.home-about .parts h3{margin:0;font-size:14px;font-weight:700;line-height:1.35}
 .home-about .parts p{margin:0;font-size:14px;color:var(--s-muted)}
 .home-about .tag{display:inline-block;margin-top:5px;padding:1px 9px;border-radius:999px;font-size:11px;font-weight:700}
 .home-about .tag.live{background:var(--s-teal-soft);color:var(--s-teal)}
@@ -66,7 +66,7 @@
 .home-about .not li{position:relative;padding-left:24px}
 .home-about .not b{font-weight:600}
 .home-about .not li::before{content:"";position:absolute;left:4px;top:.72em;width:9px;height:2px;background:var(--s-rust)}
-@media (max-width:980px){.home-about{padding:20px 18px}.home-about .five div,.home-about .parts>div{grid-template-columns:minmax(0,1fr);gap:4px}.home-about h1{font-size:32px}.home-about .tiles{grid-template-columns:minmax(0,1fr)}.home-about .tiles div{border-left:0;border-top:1px solid var(--s-line)}.home-about .tiles div:first-child{border-top:0}}
+@media (max-width:980px){.home-about .five div,.home-about .parts>div{grid-template-columns:minmax(0,1fr);gap:4px}.home-about h1{font-size:24px}.home-about .tiles{grid-template-columns:minmax(0,1fr)}.home-about .tiles div{border-left:0;border-top:1px solid var(--s-line)}.home-about .tiles div:first-child{border-top:0}}
 </style>
 <div class="home-about" id="homeAbout">
 

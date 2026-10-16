@@ -197,6 +197,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/case_structure.py` | Case structure: label every paragraph of a decision with its structural role (no AI) |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |
 | `backend/contextual_authority/discussion_units.py` | Deterministic paragraph features and discussion-unit boundaries |
+| `backend/contextual_authority/heading_reader.py` | Printed headings of a court decision, read with plain rules (no model, no database) |
 | `backend/contextual_authority/learned_roles.py` | Paragraph roles from a small learned word/position model blended with the case-structure rules |
 | `backend/contextual_authority/learned_roles_weights.npz` | TODO: describe this file |
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |

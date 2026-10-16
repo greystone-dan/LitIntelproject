@@ -1,7 +1,7 @@
 <style>
 .home-about{--s-bg:#fffef9;--s-alt:#f8f6ef;--s-line:#d8d5ca;--s-ink:#202522;--s-muted:#5f6863;--s-rust:#a4412b;--s-rust-soft:#f7e8e3;--s-blue:#315d8d;--s-blue-soft:#e7eef6;--s-teal:#176c68;--s-teal-soft:#edf5f3;--s-amber:#8a6418;--s-amber-soft:#f8f0dc;--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"Inter","Segoe UI",system-ui,Arial,sans-serif}
 .home-about,.home-about *{box-sizing:border-box}
-.home-about{max-width:1080px;margin:0 auto;padding:26px 30px;color:var(--s-ink);font-size:15px;line-height:1.65}
+.home-about{padding:26px 30px;color:var(--s-ink);font-size:15px;line-height:1.65}
 .home-about a.btn{text-decoration:none}
 .home-about button.btn{font-family:inherit;cursor:pointer}
 .home-about .btn:focus-visible,.home-about a:focus-visible{outline:2px solid var(--s-teal);outline-offset:2px}
@@ -11,7 +11,7 @@
 .home-about h2{font:600 24px/1.2 var(--serif);margin:0 0 10px}
 .home-about p{margin:8px 0 0}
 .home-about .eyebrow{margin:0 0 8px;color:var(--s-rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.home-about .lede{font-size:17px;max-width:70ch;margin-top:12px}
+.home-about .lede{font-size:17px;margin-top:12px}
 .home-about .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px;border:1px solid var(--s-line);border-radius:6px;overflow:hidden;background:var(--s-bg)}
 .home-about .tiles div{padding:14px 18px;border-left:1px solid var(--s-line)}
 .home-about .tiles div:first-child{border-left:0}
@@ -30,8 +30,8 @@
 .home-about .five dd{margin:0}
 .home-about .fig{margin:16px 0 0}
 .home-about .fig .svgwrap{overflow-x:auto;background:var(--s-bg);border:1px solid var(--s-line);border-radius:6px;padding:14px}
-.home-about .fig svg{display:block;width:100%;min-width:640px;height:auto}
-.home-about .fig figcaption{margin-top:9px;font-size:13px;color:var(--s-muted);line-height:1.55}
+.home-about .fig svg{display:block;width:100%;min-width:640px;max-width:1400px;height:auto;margin:0 auto}
+.home-about .fig figcaption{margin-top:9px;font-size:14px;color:var(--s-muted);line-height:1.55}
 .home-about svg text{font-family:var(--sans)}
 .home-about svg .bx{fill:var(--s-bg);stroke:var(--s-line);stroke-width:1.5}
 .home-about svg .bxr{fill:var(--s-rust-soft);stroke:var(--s-rust);stroke-width:1.5}
@@ -49,6 +49,8 @@
 .home-about svg .ln{stroke:var(--s-muted);stroke-width:1.5;fill:none}
 .home-about svg .fa{fill:var(--s-muted)}
 .home-about svg .bar{fill:var(--s-blue)}
+.home-about svg .fcblue{fill:var(--s-blue);height:58px}
+.home-about svg .rest{fill:var(--s-alt);stroke:var(--s-line);stroke-width:1.5}
 .home-about svg .barg{fill:var(--s-teal)}
 .home-about .parts{margin:12px 0 0;display:grid;border:1px solid var(--s-line);border-radius:6px;overflow:hidden}
 .home-about .parts>div{display:grid;grid-template-columns:170px minmax(0,1fr);gap:18px;padding:13px 16px;border-top:1px solid var(--s-line)}
@@ -165,17 +167,19 @@
       <h2>Where files go</h2>
       <p>Research sites are built around published decisions. But most Federal Court immigration files never end in one, and leave is usually decided without written reasons. iLit also holds the Federal Court's record of every file on its docket, so it can show the whole picture, not only the files that produced a decision.</p>
       <figure class="fig"><div class="svgwrap">
-        <svg viewBox="0 0 960 250" role="img" aria-label="Federal Court immigration files on the docket compared with published Federal Court decisions in iLit. Research sites cover only the decisions. iLit covers the files too.">
-          <text class="cap" x="30" y="26">FEDERAL COURT · FILES AND DECISIONS</text>
-          <text x="236" y="76" text-anchor="end" class="t">Files filed</text><text x="236" y="96" text-anchor="end" class="s">the court's docket</text>
-          <rect class="bar" x="256" y="58" width="560" height="44" rx="4"/><text class="t" x="826" y="86" data-home="fcFiles">316,940</text>
-          <text x="236" y="156" text-anchor="end" class="t">Published decisions</text><text x="236" y="176" text-anchor="end" class="s">written reasons</text>
-          <rect id="homeFcBar" x="256" y="138" width="64" height="44" rx="4" fill="#9aa5ad"/><text class="t" id="homeFcLabel" x="330" y="166" data-home="fcDecisions">35,999</text>
-          <path class="ln" d="M256 214H816" stroke-dasharray="5 4"/>
-          <text class="i" x="256" y="236">Other research sites: the grey bar only</text>
-          <text class="i" x="816" y="236" text-anchor="end">iLit: both bars, joined by file number</text>
+        <svg viewBox="0 0 960 262" role="img" aria-label="One bar for all Federal Court immigration files on the docket. A small part at the left is the files with a published decision in iLit. The rest has no published decision. Research sites that hold only decisions can show the small part. iLit holds the record of the whole bar.">
+          <text class="cap" x="30" y="26">FEDERAL COURT IMMIGRATION FILES</text>
+          <rect id="homeFcRest" class="rest" x="132" y="44" width="798" height="58" rx="4"/>
+          <rect id="homeFcBar" class="fcblue" x="30" y="44" width="102" height="58" rx="4"/>
+          <text id="homeFcRestLabel" class="s" x="531" y="78" text-anchor="middle">Files with no published decision</text>
+          <path id="homeFcBr1" class="ln" d="M30 114V122H132V114"/>
+          <text class="n" x="30" y="154"><tspan data-home="fcDecisions">35,999</tspan> <tspan class="t">published decisions</tspan></text>
+          <text class="s" x="30" y="176">What a site built on decisions alone can show</text>
+          <path class="ln" d="M30 196V204H930V196"/>
+          <text class="n" x="480" y="232" text-anchor="middle"><tspan data-home="fcFiles">316,940</tspan> <tspan class="t">files on the court's docket</tspan></text>
+          <text class="s" x="480" y="252" text-anchor="middle">iLit holds the court's record of every one</text>
         </svg></div>
-        <figcaption>Most files have no published decision. A tool that holds only decisions cannot say how many files are filed, how many get leave, or how they end.</figcaption></figure>
+        <figcaption>There is about one published decision for every <span data-home="fcRatio">9</span> files. A tool that holds only decisions cannot say how many files are filed, how many get leave, or how they end.</figcaption></figure>
           </section>
 
     <section id="homeHow">
@@ -229,7 +233,7 @@ var root=document.getElementById('homeAbout');if(!root)return;
 var fmt=function(n){return Number(n).toLocaleString('en-CA')};
 var big=function(n){return n>=1000000?(Math.round(n/100000)/10)+' million':fmt(n)};
 var set=function(key,text){root.querySelectorAll('[data-home="'+key+'"]').forEach(function(el){el.textContent=text})};
-function bar(files,fc){var b=document.getElementById('homeFcBar'),l=document.getElementById('homeFcLabel');if(!b||!l||!files||!fc)return;var w=Math.max(6,Math.round(560*fc/files));b.setAttribute('width',String(w));l.setAttribute('x',String(256+w+10))}
+function bar(files,fc){var $=function(i){return document.getElementById(i)},b=$('homeFcBar'),r=$('homeFcRest'),rl=$('homeFcRestLabel'),br=$('homeFcBr1');if(!b||!r||!files||!fc)return;var w=Math.max(8,Math.round(900*fc/files));b.setAttribute('width',String(w));r.setAttribute('x',String(30+w));r.setAttribute('width',String(900-w));if(rl)rl.setAttribute('x',String(30+w+(900-w)/2));if(br)br.setAttribute('d','M30 114V122H'+(30+w)+'V114');set('fcRatio',String(Math.max(1,Math.round(files/fc))))}
 var files=316940,fc=35999;
 fetch('/api/about/stats').then(function(r){return r.ok?r.json():null}).then(function(d){if(!d)return;if(d.cases)set('cases',fmt(d.cases));if(d.citations)set('citations',big(d.citations));if(d.fc_activity_cases){files=d.fc_activity_cases;set('fcFiles',fmt(files));bar(files,fc)}}).catch(function(){});
 fetch('/api/about/library').then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.courts)return;var row=d.courts.filter(function(c){return c.court==='FC'})[0];if(row&&row.decisions){fc=row.decisions;set('fcDecisions',fmt(fc));bar(files,fc)}}).catch(function(){});

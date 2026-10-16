@@ -627,7 +627,7 @@ def test_lab_home_lists_every_tool_under_five_headings_at_its_old_address():
 
 
 @pytest.mark.parametrize(('query', 'selected', 'group'), [
-    ('', 'search', 'research'), ('?tab=info', 'about', 'info'),
+    ('', 'about', 'info'), ('?tab=search', 'search', 'research'), ('?tab=info', 'about', 'info'),
     ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'direct'),
     ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),

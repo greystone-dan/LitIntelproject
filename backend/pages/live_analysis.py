@@ -241,7 +241,7 @@ def live_analysis_page_html() -> str:
 	# This page opens on its own view; the research page's default is Research.
 	html = _replace_once(
 		html,
-		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'search'),false)",
+		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:([...params.keys()].length?'search':'about')),false)",
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
 	)
 	# The decided-issue search is off unless CASELIBRARY_ISSUE_MATCHES_ENABLED=1; with it off the page is unchanged.

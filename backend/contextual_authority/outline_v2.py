@@ -742,6 +742,9 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 	headings_mode = outline_headings_enabled()
 	printed_headings = hr.read_headings(text) if headings_mode else []
 	if headings_mode:
+		if not any(b["type"] == "para" for b in blocks):
+			bare = hr.bare_paragraphs(text)  # reasons numbered "12 text" without brackets (older Immigration and Refugee Board decisions)
+			blocks = [{**b, "type": "para", "num": bare[b["start"]]} if b["start"] in bare and b["type"] == "text" else b for b in blocks]
 		blocks = _mark_printed_headings(text, blocks, printed_headings)
 	units = _units(text, blocks)
 	printed = _printed_units(text, units, printed_headings) if headings_mode else None
@@ -763,7 +766,7 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 	if not any(u["num"] is not None for u in units):
 		# no [n] numbering: only trust the result when the analysis and one other section were found
 		found = {s for s in section if s}
-		if "analysis" not in found or len(found) < 3:
+		if "analysis" not in found or len(found) < (2 if len(printed_headings) >= 3 else 3):
 			return []
 	opinions = op.find_opinions(text, units) if headings_mode else []
 	if len(opinions) >= 2:

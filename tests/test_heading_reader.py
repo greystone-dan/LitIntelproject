@@ -130,3 +130,30 @@ def test_court_of_appeal_decision_of_ten_paragraphs_keeps_its_outline(monkeypatc
 	fca = fc.replace("Smith v. Canada", "Smith v. Canada\nFederal Court of Appeal Decisions\nCitation: 2020 FCA 5", 1)
 	assert all(r["section"] == "disposition" for r in outline_v2(fc, format_decision(fc, {})))
 	assert any(r["section"] != "disposition" for r in outline_v2(fca, format_decision(fca, {})))
+
+
+def test_footnote_lines_are_not_digit_headings():
+	lines = ["Decision Content", "[1] The claimant is a citizen of Nowhere and fears persecution there for several reasons.", "1 Ibid.", "[2] The panel finds the claimant credible on the central point of the claim."]
+	lines += ["2 Exhibit C-1, Personal Information Form.", "[3] The panel therefore accepts the claim."]
+	assert [h.title for h in read_headings("\n".join(lines))] == []
+
+
+def test_footnote_numbers_are_not_taken_for_unbracketed_paragraphs():
+	from backend.contextual_authority.heading_reader import bare_paragraphs
+
+	notes = "\n".join(["Reasons text without numbers goes here and is long enough to be prose.", "1 Ibid.", "2 Exhibit C-1, Personal Information Form.", "3 Supra note 2 at para 4."])
+	assert bare_paragraphs(notes) == {}
+
+
+def test_old_refugee_reasons_without_numbers_read_their_capital_headings():
+	prose = "The panel considered all the evidence and the submissions of counsel in reaching this conclusion."
+	text = "\n".join(["REASONS FOR DECISION", "ALLEGATIONS", prose, "ANALYSIS", prose, "CONCLUSION", prose])
+	titles = [(h.title, h.label) for h in read_headings(text)]
+	assert titles == [("ALLEGATIONS", "background"), ("ANALYSIS", "analysis"), ("CONCLUSION", "conclusion")]
+
+
+def test_tribunal_determination_heading_is_not_the_analysis():
+	from backend.contextual_authority.heading_reader import heading_label
+
+	assert heading_label("DETERMINATION") == "overview"
+	assert heading_label("ROLE OF THE RAD") == "issues"

@@ -25,6 +25,7 @@ from typing import Any
 
 from . import case_structure as cs
 from . import heading_reader as hr
+from . import opinions as op
 
 OUTLINE_V2_VERSION = "case_structure_outline_v2"
 
@@ -604,12 +605,13 @@ def _printed_units(text: str, units: list[dict[str, Any]], printed: Sequence[hr.
 	for h, label in zip(printed, labels):
 		by_start.setdefault(h.start, (h, label))
 	result: dict[int, str | None] = {}
+	reader_sure = len(printed) >= 3  # the reader found this decision's headings: a title line it did not accept is not one
 	for i, u in enumerate(units):
 		if not u["heading"]:
 			continue
 		hit = by_start.get(u["start"])
 		if hit is None:
-			if _LIST_LINE_RE.match(u["text"]) or (u["num"] is None and u["body"] is False and _ADDRESS_RE.search(u["text"])):
+			if reader_sure or _LIST_LINE_RE.match(u["text"]) or (u["num"] is None and u["body"] is False and _ADDRESS_RE.search(u["text"])):
 				u["heading"] = False
 				u["type"] = "text"
 			continue
@@ -623,33 +625,7 @@ def _printed_units(text: str, units: list[dict[str, Any]], printed: Sequence[hr.
 	return result
 
 
-def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
-	headings_mode = outline_headings_enabled()
-	printed_headings = hr.read_headings(text) if headings_mode else []
-	if headings_mode:
-		blocks = _mark_printed_headings(text, blocks, printed_headings)
-	units = _units(text, blocks)
-	printed = _printed_units(text, units, printed_headings) if headings_mode else None
-	anchored: set[str] = set()
-	if sum(1 for u in units if u["body"]) < 4:
-		return []
-	last_numbered = [u for u in units if u["num"] is not None]
-	# notes can be glued to the last numbered paragraph as unnumbered lines, so look from that paragraph's second line on
-	last_body = (last_numbered[-1]["start"] + len(last_numbered[-1]["text"].split("\n", 1)[0]) + 1) if last_numbered else 0
-	notes_at = footnote_start(text, last_body) if last_body else None
-	if notes_at is not None:
-		units = [u for u in units if u["start"] < notes_at]
-		for u in units:
-			if u["end"] > notes_at:  # notes glued to the last paragraph
-				u["end"] = notes_at
-				u["text"] = text[u["start"] : notes_at].strip()
-	section = _assign_sections(units, printed, anchored)
-	_fold_thin_sections(units, section)
-	if not any(u["num"] is not None for u in units):
-		# no [n] numbering: only trust the result when the analysis and one other section were found
-		found = {s for s in section if s}
-		if "analysis" not in found or len(found) < 3:
-			return []
+def _section_rows(units: list[dict[str, Any]], section: list[str | None]) -> list[dict]:
 	rows: list[dict] = []
 	for a, b, name in [r for r in _runs([s or "-" for s in section]) if r[2] != "-"]:
 		members = units[a : b + 1]
@@ -702,18 +678,114 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 				}
 			)
 	_normalise_levels(rows)
+	return rows
+
+
+def _opinion_row(units: Sequence[dict[str, Any]], title: str, kind: str, first: int | None = None) -> dict:
+	body = [u for u in units if u["body"]]
+	span = units[first:] if first is not None else units
+	return {
+		"title": title,
+		"role": "opinion",
+		"section": None,
+		"start": (body[0] if body and first is None else span[0])["start"],
+		"end": units[-1]["end"],
+		"para": _number_range(body)[0],
+		"para_end": _number_range(body)[1],
+		"count": len(body),
+		"level": 0,
+		"kind": "opinion",
+		"opinion": kind,
+		"printed": True,
+	}
+
+
+def _opinion_rows(text: str, units: list[dict[str, Any]], printed: dict[int, str | None] | None, opinions: list[op.Opinion], anchored: set[str]) -> list[dict]:
+	"""One block of rows per opinion. Only the lead opinion ends in a Disposition; a dissent or concurrence ends in its own Analysis."""
+	starts = [0] + [o.first_unit for o in opinions[1:]]
+	rows: list[dict] = []
+	for n, o in enumerate(opinions):
+		a = starts[n]
+		b = starts[n + 1] if n + 1 < len(opinions) else len(units)
+		sub = units[a:b]
+		row = _opinion_row(sub, op.opinion_title(o, len(opinions)), o.kind, first=0 if n else None)
+		rows.append(row)
+		if sum(1 for u in sub if u["body"]) < 4:
+			continue
+		sub_printed = None if printed is None else {i - a: v for i, v in printed.items() if a <= i < b}
+		section = _assign_sections(sub, sub_printed, anchored)
+		_fold_thin_sections(sub, section)
+		if n:
+			section = ["analysis" if name == "disposition" else name for name in section]
+		rows.extend(_section_rows(sub, section))
+	return rows
+
+
+def _add_author_row(text: str, units: list[dict[str, Any]], rows: list[dict]) -> None:
+	"""A single set of reasons gets one row saying who wrote it, when the decision says so (SCC header, FCA cover block)."""
+	if not rows or not units:
+		return
+	found = op.find_opinions(text, units)
+	title = None
+	if found and found[0].author:
+		title = op.opinion_title(found[0], 1)
+	elif _FCA_RE.search(text[:1500]):
+		cover = op.cover_author(text)
+		who = cover.get("author") or cover.get("court")
+		if who:
+			title = "Reasons of the Court" if who == "the Court" else op.opinion_title(op.Opinion("lead", "reasons", who, cover.get("concurring"), 0, None, "cover"), 1)
+	if title:
+		rows.insert(0, _opinion_row(units, title, "lead", first=0) | {"start": rows[0]["start"], "end": rows[-1]["end"]})
+
+
+def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
+	headings_mode = outline_headings_enabled()
+	printed_headings = hr.read_headings(text) if headings_mode else []
+	if headings_mode:
+		blocks = _mark_printed_headings(text, blocks, printed_headings)
+	units = _units(text, blocks)
+	printed = _printed_units(text, units, printed_headings) if headings_mode else None
+	anchored: set[str] = set()
+	if sum(1 for u in units if u["body"]) < 4:
+		return []
+	last_numbered = [u for u in units if u["num"] is not None]
+	# notes can be glued to the last numbered paragraph as unnumbered lines, so look from that paragraph's second line on
+	last_body = (last_numbered[-1]["start"] + len(last_numbered[-1]["text"].split("\n", 1)[0]) + 1) if last_numbered else 0
+	notes_at = footnote_start(text, last_body) if last_body else None
+	if notes_at is not None:
+		units = [u for u in units if u["start"] < notes_at]
+		for u in units:
+			if u["end"] > notes_at:  # notes glued to the last paragraph
+				u["end"] = notes_at
+				u["text"] = text[u["start"] : notes_at].strip()
+	section = _assign_sections(units, printed, anchored)
+	_fold_thin_sections(units, section)
+	if not any(u["num"] is not None for u in units):
+		# no [n] numbering: only trust the result when the analysis and one other section were found
+		found = {s for s in section if s}
+		if "analysis" not in found or len(found) < 3:
+			return []
+	opinions = op.find_opinions(text, units) if headings_mode else []
+	if len(opinions) >= 2:
+		rows = _opinion_rows(text, units, printed, opinions, anchored)
+	else:
+		rows = _section_rows(units, section)
+		if headings_mode:
+			_add_author_row(text, units, rows)
 	_clamp_section_ranges(rows)
 	if headings_mode:
 		_mark_row_sources(rows, anchored)
 		if sum(1 for u in units if u["body"]) < _short_decision_limit(text) and len(printed_headings) < 3:
 			# a short decision with next to no headings has no structure worth an outline: keep only where it ends
-			rows = [r for r in rows if r["kind"] == "section" and r["section"] == "disposition"]
+			rows = [r for r in rows if r["kind"] == "opinion" or (r["kind"] == "section" and r["section"] == "disposition")]
 	return rows
 
 
 def _mark_row_sources(rows: list[dict], anchored: set[str]) -> None:
 	"""``printed`` is True when the court's own heading put the row there, False when the outline inferred it."""
 	for r in rows:
+		if r["kind"] == "opinion":
+			continue
 		if r["kind"] == "section":
 			r["printed"] = r["section"] in anchored or (r["section"] == "background" and bool(anchored & {"overview", "facts"}))
 		else:

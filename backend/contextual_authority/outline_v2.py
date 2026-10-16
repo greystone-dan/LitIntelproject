@@ -24,6 +24,7 @@ from collections.abc import Sequence
 from typing import Any
 
 from . import case_structure as cs
+from . import heading_reader as hr
 
 OUTLINE_V2_VERSION = "case_structure_outline_v2"
 
@@ -36,6 +37,11 @@ _CONTINUATION_TYPES = {"text", "listitem"}
 
 def outline_v2_enabled() -> bool:
 	return os.getenv("ILIT_OUTLINE_V2", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def outline_headings_enabled() -> bool:
+	"""ILIT_OUTLINE_HEADINGS=1: the court's printed headings set the section starts and sub-points (default off)."""
+	return os.getenv("ILIT_OUTLINE_HEADINGS", "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 # --------------------------------------------------------------------------- topics for heading-less analysis
@@ -193,11 +199,13 @@ def _heading_section(text: str) -> str | None:
 	return _ROLE_SECTION.get(kind) if kind else None
 
 
-def _assign_sections(units: list[dict[str, Any]]) -> list[str | None]:
+def _assign_sections(units: list[dict[str, Any]], printed: dict[int, str | None] | None = None, anchored: set[str] | None = None) -> list[str | None]:
 	"""A section per unit (None for the header and footer), forced into Background > Issues > Analysis > Disposition order.
 
 	Headings that name a section are the anchors; text before the first anchor, and decisions with no such heading,
-	use the ordered paragraph labeller.
+	use the ordered paragraph labeller. ``printed`` (unit index -> section or None) holds what the heading reader made of each
+	printed heading; it replaces the keyword guess for those headings, so a "Respondent's submissions" heading no longer starts
+	the Analysis. ``anchored`` collects the sections a printed heading started.
 	"""
 	texts = [u["text"] for u in units]
 	roles = cs.label_paragraph_roles(texts)
@@ -221,12 +229,14 @@ def _assign_sections(units: list[dict[str, Any]]) -> list[str | None]:
 	for i in range(max(0, first_num - 1), last_num + 2 if last_num + 1 < len(units) else len(units)):
 		if i >= len(units) or not units[i]["heading"]:
 			continue
-		name = _heading_section(units[i]["text"])
+		name = printed[i] if printed is not None and i in printed else _heading_section(units[i]["text"])
 		if name is None or _ORDER[name] < high:
 			continue
 		if name == "disposition" and numbered_from(i) > closing:
 			continue
 		anchors.append((i, name))
+		if anchored is not None:
+			anchored.add(name)
 		high = _ORDER[name]
 
 	section: list[str | None] = [None] * len(units)
@@ -500,7 +510,7 @@ def outline_v2(text: str | None, blocks: Sequence[dict]) -> list[dict]:
 	"""
 	if not text:
 		return []
-	key = (hash(text), len(text), tuple((b.get("type"), b.get("start"), b.get("end")) for b in blocks), os.getenv("ILIT_LEARNED_ROLES", ""))
+	key = (hash(text), len(text), tuple((b.get("type"), b.get("start"), b.get("end")) for b in blocks), os.getenv("ILIT_LEARNED_ROLES", ""), outline_headings_enabled())
 	hit = _CACHE.get(key)
 	if hit is None:
 		hit = _outline_v2_uncached(text, blocks)
@@ -547,8 +557,80 @@ def footnote_markers(text: str, start: int) -> list[tuple[int, int, int | None]]
 	return out
 
 
+_GLUED_HEAD_RE = re.compile(r"^(?P<head>[^\[]{3,300}?)\s+(?P<mark>\[(?P<n>\d{1,3})\])\s+(?=\S)")
+_LIST_LINE_RE = re.compile(r"^\d{1,2}[.)]\s")
+_ADDRESS_RE = hr._ADDRESS
+_SHORT_DECISION_PARAS = 15
+_SHORT_DECISION_PARAS_FCA = 4  # Court of Appeal reasons are short as a rule (44% under 15 paragraphs), so only the very short (under 4 paragraphs) lose their outline
+_FCA_RE = re.compile(r"Federal Court of Appeal|\b\d{4} FCA \d+")
+
+
+def _short_decision_limit(text: str) -> int:
+	return _SHORT_DECISION_PARAS_FCA if _FCA_RE.search(text[:1500]) else _SHORT_DECISION_PARAS
+
+
+def _mark_printed_headings(text: str, blocks: Sequence[dict], printed: Sequence[hr.PrintedHeading]) -> list[dict]:
+	"""Blocks with every printed heading as a heading block, so a long question heading is no longer glued onto the paragraph above."""
+	by_start = {}
+	for h in printed:
+		by_start.setdefault(h.start, h)
+	out: list[dict] = []
+	for b in blocks:
+		h = by_start.get(b["start"])
+		if h is None or b["type"] in {"meta", "footer", "signature"}:
+			out.append(dict(b))
+		elif h.glued:
+			line = text[b["start"] : b["end"]].split("\n", 1)[0]
+			m = _GLUED_HEAD_RE.match(line)
+			if not m:
+				out.append({**b, "type": "heading"} if b["type"] not in {"para", "heading"} else dict(b))
+				continue
+			mark_start = b["start"] + m.start("mark")
+			out.append({"type": "heading", "start": b["start"], "end": b["start"] + len(m.group("head"))})
+			out.append({**b, "type": "para", "start": mark_start, "num": int(m.group("n")), "mark_end": mark_start + len(m.group("mark"))})
+		elif b["type"] not in {"para", "heading"}:
+			out.append({**b, "type": "heading"})
+		else:
+			out.append(dict(b))
+	return out
+
+
+def _printed_units(text: str, units: list[dict[str, Any]], printed: Sequence[hr.PrintedHeading]) -> dict[int, str | None]:
+	"""Unit index -> the section a printed heading starts (None: a heading that starts no section). Numbered list lines
+	that the heading reader did not accept stop counting as headings."""
+	labels = hr.resolved_labels(list(printed))
+	has_roman = any(h.kind == "roman" for h in printed)
+	by_start: dict[int, tuple[hr.PrintedHeading, str]] = {}
+	for h, label in zip(printed, labels):
+		by_start.setdefault(h.start, (h, label))
+	result: dict[int, str | None] = {}
+	for i, u in enumerate(units):
+		if not u["heading"]:
+			continue
+		hit = by_start.get(u["start"])
+		if hit is None:
+			if _LIST_LINE_RE.match(u["text"]) or (u["num"] is None and u["body"] is False and _ADDRESS_RE.search(u["text"])):
+				u["heading"] = False
+				u["type"] = "text"
+			continue
+		h, label = hit
+		section = hr.SECTION_OF.get(label)
+		if section is None and label in {"topic", "question"}:
+			section = _heading_section(h.title)  # wording the reader has no standard name for: the older keyword rules
+		if not (h.top_level or (h.kind == "letter" and not has_roman)):
+			section = None
+		result[i] = section
+	return result
+
+
 def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
+	headings_mode = outline_headings_enabled()
+	printed_headings = hr.read_headings(text) if headings_mode else []
+	if headings_mode:
+		blocks = _mark_printed_headings(text, blocks, printed_headings)
 	units = _units(text, blocks)
+	printed = _printed_units(text, units, printed_headings) if headings_mode else None
+	anchored: set[str] = set()
 	if sum(1 for u in units if u["body"]) < 4:
 		return []
 	last_numbered = [u for u in units if u["num"] is not None]
@@ -561,7 +643,7 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 			if u["end"] > notes_at:  # notes glued to the last paragraph
 				u["end"] = notes_at
 				u["text"] = text[u["start"] : notes_at].strip()
-	section = _assign_sections(units)
+	section = _assign_sections(units, printed, anchored)
 	_fold_thin_sections(units, section)
 	if not any(u["num"] is not None for u in units):
 		# no [n] numbering: only trust the result when the analysis and one other section were found
@@ -621,7 +703,21 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 			)
 	_normalise_levels(rows)
 	_clamp_section_ranges(rows)
+	if headings_mode:
+		_mark_row_sources(rows, anchored)
+		if sum(1 for u in units if u["body"]) < _short_decision_limit(text) and len(printed_headings) < 3:
+			# a short decision with next to no headings has no structure worth an outline: keep only where it ends
+			rows = [r for r in rows if r["kind"] == "section" and r["section"] == "disposition"]
 	return rows
+
+
+def _mark_row_sources(rows: list[dict], anchored: set[str]) -> None:
+	"""``printed`` is True when the court's own heading put the row there, False when the outline inferred it."""
+	for r in rows:
+		if r["kind"] == "section":
+			r["printed"] = r["section"] in anchored or (r["section"] == "background" and bool(anchored & {"overview", "facts"}))
+		else:
+			r["printed"] = r.get("source") == "heading"
 
 
 def _clamp_section_ranges(rows: list[dict]) -> None:

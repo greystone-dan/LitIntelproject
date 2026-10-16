@@ -15,7 +15,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-_PARA = re.compile(r"^\[\d+\]")
+_PARA = re.compile(r"^\[\d{1,3}\]")
 _ROMAN = r"(?:X{0,2}(?:IX|IV|V?I{0,3}))"
 _PREFIX = re.compile(
     r"^\s*(?:(?P<rom>(?=[IVX])" + _ROMAN + r")|(?P<let>[A-Ha-h])|(?P<dig>\d{1,2})|\((?P<par>[a-h]|[ivx]{1,4}|\d{1,2})\))\s*[.)]?\s+(?P<title>\S.*)$"

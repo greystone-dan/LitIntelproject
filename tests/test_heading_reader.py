@@ -114,3 +114,10 @@ def test_short_decision_without_headings_keeps_only_the_disposition(monkeypatch)
 	monkeypatch.setenv("ILIT_OUTLINE_HEADINGS", "1")
 	rows = outline_v2(text, format_decision(text, {}))
 	assert all(r["section"] == "disposition" for r in rows)
+
+
+def test_report_citation_line_is_not_a_paragraph_number():
+	text = "\n".join(
+		["Yugraneft Corp. v. Rexx", "[2010] 1 SCR 649", "Docket: 32738", "The judgment of the Court was delivered by", "Rothstein J. —", "I. Introduction", _para(1), "II. Facts", _para(2), "III. Analysis", _para(3), "Appeal dismissed.", "Solicitors for the appellant: Smith."]
+	)
+	assert [h.title for h in read_headings(text)] == ["Introduction", "Facts", "Analysis"]

@@ -11,6 +11,8 @@ from __future__ import annotations
 import re
 from typing import Any, Mapping
 
+from .paragraph_markers import find_marker
+
 DECISION_MARKER = "Decision Content"
 
 _ROLE_RE = re.compile(
@@ -106,6 +108,7 @@ def format_decision(
     in_counsel = False
     first_para_seen = False
     last_num = 0
+    top_num = 0  # highest paragraph number seen; decisions with a mistyped number must not stall the sequence
     for i in range(body_from, len(lines)):
         start, end, raw = lines[i]
         stripped = raw.strip()
@@ -134,6 +137,7 @@ def format_decision(
         if para and not in_counsel:
             first_para_seen = True
             last_num = int(para.group(1))
+            top_num = max(top_num, last_num)
             blocks.append(_block("para", start, end, num=last_num, mark_end=start + len(para.group(0).rstrip())))
             continue
         bare = _BARE_PARA_RE.match(raw)
@@ -143,6 +147,16 @@ def format_decision(
             last_num += 1
             blocks.append(_block("para", start, end, num=last_num, mark_end=start + len(bare.group(1))))
             continue
+        if not in_counsel and not _PARA_RE.match(raw):
+            found = find_marker(raw, last_num, top_num)
+            if found is not None:
+                if found.head_end:
+                    blocks.append(_block("heading", start, start + found.head_end, level=2))
+                first_para_seen = True
+                last_num = found.num
+                top_num = max(top_num, last_num)
+                blocks.append(_block("para", start + found.mark_start, end, num=found.num, mark_end=start + found.mark_end))
+                continue
         if in_counsel and _FOOTNOTE_RE.match(raw):
             blocks.append(_block("footnote", start, end, num=int(_FOOTNOTE_RE.match(raw).group(1))))
             continue

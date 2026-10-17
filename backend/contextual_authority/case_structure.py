@@ -10,7 +10,32 @@ import os
 import re
 from collections import OrderedDict
 
+from ..paragraph_markers import find_marker
+
 _NUMBERED_RE = re.compile(r"^\s*\[\d+\]")
+
+
+def _split_glued_markers(body: list[str]) -> list[str]:
+    """Cut a heading off a line that carries its paragraph marker ("Issue [19] text" -> "Issue", "[19] text")."""
+    out: list[str] = []
+    last = top = 0
+    for line in body:
+        match = _NUMBERED_RE.match(line)
+        if match:
+            last = int(match.group(0).strip()[1:-1])
+            top = max(top, last)
+            out.append(line)
+            continue
+        found = find_marker(line, last, top)
+        if found is None:
+            out.append(line)
+            continue
+        last = found.num
+        top = max(top, last)
+        if found.head_end:
+            out.append(line[: found.head_end])
+        out.append(line[found.mark_start :])
+    return out
 
 
 def split_decision_text(text: str) -> list[str]:
@@ -30,7 +55,7 @@ def split_decision_text(text: str) -> list[str]:
     if marker >= 0:
         paragraphs.append("\n".join(line for line in lines[: marker + 1] if line))
         lines = lines[marker + 1 :]
-    body = [line for line in lines if line]
+    body = _split_glued_markers([line for line in lines if line])
     first_numbered = next((i for i, line in enumerate(body) if _NUMBERED_RE.match(line)), None)
     if first_numbered:
         paragraphs.append("\n".join(body[:first_numbered]))

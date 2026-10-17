@@ -11,7 +11,7 @@ required, which law or policy applies, or whether any use is approved.
 | System | FastAPI legal research application with PostgreSQL/pgvector storage and browser interfaces. Database connection settings are environment-configured. [SYSTEM_REFERENCE.md:71-83](../../SYSTEM_REFERENCE.md#L71-L83) [backend/database.py:61-78](../../backend/database.py#L61-L78) |
 | Purpose described in code | Search and research over stored Canadian decisions and statutes; memo-citation-check compares citations in an uploaded draft with stored local authorities. [backend/search_service.py:1-4](../../backend/search_service.py#L1-L4) [backend/memo_citation_check.py:102-119](../../backend/memo_citation_check.py#L102-L119) |
 | Intended departmental use | **To be supplied by the department.** The repository does not establish the sponsor's purpose, authority, user population, or approval. |
-| Deployment | The repository contains a local-workstation/tunnel deployment path; this does not prove the live PC's location, configuration, or actual network path. [scripts/service/run_site.ps1:22-27](../../scripts/service/run_site.ps1#L22-L27) [docs/LOCAL_DEPLOYMENT_SETUP.md:101-117](../LOCAL_DEPLOYMENT_SETUP.md#L101-L117) |
+| Deployment | The repository contains a Windows service-supervisor/tunnel path; this does not prove the live PC's location, configuration, or actual network path. [scripts/service/run_site.ps1:22-27](../../scripts/service/run_site.ps1#L22-L27) [deployment workflow](../DEPLOYMENT_COMMANDS.md) |
 
 ## Personal information and data subjects
 

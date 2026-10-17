@@ -58,19 +58,40 @@ Back up a production/shared database before repair. Do not manually mark a migra
 
 ## Server, Browser, And Tunnel Failures
 
-### UI Shows Old Code Or Routes Behave Inconsistently
+### Windows Site Recovery
 
-The Windows scheduled task `iLitSite` is the primary site and tunnel process.
-If deploying, run `git pull origin main`, then restart it with
-`Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`. Keep the site
-worktree on `main`. Do not run `scripts\refresh_site.ps1` while the task is
-installed; that script is only a fallback if the task has been removed.
+The Windows scheduled task `iLitSite` supervises the FastAPI application and
+Cloudflare tunnel. Keep the site worktree on `main`; deployment commands are in
+`docs/DEPLOYMENT_COMMANDS.md`. Restart the task once:
 
-Then check the local route and a lightweight API route. For reader/UI failures, check browser console errors before changing backend logic: inline JavaScript escaping in `routes.py` can break the page while Python still imports.
+```powershell
+Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite
+Start-Sleep -Seconds 50
+```
 
-### Local Service Works But Tunnel Returns 502/Unavailable
+Verify local health and the public route after startup:
 
-First verify `http://127.0.0.1:8001/health`. A short initial 502 can occur while the server process binds. If local health is good, inspect the active Cloudflare process/config and wait only for normal startup; otherwise restart the `iLitSite` task. Use `scripts\refresh_site.ps1` only if the task has been removed, never while it is installed. Do not assume a tunnel provides authentication.
+```powershell
+Invoke-WebRequest -Uri "http://localhost:8001/health/live" -TimeoutSec 3
+Invoke-WebRequest -Uri "https://www.ilit.ca/data-explorer" -TimeoutSec 5
+```
+
+Both should return 200. If the public route fails while local health works,
+inspect the tunnel process/configuration or restart the task; do not assume the
+tunnel provides authentication. Do not run `scripts\refresh_site.ps1` while
+`iLitSite` is installed.
+
+If recovery fails, check for a listener on port 8001 and stop a process only
+after confirming it is not managed by `iLitSite`:
+
+```powershell
+netstat -ano | findstr "127.0.0.1:8001.*LISTENING"
+```
+
+Do not bulk-stop Python processes. Review `logs\site-service.log` and
+`logs\app.err.log` for service and application errors. For reader/UI failures,
+check browser console errors before changing backend logic: inline JavaScript
+escaping in `routes.py` can break a page while Python still imports.
 
 ### Reader Highlights Or Linked Context Missing
 

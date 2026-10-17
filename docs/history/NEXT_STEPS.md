@@ -1,4 +1,9 @@
-# Next Steps
+# Next Steps (Historical Snapshot)
+
+> Archived on 2026-10-17. The current Discussion Unit review status and approval
+> gate are maintained in [`STILL_TO_DO.md`](../STILL_TO_DO.md#contextual-and-advanced-intelligence).
+> The detailed run guidance below is retained for history, not as current
+> authorization to run additional cases.
 
 ## Discussion Unit labeling
 
@@ -17,23 +22,25 @@ cases are retried only when `--retry-failed` is supplied. It never automatically
 resends a completed case. Each case retains its request/result JSON, rendered
 Markdown review, and `.raw_response.txt` when the model response is malformed.
 
-The no-network preparation pass completed for all 300 core cases in
-`data/eval/llm_discussion_units_pilot/core_300_run`, including 300 deterministic
-reports, 300 request payloads, a manifest, and a ledger. The approved first-10
-API validation completed 9 cases and retained one raw response for failed case
-`677`; no cases after the first 10 were attempted. Review the nine Markdown
-files and the raw-error file before treating labels as useful metadata. Keep
+At the time of the 2026-10-17 archive, the checked-in ledger for the 300-case
+core cohort under `data/eval/llm_discussion_units_pilot/core_300_run` recorded
+20 cases: 17 `complete` and 3 `failed` (`677`, `2044`, and
+`2220`). This is artifact evidence; operational provenance has not been
+independently verified. Review the ledger and available report/error artifacts
+before treating labels as useful metadata or deciding whether to continue. Keep
 model outputs report-only and separate from canonical citations, statutes,
-tags, outcomes, and source offsets. Do not launch the remaining 290 cases or
-the 2,500-case layer until the first-10 result is accepted and explicitly
-approved.
+tags, outcomes, and source offsets. Do not run additional cases or the
+2,500-case layer until the available results are accepted and continuation is
+explicitly approved.
 
-The active paragraph-assessment artifacts are retained only under
-`data/eval/llm_discussion_units_pilot/paragraph_level_300_run`; the prepared
+At archive time, the sandbox loader expected paragraph-assessment files under
+`data/eval/llm_discussion_units_pilot/paragraph_level_300_run/reviews`, but that
+directory was absent in the checkout. When a per-case file is missing,
+`backend/discussion_units_sandbox.py` returns `available: false`; those
+assessments were unavailable in that checkout, not retained artifacts. The prepared
 Discussion Unit artifacts remain under `core_300_run`. Earlier five-case,
 20-case, single-case, and request-only paragraph pilots were removed on
-2026-09-24 as obsolete. No route or runner should depend on those retired
-directories.
+2026-09-24 as obsolete.
 
 Future improvement: evaluate a separate model-led paragraph discovery pass on
 the approved sample. The model would receive source text without deterministic

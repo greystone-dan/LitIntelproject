@@ -18,6 +18,7 @@ Use this directory for documents that preserve implementation history or decisio
 - AI_HANDOFF_2026-09-02_root.md (moved from the repo root)
 - SYSTEM_OVERVIEW_2026-08-12.txt (moved from the repo root)
 - FORMATTING_IMPROVEMENTS.md (moved from the repo root)
+- NEXT_STEPS.md (retired run note; current Discussion Unit status is in `docs/STILL_TO_DO.md`)
 - AI_STAGE_SUMMARY_2026-07-31.md
 - PROJECT_NOTES.md
 

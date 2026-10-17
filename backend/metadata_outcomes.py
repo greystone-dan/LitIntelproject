@@ -151,7 +151,19 @@ _SET_ASIDE_SPLIT_RE = re.compile(
 	r"|\bthe\s+RAD\s+refers\s+(?:this|the)\s+matter\b",
 	re.IGNORECASE,
 )
-_PARTIAL_RE = re.compile(r"\b(?:in\s+part|partly|partially)\b", re.IGNORECASE)
+_PARTIAL_RE = re.compile(
+	r"\b(?:in\s+part|partly|partially|in\s+other\s+respects|all\s+other\s+(?:aspects|grounds|issues|respects))\b",
+	re.IGNORECASE,
+)
+# "I would allow the appeal, set aside the judgment below and, giving the judgment it should have given, dismiss the application".
+_APPEAL_ALLOWED_RE = re.compile(r"\b(?:propose\s+to\s+allow|(?:would|will|shall)\s+allow|allows?)\s+(?:the|this)\s+appeals?\b", re.IGNORECASE)
+# "Appeal dismissed in Orbanski. Appeal allowed in Elias": one judgment, separate appeals decided in opposite directions.
+_HEADLINE_SPLIT_RE = re.compile(
+	r"\b(?:dismissed|allowed)\s+in\s+(?!part\b)[A-Z]\w+[^\n]{0,40}?\b(?:allowed|dismissed)\s+in\s+(?!part\b)[A-Z]\w+"
+)
+_CONSEQUENTIAL_ORDER_RE = re.compile(
+	r"\b(?:set\s+aside|quash\w*)\b|\b(?:render|giv\w+|issu\w+|pronounc\w+)\s+the\s+(?:judgments?|decisions?)\b", re.IGNORECASE
+)
 _SIDE_ORDER_RE = re.compile(r"\b(?:leave|stay|extension|motion|request)\b", re.IGNORECASE)
 _VERB_LABELS = {
 	"allowed": "allowed", "allow": "allowed", "allows": "allowed", "upheld": "allowed",
@@ -309,7 +321,9 @@ def _best_outcome(content: str) -> tuple[str, re.Match[str], int, str] | None:
 _PROCEDURAL_SENTENCE_RE = re.compile(
 	r"\b(?:motions?|extension\s+of\s+time|stay\s+of|stay\s+pending|reinstat\w*|vacat(?:e|ion)\b|interven\w*|taxation|"
 	r"assessment\s+of\s+costs|bill\s+of\s+costs|disbursements|security\s+for\s+costs|notice\s+of\s+appeal|"
-	r"remov\w+\s+from\s+the\s+file|file\s+be\s+closed|adjourn\w*|objection)\b",
+	r"remov\w+\s+from\s+the\s+file|file\s+be\s+closed|adjourn\w*|objection|"
+	r"stays?|interlocutory|leave\s+to\s+(?:appeal|intervene|file|serve)|applications?\s+for\s+leave|appeal\s+books?|"
+	r"costs?\s+of\s+the\s+(?:appeal|application|motion)|(?:grant|award|fix)\w*\s+[^.\n]{0,40}?\bcosts)\b",
 	re.IGNORECASE,
 )
 _PROCEDURAL_CAPTION_RE = re.compile(
@@ -347,6 +361,8 @@ def _is_procedural(content: str, best, operative_start: int, tail: str, is_tribu
 		subject = tail[max(left, best[3].start() - 60) : best[3].end()]
 	if best[4] != "headline" and _PROCEDURAL_SENTENCE_RE.search(subject):
 		return True
+	if best[4] == "headline" and re.match(r"\s*motions?\b", best[3].group(0), re.IGNORECASE):
+		return True  # "Motion granted." / "Motion dismissed with costs." decides the motion, not the appeal
 	trailer = _TRAILER_RE.search(tail, max(0, len(tail) - 4000))
 	markers = list(_MARKER_RE.finditer(tail[: trailer.start()] if trailer else tail))
 	if markers:
@@ -520,8 +536,19 @@ def _decide(content: str) -> "Decision | None":
 		and (c[4] != "tribunal_finding" or best[4] == "tribunal_finding")
 	}
 	in_operative = operative_start > 0 and best[1] >= operative_start
+	if best[2] == "dismissed" and best[4] in {"actor", "concluding", "subject_verb"}:
+		# The appeal was allowed and the order below set aside; the later "dismiss the application" is the consequence.
+		window_start = max(operative_start, best[1] - 900)
+		for earlier in _APPEAL_ALLOWED_RE.finditer(tail, window_start, best[1]):
+			between = tail[earlier.end() : best[1]]
+			if _CONSEQUENTIAL_ORDER_RE.search(between) and not _NEGATION_BEFORE_VERB_RE.search(tail[max(0, earlier.start() - 25) : earlier.start()]):
+				best = (3, earlier.start(), "allowed", earlier, best[4])
+				match = earlier
+				break
 	if best[0] < 3 and not (in_operative and best[4] in {"bare_verdict", "consequence"}):
 		return Decision("unclear", "weak_cue_only", match, offset, tail, False, best[0], best[4])
+	if best[0] == 4 and best[4] == "headline" and _HEADLINE_SPLIT_RE.search(match.group(0)):
+		return Decision("mixed", "split_headline", match, offset, tail, True, best[0], best[4])
 	if len(strong) > 1 and best[0] < 4:
 		return Decision("unclear", "conflicting_rulings", match, offset, tail, False, best[0], best[4])
 	partial = _is_partial(tail, match)
@@ -639,6 +666,32 @@ def _role_from_labelled_parties(text: str) -> str | None:
 	return found.pop() if len(found) == 1 else None
 
 
+_CROWN_COUNSEL_RE = re.compile(
+	r"attorney\s+general|solicitor\s+general|public\s+prosecut|director\s+of\s+(?:military\s+)?prosecut|crown|minister\s+of|"
+	r"department\s+of\s+justice|procureur\s+g[ée]n[ée]ral|poursuites\s+p[ée]nales",
+	re.IGNORECASE,
+)
+_SOLICITOR_LINE_RE = re.compile(
+	r"Solicitors?\s+for\s+the\s+(?P<role>appellants?|respondents?)(?P<qual>[^:\n]{0,80}):[ \t]*(?P<who>[^\n]{0,200}?)(?=\s+Solicitors?\s+for\b|\n|$)", re.IGNORECASE
+)
+
+
+def _role_from_solicitor_lines(content: str) -> str | None:
+	"""Side of the Crown/AG from the SCC solicitors block ("Solicitor for the appellant: Attorney General of Ontario").
+
+	The title of an SCC decision follows the lower court, so "R. v. X" can hide that a provincial Crown is the appellant.
+	Returns None unless exactly one side is a Crown office.
+	"""
+	found: set[str] = set()
+	for match in _SOLICITOR_LINE_RE.finditer(content[-6000:]):
+		if re.search(r"cross|interven|mis\s+en\s+cause|amicus", match.group("qual"), re.IGNORECASE):
+			continue
+		who = match.group("who")
+		if _CROWN_COUNSEL_RE.search(who) or _GOVERNMENT_PARTY_RE.search(who):
+			found.add("applicant" if match.group("role").lower().startswith("appellant") else "respondent")
+	return found.pop() if len(found) == 1 else None
+
+
 def _resolve_government_role(content: str, metadata: dict[str, object]) -> str | None:
 	"""Prefer the style of cause, then the title line; fall back to caption role labels."""
 	if _is_rllr_document(content):
@@ -646,6 +699,9 @@ def _resolve_government_role(content: str, metadata: dict[str, object]) -> str |
 	if _is_rad_document(content):
 		# The Minister is a party to a RAD appeal only when the Minister brought it; otherwise there is no government side.
 		return "applicant" if _RAD_MINISTER_APPEAL_RE.search(content[:3500]) else None
+	solicitor_role = _role_from_solicitor_lines(content)
+	if solicitor_role:
+		return solicitor_role
 	style_text = str(metadata.get("style of cause") or "").strip()
 	between_text = str(metadata.get("between") or "").strip()
 	labelled = _role_from_labelled_parties("\n".join(part for part in (between_text, content[:3000]) if part))

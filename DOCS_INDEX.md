@@ -31,7 +31,7 @@ Primary explainer docs:
 5. `.github/copilot-instructions.md` defines repository-level agent guardrails,
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
-    agent, durable task records, status, and escalation rules.
+    agent, task-record workflow, status, and escalation rules.
 7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
    review for live document analysis and de-identification; current route
    behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
@@ -49,7 +49,7 @@ Active implementation and operations:
 
 Legacy/reference-only areas:
 
-1. `legacy/` (archived artifacts and legacy workflow references)
+1. `legacy/README.md` (historical marker; archived payloads are no longer tracked)
 2. `backend/legacy/` (deprecated or parked runtime modules)
 3. `docs/history/` (historical notes and prior snapshots)
 
@@ -221,7 +221,7 @@ or reproducibility requires a source-controlled artifact.
 | API and schema contracts | Generated references and their source code/migrations | Never hand-edit generated outputs |
 | Operational procedures | `OVERNIGHT.md` and focused `docs/` runbooks | Executable operational guidance |
 | Feature research guidance | `docs/RESEARCH_UI_GUIDE.md` and linked Swimm UI walkthrough | User-facing workflow and implementation map |
-| Multi-step execution evidence | `.github/project-manager/tasks/` | Short-lived or durable task records |
+| Multi-step execution evidence | `.github/project-manager/tasks/` | Active task records; completed records are removed after canonical evidence is captured |
 | Historical lineage | `docs/history/` | Reference only; never current authority |
 
 ## Consolidation Rules

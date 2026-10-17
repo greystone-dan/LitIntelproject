@@ -67,3 +67,65 @@ def test_each_named_paragraph_gets_a_cited_by_edge():
 	occurrences = [Occurrence(9, paragraph, 5, 20) for paragraph in pins.paragraphs]
 	edges = build_edges(text, occurrences)
 	assert [(e.target_case_id, e.target_paragraph, e.mentions) for e in edges] == [(9, 45, 1), (9, 46, 1)]
+
+
+@pytest.mark.parametrize(
+	"text, paragraphs",
+	[
+		# French decisions join ranges with a non-breaking hyphen (U+2011).
+		("aux para 88‑90, 94 et 133‑135", (88, 89, 90, 94, 133, 134, 135)),
+		("par. 318‑319 et 321‑323", (318, 319, 321, 322, 323)),
+		("at paras. 65‑66 and 211‑12", (65, 66, 211, 212)),
+		("paras 84−86", (84, 85, 86)),
+		("at paras 84 through 86", (84, 85, 86)),
+		("aux paragraphes 12 ou 14", (12, 14)),
+		("at paras. [84]-[86]", (84, 85, 86)),
+		("at para [84]", (84,)),
+	],
+)
+def test_more_range_spellings(text, paragraphs):
+	pins = paragraph_pinpoints(text)
+	assert pins is not None and pins.paragraphs == paragraphs
+
+
+def test_reporter_year_in_brackets_is_not_a_paragraph():
+	assert paragraph_pinpoints("at para 34, [2013] 2 S.C.R. 559").paragraphs == (34,)
+	assert paragraph_pinpoints("at paras 12-14, [2014] 1 F.C.R. 766").paragraphs == (12, 13, 14)
+
+
+@pytest.mark.parametrize(
+	"text",
+	[
+		"paragraph 72(1)(a) of the Act",
+		"paras 34(1)(f) and 35(2)(b)",
+		"paragraph 34 of the IRPA",
+		"alinéa 12 de la LIPR, paragraphe 34 de la Loi",
+	],
+)
+def test_statute_provisions_are_not_decision_paragraphs(text):
+	assert paragraph_pinpoints(text) is None
+
+
+def test_non_breaking_hyphen_page_range():
+	from backend.citation_refine.pinpoints import parse_pinpoint
+
+	pin = parse_pinpoint("p. 173‑174")
+	assert pin.kind == "page" and pin.values == (173, 174)
+
+
+def test_stored_values_merge_every_paragraph_pinpoint_and_never_cut_a_number():
+	import importlib.util, pathlib
+
+	spec = importlib.util.spec_from_file_location("brc", pathlib.Path(__file__).parents[1] / "scripts" / "build_refined_citations.py")
+	module = importlib.util.module_from_spec(spec)
+	spec.loader.exec_module(module)
+	from backend.citation_refine.pinpoints import parse_all_pinpoints
+
+	class Row:
+		pinpoints = parse_all_pinpoints("at para 3 and at paras 9-10")
+		pinpoint = "at paras. 3"
+
+	cols = module.pinpoint_columns(Row)
+	assert cols["pinpoint_values"] == "3,9,10" and cols["target_paragraph"] == 3
+	joined = module._join_values(range(1000, 1100))
+	assert len(joined) <= 255 and all(len(part) == 4 for part in joined.split(","))

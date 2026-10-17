@@ -41,7 +41,7 @@ def test_coming_soon_and_the_status_board_list_the_same_features_with_the_same_l
 def test_a_feature_with_a_test_number_shows_it_on_its_row():
     page = preview.render()
     row = page.split('id="f-whose-position"', 1)[1].split("</li>", 1)[0]
-    assert "76% tested" in row and 'href="#pass-position"' in row
+    assert "90% tested" in row and 'href="#pass-position"' in row
 
 
 def test_workflows_open_with_reading_a_case():

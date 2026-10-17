@@ -26,6 +26,8 @@ from typing import Any
 from . import case_structure as cs
 from . import heading_reader as hr
 from . import opinions as op
+from . import role_correction as rc
+from backend.position_holder import detect_forum
 
 OUTLINE_V2_VERSION = "case_structure_outline_v2"
 
@@ -782,6 +784,11 @@ def _add_author_row(text: str, units: list[dict[str, Any]], rows: list[dict]) ->
 
 
 def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
+	with rc.use_forum(detect_forum(text[:600]), text):
+		return _outline_v2_in_forum(text, blocks)
+
+
+def _outline_v2_in_forum(text: str, blocks: Sequence[dict]) -> list[dict]:
 	headings_mode = outline_headings_enabled()
 	printed_headings = hr.read_headings(text) if headings_mode else []
 	if headings_mode:

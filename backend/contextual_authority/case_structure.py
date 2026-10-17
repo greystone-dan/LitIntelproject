@@ -284,9 +284,9 @@ def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
     if not paragraphs:
         return []
     if os.environ.get("ILIT_LEARNED_ROLES") == "1":
-        from backend.contextual_authority import learned_roles
+        from backend.contextual_authority import learned_roles, role_correction
 
-        return learned_roles.label_paragraph_roles(paragraphs)
+        return role_correction.correct(paragraphs, learned_roles.label_paragraph_roles(paragraphs))
     return label_paragraph_roles_rules(paragraphs)
 
 

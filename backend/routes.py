@@ -557,10 +557,6 @@ def _case_topic_keywords(case: Case) -> list[str]:
 	return [topic for topic, score in scores.items() if score > 0]
 
 
-def _normalize_whitespace(value: str) -> str:
-	return " ".join((value or "").split()).strip()
-
-
 def _extract_legal_citations(text: str | None) -> list[str]:
 	if not text or get_citations is None:
 		return []

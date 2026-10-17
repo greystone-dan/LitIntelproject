@@ -1,59 +1,132 @@
-# Backend Unused-Code and Duplicate-Logic Inventory
+# Backend Unused-Code and Dependency Cleanup
 
-Read-only inventory of `backend/` for issue #46. No code was changed or removed.
+Evidence report for issue #548 Cleanup 7. This updates the earlier read-only
+inventory for issue #46 with the removals that passed repository-use checks.
+Source, route, startup, and dependency-install contracts were kept in scope.
 
 ## Method and limits
 
-I listed Python files under `backend/`, collected their top-level declarations,
-and traced imports and calls from `backend/main.py`, router declarations in
-`backend/routes.py`, page builders, scripts, and tests. Repository-wide symbol
-and path searches also covered documentation, generated references, embedded
-HTML/JavaScript, and `.swm/` walkthroughs. In particular, the search checked
-references that would make a seemingly unused item unsafe to remove.
+Candidate symbol/module names and their import forms were searched across
+`backend/`, `scripts/`, `fc_ingest/`, `canlaw/`, and `tests/`; route declarations,
+dynamic module-loading patterns, `scripts/service/`, Dockerfiles/Compose, CI
+workflows, and documented install instructions were reviewed. Package-name
+checks used Python import spellings (for example, `langchain_community` for the
+`langchain-community` distribution). AST/import and exact-name inspection were
+used in addition to text searches.
 
-Static searches cannot prove the absence of dynamic imports, external consumers,
-or runtime behavior not represented in the repository. “Safe-to-remove” below
-means only that the repository search found no reference; it is not permission
-to delete code as part of this inventory. Exact-name findings below describe the
-repository before this report was added; this report’s necessary self-references
-to the listed candidates are not counted as pre-existing consumers.
+These checks establish repository-local use only. They cannot rule out
+undocumented external imports. No public route, database table, migration, or
+`scripts/service/` startup import was changed.
 
-## Unused or potentially unserved code
+## Removed backend code
 
-| Path and symbol | Evidence | Verdict |
+| Removal | Evidence on the pre-cleanup tree | Decision |
 | --- | --- | --- |
-| `backend/routes.py::_normalize_whitespace` (line 454) | A repository-wide exact-name search found only its definition. There are similarly named helpers in `backend/reader_service.py`, `backend/citations.py`, and outside `backend/`; none calls this route-local symbol. It has no route decorator, page/template, script, test, or documentation reference. | **safe-to-remove** — only this private helper; do not infer that the other whitespace helpers are unused. |
-| `backend/citations.py::merge_local_and_a2aj_graph` (line 3005) | AST inspection found no callers. A repository-wide exact-name search across code, scripts, tests, templates, and docs found only its definition. The containing module has other callers and exports, but this helper itself is not referenced. | **safe-to-remove** — based on in-repository references only. |
-| `backend/contextual_intelligence.py::ProximityCluster` (line 97) | AST inspection found no uses. A repository-wide exact-name search across code, scripts, tests, templates, and docs found only its class declaration. The containing module remains imported and used. | **safe-to-remove** — based on in-repository references only. |
-| `backend/pages/judge_outcomes.py::judge_outcomes_page_html` | No route calls this builder. `backend/pages/__init__.py` imports and exports it, however, and the page’s embedded JavaScript requests `/analytics/judge-outcomes`. `SYSTEM_REFERENCE.md` lists the page module, and `.github/project-manager/tasks/141-remove-judge-outcomes-tab.md` records related route retirement. The active Data Explorer also contains its own judge-outcomes UI. | **unsure** — likely an unserved duplicate page, but the export, embedded endpoint reference, and documentation prevent a safe-to-remove verdict. |
+| `backend/routes.py::_normalize_whitespace` | `backend/routes.py` contained only its definition; there was no route/helper call or import of `routes._normalize_whitespace`. The similarly named helpers in `backend/reader_service.py` and `backend/citations.py` have in-module callers and remain. | Removed the unused route-local private helper only. |
+| `backend/contextual_intelligence.py::ProximityCluster` | Exact-name/reference search found only the class declaration; no backend, script, ingestion, CanLaw, or test consumer was found. The containing service remains in use. | Removed the unreferenced class only. |
+| `backend/unit_search.py` | Pre-cleanup imports were confined to `tests/test_unit_search_e2e.py` and `tests/test_unit_search_model.py`; no non-test import, route, script, service-startup, or dynamic-loader reference was found. The active `/unit-search` route uses `backend.unit_keyword_search`; that module and `tests/test_unit_keyword_search.py` remain. | Removed the deprecated module and its two directly coupled tests. |
+| `backend/vector_tables.py` | Its only import consumer was `tests/test_vector_tables.py`; no runtime, route, script, service-startup, or dynamic-loader reference was found. The module only compiled a future registry scaffold and did not execute DDL. | Removed the unused scaffold and its directly coupled test. |
 
-No other complete `backend/` module met the strict “no repository reference”
-criterion in this pass. Apparent non-route modules were checked for consumers
-from other backend modules, scripts, tests, templates, and docs before
-classification; an absence of a route import alone is not treated as unused.
+The pre-cleanup symbol scan was:
 
-## Duplicate or overlapping logic
+```text
+git grep -nE 'unit_search|vector_tables|routes\._normalize_whitespace|ProximityCluster|merge_local_and_a2aj_graph' HEAD -- backend scripts fc_ingest canlaw tests
+```
 
-| Paths | Evidence and distinction | Verdict |
+Among the broad `unit_search` text hits, the imports from the deleted module
+were `tests/test_unit_search_e2e.py:20` and
+`tests/test_unit_search_model.py:3`; their remaining hits refer to that imported
+object. The live route is `backend/routes.py:960-967` and imports
+`backend.unit_keyword_search` instead. The only `vector_tables` consumer was
+`tests/test_vector_tables.py:5`. The only `ProximityCluster` hit was its
+declaration at `backend/contextual_intelligence.py:97`; no
+`routes._normalize_whitespace` or `merge_local_and_a2aj_graph` hit existed in
+the cleanup base. Dynamic import/loading and `scripts/service/` searches found
+no references to the deleted module names.
+
+The issue candidate `backend/citations.py::merge_local_and_a2aj_graph` was
+already absent from both the cleanup base and the resulting tree. It was not
+removed by this change; the earlier inventory row was stale.
+
+The removed test files were the direct unit tests for the deleted modules. No
+live route test was removed. The live route's implementation remains in
+`backend/unit_keyword_search.py`.
+
+## Dependencies removed
+
+For each distribution below, import-name searches found no use in the issue
+scope (`backend/`, `scripts/`, `fc_ingest/`, `canlaw/`, or `tests/`), and no
+Dockerfile/workflow installed it separately or documented an explicit
+package-specific install purpose.
+
+| Removed distribution | Import name checked |
+| --- | --- |
+| `anthropic` | `anthropic` |
+| `langchain` | `langchain` |
+| `langchain-community` | `langchain_community` |
+| `pydantic-settings` | `pydantic_settings` |
+| `aiohttp` | `aiohttp` |
+| `python-jose` | `jose` |
+| `passlib` | `passlib` |
+| `pytest-asyncio` | `pytest_asyncio` |
+| `isort` | `isort` |
+| `flake8` | `flake8` |
+| `mypy` | `mypy` |
+| `pre-commit` | `pre_commit` |
+| `loguru` | `loguru` |
+| `rich` | `rich` |
+
+The package import scan was:
+
+```text
+git grep -nE '^[[:space:]]*(from|import)[[:space:]]+(anthropic|langchain|langchain_community|pydantic_settings|aiohttp|jose|passlib|pytest_asyncio|isort|flake8|mypy|pre_commit|loguru|rich)(\.|[[:space:],]|$)' HEAD -- backend scripts fc_ingest canlaw tests
+```
+
+It returned no matching Python imports. Distribution-to-import spellings are
+listed in the table above; the explicit Docker/workflow/install-purpose review
+found no package-specific consumer for these removals.
+
+The Dockerfile installs `requirements.txt`; CI installs `requirements-dev.txt`
+for tests and quality checks and runs the dependency audit against the base
+requirements. `pytest-cov`, `pytest-xdist`, `ruff`, and `pip-audit` remain in
+`requirements-dev.txt` for those explicit workflows. `black` remains in
+`requirements.txt` because it is documented as a formatting tool in `SETUP.md`.
+The optional `spacy` package and model in `requirements-ml.txt` remain for the
+lazy-loaded name-detection workflow. Other packages with active source or
+workflow consumers (including `cloudscraper`, `datasets`, `pyarrow`,
+`huggingface-hub`, `hf-xet`, and `tqdm`) were retained.
+
+The Compose file and Docker deployment guide still contain legacy
+`ANTHROPIC_API_KEY`/`ANTHROPIC_MODEL` settings. No Python Anthropic SDK import
+or provider implementation consumes them; the settings were left untouched to
+avoid changing the Compose environment contract. Their status is a separate
+documentation/configuration follow-up, not evidence that the SDK is currently
+used by the application.
+
+## Candidates intentionally retained
+
+| Candidate | Evidence | Decision |
 | --- | --- | --- |
-| `backend/legal_tagger.py`, `backend/legal_tagger_v2.py`, `backend/legal_tagger_v3.py` | These are three related deterministic legal-tagging implementations. V1 supplies `LegalTagger` to `backend/metadata_subjects.py` and is also referenced by tagging scripts, tests, and documentation. V2 is used by `scripts/tag_cases_v2.py`, report-cleaning scripts, and `tests/test_legal_tagger_v2.py`. V3 is the active ordered tag stage (`backend/case_processing.py`) and is imported by search, analytics, reader, and citation-map services; V3 also has scripts and tests. V2/V3 share core-tag, alias-compilation, and tag/occurrence scaffolding, but they load separate taxonomies and expose different metadata/evidence contracts. The V3 module docstring calls it inactive/proposed, while the application and current architecture documentation use it as active. | **keep** — overlapping taxonomy machinery, but each version has code, test, operational, or documentation references; confirm the stale V3 status wording separately. |
-| `backend/routes.py::_normalize_whitespace`, `backend/reader_service.py::_normalize_whitespace`, `backend/citations.py::_normalize_whitespace` | The route and reader helpers both collapse whitespace with `" ".join((value or "").split()).strip()`. The citations helper uses the same operation for non-null strings but does not accept `None`. The route copy has no callers; the reader and citations copies are called within their respective modules. | **safe-to-remove** for the route-local helper only; **keep** the called helpers. |
-| `backend/citations.py::_citation_variants`, `backend/live_analysis.py::_citation_variants` | Both create citation lookup variants and include the Federal Court `FC`/`FCT` alias. The citations helper parses formal and reported citation forms for local resolution and is also imported by resolution scripts. The Live Analysis helper normalizes an already-extracted neutral citation and is used only by its local-case resolver. | **keep** — overlapping alias behavior, but the accepted inputs and outputs differ. |
-| `backend/metadata_outcomes.py::_sentence_bounds`, `backend/contextual_authority/subthemes.py::_sentence_bounds` | Both locate text boundaries around a match, but the outcome helper uses `.?!` and an explicit start/end span, while the subtheme helper uses `.?!` and whitespace around the match position. Each is called by its own subsystem. | **keep** — similar purpose, different boundary rules and callers. |
+| `backend/case_compare.py` and `backend/case_comparison.py` | `backend/routes.py` imports input-resolution helpers from the former and `fetch_case_comparison` from the latter. `/cases/compare`, `/case-compare`, `/api/compare`, and `/compare` continue to use these paths; `tests/test_case_comparison.py` exercises both modules. The responsibilities differ. | Keep both. |
+| `backend/legal_tagger.py` | Imported by `backend/metadata_subjects.py` and legacy tagging scripts; it also has tests. | Keep V1. |
+| `backend/legal_tagger_v2.py` | Imported by `scripts/clean_llm_tag_report.py` and `scripts/tag_cases_v2.py`, with its own tests. | Keep V2. |
+| `backend/legal_tagger_v3.py` | Used by the active `backend/case_processing.py` stage and services including reader/search/comparison, with tests and scripts. | Keep active V3; do not change tagging behavior. |
+| `backend/pages/judge_outcomes.py` | Exported from `backend/pages/__init__.py`; its page JavaScript calls the judge-outcomes analytics endpoint, and `tests/test_inline_js_syntax.py` covers it. | Keep; the retired tab did not make this exported page safe to remove. |
+| Similar whitespace, citation-variant, and sentence-boundary helpers | Each retained instance has local callers and, in some cases, different input/offset semantics. | Keep; do not deduplicate based on name or superficial similarity. |
 
-## Search evidence
+`scripts/service/run_site.ps1` starts `uvicorn backend.main:app`. The deleted
+module names were not referenced by the service startup scripts. The route
+module, application startup, live search route, API paths, database schema, and
+tagging behavior were not changed.
 
-- `find backend -type f` established the backend file inventory; Python AST
-  inspection listed top-level functions and classes.
-- Repository-wide searches for page-builder imports, route decorators, exact
-  candidate symbols, and the `legal_tagger`, `_normalize_whitespace`,
-  `_citation_variants`, `_sentence_bounds`, `merge_local_and_a2aj_graph`, and
-  `ProximityCluster` names traced references across backend code, scripts, tests,
-  docs, generated API references, and Swimm files. AST caller/use inspection
-  checked candidate functions and classes in addition to textual references.
-- Targeted reads of `backend/routes.py`, `backend/pages/__init__.py`,
-  `backend/pages/judge_outcomes.py`, the three taggers, `backend/citations.py`,
-  `backend/live_analysis.py`, `backend/reader_service.py`,
-  `backend/metadata_outcomes.py`, and
-  `backend/contextual_authority/subthemes.py` checked the relevant call paths
-  and compared the implementations.
+## Tool and validation limits
+
+`ruff --select F401,F841` and vulture-style checks could not run because neither
+tool is installed in this environment. No broad import cleanup was performed
+without that evidence.
+
+The base interpreter lacks `pytest`, SQLAlchemy, and FastAPI. In addition,
+`tests/conftest.py` imports `backend.database` and probes PostgreSQL at module
+collection. Pytest was therefore not run because the explicit task boundary
+forbids database access. Focused/full pytest and generated-document validation
+results are recorded in the issue task record.

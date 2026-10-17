@@ -73,6 +73,22 @@ overstate pipeline completeness.
 | `backend/metadata.py` | Extracts structured case metadata and exact evidence spans | Preserve confidence, provenance, and review signals |
 | `backend/legal_tagger_v3.py` | Applies the active deterministic V3 core mention taxonomy with exact evidence and offsets | Preserve repeated occurrences, rule IDs, evidence roles, and taxonomy version; V1/V2 remain legacy comparison layers |
 
+## Safe Cleanup Boundary
+
+Issue #548 removed only repository-unreferenced private/backend code and
+dependencies after checking application imports, tests, scripts, dynamic
+loaders, and service startup. The deprecated `backend/unit_search.py` is not the
+active route implementation: `/unit-search` remains backed by
+`backend/unit_keyword_search.py`. `backend/vector_tables.py` was an unused
+registry scaffold; its direct test was removed with it.
+
+The two case-comparison modules have distinct live route responsibilities, and
+all three legal-tagger versions still have active, script, or test consumers.
+Keep them separate unless a future change migrates those consumers and proves
+route/tagging non-regression. The detailed removal and dependency evidence is
+in [`docs/reports/backend-unused-code.md`](../docs/reports/backend-unused-code.md);
+the checked-in module inventory is [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
+
 ## Request And Data Flow
 
 1. `backend/main.py` creates the application and invokes database startup behavior.

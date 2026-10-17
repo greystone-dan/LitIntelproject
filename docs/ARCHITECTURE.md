@@ -133,7 +133,7 @@ propositions against authoritative records and follow upstream terms.
 | `docs/` | Architecture, source governance, setup, and generated references |
 | `tests/` | Automated behavior and contract tests |
 | `side_projects/` | Independent utilities and datasets outside the canonical case workflow |
-| `legacy/` | Archived or reference-only materials |
+| `legacy/` | Historical marker; archived payloads are no longer tracked |
 | `.swm/` | Connected walkthroughs for system architecture and workflows |
 | `.github/` | CI and repository automation |
 

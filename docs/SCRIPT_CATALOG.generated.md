@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 216
+Active scripts documented: 217
 
 ## Catalog
 
@@ -69,6 +69,7 @@ Active scripts documented: 216
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `case_types_eval.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\case_types_eval.py --help` |
+| `check_argument_lists.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_argument_lists.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `check_site_tour.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_site_tour.py --help` |
@@ -1051,6 +1052,20 @@ Active scripts documented: 216
 
 ```powershell
 .\venv\Scripts\python.exe scripts\case_types_eval.py --help
+```
+
+## `scripts/check_argument_lists.py`
+
+**Purpose:** Score the arguments in an exported case-frame list and flag the least supported ones (files only). Reads a JSON list of decisions ``{"id", "applicant_is_minister", "paragraphs": {"12": "text"}, "arguments": [{"side", "para", "text"}]}`` and writes the same list with a score on every argument and the weakest marked ``flagged``. Nothing is deleted and the database is not touched. Off unless ILIT_ARGUMENT_CHECKER is set.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_argument_lists.py --help
 ```
 
 ## `scripts/check_generated_docs.py`

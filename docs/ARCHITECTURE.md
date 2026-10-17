@@ -151,6 +151,7 @@ test checks that these paths continue to exist.
 | `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/alert_digest.py` | Pure saved-search digest construction and offline HTML/text rendering, with Minister-loss flags and counted shift notes |
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
+| `backend/argument_checker.py` | Free check for wrongly listed arguments, and the side-label fix for appeals brought by the Minister |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |

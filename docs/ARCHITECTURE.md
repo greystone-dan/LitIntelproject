@@ -333,6 +333,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
+| `backend/paragraph_markers.py` | Shared recognition of paragraph markers that the line-start pattern ``[n] text`` misses |
 | `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/position_holder.py` | Deterministic "whose position is this paragraph reporting" rules (applicant, respondent, earlier decision maker, court, authority, witness); no model |

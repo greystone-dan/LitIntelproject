@@ -3212,7 +3212,7 @@ Active scripts documented: 217
 
 ## `scripts/train_role_correction.py`
 
-**Purpose:** Train the court-specific role correction used by backend/contextual_authority/role_correction.py. Input is a jsonl.gz of labelled decisions, one per line: ``{"source", "court", "id", "text", "labels": {paragraph number: role letter}}`` (role letters M O F I A D). ``--train`` picks the sources to fit on, ``--eval`` the sources to report on (base labeller vs corrected, per court). Needs scikit-learn and scipy (training only; the site runs numpy only). Run: python scripts/train_role_correction.py DATASET --train readers_w1 readers_w2 --eval hand_fresh [--write]
+**Purpose:** Train the court-specific role correction used by backend/contextual_authority/role_correction.py. Input is a jsonl.gz of labelled decisions, one per line: ``{"source", "court", "id", "text", "labels": {printed paragraph number: role letter}}`` (role letters M O F I A D). ``--train`` picks the sources to fit on and ``--eval`` the sources to report on (labeller alone vs corrected, per court, strict and within one paragraph). ``--cv K`` also reports K-fold cross-validation by decision over the training sources. Needs scikit-learn and scipy (training only; the site runs numpy only). Run: python scripts/train_role_correction.py DATASET --train readers_w1 readers_w2 readers_w3 hand_dev --eval hand_fresh [--cv 5] [--write]
 
 **Operational class:** Utility
 

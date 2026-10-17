@@ -156,13 +156,19 @@ _PARTIAL_RE = re.compile(
 	re.IGNORECASE,
 )
 # "I would allow the appeal, set aside the judgment below and, giving the judgment it should have given, dismiss the application".
-_APPEAL_ALLOWED_RE = re.compile(r"\b(?:propose\s+to\s+allow|(?:would|will|shall)\s+allow|allows?)\s+(?:the|this)\s+appeals?\b", re.IGNORECASE)
+_APPEAL_ALLOWED_RE = re.compile(
+	r"\b(?:propose\s+to\s+allow|(?:would|will|shall)\s+allow|allows?)\s+(?:the|this)\s+(?:appeals?|applications?\s+for\s+judicial\s+review)\b"
+	r"|\bappeals?\s+(?:is|are|should\s+be|will\s+be)\s+allowed\b",
+	re.IGNORECASE,
+)
+# "I would grant Pfizer its costs of the appeal" awards costs; it does not decide the appeal.
+_COSTS_AWARD_RE = re.compile(r"\b(?:grant|award|fix)\w*\b(?:(?!\b(?:appeals?|applications?|motions?)\b)[^.\n]){0,50}?\bcosts\b", re.IGNORECASE)
 # "Appeal dismissed in Orbanski. Appeal allowed in Elias": one judgment, separate appeals decided in opposite directions.
 _HEADLINE_SPLIT_RE = re.compile(
 	r"\b(?:dismissed|allowed)\s+in\s+(?!part\b)[A-Z]\w+[^\n]{0,40}?\b(?:allowed|dismissed)\s+in\s+(?!part\b)[A-Z]\w+"
 )
 _CONSEQUENTIAL_ORDER_RE = re.compile(
-	r"\b(?:set\s+aside|quash\w*)\b|\b(?:render|giv\w+|issu\w+|pronounc\w+)\s+the\s+(?:judgments?|decisions?)\b", re.IGNORECASE
+	r"\b(?:set\s+aside|quash\w*)\b|\breverse\w*\b|\b(?:render|giv\w+|issu\w+|pronounc\w+)\s+the\s+(?:judgments?|decisions?)\b", re.IGNORECASE
 )
 _SIDE_ORDER_RE = re.compile(r"\b(?:leave|stay|extension|motion|request)\b", re.IGNORECASE)
 _VERB_LABELS = {
@@ -259,6 +265,8 @@ def _disposition_candidates(tail: str, is_tribunal: bool = False) -> list[tuple[
 	for item in sorted(found, key=lambda c: c[1]):
 		if item[4] in {"subject_verb", "headline", "bare_verdict"} and _STATUTE_LINE_RE.search(tail[item[3].end() : item[3].end() + 250]):
 			continue  # a heading quoted in appended legislation
+		if item[4] in {"actor", "concluding"} and _COSTS_AWARD_RE.search(item[3].group(0)):
+			continue  # a costs award, not a ruling on the proceeding
 		if item[4] == "concluding" and item[0] >= 3:
 			if item[1] - last_concluding < 400 and not re.search(r"\n|\.\s", tail[last_concluding : item[1]]):
 				continue
@@ -322,8 +330,7 @@ _PROCEDURAL_SENTENCE_RE = re.compile(
 	r"\b(?:motions?|extension\s+of\s+time|stay\s+of|stay\s+pending|reinstat\w*|vacat(?:e|ion)\b|interven\w*|taxation|"
 	r"assessment\s+of\s+costs|bill\s+of\s+costs|disbursements|security\s+for\s+costs|notice\s+of\s+appeal|"
 	r"remov\w+\s+from\s+the\s+file|file\s+be\s+closed|adjourn\w*|objection|"
-	r"stays?|interlocutory|leave\s+to\s+(?:appeal|intervene|file|serve)|applications?\s+for\s+leave|appeal\s+books?|"
-	r"costs?\s+of\s+the\s+(?:appeal|application|motion)|(?:grant|award|fix)\w*\s+[^.\n]{0,40}?\bcosts)\b",
+	r"stays?|interlocutory|leave\s+to\s+(?:appeal|intervene|file|serve)|applications?\s+for\s+leave(?!\s+and\s+(?:for\s+)?judicial)|appeal\s+books?)\b",
 	re.IGNORECASE,
 )
 _PROCEDURAL_CAPTION_RE = re.compile(
@@ -538,7 +545,7 @@ def _decide(content: str) -> "Decision | None":
 	in_operative = operative_start > 0 and best[1] >= operative_start
 	if best[2] == "dismissed" and best[4] in {"actor", "concluding", "subject_verb"}:
 		# The appeal was allowed and the order below set aside; the later "dismiss the application" is the consequence.
-		window_start = max(operative_start, best[1] - 900)
+		window_start = max(0, best[1] - 900)
 		for earlier in _APPEAL_ALLOWED_RE.finditer(tail, window_start, best[1]):
 			between = tail[earlier.end() : best[1]]
 			if _CONSEQUENTIAL_ORDER_RE.search(between) and not _NEGATION_BEFORE_VERB_RE.search(tail[max(0, earlier.start() - 25) : earlier.start()]):

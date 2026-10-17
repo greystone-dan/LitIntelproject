@@ -523,7 +523,7 @@
    "number_label": "matches the stored labels (86% where a tag is shown)",
    "sample": "4,171 held-out paragraphs from 122 immigration decisions. Two model readers agreed on the speaker for 93.1% of 1,067 paragraphs.",
    "grader": "Rules plus a small trained tagger, checked against model-written labels.",
-   "caveat": "The Refugee Protection Division is the weakest; no lawyer has reviewed these labels.",
+   "caveat": "The sample included Refugee Board decisions, which are the weakest and are not split out, so the figure is not yet a Federal Court, Supreme Court or Court of Appeal number; no lawyer has reviewed these labels.",
    "source": "discussion-units/position-tagger-2026-10-11"
   },
   {
@@ -534,7 +534,7 @@
    "where": "On the site today for decisions that have usable structure.",
    "number": "83%",
    "number_label": "right role for a unit (50% of unit boundaries exactly right)",
-   "sample": "24 untouched Refugee Protection Division decisions.",
+   "sample": "24 untouched Refugee Protection Division decisions (a court the site is no longer focused on). Not yet scored on Federal Court, Supreme Court or Court of Appeal decisions.",
    "grader": "Scored against hand-labelled sets, once, with no tuning.",
    "caveat": "Exact boundaries are the hard part; the role is usually right even when the edge is a paragraph out. Finding where the analysis starts is only 55% within one paragraph.",
    "source": "discussion-units/case-structure-report.md; discussion-units/pipeline-2026-10-11/pipeline-and-cost.md",

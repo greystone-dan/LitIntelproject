@@ -75,7 +75,7 @@ EVIDENCE = {
 		"Issue maps for new decisions: Haiku got the result of the issue right for 94% of 85 issues (30 decisions). A free local model (Qwen3.5-9B) got 94% of 36 issues right on 18 decisions it had not been tuned on. Graded blind by Sonnet.",
 	],
 	"discussion-units": [
-		"Splitting decisions into units by structure and headings, scored once against labelled sets with no tuning: on 24 untouched Refugee Protection Division decisions, 50.0% of unit boundaries were exact and 83.0% of paragraphs had the right role. On 16 further decisions, 70.2% exact and 85.3% of roles. The labels were made in this project and have not been checked by a lawyer.",
+		"Splitting decisions into units by structure and headings, scored once against labelled sets with no tuning: on 24 untouched Refugee Protection Division decisions (a court the site is no longer focused on; not yet scored on Federal Court, Supreme Court or Court of Appeal decisions), 50.0% of unit boundaries were exact and 83.0% of paragraphs had the right role. On 16 further decisions, 70.2% exact and 85.3% of roles. The labels were made in this project and have not been checked by a lawyer.",
 	],
 }
 TESTED_ITEMS = set(EVIDENCE)

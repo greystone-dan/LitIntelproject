@@ -1,5 +1,10 @@
 # Gold Set Expansion: Findings & Next Steps
 
+> Point-in-time evaluation notes from 2026-10-04, retained for lineage only.
+> The labels, metrics, and hypotheses have not been independently revalidated;
+> do not treat them as the current benchmark or methodology. See
+> [DOCS_INDEX.md](../../DOCS_INDEX.md) for current evaluation-document owners.
+
 **Date:** 2026-10-04  
 **Status:** Expanded from 26 to 38 labeled cases (8 new); evaluation reveals methodological gap
 

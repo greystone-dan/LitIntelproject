@@ -164,7 +164,11 @@ AI CaseLibrary/
  `-- PROJECT_NOTES.md   This durable project handoff
  ```
 
-For forward-looking product and architecture decisions, see [GUIDANCE.md](../../GUIDANCE.md). For a full technical continuation brief, see [AI_HANDOFF.md](AI_HANDOFF.md). This file describes the current implementation and verified local setup; `CHANGELOG.md` records completed changes.
+For current product direction, see [ROADMAP.md](../../ROADMAP.md); the former
+root [GUIDANCE.md](GUIDANCE.md) is retained here as a historical snapshot. For
+the historical continuation brief, see [AI_HANDOFF.md](AI_HANDOFF.md). This file
+is a superseded project snapshot; use [SYSTEM_REFERENCE.md](../../SYSTEM_REFERENCE.md)
+for current implementation and [CHANGELOG.md](../../CHANGELOG.md) for chronology.
 
 ## Current architecture
 

@@ -1,5 +1,9 @@
 # Citation Styling Reference Guide
 
+> Historical, unverified styling notes retained for lineage. These values are
+> not an authoritative description of current UI styling; inspect the active
+> page implementation before relying on them.
+
 ## Citation Type Styling
 
 ### Case Law Citations (Blue Theme)

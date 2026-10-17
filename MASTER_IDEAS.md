@@ -1,6 +1,9 @@
 # Master Citation Intelligence Ideas
 
 Saved from user master list for long-term planning and iterative implementation.
+This file is an idea inventory, not a current-state or delivery-status authority;
+use `SYSTEM_REFERENCE.md` for implemented behavior and `ROADMAP.md` for the
+current delivery sequence.
 
 ## Style Snippet
 

@@ -1,5 +1,10 @@
 # AI CaseLibrary - Long-Term System Guidance
 
+> Historical snapshot retained for lineage. Its corpus counts, roadmap, and
+> architecture statements are not current. Use the [system reference](../../SYSTEM_REFERENCE.md),
+> [product roadmap](../../ROADMAP.md), and
+> [long-term intelligence vision](../LONG_TERM_INTELLIGENCE_VISION.md) instead.
+
 Document role: long-term architecture and product north star.
 This is not the live operations snapshot.
 For the canonical current system description, see `SYSTEM_REFERENCE.md`.

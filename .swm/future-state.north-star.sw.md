@@ -7,8 +7,9 @@ title: Product Vision and Future Architecture
 This document defines the intended product and architecture destination for AI
 CaseLibrary. It is forward-looking, not a current-state inventory. For current
 implementation, read [SYSTEM_REFERENCE.md](../SYSTEM_REFERENCE.md). The future
-roadmap is grounded in [GUIDANCE.md](../GUIDANCE.md), [ROADMAP.md](../ROADMAP.md),
-and [MASTER_IDEAS.md](../MASTER_IDEAS.md).
+roadmap is maintained in [ROADMAP.md](../ROADMAP.md) and
+[MASTER_IDEAS.md](../MASTER_IDEAS.md); the long-term intelligence direction is
+in [docs/LONG_TERM_INTELLIGENCE_VISION.md](../docs/LONG_TERM_INTELLIGENCE_VISION.md).
 
 ## End State In One Sentence
 

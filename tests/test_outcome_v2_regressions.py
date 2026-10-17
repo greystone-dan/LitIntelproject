@@ -68,3 +68,13 @@ def test_crown_appellant_in_solicitor_block_sets_government_role():
 def test_crown_respondent_and_appellant_on_same_line():
 	text = "Appeal dismissed with costs.\nSolicitors for the appellant: Nelligan & Power, Ottawa. Solicitor for the respondent: The Attorney General of Canada, Ottawa.\n"
 	assert build_case_outcome(text, {})["government_role"] == "respondent"
+
+
+def test_application_for_leave_and_judicial_review_allowed_is_not_procedural():
+	text = "JUDGMENT THIS COURT ORDERS that: 1. the Application for Leave and Judicial Review is allowed and the matter is referred back.\n"
+	assert build_case_outcome(text, {})["decision_outcome"] == "allowed"
+
+
+def test_costs_award_sentence_does_not_decide_the_appeal():
+	text = "[174] Therefore, I would allow the appeal, set aside the judgment and remit the matter. I would grant Pfizer its costs of the appeal.\n"
+	assert build_case_outcome(text, {})["decision_outcome"] == "allowed"

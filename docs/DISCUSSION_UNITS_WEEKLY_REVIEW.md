@@ -1,7 +1,7 @@
 # Discussion Units: Weekly Review
 
 **Date:** 2026-09-24  
-**Status:** Core-300 preparation complete; 20 of 300 API cases attempted; full run not yet authorized or complete.
+**Status:** Historical snapshot. The checked-in ledger records 20 of 300 API cases attempted; consult `docs/STILL_TO_DO.md` for the current review and approval gate.
 
 ## Executive Summary
 
@@ -9,7 +9,7 @@ This week the project moved Discussion Units from a deterministic inspection con
 
 The work now produces a structured, reviewable representation of what a legal decision is doing across its paragraphs. The deterministic layer identifies paragraph boundaries and preserves existing legal signals. The hybrid layer asks `gpt-4.1-nano` to refine those spans into plain-language labels and explanations. Every output remains linked to the source paragraph range and remains report-only; canonical citations, statutes, tags, outcomes, offsets, and database records have not been changed.
 
-The full core cohort of 300 cases has been prepared without network calls. Twenty API attempts have been run in two approved 10-case slices. Seventeen cases completed successfully and three were rejected by the coverage validator because the model did not cover every supplied paragraph exactly once. The sampled API spend was approximately $0.024 USD in total.
+The dated preflight report records preparation of the full 300-case core cohort and two approved 10-case API slices. The checked-in ledger records 20 attempts: 17 completed and 3 rejected by the coverage validator. Artifact status and spend have not been independently verified; this report is not a live run-status source.
 
 The next product step is human review of the Discussion Unit spans and labels. After that review, the core-300 run can be completed with the ledger and the accepted units can become a foundation for citation-context analysis, unit-level embeddings, cross-case comparison, and more explainable legal research workflows.
 
@@ -111,7 +111,7 @@ This prevents accidental duplicate API spending and makes the run recoverable. T
 
 ### No-network preparation
 
-The preparation pass completed for all 300 core cases:
+The preparation report records completion for all 300 core cases:
 
 - 300 deterministic input reports created
 - 300 request payloads created
@@ -120,7 +120,7 @@ The preparation pass completed for all 300 core cases:
 - Ledger initialized for resumable execution
 - No canonical database writes made
 
-The primary run directory is [core_300_run](../data/eval/llm_discussion_units_pilot/core_300_run/).
+The primary run directory is [core_300_run](../data/eval/llm_discussion_units_pilot/core_300_run/). The manifest, request, and review artifacts described below are not all present in this checkout; use the checked-in ledger for recorded case statuses.
 
 ### First approved 10-case slice
 
@@ -136,11 +136,11 @@ Failed case:
 
 The successful cases produced Markdown reviews and response JSON. Case `677` retained a raw response and a validator error stating that the response did not cover every paragraph exactly once.
 
-The first slice cost approximately `$0.0118017` in recorded model spend, or approximately `$0.001311` per completed case. This slice is retained as an early calibration sample; its text files do not all contain the later billing header, but its request and ledger artifacts preserve the recorded cost information available at that stage.
+The report's first-slice cost estimate is omitted here because it does not reconcile with the checked-in per-case ledger. Use the ledger for artifact-recorded spend; its operational provenance has not been independently verified.
 
 ### Second approved 10-case slice
 
-The next ten manifest rows were isolated into [next_10_manifest.csv](../data/eval/llm_discussion_units_pilot/core_300_run/next_10_manifest.csv) so that earlier failed cases were not accidentally retried.
+The next ten manifest rows were isolated into `data/eval/llm_discussion_units_pilot/core_300_run/next_10_manifest.csv` in the dated run; that file is not present in this checkout.
 
 Cases attempted:
 
@@ -154,14 +154,9 @@ Failed cases:
 
 `2044`, `2220`
 
-The second slice cost `$0.0076567` in total. The average cost per completed case was `$0.0009570875`. The two failed API responses also incurred recorded costs:
+The second-slice cost estimates in the dated report do not reconcile with the checked-in per-case ledger and are not repeated as current costs.
 
-- Case `2044`: `$0.0060967`
-- Case `2220`: `$0.0004574`
-
-The complete second-slice attempt cost, including the two rejected responses, was therefore `$0.0076567`.
-
-Each successful Markdown review and each failed raw-response text artifact begins with model, token, and billing metadata. For example, see [case 1292](../data/eval/llm_discussion_units_pilot/core_300_run/reviews/case_1292_hybrid.md) and the failed [case 2044 raw response](../data/eval/llm_discussion_units_pilot/core_300_run/reviews/case_2044_hybrid.raw_response.txt).
+The dated report states that successful Markdown reviews and failed raw responses included model, token, and billing metadata. The cited `case_1292_hybrid.md` and `case_2044_hybrid.raw_response.txt` files are not present in this checkout.
 
 ### Combined status
 
@@ -171,11 +166,9 @@ Across the two approved slices:
 - 17 completed cases
 - 3 rejected responses
 - 85% completion rate in the observed sample
-- Approximately `$0.0194584` recorded cost across the two slices
-- Approximately `$0.00097292` per attempted case
-- Approximately `$0.0011446` per completed case when using the reported slice totals and the 17 completed cases
+- The ledger contains case-level spend fields; aggregate report estimates are not used here because they do not reconcile with the ledger.
 
-The cost estimate is preliminary. The sample is small, and document length and paragraph count materially affect token usage. The remaining 280 cases have not been sent.
+At the report date, the remaining 280 cases had not been sent. This historical count is not current authorization to run more cases; consult `docs/STILL_TO_DO.md`.
 
 ## What Failed And What We Learned
 
@@ -302,11 +295,11 @@ Those claims require human review, broader evaluation, and a separately designed
 - [Resumable cohort runner](../scripts/run_discussion_units_cohort.py)
 - [Atomic ledger](../scripts/discussion_units_ledger.py)
 - [Focused tests](../tests/test_package_discussion_units_llm.py)
-- [Core-300 manifest](../data/eval/llm_discussion_units_pilot/core_300_run/manifest.csv)
-- [Preparation summary](../data/eval/llm_discussion_units_pilot/core_300_run/preparation_summary.json)
+- `data/eval/llm_discussion_units_pilot/core_300_run/manifest.csv` (not present in this checkout)
+- `data/eval/llm_discussion_units_pilot/core_300_run/preparation_summary.json` (not present in this checkout)
 - [Run ledger](../data/eval/llm_discussion_units_pilot/core_300_run/ledger.json)
-- [Markdown review directory](../data/eval/llm_discussion_units_pilot/core_300_run/reviews/)
-- [Next-steps runbook](NEXT_STEPS.md)
+- `data/eval/llm_discussion_units_pilot/core_300_run/reviews/` (not present in this checkout)
+- [Current Discussion Unit status and approval gate](STILL_TO_DO.md#contextual-and-advanced-intelligence)
 - [Discussion Unit task record](../.github/project-manager/tasks/discussion-unit-core-300-preflight.md)
 
 ## Recommended Next Steps
@@ -324,5 +317,5 @@ Those claims require human review, broader evaluation, and a separately designed
 
 - [System reference](../SYSTEM_REFERENCE.md)
 - [Swimm Discussion Unit walkthrough](../.swm/8.upryk5h6.sw.md)
-- [Next steps](NEXT_STEPS.md)
+- [Current Discussion Unit status and approval gate](STILL_TO_DO.md#contextual-and-advanced-intelligence)
 - [Project task record](../.github/project-manager/tasks/discussion-unit-core-300-preflight.md)

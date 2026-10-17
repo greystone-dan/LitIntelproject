@@ -4,7 +4,9 @@ Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
-New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md);
+this guide remains the canonical, detailed repository reference for current UI
+behavior and limitations.
 
 ## Experimental RAG Research
 

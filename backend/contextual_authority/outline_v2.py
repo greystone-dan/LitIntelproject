@@ -26,6 +26,8 @@ from typing import Any
 from . import case_structure as cs
 from . import heading_reader as hr
 from . import opinions as op
+from . import role_correction as rc
+from backend.position_holder import detect_forum
 
 OUTLINE_V2_VERSION = "case_structure_outline_v2"
 
@@ -38,6 +40,46 @@ _CONTINUATION_TYPES = {"text", "listitem"}
 
 def outline_v2_enabled() -> bool:
 	return os.getenv("ILIT_OUTLINE_V2", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def outline_scope_enabled() -> bool:
+	"""ILIT_OUTLINE_SCOPE=1: Issues starts where the decision states the issue or standard of review (default off)."""
+	return os.getenv("ILIT_OUTLINE_SCOPE", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+_ISSUE_HEADING_RE = re.compile(r"issues?\b|questions?\b|standard of review|grounds|errors|analytical framework|preliminary", re.I)
+
+
+def _demote_early_issues(units: list[dict[str, Any]], section: list[str | None], anchors: list[tuple[int, str]], numbered: list[int]) -> None:
+	"""Paragraphs the labeller read as Issues before any issue statement, issues heading or standard of review (a statute
+	described under a "Statutory scheme" heading, the decision under appeal) are Background."""
+	marks = [i for i, name in anchors if name == "issues" and _ISSUE_HEADING_RE.search(units[i]["text"])]
+	marks += [i for i in numbered if section[i] == "issues" and cs._ISSUES_RE.search(units[i]["text"][:900])]
+	if not marks:
+		return
+	cut = min(marks)
+	for i in range(cut):
+		if section[i] == "issues":
+			section[i] = "background"
+
+
+_REVIEW_STANDARD_RE = re.compile(
+	r"\bstandard of review\b|\b(?:reasonableness|correctness) (?:standard|review)\b|\breviewed (?:on|against|under) (?:a |the )?(?:standard|reasonableness|correctness)\b|\bpresumption of reasonableness\b|\bVavilov\b[^.]{0,80}\bstandard\b", re.I)
+_SHORT_RUN = 4
+
+
+def _open_issues_at_review_standard(units: list[dict[str, Any]], section: list[str | None], numbered: list[int]) -> None:
+	"""A decision that names no Issues: a standard-of-review statement just before the analysis starts the Issues."""
+	if "issues" in section or "analysis" not in section:
+		return
+	start = section.index("analysis")
+	run = [i for i in numbered if i < start and section[i] == "background"]
+	for pos, i in enumerate(run):
+		if pos >= 1 and _REVIEW_STANDARD_RE.search(units[i]["text"][:700]):
+			if len(run) - pos <= _SHORT_RUN:
+				for j in run[pos:]:
+					section[j] = "issues"
+			return
 
 
 def outline_headings_enabled() -> bool:
@@ -343,6 +385,9 @@ def _assign_sections(units: list[dict[str, Any]], printed: dict[int, str | None]
 	for i, name in anchors:
 		if name == "disposition" and i > last_num:
 			kept_tail.update(j for j in range(i, min(i + 4, len(units))) if len(units[j]["text"]) < 600)
+	if outline_scope_enabled():
+		_demote_early_issues(units, section, anchors, numbered)
+		_open_issues_at_review_standard(units, section, numbered)
 	# after the last numbered paragraph only the order itself is kept (not counsel lists, signatures or file numbers)
 	for i in range(last_num + 1, len(units)):
 		if units[i]["type"] in {"footer", "signature", "meta"} or section[i] != "disposition":
@@ -739,6 +784,11 @@ def _add_author_row(text: str, units: list[dict[str, Any]], rows: list[dict]) ->
 
 
 def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
+	with rc.use_forum(detect_forum(text[:600]), text):
+		return _outline_v2_in_forum(text, blocks)
+
+
+def _outline_v2_in_forum(text: str, blocks: Sequence[dict]) -> list[dict]:
 	headings_mode = outline_headings_enabled()
 	printed_headings = hr.read_headings(text) if headings_mode else []
 	if headings_mode:

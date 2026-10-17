@@ -16,9 +16,12 @@ MAX_EXPANDED_VALUES = 200
 
 # A number followed by a capitalized word is the next citation's volume
 # ("at para 22, 131 A.C.W.S. (3d) 508"), not part of the pinpoint.
-_NUMBER = r"\d{1,5}(?!\d|\s+(?-i:[A-Z]))"
-_RANGE = rf"{_NUMBER}(?:\s*(?:[-–—]|to|à|au)\s*{_NUMBER})?"
-_LIST = rf"{_RANGE}(?:\s*(?:,|;|and|or|et|&)\s*{_RANGE})*"
+# A bracketed number ("para [84]") is a paragraph; "[2013] 2 S.C.R." is a reporter year, not one.
+_NUMBER = r"(?:\[\d{1,5}\](?!\s*\d)|\d{1,5}(?!\d))(?!\s+(?-i:[A-Z]))"
+# Hyphens: ASCII, en/em dash, non-breaking hyphen (common in French decisions), figure dash, minus sign.
+_DASH = r"[-–—‑‒−]"
+_RANGE = rf"{_NUMBER}(?:\s*(?:{_DASH}|to|through|à|au)\s*{_NUMBER})?"
+_LIST = rf"{_RANGE}(?:\s*(?:,|;|and|or|et|ou|&)\s*{_RANGE})*"
 
 # Paragraph pinpoints in English and French.
 _PARAGRAPH_LABEL = (
@@ -31,9 +34,16 @@ _PAGE_LABEL = r"(?:pages?|pp\.?|p\.)"
 # "para 45 ff", "paras 45 et seq", "para 45 and following": open-ended, the extent is not stated.
 _OPEN_ENDED = r"(?:\s*(?:ff\b\.?|et\s+seq\b\.?|and\s+following\b|et\s+suiv(?:ants?)?\b\.?))"
 
+# "paragraph 72(1)(a)" and "para 34 of the Act" name a statute provision, not a paragraph of a decision.
+_STATUTE_TAIL = (
+	r"\s*\((?:\d{1,3}(?:\.\d+)?|[a-z]|[ivx]{1,5})\)"
+	r"|\s+of\s+(?:the\s+)?(?:IRPA|IRPR|Act\b|Regulations?\b|Rules\b|Charter\b|Criminal Code|Immigration and Refugee|Federal Courts)"
+	r"|\s+(?:de\s+la\s+)?(?:de\s+l['’]\s*)?(?:LIPR|RIPR|Loi\b|Règlement)"
+)
+
 PINPOINT_RE = re.compile(
 	rf"(?:\b(?:at|aux?|à|in)\s+)?"
-	rf"(?<![A-Za-z])(?:(?P<para_label>{_PARAGRAPH_LABEL})\s*(?P<para_values>{_LIST})(?P<para_ff>{_OPEN_ENDED})?"
+	rf"(?<![A-Za-z])(?:(?P<para_label>{_PARAGRAPH_LABEL})\s*(?P<para_values>{_LIST})(?!{_STATUTE_TAIL})(?P<para_ff>{_OPEN_ENDED})?"
 	rf"|(?P<page_label>{_PAGE_LABEL})\s*(?P<page_values>{_LIST})(?P<page_ff>{_OPEN_ENDED})?)",
 	re.IGNORECASE,
 )
@@ -64,13 +74,14 @@ def _expand_values(raw: str) -> tuple[tuple[int, ...], bool, bool]:
 	values: list[int] = []
 	is_range_or_list = False
 	truncated = False
-	parts = re.split(r"\s*(?:,|;|\band\b|\bor\b|\bet\b|&)\s*", raw.strip(), flags=re.IGNORECASE)
+	raw = raw.replace("[", "").replace("]", "")
+	parts = re.split(r"\s*(?:,|;|\band\b|\bor\b|\bet\b|\bou\b|&)\s*", raw.strip(), flags=re.IGNORECASE)
 	if len([part for part in parts if part]) > 1:
 		is_range_or_list = True
 	for part in parts:
 		if not part:
 			continue
-		bounds = re.split(r"\s*(?:[-–—]|\bto\b|\bà\b|\bau\b)\s*", part, flags=re.IGNORECASE)
+		bounds = re.split(rf"\s*(?:{_DASH}|\bto\b|\bthrough\b|\bà\b|\bau\b)\s*", part, flags=re.IGNORECASE)
 		numbers = [int(value) for value in bounds if value.isdigit()]
 		if not numbers:
 			continue
@@ -144,7 +155,7 @@ def pinpoint_phrase(pinpoint: Pinpoint) -> str:
 		pinpoint.raw,
 		flags=re.IGNORECASE,
 	)
-	raw_numbers = re.sub(r"\s*[–—]\s*", "-", raw_numbers)
+	raw_numbers = re.sub(rf"\s*{_DASH}\s*", "-", raw_numbers)
 	raw_numbers = re.sub(r"\s*\bà\b\s*", "-", raw_numbers)
 	raw_numbers = re.sub(r"\s+et\s+", " and ", raw_numbers)
 	if pinpoint.kind == PINPOINT_PAGE:

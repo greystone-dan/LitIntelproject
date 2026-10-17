@@ -18,8 +18,8 @@ Focused active UI/citation regression checks most recently passed with `18 passe
 ## Measured Coverage Baseline
 
 The 2026-10-03 pytest-cov run measured **77.5% backend statement coverage**
-(8,413 / 10,859 statements) with the exact three intentional CI deselects.
-It completed with `987 passed, 3 failed, 3 deselected`; the failures were
+(8,413 / 10,859 statements) with the CI test selection at that time. It completed
+with `987 passed, 3 failed, 3 deselected`; the failures were
 network-fetch failures for uncached Hugging Face and OpenAI tokenizer assets.
 Coverage is a measured snapshot, not a green-suite claim or a legal-quality
 metric. The risk-ranked module results, full module matrix, reproduction command,
@@ -67,6 +67,14 @@ Source collectors and importers are tested against controlled HTML, mock respons
 ### Operational Tests
 
 The overnight runner tests locks, job selection, state transitions, and command construction. They do not run full corpus writes. A full operational run needs preflight, bounded canary, state/log review, before/after counts, and sampled QA.
+
+### External Service Prerequisites
+
+Tests that require PostgreSQL use the `requires_postgres` fixture. It checks the
+configured database URL with a two-second connection timeout and skips with a
+reason when PostgreSQL is unavailable. The pgvector workflow supplies a
+disposable PostgreSQL service and reruns its database-backed tests. Local Ollama
+provider tests mock the provider rather than requiring a running Ollama service.
 
 ## Required Validation By Change Type
 

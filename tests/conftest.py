@@ -1,26 +1,24 @@
 """Pytest configuration and fixtures for LitIntel tests."""
 
 import pytest
-from sqlalchemy import text
-from backend.database import SessionLocal
+from sqlalchemy import create_engine, text
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.engine import make_url
 
-
-def check_postgres_available() -> bool:
-    """Check if Postgres database is accessible."""
-    try:
-        db = SessionLocal()
-        db.execute(text("SELECT 1"))
-        db.close()
-        return True
-    except Exception:
-        return False
-
-
-pytest_postgres_available = check_postgres_available()
+from backend.database import DATABASE_URL
 
 
 @pytest.fixture
 def requires_postgres():
-    """Fixture that skips test if Postgres is not available."""
-    if not pytest_postgres_available:
-        pytest.skip("Postgres database not accessible (localhost:5432)")
+    """Skip database-backed tests when configured PostgreSQL is unavailable."""
+    if make_url(DATABASE_URL).get_backend_name() != "postgresql":
+        pytest.skip("Configured database URL is not PostgreSQL")
+
+    probe_engine = create_engine(DATABASE_URL, connect_args={"connect_timeout": 2})
+    try:
+        with probe_engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+    except SQLAlchemyError:
+        pytest.skip("PostgreSQL is unavailable at the configured database URL")
+    finally:
+        probe_engine.dispose()

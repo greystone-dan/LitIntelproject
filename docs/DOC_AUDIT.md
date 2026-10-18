@@ -38,10 +38,9 @@ table above remains a record of the claims and evidence at its audited revision.
 
 The 21 `docs/case-reader/*.png` files were removed after exact filename/path
 searches found no references in `backend/`, `docs/`, or `.swm/`; the `/case-reader`
-compatibility endpoint remains. The point-in-time reports
-`docs/reports/backend-unused-code.md` and `docs/reports/open-pr-review-2.md` were
-removed after exact-filename searches found no inbound references outside their
-inventory rows in `DOCS_INDEX.md`.
+compatibility endpoint remains. Two point-in-time reports were removed after
+exact-filename searches found no inbound references outside their inventory
+rows in `DOCS_INDEX.md`.
 Two artifact links in `OVERNIGHT.md` were converted to recorded paths after
 checking that their target files are absent from this checkout.
 Remote Control setup and deployment now have one owner in

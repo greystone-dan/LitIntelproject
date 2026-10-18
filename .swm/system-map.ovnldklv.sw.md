@@ -86,8 +86,8 @@ The two case-comparison modules have distinct live route responsibilities, and
 all three legal-tagger versions still have active, script, or test consumers.
 Keep them separate unless a future change migrates those consumers and proves
 route/tagging non-regression. The detailed removal and dependency evidence is
-in [`docs/reports/backend-unused-code.md`](../docs/reports/backend-unused-code.md);
-the checked-in module inventory is [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
+recorded in the pull request description. The checked-in module inventory is
+[`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
 
 ## Request And Data Flow
 

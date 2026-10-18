@@ -8,7 +8,7 @@ Updated: 2026-09-24
 
 Task: Replay the recoverable paragraph-assessment failures with three bounded workers.
 Why now: The paused run has valid partial model responses, and sequential recovery is unnecessarily slow.
-Owner surface: `scripts/run_paragraph_assessment_batches.py`.
+Owner surface: completed one-off recovery; no maintained runner remains.
 Dependencies: Existing paragraph ledger, deterministic reports, raw responses, and parser salvage behavior.
 Risk boundary: Process only the explicitly selected recoverable case IDs; exclude truncated cases 2044 and 7567; no database writes.
 Smallest falsifiable check: Focused runner test or bounded dry-run showing the selected IDs and worker count without network calls.

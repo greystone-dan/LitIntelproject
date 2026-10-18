@@ -491,10 +491,12 @@ repeated mapped markers unless they form a strictly increasing sequence
 beginning at paragraph 1; ignored markers remain available as text but are not
 assigned paragraph ranges. Existing stored chunks are not rewritten
 automatically and require a bounded rebuild measurement before application.
-After the 2026-09-07 full replacement and formal/neutral resolution
-pass, the live database contained `1,444,546` citation rows: `919,781` were
+The following figures are a historical database snapshot after the 2026-09-07
+full replacement and formal/neutral resolution pass; current counts have not
+been re-verified, and the source report files are not present in this checkout.
+At that time the database contained `1,444,546` citation rows: `919,781` were
 linked and `524,765` remained unresolved. The read-only report
-[unresolved_citation_shapes_post_resolution_20260907.json](data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json)
+`data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json`
 shows that `477,627` unresolved rows (`91.02%`) have no exact local signal;
 `16,656` have a unique case-alias signal, `16,592` have an ambiguous alias
 signal, `10,855` are self-alias cases, `1,777` combine self and alias matches,
@@ -515,7 +517,7 @@ name matched exactly one non-self canonical case title. It rejects self-only,
 self-plus-other, and multi-target matches. The live checkpoint is `507,695`
 unresolved rows overall. Excluding every `case_short` leaves `390,291`:
 `333,550 case_name`, `53,078 case`, and `3,663 neutral`. The refreshed
-[non-short unresolved report](data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json)
+`data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json`
 classifies `365,617` as having no exact local signal; only `11` unique-alias
 signals remain, all outside `case_name`.
 
@@ -1103,19 +1105,19 @@ unmatched, while content with no recoverable assessment objects remains
 rejected. This permits auditable recovery from output truncation without
 fabricating assessments.
 The request/result JSON and rendered Markdown remain report-only visual review
-artifacts. The operational sequence and next bounded step are recorded in
-`docs/NEXT_STEPS.md`.
+artifacts. The current review status and approval gate are recorded in the
+[Discussion Unit row in `docs/STILL_TO_DO.md`](docs/STILL_TO_DO.md#contextual-and-advanced-intelligence).
 The batch runner also supports an explicit case allowlist and bounded parallel
 workers. Concurrent children do not write the shared ledger; the parent records
 each result after completion so recovery runs remain resumable and auditable.
 
-The retained paragraph-assessment artifacts are now limited to the active
-`paragraph_level_300_run` and the prepared `core_300_run` under
-`data/eval/llm_discussion_units_pilot`. Earlier five-case, 20-case, single-case,
-and request-only paragraph pilots were retired on 2026-09-24 after the
-300-case run became the active review boundary. The historical run design is
-represented by the current scripts and task records; no live reader route
-depends on the removed pilot directories.
+The sandbox expects paragraph-assessment files under
+`paragraph_level_300_run/reviews` in
+`data/eval/llm_discussion_units_pilot`, but that directory is absent in this
+checkout. The loader returns `available: false` for a missing per-case file.
+Earlier five-case, 20-case, single-case, and request-only paragraph pilots were
+retired on 2026-09-24. The sandbox checks the configured current path and does
+not use those retired pilot directories.
 
 `scripts/audit_discussion_unit_structure.py` reads the 300 deterministic reports
 under `core_300_run/reports` without database or network access and emits a
@@ -1130,12 +1132,12 @@ evidence, or model-publication status. The next gate is human review of a
 stratified flagged cohort before a fine-subtheme-first segmentation design is
 considered.
 
-The 2026-09-24 core-300 preflight completed deterministic preparation for all
-300 cases. Its explicitly approved first-10 API validation completed 9 cases
-and retained one raw response for failed case `677`; no cases after the first
-10 were attempted. The remaining 290 calls are approval-gated. Database-owned
-Discussion Unit persistence is intentionally a separate future layer and is
-not part of this report-only run.
+The preflight task record preserves the bounded preparation and API-slice
+evidence. The checked-in ledger is the artifact source; current review status
+and the approval gate are maintained in the Discussion Unit row of
+`docs/STILL_TO_DO.md`. Do not infer further runs or approval from the historical
+preflight notes. Database-owned Discussion Unit persistence remains a separate
+future layer, not part of this report-only workflow.
 
 The read-only `scripts/dry_run_paragraph_evidence_bridge.py` scan on
 2026-09-25 produced
@@ -3174,11 +3176,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T14:01:01.732842+00:00
+Generated: 2026-10-15T18:10:26.528928+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 130 across 127 paths
-Hidden operations: 65 excluded from OpenAPI
+OpenAPI operations: 140 across 137 paths
+Hidden operations: 110 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3298,6 +3300,9 @@ Search Analytics Cases
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `cites_case_id` (query, optional; integer | null)
+- `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
@@ -3375,7 +3380,7 @@ Compare Cohort Assessment Records
 
 Search Analytics Facets
 
-Court/year counts for the current filters, loaded after the results so they never delay them.
+Court, year and case-type counts for the current filters, loaded after the results so they never delay them.
 
 **Parameters**
 
@@ -3387,6 +3392,9 @@ Court/year counts for the current filters, loaded after the results so they neve
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `cites_case_id` (query, optional; integer | null)
+- `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `cohort_id` (query, optional; string, default `""`)
 
@@ -3402,6 +3410,22 @@ Get Analytics Search Ministers
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /analytics/search/tags`
+
+Search Analytics Tags
+
+Stored tag values matching the typed text, with how many decisions carry each (for the Tag filter).
+
+**Parameters**
+
+- `q` (query, optional; string, default `""`)
+- `limit` (query, optional; integer, default `12`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /analytics/statute-tag-matrix`
 
@@ -3568,6 +3592,43 @@ Search Embedding Status
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/statute-library/acts`
+
+Statute Library Acts
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `GET /api/statute-library/{act}/sections`
+
+Statute Library Toc
+
+**Parameters**
+
+- `act` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statute-library/{act}/sections/{section}`
+
+Statute Library Section
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/statutes/{act}/{section}/consideration`
 
 Statute Consideration Analytics
@@ -3659,6 +3720,21 @@ Get Case
 **Responses**
 
 - `200`: Successful Response; `application/json`: `CaseResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/case-frame`
+
+Get Case Frame
+
+The stored case frame (parties, earlier decisions, issues, arguments, challenged part). Off unless CASELIBRARY_CASE_FRAME_ENABLED=1.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/citation-metrics`
@@ -3771,6 +3847,21 @@ Discussion-unit evidence and case summary, loaded after the decision text so the
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/issue-map`
+
+Get Case Issue Map
+
+The stored issue map of a decision: each issue the court decided, who won, and the paragraph that says so. Stored data only.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /cases/{case_id}/markup-export`
 
 Export Case Markup Docx
@@ -3790,9 +3881,54 @@ Word file of the decision with the margin notes the browser sends as Word commen
 - `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/note-links`
+
+Get Case Note Links
+
+Stored "possibly the same point" links from this decision's paragraph notes to notes in other decisions. No model call.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/paragraph-assessments`
 
 Get Case Paragraph Assessments
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-notes`
+
+Get Case Paragraph Notes
+
+One-line notes for the paragraphs of a decision, keyed by paragraph number. Stored data only; no model call.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-positions`
+
+Get Case Paragraph Positions
+
+Whose-position tags and one-line summaries for a decision (preview). Stored data only; no model call.
 
 **Parameters**
 
@@ -4673,6 +4809,21 @@ Live Analysis Analyze
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /live-analysis/issue-matches`
+
+Live Analysis Issue Matches
+
+Decided issues close to one pasted argument. Keyword search only, nothing stored, no model.
+
+**Request body (required)**
+
+- `application/json`: `IssueMatchRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /live-analysis/reader`
 
 Live Analysis Reader
@@ -4987,6 +5138,9 @@ Export Search Analytics Cases
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `cites_case_id` (query, optional; integer | null)
+- `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `cohort_id` (query, optional; string, default `""`)
@@ -5012,6 +5166,8 @@ Export up to 200 cases using the Data Explorer search filters.
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `cites_case_id` (query, optional; integer | null)
+- `tags` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
@@ -5098,6 +5254,21 @@ Handler: `backend.main.access_logout`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /api/about/library`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.about_library`
+
+**Handler parameters**
+
+- `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/about/stats`
 
 **Hidden from OpenAPI.**
@@ -5108,6 +5279,21 @@ Handler: `backend.routes.about_stats`
 
 - `db` (Session; default `Depends(get_db)`)
 - `response` (Response; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/cases/{case_id}/similar-cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.similar_cases.similar_cases`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 
@@ -5553,6 +5739,16 @@ Handler: `backend.routes.reidentify_api`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /business-case`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.business_case_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-compare`
 
 **Hidden from OpenAPI.**
@@ -5628,6 +5824,16 @@ Handler: `backend.routes.get_case_activity`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /changelog`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.changelog_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /citation-intelligence`
 
 **Hidden from OpenAPI.**
@@ -5643,6 +5849,74 @@ Handler: `backend.routes.citation_intelligence_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.citation_pass_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_index`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-demo`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_demo_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-preview`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_preview_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon-preview/img/{name}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_preview_image`
+
+**Handler parameters**
+
+- `name` (str; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon/`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_index`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /coming-soon/{section}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_page`
+
+**Handler parameters**
+
+- `section` (str; required)
 
 **Responses**
 
@@ -5804,6 +6078,16 @@ Handler: `backend.routes.fc_history_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /future-features`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.future_features_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /issue-brief-ui`
 
 **Hidden from OpenAPI.**
@@ -5843,11 +6127,25 @@ Handler: `backend.routes.judge_profile_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /lab`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.lab_home_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /live-analysis`
 
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.live_analysis_page`
+
+**Handler parameters**
+
+- `request` (Request; required)
 
 **Responses**
 
@@ -5903,6 +6201,66 @@ Handler: `backend.routes.research_interface`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /roadmap`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.roadmap_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/coming-soon`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_home_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/coming-soon-demo`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_home_demo`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/internal.json`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.roadmap_internal_notes`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/preview`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.coming_soon_preview_html`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /roadmap/tour`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.roadmap_tour_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /robots.txt`
 
 **Hidden from OpenAPI.**
@@ -5923,11 +6281,51 @@ Handler: `backend.routes.saved_searches_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /site-tour.css`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.site_tour_styles`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /site-tour.js`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.site_tour_script`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /site-tour/sample-memo.docx`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.site_tour_sample_memo`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /statute-consideration`
 
 **Hidden from OpenAPI.**
 
 Handler: `backend.statute_consideration.statute_consideration_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-library`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_library_page_route`
 
 **Responses**
 
@@ -5973,6 +6371,348 @@ Handler: `backend.routes.theme_explorer_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /unit-search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_unit_search`
+
+**Handler parameters**
+
+- `q` (str; default `Query(PydanticUndefined)`)
+- `limit` (int; default `Query(8)`)
+- `court` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /welcome`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.main.welcome_page_moved`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.list_cases`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.add_cases`
+
+**Handler parameters**
+
+- `body` (AddCasesRequest; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/cases/export.csv`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.export_cases`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/cases/seen-all`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.mark_all_seen`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `DELETE /workbench/api/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.delete_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.case_detail`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `PATCH /workbench/api/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.update_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `body` (ItemUpdate; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/cases/{case_id}/seen`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.mark_seen`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/me`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_me`
+
+**Handler parameters**
+
+- `request` (Request; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/pins`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.list_pins`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/pins`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.add_pin`
+
+**Handler parameters**
+
+- `body` (PinRequest; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/pins/export.csv`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.export_pins`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/pins/state`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.pin_state`
+
+**Handler parameters**
+
+- `request` (Request; required)
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `DELETE /workbench/api/pins/{pin_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.delete_pin`
+
+**Handler parameters**
+
+- `pin_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `PATCH /workbench/api/pins/{pin_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.update_pin`
+
+**Handler parameters**
+
+- `pin_id` (int; required)
+- `body` (ItemUpdate; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/signin`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_signin`
+
+**Handler parameters**
+
+- `body` (SignInRequest; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/signout`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_signout`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/summary`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.summary`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/brief`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.brief_all`
+
+**Handler parameters**
+
+- `request` (Request; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/brief/case/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.brief_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `request` (Request; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### Appendix Source: `docs/SCHEMA_REFERENCE.generated.md`
 
 *The text below is synchronized from the companion file. Update the source file or its generator, then rerun `scripts/embed_documentation_appendices.py`.*
@@ -5981,8 +6721,8 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T14:01:01.738163+00:00
-Tables: 38
+Generated: 2026-10-15T18:10:28.118601+00:00
+Tables: 49
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -6031,6 +6771,23 @@ erDiagram
         Integer token_estimate
         VECTOR(1536) embedding
         String(100) embedding_model
+        DATETIME created_at
+    }
+    case_fingerprints {
+        Integer case_id PK FK
+        String(20) version
+        JSON terms
+        JSON authorities
+        JSON role_chars
+        Integer text_length
+        DATETIME computed_at
+    }
+    case_frames {
+        Integer id PK
+        Integer case_id  FK
+        Integer version
+        JSON frame
+        String(40) source
         DATETIME created_at
     }
     case_judge_profiles {
@@ -6098,6 +6855,23 @@ erDiagram
         String(30) evidence_role
         String(50) source
         String(100) taxonomy_version
+        DATETIME created_at
+    }
+    case_type_labels {
+        Integer id PK
+        Integer case_id  FK
+        String(50) taxonomy_version
+        String(30) status
+        String(80) primary_type
+        String(80) primary_detail
+        JSON secondary_types
+        String(80) second_type
+        String(80) second_detail
+        String(60) proceeding
+        JSON issues
+        FLOAT confidence
+        JSON scores
+        JSON evidence
         DATETIME created_at
     }
     cases {
@@ -6192,6 +6966,9 @@ erDiagram
         FLOAT confidence
         Integer refine_version
         Integer source_citation_id
+        String(100) pinpoint
+        String(12) pinpoint_kind
+        String(255) pinpoint_values
     }
     discussion_unit_cache {
         Integer id PK
@@ -6362,6 +7139,37 @@ erDiagram
         Integer records_failed
         JSON metadata_json
     }
+    issue_map_questions {
+        Integer id PK
+        Integer issue_map_id  FK
+        Integer position
+        TEXT question
+    }
+    issue_maps {
+        Integer id PK
+        String(60) source_key
+        Integer issue_no
+        Integer case_id  FK
+        String(120) citation
+        String(20) court
+        TEXT issue
+        TEXT text
+        String(30) result
+        Integer result_para
+        TEXT soften
+        TEXT result_paragraph
+        TEXT applicant_position
+        TEXT respondent_position
+        JSON review_flags
+        DATETIME created_at
+    }
+    judge_profile_aliases {
+        Integer id PK
+        Integer alias_profile_id  FK
+        Integer canonical_profile_id  FK
+        String(30) source
+        DATETIME created_at
+    }
     judge_profiles {
         Integer id PK
         String(255) slug
@@ -6405,6 +7213,33 @@ erDiagram
         Integer algo_version
         Integer edges
         DATETIME computed_at
+    }
+    paragraph_note_links {
+        Integer id PK
+        Integer case_id  FK
+        Integer para
+        Integer other_case_id  FK
+        Integer other_para
+        Integer score
+        String(40) source
+        DATETIME created_at
+    }
+    paragraph_notes {
+        Integer id PK
+        Integer case_id  FK
+        Integer para
+        Integer version
+        TEXT note
+        String(40) source
+        DATETIME created_at
+    }
+    paragraph_positions {
+        Integer id PK
+        Integer case_id  FK
+        String(40) tagger
+        Integer paragraph_count
+        JSON paragraphs
+        DATETIME created_at
     }
     recent_case_chunk_embeddings {
         Integer chunk_id PK FK
@@ -6523,10 +7358,37 @@ erDiagram
         DATETIME created_at
         DATETIME updated_at
     }
+    workbench_cases {
+        Integer id PK
+        String(80) owner
+        String(50) imm_number
+        String(255) label
+        TEXT notes
+        JSON tags
+        String(80) folder
+        DATE deadline
+        String(120) deadline_label
+        Integer last_seen_entries
+        DATE last_seen_activity_date
+        String(80) last_seen_status
+        DATETIME last_viewed_at
+        DATETIME added_at
+    }
+    workbench_pins {
+        Integer id PK
+        String(80) owner
+        Integer case_id  FK
+        TEXT notes
+        JSON tags
+        String(80) folder
+        DATETIME pinned_at
+    }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
     case_chunks ||--o{ case_chunk_embeddings : "chunk_id"
     cases ||--o{ case_chunks : "case_id"
+    cases ||--o{ case_fingerprints : "case_id"
+    cases ||--o{ case_frames : "case_id"
     cases ||--o{ case_judge_profiles : "case_id"
     judge_profiles ||--o{ case_judge_profiles : "judge_profile_id"
     cases ||--o{ case_outcomes : "case_id"
@@ -6534,6 +7396,7 @@ erDiagram
     cases ||--o{ case_tagging_status : "case_id"
     cases ||--o{ case_tags : "case_id"
     case_chunks ||--o{ case_tags : "chunk_id"
+    cases ||--o{ case_type_labels : "case_id"
     cases ||--o{ citation_metrics : "case_id"
     citations_refined ||--o{ citation_paragraph_links : "refined_citation_id"
     case_chunks ||--o{ citations : "chunk_id"
@@ -6551,10 +7414,18 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
+    issue_maps ||--o{ issue_map_questions : "issue_map_id"
+    cases ||--o{ issue_maps : "case_id"
+    judge_profiles ||--o{ judge_profile_aliases : "alias_profile_id"
+    judge_profiles ||--o{ judge_profile_aliases : "canonical_profile_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
     cases ||--o{ paragraph_citation_edges : "source_case_id"
     cases ||--o{ paragraph_citation_edges : "target_case_id"
     cases ||--o{ paragraph_citation_status : "source_case_id"
+    cases ||--o{ paragraph_note_links : "case_id"
+    cases ||--o{ paragraph_note_links : "other_case_id"
+    cases ||--o{ paragraph_notes : "case_id"
+    cases ||--o{ paragraph_positions : "case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     cases ||--o{ search_alerts : "case_id"
@@ -6568,6 +7439,7 @@ erDiagram
     statute_versions ||--o{ statute_references_refined : "statute_version_id"
     statute_versions ||--o{ statute_sections : "statute_version_id"
     statutes ||--o{ statute_versions : "statute_id"
+    cases ||--o{ workbench_pins : "case_id"
 ```
 
 ## Table Summary
@@ -6579,17 +7451,20 @@ erDiagram
 | `a2aj_citation_edges` | 4 | `id` |
 | `case_chunk_embeddings` | 6 | `id` |
 | `case_chunks` | 13 | `id` |
+| `case_fingerprints` | 7 | `case_id` |
+| `case_frames` | 6 | `id` |
 | `case_judge_profiles` | 5 | `id` |
 | `case_outcomes` | 18 | `id` |
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
 | `case_tags` | 15 | `id` |
+| `case_type_labels` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citation_paragraph_links` | 5 | `id` |
 | `citation_refine_status` | 6 | `source_case_id` |
 | `citations` | 17 | `id` |
-| `citations_refined` | 21 | `id` |
+| `citations_refined` | 24 | `id` |
 | `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
@@ -6599,11 +7474,17 @@ erDiagram
 | `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
+| `issue_map_questions` | 4 | `id` |
+| `issue_maps` | 16 | `id` |
+| `judge_profile_aliases` | 5 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
 | `paragraph_citation_edges` | 9 | `id` |
 | `paragraph_citation_status` | 4 | `source_case_id` |
+| `paragraph_note_links` | 8 | `id` |
+| `paragraph_notes` | 7 | `id` |
+| `paragraph_positions` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
@@ -6612,6 +7493,8 @@ erDiagram
 | `statute_sections` | 10 | `id` |
 | `statute_versions` | 10 | `id` |
 | `statutes` | 12 | `id` |
+| `workbench_cases` | 14 | `id` |
+| `workbench_pins` | 7 | `id` |
 
 ## `a2aj_case_map`
 
@@ -6721,6 +7604,53 @@ erDiagram
 - `ix_case_chunks_chunk_set`: index on `chunk_set`
 - `ix_case_chunks_text_hash`: index on `text_hash`
 - `ix_similarity_paragraph`: index on `case_id`, `chunk_set`, `paragraph_start`, `id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `case_fingerprints`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `case_id` | `Integer` | no | PK; FK -> cases.id; NOT NULL |
+| `version` | `String(20)` | no | NOT NULL |
+| `terms` | `JSON` | no | NOT NULL |
+| `authorities` | `JSON` | no | NOT NULL |
+| `role_chars` | `JSON` | yes | - |
+| `text_length` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_fingerprints_version`: index on `version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `case_frames`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `version` | `Integer` | no | NOT NULL; default=1 |
+| `frame` | `JSON` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_frames_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_case_frame_case_version`: `case_id`, `version`
 
 ### Foreign Keys
 
@@ -6898,6 +7828,43 @@ erDiagram
 - `case_id` -> `cases.id`; on delete `CASCADE`
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 
+## `case_type_labels`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `taxonomy_version` | `String(50)` | no | NOT NULL |
+| `status` | `String(30)` | no | NOT NULL |
+| `primary_type` | `String(80)` | yes | - |
+| `primary_detail` | `String(80)` | yes | - |
+| `secondary_types` | `JSON` | yes | - |
+| `second_type` | `String(80)` | yes | - |
+| `second_detail` | `String(80)` | yes | - |
+| `proceeding` | `String(60)` | yes | - |
+| `issues` | `JSON` | yes | - |
+| `confidence` | `FLOAT` | no | NOT NULL; default=0 |
+| `scores` | `JSON` | yes | - |
+| `evidence` | `JSON` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_type_labels_case_id`: index on `case_id`
+- `ix_case_type_labels_primary_type`: index on `primary_type`
+- `ix_case_type_labels_status`: index on `status`
+- `ix_case_type_labels_taxonomy_version`: index on `taxonomy_version`
+
+### Unique Constraints
+
+- `uq_case_type_label_version`: `case_id`, `taxonomy_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
 ## `cases`
 
 ### Columns
@@ -7061,6 +8028,9 @@ erDiagram
 | `confidence` | `FLOAT` | yes | - |
 | `refine_version` | `Integer` | no | NOT NULL |
 | `source_citation_id` | `Integer` | yes | - |
+| `pinpoint` | `String(100)` | yes | - |
+| `pinpoint_kind` | `String(12)` | yes | - |
+| `pinpoint_values` | `String(255)` | yes | - |
 
 ### Indexes
 
@@ -7399,6 +8369,86 @@ erDiagram
 - `ix_ingestion_runs_source_type`: index on `source_type`
 - `ix_ingestion_runs_status`: index on `status`
 
+## `issue_map_questions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `issue_map_id` | `Integer` | no | FK -> issue_maps.id; NOT NULL |
+| `position` | `Integer` | no | NOT NULL; default=0 |
+| `question` | `TEXT` | no | NOT NULL |
+
+### Indexes
+
+- `ix_issue_map_questions_issue_map_id`: index on `issue_map_id`
+
+### Foreign Keys
+
+- `issue_map_id` -> `issue_maps.id`; on delete `CASCADE`
+
+## `issue_maps`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_key` | `String(60)` | no | NOT NULL |
+| `issue_no` | `Integer` | no | NOT NULL |
+| `case_id` | `Integer` | yes | FK -> cases.id |
+| `citation` | `String(120)` | yes | - |
+| `court` | `String(20)` | yes | - |
+| `issue` | `TEXT` | no | NOT NULL |
+| `text` | `TEXT` | no | NOT NULL |
+| `result` | `String(30)` | no | NOT NULL |
+| `result_para` | `Integer` | yes | - |
+| `soften` | `TEXT` | yes | - |
+| `result_paragraph` | `TEXT` | yes | - |
+| `applicant_position` | `TEXT` | yes | - |
+| `respondent_position` | `TEXT` | yes | - |
+| `review_flags` | `JSON` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_issue_maps_case_id`: index on `case_id`
+- `ix_issue_maps_source_key`: index on `source_key`
+
+### Unique Constraints
+
+- `uq_issue_map_source_issue`: `source_key`, `issue_no`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `SET NULL`
+
+## `judge_profile_aliases`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `alias_profile_id` | `Integer` | no | FK -> judge_profiles.id; NOT NULL |
+| `canonical_profile_id` | `Integer` | no | FK -> judge_profiles.id; NOT NULL |
+| `source` | `String(30)` | no | NOT NULL; default=rule |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_judge_profile_aliases_canonical_profile_id`: index on `canonical_profile_id`
+
+### Unique Constraints
+
+- `unnamed`: `alias_profile_id`
+
+### Foreign Keys
+
+- `alias_profile_id` -> `judge_profiles.id`; on delete `CASCADE`
+- `canonical_profile_id` -> `judge_profiles.id`; on delete `CASCADE`
+
 ## `judge_profiles`
 
 ### Columns
@@ -7503,6 +8553,81 @@ erDiagram
 ### Foreign Keys
 
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_note_links`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `para` | `Integer` | no | NOT NULL |
+| `other_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `other_para` | `Integer` | no | NOT NULL |
+| `score` | `Integer` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_paragraph_note_links_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_note_link_pair`: `case_id`, `para`, `other_case_id`, `other_para`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `other_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_notes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `para` | `Integer` | no | NOT NULL |
+| `version` | `Integer` | no | NOT NULL; default=1 |
+| `note` | `TEXT` | no | NOT NULL |
+| `source` | `String(40)` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_paragraph_notes_case_id`: index on `case_id`
+
+### Unique Constraints
+
+- `uq_paragraph_note_case_para_version`: `case_id`, `para`, `version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_positions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `tagger` | `String(40)` | no | NOT NULL |
+| `paragraph_count` | `Integer` | no | NOT NULL |
+| `paragraphs` | `JSON` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Unique Constraints
+
+- `unnamed`: `case_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `recent_case_chunk_embeddings`
 
@@ -7745,6 +8870,62 @@ erDiagram
 - `ix_statutes_jurisdiction`: index on `jurisdiction`
 - `ix_statutes_source`: index on `source`
 
+## `workbench_cases`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `owner` | `String(80)` | no | NOT NULL |
+| `imm_number` | `String(50)` | no | NOT NULL |
+| `label` | `String(255)` | yes | - |
+| `notes` | `TEXT` | yes | - |
+| `tags` | `JSON` | yes | - |
+| `folder` | `String(80)` | yes | - |
+| `deadline` | `DATE` | yes | - |
+| `deadline_label` | `String(120)` | yes | - |
+| `last_seen_entries` | `Integer` | no | NOT NULL; default=0 |
+| `last_seen_activity_date` | `DATE` | yes | - |
+| `last_seen_status` | `String(80)` | yes | - |
+| `last_viewed_at` | `DATETIME` | yes | - |
+| `added_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_workbench_cases_owner`: index on `owner`
+
+### Unique Constraints
+
+- `uq_workbench_case_owner_imm`: `owner`, `imm_number`
+
+## `workbench_pins`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `owner` | `String(80)` | no | NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `notes` | `TEXT` | yes | - |
+| `tags` | `JSON` | yes | - |
+| `folder` | `String(80)` | yes | - |
+| `pinned_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_workbench_pins_case_id`: index on `case_id`
+- `ix_workbench_pins_owner`: index on `owner`
+
+### Unique Constraints
+
+- `uq_workbench_pin_owner_case`: `owner`, `case_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
 ### Appendix Source: `docs/CONFIGURATION_REFERENCE.md`
 
 *The text below is synchronized from the companion file. Update the source file or its generator, then rerun `scripts/embed_documentation_appendices.py`.*
@@ -7830,7 +9011,7 @@ the server after changing these settings. HSTS is emitted only for HTTPS request
 according to the ASGI scheme or the first `X-Forwarded-Proto` value. Only trust
 forwarded-protocol headers when a trusted proxy overwrites them. The middleware
 preserves existing response headers and does not consume response bodies. See
-[Optional Security Response Headers](SECURITY_HEADERS.md) for activation,
+Optional security response header details are in `docs/SECURITY_HEADERS.md` for activation,
 report-only review, CSP policy scope, and limitations.
 
 ## Optional Request Audit Log
@@ -8303,6 +9484,19 @@ Missing provenance is a data-quality defect, not an invitation to fabricate valu
 4. Docket correlation can be strong without proving that two records are identical decisions.
 5. Reference-library snapshots age; checksum validity proves local-file integrity, not current legal validity.
 6. Dataset-wide statistics should identify source scope and extraction date before being used for research conclusions.
+## Added federal statute snapshots (2026-10-06)
+
+41 more Justice Laws XML snapshots (Open Government Licence - Canada) sit in `data/reference_library/legislation_xml/`: Customs Act, CBSA Act, Customs Tariff, Excise Tax Act, Excise Acts, Patent Act, Competition Act, Bankruptcy and Insolvency Act, Food and Drugs Act and Regulations, NOC Regulations, CDSA, Canada Evidence Act, Access to Information Act, Fisheries Act, Labour Code, CCRA, CSIS Act, Extradition Act, Security of Information Act, YCJA, Canada Marine and Shipping Acts, EI Act, FPSLRA, PCMLTFA, plus the RPD, RAD, ID, IAD (2022) and Federal Courts Citizenship Immigration Rules and Citizenship Regulations. `scripts/index_legislation.py --dry-run` parses and counts them without a database; `--only-missing` indexes only instruments with no document. Not available: the repealed Immigration Act (R.S.C. 1985, c. I-2) and the pre-2022 IAD Rules, which Justice Laws no longer serves.
+
+Second batch (2026-10-07): 37 more Justice Laws snapshots, about 6,600 sections: Canada Pension Plan, Old Age Security Act, Official Languages Act, Canada Revenue Agency Act, Canada Business Corporations Act, Copyright Act, Trademarks Act, Telecommunications Act, Canada Transportation Act, Canada Elections Act, National Defence Act, CEPA 1999, Judges Act, RCMP Act, Public Service Employment Act, Employment Equity Act, Multiculturalism Act, Divorce Act, SEMA, Magnitsky Act, SCIDA, Tax Court Act and Rules (General Procedure), SIMA, CITT Act, Export and Import Permits Act, Firearms Act, Health of Animals Act, Plant Protection Act, Quarantine Act, WAPPRIITA, Cultural Property Act, Seized Property Management Act, Government Employees Compensation Act, EI Regulations, CCR Regulations, Presentation of Persons (2003) Regulations and Reporting of Imported Goods Regulations.
+
+Third batch (2026-10-07): Financial Administration Act, Statutory Instruments Act, Department of Citizenship and Immigration Act, Canadian Bill of Rights, PIPEDA, Prisons and Reformatories Act, Transfer of Offenders Act, Mutual Legal Assistance in Criminal Matters Act, Identification of Criminals Act, Carriage by Air Act and the Income Tax Regulations (about 970 sections).
+
+Fourth batch (2026-10-07): Pension Act, Bank Act, Broadcasting Act, Aeronautics Act, Veterans Review and Appeal Board Act, Canada Recovery Benefits Act, CERB Act, Statistics Act, Interest Act, Bills of Exchange Act, State Immunity Act, Parliament of Canada Act, Public Service Superannuation Act, Canadian Forces Superannuation Act, Impact Assessment Act, Radiocommunication Act, Emergencies Act, Canada Post Corporation Act, CICC Act, Crimes Against Humanity and War Crimes Act, ESDC Act, Canada Student Financial Assistance Act, Security Offences Act, Public Service Employment Regulations and Patent Rules (about 4,000 sections, Bank Act alone 1,379). Same Open Government Licence - Canada source and identity guard.
+
+Constitution Acts (2026-10-07): Constitution Act, 1867 (155 sections) and Constitution Act, 1982 (63 sections) from the Justice Laws page "The Constitution Acts 1867 to 1982", split by `parse_constitution_sections`; the Charter keeps its own document.
+
+Provincial immigration acts (2026-10-07, A2AJ canadian-laws, open tier): Ontario Immigration Act, 2015 (44 sections), Alberta Immigration Oversight Act (69), Manitoba Worker Recruitment and Protection Act (35), cut by `scripts/extract_a2aj_provincial_acts.py` into `data/reference_library/provincial_json/`. Held pending a licence decision, not committed: BC Provincial Immigration Programs Act and Temporary Foreign Worker Protection Act (licence field blank), Quebec Immigration Act, Civil Code of Quebec and the Ministry act (CC BY-NC-ND 4.0, non-commercial, no derivatives), Saskatchewan Immigration Services Act (non-commercial use by permission).
 
 ### Appendix Source: `docs/SCRIPT_CATALOG.generated.md`
 
@@ -8314,7 +9508,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 168
+Active scripts documented: 216
 
 ## Catalog
 
@@ -8329,6 +9523,7 @@ Active scripts documented: 168
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
 | `analyze_themes_before_after.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help` |
+| `apply_judge_aliases.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
@@ -8339,11 +9534,16 @@ Active scripts documented: 168
 | `backfill_case_tags_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_tags_v3.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
+| `backfill_panel_judges.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help` |
+| `backfill_rpd_header.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help` |
+| `backfill_statute_instrument_keys.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_instrument_keys.py --help` |
+| `backfill_statute_provisions.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help` |
 | `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
 | `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
+| `build_case_fingerprints.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_case_fingerprints.py --help` |
 | `build_changelog.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_changelog.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
@@ -8361,15 +9561,23 @@ Active scripts documented: 168
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
+| `build_position_layers.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_layers.py --help` |
+| `build_position_preview.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview.py --help` |
+| `build_position_preview_lf.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help` |
+| `build_position_tags.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_tags.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
+| `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
 | `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
+| `case_types_eval.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\case_types_eval.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
+| `check_site_tour.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_site_tour.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
+| `classify_case_types.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_case_types.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
 | `clean_tag_candidate_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help` |
@@ -8379,6 +9587,7 @@ Active scripts documented: 168
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `daily_intake.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\daily_intake.py --help` |
 | `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
@@ -8389,6 +9598,8 @@ Active scripts documented: 168
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
 | `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
+| `eval_position_rules.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_position_rules.py --help` |
+| `evaluate_case_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_case_structure.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
@@ -8398,18 +9609,26 @@ Active scripts documented: 168
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
 | `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
+| `evaluate_statute_sections.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
 | `expand_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help` |
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
+| `extract_a2aj_provincial_acts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
 | `extract_seed_cases_from_transcript.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help` |
+| `fc_activity_backlog.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs` |
 | `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
+| `fc_activity_laptop.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
+| `fetch_position_texts.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help` |
+| `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
+| `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
+| `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
@@ -8430,12 +9649,20 @@ Active scripts documented: 168
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
 | `inspect_context_variants.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help` |
 | `inspect_discussion_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help` |
+| `judge_alias_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_alias_report.py --help` |
 | `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
+| `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
+| `load_case_frames.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_case_frames.py --help` |
+| `load_core150_layers.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_core150_layers.py --help` |
+| `load_issue_maps.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_issue_maps.py --help` |
+| `load_note_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_note_links.py --help` |
+| `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
+| `measure_refined_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help` |
 | `measure_tagging_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help` |
 | `mine_a2aj_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help` |
 | `mine_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help` |
@@ -8450,9 +9677,15 @@ Active scripts documented: 168
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
+| `recompute_citation_metrics.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help` |
+| `reextract_statute_references.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help` |
 | `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
+| `regenerate_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\regenerate_docs.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
+| `remove_test_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_test_cases.py --help` |
+| `repair_glued_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help` |
+| `repair_range_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_range_word_sections.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
 | `report_fc_activity_coverage.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help` |
 | `report_fc_activity_motion_unknowns.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_motion_unknowns.py --help` |
@@ -8467,17 +9700,24 @@ Active scripts documented: 168
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
 | `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
+| `run_live_analysis_mocks.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_live_analysis_mocks.py --help` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
 | `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
+| `run_position_tags_library.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
 | `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
+| `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
+| `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
+| `score_position_holder.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_position_holder.py --help` |
+| `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
+| `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -8485,6 +9725,8 @@ Active scripts documented: 168
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
 | `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
+| `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
+| `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
@@ -8613,6 +9855,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help
+```
+
+## `scripts/apply_judge_aliases.py`
+
+**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --prune # dry run: rule rows the current rules no longer propose python scripts/apply_judge_aliases.py --prune --apply # delete those rows (e.g. Marc/Simon Noël) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help
 ```
 
 ## `scripts/audit_discussion_unit_structure.py`
@@ -8755,6 +10011,62 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help
 ```
 
+## `scripts/backfill_panel_judges.py`
+
+**Purpose:** Create one judge profile per panel member for multi-judge cases (SCC) and link them (dry-run by default). SCC cases store the whole panel in one field ("Wagner, Richard; Abella, Rosalie; ..."). The first profile backfill turned each distinct panel string into a single fake judge. This script splits the panel, finds or creates one profile per judge, and links each case to every panel member. Existing profiles and links are never edited or deleted; reruns add nothing new. python scripts/backfill_panel_judges.py # dry run, SCC python scripts/backfill_panel_judges.py --apply # write (needs Daniel's go) python scripts/backfill_panel_judges.py --courts FCA # panel = the "present" lines ("STRATAS J.A.") FCA decisions store the authoring judge in `judge` (already linked) and the full bench in `present`, one judge per line. Panel members reuse the profile of the same raw string ("NOËL J.A."), so no duplicates appear, and only "J.A." / "C.J." lines count (assessment officers and clerks are skipped).
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help
+```
+
+## `scripts/backfill_rpd_header.py`
+
+**Purpose:** Fix the panel member and place of hearing stored for Refugee Protection Division decisions. Dry run by default. The old extractor left RPD decision makers blank and let "place of hearing" run on through the cover page. This re-reads those two fields from the cover page (`backend.metadata._rpd_header_fields`) and updates only `metadata_json -> reader_extracted -> judge` and `-> place of hearing` on RPD cases. python scripts/backfill_rpd_header.py --limit 20 # dry run: print before/after for 20 cases python scripts/backfill_rpd_header.py --apply # write (needs Daniel's go for the live database) python scripts/backfill_rpd_header.py --revert-file undo.json # put the old values back
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help
+```
+
+## `scripts/backfill_statute_instrument_keys.py`
+
+**Purpose:** Fill statute_references.instrument_key for rows that name a registered act but were stored without a key. About 59% of statute_references have no instrument_key, and most of those name an act the registry already knows ("Patent Act", "Federal Court Rules", "Immigration and Refugee Protection Act, S.C. 2001, c. 27"). This resolves the act name with backend/instrument_resolver.py (exact normalized names only, court-aware for names shared with provincial acts) and writes only the instrument_key column, only where it is still NULL. Dry run by default (counts per instrument and samples). --apply first writes an undo file of every id and key it is about to set; --undo FILE puts those rows back to NULL, only where the key is still the one written.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_instrument_keys.py --help
+```
+
+## `scripts/backfill_statute_provisions.py`
+
+**Purpose:** Fill statute_references.provision_section/subsection/paragraph from the stored pinpoint. The provision_* columns were added after most references were stored, so about 99.9% of rows have a pinpoint such as "36(1)(a)" but an empty provision_section. Statute-consideration queries filter on provision_section and so find almost nothing. This derives the columns from the pinpoint with the same parser the extractor uses. It never changes the pinpoint, the instrument or any other column, and only touches rows whose provision_section is still NULL. Dry run by default (counts and samples only). Use --apply to write.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help
+```
+
 ## `scripts/batch_compute_units.py`
 
 **Purpose:** Resumable batch job CLI for computing discussion units across the case corpus. Usage: python scripts/batch_compute_units.py [--start CASE_ID] [--end CASE_ID] [--clear] Examples: # Compute all cases from start (default: case 1) python scripts/batch_compute_units.py # Compute specific range python scripts/batch_compute_units.py --start 1 --end 500 # Clear all cached units and recompute python scripts/batch_compute_units.py --clear # Resume from case 501 after a previous run python scripts/batch_compute_units.py --start 501
@@ -8823,6 +10135,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_alert_digest.py --help
+```
+
+## `scripts/build_case_fingerprints.py`
+
+**Purpose:** Compute stored case fingerprints for cases that have none (batch job; not run by the live site). Dry run by default: it reports how many cases would be fingerprinted. Use --apply to write. Cheap and read-mostly: it reads cases.full_text and writes only case_fingerprints.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_case_fingerprints.py --help
 ```
 
 ## `scripts/build_changelog.py`
@@ -9063,6 +10389,62 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
 ```
 
+## `scripts/build_position_layers.py`
+
+**Purpose:** Build per-paragraph rule-based holder and layer files for the reader preview. Offline: reads two folders of JSON (propositions files for the paragraph numbers, case reports for the text), no database, no model, no network. Output ``data/position_layers/case_<id>.json``: {"case_id": 28105, "source": {...}, "frame": "...", "paragraphs": {"13": {"l": 2, "h": ["respondent"], "law": false, "mixed": false, "c": "explicit"}}} ``l`` is the one layer the reader shows (1 judge, 2 submissions to the court, 3 earlier decision maker, 4 first-instance party as reported, 5 witness or document, 6 legal framework / precedent commentary), the same field name the reader preview uses for a stored layer. ``h`` are the rules' holders, ``law`` marks a paragraph with any layer-6 sentence, ``mixed`` marks two or more of layers 1-4 in the paragraph, ``c`` is how the paragraph layer was decided (explicit cue, lead_in, carried, default). python scripts/build_position_layers.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_layers.py --help
+```
+
+## `scripts/build_position_preview.py`
+
+**Purpose:** Build the compact per-decision "whose position" files the reader preview reads. Input: the propositions run (batch 4) JSON files, one per decision, e.g. ``case_28105_prop_prop_v4_gpt-4.1-mini.json``. Output: ``data/position_preview/case_<id>.json``. Offline and read-only against the database: no AI calls. python scripts/build_position_preview.py --src path/to/bundle5/props
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview.py --help
+```
+
+## `scripts/build_position_preview_lf.py`
+
+**Purpose:** Build "whose position" preview files from the proof-of-concept labelling runs (arm LF, one JSON per decision). Input: folders of ``case_<id>_LF_<model>.json`` files (paragraphs with propositions: holder, layer, kind, text, quote). Output: ``data/position_preview/case_<id>.json`` in the format the reader already loads (see ``build_position_preview.py``), plus a paragraph level ``l`` derived the way the proof of concept found most reliable: a rule-of-law point about the law is the legal framework, otherwise the level follows the holder (the model's own layer answers were less reliable). Offline: no database, no model, no network. Decisions that already have a file are left alone. python scripts/build_position_preview_lf.py --src ai_poc_wide/out/LF --src ai_poc_wide/out_wave2/LF --src ai_poc_wide/out_wave3_300/LF
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview_lf.py --help
+```
+
+## `scripts/build_position_tags.py`
+
+**Purpose:** Tag decisions with the rules + learned whose-position tagger and write one compact file per decision. Offline: reads decision texts from a folder of <id>.json files (title, full_text; ``scripts/fetch_position_texts.py`` writes them) and writes ``<out>/case_<id>.json`` in the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1. No database, no network, no model call. Nothing is loaded anywhere by this script. python scripts/build_position_tags.py --texts position_texts --out data/position_learned [--limit 100]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_tags.py --help
+```
+
 ## `scripts/build_prototype_cohort.py`
 
 **Purpose:** Build and operationalize prototype cohort for immigration case research. Pipeline: 1) Combine the 300-case core list with exact-matched seed/canon cases. 2) Embed cohort cases that are not yet embedded. 3) Export citation map edges restricted to cohort-internal citations.
@@ -9075,6 +10457,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help
+```
+
+## `scripts/build_refined_citations.py`
+
+**Purpose:** Build side-by-side refined case citations (second-pass extraction) for decisions. Writes only to the new tables `citations_refined` and `citation_refine_status`; the live `citations` table is never touched, so the site keeps reading pass-one data. DRY RUN BY DEFAULT: nothing is written without `--apply`. python scripts/build_refined_citations.py --limit 500 # dry run: counts and a compare to pass one python scripts/build_refined_citations.py --limit 500 --apply # write the first 500 decisions python scripts/build_refined_citations.py --language fr --random-seed 1 --limit 500 # random French sample, dry run python scripts/build_refined_citations.py --apply --court FC # continue (resumable; skips done decisions) python scripts/build_refined_citations.py --revert --yes # delete all refined rows and status rows for this version One decision per transaction, resumable (decisions with a status row for the same refine version are skipped), capped by --limit, with an optional stop file checked between decisions. Docket rows are not stored (no column for them yet). Statute references and paragraph links are a later step.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_refined_citations.py --help
 ```
 
 ## `scripts/build_statute_demand_report.py`
@@ -9147,6 +10543,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help
 ```
 
+## `scripts/case_types_eval.py`
+
+**Purpose:** Run the case-type classifier over a stratified sample of A2AJ parquet files (read-only, no database). Example: python scripts/case_types_eval.py --parquet-dir /path/to/parquets --per-stratum 40 --out out.jsonl
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\case_types_eval.py --help
+```
+
 ## `scripts/check_generated_docs.py`
 
 **Purpose:** Check that checked-in generated documentation matches its generators.
@@ -9175,6 +10585,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\check_saved_searches.py --help
 ```
 
+## `scripts/check_site_tour.py`
+
+**Purpose:** Check the site tour in a real browser: every step's target must resolve, and the controls must work. Needs Playwright with Chromium and a running copy of the site. python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --require-data # on the PC that serves the site python scripts/check_site_tour.py --walk --sizes 1440x900,1920x1080 --shots /tmp/tour-shots # geometry at both desktop sizes python scripts/check_site_tour.py --steps-only # only validate site_tour_steps.json (no browser) python scripts/check_site_tour.py --pick-case # read-only: which cessation decision the tour should open --walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the milliseconds from pressing Next to the card being ready, any step that was skipped, and, at every card, the geometric checks in geometry_problems(): each ring goes right round its element, the card covers no lit element, stays on screen and does not jump when its last place was still clear, and the pointer is never on the card. Like a visitor's tour it signs in to the Workbench demo and pins the example decisions. Without --walk (or with --each) every step is also opened on its own, as after a refresh; that mode is read-only unless --demo-sign-in is given. A step marked optional, or one that names a feature in "needs", may be skipped without failing the check; every other step must show its card on the page it names. Exit code 1 if any required step failed, a geometric check failed, or the page raised an error.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_site_tour.py --help
+```
+
 ## `scripts/chunk_cases.py`
 
 **Purpose:** Create resumable text chunks for canonical cases without embedding calls.
@@ -9187,6 +10611,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\chunk_cases.py --help
+```
+
+## `scripts/classify_case_types.py`
+
+**Purpose:** Label every decision with its case type (deterministic rules, no AI). Dry run by default. python scripts/classify_case_types.py --limit 200 # dry run: print counts only python scripts/classify_case_types.py --court FC --apply # write rows to case_type_labels python scripts/classify_case_types.py --revert # delete rows of this taxonomy version Only reads `cases` and writes `case_type_labels`. Resumable: decisions that already have a row for the current taxonomy version are skipped.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\classify_case_types.py --help
 ```
 
 ## `scripts/classify_fc_activity.py`
@@ -9313,6 +10751,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
+```
+
+## `scripts/daily_intake.py`
+
+**Purpose:** Daily intake: new decisions from A2AJ, then new Federal Court (IMM) activity records. One run does, in order: 1. Cases. For each court (default FC, FCA, SCC) it asks Hugging Face whether the A2AJ partition has changed since the last completed run (one HEAD request, no download). Only if it changed does it download the partition, import decisions newer than what the library holds (minus a small overlap), skip anything already present, and run the deterministic processing layers (chunks, metadata, outcome, citations, statutes, tags) on each new case. 2. FC activity. New IMM files are found by walking forward from the highest IMM number already stored for the current year, fetching each from the Federal Court registry until several numbers in a row do not exist. A few recently active files are also re-fetched so their newest docket entries arrive. Touched files are re-classified with the existing rule classifier. Everything is deterministic: no AI or model calls. Each run writes one row to ingestion_runs (started, then finished with finished_at and counts). Caps keep a run small: --max-cases, --max-fc-requests, --max-minutes. Re-running is safe: existing cases and docket entries are never duplicated. Usage: python scripts/daily_intake.py --dry-run # report only, writes nothing python scripts/daily_intake.py # the real daily run python scripts/daily_intake.py --skip-activity # cases only python scripts/daily_intake.py --skip-cases # FC activity only
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\daily_intake.py --help
 ```
 
 ## `scripts/deduplicate_a2aj.py`
@@ -9455,6 +10907,34 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\eval_models.py --help
 ```
 
+## `scripts/eval_position_rules.py`
+
+**Purpose:** Score the deterministic whose-position rules against graded labels, with a fixed train / held-out split. Offline, no model. Inputs: --gold one or more JSON files {case_id: {para: {"h": [holders], "l": [layers], "src": ...}}} (reader grades: data/eval/position_gold_reader.json; AI tags: data/eval/position_gold_ai.json; both hold labels only) --texts folder of case_<id>.json or <id>.json files holding {"title", "court", "full_text"} (``scripts/fetch_position_texts.py`` writes them from the public pages; nothing is stored in the database) The split is by decision (sha1 of the case id), so a decision is never in both sets. Develop on ``train``; ``test`` is the held-out set and is reported, never tuned on. Metrics are per paragraph: the set of holders the rules found against the set the label says. Layers are compared with the one layer the reader shows for the paragraph (``paragraph_layer``) and count as right when it is among the labelled layers.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\eval_position_rules.py --help
+```
+
+## `scripts/evaluate_case_structure.py`
+
+**Purpose:** Score deterministic case-structure labelling against hand-labelled decisions. Gold: 22 Federal Court decisions from 2001-2004 (data/eval/case_structure/gold_fc_2001_2004_v2.json, paragraphs from the stored reports), 30 more hand-labelled FC / FCA / SCC decisions (gold_new_cases.json) and 18 RPD decisions (gold_rpd_labels.json, text read from an extract that is not in the repository). Each case has a 'dev', 'holdout' or 'holdout2' split. Only dev cases may be used for tuning; the holdouts are scored at declared checkpoints. Approaches (all offline, no database, network or AI): main the segmentation on main (continuity + boundary rules) with deterministic unit role labels structure paragraph role labelling by cues + ordered skeleton, units from role changes structure+h the same plus a split at each major heading inside the analysis Run: python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdout holdout2]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_case_structure.py --help
+```
+
 ## `scripts/evaluate_chunk_parity.py`
 
 **Purpose:** Compare HTML-enabled and text-only chunking on a bounded sample.
@@ -9581,6 +11061,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help
 ```
 
+## `scripts/evaluate_statute_sections.py`
+
+**Purpose:** Measure section-level statute extraction against the frozen gold set. Gold file: data/eval/statute_section_gold.json (synthetic CBSA-style sentences with the instrument and pinpoint a careful reader would extract; lists are expected one pair per section). Cases with "holdout": true are frozen for before/after comparison: never tune extraction rules on them. Pure measurement, no database, no network. Usage: python scripts/evaluate_statute_sections.py [--split dev|holdout|all] [--misses] [--json out.json]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help
+```
+
 ## `scripts/evidence_gate.py`
 
 **Purpose:** Validate manager-owned completion evidence for a task run.
@@ -9651,6 +11145,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help
 ```
 
+## `scripts/extract_a2aj_provincial_acts.py`
+
+**Purpose:** Cut a few provincial acts out of the A2AJ canadian-laws parquet files into small JSON snapshots. Source: https://huggingface.co/datasets/a2aj/canadian-laws (one LEGISLATION-<PROVINCE>.parquet per jurisdiction). Only the acts listed in ACTS are taken, never whole provinces. Each snapshot carries the upstream licence text and is indexed by scripts/index_legislation.py (source format "json_sections"). Tier "open": the dataset's licence note permits reproduction with attribution (Ontario, Alberta, Manitoba). Tier "held": British Columbia (licence field blank), Quebec (CC BY-NC-ND 4.0, non-commercial, no derivatives) and Saskatchewan (non-commercial use by permission). Held acts are only counted unless --include-held is given; do not commit their snapshots until the licence question is settled. Usage: python scripts/extract_a2aj_provincial_acts.py --parquet-dir DIR [--write] [--include-held] Without --write it only prints section counts.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help
+```
+
 ## `scripts/extract_citation_network.py`
 
 **Purpose:** Backfill the citation network from case texts and/or stored chunks.
@@ -9707,6 +11215,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help
 ```
 
+## `scripts/fc_activity_backlog.py`
+
+**Purpose:** Overnight FC Activity backlog: fetch docket activity for IMM files that are not resolved yet. "Known" IMM numbers are the union of: fc_activity_cases (citation or raw_payload.imm_number), fc_procedural_history rows with a style of cause, and IMM docket numbers on FC decisions in `cases`. A known number is "resolved" when its fc_activity file has docket entries AND the stored classification says lifecycle_status.status = 'closed'. Everything else is unresolved: not_in_activity known only from decisions / procedural history, no fc_activity file no_documents fc_activity file exists but holds zero docket entries open_or_unknown has entries, lifecycle not 'closed' (or not classified yet) Subcommands (all read-only except `run` without --dry-run/--out-file, `import` and `undo --yes`): counts totals and a by-year breakdown, plus a runtime estimate export-list FILE write the ordered unresolved list (for a machine with no database) run --dry-run fetch and parse the first N unresolved numbers (default 20), write nothing; use --limit 200 to see the speed before a full night run the real run: additive writes only, resumable, stop file, progress file run --list-file F --out-file R.jsonl [--shard i/n] second-machine mode: no database; fetched results go to a JSONL file import R.jsonl add a results file to the database (additive, ledgered, safe to repeat) undo list (default) or remove (--yes) the rows a run added, from its ledger Writes are additive: new fc_activity_cases / fc_activity_documents rows only. Existing files only gain missing docket entries (and a blank case name/date is filled); nothing is overwritten or deleted. No AI calls. Two requests per file, one file at a time. Pace follows the earlier live sweep (2026-09-25/26, 98,301 files at 2,300-11,500 files/hour, no blocks): start at 100 ms between files with a 2 s pause per 20 files (sub-2 s is the fetcher's explicit opt-in, approved by Daniel on 2026-10-07 with back-off), double the delay after any failure up to 2 s, speed up again after 50 clean files. Any HTTP 403/429 stops the run at once; it is never retried around.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs
+```
+
 ## `scripts/fc_activity_extractors.py`
 
 **Purpose:** Additional evidence-backed fields extracted from Federal Court docket entries. Each extractor reads the docket entries of one IMM file (``ActivityEvent`` objects from ``scripts.classify_fc_activity``) and returns a JSON-ready dict. Every value carries the entry it came from so a reviewer can check it, and a field is left ``unknown`` rather than guessed when the registry text does not say.
@@ -9719,6 +11241,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help
+```
+
+## `scripts/fc_activity_laptop.py`
+
+**Purpose:** FC Activity laptop runner: fetch docket activity for a list of IMM numbers, no database, no installs. Standard library only (Python 3.9+). One file. It reads a plain-text list of IMM numbers (one per line, made on the iLit PC with `fc_activity_backlog.py export-list`), fetches each from the Federal Court site (2 requests per file, one file at a time) and appends the results to a .jsonl file. The PC later imports that file (`fc_activity_backlog.py import`). Nothing is sent anywhere else. Pace follows the 2026-09-25/26 live sweep that fetched 98,300 files with zero errors and no 403/429: 100 ms between files, a 2 s pause after every 20 files. Safety (kept on): * after a failed file the delay doubles (up to 2 s), the run pauses 10 s (doubling to 5 min), and it speeds up again after 50 clean files * any HTTP 403 or 429 stops the whole run at once; it is never retried * 10 failed files in a row stop the run * a stop file ends the run cleanly after the current file; running again resumes where it left off Usage: python fc_activity_laptop.py --list imm_list.txt --test # 200-file speed test, results kept separate python fc_activity_laptop.py --list imm_list.txt # the real run (add --max-minutes 600) stop: create an empty file named stop.txt in the data folder
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help
 ```
 
 ## `scripts/fc_portal_collector.py`
@@ -9747,6 +11283,62 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help
+```
+
+## `scripts/fetch_position_texts.py`
+
+**Purpose:** Fetch decision texts for the position-rule scorer from the public pages of the live site. Read-only: one GET per decision on the public ``/cases/<id>`` page, no database and no login. Writes ``<out>/<id>.json`` with title, court, citation and full_text, the folder ``scripts/eval_position_rules.py --texts`` reads. python scripts/fetch_position_texts.py --gold data/eval/position_gold_reader.json --gold data/eval/position_gold_ai.json --out position_texts
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help
+```
+
+## `scripts/fill_paragraph_search.py`
+
+**Purpose:** Add decisions that are missing from the paragraph keyword index (table paragraph_search). Dry run by default. The index behind the case search box and unit search was filled once by a one-off SQL file. Decisions whose paragraph chunks were created after that, or below the id it resumed from, are not in it, so they never show up in search. The dry run counts, per court, paragraph chunks and how many are indexed. --apply adds only the missing rows (nothing is changed or deleted), in small committed batches, so it can be stopped and run again. python scripts/fill_paragraph_search.py # dry run: counts per court python scripts/fill_paragraph_search.py --apply --court RAD # add the missing RAD rows Undo: DELETE FROM paragraph_search WHERE case_id IN (SELECT id FROM cases WHERE court ILIKE '%Refugee Appeal%'); (only valid when the dry run showed no RAD rows indexed before). If a court shows no paragraph chunks at all, it needs `scripts/chunk_cases.py` first; this script cannot help.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help
+```
+
+## `scripts/fingerprint_pilot.py`
+
+**Purpose:** Read-only pilot: fingerprint a random sample of real cases and see whether the sample conclusions hold. Reads cases.full_text (SELECT only, in a read-only transaction, one connection, lowest process priority, throttled), computes case fingerprints in memory, and writes everything to files. It writes nothing to the database. Output (default ``data/eval/case_fingerprints/pilot/``): * ``fingerprints.jsonl`` one fingerprint per sampled case (terms, authorities, seconds) * ``pilot-report.md`` timing, neighbours for the landmark cases and 20 random cases, and the 150 hand-labelled pairs re-scored on this library * ``pilot-results.json`` the same numbers, machine readable Run it from the repo folder, for example:: ./venv/Scripts/python.exe scripts/fingerprint_pilot.py --fc 1200 --fca 500 --scc 300
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help
+```
+
+## `scripts/flag_weak_short_form_links.py`
+
+**Purpose:** PARKED 2026-10-06: Daniel asked to leave the live cleanup for later; do not run --apply. Evidence note: /mnt/project-files/citation-refinement/wrong-short-form-links-evidence-2026-10-06.md Find (and optionally unlink) live short-form citations that point at the wrong case. Pass one anchored many capitalised common words ("Lake", "Bank", "Council", "Quebec") to a nearby full citation, and the resolver then linked those rows to the anchored case, so cited-by counts on the live site include links that are not citations of that case. This script re-judges every LINKED short-form row with the same rules the refinement uses (`backend/citation_refine/short_forms.py`) plus one more: the alias must appear as whole words in the linked case's own title. DRY RUN BY DEFAULT: it only reads, prints counts by reason, and writes the suspect rows to a CSV for review. python scripts/flag_weak_short_form_links.py --backup logs/weak_links.csv # dry run python scripts/flag_weak_short_form_links.py --backup logs/weak_links.csv --apply # unlink the suspects python scripts/flag_weak_short_form_links.py --revert-from logs/weak_links.csv --apply # put the links back `--apply` sets `target_case_id` to NULL and `unresolved` to true on the suspect rows only (the backup CSV holds each row's id and previous target and is written BEFORE any change). Cited-by counts and paragraph cited-by data derive from these links and need their usual recompute afterwards; nothing here recomputes them.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help
 ```
 
 ## `scripts/generate_api_reference.py`
@@ -10029,6 +11621,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help
 ```
 
+## `scripts/judge_alias_report.py`
+
+**Purpose:** Read-only report of proposed same-person judge merge groups (no writes).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\judge_alias_report.py --help
+```
+
 ## `scripts/judge_reconciliation_report.py`
 
 **Purpose:** Report stored judge metadata and canonical profile-link mismatches without writes.
@@ -10057,6 +11663,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help
 ```
 
+## `scripts/link_refined_citations.py`
+
+**Purpose:** Link refined citation rows (side table ``citations_refined``) to library cases. Dry run by default: reports how many refined rows would link, by kind, and prints examples. ``--apply`` sets ``target_case_id`` on refined rows that resolve to exactly one case (never on the live ``citations`` table) and marks unmatched formal citations ``unresolved``. Resumable: only rows still without a target are looked at. ``--revert --yes`` clears every link this script wrote for the refine version. Nothing on the site reads these rows unless ``CITATIONS_SOURCE=refined`` is set.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\link_refined_citations.py --help
+```
+
 ## `scripts/llm_tag_candidate_review.py`
 
 **Purpose:** Propose immigration research tags with an external OpenAI pass. This script is read-only: it reads stored decision text and writes only a review report.
@@ -10069,6 +11689,76 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help
+```
+
+## `scripts/load_case_frames.py`
+
+**Purpose:** Load stored case frames (one JSON file per decision) into case_frames. Dry run by default. Additive only: it adds frames that are missing and never updates or deletes existing ones. A file is named <COURT>_<case id>.json (for example FC_1445.json) and holds the frame with "id" inside. A frame is skipped when its case does not exist, its "id" does not match the file name, or it fails the text-match check (a frame written for a different decision). python scripts/load_case_frames.py DIR # dry run: counts, nothing written python scripts/load_case_frames.py DIR --apply # write (live database: needs the go-ahead) Undo: DROP TABLE case_frames; (or alembic downgrade 0046_paragraph_positions) Run `alembic upgrade head` first so the table exists.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_case_frames.py --help
+```
+
+## `scripts/load_core150_layers.py`
+
+**Purpose:** Load the three stored layers for the 150 core Federal Court decisions: case frames, issue maps, paragraph notes. Dry run by default. Reads data/core150/{frames,issue_maps,paragraph_notes}.jsonl.gz. Each row is keyed by the neutral citation written with underscores (2005_FC_1103) and linked to the library case with that exact citation. Additive only: it adds rows that are missing and never updates or deletes existing ones. python scripts/load_core150_layers.py # dry run: counts per layer, nothing written python scripts/load_core150_layers.py --apply # write (live database: needs the go-ahead) python scripts/load_core150_layers.py --undo # dry run of the undo: what would be removed python scripts/load_core150_layers.py --undo --apply # remove only the rows this script added Skipped, and counted in the output: a citation with no single library case; a case that already has the layer (frames at this version, any issue map, any notes at this version); a frame that fails the text-match check; a case whose notes do not line up with its paragraphs (the first words of a note's paragraph must be found in the stored text for at least --min-match of the notes). A second set (e.g. the next 158) is loaded with its own labels so its undo never touches the core rows: python scripts/load_core150_layers.py --data data/next158 --frame-source next158-haiku-v3 --note-source next158-v12 [--apply] python scripts/load_core150_layers.py --data data/next158 --frame-source next158-haiku-v3 --note-source next158-v12 --undo [--apply] Without those arguments the labels are core150-haiku-v3 and core150-v12 as before. The issue-map undo removes only rows identical to the file (same decision key, issue number and issue text), so an older map stored for the same decision is never touched. Undo also works by hand: DELETE FROM case_frames WHERE source = 'core150-haiku-v3'; DELETE FROM paragraph_notes WHERE source = 'core150-v12'; DELETE FROM issue_maps WHERE source_key ~ '^[0-9]{4}_[A-Z]+_[0-9]+$'; Run `alembic upgrade head` first (0048 adds paragraph_notes and the new issue_maps columns).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_core150_layers.py --help
+```
+
+## `scripts/load_issue_maps.py`
+
+**Purpose:** Load the stored issue maps (data/issue_maps/issue_maps.jsonl.gz) into issue_maps and issue_map_questions. Dry run by default. Additive only: it adds rows that are missing and never updates or deletes existing ones. Each row is linked to a library case by the live case id in the file when that case exists, otherwise by an exact citation match. python scripts/load_issue_maps.py # dry run: counts, how many rows link to a case, nothing written python scripts/load_issue_maps.py --apply # write (live database: needs the go-ahead) Undo: DROP TABLE issue_map_questions; DROP TABLE issue_maps; (or alembic downgrade 0044_refined_pinpoints) Run `alembic upgrade head` first so the tables exist.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_issue_maps.py --help
+```
+
+## `scripts/load_note_links.py`
+
+**Purpose:** Load stored "possibly the same point" links between paragraph notes. Dry run by default. Reads data/note_links/links.jsonl.gz: rows {citation_key, para, other_citation_key, other_para, score}. Each end is linked to the library case with that exact citation (neutral citation written with underscores). A link is added only when both decisions are in the library and both paragraph notes are already stored (run scripts/load_core150_layers.py first). Additive: existing links are never updated or deleted. python scripts/load_note_links.py # dry run: counts, nothing written python scripts/load_note_links.py --apply # write (live database: needs the go-ahead) python scripts/load_note_links.py --undo # dry run of the undo python scripts/load_note_links.py --undo --apply # remove only rows with this --source label Undo by hand: DELETE FROM paragraph_note_links WHERE source = 'links-v1'; (or DROP TABLE paragraph_note_links). Run `alembic upgrade head` first (0049 adds the table).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_note_links.py --help
+```
+
+## `scripts/load_position_tags.py`
+
+**Purpose:** Load the whose-position tag files (one case_<id>.json per decision) into paragraph_positions. Dry run by default. Additive only: it adds a row for each decision that has none and never updates or deletes existing rows. Files whose decision is not in the library are skipped and counted. python scripts/load_position_tags.py --dir data/position_learned # dry run: counts, nothing written python scripts/load_position_tags.py --dir data/position_learned --apply # write (live database: needs the go-ahead) Undo: DROP TABLE paragraph_positions; (or alembic downgrade 0045_issue_maps) Run `alembic upgrade head` first so the table exists. Reading the tags in the reader still needs ILIT_LEARNED_POSITIONS=1.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\load_position_tags.py --help
 ```
 
 ## `scripts/map_fc_seed_to_local_cases.py`
@@ -10111,6 +11801,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\measure_real_coverage.py --help
+```
+
+## `scripts/measure_refined_pinpoints.py`
+
+**Purpose:** Measure pinpoints on refined citations, read-only (nothing is written). The refined table does not store the pinpoint yet, so this re-runs the refiner on decisions that already have refined rows and counts the rows that carry a pinpoint. It also counts the same for the first pass alone (pass-one rows, pinpoints read only from the row's own text), which is the "before". python scripts/measure_refined_pinpoints.py --sample 500 --random-seed 7 python scripts/measure_refined_pinpoints.py --sample 500 --csv pinpoint_measure.csv Also checks that the stored refined row count for each decision matches a fresh run (a mismatch means the table was built with older rules).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help
 ```
 
 ## `scripts/measure_tagging_coverage.py`
@@ -10309,6 +12013,34 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
 ```
 
+## `scripts/recompute_citation_metrics.py`
+
+**Purpose:** Refresh the stored "cited by" numbers (citation_metrics). Dry run by default. The stored in_degree was last computed before many citation links were added or cleaned (Baker showed 0 with about 2,900 citing cases), and counted citation rows. It now counts distinct citing cases, as search does. python scripts/recompute_citation_metrics.py # dry run: stored vs live for sample cases and totals python scripts/recompute_citation_metrics.py --apply # recompute and write all rows (needs Daniel's go)
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help
+```
+
+## `scripts/reextract_statute_references.py`
+
+**Purpose:** Re-extract statute references with the current rules; dry run compares, apply replaces. Why: older extraction dropped decimal sections ("18.1" stored as "18") and mis-handled lists. This reads the same text the original build used (the preferred chunk set, else full text), runs the current extractor, and compares with the stored rows of the same cases. Dry run (default) writes nothing: it reports counts before and after (rows, rows with an instrument, decimal sections, list rows, rows per instrument) and sample changes. --apply with --confirm-statute-reextract first writes every old row of each case to a JSONL backup file, then replaces that case's rows (one transaction per batch). --restore BACKUP puts the backed-up rows back (every column, original ids): for each case in the file it deletes the case's current rows and re-inserts the saved ones. If a case appears more than once in the file (re-runs append), the first entry, the oldest rows, is used. --restore-dry-run reports what it would do. Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all; --skip-cases-in BACKUP drops cases a previous apply already backed up (the rest after a first tranche).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help
+```
+
 ## `scripts/refresh_recent_5000_artifact.py`
 
 **Purpose:** Refresh the derived recent-5000 paragraph retrieval artifact.
@@ -10321,6 +12053,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help
+```
+
+## `scripts/regenerate_docs.py`
+
+**Purpose:** Regenerate every checked-in generated doc and sync the backend file inventory. Run this before pushing any change that adds, renames or removes a script or a file under backend/, or changes routes or tables: python scripts/regenerate_docs.py It rewrites docs/API_REFERENCE.generated.md, docs/SCHEMA_REFERENCE.generated.md and docs/SCRIPT_CATALOG.generated.md, then adds a row to the backend inventory in docs/ARCHITECTURE.md for each new backend file (description taken from the module docstring; edit it afterwards if you like) and drops rows for files that no longer exist. Finally it runs scripts/check_generated_docs.py.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\regenerate_docs.py --help
 ```
 
 ## `scripts/remove_self_case_citations.py`
@@ -10349,6 +12095,48 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\remove_self_citations.py --help
+```
+
+## `scripts/remove_test_cases.py`
+
+**Purpose:** List or delete the 20 placeholder "TEST CASE" decisions (ids 61264 to 61283) from the library. Dry run by default. python scripts/remove_test_cases.py # dry run: show the exact rows and what hangs off them python scripts/remove_test_cases.py --apply # delete them (needs Daniel's go for the live database) Only ids 61264-61283 can ever be touched, and only if every one still looks like a test row (title starts with "TEST CASE", citation contains "TEST" and a number). The script refuses to delete anything if another decision cites one of them, or if a row does not look like a test row.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\remove_test_cases.py --help
+```
+
+## `scripts/repair_glued_word_sections.py`
+
+**Purpose:** Repair statute_references.provision_section values like "25s" or "2d" that came from a word glued to the number. The stored pinpoint has its spaces removed, so "s. 25 ss. 3" or "S. 2(d)" read as section "25s" or "2d" in the first backfill. Real lettered sections are uppercase ("224A", "83A", "1F", "39B") or lowercase before a bracket ("224a(1)"), so this touches only rows whose stored pinpoint has LOWERCASE letters straight after the digits and no bracket, never rows of the Criminal Code or Income Tax Act (old lettered sections), and only when the section can be read again from the cited text itself (reference_text: "section 20.1" -> 20.1, "S. 2d" -> 2). Rows where the text gives no section are left alone. Dry run by default; --apply first writes an undo CSV (id, old section, new section); --undo FILE restores the old values where the row still holds the new one.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help
+```
+
+## `scripts/repair_range_word_sections.py`
+
+**Purpose:** Repair statute_references.provision_section values like "34t" (from "34 to 37") or "25s" (from "25 s. 3"). The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the rows whose section ends in a letter and whose pinpoint runs the section straight into "to", "and" or "th"; it changes a row only when the corrected section is the old one minus that letter. Dry run by default; --apply writes. Safe to run twice.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\repair_range_word_sections.py --help
 ```
 
 ## `scripts/report_a2aj_immigration_selection.py`
@@ -10547,6 +12335,20 @@ Active scripts documented: 168
 .\venv\Scripts\python.exe scripts\run_jobs.py --list
 ```
 
+## `scripts/run_live_analysis_mocks.py`
+
+**Purpose:** Run the synthetic Live Analysis documents and score them against expected.json (read-only, nothing stored). Usage: python scripts/run_live_analysis_mocks.py [folder] [--no-library] The default folder is tests/live_analysis_mocks; the long speed document (03) lives in /mnt/project-files/live-analysis/mock-docs and is only scored when it is in the folder given.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_live_analysis_mocks.py --help
+```
+
 ## `scripts/run_local_paragraph_summary_baseline.py`
 
 **Purpose:** Generate a bounded, report-only local paragraph-summary baseline.
@@ -10615,6 +12417,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help
+```
+
+## `scripts/run_position_tags_library.py`
+
+**Purpose:** Tag the library's immigration decisions (2005 or later) with the rules + learned whose-position tagger. READ-ONLY against the database (SELECT only, no commit). Writes one compact file per decision (``<out>/case_<id>.json``, the shape ``backend/position_tags.py`` reads when ILIT_LEARNED_POSITIONS=1) and one summary JSON. No model call, no network. Safe to stop and rerun: decisions already written are skipped unless --force. python scripts/run_position_tags_library.py --out data/position_learned --summary position-learned-summary.json python scripts/run_position_tags_library.py --out scratch_positions --summary scratch.json --sample 500 # dry run Scope: courts FC, FCA, RAD, RPD, IAD; decision date 2005-01-01 or later; not French; immigration (the same test the tagger was trained and measured on: title, tribunal, or the Immigration and Refugee Protection Act in the first 20,000 characters); at least one numbered paragraph.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_position_tags_library.py --help
 ```
 
 ## `scripts/run_scc_text_only.py`
@@ -10699,6 +12515,76 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
+```
+
+## `scripts/sample_statute_extraction.py`
+
+**Purpose:** Draw a random sample of real decisions and write the statute references the extractor finds, for hand-checking. READ-ONLY: SELECTs from cases and runs the extractor in memory; writes nothing to the database. For each sampled decision it records every extracted statute reference (text, instrument, pinpoint, context) and every "loose" provision mention (s. 12, subsection 5(1), paragraph 3(b) ...) that no extracted reference covers, so both precision and recall can be hand-checked. Sampling is deterministic for a given --seed (md5 order), per court, so a second run reproduces it. Usage: python scripts/sample_statute_extraction.py --cases-per-court 40 --seed 20261006 --out sample.jsonl
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help
+```
+
+## `scripts/scheduled_intake_daemon.py`
+
+**Purpose:** Low-priority scheduled intake of new decisions from A2AJ and court sources. Runs continuously on Daniel's PC, checking for new decisions every 6 hours (A2AJ) or 24 hours (court sources), deduplicating, and importing without interfering with the live site. Designed to be pausable, resume-able, and disable-able. Disable by: - Setting SCHEDULED_INTAKE_ENABLED=false in .env - Renaming script to .disabled
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
+```
+
+## `scripts/score_position_holder.py`
+
+**Purpose:** Score backend/position_holder.py against stored model labels. Offline only: reads two folders of JSON (no database, no network). --props folder of proposition files (para number, propositions with holder) --reports folder of deterministic case reports holding the paragraph text Example: python scripts/score_position_holder.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports --out position_holder_scores.json The stored labels are model output, not a lawyer's truth; this measures agreement only.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_position_holder.py --help
+```
+
+## `scripts/score_search_gold.py`
+
+**Purpose:** Score the case search box against a gold query set (read-only; run on the PC). Modes: legacy (exact-phrase only, the behaviour before the sentence fix), words (most-of-the-words ILIKE), paragraph (paragraph index; needs the paragraph_search table). Example: python scripts/score_search_gold.py --mode paragraph --out scores_paragraph.json python scripts/score_search_gold.py --compare scores_legacy.json scores_paragraph.json Nothing is written to the database. Landmark and citation queries count a hit when an expected citation is in the top 10; topic and French queries count a hit when a top-10 case text matches every oracle regex (a weak, loose check), and the top 3 titles are printed so a person can read them.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_search_gold.py --help
+```
+
+## `scripts/seed_tour_fixture.py`
+
+**Purpose:** Fill an empty local database with a test library for checking the site tour (scripts/check_site_tour.py). The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes wrong on long lists. This adds the 10 example decisions the tour opens (Vavilov, Abadi, Baker, Dunsmuir, Khosa and five made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find: best interests of the child, non-refoulement statutory interpretation, and cessation involving Sri Lanka won by the Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles and pinpoint linking the real library has. Local only: it refuses any base URL other than localhost, and needs --yes. python scripts/seed_tour_fixture.py --base-url http://localhost:8001 --yes python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --sizes 1440x900,1920x1080
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`
@@ -10797,6 +12683,34 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
+```
+
+## `scripts/train_learned_positions.py`
+
+**Purpose:** Train the learned whose-position weights used by backend/learned_positions.py. Labels: data/position_preview/case_<id>.json (main holder of each printed paragraph, from the stored propositions run: model output, not a lawyer's truth). Text: a folder of <id>.json files with title, court, date and full_text (``scripts/fetch_position_texts.py`` writes them). Decisions dated 2005 or later that concern immigration and whose id is a multiple of 5 are the untouched hold-out: never trained on, only scored. Stage 1 is a logistic model over opening words and rule results; stage 2 reads stage 1's out-of-fold guesses (5 folds by decision) for the neighbouring paragraphs. Needs scikit-learn (training only; the site runs numpy only). python scripts/train_learned_positions.py --texts position_texts [--haiku-labels hk_labels.json] [--write]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_learned_positions.py --help
+```
+
+## `scripts/train_learned_roles.py`
+
+**Purpose:** Train the learned paragraph-role weights used by backend/contextual_authority/learned_roles.py. Training data (Haiku labels, never the hand-labelled decisions, so evaluate_case_structure.py scores those as a clean hold-out): - data/eval/case_structure/haiku_drafts_v1.json (text from the core_300_run reports) - data/eval/case_structure/haiku_labels_export_v1.json, "train" split only (text from --export-dir, a folder of case_<id>.json files with a "paragraphs" list). Without --export-dir only the drafts are used. Stage 1 is a word + position model; stage 2 is trained on stage-1 log-probabilities from 5-fold (by decision) cross-fitting. Needs scikit-learn (training only; the site runs numpy only). Run: python scripts/train_learned_roles.py [--export-dir PATH] [--c 1.0]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_learned_roles.py --help
 ```
 
 ## `scripts/validate_precision.py`
@@ -10905,19 +12819,40 @@ Back up a production/shared database before repair. Do not manually mark a migra
 
 ## Server, Browser, And Tunnel Failures
 
-### UI Shows Old Code Or Routes Behave Inconsistently
+### Windows Site Recovery
 
-Identify the process that owns the configured port. Multiple Uvicorn instances can serve different code revisions. Refresh the controlled local process/tunnel workflow:
+The Windows scheduled task `iLitSite` supervises the FastAPI application and
+Cloudflare tunnel. Keep the site worktree on `main`; deployment commands are in
+`docs/DEPLOYMENT_COMMANDS.md`. Restart the task once:
 
 ```powershell
-.\scripts\refresh_site.ps1
+Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite
+Start-Sleep -Seconds 50
 ```
 
-Then check the local route and a lightweight API route. For reader/UI failures, check browser console errors before changing backend logic: inline JavaScript escaping in `routes.py` can break the page while Python still imports.
+Verify local health and the public route after startup:
 
-### Local Service Works But Tunnel Returns 502/Unavailable
+```powershell
+Invoke-WebRequest -Uri "http://localhost:8001/health/live" -TimeoutSec 3
+Invoke-WebRequest -Uri "https://www.ilit.ca/data-explorer" -TimeoutSec 5
+```
 
-First verify `http://127.0.0.1:8000/health`. A short initial 502 can occur while the server process binds. If local health is good, inspect the active Cloudflare process/config and wait only for normal startup; otherwise restart with the controlled refresh script. Do not assume a tunnel provides authentication.
+Both should return 200. If the public route fails while local health works,
+inspect the tunnel process/configuration or restart the task; do not assume the
+tunnel provides authentication. Do not run `scripts\refresh_site.ps1` while
+`iLitSite` is installed.
+
+If recovery fails, check for a listener on port 8001 and stop a process only
+after confirming it is not managed by `iLitSite`:
+
+```powershell
+netstat -ano | findstr "127.0.0.1:8001.*LISTENING"
+```
+
+Do not bulk-stop Python processes. Review `logs\site-service.log` and
+`logs\app.err.log` for service and application errors. For reader/UI failures,
+check browser console errors before changing backend logic: inline JavaScript
+escaping in `routes.py` can break a page while Python still imports.
 
 ### Reader Highlights Or Linked Context Missing
 
@@ -11013,7 +12948,9 @@ Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
-New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+New analysts can start with the task-focused guide `docs/ANALYST_QUICK_START.md`;
+this guide remains the canonical, detailed repository reference for current UI
+behavior and limitations.
 
 ## Experimental RAG Research
 
@@ -11113,6 +13050,19 @@ paragraph shading and linked-case pinpoint shading use high-contrast text
 remains a separate accessible control.
 The audit and remaining limitations are in
 `docs/reports/accessibility-audit.md`.
+
+The 2026-10-09 narrow-screen pass covers the embedded About and default Case
+Search views at 360px and 390px by checking their generated markup and responsive
+CSS contracts. The Case Search view tabs wrap instead of requiring horizontal
+scrolling, and its visible search examples, quick filters, suggestion buttons,
+and “Show more” control have 44px minimum targets. About's How it works links
+and Changelog filters also have 44px minimum targets. The standalone Research
+and Quick Search builders retain visible focus, gain phone-size controls and
+main landmarks, and Quick Search announces status updates. About's asynchronous
+inventory summary is a polite, atomic status message; Case Search retains its
+named combobox and polite search-status message. These are static CSS/markup
+contracts: rendered viewport overflow, keyboard-only operation, assistive
+technology, and complete WCAG AA contrast measurements remain unverified.
 
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
 announcements, responsive/touch behavior, and assistive-technology use still
@@ -11367,7 +13317,7 @@ source evidence; invalid evidence omits the tag rather than showing a placeholde
 Valid tags retain their stored scores and sources. Neither score nor frequency
 establishes legal importance. No generated prose or new classifications are
 created by this card. If its read-only request fails, other reader tools remain
-available. See [`backend/case_summary.py`](../backend/case_summary.py) for
+available. See `backend/case_summary.py` for
 extraction rules and `GET /api/cases/{case_id}/summary` for the typed contract.
 
 In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
@@ -11819,7 +13769,7 @@ It completed with `987 passed, 3 failed, 3 deselected`; the failures were
 network-fetch failures for uncached Hugging Face and OpenAI tokenizer assets.
 Coverage is a measured snapshot, not a green-suite claim or a legal-quality
 metric. The risk-ranked module results, full module matrix, reproduction command,
-and failure details are in [the test-coverage report](reports/test-coverage.md).
+and failure details are in the `docs/reports/test-coverage.md` report.
 
 Development and CI coverage tooling is installed with
 `python -m pip install -r requirements-dev.txt`; `pytest-cov` is intentionally
@@ -11830,7 +13780,7 @@ not part of the base `requirements.txt`.
 | System surface | Primary tests | Coverage focus | Main gaps |
 | --- | --- | --- | --- |
 | Core API, ingest, search, reader payloads | `test_api.py` | Request validation, filtering, ranking, reader/citation-pass responses, metadata compatibility | No live PostgreSQL/pgvector performance suite |
-| Active Data Explorer UI contract | `test_feature_tabs.py`, `test_inline_js_syntax.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup, rendered inline-script syntax | No browser interaction/screenshot test |
+| Active Data Explorer UI contract | `test_feature_tabs.py`, `test_inline_js_syntax.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup, rendered inline-script syntax | Bounded Playwright smoke exists in `scripts/browser_smoke.py`; broader end-to-end journeys and screenshot/no-overlap assertions are outside that smoke |
 | Citation extraction and resolution | `test_citations.py`, `test_citation_pipeline.py` | Case forms, aliases, pinpoints, offsets, statutes/instruments, rebuild semantics, graph bounds | Real-corpus precision/recall remains sampled rather than continuous |
 | Citation context, FC activity normalization, metadata subject derivation | `test_citation_refine_context.py`, `test_fc_activity_pure_logic.py`, `test_metadata_subjects.py` | Deterministic term resolution, source-row normalization, case-subject classification without a database | Broader language/source-format gold sets remain valuable |
 | Citation audit tooling | `test_verify_citation_extraction.py`, `test_build_fc_citation_seed.py`, `test_map_fc_seed_to_local_cases.py` | Fixtures, spans, audit reports, seed normalization/mapping | External model audit calls are not run in normal tests |
@@ -11881,15 +13831,14 @@ The overnight runner tests locks, job selection, state transitions, and command 
 
 ## Browser And Performance Gap
 
-The most important missing layer is browser end-to-end coverage for the active Data Explorer. The generated UI is embedded in `backend/routes.py`; a Python route returning HTML does not prove the JavaScript initializes, tabs switch, searches render, linked citations open, scroll/tooltip behavior works, or mobile stacking is readable.
+The most important missing layer is broader browser end-to-end coverage for the active Data Explorer. The bounded Playwright smoke in `scripts/browser_smoke.py` searches, opens the inline reader, checks reader tabs and evidence highlights, and loads the themes view at mobile width. It does not establish full workflow coverage: the generated UI is embedded in `backend/routes.py`, and a route returning HTML does not prove every tab, error/return path, or mobile layout works.
 
-Add a Playwright-based smoke suite for:
+Extend browser coverage to include:
 
-1. `/data-explorer` load and top-level tab switching.
-2. Case search to reader opening.
-3. Reader mode toggle, citation hover, linked-authority pane, and close/return behavior.
-4. Citation Intelligence case selection and subtab load.
-5. Mobile-width layout screenshot/no-overlap check.
+1. `/data-explorer` primary-group switching and route/tab state.
+2. Reader close/return and error paths beyond the current search-to-reader happy path.
+3. Citation Intelligence case selection and subtab load.
+4. A mobile-width screenshot/no-overlap assertion.
 
 Performance coverage should add representative PostgreSQL-backed timing and query-plan checks for active search, reader data, citation intelligence, and FC history routes. Keep fixed test datasets/scope and record p50/p95 targets before enforcing a release budget.
 

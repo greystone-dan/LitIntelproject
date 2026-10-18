@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 216
+Active scripts documented: 217
 
 ## Catalog
 
@@ -223,6 +223,7 @@ Active scripts documented: 216
 | `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
 | `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
 | `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
+| `train_role_correction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_role_correction.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
@@ -3207,6 +3208,20 @@ Active scripts documented: 216
 
 ```powershell
 .\venv\Scripts\python.exe scripts\train_learned_roles.py --help
+```
+
+## `scripts/train_role_correction.py`
+
+**Purpose:** Train the court-specific role correction used by backend/contextual_authority/role_correction.py. Input is a jsonl.gz of labelled decisions, one per line: ``{"source", "court", "id", "text", "labels": {printed paragraph number: role letter}}`` (role letters M O F I A D). ``--train`` picks the sources to fit on and ``--eval`` the sources to report on (labeller alone vs corrected, per court, strict and within one paragraph). ``--cv K`` also reports K-fold cross-validation by decision over the training sources. Needs scikit-learn and scipy (training only; the site runs numpy only). Run: python scripts/train_role_correction.py DATASET --train readers_w1 readers_w2 readers_w3 hand_dev --eval hand_fresh [--cv 5] [--write]
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\train_role_correction.py --help
 ```
 
 ## `scripts/validate_precision.py`

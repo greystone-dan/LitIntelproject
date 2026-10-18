@@ -204,6 +204,8 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/observations.py` | Observation and evidence structures for contextual analysis |
 | `backend/contextual_authority/opinions.py` | Separate opinions inside one decision (majority, concurring, dissenting reasons), found with plain rules |
 | `backend/contextual_authority/outline_v2.py` | Reader outline, second version: four sections with sub-points, and the section a citation sits in (no AI) |
+| `backend/contextual_authority/role_correction.py` | Court-specific correction of the paragraph roles, trained on paragraphs read by two independent readers |
+| `backend/contextual_authority/role_correction_weights.npz` | TODO: describe this file |
 | `backend/contextual_authority/structure_units.py` | Discussion units cut along the decision's skeleton (no AI) |
 | `backend/contextual_authority/subthemes.py` | Groups discussion-unit subthemes |
 | `backend/contextual_authority/teacher_contract.py` | Validates report-only teacher/evaluation outputs |
@@ -333,6 +335,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
+| `backend/paragraph_markers.py` | Shared recognition of paragraph markers that the line-start pattern ``[n] text`` misses |
 | `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/position_holder.py` | Deterministic "whose position is this paragraph reporting" rules (applicant, respondent, earlier decision maker, court, authority, witness); no model |

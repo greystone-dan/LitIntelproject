@@ -17,7 +17,8 @@ concurrency:
 # Promotion: resolve failures (including migration/ORM drift), require passing
 # tests with no skips, remove continue-on-error, then add "pgvector" as a required
 # status check in the main branch protection rule/ruleset.
-# Keep tests.yml and its existing deselections unchanged.
+# The main test workflow skips its PostgreSQL-only tests when no database is
+# configured; this workflow reruns those tests against its disposable database.
 jobs:
   pgvector:
     runs-on: ubuntu-latest
@@ -95,9 +96,8 @@ jobs:
         run: python -m pytest -q tests/test_cases_docket_number_migration.py --junitxml=docket-migration-results.xml
       - name: Run real vector ordering tests
         run: python -m pytest -q tests/test_pgvector_integration.py --junitxml=pgvector-results.xml
-      - name: Run previously deselected PostgreSQL tests
-        # requires_postgres has exactly these two consumers; no database marker
-        # exists. The third deselection is Ollama configuration, not PostgreSQL.
+      - name: Run PostgreSQL-backed tests
+        # Run both database-dependent tests against the migrated, seeded database.
         # The root test_statute_integration.py catches errors and returns False
         # instead of asserting; it is not a reliable additional database gate.
         if: ${{ !cancelled() && steps.seed.outcome == 'success' }}

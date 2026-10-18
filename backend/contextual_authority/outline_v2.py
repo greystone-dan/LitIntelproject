@@ -26,6 +26,7 @@ from typing import Any
 from . import case_structure as cs
 from . import heading_reader as hr
 from . import opinions as op
+from . import role_correction as rc
 
 OUTLINE_V2_VERSION = "case_structure_outline_v2"
 
@@ -38,6 +39,46 @@ _CONTINUATION_TYPES = {"text", "listitem"}
 
 def outline_v2_enabled() -> bool:
 	return os.getenv("ILIT_OUTLINE_V2", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def outline_scope_enabled() -> bool:
+	"""ILIT_OUTLINE_SCOPE=1: Issues starts where the decision states the issue or standard of review (default off)."""
+	return os.getenv("ILIT_OUTLINE_SCOPE", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+_ISSUE_HEADING_RE = re.compile(r"issues?\b|questions?\b|standard of review|grounds|errors|analytical framework|preliminary", re.I)
+
+
+def _demote_early_issues(units: list[dict[str, Any]], section: list[str | None], anchors: list[tuple[int, str]], numbered: list[int]) -> None:
+	"""Paragraphs the labeller read as Issues before any issue statement, issues heading or standard of review (a statute
+	described under a "Statutory scheme" heading, the decision under appeal) are Background."""
+	marks = [i for i, name in anchors if name == "issues" and _ISSUE_HEADING_RE.search(units[i]["text"])]
+	marks += [i for i in numbered if section[i] == "issues" and cs._ISSUES_RE.search(units[i]["text"][:900])]
+	if not marks:
+		return
+	cut = min(marks)
+	for i in range(cut):
+		if section[i] == "issues":
+			section[i] = "background"
+
+
+_REVIEW_STANDARD_RE = re.compile(
+	r"\bstandard of review\b|\b(?:reasonableness|correctness) (?:standard|review)\b|\breviewed (?:on|against|under) (?:a |the )?(?:standard|reasonableness|correctness)\b|\bpresumption of reasonableness\b|\bVavilov\b[^.]{0,80}\bstandard\b", re.I)
+_SHORT_RUN = 4
+
+
+def _open_issues_at_review_standard(units: list[dict[str, Any]], section: list[str | None], numbered: list[int]) -> None:
+	"""A decision that names no Issues: a standard-of-review statement just before the analysis starts the Issues."""
+	if "issues" in section or "analysis" not in section:
+		return
+	start = section.index("analysis")
+	run = [i for i in numbered if i < start and section[i] == "background"]
+	for pos, i in enumerate(run):
+		if pos >= 1 and _REVIEW_STANDARD_RE.search(units[i]["text"][:700]):
+			if len(run) - pos <= _SHORT_RUN:
+				for j in run[pos:]:
+					section[j] = "issues"
+			return
 
 
 def outline_headings_enabled() -> bool:
@@ -200,6 +241,42 @@ def _heading_section(text: str) -> str | None:
 	return _ROLE_SECTION.get(kind) if kind else None
 
 
+_SCORED_SECTIONS = ("background", "issues", "analysis", "disposition")
+
+
+def _sections_from_scores(units: list[dict[str, Any]], roles: list[str], scores: Any, opinion_starts: Sequence[int]) -> list[str | None]:
+	"""Sections from the court-specific correction: the best Background > Issues > Analysis > Disposition order over the
+	numbered paragraphs (restarting at each opinion), headings taking the section of the paragraph after them."""
+	numbered = [i for i, u in enumerate(units) if u["num"] is not None]
+	section: list[str | None] = [None] * len(units)
+	starts = sorted({s for s in opinion_starts if s > numbered[0]})
+	groups: list[list[int]] = [[]]
+	for i in numbered:
+		if starts and i >= starts[0]:
+			while starts and i >= starts[0]:
+				starts.pop(0)
+			groups.append([])
+		groups[-1].append(i)
+	for group in groups:
+		if not group:
+			continue
+		for i, k in zip(group, rc.monotone_sections(scores[group])):
+			section[i] = _SCORED_SECTIONS[k]
+	last_num = numbered[-1]
+	for i in range(numbered[0], last_num):
+		if section[i] is None:
+			after = next((j for j in range(i + 1, last_num + 1) if section[j]), None)
+			before = next((j for j in range(i - 1, -1, -1) if section[j]), None)
+			section[i] = section[after] if units[i]["heading"] and after is not None else (section[before] if before is not None else None)
+	# after the last numbered paragraph only the order itself is kept (not counsel lists, signatures or file numbers)
+	for i in range(last_num + 1, len(units)):
+		if units[i]["type"] in {"footer", "signature", "meta"} or section[last_num] != "disposition" or roles[i] != "disposition":
+			section[i] = None
+		else:
+			section[i] = "disposition"
+	return section
+
+
 def _assign_sections(units: list[dict[str, Any]], printed: dict[int, str | None] | None = None, anchored: set[str] | None = None) -> list[str | None]:
 	"""A section per unit (None for the header and footer), forced into Background > Issues > Analysis > Disposition order.
 
@@ -209,10 +286,12 @@ def _assign_sections(units: list[dict[str, Any]], printed: dict[int, str | None]
 	the Analysis. ``anchored`` collects the sections a printed heading started.
 	"""
 	texts = [u["text"] for u in units]
-	roles = cs.label_paragraph_roles(texts)
+	roles, section_scores, opinion_starts = rc.label_units(units)
 	numbered = [i for i, u in enumerate(units) if u["body"]]
 	if len(numbered) < 3:
 		return [None] * len(units)
+	if section_scores is not None:
+		return _sections_from_scores(units, roles, section_scores, opinion_starts)
 	first_num, last_num = numbered[0], numbered[-1]
 	closing = max(6, len(numbered) // 5)
 
@@ -343,6 +422,9 @@ def _assign_sections(units: list[dict[str, Any]], printed: dict[int, str | None]
 	for i, name in anchors:
 		if name == "disposition" and i > last_num:
 			kept_tail.update(j for j in range(i, min(i + 4, len(units))) if len(units[j]["text"]) < 600)
+	if outline_scope_enabled():
+		_demote_early_issues(units, section, anchors, numbered)
+		_open_issues_at_review_standard(units, section, numbered)
 	# after the last numbered paragraph only the order itself is kept (not counsel lists, signatures or file numbers)
 	for i in range(last_num + 1, len(units)):
 		if units[i]["type"] in {"footer", "signature", "meta"} or section[i] != "disposition":
@@ -511,7 +593,7 @@ def outline_v2(text: str | None, blocks: Sequence[dict]) -> list[dict]:
 	"""
 	if not text:
 		return []
-	key = (hash(text), len(text), tuple((b.get("type"), b.get("start"), b.get("end")) for b in blocks), os.getenv("ILIT_LEARNED_ROLES", ""), outline_headings_enabled())
+	key = (hash(text), len(text), tuple((b.get("type"), b.get("start"), b.get("end")) for b in blocks), os.getenv("ILIT_LEARNED_ROLES", ""), outline_headings_enabled(), rc.enabled())
 	hit = _CACHE.get(key)
 	if hit is None:
 		hit = _outline_v2_uncached(text, blocks)
@@ -739,6 +821,12 @@ def _add_author_row(text: str, units: list[dict[str, Any]], rows: list[dict]) ->
 
 
 def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
+	with rc.use_forum(rc.forum_of(text), text):
+		return _outline_v2_in_forum(text, blocks)
+
+
+def _prepared_units(text: str, blocks: Sequence[dict]) -> tuple[list[dict[str, Any]], list]:
+	"""The units the outline works on and the printed headings read from the text (headings mode only)."""
 	headings_mode = outline_headings_enabled()
 	printed_headings = hr.read_headings(text) if headings_mode else []
 	if headings_mode:
@@ -746,11 +834,11 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 			bare = hr.bare_paragraphs(text)  # reasons numbered "12 text" without brackets (older Immigration and Refugee Board decisions)
 			blocks = [{**b, "type": "para", "num": bare[b["start"]]} if b["start"] in bare and b["type"] == "text" else b for b in blocks]
 		blocks = _mark_printed_headings(text, blocks, printed_headings)
-	units = _units(text, blocks)
-	printed = _printed_units(text, units, printed_headings) if headings_mode else None
-	anchored: set[str] = set()
-	if sum(1 for u in units if u["body"]) < 4:
-		return []
+	return _units(text, blocks), printed_headings
+
+
+def _drop_notes(text: str, units: list[dict[str, Any]]) -> list[dict[str, Any]]:
+	"""The units without the footnotes after the last numbered paragraph."""
 	last_numbered = [u for u in units if u["num"] is not None]
 	# notes can be glued to the last numbered paragraph as unnumbered lines, so look from that paragraph's second line on
 	last_body = (last_numbered[-1]["start"] + len(last_numbered[-1]["text"].split("\n", 1)[0]) + 1) if last_numbered else 0
@@ -761,6 +849,17 @@ def _outline_v2_uncached(text: str, blocks: Sequence[dict]) -> list[dict]:
 			if u["end"] > notes_at:  # notes glued to the last paragraph
 				u["end"] = notes_at
 				u["text"] = text[u["start"] : notes_at].strip()
+	return units
+
+
+def _outline_v2_in_forum(text: str, blocks: Sequence[dict]) -> list[dict]:
+	headings_mode = outline_headings_enabled()
+	units, printed_headings = _prepared_units(text, blocks)
+	printed = _printed_units(text, units, printed_headings) if headings_mode else None
+	anchored: set[str] = set()
+	if sum(1 for u in units if u["body"]) < 4:
+		return []
+	units = _drop_notes(text, units)
 	section = _assign_sections(units, printed, anchored)
 	_fold_thin_sections(units, section)
 	if not any(u["num"] is not None for u in units):

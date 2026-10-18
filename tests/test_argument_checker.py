@@ -42,3 +42,32 @@ class ArgumentCheckerTests(unittest.TestCase):
 
 if __name__ == "__main__":
 	unittest.main()
+
+
+def _jaccard(a, b):
+	x, y = set(a.lower().split()), set(b.lower().split())
+	return len(x & y) / len(x | y) if x | y else 0.0
+
+
+class ListMergeTests(unittest.TestCase):
+	FULL = [{"side": "respondent", "text": "the officer reasonably weighed the evidence", "para": 4}]
+	NOTES = [
+		{"side": "applicant", "text": "the officer reasonably weighed the evidence", "paras": [4]},
+		{"side": "applicant", "text": "the delay breached fairness entirely", "paras": [9]},
+	]
+
+	def test_matching_notes_item_takes_full_text_side(self):
+		from backend.argument_checker import adopt_full_text_sides
+
+		out = adopt_full_text_sides(self.FULL, self.NOTES, _jaccard)
+		self.assertEqual((out[0]["side"], out[0]["side_adopted"]), ("respondent", True))
+		self.assertEqual((out[1]["side"], out[1]["side_adopted"]), ("applicant", False))
+
+	def test_notes_item_kept_only_with_a_vote(self):
+		from backend.argument_checker import merge_by_votes
+
+		runs = [[{"text": "the delay breached fairness entirely"}], []]
+		merged = merge_by_votes(self.FULL, self.NOTES, runs, _jaccard)
+		self.assertEqual([m["src"] for m in merged], ["full_text", "notes"])
+		self.assertEqual((merged[1]["votes"], merged[1]["paras"]), (1, [9]))
+		self.assertEqual(len(merge_by_votes(self.FULL, self.NOTES, [[], []], _jaccard)), 1)

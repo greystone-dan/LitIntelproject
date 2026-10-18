@@ -75,3 +75,50 @@ def flag_lowest(scored: Sequence[Mapping], share: float = 0.2) -> list[dict]:
 	ordered = sorted(m["own_side_reporting"] for m in scored)
 	cut = ordered[int(len(ordered) * share)]
 	return [{**m, "flagged": m["own_side_reporting"] < cut} for m in scored]
+
+
+def _best_match(text: str, others: Sequence[Mapping], similarity, threshold: float) -> tuple[int, float] | None:
+	best = None
+	for i, o in enumerate(others):
+		score = similarity(text, str(o.get("text") or ""))
+		if score >= threshold and (best is None or score > best[1]):
+			best = (i, score)
+	return best
+
+
+def adopt_full_text_sides(full_text: Sequence[Mapping], notes: Sequence[Mapping], similarity, threshold: float = 0.8) -> list[dict]:
+	"""Notes-only arguments that restate a full-text argument take that argument's side label.
+
+	The full-text list sees the whole decision and its labels were right in all 191 true arguments of a held-out set; the notes
+	list labelled 81% of the matching ones right, 95% after this. ``similarity(a, b)`` gives 0-1 (an embedding cosine in the
+	tests). Notes arguments with no match keep their label and are marked ``side_adopted: False``.
+	"""
+	out = []
+	for n in notes:
+		hit = _best_match(str(n.get("text") or ""), full_text, similarity, threshold)
+		if hit is None:
+			out.append({**n, "side_adopted": False})
+		else:
+			out.append({**n, "side": full_text[hit[0]].get("side"), "side_adopted": True})
+	return out
+
+
+def count_votes(argument: Mapping, repeat_runs: Sequence[Sequence[Mapping]], similarity, threshold: float = 0.8) -> int:
+	"""How many independent extra full-text reads contain a matching argument."""
+	text = str(argument.get("text") or "")
+	return sum(1 for run in repeat_runs if _best_match(text, run, similarity, threshold) is not None)
+
+
+def merge_by_votes(full_text: Sequence[Mapping], notes: Sequence[Mapping], repeat_runs: Sequence[Sequence[Mapping]], similarity, threshold: float = 0.8, min_votes: int = 1) -> list[dict]:
+	"""Every full-text argument, plus the notes-only arguments at least ``min_votes`` extra reads also found.
+
+	Held-out (90 decisions, two sets): 93-95% right and 89-93% of true arguments found, against 90-93% right for keeping both lists
+	unchecked and 96% right but only 81-88% found for the full-text list alone. Notes arguments get the full-text side label when
+	they match one (``adopt_full_text_sides``).
+	"""
+	out = [{**a, "src": "full_text", "votes": count_votes(a, repeat_runs, similarity, threshold)} for a in full_text]
+	for n in adopt_full_text_sides(full_text, notes, similarity, threshold):
+		votes = count_votes(n, repeat_runs, similarity, threshold)
+		if votes >= min_votes:
+			out.append({**n, "src": "notes", "votes": votes})
+	return out

@@ -9,7 +9,11 @@ refined citations, statute references and tags keep their ids and their resolved
     citations_refined.target_chunk_id) are moved by their stated paragraph number, or cleared when no single new
     row holds that paragraph.
 
-Every applied decision first writes a JSON undo record (old rows with their original ids, and the old values of
+A new row whose text is identical to an old row keeps that row's stored embedding; embeddings of rows whose text
+changes are dropped (the report counts both). The dry run does the whole change inside a transaction and rolls it
+back, so its reference and embedding counts are exact.
+
+Every applied decision first writes a JSON undo record (old rows with their original ids and embeddings, and the old values of
 every reference changed). `--undo FILE` puts the old rows back and restores the references.
 
 Examples:
@@ -98,8 +102,30 @@ def row_for_paragraph(rows, paragraph: int | None):
 
 def row_to_dict(row) -> dict:
     data = {name: getattr(row, name) for name in ROW_COLUMNS}
-    data["had_embedding"] = getattr(row, "embedding", None) is not None
+    embedding = getattr(row, "embedding", None)
+    data["embedding"] = None if embedding is None else [float(value) for value in embedding]
     return data
+
+
+def carry_over_embeddings(old_rows, new_rows) -> tuple[int, int]:
+    """Copy an old row's stored embedding to a new row with identical text. Returns (carried, lost)."""
+    available: dict[str, list] = {}
+    for row in old_rows:
+        if row.embedding is not None:
+            available.setdefault(row.text_hash, []).append(row)
+    carried = 0
+    for row in new_rows:
+        donors = available.get(row.text_hash)
+        if donors and getattr(row, "embedding", None) is None:
+            donor = donors.pop(0)
+            if donor.text == row.text:
+                row.embedding = donor.embedding
+                row.embedding_model = donor.embedding_model
+                carried += 1
+            else:
+                donors.insert(0, donor)
+    embedded_old = sum(1 for row in old_rows if row.embedding is not None)
+    return carried, embedded_old - carried
 
 
 def paragraph_rows(session: Session, case_id: int) -> list[CaseChunk]:
@@ -142,6 +168,8 @@ def plan_case(session: Session, case: Case) -> dict:
         "new_numbered": len(new_numbered),
         "same": row_signature(old_rows) == row_signature(new_rows),
         "old_embedded": sum(1 for r in old_rows if r.embedding is not None),
+        "embeddings_carried": 0,
+        "embeddings_lost": 0,
     }
 
 
@@ -157,6 +185,7 @@ def apply_case(session: Session, case: Case, plan: dict, undo_dir: Path | None) 
     }
 
     # New rows exist before anything moves, so every reference always has a valid chunk to point at.
+    plan["embeddings_carried"], plan["embeddings_lost"] = carry_over_embeddings(old_rows, new_rows)
     session.add_all(new_rows)
     session.flush()
     old_located = locate_rows(text, old_rows)
@@ -206,7 +235,10 @@ def apply_case(session: Session, case: Case, plan: dict, undo_dir: Path | None) 
 
     if old_ids:
         session.execute(delete(CaseChunk).where(CaseChunk.id.in_(old_ids)))
-    return {"moved": moved, "cleared": cleared, "own": len(undo["own"]), "target": len(undo["target"])}
+    return {
+        "moved": moved, "cleared": cleared, "own": len(undo["own"]), "target": len(undo["target"]),
+        "embeddings_carried": plan["embeddings_carried"], "embeddings_lost": plan["embeddings_lost"],
+    }
 
 
 def undo_case(session: Session, path: Path) -> None:
@@ -217,7 +249,7 @@ def undo_case(session: Session, path: Path) -> None:
     current_ids = [row.id for row in paragraph_rows(session, case_id)]
     for data in record["old_rows"]:
         values = {name: data[name] for name in ROW_COLUMNS}
-        session.add(CaseChunk(**values))
+        session.add(CaseChunk(**values, embedding=data.get("embedding")))
     session.flush()
     for ref in record["own"]:
         session.execute(
@@ -262,7 +294,7 @@ def main() -> None:
     if args.limit:
         case_ids = case_ids[: args.limit]
     totals = {"decisions": 0, "changed": 0, "unchanged": 0, "old_rows": 0, "new_rows": 0,
-              "old_numbered": 0, "new_numbered": 0, "moved": 0, "cleared": 0, "embedded_rows_lost": 0}
+              "old_numbered": 0, "new_numbered": 0, "moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0}
     report_rows = []
     undo_dir = Path(args.undo_dir) if args.apply else None
 
@@ -271,9 +303,10 @@ def main() -> None:
             case = session.get(Case, case_id)
             if case is None or not (case.full_text or "").strip():
                 continue
+            court = case.court
             plan = plan_case(session, case)
             totals["decisions"] += 1
-            result = {"moved": 0, "cleared": 0}
+            result = {"moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0}
             if plan["same"]:
                 totals["unchanged"] += 1
                 session.rollback()
@@ -283,24 +316,25 @@ def main() -> None:
                 totals["new_rows"] += plan["new_total"]
                 totals["old_numbered"] += plan["old_numbered"]
                 totals["new_numbered"] += plan["new_numbered"]
-                totals["embedded_rows_lost"] += plan["old_embedded"]
-                if args.apply:
-                    try:
-                        result = apply_case(session, case, plan, undo_dir)
+                # A dry run does the whole change inside a transaction and rolls it back, so its counts are exact.
+                try:
+                    result = apply_case(session, case, plan, undo_dir)
+                    if args.apply:
                         session.commit()
-                    except Exception as error:
+                    else:
                         session.rollback()
-                        print(f"case_error id={case_id} error={type(error).__name__}: {error}", flush=True)
-                        continue
-                else:
+                except Exception as error:
                     session.rollback()
-                totals["moved"] += result["moved"]
-                totals["cleared"] += result["cleared"]
+                    print(f"case_error id={case_id} error={type(error).__name__}: {error}", flush=True)
+                    continue
+                for key in ("moved", "cleared", "embeddings_carried", "embeddings_lost"):
+                    totals[key] += result[key]
             report_rows.append({
-                "case_id": case_id, "court": case.court, "changed": not plan["same"],
+                "case_id": case_id, "court": court, "changed": not plan["same"],
                 "old_rows": plan["old_total"], "new_rows": plan["new_total"],
                 "old_numbered": plan["old_numbered"], "new_numbered": plan["new_numbered"],
                 "moved_refs": result["moved"], "cleared_refs": result["cleared"],
+                "embeddings_carried": result["embeddings_carried"], "embeddings_lost": result["embeddings_lost"],
             })
 
     if args.report and report_rows:

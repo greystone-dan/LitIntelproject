@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 
 from scripts.fill_fca_headline_outcomes import classify, summarise
-from scripts.resplit_paragraph_chunks import locate_rows, row_for_paragraph, row_for_position, row_signature
+from scripts.resplit_paragraph_chunks import carry_over_embeddings, locate_rows, row_for_paragraph, row_for_position, row_signature
 
 
 def _row(label, start, end, text, text_hash="h"):
@@ -55,3 +55,22 @@ def test_fca_fill_summary_counts_before_and_after():
     assert summary["fill"] == 2
     assert summary["kept_existing"] == 1
     assert summary["filled_by_value"] == {"allowed": 1, "dismissed": 1}
+
+
+def _embedded(label, text, text_hash, embedding):
+    row = _row(label, None, None, text, text_hash)
+    row.embedding = embedding
+    row.embedding_model = "m" if embedding is not None else None
+    return row
+
+
+def test_embeddings_carry_to_new_rows_with_identical_text_only():
+    old = [_embedded("1", "same", "a", [0.1]), _embedded("2", "old split", "b", [0.2]), _embedded("3", "plain", "c", None)]
+    new = [_embedded("1", "same", "a", None), _embedded("2", "new split", "d", None)]
+
+    carried, lost = carry_over_embeddings(old, new)
+
+    assert (carried, lost) == (1, 1)
+    assert new[0].embedding == [0.1]
+    assert new[0].embedding_model == "m"
+    assert new[1].embedding is None

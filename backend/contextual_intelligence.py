@@ -94,19 +94,6 @@ THEME_CATEGORIES: dict[str, dict[str, Any]] = {
 
 
 @dataclass
-class ProximityCluster:
-	"""Represents a co-occurring cluster of tags, statutes, and citations within a text window."""
-	case_id: int
-	chunk_id: int | None
-	window_start: int
-	window_end: int
-	tags: list[dict[str, Any]]
-	statutes: list[dict[str, Any]]
-	citations: list[dict[str, Any]]
-	thematic_label: str
-
-
-@dataclass
 class CaseThematicSignature:
 	"""Deterministic composite legal signature for a case."""
 	case_id: int

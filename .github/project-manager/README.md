@@ -24,8 +24,9 @@ acceptance criteria.
 4. The agent chooses one owning surface, records a falsifiable hypothesis, and
    runs the narrowest relevant check before expanding work.
 
-Task files are working records. Keep completed records for traceability; do not
-use them as a replacement for `CHANGELOG.md`, generated references, or source
+Task files are working records. Remove completed records once their evidence is
+captured in canonical documentation and no current reference depends on them; do
+not use them as a replacement for `CHANGELOG.md`, generated references, or source
 provenance.
 
 ## Statuses

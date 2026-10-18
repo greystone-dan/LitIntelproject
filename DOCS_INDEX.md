@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-09-28
+Last updated: 2026-10-18
 
 ## Purpose
 
@@ -9,13 +9,16 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is the seven-tab immigration litigation intelligence interface,
-with Citation Pass retained as the extractor QA surface.
+The active workflow is the grouped Data Explorer interface: Info, Research,
+Workbench, and Testing. Research defaults to Case Search with an inline reader;
+Citation Pass remains an extraction-QA surface, not the primary workflow. The
+near-term product direction is demo-first issue/type discovery and a coherent
+search-to-reader-to-evidence journey, not a claim of complete corpus coverage.
 
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Profile, FC History, and Legal Themes & Statutes. Judge Profile is the sole active judge workflow; the former visible Data Explorer and Judge Outcomes tabs are retired.
+2. Use `/data-explorer` for Info (About and Site Architecture), Research (Case Search, Citation Intelligence, Judge Profile, FC History, and Legal Themes & Statutes), Workbench, and Testing support surfaces.
 3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.
@@ -31,7 +34,7 @@ Primary explainer docs:
 5. `.github/copilot-instructions.md` defines repository-level agent guardrails,
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
-    agent, durable task records, status, and escalation rules.
+    agent, task-record workflow, status, and escalation rules.
 7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
    review for live document analysis and de-identification; current route
    behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
@@ -47,9 +50,34 @@ Active implementation and operations:
 2. Active backend modules under `backend/` (excluding `backend/legacy/`)
 3. Isolated side-project utilities under `side_projects/` when the task explicitly concerns non-core datasets
 
+## Audited Root Documentation Status
+
+This status table covers every root file reviewed in the 2026-10-17
+documentation reconciliation. Generated `WORK_HISTORY.md` remains a dated,
+generated artifact and is not hand-edited.
+
+| Audited path | Status and owner |
+| --- | --- |
+| `README.md` | Active entrypoint; carries an issue-provided dated approximate snapshot (~75,677), not live coverage; points to the demo-first `ROADMAP.md`. |
+| `DOCS_INDEX.md` | Active authority and status index; this table records audited root-doc disposition. |
+| `SYSTEM_REFERENCE.md` | Canonical current system behavior and limitations. |
+| `OVERNIGHT.md` | Operational atlas and runbook; dated run records are snapshots, not live status. |
+| `CHANGELOG.md` | Chronological implementation and verification history. |
+| `WORK_HISTORY.md` | Generated work-history snapshot; do not manually edit. |
+| `ROADMAP.md` | Active demo-first delivery direction and acceptance criteria. |
+| `MASTER_IDEAS.md` | Long-term idea inventory; not a current implementation/status contract. |
+| `LEGAL_TAGGING.md` | Current tagging taxonomy notes; proposal/activation conflict is called out explicitly. |
+| `SETUP.md` | Current minimal local developer setup. |
+| `TAGGING_IMPROVEMENTS.md` | Moved to `docs/history/TAGGING_IMPROVEMENTS.md`; historical proposal, not activation evidence. |
+| `GUIDANCE.md` | Moved to `docs/history/GUIDANCE.md`; superseded strategic snapshot. |
+| `STYLING_REFERENCE.md` | Moved to `docs/history/STYLING_REFERENCE.md`; unverified historical styling notes. |
+| `SYSTEM_FOCUS_MODE.md` | Moved to `docs/history/SYSTEM_FOCUS_MODE.md`; former master-300 stabilization snapshot. |
+| `gold-set-expansion-findings.md` | Moved to `docs/history/gold-set-expansion-findings.md`; point-in-time, unvalidated findings. |
+| `test_statute_integration.py` | Removed: database-dependent smoke script with no pytest assertions; not a runnable automated test. |
+
 Legacy/reference-only areas:
 
-1. `legacy/` (archived artifacts and legacy workflow references)
+1. `legacy/README.md` (historical marker; archived payloads are no longer tracked)
 2. `backend/legacy/` (deprecated or parked runtime modules)
 3. `docs/history/` (historical notes and prior snapshots)
 
@@ -122,30 +150,27 @@ this inventory.
 | `docs/CONFIGURATION_REFERENCE.md` | Application configuration variables and defaults. |
 | `docs/DAILY_INTAKE.md` | Daily source-intake workflow and checks. |
 | `docs/DATA_SOURCE_REGISTER.md` | Register of data sources, provenance, and acquisition notes. |
-| `docs/DEPLOYMENT_COMMANDS.md` | Deployment, status, and recovery command guidance for operators. |
+| `docs/DEPLOYMENT_COMMANDS.md` | Remote Control setup and deployment workflow for operators. |
 | `docs/DEPLOYMENT_DOCKER.md` | Optional Docker build and local run instructions. |
 | `docs/DISCUSSION_UNITS_WEEKLY_REVIEW.md` | Weekly review process for Discussion Units work. |
 | `docs/DOC_AUDIT.md` | Documentation audit observations and follow-up notes. |
 | `docs/EXTRACTION_35K_RUNBOOK.md` | Bounded full-corpus citation extraction procedure. |
 | `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md` | Comparison of FC Activity Beta VBA and Python pipeline behavior. |
 | `docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md` | Federal Court Activity worker operating procedure. |
-| `docs/LOCAL_DEPLOYMENT_SETUP.md` | Local Remote Control session setup and deployment workflow. |
 | `docs/LONG_TERM_INTELLIGENCE_VISION.md` | Deferred long-term citation-treatment and argument-intelligence direction. |
 | `docs/METRICS_DICTIONARY.md` | Definitions for application and evaluation metrics. |
-| `docs/NEXT_STEPS.md` | Near-term work notes and proposed next actions. |
 | `docs/OFFLINE_MODEL_EVALUATION.md` | Offline model evaluation inputs, process, and interpretation. |
-| `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Recovery guidance for application, jobs, data, tests, and Git workflows. |
+| `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Consolidated recovery guidance for the site, application, jobs, data, tests, and Git workflows. |
 | `docs/OPERATIONS_LOGGING.md` | Operational logging conventions and relevant log locations. |
 | `docs/PARAGRAPH_CITED_BY.md` | Paragraph-level “cited by” batch-job design and use. |
 | `docs/RESEARCH_UI_GUIDE.md` | Guide to active research UI workflows and boundaries. |
 | `docs/SECURITY_DEPENDENCIES.md` | Dependency scanning and software-bill-of-materials guidance. |
 | `docs/SECURITY_HEADERS.md` | Optional security response-header configuration and limits. |
-| `docs/SITE_RECOVERY.md` | Site and tunnel recovery using the Windows `iLitSite` task. |
 | `docs/STILL_TO_DO.md` | Consolidated remaining product work, debt, and decision gates. |
 | `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md` | Swimm walkthrough map and project-manager handoff workflow. |
 | `docs/TAGGING_V2_CORE_WHITELIST_DRAFT.md` | Draft whitelist for the V2 core-tagging layer. |
 | `docs/TESTING_MATRIX.md` | Test-surface map and validation matrix. |
-| `docs/about/AGENT-NOTES.md` | Implementation notes for the About page. |
+| `docs/about/AGENT-NOTES.md` | Historical design notes for the standalone About-page prototype; active UI is implemented under `backend/pages/`. |
 | `docs/government-readiness/README.md` | Index and scope for the government-readiness document pack. |
 | `docs/government-readiness/ai-use-statement.md` | Draft statement describing the system's AI use. |
 | `docs/government-readiness/data-classification.md` | Data classification notes for government-readiness review. |
@@ -158,18 +183,22 @@ this inventory.
 | `docs/history/AI_STAGE_SUMMARY_2026-07-31.md` | Historical project-stage snapshot from 2026-07-31. |
 | `docs/history/FC_CITATION_REBUILD_IMPLEMENTATION.md` | Superseded Federal Court citation-rebuild implementation notes. |
 | `docs/history/FORMATTING_IMPROVEMENTS.md` | Superseded decision-formatting implementation notes. |
+| `docs/history/GUIDANCE.md` | Superseded long-term architecture and product snapshot. |
+| `docs/history/NEXT_STEPS.md` | Historical Discussion Unit pilot run note; current status and approval gate are in `docs/STILL_TO_DO.md`. |
 | `docs/history/PROJECT_NOTES.md` | Superseded project checkpoints and milestone commentary. |
 | `docs/history/README.md` | Guide to the historical documentation archive. |
+| `docs/history/STYLING_REFERENCE.md` | Unverified point-in-time citation-style notes; not current UI authority. |
+| `docs/history/SYSTEM_FOCUS_MODE.md` | Former master-300 stabilization focus snapshot. |
+| `docs/history/TAGGING_IMPROVEMENTS.md` | Superseded V3 tagging proposal; not activation evidence. |
+| `docs/history/gold-set-expansion-findings.md` | Point-in-time gold-set hypotheses and metrics, not revalidated. |
 | `docs/proposed-migrations/embedding-per-model-tables.md` | Proposal for per-model embedding tables. |
 | `docs/reports/accessibility-audit.md` | Accessibility findings for research and citation HTML builders. |
 | `docs/reports/authority-treatment-design.md` | Design proposal for citation authority-treatment intelligence. |
-| `docs/reports/backend-unused-code.md` | Inventory of unused backend code and duplicate logic. |
 | `docs/reports/baseline-lint-and-audit.md` | Initial Ruff and pip-audit baseline report. |
 | `docs/reports/cbsa-readiness-checklist.md` | Readiness checklist for CBSA hearings and litigation research. |
 | `docs/reports/id-iad-coverage-design.md` | Design proposal for ID/IAD decision coverage. |
 | `docs/reports/local-query-embeddings.md` | Local query-embedding provider and locality report. |
 | `docs/reports/memo-missing-authority.md` | Proposal for identifying missing and contrary authorities. |
-| `docs/reports/open-pr-review-2.md` | Point-in-time review report for issue #69. |
 | `docs/reports/open-pr-review.md` | Point-in-time review of PRs #28, #29, #32, and #34. |
 | `docs/reports/overruling-risk.md` | Provisional seed-based overruling-risk indicator report. |
 | `docs/reports/privacy-security-review.md` | Scoped privacy and security review of live analysis and de-identification. |
@@ -221,7 +250,7 @@ or reproducibility requires a source-controlled artifact.
 | API and schema contracts | Generated references and their source code/migrations | Never hand-edit generated outputs |
 | Operational procedures | `OVERNIGHT.md` and focused `docs/` runbooks | Executable operational guidance |
 | Feature research guidance | `docs/RESEARCH_UI_GUIDE.md` and linked Swimm UI walkthrough | User-facing workflow and implementation map |
-| Multi-step execution evidence | `.github/project-manager/tasks/` | Short-lived or durable task records |
+| Multi-step execution evidence | `.github/project-manager/tasks/` | Active task records; completed records are removed after canonical evidence is captured |
 | Historical lineage | `docs/history/` | Reference only; never current authority |
 
 ## Consolidation Rules
@@ -237,13 +266,14 @@ or reproducibility requires a source-controlled artifact.
 5. Do not delete or rename documents during consolidation until replacement
     coverage and incoming references have been verified.
 
-## Cleanup Status (2026-08-07)
+## Cleanup Status (2026-10-17)
 
 1. Active architecture authority now lives in root `SYSTEM_REFERENCE.md`; historical handoffs remain under `docs/history/`.
-2. Research-facing work is currently centered on `/data-explorer`, including its inline case reader and linked citation review; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
+2. The active grouped Data Explorer workflow centers on Case Search and its inline reader; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
 4. Live Analysis reads uploaded DOCX/text-PDF bytes in memory only; local citation resolution is batched and read-only.
-5. Root documentation should prioritize `README.md`, `SYSTEM_REFERENCE.md`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+5. The product roadmap is demo-first. Root documentation roles and archived
+   snapshots are recorded in the audited root-doc status table above.
 
 ## Nighttime Patch Checklist
 

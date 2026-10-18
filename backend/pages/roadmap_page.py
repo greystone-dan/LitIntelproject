@@ -63,7 +63,7 @@ LIVE_ITEMS = {slug for slug, place in PLACE.items() if place == "live"}
 # discussion-units/case-structure-report.md. An item is Tested only if it has an entry here.
 EVIDENCE = {
 	"whose-position": [
-		"Position tagger on 122 held-out immigration decisions (4,171 paragraphs, never used for training): the main speaker matched the stored labels for 76.2% of paragraphs. On 24 decisions read independently by Haiku (747 paragraphs) it matched 74.0%. Where a tag is shown (tagger at least 70% sure) about 86% were right; that covers 65% of paragraphs.",
+		"Position tagger on fresh Federal Court (20) and Federal Court of Appeal (20, 9 of them immigration) decisions read by hand, one reader, rules written beforehand: where a tag is shown (tagger at least 70% sure, about 60% of paragraphs) it was right about 90% of the time at the Federal Court and 82% at the Federal Court of Appeal. Across all paragraphs, 77% and 69%. Earlier figures (76%, 86%) included Refugee Board decisions and are no longer quoted. Small samples, not checked by a lawyer.",
 		"Two model readers (Haiku and Sonnet) applying the same written rulebook agreed on who is speaking for 93.1% of 1,067 paragraphs (30 decisions) and on the paragraph's role for 95.8%.",
 	],
 	"case-at-a-glance": [
@@ -75,7 +75,7 @@ EVIDENCE = {
 		"Issue maps for new decisions: Haiku got the result of the issue right for 94% of 85 issues (30 decisions). A free local model (Qwen3.5-9B) got 94% of 36 issues right on 18 decisions it had not been tuned on. Graded blind by Sonnet.",
 	],
 	"discussion-units": [
-		"Splitting decisions into units by structure and headings, scored once against labelled sets with no tuning: on 24 untouched Refugee Protection Division decisions, 50.0% of unit boundaries were exact and 83.0% of paragraphs had the right role. On 16 further decisions, 70.2% exact and 85.3% of roles. The labels were made in this project and have not been checked by a lawyer.",
+		"Splitting decisions into units by structure and headings, tested on fresh Federal Court (20), Federal Court of Appeal (20, 9 of them immigration) and Supreme Court (17) decisions read by hand with one reader and rules written beforehand: a paragraph is put in the right section about 82% of the time at the Federal Court, 80% at the Federal Court of Appeal and 74% at the Supreme Court. Small samples, not checked by a lawyer.",
 	],
 }
 TESTED_ITEMS = set(EVIDENCE)

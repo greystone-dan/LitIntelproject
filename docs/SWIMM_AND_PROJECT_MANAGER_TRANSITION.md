@@ -160,7 +160,7 @@ Manager** in VS Code chat for a bounded outcome that should be planned,
 implemented, validated, documented, and handed off with minimal chat steering.
 
 Use `.github/prompts/managed-task.prompt.md` to start a structured task from
-the prompt picker. The agent creates durable multi-step task records beneath
+the prompt picker. The agent creates multi-step task records beneath
 `.github/project-manager/tasks/` using
 `.github/project-manager/TASK_TEMPLATE.md`. Workflow status, escalation, and
 completion standards are in `.github/project-manager/README.md`.

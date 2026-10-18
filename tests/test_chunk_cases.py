@@ -254,3 +254,73 @@ def test_chunk_pending_cases_commits_each_case_batch():
     assert chunks_created == 6
     assert [row.case_id for row in db.added] == [4, 4, 4, 9, 9, 9]
     assert db.commits == 1
+
+def test_reader_paragraph_rows_give_same_line_heading_paragraph_its_own_row():
+    case = SimpleNamespace(
+        id=23,
+        full_text=(
+            "Header material\n"
+            "[1] First paragraph.\n"
+            "[2] Second paragraph.\n"
+            "II. Facts [3] The applicant arrived in 2015.\n"
+            "[4] Fourth paragraph.\n"
+            "[5] Fifth paragraph."
+        ),
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+    labels = [row.chunk_label for row in rows]
+
+    assert labels.count("3") == 1
+    assert [label for label in labels if label.isdigit()] == ["1", "2", "3", "4", "5"]
+    row3 = next(row for row in rows if row.chunk_label == "3")
+    assert row3.text.startswith("[3] The applicant arrived")
+    assert "[3]" not in next(row for row in rows if row.chunk_label == "2").text
+
+
+def test_reader_paragraph_rows_keep_quoted_numbered_paragraph_in_previous_row():
+    case = SimpleNamespace(
+        id=24,
+        full_text=(
+            "Header\n"
+            "[1] The statute says:\n"
+            "[17] Quoted provision text from the statute.\n"
+            "[2] The analysis follows.\n"
+            "[3] The application is dismissed."
+        ),
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+    numbered = [row.chunk_label for row in rows if row.chunk_label.isdigit()]
+
+    assert numbered == ["1", "2", "3"]
+    assert "[17] Quoted provision" in next(row for row in rows if row.chunk_label == "1").text
+
+
+def test_reader_paragraph_rows_ignore_reporter_citations_in_scc_text():
+    case = SimpleNamespace(
+        id=25,
+        full_text=(
+            "Cited: [2010] 3 S.C.R. 100\n"
+            "[1] The Court considers Smith v. Jones, [2005] 2 S.C.R. 45.\n"
+            "[2] The appeal is allowed.\n"
+            "[3] Costs follow the event."
+        ),
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+
+    assert [row.chunk_label for row in rows if row.chunk_label.isdigit()] == ["1", "2", "3"]
+    assert rows[0].chunk_label == "intro"
+
+
+def test_fewer_than_three_reader_paragraphs_falls_back_to_old_builder():
+    case = SimpleNamespace(id=26, full_text="Plain unnumbered reasons.\n\nSecond block of text.", summary=None)
+
+    rows = build_case_chunks(case)
+
+    assert rows
+    assert not any(row.chunk_label == "intro" for row in rows)

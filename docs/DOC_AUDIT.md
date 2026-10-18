@@ -28,3 +28,41 @@ artifact evidence only; its operational provenance was not independently
 verified. Historical snapshots and future-state proposals in `docs/` were not
 audited as current behavior. Generated API, schema, and script references were
 checked by `scripts/check_generated_docs.py`.
+
+## Follow-up (2026-10-17)
+
+The detailed root run note `docs/NEXT_STEPS.md` was moved to
+`docs/history/NEXT_STEPS.md` after its current pilot status and approval gate
+were consolidated in the Discussion Unit row of `docs/STILL_TO_DO.md`. The audit
+table above remains a record of the claims and evidence at its audited revision.
+
+The 21 `docs/case-reader/*.png` files were removed after exact filename/path
+searches found no references in `backend/`, `docs/`, or `.swm/`; the `/case-reader`
+compatibility endpoint remains. Two point-in-time reports were removed after
+exact-filename searches found no inbound references outside their inventory
+rows in `DOCS_INDEX.md`.
+Two artifact links in `OVERNIGHT.md` were converted to recorded paths after
+checking that their target files are absent from this checkout.
+Remote Control setup and deployment now have one owner in
+`docs/DEPLOYMENT_COMMANDS.md`; application,
+site, and tunnel recovery are consolidated in
+`docs/OPERATIONAL_RECOVERY_GUIDE.md`.
+
+Other stale claims from that snapshot were corrected in
+`docs/about/AGENT-NOTES.md`, `docs/STILL_TO_DO.md`, `docs/TESTING_MATRIX.md`,
+`docs/CITATION_REFINEMENT.md`, and `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`.
+The Testing Matrix's dated numerical baselines remain historical snapshots.
+
+Deployment/recovery overlaps were consolidated. `docs/DEPLOYMENT_COMMANDS.md`
+owns current Remote Control/site commands and links to
+`docs/OPERATIONAL_RECOVERY_GUIDE.md`, which now owns cross-system triage and
+the iLitSite restart/health/log checklist. Government-readiness links were
+repointed to the command guide (`data-flow.md`, `pia-inputs.md`, and the
+CBSA-readiness hosting evidence); backup/recovery evidence points to both
+deployment and operational recovery guidance. The overlapping
+`docs/LOCAL_DEPLOYMENT_SETUP.md` and `docs/SITE_RECOVERY.md` were retired, and
+their current workflow is indexed under the remaining owners in `DOCS_INDEX.md`.
+The old local-setup path remains only in the historical issue-432 task record,
+which was not changed. `docs/CLOUDFLARE_TUNNEL_SETUP.md` remains the one-time/
+fallback tunnel guide; `docs/DEPLOYMENT_DOCKER.md` remains the optional
+container workflow.

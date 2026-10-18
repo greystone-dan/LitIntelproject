@@ -22,15 +22,24 @@ Beta contains these relevant modules and procedures:
 
 The verified workbook sheets are `Inventory`, `FullActivity`, `Cases to Review`, and `ValidationReport`. `Inventory` has fields for tribunal number, case name, latest activity date, judge, decision maker, proceeding type, motions, motion results, hearings, leave/JR decisions and dates, case status, and full activity text.
 
-## Where Beta Improves The Current Pipeline
+## Where Beta Compared Favorably With The Initial Python Baseline
 
-### 1. A dedicated motion taxonomy
+The following two gaps motivated the first implementation. They are historical
+comparison points, not current-state claims; see the implementation checkpoint
+below. The current classifier still does not claim complete parity with every
+Beta rule.
 
-Beta explicitly names motion categories that the current Python event layer does not preserve as a structured subtype: stay of removal, stay of deportation, stay of release, stay of admissibility hearing, stay of proceedings, stay of execution, abeyance, s.37 CEA, s.87 IRPA, anonymity, amendment of ALJR, extension of time, consent judgment, confidentiality, production, intervention, and a generic stay/other fallback.
+### 1. Motion subtype taxonomy (implemented)
 
-The current Python classifier detects `motion_filed` and `motion_decision` and preserves source evidence, but it does not normalize these motion types into a stable taxonomy. This is the highest-value Beta contribution because it supports motion-level filtering and procedural-delay analysis without collapsing motions into general tags.
+Beta explicitly names motion categories including stays, abeyance, statutory
+motions, anonymity, amendment, extension of time, consent judgment,
+confidentiality, production, and intervention. The initial Python comparison
+identified missing structured subtypes; the current classifier now normalizes
+motion subtypes through `_normalize_motion_subtype()` in
+`scripts/classify_fc_activity.py`. This is not evidence of full rule-for-rule
+parity with the workbook.
 
-### 2. A useful validation contract
+### 2. Cross-field validation (implemented)
 
 Beta validates contradictions and missing values after refresh, including:
 
@@ -41,7 +50,10 @@ Beta validates contradictions and missing values after refresh, including:
 - missing latest activity date;
 - leave marked `N/A` while a substantive JR result exists.
 
-The Python pipeline has evidence gates and evaluation reports, but these exact cross-field integrity checks are not yet represented as a reusable per-case validation result. Beta's validation ideas should be adapted to structured JSON findings, not copied as worksheet logic.
+The initial comparison found no reusable per-case Python result for these
+checks. The current pipeline exposes deterministic, read-only findings through
+`validate_fc_activity_classification()` in `scripts/classify_fc_activity.py`.
+The implementation does not establish that every Beta rule is covered.
 
 ### 3. A human review queue
 
@@ -84,7 +96,14 @@ The two implementations share the same broad precedence model, including leave-d
 7. `ExtractDecisionMaker` is restricted to entries containing application wording and returns the first match, so later clarifying evidence is not aggregated.
 8. Excel `IsDate` is locale-sensitive, while the Python path should remain the canonical normalized-date implementation.
 
-## Recommended Next Steps
+## Original Recommended Next Steps (Historical Plan)
+
+This plan predates the implementation checkpoint below. The motion subtype/result
+work in Phase 2 and the validator function in Phase 3, item 1, are recorded as
+implemented there. Phase 3's review-report generation and validation-yield
+measurement remain proposed follow-up work. Verify any other listed item against
+the current code before treating it as outstanding; this section preserves the
+initial plan, not a current implementation status.
 
 ### Phase 1: fixture extraction and alignment
 
@@ -107,9 +126,9 @@ The two implementations share the same broad precedence model, including leave-d
 3. Generate a bounded `Cases to Review` report from those findings, with status categories and source links.
 4. Measure validation yield on the existing 1,000-record evaluation before considering any bulk run.
 
-## Acceptance Signals
+## Further Acceptance Signals
 
-The next implementation should be considered successful only if:
+Further work should be considered successful only if:
 
 - motion subtype and result extraction improves coverage on the new fixtures without changing raw Activity rows;
 - every promoted motion event retains source text and document identifiers;
@@ -117,7 +136,10 @@ The next implementation should be considered successful only if:
 - unknowns remain visible rather than being coerced into a category;
 - focused classifier tests and the bounded evaluator pass with before/after coverage counts.
 
-The Beta workbook is therefore best treated as a rule and QA reference, not as a replacement extraction engine. Its highest-return additions are motion subtype normalization, structured validation findings, and a reproducible review queue.
+The Beta workbook is best treated as a rule and QA reference, not as a
+replacement extraction engine. Motion subtype normalization and deterministic
+cross-field findings now exist in Python; remaining Beta-inspired work includes
+measuring broader rule coverage and evaluating the review-queue workflow.
 
 ## Implementation Checkpoint
 

@@ -1,26 +1,25 @@
-# iLit About page: notes for a coding agent
+# iLit About-page prototype: historical notes
 
-This folder holds the iLit status overview, styled to match the ilit.ca explorer (`backend/pages/data_explorer.py`). It is meant to fill the empty **About** tab on `/data-explorer`.
+This folder retains the standalone iLit overview and its packaged prototype. The
+proposal below to wire that prototype into an empty **About** tab is superseded.
+The active About panel is assembled by `backend/pages/data_explorer.py` using
+`backend/pages/about_content.html`; the former About overview is now part of Site
+Architecture. See the current-state description in
+[`SYSTEM_REFERENCE.md`](../../SYSTEM_REFERENCE.md).
 
 ## Files
 
 | File | What it is |
 |---|---|
-| `ilit-about-fragment.html` | **The drop-in.** A `<style>` block plus `<div class="ilit-about">…</div>`. Paste it into the About tab's panel. All CSS is scoped under `.ilit-about`, so it won't touch the site's own `.tag`, `.eyebrow`, `.card` or `h1` rules. There is no JavaScript. It relies on the fonts the explorer already loads (IBM Plex Sans, Newsreader). |
-| `ilit-overview.html` | A standalone preview of the same fragment on the site's cream grid background. Open it in a browser to see the target. |
-| `src/brief.css` | The scoped stylesheet. |
-| `src/brief_body.html` | Page text, with `{{FIG1}}`…`{{FIG9}}` placeholders for the diagrams. |
-| `src/build_brief.py` | Python 3, no dependencies. It draws the nine SVG diagrams, fills the placeholders and writes both HTML files above. Run `python3 src/build_brief.py` after editing text or CSS. |
+| `ilit-overview.html` | Standalone preview of the prototype; it is not the active Data Explorer page. |
+| `ilit-web-page.zip` | Packaged prototype files, including the fragment, source text, stylesheet, and builder. |
 
-## Wiring it into the About tab
+## Current implementation
 
-The About tab is currently empty, and "Site Architecture" says its content moved there. Suggested approach:
-
-1. Store the fragment as a string or template file, for example `backend/pages/about_content.html`.
-2. Inject it into the About tab's panel element in `data_explorer.py`.
-3. Keep the fragment's `<h1>` as is, or change it to `<h2>` if the page header's `<h1>` ("Immigration Litigation Intelligence Tool") should stay the only one.
-4. The in-page jump links (`#today`, `#how`, …) use plain anchors. If the explorer's tab switching intercepts hash changes, either turn them into `scrollIntoView` handlers or drop `nav.jump`.
-5. Separately, fix the `#judgePanel` error in `selectTab`, so the About tab can open without the red error text above it.
+`backend/pages/data_explorer.py` assembles the active About panel from
+`backend/pages/about_content.html`. It also places the moved overview content in
+Site Architecture. The packaged prototype and standalone preview remain here as
+design references; they are not wiring instructions for the current interface.
 
 ## Design tokens (copied from the site)
 

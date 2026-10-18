@@ -519,11 +519,11 @@
    "what": "Tags each paragraph with who is speaking: the applicant, the respondent, an earlier decision-maker or the judge.",
    "status": "now",
    "where": "Stored for 39,617 decisions (live database count, 13 Oct 2026). Shown only above a confidence bar; the rest say Unsure.",
-   "number": "76%",
-   "number_label": "matches the stored labels (86% where a tag is shown)",
-   "sample": "4,171 held-out paragraphs from 122 immigration decisions. Two model readers agreed on the speaker for 93.1% of 1,067 paragraphs.",
-   "grader": "Rules plus a small trained tagger, checked against model-written labels.",
-   "caveat": "The Refugee Protection Division is the weakest; no lawyer has reviewed these labels.",
+   "number": "90%",
+   "number_label": "tag right where one is shown, at the Federal Court (82% at the Federal Court of Appeal)",
+   "sample": "The same fresh Federal Court (20) and Federal Court of Appeal (20, 9 immigration) decisions, read by hand. A tag is shown on about 60% of paragraphs (62% and 54%).",
+   "grader": "One reader (a model, not a lawyer), labelling rules written before looking at the output.",
+   "caveat": "Shown only at the Federal Court and Federal Court of Appeal; no tags are stored for the Supreme Court. Small samples, single reader, not lawyer-checked. Earlier figures (76%, 86%) included Refugee Board decisions and are no longer quoted.",
    "source": "discussion-units/position-tagger-2026-10-11"
   },
   {
@@ -532,13 +532,12 @@
    "what": "Splits a decision into units (facts, issues, reasoning, disposition) from its structure and headings.",
    "status": "now",
    "where": "On the site today for decisions that have usable structure.",
-   "number": "83%",
-   "number_label": "right role for a unit (50% of unit boundaries exactly right)",
-   "sample": "24 untouched Refugee Protection Division decisions.",
-   "grader": "Scored against hand-labelled sets, once, with no tuning.",
-   "caveat": "Exact boundaries are the hard part; the role is usually right even when the edge is a paragraph out. Finding where the analysis starts is only 55% within one paragraph.",
-   "source": "discussion-units/case-structure-report.md; discussion-units/pipeline-2026-10-11/pipeline-and-cost.md",
-   "extra": "Adding a small learned step to the rules reached about 85% right role per paragraph on 47 hand-labelled decisions (about 90% for facts, reasoning and disposition). The labels themselves disagree, so about 92% is the practical ceiling."
+   "number": "82%",
+   "number_label": "of paragraphs in the right section at the Federal Court (80% Federal Court of Appeal, 74% Supreme Court)",
+   "sample": "Fresh Federal Court (20), Federal Court of Appeal (20, 9 of them immigration) and Supreme Court (17) decisions, read by hand.",
+   "grader": "One reader (a model, not a lawyer), labelling rules written before looking at the output.",
+   "caveat": "Small samples. It finds where the reasoning ends and the order begins in about 85% to 92% of paragraphs. Exact boundaries are the hard part, and the Supreme Court is weakest.",
+   "source": "discussion-units/case-structure-report.md; discussion-units/pipeline-2026-10-11/pipeline-and-cost.md"
   },
   {
    "key": "matching",

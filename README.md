@@ -33,6 +33,25 @@ all backend modules, data boundaries, and schema summary are in
 - **Source-aware ingestion** — add or merge case records while preserving
   provenance and source identity.
 
+## Current product focus
+
+The active workflow is Data Explorer case search, the inline decision reader,
+and source-grounded inspection of citations, statutes, and other stored
+evidence. The near-term roadmap is demo-first: make issue/type discovery,
+search-to-reader navigation, and evidence review work as one clear journey;
+corpus-wide quality expansion remains deferred except for demo-safety fixes.
+This is a delivery focus, not a claim that every planned discovery feature is
+already implemented. See the [roadmap](ROADMAP.md) and the
+[Data Explorer implementation](backend/pages/data_explorer.py).
+
+The current court focus is Federal Court (FC), Supreme Court of Canada (SCC),
+and Federal Court of Appeal (FCA). Issue #541, reviewed 2026-10-17, supplies an
+approximate snapshot of 75,677 decisions across FC, the Refugee Appeal Division
+(RAD), SCC, FCA, and the Refugee Protection Division (RPD). This is an
+issue-provided, date-scoped figure, not independently verified against the
+database and not a live coverage claim. The About view reads the live inventory
+from `/api/about/stats`.
+
 Selected routes are listed below. Their presence and current API contracts are
 checked against the generated [API reference](docs/API_REFERENCE.generated.md).
 
@@ -139,7 +158,7 @@ and runs CI; cloud sessions do not connect to the live database.
 | `docs/` | Architecture, source governance, setup, research guidance, and generated references |
 | `tests/` | Automated tests |
 | `side_projects/` | Independent data utilities outside the canonical case workflow |
-| `legacy/` | Archived or reference-only materials |
+| `legacy/` | Historical marker; archived payloads are no longer tracked |
 | `.swm/` | Connected architecture and workflow walkthroughs |
 | `.github/` | CI workflows and repository automation |
 | `SYSTEM_REFERENCE.md` | Detailed current system and operations reference |
@@ -151,4 +170,5 @@ and runs CI; cloud sessions do not connect to the live database.
 - [Generated API reference](docs/API_REFERENCE.generated.md)
 - [Generated schema reference](docs/SCHEMA_REFERENCE.generated.md)
 - [Current system reference](SYSTEM_REFERENCE.md)
+- [Product roadmap](ROADMAP.md)
 - [Setup guide](SETUP.md)

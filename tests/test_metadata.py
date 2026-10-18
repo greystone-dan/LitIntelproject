@@ -619,7 +619,8 @@ def test_government_role_follows_style_of_cause_for_minister_appeals():
 	assert record["decision_outcome"] == "dismissed"
 	assert record["government_role"] == "applicant"
 	assert record["government_outcome"] == "lost"
-	record = build_case_outcome(text, {"style of cause": "Alexander Vavilov v. Minister of Citizenship and Immigration"})
+	# Without the solicitors block (which names the Attorney General as appellant) the style of cause decides.
+	record = build_case_outcome(text.split("Solicitors for")[0], {"style of cause": "Alexander Vavilov v. Minister of Citizenship and Immigration"})
 	assert record["government_role"] == "respondent"
 	assert record["government_outcome"] == "won"
 

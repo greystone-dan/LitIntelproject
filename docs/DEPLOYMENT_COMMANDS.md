@@ -1,27 +1,34 @@
-# Deployment Commands Reference
+# Deployment And Remote Control Reference
 
-Once you have a Remote Control session running, use these commands to talk to Claude.
+Use this guide for interactive Remote Control setup and the Git-to-main
+deployment workflow. For the exact site restart, health, log, and port-safety
+procedures, use the [Operational Recovery Guide](OPERATIONAL_RECOVERY_GUIDE.md).
 
-**Current site deployment:** The Windows scheduled task `iLitSite` is the primary
-site and tunnel process. After `git pull origin main`, restart it with
-`Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`. Keep the site
-worktree on `main`. `scripts\refresh_site.ps1` is a fallback only if the task
-has been removed; never run it while `iLitSite` is installed.
+The production site is managed by the Windows scheduled task `iLitSite`; keep
+its worktree on `main`. After pulling a merged change, follow the recovery
+guide's Windows Site Recovery procedure to restart and verify the service.
+That guide also documents the `scripts\refresh_site.ps1` fallback boundary.
 
-## Setup (One-time)
+## CLI prerequisite
 
-**Install Claude CLI:**
-```powershell
-# Windows - check if installed
-claude --version
-```
+Install and authenticate the Claude CLI using its supported vendor instructions.
+Check availability with `claude --version` and
+`claude remote-control --help`; do not use the retired local setup note's
+unverified installation suggestions.
 
-**Start a Remote Control session:**
+## Start a Remote Control session
+
+The interactive Remote Control session is separate from the persistent
+`iLitSite` scheduled task. With the Claude CLI installed and authenticated, run
+the repository helper from the repository root:
+
 ```powershell
 .\scripts\start_remote_control.ps1
 ```
 
-Keep this terminal window open. Claude will connect through it.
+Keep the terminal window open while Claude is connected. The helper checks for
+the CLI and reports whether `iLitSite` is running; it does not deploy or restart
+the site.
 
 ---
 
@@ -34,23 +41,22 @@ Keep this terminal window open. Claude will connect through it.
 
 Claude will:
 1. Run `git pull origin main`
-2. Run `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite` (about 45 seconds down)
-3. Verify the site is running
-4. Report status
+2. Follow the Operational Recovery Guide's Windows Site Recovery procedure
+3. Report the deployment status
 
 **Deploy a change from a branch:**
 > "Merge claude/feature-name into main and deploy"
 
 Merge the change to `main`, pull `origin main` in the site worktree, then
-restart the `iLitSite` task as above. Do not check out a feature branch in the
-site worktree.
+follow the Operational Recovery Guide to restart and verify the site. Do not
+check out a feature branch in the site worktree.
 
 **Check deployment status:**
 > "Is the site running? What version?"
 
 Claude will:
-1. Test http://127.0.0.1:8001/health
-2. Check recent git log
+1. Use the Operational Recovery Guide's health checks
+2. Check recent Git history
 3. Report what's currently deployed
 
 ---
@@ -88,21 +94,11 @@ Claude will:
 
 ### Logs & Status
 
-**Check application logs:**
+**Check application or tunnel logs:**
 > "Show the last 30 lines of application logs"
 
-Claude will:
-1. Read logs/app.out.log
-2. Show recent errors or activity
-3. Suggest fixes if needed
-
-**Check Cloudflare tunnel status:**
-> "Is the tunnel running? Show tunnel logs"
-
-Claude will:
-1. Check tunnel process status
-2. Show recent tunnel events
-3. Verify internet connectivity
+For service, application, or tunnel logs and health diagnostics, follow the
+Operational Recovery Guide.
 
 **Full PC status check:**
 > "Give me a full status report on the PC and site"
@@ -124,8 +120,7 @@ Claude will:
 
 Claude will:
 1. Run `git revert HEAD`
-2. Restart the `iLitSite` task with `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`
-3. Verify it's running
+2. Follow the Operational Recovery Guide to restart and verify the site
 
 **Merge a branch to main:**
 > "Merge claude/feature-name into main and deploy"
@@ -191,8 +186,7 @@ If something goes wrong:
 ## Notes
 
 - **You don't need to type exact commands** — describe what you want and Claude will figure it out
-- **Deployments take ~45 seconds** — the site will be offline briefly while iLitSite restarts
-- **Fallback only:** run `scripts\refresh_site.ps1` only if the `iLitSite` task has been removed; do not run it while the task is installed
+- **Restart duration and verification:** follow the Windows Site Recovery procedure in the Operational Recovery Guide
 - **All changes go through Git** — if something breaks, it can always be reverted
 - **The PC must stay plugged in** — if it goes to sleep, Claude can't connect until you wake it
 - **Remote Control is secure** — connections are encrypted, and Claude only sees your project

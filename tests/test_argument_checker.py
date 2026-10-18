@@ -71,3 +71,22 @@ class ListMergeTests(unittest.TestCase):
 		self.assertEqual([m["src"] for m in merged], ["full_text", "notes"])
 		self.assertEqual((merged[1]["votes"], merged[1]["paras"]), (1, [9]))
 		self.assertEqual(len(merge_by_votes(self.FULL, self.NOTES, [[], []], _jaccard)), 1)
+
+
+	def test_whole_decision_flip_for_unmatched_notes(self):
+		from backend.argument_checker import adopt_full_text_sides
+
+		full = [
+			{"side": "respondent", "text": "alpha beta gamma delta"},
+			{"side": "respondent", "text": "one two three four"},
+		]
+		notes = [
+			{"side": "applicant", "text": "alpha beta gamma delta"},
+			{"side": "applicant", "text": "one two three four"},
+			{"side": "applicant", "text": "unrelated point about costs"},
+		]
+		out = adopt_full_text_sides(full, notes, _jaccard)
+		self.assertEqual([o["side"] for o in out], ["respondent", "respondent", "respondent"])
+		self.assertTrue(out[2]["side_flipped"] and not out[2]["side_adopted"])
+		agree = adopt_full_text_sides(full, [{**n, "side": "respondent"} for n in notes[:2]] + [notes[2]], _jaccard)
+		self.assertEqual(agree[2]["side"], "applicant")

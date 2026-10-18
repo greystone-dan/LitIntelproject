@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-09-28
+Last updated: 2026-10-18
 
 ## Purpose
 
@@ -9,13 +9,16 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is the seven-tab immigration litigation intelligence interface,
-with Citation Pass retained as the extractor QA surface.
+The active workflow is the grouped Data Explorer interface: Info, Research,
+Workbench, and Testing. Research defaults to Case Search with an inline reader;
+Citation Pass remains an extraction-QA surface, not the primary workflow. The
+near-term product direction is demo-first issue/type discovery and a coherent
+search-to-reader-to-evidence journey, not a claim of complete corpus coverage.
 
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Profile, FC History, and Legal Themes & Statutes. Judge Profile is the sole active judge workflow; the former visible Data Explorer and Judge Outcomes tabs are retired.
+2. Use `/data-explorer` for Info (About and Site Architecture), Research (Case Search, Citation Intelligence, Judge Profile, FC History, and Legal Themes & Statutes), Workbench, and Testing support surfaces.
 3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.
@@ -46,6 +49,31 @@ Active implementation and operations:
 1. Root docs (`README.md`, `SYSTEM_REFERENCE.md`, `CHANGELOG.md`)
 2. Active backend modules under `backend/` (excluding `backend/legacy/`)
 3. Isolated side-project utilities under `side_projects/` when the task explicitly concerns non-core datasets
+
+## Audited Root Documentation Status
+
+This status table covers every root file reviewed in the 2026-10-17
+documentation reconciliation. Generated `WORK_HISTORY.md` remains a dated,
+generated artifact and is not hand-edited.
+
+| Audited path | Status and owner |
+| --- | --- |
+| `README.md` | Active entrypoint; carries an issue-provided dated approximate snapshot (~75,677), not live coverage; points to the demo-first `ROADMAP.md`. |
+| `DOCS_INDEX.md` | Active authority and status index; this table records audited root-doc disposition. |
+| `SYSTEM_REFERENCE.md` | Canonical current system behavior and limitations. |
+| `OVERNIGHT.md` | Operational atlas and runbook; dated run records are snapshots, not live status. |
+| `CHANGELOG.md` | Chronological implementation and verification history. |
+| `WORK_HISTORY.md` | Generated work-history snapshot; do not manually edit. |
+| `ROADMAP.md` | Active demo-first delivery direction and acceptance criteria. |
+| `MASTER_IDEAS.md` | Long-term idea inventory; not a current implementation/status contract. |
+| `LEGAL_TAGGING.md` | Current tagging taxonomy notes; proposal/activation conflict is called out explicitly. |
+| `SETUP.md` | Current minimal local developer setup. |
+| `TAGGING_IMPROVEMENTS.md` | Moved to `docs/history/TAGGING_IMPROVEMENTS.md`; historical proposal, not activation evidence. |
+| `GUIDANCE.md` | Moved to `docs/history/GUIDANCE.md`; superseded strategic snapshot. |
+| `STYLING_REFERENCE.md` | Moved to `docs/history/STYLING_REFERENCE.md`; unverified historical styling notes. |
+| `SYSTEM_FOCUS_MODE.md` | Moved to `docs/history/SYSTEM_FOCUS_MODE.md`; former master-300 stabilization snapshot. |
+| `gold-set-expansion-findings.md` | Moved to `docs/history/gold-set-expansion-findings.md`; point-in-time, unvalidated findings. |
+| `test_statute_integration.py` | Removed: database-dependent smoke script with no pytest assertions; not a runnable automated test. |
 
 Legacy/reference-only areas:
 
@@ -155,9 +183,14 @@ this inventory.
 | `docs/history/AI_STAGE_SUMMARY_2026-07-31.md` | Historical project-stage snapshot from 2026-07-31. |
 | `docs/history/FC_CITATION_REBUILD_IMPLEMENTATION.md` | Superseded Federal Court citation-rebuild implementation notes. |
 | `docs/history/FORMATTING_IMPROVEMENTS.md` | Superseded decision-formatting implementation notes. |
+| `docs/history/GUIDANCE.md` | Superseded long-term architecture and product snapshot. |
 | `docs/history/NEXT_STEPS.md` | Historical Discussion Unit pilot run note; current status and approval gate are in `docs/STILL_TO_DO.md`. |
 | `docs/history/PROJECT_NOTES.md` | Superseded project checkpoints and milestone commentary. |
 | `docs/history/README.md` | Guide to the historical documentation archive. |
+| `docs/history/STYLING_REFERENCE.md` | Unverified point-in-time citation-style notes; not current UI authority. |
+| `docs/history/SYSTEM_FOCUS_MODE.md` | Former master-300 stabilization focus snapshot. |
+| `docs/history/TAGGING_IMPROVEMENTS.md` | Superseded V3 tagging proposal; not activation evidence. |
+| `docs/history/gold-set-expansion-findings.md` | Point-in-time gold-set hypotheses and metrics, not revalidated. |
 | `docs/proposed-migrations/embedding-per-model-tables.md` | Proposal for per-model embedding tables. |
 | `docs/reports/accessibility-audit.md` | Accessibility findings for research and citation HTML builders. |
 | `docs/reports/authority-treatment-design.md` | Design proposal for citation authority-treatment intelligence. |
@@ -233,13 +266,14 @@ or reproducibility requires a source-controlled artifact.
 5. Do not delete or rename documents during consolidation until replacement
     coverage and incoming references have been verified.
 
-## Cleanup Status (2026-08-07)
+## Cleanup Status (2026-10-17)
 
 1. Active architecture authority now lives in root `SYSTEM_REFERENCE.md`; historical handoffs remain under `docs/history/`.
-2. Research-facing work is currently centered on `/data-explorer`, including its inline case reader and linked citation review; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
+2. The active grouped Data Explorer workflow centers on Case Search and its inline reader; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
 4. Live Analysis reads uploaded DOCX/text-PDF bytes in memory only; local citation resolution is batched and read-only.
-5. Root documentation should prioritize `README.md`, `SYSTEM_REFERENCE.md`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+5. The product roadmap is demo-first. Root documentation roles and archived
+   snapshots are recorded in the audited root-doc status table above.
 
 ## Nighttime Patch Checklist
 

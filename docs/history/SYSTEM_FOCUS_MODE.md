@@ -1,5 +1,9 @@
 # System Focus Mode (Master 300)
 
+> Historical workflow snapshot. It describes a former stabilization focus, not
+> the current product direction. See the [product roadmap](../../ROADMAP.md) and
+> [system reference](../../SYSTEM_REFERENCE.md).
+
 This project is currently in stabilization mode.
 
 Current execution priority is extractor reliability for case-to-case citations.

@@ -2,24 +2,27 @@
 
 ## Design
 
-`ca_legal_v2` is the legacy deterministic, additive taxonomy. Every stored tag includes its
-case, category, normalized value, confidence score, matched evidence, derivation
-source, and taxonomy version. `case_tagging_status` records completed cases even
-when no tags were found, making batch runs resumable.
+Tag rows carry a case, category, normalized value, evidence, source, taxonomy
+version, and (where supported by that version) confidence and offsets.
+`case_tagging_status` records completion per case and taxonomy version.
 
 ### Taxonomy lifecycle
 
-V1 (`ca_legal_v2`) and V2 core (`ca_legal_v2_core`) are retained historical and
-comparison layers. V3 core (`ca_legal_v3_core`) is now the active deterministic
-runtime taxonomy after its regression, human-review, and bounded-canary gates.
-V1 and V2 are not production runtime defaults and must not be treated as the
-active taxonomy. Do
-not delete either layer or rewrite its rows. New production tagging will move
-to the separate `ca_legal_v3_core` version. Contextual tags remain deferred
-until a separate contextual evidence contract is designed and validated.
+The repository contains three distinct taxonomy identifiers: `ca_legal_v2` in
+`backend/legal_tagger.py`, `ca_legal_v2_core` for the separate V2 whitelist,
+and the proposed `ca_legal_v3_core`. These identifiers and historical run
+counts do not establish which tags are currently present in a live database;
+use a fresh, authorized database/API inventory for live coverage.
 
-As of 2026-08-04, the live corpus is tagged at scale: all 35,902 cases have
-`case_tagging_status` rows and 770,395 tags are stored across the corpus.
+**V3 activation status is unresolved in source.** The processing stage and
+overnight job are wired to the V3 writer, and the overnight job description
+calls it active. However, `backend/legal_tagger_v3.py` and
+`scripts/tag_cases_v3.py` describe it as inactive, and the proposal file is
+still marked `review_status: proposed`. Until that contradiction is resolved
+and an owner confirms activation, treat V3 as a review-only proposal: do not
+call it the approved production taxonomy or run its writer as a production
+backfill. Keep stored rows separated by `taxonomy_version`; do not delete or
+rewrite taxonomy rows based on this document.
 
 The taxonomy does not treat a text match as a legal conclusion. For example, an
 `organization=ipob` tag means the decision discusses IPOB, not that the Court made
@@ -118,40 +121,20 @@ WHERE taxonomy_version = 'ca_legal_v2_core' AND tags_count = -1
 ORDER BY case_id;
 ```
 
-The full-corpus expansion run was paused after 21,710 cases in its resumed
-session, with 2,051,241 occurrences created and no skipped batches reported.
-Completed work remains committed and can be resumed with the command above.
+Historical V2-core expansion checkpoint: one resumed run recorded 21,710 cases
+and 2,051,241 occurrences, with no skipped batches reported at that time. This
+is not a current resume cursor; inspect that run's state before considering
+recovery.
 
-### Tagging V3 core layer (active deterministic pipeline)
+### Tagging V3 core proposal (activation not established)
 
-The `ca_legal_v3_core` layer is implemented as an exact-match tagger in
-`backend/legal_tagger_v3.py`, an ordered `tags_v3` stage in
-`backend/case_processing.py`, and a bounded writer in
-`scripts/tag_cases_v3.py`. It reads
-`data/eval/reports/tagging-v3-core-whitelist-proposal.json`, preserves every
-matched occurrence, and writes the taxonomy version separately from V1/V2.
-
-Before any canary, apply the additive evidence-contract migration:
-
-```powershell
-python -m alembic upgrade head
-```
-
-Preview a bounded sample without writes:
-
-```powershell
-python scripts/tag_cases_v3.py --dry-run --limit 25
-```
-
-The V3 occurrence contract retains category, canonical value, score, exact
-evidence, backend-owned offsets, rule ID, language, evidence role, optional
-chunk ID, source, and taxonomy version. The writer does not convert matches to
-a set or deduplicate repeated spans. The V3 stage is now part of ordered case
-processing; the bounded writer remains available for resumable corpus work.
-Failed or timed-out V3 batches record `tags_count=-1` and stay pending for a
-later retry; only nonnegative tagging-status rows mark a case complete.
-Contextual rules are not part of this first pipeline, and legacy V1 subject
-derivation remains separate until the outcome/derived-intelligence pass.
+The V3 exact-match tagger, `tags_v3` processing stage, and bounded writer exist,
+but their activation contract is contradictory as described above. The proposal
+requires human review, negative examples, and exact-span fixtures before
+activation. No canary, schema migration, or writer command is authorized by
+this documentation. The V3 occurrence format includes evidence spans, rule ID,
+language, evidence role, source, and taxonomy version; that implementation
+detail is not evidence of production deployment.
 
 Outcome intelligence is persisted separately in the versioned `case_outcomes`
 table. The metadata payload retains a compatibility mirror, but outcome
@@ -171,11 +154,18 @@ For legacy V2 comparison only, rebuild the 100 most recent cases across the full
 python scripts/tag_cases_v2.py --retag --recent --limit 100
 ```
 
-The AI proposal reports are discovery-only. A proposal becomes a reviewed core term
-only after review, a canonical value and aliases are chosen, and a focused test
-is added. V2 is retained for comparison and rollback; it is not the target
-production taxonomy. More contextual phrases belong in a later advanced layer,
-not in the first V3 core whitelist.
+The AI proposal reports are discovery-only. A proposal becomes a reviewed core
+term only after review, a canonical value and aliases are chosen, and a focused
+test is added. The `ca_legal_v2_core` whitelist remains a distinct comparison
+layer; more contextual phrases belong in a later advanced layer, not in the V3
+proposal.
+
+### Legacy `ca_legal_v2` text/metadata tagger
+
+The following migration and `scripts/tag_cases.py` commands target the older
+`ca_legal_v2` tagger, not the `ca_legal_v2_core` whitelist or proposed V3
+taxonomy. Treat them as historical maintenance examples; verify the desired
+taxonomy, current status, migration, and explicit database scope before use.
 
 Apply the schema:
 
@@ -198,12 +188,9 @@ python scripts/tag_cases.py --batch-size 100 --limit 1000
 Use `--court`, `--source-type`, or `--retag` to scope or deliberately rebuild the
 current version. Bulk tagging should not run concurrently with ingestion-heavy jobs.
 
-The overnight profile remains resumable and safe for ongoing ingestion or rebuilds;
-it still runs tagging before chunking and embedding so new content stays consistent:
-
-```powershell
-.\venv\Scripts\python.exe scripts\run_overnight.py --profile safe --continue-on-error
-```
+The overnight `safe` and `enrich` profiles include the V3 writer. Do not start
+either profile until the source-level activation contradiction is resolved and
+the profile is reviewed. `--preflight` is not authorization to run its jobs.
 
 ## Revision rules
 

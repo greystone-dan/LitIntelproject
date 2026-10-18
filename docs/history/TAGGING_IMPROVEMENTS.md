@@ -1,5 +1,9 @@
 # Tagging System Improvements (V3 Core Enhancement)
 
+> Historical proposal snapshot. Its claimed activation, coverage, and readiness
+> are not current evidence. See [LEGAL_TAGGING.md](../../LEGAL_TAGGING.md) and
+> the tagging implementation for current status.
+
 ## Summary
 
 Added four new high-value tag categories to the V3 core whitelist:

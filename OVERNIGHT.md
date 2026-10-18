@@ -1,6 +1,10 @@
 # Repository Atlas And Overnight Operations
 
-Last updated: 2026-09-07
+Last updated: 2026-10-18
+
+Entries that name dated run IDs, corpus counts, or terminal outcomes below are
+point-in-time evidence from those runs, not a live status report. Check the
+matching run directory and current read-only status before planning new work.
 
 ## SCC 1970-present run status
 
@@ -28,7 +32,7 @@ The existing bulk writers are not approved for the rebuild: they either combine 
 
 Only after reviewing its baseline/state files and receiving explicit approval may an operator add `--apply --confirm-citation-rebuild` to the same explicit cohort. A run directory with an existing `state.json` must not be silently overwritten; either resume the matching run with `--resume` or choose a fresh run directory. The runner replaces only `case_citations`, flushes before recording a pre-commit comparison, and rolls back a nonempty-to-empty result or invalid short-form anchor before commit. It defers generic resolution, short-form resolution, and citation metrics to separate later commands.
 
-The `2026-09-07` corrected one-case canary and five-case cohort completed cleanly. The current database has `61,216` text-bearing cases. A fresh 500-case live-progress gate then completed through `scripts/run_citation_rebuild_progress.py` with fifty ten-case batches: `500` cases processed, `7,700` citations extracted, and zero failed batches under `data/overnight_runs/citation-progress-500-case-retry-20260907`. No citation runner is currently active.
+The `2026-09-07` corrected one-case canary and five-case cohort completed cleanly. The database snapshot recorded at that time contained `61,216` text-bearing cases. A fresh 500-case live-progress gate then completed through `scripts/run_citation_rebuild_progress.py` with fifty ten-case batches: `500` cases processed, `7,700` citations extracted, and zero failed batches under `data/overnight_runs/citation-progress-500-case-retry-20260907`. This dated record does not establish current corpus size or runner status.
 
 The earlier partial run under `data/overnight_runs/citation-extraction-all-20260907` completed `1,295` cases before its checkpoint write failure. Its state is explicitly `stopped`, with `59,921` cases pending; baseline, comparison, and state artifacts are preserved for recovery and must not be resumed blindly. Target resolution and metrics remain deferred.
 
@@ -199,7 +203,7 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Extraction | `backend/citations.py`; case/statute rules, spans, normalization, metrics helpers | Plain text/chunks -> occurrence rows and metrics inputs | Case citations and statutes remain separate | focused `tests/test_citations.py -q` |
 | Citation analytics | `backend/citation_map.py`; read-only graph and authority calculations | Resolved citation edges + metadata -> bounded analytics/CSV | Reads citations, metrics, tags, outcomes | citation-map API tests |
 | Metadata | `backend/metadata.py`; fields, outcomes, evidence, confidence | Source text/HTML -> structured observations | Case metadata JSON and review flags | metadata tests and gold-set audit |
-| Tagging | `backend/legal_tagger_v3.py`, `backend/case_processing.py`; active deterministic core, with V1/V2 retained for comparison | Case text -> repeated evidence-backed V3 occurrences/status | `case_tags`, `case_tagging_status`; V3 proposal in `data/eval/reports/` | focused V3 tests and bounded canary |
+| Tagging | `backend/legal_tagger_v3.py`, `backend/case_processing.py`; proposed V3 stage and writer, with activation conflict noted below | Case text -> repeated evidence-backed V3 occurrences/status | `case_tags`, `case_tagging_status`; proposal in `data/eval/reports/` | focused tests; no production canary until status is resolved |
 | Embeddings | `backend/embedding_providers.py`, `scripts/embed_openai_chunks.py`; provider selection and vector wiring | Cases/chunks -> model-versioned vectors | pgvector case/chunk embedding tables; hosted OpenAI chunk writer is budget-capped and resumable; optional local provider remains separate | provider tests; dry-run; bounded embedding run |
 | Live analysis | `backend/live_analysis.py`; temporary DOCX/text-PDF extraction and local resolution | Uploaded bytes -> in-memory text, spans, resolution results | No upload/case/chunk/citation persistence | live-analysis tests and API check |
 | Federal Court activity | `backend/fc_activity.py`; activity normalization/classification support | Staged activity records -> normalized activity data | Separate activity/procedural tables; not proof of captured judgment | FC activity tests and bounded import |
@@ -425,7 +429,7 @@ Reference-only material. It explains lineage and prior decisions but may contain
 
 ### Root configuration and documentation
 
-`requirements.txt` defines Python dependencies; `config.yaml` holds project configuration that may be partly legacy or aspirational; `.env` and local environment files hold secrets and must stay ignored. `README.md` is the short entry point. `SYSTEM_REFERENCE.md` is the detailed current handbook. `GUIDANCE.md`, `ROADMAP.md`, and `MASTER_IDEAS.md` describe future direction. `CHANGELOG.md` records verified milestones. `DOCS_INDEX.md` controls authority. `AI_HANDOFF.md` is a detailed working handoff and can be time-sensitive.
+`requirements.txt` defines Python dependencies; `config.yaml` holds project configuration that may be partly legacy or aspirational; `.env` and local environment files hold secrets and must stay ignored. `README.md` is the short entry point. `SYSTEM_REFERENCE.md` is the detailed current handbook. `ROADMAP.md` describes the current demo-first delivery direction; `MASTER_IDEAS.md` and `docs/LONG_TERM_INTELLIGENCE_VISION.md` are forward-looking. `CHANGELOG.md` records milestones. `DOCS_INDEX.md` controls documentation authority. Handoffs are under `docs/history/` and are time-sensitive.
 
 Generated API, schema, script, and work-history documents are outputs of their generators. Change the source code or generator, then regenerate; never patch generated output by hand.
 
@@ -457,7 +461,7 @@ Do not run concurrent PostgreSQL writers.
 
 The runner in `scripts/run_overnight.py` executes selected jobs sequentially, holds an exclusive lock, writes one combined log per job, and atomically writes `state.json` after transitions. It deliberately excludes CanLII and hosted-AI embedding jobs from the safe profile. Never run another PostgreSQL writer beside an active run.
 
-The compact pre-run baseline for all 61,241 cases is
+The dated compact pre-run baseline for all 61,241 cases was
 `data/eval/reports/v2-pipeline-before-all.jsonl`. It records source HTML state,
 text/metadata hashes, chunk counts, citation/statute counts, V3 tag count, and
 outcome summary without serializing every row. Optimized runs should compare
@@ -667,17 +671,23 @@ no database lookup is used to create that relationship.
 
 ### Commands
 
-Run from the repository root:
+**Do not start `safe` or `enrich` runs yet.** Their profile includes
+`tag_cases_v3.py`, while the runner describes V3 as active but the tagger and
+writer describe it as inactive and the proposal is still marked `proposed`.
+See [LEGAL_TAGGING.md](LEGAL_TAGGING.md) for the source evidence. Resolve this
+contradiction and review the profile contents before any writer run.
+
+From the repository root, these non-starting checks inspect the runner:
 
 ```powershell
+.\venv\Scripts\python.exe scripts\run_overnight.py --help
 .\venv\Scripts\python.exe scripts\run_overnight.py --profile safe --preflight
-.\venv\Scripts\python.exe scripts\run_overnight.py --profile safe --continue-on-error
-.\venv\Scripts\python.exe scripts\run_overnight.py --profile pull --continue-on-error
-.\venv\Scripts\python.exe scripts\run_overnight.py --resume --continue-on-error
-.\venv\Scripts\python.exe scripts\run_overnight.py --resume 20260801-234642 --continue-on-error
 ```
 
 Preflight checks the interpreter, scripts, disk space, and PostgreSQL when needed; it does not create a run or contact remote sources. `--help` is the first check for any changed operational interface.
+
+Do not use `--resume` on an existing `safe` or `enrich` run until the same
+activation and profile review is complete.
 
 ### Recovery And Evidence
 
@@ -716,7 +726,7 @@ and 483 V3 tags. Count deltas still require adjudication before cohort rollout.
 
 Before changing an owned surface, record the task, reason, owner, dependencies, risk boundary, smallest falsifiable check, acceptance criteria, documentation references, rollback, and evidence. Keep one owning surface and one focused validation command until that check passes. Preserve public imports, route paths, response shapes, provenance, offsets, and separate derived layers while modularizing.
 
-When a subsystem changes, update this atlas only for ownership/lifecycle facts; update `SYSTEM_REFERENCE.md` for current behavior; update the relevant Swimm walkthrough for the traced code path; and update `CHANGELOG.md` with tested milestones. Keep future goals in `GUIDANCE.md`, `ROADMAP.md`, `MASTER_IDEAS.md`, and `.swm/future-state.north-star.sw.md`.
+When a subsystem changes, update this atlas only for ownership/lifecycle facts; update `SYSTEM_REFERENCE.md` for current behavior; update the relevant Swimm walkthrough for the traced code path; and update `CHANGELOG.md` with tested milestones. Keep current delivery goals in `ROADMAP.md` and long-term ideas in `MASTER_IDEAS.md`, `docs/LONG_TERM_INTELLIGENCE_VISION.md`, and `.swm/future-state.north-star.sw.md`.
 
 ## Current Gaps And Next Atlas Pass
 

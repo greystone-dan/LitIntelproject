@@ -23,7 +23,7 @@ with `987 passed, 3 failed, 3 deselected`; the failures were
 network-fetch failures for uncached Hugging Face and OpenAI tokenizer assets.
 Coverage is a measured snapshot, not a green-suite claim or a legal-quality
 metric. The risk-ranked module results, full module matrix, reproduction command,
-and failure details are in [the test-coverage report](reports/test-coverage.md).
+and failure details are in the `docs/reports/test-coverage.md` report.
 
 Development and CI coverage tooling is installed with
 `python -m pip install -r requirements-dev.txt`; `pytest-cov` is intentionally
@@ -34,7 +34,7 @@ not part of the base `requirements.txt`.
 | System surface | Primary tests | Coverage focus | Main gaps |
 | --- | --- | --- | --- |
 | Core API, ingest, search, reader payloads | `test_api.py` | Request validation, filtering, ranking, reader/citation-pass responses, metadata compatibility | No live PostgreSQL/pgvector performance suite |
-| Active Data Explorer UI contract | `test_feature_tabs.py`, `test_inline_js_syntax.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup, rendered inline-script syntax | No browser interaction/screenshot test |
+| Active Data Explorer UI contract | `test_feature_tabs.py`, `test_inline_js_syntax.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup, rendered inline-script syntax | Bounded Playwright smoke exists in `scripts/browser_smoke.py`; broader end-to-end journeys and screenshot/no-overlap assertions are outside that smoke |
 | Citation extraction and resolution | `test_citations.py`, `test_citation_pipeline.py` | Case forms, aliases, pinpoints, offsets, statutes/instruments, rebuild semantics, graph bounds | Real-corpus precision/recall remains sampled rather than continuous |
 | Citation context, FC activity normalization, metadata subject derivation | `test_citation_refine_context.py`, `test_fc_activity_pure_logic.py`, `test_metadata_subjects.py` | Deterministic term resolution, source-row normalization, case-subject classification without a database | Broader language/source-format gold sets remain valuable |
 | Citation audit tooling | `test_verify_citation_extraction.py`, `test_build_fc_citation_seed.py`, `test_map_fc_seed_to_local_cases.py` | Fixtures, spans, audit reports, seed normalization/mapping | External model audit calls are not run in normal tests |
@@ -93,15 +93,14 @@ provider tests mock the provider rather than requiring a running Ollama service.
 
 ## Browser And Performance Gap
 
-The most important missing layer is browser end-to-end coverage for the active Data Explorer. The generated UI is embedded in `backend/routes.py`; a Python route returning HTML does not prove the JavaScript initializes, tabs switch, searches render, linked citations open, scroll/tooltip behavior works, or mobile stacking is readable.
+The most important missing layer is broader browser end-to-end coverage for the active Data Explorer. The bounded Playwright smoke in `scripts/browser_smoke.py` searches, opens the inline reader, checks reader tabs and evidence highlights, and loads the themes view at mobile width. It does not establish full workflow coverage: the generated UI is embedded in `backend/routes.py`, and a route returning HTML does not prove every tab, error/return path, or mobile layout works.
 
-Add a Playwright-based smoke suite for:
+Extend browser coverage to include:
 
-1. `/data-explorer` load and top-level tab switching.
-2. Case search to reader opening.
-3. Reader mode toggle, citation hover, linked-authority pane, and close/return behavior.
-4. Citation Intelligence case selection and subtab load.
-5. Mobile-width layout screenshot/no-overlap check.
+1. `/data-explorer` primary-group switching and route/tab state.
+2. Reader close/return and error paths beyond the current search-to-reader happy path.
+3. Citation Intelligence case selection and subtab load.
+4. A mobile-width screenshot/no-overlap assertion.
 
 Performance coverage should add representative PostgreSQL-backed timing and query-plan checks for active search, reader data, citation intelligence, and FC history routes. Keep fixed test datasets/scope and record p50/p95 targets before enforcing a release budget.
 

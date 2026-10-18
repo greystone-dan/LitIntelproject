@@ -8,7 +8,11 @@ did, and a confidence score. Nothing in the package writes to the database.
 ## Why
 
 The goal is to link every citation to a **case paragraph** or a **statute provision** in
-the database. Pass one loses links at four stages:
+the database. The table below records gaps that motivated refinement work; it is
+a historical baseline, not a current coverage inventory. Pass one now recognizes
+anchored short forms with paragraph lists and ranges in supported forms
+([`backend/citations.py`](../backend/citations.py)); this does not establish
+complete extraction coverage or target resolution for every occurrence.
 
 | Stage | Cases (before) | Laws (before) |
 |---|---|---|

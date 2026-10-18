@@ -18,6 +18,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.database import Case, CaseChunk, SessionLocal
+from backend.case_formatter import format_decision
 from backend.document_structure import map_to_canonical_text, structure_source_html
 
 CHUNK_CHARS = 6000
@@ -478,6 +479,109 @@ def _build_scc_text_chunk_layers(case: Case, text: str) -> tuple[list[CaseChunk]
     return section_rows, paragraph_rows
 
 
+MIN_READER_PARAGRAPHS = 3
+READER_MAX_GAP = 3
+
+
+def reader_paragraph_layout(text: str) -> list[dict]:
+    """Paragraph rows as the reader numbers them: intro, numbered paragraphs, headings, tail.
+
+    Uses the reader's formatter (``format_decision``), which accepts a bracketed or bare number only when it
+    follows the previous paragraph, so a year or a report citation such as ``[2010] 3 S.C.R.`` is not a
+    paragraph, and a paragraph that starts on the same line as its heading ("II. Facts [5] The Applicant")
+    is its own paragraph. A numbered block that does not follow the sequence (a paragraph quoted from another
+    decision) stays inside the paragraph before it. Returns ``[]`` when fewer than three paragraphs are found.
+    """
+    blocks = format_decision(text)
+    entries: list[dict] = []
+    current: dict | None = None
+    last_num: int | None = None
+    intro_end: int | None = None
+    for block in blocks:
+        kind = block.get("type")
+        start, end = block["start"], block["end"]
+        if kind == "para":
+            num = block.get("num")
+            follows = num is not None and (
+                (last_num is None and 1 <= num <= READER_MAX_GAP)
+                or (last_num is not None and last_num < num <= last_num + READER_MAX_GAP)
+            )
+            if follows:
+                if intro_end is None:
+                    intro_end = start
+                current = {"kind": "paragraph", "num": num, "start": start, "end": end}
+                entries.append(current)
+                last_num = num
+                continue
+        if kind == "heading" and current is not None:
+            entries.append({"kind": "heading", "start": start, "end": end})
+            current = None
+            continue
+        if kind == "footer":
+            entries.append({"kind": "tail", "start": start, "end": end})
+            current = None
+            continue
+        if current is not None:
+            current["end"] = end
+        elif entries and entries[-1]["kind"] in {"heading", "tail"}:
+            entries[-1]["end"] = end
+    numbered = [entry for entry in entries if entry["kind"] == "paragraph"]
+    if len(numbered) < MIN_READER_PARAGRAPHS:
+        return []
+    layout: list[dict] = []
+    if intro_end:
+        layout.append({"kind": "intro", "start": 0, "end": intro_end})
+    layout.extend(entries)
+    merged: list[dict] = []
+    for entry in layout:
+        if entry["kind"] == "tail" and merged and merged[-1]["kind"] == "tail":
+            merged[-1]["end"] = entry["end"]
+        else:
+            merged.append(dict(entry))
+    return merged
+
+
+def _build_reader_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
+    """Paragraph rows from ``reader_paragraph_layout``; empty when the text has no usable numbering."""
+    rows: list[CaseChunk] = []
+    last_number = 0
+    for entry in reader_paragraph_layout(text):
+        value = text[entry["start"] : entry["end"]].strip()
+        if not value:
+            continue
+        kind = entry["kind"]
+        if kind == "paragraph":
+            number = entry["num"]
+            last_number = number
+            label, first, last = str(number), number, number
+        elif kind == "intro":
+            label, first, last = "intro", 0, 0
+        elif kind == "tail":
+            label, first, last = "tail", last_number + 1, last_number + 1
+        else:
+            label, first, last = "heading", None, None
+        rows.append(
+            _chunk_row(
+                case.id,
+                chunk_set=CHUNK_SET_PARAGRAPH,
+                chunk_index=len(rows),
+                text=value,
+                chunk_label=label,
+                paragraph_start=first,
+                paragraph_end=last,
+            )
+        )
+    return rows
+
+
+def _with_reader_paragraphs(case: Case, text: str, rows: list[CaseChunk]) -> list[CaseChunk]:
+    """Swap the paragraph rows in ``rows`` for the reader-numbered ones when the reader finds numbered paragraphs."""
+    reader_rows = _build_reader_paragraph_chunks(case, text)
+    if not reader_rows:
+        return rows
+    return [row for row in rows if row.chunk_set != CHUNK_SET_PARAGRAPH] + reader_rows
+
+
 def _build_full_case_chunk(case: Case, text: str) -> list[CaseChunk]:
     if not text.strip():
         return []
@@ -503,14 +607,16 @@ def build_case_chunk_layers(case: Case) -> list[CaseChunk]:
     if structured.mapping_confidence is not None and structured.mapping_confidence >= mapping_threshold:
         html_layers = _build_html_chunk_layers(case, text, structured, source_family=source_family)
         if html_layers is not None:
-            return _build_full_case_chunk(case, text) + html_layers[0] + html_layers[1]
+            return _with_reader_paragraphs(case, text, _build_full_case_chunk(case, text) + html_layers[0] + html_layers[1])
     if source_family == "scc":
         text_layers = _build_scc_text_chunk_layers(case, text)
-        return _build_full_case_chunk(case, text) + text_layers[0] + text_layers[1]
-    return (
+        return _with_reader_paragraphs(case, text, _build_full_case_chunk(case, text) + text_layers[0] + text_layers[1])
+    return _with_reader_paragraphs(
+        case,
+        text,
         _build_full_case_chunk(case, text)
         + _build_section_chunks(case, text)
-        + _build_paragraph_chunks(case, text)
+        + _build_paragraph_chunks(case, text),
     )
 
 
@@ -608,7 +714,7 @@ def build_case_chunks(case: Case) -> list[CaseChunk]:
     text = case_text(case)
     if not text.strip():
         return []
-    return _build_paragraph_chunks(case, text)
+    return _build_reader_paragraph_chunks(case, text) or _build_paragraph_chunks(case, text)
 
 
 def pending_case_query(

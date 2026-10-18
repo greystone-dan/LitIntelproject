@@ -13,7 +13,7 @@ from .legal_tagger_v3 import TAXONOMY_VERSION
 from .metadata_outcomes import OUTCOME_CLASSIFIER_VERSION, build_case_outcome
 from scripts.tag_cases_v3 import build_case_tag_rows
 from .metadata import extract_case_metadata
-from scripts.chunk_cases import case_text, _build_section_chunks, _build_paragraph_chunks
+from scripts.chunk_cases import case_text, _build_section_chunks, _build_paragraph_chunks, _build_reader_paragraph_chunks
 
 
 StageRunner = Callable[[Session, Case], int]
@@ -93,7 +93,7 @@ def _run_heading_chunk_layer(session: Session, case: Case) -> int:
         return 0
 
     section_rows = _build_section_chunks(case, text)
-    paragraph_rows = _build_paragraph_chunks(case, text)
+    paragraph_rows = _build_reader_paragraph_chunks(case, text) or _build_paragraph_chunks(case, text)
     section_count = _replace_chunk_set(session, case.id, "section", section_rows)
     paragraph_count = _replace_chunk_set(session, case.id, "paragraph", paragraph_rows)
     return section_count + paragraph_count

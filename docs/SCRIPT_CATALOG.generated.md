@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 181
+Active scripts documented: 183
 
 ## Catalog
 
@@ -103,6 +103,7 @@ Active scripts documented: 181
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `fetch_position_texts.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help` |
+| `fill_fca_headline_outcomes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_fca_headline_outcomes.py --help` |
 | `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
 | `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
@@ -159,6 +160,7 @@ Active scripts documented: 181
 | `report_unresolved_citation_shapes.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help` |
 | `resolve_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_citation_targets.py --help` |
 | `resolve_short_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help` |
+| `resplit_paragraph_chunks.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\resplit_paragraph_chunks.py --help` |
 | `review_fc_activity_local.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\review_fc_activity_local.py --help` |
 | `run_case_intelligence_request.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_case_intelligence_request.py --help` |
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
@@ -1494,6 +1496,20 @@ Active scripts documented: 181
 .\venv\Scripts\python.exe scripts\fetch_position_texts.py --help
 ```
 
+## `scripts/fill_fca_headline_outcomes.py`
+
+**Purpose:** Fill blank FCA headline outcomes from the stored deterministic_outcome_v2 result (dry run by default). Only decisions whose headline ("decision outcome" in metadata_json.reader_extracted) is blank are touched, and only when v2 says allowed, dismissed or mixed. Undetermined, unclear and procedural v2 results are left blank, and any headline that already has a value is never changed. --apply writes an undo file with the old value of every row. Examples: python scripts/fill_fca_headline_outcomes.py --case-ids-csv fca_ids.csv python scripts/fill_fca_headline_outcomes.py --apply --undo-file undo_fca_headlines.json python scripts/fill_fca_headline_outcomes.py --undo undo_fca_headlines.json
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fill_fca_headline_outcomes.py --help
+```
+
 ## `scripts/fill_paragraph_search.py`
 
 **Purpose:** Add decisions that are missing from the paragraph keyword index (table paragraph_search). Dry run by default. The index behind the case search box and unit search was filled once by a one-off SQL file. Decisions whose paragraph chunks were created after that, or below the id it resumed from, are not in it, so they never show up in search. The dry run counts, per court, paragraph chunks and how many are indexed. --apply adds only the missing rows (nothing is changed or deleted), in small committed batches, so it can be stopped and run again. python scripts/fill_paragraph_search.py # dry run: counts per court python scripts/fill_paragraph_search.py --apply --court RAD # add the missing RAD rows Undo: DELETE FROM paragraph_search WHERE case_id IN (SELECT id FROM cases WHERE court ILIKE '%Refugee Appeal%'); (only valid when the dry run showed no RAD rows indexed before). If a court shows no paragraph chunks at all, it needs `scripts/chunk_cases.py` first; this script cannot help.
@@ -2276,6 +2292,20 @@ Active scripts documented: 181
 
 ```powershell
 .\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help
+```
+
+## `scripts/resplit_paragraph_chunks.py`
+
+**Purpose:** Re-split stored paragraph rows with the reader's paragraph numbering (dry run by default). Only the "paragraph" chunk set of each chosen decision is replaced; full_case and section rows are left alone. References that point at an old paragraph row are moved to the new row that holds the same text, so citations, refined citations, statute references and tags keep their ids and their resolved targets (nothing is rebuilt): - rows in the same decision (citations, citations_refined, statute_references, statute_references_refined, case_tags) are moved by character position and their offsets re-based; - rows in other decisions that point at this decision's paragraphs (citations.target_chunk_id, citations_refined.target_chunk_id) are moved by their stated paragraph number, or cleared when no single new row holds that paragraph. Every applied decision first writes a JSON undo record (old rows with their original ids, and the old values of every reference changed). `--undo FILE` puts the old rows back and restores the references. Examples: python scripts/resplit_paragraph_chunks.py --case-ids-csv ids.csv --report report.csv python scripts/resplit_paragraph_chunks.py --court SCC --year-from 2005 --apply --undo-dir undo_resplit
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\resplit_paragraph_chunks.py --help
 ```
 
 ## `scripts/review_fc_activity_local.py`

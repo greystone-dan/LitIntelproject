@@ -68,15 +68,34 @@ def refined_rows_for(case: Case):
 	return result.rows
 
 
+def _join_values(values) -> str | None:
+	"""Comma-join stated numbers, dropping whole numbers (never half of one) past the 255-character column."""
+	text = ""
+	for value in values:
+		piece = f",{value}" if text else str(value)
+		if len(text) + len(piece) > 255:
+			break
+		text += piece
+	return text or None
+
+
 def pinpoint_columns(row) -> dict:
-	"""Pinpoint text, kind, stated numbers and (for paragraphs) the first paragraph, for the refined table."""
+	"""Pinpoint text, kind, stated numbers and (for paragraphs) the first paragraph, for the refined table.
+
+	All paragraph pinpoints of a citation are merged ("at para 3 and at para 9" stores 3,9), so none is lost.
+	"""
 	if not row.pinpoints:
 		return {}
 	first = row.pinpoints[0]
+	values = list(first.values)
+	if first.kind == "paragraph":
+		for pin in row.pinpoints[1:]:
+			if pin.kind == "paragraph":
+				values.extend(value for value in pin.values if value not in values)
 	return {
 		"pinpoint": (row.pinpoint or first.display())[:100],
 		"pinpoint_kind": first.kind[:12],
-		"pinpoint_values": ",".join(str(value) for value in first.values)[:255] or None,
+		"pinpoint_values": _join_values(values),
 		"target_paragraph": first.values[0] if first.kind == "paragraph" and first.values else None,
 	}
 

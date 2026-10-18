@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-10-17
+Last updated: 2026-10-18
 
 ## Purpose
 
@@ -34,7 +34,7 @@ Primary explainer docs:
 5. `.github/copilot-instructions.md` defines repository-level agent guardrails,
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
-    agent, durable task records, status, and escalation rules.
+    agent, task-record workflow, status, and escalation rules.
 7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
    review for live document analysis and de-identification; current route
    behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
@@ -77,7 +77,7 @@ generated artifact and is not hand-edited.
 
 Legacy/reference-only areas:
 
-1. `legacy/` (archived artifacts and legacy workflow references)
+1. `legacy/README.md` (historical marker; archived payloads are no longer tracked)
 2. `backend/legacy/` (deprecated or parked runtime modules)
 3. `docs/history/` (historical notes and prior snapshots)
 
@@ -150,30 +150,27 @@ this inventory.
 | `docs/CONFIGURATION_REFERENCE.md` | Application configuration variables and defaults. |
 | `docs/DAILY_INTAKE.md` | Daily source-intake workflow and checks. |
 | `docs/DATA_SOURCE_REGISTER.md` | Register of data sources, provenance, and acquisition notes. |
-| `docs/DEPLOYMENT_COMMANDS.md` | Deployment, status, and recovery command guidance for operators. |
+| `docs/DEPLOYMENT_COMMANDS.md` | Remote Control setup and deployment workflow for operators. |
 | `docs/DEPLOYMENT_DOCKER.md` | Optional Docker build and local run instructions. |
 | `docs/DISCUSSION_UNITS_WEEKLY_REVIEW.md` | Weekly review process for Discussion Units work. |
 | `docs/DOC_AUDIT.md` | Documentation audit observations and follow-up notes. |
 | `docs/EXTRACTION_35K_RUNBOOK.md` | Bounded full-corpus citation extraction procedure. |
 | `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md` | Comparison of FC Activity Beta VBA and Python pipeline behavior. |
 | `docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md` | Federal Court Activity worker operating procedure. |
-| `docs/LOCAL_DEPLOYMENT_SETUP.md` | Local Remote Control session setup and deployment workflow. |
 | `docs/LONG_TERM_INTELLIGENCE_VISION.md` | Deferred long-term citation-treatment and argument-intelligence direction. |
 | `docs/METRICS_DICTIONARY.md` | Definitions for application and evaluation metrics. |
-| `docs/NEXT_STEPS.md` | Near-term work notes and proposed next actions. |
 | `docs/OFFLINE_MODEL_EVALUATION.md` | Offline model evaluation inputs, process, and interpretation. |
-| `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Recovery guidance for application, jobs, data, tests, and Git workflows. |
+| `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Consolidated recovery guidance for the site, application, jobs, data, tests, and Git workflows. |
 | `docs/OPERATIONS_LOGGING.md` | Operational logging conventions and relevant log locations. |
 | `docs/PARAGRAPH_CITED_BY.md` | Paragraph-level “cited by” batch-job design and use. |
 | `docs/RESEARCH_UI_GUIDE.md` | Guide to active research UI workflows and boundaries. |
 | `docs/SECURITY_DEPENDENCIES.md` | Dependency scanning and software-bill-of-materials guidance. |
 | `docs/SECURITY_HEADERS.md` | Optional security response-header configuration and limits. |
-| `docs/SITE_RECOVERY.md` | Site and tunnel recovery using the Windows `iLitSite` task. |
 | `docs/STILL_TO_DO.md` | Consolidated remaining product work, debt, and decision gates. |
 | `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md` | Swimm walkthrough map and project-manager handoff workflow. |
 | `docs/TAGGING_V2_CORE_WHITELIST_DRAFT.md` | Draft whitelist for the V2 core-tagging layer. |
 | `docs/TESTING_MATRIX.md` | Test-surface map and validation matrix. |
-| `docs/about/AGENT-NOTES.md` | Implementation notes for the About page. |
+| `docs/about/AGENT-NOTES.md` | Historical design notes for the standalone About-page prototype; active UI is implemented under `backend/pages/`. |
 | `docs/government-readiness/README.md` | Index and scope for the government-readiness document pack. |
 | `docs/government-readiness/ai-use-statement.md` | Draft statement describing the system's AI use. |
 | `docs/government-readiness/data-classification.md` | Data classification notes for government-readiness review. |
@@ -187,6 +184,7 @@ this inventory.
 | `docs/history/FC_CITATION_REBUILD_IMPLEMENTATION.md` | Superseded Federal Court citation-rebuild implementation notes. |
 | `docs/history/FORMATTING_IMPROVEMENTS.md` | Superseded decision-formatting implementation notes. |
 | `docs/history/GUIDANCE.md` | Superseded long-term architecture and product snapshot. |
+| `docs/history/NEXT_STEPS.md` | Historical Discussion Unit pilot run note; current status and approval gate are in `docs/STILL_TO_DO.md`. |
 | `docs/history/PROJECT_NOTES.md` | Superseded project checkpoints and milestone commentary. |
 | `docs/history/README.md` | Guide to the historical documentation archive. |
 | `docs/history/STYLING_REFERENCE.md` | Unverified point-in-time citation-style notes; not current UI authority. |
@@ -196,13 +194,11 @@ this inventory.
 | `docs/proposed-migrations/embedding-per-model-tables.md` | Proposal for per-model embedding tables. |
 | `docs/reports/accessibility-audit.md` | Accessibility findings for research and citation HTML builders. |
 | `docs/reports/authority-treatment-design.md` | Design proposal for citation authority-treatment intelligence. |
-| `docs/reports/backend-unused-code.md` | Inventory of unused backend code and duplicate logic. |
 | `docs/reports/baseline-lint-and-audit.md` | Initial Ruff and pip-audit baseline report. |
 | `docs/reports/cbsa-readiness-checklist.md` | Readiness checklist for CBSA hearings and litigation research. |
 | `docs/reports/id-iad-coverage-design.md` | Design proposal for ID/IAD decision coverage. |
 | `docs/reports/local-query-embeddings.md` | Local query-embedding provider and locality report. |
 | `docs/reports/memo-missing-authority.md` | Proposal for identifying missing and contrary authorities. |
-| `docs/reports/open-pr-review-2.md` | Point-in-time review report for issue #69. |
 | `docs/reports/open-pr-review.md` | Point-in-time review of PRs #28, #29, #32, and #34. |
 | `docs/reports/overruling-risk.md` | Provisional seed-based overruling-risk indicator report. |
 | `docs/reports/privacy-security-review.md` | Scoped privacy and security review of live analysis and de-identification. |
@@ -254,7 +250,7 @@ or reproducibility requires a source-controlled artifact.
 | API and schema contracts | Generated references and their source code/migrations | Never hand-edit generated outputs |
 | Operational procedures | `OVERNIGHT.md` and focused `docs/` runbooks | Executable operational guidance |
 | Feature research guidance | `docs/RESEARCH_UI_GUIDE.md` and linked Swimm UI walkthrough | User-facing workflow and implementation map |
-| Multi-step execution evidence | `.github/project-manager/tasks/` | Short-lived or durable task records |
+| Multi-step execution evidence | `.github/project-manager/tasks/` | Active task records; completed records are removed after canonical evidence is captured |
 | Historical lineage | `docs/history/` | Reference only; never current authority |
 
 ## Consolidation Rules

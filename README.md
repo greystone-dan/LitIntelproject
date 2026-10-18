@@ -158,7 +158,7 @@ and runs CI; cloud sessions do not connect to the live database.
 | `docs/` | Architecture, source governance, setup, research guidance, and generated references |
 | `tests/` | Automated tests |
 | `side_projects/` | Independent data utilities outside the canonical case workflow |
-| `legacy/` | Archived or reference-only materials |
+| `legacy/` | Historical marker; archived payloads are no longer tracked |
 | `.swm/` | Connected architecture and workflow walkthroughs |
 | `.github/` | CI workflows and repository automation |
 | `SYSTEM_REFERENCE.md` | Detailed current system and operations reference |

@@ -12,12 +12,13 @@ Use this directory for documents that preserve implementation history or decisio
 - stage summaries
 - one-time project notes after they are superseded
 
-## Current files
+## Files retained in this archive
 
 - AI_HANDOFF.md
 - AI_HANDOFF_2026-09-02_root.md (moved from the repo root)
 - SYSTEM_OVERVIEW_2026-08-12.txt (moved from the repo root)
 - FORMATTING_IMPROVEMENTS.md (moved from the repo root)
+- NEXT_STEPS.md (retired run note; current Discussion Unit status is in `docs/STILL_TO_DO.md`)
 - AI_STAGE_SUMMARY_2026-07-31.md
 - PROJECT_NOTES.md
 - GUIDANCE.md (superseded strategic snapshot moved from the repo root)

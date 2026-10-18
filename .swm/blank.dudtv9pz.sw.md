@@ -223,7 +223,8 @@ The `.github/` directory provides the autonomous project-manager agent scaffold:
 - **`.github/agents/project-manager.agent.md`**: Defines the `AI CaseLibrary Project Manager` agent with permissions for execution, file edits, todo management, and subagent delegation.
 - **`.github/prompts/managed-task.prompt.md`**: Launch prompt for starting managed outcomes.
 - **`.github/project-manager/TASK_TEMPLATE.md`**: Standard durable task record template.
-- **`.github/project-manager/tasks/`**: Active and completed task logs.
+- **`.github/project-manager/tasks/`**: Current task records; completed records
+  are removed after canonical evidence is captured and current references are gone.
 
 Whenever an autonomous task is executed:
 1. One owning surface is selected.

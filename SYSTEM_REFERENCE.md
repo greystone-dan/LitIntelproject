@@ -1,6 +1,6 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-10-17
+Last updated: 2026-10-18
 
 ## Purpose And Authority
 
@@ -500,10 +500,12 @@ repeated mapped markers unless they form a strictly increasing sequence
 beginning at paragraph 1; ignored markers remain available as text but are not
 assigned paragraph ranges. Existing stored chunks are not rewritten
 automatically and require a bounded rebuild measurement before application.
-After the 2026-09-07 full replacement and formal/neutral resolution
-pass, the live database contained `1,444,546` citation rows: `919,781` were
+The following figures are a historical database snapshot after the 2026-09-07
+full replacement and formal/neutral resolution pass; current counts have not
+been re-verified, and the source report files are not present in this checkout.
+At that time the database contained `1,444,546` citation rows: `919,781` were
 linked and `524,765` remained unresolved. The read-only report
-[unresolved_citation_shapes_post_resolution_20260907.json](data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json)
+`data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json`
 shows that `477,627` unresolved rows (`91.02%`) have no exact local signal;
 `16,656` have a unique case-alias signal, `16,592` have an ambiguous alias
 signal, `10,855` are self-alias cases, `1,777` combine self and alias matches,
@@ -524,7 +526,7 @@ name matched exactly one non-self canonical case title. It rejects self-only,
 self-plus-other, and multi-target matches. The live checkpoint is `507,695`
 unresolved rows overall. Excluding every `case_short` leaves `390,291`:
 `333,550 case_name`, `53,078 case`, and `3,663 neutral`. The refreshed
-[non-short unresolved report](data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json)
+`data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json`
 classifies `365,617` as having no exact local signal; only `11` unique-alias
 signals remain, all outside `case_name`.
 
@@ -1113,19 +1115,19 @@ unmatched, while content with no recoverable assessment objects remains
 rejected. This permits auditable recovery from output truncation without
 fabricating assessments.
 The request/result JSON and rendered Markdown remain report-only visual review
-artifacts. The operational sequence and next bounded step are recorded in
-`docs/NEXT_STEPS.md`.
+artifacts. The current review status and approval gate are recorded in the
+[Discussion Unit row in `docs/STILL_TO_DO.md`](docs/STILL_TO_DO.md#contextual-and-advanced-intelligence).
 The batch runner also supports an explicit case allowlist and bounded parallel
 workers. Concurrent children do not write the shared ledger; the parent records
 each result after completion so recovery runs remain resumable and auditable.
 
-The retained paragraph-assessment artifacts are now limited to the active
-`paragraph_level_300_run` and the prepared `core_300_run` under
-`data/eval/llm_discussion_units_pilot`. Earlier five-case, 20-case, single-case,
-and request-only paragraph pilots were retired on 2026-09-24 after the
-300-case run became the active review boundary. The historical run design is
-represented by the current scripts and task records; no live reader route
-depends on the removed pilot directories.
+The sandbox expects paragraph-assessment files under
+`paragraph_level_300_run/reviews` in
+`data/eval/llm_discussion_units_pilot`, but that directory is absent in this
+checkout. The loader returns `available: false` for a missing per-case file.
+Earlier five-case, 20-case, single-case, and request-only paragraph pilots were
+retired on 2026-09-24. The sandbox checks the configured current path and does
+not use those retired pilot directories.
 
 `scripts/audit_discussion_unit_structure.py` reads the 300 deterministic reports
 under `core_300_run/reports` without database or network access and emits a
@@ -1140,12 +1142,12 @@ evidence, or model-publication status. The next gate is human review of a
 stratified flagged cohort before a fine-subtheme-first segmentation design is
 considered.
 
-The 2026-09-24 core-300 preflight completed deterministic preparation for all
-300 cases. Its explicitly approved first-10 API validation completed 9 cases
-and retained one raw response for failed case `677`; no cases after the first
-10 were attempted. The remaining 290 calls are approval-gated. Database-owned
-Discussion Unit persistence is intentionally a separate future layer and is
-not part of this report-only run.
+The preflight task record preserves the bounded preparation and API-slice
+evidence. The checked-in ledger is the artifact source; current review status
+and the approval gate are maintained in the Discussion Unit row of
+`docs/STILL_TO_DO.md`. Do not infer further runs or approval from the historical
+preflight notes. Database-owned Discussion Unit persistence remains a separate
+future layer, not part of this report-only workflow.
 
 The read-only `scripts/dry_run_paragraph_evidence_bridge.py` scan on
 2026-09-25 produced

@@ -1,6 +1,6 @@
 # Repository Atlas And Overnight Operations
 
-Last updated: 2026-10-17
+Last updated: 2026-10-18
 
 Entries that name dated run IDs, corpus counts, or terminal outcomes below are
 point-in-time evidence from those runs, not a live status report. Check the
@@ -273,8 +273,8 @@ authority inside a compound anchor, but it must never trigger a corpus-wide
 short-name lookup. These scripts must run alone as PostgreSQL writers with
 bounded commits and progress logs. After the full replacement and formal/neutral
 pass, the live database contained `1,444,546` rows: `919,781` linked and
-`524,765` unresolved. The read-only
-[post-resolution shape report](data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json)
+`524,765` unresolved. The read-only post-resolution shape report (historical artifact path:
+`data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json`)
 attributes `477,627` unresolved rows (`91.02%`) to no exact local signal;
 `16,656` have a unique alias signal and `1,258` have an ambiguous title/year
 signal. Broad fuzzy matching is not approved.
@@ -289,9 +289,9 @@ provenance defects.
 The exact case-name pass subsequently linked `14,051` rows using one unique
 non-self canonical-title match. The current unresolved total is `507,695`.
 Excluding all short forms leaves `390,291`: `333,550 case_name`, `53,078 case`,
-and `3,663 neutral`. See
-[the non-short unresolved report](data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json)
-for exact shapes and candidate signals.
+and `3,663 neutral`. The historical non-short unresolved report's artifact path
+was `data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json`;
+that artifact is not present in this checkout.
 
 The extraction layer treats recognized full reported citations, including
 `[2004] 3 F.C.R. 323`, as eligible same-document anchors for later short-form

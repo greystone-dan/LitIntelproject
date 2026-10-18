@@ -138,19 +138,24 @@ def stage_two(log_p: np.ndarray, emissions: list[dict[str, float]], paragraphs: 
     return np.maximum(out, _FLOOR)
 
 
-def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
-    """Same ordered labeller as the rules, with the learned log-probabilities added to each paragraph's scores."""
+def label_paragraph_roles_scored(paragraphs: Sequence[str]) -> tuple[list[str], np.ndarray | None]:
+    """The roles and the learned model's n x len(cs.ROLES) log-probabilities (None when the weights are missing)."""
     if not paragraphs:
-        return []
+        return [], None
     if not available():
-        return cs.label_paragraph_roles_rules(paragraphs)
+        return cs.label_paragraph_roles_rules(paragraphs), None
     emissions = cs._emissions(paragraphs)
     log_p = stage_two(log_probabilities(paragraphs, emissions), emissions, paragraphs)
     combined = []
     for i, row in enumerate(emissions):
         combined.append({s: BETA * row[s] + ALPHA * float(log_p[i][cs.ROLES.index(cs._STATE_ROLE.get(s, s))]) for s in cs._STATES})
     roles = cs._viterbi_roles(combined)
-    return _ensure_disposition(roles, paragraphs, emissions)
+    return _ensure_disposition(roles, paragraphs, emissions), log_p
+
+
+def label_paragraph_roles(paragraphs: Sequence[str]) -> list[str]:
+    """Same ordered labeller as the rules, with the learned log-probabilities added to each paragraph's scores."""
+    return label_paragraph_roles_scored(paragraphs)[0]
 
 
 def _ensure_disposition(roles: list[str], paragraphs: Sequence[str], emissions: list[dict[str, float]]) -> list[str]:

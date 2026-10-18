@@ -1,6 +1,9 @@
 # Cloudflare Tunnel Setup (Local Machine Hosting)
 
-This setup publishes your local AI CaseLibrary app to your domain via Cloudflare Tunnel.
+This guide configures a standalone Cloudflare tunnel. It is not the active
+`iLitSite` deployment procedure; use [Deployment Commands](DEPLOYMENT_COMMANDS.md)
+for the scheduled-task workflow and [Operational Recovery](OPERATIONAL_RECOVERY_GUIDE.md)
+for failures.
 
 For the current site deployment, the Windows scheduled task `iLitSite` is the
 primary site and tunnel process. After `git pull origin main`, restart it with

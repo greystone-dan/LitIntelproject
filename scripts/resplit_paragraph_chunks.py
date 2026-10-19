@@ -272,6 +272,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--court", default=None, help="e.g. SCC, FC, FCA")
     parser.add_argument("--year-from", type=int, default=None, help="only decisions dated on or after this year")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--count-only", action="store_true", help="read-only: count decisions whose rows would change, no transaction")
     parser.add_argument("--apply", action="store_true", help="write the changes (default is a dry run)")
     parser.add_argument("--undo-dir", default="undo_resplit", help="where --apply writes one undo file per decision")
     parser.add_argument("--undo", nargs="+", metavar="FILE", help="restore decisions from undo files")
@@ -307,8 +308,15 @@ def main() -> None:
             plan = plan_case(session, case)
             totals["decisions"] += 1
             result = {"moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0}
-            if plan["same"]:
+            if args.count_only:
+                changed = not plan["same"] and not (plan["new_total"] == 0 and plan["old_total"] > 0)
+                totals["changed" if changed else "unchanged"] += 1
+                session.rollback()
+                continue
+            if plan["same"] or (plan["new_total"] == 0 and plan["old_total"] > 0):
+                # Never leave a decision without paragraph rows: a builder that finds nothing keeps the old rows.
                 totals["unchanged"] += 1
+                plan["same"] = True
                 session.rollback()
             else:
                 totals["changed"] += 1
@@ -342,7 +350,7 @@ def main() -> None:
             writer = csv.DictWriter(handle, fieldnames=list(report_rows[0]))
             writer.writeheader()
             writer.writerows(report_rows)
-    mode = "APPLIED" if args.apply else "DRY RUN (nothing written)"
+    mode = "APPLIED" if args.apply else "COUNT ONLY (read-only)" if args.count_only else "DRY RUN (nothing written)"
     print(mode)
     for key, value in totals.items():
         print(f"{key}={value}")

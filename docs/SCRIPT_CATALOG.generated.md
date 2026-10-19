@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 183
+Active scripts documented: 184
 
 ## Catalog
 
@@ -21,6 +21,7 @@ Active scripts documented: 183
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
 | `audit_fc_metadata_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help` |
+| `audit_paragraph_chunks.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_paragraph_chunks.py --help` |
 | `audit_self_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_self_citations.py --help` |
 | `backfill_case_metadata_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_metadata_outcomes.py --help` |
 | `backfill_case_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_outcomes.py --help` |
@@ -346,6 +347,20 @@ Active scripts documented: 183
 
 ```powershell
 .\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help
+```
+
+## `scripts/audit_paragraph_chunks.py`
+
+**Purpose:** Read-only audit of paragraph chunk rows: hanging headings, glued headings, missing numbering. For a seeded random sample of decisions per court it checks two row sets and prints per-court rates: stored - the "paragraph" rows now in the database fresh - the rows the current chunker would build from the decision text (``reader_paragraph_layout``) A row is flagged when: hang_end its last line is a heading ("II. Analysis", "DETERMINATION") that belongs to the next paragraph; hang_start a numbered paragraph row begins with heading text before its "[n]" marker; glued a heading and "[n]" share a row start ("I. Overview [1] The Applicant..."); gap paragraph numbers skip or repeat; unnumbered the decision has no usable numbered paragraphs at all. Nothing is written to the database. Examples: python scripts/audit_paragraph_chunks.py --court SCC --court FC --court FCA --per-court 100 --report audit.csv python scripts/audit_paragraph_chunks.py --text-json case_10452.json
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_paragraph_chunks.py --help
 ```
 
 ## `scripts/audit_self_citations.py`

@@ -324,3 +324,69 @@ def test_fewer_than_three_reader_paragraphs_falls_back_to_old_builder():
 
     assert rows
     assert not any(row.chunk_label == "intro" for row in rows)
+
+
+def test_reader_layout_splits_first_heading_off_the_intro():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nDate: 20170203\nBETWEEN:\nJOHN SMITH\nApplicant\nand\nTHE MINISTER\nRespondent\n"
+        "JUDGMENT AND REASONS\nI. Overview\n[1] First paragraph.\n[2] Second paragraph.\n"
+        "II. Analysis\n[3] Third paragraph.\n"
+    )
+
+    layout = reader_paragraph_layout(text)
+
+    assert [entry["kind"] for entry in layout] == ["intro", "heading", "paragraph", "paragraph", "heading", "paragraph"]
+    assert text[layout[0]["start"] : layout[0]["end"]].rstrip().endswith("JUDGMENT AND REASONS")
+    assert text[layout[1]["start"] : layout[1]["end"]] == "I. Overview"
+    assert layout[2]["num"] == 1
+
+
+def test_reader_layout_moves_trailing_subheadings_and_the_order_text_out_of_paragraphs():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nJUDGMENT AND REASONS\nI. Overview\n[1] First paragraph.\n"
+        "[2] Second paragraph, a statute list follows:\nException\nRestriction\nand more text.\n[3] Third paragraph.\n"
+        "Issue Estoppel\n[4] Fourth paragraph.\n[5] Fifth paragraph.\nJUDGMENT\nTHIS COURT’S JUDGMENT is that the application is dismissed.\n"
+    )
+
+    layout = reader_paragraph_layout(text)
+    pieces = [(entry["kind"], text[entry["start"] : entry["end"]].strip()) for entry in layout]
+
+    assert ("heading", "Issue Estoppel") in pieces
+    third = next(piece for piece in pieces if piece[1].startswith("[3]"))
+    assert third[1] == "[3] Third paragraph."
+    second = next(piece for piece in pieces if piece[1].startswith("[2]"))
+    assert "Exception\nRestriction" in second[1]
+    assert pieces[-2:] == [("heading", "JUDGMENT"), ("tail", "THIS COURT’S JUDGMENT is that the application is dismissed.")]
+
+
+def test_reader_layout_splits_labelled_headings_but_not_transcript_answers():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nJUDGMENT AND REASONS\n[1] First paragraph.\n"
+        "[2] Second paragraph.\nB. Court of Appeal, 2015 ABCA 85 — Slatter J.A.\n"
+        "[3] Third paragraph quoting a transcript:\nQ. Did you test them?\nA. Yes.\nA. We had not tested any of them.\n"
+        "[4] Fourth paragraph.\n[5] Fifth paragraph.\n"
+    )
+
+    pieces = [(entry["kind"], text[entry["start"] : entry["end"]].strip()) for entry in reader_paragraph_layout(text)]
+
+    assert ("heading", "B. Court of Appeal, 2015 ABCA 85 — Slatter J.A.") in pieces
+    assert ("heading", "A. We had not tested any of them.") not in pieces
+
+
+def test_reader_layout_keeps_a_quoted_paragraph_number_inside_the_real_paragraph():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nJUDGMENT AND REASONS\n[1] One.\n[2] Two.\n[3] Justice Pelletier explained:\n"
+        "[5] To defer means to put over to another time.\n[4] I agree with that explanation.\n[5] Five.\n[6] Six.\n"
+    )
+
+    numbers = [entry["num"] for entry in reader_paragraph_layout(text) if entry["kind"] == "paragraph"]
+
+    assert numbers == [1, 2, 3, 4, 5, 6]

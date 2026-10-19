@@ -86,7 +86,7 @@ class FakeDB:
 	def execute(self, statement, params=None):
 		if params is None:
 			return FakeResult([])
-		self.calls.append(params["match_query"])
+		self.calls.append(params.get("match_query"))
 		return FakeResult(self.tiers.pop(0) if self.tiers else [])
 
 	def rollback(self):
@@ -95,6 +95,13 @@ class FakeDB:
 
 def reset_cache(ready=True):
 	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+
+
+@pytest.fixture(autouse=True)
+def fresh_index_check():
+	reset_cache()
+	yield
+	reset_cache()
 
 
 def row(case_id, score, paragraphs, chunk):
@@ -196,6 +203,87 @@ def test_full_text_box_without_paragraph_hits_keeps_the_scan_with_a_timeout(monk
 	analytics_service.fetch_analytics_search_cases(db, query="officer ignored my medical evidence", search_full_text=True)
 	assert "c.full_text ILIKE" in db.sql
 	assert any(sql.startswith("SET LOCAL statement_timeout") for sql in statements)
+
+
+def test_phrase_search_ranks_cases_by_best_paragraph():
+	db = FakeDB([[row(4, 0.9, 12, 40), row(2, 0.3, 1, 21)]])
+	hits = paragraph_search.search_paragraph_phrase(db, "reasonableness")
+	assert [hit["case_id"] for hit in hits] == [4, 2] and hits[0]["best_chunk_id"] == 40
+
+
+def test_phrase_search_distinguishes_no_match_from_unusable_index():
+	assert paragraph_search.search_paragraph_phrase(FakeDB([]), "zzzzqqq") == []
+	assert paragraph_search.search_paragraph_phrase(FakeDB([]), "   ") is None
+	assert paragraph_search.search_paragraph_phrase(FakeDB([]), "!!!") is None
+
+	class Broken:
+		rolled_back = False
+
+		def execute(self, *args, **kwargs):
+			raise RuntimeError("relation paragraph_search does not exist")
+
+		def rollback(self):
+			self.rolled_back = True
+
+	broken = Broken()
+	assert paragraph_search.search_paragraph_phrase(broken, "asylum") is None and broken.rolled_back
+
+
+def test_phrase_search_timeout_is_raised_after_rollback(monkeypatch):
+	class SlowDB(FakeDB):
+		def execute(self, statement, params=None):
+			if params is not None and "phrase_text" in params:
+				raise RuntimeError("canceling statement due to statement timeout")
+			return super().execute(statement, params)
+
+	db = SlowDB([])
+	with pytest.raises(paragraph_search.ParagraphSearchTimeout):
+		paragraph_search.search_paragraph_phrase(db, "asylum", timeout_ms=5000)
+	assert db.rolled_back
+
+
+def test_full_text_box_on_a_short_query_uses_the_paragraph_index_not_the_text_scan(monkeypatch):
+	hits = [{"case_id": 7, "score": 2.0, "paragraphs": 3, "best_chunk_id": 70}]
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+	monkeypatch.setattr(analytics_service, "search_paragraph_phrase", lambda db, query, timeout_ms=None: hits)
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="reasonableness", search_full_text=True)
+	where = db.sql.split("WHERE TRUE", 1)[1].split("ORDER BY", 1)[0]
+	assert db.params["para_ids"] == [7]
+	assert "c.id = ANY(CAST(:para_ids AS integer[]))" in where and "c.full_text ILIKE" not in where
+
+
+def test_full_text_box_with_an_answering_index_and_no_match_does_not_scan_full_text(monkeypatch):
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+	monkeypatch.setattr(analytics_service, "search_paragraph_phrase", lambda db, query, timeout_ms=None: [])
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="zzzzqqq", search_full_text=True)
+	where = db.sql.split("WHERE TRUE", 1)[1].split("ORDER BY", 1)[0]
+	assert "c.full_text ILIKE" not in where and "c.summary ILIKE" in where
+
+
+def test_phrase_search_is_not_used_without_the_full_text_box(monkeypatch):
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+
+	def boom(*args, **kwargs):
+		raise AssertionError("phrase search is only for the full-text option")
+
+	monkeypatch.setattr(analytics_service, "search_paragraph_phrase", boom)
+	analytics_service.fetch_analytics_search_cases(AnalyticsDB(), query="reasonableness")
+
+
+def test_phrase_timeout_becomes_the_same_friendly_503(monkeypatch):
+	from fastapi import HTTPException
+
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+
+	def slow(db, query, timeout_ms=None):
+		raise paragraph_search.ParagraphSearchTimeout("timeout")
+
+	monkeypatch.setattr(analytics_service, "search_paragraph_phrase", slow)
+	with pytest.raises(HTTPException) as error:
+		analytics_service.fetch_analytics_search_cases(AnalyticsDB(), query="asylum", search_full_text=True)
+	assert error.value.status_code == 503 and "too broad" in error.value.detail
 
 
 def test_scan_timeout_becomes_a_friendly_503(monkeypatch):

@@ -57,7 +57,7 @@ from .judge_issue_record import (
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
-from .paragraph_search import search_paragraph_cases
+from .paragraph_search import ParagraphSearchTimeout, search_paragraph_cases, search_paragraph_phrase
 from .search_matching import identity_sql, matched_on_sql, sentence_words, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
@@ -1456,6 +1456,17 @@ def fetch_analytics_search_cases(
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
 		paragraph_hits = search_paragraph_cases(db, query)
+		phrase_index_used = False
+		if not paragraph_hits and search_full_text:
+			# Short query with the full-text option: look in the paragraph index, not in every decision's full text.
+			try:
+				paragraph_hits = search_paragraph_phrase(db, query, timeout_ms=SEARCH_SCAN_TIMEOUT_MS)
+			except ParagraphSearchTimeout as error:
+				raise HTTPException(
+					status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+					detail="That search was too broad to finish in time. Add more specific words or untick full-text search.",
+				) from error
+			phrase_index_used = paragraph_hits is not None
 		if paragraph_hits:
 			# Sentence query with the paragraph index available: cases whose best paragraph matches the words.
 			paragraph_case_ids = [hit["case_id"] for hit in paragraph_hits]
@@ -1468,7 +1479,8 @@ def fetch_analytics_search_cases(
 		else:
 			if search_full_text:
 				# Whole-text phrase scan: only without paragraph hits, as OR-ing it in forces a scan of every case.
-				query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+				# When the paragraph index answered and found nothing, the full text has no match either.
+				query_fields += " OR c.summary ILIKE :query" if phrase_index_used else " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 			sentence_hits, sentence_filter, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
 			if sentence_filter:
 				# A sentence rarely appears verbatim; also accept cases containing most of its content words.

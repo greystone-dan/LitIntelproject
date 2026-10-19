@@ -361,3 +361,19 @@ def test_reader_layout_moves_trailing_subheadings_and_the_order_text_out_of_para
     second = next(piece for piece in pieces if piece[1].startswith("[2]"))
     assert "Exception\nRestriction" in second[1]
     assert pieces[-2:] == [("heading", "JUDGMENT"), ("tail", "THIS COURT’S JUDGMENT is that the application is dismissed.")]
+
+
+def test_reader_layout_splits_labelled_headings_but_not_transcript_answers():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nJUDGMENT AND REASONS\n[1] First paragraph.\n"
+        "[2] Second paragraph.\nB. Court of Appeal, 2015 ABCA 85 — Slatter J.A.\n"
+        "[3] Third paragraph quoting a transcript:\nQ. Did you test them?\nA. Yes.\nA. We had not tested any of them.\n"
+        "[4] Fourth paragraph.\n[5] Fifth paragraph.\n"
+    )
+
+    pieces = [(entry["kind"], text[entry["start"] : entry["end"]].strip()) for entry in reader_paragraph_layout(text)]
+
+    assert ("heading", "B. Court of Appeal, 2015 ABCA 85 — Slatter J.A.") in pieces
+    assert ("heading", "A. We had not tested any of them.") not in pieces

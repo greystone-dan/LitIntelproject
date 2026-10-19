@@ -484,14 +484,33 @@ READER_MAX_GAP = 3
 
 
 HANGING_HEADING_MAX_WORDS = 15
+LABELLED_HEADING_MAX_WORDS = 30
 _HANGING_END_RE = re.compile(r"[.,;:?!)”\"\]]$")
 
 
+_LABELLED_HEADING_RE = re.compile(r"^(?:[IVX]+|[A-Z]|\d{1,2})\.\s+(?P<title>\S.*)$")
+_ANSWER_START_RE = re.compile(r"^(?:I|We|You|My|Yes|No|It|He|She|They)\b")
+
+
 def _is_hanging_heading_line(line: str) -> bool:
-    """A short unnumbered line with no closing punctuation, e.g. "Issue Estoppel" or "Test for Anticipation"."""
+    """A short unnumbered title line directly before a numbered paragraph.
+
+    Either an unlabelled line with no closing punctuation ("Issue Estoppel") or a labelled one ("B. Court of Appeal,
+    2015 ABCA 85 — Slatter J.A."), which may end in a full stop. A one-word "A. Yes." or a transcript answer
+    ("A. I don't recall ...") is not a heading.
+    """
     line = line.strip()
-    if not line or len(line) > 150 or len(line.split()) > HANGING_HEADING_MAX_WORDS:
+    if not line or len(line) > 220:
         return False
+    words = len(line.split())
+    labelled = _LABELLED_HEADING_RE.match(line)
+    if words > (LABELLED_HEADING_MAX_WORDS if labelled else HANGING_HEADING_MAX_WORDS):
+        return False
+    if labelled:
+        title = labelled.group("title")
+        if title[0] == "[" or _ANSWER_START_RE.match(title) or title.endswith((",", ";", ":", "?")):
+            return False
+        return not title.endswith(".") or len(title.split()) >= 3
     if not (line[0].isupper() or line[0].isdigit()) or _HANGING_END_RE.search(line):
         return False
     return not re.match(r"^(?:\(\w{1,5}\)|\w{1,3}[.)])\s", line)
@@ -507,7 +526,7 @@ def _split_hanging_headings(text: str, entries: list[dict]) -> list[dict]:
     out: list[dict] = []
     for index, entry in enumerate(entries):
         following = entries[index + 1] if index + 1 < len(entries) else None
-        if entry["kind"] != "paragraph" or following is None or following["kind"] != "paragraph":
+        if entry["kind"] != "paragraph" or following is None or following["kind"] not in {"paragraph", "heading"}:
             out.append(entry)
             continue
         body = text[entry["start"] : entry["end"]]

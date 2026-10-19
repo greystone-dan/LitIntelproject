@@ -59,7 +59,10 @@ def last_line(text: str) -> str:
     return lines[-1] if lines else ""
 
 
-def audit_rows(rows: list[dict]) -> dict:
+SHORT_DECISION_CHARS = 6000  # a stub or leave-to-appeal entry may have fewer than 3 numbered paragraphs
+
+
+def audit_rows(rows: list[dict], text_length: int = SHORT_DECISION_CHARS) -> dict:
     """rows: dicts with label ('intro'/'heading'/'tail'/paragraph number), text. Returns flag counts."""
     flags = Counter()
     last_num = None
@@ -88,7 +91,7 @@ def audit_rows(rows: list[dict]) -> dict:
         if last_num is not None and num != last_num + 1:
             flags["gap"] += 1
         last_num = num
-    if numbered == 0:
+    if numbered == 0 and text_length >= SHORT_DECISION_CHARS:
         flags["unnumbered"] += 1
     flags["rows"] = len(rows)
     return dict(flags)
@@ -144,7 +147,7 @@ def main() -> None:
             data = json.loads(Path(path).read_text(encoding="utf-8"))
             stored = [{"label": row.get("paragraph_start") if row["text"][:1] == "[" else "intro", "text": row["text"]} for row in data["paragraphs"]]
             for source, rows in (("stored", stored), ("fresh", fresh_rows(data["full_text"]))):
-                results.append({"case_id": data["case_id"], "court": data["court"], "source": source, **audit_rows(rows)})
+                results.append({"case_id": data["case_id"], "court": data["court"], "source": source, **audit_rows(rows, len(data["full_text"]))})
     else:
         from backend.database import SessionLocal, Case
 
@@ -153,7 +156,7 @@ def main() -> None:
                 for case_id, _ in sample_cases(session, court, args.per_court, args.year_from, args.seed):
                     text = session.get(Case, case_id).full_text or ""
                     for source, rows in (("stored", stored_rows(session, case_id)), ("fresh", fresh_rows(text))):
-                        results.append({"case_id": case_id, "court": court, "source": source, **audit_rows(rows)})
+                        results.append({"case_id": case_id, "court": court, "source": source, **audit_rows(rows, len(text))})
 
     flag_names = ("hang_end", "hang_start", "glued", "gap", "unnumbered")
     print("court source decisions " + " ".join(f"{name}%" for name in flag_names) + "  any%")

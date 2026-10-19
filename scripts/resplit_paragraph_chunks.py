@@ -307,8 +307,10 @@ def main() -> None:
             plan = plan_case(session, case)
             totals["decisions"] += 1
             result = {"moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0}
-            if plan["same"]:
+            if plan["same"] or (plan["new_total"] == 0 and plan["old_total"] > 0):
+                # Never leave a decision without paragraph rows: a builder that finds nothing keeps the old rows.
                 totals["unchanged"] += 1
+                plan["same"] = True
                 session.rollback()
             else:
                 totals["changed"] += 1

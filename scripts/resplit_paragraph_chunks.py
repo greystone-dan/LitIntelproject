@@ -99,7 +99,13 @@ def renumbered_paragraphs(old_rows, new_rows, prefix: int = 60) -> int:
     """Paragraph numbers whose text no longer starts the same way. Notes, note links, positions and cited-by edges are
     keyed by (decision, paragraph number), so only these numbers could point at different text after a re-split."""
     def opening(row) -> str:
-        return (row.text or "").split("\n", 1)[0][:prefix]
+        """First words after the paragraph's own "[n]" marker, so a heading glued before the marker is ignored."""
+        body = row.text or ""
+        marker = f"[{row.chunk_label}]"
+        at = body.find(marker)
+        if 0 <= at <= 200:
+            body = body[at + len(marker):]
+        return body.strip().split("\n", 1)[0][:prefix]
 
     new_start = {row.chunk_label: opening(row) for row in new_rows if (row.chunk_label or "").isdigit()}
     changed = 0

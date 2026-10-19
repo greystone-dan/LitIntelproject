@@ -127,6 +127,68 @@ def _ranked_sql(restrict_courts: bool):
 _RANKED_SQL = _ranked_sql(False)
 _RANKED_COURT_SQL = _ranked_sql(True)
 
+_PHRASE_SQL = sql_text(
+	f"""
+	WITH q AS (SELECT phraseto_tsquery('{TS_CONFIG}', :phrase_text) AS phrase_q), hits AS (
+		SELECT p.chunk_id, p.case_id, ts_rank_cd(p.tsv, q.phrase_q, 32) AS score
+		FROM paragraph_search p, q
+		WHERE p.tsv @@ q.phrase_q
+		ORDER BY score DESC
+		LIMIT :max_paragraphs
+	)
+	SELECT case_id,
+	       max(score) AS best_score,
+	       count(*) AS paragraphs,
+	       (array_agg(chunk_id ORDER BY score DESC))[1] AS best_chunk_id
+	FROM hits
+	GROUP BY case_id
+	ORDER BY max(score) + 0.05 * least(count(*), 10) DESC, case_id DESC
+	LIMIT :max_cases
+	"""
+)
+
+
+class ParagraphSearchTimeout(Exception):
+	"""The phrase lookup ran past its time limit (a very common word)."""
+
+
+def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) -> list[dict[str, Any]] | None:
+	"""Cases whose paragraphs contain the typed words as a phrase (stemmed), best paragraph first.
+
+	Used by the full-text option for queries too short for `search_paragraph_cases`. It replaces a scan of every
+	decision's full text. Returns None when the index is unusable (caller keeps the older scan), [] when it is
+	usable and nothing matches, and raises ParagraphSearchTimeout when `timeout_ms` is exceeded."""
+	if not _enabled():
+		return None
+	phrase = " ".join(str(query or "").split())
+	if not re.search(r"[A-Za-z0-9]", phrase) or not _index_ready(db):
+		return None
+	try:
+		if timeout_ms:
+			db.execute(sql_text(f"SET LOCAL statement_timeout = {int(timeout_ms)}"), {})
+		rows = list(
+			db.execute(
+				_PHRASE_SQL,
+				{"phrase_text": phrase, "max_paragraphs": MAX_PARAGRAPHS, "max_cases": MAX_CASES},
+			)
+			.mappings()
+			.all()
+		)
+	except Exception as error:
+		_rollback(db)
+		if "statement timeout" in str(error).lower() or "canceling statement" in str(error).lower():
+			raise ParagraphSearchTimeout(str(error)) from error
+		return None
+	return [
+		{
+			"case_id": int(row["case_id"]),
+			"score": float(row["best_score"]),
+			"paragraphs": int(row["paragraphs"]),
+			"best_chunk_id": int(row["best_chunk_id"]),
+		}
+		for row in rows
+	]
+
 
 def search_paragraph_cases(db: Any, query: str, courts: list[str] | None = None) -> list[dict[str, Any]] | None:
 	"""Cases ranked by their best paragraph; None when the index or query is unusable (use older matching).

@@ -52,7 +52,9 @@ from .judge_issue_record import (
 	_issue_outcome_category,
 	_issue_outcome_summary,
 	_stored_issue_labels,
+	case_is_not_immigration,
 	fetch_judge_profile_issues,
+	flagged_not_immigration_ids,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
@@ -321,11 +323,16 @@ def fetch_outcomes_by_year(db: Session) -> list[dict[str, Any]]:
 				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'decision outcome' IN ('dismissed', 'denied', 'refused')) AS dismissed_decisions
 			FROM cases
 			WHERE date IS NOT NULL
+			AND NOT EXISTS (
+				SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = cases.id
+				AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'not_immigration'
+			)
 			GROUP BY year
 			HAVING COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' IN ('won', 'lost')) > 0
 			ORDER BY year
 			"""
-		)
+		),
+		{"case_type_version": TAXONOMY_VERSION},
 	).mappings().all()
 	result: list[dict[str, Any]] = []
 	for row in rows:
@@ -903,6 +910,11 @@ def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
 		linked_ids = select(CaseJudgeProfile.case_id).where(
 			CaseJudgeProfile.judge_profile_id.in_(member_ids(db, profile.id))
 		)
+		excluded = int(db.scalar(
+			select(func.count(Case.id)).where(Case.id.in_(linked_ids), case_is_not_immigration())
+		) or 0)
+		# Everything below (counts, rates, tags, authorities) uses immigration decisions only.
+		linked_ids = select(Case.id).where(Case.id.in_(linked_ids), ~case_is_not_immigration())
 		rows = list(db.execute(
 			select(Case.id, Case.date, Case.issues, Case.metadata_json)
 			.where(Case.id.in_(linked_ids)).order_by(Case.id)
@@ -959,6 +971,7 @@ def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
 		judges[side] = {
 			"profile": {"slug": slug, "display_name": profile.display_name, "primary_court": profile.primary_court},
 			"decisions": statistic(total, total),
+			"excluded_non_immigration": statistic(excluded, excluded + total),
 			"outcomes": outcomes(rows),
 			"yearly_decisions": [
 				{"year": year, "decisions": statistic(count, total)} for year, count in sorted(years.items())
@@ -1029,6 +1042,9 @@ def fetch_judge_profile_by_slug(
 	all_cases = list(
 		{case.id: case for member in member_profiles if member for link in member.case_links if (case := link.case) is not None}.values()
 	)
+	# Decisions explicitly labelled not_immigration (copyright, tax, competition...) stay out of the figures.
+	flagged = flagged_not_immigration_ids(db, [case.id for case in all_cases])
+	all_cases = [case for case in all_cases if case.id not in flagged]
 	minister_filters = [" ".join(value.split()) for value in (ministers or []) if value.strip()]
 	minister_filter_keys = {value.casefold() for value in minister_filters}
 	if minister_filter_keys:
@@ -1071,6 +1087,7 @@ def fetch_judge_profile_by_slug(
 			),
 		},
 		"outcomes": outcomes,
+		"excluded_non_immigration": len(flagged),
 		"yearly_decisions": [
 			{"year": year, "decisions": decisions} for year, decisions in sorted(years.items())
 		],

@@ -36,6 +36,7 @@ def db():
 			"CREATE TABLE case_tags (id INTEGER PRIMARY KEY, case_id INTEGER, category TEXT, value TEXT)",
 			"CREATE TABLE citations (id INTEGER PRIMARY KEY, source_case_id INTEGER, target_case_id INTEGER, "
 			"normalized_citation TEXT, citation_text TEXT)",
+			"CREATE TABLE case_type_labels (id INTEGER PRIMARY KEY, case_id INTEGER, taxonomy_version TEXT, status TEXT)",
 		):
 			connection.execute(text(ddl))
 		connection.execute(text(

@@ -10,7 +10,7 @@ from backend.database import Base, Case, CaseJudgeProfile, JudgeProfile, JudgePr
 @pytest.fixture
 def db():
 	engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
-	tables = [Base.metadata.tables[n] for n in ("cases", "judge_profiles", "case_judge_profiles", "judge_profile_aliases", "citations")]
+	tables = [Base.metadata.tables[n] for n in ("cases", "judge_profiles", "case_judge_profiles", "judge_profile_aliases", "citations", "case_type_labels")]
 	Base.metadata.create_all(engine, tables=tables)
 	with Session(engine) as session:
 		for i in (1, 2, 3):

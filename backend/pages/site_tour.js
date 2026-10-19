@@ -1143,13 +1143,7 @@
     var wants=new URLSearchParams(location.search).get('tour')==='1';
     if(wants&&!(state&&state.active)){start();return}
     if(state&&state.active){show(Math.min(state.i||0,STEPS.length-1),state.dir||direction);return}
-    setTimeout(prewarm,2500);                                       // the page with the tour button: get the demo data ready
-  }
-  async function prewarm(){
-    if(!document.querySelector('[data-ilit-tour-start]')||(state&&state.active))return;
-    try{if(sessionStorage.getItem('ilit.tour.warm'))return;sessionStorage.setItem('ilit.tour.warm','1')}catch(e){return}
-    await Promise.all(Object.keys(CASES).map(resolveCase));
-    warmCache();
+    // No idle prewarm: the demo requests (case lookups, cached reader data) are made by start() while the tour runs.
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,30)});
   else setTimeout(boot,30);

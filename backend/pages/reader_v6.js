@@ -183,9 +183,13 @@
  /* ---------- Save to Workbench (demo sign-in; stored server side per demo user) ---------- */
  const wb={signedIn:false,pinned:false};
  function paintSave(label){const b=document.getElementById('v6SaveWb');if(b){b.textContent=label;b.classList.toggle('is-saved',wb.pinned);}}
+ /* The card is re-rendered several times per open; ask the server once per case and share the answer. */
+ let pinStateFor=null,pinStateReq=null;
  async function syncSave(id){
   if(!id)return;
-  try{const r=await getJson('/workbench/api/pins/state?case_id='+encodeURIComponent(id));wb.signedIn=r.signed_in;wb.pinned=r.pinned;}catch(error){wb.signedIn=false;wb.pinned=false;}
+  if(pinStateFor!==id){pinStateFor=id;pinStateReq=getJson('/workbench/api/pins/state?case_id='+encodeURIComponent(id));}
+  const req=pinStateReq;
+  try{const r=await req;if(pinStateReq===req){wb.signedIn=r.signed_in;wb.pinned=r.pinned;}}catch(error){if(pinStateReq===req){wb.signedIn=false;wb.pinned=false;pinStateFor=null;}}
   paintSave(wb.pinned?'Saved to Workbench ✓':'Save to Workbench');
  }
  async function saveToWorkbench(id){

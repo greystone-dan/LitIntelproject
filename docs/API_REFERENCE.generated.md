@@ -612,6 +612,7 @@ Get Case Incoming Citations
 **Parameters**
 
 - `case_id` (path, required; integer)
+- `limit` (query, optional; integer | null)
 
 **Responses**
 

@@ -1147,9 +1147,16 @@ def get_case_outgoing_citations(case_id: int, db: Session = Depends(get_db)) -> 
 
 
 @router.get("/cases/{case_id}/citations/incoming", response_model=list[CitationResponse])
-def get_case_incoming_citations(case_id: int, db: Session = Depends(get_db)) -> list[CitationResponse]:
+def get_case_incoming_citations(
+	case_id: int,
+	limit: int | None = Query(default=None, ge=1, le=10000),
+	db: Session = Depends(get_db),
+) -> list[CitationResponse]:
 	_get_case_or_404(case_id, db)
-	return [CitationResponse.model_validate(citation, from_attributes=True) for citation in incoming_citations(db, case_id)]
+	rows = incoming_citations(db, case_id)
+	if limit is not None:
+		rows = rows[:limit]
+	return [CitationResponse.model_validate(citation, from_attributes=True) for citation in rows]
 
 
 @router.get("/cases/{case_id}/citations/passages", response_model=list[CitationResponse])

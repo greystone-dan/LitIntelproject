@@ -224,6 +224,14 @@ _ANALYTICS_FIELDS = {
 }
 
 
+def _topic_tag_values(query: str) -> list[str]:
+	"""Stored-tag spellings (spaces and underscores) of a short plain query, or [] when it is not topic-like."""
+	words = re.findall(r"[^\W_]+", query.lower())
+	if not words or len(words) > 5 or len(query) > 60:
+		return []
+	return list(dict.fromkeys([" ".join(words), "_".join(words)]))
+
+
 def _profile_reader_metadata(case: Case) -> dict[str, Any]:
 	raw_metadata = case.metadata_json
 	metadata: dict[str, Any] = raw_metadata if isinstance(raw_metadata, dict) else {}
@@ -1487,6 +1495,19 @@ def fetch_analytics_search_cases(
 				# A sentence rarely appears verbatim; also accept cases containing most of its content words.
 				query_fields += f" OR {sentence_filter}"
 				params.update(sentence_params)
+		topic_values = _topic_tag_values(query)
+		if topic_values:
+			# A short topic phrase ("reasonableness", "duty of fairness") is rarely in a case name. Also accept cases
+			# stored with that exact tag; uses the tag index, no body scan and no model.
+			params["topic_tag_version"] = ACTIVE_TAG_TAXONOMY_VERSION
+			names = []
+			for index, value in enumerate(topic_values):
+				params[f"topic_tag_{index}"] = value
+				names.append(f":topic_tag_{index}")
+			query_fields += (
+				" OR c.id IN (SELECT tq.case_id FROM case_tags tq WHERE tq.taxonomy_version = :topic_tag_version "
+				f"AND tq.value IN ({', '.join(names)}))"
+			)
 		filters.append(f"({query_fields})")
 	if cites:
 		params["cites"] = f"%{cites}%"

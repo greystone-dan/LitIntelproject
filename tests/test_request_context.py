@@ -574,3 +574,28 @@ class TestHealthAndVersionEndpoints:
         assert "commit" in version_info
         assert "started_at" in version_info
         assert "python_version" in version_info
+
+
+def test_nul_byte_in_query_is_a_400_and_missing_case_is_a_404(monkeypatch):
+    """A NUL byte must not reach Postgres (raw 500); nonexistent case ids are a clean 404."""
+    from backend.routes import get_db
+
+    app = _app_without_access_gate(monkeypatch)
+    client = TestClient(app, raise_server_exceptions=False)
+    for path in ("/analytics/search/cases", "/citation-map/cases", "/search/export.csv", "/api/judge-profiles"):
+        assert client.get(path + "?query=a%00b&q=a%00b").status_code == 400, path
+
+    class _EmptyDb:
+        def scalar(self, *_args, **_kwargs):
+            return None
+
+    app.dependency_overrides[get_db] = lambda: _EmptyDb()
+    try:
+        for path in (
+            "/cases/999999999/contextual-anchors",
+            "/cases/999999999/thematic-signature",
+            "/analytics/cases/999999999/thematic-cluster",
+        ):
+            assert client.get(path).status_code == 404, path
+    finally:
+        app.dependency_overrides.pop(get_db, None)

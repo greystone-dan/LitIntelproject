@@ -2478,6 +2478,7 @@ def get_case_contextual_anchors(
 	proximity_window: int = 250,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
 	return fetch_case_contextual_anchors(
 		db,
 		case_id,
@@ -2487,6 +2488,7 @@ def get_case_contextual_anchors(
 
 @router.get("/cases/{case_id}/thematic-signature", response_model=dict[str, Any])
 def get_case_thematic_signature(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
 	sig = compute_case_thematic_signature(db, case_id)
 	return sig.__dict__
 
@@ -2497,6 +2499,7 @@ def get_case_thematic_cluster(
 	limit: int = 10,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
 	return find_thematically_similar_cases(
 		db,
 		case_id,

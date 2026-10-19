@@ -99,6 +99,14 @@ def _login_page(error: str = "") -> HTMLResponse:
 
 
 @app.middleware("http")
+async def reject_nul_in_query(request: Request, call_next):
+    """Answer 400 for a NUL byte in the query string; Postgres rejects it and it would be a raw 500."""
+    if "\x00" in request.url.query or "%00" in request.url.query:
+        return JSONResponse({"detail": "Query parameters must not contain NUL bytes."}, status_code=400)
+    return await call_next(request)
+
+
+@app.middleware("http")
 async def private_access_and_noindex(request: Request, call_next):
     password, secret, lifetime = _private_access_config()
     public_path = request.url.path in {

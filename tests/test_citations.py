@@ -3324,3 +3324,19 @@ def test_pinpointed_short_forms_survive_the_generic_word_filter() -> None:
 	text = "Dunsmuir v. New Brunswick, 2008 SCC 9 is cited. Later, Dunsmuir at para 47 and Alberta at para 3 are cited."
 	short = {m.citation_text for m in extract_case_citation_matches(text) if m.kind == "case_short"}
 	assert "Dunsmuir at para 47" in short
+
+
+def test_self_case_name_filter_rejects_full_own_caption_with_court_suffix():
+	# "Indexed as: Baker v. Canada" printed in Baker v. Canada (Minister of Citizenship and Immigration)
+	match = citations.RawCitationMatch("case_name", "Baker v. Canada", "Baker v Canada", 0, 15)
+
+	assert citations.is_self_case_name_match("Baker v. Canada (Minister of Citizenship and Immigration)", match)
+	assert citations.is_self_case_name_match("Baker v. Canada", match)
+
+
+def test_self_case_name_filter_keeps_longer_or_different_full_captions():
+	match = citations.RawCitationMatch("case_name", "Singh v. Canada", "Singh v Canada", 0, 15)
+
+	assert not citations.is_self_case_name_match("Singh v. Canada Border Services Agency", match)
+	assert not citations.is_self_case_name_match("Baker v. Canada (Minister of Citizenship and Immigration)", match)
+	assert not citations.is_self_case_name_match(None, match)

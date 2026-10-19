@@ -497,9 +497,13 @@ def reader_paragraph_layout(text: str) -> list[dict]:
     current: dict | None = None
     last_num: int | None = None
     intro_end: int | None = None
+    head_run: list[tuple[int, int]] = []  # headings directly before the first numbered paragraph
     for block in blocks:
         kind = block.get("type")
         start, end = block["start"], block["end"]
+        before_run = head_run
+        if intro_end is None:
+            head_run = head_run + [(start, end)] if kind == "heading" else []
         if kind == "para":
             num = block.get("num")
             follows = num is not None and (
@@ -509,6 +513,10 @@ def reader_paragraph_layout(text: str) -> list[dict]:
             if follows:
                 if intro_end is None:
                     intro_end = start
+                    for head_start, head_end in before_run:
+                        entries.append({"kind": "heading", "start": head_start, "end": head_end})
+                    if before_run:
+                        intro_end = before_run[0][0]
                 current = {"kind": "paragraph", "num": num, "start": start, "end": end}
                 entries.append(current)
                 last_num = num

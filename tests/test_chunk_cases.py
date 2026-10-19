@@ -324,3 +324,20 @@ def test_fewer_than_three_reader_paragraphs_falls_back_to_old_builder():
 
     assert rows
     assert not any(row.chunk_label == "intro" for row in rows)
+
+
+def test_reader_layout_splits_first_heading_off_the_intro():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nDate: 20170203\nBETWEEN:\nJOHN SMITH\nApplicant\nand\nTHE MINISTER\nRespondent\n"
+        "JUDGMENT AND REASONS\nI. Overview\n[1] First paragraph.\n[2] Second paragraph.\n"
+        "II. Analysis\n[3] Third paragraph.\n"
+    )
+
+    layout = reader_paragraph_layout(text)
+
+    assert [entry["kind"] for entry in layout] == ["intro", "heading", "paragraph", "paragraph", "heading", "paragraph"]
+    assert text[layout[0]["start"] : layout[0]["end"]].rstrip().endswith("JUDGMENT AND REASONS")
+    assert text[layout[1]["start"] : layout[1]["end"]] == "I. Overview"
+    assert layout[2]["num"] == 1

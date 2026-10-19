@@ -4,11 +4,40 @@ from __future__ import annotations
 
 from typing import Any
 
-from sqlalchemy import func, select
+from sqlalchemy import exists, func, select
 from sqlalchemy.orm import Session
 
-from .database import Case, CaseJudgeProfile, JudgeProfile
+from .case_types.taxonomy import TAXONOMY_VERSION
+from .database import Case, CaseJudgeProfile, CaseTypeLabel, JudgeProfile
 from .judge_aliases import member_ids
+
+NOT_IMMIGRATION_STATUS = "not_immigration"
+
+
+def case_is_not_immigration():
+	"""SQL test: the decision carries the explicit not_immigration label (current taxonomy version).
+
+	Unlabelled decisions do not match, so they stay in judge statistics. Pair with ``~`` to leave flagged ones out.
+	"""
+	return exists().where(
+		CaseTypeLabel.case_id == Case.id,
+		CaseTypeLabel.taxonomy_version == TAXONOMY_VERSION,
+		CaseTypeLabel.status == NOT_IMMIGRATION_STATUS,
+	)
+
+
+def flagged_not_immigration_ids(db: Session, case_ids) -> set[int]:
+	"""Which of these decisions carry the not_immigration label (one query; empty input does no query)."""
+	ids = list(case_ids)
+	if not ids:
+		return set()
+	return set(db.scalars(
+		select(CaseTypeLabel.case_id).where(
+			CaseTypeLabel.case_id.in_(ids),
+			CaseTypeLabel.taxonomy_version == TAXONOMY_VERSION,
+			CaseTypeLabel.status == NOT_IMMIGRATION_STATUS,
+		)
+	))
 
 _JUDGE_ISSUE_MINIMUM_DECISIONS = 10
 _FEDERAL_COURT_NAMES = {"fc", "federal court", "federal court of canada"}
@@ -77,9 +106,12 @@ def fetch_judge_profile_issues(db: Session, slug: str) -> dict[str, Any]:
 		linked_ids = select(CaseJudgeProfile.case_id).where(
 			CaseJudgeProfile.judge_profile_id.in_(member_ids(db, profile.id))
 		)
+		excluded = int(db.scalar(
+			select(func.count(Case.id)).where(Case.id.in_(linked_ids), case_is_not_immigration())
+		) or 0)
 		judge_cases = list(db.execute(
 			select(Case.id, Case.issues, Case.metadata_json)
-			.where(Case.id.in_(linked_ids))
+			.where(Case.id.in_(linked_ids), ~case_is_not_immigration())
 			.order_by(Case.id)
 		))
 		judge_by_issue: dict[str, list[Any]] = {}
@@ -93,7 +125,7 @@ def fetch_judge_profile_issues(db: Session, slug: str) -> dict[str, Any]:
 		}
 		federal_court_cases = list(db.execute(
 			select(Case.id, Case.issues, Case.metadata_json, Case.court)
-			.where(func.lower(func.trim(Case.court)).in_(tuple(_FEDERAL_COURT_NAMES)))
+			.where(func.lower(func.trim(Case.court)).in_(tuple(_FEDERAL_COURT_NAMES)), ~case_is_not_immigration())
 			.order_by(Case.id)
 		))
 		baseline_by_issue: dict[str, list[Any]] = {issue: [] for issue in visible_issues}
@@ -128,6 +160,7 @@ def fetch_judge_profile_issues(db: Session, slug: str) -> dict[str, Any]:
 			"status": "ok",
 			"profile": {"slug": profile.slug, "display_name": profile.display_name},
 			"issues": issues,
+			"excluded_non_immigration": excluded,
 			"hidden_issue_count": sum(
 				len(cases) < _JUDGE_ISSUE_MINIMUM_DECISIONS for cases in judge_by_issue.values()
 			),

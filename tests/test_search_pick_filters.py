@@ -77,3 +77,11 @@ def test_short_topic_query_also_matches_stored_tags():
 	analytics_service.fetch_analytics_search_cases(db, query="Duty of Fairness")
 	assert "FROM case_tags tq" in db.sql
 	assert db.params["topic_tag_0"] == "duty of fairness" and db.params["topic_tag_1"] == "duty_of_fairness"
+
+
+def test_year_filter_uses_case_date_like_the_facets():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, year="2019")
+	assert "reader_extracted'->>'date'" not in db.sql
+	assert "c.date >= CAST(:year_start AS date)" in db.sql
+	assert db.params["year_start"] == "2019-01-01" and db.params["year_end"] == "2020-01-01"

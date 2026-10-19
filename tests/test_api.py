@@ -1827,3 +1827,32 @@ def test_prototype_cases_clamps_to_first_page_when_out_of_range(monkeypatch):
     assert payload["total"] == 1
     assert payload["page"] == 1
     assert len(payload["items"]) == 1
+
+
+def test_inventory_is_paged_with_a_hard_cap():
+    class FakeResult:
+        def __init__(self, rows):
+            self.rows = rows
+
+        def all(self):
+            return self.rows
+
+    class FakeDb:
+        def __init__(self):
+            self.statements = []
+
+        def scalar(self, _statement):
+            return 7
+
+        def scalars(self, _statement):
+            return FakeResult([])
+
+        def execute(self, statement):
+            self.statements.append(statement)
+            return FakeResult([])
+
+    db = FakeDb()
+    result = routes.get_inventory(limit=100000, offset=-3, db=db)
+    assert result.total_cases == 7 and result.cases == []
+    paged = db.statements[-1]
+    assert paged._limit_clause.value == 500 and paged._offset_clause.value == 0

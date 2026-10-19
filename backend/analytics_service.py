@@ -57,7 +57,7 @@ from .judge_issue_record import (
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
-from .paragraph_search import search_paragraph_cases
+from .paragraph_search import ParagraphSearchTimeout, search_paragraph_cases, search_paragraph_phrase
 from .search_matching import identity_sql, matched_on_sql, sentence_words, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
@@ -1342,7 +1342,8 @@ def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 			COUNT(*) AS mentions,
 			COUNT(DISTINCT COALESCE(NULLIF(normalized_citation, ''), citation_text)) AS authorities,
 			COUNT(DISTINCT target_case_id) AS targets
-		FROM citations WHERE source_case_id IN :ids GROUP BY source_case_id
+		FROM citations WHERE source_case_id IN :ids AND target_case_id IS DISTINCT FROM source_case_id
+		GROUP BY source_case_id
 		"""
 	).bindparams(bindparam("ids", expanding=True))
 	for row in db.execute(outgoing, {"ids": case_ids}).mappings().all():
@@ -1464,6 +1465,17 @@ def fetch_analytics_search_cases(
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
 		paragraph_hits = search_paragraph_cases(db, query)
+		phrase_index_used = False
+		if not paragraph_hits and search_full_text:
+			# Short query with the full-text option: look in the paragraph index, not in every decision's full text.
+			try:
+				paragraph_hits = search_paragraph_phrase(db, query, timeout_ms=SEARCH_SCAN_TIMEOUT_MS)
+			except ParagraphSearchTimeout as error:
+				raise HTTPException(
+					status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+					detail="That search was too broad to finish in time. Add more specific words or untick full-text search.",
+				) from error
+			phrase_index_used = paragraph_hits is not None
 		if paragraph_hits:
 			# Sentence query with the paragraph index available: cases whose best paragraph matches the words.
 			paragraph_case_ids = [hit["case_id"] for hit in paragraph_hits]
@@ -1476,7 +1488,8 @@ def fetch_analytics_search_cases(
 		else:
 			if search_full_text:
 				# Whole-text phrase scan: only without paragraph hits, as OR-ing it in forces a scan of every case.
-				query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+				# When the paragraph index answered and found nothing, the full text has no match either.
+				query_fields += " OR c.summary ILIKE :query" if phrase_index_used else " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 			sentence_hits, sentence_filter, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
 			if sentence_filter:
 				# A sentence rarely appears verbatim; also accept cases containing most of its content words.
@@ -1563,8 +1576,15 @@ def fetch_analytics_search_cases(
 		else:
 			filters.append("FALSE")
 	if year:
-		params["year"] = f"{year}%"
-		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
+		# Same column as the year facet (c.date). The extracted cover-page date is free text ("December 19, 2019"),
+		# so a "2019%" prefix match missed most Supreme Court decisions. A range keeps the date index usable.
+		if len(year) == 4 and int(year) >= 1000:
+			params["year_start"] = f"{int(year)}-01-01"
+			params["year_end"] = f"{int(year) + 1}-01-01"
+			filters.append("c.date >= CAST(:year_start AS date) AND c.date < CAST(:year_end AS date)")
+		else:
+			params["year"] = f"{year}%"
+			filters.append("CAST(EXTRACT(YEAR FROM c.date) AS text) ILIKE :year")
 	where_clause = " AND ".join(filters)
 	if facets_only:
 		if search_full_text:

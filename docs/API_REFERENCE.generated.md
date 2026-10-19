@@ -612,6 +612,7 @@ Get Case Incoming Citations
 **Parameters**
 
 - `case_id` (path, required; integer)
+- `limit` (query, optional; integer | null)
 
 **Responses**
 
@@ -1582,9 +1583,20 @@ Merge Ingest Case
 
 Get Inventory
 
+Library totals plus one page of cases with their sources.
+
+`cases` holds at most `limit` rows (default 100, hard maximum 500) starting at `offset`, ordered by id;
+`total_cases` is always the full count, so page until offset reaches it. Unpaged, this was ~100 MB.
+
+**Parameters**
+
+- `limit` (query, optional; integer, default `100`)
+- `offset` (query, optional; integer, default `0`)
+
 **Responses**
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /issue-brief`
 

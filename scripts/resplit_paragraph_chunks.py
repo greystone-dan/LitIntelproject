@@ -13,6 +13,9 @@ A new row whose text is identical to an old row keeps that row's stored embeddin
 changes are dropped (the report counts both). The dry run does the whole change inside a transaction and rolls it
 back, so its reference and embedding counts are exact.
 
+The paragraph keyword index (table paragraph_search, no foreign key) is kept in step in the same transaction: the decision's
+old index rows are deleted and every new row is indexed; the undo record lists the old indexed chunk ids so --undo restores them.
+
 Every applied decision first writes a JSON undo record (old rows with their original ids and embeddings, and the old values of
 every reference changed). `--undo FILE` puts the old rows back and restores the references.
 
@@ -31,6 +34,7 @@ from datetime import date
 from pathlib import Path
 
 from sqlalchemy import delete, select, update
+from sqlalchemy import text as sql_text
 from sqlalchemy.orm import Session
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -58,6 +62,61 @@ ROW_COLUMNS = (
     "id", "case_id", "chunk_set", "chunk_index", "chunk_label", "paragraph_start", "paragraph_end",
     "text", "text_hash", "token_estimate", "embedding_model",
 )
+
+
+def search_index_exists(session: Session) -> bool:
+    """True when the paragraph keyword index (table paragraph_search) exists. It has no foreign key to case_chunks."""
+    return bool(session.execute(sql_text("SELECT to_regclass('public.paragraph_search') IS NOT NULL")).scalar())
+
+
+def indexed_chunk_ids(session: Session, case_id: int) -> list[int]:
+    rows = session.execute(sql_text("SELECT chunk_id FROM paragraph_search WHERE case_id = :case_id"), {"case_id": case_id})
+    return sorted(row[0] for row in rows)
+
+
+def reindex_chunks(session: Session, chunk_ids: list[int]) -> None:
+    if chunk_ids:
+        session.execute(
+            sql_text(
+                "INSERT INTO paragraph_search (chunk_id, case_id, tsv) "
+                "SELECT id, case_id, to_tsvector('english', text) FROM case_chunks "
+                "WHERE id = ANY(:ids) AND chunk_set = 'paragraph' ON CONFLICT (chunk_id) DO NOTHING"
+            ),
+            {"ids": chunk_ids},
+        )
+
+
+LAYER_TABLES = ("paragraph_notes", "paragraph_note_links", "paragraph_positions", "paragraph_citation_edges")
+LAYER_CASE_COLUMNS = {
+    "paragraph_notes": ("case_id",),
+    "paragraph_note_links": ("case_id", "other_case_id"),
+    "paragraph_positions": ("case_id",),
+    "paragraph_citation_edges": ("source_case_id", "target_case_id"),
+}
+
+
+def renumbered_paragraphs(old_rows, new_rows, prefix: int = 60) -> int:
+    """Paragraph numbers whose text no longer starts the same way. Notes, note links, positions and cited-by edges are
+    keyed by (decision, paragraph number), so only these numbers could point at different text after a re-split."""
+    def opening(row) -> str:
+        return (row.text or "").split("\n", 1)[0][:prefix]
+
+    new_start = {row.chunk_label: opening(row) for row in new_rows if (row.chunk_label or "").isdigit()}
+    changed = 0
+    for row in old_rows:
+        label = row.chunk_label or ""
+        if label.isdigit() and new_start.get(label) != opening(row):
+            changed += 1
+    return changed
+
+
+def has_layer_rows(session: Session, case_id: int) -> bool:
+    """True when notes, note links, positions or cited-by edges exist for the decision (they hold paragraph numbers)."""
+    for table, columns in LAYER_CASE_COLUMNS.items():
+        condition = " OR ".join(f"{column} = :case_id" for column in columns)
+        if session.execute(sql_text(f"SELECT 1 FROM {table} WHERE {condition} LIMIT 1"), {"case_id": case_id}).first():
+            return True
+    return False
 
 
 def row_signature(rows) -> list[tuple]:
@@ -182,7 +241,11 @@ def apply_case(session: Session, case: Case, plan: dict, undo_dir: Path | None) 
         "old_rows": [row_to_dict(row) for row in old_rows],
         "own": [],
         "target": [],
+        "search": [],
     }
+    keep_index = search_index_exists(session)
+    if keep_index:
+        undo["search"] = indexed_chunk_ids(session, case.id)
 
     # New rows exist before anything moves, so every reference always has a valid chunk to point at.
     plan["embeddings_carried"], plan["embeddings_lost"] = carry_over_embeddings(old_rows, new_rows)
@@ -235,6 +298,10 @@ def apply_case(session: Session, case: Case, plan: dict, undo_dir: Path | None) 
 
     if old_ids:
         session.execute(delete(CaseChunk).where(CaseChunk.id.in_(old_ids)))
+    if keep_index:
+        # Same transaction as the row swap: no index row may point at a deleted chunk, and every new row is searchable.
+        session.execute(sql_text("DELETE FROM paragraph_search WHERE case_id = :case_id"), {"case_id": case.id})
+        reindex_chunks(session, [row.id for row in new_rows])
     return {
         "moved": moved, "cleared": cleared, "own": len(undo["own"]), "target": len(undo["target"]),
         "embeddings_carried": plan["embeddings_carried"], "embeddings_lost": plan["embeddings_lost"],
@@ -263,6 +330,9 @@ def undo_case(session: Session, path: Path) -> None:
         )
     if current_ids:
         session.execute(delete(CaseChunk).where(CaseChunk.id.in_(current_ids)))
+    if "search" in record and search_index_exists(session):
+        session.execute(sql_text("DELETE FROM paragraph_search WHERE case_id = :case_id"), {"case_id": case_id})
+        reindex_chunks(session, record["search"])
 
 
 def parse_args() -> argparse.Namespace:
@@ -295,7 +365,10 @@ def main() -> None:
     if args.limit:
         case_ids = case_ids[: args.limit]
     totals = {"decisions": 0, "changed": 0, "unchanged": 0, "old_rows": 0, "new_rows": 0,
-              "old_numbered": 0, "new_numbered": 0, "moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0}
+              "old_numbered": 0, "new_numbered": 0, "moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0,
+              "new_rows_identical_to_an_old_row": 0, "old_rows_embedded": 0, "renumbered_paragraphs": 0,
+              "decisions_renumbered_with_layers": 0, "old_rows_in_decisions_total": 0}
+    layered_ids: list[int] = []
     report_rows = []
     undo_dir = Path(args.undo_dir) if args.apply else None
 
@@ -311,6 +384,20 @@ def main() -> None:
             if args.count_only:
                 changed = not plan["same"] and not (plan["new_total"] == 0 and plan["old_total"] > 0)
                 totals["changed" if changed else "unchanged"] += 1
+                if changed:
+                    kept = {row.text_hash for row in plan["old_rows"]}
+                    totals["old_rows"] += plan["old_total"]
+                    totals["new_rows"] += plan["new_total"]
+                    totals["old_numbered"] += plan["old_numbered"]
+                    totals["new_numbered"] += plan["new_numbered"]
+                    totals["new_rows_identical_to_an_old_row"] += sum(1 for row in plan["new_rows"] if row.text_hash in kept)
+                    totals["old_rows_embedded"] += plan["old_embedded"]
+                    renumbered = renumbered_paragraphs(plan["old_rows"], plan["new_rows"])
+                    totals["renumbered_paragraphs"] += renumbered
+                    if renumbered and has_layer_rows(session, case_id):
+                        totals["decisions_renumbered_with_layers"] += 1
+                        layered_ids.append(case_id)
+                totals["old_rows_in_decisions_total"] += plan["old_total"]
                 session.rollback()
                 continue
             if plan["same"] or (plan["new_total"] == 0 and plan["old_total"] > 0):
@@ -350,6 +437,8 @@ def main() -> None:
             writer = csv.DictWriter(handle, fieldnames=list(report_rows[0]))
             writer.writeheader()
             writer.writerows(report_rows)
+    if layered_ids:
+        print("renumbered_with_layers_case_ids=" + ",".join(str(value) for value in layered_ids[:500]))
     mode = "APPLIED" if args.apply else "COUNT ONLY (read-only)" if args.count_only else "DRY RUN (nothing written)"
     print(mode)
     for key, value in totals.items():

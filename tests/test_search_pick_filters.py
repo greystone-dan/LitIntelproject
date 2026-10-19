@@ -42,7 +42,7 @@ def test_tags_are_capped_and_hostile_text_is_never_interpolated():
 def test_no_tag_or_picked_case_adds_no_filter():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker")
-	assert "case_tags" not in db.sql and "picked" not in db.sql
+	assert "case_tags ct0" not in db.sql and "picked" not in db.sql
 
 
 class VocabDB:

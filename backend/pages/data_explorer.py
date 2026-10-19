@@ -1086,7 +1086,7 @@ async function openDecision(caseId){
  const item=data.case,metrics=data.citation_metrics;readerState.payload={item,citations:data.citations||[],readerData};
  document.getElementById('decisionTitle').textContent=item.title||'Untitled decision';
  const metaParts=[item.citation,item.court,item.date,item.judge,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':`${num(metrics.citation_mentions)} citation mentions`].filter(Boolean);
- const docket=extractDocketFromPayload(item),fcHistoryMeta=docket?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">Open FC History</a>`:'',sourceMeta=item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'';
+ const docket=extractDocketFromPayload(item),fcHistoryMeta=/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">Open FC History</a>`:'',sourceMeta=item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'';
  document.getElementById('decisionMeta').innerHTML=[...metaParts.map(value=>`<span class="meta-pill">${esc(value)}</span>`),sourceMeta,fcHistoryMeta].filter(Boolean).join('');
  if(docket){const fcInput=document.getElementById('fcImmInput');if(fcInput){fcInput.value=docket;fcInput.dataset.fcDocket=docket;}}
  if(readerData)renderCaseReaderPane(readerData);else document.getElementById('decisionTarget').innerHTML='<div class="reader-status">Case information is unavailable.</div>';
@@ -1586,7 +1586,7 @@ function sideRenderHeader(d){
  const statuteStatus=meta.querySelector('#decisionStatuteStatus'),docket=extractDocketFromPayload(item)||cf.docket;
  const caseType=sideCaseTypeText(d);
  const facts=[cf.docket?`<span class="rh-fact" title="Court file (IMM) number">${esc(cf.docket)}</span>`:'',cf.decided?`<span class="rh-fact" title="Decision date">${esc(cf.decided)}</span>`:'',cf.judge?`<span class="rh-fact" title="Decision maker">${esc(cf.judge)}</span>`:''].filter(Boolean).join('');
- const links=[item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'',docket?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC History</a>`:''];
+ const links=[item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'',/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC History</a>`:''];
  meta.innerHTML=[caseType?`<span class="meta-pill rh-casetype" title="Case type, worked out from the statute provisions the decision discusses (no AI)">${esc(caseType)}</span>`:'',cf.outcome?`<span class="meta-pill rh-outcome ${cf.outcome.cls}">${cf.outcome.text}</span>`:'',facts?`<span class="rh-facts">${facts}</span>`:''].concat(links).filter(Boolean).join('');
  if(statuteStatus)meta.append(statuteStatus);
 }

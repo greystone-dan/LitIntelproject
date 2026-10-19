@@ -45,11 +45,17 @@ window.setSearchStatus=function(message,state){
  return baseSetStatus(message,state);
 };
 /* the real number of matches, once the counts arrive (a page is capped at 50 rows) */
-window.__spShowTotal=function(total){
- total=Number(total);if(!Number.isFinite(total)||total<=0)return;
+let knownTotal=0;
+function refreshMeta(total){
  const meta=$('searchMeta');if(!meta||meta.dataset.state!=='success')return;
  const query=($('searchQuery').value||'').trim(),rows=document.querySelectorAll('#searchResults .case-result').length;
  meta.textContent=`${fmtNum(total)} decision${total===1?'':'s'}${query?` for “${query}”`:''}${total>rows?` · showing the first ${fmtNum(rows)}`:''}`;
+}
+window.__spShowTotal=function(total){
+ total=Number(total);if(!Number.isFinite(total)||total<=0)return;
+ knownTotal=total;
+ refreshMeta(total);
+ const rows=document.querySelectorAll('#searchResults .case-result').length;
  if(moreButton&&!moreButton.hidden&&rows>=total)moreButton.hidden=true;
 };
 
@@ -77,6 +83,7 @@ function rememberSearch(query){
 const baseRun=window.runProfessionalSearch;
 window.runProfessionalSearch=async function(){
  if(moreButton)moreButton.hidden=true;
+ knownTotal=0;
  const result=await baseRun.apply(this,arguments);
  afterSearch();
  return result;
@@ -94,6 +101,7 @@ moreButton?.addEventListener('click',async()=>{
   [...holder.children].forEach(node=>box.appendChild(node));
   box.querySelectorAll('.case-result').forEach((button,index)=>{if(index>=start&&!button.dataset.bound){button.dataset.bound='1';button.addEventListener('click',()=>openDecision(Number(button.dataset.caseId)));}});
   shown+=results.length;
+  if(knownTotal)refreshMeta(knownTotal);
   moreButton.hidden=results.length<PAGE;
   if(results.length){
    const stats=await fetch(`/analytics/search/citation-stats?ids=${results.map(item=>item.case_id).join(',')}`).then(r=>r.ok?r.json():null).catch(()=>null);

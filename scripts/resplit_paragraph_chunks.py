@@ -86,6 +86,39 @@ def reindex_chunks(session: Session, chunk_ids: list[int]) -> None:
         )
 
 
+LAYER_TABLES = ("paragraph_notes", "paragraph_note_links", "paragraph_positions", "paragraph_citation_edges")
+LAYER_CASE_COLUMNS = {
+    "paragraph_notes": ("case_id",),
+    "paragraph_note_links": ("case_id", "other_case_id"),
+    "paragraph_positions": ("case_id",),
+    "paragraph_citation_edges": ("source_case_id", "target_case_id"),
+}
+
+
+def renumbered_paragraphs(old_rows, new_rows, prefix: int = 60) -> int:
+    """Paragraph numbers whose text no longer starts the same way. Notes, note links, positions and cited-by edges are
+    keyed by (decision, paragraph number), so only these numbers could point at different text after a re-split."""
+    def opening(row) -> str:
+        return (row.text or "").split("\n", 1)[0][:prefix]
+
+    new_start = {row.chunk_label: opening(row) for row in new_rows if (row.chunk_label or "").isdigit()}
+    changed = 0
+    for row in old_rows:
+        label = row.chunk_label or ""
+        if label.isdigit() and new_start.get(label) != opening(row):
+            changed += 1
+    return changed
+
+
+def has_layer_rows(session: Session, case_id: int) -> bool:
+    """True when notes, note links, positions or cited-by edges exist for the decision (they hold paragraph numbers)."""
+    for table, columns in LAYER_CASE_COLUMNS.items():
+        condition = " OR ".join(f"{column} = :case_id" for column in columns)
+        if session.execute(sql_text(f"SELECT 1 FROM {table} WHERE {condition} LIMIT 1"), {"case_id": case_id}).first():
+            return True
+    return False
+
+
 def row_signature(rows) -> list[tuple]:
     return [(row.chunk_label, row.paragraph_start, row.paragraph_end, row.text_hash) for row in rows]
 
@@ -332,7 +365,10 @@ def main() -> None:
     if args.limit:
         case_ids = case_ids[: args.limit]
     totals = {"decisions": 0, "changed": 0, "unchanged": 0, "old_rows": 0, "new_rows": 0,
-              "old_numbered": 0, "new_numbered": 0, "moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0}
+              "old_numbered": 0, "new_numbered": 0, "moved": 0, "cleared": 0, "embeddings_carried": 0, "embeddings_lost": 0,
+              "new_rows_identical_to_an_old_row": 0, "old_rows_embedded": 0, "renumbered_paragraphs": 0,
+              "decisions_renumbered_with_layers": 0, "old_rows_in_decisions_total": 0}
+    layered_ids: list[int] = []
     report_rows = []
     undo_dir = Path(args.undo_dir) if args.apply else None
 
@@ -348,6 +384,20 @@ def main() -> None:
             if args.count_only:
                 changed = not plan["same"] and not (plan["new_total"] == 0 and plan["old_total"] > 0)
                 totals["changed" if changed else "unchanged"] += 1
+                if changed:
+                    kept = {row.text_hash for row in plan["old_rows"]}
+                    totals["old_rows"] += plan["old_total"]
+                    totals["new_rows"] += plan["new_total"]
+                    totals["old_numbered"] += plan["old_numbered"]
+                    totals["new_numbered"] += plan["new_numbered"]
+                    totals["new_rows_identical_to_an_old_row"] += sum(1 for row in plan["new_rows"] if row.text_hash in kept)
+                    totals["old_rows_embedded"] += plan["old_embedded"]
+                    renumbered = renumbered_paragraphs(plan["old_rows"], plan["new_rows"])
+                    totals["renumbered_paragraphs"] += renumbered
+                    if renumbered and has_layer_rows(session, case_id):
+                        totals["decisions_renumbered_with_layers"] += 1
+                        layered_ids.append(case_id)
+                totals["old_rows_in_decisions_total"] += plan["old_total"]
                 session.rollback()
                 continue
             if plan["same"] or (plan["new_total"] == 0 and plan["old_total"] > 0):
@@ -387,6 +437,8 @@ def main() -> None:
             writer = csv.DictWriter(handle, fieldnames=list(report_rows[0]))
             writer.writeheader()
             writer.writerows(report_rows)
+    if layered_ids:
+        print("renumbered_with_layers_case_ids=" + ",".join(str(value) for value in layered_ids[:500]))
     mode = "APPLIED" if args.apply else "COUNT ONLY (read-only)" if args.count_only else "DRY RUN (nothing written)"
     print(mode)
     for key, value in totals.items():

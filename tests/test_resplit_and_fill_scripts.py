@@ -148,3 +148,14 @@ def test_apply_case_skips_the_index_when_the_table_is_missing(tmp_path):
     apply_case(session, case, plan, tmp_path)
 
     assert not any("paragraph_search" in statement and "to_regclass" not in statement for statement, _ in session.statements)
+
+
+def test_renumbered_paragraphs_counts_numbers_that_point_at_different_text():
+    from scripts.resplit_paragraph_chunks import renumbered_paragraphs
+
+    old = [_row("1", 1, 1, "[1] First"), _row("2", 2, 2, "[2] Second\nIssue Estoppel"), _row("3", 3, 3, "[3] Third")]
+    same_numbers = [_row("1", 1, 1, "[1] First"), _row("2", 2, 2, "[2] Second"), _row("heading", None, None, "Issue Estoppel"), _row("3", 3, 3, "[3] Third")]
+    shifted = [_row("1", 1, 1, "[1] First"), _row("2", 2, 2, "[2] Third"), _row("3", 3, 3, "[3] Fourth")]
+
+    assert renumbered_paragraphs(old, same_numbers) == 0
+    assert renumbered_paragraphs(old, shifted) == 2

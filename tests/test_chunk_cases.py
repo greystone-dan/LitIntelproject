@@ -377,3 +377,16 @@ def test_reader_layout_splits_labelled_headings_but_not_transcript_answers():
 
     assert ("heading", "B. Court of Appeal, 2015 ABCA 85 — Slatter J.A.") in pieces
     assert ("heading", "A. We had not tested any of them.") not in pieces
+
+
+def test_reader_layout_keeps_a_quoted_paragraph_number_inside_the_real_paragraph():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nJUDGMENT AND REASONS\n[1] One.\n[2] Two.\n[3] Justice Pelletier explained:\n"
+        "[5] To defer means to put over to another time.\n[4] I agree with that explanation.\n[5] Five.\n[6] Six.\n"
+    )
+
+    numbers = [entry["num"] for entry in reader_paragraph_layout(text) if entry["kind"] == "paragraph"]
+
+    assert numbers == [1, 2, 3, 4, 5, 6]

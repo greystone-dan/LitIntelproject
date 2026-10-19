@@ -546,6 +546,20 @@ def _split_hanging_headings(text: str, entries: list[dict]) -> list[dict]:
     return out
 
 
+def _expected_number_comes_later(blocks: list[dict], index: int, expected: int, window: int = 3) -> bool:
+    """True when paragraph ``expected`` is one of the next few numbered blocks after ``blocks[index]``."""
+    seen = 0
+    for block in blocks[index + 1 :]:
+        if block.get("type") != "para" or block.get("num") is None:
+            continue
+        if block["num"] == expected:
+            return True
+        seen += 1
+        if seen >= window:
+            return False
+    return False
+
+
 def _tail_after_last_paragraph(text: str, entries: list[dict]) -> list[dict]:
     """After the last numbered paragraph a heading row keeps only its first line ("ORDER"); the order text, counsel
     list or appendix that followed it is the tail, not part of a heading."""
@@ -578,7 +592,7 @@ def reader_paragraph_layout(text: str) -> list[dict]:
     last_num: int | None = None
     intro_end: int | None = None
     head_run: list[tuple[int, int]] = []  # headings directly before the first numbered paragraph
-    for block in blocks:
+    for index, block in enumerate(blocks):
         kind = block.get("type")
         start, end = block["start"], block["end"]
         before_run = head_run
@@ -590,6 +604,8 @@ def reader_paragraph_layout(text: str) -> list[dict]:
                 (last_num is None and 1 <= num <= READER_MAX_GAP)
                 or (last_num is not None and last_num < num <= last_num + READER_MAX_GAP)
             )
+            if follows and last_num is not None and num > last_num + 1 and _expected_number_comes_later(blocks, index, last_num + 1):
+                follows = False  # a quoted paragraph number ("[31] ...") ahead of the real paragraph 30
             if follows:
                 if intro_end is None:
                     intro_end = start

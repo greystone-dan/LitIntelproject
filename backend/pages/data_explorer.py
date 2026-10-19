@@ -1468,8 +1468,22 @@ function activateResearchTab(tabKey,updateUrl=true){
 function restoreResearchNavigation(){const params=new URLSearchParams(location.search),group=params.get('group');activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:([...params.keys()].length?'search':'about')),false)}
 document.addEventListener('click',event=>{const group=event.target.closest?.('[data-group]'),tab=event.target.closest?.('[data-tab]');if(!group&&!tab)return;event.preventDefault();event.stopImmediatePropagation();activateResearchTab(group?lastGroupTabs[group.dataset.group]:tab.dataset.tab);},true);
 document.querySelectorAll('.primary-groups,.group-views').forEach(nav=>nav.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;const items=[...nav.querySelectorAll('button,a')].filter(item=>!item.hidden),index=items.indexOf(document.activeElement);if(index<0)return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?items.length-1:(index+(event.key==='ArrowRight'?1:-1)+items.length)%items.length;items[next].focus();}));
-window.addEventListener('popstate',()=>{restoreResearchNavigation();const params=new URLSearchParams(location.search),caseId=Number(params.get('case_id'));if((params.get('tab')||'search')==='search'&&caseId>0)openDecision(caseId)});
+window.addEventListener('popstate',()=>{restoreResearchNavigation();const params=new URLSearchParams(location.search),caseId=Number(params.get('case_id'));if((params.get('tab')||'search')==='search'){if(caseId>0)openDecision(caseId);else if(!document.getElementById('caseReaderPanel').hidden)closeDecisionReader()}});
 restoreResearchNavigation();
+/* Leaving the case view drops case_id from the address, so Back / reload land on the results and not on the case again. */
+const urlCloseDecisionReader=closeDecisionReader;
+closeDecisionReader=function(){
+  const url=new URL(location.href);
+  if(url.searchParams.has('case_id')){['case_id','paragraph'].forEach(key=>url.searchParams.delete(key));history.replaceState(null,'',url.pathname+url.search+url.hash);}
+  urlCloseDecisionReader();
+};
+/* A case opened straight from a link has no results to go back to, so the button says what it does instead. */
+const backLabelOpenDecision=openDecision;
+openDecision=async function(caseId){
+  await backLabelOpenDecision(caseId);
+  const back=document.querySelector?.('.return-to-results');
+  if(back&&/^\u2190 (Back to case results|Search cases)$/.test(back.textContent.trim()))back.textContent=document.getElementById?.('searchResults')?.children?.length?'\u2190 Back to case results':'\u2190 Search cases';
+};
 let paragraphSimilarityRequest=0;
 const paragraphSimilarityOpenDecision=openDecision;
 openDecision=async function(caseId){

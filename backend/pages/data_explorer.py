@@ -1481,8 +1481,8 @@ closeDecisionReader=function(){
 const backLabelOpenDecision=openDecision;
 openDecision=async function(caseId){
   await backLabelOpenDecision(caseId);
-  const back=document.querySelector('.return-to-results');
-  if(back&&/^\u2190 (Back to case results|Search cases)$/.test(back.textContent.trim()))back.textContent=document.getElementById('searchResults')?.children.length?'\u2190 Back to case results':'\u2190 Search cases';
+  const back=document.querySelector?.('.return-to-results');
+  if(back&&/^\u2190 (Back to case results|Search cases)$/.test(back.textContent.trim()))back.textContent=document.getElementById?.('searchResults')?.children?.length?'\u2190 Back to case results':'\u2190 Search cases';
 };
 let paragraphSimilarityRequest=0;
 const paragraphSimilarityOpenDecision=openDecision;

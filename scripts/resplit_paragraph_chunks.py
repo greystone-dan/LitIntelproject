@@ -13,6 +13,9 @@ A new row whose text is identical to an old row keeps that row's stored embeddin
 changes are dropped (the report counts both). The dry run does the whole change inside a transaction and rolls it
 back, so its reference and embedding counts are exact.
 
+The paragraph keyword index (table paragraph_search, no foreign key) is kept in step in the same transaction: the decision's
+old index rows are deleted and every new row is indexed; the undo record lists the old indexed chunk ids so --undo restores them.
+
 Every applied decision first writes a JSON undo record (old rows with their original ids and embeddings, and the old values of
 every reference changed). `--undo FILE` puts the old rows back and restores the references.
 
@@ -31,6 +34,7 @@ from datetime import date
 from pathlib import Path
 
 from sqlalchemy import delete, select, update
+from sqlalchemy import text as sql_text
 from sqlalchemy.orm import Session
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -58,6 +62,28 @@ ROW_COLUMNS = (
     "id", "case_id", "chunk_set", "chunk_index", "chunk_label", "paragraph_start", "paragraph_end",
     "text", "text_hash", "token_estimate", "embedding_model",
 )
+
+
+def search_index_exists(session: Session) -> bool:
+    """True when the paragraph keyword index (table paragraph_search) exists. It has no foreign key to case_chunks."""
+    return bool(session.execute(sql_text("SELECT to_regclass('public.paragraph_search') IS NOT NULL")).scalar())
+
+
+def indexed_chunk_ids(session: Session, case_id: int) -> list[int]:
+    rows = session.execute(sql_text("SELECT chunk_id FROM paragraph_search WHERE case_id = :case_id"), {"case_id": case_id})
+    return sorted(row[0] for row in rows)
+
+
+def reindex_chunks(session: Session, chunk_ids: list[int]) -> None:
+    if chunk_ids:
+        session.execute(
+            sql_text(
+                "INSERT INTO paragraph_search (chunk_id, case_id, tsv) "
+                "SELECT id, case_id, to_tsvector('english', text) FROM case_chunks "
+                "WHERE id = ANY(:ids) AND chunk_set = 'paragraph' ON CONFLICT (chunk_id) DO NOTHING"
+            ),
+            {"ids": chunk_ids},
+        )
 
 
 def row_signature(rows) -> list[tuple]:
@@ -182,7 +208,11 @@ def apply_case(session: Session, case: Case, plan: dict, undo_dir: Path | None) 
         "old_rows": [row_to_dict(row) for row in old_rows],
         "own": [],
         "target": [],
+        "search": [],
     }
+    keep_index = search_index_exists(session)
+    if keep_index:
+        undo["search"] = indexed_chunk_ids(session, case.id)
 
     # New rows exist before anything moves, so every reference always has a valid chunk to point at.
     plan["embeddings_carried"], plan["embeddings_lost"] = carry_over_embeddings(old_rows, new_rows)
@@ -235,6 +265,10 @@ def apply_case(session: Session, case: Case, plan: dict, undo_dir: Path | None) 
 
     if old_ids:
         session.execute(delete(CaseChunk).where(CaseChunk.id.in_(old_ids)))
+    if keep_index:
+        # Same transaction as the row swap: no index row may point at a deleted chunk, and every new row is searchable.
+        session.execute(sql_text("DELETE FROM paragraph_search WHERE case_id = :case_id"), {"case_id": case.id})
+        reindex_chunks(session, [row.id for row in new_rows])
     return {
         "moved": moved, "cleared": cleared, "own": len(undo["own"]), "target": len(undo["target"]),
         "embeddings_carried": plan["embeddings_carried"], "embeddings_lost": plan["embeddings_lost"],
@@ -263,6 +297,9 @@ def undo_case(session: Session, path: Path) -> None:
         )
     if current_ids:
         session.execute(delete(CaseChunk).where(CaseChunk.id.in_(current_ids)))
+    if "search" in record and search_index_exists(session):
+        session.execute(sql_text("DELETE FROM paragraph_search WHERE case_id = :case_id"), {"case_id": case_id})
+        reindex_chunks(session, record["search"])
 
 
 def parse_args() -> argparse.Namespace:

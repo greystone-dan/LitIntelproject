@@ -446,3 +446,16 @@ def test_case_type_facet_uses_stored_labels_and_labels_known_keys():
 	rows = analytics_service._case_type_facet(db, "1=1", {}, None)
 	assert [r["value"] for r in rows] == ["refugee_claim"] and rows[0]["count"] == 5
 	assert rows[0]["label"]
+
+
+@pytest.mark.parametrize("params", [
+	{"year": "abcd"}, {"sort_by": "bogus"}, {"limit": -1}, {"offset": -5},
+])
+def test_search_rejects_values_it_used_to_ignore(params):
+	app = FastAPI()
+	app.include_router(routes.router)
+	app.dependency_overrides[routes.get_db] = lambda: AnalyticsDB()
+	with TestClient(app) as client:
+		assert client.get("/analytics/search/cases", params=params).status_code == 422
+		ok = client.get("/analytics/search/cases", params={"year": "2019", "sort_by": "newest", "limit": 5})
+	assert ok.status_code == 200

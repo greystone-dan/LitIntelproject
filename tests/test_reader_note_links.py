@@ -11,6 +11,16 @@ from backend.main import app
 from backend.reader_layers import LINKS_LABEL, case_note_links
 
 
+@pytest.fixture(autouse=True)
+def links_on(monkeypatch):
+	monkeypatch.setenv("ILIT_NOTE_LINKS", "1")
+
+
+def test_links_hidden_unless_flag_is_on(db, monkeypatch):
+	monkeypatch.delenv("ILIT_NOTE_LINKS", raising=False)
+	assert case_note_links(1, db) == {"available": False}
+
+
 @pytest.fixture
 def db():
 	engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)

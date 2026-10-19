@@ -159,3 +159,12 @@ def test_renumbered_paragraphs_counts_numbers_that_point_at_different_text():
 
     assert renumbered_paragraphs(old, same_numbers) == 0
     assert renumbered_paragraphs(old, shifted) == 2
+
+
+def test_renumbered_paragraphs_ignores_a_heading_glued_before_the_marker():
+    from scripts.resplit_paragraph_chunks import renumbered_paragraphs
+
+    old = [_row("1", 1, 1, "I. Overview [1] The Applicant is a citizen"), _row("2", 2, 2, "[2] Second")]
+    new = [_row("heading", None, None, "I. Overview"), _row("1", 1, 1, "[1] The Applicant is a citizen"), _row("2", 2, 2, "[2] Second")]
+
+    assert renumbered_paragraphs(old, new) == 0

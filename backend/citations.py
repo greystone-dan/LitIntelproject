@@ -3231,7 +3231,7 @@ def compute_citation_metrics(session: Session) -> int:
 	out_degree: dict[int, int] = defaultdict(int)
 	for source_case_id, count in session.execute(
 		select(Citation.source_case_id, func.count())
-		.where(Citation.target_case_id.is_not(None))
+		.where(Citation.target_case_id.is_not(None), Citation.source_case_id != Citation.target_case_id)
 		.group_by(Citation.source_case_id)
 	):
 		if source_case_id is not None:

@@ -1334,7 +1334,8 @@ def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 			COUNT(*) AS mentions,
 			COUNT(DISTINCT COALESCE(NULLIF(normalized_citation, ''), citation_text)) AS authorities,
 			COUNT(DISTINCT target_case_id) AS targets
-		FROM citations WHERE source_case_id IN :ids GROUP BY source_case_id
+		FROM citations WHERE source_case_id IN :ids AND target_case_id IS DISTINCT FROM source_case_id
+		GROUP BY source_case_id
 		"""
 	).bindparams(bindparam("ids", expanding=True))
 	for row in db.execute(outgoing, {"ids": case_ids}).mappings().all():

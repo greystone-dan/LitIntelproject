@@ -1542,8 +1542,15 @@ def fetch_analytics_search_cases(
 		else:
 			filters.append("FALSE")
 	if year:
-		params["year"] = f"{year}%"
-		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
+		# Same column as the year facet (c.date). The extracted cover-page date is free text ("December 19, 2019"),
+		# so a "2019%" prefix match missed most Supreme Court decisions. A range keeps the date index usable.
+		if len(year) == 4 and int(year) >= 1000:
+			params["year_start"] = f"{int(year)}-01-01"
+			params["year_end"] = f"{int(year) + 1}-01-01"
+			filters.append("c.date >= CAST(:year_start AS date) AND c.date < CAST(:year_end AS date)")
+		else:
+			params["year"] = f"{year}%"
+			filters.append("CAST(EXTRACT(YEAR FROM c.date) AS text) ILIKE :year")
 	where_clause = " AND ".join(filters)
 	if facets_only:
 		if search_full_text:

@@ -70,3 +70,10 @@ def test_tag_suggestions_match_substring_prefix_first_and_cache_the_vocabulary()
 	assert rows[0]["value"] == "reasonableness" and rows[0]["count"] == 900
 	assert [r["label"] for r in analytics_service.fetch_tag_suggestions(VocabDB(), "removal order")] == ["removal order"]
 	assert VocabDB.calls == 1
+
+
+def test_short_topic_query_also_matches_stored_tags():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Duty of Fairness")
+	assert "FROM case_tags tq" in db.sql
+	assert db.params["topic_tag_0"] == "duty of fairness" and db.params["topic_tag_1"] == "duty_of_fairness"

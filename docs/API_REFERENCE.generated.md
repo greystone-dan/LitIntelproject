@@ -6,7 +6,7 @@ Generated: 2026-10-18T18:59:17.711278+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 140 across 137 paths
-Hidden operations: 110 excluded from OpenAPI
+Hidden operations: 111 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -2901,6 +2901,16 @@ Handler: `backend.routes.discussion_units_sandbox_search`
 - `limit` (int; default `50`)
 - `offset` (int; default `0`)
 - `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /favicon.ico`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.main.favicon`
 
 **Responses**
 

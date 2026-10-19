@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 184
+Active scripts documented: 189
 
 ## Catalog
 
@@ -106,6 +106,11 @@ Active scripts documented: 184
 | `fetch_position_texts.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_position_texts.py --help` |
 | `fill_fca_headline_outcomes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_fca_headline_outcomes.py --help` |
 | `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
+| `fix_common.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_common.py --help` |
+| `fix_junk_judges.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judges.py --help` |
+| `fix_non_immigration_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_non_immigration_report.py --help` |
+| `fix_own_caption_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_own_caption_links.py --help` |
+| `fix_self_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_self_citations.py --help` |
 | `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
@@ -1537,6 +1542,76 @@ Active scripts documented: 184
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help
+```
+
+## `scripts/fix_common.py`
+
+**Purpose:** Shared helpers for the scripts/fix_*.py database repair scripts (undo files, batching). Every fix script is a dry run unless --apply is given, writes an undo file BEFORE it changes anything, and can put the rows back with --undo FILE. Undo files are JSON lines (one row per line) in data/db_fix_backups/ (ignored by git).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_common.py --help
+```
+
+## `scripts/fix_junk_judges.py`
+
+**Purpose:** Clear or replace junk judge values in cases.metadata_json -> reader_extracted -> judge. Dry run by default. Why not just re-run scripts/backfill_fc_case_metadata.py: since PR 576 the extractor (fc_ingest/document_scraper.py, _is_judge_junk) throws away court names, annex lines, counsel labels and rule lines, but that backfill only overwrites a field when the new extraction HAS a value ("if not value: continue"). When the fixed extractor finds no judge at all, the old junk value stays. It also only looks at the newest --limit FC/FCA decisions and has no undo. This script touches only the `judge` key, only on rows whose stored judge is junk by the same test. python scripts/fix_junk_judges.py # dry run: counts by court, top junk strings, planned replacements python scripts/fix_junk_judges.py --apply --expected-count N # save an undo file, then fix the rows python scripts/fix_junk_judges.py --undo data/db_fix_backups/junk_judges_<stamp>.jsonl For each junk row the text is re-extracted with the current extractor. A usable judge replaces the junk; if none is found the judge key is removed (so the case simply has no judge). --no-reextract only removes. Backup first: this edits the cases table (metadata_json is rewritten for the listed rows only); the undo file holds the old judge value of every row. After --apply, judge pages only change once judge profiles are rebuilt: run python scripts/backfill_judge_profiles.py (adds profiles for the new values; it does NOT delete old junk profiles or case_judge_profiles links, which need a separate cleanup), and recompute any cached judge stats.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_junk_judges.py --help
+```
+
+## `scripts/fix_non_immigration_report.py`
+
+**Purpose:** Read-only report: non-immigration decisions in FC / FCA / SCC and how much they skew judge win rates (T7, T9). The existing marker is `case_type_labels.status = 'not_immigration'` (rule-based, written by scripts/classify_case_types.py, one row per decision and taxonomy version). Nothing in the judge statistics reads it yet, so this script never writes: it shows (1) how many decisions of each court are labelled, (2) the not_immigration candidates per court, and (3) per judge, the government win rate with and without them. python scripts/fix_non_immigration_report.py # all three courts, top 25 judges python scripts/fix_non_immigration_report.py --courts FCA --top 50 python scripts/fix_non_immigration_report.py --export data/db_fix_backups/non_immigration_candidates.csv If the coverage lines show unlabelled decisions, label them first (this is the reversible writer that already exists; it is a dry run unless --apply, and --revert removes the rows): python scripts/classify_case_types.py --court FCA --apply Win rate = government outcome 'won' / ('won' + 'lost') from reader_extracted, the same rule the judge pages use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_non_immigration_report.py --help
+```
+
+## `scripts/fix_own_caption_links.py`
+
+**Purpose:** Unlink citation rows that resolved a decision's own caption to a different case (site review R6). Dry run by default. Example: Baker v. Canada (case 35899) prints "Indexed as: Baker v. Canada". The bare name was stored as a citation row and the title resolver (scripts/resolve_citation_targets.py) linked it to 2005 FCA 185 (case 36940), another decision with the same caption, because it removes the source case from the candidates and then accepts the one that is left. Fixed going forward in backend/citations.py (is_self_case_name_match) and in the resolver; this script cleans the rows that already exist. A row is a candidate when ALL of these hold (this is the exact selection): citation_kind IN ('case_name', 'case_short') AND target_case_id IS NOT NULL AND target_case_id <> source_case_id AND the row's text is the whole caption of the source case (same test the extractor now uses) AND (default) the first 6000 characters of the source text contain "Indexed as: <that caption>". --any-own-caption drops the last condition (every bare mention of the source's own caption). python scripts/fix_own_caption_links.py # dry run: list candidates python scripts/fix_own_caption_links.py --apply --expected-count N # save an undo file, then unlink python scripts/fix_own_caption_links.py --undo data/db_fix_backups/own_caption_links_<stamp>.jsonl Apply sets target_case_id = NULL, unresolved = true, target_paragraph = NULL, target_chunk_id = NULL on the listed rows only (the row is kept; nothing is deleted). Do not run scripts/resolve_citation_targets.py from an older checkout afterwards: it would link them again. Afterwards recompute the cited-by numbers (python scripts/recompute_citation_metrics.py --apply) and, for a target with paragraph links, rebuild scripts/build_paragraph_cited_by.py for the source case.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_own_caption_links.py --help
+```
+
+## `scripts/fix_self_citations.py`
+
+**Purpose:** Remove citation rows where a decision cites itself (site review R5). Dry run by default, reversible. A row in `citations` with source_case_id = target_case_id makes a decision list its own caption as an authority and adds one to its own "Cited by" count. This is the exact-match cleanup (same test as scripts/audit_self_citations.py); the older scripts/remove_self_citations.py has no restore step and recomputes all metrics. python scripts/fix_self_citations.py # dry run: counts by court and a sample python scripts/fix_self_citations.py --apply --expected-count N # save every row to an undo file, then delete in batches python scripts/fix_self_citations.py --undo data/db_fix_backups/self_citations_<stamp>.jsonl # put them back Take a database backup first if you can (pg_dump of the citations table); the undo file is a second safety net. After --apply nothing needs recomputing for citation_metrics (compute_citation_metrics already ignores self links); the live "Cited by" numbers drop on their own. If the dry run reports paragraph_citation_edges self rows, rebuild them with scripts/build_paragraph_cited_by.py (see docs/PARAGRAPH_CITED_BY.md).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_self_citations.py --help
 ```
 
 ## `scripts/flag_weak_short_form_links.py`

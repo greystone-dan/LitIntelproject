@@ -385,6 +385,20 @@ class ResolvedLegislationReference:
 	section: LegislationSection | None = None
 
 
+def _is_own_full_caption(case_title: str | None, alias: str) -> bool:
+	"""True when ``alias`` is the whole caption of ``case_title`` ("Baker v. Canada" for "Baker v. Canada (Minister of ...)").
+
+	The text after the alias in the title must be nothing, a bracket or a comma, so "Singh v. Canada" does not
+	match "Singh v. Canada Border Services Agency". Other decisions with the same caption are indistinguishable
+	from a bare name, so they are treated as self-references too.
+	"""
+	tokens = re.findall(r"\w+", alias.casefold())
+	if len(tokens) < 3 or not {"v", "c", "vs"} & set(tokens[1:-1]):
+		return False
+	pattern = r"\W+".join(re.escape(token) for token in tokens)
+	return re.match(rf"\W*{pattern}\s*(?:\(|,|$)", _normalize_whitespace(case_title or "").casefold()) is not None
+
+
 def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> bool:
 	"""Identify a bare short-form alias that belongs to the source case title."""
 	if match.kind not in {"case_short", "case_name"}:
@@ -392,7 +406,7 @@ def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> 
 	alias = re.split(r"\s*,\s*(?:at\s+)?para", match.citation_text, maxsplit=1, flags=re.IGNORECASE)[0]
 	alias = _normalize_whitespace(alias)
 	if not re.fullmatch(r"[A-Za-z][A-Za-z'’-]{3,}", alias):
-		return False
+		return _is_own_full_caption(case_title, alias)
 	parties = re.split(
 		r"\s+(?:v\.?|c\.?|vs\.?)\s+",
 		_normalize_whitespace(case_title or ""),

@@ -700,7 +700,14 @@ def merge_ingest_case(
 
 
 @router.get("/inventory", response_model=InventoryResponse)
-def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
+def get_inventory(limit: int = 100, offset: int = 0, db: Session = Depends(get_db)) -> InventoryResponse:
+	"""Library totals plus one page of cases with their sources.
+
+	`cases` holds at most `limit` rows (default 100, hard maximum 500) starting at `offset`, ordered by id;
+	`total_cases` is always the full count, so page until offset reaches it. Unpaged, this was ~100 MB.
+	"""
+	limit = max(1, min(500, limit))
+	offset = max(0, offset)
 	total_cases = db.scalar(select(func.count(Case.id))) or 0
 	total_sources = db.scalar(select(func.count(CaseSource.id))) or 0
 	source_breakdown = [
@@ -715,6 +722,8 @@ def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
 	case_rows = db.execute(
 		select(Case.id, Case.title, Case.court, Case.date, Case.citation, Case.source_type, Case.source_name, Case.source_id)
 		.order_by(Case.id)
+		.limit(limit)
+		.offset(offset)
 	).all()
 	cases: list[dict[str, Any]] = []
 	for case_id, title, court, decision_date, citation, source_type, source_name, source_id in case_rows:

@@ -71,9 +71,11 @@ def audit_rows(rows: list[dict], text_length: int = SHORT_DECISION_CHARS) -> dic
         label, text = str(row["label"]), row["text"] or ""
         if label == "heading":
             continue
+        before = flags["hang_end"] + flags["glued"] + flags["hang_start"]
         if label in {"intro", "tail"}:
             if label == "intro" and is_heading_line(last_line(text)) and _HEAD_LABEL_RE.match(last_line(text).strip()):
                 flags["hang_end"] += 1
+                flags["bad_rows"] += 1
             continue
         numbered += 1
         if is_heading_line(last_line(text)) and "\n" in text.strip():
@@ -84,12 +86,15 @@ def audit_rows(rows: list[dict], text_length: int = SHORT_DECISION_CHARS) -> dic
                 flags["glued"] += 1
             elif "\n" in stripped and is_heading_line(stripped.split("\n", 1)[0]):
                 flags["hang_start"] += 1
+        if flags["hang_end"] + flags["glued"] + flags["hang_start"] > before:
+            flags["bad_rows"] += 1
         try:
             num = int(label)
         except ValueError:
             continue
         if last_num is not None and num != last_num + 1:
             flags["gap"] += 1
+            flags["missing_numbers"] += max(num - last_num - 1, 0)
         last_num = num
     if numbered == 0 and text_length >= SHORT_DECISION_CHARS:
         flags["unnumbered"] += 1
@@ -168,9 +173,13 @@ def main() -> None:
             cells = [f"{100 * sum(1 for row in group if row.get(name)) / len(group):.1f}" for name in flag_names]
             anyflag = 100 * sum(1 for row in group if any(row.get(name) for name in flag_names)) / len(group)
             print(f"{court:4} {source:6} {len(group):5} " + " ".join(f"{cell:>8}" for cell in cells) + f"  {anyflag:.1f}")
+            rows_total = sum(row.get("rows", 0) for row in group)
+            bad = sum(row.get("bad_rows", 0) for row in group)
+            missing = sum(row.get("missing_numbers", 0) for row in group)
+            print(f"     paragraph level: {bad} of {rows_total} rows have a hanging/glued heading ({100 * bad / max(rows_total, 1):.2f}%); {missing} numbers skipped")
     if args.report and results:
         with open(args.report, "w", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=["case_id", "court", "source", "rows", *flag_names])
+            writer = csv.DictWriter(handle, fieldnames=["case_id", "court", "source", "rows", "bad_rows", "missing_numbers", *flag_names])
             writer.writeheader()
             for row in results:
                 writer.writerow({key: row.get(key, 0) for key in writer.fieldnames})

@@ -341,3 +341,23 @@ def test_reader_layout_splits_first_heading_off_the_intro():
     assert text[layout[0]["start"] : layout[0]["end"]].rstrip().endswith("JUDGMENT AND REASONS")
     assert text[layout[1]["start"] : layout[1]["end"]] == "I. Overview"
     assert layout[2]["num"] == 1
+
+
+def test_reader_layout_moves_trailing_subheadings_and_the_order_text_out_of_paragraphs():
+    from scripts.chunk_cases import reader_paragraph_layout
+
+    text = (
+        "Smith v. Canada\nJUDGMENT AND REASONS\nI. Overview\n[1] First paragraph.\n"
+        "[2] Second paragraph, a statute list follows:\nException\nRestriction\nand more text.\n[3] Third paragraph.\n"
+        "Issue Estoppel\n[4] Fourth paragraph.\n[5] Fifth paragraph.\nJUDGMENT\nTHIS COURT’S JUDGMENT is that the application is dismissed.\n"
+    )
+
+    layout = reader_paragraph_layout(text)
+    pieces = [(entry["kind"], text[entry["start"] : entry["end"]].strip()) for entry in layout]
+
+    assert ("heading", "Issue Estoppel") in pieces
+    third = next(piece for piece in pieces if piece[1].startswith("[3]"))
+    assert third[1] == "[3] Third paragraph."
+    second = next(piece for piece in pieces if piece[1].startswith("[2]"))
+    assert "Exception\nRestriction" in second[1]
+    assert pieces[-2:] == [("heading", "JUDGMENT"), ("tail", "THIS COURT’S JUDGMENT is that the application is dismissed.")]

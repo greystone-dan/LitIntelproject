@@ -32,6 +32,28 @@ def test_every_step_url_is_a_real_page():
         assert client.get(path, follow_redirects=False).status_code == 200, path
 
 
+def test_short_tour_is_a_second_shorter_list_and_leaves_the_full_tour_alone():
+    data = tour_steps()
+    short, full = data["shortSteps"], data["steps"]
+    assert len(full) == 54 or len(full) > 40                # the full tour is still the long one
+    assert 0 < len(short) <= len(full) // 4
+    assert len({step["id"] for step in short} & {step["id"] for step in full}) == 0
+    for step in short:
+        assert len(step["text"].split()) >= 35, step["id"]  # explainer cards are full sentences, not captions
+        assert not re.search(r"\b(RPD|RAD)\b", json.dumps(step)), step["id"]
+    for path in {re.sub(r"[?#].*", "", step["url"]) for step in short}:
+        assert client.get(path, follow_redirects=False).status_code == 200, path
+    assert "window.ILIT_TOUR=" in client.get("/site-tour.js").text and '"shortSteps"' in client.get("/site-tour.js").text
+
+
+def test_short_tour_buttons_sit_beside_take_a_tour():
+    for name in ("home_about.html", "about_content.html"):
+        page = (ROOT / "backend" / "pages" / name).read_text(encoding="utf-8")
+        assert page.count("data-ilit-tour-short") == 1 and "Short tour" in page
+        start, short = page.index("data-ilit-tour-start"), page.index("data-ilit-tour-short")
+        assert 0 < short - start < 400, name
+
+
 def test_example_cases_have_a_citation_to_look_up():
     for name, spec in tour_steps()["cases"].items():
         assert spec.get("citation") or spec.get("search"), name
@@ -69,7 +91,7 @@ def test_tour_warms_only_its_own_read_only_data():
 
 
 def test_live_analysis_steps_read_the_document_once():
-    for step in tour_steps()["steps"]:
+    for step in tour_steps()["steps"] + tour_steps()["shortSteps"]:
         for action in step.get("before", []):
             if action.get("selector") in ("#laDrop", "#laAnalyze"):
                 assert action.get("unless") == "#decisionBody span.citation-link", step["id"]

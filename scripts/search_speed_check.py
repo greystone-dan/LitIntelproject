@@ -27,6 +27,7 @@ QUERIES = [
     "Canada (Minister of Citizenship and Immigration) v. Vavilov",
     "Minister of Citizenship and Immigration v. Khosa", "2009 SCC 12", "2008 SCC 9",
     "best interests of the child", "procedural fairness", "reasonable apprehension of bias", "Noël",
+    "Canada", "Minister of Citizenship and Immigration", "Federal Court",
 ]
 
 

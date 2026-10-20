@@ -6,7 +6,49 @@ from datetime import datetime, timezone
 import pytest
 
 from scripts import remove_redundant_judge_links as rrjl
-from tests.test_fix_scripts import FakeDB, _Ctx, _Result
+
+class _Result:
+	def __init__(self, rows=None, rowcount=0, scalar=None):
+		self._rows, self.rowcount, self._scalar = rows or [], rowcount, scalar
+
+	def mappings(self):
+		return self
+
+	def all(self):
+		return self._rows
+
+	def scalar(self):
+		return self._scalar
+
+
+class FakeDB:
+	"""Records statements; `handler(sql, params)` returns a _Result (or None for an empty one)."""
+
+	def __init__(self, handler=None):
+		self.handler = handler
+		self.calls, self.commits = [], 0
+
+	def execute(self, statement, params=None):
+		sql = " ".join(str(statement).split())
+		self.calls.append((sql, params))
+		return (self.handler(sql, params) if self.handler else None) or _Result()
+
+	def commit(self):
+		self.commits += 1
+
+	def rollback(self):
+		pass
+
+
+class _Ctx:
+	def __init__(self, db):
+		self.db = db
+
+	def __enter__(self):
+		return self.db
+
+	def __exit__(self, *exc):
+		return False
 
 STAMP = datetime(2026, 10, 20, 8, 12, 45, tzinfo=timezone.utc)
 

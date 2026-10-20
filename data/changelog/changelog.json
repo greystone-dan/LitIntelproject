@@ -68,6 +68,158 @@
  ],
  "entries": [
   {
+   "date": "2026-10-20",
+   "theme": "judges",
+   "title": "Judge clean-up tools; link clean-up applied",
+   "text": "Tools to delete junk judge profiles, merge duplicate names and remove repeated judge links were merged. Per project notes (not checked here), 14,605 repeated Federal Court and Federal Court of Appeal judge links were removed from the live database on 2026-10-20. The site code itself is not deployed yet.",
+   "refs": [
+    "#591",
+    "#595",
+    "#596",
+    "#597"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-20",
+   "theme": "citations",
+   "title": "Merged, not live yet: stricter citation links",
+   "text": "Links made from a case name or title are now checked against the court and date, so a citation no longer points to a later decision. A separate script to unlink the wrong links already in the database is merged but has not been run.",
+   "refs": [
+    "#593"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-20",
+   "theme": "federal-court",
+   "title": "Merged, not live yet: French decisions read correctly",
+   "text": "French-language decisions now get the right judge, file number and outcome.",
+   "refs": [
+    "#592"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-20",
+   "theme": "performance",
+   "title": "Merged, not live yet: faster search",
+   "text": "Broad searches find case numbers first and then load details, there is a date index, and a broad word shows one result per case. Needs a database update when deployed.",
+   "refs": [
+    "#590"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-20",
+   "theme": "outcomes",
+   "title": "Merged, not live yet: argument lists (off by default)",
+   "text": "A first reader of the main arguments on each side, with a rule for choosing which to keep. It is switched off and has no effect on the site until turned on.",
+   "refs": [
+    "#557"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "judges",
+   "title": "Judges: fewer junk names, better counts",
+   "text": "Lines such as counsel labels are no longer mistaken for judges. Judge court chips and two result counts were corrected. Decisions that are not immigration cases are left out of judge win rates.",
+   "refs": [
+    "#576",
+    "#584",
+    "#587"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "library",
+   "title": "Repair scripts for self-citations, own-caption links and junk judges",
+   "text": "Reversible clean-up scripts were added. Per project notes (not checked here) they were applied to the live database on 2026-10-20 with a backup and undo files; the site reflects the corrected data.",
+   "refs": [
+    "#586"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "navigation",
+   "title": "Experimental pages explain themselves",
+   "text": "Experimental landing pages say what they are, the site has a proper not-found page, and it has a browser tab icon.",
+   "refs": [
+    "#585"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "statutes",
+   "title": "Statute pages open the real case reader",
+   "text": "Decisions listed on a statute page now link to the full reader.",
+   "refs": [
+    "#583"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "search",
+   "title": "Search: year filter, topic words and full-text search",
+   "text": "The year filter now matches the year counts shown beside it. Short topic searches also match the tags stored on each case. Full-text search no longer takes up to a minute. Impossible values in the year, sort or paging boxes now give a clear message.",
+   "refs": [
+    "#573",
+    "#574",
+    "#578",
+    "#582"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "performance",
+   "title": "Faster start and lighter data calls",
+   "text": "The home page loads tabs only when you open them, and asks for less data on startup. Long lists of citing cases and the library inventory are returned in pages.",
+   "refs": [
+    "#571",
+    "#572",
+    "#579"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "infrastructure",
+   "title": "Clear error messages instead of crashes",
+   "text": "Odd characters in a search or a case number that does not exist now give a plain error instead of a server crash page.",
+   "refs": [
+    "#577"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "citations",
+   "title": "A case's own citations are left out of its authorities",
+   "text": "When a decision cites itself, the citation is no longer counted among the authorities it relies on.",
+   "refs": [
+    "#575"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "reader",
+   "title": "Case reader: tidier header, Back button and activity links",
+   "text": "The facts in the case header now wrap instead of being cut off, including on a phone. Back leaves the case and returns to your results. Federal Court activity links show only for immigration files.",
+   "refs": [
+    "#568",
+    "#569",
+    "#570"
+   ],
+   "auto": false
+  },
+  {
    "date": "2026-10-10",
    "theme": "reader",
    "title": "Show whose position, on a first set of decisions",

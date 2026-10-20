@@ -1318,19 +1318,28 @@ def _query_expression_sql(
 
 
 def _search_facets(db, where_clause, params, cohort_ids):
-	"""Counts of matching decisions by court and year (plain SQL, no model)."""
+	"""Counts of matching decisions by court and year (plain SQL, no model).
+
+	The filter runs once, to list the matching ids; the four counts then read just those rows by id.
+	(Running the filter for each count meant five scans of the whole cases table per search.)"""
 	facet_params = {k: v for k, v in params.items() if k not in ("limit", "offset")}
+	match_statement = sql_text(f"SELECT c.id FROM cases c WHERE {where_clause}")
+	if cohort_ids is not None:
+		match_statement = match_statement.bindparams(bindparam("cohort_ids", expanding=True))
+	match_ids = [int(row["id"]) for row in db.execute(match_statement, facet_params).mappings().all()]
+	if not match_ids:
+		return {"court": [], "year": [], "case_type": [], "total": 0}
+	by_id = "c.id = ANY(CAST(:facet_match_ids AS integer[]))"
+	id_params = {"facet_match_ids": match_ids}
 
 	def run(expr, limit):
 		statement = sql_text(
-			f"SELECT {expr} AS label, COUNT(*) AS n FROM cases c WHERE {where_clause} "
+			f"SELECT {expr} AS label, COUNT(*) AS n FROM cases c WHERE {by_id} "
 			f"AND {expr} IS NOT NULL GROUP BY label ORDER BY n DESC, label LIMIT {limit}"
 		)
-		if cohort_ids is not None:
-			statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
 		return [
 			{"value": str(row["label"]), "count": int(row["n"])}
-			for row in db.execute(statement, facet_params).mappings().all()
+			for row in db.execute(statement, id_params).mappings().all()
 			if row.get("label") is not None
 		]
 
@@ -1338,13 +1347,9 @@ def _search_facets(db, where_clause, params, cohort_ids):
 		"court": run("c.court", 8),
 		"year": run("EXTRACT(YEAR FROM c.date)::int", 12),
 	}
-	facets["case_type"] = _case_type_facet(db, where_clause, facet_params, cohort_ids)
-	total_statement = sql_text(f"SELECT COUNT(*) AS n FROM cases c WHERE {where_clause}")
-	if cohort_ids is not None:
-		total_statement = total_statement.bindparams(bindparam("cohort_ids", expanding=True))
+	facets["case_type"] = _case_type_facet(db, by_id, id_params, None)
 	# Real number of matching decisions, so a page capped at 50 can still say how many there are.
-	total_rows = db.execute(total_statement, facet_params).mappings().all()
-	facets["total"] = int((total_rows[0].get("n") if total_rows else 0) or 0)
+	facets["total"] = len(match_ids)
 	return facets
 
 

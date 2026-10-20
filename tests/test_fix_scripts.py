@@ -242,3 +242,56 @@ def test_non_immigration_report_is_read_only_sql():
 	for statement in (fix_non_immigration_report.COVERAGE_SQL, fix_non_immigration_report.JUDGE_SQL,
 			fix_non_immigration_report.CANDIDATES_SQL):
 		assert str(statement).lstrip().upper().startswith("SELECT")
+
+
+def _unlink_candidate(cid, target):
+	# id, source, court, kind, target, unresolved, text, source_date, target_date, cite, secondary, title
+	return (cid, 5, "FC", "case_name", target, False, "Patel v. Canada", "2003-10-31", "2020-01-27", None, None, "Patel")
+
+
+def test_unlink_apply_logs_then_updates_and_undo_restores(tmp_path):
+	from scripts import unlink_impossible_citation_targets as unlink
+
+	state = {1: 10, 2: 11}  # citation id -> target
+
+	def handler(sql, params):
+		if sql.startswith("UPDATE citations SET target_case_id = NULL"):
+			hit = state.get(params["id"]) == params["t"]
+			if hit:
+				state[params["id"]] = None
+			return _Result(rowcount=int(hit))
+		if sql.startswith("UPDATE citations SET target_case_id = :t"):
+			hit = state.get(params["id"]) is None
+			if hit:
+				state[params["id"]] = params["t"]
+			return _Result(rowcount=int(hit))
+
+	db = FakeDB(handler)
+	log = tmp_path / "log.csv"
+	candidates = [_unlink_candidate(1, 10), _unlink_candidate(2, 11)]
+	state[2] = 99  # row 2 was changed after the scan
+	assert unlink.apply_unlink(db, candidates, log, 1) == 1
+	assert state == {1: None, 2: 99}
+	rows = unlink.read_undo_rows(log)
+	assert [r["citation_id"] for r in rows] == ["1", "2"]  # logged before the update, whatever the outcome
+	assert rows[0]["previous_target_case_id"] == "10" and rows[0]["previous_unresolved"] == "False"
+	assert unlink.undo_unlink(db, rows) == (1, 1)  # row 1 restored, row 2 (changed in between) skipped
+	assert state == {1: 10, 2: 99}
+	restore_sql = [sql for sql, p in db.calls if sql.startswith("UPDATE citations SET target_case_id = :t")]
+	assert all("unresolved = :u" in sql for sql in restore_sql)
+
+
+def test_unlink_apply_refuses_wrong_expected_count(monkeypatch, tmp_path):
+	from scripts import unlink_impossible_citation_targets as unlink
+	import backend.database as database
+
+	def handler(sql, params):
+		if sql.startswith("SELECT ci.id"):
+			return _Result([_unlink_candidate(1, 10)])
+
+	db = FakeDB(handler)
+	monkeypatch.setattr(database, "SessionLocal", lambda: _Ctx(db))
+	assert unlink.main(["--apply", "--expected-count", "5", "--change-log", str(tmp_path / "l.csv")]) == 1
+	assert not any(sql.startswith("UPDATE") for sql, _ in db.calls)
+	with pytest.raises(SystemExit):
+		unlink.main(["--apply", "--change-log", str(tmp_path / "l.csv")])

@@ -20,10 +20,10 @@ class _FakeDb:
     def execute(self, statement, params):
         sql = str(statement)
         self.statements.append((sql, params))
+        if sql.startswith("SELECT c.id FROM cases c WHERE"):
+            return _Result([{"id": 11}, {"id": 12}, {"id": 13}])
         if "case_type_labels" in sql:
             return _Result([{"label": "refugee_claim", "n": 4}])
-        if "COUNT(*) AS n FROM cases c WHERE" in sql and "GROUP BY" not in sql:
-            return _Result([{"n": 1234}])
         if "c.court" in sql:
             return _Result([{"label": "FC", "n": 3}])
         return _Result([{"label": 2024, "n": 2}])
@@ -36,11 +36,28 @@ def test_facets_are_plain_sql_counts_without_paging_params():
         "court": [{"value": "FC", "count": 3}],
         "year": [{"value": "2024", "count": 2}],
         "case_type": [{"value": "refugee_claim", "label": "Refugee / protection claim (ss. 96-97)", "count": 4}],
-        "total": 1234,
+        "total": 3,
     }
-    for sql, params in db.statements:
-        assert ("GROUP BY" in sql or "COUNT(*) AS n" in sql) and "c.title ILIKE :q" in sql
+    first_sql, first_params = db.statements[0]
+    assert "c.title ILIKE :q" in first_sql
+    # The filter runs once; every count then reads the matching ids.
+    assert sum("c.title ILIKE :q" in sql for sql, _ in db.statements) == 1
+    for sql, params in db.statements[1:]:
+        assert "GROUP BY" in sql and "c.id = ANY(CAST(:facet_match_ids AS integer[]))" in sql
+        assert params["facet_match_ids"] == [11, 12, 13]
+    for _sql, params in db.statements:
         assert "limit" not in params and "offset" not in params
+
+
+def test_facets_for_no_matches_are_empty_without_further_queries():
+    class Empty(_FakeDb):
+        def execute(self, statement, params):
+            self.statements.append((str(statement), params))
+            return _Result([])
+
+    db = Empty()
+    assert _search_facets(db, "FALSE", {}, None) == {"court": [], "year": [], "case_type": [], "total": 0}
+    assert len(db.statements) == 1
 
 
 def test_results_page_has_sort_bar_and_facet_chips():

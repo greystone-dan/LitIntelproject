@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 199
+Active scripts documented: 200
 
 ## Catalog
 
@@ -156,6 +156,7 @@ Active scripts documented: 199
 | `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
 | `profile_reader.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\profile_reader.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
+| `rank_cost_probe.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\rank_cost_probe.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
 | `recompute_citation_metrics.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help` |
@@ -2252,6 +2253,20 @@ Active scripts documented: 199
 
 ```powershell
 .\venv\Scripts\python.exe scripts\quick_search_engine.py --help
+```
+
+## `scripts/rank_cost_probe.py`
+
+**Purpose:** Read-only timing probe: which part of the relevance ranking costs the time? Takes the cases tagged with a topic (the biggest part of a broad topic search), then times each ranking building block on exactly those rows, one SELECT each. Only SELECT statements run. It does not read keys. python scripts/rank_cost_probe.py --query reasonableness --out probe_reasonableness.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\rank_cost_probe.py --help
 ```
 
 ## `scripts/reacquire_source_html.py`

@@ -242,3 +242,26 @@ def test_non_immigration_report_is_read_only_sql():
 	for statement in (fix_non_immigration_report.COVERAGE_SQL, fix_non_immigration_report.JUDGE_SQL,
 			fix_non_immigration_report.CANDIDATES_SQL):
 		assert str(statement).lstrip().upper().startswith("SELECT")
+
+
+def test_junk_judge_profiles_are_found_only_when_every_raw_name_is_junk(tmp_path):
+	from scripts import fix_junk_judge_profiles as fjp
+
+	def profile(pid, name):
+		return dict(id=pid, slug=f"judge-{pid}", display_name=name, normalized_name=name.lower(), primary_court="FC", aliases=[name])
+
+	rows = [
+		{**profile(1, "Justice And Order"), "raw_name": "AND ORDER", "n": 5},
+		{**profile(2, "Justice Heneghan"), "raw_name": "Heneghan J.", "n": 40},
+		{**profile(2, "Justice Heneghan"), "raw_name": "SOLICITORS OF RECORD", "n": 3},
+		{**profile(3, "Justice Orphan"), "raw_name": None, "n": 0},
+	]
+	db = FakeDB(lambda sql, params: _Result(rows=rows) if "FROM judge_profiles p" in sql else None)
+	found = fjp.find_junk_profiles(db)
+	assert [p["id"] for p in found] == [1] and found[0]["cases"] == 5
+
+	db = FakeDB()
+	path = tmp_path / "undo.jsonl"
+	assert fjp.apply_deletes(db, found, path, 10) == 1
+	assert len(list(fix_common.read_undo_file(path))) == 1
+	assert any("DELETE FROM judge_profiles" in sql for sql, _ in db.calls) and db.commits == 1

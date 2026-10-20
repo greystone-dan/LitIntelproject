@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 191
+Active scripts documented: 192
 
 ## Catalog
 
@@ -108,6 +108,7 @@ Active scripts documented: 191
 | `fill_fca_headline_outcomes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_fca_headline_outcomes.py --help` |
 | `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
 | `fix_common.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_common.py --help` |
+| `fix_junk_judge_profiles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judge_profiles.py --help` |
 | `fix_junk_judges.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judges.py --help` |
 | `fix_non_immigration_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_non_immigration_report.py --help` |
 | `fix_own_caption_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_own_caption_links.py --help` |
@@ -1572,6 +1573,20 @@ Active scripts documented: 191
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fix_common.py --help
+```
+
+## `scripts/fix_junk_judge_profiles.py`
+
+**Purpose:** Delete judge profiles that exist only because of junk judge strings ("SOLICITORS OF RECORD", "AND ORDER"). Dry run by default. Run after scripts/fix_junk_judges.py and scripts/backfill_judge_profiles.py. A profile is junk when every raw name linked to it (case_judge_profiles.raw_name) is junk by the extractor's own test, or its name has no letters. Deleting a profile also removes its case links and any alias rows pointing at it (the tables cascade). Profiles with even one real raw name are left alone. python scripts/fix_junk_judge_profiles.py # dry run: junk profiles, their case counts python scripts/fix_junk_judge_profiles.py --apply --expected-count N # save an undo file, then delete python scripts/fix_junk_judge_profiles.py --undo data/db_fix_backups/junk_judge_profiles_<stamp>.jsonl Backup first: judge_profiles, case_judge_profiles and judge_profile_aliases. The undo file holds every deleted profile, its links and its alias rows, and --undo puts them back with their original ids.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_junk_judge_profiles.py --help
 ```
 
 ## `scripts/fix_junk_judges.py`

@@ -36,7 +36,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import select, text, update
 
 from backend.database import Case, SessionLocal
-from fc_ingest.document_scraper import _extract_metadata_with_quality, _is_judge_junk
+from fc_ingest.document_scraper import _JUDGE_LABEL_ONLY_RE, _extract_metadata_with_quality, _is_judge_junk
 from scripts.fix_common import chunked, default_undo_path, read_undo_file, write_undo_file
 
 SELECT_SQL = text(
@@ -50,6 +50,9 @@ def is_junk_judge(value: Any) -> bool:
 	if not value:
 		return False
 	lines = [line.strip() for line in str(value).splitlines() if line.strip()]
+	# "AND ORDER" is a heading left over from "JUDGMENT AND ORDER", not a judge (2,201 decisions carry it).
+	if lines and _JUDGE_LABEL_ONLY_RE.fullmatch(" ".join(lines[0].split())):
+		return True
 	return bool(lines) and (_is_judge_junk(lines[0]) or _is_judge_junk(" ".join(lines)))
 
 

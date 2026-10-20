@@ -325,6 +325,8 @@ def test_junk_judge_profiles_dry_run_report_apply_needs_expected_count_and_undo_
 	]
 
 	def handler(sql, params):
+		if "FROM judge_profiles p JOIN case_judge_profiles l" in sql:
+			return _Result()  # no review-only profiles
 		if "FROM judge_profiles p" in sql:
 			return _Result(rows=rows)
 		if "FROM case_judge_profiles WHERE" in sql:
@@ -353,6 +355,41 @@ def test_junk_judge_profiles_dry_run_report_apply_needs_expected_count_and_undo_
 
 
 
+
+
+def test_junk_judge_profiles_csv_lists_junk_and_review_only_profiles(tmp_path, monkeypatch, capsys):
+	import csv
+
+	from scripts import fix_junk_judge_profiles as fjp
+
+	def profile(pid, name, court="FC"):
+		return dict(id=pid, slug=f"judge-{pid}", display_name=name, normalized_name=name.lower(), primary_court=court, aliases=[name])
+
+	rows = [
+		{**profile(1, "I HEREBY CERTIFY that the above document"), "raw_name": "I HEREBY CERTIFY that the above document", "n": 11},
+		{**profile(2, "Justice Heneghan"), "raw_name": "Heneghan J.", "n": 40},
+		{**profile(3, "THE COURT"), "raw_name": "THE COURT", "n": 48},
+	]
+
+	def handler(sql, params):
+		if "FROM judge_profiles p JOIN case_judge_profiles l" in sql:
+			assert params["names"] == ["THE COURT"]
+			return _Result(rows=[dict(id=3, slug="judge-3", display_name="THE COURT", primary_court="FC", links=48, only_attribution=5)])
+		if "FROM judge_profiles p" in sql:
+			return _Result(rows=rows)
+
+	db = FakeDB(handler)
+	monkeypatch.setattr(fjp, "SessionLocal", lambda: _Ctx(db))
+	path = tmp_path / "names.csv"
+	assert fjp.main(["--csv", str(path)]) == 0
+	out = capsys.readouterr().out
+	assert "junk_judge_profiles=1 linked_cases=11" in out and "5 decisions have no other judge link" in out
+	assert db.calls[0][0] == "SET TRANSACTION READ ONLY"
+	got = list(csv.DictReader(open(path, encoding="utf-8")))
+	assert [(r["status"], r["display_name"]) for r in got] == [("junk", "I HEREBY CERTIFY that the above document"), ("review_only", "THE COURT")]
+	assert got[1]["only_attribution_cases"] == "5" and got[0]["linked_cases"] == "11"
+	with pytest.raises(FileExistsError):
+		fjp.write_names_csv(path, [], [])
 
 
 def _unlink_candidate(cid, target):

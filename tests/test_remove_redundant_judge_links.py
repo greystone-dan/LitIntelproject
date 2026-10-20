@@ -87,6 +87,9 @@ def test_plan_removes_only_same_judge_or_junk_new_links_on_decisions_with_an_old
 def test_junk_pattern_matches_k3():
 	for name in ("AND ORDER", "Schedule of exemplar documents", "March 13, 2001", "Smith �", "Reasons for judgment"):
 		assert rrjl.is_junk_name(name)
+	for name in ("Certified true translation", "FEDERAL COURT OF CANADA TRIAL DIVISION", "\u201cI concur.", "Relevant Legislation"):
+		assert rrjl.is_junk_name(name)  # the extractor's junk labels count too
+	assert not rrjl.is_junk_name("THE COURT")  # not junk: it can be a real attribution
 	for name in ("Gagné J.", "Orderly J.", "NOËL J.A.", None):
 		assert not rrjl.is_junk_name(name)
 

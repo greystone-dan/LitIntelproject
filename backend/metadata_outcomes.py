@@ -532,14 +532,21 @@ def _decide_french(content: str) -> "Decision | None":
 	found = list(_FRENCH_RULING_RE.finditer(tail))
 	if not found:
 		return None
-	match = found[-1]
-	verb = match.group("verb").lower()
-	label = "dismissed" if verb.startswith(("rejet", "refus")) else "allowed"
 	offset = len(content) - len(tail)
-	if re.match(r"la\s+(?:requ[êe]te|motion)", match.group("subject"), re.IGNORECASE):
-		return Decision("procedural", "procedural_order", match, offset, tail, False, 3, "french_operative")
+
+	def label_of(match: re.Match[str]) -> str:
+		return "dismissed" if match.group("verb").lower().startswith(("rejet", "refus")) else "allowed"
+
+	motions = [m for m in found if re.match(r"la\s+(?:requ[êe]te|motion)", m.group("subject"), re.IGNORECASE)]
+	rulings = [m for m in found if m not in motions]
+	if not rulings:
+		return Decision("procedural", "procedural_order", motions[-1], offset, tail, False, 3, "french_operative")
+	# Several rulings (an appeal and the application below, or a motion and the appeal) must agree; a split reads as unclear.
+	if len({label_of(m) for m in rulings[-3:]}) > 1:
+		return Decision("unclear", "conflicting_rulings", rulings[-1], offset, tail, False, 3, "french_operative")
+	match = rulings[-1]
 	partial = bool(re.search(r"en\s+partie", match.group("rest"), re.IGNORECASE))
-	return Decision("mixed" if partial else label, "ruling", match, offset, tail, partial, 3, "french_operative")
+	return Decision("mixed" if partial else label_of(match), "ruling", match, offset, tail, partial, 3, "french_operative")
 
 
 def _decide(content: str) -> "Decision | None":

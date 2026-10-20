@@ -6,6 +6,7 @@ import pytest
 
 from scripts import (
 	fix_common,
+	fix_french_metadata,
 	fix_junk_judges,
 	fix_non_immigration_report,
 	fix_own_caption_links,
@@ -242,3 +243,46 @@ def test_non_immigration_report_is_read_only_sql():
 	for statement in (fix_non_immigration_report.COVERAGE_SQL, fix_non_immigration_report.JUDGE_SQL,
 			fix_non_immigration_report.CANDIDATES_SQL):
 		assert str(statement).lstrip().upper().startswith("SELECT")
+
+
+FRENCH_TEXT = """Date : 20260924
+Dossier : A-127-25
+Référence : 2026 CAF 160
+CORAM : LE JUGE LOCKE
+LA JUGE GOYETTE
+ENTRE :
+MAXIME FORTIN
+appelant
+et
+SA MAJESTÉ LE ROI
+intimé
+MOTIFS DU JUGEMENT DE LA COUR
+[13] Dans ces circonstances, l’appel sera rejeté sans dépens.
+« Nathalie Goyette »
+j.c.a.
+"""
+
+
+def test_french_metadata_plan_changes_judge_docket_and_missing_outcome_only():
+	row = {"id": 5, "court": "FCA", "citation": "2026 CAF 160",
+		"extracted": {"judge": "LOCKE", "docket": "A-127-25 Contenu de la décision"}}
+	changes = fix_french_metadata.plan_row(row, FRENCH_TEXT)
+	assert changes["judge"] == ("LOCKE", "Nathalie Goyette")
+	assert changes["docket"] == ("A-127-25 Contenu de la décision", "A-127-25")
+	assert changes["decision outcome"] == (None, "dismissed") and changes["government outcome"][1] == "won"
+	kept = fix_french_metadata.plan_row({**row, "extracted": {**row["extracted"], "decision outcome": "allowed"}}, FRENCH_TEXT)
+	assert "decision outcome" not in kept and "government outcome" not in kept
+	assert fix_french_metadata.plan_row(row, None) is None
+
+
+def test_french_metadata_apply_needs_expected_count_and_round_trips(tmp_path):
+	store = {1: {"reader_extracted": {"judge": "LOCKE", "x": 1}}}
+	plan = [{"id": 1, "court": "FCA", "citation": "c", "changes": {"judge": ("LOCKE", "Nathalie Goyette")}}]
+	db = _StoreDB(store)
+	undo_path = tmp_path / "u.jsonl"
+	assert fix_french_metadata.apply_plan(db, plan, undo_path, 10) == 1
+	assert store[1]["reader_extracted"] == {"judge": "Nathalie Goyette", "x": 1}
+	assert fix_french_metadata.undo(db, undo_path, 10) == (1, 0)
+	assert store[1]["reader_extracted"] == {"judge": "LOCKE", "x": 1}
+	with pytest.raises(SystemExit):
+		fix_french_metadata.main(["--apply"])

@@ -72,3 +72,18 @@ def test_french_application_allowed_and_motion_is_procedural():
 	assert outcome["decision_outcome"] == "allowed"
 	motion = "Dossier : 26-T-1\nLA COUR ORDONNE que : La requête du demandeur est rejetée, sans frais."
 	assert build_case_outcome(motion, {})["decision_outcome"] == "procedural"
+
+
+def test_crown_as_appelant_wins_when_the_appeal_is_allowed_and_loses_when_dismissed():
+	base = "Dossier : A-1-26\nENTRE :\nSA MAJESTÉ LE ROI\nappelant\net\nJEAN TREMBLAY\nintimé\nMOTIFS DU JUGEMENT\n[40] "
+	allowed = build_case_outcome(base + "L’appel est accueilli, avec dépens.", {})
+	assert (allowed["decision_outcome"], allowed["government_role"], allowed["government_outcome"]) == ("allowed", "applicant", "won")
+	dismissed = build_case_outcome(base + "L’appel est rejeté, avec dépens.", {})
+	assert (dismissed["decision_outcome"], dismissed["government_outcome"]) == ("dismissed", "lost")
+
+
+def test_conflicting_french_rulings_are_unclear_not_the_last_one():
+	text = "ENTRE :\nA B\nappelant\net\nLE MINISTRE\nintimé\n[50] L’appel est accueilli. La demande de contrôle judiciaire est rejetée, avec dépens."
+	assert build_case_outcome(text, {})["decision_outcome"] in (None, "unclear")
+	same = text.replace("est rejetée", "est accueillie")
+	assert build_case_outcome(same, {})["decision_outcome"] == "allowed"

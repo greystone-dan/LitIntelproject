@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-20T18:00:04.882859+00:00
+Generated: 2026-10-20T18:07:10.256212+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 140 across 137 paths

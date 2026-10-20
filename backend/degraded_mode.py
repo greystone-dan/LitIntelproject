@@ -134,7 +134,14 @@ const fetchPanel = (() => {
         const pending = Promise.resolve().then(async () => {
             try {
                 const response = await fetch(url, options.request || {});
-                if (!response.ok) throw new Error('Panel request failed');
+                if (!response.ok) {
+                    const failed = new Error('Panel request failed');
+                    // A "too broad" search answer (503) carries a plain-words reason to show instead of a generic failure.
+                    if (response.status === 503) {
+                        try { failed.detail = String((await response.json()).detail || ''); } catch (_) {}
+                    }
+                    throw failed;
+                }
                 const data = await response.json();
                 if (!current()) return null;
                 if (typeof options.render !== 'function') throw new Error('Missing renderer');
@@ -144,15 +151,15 @@ const fetchPanel = (() => {
                 skeleton.remove();
                 retryButtons.delete(container);
                 return data;
-            } catch (_) {
+            } catch (error) {
                 if (!current()) return null;
                 // Legacy cleanup may replace this container: install recovery after it.
-                try { if (options.onError) await options.onError(); } catch (_) {}
+                try { if (options.onError) await options.onError(error); } catch (_) {}
                 if (!current()) return null;
                 const failure = document.createElement('div');
                 failure.setAttribute('aria-live', 'polite');
                 const message = document.createElement('p');
-                message.textContent = 'This section could not load.';
+                message.textContent = (error && error.detail) || 'This section could not load.';
                 const retry = document.createElement('button');
                 retry.type = 'button';
                 retry.textContent = 'Retry';

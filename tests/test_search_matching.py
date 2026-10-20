@@ -14,7 +14,7 @@ from fastapi.testclient import TestClient
 
 from backend import analytics_service, routes, search_service
 from backend.models import CaseSearchRequest
-from backend.search_matching import citation_query, identity_sql, identity_tier, match_details, matched_on
+from backend.search_matching import _longest_token, citation_query, identity_sql, identity_tier, match_details, matched_on
 from backend.query_syntax import parse_query
 
 
@@ -198,9 +198,10 @@ def test_active_route_parameterizes_matches_and_ranks_before_sql_pagination():
 	citation, party, _ = identity_sql("Baker")
 	# The regex matchers are no longer in WHERE (title/citation ILIKE only, index-friendly): label + ORDER BY.
 	assert db.sql.count(citation) == 2
-	assert db.sql.count(party) == 2
+	# The ranked statement reads the metadata JSON once per row (rd.x); the card label reads it directly.
+	assert db.sql.count(party) == 1 and db.sql.count(identity_sql("Baker", "rd.x")[1]) == 1
 	assert db.sql.index("ORDER BY") < db.sql.index("LIMIT :limit OFFSET :offset")
-	assert "CASE WHEN " + citation + " THEN 2 WHEN " + party + " THEN 1" in db.sql
+	assert "CASE WHEN " + citation + " THEN 2 WHEN " + identity_sql("Baker", "rd.x")[1] + " THEN 1" in db.sql
 	assert "REGEXP_SPLIT_TO_TABLE" in db.sql
 	assert "c.secondary_citation" in db.sql
 	assert "UPPER(c.court) IN" in db.sql
@@ -639,3 +640,32 @@ def test_every_search_runs_under_a_statement_timeout_and_answers_too_broad():
 	assert caught.value.status_code == 503 and "too broad" in caught.value.detail
 	assert db.rolled_back
 	assert f"SET LOCAL statement_timeout = {analytics_service.SEARCH_SCAN_TIMEOUT_MS}" in db.sql
+
+
+def test_party_guard_is_a_necessary_condition_of_the_party_match():
+	"""Rows the guard rejects can never be party matches, so the order is unchanged."""
+	captions = [
+		"Baker v. Canada (Minister of Citizenship and Immigration)",
+		"Canada (Citizenship and Immigration) v. Vavilov",
+		"Doré c. Barreau du Québec", "Duty-of-Fairness Review Inc. v. Smith", "A.B. v. C.D.", "",
+	]
+	for query in ["Baker", "duty of fairness", "Doré", "Vavilov", "Minister of Citizenship", "reasonableness", "A B"]:
+		token = _longest_token(query)
+		for caption in captions:
+			case = SimpleNamespace(title=caption, metadata_json={}, citation="", secondary_citation="")
+			if identity_tier(case, query) == 1:
+				assert token in caption.lower()
+	assert _longest_token("Baker v Canada") == "canada" and _longest_token("") == ""
+
+
+def test_ranked_statement_reads_the_metadata_json_once_per_row():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="reasonableness", include_facets=False)
+	ranked = db.sql.split("ORDER BY", 1)[0]
+	assert "LEFT JOIN LATERAL (SELECT c.metadata_json->'reader_extracted' AS x OFFSET 0) rd ON TRUE" in ranked
+	order = db.sql.split("ORDER BY", 1)[1].split("LIMIT :limit", 1)[0]
+	assert "c.metadata_json" not in order and "rd.x->>'style of cause'" in order
+	# A one- or two-character query has no identity tier, so it needs no join.
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="ab", include_facets=False)
+	assert "LATERAL" not in db.sql

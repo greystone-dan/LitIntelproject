@@ -13,6 +13,7 @@ import re
 import time
 from types import SimpleNamespace
 from collections import OrderedDict
+import threading
 from threading import RLock
 from typing import Any, Callable, Optional
 
@@ -25,6 +26,7 @@ from sqlalchemy.orm import Session, joinedload
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
 from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
 from .database import (
+	SessionLocal,
 	Case,
 	CaseChunk,
 	CaseChunkEmbedding,
@@ -59,7 +61,7 @@ from .judge_issue_record import (
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
-from .paragraph_search import ParagraphSearchTimeout, search_paragraph_cases, search_paragraph_phrase
+from .paragraph_search import MAX_CASES, ParagraphSearchTimeout, search_paragraph_cases, search_paragraph_phrase
 from .search_matching import (
 	FOLDED_TITLE_SQL,
 	fold_accents,
@@ -294,10 +296,6 @@ def _judge_outcome_counts(cases: list[Case]) -> dict[str, int | float | None]:
 		round(counts["government_wins"] / classified * 100, 1) if classified else None
 	)
 	return counts
-
-
-# Among equally good matches, Supreme Court decisions come before Federal Court of Appeal, then Federal Court.
-COURT_RANK_SQL = "CASE UPPER(c.court) WHEN 'SCC' THEN 0 WHEN 'FCA' THEN 1 ELSE 2 END"
 
 
 def _analytics_case_order_sql(
@@ -1357,19 +1355,45 @@ _CITED_BY_TTL_SECONDS = 6 * 3600
 _CITED_BY_LOCK = RLock()
 
 
-def _cited_by_arrays(db) -> tuple[list[int], list[int]]:
-	"""Distinct citing-case count per cited case, kept for six hours (counting 1.6M citation rows took about 7 s per search)."""
+def _build_cited_by(db) -> None:
+	rows = db.execute(
+		sql_text(
+			"SELECT target_case_id, COUNT(DISTINCT source_case_id) AS n FROM citations "
+			"WHERE target_case_id IS NOT NULL AND source_case_id <> target_case_id GROUP BY target_case_id"
+		)
+	).all()
 	with _CITED_BY_LOCK:
-		if _CITED_BY_CACHE["ids"] and time.monotonic() - _CITED_BY_CACHE["at"] < _CITED_BY_TTL_SECONDS:
-			return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
-		rows = db.execute(
-			sql_text(
-				"SELECT target_case_id, COUNT(DISTINCT source_case_id) AS n FROM citations "
-				"WHERE target_case_id IS NOT NULL AND source_case_id <> target_case_id GROUP BY target_case_id"
-			)
-		).all()
 		_CITED_BY_CACHE.update(at=time.monotonic(), ids=[int(row[0]) for row in rows], counts=[int(row[1]) for row in rows])
-		return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
+
+
+def _cited_by_arrays(db, wait: bool = True) -> tuple[list[int], list[int]]:
+	"""Distinct citing-case count per cited case, kept for six hours (counting 1.6M citation rows takes about 7 s).
+
+	wait=False never makes the caller wait: while the counts are not built yet it returns empty lists and builds
+	them in a background thread, so only the most-cited sort pays the first-use cost after a restart."""
+	with _CITED_BY_LOCK:
+		fresh = _CITED_BY_CACHE["ids"] and time.monotonic() - _CITED_BY_CACHE["at"] < _CITED_BY_TTL_SECONDS
+		if fresh:
+			return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
+		stale = (_CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"])
+	if wait:
+		_build_cited_by(db)
+		with _CITED_BY_LOCK:
+			return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
+	if not _CITED_BY_CACHE.get("building"):
+		_CITED_BY_CACHE["building"] = True
+
+		def warm() -> None:
+			try:
+				with SessionLocal() as warm_db:
+					_build_cited_by(warm_db)
+			except Exception:
+				pass
+			finally:
+				_CITED_BY_CACHE["building"] = False
+
+		threading.Thread(target=warm, daemon=True).start()
+	return stale
 
 
 def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, int]]:
@@ -1502,6 +1526,7 @@ def fetch_analytics_search_cases(
 ) -> dict[str, Any]:
 	limit = max(1, min(limit, 100))
 	offset = max(0, offset)
+	notices: list[str] = []
 	filters = ["TRUE"]
 	params: dict[str, Any] = {"limit": limit, "offset": offset}
 	if cohort_ids is not None:
@@ -1512,6 +1537,8 @@ def fetch_analytics_search_cases(
 		# "Baker v Canada 1999": the trailing year narrows by decision year instead of being matched against titles.
 		query, year_hint = split_year_hint(query)
 		year = year_hint
+		if year_hint:
+			notices.append(f"Showing decisions from {year}, because the search ends in a year. Remove the year to see every year.")
 	cites = " ".join(cites.split())
 	minister = " ".join(minister.split())
 	judge = " ".join(judge.split())
@@ -1549,7 +1576,7 @@ def fetch_analytics_search_cases(
 			params["query_loose"] = loose_pattern
 			query_fields += " OR c.title ILIKE :query_loose"
 		if query.isascii():
-			# "Dore" finds "Doré": compare against the accent-folded title (indexed, see migration 0039).
+			# "Dore" finds "Doré": compare against the accent-folded title (indexed, see migration 0050).
 			params["query_folded"] = f"%{fold_accents(query)}%"
 			query_fields += f" OR {FOLDED_TITLE_SQL} ILIKE :query_folded"
 		if params.get("match_citation"):
@@ -1571,6 +1598,10 @@ def fetch_analytics_search_cases(
 			paragraph_case_ids = [hit["case_id"] for hit in paragraph_hits]
 			paragraph_best_chunk = {hit["case_id"]: hit["best_chunk_id"] for hit in paragraph_hits}
 			paragraph_counts = {hit["case_id"]: int(hit.get("paragraphs") or 0) for hit in paragraph_hits}
+			if any(hit.get("sampled") for hit in paragraph_hits):
+				notices.append("This word is very common, so only a sample of its matches was read. Add more words for a complete result.")
+			elif len(paragraph_hits) >= MAX_CASES:
+				notices.append(f"Showing the {MAX_CASES} decisions with the most matching paragraphs. Add words to narrow the search.")
 			params["para_ids"] = paragraph_case_ids
 			query_fields += " OR c.id = ANY(CAST(:para_ids AS integer[]))"
 			match_label = match_label.replace(
@@ -1703,16 +1734,16 @@ def fetch_analytics_search_cases(
 		"minister": f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC",
 		"most_cited": "cited_by.n DESC, c.date DESC NULLS LAST, c.id DESC",
 	}.get(sort_by, default_sort)
-	# Live count of distinct citing cases (the stored metrics table is stale), joined only for this sort.
+	# Live count of distinct citing cases (the stored metrics table is stale), kept in a six-hour cache.
 	cited_by_join = ""
+	cited_by_source = (
+		"(SELECT * FROM unnest(CAST(:cited_by_ids AS integer[]), CAST(:cited_by_counts AS integer[])) "
+		"AS t(target_case_id, n)) cited_by ON cited_by.target_case_id = c.id"
+	)
 	if sort_by == "most_cited":
-		cited_ids, cited_counts = _cited_by_arrays(db)
-		params["cited_by_ids"] = cited_ids
-		params["cited_by_counts"] = cited_counts
-		cited_by_join = (
-			"JOIN (SELECT * FROM unnest(CAST(:cited_by_ids AS integer[]), CAST(:cited_by_counts AS integer[])) "
-			"AS t(target_case_id, n)) cited_by ON cited_by.target_case_id = c.id"
-		)
+		# Only this sort waits for the counts to be built (about 7 s on the first use after a restart).
+		params["cited_by_ids"], params["cited_by_counts"] = _cited_by_arrays(db)
+		cited_by_join = "JOIN " + cited_by_source
 	if query and not query_uses_operators and sort_by == "relevance":
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
@@ -1735,7 +1766,13 @@ def fetch_analytics_search_cases(
 				# After the exact-phrase tiers, cases matching more of the words rank first.
 				sort_order_sql = sort_order_sql.replace("c.date DESC NULLS LAST", f"{sentence_hits} DESC, c.date DESC NULLS LAST", 1)
 			else:
-				sort_order_sql = sort_order_sql.replace("c.date DESC NULLS LAST", f"{COURT_RANK_SQL}, c.date DESC NULLS LAST", 1)
+				# Equally good name or citation matches: the decision other cases cite most comes first, then the newest.
+				# Never waits: until the counts are built (right after a restart) this tie-break is simply empty.
+				params["cited_by_ids"], params["cited_by_counts"] = _cited_by_arrays(db, wait=False)
+				cited_by_join = "LEFT JOIN " + cited_by_source
+				sort_order_sql = sort_order_sql.replace(
+					"c.date DESC NULLS LAST", "COALESCE(cited_by.n, 0) DESC, c.date DESC NULLS LAST", 1
+				)
 		sort_order = sort_order_sql
 	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).
 	snippet_sql = "NULL"
@@ -1749,7 +1786,7 @@ def fetch_analytics_search_cases(
 	# match label for every matching decision before sorting was the bulk of the cost of a broad search.
 	id_statement = sql_text(
 		f"""
-		SELECT c.id, {citation_count} AS matching_citations
+		SELECT c.id{", " + citation_count + " AS matching_citations" if cites else ""}
 		FROM cases c
 		{cited_by_join}
 		WHERE {where_clause}
@@ -1831,6 +1868,7 @@ def fetch_analytics_search_cases(
 		"limit": limit,
 		"offset": offset,
 		"query_echo": parsed_query["echo"],
+		"notice": " ".join(notices) or None,
 	}
 
 
@@ -1856,6 +1894,9 @@ def clean_search_snippet(raw: str | None) -> str | None:
 	if not text:
 		return None
 	return f"\u2026{text}\u2026"
+
+
+MINISTER_MENU_MIN_CASES = 3
 
 
 def clean_minister_options(rows: list[tuple[str, int]]) -> list[str]:
@@ -1886,7 +1927,13 @@ def clean_minister_options(rows: list[tuple[str, int]]) -> list[str]:
 			and difflib.SequenceMatcher(None, display.casefold(), other.casefold()).ratio() >= 0.88
 			for other, other_count in kept
 		)
-		if not duplicate:
+		# The filter matches by text, so a rare longer spelling ("Minister of Citizenship and Immigration" next to
+		# "Citizenship and Immigration") is already found by the common shorter one; one-off names are not worth a menu line.
+		covered = any(
+			count * 5 <= other_count and other.casefold() in display.casefold() and other.casefold() != display.casefold()
+			for other, other_count in kept
+		)
+		if not duplicate and not covered and count >= MINISTER_MENU_MIN_CASES:
 			kept.append((display, count))
 	return sorted((display for display, _ in kept), key=str.casefold)
 
@@ -1898,9 +1945,14 @@ def fetch_analytics_search_ministers(db: Session) -> dict[str, list[str]]:
 			SELECT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister, COUNT(*) AS n
 			FROM cases
 			WHERE SUBSTRING(title FROM 'Canada [(]([^)]*)[)]') IS NOT NULL
+			AND NOT EXISTS (
+				SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = cases.id
+				AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'not_immigration'
+			)
 			GROUP BY 1
 			"""
-		)
+		),
+		{"case_type_version": TAXONOMY_VERSION},
 	).all()
 	return {"ministers": clean_minister_options([(str(name), int(n)) for name, n in rows if name])}
 

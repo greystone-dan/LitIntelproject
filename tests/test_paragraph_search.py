@@ -364,3 +364,47 @@ def test_court_filter_is_applied_inside_the_ranking_query():
 	sql, params = seen[0]
 	assert params["courts"] == ["rad", "refugee appeal division"] and "ANY(:courts)" in sql
 	assert "ANY(:courts)" not in str(paragraph_search._RANKED_SQL)
+
+
+class _PhraseDB:
+	"""Fake session: the exact phrase query times out when `full_times_out`; records each statement."""
+
+	def __init__(self, full_times_out=False):
+		self.full_times_out, self.calls, self.rollbacks = full_times_out, [], 0
+
+	def execute(self, statement, params=None):
+		sql = " ".join(str(statement).split())
+		self.calls.append(sql)
+		if "to_regclass" in sql:
+			return type("R", (), {"scalar": lambda self: True})()
+		if "WITH q AS" in sql and "LIMIT :sample_limit" not in sql and self.full_times_out:
+			raise RuntimeError("canceling statement due to statement timeout")
+		row = dict(case_id=3, best_score=1.0, paragraphs=12, best_chunk_id=99)
+		return type("R", (), {"mappings": lambda self: self, "all": lambda self: [row]})()
+
+	def rollback(self):
+		self.rollbacks += 1
+
+
+def test_phrase_search_counts_paragraphs_per_case_without_ranking_every_match():
+	from backend import paragraph_search
+
+	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+	db = _PhraseDB()
+	hits = paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000)
+	assert hits == [dict(case_id=3, score=1.0, paragraphs=12, best_chunk_id=99, sampled=False)]
+	sql = [call for call in db.calls if "WITH q AS" in call][0]
+	assert "matches AS MATERIALIZED" in sql and sql.index("GROUP BY case_id") < sql.index("ts_rank_cd")
+	assert "LIMIT :sample_limit" not in sql and "ORDER BY score DESC LIMIT" not in sql
+
+
+def test_phrase_search_reads_a_bounded_sample_when_the_exact_count_times_out():
+	from backend import paragraph_search
+
+	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+	db = _PhraseDB(full_times_out=True)
+	hits = paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000)
+	assert hits[0]["sampled"] is True and db.rollbacks == 1
+	assert any("LIMIT :sample_limit" in call for call in db.calls)
+	timeouts = [call for call in db.calls if "SET LOCAL statement_timeout" in call]
+	assert timeouts == ["SET LOCAL statement_timeout = 6000", "SET LOCAL statement_timeout = 20000"]

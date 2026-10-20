@@ -474,12 +474,14 @@ def test_year_hint_accent_and_loose_caption_matching():
 	from backend.search_matching import fold_accents, loose_title_pattern, split_year_hint
 
 	assert split_year_hint("Baker v Canada 1999") == ("Baker v Canada", "1999")
-	assert split_year_hint("Baker 1999") == ("Baker", "1999")
+	assert split_year_hint("Baker 1999") == ("Baker 1999", "")
+	assert split_year_hint("standard of review 2019") == ("standard of review 2019", "")
 	assert split_year_hint("2019 SCC 65") == ("2019 SCC 65", "")
 	assert split_year_hint("Smith v Canada 2012 FC") == ("Smith v Canada 2012 FC", "")
 	assert split_year_hint("1999") == ("1999", "")
 	assert loose_title_pattern("Baker v Canada") == "%baker%v%canada%"
 	assert loose_title_pattern("Baker") == ""
+	assert loose_title_pattern("a b") == "" and loose_title_pattern("ab v cd") == ""
 	assert fold_accents("Doré Québec") == "dore quebec"
 
 
@@ -499,3 +501,54 @@ def test_short_query_skips_the_caption_regexes_in_the_sort():
 	assert "match_tokens" not in order
 	order, _ = analytics_service._analytics_case_order_sql("bak", "relevance")
 	assert ":match_tokens" in order
+
+
+def test_relevance_tie_break_is_citations_then_date_and_never_waits(monkeypatch):
+	calls = []
+	monkeypatch.setattr(analytics_service, "_cited_by_arrays", lambda db, wait=True: (calls.append(wait) or ([5], [9])))
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Kanthasamy", include_facets=False)
+	order = db.sql.split("ORDER BY", 1)[1].split("LIMIT :limit", 1)[0]
+	assert "COALESCE(cited_by.n, 0) DESC, c.date DESC NULLS LAST" in order
+	assert "LEFT JOIN (SELECT * FROM unnest" in db.sql
+	assert calls == [False] and db.params["cited_by_ids"] == [5] and db.params["cited_by_counts"] == [9]
+
+
+def test_most_cited_sort_waits_for_the_counts_and_uses_an_inner_join(monkeypatch):
+	calls = []
+	monkeypatch.setattr(analytics_service, "_cited_by_arrays", lambda db, wait=True: (calls.append(wait) or ([5], [9])))
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, sort_by="most_cited", include_facets=False)
+	assert calls == [True] and "\n\t\tJOIN (SELECT * FROM unnest" in db.sql and "LEFT JOIN" not in db.sql
+
+
+def test_cited_by_counts_are_cached_and_built_off_thread_when_not_waiting(monkeypatch):
+	built = []
+	monkeypatch.setattr(analytics_service, "_build_cited_by", lambda db: (
+		built.append(1), analytics_service._CITED_BY_CACHE.update(at=analytics_service.time.monotonic(), ids=[1], counts=[2])))
+	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[], building=True)
+	assert analytics_service._cited_by_arrays(object(), wait=False) == ([], [])  # a build is already running
+	assert built == []
+	assert analytics_service._cited_by_arrays(object()) == ([1], [2]) and built == [1]
+	assert analytics_service._cited_by_arrays(object(), wait=False) == ([1], [2]) and built == [1]  # fresh: no rebuild
+	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[], building=False)
+
+
+def test_year_hint_and_cap_notices():
+	db = AnalyticsDB()
+	result = analytics_service.fetch_analytics_search_cases(db, query="Baker v Canada 1999", include_facets=False)
+	assert "from 1999" in result["notice"]
+	assert analytics_service.fetch_analytics_search_cases(AnalyticsDB(), query="Baker", include_facets=False)["notice"] is None
+
+
+def test_accent_list_in_the_migration_matches_the_search_code():
+	import importlib.util
+	from pathlib import Path
+
+	from backend.search_matching import ACCENTED, UNACCENTED
+
+	path = Path(__file__).resolve().parents[1] / "alembic" / "versions" / "0050_search_speed_indexes.py"
+	spec = importlib.util.spec_from_file_location("migration_0050", path)
+	module = importlib.util.module_from_spec(spec)
+	spec.loader.exec_module(module)
+	assert f"'{ACCENTED}', '{UNACCENTED}'" in module.FOLDED and len(ACCENTED) == len(UNACCENTED)

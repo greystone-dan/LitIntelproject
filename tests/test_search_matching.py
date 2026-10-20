@@ -161,12 +161,19 @@ def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode, m
 
 
 class AnalyticsDB:
+	"""Records both statements of a search: the id page (filters, ORDER BY, LIMIT) and the card fields for those ids."""
+
+	def __init__(self):
+		self.sql, self.compiled_sql, self.params, self.bindparams = "", "", {}, set()
+
 	def execute(self, statement, params):
 		self.page_stats = "FROM cases" not in str(statement)
+		self.id_page = "LIMIT :limit" in str(statement)
 		if not self.page_stats:
-			self.sql, self.params = str(statement), params
-			self.bindparams = set(statement._bindparams)
-			self.compiled_sql = str(statement.compile())
+			self.sql += str(statement)
+			self.params.update(params)
+			self.bindparams |= set(statement._bindparams)
+			self.compiled_sql += str(statement.compile())
 		return self
 
 	def mappings(self):
@@ -175,6 +182,8 @@ class AnalyticsDB:
 	def all(self):
 		if self.page_stats:
 			return []
+		if self.id_page:
+			return [dict(id=7)]
 		return [dict(id=7, title="Baker v Canada", citation="[1999] 2 SCR 817", court="SCC",
 			date="1999-07-09", judge=None, minister=None, decision_outcome=None,
 			government_outcome=None, matching_citations=0, citation_mentions=0,
@@ -294,7 +303,7 @@ def test_sql_values_are_bound_not_interpolated(query):
 def test_explicit_sorts_ignore_identity_but_keep_labels(sort_by):
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker", sort_by=sort_by)
-	order = db.sql.split("ORDER BY", 1)[1]
+	order = db.sql.split("ORDER BY", 1)[1].split("LIMIT :limit", 1)[0]
 	assert ":match_tokens" not in order and "THEN 2" not in order
 	assert "AS matched_on" in db.sql
 
@@ -459,3 +468,34 @@ def test_search_rejects_values_it_used_to_ignore(params):
 		assert client.get("/analytics/search/cases", params=params).status_code == 422
 		ok = client.get("/analytics/search/cases", params={"year": "2019", "sort_by": "newest", "limit": 5})
 	assert ok.status_code == 200
+
+
+def test_year_hint_accent_and_loose_caption_matching():
+	from backend.search_matching import fold_accents, loose_title_pattern, split_year_hint
+
+	assert split_year_hint("Baker v Canada 1999") == ("Baker v Canada", "1999")
+	assert split_year_hint("Baker 1999") == ("Baker", "1999")
+	assert split_year_hint("2019 SCC 65") == ("2019 SCC 65", "")
+	assert split_year_hint("Smith v Canada 2012 FC") == ("Smith v Canada 2012 FC", "")
+	assert split_year_hint("1999") == ("1999", "")
+	assert loose_title_pattern("Baker v Canada") == "%baker%v%canada%"
+	assert loose_title_pattern("Baker") == ""
+	assert fold_accents("Doré Québec") == "dore quebec"
+
+
+def test_search_picks_ids_first_and_year_hint_filters_by_date():
+	db = AnalyticsDB()
+	result = analytics_service.fetch_analytics_search_cases(db, query="Baker v Canada 1999", include_facets=False)
+	assert db.params["year_start"] == "1999-01-01" and db.params["query"] == "%Baker v Canada%"
+	assert db.params["query_loose"] == "%baker%v%canada%" and db.params["query_folded"] == "%baker v canada%"
+	assert db.sql.index("LIMIT :limit") < db.sql.index("WHERE c.id IN")
+	assert result["results"][0]["case_id"] == 7
+
+
+def test_short_query_skips_the_caption_regexes_in_the_sort():
+	order, params = analytics_service._analytics_case_order_sql("a", "relevance")
+	assert "match_tokens" not in order and "match_tokens" not in params
+	order, _ = analytics_service._analytics_case_order_sql("ba", "relevance")
+	assert "match_tokens" not in order
+	order, _ = analytics_service._analytics_case_order_sql("bak", "relevance")
+	assert ":match_tokens" in order

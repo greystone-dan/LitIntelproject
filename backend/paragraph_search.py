@@ -127,23 +127,35 @@ def _ranked_sql(restrict_courts: bool):
 _RANKED_SQL = _ranked_sql(False)
 _RANKED_COURT_SQL = _ranked_sql(True)
 
+# A very common word ("reasonableness") matches hundreds of thousands of paragraphs. Ranking every one of them with
+# ts_rank_cd and sorting took over 20 s, so cases are first chosen by how many paragraphs match (no ranking), and
+# only the paragraphs of those cases are ranked to pick each case's best paragraph.
 _PHRASE_SQL = sql_text(
 	f"""
-	WITH q AS (SELECT phraseto_tsquery('{TS_CONFIG}', :phrase_text) AS phrase_q), hits AS (
-		SELECT p.chunk_id, p.case_id, ts_rank_cd(p.tsv, q.phrase_q, 32) AS score
+	WITH q AS (SELECT phraseto_tsquery('{TS_CONFIG}', :phrase_text) AS phrase_q),
+	matches AS MATERIALIZED (
+		SELECT p.chunk_id, p.case_id
 		FROM paragraph_search p, q
 		WHERE p.tsv @@ q.phrase_q
-		ORDER BY score DESC
-		LIMIT :max_paragraphs
+	), top_cases AS (
+		SELECT case_id, count(*) AS paragraphs
+		FROM matches
+		GROUP BY case_id
+		ORDER BY count(*) DESC, case_id DESC
+		LIMIT :max_cases
+	), scored AS (
+		SELECT m.chunk_id, m.case_id, tc.paragraphs, ts_rank_cd(p.tsv, q.phrase_q, 32) AS score
+		FROM matches m
+		JOIN top_cases tc ON tc.case_id = m.case_id
+		JOIN paragraph_search p ON p.chunk_id = m.chunk_id, q
 	)
 	SELECT case_id,
 	       max(score) AS best_score,
-	       count(*) AS paragraphs,
+	       max(paragraphs) AS paragraphs,
 	       (array_agg(chunk_id ORDER BY score DESC))[1] AS best_chunk_id
-	FROM hits
+	FROM scored
 	GROUP BY case_id
-	ORDER BY max(score) + 0.05 * least(count(*), 10) DESC, case_id DESC
-	LIMIT :max_cases
+	ORDER BY max(paragraphs) DESC, max(score) DESC, case_id DESC
 	"""
 )
 
@@ -169,7 +181,7 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 		rows = list(
 			db.execute(
 				_PHRASE_SQL,
-				{"phrase_text": phrase, "max_paragraphs": MAX_PARAGRAPHS, "max_cases": MAX_CASES},
+				{"phrase_text": phrase, "max_cases": MAX_CASES},
 			)
 			.mappings()
 			.all()

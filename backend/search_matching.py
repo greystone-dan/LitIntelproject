@@ -110,6 +110,34 @@ def identity_sql(query: str) -> tuple[str, str, dict[str, str]]:
 	return citation, party, params
 
 
+ACCENTED = "àâäãçéèêëìîïñòôöõùûüÿ"
+UNACCENTED = "aaaaceeeeiiinoooouuuy"
+FOLDED_TITLE_SQL = f"translate(lower(c.title), '{ACCENTED}', '{UNACCENTED}')"
+YEAR_HINT = re.compile(r"^(?P<text>.*\S)\s+\[?(?P<year>1[89][0-9]{2}|20[0-9]{2})\]?$")
+
+
+def split_year_hint(query: str) -> tuple[str, str]:
+	"""("Baker v Canada", "1999") for "Baker v Canada 1999"; (query, "") when the trailing year is part of a citation.
+
+	Needs a word before the year, so "2019 SCC 65" and a bare year keep their meaning."""
+	match = YEAR_HINT.match(" ".join(str(query or "").split()))
+	if not match or not re.search(r"[^\W\d_]", match["text"]):
+		return query, ""
+	if citation_query(match["text"]) or re.search(r"\b(?:scc|fca?|fct|cf|caf|sc|scr|rcs|rpd|rad)\b", match["text"], re.I):
+		return query, ""
+	return match["text"], match["year"]
+
+
+def loose_title_pattern(query: str) -> str:
+	""""%baker%v%canada%" for "Baker v Canada": words in order, so the "v." of a caption still matches. "" for one word."""
+	tokens = re.findall(r"[^\W_]+", str(query or "").lower())
+	return "%" + "%".join(tokens) + "%" if len(tokens) >= 2 else ""
+
+
+def fold_accents(value: str) -> str:
+	return str(value or "").lower().translate(str.maketrans(ACCENTED, UNACCENTED))
+
+
 def matched_on_sql(query: str, *, search_full_text: bool) -> tuple[str, dict[str, str]]:
 	citation, party, params = identity_sql(query)
 	params["match_like"] = f"%{' '.join(query.split())}%"

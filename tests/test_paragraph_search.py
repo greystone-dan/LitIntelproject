@@ -10,11 +10,16 @@ from backend.search_thesaurus import THESAURUS, synonyms_for
 class AnalyticsDB:
 	"""Records the case-search SQL and parameters; returns one canned row."""
 
+	def __init__(self):
+		self.sql, self.params, self.bindparams = "", {}, set()
+
 	def execute(self, statement, params):
 		self.page_stats = "FROM cases" not in str(statement)
+		self.id_page = "LIMIT :limit" in str(statement)
 		if not self.page_stats:
-			self.sql, self.params = str(statement), params
-			self.bindparams = set(statement._bindparams)
+			self.sql += str(statement)
+			self.params.update(params)
+			self.bindparams |= set(statement._bindparams)
 		return self
 
 	def mappings(self):
@@ -23,6 +28,8 @@ class AnalyticsDB:
 	def all(self):
 		if self.page_stats:
 			return []
+		if self.id_page:
+			return [dict(id=7)]
 		return [dict(id=7, title="Baker v Canada", citation="[1999] 2 SCR 817", court="SCC",
 			date="1999-07-09", judge=None, minister=None, decision_outcome=None,
 			government_outcome=None, matching_citations=0, citation_mentions=0,

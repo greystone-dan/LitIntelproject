@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 189
+Active scripts documented: 191
 
 ## Catalog
 
@@ -58,6 +58,7 @@ Active scripts documented: 189
 | `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
+| `check_argument_lists.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_argument_lists.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `check_site_tour.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_site_tour.py --help` |
@@ -143,6 +144,7 @@ Active scripts documented: 189
 | `load_position_tags.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\load_position_tags.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_refined_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help` |
+| `merge_argument_lists.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\merge_argument_lists.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
@@ -870,6 +872,20 @@ Active scripts documented: 189
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help
+```
+
+## `scripts/check_argument_lists.py`
+
+**Purpose:** Score the arguments in an exported case-frame list and flag the least supported ones (files only). Reads a JSON list of decisions ``{"id", "applicant_is_minister", "paragraphs": {"12": "text"}, "arguments": [{"side", "para", "text"}]}`` and writes the same list with a score on every argument and the weakest marked ``flagged``. Nothing is deleted and the database is not touched. Off unless ILIT_ARGUMENT_CHECKER is set.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_argument_lists.py --help
 ```
 
 ## `scripts/check_generated_docs.py`
@@ -2060,6 +2076,20 @@ Active scripts documented: 189
 
 ```powershell
 .\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help
+```
+
+## `scripts/merge_argument_lists.py`
+
+**Purpose:** Merge the full-text and notes argument lists for each decision with the vote rule and the side-label rule (files only). Reads a JSON list ``{"id", "full_text": [{"side", "text", "para"}], "notes": [{"side", "text", "paras"}], "repeat_runs": [[...], [...]]}`` (``repeat_runs`` are extra independent full-text reads) and writes the same list with a ``merged`` list per decision. Needs the ``sentence-transformers`` package for the similarity (BAAI/bge-base-en-v1.5, runs on CPU). Nothing is sent anywhere and the database is not touched. Off unless ILIT_ARGUMENT_CHECKER is set.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\merge_argument_lists.py --help
 ```
 
 ## `scripts/package_discussion_units_llm.py`

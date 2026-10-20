@@ -265,3 +265,43 @@ def test_junk_judge_profiles_are_found_only_when_every_raw_name_is_junk(tmp_path
 	assert fjp.apply_deletes(db, found, path, 10) == 1
 	assert len(list(fix_common.read_undo_file(path))) == 1
 	assert any("DELETE FROM judge_profiles" in sql for sql, _ in db.calls) and db.commits == 1
+
+
+def test_junk_judge_profiles_dry_run_report_apply_needs_expected_count_and_undo_restores_in_order(tmp_path, monkeypatch, capsys):
+	from scripts import fix_junk_judge_profiles as fjp
+
+	def profile(pid, name, court="FC"):
+		return dict(id=pid, slug=f"judge-{pid}", display_name=name, normalized_name=name.lower(), primary_court=court, aliases=[name])
+
+	rows = [
+		{**profile(1, "Justice And Order"), "raw_name": "AND ORDER", "n": 5},
+		{**profile(2, "Justice Heneghan"), "raw_name": "Heneghan J.", "n": 40},
+		{**profile(2, "Justice Heneghan"), "raw_name": "SOLICITORS OF RECORD", "n": 3},
+	]
+
+	def handler(sql, params):
+		if "FROM judge_profiles p" in sql:
+			return _Result(rows=rows)
+		if "FROM case_judge_profiles WHERE" in sql:
+			return _Result(rows=[dict(id=11, case_id=7, raw_name="AND ORDER")])
+		if "FROM judge_profile_aliases" in sql:
+			return _Result(rows=[dict(id=21, alias_profile_id=1, canonical_profile_id=2, source="rule")])
+
+	db = FakeDB(handler)
+	monkeypatch.setattr(fjp, "SessionLocal", lambda: _Ctx(db))
+	assert fjp.main([]) == 0
+	out = capsys.readouterr().out
+	assert "junk_judge_profiles=1 linked_cases=5" in out and "mixed" in out and "1 profiles" in out
+	assert not any("DELETE" in sql for sql, _ in db.calls)
+	with pytest.raises(SystemExit):
+		fjp.main(["--apply"])
+	assert fjp.main(["--apply", "--expected-count", "9"]) == 1
+	undo = tmp_path / "u.jsonl"
+	assert fjp.main(["--apply", "--expected-count", "1", "--undo-file", str(undo)]) == 0
+	assert any("DELETE FROM judge_profiles" in sql for sql, _ in db.calls)
+
+	db.calls.clear()
+	assert fjp.restore(db, undo) == 1
+	kinds = [("judge_profiles" if "INTO judge_profiles " in sql else "links" if "INTO case_judge_profiles" in sql else "aliases")
+		for sql, _ in db.calls if sql.startswith("INSERT")]
+	assert kinds == ["judge_profiles", "links", "aliases"]

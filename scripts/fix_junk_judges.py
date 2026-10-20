@@ -45,18 +45,20 @@ SELECT_SQL = text(
 )
 
 
-def is_junk_judge(value: Any) -> bool:
-	"""Same test the extractor uses: the first non-empty line (or the whole value) is junk."""
+def is_junk_judge(value: Any, include_label_only: bool = False) -> bool:
+	"""Same test the extractor uses: the first non-empty line (or the whole value) is junk.
+
+	include_label_only also counts a bare "AND ORDER" / "BY:" label (a heading left over from "JUDGMENT AND ORDER";
+	about 2,200 decisions carry it). Off by default so the scope of this script stays the one that was approved."""
 	if not value:
 		return False
 	lines = [line.strip() for line in str(value).splitlines() if line.strip()]
-	# "AND ORDER" is a heading left over from "JUDGMENT AND ORDER", not a judge (2,201 decisions carry it).
-	if lines and _JUDGE_LABEL_ONLY_RE.fullmatch(" ".join(lines[0].split())):
+	if include_label_only and lines and _JUDGE_LABEL_ONLY_RE.fullmatch(" ".join(lines[0].split())):
 		return True
 	return bool(lines) and (_is_judge_junk(lines[0]) or _is_judge_junk(" ".join(lines)))
 
 
-def find_junk_rows(db, batch_size: int) -> list[dict[str, Any]]:
+def find_junk_rows(db, batch_size: int, include_label_only: bool = False) -> list[dict[str, Any]]:
 	found: list[dict[str, Any]] = []
 	after = 0
 	while True:
@@ -64,7 +66,7 @@ def find_junk_rows(db, batch_size: int) -> list[dict[str, Any]]:
 		if not rows:
 			return found
 		after = rows[-1]["id"]
-		found.extend(r for r in rows if is_junk_judge(r["judge"]))
+		found.extend(r for r in rows if is_junk_judge(r["judge"], include_label_only))
 
 
 def new_judge_for(full_text: str | None) -> str | None:
@@ -146,6 +148,7 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument("--undo", type=Path, help="Put back the judge values saved in this undo file.")
 	parser.add_argument("--undo-file", type=Path, help="Where --apply writes the undo file (default data/db_fix_backups/).")
 	parser.add_argument("--expected-count", type=int, help="With --apply: stop unless exactly this many junk rows are found.")
+	parser.add_argument("--include-label-only", action="store_true", help='Also fix judges that are only a label such as "AND ORDER" (about 2,200 more decisions; needs its own approval).')
 	parser.add_argument("--no-reextract", action="store_true", help="Only remove junk judges; do not look for a replacement.")
 	parser.add_argument("--batch-size", type=int, default=500)
 	parser.add_argument("--sample", type=int, default=20, help="Planned changes to list in the dry run.")
@@ -159,7 +162,7 @@ def main(argv: list[str] | None = None) -> int:
 			print(f"restored={restored} skipped_changed_since={skipped} from {args.undo}")
 			print("Re-run scripts/backfill_judge_profiles.py if judge profiles were rebuilt after the fix.")
 			return 0
-		junk = find_junk_rows(db, 5000)
+		junk = find_junk_rows(db, 5000, args.include_label_only)
 		print(f"junk_judge_rows={len(junk)}")
 		for court, count in Counter(r["court"] for r in junk).most_common():
 			print(f"  {count:7d}  {court}")

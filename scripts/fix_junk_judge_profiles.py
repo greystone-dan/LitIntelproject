@@ -6,8 +6,14 @@ Deleting a profile also removes its case links and any alias rows pointing at it
 with even one real raw name are left alone.
 
   python scripts/fix_junk_judge_profiles.py                          # dry run: junk profiles, their case counts
-  python scripts/fix_junk_judge_profiles.py --apply --expected-count N    # save an undo file, then delete
+  python scripts/fix_junk_judge_profiles.py --apply --expected-count N    # save an undo file, then delete (--expected-count is required)
   python scripts/fix_junk_judge_profiles.py --undo data/db_fix_backups/junk_judge_profiles_<stamp>.jsonl
+
+Does NOT remove the profiles made from SCC panel strings (several judges in one string); that is a separate cleanup.
+Run order: fix_junk_judges.py (add --include-label-only to also clear "AND ORDER", which needs its own approval),
+check a sample of the changed rows, backfill_judge_profiles.py, then this script, then apply_judge_aliases.py.
+"AND ORDER" counts as junk here whether or not fix_junk_judges was run with that flag; if it was not, the next
+backfill recreates that profile from the cases that still carry the label.
 
 Backup first: judge_profiles, case_judge_profiles and judge_profile_aliases. The undo file holds every deleted
 profile, its links and its alias rows, and --undo puts them back with their original ids.
@@ -29,7 +35,12 @@ from sqlalchemy import text
 
 from backend.database import SessionLocal
 from scripts.fix_common import chunked, default_undo_path, read_undo_file, write_undo_file
-from scripts.fix_junk_judges import is_junk_judge
+from scripts.fix_junk_judges import is_junk_judge as _is_junk
+
+
+def is_junk_raw(name: Any) -> bool:
+	"""Junk by the extractor's test, or a bare label such as \"AND ORDER\"."""
+	return _is_junk(name, include_label_only=True)
 
 RAW_NAMES_SQL = text(
 	"SELECT p.id, p.slug, p.display_name, p.normalized_name, p.primary_court, p.aliases, "
@@ -39,8 +50,10 @@ RAW_NAMES_SQL = text(
 )
 
 
-def find_junk_profiles(db) -> list[dict[str, Any]]:
-	"""Profiles whose linked raw names are all junk (or that have a letterless name and no real link)."""
+def find_junk_profiles(db, mixed: list | None = None) -> list[dict[str, Any]]:
+	"""Profiles whose linked raw names are all junk (or that have a letterless name and no real link).
+
+	Profiles that have some junk raw names next to real ones are left alone; pass a list as `mixed` to collect them."""
 	profiles: dict[int, dict[str, Any]] = {}
 	raw_names: dict[int, list[tuple[str | None, int]]] = defaultdict(list)
 	for row in db.execute(RAW_NAMES_SQL).mappings().all():
@@ -50,8 +63,10 @@ def find_junk_profiles(db) -> list[dict[str, Any]]:
 	for profile_id, profile in profiles.items():
 		raws = [(name, n) for name, n in raw_names[profile_id] if name]
 		letterless = not any(ch.isalpha() for ch in str(profile["display_name"] or ""))
-		if (raws and all(is_junk_judge(name) for name, _ in raws)) or (letterless and not any(not is_junk_judge(name) for name, _ in raws)):
+		if (raws and all(is_junk_raw(name) for name, _ in raws)) or (letterless and not any(not is_junk_raw(name) for name, _ in raws)):
 			junk.append({**profile, "cases": sum(n for _, n in raws), "raw_names": sorted({name for name, _ in raws})})
+		elif mixed is not None and any(is_junk_raw(name) for name, _ in raws):
+			mixed.append({**profile, "cases": sum(n for _, n in raws), "junk_cases": sum(n for name, n in raws if is_junk_raw(name))})
 	return sorted(junk, key=lambda p: -p["cases"])
 
 
@@ -84,22 +99,25 @@ def apply_deletes(db, profiles: list[dict[str, Any]], undo_path: Path, batch_siz
 
 
 def restore(db, path: Path) -> int:
+	"""Put the profiles back first, then their case links, then the alias rows (which need both profiles to exist)."""
 	import json
 
-	restored = 0
-	for record in read_undo_file(path):
+	records = list(read_undo_file(path))
+	for record in records:
 		profile = record["profile"]
 		db.execute(
 			text("INSERT INTO judge_profiles (id, slug, display_name, normalized_name, primary_court, aliases) "
 			"VALUES (:id, :slug, :display_name, :normalized_name, :primary_court, CAST(:aliases AS json)) ON CONFLICT DO NOTHING"),
 			{**profile, "aliases": json.dumps(profile["aliases"])},
 		)
+	for record in records:
 		for link in record["links"]:
 			db.execute(
 				text("INSERT INTO case_judge_profiles (id, case_id, judge_profile_id, raw_name) "
 				"SELECT :id, :case_id, :profile_id, :raw_name WHERE EXISTS (SELECT 1 FROM cases WHERE id = :case_id) ON CONFLICT DO NOTHING"),
-				{**link, "profile_id": profile["id"]},
+				{**link, "profile_id": record["profile"]["id"]},
 			)
+	for record in records:
 		for alias in record["aliases"]:
 			db.execute(
 				text("INSERT INTO judge_profile_aliases (id, alias_profile_id, canonical_profile_id, source) "
@@ -108,9 +126,27 @@ def restore(db, path: Path) -> int:
 				"AND EXISTS (SELECT 1 FROM judge_profiles WHERE id = :canonical_profile_id) ON CONFLICT DO NOTHING"),
 				alias,
 			)
-		restored += 1
 	db.commit()
-	return restored
+	return len(records)
+
+
+def print_report(junk: list[dict[str, Any]], mixed: list[dict[str, Any]], sample: int) -> None:
+	import random
+	from collections import Counter
+
+	print(f"junk_judge_profiles={len(junk)} linked_cases={sum(p['cases'] for p in junk)}")
+	for court, count in Counter(p["primary_court"] or "(none)" for p in junk).most_common():
+		print(f"  {count:6d} profiles  {court}")
+	print(f"{sample} random junk profiles (check them before applying):")
+	for profile in random.Random(0).sample(junk, min(sample, len(junk))):
+		print(f"  {profile['cases']:6d}  {profile['slug']}  {profile['display_name']!r}  raw={profile['raw_names'][:3]}")
+	print("largest junk profiles:")
+	for profile in junk[:5]:
+		print(f"  {profile['cases']:6d}  {profile['slug']}  {profile['display_name']!r}")
+	print(f"not deleted, mixed (some junk raw names beside real ones): {len(mixed)} profiles, "
+		f"{sum(p['junk_cases'] for p in mixed)} linked cases carry a junk raw name")
+	for profile in sorted(mixed, key=lambda p: -p["junk_cases"])[:5]:
+		print(f"  {profile['junk_cases']:6d} of {profile['cases']}  {profile['slug']}  {profile['display_name']!r}")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -120,20 +156,21 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument("--undo-file", type=Path, help="Where --apply writes the undo file (default data/db_fix_backups/).")
 	parser.add_argument("--expected-count", type=int, help="With --apply: stop unless exactly this many profiles are found.")
 	parser.add_argument("--batch-size", type=int, default=200)
-	parser.add_argument("--sample", type=int, default=25, help="Profiles to list in the dry run.")
+	parser.add_argument("--sample", type=int, default=20, help="Random junk profiles to list in the dry run.")
 	args = parser.parse_args(argv)
 	with SessionLocal() as db:
 		if args.undo:
 			print(f"restored={restore(db, args.undo)} profiles from {args.undo}")
 			return 0
-		junk = find_junk_profiles(db)
-		print(f"junk_judge_profiles={len(junk)} linked_cases={sum(p['cases'] for p in junk)}")
-		for profile in junk[: args.sample]:
-			print(f"  {profile['cases']:6d}  {profile['slug']}  {profile['display_name']!r}  raw={profile['raw_names'][:3]}")
+		mixed: list[dict[str, Any]] = []
+		junk = find_junk_profiles(db, mixed)
+		print_report(junk, mixed, args.sample)
 		if not args.apply:
 			print("Dry run: nothing written. Add --apply --expected-count N to delete.")
 			return 0
-		if args.expected_count is not None and args.expected_count != len(junk):
+		if args.expected_count is None:
+			parser.error("--apply needs --expected-count N (the junk_judge_profiles number the dry run printed)")
+		if args.expected_count != len(junk):
 			print(f"Expected {args.expected_count} but found {len(junk)}; nothing changed.")
 			return 1
 		undo_path = args.undo_file or default_undo_path("junk_judge_profiles")

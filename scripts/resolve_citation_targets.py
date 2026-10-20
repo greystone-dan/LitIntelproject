@@ -156,8 +156,10 @@ def parse_args() -> argparse.Namespace:
 		"--log-updates",
 		type=Path,
 		default=None,
-		help="Append 'citation_id,target_case_id,by' for every row linked (also in --dry-run). "
-		"Undo: UPDATE citations SET target_case_id = NULL WHERE id IN (ids from this file).",
+		help="Append 'citation_id,target_case_id,by,previous_unresolved' for every row linked (also in --dry-run). "
+		"Linking also sets unresolved=false, so undo must restore both columns: "
+		"UPDATE citations SET target_case_id = NULL, unresolved = <previous_unresolved> WHERE id = <citation_id> "
+		"for each line (batch it per previous_unresolved value).",
 	)
 	return parser.parse_args()
 
@@ -224,7 +226,7 @@ def main() -> None:
 						title_resolved += 1
 						updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
 						if log_handle is not None:
-							log_handle.write(f"{citation.id},{target_case_id},name\n")
+							log_handle.write(f"{citation.id},{target_case_id},name,{citation.unresolved}\n")
 					continue
 				if not variants:
 					continue
@@ -240,7 +242,7 @@ def main() -> None:
 					resolved += 1
 					updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
 					if log_handle is not None:
-						log_handle.write(f"{citation.id},{target_case_id},{by}\n")
+						log_handle.write(f"{citation.id},{target_case_id},{by},{citation.unresolved}\n")
 			if log_handle is not None:
 				log_handle.flush()
 			if updates and not args.dry_run:

@@ -45,6 +45,8 @@ REPORTED_CIT_RE = re.compile(
 	r"(\d{1,3})\s+([A-Z](?:[A-Z.]|\s){1,14}?)\s+(\d{1,7})\b",
 	re.IGNORECASE,
 )
+# French neutral-citation court codes, mapped to the English code the library stores.
+FRENCH_COURT_CODES = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT"}
 GENERIC_STATUTE_NOISE_NAMES = {
 	"An Act",
 	"Contempt Order",
@@ -2844,9 +2846,6 @@ def _resolve_neutral_to_case_id_local(session: Session, neutral_citation: str) -
 		)
 	)
 	return case.id if case is not None else None
-
-
-FRENCH_COURT_CODES = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT"}
 
 
 def _citation_variants(value: str) -> list[str]:

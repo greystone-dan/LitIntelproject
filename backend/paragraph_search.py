@@ -172,6 +172,15 @@ _PHRASE_SQL = _phrase_sql(False)
 _PHRASE_SAMPLE_SQL = _phrase_sql(True)
 
 
+_PHRASE_CACHE: dict[str, tuple[float, list[dict[str, Any]]]] = {}
+_PHRASE_CACHE_TTL_SECONDS = 3600
+_PHRASE_CACHE_MAX = 200
+
+
+def clear_phrase_cache() -> None:
+	_PHRASE_CACHE.clear()
+
+
 class ParagraphSearchTimeout(Exception):
 	"""The phrase lookup ran past its time limit (a very common word)."""
 
@@ -191,6 +200,10 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 	phrase = " ".join(str(query or "").split())
 	if not re.search(r"[A-Za-z0-9]", phrase) or not _index_ready(db):
 		return None
+	# The same word is searched again and again (and a sample must not change between two searches): keep each answer an hour.
+	cached = _PHRASE_CACHE.get(phrase.casefold())
+	if cached and time.monotonic() - cached[0] < _PHRASE_CACHE_TTL_SECONDS:
+		return cached[1]
 	params = {"phrase_text": phrase, "max_cases": MAX_CASES, "sample_limit": PHRASE_SAMPLE_LIMIT}
 
 	def run(statement, limit_ms):
@@ -214,7 +227,7 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 		if _is_timeout(error):
 			raise ParagraphSearchTimeout(str(error)) from error
 		return None
-	return [
+	hits = [
 		{
 			"case_id": int(row["case_id"]),
 			"score": float(row["best_score"]),
@@ -224,6 +237,10 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 		}
 		for row in rows
 	]
+	if len(_PHRASE_CACHE) >= _PHRASE_CACHE_MAX:
+		_PHRASE_CACHE.clear()
+	_PHRASE_CACHE[phrase.casefold()] = (time.monotonic(), hits)
+	return hits
 
 
 def search_paragraph_cases(db: Any, query: str, courts: list[str] | None = None) -> list[dict[str, Any]] | None:

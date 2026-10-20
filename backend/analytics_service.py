@@ -13,7 +13,6 @@ import re
 import time
 from types import SimpleNamespace
 from collections import OrderedDict
-import threading
 from threading import RLock
 from typing import Any, Callable, Optional
 
@@ -26,7 +25,6 @@ from sqlalchemy.orm import Session, joinedload
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
 from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
 from .database import (
-	SessionLocal,
 	Case,
 	CaseChunk,
 	CaseChunkEmbedding,
@@ -170,22 +168,56 @@ _analytics_cache = TTLCache()
 
 
 _SLOW_RESULTS: dict[str, tuple[float, Any]] = {}
-_SLOW_LOCK = RLock()
+_SLOW_LOCKS: dict[str, RLock] = {}
+_SLOW_REFRESHING: set[str] = set()
+_SLOW_GUARD = RLock()
 SLOW_RESULT_TTL_SECONDS = 3600
 
 
-def cached_slow_result(key: str, build: Callable[[], Any], ttl_seconds: int = SLOW_RESULT_TTL_SECONDS) -> Any:
+def cached_slow_result(key: str, build: Callable[[Any], Any], db: Any, ttl_seconds: int = SLOW_RESULT_TTL_SECONDS) -> Any:
 	"""Whole-library aggregates (13 to 50 s on the live data) are built once an hour; visitors in between get the stored copy.
 
-	Follows the analytics cache switch, so tests and an ANALYTICS_CACHE_TTL_SECONDS of 0 still compute every time."""
+	Each page has its own lock, so one slow build never holds up another page. Once a copy exists, an expired one is
+	still served at once while a background thread builds the next (its own database session). Only the very first
+	visit after a restart waits for the build. Follows the analytics cache switch, so tests and an
+	ANALYTICS_CACHE_TTL_SECONDS of 0 still compute every time."""
 	if not _analytics_cache.enabled:
-		return build()
-	with _SLOW_LOCK:
+		return build(db)
+	with _SLOW_GUARD:
+		lock = _SLOW_LOCKS.setdefault(key, RLock())
+		entry = _SLOW_RESULTS.get(key)
+	if entry and time.monotonic() - entry[0] < ttl_seconds:
+		return entry[1]
+	if entry:
+		with _SLOW_GUARD:
+			start = key not in _SLOW_REFRESHING
+			_SLOW_REFRESHING.add(key)
+		if start:
+			import threading
+
+			def refresh() -> None:
+				try:
+					from .database import SessionLocal
+
+					with SessionLocal() as session:
+						value = build(session)
+					with _SLOW_GUARD:
+						_SLOW_RESULTS[key] = (time.monotonic(), value)
+				except Exception:
+					pass
+				finally:
+					with _SLOW_GUARD:
+						_SLOW_REFRESHING.discard(key)
+
+			threading.Thread(target=refresh, daemon=True).start()
+		return entry[1]
+	with lock:
 		entry = _SLOW_RESULTS.get(key)
 		if entry and time.monotonic() - entry[0] < ttl_seconds:
 			return entry[1]
-		value = build()
-		_SLOW_RESULTS[key] = (time.monotonic(), value)
+		value = build(db)
+		with _SLOW_GUARD:
+			_SLOW_RESULTS[key] = (time.monotonic(), value)
 		return value
 
 
@@ -1355,45 +1387,21 @@ _CITED_BY_TTL_SECONDS = 6 * 3600
 _CITED_BY_LOCK = RLock()
 
 
-def _build_cited_by(db) -> None:
-	rows = db.execute(
-		sql_text(
-			"SELECT target_case_id, COUNT(DISTINCT source_case_id) AS n FROM citations "
-			"WHERE target_case_id IS NOT NULL AND source_case_id <> target_case_id GROUP BY target_case_id"
-		)
-	).all()
-	with _CITED_BY_LOCK:
-		_CITED_BY_CACHE.update(at=time.monotonic(), ids=[int(row[0]) for row in rows], counts=[int(row[1]) for row in rows])
-
-
-def _cited_by_arrays(db, wait: bool = True) -> tuple[list[int], list[int]]:
+def _cited_by_arrays(db) -> tuple[list[int], list[int]]:
 	"""Distinct citing-case count per cited case, kept for six hours (counting 1.6M citation rows takes about 7 s).
 
-	wait=False never makes the caller wait: while the counts are not built yet it returns empty lists and builds
-	them in a background thread, so only the most-cited sort pays the first-use cost after a restart."""
+	One build at a time: a second most-cited search during the first build waits for it instead of repeating it."""
 	with _CITED_BY_LOCK:
-		fresh = _CITED_BY_CACHE["ids"] and time.monotonic() - _CITED_BY_CACHE["at"] < _CITED_BY_TTL_SECONDS
-		if fresh:
+		if _CITED_BY_CACHE["ids"] and time.monotonic() - _CITED_BY_CACHE["at"] < _CITED_BY_TTL_SECONDS:
 			return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
-		stale = (_CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"])
-	if wait:
-		_build_cited_by(db)
-		with _CITED_BY_LOCK:
-			return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
-	if not _CITED_BY_CACHE.get("building"):
-		_CITED_BY_CACHE["building"] = True
-
-		def warm() -> None:
-			try:
-				with SessionLocal() as warm_db:
-					_build_cited_by(warm_db)
-			except Exception:
-				pass
-			finally:
-				_CITED_BY_CACHE["building"] = False
-
-		threading.Thread(target=warm, daemon=True).start()
-	return stale
+		rows = db.execute(
+			sql_text(
+				"SELECT target_case_id, COUNT(DISTINCT source_case_id) AS n FROM citations "
+				"WHERE target_case_id IS NOT NULL AND source_case_id <> target_case_id GROUP BY target_case_id"
+			)
+		).all()
+		_CITED_BY_CACHE.update(at=time.monotonic(), ids=[int(row[0]) for row in rows], counts=[int(row[1]) for row in rows])
+		return _CITED_BY_CACHE["ids"], _CITED_BY_CACHE["counts"]
 
 
 def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, int]]:
@@ -1599,7 +1607,7 @@ def fetch_analytics_search_cases(
 			paragraph_best_chunk = {hit["case_id"]: hit["best_chunk_id"] for hit in paragraph_hits}
 			paragraph_counts = {hit["case_id"]: int(hit.get("paragraphs") or 0) for hit in paragraph_hits}
 			if any(hit.get("sampled") for hit in paragraph_hits):
-				notices.append("This word is very common, so only a sample of its matches was read. Add more words for a complete result.")
+				notices.append("This word is very common, so only a sample (the first 40,000 matching paragraphs in storage order) was read, and the paragraph counts are partial. Add more words for a complete result.")
 			elif len(paragraph_hits) >= MAX_CASES:
 				notices.append(f"Showing the {MAX_CASES} decisions with the most matching paragraphs. Add words to narrow the search.")
 			params["para_ids"] = paragraph_case_ids
@@ -1736,14 +1744,13 @@ def fetch_analytics_search_cases(
 	}.get(sort_by, default_sort)
 	# Live count of distinct citing cases (the stored metrics table is stale), kept in a six-hour cache.
 	cited_by_join = ""
-	cited_by_source = (
-		"(SELECT * FROM unnest(CAST(:cited_by_ids AS integer[]), CAST(:cited_by_counts AS integer[])) "
-		"AS t(target_case_id, n)) cited_by ON cited_by.target_case_id = c.id"
-	)
 	if sort_by == "most_cited":
-		# Only this sort waits for the counts to be built (about 7 s on the first use after a restart).
+		# The first use after a restart builds the counts (about 7 s); later searches reuse them.
 		params["cited_by_ids"], params["cited_by_counts"] = _cited_by_arrays(db)
-		cited_by_join = "JOIN " + cited_by_source
+		cited_by_join = (
+			"JOIN (SELECT * FROM unnest(CAST(:cited_by_ids AS integer[]), CAST(:cited_by_counts AS integer[])) "
+			"AS t(target_case_id, n)) cited_by ON cited_by.target_case_id = c.id"
+		)
 	if query and not query_uses_operators and sort_by == "relevance":
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
@@ -1767,11 +1774,10 @@ def fetch_analytics_search_cases(
 				sort_order_sql = sort_order_sql.replace("c.date DESC NULLS LAST", f"{sentence_hits} DESC, c.date DESC NULLS LAST", 1)
 			else:
 				# Equally good name or citation matches: the decision other cases cite most comes first, then the newest.
-				# Never waits: until the counts are built (right after a restart) this tie-break is simply empty.
-				params["cited_by_ids"], params["cited_by_counts"] = _cited_by_arrays(db, wait=False)
-				cited_by_join = "LEFT JOIN " + cited_by_source
+				# Uses the stored citation_metrics counts (one indexed join, no ids sent along); they only need to be roughly right.
+				cited_by_join = "LEFT JOIN citation_metrics cm ON cm.case_id = c.id"
 				sort_order_sql = sort_order_sql.replace(
-					"c.date DESC NULLS LAST", "COALESCE(cited_by.n, 0) DESC, c.date DESC NULLS LAST", 1
+					"c.date DESC NULLS LAST", "COALESCE(cm.in_degree, 0) DESC, c.date DESC NULLS LAST", 1
 				)
 		sort_order = sort_order_sql
 	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).

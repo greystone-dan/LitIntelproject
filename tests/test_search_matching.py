@@ -503,35 +503,65 @@ def test_short_query_skips_the_caption_regexes_in_the_sort():
 	assert ":match_tokens" in order
 
 
-def test_relevance_tie_break_is_citations_then_date_and_never_waits(monkeypatch):
-	calls = []
-	monkeypatch.setattr(analytics_service, "_cited_by_arrays", lambda db, wait=True: (calls.append(wait) or ([5], [9])))
+def test_relevance_tie_break_is_stored_citation_count_then_date():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Kanthasamy", include_facets=False)
 	order = db.sql.split("ORDER BY", 1)[1].split("LIMIT :limit", 1)[0]
-	assert "COALESCE(cited_by.n, 0) DESC, c.date DESC NULLS LAST" in order
-	assert "LEFT JOIN (SELECT * FROM unnest" in db.sql
-	assert calls == [False] and db.params["cited_by_ids"] == [5] and db.params["cited_by_counts"] == [9]
+	assert "COALESCE(cm.in_degree, 0) DESC, c.date DESC NULLS LAST" in order
+	assert "LEFT JOIN citation_metrics cm ON cm.case_id = c.id" in db.sql
+	assert "cited_by_ids" not in db.params  # no id arrays are sent along with a name search
 
 
-def test_most_cited_sort_waits_for_the_counts_and_uses_an_inner_join(monkeypatch):
-	calls = []
-	monkeypatch.setattr(analytics_service, "_cited_by_arrays", lambda db, wait=True: (calls.append(wait) or ([5], [9])))
+def test_most_cited_sort_uses_the_cached_counts_with_an_inner_join(monkeypatch):
+	monkeypatch.setattr(analytics_service, "_cited_by_arrays", lambda db: ([5], [9]))
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, sort_by="most_cited", include_facets=False)
-	assert calls == [True] and "\n\t\tJOIN (SELECT * FROM unnest" in db.sql and "LEFT JOIN" not in db.sql
+	assert "\n\t\tJOIN (SELECT * FROM unnest" in db.sql and "LEFT JOIN" not in db.sql
+	assert db.params["cited_by_ids"] == [5] and db.params["cited_by_counts"] == [9]
 
 
-def test_cited_by_counts_are_cached_and_built_off_thread_when_not_waiting(monkeypatch):
-	built = []
-	monkeypatch.setattr(analytics_service, "_build_cited_by", lambda db: (
-		built.append(1), analytics_service._CITED_BY_CACHE.update(at=analytics_service.time.monotonic(), ids=[1], counts=[2])))
-	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[], building=True)
-	assert analytics_service._cited_by_arrays(object(), wait=False) == ([], [])  # a build is already running
-	assert built == []
-	assert analytics_service._cited_by_arrays(object()) == ([1], [2]) and built == [1]
-	assert analytics_service._cited_by_arrays(object(), wait=False) == ([1], [2]) and built == [1]  # fresh: no rebuild
-	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[], building=False)
+def test_cited_by_counts_are_built_once_and_reused():
+	class CountingDB:
+		runs = 0
+
+		def execute(self, statement):
+			CountingDB.runs += 1
+			return type("R", (), {"all": lambda self: [(1, 2), (3, 4)]})()
+
+	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[])
+	assert analytics_service._cited_by_arrays(CountingDB()) == ([1, 3], [2, 4])
+	assert analytics_service._cited_by_arrays(CountingDB()) == ([1, 3], [2, 4]) and CountingDB.runs == 1
+	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[])
+
+
+def test_slow_results_have_their_own_lock_and_expired_copies_refresh_in_the_background(monkeypatch):
+	import threading
+
+	analytics_service.clear_analytics_cache()
+	analytics_service.set_analytics_cache_enabled(True)
+	builds = []
+	assert analytics_service.cached_slow_result("t1", lambda db: builds.append(db) or "v1", "db") == "v1"
+	assert analytics_service.cached_slow_result("t1", lambda db: "other", "db") == "v1" and builds == ["db"]
+	assert analytics_service._SLOW_LOCKS["t1"] is not analytics_service._SLOW_LOCKS.get("t2")
+	# Expired: the old copy is returned at once and the next one is built off-thread with its own session.
+	analytics_service._SLOW_RESULTS["t1"] = (analytics_service.time.monotonic() - 99999, "old")
+	done = threading.Event()
+	import backend.database as database
+
+	monkeypatch.setattr(database, "SessionLocal", lambda: type("S", (), {"__enter__": lambda s: "bg", "__exit__": lambda s, *a: False})())
+
+	def build(session):
+		done.set()
+		return f"new-{session}"
+
+	assert analytics_service.cached_slow_result("t1", build, "request-db") == "old"
+	assert done.wait(2)
+	for _ in range(50):
+		if analytics_service._SLOW_RESULTS["t1"][1] == "new-bg":
+			break
+		analytics_service.time.sleep(0.02)
+	assert analytics_service._SLOW_RESULTS["t1"][1] == "new-bg"
+	analytics_service.clear_analytics_cache()
 
 
 def test_year_hint_and_cap_notices():

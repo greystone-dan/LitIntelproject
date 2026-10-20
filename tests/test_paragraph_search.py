@@ -390,6 +390,7 @@ def test_phrase_search_counts_paragraphs_per_case_without_ranking_every_match():
 	from backend import paragraph_search
 
 	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+	paragraph_search.clear_phrase_cache()
 	db = _PhraseDB()
 	hits = paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000)
 	assert hits == [dict(case_id=3, score=1.0, paragraphs=12, best_chunk_id=99, sampled=False)]
@@ -402,9 +403,22 @@ def test_phrase_search_reads_a_bounded_sample_when_the_exact_count_times_out():
 	from backend import paragraph_search
 
 	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+	paragraph_search.clear_phrase_cache()
 	db = _PhraseDB(full_times_out=True)
 	hits = paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000)
 	assert hits[0]["sampled"] is True and db.rollbacks == 1
 	assert any("LIMIT :sample_limit" in call for call in db.calls)
 	timeouts = [call for call in db.calls if "SET LOCAL statement_timeout" in call]
 	assert timeouts == ["SET LOCAL statement_timeout = 6000", "SET LOCAL statement_timeout = 20000"]
+
+
+def test_phrase_answers_are_kept_so_a_repeat_search_gives_the_same_sample():
+	from backend import paragraph_search
+
+	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+	paragraph_search.clear_phrase_cache()
+	db = _PhraseDB(full_times_out=True)
+	first = paragraph_search.search_paragraph_phrase(db, "Reasonableness", timeout_ms=20000)
+	calls = len(db.calls)
+	assert paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000) == first
+	assert len(db.calls) == calls

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 193
+Active scripts documented: 194
 
 ## Catalog
 
@@ -194,6 +194,7 @@ Active scripts documented: 193
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
+| `study_name_only_context.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\study_name_only_context.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
@@ -2778,6 +2779,20 @@ Active scripts documented: 193
 
 ```powershell
 .\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help
+```
+
+## `scripts/study_name_only_context.py`
+
+**Purpose:** Read-only: how many name-only unlinked citations could be linked from the same decision. A name-only citation such as "Hunter v. Canada" often sits in a decision that also cites the same case in full ("Hunter v. Canada (MCI), 2010 FC 123") and that full citation is already linked. This study counts, for FC, FCA and SCC citing decisions, unlinked case citations without a formal citation and sorts them by what the same decision shows: SAME_DECISION_LINKED_UNIQUE one linked row with the same party names, one target SAME_DECISION_LINKED_CONFLICT linked rows with the same party names point at different targets SAME_DECISION_FULL_CITE_UNLINKED same names appear with a formal cite that is also unlinked SURNAME_ONLY_LINKED_UNIQUE single-word alias; one linked row in the decision shares the first surname NO_CONTEXT nothing in the decision to go on SELECTs only in a READ ONLY transaction; no model, no network, no writes. python scripts/study_name_only_context.py --output-dir C:\ilit_backups\unlinked_study
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\study_name_only_context.py --help
 ```
 
 ## `scripts/tag_cases.py`

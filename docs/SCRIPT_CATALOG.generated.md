@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 192
+Active scripts documented: 193
 
 ## Catalog
 
@@ -197,6 +197,7 @@ Active scripts documented: 192
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
+| `top_unlinked_cited.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\top_unlinked_cited.py --help` |
 | `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
 | `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `train_role_correction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_role_correction.py --help` |
@@ -2819,6 +2820,20 @@ Active scripts documented: 192
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_cases_v3.py --help
+```
+
+## `scripts/top_unlinked_cited.py`
+
+**Purpose:** Read-only: most cited case citations that have no target decision in the library. Groups unlinked case citations from FC, FCA and SCC decisions by a cleaned key (neutral or reporter citation when present, otherwise the case name without pinpoint), counts occurrences and distinct citing decisions, and writes the top rows with the library-gap bucket. SELECTs only, one READ ONLY transaction, no model, no network. python scripts/top_unlinked_cited.py --output C:\ilit_backups\unlinked_study\top_unlinked.csv
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\top_unlinked_cited.py --help
 ```
 
 ## `scripts/train_learned_positions.py`

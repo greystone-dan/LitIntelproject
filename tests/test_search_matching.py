@@ -161,12 +161,19 @@ def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode, m
 
 
 class AnalyticsDB:
+	"""Records both statements of a search: the id page (filters, ORDER BY, LIMIT) and the card fields for those ids."""
+
+	def __init__(self):
+		self.sql, self.compiled_sql, self.params, self.bindparams = "", "", {}, set()
+
 	def execute(self, statement, params):
 		self.page_stats = "FROM cases" not in str(statement)
+		self.id_page = "LIMIT :limit" in str(statement)
 		if not self.page_stats:
-			self.sql, self.params = str(statement), params
-			self.bindparams = set(statement._bindparams)
-			self.compiled_sql = str(statement.compile())
+			self.sql += str(statement)
+			self.params.update(params)
+			self.bindparams |= set(statement._bindparams)
+			self.compiled_sql += str(statement.compile())
 		return self
 
 	def mappings(self):
@@ -175,6 +182,8 @@ class AnalyticsDB:
 	def all(self):
 		if self.page_stats:
 			return []
+		if self.id_page:
+			return [dict(id=7)]
 		return [dict(id=7, title="Baker v Canada", citation="[1999] 2 SCR 817", court="SCC",
 			date="1999-07-09", judge=None, minister=None, decision_outcome=None,
 			government_outcome=None, matching_citations=0, citation_mentions=0,
@@ -294,7 +303,7 @@ def test_sql_values_are_bound_not_interpolated(query):
 def test_explicit_sorts_ignore_identity_but_keep_labels(sort_by):
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker", sort_by=sort_by)
-	order = db.sql.split("ORDER BY", 1)[1]
+	order = db.sql.split("ORDER BY", 1)[1].split("LIMIT :limit", 1)[0]
 	assert ":match_tokens" not in order and "THEN 2" not in order
 	assert "AS matched_on" in db.sql
 
@@ -459,3 +468,149 @@ def test_search_rejects_values_it_used_to_ignore(params):
 		assert client.get("/analytics/search/cases", params=params).status_code == 422
 		ok = client.get("/analytics/search/cases", params={"year": "2019", "sort_by": "newest", "limit": 5})
 	assert ok.status_code == 200
+
+
+def test_year_hint_accent_and_loose_caption_matching():
+	from backend.search_matching import fold_accents, loose_title_pattern, split_year_hint
+
+	assert split_year_hint("Baker v Canada 1999") == ("Baker v Canada", "1999")
+	assert split_year_hint("Baker 1999") == ("Baker 1999", "")
+	assert split_year_hint("standard of review 2019") == ("standard of review 2019", "")
+	assert split_year_hint("2019 SCC 65") == ("2019 SCC 65", "")
+	assert split_year_hint("Smith v Canada 2012 FC") == ("Smith v Canada 2012 FC", "")
+	assert split_year_hint("1999") == ("1999", "")
+	assert loose_title_pattern("Baker v Canada") == "%baker%v%canada%"
+	assert loose_title_pattern("Baker") == ""
+	assert loose_title_pattern("a b") == "" and loose_title_pattern("ab v cd") == ""
+	assert fold_accents("Doré Québec") == "dore quebec"
+
+
+def test_search_picks_ids_first_and_year_hint_filters_by_date():
+	db = AnalyticsDB()
+	result = analytics_service.fetch_analytics_search_cases(db, query="Baker v Canada 1999", include_facets=False)
+	assert db.params["year_start"] == "1999-01-01" and db.params["query"] == "%Baker v Canada%"
+	assert db.params["query_loose"] == "%baker%v%canada%" and db.params["query_folded"] == "%baker v canada%"
+	assert db.sql.index("LIMIT :limit") < db.sql.index("WHERE c.id IN")
+	assert result["results"][0]["case_id"] == 7
+
+
+def test_short_query_skips_the_caption_regexes_in_the_sort():
+	order, params = analytics_service._analytics_case_order_sql("a", "relevance")
+	assert "match_tokens" not in order and "match_tokens" not in params
+	order, _ = analytics_service._analytics_case_order_sql("ba", "relevance")
+	assert "match_tokens" not in order
+	order, _ = analytics_service._analytics_case_order_sql("bak", "relevance")
+	assert ":match_tokens" in order
+
+
+def test_relevance_tie_break_is_stored_citation_count_then_date():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Kanthasamy", include_facets=False)
+	order = db.sql.split("ORDER BY", 1)[1].split("LIMIT :limit", 1)[0]
+	assert "COALESCE(cm.in_degree, 0) DESC, c.date DESC NULLS LAST" in order
+	assert "LEFT JOIN citation_metrics cm ON cm.case_id = c.id" in db.sql
+	assert "cited_by_ids" not in db.params  # no id arrays are sent along with a name search
+
+
+def test_most_cited_sort_uses_the_cached_counts_with_an_inner_join(monkeypatch):
+	monkeypatch.setattr(analytics_service, "_cited_by_arrays", lambda db: ([5], [9]))
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, sort_by="most_cited", include_facets=False)
+	assert "\n\t\tJOIN (SELECT * FROM unnest" in db.sql and "LEFT JOIN" not in db.sql
+	assert db.params["cited_by_ids"] == [5] and db.params["cited_by_counts"] == [9]
+
+
+def test_cited_by_counts_are_built_once_and_reused():
+	class CountingDB:
+		runs = 0
+
+		def execute(self, statement):
+			CountingDB.runs += 1
+			return type("R", (), {"all": lambda self: [(1, 2), (3, 4)]})()
+
+	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[])
+	assert analytics_service._cited_by_arrays(CountingDB()) == ([1, 3], [2, 4])
+	assert analytics_service._cited_by_arrays(CountingDB()) == ([1, 3], [2, 4]) and CountingDB.runs == 1
+	analytics_service._CITED_BY_CACHE.update(at=0.0, ids=[], counts=[])
+
+
+def test_slow_results_have_their_own_lock_and_expired_copies_refresh_in_the_background(monkeypatch):
+	import threading
+
+	analytics_service.clear_analytics_cache()
+	analytics_service.set_analytics_cache_enabled(True)
+	builds = []
+	assert analytics_service.cached_slow_result("t1", lambda db: builds.append(db) or "v1", "db") == "v1"
+	assert analytics_service.cached_slow_result("t1", lambda db: "other", "db") == "v1" and builds == ["db"]
+	assert analytics_service._SLOW_LOCKS["t1"] is not analytics_service._SLOW_LOCKS.get("t2")
+	# Expired: the old copy is returned at once and the next one is built off-thread with its own session.
+	analytics_service._SLOW_RESULTS["t1"] = (analytics_service.time.monotonic() - 99999, "old")
+	done = threading.Event()
+	import backend.database as database
+
+	monkeypatch.setattr(database, "SessionLocal", lambda: type("S", (), {"__enter__": lambda s: "bg", "__exit__": lambda s, *a: False})())
+
+	def build(session):
+		done.set()
+		return f"new-{session}"
+
+	assert analytics_service.cached_slow_result("t1", build, "request-db") == "old"
+	assert done.wait(2)
+	for _ in range(50):
+		if analytics_service._SLOW_RESULTS["t1"][1] == "new-bg":
+			break
+		analytics_service.time.sleep(0.02)
+	assert analytics_service._SLOW_RESULTS["t1"][1] == "new-bg"
+	analytics_service.clear_analytics_cache()
+
+
+def test_failed_background_refresh_logs_and_waits_before_trying_again(monkeypatch, caplog):
+	import threading
+
+	analytics_service.clear_analytics_cache()
+	analytics_service.set_analytics_cache_enabled(True)
+	import backend.database as database
+
+	monkeypatch.setattr(database, "SessionLocal", lambda: type("S", (), {"__enter__": lambda s: "bg", "__exit__": lambda s, *a: False})())
+	analytics_service._SLOW_RESULTS["t9"] = (analytics_service.time.monotonic() - 99999, "old")
+	attempts = []
+	done = threading.Event()
+
+	def build(session):
+		attempts.append(session)
+		done.set()
+		raise RuntimeError("boom")
+
+	with caplog.at_level("ERROR"):
+		assert analytics_service.cached_slow_result("t9", build, "request-db") == "old"
+		assert done.wait(2)
+		for _ in range(50):
+			if "t9" in analytics_service._SLOW_RETRY_AFTER:
+				break
+			analytics_service.time.sleep(0.02)
+	assert "Background refresh of t9 failed" in caplog.text
+	# Further requests keep getting the old copy without starting another build.
+	assert analytics_service.cached_slow_result("t9", build, "request-db") == "old"
+	analytics_service.time.sleep(0.1)
+	assert attempts == ["bg"]
+	analytics_service.clear_analytics_cache()
+
+
+def test_year_hint_and_cap_notices():
+	db = AnalyticsDB()
+	result = analytics_service.fetch_analytics_search_cases(db, query="Baker v Canada 1999", include_facets=False)
+	assert "from 1999" in result["notice"]
+	assert analytics_service.fetch_analytics_search_cases(AnalyticsDB(), query="Baker", include_facets=False)["notice"] is None
+
+
+def test_accent_list_in_the_migration_matches_the_search_code():
+	import importlib.util
+	from pathlib import Path
+
+	from backend.search_matching import ACCENTED, UNACCENTED
+
+	path = Path(__file__).resolve().parents[1] / "alembic" / "versions" / "0050_search_speed_indexes.py"
+	spec = importlib.util.spec_from_file_location("migration_0050", path)
+	module = importlib.util.module_from_spec(spec)
+	spec.loader.exec_module(module)
+	assert f"'{ACCENTED}', '{UNACCENTED}'" in module.FOLDED and len(ACCENTED) == len(UNACCENTED)

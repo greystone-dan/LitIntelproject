@@ -152,6 +152,15 @@ def parse_args() -> argparse.Namespace:
 		help="Inspect only one unresolved citation kind.",
 	)
 	parser.add_argument("--dry-run", action="store_true")
+	parser.add_argument(
+		"--log-updates",
+		type=Path,
+		default=None,
+		help="Append 'citation_id,target_case_id,by,previous_unresolved' for every row linked (also in --dry-run). "
+		"Linking also sets unresolved=false, so undo must restore both columns: "
+		"UPDATE citations SET target_case_id = NULL, unresolved = <previous_unresolved> WHERE id = <citation_id> "
+		"for each line (batch it per previous_unresolved value).",
+	)
 	return parser.parse_args()
 
 
@@ -172,6 +181,7 @@ def main() -> None:
 	if args.resume_from_id < 0:
 		raise SystemExit("--resume-from-id must be >= 0")
 
+	log_handle = args.log_updates.open("a", encoding="utf-8") if args.log_updates is not None else None
 	with SessionLocal() as session:
 		index = build_local_case_resolution_index(session)
 		title_index = _build_title_resolution_index(session)
@@ -215,18 +225,26 @@ def main() -> None:
 						resolved += 1
 						title_resolved += 1
 						updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
+						if log_handle is not None:
+							log_handle.write(f"{citation.id},{target_case_id},name,{citation.unresolved}\n")
 					continue
 				if not variants:
 					continue
 				candidates += 1
 				target_case_id = _target_case_id(citation, index)
+				by = "citation"
 				if target_case_id is None and citation.citation_kind in {"case", "case_name", "case_short", "neutral"}:
 					target_case_id = _title_target_id(citation, title_index, title_year_index)
 					if target_case_id is not None:
 						title_resolved += 1
+						by = "title"
 				if target_case_id is not None:
 					resolved += 1
 					updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
+					if log_handle is not None:
+						log_handle.write(f"{citation.id},{target_case_id},{by},{citation.unresolved}\n")
+			if log_handle is not None:
+				log_handle.flush()
 			if updates and not args.dry_run:
 				session.bulk_update_mappings(Citation, updates)
 				session.commit()
@@ -235,6 +253,8 @@ def main() -> None:
 				f"title_resolved={title_resolved} last_id={last_id}"
 			)
 
+	if log_handle is not None:
+		log_handle.close()
 	print(
 		f"finished inspected={inspected} neutral_candidates={candidates} resolved={resolved} "
 		f"title_resolved={title_resolved} last_id={last_id}"

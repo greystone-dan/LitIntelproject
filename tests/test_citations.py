@@ -536,6 +536,37 @@ def test_citation_variants_support_parenthesized_reporter_years():
 	assert citations._citation_variants("(1993) 163 N.R. 197") == ["1993 163 NR 197"]
 
 
+def test_citation_variants_map_french_court_codes_to_english():
+	assert citations._citation_variants("Vavilov, 2019 CSC 65") == ["2019 SCC 65"]
+	assert citations._citation_variants("2015 CAF 12") == ["2015 FCA 12"]
+	assert citations._citation_variants("2015 CF 12") == ["2015 FC 12", "2015 FCT 12"]
+
+
+def test_citation_variants_map_french_trial_division_code():
+	assert citations._citation_variants("Hamel c. Canada, 2002 CFPI 33") == ["2002 FCT 33", "2002 FC 33"]
+
+
+def _neutral_lookup_variants(neutral_citation):
+	captured = []
+
+	class FakeSession:
+		def scalar(self, statement):
+			captured.append(str(statement.compile(compile_kwargs={"literal_binds": True})))
+			return None
+
+	assert citations._resolve_neutral_to_case_id_local(FakeSession(), neutral_citation) is None
+	return captured[0]
+
+
+def test_neutral_lookup_maps_bracketed_french_code_to_english():
+	assert "'[2019] SCC 65'" in _neutral_lookup_variants("[2019] CSC 65")
+
+
+def test_neutral_lookup_maps_french_trial_division_code():
+	variants = _neutral_lookup_variants("2002 CFPI 33")
+	assert "'2002 FCT 33'" in variants and "'2002 FC 33'" in variants
+
+
 def test_citation_variants_parenthesized_reporter_year_accepts_extra_whitespace():
 	assert citations._citation_variants("(1993) \t 163 N.R. 197") == ["1993 163 NR 197"]
 

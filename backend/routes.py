@@ -192,6 +192,7 @@ from .analytics_service import (
 	fetch_judge_comparison,
 	fetch_judge_profiles,
 	fetch_issue_brief,
+	cached_slow_result,
 	fetch_outcomes_by_year,
 )
 from .fc_activity_insights import (
@@ -509,7 +510,7 @@ def _prototype_edges_count() -> int:
 
 @router.get("/analytics/outcomes-by-year", response_model=list[dict[str, Any]])
 def get_outcomes_by_year(db: Session = Depends(get_db)) -> list[dict[str, Any]]:
-	return fetch_outcomes_by_year(db)
+	return cached_slow_result("outcomes_by_year", fetch_outcomes_by_year, db)
 
 def _prototype_edges() -> list[tuple[int, int, str]]:
 	if not PROTOTYPE_EDGES_CSV.exists():
@@ -2485,7 +2486,7 @@ def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> di
 
 @router.get("/analytics/themes", response_model=dict[str, Any])
 def get_analytics_themes(db: Session = Depends(get_db)) -> dict[str, Any]:
-	return fetch_theme_breakdown(db)
+	return cached_slow_result("theme_breakdown", fetch_theme_breakdown, db)
 
 
 @router.get("/analytics/statute-tag-matrix", response_model=dict[str, Any])
@@ -2540,7 +2541,7 @@ def get_case_thematic_cluster(
 
 @router.get("/analytics/tags", response_model=dict[str, Any])
 def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
-	return fetch_all_tag_analytics(db)
+	return cached_slow_result("all_tag_analytics", fetch_all_tag_analytics, db)
 
 
 @router.get(

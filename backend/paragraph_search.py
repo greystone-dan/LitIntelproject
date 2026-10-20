@@ -127,29 +127,67 @@ def _ranked_sql(restrict_courts: bool):
 _RANKED_SQL = _ranked_sql(False)
 _RANKED_COURT_SQL = _ranked_sql(True)
 
-_PHRASE_SQL = sql_text(
-	f"""
-	WITH q AS (SELECT phraseto_tsquery('{TS_CONFIG}', :phrase_text) AS phrase_q), hits AS (
-		SELECT p.chunk_id, p.case_id, ts_rank_cd(p.tsv, q.phrase_q, 32) AS score
+# A very common word ("reasonableness") matches hundreds of thousands of paragraphs. Ranking every one of them with
+# ts_rank_cd and sorting took over 20 s, so cases are first chosen by how many paragraphs match (no ranking), and
+# only the paragraphs of those cases are ranked to pick each case's best paragraph. If even that is too slow, the
+# same query reads only the first PHRASE_SAMPLE_LIMIT matching paragraphs (a sample, and the caller says so).
+PHRASE_FULL_TIMEOUT_MS = 6000
+PHRASE_SAMPLE_LIMIT = 40000
+
+
+def _phrase_sql(sampled: bool):
+	limit_sql = "LIMIT :sample_limit" if sampled else ""
+	return sql_text(
+		f"""
+	WITH q AS (SELECT phraseto_tsquery('{TS_CONFIG}', :phrase_text) AS phrase_q),
+	matches AS MATERIALIZED (
+		SELECT p.chunk_id, p.case_id
 		FROM paragraph_search p, q
 		WHERE p.tsv @@ q.phrase_q
-		ORDER BY score DESC
-		LIMIT :max_paragraphs
+		{limit_sql}
+	), top_cases AS (
+		SELECT case_id, count(*) AS paragraphs
+		FROM matches
+		GROUP BY case_id
+		ORDER BY count(*) DESC, case_id DESC
+		LIMIT :max_cases
+	), scored AS (
+		SELECT m.chunk_id, m.case_id, tc.paragraphs, ts_rank_cd(p.tsv, q.phrase_q, 32) AS score
+		FROM matches m
+		JOIN top_cases tc ON tc.case_id = m.case_id
+		JOIN paragraph_search p ON p.chunk_id = m.chunk_id, q
 	)
 	SELECT case_id,
 	       max(score) AS best_score,
-	       count(*) AS paragraphs,
+	       max(paragraphs) AS paragraphs,
 	       (array_agg(chunk_id ORDER BY score DESC))[1] AS best_chunk_id
-	FROM hits
+	FROM scored
 	GROUP BY case_id
-	ORDER BY max(score) + 0.05 * least(count(*), 10) DESC, case_id DESC
-	LIMIT :max_cases
+	ORDER BY max(paragraphs) DESC, max(score) DESC, case_id DESC
 	"""
-)
+	)
+
+
+_PHRASE_SQL = _phrase_sql(False)
+_PHRASE_SAMPLE_SQL = _phrase_sql(True)
+
+
+_PHRASE_CACHE: dict[str, tuple[float, list[dict[str, Any]], bool]] = {}
+_PHRASE_CACHE_TTL_SECONDS = 3600
+_PHRASE_SAMPLE_TTL_SECONDS = 300  # a sampled answer is a stopgap; look for an exact count again soon
+_PHRASE_CACHE_MAX = 200
+
+
+def clear_phrase_cache() -> None:
+	_PHRASE_CACHE.clear()
 
 
 class ParagraphSearchTimeout(Exception):
 	"""The phrase lookup ran past its time limit (a very common word)."""
+
+
+def _is_timeout(error: Exception) -> bool:
+	return "statement timeout" in str(error).lower() or "canceling statement" in str(error).lower()
 
 
 def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) -> list[dict[str, Any]] | None:
@@ -163,31 +201,49 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 	phrase = " ".join(str(query or "").split())
 	if not re.search(r"[A-Za-z0-9]", phrase) or not _index_ready(db):
 		return None
+	# The same word is searched again and again (and a sample must not change between two searches): keep each answer an hour.
+	cached = _PHRASE_CACHE.get(phrase.casefold())
+	if cached:
+		ttl = _PHRASE_SAMPLE_TTL_SECONDS if cached[2] else _PHRASE_CACHE_TTL_SECONDS
+		if time.monotonic() - cached[0] < ttl:
+			return cached[1]
+	params = {"phrase_text": phrase, "max_cases": MAX_CASES, "sample_limit": PHRASE_SAMPLE_LIMIT}
+
+	def run(statement, limit_ms):
+		if limit_ms:
+			db.execute(sql_text(f"SET LOCAL statement_timeout = {int(limit_ms)}"), {})
+		return list(db.execute(statement, params).mappings().all())
+
+	sampled = False
 	try:
-		if timeout_ms:
-			db.execute(sql_text(f"SET LOCAL statement_timeout = {int(timeout_ms)}"), {})
-		rows = list(
-			db.execute(
-				_PHRASE_SQL,
-				{"phrase_text": phrase, "max_paragraphs": MAX_PARAGRAPHS, "max_cases": MAX_CASES},
-			)
-			.mappings()
-			.all()
-		)
+		try:
+			rows = run(_PHRASE_SQL, min(timeout_ms, PHRASE_FULL_TIMEOUT_MS) if timeout_ms else None)
+		except Exception as error:
+			if not _is_timeout(error):
+				raise
+			# Too many matches to count exactly: read a bounded sample of them instead of failing.
+			_rollback(db)
+			sampled = True
+			rows = run(_PHRASE_SAMPLE_SQL, timeout_ms)
 	except Exception as error:
 		_rollback(db)
-		if "statement timeout" in str(error).lower() or "canceling statement" in str(error).lower():
+		if _is_timeout(error):
 			raise ParagraphSearchTimeout(str(error)) from error
 		return None
-	return [
+	hits = [
 		{
 			"case_id": int(row["case_id"]),
 			"score": float(row["best_score"]),
 			"paragraphs": int(row["paragraphs"]),
 			"best_chunk_id": int(row["best_chunk_id"]),
+			"sampled": sampled,
 		}
 		for row in rows
 	]
+	if len(_PHRASE_CACHE) >= _PHRASE_CACHE_MAX:
+		_PHRASE_CACHE.clear()
+	_PHRASE_CACHE[phrase.casefold()] = (time.monotonic(), hits, sampled)
+	return hits
 
 
 def search_paragraph_cases(db: Any, query: str, courts: list[str] | None = None) -> list[dict[str, Any]] | None:

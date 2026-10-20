@@ -16,7 +16,8 @@ check a sample of the changed rows, backfill_judge_profiles.py, then this script
 backfill recreates that profile from the cases that still carry the label.
 
 Backup first: judge_profiles, case_judge_profiles and judge_profile_aliases. The undo file holds every deleted
-profile, its links and its alias rows, and --undo puts them back with their original ids.
+profile, its links and its alias rows, and --undo puts them back with their original ids. Restored profiles
+and links get the restore time as created_at/updated_at, not their original timestamps.
 """
 
 from __future__ import annotations

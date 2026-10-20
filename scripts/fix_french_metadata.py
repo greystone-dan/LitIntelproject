@@ -9,9 +9,11 @@ cases.metadata_json -> reader_extracted, for the French rows only, and only the 
   python scripts/fix_french_metadata.py --apply --expected-count N       # save an undo file, then write
   python scripts/fix_french_metadata.py --undo data/db_fix_backups/french_metadata_<stamp>.jsonl
 
-Keys touched: judge, docket (only when the stored one is the same file number with extra words after it), and the
-outcome set (decision outcome, government role, government outcome, case winner, case loser, outcome status) only
-for rows that have no decision outcome yet, so an outcome that is already stored is never overwritten.
+Keys touched: judge and docket (only when the stored one is the same file number with extra words after it).
+Outcomes are NOT touched unless --include-outcomes is given: the outcome set (decision outcome, government role,
+government outcome, case winner, case loser, outcome status), only for rows that have no decision outcome yet, so a
+stored outcome is never overwritten. Do not use that flag until a fresh 35-decision check, not chosen by ruling
+phrase, shows about 90% of the written French outcomes correct (see PR 592).
 Backup first: this edits cases.metadata_json for the listed rows; the undo file holds the old values of every key.
 Does not rebuild judge profiles: run backfill_judge_profiles.py separately, after checking the dry run.
 """
@@ -46,7 +48,7 @@ SELECT_SQL = text(
 )
 
 
-def plan_row(row: dict[str, Any], full_text: str | None) -> dict[str, Any] | None:
+def plan_row(row: dict[str, Any], full_text: str | None, include_outcomes: bool = False) -> dict[str, Any] | None:
 	"""{key: (old, new)} for the keys that would change, or None when nothing changes."""
 	if not full_text:
 		return None
@@ -60,7 +62,7 @@ def plan_row(row: dict[str, Any], full_text: str | None) -> dict[str, Any] | Non
 	old_docket = old.get("docket")
 	if new_docket and old_docket and old_docket != new_docket and str(old_docket).startswith(new_docket):
 		changes["docket"] = (old_docket, new_docket)
-	if not old.get("decision outcome"):
+	if include_outcomes and not old.get("decision outcome"):
 		derived = _derive_outcome_fields(full_text, {**old, **{k: v for k, v in found.items() if not k.startswith("_")}})
 		for key in OUTCOME_KEYS:
 			if key in derived and derived[key][0] != old.get(key):
@@ -68,7 +70,7 @@ def plan_row(row: dict[str, Any], full_text: str | None) -> dict[str, Any] | Non
 	return changes or None
 
 
-def find_changes(db, batch_size: int) -> list[dict[str, Any]]:
+def find_changes(db, batch_size: int, include_outcomes: bool = False) -> list[dict[str, Any]]:
 	plan: list[dict[str, Any]] = []
 	after = 0
 	while True:
@@ -78,7 +80,7 @@ def find_changes(db, batch_size: int) -> list[dict[str, Any]]:
 		after = rows[-1]["id"]
 		texts = dict(db.execute(select(Case.id, Case.full_text).where(Case.id.in_([r["id"] for r in rows]))).all())
 		for row in rows:
-			changes = plan_row(row, texts.get(row["id"]))
+			changes = plan_row(row, texts.get(row["id"]), include_outcomes)
 			if changes:
 				plan.append({"id": row["id"], "court": row["court"], "citation": row["citation"], "changes": changes})
 
@@ -140,6 +142,7 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument("--undo", type=Path, help="Put back the old values saved in this undo file.")
 	parser.add_argument("--undo-file", type=Path, help="Where --apply writes the undo file (default data/db_fix_backups/).")
 	parser.add_argument("--expected-count", type=int, help="Required with --apply: the number of rows the dry run printed.")
+	parser.add_argument("--include-outcomes", action="store_true", help="Also fill missing outcomes (held until the French outcome check passes).")
 	parser.add_argument("--batch-size", type=int, default=500)
 	parser.add_argument("--sample", type=int, default=50, help="Random old -> new rows to list in the dry run.")
 	args = parser.parse_args(argv)
@@ -151,7 +154,7 @@ def main(argv: list[str] | None = None) -> int:
 			print(f"restored={restored} skipped_changed_since={skipped} from {args.undo}")
 			return 0
 		total = db.execute(text("SELECT count(*) FROM cases WHERE court IN ('FC', 'FCA') AND citation ~ '\\m(CF|CAF)\\M'")).scalar()
-		plan = find_changes(db, args.batch_size)
+		plan = find_changes(db, args.batch_size, args.include_outcomes)
 		print(f"french_decisions={total} rows_to_change={len(plan)}")
 		per_key = Counter(key for p in plan for key in p["changes"])
 		for key, count in per_key.most_common():

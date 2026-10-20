@@ -266,11 +266,13 @@ j.c.a.
 def test_french_metadata_plan_changes_judge_docket_and_missing_outcome_only():
 	row = {"id": 5, "court": "FCA", "citation": "2026 CAF 160",
 		"extracted": {"judge": "LOCKE", "docket": "A-127-25 Contenu de la décision"}}
-	changes = fix_french_metadata.plan_row(row, FRENCH_TEXT)
+	judge_only = fix_french_metadata.plan_row(row, FRENCH_TEXT)
+	assert set(judge_only) == {"judge", "docket"}
+	changes = fix_french_metadata.plan_row(row, FRENCH_TEXT, include_outcomes=True)
 	assert changes["judge"] == ("LOCKE", "Nathalie Goyette")
 	assert changes["docket"] == ("A-127-25 Contenu de la décision", "A-127-25")
 	assert changes["decision outcome"] == (None, "dismissed") and changes["government outcome"][1] == "won"
-	kept = fix_french_metadata.plan_row({**row, "extracted": {**row["extracted"], "decision outcome": "allowed"}}, FRENCH_TEXT)
+	kept = fix_french_metadata.plan_row({**row, "extracted": {**row["extracted"], "decision outcome": "allowed"}}, FRENCH_TEXT, include_outcomes=True)
 	assert "decision outcome" not in kept and "government outcome" not in kept
 	assert fix_french_metadata.plan_row(row, None) is None
 

@@ -87,3 +87,62 @@ def test_conflicting_french_rulings_are_unclear_not_the_last_one():
 	assert build_case_outcome(text, {})["decision_outcome"] in (None, "unclear")
 	same = text.replace("est rejetée", "est accueillie")
 	assert build_case_outcome(same, {})["decision_outcome"] == "allowed"
+
+
+def _outcome(text):
+	return build_case_outcome(text, {})["decision_outcome"]
+
+
+FR_PAD = " Le demandeur est un citoyen et les motifs de la décision sont dans le dossier pour la Cour." * 12
+
+
+def test_english_statute_text_quoted_in_a_french_decision_does_not_decide_the_outcome():
+	text = (
+		"Dossier : IMM-2-26\nENTRE :\nA B\ndemandeur\net\nLE MINISTRE\ndéfendeur\nMOTIFS ET JUGEMENT\n" + FR_PAD +
+		"\nLa disposition prévoit que « the application is allowed if the officer erred ».\n"
+		"[40] La demande de contrôle judiciaire est rejetée. Aucuns dépens."
+	)
+	assert _outcome(text) == "dismissed"
+
+
+def test_subjunctive_order_after_the_cour_ordonne_marker_beats_earlier_history():
+	text = (
+		"Dossier : IMM-3-26\nENTRE :\nA B\ndemandeur\net\nLE MINISTRE\ndéfendeur\nMOTIFS\n" + FR_PAD +
+		"\n[3] La demande d’autorisation est accueillie. Plus tard, l'affaire a été entendue.\n"
+		"JUGEMENT\nLA COUR ORDONNE que la demande de contrôle judiciaire soit rejetée, sans frais."
+	)
+	assert _outcome(text) == "dismissed"
+
+
+def test_conditional_first_person_ruling_in_appeal_reasons():
+	base = "Dossier : A-9-26\nENTRE :\nA B\nappelant\net\nLE MINISTRE\nintimé\nMOTIFS DU JUGEMENT\n" + FR_PAD + "\n[60] "
+	assert _outcome(base + "Je rejetterais l’appel, avec dépens.") == "dismissed"
+	assert _outcome(base + "J’accueillerais l’appel, avec dépens.") == "allowed"
+
+
+def test_allowed_for_one_party_and_dismissed_in_all_other_respects_is_in_part():
+	text = (
+		"Dossier : A-10-26\nENTRE :\nA B\nappelant\net\nLE MINISTRE\nintimé\nMOTIFS DU JUGEMENT\n" + FR_PAD +
+		"\n[70] L’appel est accueilli à l’égard de M. B. et, à tous les autres égards, il est rejeté, sans dépens."
+	)
+	assert _outcome(text) == "mixed"
+
+
+def test_french_signature_is_found_when_an_annex_follows():
+	annex = "\nANNEXE\n" + "Disposition applicable du règlement et son texte complet.\n" * 400
+	assert _extract_metadata_with_quality(FCA_TEXT + annex)["judge"] == "Nathalie Goyette"
+
+
+def test_present_demande_fait_droit_and_en_partie_forms():
+	head = "Dossier : IMM-4-26\nENTRE :\nA B\ndemandeur\net\nLE MINISTRE\ndéfendeur\nMOTIFS\n" + FR_PAD + "\n"
+	assert _outcome(head + "LA COUR ORDONNE que la présente demande de contrôle judiciaire soit rejetée.") == "dismissed"
+	assert _outcome(head + "LA COUR STATUE :\nIl est fait droit à la demande de contrôle judiciaire. La décision est annulée.") == "allowed"
+	assert _outcome(head + "LA COUR STATUE que :\n1. Les demandes sont en partie accueillies;") == "mixed"
+
+
+def test_a_condition_or_an_annex_after_the_order_is_not_the_ruling():
+	head = "Dossier : A-11-26\nENTRE :\nA B\nappelant\net\nLE MINISTRE\nintimé\nMOTIFS\n" + FR_PAD + "\n"
+	conditional = head + "[90] La requête sera rejetée, avec dépens. À défaut de quoi, ses appels seront rejetés."
+	assert _outcome(conditional) == "procedural"
+	annex = head + "LA COUR ORDONNE que la demande soit accueillie.\n« A B »\nJuge\nANNEXE\nLa demande est rejetée si l’agent est d’avis que..."
+	assert _outcome(annex) == "allowed"

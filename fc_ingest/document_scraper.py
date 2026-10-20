@@ -32,6 +32,9 @@ _CANONICAL_FIELDS = (
 )
 _CRITICAL_FIELDS = {"date", "docket", "neutral citation", "judge", "style of cause"}
 
+# French signatures (« Nathalie Goyette » / j.c.a.) can sit well before the end of the text when annexes follow.
+_FRENCH_SIGNATURE_WINDOW = 40000
+
 _JUDGE_JUNK_PATTERN = (
     r"^(?:FEDERAL\s+COURT(?:\s+OF\s+CANADA|\s+OF\s+APPEAL)?|COUR\s+F[ÉE]D[ÉE]RALE|"
     r"ANNEX\b.*|ANNEXE\b.*|SCHEDULE|T\.?R\.?\s*\b.*|JUDGE|JUSTICE|JUGE|"
@@ -681,13 +684,13 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
             _normalize_whitespace(match.group(1))
             for match in re.finditer(
                 r"[«“]\s*([^»”\n]{3,120}?)\s*[»”]\s*\n\s*(?:juge|j\.c\.a\.|j\.c\.c\.f\.|j\.c\.f\.|j\.en\s+chef)(?=\W|$)",
-                full_text[-4000:],
+                full_text[-_FRENCH_SIGNATURE_WINDOW:],
                 re.IGNORECASE,
             )
         }
         french_matches.discard(None)
         if len(french_matches) == 1:
-            signature_match = re.search(re.escape(next(iter(french_matches))), full_text[-4000:])
+            signature_match = re.search(re.escape(next(iter(french_matches))), full_text[-_FRENCH_SIGNATURE_WINDOW:])
             french_signature = True
     signature_name = (
         _normalize_whitespace(signature_match.group(1) if not french_signature else signature_match.group(0))

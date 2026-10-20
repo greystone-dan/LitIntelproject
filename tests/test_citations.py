@@ -536,6 +536,12 @@ def test_citation_variants_support_parenthesized_reporter_years():
 	assert citations._citation_variants("(1993) 163 N.R. 197") == ["1993 163 NR 197"]
 
 
+def test_citation_variants_map_french_court_codes_to_english():
+	assert citations._citation_variants("Vavilov, 2019 CSC 65") == ["2019 SCC 65"]
+	assert citations._citation_variants("2015 CAF 12") == ["2015 FCA 12"]
+	assert citations._citation_variants("2015 CF 12") == ["2015 FC 12", "2015 FCT 12"]
+
+
 def test_citation_variants_parenthesized_reporter_year_accepts_extra_whitespace():
 	assert citations._citation_variants("(1993) \t 163 N.R. 197") == ["1993 163 NR 197"]
 

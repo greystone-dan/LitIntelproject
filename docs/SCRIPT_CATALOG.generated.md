@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 198
+Active scripts documented: 199
 
 ## Catalog
 
@@ -195,6 +195,7 @@ Active scripts documented: 198
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `score_position_holder.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_position_holder.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
+| `search_speed_check.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\search_speed_check.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `study_name_only_context.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\study_name_only_context.py --help` |
@@ -2797,6 +2798,20 @@ Active scripts documented: 198
 
 ```powershell
 .\venv\Scripts\python.exe scripts\score_search_gold.py --help
+```
+
+## `scripts/search_speed_check.py`
+
+**Purpose:** Read-only check of search results and speed for a fixed query set. Runs each query through the same function the site uses, with a timer, and saves the top-10 ids and the facet counts to a JSON file. Run it before and after a search change and compare the two files with --compare. Only SELECT statements run. It does not read keys. python scripts/search_speed_check.py --out before.json python scripts/search_speed_check.py --out after.json python scripts/search_speed_check.py --compare before.json after.json
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\search_speed_check.py --help
 ```
 
 ## `scripts/seed_tour_fixture.py`

@@ -90,3 +90,47 @@ def test_server_cap_covers_every_judge_with_decisions():
 	from backend.analytics_service import JUDGE_PROFILE_MAX_LIMIT
 
 	assert JUDGE_PROFILE_MAX_LIMIT >= 1500
+
+
+def test_alias_script_dry_run_requires_expected_count_and_saves_an_undo_file(db, tmp_path, monkeypatch, capsys):
+	from scripts import apply_judge_aliases as script
+
+	class Ctx:
+		def __enter__(self):
+			return db
+
+		def __exit__(self, *exc):
+			return False
+
+	monkeypatch.setattr(script, "SessionLocal", lambda: Ctx())
+	monkeypatch.setattr(script.sys, "argv", ["apply_judge_aliases.py"])
+	assert script.main() == 0
+	dry = capsys.readouterr().out
+	assert "merge_groups=" in dry and "alias_rows_proposed=1" in dry and "cases," in dry
+	assert db.query(JudgeProfileAlias).count() == 0
+	monkeypatch.setattr(script.sys, "argv", ["apply_judge_aliases.py", "--apply"])
+	with pytest.raises(SystemExit):
+		script.main()
+	undo = tmp_path / "undo.jsonl"
+	monkeypatch.setattr(script.sys, "argv", ["apply_judge_aliases.py", "--apply", "--expected-count", "5"])
+	assert script.main() == 1 and db.query(JudgeProfileAlias).count() == 0
+	monkeypatch.setattr(script.sys, "argv", ["apply_judge_aliases.py", "--apply", "--expected-count", "1", "--undo-file", str(undo)])
+	assert script.main() == 0 and db.query(JudgeProfileAlias).count() == 1
+	db.add(JudgeProfileAlias(alias_profile_id=3, canonical_profile_id=1, source="rule"))  # another run's row must survive the undo
+	db.commit()
+	monkeypatch.setattr(script.sys, "argv", ["apply_judge_aliases.py", "--undo", str(undo)])
+	assert script.main() == 0
+	assert [(a.alias_profile_id, a.canonical_profile_id) for a in db.query(JudgeProfileAlias)] == [(3, 1)]
+
+
+def test_group_flags_mark_cross_court_and_overlapping_members():
+	from datetime import date
+
+	from scripts.apply_judge_aliases import group_flags
+
+	fc = dict(court="FC", first=date(2010, 1, 1), last=date(2018, 1, 1))
+	fca_late = dict(court="FCA", first=date(2019, 1, 1), last=date(2024, 1, 1))
+	fca_overlap = dict(court="FCA", first=date(2012, 1, 1), last=date(2020, 1, 1))
+	assert group_flags([fc, dict(fc)]) == []
+	assert group_flags([fc, fca_late]) == ["CROSS-COURT"]
+	assert group_flags([fc, fca_overlap]) == ["CROSS-COURT", "OVERLAP"]

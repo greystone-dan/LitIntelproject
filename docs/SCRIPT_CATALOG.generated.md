@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 198
+Active scripts documented: 199
 
 ## Catalog
 
@@ -195,6 +195,7 @@ Active scripts documented: 198
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `score_position_holder.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_position_holder.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
+| `search_split_timing.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\search_split_timing.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `study_name_only_context.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\study_name_only_context.py --help` |
@@ -2797,6 +2798,20 @@ Active scripts documented: 198
 
 ```powershell
 .\venv\Scripts\python.exe scripts\score_search_gold.py --help
+```
+
+## `scripts/search_split_timing.py`
+
+**Purpose:** Read-only timing of the two requests a search makes, separately: the results list and the facet counts. The data-explorer page first asks /analytics/search/cases (facets and citation stats off) and, once the results are shown, /analytics/search/facets with the same filters. This sends exactly those two requests to a running site and prints how long each takes, twice per query. Only GET requests; it reads no keys and writes nothing. Note: the site keeps facet answers for 10 minutes, so run 2 of the facets request is normally a cache hit. python scripts/search_split_timing.py --base http://127.0.0.1:8001 --out search_split_timing.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\search_split_timing.py --help
 ```
 
 ## `scripts/seed_tour_fixture.py`

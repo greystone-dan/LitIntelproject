@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 195
+Active scripts documented: 196
 
 ## Catalog
 
@@ -203,6 +203,7 @@ Active scripts documented: 195
 | `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
 | `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `train_role_correction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_role_correction.py --help` |
+| `unlink_impossible_citation_targets.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\unlink_impossible_citation_targets.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
 
@@ -2906,6 +2907,20 @@ Active scripts documented: 195
 
 ```powershell
 .\venv\Scripts\python.exe scripts\train_role_correction.py --help
+```
+
+## `scripts/unlink_impossible_citation_targets.py`
+
+**Purpose:** Unlink citations whose target decision is dated after the citing decision (impossible links). Dry run by default: SELECTs in a READ ONLY transaction, prints counts by citing court, kind and wrong target, and writes a sample. Nothing is written without --apply, and --apply refuses to run without --change-log and --expected-count, and prints linked-citation and wrong-target counts before and after. python scripts/unlink_impossible_citation_targets.py --sample-csv C:\ilit_backups\unlink_sample.csv python scripts/unlink_impossible_citation_targets.py --apply --expected-count N --change-log C:\ilit_backups\unlink_changes.csv python scripts/unlink_impossible_citation_targets.py --undo C:\ilit_backups\unlink_changes.csv --apply What --apply does: for rows whose target is dated more than --min-days after the citing decision, set target_case_id = NULL and unresolved = true. The change log (written and flushed before each batch is updated) holds citation id, previous target, previous unresolved value and the dates, so --undo can restore both columns. A row whose cite text already contains the target's own citation is skipped: there the library date, not the link, is wrong.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\unlink_impossible_citation_targets.py --help
 ```
 
 ## `scripts/verify_citation_extraction.py`

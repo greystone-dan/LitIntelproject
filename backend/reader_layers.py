@@ -7,6 +7,7 @@ decisions that have them (the 150 core Federal Court decisions to start with).
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from sqlalchemy import select
@@ -70,8 +71,15 @@ LINKS_NOTE = (
 LINKS_PER_NOTE = 2
 
 
+def note_links_enabled() -> bool:
+	"""ILIT_NOTE_LINKS=1 shows the related-paragraph links (default off: about 30% were the same point)."""
+	return os.getenv("ILIT_NOTE_LINKS", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
 def case_note_links(case_id: int, db: Session) -> dict[str, Any]:
 	"""Stored links from this decision's paragraph notes to notes in other decisions. Stored rows only; no model call."""
+	if not note_links_enabled():
+		return {"available": False}
 	other_note = aliased(ParagraphNote)
 	mine = aliased(ParagraphNote)
 	rows = db.execute(

@@ -7,7 +7,9 @@ from contextlib import asynccontextmanager
 from hashlib import sha256
 
 from fastapi import FastAPI, Form, Request
+from fastapi.exception_handlers import http_exception_handler
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.routing import Match, Mount
 from starlette.staticfiles import StaticFiles
 
@@ -96,6 +98,14 @@ def _login_page(error: str = "") -> HTMLResponse:
 <body><main><h1>Private research site</h1><p>Enter the access password to continue.</p>{message}<form method="post" action="/access/login"><label for="password">Access password</label><input id="password" name="password" type="password" autocomplete="current-password" required autofocus><button type="submit">Continue</button></form></main></body></html>""",
         status_code=401 if error else 200,
     )
+
+
+@app.middleware("http")
+async def reject_nul_in_query(request: Request, call_next):
+    """Answer 400 for a NUL byte in the query string; Postgres rejects it and it would be a raw 500."""
+    if "\x00" in request.url.query or "%00" in request.url.query:
+        return JSONResponse({"detail": "Query parameters must not contain NUL bytes."}, status_code=400)
+    return await call_next(request)
 
 
 @app.middleware("http")
@@ -194,6 +204,39 @@ async def unhandled_exception_with_request_id(request: Request, _exc: Exception)
         media_type="text/plain",
         headers=headers,
     )
+
+
+_NOT_FOUND_HTML = (
+    '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+    '<meta name="viewport" content="width=device-width,initial-scale=1">'
+    '<meta name="robots" content="noindex,nofollow">'
+    '<link rel="icon" href="/favicon.ico" type="image/svg+xml"><title>Page not found | iLIT</title>'
+    '<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;'
+    'background:#f6f4ef;color:#1d2b2a;font:16px/1.5 system-ui,sans-serif}main{max-width:420px;padding:24px}'
+    'h1{font-size:28px;margin:0 0 8px}a{color:#0f766e;font-weight:600}</style></head>'
+    '<body><main><h1>Page not found</h1><p>That page does not exist or has moved.</p>'
+    '<p><a href="/">Go to the iLIT home page</a></p></main></body></html>'
+)
+
+_FAVICON_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f766e"/>'
+    '<text x="16" y="23" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#fff">i</text></svg>'
+)
+
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_with_html_404(request: Request, exc: StarletteHTTPException):
+    """Browsers get a small HTML 404 page; API and JSON clients keep the JSON body."""
+    if exc.status_code == 404 and request.method in ("GET", "HEAD"):
+        accept = request.headers.get("accept", "")
+        if "text/html" in accept:
+            return HTMLResponse(_NOT_FOUND_HTML, status_code=404, headers=dict(exc.headers or {}))
+    return await http_exception_handler(request, exc)
+
+
+@app.get("/favicon.ico", response_class=Response, include_in_schema=False)
+def favicon() -> Response:
+    return Response(content=_FAVICON_SVG, media_type="image/svg+xml", headers={"Cache-Control": "public, max-age=86400"})
 
 
 @app.get("/robots.txt", response_class=Response, include_in_schema=False)

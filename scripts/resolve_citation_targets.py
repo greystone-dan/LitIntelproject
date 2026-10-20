@@ -17,7 +17,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.citations import _citation_variants, _normalize_alias_lookup, build_local_case_resolution_index
+from backend.citations import (
+	RawCitationMatch,
+	_citation_variants,
+	_normalize_alias_lookup,
+	build_local_case_resolution_index,
+	is_self_case_name_match,
+)
 from backend.database import Case, Citation, SessionLocal
 
 
@@ -113,6 +119,22 @@ def _case_name_target_id(citation: Citation, title_index: dict[str, set[int]]) -
 	return target_case_id if target_case_id != citation.source_case_id else None
 
 
+def _names_own_caption(citation: Citation, source_titles: dict[int, str]) -> bool:
+	"""True for a bare case name that is the source decision's own caption ("Indexed as: Baker v. Canada").
+
+	Title matching would otherwise drop the source from the candidates and link the name to a different case
+	with the same caption (Baker v. Canada, SCC -> 2005 FCA 185).
+	"""
+	match = RawCitationMatch(
+		citation.citation_kind,
+		citation.citation_text or "",
+		citation.normalized_citation or "",
+		citation.offset_start or 0,
+		citation.offset_end or 0,
+	)
+	return is_self_case_name_match(source_titles.get(citation.source_case_id), match)
+
+
 def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--batch-size", type=int, default=5_000)
@@ -179,8 +201,13 @@ def main() -> None:
 				break
 			last_id = rows[-1].id
 			updates = []
+			source_titles = dict(
+				session.execute(select(Case.id, Case.title).where(Case.id.in_({row.source_case_id for row in rows}))).all()
+			)
 			for citation in rows:
 				inspected += 1
+				if _names_own_caption(citation, source_titles):
+					continue
 				variants = _citation_variants(citation.normalized_citation or citation.citation_text or "")
 				if not variants and citation.citation_kind == "case_name":
 					target_case_id = _case_name_target_id(citation, title_index)

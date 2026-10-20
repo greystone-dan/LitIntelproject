@@ -42,7 +42,7 @@ def test_tags_are_capped_and_hostile_text_is_never_interpolated():
 def test_no_tag_or_picked_case_adds_no_filter():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker")
-	assert "case_tags" not in db.sql and "picked" not in db.sql
+	assert "case_tags ct0" not in db.sql and "picked" not in db.sql
 
 
 class VocabDB:
@@ -70,3 +70,18 @@ def test_tag_suggestions_match_substring_prefix_first_and_cache_the_vocabulary()
 	assert rows[0]["value"] == "reasonableness" and rows[0]["count"] == 900
 	assert [r["label"] for r in analytics_service.fetch_tag_suggestions(VocabDB(), "removal order")] == ["removal order"]
 	assert VocabDB.calls == 1
+
+
+def test_short_topic_query_also_matches_stored_tags():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Duty of Fairness")
+	assert "FROM case_tags tq" in db.sql
+	assert db.params["topic_tag_0"] == "duty of fairness" and db.params["topic_tag_1"] == "duty_of_fairness"
+
+
+def test_year_filter_uses_case_date_like_the_facets():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, year="2019")
+	assert "reader_extracted'->>'date'" not in db.sql
+	assert "c.date >= CAST(:year_start AS date)" in db.sql
+	assert db.params["year_start"] == "2019-01-01" and db.params["year_end"] == "2020-01-01"

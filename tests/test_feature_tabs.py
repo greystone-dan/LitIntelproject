@@ -656,7 +656,7 @@ const location=new URL('http://localhost/data-explorer'+QUERY);
 const history={pushState(state,title,path){location.href=new URL(path,location).href}};
 const window={addEventListener(name,handler){this[name]=handler}};
 const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){},getAttribute(){return null}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
-function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){}
+function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){} function closeDecisionReader(){}
 CONTROLLER
 assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true')?.dataset.group,GROUP==='direct'?undefined:GROUP);
 assert.deepEqual(controls.filter(item=>item.dataset.navGroup&&!item.hidden).map(item=>item.dataset.navGroup),controls.filter(item=>item.dataset.navGroup===GROUP).map(()=>GROUP));

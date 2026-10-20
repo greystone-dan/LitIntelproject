@@ -6,7 +6,7 @@ Generated: 2026-10-18T18:59:17.711278+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 140 across 137 paths
-Hidden operations: 110 excluded from OpenAPI
+Hidden operations: 111 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -612,6 +612,7 @@ Get Case Incoming Citations
 **Parameters**
 
 - `case_id` (path, required; integer)
+- `limit` (query, optional; integer | null)
 
 **Responses**
 
@@ -1582,9 +1583,20 @@ Merge Ingest Case
 
 Get Inventory
 
+Library totals plus one page of cases with their sources.
+
+`cases` holds at most `limit` rows (default 100, hard maximum 500) starting at `offset`, ordered by id;
+`total_cases` is always the full count, so page until offset reaches it. Unpaged, this was ~100 MB.
+
+**Parameters**
+
+- `limit` (query, optional; integer, default `100`)
+- `offset` (query, optional; integer, default `0`)
+
 **Responses**
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /issue-brief`
 
@@ -2889,6 +2901,16 @@ Handler: `backend.routes.discussion_units_sandbox_search`
 - `limit` (int; default `50`)
 - `offset` (int; default `0`)
 - `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /favicon.ico`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.main.favicon`
 
 **Responses**
 

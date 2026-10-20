@@ -18,6 +18,7 @@
  const benchNames=name=>String(name||'').split(';').map(x=>x.trim()).filter(Boolean).map(x=>{const m=/^([^,]+),\s*(.+)$/.exec(x);return m?`${m[2].trim()} ${m[1].trim()}`:x;});
  const benchLabel=name=>{const n=String(name||'').split(';').map(x=>x.trim()).filter(Boolean).length;return n>2?`Bench of ${n}`:String(name||'');};
  const longCourt=court=>({SCC:'Supreme Court of Canada',FCA:'Federal Court of Appeal',FC:'Federal Court',RPD:'Refugee Protection Division',RAD:'Refugee Appeal Division'}[String(court||'').trim()]||court||'');
+ /* FC history only exists for IMM dockets; FCA (A-...) and T-... dockets make /api/fc-history answer 422, so no link for them */
  const isFed=court=>/^(FC|FCA)$/.test(String(court||'').trim())||/federal court/i.test(String(court||''));
  const isScc=court=>/supreme court of canada/i.test(String(court||''));
 
@@ -87,7 +88,7 @@
   /* The title card already shows citation, case type, dates, docket, decision maker and the counts; this panel only adds what it does not. */
   const lang=String(d.item.language||meta.language||'').trim(),status=[d.item.source_name||d.item.source_type?`Text from ${d.item.source_name||d.item.source_type}`:'',d.item.processing_status?`status: ${d.item.processing_status}`:''].filter(Boolean).join(', ');
   const details=kv([['Court',longCourt(cf.court)],['Minister or party',d.item.minister||meta.minister],['Language',LANG[lang.toLowerCase()]||lang],['Jurisdiction',d.item.jurisdiction]]);
-  const links=[d.item.source_url?`<a href="${E(d.item.source_url)}" target="_blank" rel="noopener noreferrer">Original decision ↗</a>`:'',docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}" target="_blank" rel="noopener">Full FC activity ↗</a>`:''].filter(Boolean).join('');
+  const links=[d.item.source_url?`<a href="${E(d.item.source_url)}" target="_blank" rel="noopener noreferrer">Original decision ↗</a>`:'',docket&&isFed(cf.court)&&/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}" target="_blank" rel="noopener">Full FC activity ↗</a>`:''].filter(Boolean).join('');
   return `<div class="v6-outrow"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}${disposition?`<button type="button" class="v6-lk" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)} ↓</button>`:''}</div>${outcome&&outcome.note?`<div class="v6-small v6-outnote">${E(outcome.note)}</div>`:''}
   ${details||links||status?`<div class="v6-sec v6-compact"><h4>Case details</h4>${details}${links?`<div class="v6-links">${links}</div>`:''}${status?`<div class="v6-small">${E(status)}</div>`:''}</div>`:''}
   ${tags.length?`<div class="v6-sec v6-compact"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
@@ -183,9 +184,13 @@
  /* ---------- Save to Workbench (demo sign-in; stored server side per demo user) ---------- */
  const wb={signedIn:false,pinned:false};
  function paintSave(label){const b=document.getElementById('v6SaveWb');if(b){b.textContent=label;b.classList.toggle('is-saved',wb.pinned);}}
+ /* The card is re-rendered several times per open; ask the server once per case and share the answer. */
+ let pinStateFor=null,pinStateReq=null;
  async function syncSave(id){
   if(!id)return;
-  try{const r=await getJson('/workbench/api/pins/state?case_id='+encodeURIComponent(id));wb.signedIn=r.signed_in;wb.pinned=r.pinned;}catch(error){wb.signedIn=false;wb.pinned=false;}
+  if(pinStateFor!==id){pinStateFor=id;pinStateReq=getJson('/workbench/api/pins/state?case_id='+encodeURIComponent(id));}
+  const req=pinStateReq;
+  try{const r=await req;if(pinStateReq===req){wb.signedIn=r.signed_in;wb.pinned=r.pinned;}}catch(error){if(pinStateReq===req){wb.signedIn=false;wb.pinned=false;pinStateFor=null;}}
   paintSave(wb.pinned?'Saved to Workbench ✓':'Save to Workbench');
  }
  async function saveToWorkbench(id){
@@ -208,7 +213,7 @@
   if(!card){card=document.createElement('div');card.id='v6Card';title.after(card);}
   const cf=sideCaseFacts(d),item=d.item,outcome=sideOutcome(item),docket=extractDocketFromPayload(item)||cf.docket,compare=document.getElementById('readerCompareLink'),authorities=sideAuthorityGroups(d.citations).length,acts=sideActGroups(d.citations).length,citedBy=d.metrics&&d.metrics.in_degree;
   const cell=(label,value,raw)=>value?`<div class="v6-fs"><small>${E(label)}</small><b>${raw?value:E(value)}</b></div>`:'';
-  kick.innerHTML=`<span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}" target="_blank" rel="noopener">FC activity ↗</a>`:''}${item.id?`<button type="button" data-v6-save="${E(item.id)}" id="v6SaveWb">Save to Workbench</button>`:''}</span>`;
+  kick.innerHTML=`<span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)&&/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}" target="_blank" rel="noopener">FC activity ↗</a>`:''}${item.id?`<button type="button" data-v6-save="${E(item.id)}" id="v6SaveWb">Save to Workbench</button>`:''}</span>`;
   card.innerHTML=`<div class="v6-facts-strip">${cell('Citation',cf.citation)}${cell('Case type',caseTypeText(d))}${cell('Decided',cf.decided)}${cell(/^IMM/i.test(docket)?'Docket (IMM no.)':'File no.',docket)}${cell('Decision maker',cf.judge?(cf.court==='RPD'?E(cf.judge):`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`):'',true)}${cell('Heard',cf.hearing)}<span class="v6-stats"><button type="button" class="v6-stat" data-v6-go="intel"><b>${citedBy==null?'-':N(citedBy)}</b><span>Cited by</span></button><button type="button" class="v6-stat" data-v6-go="auth-case"><b>${N(authorities)}</b><span>Cites</span></button><button type="button" class="v6-stat" data-v6-go="auth-stat"><b>${N(acts)}</b><span>Statutes</span></button></span></div>`;
    syncSave(item&&item.id);
  }

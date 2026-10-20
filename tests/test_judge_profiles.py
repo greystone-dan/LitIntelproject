@@ -126,3 +126,13 @@ def test_judge_search_asks_the_server_so_judges_past_the_first_500_are_found():
 	assert "jpSearchServer()" in js
 	# The typed text is not filtered again in the browser when the server already answered.
 	assert "serverRows?'':jp.q.toLowerCase()" in js
+
+def test_judge_court_chips_are_not_capped_and_decision_count_matches_rows_shown():
+	from pathlib import Path
+
+	js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "explorer_snapshots.js").read_text(encoding="utf-8")
+	# Every court (including FCA) gets a chip, so the chips add up to All.
+	assert ".sort((a,b)=>courts[b]-courts[a]).map(" in js
+	assert "slice(0,4).map(c=>`<button class=\"ix-chip" not in js
+	# The count text reports rows actually on screen, not the whole filtered list.
+	assert "N(Math.min(jp.shown,rows.length))} of ${N(rows.length)}" in js

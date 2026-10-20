@@ -185,3 +185,11 @@ REASONS FOR JUDGMENT BY: ROY J.
 
     assert metadata["style of cause"] == "MOHAMED HARKAT v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION"
     assert metadata["judge"] == "ROY J."
+
+
+def test_judge_junk_covers_counsel_labels_and_rule_lines():
+    from fc_ingest.document_scraper import _is_judge_junk
+
+    for junk in ("SOLICITORS OF RECORD", "Solicitors of Record:".rstrip(":"), "----------", "AVOCATS"):
+        assert _is_judge_junk(junk)
+    assert not _is_judge_junk("Justice Pelletier")

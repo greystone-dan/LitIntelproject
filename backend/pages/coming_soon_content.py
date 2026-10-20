@@ -87,7 +87,7 @@ SECTIONS = {
 				"Refugee Appeal Division decisions are now in the library, and Refugee Protection Division decisions after 2020 are being added from the Refugee Law Lab’s open collection. Each decision keeps a link to its original source.",
 				"New decisions go through the same reader, citation and statute tools as the rest of the library, so a larger library does not mean a different experience.",
 			], "Checking how the Refugee Appeal Division has treated a credibility finding, then following a Federal Court review of the same decision.",
-			"Federal Court, Federal Court of Appeal, Supreme Court and Refugee Protection Division are in. Refugee Appeal Division loading is under way.",
+			"Federal Court, Federal Court of Appeal, Supreme Court, Refugee Protection Division and Refugee Appeal Division are in.",
 			"Finishing the loads, checking case types and names on the new decisions, and recording where each batch came from."),
 			("daily-intake", "Keeping the library current", "partly", [
 				"New Federal Court decisions are published every day. A daily intake job finds them, downloads them and adds them to the library, running the same checks as the original load.",

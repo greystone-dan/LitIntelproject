@@ -95,3 +95,11 @@ def test_advanced_rail_lists_every_type_grouped_with_a_hidden_value_field():
     html = data_explorer_page_html()
     assert 'id="caseTypeBoxes"' in html and '<input id="caseTypeFilter">' in html
     assert html.count('class="sp-ct-box"') == len(CASE_TYPES)
+
+
+def test_research_header_count_updates_after_show_more():
+    from pathlib import Path
+
+    js = Path("backend/pages/search_v6.js").read_text(encoding="utf-8")
+    assert "function refreshMeta(total)" in js
+    assert "shown+=results.length;\n  if(knownTotal)refreshMeta(knownTotal);" in js

@@ -483,6 +483,100 @@ MIN_READER_PARAGRAPHS = 3
 READER_MAX_GAP = 3
 
 
+HANGING_HEADING_MAX_WORDS = 15
+LABELLED_HEADING_MAX_WORDS = 30
+_HANGING_END_RE = re.compile(r"[.,;:?!)”\"\]]$")
+
+
+_LABELLED_HEADING_RE = re.compile(r"^(?:[IVX]+|[A-Z]|\d{1,2})\.\s+(?P<title>\S.*)$")
+_ANSWER_START_RE = re.compile(r"^(?:I|We|You|My|Yes|No|It|He|She|They)\b")
+
+
+def _is_hanging_heading_line(line: str) -> bool:
+    """A short unnumbered title line directly before a numbered paragraph.
+
+    Either an unlabelled line with no closing punctuation ("Issue Estoppel") or a labelled one ("B. Court of Appeal,
+    2015 ABCA 85 — Slatter J.A."), which may end in a full stop. A one-word "A. Yes." or a transcript answer
+    ("A. I don't recall ...") is not a heading.
+    """
+    line = line.strip()
+    if not line or len(line) > 220:
+        return False
+    words = len(line.split())
+    labelled = _LABELLED_HEADING_RE.match(line)
+    if words > (LABELLED_HEADING_MAX_WORDS if labelled else HANGING_HEADING_MAX_WORDS):
+        return False
+    if labelled:
+        title = labelled.group("title")
+        if title[0] == "[" or _ANSWER_START_RE.match(title) or title.endswith((",", ";", ":", "?")):
+            return False
+        return not title.endswith(".") or len(title.split()) >= 3
+    if not (line[0].isupper() or line[0].isdigit()) or _HANGING_END_RE.search(line):
+        return False
+    return not re.match(r"^(?:\(\w{1,5}\)|\w{1,3}[.)])\s", line)
+
+
+def _split_hanging_headings(text: str, entries: list[dict]) -> list[dict]:
+    """Move heading lines that trail a numbered paragraph into their own heading rows.
+
+    The stored text puts a sub-heading ("Issue Estoppel") on the line after the last paragraph of the previous part.
+    Only a line directly before the next numbered paragraph counts, so a list of defined terms inside a quoted
+    statute, or a signature line at the end of the reasons, stays where it is.
+    """
+    out: list[dict] = []
+    for index, entry in enumerate(entries):
+        following = entries[index + 1] if index + 1 < len(entries) else None
+        if entry["kind"] != "paragraph" or following is None or following["kind"] not in {"paragraph", "heading"}:
+            out.append(entry)
+            continue
+        body = text[entry["start"] : entry["end"]]
+        lines = body.rstrip().split("\n")
+        cut = len(lines)
+        while cut > 1 and _is_hanging_heading_line(lines[cut - 1]):
+            cut -= 1
+        if cut == len(lines):
+            out.append(entry)
+            continue
+        offset = entry["start"] + len("\n".join(lines[:cut]))
+        out.append({**entry, "end": offset})
+        position = offset + 1
+        for line in lines[cut:]:
+            out.append({"kind": "heading", "start": position, "end": position + len(line)})
+            position += len(line) + 1
+    return out
+
+
+def _expected_number_comes_later(blocks: list[dict], index: int, expected: int, window: int = 3) -> bool:
+    """True when paragraph ``expected`` is one of the next few numbered blocks after ``blocks[index]``."""
+    seen = 0
+    for block in blocks[index + 1 :]:
+        if block.get("type") != "para" or block.get("num") is None:
+            continue
+        if block["num"] == expected:
+            return True
+        seen += 1
+        if seen >= window:
+            return False
+    return False
+
+
+def _tail_after_last_paragraph(text: str, entries: list[dict]) -> list[dict]:
+    """After the last numbered paragraph a heading row keeps only its first line ("ORDER"); the order text, counsel
+    list or appendix that followed it is the tail, not part of a heading."""
+    last_paragraph = max((i for i, entry in enumerate(entries) if entry["kind"] == "paragraph"), default=-1)
+    out: list[dict] = []
+    for index, entry in enumerate(entries):
+        out.append(entry)
+        if index <= last_paragraph or entry["kind"] != "heading":
+            continue
+        body = text[entry["start"] : entry["end"]]
+        first, sep, rest = body.partition("\n")
+        if sep and rest.strip():
+            entry["end"] = entry["start"] + len(first)
+            out.append({"kind": "tail", "start": entry["end"] + 1, "end": entry["start"] + len(body)})
+    return out
+
+
 def reader_paragraph_layout(text: str) -> list[dict]:
     """Paragraph rows as the reader numbers them: intro, numbered paragraphs, headings, tail.
 
@@ -497,18 +591,28 @@ def reader_paragraph_layout(text: str) -> list[dict]:
     current: dict | None = None
     last_num: int | None = None
     intro_end: int | None = None
-    for block in blocks:
+    head_run: list[tuple[int, int]] = []  # headings directly before the first numbered paragraph
+    for index, block in enumerate(blocks):
         kind = block.get("type")
         start, end = block["start"], block["end"]
+        before_run = head_run
+        if intro_end is None:
+            head_run = head_run + [(start, end)] if kind == "heading" else []
         if kind == "para":
             num = block.get("num")
             follows = num is not None and (
                 (last_num is None and 1 <= num <= READER_MAX_GAP)
                 or (last_num is not None and last_num < num <= last_num + READER_MAX_GAP)
             )
+            if follows and last_num is not None and num > last_num + 1 and _expected_number_comes_later(blocks, index, last_num + 1):
+                follows = False  # a quoted paragraph number ("[31] ...") ahead of the real paragraph 30
             if follows:
                 if intro_end is None:
                     intro_end = start
+                    for head_start, head_end in before_run:
+                        entries.append({"kind": "heading", "start": head_start, "end": head_end})
+                    if before_run:
+                        intro_end = before_run[0][0]
                 current = {"kind": "paragraph", "num": num, "start": start, "end": end}
                 entries.append(current)
                 last_num = num
@@ -528,6 +632,7 @@ def reader_paragraph_layout(text: str) -> list[dict]:
     numbered = [entry for entry in entries if entry["kind"] == "paragraph"]
     if len(numbered) < MIN_READER_PARAGRAPHS:
         return []
+    entries = _tail_after_last_paragraph(text, _split_hanging_headings(text, entries))
     layout: list[dict] = []
     if intro_end:
         layout.append({"kind": "intro", "start": 0, "end": intro_end})

@@ -176,7 +176,7 @@ def test_page_and_statute_viewer_link_to_consideration_form():
     assert page.status_code == 200
     assert 'id="act"' in page.text
     assert 'id="section"' in page.text
-    assert 'case-reader-ui/${encodeURIComponent(d.case_id)}' in page.text
+    assert 'data-explorer?case_id=${encodeURIComponent(d.case_id)}' in page.text
     from backend.pages.statute_viewer import statute_viewer_page_html
 
     assert 'href="/statute-consideration"' in statute_viewer_page_html()

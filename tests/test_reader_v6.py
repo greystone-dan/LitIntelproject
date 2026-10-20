@@ -128,3 +128,5 @@ def test_reader_v6_units_use_the_servers_printed_numbers_when_present():
     rows = json.loads(subprocess.run([node, "-e", probe, json.dumps(data)], capture_output=True, text=True, check=True).stdout)
     assert rows[0]["first"] == 88 and rows[0]["last"] == 95 and rows[0]["start"] == 500
     assert rows[0]["parties"] == [{"party": "respondent", "label": "Respondent", "nums": [90]}]
+    # FC history only exists for IMM dockets, so FCA (A-...) cases get no FC activity link.
+    assert js.count("/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)") == 2

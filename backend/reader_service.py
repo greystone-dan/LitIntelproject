@@ -26,6 +26,7 @@ from .citations import (
 	extract_case_citation_matches,
 	extract_raw_citation_matches,
 	extract_statute_reference_matches,
+	is_self_case_citation,
 	is_self_case_name_match,
 	parse_legislation_citation,
 	resolve_legislation_reference,
@@ -1194,7 +1195,8 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 			target_case.c.citation,
 		)
 		.outerjoin(target_case, target_case.c.id == Citation.target_case_id)
-		.where(Citation.source_case_id == case_id)
+		# A decision never lists itself as an authority (rows that resolved to the case's own id are skipped).
+		.where(Citation.source_case_id == case_id, Citation.target_case_id.is_distinct_from(case_id))
 		.order_by(Citation.chunk_id, Citation.offset_start, Citation.id)
 	)
 	stored_citations = list(citation_rows)
@@ -1297,20 +1299,17 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		)
 		for citation, target_case_id, target_title, target_citation in stored_citations
 	]
-	citation_responses = [
-		row
-		for row in citation_responses
-		if not is_self_case_name_match(
-			case.title,
-			RawCitationMatch(
-				kind=row.citation_kind,
-				citation_text=row.citation_text or "",
-				normalized_citation=row.normalized_citation or "",
-				offset_start=row.offset_start or 0,
-				offset_end=row.offset_end or 0,
-			),
+	def _is_self_row(row) -> bool:
+		match = RawCitationMatch(
+			kind=row.citation_kind,
+			citation_text=row.citation_text or "",
+			normalized_citation=row.normalized_citation or "",
+			offset_start=row.offset_start or 0,
+			offset_end=row.offset_end or 0,
 		)
-	]
+		return is_self_case_name_match(case.title, match) or is_self_case_citation(case, match)
+
+	citation_responses = [row for row in citation_responses if not _is_self_row(row)]
 
 	selected_chunk_ids = {chunk.id for chunk in chunks if chunk.id is not None}
 
@@ -1355,7 +1354,9 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 	# The stored in_degree is only as fresh as the last metrics recompute (Baker showed 0 with 2,913 citing cases),
 	# so the "Cited by" number is counted live, the same way the Intelligence tab counts it.
 	live_cited_by = db.scalar(
-		select(func.count(func.distinct(Citation.source_case_id))).where(Citation.target_case_id == case_id)
+		select(func.count(func.distinct(Citation.source_case_id))).where(
+			Citation.target_case_id == case_id, Citation.source_case_id != case_id
+		)
 	)
 	formatted_html = None
 	evidence_summary = (

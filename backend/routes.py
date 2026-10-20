@@ -700,7 +700,14 @@ def merge_ingest_case(
 
 
 @router.get("/inventory", response_model=InventoryResponse)
-def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
+def get_inventory(limit: int = 100, offset: int = 0, db: Session = Depends(get_db)) -> InventoryResponse:
+	"""Library totals plus one page of cases with their sources.
+
+	`cases` holds at most `limit` rows (default 100, hard maximum 500) starting at `offset`, ordered by id;
+	`total_cases` is always the full count, so page until offset reaches it. Unpaged, this was ~100 MB.
+	"""
+	limit = max(1, min(500, limit))
+	offset = max(0, offset)
 	total_cases = db.scalar(select(func.count(Case.id))) or 0
 	total_sources = db.scalar(select(func.count(CaseSource.id))) or 0
 	source_breakdown = [
@@ -715,6 +722,8 @@ def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
 	case_rows = db.execute(
 		select(Case.id, Case.title, Case.court, Case.date, Case.citation, Case.source_type, Case.source_name, Case.source_id)
 		.order_by(Case.id)
+		.limit(limit)
+		.offset(offset)
 	).all()
 	cases: list[dict[str, Any]] = []
 	for case_id, title, court, decision_date, citation, source_type, source_name, source_id in case_rows:
@@ -1147,9 +1156,16 @@ def get_case_outgoing_citations(case_id: int, db: Session = Depends(get_db)) -> 
 
 
 @router.get("/cases/{case_id}/citations/incoming", response_model=list[CitationResponse])
-def get_case_incoming_citations(case_id: int, db: Session = Depends(get_db)) -> list[CitationResponse]:
+def get_case_incoming_citations(
+	case_id: int,
+	db: Session = Depends(get_db),
+	limit: int | None = Query(default=None, ge=1, le=10000),
+) -> list[CitationResponse]:
 	_get_case_or_404(case_id, db)
-	return [CitationResponse.model_validate(citation, from_attributes=True) for citation in incoming_citations(db, case_id)]
+	rows = incoming_citations(db, case_id)
+	if isinstance(limit, int):  # direct calls leave the Query default in place
+		rows = rows[:limit]
+	return [CitationResponse.model_validate(citation, from_attributes=True) for citation in rows]
 
 
 @router.get("/cases/{case_id}/citations/passages", response_model=list[CitationResponse])
@@ -2207,6 +2223,26 @@ def judge_profile_page(slug: str) -> RedirectResponse:
 	return RedirectResponse(url=f"/data-explorer?tab=judge-profile&judge={slug}", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
+_SEARCH_SORT_VALUES = {"relevance", "newest", "oldest", "minister", "most_cited"}
+
+
+def _reject_invalid_search_values(
+	*, year: str = "", sort_by: str | None = None, limit: int | None = None, offset: int | None = None
+) -> None:
+	"""422 for values the search would otherwise silently ignore (the site's own pages never send these)."""
+	problems: list[str] = []
+	if year and not (len(year) == 4 and year.isascii() and year.isdigit()):
+		problems.append("year must be a four-digit year")
+	if sort_by is not None and sort_by not in _SEARCH_SORT_VALUES:
+		problems.append("sort_by must be one of " + ", ".join(sorted(_SEARCH_SORT_VALUES)))
+	if limit is not None and limit < 1:
+		problems.append("limit must be at least 1")
+	if offset is not None and offset < 0:
+		problems.append("offset must be 0 or more")
+	if problems:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="; ".join(problems))
+
+
 @router.get("/analytics/search/cases", response_model=dict[str, Any])
 def search_analytics_cases(
 	query: str = "",
@@ -2229,6 +2265,7 @@ def search_analytics_cases(
 	citation_stats: bool = True,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
+	_reject_invalid_search_values(year=year, sort_by=sort_by, limit=limit, offset=offset)
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
 		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, case_type=case_type, search_full_text=search_full_text,
@@ -2267,6 +2304,7 @@ def search_analytics_facets(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	"""Court, year and case-type counts for the current filters, loaded after the results so they never delay them."""
+	_reject_invalid_search_values(year=year)
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
 		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, case_type=case_type, search_full_text=search_full_text,
@@ -2471,6 +2509,7 @@ def get_case_contextual_anchors(
 	proximity_window: int = 250,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
 	return fetch_case_contextual_anchors(
 		db,
 		case_id,
@@ -2480,6 +2519,7 @@ def get_case_contextual_anchors(
 
 @router.get("/cases/{case_id}/thematic-signature", response_model=dict[str, Any])
 def get_case_thematic_signature(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
 	sig = compute_case_thematic_signature(db, case_id)
 	return sig.__dict__
 
@@ -2490,6 +2530,7 @@ def get_case_thematic_cluster(
 	limit: int = 10,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
 	return find_thematically_similar_cases(
 		db,
 		case_id,

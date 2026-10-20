@@ -52,12 +52,14 @@ from .judge_issue_record import (
 	_issue_outcome_category,
 	_issue_outcome_summary,
 	_stored_issue_labels,
+	case_is_not_immigration,
 	fetch_judge_profile_issues,
+	flagged_not_immigration_ids,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
-from .paragraph_search import search_paragraph_cases
+from .paragraph_search import ParagraphSearchTimeout, search_paragraph_cases, search_paragraph_phrase
 from .search_matching import identity_sql, matched_on_sql, sentence_words, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
@@ -224,6 +226,14 @@ _ANALYTICS_FIELDS = {
 }
 
 
+def _topic_tag_values(query: str) -> list[str]:
+	"""Stored-tag spellings (spaces and underscores) of a short plain query, or [] when it is not topic-like."""
+	words = re.findall(r"[^\W_]+", query.lower())
+	if not words or len(words) > 5 or len(query) > 60:
+		return []
+	return list(dict.fromkeys([" ".join(words), "_".join(words)]))
+
+
 def _profile_reader_metadata(case: Case) -> dict[str, Any]:
 	raw_metadata = case.metadata_json
 	metadata: dict[str, Any] = raw_metadata if isinstance(raw_metadata, dict) else {}
@@ -313,11 +323,16 @@ def fetch_outcomes_by_year(db: Session) -> list[dict[str, Any]]:
 				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'decision outcome' IN ('dismissed', 'denied', 'refused')) AS dismissed_decisions
 			FROM cases
 			WHERE date IS NOT NULL
+			AND NOT EXISTS (
+				SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = cases.id
+				AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'not_immigration'
+			)
 			GROUP BY year
 			HAVING COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' IN ('won', 'lost')) > 0
 			ORDER BY year
 			"""
-		)
+		),
+		{"case_type_version": TAXONOMY_VERSION},
 	).mappings().all()
 	result: list[dict[str, Any]] = []
 	for row in rows:
@@ -895,6 +910,11 @@ def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
 		linked_ids = select(CaseJudgeProfile.case_id).where(
 			CaseJudgeProfile.judge_profile_id.in_(member_ids(db, profile.id))
 		)
+		excluded = int(db.scalar(
+			select(func.count(Case.id)).where(Case.id.in_(linked_ids), case_is_not_immigration())
+		) or 0)
+		# Everything below (counts, rates, tags, authorities) uses immigration decisions only.
+		linked_ids = select(Case.id).where(Case.id.in_(linked_ids), ~case_is_not_immigration())
 		rows = list(db.execute(
 			select(Case.id, Case.date, Case.issues, Case.metadata_json)
 			.where(Case.id.in_(linked_ids)).order_by(Case.id)
@@ -951,6 +971,7 @@ def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
 		judges[side] = {
 			"profile": {"slug": slug, "display_name": profile.display_name, "primary_court": profile.primary_court},
 			"decisions": statistic(total, total),
+			"excluded_non_immigration": statistic(excluded, excluded + total),
 			"outcomes": outcomes(rows),
 			"yearly_decisions": [
 				{"year": year, "decisions": statistic(count, total)} for year, count in sorted(years.items())
@@ -1021,6 +1042,9 @@ def fetch_judge_profile_by_slug(
 	all_cases = list(
 		{case.id: case for member in member_profiles if member for link in member.case_links if (case := link.case) is not None}.values()
 	)
+	# Decisions explicitly labelled not_immigration (copyright, tax, competition...) stay out of the figures.
+	flagged = flagged_not_immigration_ids(db, [case.id for case in all_cases])
+	all_cases = [case for case in all_cases if case.id not in flagged]
 	minister_filters = [" ".join(value.split()) for value in (ministers or []) if value.strip()]
 	minister_filter_keys = {value.casefold() for value in minister_filters}
 	if minister_filter_keys:
@@ -1063,6 +1087,7 @@ def fetch_judge_profile_by_slug(
 			),
 		},
 		"outcomes": outcomes,
+		"excluded_non_immigration": len(flagged),
 		"yearly_decisions": [
 			{"year": year, "decisions": decisions} for year, decisions in sorted(years.items())
 		],
@@ -1334,7 +1359,8 @@ def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 			COUNT(*) AS mentions,
 			COUNT(DISTINCT COALESCE(NULLIF(normalized_citation, ''), citation_text)) AS authorities,
 			COUNT(DISTINCT target_case_id) AS targets
-		FROM citations WHERE source_case_id IN :ids GROUP BY source_case_id
+		FROM citations WHERE source_case_id IN :ids AND target_case_id IS DISTINCT FROM source_case_id
+		GROUP BY source_case_id
 		"""
 	).bindparams(bindparam("ids", expanding=True))
 	for row in db.execute(outgoing, {"ids": case_ids}).mappings().all():
@@ -1456,6 +1482,17 @@ def fetch_analytics_search_cases(
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
 		paragraph_hits = search_paragraph_cases(db, query)
+		phrase_index_used = False
+		if not paragraph_hits and search_full_text:
+			# Short query with the full-text option: look in the paragraph index, not in every decision's full text.
+			try:
+				paragraph_hits = search_paragraph_phrase(db, query, timeout_ms=SEARCH_SCAN_TIMEOUT_MS)
+			except ParagraphSearchTimeout as error:
+				raise HTTPException(
+					status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+					detail="That search was too broad to finish in time. Add more specific words or untick full-text search.",
+				) from error
+			phrase_index_used = paragraph_hits is not None
 		if paragraph_hits:
 			# Sentence query with the paragraph index available: cases whose best paragraph matches the words.
 			paragraph_case_ids = [hit["case_id"] for hit in paragraph_hits]
@@ -1468,12 +1505,26 @@ def fetch_analytics_search_cases(
 		else:
 			if search_full_text:
 				# Whole-text phrase scan: only without paragraph hits, as OR-ing it in forces a scan of every case.
-				query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+				# When the paragraph index answered and found nothing, the full text has no match either.
+				query_fields += " OR c.summary ILIKE :query" if phrase_index_used else " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 			sentence_hits, sentence_filter, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
 			if sentence_filter:
 				# A sentence rarely appears verbatim; also accept cases containing most of its content words.
 				query_fields += f" OR {sentence_filter}"
 				params.update(sentence_params)
+		topic_values = _topic_tag_values(query)
+		if topic_values:
+			# A short topic phrase ("reasonableness", "duty of fairness") is rarely in a case name. Also accept cases
+			# stored with that exact tag; uses the tag index, no body scan and no model.
+			params["topic_tag_version"] = ACTIVE_TAG_TAXONOMY_VERSION
+			names = []
+			for index, value in enumerate(topic_values):
+				params[f"topic_tag_{index}"] = value
+				names.append(f":topic_tag_{index}")
+			query_fields += (
+				" OR c.id IN (SELECT tq.case_id FROM case_tags tq WHERE tq.taxonomy_version = :topic_tag_version "
+				f"AND tq.value IN ({', '.join(names)}))"
+			)
 		filters.append(f"({query_fields})")
 	if cites:
 		params["cites"] = f"%{cites}%"
@@ -1542,8 +1593,15 @@ def fetch_analytics_search_cases(
 		else:
 			filters.append("FALSE")
 	if year:
-		params["year"] = f"{year}%"
-		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
+		# Same column as the year facet (c.date). The extracted cover-page date is free text ("December 19, 2019"),
+		# so a "2019%" prefix match missed most Supreme Court decisions. A range keeps the date index usable.
+		if len(year) == 4 and int(year) >= 1000:
+			params["year_start"] = f"{int(year)}-01-01"
+			params["year_end"] = f"{int(year) + 1}-01-01"
+			filters.append("c.date >= CAST(:year_start AS date) AND c.date < CAST(:year_end AS date)")
+		else:
+			params["year"] = f"{year}%"
+			filters.append("CAST(EXTRACT(YEAR FROM c.date) AS text) ILIKE :year")
 	where_clause = " AND ".join(filters)
 	if facets_only:
 		if search_full_text:

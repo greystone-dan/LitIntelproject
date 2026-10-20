@@ -212,3 +212,13 @@ def test_judge_junk_covers_court_names_annexes_and_translator_lines_but_not_judg
         assert not _is_judge_junk(real), real
     # a bare "THE COURT" is deliberately not junk here: it can be a real attribution to the court as a whole
     assert not _is_judge_junk("THE COURT")
+
+
+def test_judge_junk_covers_place_names_with_trailing_punctuation_or_parenthesised_province():
+    from fc_ingest.document_scraper import _is_judge_junk
+
+    for place in ("Ottawa, Ontario.", "Ottawa, Ontario,", "OTTAWA, Ontario.", "Ottawa (Ontario)", "OTTAWA (ONTARIO)",
+            "Ottawa (Ontario).", "Saskatoon, Saskatchewan,"):
+        assert _is_judge_junk(place), place
+    for real in ("Regina Smith", "Ottawa J.", "Quebec J.A.", "Halifax Brown, J.", "Justice Ontario Smith"):
+        assert not _is_judge_junk(real), real

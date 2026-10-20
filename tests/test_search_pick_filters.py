@@ -72,8 +72,17 @@ def test_tag_suggestions_match_substring_prefix_first_and_cache_the_vocabulary()
 	assert VocabDB.calls == 1
 
 
+class CandidateAwareDB(AnalyticsDB):
+	"""A relevance search first picks rank candidates, then the id page; keep the candidate statement's text too."""
+
+	def execute(self, statement, params):
+		if "FROM cases" in str(statement):
+			self.sql, self.params = getattr(self, "sql", "") + str(statement), params
+		return self
+
+
 def test_short_topic_query_also_matches_stored_tags():
-	db = AnalyticsDB()
+	db = CandidateAwareDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Duty of Fairness")
 	assert "FROM case_tags tq" in db.sql
 	assert db.params["topic_tag_0"] == "duty of fairness" and db.params["topic_tag_1"] == "duty_of_fairness"

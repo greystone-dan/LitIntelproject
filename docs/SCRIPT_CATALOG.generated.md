@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 191
+Active scripts documented: 192
 
 ## Catalog
 
@@ -16,6 +16,7 @@ Active scripts documented: 191
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
+| `analyze_unlinked_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_unlinked_citations.py --help` |
 | `apply_judge_aliases.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
@@ -284,6 +285,20 @@ Active scripts documented: 191
 
 ```powershell
 .\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs
+```
+
+## `scripts/analyze_unlinked_citations.py`
+
+**Purpose:** Read-only study of case citations that have no target case in the library. Counts linked and unlinked case citations from FC, FCA and SCC decisions, sorts every unlinked row into a reason bucket, and writes a stratified sample for hand checking. Only SELECTs run, inside one READ ONLY transaction. No model, no network, no writes. Use --counts-only first: it skips the per-row bucketing and is quick. python scripts/analyze_unlinked_citations.py --counts-only python scripts/analyze_unlinked_citations.py --output-dir C:\ilit_backups\unlinked_study
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\analyze_unlinked_citations.py --help
 ```
 
 ## `scripts/apply_judge_aliases.py`

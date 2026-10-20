@@ -218,9 +218,10 @@ def write_csv(path: Path, rows) -> int:
 	return count
 
 
-def format_pair(r: dict[str, Any]) -> str:
+def format_pair(r: dict[str, Any], action: str = "remove") -> str:
+	"""One sample line; action is "remove" or "hold" (the needs_human_look rows, matching the CSV action column)."""
 	kept = "; ".join(f"{k['display_name']!r} (profile {k['judge_profile_id']})" for k in r["kept"])
-	return (f"  case {r['case_id']} {r['citation']} [{r['court']}] remove link {r['id']} -> {r['display_name']!r} "
+	return (f"  case {r['case_id']} {r['citation']} [{r['court']}] {action} link {r['id']} -> {r['display_name']!r} "
 		f"(profile {r['judge_profile_id']}, raw {r['raw_name']!r}); keep {kept}")
 
 
@@ -244,7 +245,7 @@ def print_report(db, rows, result, sample: int) -> None:
 	look_by_court = Counter(r["court"] for r in needs_look)
 	print(f"new_name_differs_needs_a_human_look={len(needs_look)} (FC {look_by_court['FC']}, FCA {look_by_court['FCA']}); not removed")
 	for r in needs_look[:sample]:
-		print(format_pair(r))
+		print(format_pair(r, "hold"))
 	print(f"skipped_junk_old_link_decisions={len(skipped)} (new links not removed: {sum(s['new_links'] for s in skipped)})")
 	for s in skipped[:20]:
 		print(f"  skipped case {s['case_id']} {s['citation']} [{s['court']}] old junk names {s['junk_old_names']}")

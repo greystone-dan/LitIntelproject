@@ -198,6 +198,8 @@ def test_main_dry_run_writes_nothing_and_prints_count(monkeypatch, capsys):
 	out = capsys.readouterr().out
 	assert "redundant_links_to_remove=4 (FC 3, FCA 1)" in out
 	assert "new_name_differs_needs_a_human_look=3 (FC 1, FCA 2)" in out
+	assert "hold link 158705" in out and "remove link 158705" not in out  # held-back rows are not labelled "remove"
+	assert "remove link 158700" in out
 	assert "skipped_junk_old_link_decisions=1" in out
 	assert "case_judge_profiles rows: before=50 after=46" in out
 	assert "K7 (ceiling 1) FC: database now=5 projected=2" in out

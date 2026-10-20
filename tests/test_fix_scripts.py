@@ -357,6 +357,14 @@ def test_junk_judge_profiles_dry_run_report_apply_needs_expected_count_and_undo_
 
 
 
+def test_junk_judge_profiles_raw_names_query_does_not_group_by_the_json_aliases_column():
+	from scripts import fix_junk_judge_profiles as fjp
+
+	sql = " ".join(str(fjp.RAW_NAMES_SQL).split())
+	assert "aliases" not in sql.split("GROUP BY", 1)[1]  # json has no equality operator in Postgres, so it cannot be grouped on
+	assert "p.aliases" in sql.split("FROM", 1)[0]  # but it is still selected (it depends on the primary key p.id)
+
+
 def test_junk_judge_profiles_csv_lists_junk_and_review_only_profiles(tmp_path, monkeypatch, capsys):
 	import csv
 

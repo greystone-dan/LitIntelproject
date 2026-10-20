@@ -52,7 +52,7 @@ RAW_NAMES_SQL = text(
 	"SELECT p.id, p.slug, p.display_name, p.normalized_name, p.primary_court, p.aliases, "
 	"l.raw_name, COUNT(*) AS n "
 	"FROM judge_profiles p LEFT JOIN case_judge_profiles l ON l.judge_profile_id = p.id "
-	"GROUP BY p.id, p.slug, p.display_name, p.normalized_name, p.primary_court, p.aliases, l.raw_name"
+	"GROUP BY p.id, l.raw_name"  # the other profile columns depend on p.id; p.aliases is json and cannot be grouped on
 )
 
 

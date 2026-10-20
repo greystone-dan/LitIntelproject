@@ -1230,6 +1230,192 @@
    "title": "Statute extraction: refugee decisions tie \"the Act\" and sections 96-98 to the IRPA",
    "merged_at": "2026-10-06T18:43:14Z",
    "author": "greystone-dan"
+  },
+  {
+   "number": 568,
+   "title": "Reader header facts: wrap instead of ellipsis / phone overflow",
+   "merged_at": "2026-10-19T19:22:24Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 569,
+   "title": "Reader: Back leaves the case view and shows results",
+   "merged_at": "2026-10-19T19:22:31Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 570,
+   "title": "Reader: only show FC activity links for IMM dockets",
+   "merged_at": "2026-10-19T19:22:38Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 571,
+   "title": "Home page: load unopened tabs lazily and dedupe startup requests",
+   "merged_at": "2026-10-19T19:22:47Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 572,
+   "title": "Make /cases/{id}/citations/incoming honour a limit",
+   "merged_at": "2026-10-19T19:22:54Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 573,
+   "title": "Year filter reads cases.date, matching the facets",
+   "merged_at": "2026-10-19T19:23:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 574,
+   "title": "Short topic searches also match stored case tags",
+   "merged_at": "2026-10-19T19:30:54Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 575,
+   "title": "Leave a case's own citations out of its authorities and counts",
+   "merged_at": "2026-10-19T19:23:23Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 576,
+   "title": "Treat counsel labels and rule lines as junk judge captures",
+   "merged_at": "2026-10-19T19:23:36Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 577,
+   "title": "Clean 400/404 instead of raw 500 for NUL bytes and missing case ids",
+   "merged_at": "2026-10-19T19:23:44Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 578,
+   "title": "Reject invalid year, sort_by, limit and offset on case search with 422",
+   "merged_at": "2026-10-19T19:24:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 579,
+   "title": "Page the public /inventory endpoint (default 100, max 500)",
+   "merged_at": "2026-10-19T19:24:07Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 580,
+   "title": "Re-split script: keep the paragraph search index in step",
+   "merged_at": "2026-10-19T18:35:01Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 581,
+   "title": "Rebuild prep: read-only counts for the re-split and paragraph-level audit rates",
+   "merged_at": "2026-10-19T19:04:35Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 582,
+   "title": "Full-text search option uses the paragraph index (no more 60 s scan)",
+   "merged_at": "2026-10-19T19:25:31Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 583,
+   "title": "Statute pages link decisions to the real reader",
+   "merged_at": "2026-10-19T19:55:02Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 584,
+   "title": "Fix judge court chips and two stale result counts",
+   "merged_at": "2026-10-19T19:59:46Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 585,
+   "title": "Lab landings explain Experimental, HTML 404 page, favicon",
+   "merged_at": "2026-10-19T20:02:50Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 586,
+   "title": "Reversible DB fix scripts: self citations, own-caption links, junk judges, non-immigration report",
+   "merged_at": "2026-10-19T20:04:52Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 587,
+   "title": "Leave non-immigration decisions out of judge win rates",
+   "merged_at": "2026-10-19T20:15:15Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 588,
+   "title": "Count-only: do not count a glued heading as a renumbered paragraph",
+   "merged_at": "2026-10-19T20:44:23Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 589,
+   "title": "Unlinked citations: read-only study scripts, French court code mapping",
+   "merged_at": "2026-10-20T13:01:20Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 590,
+   "title": "Search speed: ids-first query, date index, one result per case for broad words",
+   "merged_at": "2026-10-20T13:10:39Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 591,
+   "title": "Judge profile scripts: delete junk profiles, safer alias merge (dry runs, undo)",
+   "merged_at": "2026-10-20T13:26:16Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 592,
+   "title": "French decisions: right judge, file number and outcome",
+   "merged_at": "2026-10-20T13:35:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 593,
+   "title": "Guard name and title citation links; cleanup script for impossible links",
+   "merged_at": "2026-10-20T13:20:22Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 594,
+   "title": "CLAUDE.md: merge policy, hard rules section, bundling note",
+   "merged_at": "2026-10-20T13:28:38Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 595,
+   "title": "Script to remove redundant FC/FCA judge links from the 10-20 backfill",
+   "merged_at": "2026-10-20T14:36:18Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 596,
+   "title": "Judge link script: match on surname only, show the shared surname in the CSV",
+   "merged_at": "2026-10-20T14:52:33Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 597,
+   "title": "Junk judge names: more junk labels, plus a names CSV and a review-only list in the junk-profile dry run",
+   "merged_at": "2026-10-20T15:02:28Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 557,
+   "title": "Argument lists: vote rule, side-label rules and checker (all off by default)",
+   "merged_at": "2026-10-20T11:16:41Z",
+   "author": "greystone-dan"
   }
  ],
  "commits": [

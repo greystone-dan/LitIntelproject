@@ -14,7 +14,7 @@ from fastapi.testclient import TestClient
 
 from backend import analytics_service, routes, search_service
 from backend.models import CaseSearchRequest
-from backend.search_matching import citation_query, identity_sql, identity_tier, match_details, matched_on
+from backend.search_matching import _longest_token, citation_query, identity_sql, identity_tier, match_details, matched_on
 from backend.query_syntax import parse_query
 
 
@@ -639,3 +639,20 @@ def test_every_search_runs_under_a_statement_timeout_and_answers_too_broad():
 	assert caught.value.status_code == 503 and "too broad" in caught.value.detail
 	assert db.rolled_back
 	assert f"SET LOCAL statement_timeout = {analytics_service.SEARCH_SCAN_TIMEOUT_MS}" in db.sql
+
+
+def test_party_guard_is_a_necessary_condition_of_the_party_match():
+	"""Rows the guard rejects can never be party matches, so the order is unchanged."""
+	captions = [
+		"Baker v. Canada (Minister of Citizenship and Immigration)",
+		"Canada (Citizenship and Immigration) v. Vavilov",
+		"Doré c. Barreau du Québec", "Duty-of-Fairness Review Inc. v. Smith", "A.B. v. C.D.", "",
+	]
+	for query in ["Baker", "duty of fairness", "Doré", "Vavilov", "Minister of Citizenship", "reasonableness", "A B"]:
+		token = _longest_token(query)
+		for caption in captions:
+			case = SimpleNamespace(title=caption, metadata_json={}, citation="", secondary_citation="")
+			if identity_tier(case, query) == 1:
+				assert token in caption.lower()
+	assert _longest_token("Baker v Canada") == "canada"
+	assert _longest_token("") == ""

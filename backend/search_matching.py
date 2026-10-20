@@ -78,12 +78,19 @@ def _normalized_sql(expression: str) -> str:
 	return f"TRIM(REGEXP_REPLACE(LOWER(COALESCE({expression}, '')), :match_normalization, ' ', 'g'))"
 
 
+def _longest_token(query: str) -> str:
+	"""The longest word of the query ("" for none). Words are runs of letters/digits, so each one appears
+	unchanged in any text whose normalized form contains the query."""
+	return max(normalized_tokens(query).split(), key=len, default="")
+
+
 def identity_sql(query: str) -> tuple[str, str, dict[str, str]]:
 	"""Return identical citation/party predicates for filtering, ranking and labels."""
 	params = {
 		"match_tokens": normalized_tokens(query),
 		"match_citation": citation_query(query),
 		"match_normalization": "[^[:alnum:]]+",
+		"match_guard": f"%{_longest_token(query)}%",
 	}
 	citation_fields = [
 		f"REGEXP_REPLACE({_normalized_sql(f'c.{field}')}, '(^| )s c r( |$)', '\\1scr\\2', 'g')"
@@ -106,7 +113,15 @@ def identity_sql(query: str) -> tuple[str, str, dict[str, str]]:
 		f"EXISTS (SELECT 1 FROM REGEXP_SPLIT_TO_TABLE(' ' || {between} || ' ', '{BETWEEN_SEPARATOR}') AS party(name) "
 		"WHERE POSITION(' ' || :match_tokens || ' ' IN ' ' || TRIM(party.name) || ' ') > 0)"
 	)
-	party = "(:match_tokens <> '' AND (" + " OR ".join(party_checks) + "))"
+	# Cheap necessary condition, checked first: a whole-token party match needs the query's longest word to appear
+	# in the title, style of cause or "between" text. Rows without it skip the costly regex split, with the same result.
+	guard = "(" + " OR ".join(
+		f"LOWER(COALESCE({expression}, '')) LIKE :match_guard" for expression in (
+			"c.title", "c.metadata_json->'reader_extracted'->>'style of cause'",
+			"c.metadata_json->'reader_extracted'->>'between'",
+		)
+	) + ")"
+	party = f"(:match_tokens <> '' AND {guard} AND (" + " OR ".join(party_checks) + "))"
 	return citation, party, params
 
 

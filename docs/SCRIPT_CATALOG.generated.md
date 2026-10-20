@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 196
+Active scripts documented: 197
 
 ## Catalog
 
@@ -110,6 +110,7 @@ Active scripts documented: 196
 | `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
 | `fix_common.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_common.py --help` |
 | `fix_french_metadata.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_french_metadata.py --help` |
+| `fix_junk_judge_profiles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judge_profiles.py --help` |
 | `fix_junk_judges.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judges.py --help` |
 | `fix_non_immigration_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_non_immigration_report.py --help` |
 | `fix_own_caption_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_own_caption_links.py --help` |
@@ -307,7 +308,7 @@ Active scripts documented: 196
 
 ## `scripts/apply_judge_aliases.py`
 
-**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --prune # dry run: rule rows the current rules no longer propose python scripts/apply_judge_aliases.py --prune --apply # delete those rows (e.g. Marc/Simon Noël) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
+**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --prune # dry run first: rule rows the current rules no longer propose python scripts/apply_judge_aliases.py --apply --expected-count N # write alias rows (needs Daniel's go); saves an undo file python scripts/apply_judge_aliases.py --undo data/db_fix_backups/judge_aliases_<stamp>.jsonl # delete exactly the rows that run wrote python scripts/apply_judge_aliases.py --prune --apply --expected-count N # delete those rows (e.g. Marc/Simon Noël) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row (all runs, not one) The dry run lists every merge group with each member's case count, court and date span, and flags groups whose members sit in different courts (CROSS-COURT) or overlap in time while in different courts (OVERLAP): those are the ones that may be two different people. Read every group before approving.
 
 **Operational class:** Utility
 
@@ -1605,6 +1606,20 @@ Active scripts documented: 196
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fix_french_metadata.py --help
+```
+
+## `scripts/fix_junk_judge_profiles.py`
+
+**Purpose:** Delete judge profiles that exist only because of junk judge strings ("SOLICITORS OF RECORD", "AND ORDER"). Dry run by default. Run after scripts/fix_junk_judges.py and scripts/backfill_judge_profiles.py. A profile is junk when every raw name linked to it (case_judge_profiles.raw_name) is junk by the extractor's own test, or its name has no letters. Deleting a profile also removes its case links and any alias rows pointing at it (the tables cascade). Profiles with even one real raw name are left alone. python scripts/fix_junk_judge_profiles.py # dry run: junk profiles, their case counts python scripts/fix_junk_judge_profiles.py --apply --expected-count N # save an undo file, then delete (--expected-count is required) python scripts/fix_junk_judge_profiles.py --undo data/db_fix_backups/junk_judge_profiles_<stamp>.jsonl Does NOT remove the profiles made from SCC panel strings (several judges in one string); that is a separate cleanup. Run order: fix_junk_judges.py (add --include-label-only to also clear "AND ORDER", which needs its own approval), check a sample of the changed rows, backfill_judge_profiles.py, then this script, then apply_judge_aliases.py. "AND ORDER" counts as junk here whether or not fix_junk_judges was run with that flag; if it was not, the next backfill recreates that profile from the cases that still carry the label. Backup first: judge_profiles, case_judge_profiles and judge_profile_aliases. The undo file holds every deleted profile, its links and its alias rows, and --undo puts them back with their original ids. Restored profiles and links get the restore time as created_at/updated_at, not their original timestamps.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_junk_judge_profiles.py --help
 ```
 
 ## `scripts/fix_junk_judges.py`

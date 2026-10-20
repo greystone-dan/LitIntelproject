@@ -69,6 +69,7 @@ ROWS = [
 	link(122, 7, 23, "Avvy Yao-Yao Go"), link(158704, 7, 24, "Justice Go"),  # two-letter surname overlaps: remove
 	link(123, 8, 25, "EVANS J.A.", "FCA"), link(158705, 8, 26, "THE COURT", "FCA"),  # name differs: needs a look
 	link(124, 9, 27, "Gagné J."), link(158706, 9, 28, "Roy J."),  # name differs: needs a look
+	link(126, 11, 31, "Marc Noël", "FCA"), link(158708, 11, 32, "Marc Nadon", "FCA"),  # shared given name only: needs a look
 	link(125, 10, 29, "Tabib J."),
 	{**link(158707, 10, 30, "Tabib J."), "created_at": datetime(2026, 10, 21, 9, 0, tzinfo=timezone.utc)},  # outside the run window
 ]
@@ -77,7 +78,7 @@ ROWS = [
 def test_plan_removes_only_same_judge_or_junk_new_links_on_decisions_with_an_older_link():
 	result = rrjl.plan(ROWS)
 	assert sorted(r["id"] for r in result["removals"]) == [158700, 158701, 158703, 158704]
-	assert sorted(r["id"] for r in result["needs_look"]) == [158705, 158706]
+	assert sorted(r["id"] for r in result["needs_look"]) == [158705, 158706, 158708]
 	assert [s["case_id"] for s in result["skipped"]] == [3]
 	assert result["skipped"][0]["junk_old_names"] == ["AND ORDER"]
 	assert all(r["kept"] for r in result["removals"])
@@ -103,8 +104,23 @@ def test_checks_k7_k10_k11_before_and_after():
 
 
 def test_two_letter_surname_overlaps():
-	assert rrjl.surname_tokens("Justice Go") & rrjl.surname_tokens("Avvy Yao-Yao Go")
-	assert not rrjl.surname_tokens("J.A. ROTHSTEIN") & rrjl.surname_tokens("Roy J.")
+	assert rrjl.surname("Justice Go") == rrjl.surname("Avvy Yao-Yao Go") == "go"
+	assert rrjl.surname("J.A. ROTHSTEIN") != rrjl.surname("Roy J.")
+
+
+def test_unicode_dashes_do_not_split_a_surname_match():
+	assert rrjl.surname("Tremblay\u2011Lamer J.") == rrjl.surname("Tremblay-Lamer J.") == "lamer"
+	assert rrjl.surname("Layden\u2212Stevenson J.A.") == rrjl.surname("LAYDEN-STEVENSON J.A.")
+	assert rrjl.shared_surname("Tremblay\u2011Lamer J.", [{"display_name": "Tremblay-Lamer"}]) == "lamer"
+
+
+def test_gate_compares_surnames_not_given_names():
+	assert rrjl.surname("Marc Nadon") == "nadon" and rrjl.surname("NOËL J.A.") == "noel"
+	assert rrjl.surname("Noël, Simon") == rrjl.surname("Simon Noël") == "noel"
+	assert rrjl.surname("CHIEF JUSTICE BLAIS") == "blais" and rrjl.surname("THE COURT") == "court"
+	kept = [{"display_name": "Marc Noël"}]
+	assert rrjl.shared_surname("Marc Nadon", kept) == ""  # same given name, different judge
+	assert rrjl.shared_surname("NOËL J.A.", kept) == "noel"
 
 
 def test_surname_tokens_ignore_titles_and_accents():
@@ -117,11 +133,13 @@ def test_projected_csv_lists_every_pair(tmp_path):
 	result = rrjl.plan(ROWS)
 	before, after = rrjl.group_by_case(ROWS), rrjl.projected_links(ROWS, result["removals"])
 	path = tmp_path / "out.csv"
-	assert rrjl.write_csv(path, rrjl.csv_rows(result["removals"], result["needs_look"], after, before)) == 6
+	assert rrjl.write_csv(path, rrjl.csv_rows(result["removals"], result["needs_look"], after, before)) == 7
 	rows = list(csv.DictReader(open(path, encoding="utf-8")))
 	assert {r["removed_link_id"] for r in rows if r["action"] == "remove"} == {"158700", "158701", "158703", "158704"}
-	assert {r["removed_link_id"] for r in rows if r["action"] == "needs_human_look"} == {"158705", "158706"}
+	assert {r["removed_link_id"] for r in rows if r["action"] == "needs_human_look"} == {"158705", "158706", "158708"}
 	assert next(r for r in rows if r["removed_link_id"] == "158700")["same_surname_as_a_kept_name"] == "True"
+	assert next(r for r in rows if r["removed_link_id"] == "158700")["shared_surname"] == "noel"
+	assert next(r for r in rows if r["removed_link_id"] == "158708")["shared_surname"] == ""
 	assert next(r for r in rows if r["removed_link_id"] == "158701")["removed_is_junk"] == "True"
 	with pytest.raises(FileExistsError):
 		rrjl.write_csv(path, [])
@@ -176,7 +194,7 @@ def test_main_dry_run_writes_nothing_and_prints_count(monkeypatch, capsys):
 	assert rrjl.main([]) == 0
 	out = capsys.readouterr().out
 	assert "redundant_links_to_remove=4 (FC 3, FCA 1)" in out
-	assert "new_name_differs_needs_a_human_look=2 (FC 1, FCA 1)" in out
+	assert "new_name_differs_needs_a_human_look=3 (FC 1, FCA 2)" in out
 	assert "skipped_junk_old_link_decisions=1" in out
 	assert "case_judge_profiles rows: before=50 after=46" in out
 	assert "K7 (ceiling 1) FC: database now=5 projected=2" in out

@@ -14,8 +14,8 @@ are never touched, and neither are older links or any judge profile.
   python scripts/remove_redundant_judge_links.py --undo LOG                   # dry run of the undo: how many rows would go back
   python scripts/remove_redundant_judge_links.py --undo LOG --apply           # put them back (LOG = data/db_fix_backups/redundant_judge_links_<stamp>.jsonl)
 
-Same-judge gate: a new link is removed only if its name shares a surname token with a kept (older) name on that
-decision, or the new name is itself K3 junk. Every other new link is NOT removed: it is listed as "new name differs,
+Same-judge gate: a new link is removed only if its name has the same surname (the last name token, so
+"Marc Nadon" and "Marc Noël" do not match on "Marc") as a kept (older) name on that decision, or the new name is itself K3 junk. Every other new link is NOT removed: it is listed as "new name differs,
 needs a human look", with counts per court (THE COURT and "I concur." are not K3 junk, so they wait for a human look).
 --expected-count is the number of links that would be removed, not counting those.
 
@@ -67,6 +67,7 @@ CEILINGS = {"FC": 1, "FCA": 5}
 JUNK_NAME_RE = re.compile(
 	r"^\s*(and order|order|judgment|reasons|schedule|annex|appendix|between|style of cause)\b|[�0-9]", re.IGNORECASE
 )
+_DASHES_RE = re.compile("[\u2010-\u2015\u2212]")  # hyphens, non-breaking hyphen, dashes, minus sign
 _TITLE_WORDS = {
 	"the", "honourable", "hon", "justice", "juge", "chief", "mr", "mme", "madam", "madame", "mrs", "ms", "mister",
 	"j", "ja", "jj", "cj", "pj", "ca", "de", "du", "la", "le", "of", "and", "et", "mr", "ms",
@@ -107,6 +108,21 @@ def surname_tokens(name: str | None) -> set[str]:
 	return {t for t in tokens if len(t) >= 2 and t not in _TITLE_WORDS}
 
 
+def surname(name: str | None) -> str | None:
+	"""The surname as the last name token ("Simon Noël", "NOËL J.A." and "Noël, Simon" all give "noel"); None if there is none."""
+	folded = unicodedata.normalize("NFKD", _DASHES_RE.sub("-", name or "")).encode("ascii", "ignore").decode().lower()
+	if "," in folded:
+		folded = folded.split(",", 1)[0]
+	tokens = [t for t in re.findall(r"[a-z]+", folded) if len(t) >= 2 and t not in _TITLE_WORDS]
+	return tokens[-1] if tokens else None
+
+
+def shared_surname(name: str | None, kept: list[dict[str, Any]]) -> str:
+	"""The surname this name has in common with a kept name, or an empty string."""
+	own = surname(name)
+	return own if own and any(own == surname(k["display_name"]) for k in kept) else ""
+
+
 def group_by_case(rows: list[dict[str, Any]]) -> dict[int, list[dict[str, Any]]]:
 	cases: dict[int, list[dict[str, Any]]] = defaultdict(list)
 	for row in rows:
@@ -137,11 +153,11 @@ def plan(rows: list[dict[str, Any]], old_max: int = OLD_MAX_ID, run_max: int = R
 			skipped.append({"case_id": case_id, "citation": links[0]["citation"], "court": links[0]["court"],
 				"new_links": len(new), "junk_old_names": [l["display_name"] for l in junk_old]})
 			continue
-		kept_tokens = [surname_tokens(k["display_name"]) for k in old]
 		for link in new:
-			same = any(surname_tokens(link["display_name"]) & t for t in kept_tokens)
+			shared = shared_surname(link["display_name"], old)
+			same = bool(shared)
 			junk = is_junk_name(link["display_name"])
-			entry = {**link, "kept": old, "same_surname": same, "junk": junk}
+			entry = {**link, "kept": old, "same_surname": same, "shared_surname": shared, "junk": junk}
 			(removals if same or junk else needs_look).append(entry)
 	return {"removals": removals, "needs_look": needs_look, "skipped": skipped}
 
@@ -181,14 +197,14 @@ def csv_rows(removals: list[dict[str, Any]], needs_look: list[dict[str, Any]],
 				"removed_raw_name": r["raw_name"], "removed_is_junk": r["junk"],
 				"kept_profile_ids": " | ".join(str(k["judge_profile_id"]) for k in r["kept"]),
 				"kept_names": " | ".join(k["display_name"] or "" for k in r["kept"]),
-				"same_surname_as_a_kept_name": r["same_surname"],
+				"same_surname_as_a_kept_name": r["same_surname"], "shared_surname": r["shared_surname"],
 				"links_before": len(before[r["case_id"]]), "links_after": len(after[r["case_id"]]),
 			}
 
 
 def write_csv(path: Path, rows) -> int:
 	fields = ["action", "case_id", "citation", "court", "removed_link_id", "removed_profile_id", "removed_name", "removed_raw_name",
-		"removed_is_junk", "kept_profile_ids", "kept_names", "same_surname_as_a_kept_name", "links_before", "links_after"]
+		"removed_is_junk", "kept_profile_ids", "kept_names", "same_surname_as_a_kept_name", "shared_surname", "links_before", "links_after"]
 	count = 0
 	path.parent.mkdir(parents=True, exist_ok=True)
 	with open(path, "x", encoding="utf-8", newline="") as handle:

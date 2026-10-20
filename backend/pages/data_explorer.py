@@ -890,7 +890,7 @@ function fetchCurrentPanel(url,container,options={}){
  const pending=previous.then(async()=>{
   if(!current())return null;
   let handled=false;
-  const callbacks={...options,isCurrent:current,render:data=>{handled=true;return options.render(data,current)},onError:()=>{handled=true;return options.onError?.()}};
+  const callbacks={...options,isCurrent:current,render:data=>{handled=true;return options.render(data,current)},onError:error=>{handled=true;return options.onError?.(error)}};
   const data=await fetchPanel(url,container,callbacks);
   // A Retry may own the helper's slot without owning this queue. Once it
   // settles, run the latest selection rather than losing it to deduplication.
@@ -959,7 +959,7 @@ async function runProfessionalSearch(){
  document.getElementById('searchResults').innerHTML='';
  return fetchCurrentPanel(`/analytics/search/cases?${params}`,document.getElementById('searchResults'),{
   isCurrent:()=>requestId===professionalSearchGeneration,
-  onError:()=>setSearchStatus('Search unavailable. Your filters have been preserved.','error'),
+  onError:error=>setSearchStatus(error?.detail||'Search unavailable. Your filters have been preserved.','error'),
   render:data=>{
   const queryEcho=document.getElementById('searchQueryEcho');
   queryEcho.textContent=[values.query.trim()&&data.query_echo?(/^search: [^:]+$/i.test(data.query_echo)?`Showing cases with “${data.query_echo.slice(8)}” in the name or citation.`:`Search interpreted as: ${data.query_echo}`):'',data.notice||''].filter(Boolean).join(' ');

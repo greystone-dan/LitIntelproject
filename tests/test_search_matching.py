@@ -614,3 +614,28 @@ def test_accent_list_in_the_migration_matches_the_search_code():
 	module = importlib.util.module_from_spec(spec)
 	spec.loader.exec_module(module)
 	assert f"'{ACCENTED}', '{UNACCENTED}'" in module.FOLDED and len(ACCENTED) == len(UNACCENTED)
+
+
+def test_every_search_runs_under_a_statement_timeout_and_answers_too_broad():
+	from sqlalchemy.exc import OperationalError
+	import pytest
+	from fastapi import HTTPException
+
+	class TimeoutDB(AnalyticsDB):
+		rolled_back = False
+
+		def execute(self, statement, params):
+			if "FROM cases" in str(statement):
+				raise OperationalError("SELECT", {}, Exception("canceling statement due to statement timeout"))
+			self.sql += str(statement)
+			return self
+
+		def rollback(self):
+			self.rolled_back = True
+
+	db = TimeoutDB()
+	with pytest.raises(HTTPException) as caught:
+		analytics_service.fetch_analytics_search_cases(db, query="Canada", include_facets=False)
+	assert caught.value.status_code == 503 and "too broad" in caught.value.detail
+	assert db.rolled_back
+	assert f"SET LOCAL statement_timeout = {analytics_service.SEARCH_SCAN_TIMEOUT_MS}" in db.sql

@@ -1519,7 +1519,30 @@ def fetch_tag_suggestions(db, query: str, limit: int = 12) -> list[dict[str, Any
 	return matches[: max(1, min(limit, 25))]
 
 
-def fetch_analytics_search_cases(
+def _is_statement_timeout(error: Exception) -> bool:
+	message = str(error).lower()
+	return "statement timeout" in message or "canceling statement" in message
+
+
+def fetch_analytics_search_cases(db: Session, **kwargs: Any) -> dict[str, Any]:
+	"""Run a case search with a time limit on every statement, so one very common word cannot pin the database.
+
+	The limit (SEARCH_SCAN_TIMEOUT_MS, default 20 s) is set for this transaction only; a statement that
+	runs past it is cancelled and the visitor gets a clear "too broad" answer (HTTP 503) instead of a hang."""
+	try:
+		db.execute(sql_text(f"SET LOCAL statement_timeout = {int(SEARCH_SCAN_TIMEOUT_MS)}"), {})
+		return _fetch_analytics_search_cases(db, **kwargs)
+	except OperationalError as error:
+		if not _is_statement_timeout(error):
+			raise
+		db.rollback()
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail="That search is too broad to finish in time. Try a more specific term.",
+		) from error
+
+
+def _fetch_analytics_search_cases(
 	db: Session,
 	*,
 	query: str = "",

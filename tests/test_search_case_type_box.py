@@ -20,6 +20,8 @@ class _FakeDb:
         self.rows, self.calls = rows, []
 
     def execute(self, statement, params):
+        if "statement_timeout" in str(statement):
+            return _Result([])  # the per-search time limit is not a query under test
         self.calls.append((str(statement), params))
         return _Result(self.rows)
 

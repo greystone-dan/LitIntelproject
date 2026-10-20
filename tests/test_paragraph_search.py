@@ -422,3 +422,27 @@ def test_phrase_answers_are_kept_so_a_repeat_search_gives_the_same_sample():
 	calls = len(db.calls)
 	assert paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000) == first
 	assert len(db.calls) == calls
+
+
+def test_a_sampled_phrase_answer_is_kept_for_minutes_not_an_hour():
+	from backend import paragraph_search
+
+	paragraph_search._TABLE_CACHE.update(checked=0.0, ready=False)
+	paragraph_search.clear_phrase_cache()
+	db = _PhraseDB(full_times_out=True)
+	paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000)
+	calls = len(db.calls)
+	stamp, hits, sampled = paragraph_search._PHRASE_CACHE["reasonableness"]
+	assert sampled is True
+	# Ten minutes later the sample is looked up again; an exact answer would still be served.
+	paragraph_search._PHRASE_CACHE["reasonableness"] = (stamp - 600, hits, sampled)
+	paragraph_search.search_paragraph_phrase(db, "reasonableness", timeout_ms=20000)
+	assert len(db.calls) > calls
+	paragraph_search.clear_phrase_cache()
+	exact = _PhraseDB()
+	paragraph_search.search_paragraph_phrase(exact, "reasonableness", timeout_ms=20000)
+	calls = len(exact.calls)
+	stamp, hits, sampled = paragraph_search._PHRASE_CACHE["reasonableness"]
+	paragraph_search._PHRASE_CACHE["reasonableness"] = (stamp - 600, hits, sampled)
+	paragraph_search.search_paragraph_phrase(exact, "reasonableness", timeout_ms=20000)
+	assert len(exact.calls) == calls

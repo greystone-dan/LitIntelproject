@@ -172,8 +172,9 @@ _PHRASE_SQL = _phrase_sql(False)
 _PHRASE_SAMPLE_SQL = _phrase_sql(True)
 
 
-_PHRASE_CACHE: dict[str, tuple[float, list[dict[str, Any]]]] = {}
+_PHRASE_CACHE: dict[str, tuple[float, list[dict[str, Any]], bool]] = {}
 _PHRASE_CACHE_TTL_SECONDS = 3600
+_PHRASE_SAMPLE_TTL_SECONDS = 300  # a sampled answer is a stopgap; look for an exact count again soon
 _PHRASE_CACHE_MAX = 200
 
 
@@ -202,8 +203,10 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 		return None
 	# The same word is searched again and again (and a sample must not change between two searches): keep each answer an hour.
 	cached = _PHRASE_CACHE.get(phrase.casefold())
-	if cached and time.monotonic() - cached[0] < _PHRASE_CACHE_TTL_SECONDS:
-		return cached[1]
+	if cached:
+		ttl = _PHRASE_SAMPLE_TTL_SECONDS if cached[2] else _PHRASE_CACHE_TTL_SECONDS
+		if time.monotonic() - cached[0] < ttl:
+			return cached[1]
 	params = {"phrase_text": phrase, "max_cases": MAX_CASES, "sample_limit": PHRASE_SAMPLE_LIMIT}
 
 	def run(statement, limit_ms):
@@ -239,7 +242,7 @@ def search_paragraph_phrase(db: Any, query: str, timeout_ms: int | None = None) 
 	]
 	if len(_PHRASE_CACHE) >= _PHRASE_CACHE_MAX:
 		_PHRASE_CACHE.clear()
-	_PHRASE_CACHE[phrase.casefold()] = (time.monotonic(), hits)
+	_PHRASE_CACHE[phrase.casefold()] = (time.monotonic(), hits, sampled)
 	return hits
 
 

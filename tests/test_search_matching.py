@@ -564,6 +564,38 @@ def test_slow_results_have_their_own_lock_and_expired_copies_refresh_in_the_back
 	analytics_service.clear_analytics_cache()
 
 
+def test_failed_background_refresh_logs_and_waits_before_trying_again(monkeypatch, caplog):
+	import threading
+
+	analytics_service.clear_analytics_cache()
+	analytics_service.set_analytics_cache_enabled(True)
+	import backend.database as database
+
+	monkeypatch.setattr(database, "SessionLocal", lambda: type("S", (), {"__enter__": lambda s: "bg", "__exit__": lambda s, *a: False})())
+	analytics_service._SLOW_RESULTS["t9"] = (analytics_service.time.monotonic() - 99999, "old")
+	attempts = []
+	done = threading.Event()
+
+	def build(session):
+		attempts.append(session)
+		done.set()
+		raise RuntimeError("boom")
+
+	with caplog.at_level("ERROR"):
+		assert analytics_service.cached_slow_result("t9", build, "request-db") == "old"
+		assert done.wait(2)
+		for _ in range(50):
+			if "t9" in analytics_service._SLOW_RETRY_AFTER:
+				break
+			analytics_service.time.sleep(0.02)
+	assert "Background refresh of t9 failed" in caplog.text
+	# Further requests keep getting the old copy without starting another build.
+	assert analytics_service.cached_slow_result("t9", build, "request-db") == "old"
+	analytics_service.time.sleep(0.1)
+	assert attempts == ["bg"]
+	analytics_service.clear_analytics_cache()
+
+
 def test_year_hint_and_cap_notices():
 	db = AnalyticsDB()
 	result = analytics_service.fetch_analytics_search_cases(db, query="Baker v Canada 1999", include_facets=False)

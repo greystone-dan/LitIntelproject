@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import os
 import re
 import time
@@ -169,7 +170,10 @@ _analytics_cache = TTLCache()
 
 _SLOW_RESULTS: dict[str, tuple[float, Any]] = {}
 _SLOW_LOCKS: dict[str, RLock] = {}
+logger = logging.getLogger(__name__)
 _SLOW_REFRESHING: set[str] = set()
+_SLOW_RETRY_AFTER: dict[str, float] = {}
+SLOW_REFRESH_RETRY_SECONDS = 300
 _SLOW_GUARD = RLock()
 SLOW_RESULT_TTL_SECONDS = 3600
 
@@ -190,8 +194,9 @@ def cached_slow_result(key: str, build: Callable[[Any], Any], db: Any, ttl_secon
 		return entry[1]
 	if entry:
 		with _SLOW_GUARD:
-			start = key not in _SLOW_REFRESHING
-			_SLOW_REFRESHING.add(key)
+			start = key not in _SLOW_REFRESHING and time.monotonic() >= _SLOW_RETRY_AFTER.get(key, 0.0)
+			if start:
+				_SLOW_REFRESHING.add(key)
 		if start:
 			import threading
 
@@ -203,8 +208,12 @@ def cached_slow_result(key: str, build: Callable[[Any], Any], db: Any, ttl_secon
 						value = build(session)
 					with _SLOW_GUARD:
 						_SLOW_RESULTS[key] = (time.monotonic(), value)
+						_SLOW_RETRY_AFTER.pop(key, None)
 				except Exception:
-					pass
+					# Keep serving the old copy, but do not start another long build on every request.
+					logger.exception("Background refresh of %s failed; retrying in %s s", key, SLOW_REFRESH_RETRY_SECONDS)
+					with _SLOW_GUARD:
+						_SLOW_RETRY_AFTER[key] = time.monotonic() + SLOW_REFRESH_RETRY_SECONDS
 				finally:
 					with _SLOW_GUARD:
 						_SLOW_REFRESHING.discard(key)
@@ -232,6 +241,7 @@ def clear_analytics_cache() -> None:
 	For testing and admin purposes. Clears all cached entries.
 	"""
 	_SLOW_RESULTS.clear()
+	_SLOW_RETRY_AFTER.clear()
 	_analytics_cache.clear()
 
 

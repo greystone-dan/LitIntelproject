@@ -579,6 +579,9 @@ def test_link_rejected_applies_date_cite_and_generic_word_guards():
 	assert _link_rejected(row("Alberta"), 3, info) is True  # a single generic word
 	assert _link_rejected(row("Smith v. Jones, 2001 FC 9"), 3, info) is True  # cite is not the target's
 	assert _link_rejected(row("Patel v. Canada"), 3, info) is False
+	# a real cite is not rejected for a generic name; only name/title links are
+	assert _link_rejected(row("Alberta, [1989] 1 SCR 1"), 3, info, by_name=False) is False
+	assert _link_rejected(row("Alberta, [1989] 1 SCR 1"), 3, info, by_name=True) is True
 
 
 def test_citation_variants_parenthesized_reporter_year_accepts_extra_whitespace():

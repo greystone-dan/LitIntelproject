@@ -157,15 +157,15 @@ def parse_args() -> argparse.Namespace:
 	return parser.parse_args()
 
 
-def _link_rejected(citation: Citation, target_case_id: int, case_info: dict) -> bool:
+def _link_rejected(citation: Citation, target_case_id: int, case_info: dict, by_name: bool = True) -> bool:
 	"""True when the link is impossible: target dated after the citing decision, the citation's own
-	cite is not the target's, or the cited name is a single generic word."""
+	cite is not the target's, or (name/title links only, by_name) the cited name is a single generic word."""
 	target_date, target_values = case_info.get(target_case_id, (None, ()))
 	source_date = case_info.get(citation.source_case_id, (None, ()))[0]
 	raw = citation.normalized_citation or citation.citation_text or ""
 	if citation_target_conflict(raw, source_date, target_date, target_values) is not None:
 		return True
-	return _is_generic_alias(_citation_title_key(raw))
+	return by_name and _is_generic_alias(_citation_title_key(raw))
 
 
 def _target_case_id(citation: Citation, index: dict[str, int | None]) -> int | None:

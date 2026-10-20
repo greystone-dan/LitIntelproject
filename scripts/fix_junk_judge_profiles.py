@@ -6,8 +6,13 @@ Deleting a profile also removes its case links and any alias rows pointing at it
 with even one real raw name are left alone.
 
   python scripts/fix_junk_judge_profiles.py                          # dry run: junk profiles, their case counts
+  python scripts/fix_junk_judge_profiles.py --csv names.csv          # also list every junk profile (and the review-only ones) in a CSV
   python scripts/fix_junk_judge_profiles.py --apply --expected-count N    # save an undo file, then delete (--expected-count is required)
   python scripts/fix_junk_judge_profiles.py --undo data/db_fix_backups/junk_judge_profiles_<stamp>.jsonl
+
+Review-only names ("THE COURT") are never counted as junk or deleted here: some are real attributions to the court
+as a whole. The dry run and CSV list those profiles with how many decisions have no other judge link (where deleting
+the link would leave the decision without any judge), so a human can check before any of them is cleaned up.
 
 Does NOT remove the profiles made from SCC panel strings (several judges in one string); that is a separate cleanup.
 Run order: fix_junk_judges.py (add --include-label-only to also clear "AND ORDER", which needs its own approval),
@@ -71,6 +76,45 @@ def find_junk_profiles(db, mixed: list | None = None) -> list[dict[str, Any]]:
 	return sorted(junk, key=lambda p: -p["cases"])
 
 
+REVIEW_ONLY_NAMES = ("THE COURT",)
+REVIEW_SQL = text(
+	"SELECT p.id, p.slug, p.display_name, p.primary_court, COUNT(*) AS links, "
+	"COUNT(*) FILTER (WHERE NOT EXISTS (SELECT 1 FROM case_judge_profiles o "
+	"WHERE o.case_id = l.case_id AND o.judge_profile_id <> p.id)) AS only_attribution "
+	"FROM judge_profiles p JOIN case_judge_profiles l ON l.judge_profile_id = p.id "
+	"WHERE upper(trim(p.display_name)) = ANY(:names) "
+	"GROUP BY p.id, p.slug, p.display_name, p.primary_court ORDER BY links DESC"
+)
+CSV_FIELDS = ["status", "profile_id", "slug", "display_name", "primary_court", "linked_cases", "raw_names", "only_attribution_cases"]
+
+
+def find_review_only(db) -> list[dict[str, Any]]:
+	return [dict(row) for row in db.execute(REVIEW_SQL, {"names": list(REVIEW_ONLY_NAMES)}).mappings().all()]
+
+
+def write_names_csv(path: Path, junk: list[dict[str, Any]], review: list[dict[str, Any]]) -> int:
+	"""One row per profile: every junk profile (status junk) and every review-only profile (status review_only). Never overwrites."""
+	import csv
+
+	path.parent.mkdir(parents=True, exist_ok=True)
+	count = 0
+	with open(path, "x", encoding="utf-8", newline="") as handle:
+		writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS)
+		writer.writeheader()
+		for profile in sorted(junk, key=lambda p: (p["display_name"] or "", p["id"])):
+			writer.writerow({"status": "junk", "profile_id": profile["id"], "slug": profile["slug"],
+				"display_name": profile["display_name"], "primary_court": profile["primary_court"],
+				"linked_cases": profile["cases"], "raw_names": " | ".join(str(n) for n in profile["raw_names"]),
+				"only_attribution_cases": ""})
+			count += 1
+		for profile in review:
+			writer.writerow({"status": "review_only", "profile_id": profile["id"], "slug": profile["slug"],
+				"display_name": profile["display_name"], "primary_court": profile["primary_court"],
+				"linked_cases": profile["links"], "raw_names": "", "only_attribution_cases": profile["only_attribution"]})
+			count += 1
+	return count
+
+
 def undo_records(db, profiles: list[dict[str, Any]]):
 	for profile in profiles:
 		links = db.execute(
@@ -131,7 +175,7 @@ def restore(db, path: Path) -> int:
 	return len(records)
 
 
-def print_report(junk: list[dict[str, Any]], mixed: list[dict[str, Any]], sample: int) -> None:
+def print_report(junk: list[dict[str, Any]], mixed: list[dict[str, Any]], sample: int, review: list[dict[str, Any]] | None = None) -> None:
 	import random
 	from collections import Counter
 
@@ -144,6 +188,11 @@ def print_report(junk: list[dict[str, Any]], mixed: list[dict[str, Any]], sample
 	print("largest junk profiles:")
 	for profile in junk[:5]:
 		print(f"  {profile['cases']:6d}  {profile['slug']}  {profile['display_name']!r}")
+	if review:
+		print(f"review-only profiles (never deleted by this script): {len(review)} profiles, "
+			f"{sum(p['links'] for p in review)} links, {sum(p['only_attribution'] for p in review)} decisions have no other judge link")
+		for profile in review[:5]:
+			print(f"  {profile['links']:6d} links, {profile['only_attribution']} sole  {profile['slug']}  {profile['display_name']!r}  {profile['primary_court']}")
 	print(f"not deleted, mixed (some junk raw names beside real ones): {len(mixed)} profiles, "
 		f"{sum(p['junk_cases'] for p in mixed)} linked cases carry a junk raw name")
 	for profile in sorted(mixed, key=lambda p: -p["junk_cases"])[:5]:
@@ -157,15 +206,21 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument("--undo-file", type=Path, help="Where --apply writes the undo file (default data/db_fix_backups/).")
 	parser.add_argument("--expected-count", type=int, help="With --apply: stop unless exactly this many profiles are found.")
 	parser.add_argument("--batch-size", type=int, default=200)
+	parser.add_argument("--csv", type=Path, help="Write every junk profile and review-only profile to this new CSV file.")
 	parser.add_argument("--sample", type=int, default=20, help="Random junk profiles to list in the dry run.")
 	args = parser.parse_args(argv)
 	with SessionLocal() as db:
 		if args.undo:
 			print(f"restored={restore(db, args.undo)} profiles from {args.undo}")
 			return 0
+		if not args.apply:
+			db.execute(text("SET TRANSACTION READ ONLY"))
 		mixed: list[dict[str, Any]] = []
 		junk = find_junk_profiles(db, mixed)
-		print_report(junk, mixed, args.sample)
+		review = find_review_only(db)
+		print_report(junk, mixed, args.sample, review)
+		if args.csv:
+			print(f"names_csv_rows={write_names_csv(args.csv, junk, review)} file: {args.csv}")
 		if not args.apply:
 			print("Dry run: nothing written. Add --apply --expected-count N to delete.")
 			return 0

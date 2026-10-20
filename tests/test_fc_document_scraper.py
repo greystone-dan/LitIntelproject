@@ -193,3 +193,22 @@ def test_judge_junk_covers_counsel_labels_and_rule_lines():
     for junk in ("SOLICITORS OF RECORD", "Solicitors of Record:".rstrip(":"), "----------", "AVOCATS"):
         assert _is_judge_junk(junk)
     assert not _is_judge_junk("Justice Pelletier")
+
+
+def test_judge_junk_covers_court_names_annexes_and_translator_lines_but_not_judges():
+    from fc_ingest.document_scraper import _is_judge_junk
+
+    for junk in (
+        "FEDERAL COURT OF CANADA TRIAL DIVISION", "FEDERAL COURT TRIAL DIVISION", "EDERAL COURT", "OFEDERAL COURT", "FEDERAL COUT",
+        "“I concur.", "\"I concur in this opinion.", "I HEREBY CERTIFY that the above document",
+        "Translation certified true", "Certified true translation,", "Certified true translation Gwendolyn May, LLB",
+        "Elizabeth Tan, Translator", "Non-certified translation", "Blank", "Obiter", "Ottawa, Ontario.", "VANCOUVER",
+        "Saskatoon, Saskatchewan", "Relevant Legislation", "APPLICABLE LEGISLATION", "APPENDICES", "VI. APPENDIX", "IV. Annex",
+        "ADDENDUM", "«juge »",
+    ):
+        assert _is_judge_junk(junk), junk
+    for real in ("Justice Pelletier", "NOËL J.A.", "CHIEF JUSTICE RICHARD", "The Honourable Chief Justice Lutfy",
+            "Tremblay-Lamer J.", "Regina Smith", "Blanche J."):
+        assert not _is_judge_junk(real), real
+    # a bare "THE COURT" is deliberately not junk here: it can be a real attribution to the court as a whole
+    assert not _is_judge_junk("THE COURT")

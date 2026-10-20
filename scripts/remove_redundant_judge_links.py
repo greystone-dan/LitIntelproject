@@ -54,6 +54,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import text
 
 from backend.database import SessionLocal
+from fc_ingest.document_scraper import _is_judge_junk
 from scripts.fix_common import default_undo_path, read_undo_file, write_undo_file
 
 OLD_MAX_ID = 158682  # last link id that existed before the backfill run
@@ -98,7 +99,8 @@ TOTAL_LINKS_SQL = text("SELECT count(*) FROM case_judge_profiles")
 
 
 def is_junk_name(name: str | None) -> bool:
-	return bool(name) and bool(JUNK_NAME_RE.search(name))
+	"""K3 pattern, or any of the extractor's junk labels (court names, annexes, translator notes, ...)."""
+	return bool(name) and (bool(JUNK_NAME_RE.search(name)) or _is_judge_junk(name))
 
 
 def surname_tokens(name: str | None) -> set[str]:

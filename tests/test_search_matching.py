@@ -614,3 +614,17 @@ def test_accent_list_in_the_migration_matches_the_search_code():
 	module = importlib.util.module_from_spec(spec)
 	spec.loader.exec_module(module)
 	assert f"'{ACCENTED}', '{UNACCENTED}'" in module.FOLDED and len(ACCENTED) == len(UNACCENTED)
+
+
+def test_relevance_ranks_costly_identity_tier_on_candidates_only():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Baker", include_facets=False)
+	candidate, final = [part for part in db.sql.split("SELECT c.id") if "FROM cases c" in part][:2]
+	assert f"LIMIT {analytics_service.RANK_CANDIDATE_LIMIT}" in candidate
+	assert "REGEXP_SPLIT_TO_TABLE" not in candidate.split("ORDER BY", 1)[1]
+	assert "rank_candidates" in final and "REGEXP_SPLIT_TO_TABLE" in final.split("ORDER BY", 1)[1]
+	assert db.params["rank_candidates"] == [7]
+	# A deep page falls back to the single-step order.
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Baker", include_facets=False, offset=200)
+	assert "rank_candidates" not in db.params

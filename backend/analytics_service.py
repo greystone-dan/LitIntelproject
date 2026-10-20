@@ -340,6 +340,16 @@ def _judge_outcome_counts(cases: list[Case]) -> dict[str, int | float | None]:
 	return counts
 
 
+def _identity_order_prefix(query: str) -> tuple[str, dict[str, str]]:
+	"""The citation/party tier of the relevance order: the costly part (per-row regex splits of the caption)."""
+	citation, party, match_params = identity_sql(query)
+	return f"CASE WHEN {citation} THEN 2 WHEN {party} THEN 1 ELSE 0 END DESC, ", match_params
+
+
+# The costly identity tier is computed for only this many best cheap-ranked candidates, then re-ranked.
+RANK_CANDIDATE_LIMIT = 200
+
+
 def _analytics_case_order_sql(
 	query: str,
 	sort_by: str,
@@ -374,9 +384,9 @@ def _analytics_case_order_sql(
 		if len(normalized_tokens(query)) < 3:
 			# One or two characters match almost every title; the per-row caption regexes below would run on all of them.
 			return ranking, params
-		citation, party, match_params = identity_sql(query)
+		prefix, match_params = _identity_order_prefix(query)
 		params.update(match_params)
-		return f"CASE WHEN {citation} THEN 2 WHEN {party} THEN 1 ELSE 0 END DESC, " + ranking, params
+		return prefix + ranking, params
 	if sort_by == "newest":
 		return ("c.date DESC NULLS LAST, c.id DESC", params)
 	if sort_by == "oldest":
@@ -1761,6 +1771,7 @@ def fetch_analytics_search_cases(
 			"JOIN (SELECT * FROM unnest(CAST(:cited_by_ids AS integer[]), CAST(:cited_by_counts AS integer[])) "
 			"AS t(target_case_id, n)) cited_by ON cited_by.target_case_id = c.id"
 		)
+	cheap_order = ""
 	if query and not query_uses_operators and sort_by == "relevance":
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
@@ -1790,6 +1801,10 @@ def fetch_analytics_search_cases(
 					"c.date DESC NULLS LAST", "COALESCE(cm.in_degree, 0) DESC, c.date DESC NULLS LAST", 1
 				)
 		sort_order = sort_order_sql
+		if len(normalized_tokens(query)) >= 3 and offset + limit <= RANK_CANDIDATE_LIMIT:
+			identity_prefix, _ = _identity_order_prefix(query)
+			if sort_order_sql.startswith(identity_prefix):
+				cheap_order = sort_order_sql[len(identity_prefix):]
 	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).
 	snippet_sql = "NULL"
 	if search_full_text and query and not query_uses_operators:
@@ -1832,11 +1847,26 @@ def fetch_analytics_search_cases(
 	)
 	if cohort_ids is not None:
 		id_statement = id_statement.bindparams(bindparam("cohort_ids", expanding=True))
+	candidate_statement = None
+	if cheap_order:
+		# Rank in two steps: a cheap order picks the best candidates, then the costly identity tier re-ranks only those.
+		candidate_statement = sql_text(
+			f"SELECT c.id FROM cases c {cited_by_join} WHERE {where_clause} "
+			f"ORDER BY {cheap_order} LIMIT {int(RANK_CANDIDATE_LIMIT)}"
+		)
+		if cohort_ids is not None:
+			candidate_statement = candidate_statement.bindparams(bindparam("cohort_ids", expanding=True))
+		id_statement = sql_text(
+			f"SELECT c.id FROM cases c {cited_by_join} "
+			f"WHERE c.id = ANY(CAST(:rank_candidates AS integer[])) ORDER BY {sort_order} LIMIT :limit OFFSET :offset"
+		)
 	slow_text_scan = bool(query) and search_full_text and not query_uses_operators and not paragraph_case_ids
 	try:
 		if slow_text_scan:
 			# No paragraph index hits: the whole-text scan is bounded so a demo never hangs.
 			db.execute(sql_text(f"SET LOCAL statement_timeout = {int(SEARCH_SCAN_TIMEOUT_MS)}"), {})
+		if candidate_statement is not None:
+			params["rank_candidates"] = [int(row["id"]) for row in db.execute(candidate_statement, params).mappings().all()]
 		page_ids = [int(row["id"]) for row in db.execute(id_statement, params).mappings().all()]
 	except OperationalError as error:
 		if "statement timeout" not in str(error).lower() and "canceling statement" not in str(error).lower():

@@ -12,7 +12,8 @@ import re
 
 OUTCOME_CLASSIFIER_VERSION = "deterministic_outcome_v2"
 _GOVERNMENT_PARTY_RE = re.compile(
-	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada|\bm\.?c\.?i|\bm\.?p\.?s\.?e\.?p)\b",
+	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada|\bm\.?c\.?i|\bm\.?p\.?s\.?e\.?p"
+	r"|ministre|procureur\s+g[ée]n[ée]ral|s[ée]curit[ée]\s+publique|citoyennet[ée]\s+et\s+immigration|agence\s+des\s+services\s+frontaliers|gouvernement\s+du\s+canada|sa\s+majest[ée]|\bpgc\b)\b",
 	re.IGNORECASE,
 )
 
@@ -514,6 +515,33 @@ def _decide_rllr(content: str) -> "Decision | None":
 	return None
 
 
+_FRENCH_RULING_RE = re.compile(
+	r"(?P<subject>l['’]appel|les\s+appels|la\s+demande(?:\s+de\s+contr[ôo]le\s+judiciaire|\s+d['’]autorisation)?|le\s+pourvoi|l['’]action|la\s+requ[êe]te|"
+	r"la\s+motion|les\s+demandes)[^.\n]{0,100}?\b(?:est|sont|sera|seront|serait)\s+(?:donc\s+|par\s+cons[ée]quent\s+|alors\s+)?"
+	r"(?P<verb>rejet[ée]e?s?|accueilli[e]?s?|accord[ée]e?s?|refus[ée]e?s?)\b(?P<rest>[^.\n]{0,60})",
+	re.IGNORECASE,
+)
+_FRENCH_MARKER_RE = re.compile(r"\b(?:d[ée]pens|frais|demandeur|d[ée]fendeur|appelant|intim[ée]|motifs|ordonnance)\b", re.IGNORECASE)
+
+
+def _decide_french(content: str) -> "Decision | None":
+	"""Read a French disposition ("l'appel sera rejeté", "la demande est accueillie") from the end of the reasons."""
+	tail = content[-6000:]
+	if not _FRENCH_MARKER_RE.search(tail):
+		return None
+	found = list(_FRENCH_RULING_RE.finditer(tail))
+	if not found:
+		return None
+	match = found[-1]
+	verb = match.group("verb").lower()
+	label = "dismissed" if verb.startswith(("rejet", "refus")) else "allowed"
+	offset = len(content) - len(tail)
+	if re.match(r"la\s+(?:requ[êe]te|motion)", match.group("subject"), re.IGNORECASE):
+		return Decision("procedural", "procedural_order", match, offset, tail, False, 3, "french_operative")
+	partial = bool(re.search(r"en\s+partie", match.group("rest"), re.IGNORECASE))
+	return Decision("mixed" if partial else label, "ruling", match, offset, tail, partial, 3, "french_operative")
+
+
 def _decide(content: str) -> "Decision | None":
 	"""Read the disposition. Labels: a ruling, "procedural", or "unclear" (the rules are not sure)."""
 	if not content or not content.strip():
@@ -529,6 +557,9 @@ def _decide(content: str) -> "Decision | None":
 	assessed = _assess_outcome(content)
 	is_tribunal = _is_tribunal_document(content)
 	if assessed is None:
+		french = _decide_french(content)
+		if french is not None:
+			return french
 		if _is_procedural(content, None, 0, "", is_tribunal):
 			return Decision("procedural", "procedural_document")
 		return Decision("unclear", "no_disposition_found")
@@ -568,10 +599,20 @@ def _is_partial(tail: str, match: re.Match[str]) -> bool:
 	return bool(_PARTIAL_RE.search(sentence))
 
 
+_FRENCH_ROLE_WORDS_RE = re.compile(r"\b(?:demandeur|demanderesse|appelant|d[ée]fendeur|d[ée]fenderesse|intim[ée])(?:e|s|es)?\b", re.IGNORECASE)
+
+
+def _english_role(match: re.Match[str]) -> str:
+	"""French caption role word -> the English word the side detection looks for."""
+	word = match.group(0).lower()
+	return "applicant" if word.startswith(("demand", "appel")) else "respondent"
+
+
 def _government_role(style_or_between: str) -> str | None:
 	if not style_or_between:
 		return None
 	text = " ".join(style_or_between.split())
+	text = _FRENCH_ROLE_WORDS_RE.sub(_english_role, text)
 	# Tribunal captions list "Counsel for the Minister"; that line names a representative, not a party.
 	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|conseil\s+du\s+ministre", " ", text, flags=re.IGNORECASE)
 	# "For the Applicant / For the Respondent" lines label counsel, not the party named just before them.

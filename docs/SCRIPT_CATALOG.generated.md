@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 196
+Active scripts documented: 197
 
 ## Catalog
 
@@ -109,6 +109,7 @@ Active scripts documented: 196
 | `fill_fca_headline_outcomes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_fca_headline_outcomes.py --help` |
 | `fill_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fill_paragraph_search.py --help` |
 | `fix_common.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_common.py --help` |
+| `fix_french_metadata.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_french_metadata.py --help` |
 | `fix_junk_judge_profiles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judge_profiles.py --help` |
 | `fix_junk_judges.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_junk_judges.py --help` |
 | `fix_non_immigration_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fix_non_immigration_report.py --help` |
@@ -1591,6 +1592,20 @@ Active scripts documented: 196
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fix_common.py --help
+```
+
+## `scripts/fix_french_metadata.py`
+
+**Purpose:** Re-read the judge, file number and outcome of French Federal Court / Court of Appeal decisions. Dry run by default. French decisions (citation "CF" or "CAF") were read with English-only rules: wrong judge (the first name of the panel), a file number with the next heading glued on, and no outcome. Since the French-decisions fix the current extractor reads them. This script recomputes those fields from the stored text and writes them into cases.metadata_json -> reader_extracted, for the French rows only, and only the keys listed below. python scripts/fix_french_metadata.py # dry run: counts and 50 random old -> new python scripts/fix_french_metadata.py --apply --expected-count N # save an undo file, then write python scripts/fix_french_metadata.py --undo data/db_fix_backups/french_metadata_<stamp>.jsonl Keys touched: judge and docket (only when the stored one is the same file number with extra words after it). Outcomes are NOT touched unless --include-outcomes is given: the outcome set (decision outcome, government role, government outcome, case winner, case loser, outcome status), only for rows that have no decision outcome yet, so a stored outcome is never overwritten. Do not use that flag until a fresh 35-decision check, not chosen by ruling phrase, shows about 90% of the written French outcomes correct (see PR 592). Backup first: this edits cases.metadata_json for the listed rows; the undo file holds the old values of every key. Does not rebuild judge profiles: run backfill_judge_profiles.py separately, after checking the dry run.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fix_french_metadata.py --help
 ```
 
 ## `scripts/fix_junk_judge_profiles.py`

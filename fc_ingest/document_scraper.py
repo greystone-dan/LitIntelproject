@@ -32,6 +32,9 @@ _CANONICAL_FIELDS = (
 )
 _CRITICAL_FIELDS = {"date", "docket", "neutral citation", "judge", "style of cause"}
 
+# French signatures (« Nathalie Goyette » / j.c.a.) can sit well before the end of the text when annexes follow.
+_FRENCH_SIGNATURE_WINDOW = 40000
+
 _JUDGE_JUNK_PATTERN = (
     r"^(?:FEDERAL\s+COURT(?:\s+OF\s+CANADA|\s+OF\s+APPEAL)?|COUR\s+F[ÉE]D[ÉE]RALE|"
     r"ANNEX\b.*|ANNEXE\b.*|SCHEDULE|T\.?R\.?\s*\b.*|JUDGE|JUSTICE|JUGE|"
@@ -304,7 +307,7 @@ def _normalize_field_value(field: str, value: str | None) -> str | None:
             flags=re.IGNORECASE,
         )
         normalized = re.sub(
-            r"^(?:(?:monsieur|madame)\s+)?(?:le|la)\s+juge(?:\s+en\s+chef(?:\s+par\s+int[ée]rim)?)?\s+",
+            r"^(?:(?:monsieur|madame)\s+)?(?:(?:le|la)\s+)?juge(?:\s+en\s+chef(?:\s+par\s+int[ée]rim)?)?\s+",
             "",
             normalized,
             flags=re.IGNORECASE,
@@ -339,7 +342,7 @@ def _looks_like_body_text(line: str) -> bool:
         return False
     if re.match(r"^\[?\d+\]?\s", line):
         return True
-    if re.match(r"^(reasons|judgment|decision)\b", line, re.IGNORECASE):
+    if re.match(r"^(reasons|judgment|decision|motifs|jugement|contenu\s+de\s+la\s+d[ée]cision|d[ée]cision)\b", line, re.IGNORECASE):
         return True
     if re.match(r"^(heard at|heard on|on appeal from)\b", line, re.IGNORECASE):
         return True
@@ -674,9 +677,24 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
         full_text,
         re.IGNORECASE,
     )
+    french_signature = False
+    if signature_match is None:
+        # French decisions end « Nathalie Goyette » then j.c.a. / juge on the next line.
+        french_matches = {
+            _normalize_whitespace(match.group(1))
+            for match in re.finditer(
+                r"[«“]\s*([^»”\n]{3,120}?)\s*[»”]\s*\n\s*(?:juge|j\.c\.a\.|j\.c\.c\.f\.|j\.c\.f\.|j\.en\s+chef)(?=\W|$)",
+                full_text[-_FRENCH_SIGNATURE_WINDOW:],
+                re.IGNORECASE,
+            )
+        }
+        french_matches.discard(None)
+        if len(french_matches) == 1:
+            signature_match = re.search(re.escape(next(iter(french_matches))), full_text[-_FRENCH_SIGNATURE_WINDOW:])
+            french_signature = True
     signature_name = (
-        _normalize_whitespace(signature_match.group(1))
-        if signature_match and not _is_judge_junk(signature_match.group(1))
+        _normalize_whitespace(signature_match.group(1) if not french_signature else signature_match.group(0))
+        if signature_match and not _is_judge_junk(signature_match.group(1) if not french_signature else signature_match.group(0))
         else None
     )
 
@@ -692,6 +710,9 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
             "",
         ).casefold().rstrip(".")
         if current_surname and current_surname in signature_name.casefold():
+            metadata["judge"] = signature_name
+        elif french_signature:
+            # CORAM lists the whole panel; the signature names the judge who wrote the reasons.
             metadata["judge"] = signature_name
 
     # Preserve snake_case aliases for compatibility with existing downstream usage.

@@ -12,7 +12,8 @@ import re
 
 OUTCOME_CLASSIFIER_VERSION = "deterministic_outcome_v2"
 _GOVERNMENT_PARTY_RE = re.compile(
-	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada|\bm\.?c\.?i|\bm\.?p\.?s\.?e\.?p)\b",
+	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada|\bm\.?c\.?i|\bm\.?p\.?s\.?e\.?p"
+	r"|ministre|procureur\s+g[ée]n[ée]ral|s[ée]curit[ée]\s+publique|citoyennet[ée]\s+et\s+immigration|agence\s+des\s+services\s+frontaliers|gouvernement\s+du\s+canada|sa\s+majest[ée]|\bpgc\b)\b",
 	re.IGNORECASE,
 )
 
@@ -514,6 +515,83 @@ def _decide_rllr(content: str) -> "Decision | None":
 	return None
 
 
+_FRENCH_SUBJECT = (
+	r"(?P<subject>(?:l['’]|le\s+|la\s+|les\s+)(?:pr[ée]sent(?:e|s|es)?\s+)?(?:appels?|pourvoi|action|requ[êe]te|motion|"
+	r"demandes?(?:\s+de\s+contr[ôo]le\s+judiciaire|\s+d['’]autorisation)?))"
+)
+_FRENCH_RULING_RE = re.compile(
+	_FRENCH_SUBJECT + r"[^.\n]{0,180}?\b(?:est|sont|sera|seront|serait|soit|soient)\s+(?:donc\s+|par\s+cons[ée]quent\s+|alors\s+)?(?:en\s+partie\s+)?"
+	r"(?P<verb>rejet[ée]e?s?|accueilli[e]?s?|accord[ée]e?s?|refus[ée]e?s?)\b(?P<rest>[^.\n]{0,60})",
+	re.IGNORECASE,
+)
+# "Je rejetterais l'appel" / "j'accueillerais l'appel": how Court of Appeal reasons usually end.
+_FRENCH_FIRST_PERSON_RE = re.compile(
+	r"\b[Jj](?:e\s+|['’])(?P<verb>rejet{1,2}erais|accueillerais|accorderais|refuserais)\s+" + _FRENCH_SUBJECT + r"(?P<rest>[^.\n]{0,60})",
+)
+# "Il est fait droit à la demande de contrôle judiciaire."
+_FRENCH_FAIT_DROIT_RE = re.compile(r"\bil\s+est\s+(?P<verb>fait\s+droit)\s+[àa]\s+" + _FRENCH_SUBJECT + r"(?P<rest>[^.\n]{0,60})", re.IGNORECASE)
+# The Federal Court's order starts "LA COUR ORDONNE" / "LA COUR STATUE"; the ruling is whatever follows it.
+_FRENCH_ORDER_MARKER_RE = re.compile(r"\bLA\s+COUR\s+(?:ORDONNE|STATUE|REND)\b")
+_FRENCH_MARKER_RE = re.compile(r"\b(?:d[ée]pens|frais|demandeur|d[ée]fendeur|appelant|intim[ée]|motifs|ordonnance)\b", re.IGNORECASE)
+_FRENCH_PART_RE = re.compile(r"\b(?:en\s+partie|[àa]\s+tous\s+les\s+autres\s+[ée]gards|pour\s+le\s+surplus|pour\s+le\s+reste)\b", re.IGNORECASE)
+_FRENCH_WORDS_RE = re.compile(r"\b(?:le|la|les|des|du|est|sont|dans|pour|une|que|qui|au|aux|par|sur)\b", re.IGNORECASE)
+_ENGLISH_WORDS_RE = re.compile(r"\b(?:the|of|and|is|that|for|with|this|to|was|are|by)\b", re.IGNORECASE)
+
+
+def _is_french_text(content: str) -> bool:
+	"""True when the decision is written in French (quoted English statute text does not change that)."""
+	sample = content[:30000]
+	french = len(_FRENCH_WORDS_RE.findall(sample))
+	return french >= 30 and french > 1.5 * len(_ENGLISH_WORDS_RE.findall(sample))
+
+
+_FRENCH_CONDITION_RE = re.compile(r"\b(?:[àa]\s+d[ée]faut\s+de\s+quoi|faute\s+de\s+quoi|dans\s+le\s+cas\s+contraire|[àa]\s+d[ée]faut)\b", re.IGNORECASE)
+_FRENCH_ANNEX_RE = re.compile(r"^[ \t]*(?:ANNEXE|APPENDIX|ANNEX)\b[^\n]{0,80}$", re.MULTILINE)
+_FRENCH_SIGNATURE_LINE_RE = re.compile(r"\n[ \t]*[«“][^»”\n]{3,120}[»”][ \t]*\n")
+
+
+def _decide_french(content: str) -> "Decision | None":
+	"""Read a French disposition ("l'appel sera rejeté", "la demande est accueillie", "Je rejetterais l'appel")."""
+	# Statutes quoted in an annex after the decision say "est rejetée", "is granted"; they are not the ruling.
+	annex = next((m for m in _FRENCH_ANNEX_RE.finditer(content) if m.start() > len(content) * 0.3), None)
+	if annex:
+		content = content[: annex.start()]
+	tail = content[-6000:]
+	markers = list(_FRENCH_ORDER_MARKER_RE.finditer(content))
+	if markers:
+		# The order is the ruling; reasons and procedural history before it may say the opposite ("la demande est accueillie").
+		tail = content[markers[-1].start():]
+		signature = _FRENCH_SIGNATURE_LINE_RE.search(tail)
+		if signature:
+			tail = tail[: signature.start()]
+	if not markers and not _FRENCH_MARKER_RE.search(tail):
+		return None
+	found = sorted([*_FRENCH_RULING_RE.finditer(tail), *_FRENCH_FIRST_PERSON_RE.finditer(tail), *_FRENCH_FAIT_DROIT_RE.finditer(tail)], key=lambda m: m.start())
+	# "à défaut de quoi ses appels seront rejetés" is a condition, not the ruling.
+	found = [m for m in found if not _FRENCH_CONDITION_RE.search(tail[max(0, m.start() - 160): m.start()])]
+	if not found:
+		return None
+	offset = len(content) - len(tail)
+
+	def label_of(match: re.Match[str]) -> str:
+		return "dismissed" if match.group("verb").lower().startswith(("rejet", "refus")) else "allowed"
+
+	motions = [m for m in found if re.match(r"la\s+(?:requ[êe]te|motion)", m.group("subject"), re.IGNORECASE)]
+	rulings = [m for m in found if m not in motions]
+	if not rulings:
+		return Decision("procedural", "procedural_order", motions[-1], offset, tail, False, 3, "french_operative")
+	# Several rulings (an appeal and the application below, or a motion and the appeal) must agree; a split reads as unclear.
+	if len({label_of(m) for m in rulings[-3:]}) > 1:
+		return Decision("unclear", "conflicting_rulings", rulings[-1], offset, tail, False, 3, "french_operative")
+	match = rulings[-1]
+	# "accueilli à l'égard de ... et, à tous les autres égards, rejeté" is a split ruling.
+	following = tail[match.end("verb"):match.end("verb") + 400].split("\n", 1)[0]
+	partial = bool(_FRENCH_PART_RE.search(match.group(0))) or bool(
+		_FRENCH_PART_RE.search(following) and re.search(r"\b(?:rejet|accueill|refus|accord)", following, re.IGNORECASE)
+	)
+	return Decision("mixed" if partial else label_of(match), "ruling", match, offset, tail, partial, 3, "french_operative")
+
+
 def _decide(content: str) -> "Decision | None":
 	"""Read the disposition. Labels: a ruling, "procedural", or "unclear" (the rules are not sure)."""
 	if not content or not content.strip():
@@ -526,9 +604,18 @@ def _decide(content: str) -> "Decision | None":
 		rllr_decision = _decide_rllr(content)
 		if rllr_decision is not None:
 			return rllr_decision
+	# French decisions quote English statute text ("the application is allowed"): read them with the French rules first.
+	french_text = _is_french_text(content)
+	if french_text:
+		french = _decide_french(content)
+		if french is not None:
+			return french
 	assessed = _assess_outcome(content)
 	is_tribunal = _is_tribunal_document(content)
 	if assessed is None:
+		french = None if french_text else _decide_french(content)
+		if french is not None:
+			return french
 		if _is_procedural(content, None, 0, "", is_tribunal):
 			return Decision("procedural", "procedural_document")
 		return Decision("unclear", "no_disposition_found")
@@ -568,10 +655,20 @@ def _is_partial(tail: str, match: re.Match[str]) -> bool:
 	return bool(_PARTIAL_RE.search(sentence))
 
 
+_FRENCH_ROLE_WORDS_RE = re.compile(r"\b(?:demandeur|demanderesse|appelant|d[ée]fendeur|d[ée]fenderesse|intim[ée])(?:e|s|es)?\b", re.IGNORECASE)
+
+
+def _english_role(match: re.Match[str]) -> str:
+	"""French caption role word -> the English word the side detection looks for."""
+	word = match.group(0).lower()
+	return "applicant" if word.startswith(("demand", "appel")) else "respondent"
+
+
 def _government_role(style_or_between: str) -> str | None:
 	if not style_or_between:
 		return None
 	text = " ".join(style_or_between.split())
+	text = _FRENCH_ROLE_WORDS_RE.sub(_english_role, text)
 	# Tribunal captions list "Counsel for the Minister"; that line names a representative, not a party.
 	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|conseil\s+du\s+ministre", " ", text, flags=re.IGNORECASE)
 	# "For the Applicant / For the Respondent" lines label counsel, not the party named just before them.

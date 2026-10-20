@@ -18,6 +18,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from backend.citations import _citation_variants, _normalize_alias_lookup
 from backend.database import Case, Citation, SessionLocal
+from scripts.resolve_citation_targets import _link_rejected
 
 
 PINPOINT_RE = re.compile(
@@ -301,6 +302,13 @@ def main() -> None:
 		case_index = _case_alias_index(session)
 		citation_index = _build_case_citation_index(case_index)
 		stable_alias_index = _stable_resolved_alias_index(session, case_index)
+		case_info = {
+			case_id: (decision_date, (citation, secondary_citation))
+			for case_id, decision_date, citation, secondary_citation in session.execute(
+				select(Case.id, Case.date, Case.citation, Case.secondary_citation)
+			)
+		}
+		rejected = 0
 		print(f"case_alias_records={len(case_index[2])}", flush=True)
 		print(f"stable_resolved_aliases={len(stable_alias_index)}", flush=True)
 		rows = session.scalars(
@@ -315,10 +323,18 @@ def main() -> None:
 		pending_updates: list[dict[str, object]] = []
 
 		def process_case() -> None:
-			nonlocal processed_cases, linked, ambiguous
+			nonlocal processed_cases, linked, ambiguous, rejected
 			if not case_rows:
 				return
 			updates, case_ambiguous = _updates_for_case(case_rows, case_index, stable_alias_index, citation_index)
+			rows_by_id = {row.id: row for row in case_rows}
+			kept = [
+				update
+				for update in updates
+				if not _link_rejected(rows_by_id[update["id"]], update["target_case_id"], case_info)
+			]
+			rejected += len(updates) - len(kept)
+			updates = kept
 			processed_cases += 1
 			linked += len(updates)
 			ambiguous += case_ambiguous
@@ -352,7 +368,7 @@ def main() -> None:
 			session.bulk_update_mappings(Citation, pending_updates)
 			session.commit()
 
-	print(f"processed_cases={processed_cases} candidate_links={linked} ambiguous={ambiguous}", flush=True)
+	print(f"processed_cases={processed_cases} candidate_links={linked} ambiguous={ambiguous} rejected={rejected}", flush=True)
 
 
 if __name__ == "__main__":

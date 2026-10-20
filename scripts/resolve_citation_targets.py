@@ -20,6 +20,8 @@ if str(PROJECT_ROOT) not in sys.path:
 from backend.citations import (
 	RawCitationMatch,
 	_citation_variants,
+	_is_generic_alias,
+	citation_target_conflict,
 	_normalize_alias_lookup,
 	build_local_case_resolution_index,
 	is_self_case_name_match,
@@ -155,6 +157,17 @@ def parse_args() -> argparse.Namespace:
 	return parser.parse_args()
 
 
+def _link_rejected(citation: Citation, target_case_id: int, case_info: dict) -> bool:
+	"""True when the link is impossible: target dated after the citing decision, the citation's own
+	cite is not the target's, or the cited name is a single generic word."""
+	target_date, target_values = case_info.get(target_case_id, (None, ()))
+	source_date = case_info.get(citation.source_case_id, (None, ()))[0]
+	raw = citation.normalized_citation or citation.citation_text or ""
+	if citation_target_conflict(raw, source_date, target_date, target_values) is not None:
+		return True
+	return _is_generic_alias(_citation_title_key(raw))
+
+
 def _target_case_id(citation: Citation, index: dict[str, int | None]) -> int | None:
 	for variant in _citation_variants(citation.normalized_citation or citation.citation_text or ""):
 		target_case_id = index.get(variant)
@@ -176,6 +189,13 @@ def main() -> None:
 		index = build_local_case_resolution_index(session)
 		title_index = _build_title_resolution_index(session)
 		title_year_index = _build_title_year_resolution_index(session)
+		case_info = {
+			case_id: (decision_date, (citation, secondary_citation))
+			for case_id, decision_date, citation, secondary_citation in session.execute(
+				select(Case.id, Case.date, Case.citation, Case.secondary_citation)
+			)
+		}
+		rejected = 0
 		print(f"local_citation_keys={len(index)}")
 		print(f"local_title_keys={len(title_index)}")
 		last_id = args.resume_from_id
@@ -211,6 +231,9 @@ def main() -> None:
 				variants = _citation_variants(citation.normalized_citation or citation.citation_text or "")
 				if not variants and citation.citation_kind == "case_name":
 					target_case_id = _case_name_target_id(citation, title_index)
+					if target_case_id is not None and _link_rejected(citation, target_case_id, case_info):
+						rejected += 1
+						target_case_id = None
 					if target_case_id is not None:
 						resolved += 1
 						title_resolved += 1
@@ -224,6 +247,9 @@ def main() -> None:
 					target_case_id = _title_target_id(citation, title_index, title_year_index)
 					if target_case_id is not None:
 						title_resolved += 1
+				if target_case_id is not None and _link_rejected(citation, target_case_id, case_info):
+					rejected += 1
+					target_case_id = None
 				if target_case_id is not None:
 					resolved += 1
 					updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
@@ -232,12 +258,12 @@ def main() -> None:
 				session.commit()
 			print(
 				f"inspected={inspected} candidates={candidates} resolved={resolved} "
-				f"title_resolved={title_resolved} last_id={last_id}"
+				f"title_resolved={title_resolved} rejected={rejected} last_id={last_id}"
 			)
 
 	print(
 		f"finished inspected={inspected} neutral_candidates={candidates} resolved={resolved} "
-		f"title_resolved={title_resolved} last_id={last_id}"
+		f"title_resolved={title_resolved} rejected={rejected} last_id={last_id}"
 	)
 
 

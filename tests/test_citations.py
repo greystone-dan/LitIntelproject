@@ -536,6 +536,51 @@ def test_citation_variants_support_parenthesized_reporter_years():
 	assert citations._citation_variants("(1993) 163 N.R. 197") == ["1993 163 NR 197"]
 
 
+def test_citation_target_conflict_rejects_target_dated_after_citing_decision():
+	from datetime import date
+
+	assert citations.citation_target_conflict("Patel v. Canada", date(2003, 10, 31), date(2020, 1, 27), ()) == "target_after_source"
+	assert citations.citation_target_conflict("Patel v. Canada", date(2020, 1, 27), date(2020, 1, 27), ()) is None
+	assert citations.citation_target_conflict("Patel v. Canada", None, date(2020, 1, 27), ()) is None
+
+
+def test_citation_target_conflict_rejects_target_that_does_not_hold_the_cited_cite():
+	# "R. v. Singh, 2016 BCCA 427" must not link to the only R. v. Singh the library holds (2007 SCC 48).
+	conflict = citations.citation_target_conflict("R. v. Singh, 2016 BCCA 427", None, None, ("2007 SCC 48", "[2007] 3 SCR 405"))
+	assert conflict == "cite_not_in_target"
+	# "Canderel [1994] 1 FC 3" (FCA) must not link to the 1998 SCC decision.
+	assert citations.citation_target_conflict("Canderel Ltd v Canada, [1994] 1 FC 3 at para 10", None, None, ("[1998] 1 SCR 147", "1998 CanLII 844")) == "cite_not_in_target"
+
+
+def test_citation_target_conflict_accepts_matching_cites_and_ignores_canlii_ids():
+	assert citations.citation_target_conflict("Smith v. Jones, 2019 FCT 5", None, None, ("2019 FC 5",)) is None
+	# CanLII ids are not identifying; the target is stored under its SCR cite.
+	assert citations.citation_target_conflict("Baker v Canada, 1999 CanLII 699 (SCC)", None, None, ("[1999] 2 SCR 817",)) is None
+	# two cites in one row: either may be the target's
+	assert citations.citation_target_conflict("R. v. Wong, [1990] 3 S.C.R. 36; R. v. Grant, 2009 SCC 32", None, None, ("2009 SCC 32",)) is None
+
+
+def test_link_rejected_applies_date_cite_and_generic_word_guards():
+	from datetime import date
+	from types import SimpleNamespace
+
+	from scripts.resolve_citation_targets import _link_rejected
+
+	info = {
+		1: (date(2003, 10, 31), ("2003 FC 1", None)),
+		2: (date(2020, 1, 27), ("2020 FC 5", None)),
+		3: (date(1989, 4, 20), ("[1989] 1 SCR 1", None)),
+	}
+
+	def row(text):
+		return SimpleNamespace(source_case_id=1, normalized_citation=text, citation_text=text)
+
+	assert _link_rejected(row("Patel v. Canada"), 2, info) is True  # target dated 2020, citing 2003
+	assert _link_rejected(row("Alberta"), 3, info) is True  # a single generic word
+	assert _link_rejected(row("Smith v. Jones, 2001 FC 9"), 3, info) is True  # cite is not the target's
+	assert _link_rejected(row("Patel v. Canada"), 3, info) is False
+
+
 def test_citation_variants_parenthesized_reporter_year_accepts_extra_whitespace():
 	assert citations._citation_variants("(1993) \t 163 N.R. 197") == ["1993 163 NR 197"]
 
@@ -3340,3 +3385,19 @@ def test_self_case_name_filter_keeps_longer_or_different_full_captions():
 	assert not citations.is_self_case_name_match("Singh v. Canada Border Services Agency", match)
 	assert not citations.is_self_case_name_match("Baker v. Canada (Minister of Citizenship and Immigration)", match)
 	assert not citations.is_self_case_name_match(None, match)
+
+
+def test_unlink_script_skips_rows_where_the_cite_is_the_targets_own():
+	from scripts.unlink_impossible_citation_targets import holds_own_citation
+
+	# the cite names the target itself: the library date is wrong, not the link
+	assert holds_own_citation("Smith v. Jones, 2019 FC 5", "2019 FC 5", None) is True
+	# a name only, or a different cite, is not protected
+	assert holds_own_citation("Patel v. Canada", "2020 FC 5", None) is False
+	assert holds_own_citation("Patel v. Canada, 2003 FC 9", "2020 FC 5", None) is False
+	assert holds_own_citation("Baker, 1999 CanLII 699 (SCC)", "[1999] 2 SCR 817", None) is False
+
+
+def test_citation_target_conflict_rejects_other_court_neutral_cite():
+	# decisions of other courts are not in the library: "2017 ONCA 26" must not link to 2017 FC 431
+	assert citations.citation_target_conflict("Fontaine v. Canada (Attorney General), 2017 ONCA 26", None, None, ("2017 FC 431",)) == "cite_not_in_target"

@@ -2875,6 +2875,30 @@ def build_local_case_resolution_index(session: Session) -> dict[str, int | None]
 	return index
 
 
+def citation_target_conflict(
+	raw_text: str | None,
+	source_date,
+	target_date,
+	target_values: tuple[str, ...] | list[str],
+) -> str | None:
+	"""Why a name- or title-based link from this citation to this case cannot be right, or None.
+
+	Two impossible-link tests that the title and alias linkers did not apply:
+	- the cited decision is dated after the citing decision;
+	- the citation carries a neutral or reporter cite (CanLII ids are not identifying here) and the
+	  target's own citation / secondary citation holds none of its forms.
+	"""
+	if source_date is not None and target_date is not None and target_date > source_date:
+		return "target_after_source"
+	wanted = {variant for variant in _citation_variants(raw_text or "") if " CANLII " not in f" {variant} "}
+	if not wanted:
+		return None
+	have: set[str] = set()
+	for value in target_values:
+		have.update(_citation_variants(value or ""))
+	return None if wanted & have else "cite_not_in_target"
+
+
 def resolve_neutral_to_case_id(session: Session, neutral_citation: str) -> int | None:
 	resolved = _resolve_neutral_to_case_id_local(session, neutral_citation)
 	if resolved is not None:

@@ -8,7 +8,8 @@ with even one real raw name are left alone.
   python scripts/fix_junk_judge_profiles.py                          # dry run: junk profiles, their case counts
   python scripts/fix_junk_judge_profiles.py --csv names.csv          # also list every junk profile (and the review-only ones) in a CSV
   python scripts/fix_junk_judge_profiles.py --apply --expected-count N    # save an undo file, then delete (--expected-count is required)
-  python scripts/fix_junk_judge_profiles.py --undo data/db_fix_backups/junk_judge_profiles_<stamp>.jsonl
+  python scripts/fix_junk_judge_profiles.py --undo LOG                    # dry run of the undo: counts of profiles, links and alias rows it would restore
+  python scripts/fix_junk_judge_profiles.py --undo LOG --apply            # restore them (LOG = data/db_fix_backups/junk_judge_profiles_<stamp>.jsonl)
 
 Review-only names ("THE COURT") are never counted as junk or deleted here: some are real attributions to the court
 as a whole. The dry run and CSV list those profiles with how many decisions have no other judge link (where deleting
@@ -22,7 +23,8 @@ backfill recreates that profile from the cases that still carry the label.
 
 Backup first: judge_profiles, case_judge_profiles and judge_profile_aliases. The undo file holds every deleted
 profile, its links and its alias rows, and --undo puts them back with their original ids. Restored profiles
-and links get the restore time as created_at/updated_at, not their original timestamps.
+and links get the restore time as created_at/updated_at, not their original timestamps. --undo on its own is a read-only
+dry run (one READ ONLY transaction); add --apply to write.
 """
 
 from __future__ import annotations
@@ -143,36 +145,63 @@ def apply_deletes(db, profiles: list[dict[str, Any]], undo_path: Path, batch_siz
 	return deleted
 
 
-def restore(db, path: Path) -> int:
-	"""Put the profiles back first, then their case links, then the alias rows (which need both profiles to exist)."""
+def restore(db, path: Path, apply: bool = True) -> dict[str, int]:
+	"""Put the profiles back first, then their case links, then the alias rows (which need both profiles to exist).
+
+	Returns how many profiles, links and alias rows were restored. Without apply nothing is written: the counts are
+	how many would be (rows whose id is already taken, or whose case or profile is gone, are not counted)."""
 	import json
 
 	records = list(read_undo_file(path))
+	counts = {"profiles": 0, "links": 0, "aliases": 0, "listed_profiles": len(records),
+		"listed_links": sum(len(r["links"]) for r in records), "listed_aliases": sum(len(r["aliases"]) for r in records)}
+	restored_profiles: set[int] = set()
 	for record in records:
 		profile = record["profile"]
-		db.execute(
-			text("INSERT INTO judge_profiles (id, slug, display_name, normalized_name, primary_court, aliases) "
-			"VALUES (:id, :slug, :display_name, :normalized_name, :primary_court, CAST(:aliases AS json)) ON CONFLICT DO NOTHING"),
-			{**profile, "aliases": json.dumps(profile["aliases"])},
-		)
+		if apply:
+			counts["profiles"] += db.execute(
+				text("INSERT INTO judge_profiles (id, slug, display_name, normalized_name, primary_court, aliases) "
+				"VALUES (:id, :slug, :display_name, :normalized_name, :primary_court, CAST(:aliases AS json)) ON CONFLICT DO NOTHING"),
+				{**profile, "aliases": json.dumps(profile["aliases"])},
+			).rowcount or 0
+		elif not db.execute(text("SELECT EXISTS (SELECT 1 FROM judge_profiles WHERE id = :id OR slug = :slug)"), profile).scalar():
+			counts["profiles"] += 1
+			restored_profiles.add(profile["id"])
+
+	def profile_there(profile_id: int) -> bool:
+		return profile_id in restored_profiles or bool(
+			db.execute(text("SELECT EXISTS (SELECT 1 FROM judge_profiles WHERE id = :id)"), {"id": profile_id}).scalar())
+
 	for record in records:
 		for link in record["links"]:
-			db.execute(
-				text("INSERT INTO case_judge_profiles (id, case_id, judge_profile_id, raw_name) "
-				"SELECT :id, :case_id, :profile_id, :raw_name WHERE EXISTS (SELECT 1 FROM cases WHERE id = :case_id) ON CONFLICT DO NOTHING"),
-				{**link, "profile_id": record["profile"]["id"]},
-			)
+			params = {**link, "profile_id": record["profile"]["id"]}
+			if apply:
+				counts["links"] += db.execute(
+					text("INSERT INTO case_judge_profiles (id, case_id, judge_profile_id, raw_name) "
+					"SELECT :id, :case_id, :profile_id, :raw_name WHERE EXISTS (SELECT 1 FROM cases WHERE id = :case_id) ON CONFLICT DO NOTHING"),
+					params,
+				).rowcount or 0
+			elif db.execute(
+				text("SELECT EXISTS (SELECT 1 FROM cases WHERE id = :case_id) AND NOT EXISTS (SELECT 1 FROM case_judge_profiles "
+				"WHERE id = :id OR (case_id = :case_id AND judge_profile_id = :profile_id))"), params,
+			).scalar():
+				counts["links"] += 1
 	for record in records:
 		for alias in record["aliases"]:
-			db.execute(
-				text("INSERT INTO judge_profile_aliases (id, alias_profile_id, canonical_profile_id, source) "
-				"SELECT :id, :alias_profile_id, :canonical_profile_id, :source "
-				"WHERE EXISTS (SELECT 1 FROM judge_profiles WHERE id = :alias_profile_id) "
-				"AND EXISTS (SELECT 1 FROM judge_profiles WHERE id = :canonical_profile_id) ON CONFLICT DO NOTHING"),
-				alias,
-			)
-	db.commit()
-	return len(records)
+			if apply:
+				counts["aliases"] += db.execute(
+					text("INSERT INTO judge_profile_aliases (id, alias_profile_id, canonical_profile_id, source) "
+					"SELECT :id, :alias_profile_id, :canonical_profile_id, :source "
+					"WHERE EXISTS (SELECT 1 FROM judge_profiles WHERE id = :alias_profile_id) "
+					"AND EXISTS (SELECT 1 FROM judge_profiles WHERE id = :canonical_profile_id) ON CONFLICT DO NOTHING"),
+					alias,
+				).rowcount or 0
+			elif (profile_there(alias["alias_profile_id"]) and profile_there(alias["canonical_profile_id"])
+					and not db.execute(text("SELECT EXISTS (SELECT 1 FROM judge_profile_aliases WHERE id = :id)"), alias).scalar()):
+				counts["aliases"] += 1
+	if apply:
+		db.commit()
+	return counts
 
 
 def print_report(junk: list[dict[str, Any]], mixed: list[dict[str, Any]], sample: int, review: list[dict[str, Any]] | None = None) -> None:
@@ -201,8 +230,8 @@ def print_report(junk: list[dict[str, Any]], mixed: list[dict[str, Any]], sample
 
 def main(argv: list[str] | None = None) -> int:
 	parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-	parser.add_argument("--apply", action="store_true", help="Save an undo file, then delete the junk profiles (default is a dry run).")
-	parser.add_argument("--undo", type=Path, help="Put back the profiles saved in this undo file.")
+	parser.add_argument("--apply", action="store_true", help="Save an undo file, then delete the junk profiles (default is a dry run). With --undo: restore the rows.")
+	parser.add_argument("--undo", type=Path, help="Put back the profiles saved in this undo file (a read-only dry run unless --apply is also given).")
 	parser.add_argument("--undo-file", type=Path, help="Where --apply writes the undo file (default data/db_fix_backups/).")
 	parser.add_argument("--expected-count", type=int, help="With --apply: stop unless exactly this many profiles are found.")
 	parser.add_argument("--batch-size", type=int, default=200)
@@ -210,11 +239,17 @@ def main(argv: list[str] | None = None) -> int:
 	parser.add_argument("--sample", type=int, default=20, help="Random junk profiles to list in the dry run.")
 	args = parser.parse_args(argv)
 	with SessionLocal() as db:
-		if args.undo:
-			print(f"restored={restore(db, args.undo)} profiles from {args.undo}")
-			return 0
 		if not args.apply:
 			db.execute(text("SET TRANSACTION READ ONLY"))
+		if args.undo:
+			c = restore(db, args.undo, apply=args.apply)
+			if args.apply:
+				print(f"restored profiles={c['profiles']} of {c['listed_profiles']}, links={c['links']} of {c['listed_links']}, "
+					f"alias_rows={c['aliases']} of {c['listed_aliases']} from {args.undo}")
+			else:
+				print(f"Dry run of the undo: would restore profiles={c['profiles']} of {c['listed_profiles']}, links={c['links']} of "
+					f"{c['listed_links']}, alias_rows={c['aliases']} of {c['listed_aliases']} from {args.undo}; nothing written. Add --apply to restore.")
+			return 0
 		mixed: list[dict[str, Any]] = []
 		junk = find_junk_profiles(db, mixed)
 		review = find_review_only(db)
@@ -231,7 +266,7 @@ def main(argv: list[str] | None = None) -> int:
 			return 1
 		undo_path = args.undo_file or default_undo_path("junk_judge_profiles")
 		print(f"deleted={apply_deletes(db, junk, undo_path, args.batch_size)} undo file: {undo_path}")
-		print("Undo with: python scripts/fix_junk_judge_profiles.py --undo", undo_path)
+		print("Check the undo first with: python scripts/fix_junk_judge_profiles.py --undo", undo_path, "(add --apply to restore)")
 	return 0
 
 

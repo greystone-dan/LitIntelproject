@@ -348,7 +348,7 @@ def test_junk_judge_profiles_dry_run_report_apply_needs_expected_count_and_undo_
 	assert any("DELETE FROM judge_profiles" in sql for sql, _ in db.calls)
 
 	db.calls.clear()
-	assert fjp.restore(db, undo) == 1
+	assert fjp.restore(db, undo)["listed_profiles"] == 1
 	kinds = [("judge_profiles" if "INTO judge_profiles " in sql else "links" if "INTO case_judge_profiles" in sql else "aliases")
 		for sql, _ in db.calls if sql.startswith("INSERT")]
 	assert kinds == ["judge_profiles", "links", "aliases"]
@@ -363,6 +363,43 @@ def test_junk_judge_profiles_raw_names_query_does_not_group_by_the_json_aliases_
 	sql = " ".join(str(fjp.RAW_NAMES_SQL).split())
 	assert "aliases" not in sql.split("GROUP BY", 1)[1]  # json has no equality operator in Postgres, so it cannot be grouped on
 	assert "p.aliases" in sql.split("FROM", 1)[0]  # but it is still selected (it depends on the primary key p.id)
+
+
+def test_junk_judge_profiles_undo_is_a_read_only_dry_run_unless_apply_is_given(tmp_path, monkeypatch, capsys):
+	from scripts import fix_junk_judge_profiles as fjp
+
+	undo = tmp_path / "u.jsonl"
+	fix_common.write_undo_file(undo, [{
+		"profile": dict(id=1, slug="judge-1", display_name="AND ORDER", normalized_name="and order", primary_court="FC", aliases=["AND ORDER"]),
+		"links": [dict(id=11, case_id=7, raw_name="AND ORDER"), dict(id=12, case_id=8, raw_name="AND ORDER")],
+		"aliases": [dict(id=21, alias_profile_id=1, canonical_profile_id=2, source="rule")],
+	}])
+
+	def handler(sql, params):
+		if sql.startswith("INSERT"):
+			return _Result(rowcount=1)
+		if "FROM judge_profiles WHERE id = :id OR slug" in sql:
+			return _Result(scalar=False)  # profile 1 is gone, so it would be restored
+		if "FROM cases WHERE id = :case_id" in sql:
+			return _Result(scalar=params["case_id"] == 7)  # case 8 no longer exists
+		if "FROM judge_profiles WHERE id = :id)" in sql:
+			return _Result(scalar=params["id"] == 2)  # canonical profile 2 still exists
+		if "FROM judge_profile_aliases WHERE id" in sql:
+			return _Result(scalar=False)
+
+	db = FakeDB(handler)
+	monkeypatch.setattr(fjp, "SessionLocal", lambda: _Ctx(db))
+	assert fjp.main(["--undo", str(undo)]) == 0
+	out = capsys.readouterr().out
+	assert "Dry run of the undo: would restore profiles=1 of 1, links=1 of 2, alias_rows=1 of 1" in out
+	assert db.calls[0][0] == "SET TRANSACTION READ ONLY"
+	assert not any(sql.startswith("INSERT") for sql, _ in db.calls) and db.commits == 0
+
+	db.calls.clear()
+	assert fjp.main(["--undo", str(undo), "--apply"]) == 0
+	assert "restored profiles=1 of 1, links=2 of 2, alias_rows=1 of 1" in capsys.readouterr().out
+	assert sum(sql.startswith("INSERT") for sql, _ in db.calls) == 4 and db.commits == 1
+	assert not any("READ ONLY" in sql for sql, _ in db.calls)
 
 
 def test_junk_judge_profiles_csv_lists_junk_and_review_only_profiles(tmp_path, monkeypatch, capsys):

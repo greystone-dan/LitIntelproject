@@ -2211,7 +2211,7 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "See a cited passage",
-      "text": "Citations in the text are highlighted in gold. Hover over one and iLit shows the paragraph being relied on, taken from the cited decision in the library, so you can check it without leaving the page. A click keeps it open as a card that can be pinned beside the text.",
+      "text": "Citations in the text are highlighted in gold. With the mouse resting on one, iLit shows the paragraph being relied on, taken from the cited decision in the library, so you can check it without leaving the page. A click keeps it open as a card that can be pinned beside the text.",
       "target": ".reader-hover-tooltip.is-visible",
       "also": [
         {
@@ -2226,8 +2226,21 @@
         }
       ],
       "optional": true,
-      "say": "Back in the text: hovering over a gold citation shows the paragraph this decision is relying on.",
-      "act": [
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "hover",
           "selector": [
@@ -2244,22 +2257,6 @@
           "do": "waitFor",
           "selector": ".reader-hover-tooltip.is-visible",
           "timeout": 4
-        }
-      ],
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
         }
       ],
       "settle": 1000

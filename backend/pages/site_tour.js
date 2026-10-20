@@ -8,8 +8,8 @@
 (function(){
   'use strict';
   var DATA=window.ILIT_TOUR||{steps:[],cases:{}};
-  var FULL_STEPS=(DATA.introOn?DATA.intro||[]:[]).concat(DATA.steps||[]),SHORT_STEPS=DATA.shortSteps||[],CASES=DATA.cases||{};
-  var STEPS=FULL_STEPS;                                          // the short tour swaps in SHORT_STEPS (state.variant); the full tour is the default   // the About introduction is kept, switched off until those pages are final
+  var FULL_STEPS=(DATA.introOn?DATA.intro||[]:[]).concat(DATA.steps||[]),SHORT_STEPS=DATA.shortSteps||[],CASES=DATA.cases||{};   // the About introduction is kept, switched off until those pages are final
+  var STEPS=FULL_STEPS;                                          // the short tour swaps in SHORT_STEPS (state.variant); the full tour is the default
   var KEY=DATA.key||'ilit.tour.v1',CASE_KEY='ilit.tour.cases';
   if(window.top!==window.self||!STEPS.length)return;           // never inside a frame (the Workbench embeds two tools)
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;

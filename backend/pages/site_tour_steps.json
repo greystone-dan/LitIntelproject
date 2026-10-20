@@ -2119,5 +2119,290 @@
       "text": "Future enhancements include improvements to what you have seen, French support, security settings and more features. That is the tour; it can be started again from this page at any time.",
       "target": "#homeButtons"
     }
+  ],
+  "shortSteps": [
+    {
+      "id": "short-welcome",
+      "section": "Welcome",
+      "url": "/data-explorer?tab=about",
+      "title": "The short tour",
+      "text": "This tour shows the main things iLit does, in a handful of steps. Press Next to move along, Back to go back, or Exit whenever you like. The tour clicks and types for you, so all you do is press Next. Everything shown is the live site; the one sample memo is fictional. Where something is still being built, the card says so. The longer tour, with every feature, stays available from the About page.",
+      "target": null
+    },
+    {
+      "id": "short-search",
+      "section": "Research",
+      "url": "/data-explorer?tab=search",
+      "title": "Search for a case",
+      "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the court, the date, the judge, how the case ended, the type of case, and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
+      "target": "#searchResults",
+      "also": [
+        {
+          "sel": "#caseSearch"
+        }
+      ],
+      "timeout": 25,
+      "say": "First, a search for a case by name: Vavilov.",
+      "act": [
+        {
+          "do": "type",
+          "selector": "#searchQuery",
+          "text": "Vavilov"
+        },
+        {
+          "do": "click",
+          "selector": "#caseSearch .sq-go[type='submit']"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#searchResults .case-result",
+          "timeout": 25
+        }
+      ]
+    },
+    {
+      "id": "short-filters",
+      "section": "Research",
+      "url": "/data-explorer?tab=search",
+      "title": "Narrow it down",
+      "text": "The filters on the left narrow any search, and they all combine: outcome, court, type of case, topic tags, judge, Minister and year. For example, you could ask for refugee cessation decisions that the government won. Case types and tags are worked out by fixed rules and are a work in progress, so some decisions are not sorted yet.",
+      "target": ".sp-rail",
+      "say": "Next, the filters, starting from an empty search box.",
+      "act": [
+        {
+          "do": "click",
+          "selector": "#clearSearchTop",
+          "when": "#searchQuery:not(:placeholder-shown)"
+        },
+        {
+          "do": "click",
+          "selector": "#toggleAdvancedSearch",
+          "unless": "#searchPanel.sp-adv"
+        }
+      ]
+    },
+    {
+      "id": "short-reader",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "Read a decision",
+      "text": "A decision opens as a clean document with numbered paragraphs. The header at the top gives the court, outcome, citation, date and judge. The panel on the right shows the outcome, the topics found in the text, and every case and statute the decision cites, so you can see what it rests on without searching for each one. This is Veerasingam v. Canada, 2024 FC 639.",
+      "target": "#caseReaderPanel",
+      "top": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ]
+    },
+    {
+      "id": "short-cite",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "See a cited passage",
+      "text": "Citations in the text are highlighted in gold. Hover over one and iLit shows the paragraph being relied on, taken from the cited decision in the library, so you can check it without leaving the page. A click keeps it open as a card that can be pinned beside the text.",
+      "target": ".reader-hover-tooltip.is-visible",
+      "also": [
+        {
+          "sel": [
+            {
+              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
+              "pin": true
+            },
+            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
+            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
+          ]
+        }
+      ],
+      "optional": true,
+      "say": "Back in the text: hovering over a gold citation shows the paragraph this decision is relying on.",
+      "act": [
+        {
+          "do": "hover",
+          "selector": [
+            {
+              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
+              "pin": true
+            },
+            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
+            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
+          ],
+          "high": 0.6
+        },
+        {
+          "do": "waitFor",
+          "selector": ".reader-hover-tooltip.is-visible",
+          "timeout": 4
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ],
+      "settle": 400
+    },
+    {
+      "id": "short-citation",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
+      "title": "How a case is used",
+      "text": "This page shows how other decisions in the library have used a case: how many cite it, how often, in which courts, and how those cases ended. It helps show whether a decision is still widely relied on. Here it is for Vavilov. Outcomes are read by fixed rules and can be wrong or unclear, so treat them as a guide and check the decision itself.",
+      "target": {
+        "css": "#ciBody .ix-hero",
+        "text": "cited alongside|No other decision"
+      },
+      "top": true,
+      "timeout": 45
+    },
+    {
+      "id": "short-judges",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=judge-profile",
+      "title": "Judge profiles",
+      "text": "Judges are listed with their number of decisions. A profile shows how often the government and individuals succeeded before that judge, decisions per year, and the most cited decisions. The list is still being cleaned up, so some entries are not single judges and counts are a guide, not a final figure. Here is Justice Brouwer of the Federal Court.",
+      "target": "#jpMain .ix-hero",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#jpList .jp-item"
+        }
+      ],
+      "say": "Let's open one judge: Justice Brouwer of the Federal Court.",
+      "act": [
+        {
+          "do": "type",
+          "selector": "#jpSearch",
+          "text": "Brouwer"
+        },
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#jpList .jp-item",
+            "text": "Brouwer"
+          },
+          "timeout": 10
+        },
+        {
+          "do": "click",
+          "selector": "#jpList .jp-item",
+          "match": "Brouwer"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#jpMain .ci-header, #jpMain h2, #jpMain h3",
+          "timeout": 15
+        }
+      ],
+      "span": [
+        "#jpMain .ix-tiles",
+        "#jpMain .ix-grid > .ix-card:first-child"
+      ]
+    },
+    {
+      "id": "short-fc",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=fc-analytics",
+      "title": "Files that never reach a decision",
+      "text": "Most immigration files at the Federal Court never end in a published decision, so decisions alone give an incomplete picture. This page is built from the Court's own registry of immigration files. It shows how many files reach a leave decision, a hearing and a judgment, and how grant rates have moved year by year.",
+      "target": "#fcAnalyticsPanel .page-header",
+      "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12,
+      "top": true
+    },
+    {
+      "id": "short-live",
+      "section": "Live analysis",
+      "url": "/live-analysis",
+      "title": "Check your own document",
+      "text": "You can drop in a Word file, a text PDF or pasted text. iLit finds the cases and statutes cited, marks each one in the text, links those held in the library and flags those it does not hold. This uses fixed rules, and nothing you provide is sent to an AI model. The sample here is a made-up memo, not a real filing.",
+      "target": [
+        ".v6-stats",
+        ".mk-row"
+      ],
+      "also": [
+        {
+          "sel": ".reader-pane.source"
+        }
+      ],
+      "before": [
+        {
+          "do": "drop",
+          "selector": "#laDrop",
+          "file": "/site-tour/sample-memo.docx",
+          "name": "Memorandum of Argument (fictional).docx",
+          "unless": "#decisionBody span.citation-link",
+          "when": "#laDrop"
+        },
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#laStatus",
+            "text": "docx"
+          },
+          "timeout": 8,
+          "unless": "#decisionBody span.citation-link"
+        }
+      ],
+      "say": "Last, Live analysis reads a document with the same rules used on the library. This one is a fictional sample memo.",
+      "act": [
+        {
+          "do": "click",
+          "selector": "#laAnalyze",
+          "unless": "#decisionBody span.citation-link"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody span.citation-link",
+          "timeout": 40
+        },
+        {
+          "do": "click",
+          "selector": "#laModalClose",
+          "when": "#laModalClose"
+        }
+      ]
+    },
+    {
+      "id": "short-wrap",
+      "section": "Summing up",
+      "url": "/data-explorer?tab=about",
+      "title": "What is live, and what is not",
+      "text": "Live today: search, the reader, citation and judge pages, Federal Court analytics and Live analysis. Still being improved: plain-word search, case types and tags, and judge names. iLit is built around the Federal Court, the Federal Court of Appeal and the Supreme Court; the library also holds some tribunal decisions. It is a research aid, not legal advice. The full tour covers the Workbench and the rest in detail.",
+      "target": "#homeNot",
+      "top": true
+    }
   ]
 }

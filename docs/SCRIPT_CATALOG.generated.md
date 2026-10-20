@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 197
+Active scripts documented: 198
 
 ## Catalog
 
@@ -161,6 +161,7 @@ Active scripts documented: 197
 | `reextract_statute_references.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help` |
 | `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
 | `regenerate_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\regenerate_docs.py --help` |
+| `remove_redundant_judge_links.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_redundant_judge_links.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `repair_glued_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help` |
@@ -2320,6 +2321,20 @@ Active scripts documented: 197
 
 ```powershell
 .\venv\Scripts\python.exe scripts\regenerate_docs.py --help
+```
+
+## `scripts/remove_redundant_judge_links.py`
+
+**Purpose:** Remove the redundant judge links the 2026-10-20 08:12 backfill_judge_profiles run added. Dry run by default. That run wrote 28,584 case_judge_profiles rows (ids 158,683-187,266). On decisions that already had a link from before the run (id <= 158,682) it added a second one because it only checks for the exact case + profile pair, not for the same judge under another spelling. This script removes a new link only where its decision already had an older link, Federal Court (FC) and Federal Court of Appeal (FCA) only. Supreme Court (SCC) is left alone: its extra links belong to the panel-string profiles, which are a separate cleanup. New links on decisions with no older link are never touched, and neither are older links or any judge profile. python scripts/remove_redundant_judge_links.py # dry run: pairs, counts, samples, checks python scripts/remove_redundant_judge_links.py --projected-csv out.csv # also write every pair to a CSV python scripts/remove_redundant_judge_links.py --apply --expected-count N # write the change log, then delete (needs Daniel's typed OK) python scripts/remove_redundant_judge_links.py --undo data/db_fix_backups/redundant_judge_links_<stamp>.jsonl Junk guard: if an OLD link's profile name looks like junk (starts with and/order/judgment/reasons/schedule/annex/ appendix/between/style of cause, or holds a digit or U+FFFD, the K3 pattern), the decision is skipped and listed, because the old link cannot be trusted as the keeper. The dry run then prints K7 (links per decision against the ceilings FC 1, FCA 5), K10 (the same name twice on one decision) and K11 (two names sharing a surname) for the database now and as it would be after the removal, plus before/after counts. The change log (JSON lines) holds id, case_id, judge_profile_id, raw_name and created_at of every removed link. --undo puts the rows back with the same ids and created_at, skipping any whose case or profile no longer exists. Backup the table first. Orphaned backfill profiles (id > 1,694 with no links left) are a separate step.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\remove_redundant_judge_links.py --help
 ```
 
 ## `scripts/remove_self_case_citations.py`

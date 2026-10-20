@@ -21,7 +21,13 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-QUERIES = ["Baker", "Doré", "Vavilov", "reasonableness", "pertinence de la décision", "2019 SCC 65"]
+QUERIES = [
+    "Baker", "Doré", "Vavilov", "reasonableness", "pertinence de la décision", "2019 SCC 65",
+    "Dunsmuir", "Khosa", "Suresh", "Ward", "Chieu", "Mugesera", "Baker v. Canada",
+    "Canada (Minister of Citizenship and Immigration) v. Vavilov",
+    "Minister of Citizenship and Immigration v. Khosa", "2009 SCC 12", "2008 SCC 9",
+    "best interests of the child", "procedural fairness", "reasonable apprehension of bias", "Noël",
+]
 
 
 def run(out: Path) -> None:

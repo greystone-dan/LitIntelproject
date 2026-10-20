@@ -348,6 +348,7 @@ def _identity_order_prefix(query: str) -> tuple[str, dict[str, str]]:
 
 # The costly identity tier is computed for only this many best cheap-ranked candidates, then re-ranked.
 RANK_CANDIDATE_LIMIT = 200
+RANK_IDENTITY_CANDIDATE_LIMIT = 1000
 
 
 def _analytics_case_order_sql(
@@ -1801,6 +1802,7 @@ def fetch_analytics_search_cases(
 					"c.date DESC NULLS LAST", "COALESCE(cm.in_degree, 0) DESC, c.date DESC NULLS LAST", 1
 				)
 		sort_order = sort_order_sql
+		# normalized_tokens() is a string, so this counts characters (not words): the same cut-off as the order above.
 		if len(normalized_tokens(query)) >= 3 and offset + limit <= RANK_CANDIDATE_LIMIT:
 			identity_prefix, _ = _identity_order_prefix(query)
 			if sort_order_sql.startswith(identity_prefix):
@@ -1850,9 +1852,15 @@ def fetch_analytics_search_cases(
 	candidate_statement = None
 	if cheap_order:
 		# Rank in two steps: a cheap order picks the best candidates, then the costly identity tier re-ranks only those.
+		# Candidates: the cheap top N, plus the best-known decisions whose title or citation holds the query
+		# (so a famous old case with many title peers, such as Baker, always reaches the re-rank).
 		candidate_statement = sql_text(
-			f"SELECT c.id FROM cases c {cited_by_join} WHERE {where_clause} "
-			f"ORDER BY {cheap_order} LIMIT {int(RANK_CANDIDATE_LIMIT)}"
+			f"(SELECT c.id FROM cases c {cited_by_join} WHERE {where_clause} "
+			f"ORDER BY {cheap_order} LIMIT {int(RANK_CANDIDATE_LIMIT)}) UNION "
+			"(SELECT c.id FROM cases c LEFT JOIN citation_metrics cmx ON cmx.case_id = c.id "
+			f"WHERE {where_clause} AND (LOWER(COALESCE(c.title, '')) LIKE LOWER(:query_exact_like) "
+			"OR LOWER(COALESCE(c.citation, '')) LIKE LOWER(:query_exact_like)) "
+			f"ORDER BY COALESCE(cmx.in_degree, 0) DESC, c.date DESC NULLS LAST, c.id DESC LIMIT {int(RANK_IDENTITY_CANDIDATE_LIMIT)})"
 		)
 		if cohort_ids is not None:
 			candidate_statement = candidate_statement.bindparams(bindparam("cohort_ids", expanding=True))

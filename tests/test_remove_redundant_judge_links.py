@@ -108,6 +108,12 @@ def test_two_letter_surname_overlaps():
 	assert rrjl.surname("J.A. ROTHSTEIN") != rrjl.surname("Roy J.")
 
 
+def test_unicode_dashes_do_not_split_a_surname_match():
+	assert rrjl.surname("Tremblay\u2011Lamer J.") == rrjl.surname("Tremblay-Lamer J.") == "lamer"
+	assert rrjl.surname("Layden\u2212Stevenson J.A.") == rrjl.surname("LAYDEN-STEVENSON J.A.")
+	assert rrjl.shared_surname("Tremblay\u2011Lamer J.", [{"display_name": "Tremblay-Lamer"}]) == "lamer"
+
+
 def test_gate_compares_surnames_not_given_names():
 	assert rrjl.surname("Marc Nadon") == "nadon" and rrjl.surname("NOËL J.A.") == "noel"
 	assert rrjl.surname("Noël, Simon") == rrjl.surname("Simon Noël") == "noel"

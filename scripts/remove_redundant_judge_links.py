@@ -67,6 +67,7 @@ CEILINGS = {"FC": 1, "FCA": 5}
 JUNK_NAME_RE = re.compile(
 	r"^\s*(and order|order|judgment|reasons|schedule|annex|appendix|between|style of cause)\b|[�0-9]", re.IGNORECASE
 )
+_DASHES_RE = re.compile("[\u2010-\u2015\u2212]")  # hyphens, non-breaking hyphen, dashes, minus sign
 _TITLE_WORDS = {
 	"the", "honourable", "hon", "justice", "juge", "chief", "mr", "mme", "madam", "madame", "mrs", "ms", "mister",
 	"j", "ja", "jj", "cj", "pj", "ca", "de", "du", "la", "le", "of", "and", "et", "mr", "ms",
@@ -109,7 +110,7 @@ def surname_tokens(name: str | None) -> set[str]:
 
 def surname(name: str | None) -> str | None:
 	"""The surname as the last name token ("Simon Noël", "NOËL J.A." and "Noël, Simon" all give "noel"); None if there is none."""
-	folded = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode().lower()
+	folded = unicodedata.normalize("NFKD", _DASHES_RE.sub("-", name or "")).encode("ascii", "ignore").decode().lower()
 	if "," in folded:
 		folded = folded.split(",", 1)[0]
 	tokens = [t for t in re.findall(r"[a-z]+", folded) if len(t) >= 2 and t not in _TITLE_WORDS]

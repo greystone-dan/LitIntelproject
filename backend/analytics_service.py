@@ -63,6 +63,7 @@ from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
 from .paragraph_search import MAX_CASES, ParagraphSearchTimeout, search_paragraph_cases, search_paragraph_phrase
 from .search_matching import (
 	FOLDED_TITLE_SQL,
+	READER_JSON,
 	fold_accents,
 	identity_sql,
 	loose_title_pattern,
@@ -346,6 +347,7 @@ def _analytics_case_order_sql(
 	*,
 	minister_expression: str = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')",
 	search_full_text: bool = False,
+	reader: str = READER_JSON,
 ) -> tuple[str, dict[str, Any]]:
 	query = " ".join(query.split())
 	params: dict[str, Any] = {}
@@ -374,7 +376,7 @@ def _analytics_case_order_sql(
 		if len(normalized_tokens(query)) < 3:
 			# One or two characters match almost every title; the per-row caption regexes below would run on all of them.
 			return ranking, params
-		citation, party, match_params = identity_sql(query)
+		citation, party, match_params = identity_sql(query, reader)
 		params.update(match_params)
 		return f"CASE WHEN {citation} THEN 2 WHEN {party} THEN 1 ELSE 0 END DESC, " + ranking, params
 	if sort_by == "newest":
@@ -1790,11 +1792,16 @@ def _fetch_analytics_search_cases(
 			"AS t(target_case_id, n)) cited_by ON cited_by.target_case_id = c.id"
 		)
 	if query and not query_uses_operators and sort_by == "relevance":
+		# Read the extracted-metadata JSON once per row (see identity_sql); only the ranked statement joins it.
+		reader_join = ""
+		if len(normalized_tokens(query)) >= 3:
+			reader_join = "LEFT JOIN LATERAL (SELECT c.metadata_json->'reader_extracted' AS x OFFSET 0) rd ON TRUE"
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
 			sort_by,
 			minister_expression=minister_expression,
 			search_full_text=search_full_text,
+			reader="rd.x" if reader_join else READER_JSON,
 		)
 		params.update(ranking_params)
 		if paragraph_case_ids:
@@ -1818,6 +1825,7 @@ def _fetch_analytics_search_cases(
 					"c.date DESC NULLS LAST", "COALESCE(cm.in_degree, 0) DESC, c.date DESC NULLS LAST", 1
 				)
 		sort_order = sort_order_sql
+		cited_by_join += " " + reader_join
 	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).
 	snippet_sql = "NULL"
 	if search_full_text and query and not query_uses_operators:

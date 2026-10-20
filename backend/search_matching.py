@@ -78,12 +78,26 @@ def _normalized_sql(expression: str) -> str:
 	return f"TRIM(REGEXP_REPLACE(LOWER(COALESCE({expression}, '')), :match_normalization, ' ', 'g'))"
 
 
-def identity_sql(query: str) -> tuple[str, str, dict[str, str]]:
-	"""Return identical citation/party predicates for filtering, ranking and labels."""
+def _longest_token(query: str) -> str:
+	"""The longest word of the query ("" for none). Words are runs of letters/digits, so each one appears
+	unchanged in any text whose normalized form contains the query."""
+	return max(normalized_tokens(query).split(), key=len, default="")
+
+
+READER_JSON = "c.metadata_json->'reader_extracted'"
+
+
+def identity_sql(query: str, reader: str = READER_JSON) -> tuple[str, str, dict[str, str]]:
+	"""Return identical citation/party predicates for filtering, ranking and labels.
+
+	`reader` is the SQL expression for the decision's extracted-metadata object. A search that ranks many rows
+	passes a value read once per row (a LATERAL column), because every `c.metadata_json->...` read decompresses
+	the stored JSON again."""
 	params = {
 		"match_tokens": normalized_tokens(query),
 		"match_citation": citation_query(query),
 		"match_normalization": "[^[:alnum:]]+",
+		"match_guard": f"%{_longest_token(query)}%",
 	}
 	citation_fields = [
 		f"REGEXP_REPLACE({_normalized_sql(f'c.{field}')}, '(^| )s c r( |$)', '\\1scr\\2', 'g')"
@@ -93,7 +107,7 @@ def identity_sql(query: str) -> tuple[str, str, dict[str, str]]:
 		f"POSITION(' ' || :match_citation || ' ' IN ' ' || {field} || ' ') > 0" for field in citation_fields
 	) + "))"
 	captions = [_normalized_sql(expression) for expression in (
-		"c.title", "c.metadata_json->'reader_extracted'->>'style of cause'",
+		"c.title", f"{reader}->>'style of cause'",
 	)]
 	party_checks = [
 		f"({caption} ~ '{CAPTION_SEPARATOR}' AND EXISTS "
@@ -101,12 +115,18 @@ def identity_sql(query: str) -> tuple[str, str, dict[str, str]]:
 		"WHERE POSITION(' ' || :match_tokens || ' ' IN ' ' || party.name || ' ') > 0))"
 		for caption in captions
 	]
-	between = _normalized_sql("c.metadata_json->'reader_extracted'->>'between'")
+	between = _normalized_sql(f"{reader}->>'between'")
 	party_checks.append(
 		f"EXISTS (SELECT 1 FROM REGEXP_SPLIT_TO_TABLE(' ' || {between} || ' ', '{BETWEEN_SEPARATOR}') AS party(name) "
 		"WHERE POSITION(' ' || :match_tokens || ' ' IN ' ' || TRIM(party.name) || ' ') > 0)"
 	)
-	party = "(:match_tokens <> '' AND (" + " OR ".join(party_checks) + "))"
+	# Cheap necessary condition, checked first: a whole-token party match needs the query's longest word to appear
+	# in the title, style of cause or "between" text. Rows without it skip the costly regex split, with the same result.
+	guard = "(" + " OR ".join(
+		f"LOWER(COALESCE({expression}, '')) LIKE :match_guard"
+		for expression in ("c.title", f"{reader}->>'style of cause'", f"{reader}->>'between'")
+	) + ")"
+	party = f"(:match_tokens <> '' AND {guard} AND (" + " OR ".join(party_checks) + "))"
 	return citation, party, params
 
 

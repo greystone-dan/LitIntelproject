@@ -45,6 +45,8 @@ REPORTED_CIT_RE = re.compile(
 	r"(\d{1,3})\s+([A-Z](?:[A-Z.]|\s){1,14}?)\s+(\d{1,7})\b",
 	re.IGNORECASE,
 )
+# French neutral-citation court codes, mapped to the English code the library stores.
+FRENCH_COURT_CODES = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT"}
 GENERIC_STATUTE_NOISE_NAMES = {
 	"An Act",
 	"Contempt Order",
@@ -2809,6 +2811,11 @@ def _resolve_neutral_via_canlii(session: Session, neutral_citation: str) -> int 
 
 def _resolve_neutral_to_case_id_local(session: Session, neutral_citation: str) -> int | None:
 	normalized = _normalize_whitespace(neutral_citation).upper()
+	normalized = re.sub(
+		r"^(\[?\d{4}\]?) (CSC|CAF|CFPI|CF) ",
+		lambda m: f"{m.group(1)} {FRENCH_COURT_CODES[m.group(2)]} ",
+		normalized,
+	)
 	variants: list[str] = [normalized]
 	if " FCT " in f" {normalized} ":
 		variants.append(normalized.replace(" FCT ", " FC "))
@@ -2845,7 +2852,8 @@ def _citation_variants(value: str) -> list[str]:
 	variants: list[str] = []
 	for match in FORMAL_CIT_RE.finditer(value or ""):
 		year, court, number = match.groups()
-		normalized = f"{year} {court.replace('.', '').upper()} {int(number)}"
+		court_code = court.replace(".", "").upper()
+		normalized = f"{year} {FRENCH_COURT_CODES.get(court_code, court_code)} {int(number)}"
 		variants.append(normalized)
 		if " FCT " in f" {normalized} ":
 			variants.append(normalized.replace(" FCT ", " FC "))

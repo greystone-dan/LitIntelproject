@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 191
+Active scripts documented: 194
 
 ## Catalog
 
@@ -16,6 +16,7 @@ Active scripts documented: 191
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
+| `analyze_unlinked_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_unlinked_citations.py --help` |
 | `apply_judge_aliases.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
@@ -193,9 +194,11 @@ Active scripts documented: 191
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
+| `study_name_only_context.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\study_name_only_context.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
+| `top_unlinked_cited.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\top_unlinked_cited.py --help` |
 | `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
 | `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
 | `train_role_correction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_role_correction.py --help` |
@@ -284,6 +287,20 @@ Active scripts documented: 191
 
 ```powershell
 .\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs
+```
+
+## `scripts/analyze_unlinked_citations.py`
+
+**Purpose:** Read-only study of case citations that have no target case in the library. Counts linked and unlinked case citations from FC, FCA and SCC decisions, sorts every unlinked row into a reason bucket, and writes a stratified sample for hand checking. Only SELECTs run, inside one READ ONLY transaction. No model, no network, no writes. Use --counts-only first: it skips the per-row bucketing and is quick. python scripts/analyze_unlinked_citations.py --counts-only python scripts/analyze_unlinked_citations.py --output-dir C:\ilit_backups\unlinked_study
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\analyze_unlinked_citations.py --help
 ```
 
 ## `scripts/apply_judge_aliases.py`
@@ -2764,6 +2781,20 @@ Active scripts documented: 191
 .\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help
 ```
 
+## `scripts/study_name_only_context.py`
+
+**Purpose:** Read-only: how many name-only unlinked citations could be linked from the same decision. A name-only citation such as "Hunter v. Canada" often sits in a decision that also cites the same case in full ("Hunter v. Canada (MCI), 2010 FC 123") and that full citation is already linked. This study counts, for FC, FCA and SCC citing decisions, unlinked case citations without a formal citation and sorts them by what the same decision shows: SAME_DECISION_LINKED_UNIQUE one linked row with the same party names, one target SAME_DECISION_LINKED_CONFLICT linked rows with the same party names point at different targets SAME_DECISION_FULL_CITE_UNLINKED same names appear with a formal cite that is also unlinked SURNAME_ONLY_LINKED_UNIQUE single-word alias; one linked row in the decision shares the first surname NO_CONTEXT nothing in the decision to go on SELECTs only in a READ ONLY transaction; no model, no network, no writes. python scripts/study_name_only_context.py --output-dir C:\ilit_backups\unlinked_study
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\study_name_only_context.py --help
+```
+
 ## `scripts/tag_cases.py`
 
 **Purpose:** Build deterministic text and metadata tags for canonical cases.
@@ -2804,6 +2835,20 @@ Active scripts documented: 191
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_cases_v3.py --help
+```
+
+## `scripts/top_unlinked_cited.py`
+
+**Purpose:** Read-only: most cited case citations that have no target decision in the library. Groups unlinked case citations from FC, FCA and SCC decisions by a cleaned key (neutral or reporter citation when present, otherwise the case name without pinpoint), counts occurrences and distinct citing decisions, and writes the top rows with the library-gap bucket. SELECTs only, one READ ONLY transaction, no model, no network. python scripts/top_unlinked_cited.py --output C:\ilit_backups\unlinked_study\top_unlinked.csv
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\top_unlinked_cited.py --help
 ```
 
 ## `scripts/train_learned_positions.py`

@@ -167,6 +167,26 @@ class TTLCache:
 _analytics_cache = TTLCache()
 
 
+_SLOW_RESULTS: dict[str, tuple[float, Any]] = {}
+_SLOW_LOCK = RLock()
+SLOW_RESULT_TTL_SECONDS = 3600
+
+
+def cached_slow_result(key: str, build: Callable[[], Any], ttl_seconds: int = SLOW_RESULT_TTL_SECONDS) -> Any:
+	"""Whole-library aggregates (13 to 50 s on the live data) are built once an hour; visitors in between get the stored copy.
+
+	Follows the analytics cache switch, so tests and an ANALYTICS_CACHE_TTL_SECONDS of 0 still compute every time."""
+	if not _analytics_cache.enabled:
+		return build()
+	with _SLOW_LOCK:
+		entry = _SLOW_RESULTS.get(key)
+		if entry and time.monotonic() - entry[0] < ttl_seconds:
+			return entry[1]
+		value = build()
+		_SLOW_RESULTS[key] = (time.monotonic(), value)
+		return value
+
+
 def get_analytics_cache() -> TTLCache:
 	"""Get the global analytics cache instance."""
 	return _analytics_cache
@@ -177,6 +197,7 @@ def clear_analytics_cache() -> None:
 
 	For testing and admin purposes. Clears all cached entries.
 	"""
+	_SLOW_RESULTS.clear()
 	_analytics_cache.clear()
 
 
@@ -334,18 +355,19 @@ def fetch_outcomes_by_year(db: Session) -> list[dict[str, Any]]:
 			"""
 			SELECT
 				EXTRACT(YEAR FROM date)::int AS year,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'won') AS government_wins,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'lost') AS individual_wins,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'decision outcome' IN ('allowed', 'granted', 'set_aside', 'remitted')) AS relief_decisions,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'decision outcome' IN ('dismissed', 'denied', 'refused')) AS dismissed_decisions
-			FROM cases
-			WHERE date IS NOT NULL
-			AND NOT EXISTS (
+				COUNT(*) FILTER (WHERE re_->>'government outcome' = 'won') AS government_wins,
+				COUNT(*) FILTER (WHERE re_->>'government outcome' = 'lost') AS individual_wins,
+				COUNT(*) FILTER (WHERE re_->>'decision outcome' IN ('allowed', 'granted', 'set_aside', 'remitted')) AS relief_decisions,
+				COUNT(*) FILTER (WHERE re_->>'decision outcome' IN ('dismissed', 'denied', 'refused')) AS dismissed_decisions
+			FROM (
+				SELECT id, date, metadata_json->'reader_extracted' AS re_ FROM cases WHERE date IS NOT NULL
+			) cases
+			WHERE NOT EXISTS (
 				SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = cases.id
 				AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'not_immigration'
 			)
 			GROUP BY year
-			HAVING COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' IN ('won', 'lost')) > 0
+			HAVING COUNT(*) FILTER (WHERE re_->>'government outcome' IN ('won', 'lost')) > 0
 			ORDER BY year
 			"""
 		),

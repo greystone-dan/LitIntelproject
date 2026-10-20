@@ -2135,13 +2135,13 @@
       "url": "/data-explorer?tab=search",
       "title": "Search for a case",
       "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the court, the date, the judge, how the case ended, the type of case, and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
-      "target": "#searchResults",
+      "target": "#searchResults .case-result",
       "also": [
         {
           "sel": "#caseSearch"
         }
       ],
-      "timeout": 25,
+      "timeout": 45,
       "say": "First, a search for a case by name: Vavilov.",
       "act": [
         {
@@ -2156,7 +2156,7 @@
         {
           "do": "waitFor",
           "selector": "#searchResults .case-result",
-          "timeout": 25
+          "timeout": 45
         }
       ]
     },
@@ -2186,8 +2186,8 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "Read a decision",
-      "text": "A decision opens as a clean document with numbered paragraphs. The header at the top gives the court, outcome, citation, date and judge. The panel on the right shows the outcome, the topics found in the text, and every case and statute the decision cites, so you can see what it rests on without searching for each one. This is Veerasingam v. Canada, 2024 FC 639.",
-      "target": "#caseReaderPanel",
+      "text": "A decision opens as a clean document with numbered paragraphs. The header at the top gives the court, outcome, citation, date and judge. The panel beside the text shows the outcome, the topics found in the text, and every case and statute the decision cites, so you can see what it rests on without searching for each one. This is Veerasingam v. Canada, 2024 FC 639.",
+      "target": ".reader-head",
       "top": true,
       "before": [
         {
@@ -2262,7 +2262,7 @@
           "ms": 600
         }
       ],
-      "settle": 400
+      "settle": 1000
     },
     {
       "id": "short-citation",
@@ -2287,7 +2287,8 @@
       "before": [
         {
           "do": "waitFor",
-          "selector": "#jpList .jp-item"
+          "selector": "#jpList .jp-item",
+          "timeout": 45
         }
       ],
       "say": "Let's open one judge: Justice Brouwer of the Federal Court.",
@@ -2303,7 +2304,7 @@
             "css": "#jpList .jp-item",
             "text": "Brouwer"
           },
-          "timeout": 10
+          "timeout": 30
         },
         {
           "do": "click",
@@ -2313,13 +2314,14 @@
         {
           "do": "waitFor",
           "selector": "#jpMain .ci-header, #jpMain h2, #jpMain h3",
-          "timeout": 15
+          "timeout": 30
         }
       ],
       "span": [
         "#jpMain .ix-tiles",
         "#jpMain .ix-grid > .ix-card:first-child"
-      ]
+      ],
+      "timeout": 45
     },
     {
       "id": "short-fc",

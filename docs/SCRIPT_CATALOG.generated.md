@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 198
+Active scripts documented: 199
 
 ## Catalog
 
@@ -94,6 +94,7 @@ Active scripts documented: 198
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
 | `evaluate_statute_sections.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
+| `explain_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\explain_search.py --help` |
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
 | `extract_a2aj_provincial_acts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help` |
@@ -1383,6 +1384,20 @@ Active scripts documented: 198
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evidence_gate.py --help
+```
+
+## `scripts/explain_search.py`
+
+**Purpose:** Read-only EXPLAIN (ANALYZE, BUFFERS) of every case-search statement for one query. Runs the site's own search function with a session wrapper that, for each statement that reads the cases table, first runs it under EXPLAIN (ANALYZE, BUFFERS) and prints the plan with its total time. Only SELECT statements run (EXPLAIN ANALYZE executes them but changes nothing). It does not read keys. python scripts/explain_search.py --query reasonableness --out explain_reasonableness.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\explain_search.py --help
 ```
 
 ## `scripts/export_fc_activity_package.py`

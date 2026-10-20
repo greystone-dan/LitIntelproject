@@ -71,7 +71,7 @@
    "date": "2026-10-20",
    "theme": "judges",
    "title": "Judge clean-up tools; link clean-up applied",
-   "text": "Tools to delete junk judge profiles, merge duplicate names and remove repeated judge links were merged. Per project notes (not checked here), 14,605 repeated Federal Court and Federal Court of Appeal judge links were removed from the live database on 2026-10-20. The site code itself is not deployed yet.",
+   "text": "Tools to delete junk judge profiles, merge duplicate names and remove repeated judge links were merged. On 2026-10-20, 14,605 repeated Federal Court and Federal Court of Appeal judge links were removed from the live database. The site code itself is not deployed yet.",
    "refs": [
     "#591",
     "#595",
@@ -84,7 +84,7 @@
    "date": "2026-10-20",
    "theme": "citations",
    "title": "Merged, not live yet: stricter citation links",
-   "text": "Links made from a case name or title are now checked against the court and date, so a citation no longer points to a later decision. A separate script to unlink the wrong links already in the database is merged but has not been run.",
+   "text": "New links made from a case name or title are now checked against the court and date. Existing wrong links stay until a separate script to unlink them is run; it is merged but has not been run.",
    "refs": [
     "#593"
    ],
@@ -94,7 +94,7 @@
    "date": "2026-10-20",
    "theme": "federal-court",
    "title": "Merged, not live yet: French decisions read correctly",
-   "text": "French-language decisions now get the right judge, file number and outcome.",
+   "text": "The reader for French-language decisions now finds the judge, file number and outcome more reliably. Decisions already stored are corrected by a separate script that has not been run yet.",
    "refs": [
     "#592"
    ],
@@ -136,7 +136,7 @@
    "date": "2026-10-19",
    "theme": "library",
    "title": "Repair scripts for self-citations, own-caption links and junk judges",
-   "text": "Reversible clean-up scripts were added. Per project notes (not checked here) they were applied to the live database on 2026-10-20 with a backup and undo files; the site reflects the corrected data.",
+   "text": "Reversible clean-up scripts were added for wrong self-citations, own-caption links and junk judge names. They were applied to the live database on 2026-10-20 with a backup and undo files, so the live data was corrected.",
    "refs": [
     "#586"
    ],

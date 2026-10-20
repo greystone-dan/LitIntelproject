@@ -23,3 +23,13 @@ def test_typos_years_and_case_variants_are_collapsed():
 def test_two_real_names_with_similar_size_are_both_kept():
 	rows = [("Minister of Citizenship", 50), ("Minister of Citizenship and Immigration", 60)]
 	assert len(clean_minister_options(rows)) == 2
+
+
+def test_rare_longer_spellings_and_one_off_names_leave_the_menu():
+	rows = [
+		("Citizenship and Immigration", 900),
+		("Minister of Citizenship and Immigration", 40),
+		("Union of Correctionnel Officers", 1),
+		("Wheat Board", 4),
+	]
+	assert clean_minister_options(rows) == ["Citizenship and Immigration", "Wheat Board"]

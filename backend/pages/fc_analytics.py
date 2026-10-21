@@ -220,8 +220,8 @@ def inject_fc_analytics(html: str) -> str:
     )
     html = html.replace("research:['search','citation-intelligence','judge-profile','fc-history','themes']", "research:['search','citation-intelligence','judge-profile','fc-analytics','fc-history','themes']", 1)
     html = html.replace(
-        "  if(selected==='fc-history'){loadFcActivityTimeline();",
-        "  if(selected==='fc-analytics'&&window.fcxLoadDashboard)window.fcxLoadDashboard();\n  if(selected==='fc-history'){loadFcActivityTimeline();",
+        "  if(selected==='fc-history'&&typeof loadFcHistoryOnce==='function')loadFcHistoryOnce();",
+        "  if(selected==='fc-analytics'&&window.fcxLoadDashboard)window.fcxLoadDashboard();\n  if(selected==='fc-history'&&typeof loadFcHistoryOnce==='function')loadFcHistoryOnce();",
         1,
     )
     html = html.replace("</body>", FC_ANALYTICS_JS + "\n</body>", 1)

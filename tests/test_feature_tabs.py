@@ -1158,6 +1158,8 @@ def test_fc_analytics_tab_is_wired_into_research_navigation():
     assert 'id="fcAnalyticsPanel"' in html
     assert "'fc-analytics':'fcAnalyticsPanel'" in html
     assert "window.fcxLoadDashboard" in html
+    # clicking the tab (not only opening a ?tab=fc-analytics link) must load the dashboard
+    assert "if(selected==='fc-analytics'&&window.fcxLoadDashboard)window.fcxLoadDashboard();" in html
     assert "/api/fc-activity/dashboard" in html
     for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):
         assert f'id="{chart}"' in html

@@ -31,7 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "waitFor", "wait", "drop", "hover", "glide"}
+ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "waitFor", "wait", "drop", "hover", "glide", "scroll"}
 
 
 def validate_steps(data: dict) -> list[str]:
@@ -501,6 +501,10 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 if not page.evaluate("() => [...document.querySelectorAll('.ilit-tour-ring')].some(r => r.style.display !== 'none')") and phase == "say":
                     found.append("nothing lit")
                     geometry_fails.append(f"{step_id}:{phase}: nothing lit")
+                # "Next, let's open X": the thing the tour will click must be on screen, or Next would jump there without a click
+                if not page.evaluate("() => [...document.querySelectorAll('.ilit-tour-ring')].some(r => r.style.display !== 'none')") and phase == "lead" and "data-case-id" in str(by_id.get(step_id, {}).get("via", "")):
+                    found.append("lead target NOT FOUND (the decision is not in the results)")
+                    geometry_fails.append(f"{step_id}:{phase}: lead target not found")
                 if found:
                     print(f"    {step_id} ({phase}): {'; '.join(found)}")
                 before_shot = shots / f"{size}" if shots else None

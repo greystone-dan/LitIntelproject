@@ -1295,8 +1295,8 @@
  {
   "date": "2026-10-20",
   "theme": "performance",
-  "title": "Merged, not live yet: faster search",
-  "text": "Broad searches find case numbers first and then load details, there is a date index, and a broad word shows one result per case. Needs a database update when deployed.",
+  "title": "Faster search",
+  "text": "Broad searches find case numbers first and then load details, there is a date index, and a broad word shows one result per case. Live since 2026-10-20 (database index added the same day).",
   "refs": [
    "#590"
   ]
@@ -1304,8 +1304,8 @@
  {
   "date": "2026-10-20",
   "theme": "citations",
-  "title": "Merged, not live yet: stricter citation links",
-  "text": "New links made from a case name or title are now checked against the court and date. Existing wrong links stay until a separate script to unlink them is run; it is merged but has not been run.",
+  "title": "Stricter citation links",
+  "text": "New links made from a case name or title are now checked against the court and date. Live since 2026-10-20. Existing wrong links stay until a separate script to unlink them is run; it is merged but has not been run.",
   "refs": [
    "#593"
   ]
@@ -1323,7 +1323,7 @@
   "date": "2026-10-20",
   "theme": "judges",
   "title": "Judge clean-up tools; link clean-up applied",
-  "text": "Tools to delete junk judge profiles, merge duplicate names and remove repeated judge links were merged. On 2026-10-20, 14,605 repeated Federal Court and Federal Court of Appeal judge links were removed from the live database. The site code itself is not deployed yet.",
+  "text": "Tools to delete junk judge profiles, merge duplicate names and remove repeated judge links were merged. On 2026-10-20, 14,605 repeated Federal Court and Federal Court of Appeal judge links were removed from the live database, and 45 junk judge profiles (with their 385 links) were deleted, both with a backup and an undo file. The site code is live. Some junk names remain in Federal Court and Federal Court of Appeal judge lists.",
   "refs": [
    "#591",
    "#595",
@@ -1334,10 +1334,38 @@
  {
   "date": "2026-10-20",
   "theme": "outcomes",
-  "title": "Merged, not live yet: argument lists (off by default)",
-  "text": "A first reader of the main arguments on each side, with a rule for choosing which to keep. It is switched off and has no effect on the site until turned on.",
+  "title": "Argument lists (off by default)",
+  "text": "A first reader of the main arguments on each side, with a rule for choosing which to keep. The code is live since 2026-10-20 but switched off, so it has no effect on the site until turned on.",
   "refs": [
    "#557"
+  ]
+ },
+ {
+  "date": "2026-10-20",
+  "theme": "navigation",
+  "title": "A short tour of the site",
+  "text": "A short site tour now sits beside the existing Take a tour button, for a quick look at search, the case reader and judges.",
+  "refs": [
+   "#603"
+  ]
+ },
+ {
+  "date": "2026-10-20",
+  "theme": "performance",
+  "title": "Searches that run too long are stopped",
+  "text": "Every search now stops after 20 seconds. A very broad word such as \"Canada\" now shows a \"too broad\" message instead of hanging. Live since 2026-10-20.",
+  "refs": [
+   "#605"
+  ]
+ },
+ {
+  "date": "2026-10-20",
+  "theme": "performance",
+  "title": "Merged, not live yet: faster result counts and ranking",
+  "text": "The result counts down the side are worked out from one list of matching cases instead of several, and ranking reads each case's details once. Results are meant to be identical, only faster. Not on the live site yet.",
+  "refs": [
+   "#606",
+   "#608"
   ]
  }
 ]

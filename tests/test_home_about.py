@@ -38,16 +38,19 @@ def test_the_old_about_page_is_kept_under_development():
 def test_home_about_says_what_daniel_approved():
     page = (PAGES / "home_about.html").read_text(encoding="utf-8")
     assert page.count('id="homeAbout"') == 1
-    assert "The Immigration Litigation Intelligence Tool (iLIT) is a website built to support the work of the Hearings and Litigation Division of the CBSA." in page
-    assert "enhanced version of Canlii" in page and "Each of the 75k decisions in the library has been processed" in page
-    assert "not officially affiliated with the Government of Canada" in page
-    assert "private website hosted on a personal computer" in page
+    assert "Welcome to iLit" in page and "ool</h1>" in page                       # the title page: the full name, with the capitals picked out
+    assert "A comprehensive library of immigration litigation, designed for the CBSA Hearings and Litigation Division." in page
+    assert "More data.<br>Better insights.<br>Improved outcomes." in page
+    assert "decisions and counting" in page and "About 3 minutes" not in page      # Daniel: the button must not promise a length
+    assert "other government stakeholders" in page and "Lawyers" not in page       # Who it is for: the Division, and other government partners
+    assert "Not affiliated with the Government of Canada" in page.replace("not affiliated", "Not affiliated")
+    assert "private website on a personal computer" in page
     assert "Automatic daily updates are not switched on yet" in page                 # the import tools are built, not scheduled
-    assert "Federal Court only" in page and "Case A cites Case B at paragraph 84" in page and "Statutes cited" in page
-    assert "Case search and reader" in page and "Intelligence" in page and "Workbench" in page
+    assert "Federal Court activity records" in page and "Case A cites Case B" in page and "Statutes cited" in page
     assert "Where files go" in page and "What happens to those files" not in page   # one graph; the files-by-step funnel is gone
-    assert "CanLII" not in page.replace("Canlii", "")                                # no comparison table; only the approved blurb names it
-    assert 'data-ilit-tour-start' in page
+    assert "The website, in three parts" not in page                                 # Daniel removed the three-parts section
+    assert "CanLII" in page                                                          # named once, in What it adds / What iLit is not
+    assert "data-ilit-tour-start" in page and 'id="homeSeeComing"' in page
 
 
 def test_home_counts_are_read_live_not_typed_in():
@@ -57,13 +60,17 @@ def test_home_counts_are_read_live_not_typed_in():
         assert f'data-home="{key}"' in page
 
 
-def test_home_is_not_a_presentation_and_the_tour_button_is_only_at_the_bottom():
+def test_home_is_not_a_presentation_and_the_tour_button_sits_on_the_title_page():
     steps = json.loads((PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]
     assert not [step["id"] for step in steps if step["id"].startswith("home-")]       # the reader moves through About themselves
     assert steps[0]["id"] == "tour-welcome" and steps[1]["id"] == "search-page"       # the tour goes straight into the site
     page = (PAGES / "home_about.html").read_text(encoding="utf-8")
     assert page.count("data-ilit-tour-start") == 1 and page.count('id="homeButtons"') == 1
-    assert page.index("data-ilit-tour-start") > page.index('id="homeNot"')          # below everything else on the page
+    assert page.index("data-ilit-tour-start") < page.index('id="homeAboutIntro"')   # Take the tour is on the title page, above everything else
+    assert page.index('id="homeButtons"') > page.index('id="homeNot"')                # See what is coming closes the page
+    short = {step["id"]: step for step in json.loads((PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))["shortSteps"]}
+    assert short["sh-what"]["target"] == "#homeIntro" and 'id="homeIntro"' in page    # short tour step 1 lights the title page
+    assert "PLACEHOLDER" not in short["sh-what"].get("note", "")
     by_id = {step["id"]: step for step in steps}
     for name in ("wrap", "done"):
         selectors = [by_id[name]["target"]] + list(by_id[name].get("span", []))

@@ -49,9 +49,11 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
     seen: set[str] = set()
     for index, step in enumerate(steps, 1):
         label = f"step {index} ({step.get('id', '?')})"
-        for key in ("id", "section", "url", "title", "text"):
+        for key in ("id", "section", "url", "title"):
             if not step.get(key):
                 problems.append(f"{label}: missing {key}")
+        if not step.get("text") and len(str(step.get("title", "")).split()) < 3:
+            problems.append(f"{label}: missing text (only a card whose title is a whole sentence may have none)")
         if step.get("id") in seen:
             problems.append(f"{label}: duplicate id")
         seen.add(step.get("id"))
@@ -82,10 +84,16 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
             problems.append(f"{label}: say is only for a step that acts")
         if step.get("auto") and (step.get("say") or not step.get("act")):
             problems.append(f"{label}: an auto step acts at once: it needs act and no say")
-        if step.get("cardPos") not in (None, "bottom-right", "bottom-left"):
-            problems.append(f"{label}: cardPos can only be bottom-right or bottom-left")
-        if (step.get("via") or step.get("point")) and not step.get("lead"):
-            problems.append(f"{label}: via or point needs a lead line")
+        if step.get("cardPos") not in (None, "bottom-right", "bottom-left", "top-right", "right-middle"):
+            problems.append(f"{label}: cardPos can only be bottom-right, bottom-left, top-right or right-middle")
+        if step.get("cardSize") not in (None, "large"):
+            problems.append(f"{label}: cardSize can only be large")
+        if step.get("hint") and not step.get("explore"):
+            problems.append(f"{label}: a hint is only for an explore step")
+        if step.get("early") and not step.get("auto"):
+            problems.append(f"{label}: early is only for an auto step")
+        if step.get("lead"):
+            problems.append(f"{label}: the tour has no lead cards: each card is a step of its own")
         for action in step.get("before", []) + step.get("act", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
@@ -536,14 +544,14 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
             ):
                 data_notes.append("statistics EMPTY")
-            if step_id == "reader-cite-card" and page.evaluate(
+            if step_id == "sh-cite-card" and page.evaluate(
                 "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
             ):
                 data_notes.append("citation card has NO PINPOINT")
             # The filter demo must end with the tour's decision at the top of the list, and that is the one it opens.
-            if step_id == "adv-won":
+            if step_id == "sh-results":
                 first_result = page.evaluate("() => document.querySelector('#searchResults .case-result')?.dataset.caseId || ''")
-            if step_id == "reader-open":
+            if step_id == "sh-reader":
                 opened = page.evaluate("() => new URLSearchParams(location.search).get('case_id') || ''")
                 if first_result is not None and opened != first_result:
                     notes.append(f"the decision opened ({opened}) is NOT the first result of the filter demo ({first_result})")

@@ -32,43 +32,60 @@ def test_every_step_url_is_a_real_page():
         assert client.get(path, follow_redirects=False).status_code == 200, path
 
 
-def test_short_tour_explore_steps_hand_the_page_to_the_visitor_and_say_how_to_move_on():
-    explore = [step for step in tour_steps()["steps"] if step.get("explore")]
-    assert len(explore) == 2
-    for step in explore:
-        assert not step.get("act") and not step.get("say"), step["id"]      # nothing is done for the visitor here
-        assert "Click Next" in step["text"] and "paused" in step["text"], step["id"]
+def _tour():
+    return {step["id"]: step for step in tour_steps()["steps"]}
 
 
-def test_short_tour_follows_daniels_feedback_on_wording_and_structure():
-    short = {step["id"]: step for step in tour_steps()["steps"]}
-    text = json.dumps(list(short.values()))
-    assert "decision reader" not in text.lower() and "full tour" not in text.lower()   # it is "the reader"; no pointers to the other tour
-    assert "tour will scroll" not in text and "unusual part" not in text
-    # one step for each major side panel tab, then the two halves of Intelligence; the filters are one step
-    tabs = [i for i in short if i.startswith("sh-side-")]
-    assert tabs == ["sh-side-about", "sh-side-auth", "sh-side-judge", "sh-side-cite"]
-    assert "sh-filters" in short and not any(i.startswith("sh-filters-") for i in short)
-    # hover and click are one card each
-    assert "sh-cite-hover" in short and "sh-cite-card" in short
-    # whole-region highlights and nothing the card could hide: pointer-driven steps carry no say card and light a broad region
-    for step in short.values():
-        if step.get("auto"):
-            assert step.get("broad") and step.get("act") and not step.get("say"), step["id"]
-        if step.get("explore"):
-            assert step.get("cardPos") == "bottom-right", step["id"]
-    assert "fabricated Word document" in short["sh-la-drop"]["say"]
-    assert "under development" in short["sh-workbench"]["text"] or "in development" in short["sh-workbench"]["text"]
-    assert "go back to the home page and wrap up the tour" in short["sh-wrap"]["lead"]
-    assert "explore what is coming soon" in short["sh-wrap"]["text"]
+def test_explore_steps_hand_the_page_to_the_visitor_and_the_hint_says_how_to_move_on():
+    steps = _tour()
+    for step in steps.values():
+        if step.get("hint"):
+            assert step.get("explore") and "Next" in step["hint"], step["id"]
+        if step.get("explore") and not step.get("act"):
+            assert not step.get("say"), step["id"]          # nothing is done for the visitor here
+    # the interactive pages collapse to "click Next" once the visitor starts using them (Daniel, 10-21)
+    for key in ("sh-explore-reader", "sh-ci", "sh-judges", "sh-fc"):
+        assert steps[key].get("hint"), key
+    assert not steps["sh-ci"].get("target") and not steps["sh-judges"].get("target") and not steps["sh-fc"].get("target")   # nothing lit
+    assert [steps[k]["cardPos"] for k in ("sh-ci", "sh-judges", "sh-fc")] == ["top-right"] * 3
 
 
-def test_short_tour_says_before_every_page_change():
+def test_tour_follows_daniels_step_list_in_order_and_in_his_words():
+    steps = _tour()
+    order = list(steps)
+    text = json.dumps(list(steps.values()))
+    assert len(order) == len(set(order)) == 30
+    assert "decision reader" not in text.lower() and "full tour" not in text.lower() and "Ilit" not in text   # "the reader"; iLIT
+    assert not any(step.get("lead") for step in steps.values())            # every card is a step of its own, so Step x of N is true
+    assert order[:6] == ["sh-what", "sh-about", "sh-begin", "sh-search", "sh-filters", "sh-results"]
+    # the decision text comes before the side panel, then the side panel in the order of its tabs
+    assert order[order.index("sh-reader"):order.index("sh-explore-reader") + 1] == [
+        "sh-reader", "sh-text", "sh-cite-hover", "sh-cite-card", "sh-side-about", "sh-side-auth", "sh-side-cite", "sh-side-judge", "sh-explore-reader"]
+    assert order[-7:] == ["sh-next-la", "sh-la-1", "sh-la-2", "sh-la-3", "sh-la-drop", "sh-la-run", "sh-wrap"]
+    assert steps["sh-what"]["text"].startswith("This short tour of iLIT will walk through some of the key features")
+    assert steps["sh-about"]["target"] == "#homeAboutIntro" and steps["sh-about"]["title"] == "What is iLIT?"
+    assert "Let's begin in the research tab." in steps["sh-begin"]["title"]
+    assert "This is the search bar, where research starts" in steps["sh-search"]["say"] and "Vavilov" in json.dumps(steps["sh-search"]["act"])
+    assert steps["sh-filters"].get("early") and steps["sh-filters"]["text"].startswith("Filters are used to narrow search results.")
+    assert "7 case types" not in text and "seven case types" not in text
+    assert "16 cases in the library" in steps["sh-results"]["text"] and steps["sh-results"]["also"]
+    assert steps["sh-cite-hover"].get("explore") and "Camayo" in steps["sh-cite-hover"]["text"]       # the visitor's own mouse hovers
+    assert steps["sh-cite-card"].get("explore")
+    for key in ("sh-side-about", "sh-side-auth", "sh-side-cite", "sh-side-judge"):
+        assert steps[key]["target"] == ".reader-pane.target" and steps[key].get("explore") and steps[key]["cardPos"] == "bottom-right", key
+    assert "Both default to the current case" in steps["sh-side-cite"]["text"]
+    assert steps["sh-la-1"]["cardSize"] == "large" and not steps["sh-la-1"].get("target")
+    assert "made up word document" in steps["sh-la-drop"]["say"]
+    assert "still in development" in steps["sh-workbench"]["text"]
+    assert steps["sh-wrap"]["text"].endswith("Feel free to check out the 'see what is coming' section, or spend more time using the site.")
+
+
+def test_every_page_change_is_a_pointer_click_on_a_named_tab():
     short = tour_steps()["steps"]
     for before, step in zip(short, short[1:]):
         page = lambda url: re.sub(r"[?#].*", "", url) + (re.search(r"tab=[\w-]+", url) or [""])[0]   # noqa: E731
         if page(before["url"]) != page(step["url"]):
-            assert step.get("lead"), f"{step['id']} changes page without telling the visitor first"
+            assert step.get("via"), f"{step['id']} changes page without a tab for the pointer to press"
 
 
 def test_example_cases_have_a_citation_to_look_up():

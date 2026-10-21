@@ -127,9 +127,27 @@
       "id": "sh-what",
       "section": "Welcome",
       "url": "/data-explorer?tab=about",
-      "title": "What iLit is",
-      "text": "iLit is a case law library of immigration litigation decisions, built for the CBSA Hearings and Litigation Division. It is designed to give more analytical insight than a plain search can, so that litigators can do better research and improve outcomes. This short tour shows the main features. Press Next to move along, Back to go back, or Exit at any time. The mouse moves and clicks for you, and before each move to a new page the card tells you where you are going next. Everything shown is the live site; the one sample memo is fictional. Where something is still being built, the card says so.",
+      "title": "Welcome to the tour",
       "target": "#homeIntro",
+      "top": true,
+      "text": "This short tour of iLIT will walk through some of the key features of the website. This is a live site walkthrough, not a pre-recorded demo. Press Next to move along, Back to go back, or Exit at any time."
+    },
+    {
+      "id": "sh-about",
+      "section": "Welcome",
+      "url": "/data-explorer?tab=about",
+      "title": "What is iLIT?",
+      "text": "",
+      "target": "#homeAboutIntro",
+      "cardPos": "bottom-right"
+    },
+    {
+      "id": "sh-begin",
+      "section": "Welcome",
+      "url": "/data-explorer?tab=about",
+      "title": "Let's begin in the research tab.",
+      "text": "",
+      "target": "nav.primary-groups",
       "top": true
     },
     {
@@ -137,15 +155,12 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Search for a case",
-      "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the citation, court, date and judge and, where known, how the case ended and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
-      "target": "#caseSearch",
-      "also": [
-        {
-          "sel": "#searchResults .case-result"
-        }
-      ],
+      "via": "nav.primary-groups [data-group='research']",
+      "target": "#searchResults",
+      "cardPos": "bottom-right",
       "timeout": 45,
-      "say": "First, a search for a case by name: Vavilov.",
+      "say": "This is the search bar, where research starts. We will begin with a simple search for a well known decision.",
+      "sayTarget": "#caseSearch",
       "act": [
         {
           "do": "type",
@@ -162,34 +177,36 @@
           "timeout": 45
         }
       ],
-      "lead": "First, let's go to Research",
-      "leadText": "Press Next and the tour will open Research, where most work starts.",
-      "via": "nav.primary-groups [data-group='research']",
-      "cardPos": "bottom-right"
+      "text": "Search results display key information such as the citation, court, date, judge, outcome and how many decisions cite the case. Now, let's open up and make use of some advanced search features."
     },
     {
       "id": "sh-filters",
       "section": "Research",
       "url": "/data-explorer?tab=search",
-      "title": "Narrow it down with filters",
+      "title": "Filters",
       "target": ".sp-rail",
       "broad": true,
       "auto": true,
+      "early": true,
+      "cardPos": "bottom-right",
       "timeout": 45,
       "act": [
         {
           "do": "click",
           "selector": "#clearSearchTop",
-          "when": "#searchQuery:not(:placeholder-shown)"
+          "when": "#searchQuery:not(:placeholder-shown)",
+          "quiet": true
         },
         {
           "do": "click",
           "selector": "#toggleAdvancedSearch",
-          "unless": "#searchPanel.sp-adv"
+          "unless": "#searchPanel.sp-adv",
+          "quiet": true
         },
         {
           "do": "wait",
-          "ms": 500
+          "ms": 400,
+          "quiet": true
         },
         {
           "do": "check",
@@ -280,18 +297,120 @@
           "timeout": 45
         }
       ],
-      "text": "The filters on the left narrow any search and all combine. The tour ticked the Refugee protection group, added the tags cessation and Sri Lanka, chose Government won and pressed Search. Case types and tags are a work in progress. Next it opens Veerasingam v. Canada from this list."
+      "text": "Filters are used to narrow search results. Combine multiple filters and hit apply to search for cases meeting all of those criteria."
+    },
+    {
+      "id": "sh-results",
+      "section": "Research",
+      "url": "/data-explorer?tab=search",
+      "title": "Filtered results",
+      "target": "#searchResults",
+      "also": [
+        {
+          "sel": ".sp-head"
+        }
+      ],
+      "cardPos": "bottom-right",
+      "timeout": 45,
+      "before": [
+        {
+          "do": "click",
+          "selector": "#toggleAdvancedSearch",
+          "unless": "#searchPanel.sp-adv",
+          "quiet": true
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-all"
+        },
+        {
+          "do": "type",
+          "selector": "#tagSearch",
+          "text": "cessation",
+          "unless": {
+            "css": "#tagChips .sp-tag",
+            "text": "^\\s*cessation"
+          }
+        },
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#tagPickList button[data-v]",
+            "text": "^cessation"
+          },
+          "timeout": 10,
+          "unless": {
+            "css": "#tagChips .sp-tag",
+            "text": "^\\s*cessation"
+          },
+          "nudge": "#tagSearch"
+        },
+        {
+          "do": "click",
+          "selector": "#tagPickList button[data-v]",
+          "match": "^cessation",
+          "unless": {
+            "css": "#tagChips .sp-tag",
+            "text": "^\\s*cessation"
+          }
+        },
+        {
+          "do": "type",
+          "selector": "#tagSearch",
+          "text": "sri lanka",
+          "unless": {
+            "css": "#tagChips .sp-tag",
+            "text": "^\\s*sri[ _]lanka"
+          }
+        },
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#tagPickList button[data-v]",
+            "text": "^sri[ _]lanka"
+          },
+          "timeout": 10,
+          "unless": {
+            "css": "#tagChips .sp-tag",
+            "text": "^\\s*sri[ _]lanka"
+          },
+          "nudge": "#tagSearch"
+        },
+        {
+          "do": "click",
+          "selector": "#tagPickList button[data-v]",
+          "match": "^sri[ _]lanka",
+          "unless": {
+            "css": "#tagChips .sp-tag",
+            "text": "^\\s*sri[ _]lanka"
+          }
+        },
+        {
+          "do": "click",
+          "selector": "#quickFilters .qf-chip[data-qf='outcome'][data-value='won']",
+          "unless": "#quickFilters .qf-chip[data-qf='outcome'][data-value='won'].is-active"
+        },
+        {
+          "do": "click",
+          "selector": "#caseSearch .sq-go[type='submit']",
+          "unless": "#searchResults .case-result"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#searchResults .case-result",
+          "timeout": 45
+        }
+      ],
+      "text": "We have 16 cases in the library that are classified as refugee protection, contain both the cessation and Sri Lanka tags, and were won by the government. Let's continue and open the top result, Veerasingam v. Canada."
     },
     {
       "id": "sh-reader",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "The reader",
-      "text": "This is the reader. It has three parts. The header across the top gives the title, court, outcome, citation, date decided and decision maker, with a link back to the search and a button to save the decision to the Workbench. The side panel on the left holds what iLit found in the decision. The reader itself, on the right, shows the decision as a clean document with numbered paragraphs.",
       "target": "#caseReaderPanel",
       "top": true,
-      "lead": "Next, let's open Veerasingam v. Canada",
-      "leadText": "Press Next and the tour will open this refugee cessation decision, which it uses for the rest of the tour.",
+      "cardPos": "bottom-right",
       "via": "#searchResults .case-result[data-case-id='{cessation}']",
       "before": [
         {
@@ -309,7 +428,126 @@
           "ms": 600
         }
       ],
-      "cardPos": "bottom-right"
+      "text": "This is the reader. It is comprised of three main sections, the header, the side panel, and the decision text."
+    },
+    {
+      "id": "sh-text",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "The decision",
+      "target": ".reader-pane.source",
+      "broad": true,
+      "cardPos": "bottom-left",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ],
+      "text": "The decision has been pulled from the FC Website, the text has been processed, and displayed in a formatted, easy to read way. iLIT marks what it has identified in the text with coloured highlights: case to case citations in gold, law and statute references in purple, and keyword tags in green. Let's continue, and see what a case to case citation looks like in the reader."
+    },
+    {
+      "id": "sh-cite-hover",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "Citations",
+      "target": [
+        {
+          "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)",
+          "text": "Camayo"
+        },
+        {
+          "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
+          "pin": true
+        },
+        "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
+      ],
+      "explore": true,
+      "cardPos": "bottom-left",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
+        {
+          "do": "scroll",
+          "selector": "#decisionBody .fmt-para",
+          "by": 0,
+          "ms": 10
+        }
+      ],
+      "text": "iLIT has connected every reference to its source in the database, meaning that users can see the text being referred to without leaving the site. Try hovering your mouse over the yellow highlighted Camayo citation to see the text preview."
+    },
+    {
+      "id": "sh-cite-card",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "Citation cards",
+      "target": "#decisionBody .v6-card2.v6-case",
+      "auto": true,
+      "explore": true,
+      "cardPos": "bottom-left",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ],
+      "timeout": 12,
+      "act": [
+        {
+          "do": "click",
+          "selector": [
+            {
+              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)",
+              "text": "Camayo"
+            },
+            {
+              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
+              "pin": true
+            },
+            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
+          ],
+          "unless": "#decisionBody .v6-card2.v6-case",
+          "high": true
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .v6-card2.v6-case",
+          "timeout": 8
+        }
+      ],
+      "text": "Each citation can be expanded out, and opened as a paragraph in the decision. The pin icon keeps it from disappearing, the i icon will provide more information in the side panel. Let's move on to the side panel next."
     },
     {
       "id": "sh-side-about",
@@ -319,6 +557,7 @@
       "target": ".reader-pane.target",
       "broad": true,
       "auto": true,
+      "explore": true,
       "cardPos": "bottom-right",
       "before": [
         {
@@ -348,7 +587,7 @@
           "ms": 900
         }
       ],
-      "text": "The About tab holds the title and citation, the recorded outcome, the decision maker, how many decisions cite this one and how many cases and statutes it cites, the case details, and the topics found in the text with how often each appears."
+      "text": "The side panel has three main sections. Feel free to scroll down to view each one more fully. The first section is called About. It sums up the case: the outcome, the decision maker, how many decisions cite it and what it cites, and the topics found in the text."
     },
     {
       "id": "sh-side-auth",
@@ -358,6 +597,7 @@
       "target": ".reader-pane.target",
       "broad": true,
       "auto": true,
+      "explore": true,
       "cardPos": "bottom-right",
       "before": [
         {
@@ -387,63 +627,17 @@
           "ms": 900
         }
       ],
-      "text": "The Authorities tab lists every case and statute the decision cites, with how many times and at which paragraphs, so you can move through the decision by its citations."
-    },
-    {
-      "id": "sh-side-judge",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "The side panel: Intelligence, the judge",
-      "target": ".reader-pane.target",
-      "broad": true,
-      "auto": true,
-      "cardPos": "bottom-right",
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        }
-      ],
-      "timeout": 20,
-      "act": [
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='intel']",
-          "unless": "#decisionTarget [data-v6-tab='intel'].on"
-        },
-        {
-          "do": "wait",
-          "ms": 900
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-isub='judge']"
-        },
-        {
-          "do": "wait",
-          "ms": 900
-        }
-      ],
-      "text": "The Intelligence tab opens with a judge snapshot: who decided this case, their decisions in the library and how often each side succeeded. Judge names are still being cleaned up, so a count can look thin. The full version is the Judge profiles page, which we visit later."
+      "text": "The Authorities tab groups and lists all citations and statutes that iLIT has identified within this decision. This can be used to navigate the decision."
     },
     {
       "id": "sh-side-cite",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
-      "title": "The side panel: Intelligence, citations",
+      "title": "The side panel: Intelligence",
       "target": ".reader-pane.target",
       "broad": true,
       "auto": true,
+      "explore": true,
       "cardPos": "bottom-right",
       "before": [
         {
@@ -481,53 +675,18 @@
           "ms": 900
         }
       ],
-      "text": "The other half of the Intelligence tab is a citation snapshot: how many decisions have cited this one, and with what results. The full version is Citation Intelligence, which we also visit later."
+      "text": "The final section of the side panel, Intelligence, has two subsections, Citation Intelligence, and Judge Profiles. Both default to the current case. Intelligence shows information from iLIT about how this case connects to others in the Library."
     },
     {
-      "id": "sh-text",
+      "id": "sh-side-judge",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
-      "title": "The decision itself",
-      "target": ".reader-pane.source",
-      "broad": true,
-      "cardPos": "bottom-left",
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        }
-      ],
-      "during": [
-        {
-          "do": "scroll",
-          "selector": "#decisionBody .fmt-para",
-          "by": 2600,
-          "ms": 26000,
-          "delay": 1500,
-          "back": true
-        }
-      ],
-      "text": "The decision is formatted with its numbered paragraphs. iLit marks what it finds in the text: citations to other cases in gold, statutes and regulations in purple, and topic tags in green. The buttons above the text turn each colour on or off. Everything marked comes from fixed rules read against the decision, and nothing is added to the text itself."
-    },
-    {
-      "id": "sh-cite-hover",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "A citation, previewed",
-      "target": ".reader-pane.source",
+      "title": "The side panel: Judge Profiles",
+      "target": ".reader-pane.target",
       "broad": true,
       "auto": true,
-      "cardPos": "bottom-left",
+      "explore": true,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -544,79 +703,27 @@
           "ms": 600
         }
       ],
-      "settle": 400,
-      "act": [
-        {
-          "do": "hover",
-          "selector": [
-            {
-              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-              "pin": true
-            },
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ],
-          "high": 0.6
-        },
-        {
-          "do": "waitFor",
-          "selector": ".reader-hover-tooltip.is-visible",
-          "timeout": 4
-        }
-      ],
-      "text": "Hovering the mouse over a gold citation that names a paragraph shows the text of that paragraph, taken from the cited decision in the library. You can check what a case is being used for without leaving the page. That is the hover card. The next card shows what a click does."
-    },
-    {
-      "id": "sh-cite-card",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "A citation, opened",
-      "target": ".reader-pane.source",
-      "broad": true,
-      "auto": true,
-      "cardPos": "bottom-left",
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        }
-      ],
+      "timeout": 20,
       "act": [
         {
           "do": "click",
-          "selector": [
-            {
-              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-              "pin": true
-            },
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ],
-          "unless": "#decisionBody .v6-card2.v6-case",
-          "high": true
+          "selector": "#decisionTarget [data-v6-tab='intel']",
+          "unless": "#decisionTarget [data-v6-tab='intel'].on"
         },
         {
-          "do": "waitFor",
-          "selector": "#decisionBody .v6-card2.v6-case",
-          "timeout": 6
+          "do": "wait",
+          "ms": 900
         },
         {
           "do": "click",
-          "selector": "#decisionBody .v6-card2.v6-case .v6-pinbtn",
-          "unless": "#decisionBody .v6-card2.v6-case.is-pinned"
+          "selector": "#decisionTarget [data-v6-isub='judge']"
+        },
+        {
+          "do": "wait",
+          "ms": 900
         }
       ],
-      "text": "A click opens the cited passage as a card under the paragraph, in full. The pin keeps a card open while you keep reading, so a passage can be checked against the reasons. Double-clicking a citation opens that decision in a new tab. Statutes work the same way."
+      "text": "The judge profile gives general insights into the decision maker for this decision."
     },
     {
       "id": "sh-explore-reader",
@@ -625,6 +732,7 @@
       "title": "Explore the reader",
       "explore": true,
       "cardPos": "bottom-right",
+      "hint": "Click Next to continue the tour.",
       "before": [
         {
           "do": "waitFor",
@@ -650,26 +758,42 @@
           "ms": 400
         }
       ],
-      "text": "Your turn. Scroll through the decision, hover over citations, open and pin cards, and click through the side panel tabs. Clicks that would take you to another page are paused during this step, so you cannot lose your place. Click Next when you are done and we will move on to Intelligence and Statistics."
+      "text": "Feel free to spend a few minutes and explore the reader's functionality. When you are ready, click Next to proceed with the tour and continue to the main intelligence and statistics tabs."
+    },
+    {
+      "id": "sh-next-intel",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "Next, Intelligence / Statistics",
+      "text": "Let's continue and open up the next main section of the website.",
+      "target": "nav.primary-groups [data-group='intel']"
+    },
+    {
+      "id": "sh-ci-intro",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=citation-intelligence",
+      "title": "Citation Intelligence",
+      "via": "nav.primary-groups [data-group='intel']",
+      "target": "#ciSearch",
+      "top": true,
+      "cardPos": "bottom-right",
+      "text": "This page is used to find the full citation intelligence features for decisions in the database. Let's return to a popular decision and search for Vavilov."
     },
     {
       "id": "sh-ci",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=citation-intelligence",
       "title": "Citation Intelligence",
-      "lead": "Next, Intelligence / Statistics",
-      "leadText": "Press Next and the tour will open Citation Intelligence, the full version of the reader's citation snapshot.",
-      "point": "nav.primary-groups [data-group='intel']",
-      "target": "#citationIntelligencePanel",
-      "broad": true,
       "auto": true,
+      "explore": true,
+      "cardPos": "top-right",
       "timeout": 45,
-      "cardPos": "bottom-right",
+      "hint": "Click Next to continue the tour.",
       "act": [
         {
           "do": "type",
           "selector": "#ciSearch",
-          "text": "Vavilov",
+          "text": "vavilov",
           "unless": "#ciBody .ix-hero"
         },
         {
@@ -690,21 +814,17 @@
           "timeout": 40
         }
       ],
-      "text": "The tour searched for Vavilov, the Supreme Court's leading decision on judicial review, by typing its name and picking it from the list. The figures count the decisions in the library that cite it. Outcomes are read by rules and can be wrong, so check the decision itself."
+      "text": "This is the intelligence page for Vavilov. Feel free to scroll and take a look at the information available for this case. When ready, press Next to continue to Judge Profiles."
     },
     {
       "id": "sh-judges",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=judge-profile",
-      "title": "Judge profiles",
-      "lead": "Next, judge profiles",
-      "leadText": "Press Next and the tour will open the full version of the reader's judge snapshot.",
+      "title": "Judge Profiles",
       "via": "#researchViews [data-tab='judge-profile']",
-      "target": "#judgeProfilePanel",
-      "broad": true,
-      "auto": true,
-      "timeout": 45,
-      "cardPos": "bottom-right",
+      "explore": true,
+      "cardPos": "top-right",
+      "hint": "Click Next to continue the tour.",
       "before": [
         {
           "do": "waitFor",
@@ -712,67 +832,29 @@
           "timeout": 45
         }
       ],
-      "act": [
-        {
-          "do": "type",
-          "selector": "#jpSearch",
-          "text": "Brouwer"
-        },
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#jpList .jp-item",
-            "text": "Brouwer"
-          },
-          "timeout": 10
-        },
-        {
-          "do": "click",
-          "selector": "#jpList .jp-item",
-          "match": "Brouwer"
-        },
-        {
-          "do": "waitFor",
-          "selector": "#jpMain .ci-header, #jpMain h2, #jpMain h3",
-          "timeout": 15
-        }
-      ],
-      "text": "The tour searched for Justice Brouwer by typing the name in the list and opening the profile. It shows the judge's decisions and how often each side succeeded. The list is still being cleaned up, so counts are a guide."
+      "timeout": 45,
+      "text": "This page provides a profile for each Judge identified in the database by iLIT. Try for yourself, search for a name in the search box, and explore the profile of that Judge. When you are ready, press Next to continue to the next section."
+    },
+    {
+      "id": "sh-fc-data",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=judge-profile",
+      "title": "FC Activity Data",
+      "text": "This next tab sets iLIT apart from any other available platform out there. Every other site is built upon published decisions. However, the vast majority of cases we work with never reach a final decision. This is a huge blindspot when we are trying to get an understanding of the litigation landscape.",
+      "target": "#researchViews [data-tab='fc-analytics']",
+      "cardPos": "bottom-right"
     },
     {
       "id": "sh-fc",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "FC Analytics",
-      "lead": "Next, FC Analytics",
-      "leadText": "Press Next and the tour will open the last page in this section.",
+      "title": "FC Activity Analytics",
       "via": "#researchViews [data-tab='fc-analytics']",
-      "target": "#fcAnalyticsPanel",
-      "broad": true,
-      "needsData": true,
-      "timeout": 12,
-      "cardPos": "bottom-right",
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#fcxStatus",
-            "text": "files in|unavailable"
-          },
-          "timeout": 30
-        }
-      ],
-      "text": "FC Analytics covers Federal Court immigration files, including the many that never reach a published decision. It is built from the Court's own registry. Next, the page opens for you to explore."
-    },
-    {
-      "id": "sh-fc-explore",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "Explore FC Analytics",
       "explore": true,
       "needsData": true,
       "timeout": 12,
-      "cardPos": "bottom-right",
+      "cardPos": "top-right",
+      "hint": "Click Next to continue the tour.",
       "before": [
         {
           "do": "waitFor",
@@ -783,18 +865,25 @@
           "timeout": 30
         }
       ],
-      "text": "Your turn. Change the years filed, click a bar or a year to drill in, and scroll down to timing, deadlines, refusals and the decision makers under review. Clicks that would take you to another page are paused during this step. Click Next when ready to move on to the Analyst workbench."
+      "text": "iLIT contains the FC Activity information of every single IMM case ever filed in the Federal Court. This information was pulled and collected, and is valuable in that it can provide additional context and statistics that no other site can. Feel free to scroll and view the charts. The filters above will change the charts below."
+    },
+    {
+      "id": "sh-next-wb",
+      "section": "Workbench",
+      "url": "/data-explorer?tab=fc-analytics",
+      "title": "Let's continue, and check out the Analyst Workbench",
+      "text": "",
+      "target": "nav.primary-groups a.primary-link[href='/workbench']"
     },
     {
       "id": "sh-workbench",
       "section": "Workbench",
       "url": "/workbench",
-      "title": "The analyst workbench",
-      "text": "The workbench is still in development. Eventually each analyst will have a log in and a space of their own for files, a case list, saved decisions and notes. The case list is meant to flag when the Federal Court docket moves on an analyst's IMM files. The demonstration account has no password.",
-      "target": "#appView",
-      "lead": "Next, the Analyst workbench",
-      "leadText": "Press Next and the tour will open it.",
+      "title": "The Analyst Workbench",
       "via": "nav.primary-groups a.primary-link[href='/workbench']",
+      "target": "#view-home .homegrid > .stack:first-child > .card:first-child",
+      "top": true,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -805,22 +894,45 @@
           "timeout": 20
         }
       ],
-      "broad": true,
-      "cardPos": "bottom-left"
+      "text": "This feature is still in development. It will serve as a personal log in page, allowing users to track their live IMM number cases, pin case law decisions, and much more. You are now signed in to a demo account."
     },
     {
-      "id": "sh-la-intro",
+      "id": "sh-next-la",
+      "section": "Live analysis",
+      "url": "/workbench",
+      "title": "Finally, Live Analysis.",
+      "text": "",
+      "target": "#tab-live"
+    },
+    {
+      "id": "sh-la-1",
       "section": "Live analysis",
       "url": "/live-analysis",
-      "title": "Live analysis",
-      "text": "Live analysis lets an analyst plug in any Word file, text PDF or pasted draft, such as a memorandum of argument or a decision. iLit reads it with the same rules it uses on every decision in the library, so citations and statutes are recognised and linked. The document is read in memory, never saved, and never sent to an AI model.",
-      "target": "#liveAnalysisPanel",
+      "title": "Live Analysis",
+      "via": "#tab-live",
+      "top": true,
       "fresh": true,
-      "lead": "Next, Live analysis",
-      "leadText": "Press Next and the tour will open it.",
-      "point": "#tab-live",
-      "broad": true,
-      "cardPos": "bottom-right"
+      "cardPos": "right-middle",
+      "cardSize": "large",
+      "text": "The iLIT website is built entirely on processing text. What this means is that it works not just on court decisions, but on any text. This opens up an incredibly useful feature: live analysis."
+    },
+    {
+      "id": "sh-la-2",
+      "section": "Live analysis",
+      "url": "/live-analysis",
+      "title": "Live Analysis",
+      "cardPos": "right-middle",
+      "cardSize": "large",
+      "text": "A user can drag and drop a word or PDF document onto the page, and 'plug it in' to the website. iLIT can read the text, highlight citations, and link the document to the library in the same way any case would be linked."
+    },
+    {
+      "id": "sh-la-3",
+      "section": "Live analysis",
+      "url": "/live-analysis",
+      "title": "Live Analysis",
+      "cardPos": "right-middle",
+      "cardSize": "large",
+      "text": "The file itself is never sent to any external databases, and is not stored. This also uses no AI, it is all simply computer code."
     },
     {
       "id": "sh-la-drop",
@@ -830,7 +942,7 @@
       "target": "#liveAnalysisPanel",
       "broad": true,
       "cardPos": "bottom-right",
-      "say": "We will drop in a fabricated Word document to demonstrate the functionality.",
+      "say": "Let's demonstrate this functionality. We will drop in a made up word document and iLIT will process it, just like it has processed the 75k decisions in the database. The difference is, this process happens on your computer, and the document is never saved by iLIT.",
       "sayTarget": "#liveAnalysisPanel",
       "act": [
         {
@@ -899,24 +1011,17 @@
           "when": "#laModalClose"
         }
       ],
-      "text": "iLit went through the memo line by line. The counts show the case citations and statute references it found. Each one is marked in the text, as in the reader, so it can be previewed, opened as a card and pinned. A citation to a case in the library, such as Baker, links to that decision."
+      "text": "iLIT went through the memo line by line. The counts show the case citations and statute references it found. Each one is marked in the text, as in the reader, so it can be previewed, opened as a card and pinned. A citation to a case in the library, such as Baker, links to that decision."
     },
     {
       "id": "sh-wrap",
       "section": "Summing up",
       "url": "/data-explorer?tab=about",
-      "title": "What is live, and what is not",
-      "text": "Live today: search, the reader, citation and judge pages, Federal Court analytics and Live analysis. The Workbench is still being built. Still being improved: plain-word search, case types and tags, and judge names. iLit is built around the Federal Court, the Federal Court of Appeal and the Supreme Court. It is a research aid, not legal advice. To finish, explore what is coming soon.",
+      "title": "That is the tour",
+      "via": "#brandHome, .topbar a[href^='/data-explorer?tab=about']",
       "target": "#homeButtons",
       "top": true,
-      "lead": "Let's go back to the home page and wrap up the tour.",
-      "leadText": "A short summary of what is live and what is still being built.",
-      "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']",
-      "also": [
-        {
-          "sel": "#homeNot"
-        }
-      ]
+      "text": "iLIT searches and reads Federal Court, Federal Court of Appeal and Supreme Court decisions, shows how they connect through citations, profiles the judges, adds Federal Court activity data no other site has, and can read your own documents without saving them. The Workbench is still being built. Feel free to check out the 'see what is coming' section, or spend more time using the site."
     }
   ]
 }

@@ -204,8 +204,8 @@
 /* full citation intelligence: a clear button at the bottom of the view */
 .v6-link{display:block;margin-top:16px;padding:9px 12px;text-align:center;border:1px solid var(--text,#202522);border-radius:6px;background:var(--text,#202522);color:#fff;font-size:14px;font-weight:700;text-decoration:none}.v6-link:hover{text-decoration:none;opacity:.92}
 
-/* click-card buttons: i (open in Intelligence) and pin */
-.v6-card2{padding-right:92px}
+/* click-card buttons: i (open in Intelligence) and pin; only the heading lines keep clear of them, so the cited text fills the card */
+.v6-card2{padding-right:14px}.v6-card2 .v6-ck,.v6-card2 .v6-ct2,.v6-card2 .v6-cl,.v6-card2 .v6-cw{padding-right:84px}
 .v6-cbtns{position:absolute;top:8px;right:10px;display:flex;gap:6px}
 .v6-cbtns .v6-pinbtn{position:static}
 .v6-ibtn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;color:var(--teal,#176c68);cursor:pointer;padding:0}.v6-ibtn:hover{border-color:var(--teal,#176c68);background:#edf5f3}.v6-ibtn:disabled{color:#b9b5a6;cursor:not-allowed;background:#f6f4ec}
@@ -216,7 +216,7 @@
  .v6-actions button,.v6-actions a{border:1px solid var(--border,#d8d5ca)!important;border-radius:6px;background:#fff}
  .v6-tabs .v6-collapse,.v6-ititle .v6-collapse{display:none}
  .v6-ititle{padding-right:16px}
- .v6-card2{padding-right:84px}
+ .v6-card2{padding-right:14px}
 }
 .v6-actions:empty{display:none}
 .v6-outnote{flex-basis:100%;margin:0!important}
@@ -287,7 +287,8 @@ body:not(.reader-experimental) .v6-exp{display:none!important}
  .v6-ititle{background:var(--v6-paper)}
  /* click cards: as wide as the text column, text scrolls after six lines */
  .v6-card2{margin:2px 0 16px 0;max-width:none;width:auto;box-sizing:border-box}
- .v6-card2 .v6-cscroll{font-size:16px;line-height:1.55;max-height:calc(1.55em*6);overflow-y:auto;overscroll-behavior:contain;padding-right:8px}
+ .v6-card2 .v6-cscroll{font-size:16px;line-height:1.55;max-height:calc(1.55em*6);overflow-y:auto;overscroll-behavior:contain;padding-right:8px;scrollbar-width:auto;scrollbar-color:#9a8a45 #f1e8b8}
+ .v6-card2 .v6-cscroll::-webkit-scrollbar{width:12px}.v6-card2 .v6-cscroll::-webkit-scrollbar-track{background:#f1e8b8;border-radius:6px}.v6-card2 .v6-cscroll::-webkit-scrollbar-thumb{background:#9a8a45;border-radius:6px;border:2px solid #f1e8b8}
  .v6-card2 .v6-cscroll .v6-cited:last-child p:last-child,.v6-card2 .v6-cscroll .v6-cited:last-child blockquote:last-child{margin-bottom:0}
 }
 /* phones: back link, title, details line, then Save to Workbench */

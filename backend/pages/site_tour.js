@@ -393,8 +393,9 @@
       }
       var kept=STEPS[state&&state.i]||{};
       if(kept.cardPos&&ui.card.getAttribute('data-phase')==='show'&&b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){
+        var cw=ui.card.offsetWidth,cl=kept.cardPos==='bottom-left'?24:vw-cw-24;
         var cardTop=floor-ui.card.offsetHeight-14-pad-4;           // a page taller than the screen: the ring stops where the corner card starts, so the card never covers what is lit
-        if(cardTop-b.top>=200)y2=Math.min(y2,cardTop);
+        if(cl<b.right+pad&&cl+cw>b.left-pad&&cardTop-b.top>=200)y2=Math.min(y2,cardTop);   // (only when the card is over the ring: a card on the other side leaves the whole region lit)
       }
       var minH=Math.min(40,b.height),minW=Math.min(24,b.width);   // a sliver at the edge of the screen is not worth a ring
       holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y)}:null);
@@ -449,9 +450,12 @@
     var c=ui.card;
     var cur=STEPS[state&&state.i]||{};
     var phase=c.getAttribute('data-phase');
-    if(cur.cardPos&&(phase==='show'||phase==='say')){   // whole-page highlights and explore steps: the card waits in a bottom corner, above the control bar
+    if(cur.cardPos&&(phase==='show'||phase==='say')){   // whole-page highlights and explore steps: the card waits in a corner, above the control bar
       if(c.style.width)c.style.width='';
-      setCard(cur.cardPos==='bottom-left'?24:Math.max(14,vw-c.offsetWidth-24),Math.max(14,floor-c.offsetHeight-14),'left','');return;
+      var pos=ui.collapsed?'bottom-right':cur.cardPos,cx=pos==='bottom-left'?24:Math.max(14,vw-c.offsetWidth-24),cy=Math.max(14,floor-c.offsetHeight-14);
+      if(pos==='top-right'){cy=14;keepClear().forEach(function(k){cy=Math.max(cy,k.y+k.h+12)})}   // under the site's header and any pinned bar
+      else if(pos==='right-middle')cy=Math.max(14,Math.round((floor-c.offsetHeight)/2));
+      setCard(cx,cy,'left','');return;
     }
     if(cardAt&&gliding)return;
     if(cardAt){
@@ -878,6 +882,9 @@
     }
     // the pointer has done its job once the card speaks: it goes, so it never sits on the card (a hover result keeps it)
     if(!pending&&!(mode==='show'&&(s.hover||(s.act||[]).some(function(a){return a.do==='hover'}))))hidePointer();
+    if(!pending&&(u.cardStep!==s.id||mode!=='show')){u.collapsed=false;u.cardStep=s.id}   // a step starts with its full card
+    u.card.classList.toggle('large',s.cardSize==='large');
+    collapseCard(!pending&&mode==='show'&&u.collapsed);
     u.count.textContent='Step '+(i+1)+' of '+STEPS.length;
     clearTimeout(u.slow);
     if(pending)u.slow=setTimeout(function(){if(ui&&ui.card.classList.contains('pending'))ui.count.textContent='Loading…'},900);   // only a slow step says so
@@ -901,6 +908,27 @@
     if(!watch)follow();
     if(!pending){try{u.next.focus({preventScroll:true})}catch(e){}}
   }
+  // An explore step with a "hint": the first time the visitor scrolls, clicks or moves the mouse over the page, the card shrinks to
+  // the hint (click Next to continue) at the foot of the screen, so it stops covering what they came to look at.
+  function collapseCard(on){
+    if(!ui)return;
+    var s=STEPS[state&&state.i]||{};
+    ui.card.classList.toggle('hint',!!on);
+    if(on){ui.kicker.textContent='';ui.title.textContent='';ui.text.textContent=s.hint||'';ui.extra.textContent=''}
+  }
+  var moved=0,lastMouse=null;
+  function touched(e){
+    if(!ui||!exploring||!e.isTrusted||ui.collapsed)return;
+    var s=STEPS[state&&state.i]||{};
+    if(!s.hint||(e.target&&e.target.closest&&e.target.closest('.ilit-tour')))return;
+    if(e.type==='mousemove'){
+      if(lastMouse)moved+=Math.abs(e.clientX-lastMouse.x)+Math.abs(e.clientY-lastMouse.y);
+      lastMouse={x:e.clientX,y:e.clientY};
+      if(moved<160)return;
+    }
+    ui.collapsed=true;collapseCard(true);place();
+  }
+  ['wheel','mousedown','keydown','touchstart','mousemove'].forEach(function(t){window.addEventListener(t,touched,{capture:true,passive:true})});
   function ready(i,mode){                                           // the card is up and Next is live: note how long it took
     var s=STEPS[i];
     var ms=state&&state.t0?Date.now()-state.t0:0;window.__ilitTourTimes[s.id+(mode==='show'?'':':'+mode)]=ms;ui.card.setAttribute('data-ms',String(ms));
@@ -946,6 +974,7 @@
         render(i,spot?[{node:spot,sel:null}]:[],'lead');ready(i,'lead');
         return;
       }
+      if(state.phase==='enter'&&direction>0&&(s.via||s.point)&&!s.lead)return navigate(i,url,token,true);   // a step on another page: the pointer goes to the tab and presses it (the card before it said where)
       return navigate(i,url,token,false);
     }
     state.nav=null;
@@ -987,16 +1016,23 @@
     render(i,null,'pending');
     try{
       var lit=false;
-      var light=function(){                                        // the whole region stays lit while the pointer works inside it
+      var light=async function(){                                  // the whole region stays lit while the pointer works inside it
         if(lit||!s.broad||!s.target||!ui)return;
         var region=findVisible(s.target);
-        if(region){lit=true;ui.items=itemsFor(s,region);place()}
+        if(region){
+          lit=true;ui.items=itemsFor(s,region);place();
+          if(s.early){await showWhole(ui.items,0,token);await sleep(reduce?0:900)}   // the highlight settles on the region before anything moves
+        }
       };
-      light();
+      if(s.early){                                                 // the card changes first, so the words lead the picture; Next waits until the result
+        state.phase='early';save(state);
+        render(i,null,'show');ui.next.disabled=true;ui.card.removeAttribute('data-ms');
+      }
+      await light();
       for(var k=0;k<s.act.length;k++){
-        var ok=await doAction(s.act[k],token,true);
+        var ok=await doAction(s.act[k],token,!s.act[k].quiet);
         if(token!==run)return;
-        light();
+        await light();
         if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token,'act');
       }
       await settleScroll(token);
@@ -1082,7 +1118,7 @@
   }
   function go(d){
     if(!state||!ui)return;
-    if(ui.card.classList.contains('pending')&&d>0)return;          // one press, one move: wait for this one to finish
+    if((ui.card.classList.contains('pending')||state.phase==='early')&&d>0)return;   // one press, one move: wait for this one to finish
     var i=state.i||0;
     state.t0=Date.now();
     if(d>0&&state.phase==='lead'){direction=1;var tk=++run;render(i,null,'pending');return resolveUrl(STEPS[i].url).then(function(u){if(tk===run)return u==null?skipOver(i,tk):navigate(i,u,tk,true)})}

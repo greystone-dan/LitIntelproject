@@ -50,7 +50,7 @@ def test_reader_v6_side_panel_changes():
     assert "data-v6-outl-toggle" in js and "COMING SOON" in js
     # Each authority shows its actions up front, with previous and next arrows on Find.
     assert 'data-v6-dir="-1"' in js and 'data-v6-dir="1"' in js
-    assert "Citation intelligence</button>" in js and "Full case" in js
+    assert 'aria-label="Citation intelligence"' in js and "Open the full case in a new tab" in js
     # Full FC activity opens in a new window.
     assert "Full FC activity ↗" in js and 'target="_blank" rel="noopener">Full FC activity' in js
 
@@ -129,4 +129,22 @@ def test_reader_v6_units_use_the_servers_printed_numbers_when_present():
     assert rows[0]["first"] == 88 and rows[0]["last"] == 95 and rows[0]["start"] == 500
     assert rows[0]["parties"] == [{"party": "respondent", "label": "Respondent", "nums": [90]}]
     # FC history only exists for IMM dockets, so FCA (A-...) cases get no FC activity link.
-    assert js.count("/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)") == 2
+    assert js.count("/^IMM-[0-9]{1,6}-[0-9]{2,4}$/i.test(docket)") == 1
+
+
+def test_reader_v6_theme_a_header_about_and_citation_card():
+    js = (PAGES / "reader_v6.js").read_text(encoding="utf-8")
+    css = (PAGES / "reader_v6.css").read_text(encoding="utf-8")
+    # The header card keeps the ids the site tour points at, and Copy citation / Case source moved into About.
+    assert 'id="v6SaveWb"' in js and "v6-facts-strip" in js and 'data-v6-go="judge"' in js
+    assert "data-v6-copy>Copy citation" in js and "Case source ↗" in js
+    # The outcome row no longer has a Go to Disposition button; the About tab has the new sections.
+    assert "Go to ${" not in js and "Go to Disposition" not in js
+    assert "Key facts" in js and "In the library" in js and "Decision maker" in js
+    # Citation cards are as wide as the text and show six lines before scrolling.
+    assert ".v6-card2{margin:2px 0 16px 0;max-width:none" in css
+    # Six lines exactly: 16px type at 1.55 line height, box height 6 x 1.55em, no vertical padding on the scroll box.
+    rule = css[css.rindex(".v6-card2 .v6-cscroll{"):]
+    rule = rule[:rule.index("}")]
+    assert "font-size:16px" in rule and "line-height:1.55" in rule and "max-height:calc(1.55em*6)" in rule
+    assert "padding-top" not in rule and "padding-bottom" not in rule and "padding:" not in rule.replace("padding-right", "")

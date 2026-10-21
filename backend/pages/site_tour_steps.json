@@ -6,9 +6,9 @@
       "label": "Vavilov"
     },
     "cessation": {
-      "citation": "2025 FC 321",
+      "citation": "2024 FC 639",
       "label": "the tour's cessation decision",
-      "id": 8,
+      "id": 27996,
       "search": "/analytics/search/cases?tags=cessation%2Csri%20lanka&government_outcome=won&case_type=refugee_cessation&sort_by=newest&limit=1&facets=0&citation_stats=0",
       "note": "Veerasingam v. Canada, a refugee cessation decision the Minister won; the newest result of the filter demo (Daniel's pick, 10-09)"
     }
@@ -2126,8 +2126,7 @@
       "section": "Welcome",
       "url": "/data-explorer?tab=about",
       "title": "What iLit is",
-      "note": "PLACEHOLDER: replaced by the About-page mock-up screen (a separate thread is designing it).",
-      "text": "iLit is a case law library of immigration litigation decisions. It is designed to give more analytical insight than a plain search can, so that CBSA litigators can do better research and improve outcomes. This short tour shows the main features. Press Next to move along, Back to go back, or Exit at any time. The mouse moves and clicks for you, and before each move to a new page the card tells you where you are going next. Everything shown is the live site; the one sample memo is fictional. Where something is still being built, the card says so.",
+      "text": "iLit is a case law library of immigration litigation decisions, built for the CBSA Hearings and Litigation Division. It is designed to give more analytical insight than a plain search can, so that litigators can do better research and improve outcomes. This short tour shows the main features. Press Next to move along, Back to go back, or Exit at any time. The mouse moves and clicks for you, and before each move to a new page the card tells you where you are going next. Everything shown is the live site; the one sample memo is fictional. Where something is still being built, the card says so.",
       "target": "#homeIntro",
       "top": true
     },
@@ -2140,7 +2139,7 @@
       "target": "#caseSearch",
       "also": [
         {
-          "sel": "#caseSearch"
+          "sel": "#searchResults .case-result"
         }
       ],
       "timeout": 45,
@@ -2163,7 +2162,8 @@
       ],
       "lead": "First, let's go to Research",
       "leadText": "Press Next and the tour will open Research, where most work starts.",
-      "via": "nav.primary-groups [data-group='research']"
+      "via": "nav.primary-groups [data-group='research']",
+      "cardPos": "bottom-right"
     },
     {
       "id": "sh-filters",
@@ -2639,6 +2639,15 @@
         {
           "do": "wait",
           "ms": 600
+        },
+        {
+          "do": "click",
+          "selector": "#v6Clear",
+          "when": "#v6Clear:not([hidden])"
+        },
+        {
+          "do": "wait",
+          "ms": 400
         }
       ],
       "text": "Your turn. Scroll through the decision, hover over citations, open and pin cards, and click through the side panel tabs. Clicks that would take you to another page are paused during this step, so you cannot lose your place. Click Next when you are done and we will move on to Intelligence and Statistics."
@@ -2681,7 +2690,7 @@
           "timeout": 40
         }
       ],
-      "text": "The tour searched for Vavilov, the Supreme Court's leading decision on judicial review, by typing its name in the search box and picking it from the list. The headline figures count the decisions in the library that cite it and how often. The chips below open further sections: citing decisions by year, who won in them, the courts and judges that cite it most, the statutes and cases that appear with it, and every place it is cited. Outcomes are read by fixed rules and can be wrong or unclear, so treat them as a guide and check the decision itself."
+      "text": "The tour searched for Vavilov, the Supreme Court's leading decision on judicial review, by typing its name and picking it from the list. The figures count the decisions in the library that cite it. The chips below open citing decisions by year, who won in them, the courts and judges that cite it, and what is cited with it. Outcomes are read by rules and can be wrong, so check the decision itself."
     },
     {
       "id": "sh-judges",
@@ -2728,7 +2737,7 @@
           "timeout": 15
         }
       ],
-      "text": "The tour searched for Justice Brouwer of the Federal Court by typing the name in the list on the left and opening the profile. A profile shows how many decisions the judge has in the library, how often the government and individuals succeeded, the busiest year, decisions year by year and the most cited decisions. The list is still being cleaned up, so some entries are not single judges and counts are a guide, not a final figure. Outcome coding is rule-based, and the page says where it is uncertain."
+      "text": "The tour searched for Justice Brouwer by typing the name in the list on the left and opening the profile. It shows how many decisions the judge has in the library, how often each side succeeded, decisions year by year and the most cited decisions. The list is still being cleaned up, so counts are a guide, not a final figure."
     },
     {
       "id": "sh-fc",
@@ -2753,7 +2762,7 @@
           "timeout": 30
         }
       ],
-      "text": "FC Analytics covers Federal Court immigration files, including the many that never reach a published decision. It is built from the Court's own registry, so it describes every immigration application for leave and judicial review the registry holds, not only the ones that produced reasons. It shows how many files there are, a funnel from filing to leave decision, hearing and judgment, grant rates by year filed with their counts, timing and stays of removal. Next, the page opens for you to explore."
+      "text": "FC Analytics covers Federal Court immigration files, including the many that never reach a published decision. It is built from the Court's own registry, so it counts every application for leave and judicial review the registry holds. It shows how many files there are, a funnel from filing to judgment, grant rates by year filed, timing and stays of removal. Next, the page opens for you to explore."
     },
     {
       "id": "sh-fc-explore",
@@ -2781,7 +2790,7 @@
       "section": "Workbench",
       "url": "/workbench",
       "title": "The analyst workbench",
-      "text": "The workbench is still in development and is not finished. Eventually each analyst will have a log in and a space of their own for their files, case list, saved decisions, folders and notes. The case list is meant to follow the analyst's IMM files and flag when the Federal Court docket has moved, using the FC Analytics data, so updates show without searching each file again. The demonstration account used here has no password.",
+      "text": "The workbench is still in development and is not finished. Eventually each analyst will have a log in and a space of their own for files, a case list, saved decisions and notes. The case list is meant to flag when the Federal Court docket has moved on an analyst's IMM files, so updates show without searching each file again. The demonstration account here has no password.",
       "target": "#appView h1",
       "lead": "Next, the Analyst workbench",
       "leadText": "Press Next and the tour will open it.",
@@ -2902,14 +2911,16 @@
       "url": "/data-explorer?tab=about",
       "title": "What is live, and what is not",
       "text": "Live today: search, the reader, citation and judge pages, Federal Court analytics and Live analysis. The Workbench is still being built. Still being improved: plain-word search, case types and tags, and judge names. iLit is built around the Federal Court, the Federal Court of Appeal and the Supreme Court. It is a research aid, not legal advice. To finish, explore what is coming soon.",
-      "target": [
-        "#homeNot",
-        "#homeButtons"
-      ],
+      "target": "#homeButtons",
       "top": true,
       "lead": "Let's go back to the home page and wrap up the tour.",
-      "leadText": "Press Next and the tour will return to the home page.",
-      "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']"
+      "leadText": "A short summary of what is live and what is still being built.",
+      "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']",
+      "also": [
+        {
+          "sel": "#homeNot"
+        }
+      ]
     }
   ]
 }

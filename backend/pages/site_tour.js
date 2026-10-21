@@ -388,7 +388,7 @@
       if(!b){holes.push(null);return}
       var x=Math.max(3,b.left-pad),y=Math.max(3,b.top-pad),x2=Math.min(vw-3,b.right+pad),y2=Math.min(floor,b.bottom+pad);
       item.capped=false;
-      if(b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){   // taller than the screen: ring its first whole rows
+      if(!(STEPS[state&&state.i]||{}).cardPos&&b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){   // taller than the screen: ring its first whole rows (a card kept in a corner needs no room below, so the ring reaches the screen's foot)
         var limit=floor-pad-roomBelow(across,vw),end=limit-b.top>=150?rowsEnd(item.node,limit):null;
         if(end==null&&limit<floor-pad)end=rowsEnd(item.node,floor-pad);
         if(end!=null){y2=Math.min(y2,end+pad);item.capped=true}

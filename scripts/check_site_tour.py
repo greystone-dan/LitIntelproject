@@ -86,6 +86,8 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
             problems.append(f"{label}: an auto step acts at once: it needs act and no say")
         if step.get("cardPos") not in (None, "bottom-right", "bottom-left", "top-right", "right-middle"):
             problems.append(f"{label}: cardPos can only be bottom-right, bottom-left, top-right or right-middle")
+        if step.get("lift") is not None and not (isinstance(step["lift"], (int, float)) and 0 < step["lift"] < 1):
+            problems.append(f"{label}: lift must be a fraction between 0 and 1")
         if step.get("cardSize") not in (None, "large"):
             problems.append(f"{label}: cardSize can only be large")
         if step.get("hint") and not step.get("explore"):

@@ -1079,6 +1079,7 @@
     if(main)await steady(main,token);                               // a list that is still filling in: wait until it stops growing
     if(token!==run)return;
     if(!s.noScroll&&!s.top)await bringIntoView(main,token);
+    if(!s.noScroll&&s.lift&&main)await lift(main,token,s.lift);     // a small target (one citation) is brought up the pane, clear of the corner card, wherever the page was left
     if(!s.noScroll)await showWhole(items,s.focus||0,token,s.top);         // then the rest of what is lit, when it all fits
     if(!s.noScroll)await makeRoom(s,items[s.focus||0],token);       // and room for the card beside or below it
     if(token!==run)return;

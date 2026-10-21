@@ -56,11 +56,11 @@ def test_v6_card_draws_box_only_when_a_type_exists():
     assert ".sp-bx.type" in Path("backend/pages/search_v6.css").read_text(encoding="utf-8")
 
 
-def test_v6_reader_title_card_and_about_show_case_type_when_stored():
+def test_v6_reader_about_show_case_type_when_stored():
     from pathlib import Path
 
     js = Path("backend/pages/reader_v6.js").read_text(encoding="utf-8")
-    assert "cell('Case type',caseTypeText(d))" in js
+    assert "['Case type',caseTypeText(d)]" in js
     assert "d.readerData.case_type" in js
 
 

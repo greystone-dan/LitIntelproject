@@ -2135,11 +2135,11 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Search for a case",
-      "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the court, the date, the judge, how the case ended, the type of case, and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
-      "target": "#searchResults .case-result",
+      "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the citation, court, date and judge and, where known, how the case ended and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
+      "target": "#caseSearch",
       "also": [
         {
-          "sel": "#caseSearch"
+          "sel": "#searchResults .case-result"
         }
       ],
       "timeout": 45,
@@ -2161,16 +2161,19 @@
         }
       ],
       "lead": "First, let's go to Research",
-      "leadText": "Research is where most work starts. Press Next and the tour will open it.",
-      "via": "nav.primary-groups [data-group='research']"
+      "leadText": "Press Next and the tour will open Research, where most work starts.",
+      "via": "nav.primary-groups [data-group='research']",
+      "cardPos": "bottom-right"
     },
     {
       "id": "sh-filters",
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Narrow it down with filters",
-      "target": "#caseTypeBoxes",
-      "say": "Next, the filters. First we clear the search box, open the filters and pick the whole Refugee protection group of case types.",
+      "target": ".sp-rail",
+      "broad": true,
+      "auto": true,
+      "timeout": 45,
       "act": [
         {
           "do": "click",
@@ -2183,51 +2186,17 @@
           "unless": "#searchPanel.sp-adv"
         },
         {
-          "do": "click",
-          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
-          "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
+          "do": "wait",
+          "ms": 500
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-all"
         },
         {
           "do": "wait",
-          "ms": 400
+          "ms": 500
         },
-        {
-          "do": "check",
-          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-all"
-        }
-      ],
-      "text": "The filters on the left narrow any search, and they all combine: case type, outcome, court, topic tags, judge, Minister and year. Case types are grouped by the kind of matter. Ticking the box beside a group, as here for Refugee protection, selects every type in it. Case types are worked out by fixed rules from the provisions a decision applies. They are a work in progress, and some decisions are not sorted yet."
-    },
-    {
-      "id": "sh-filters-tags",
-      "section": "Research",
-      "url": "/data-explorer?tab=search",
-      "title": "Tags, outcome, then search",
-      "target": "#searchResults .case-result",
-      "also": [
-        {
-          "sel": "#tagChips"
-        }
-      ],
-      "timeout": 45,
-      "before": [
-        {
-          "do": "click",
-          "selector": "#toggleAdvancedSearch",
-          "unless": "#searchPanel.sp-adv"
-        },
-        {
-          "do": "click",
-          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
-          "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
-        },
-        {
-          "do": "check",
-          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-all"
-        }
-      ],
-      "say": "Now two topic tags, cessation and Sri Lanka, then the outcome Government won, and Search.",
-      "act": [
         {
           "do": "type",
           "selector": "#tagSearch",
@@ -2297,7 +2266,7 @@
         },
         {
           "do": "wait",
-          "ms": 400
+          "ms": 500
         },
         {
           "do": "click",
@@ -2309,18 +2278,18 @@
           "timeout": 45
         }
       ],
-      "text": "Tags are the topics found in each decision. A decision must carry both tags, so only cessation decisions that mention Sri Lanka remain. Government won keeps the ones the Minister won. Four filters, one list: refugee protection, cessation, Sri Lanka and Minister won. The next step opens Veerasingam v. Canada, a refugee cessation decision the Minister won. Like case types, topic tags are a work in progress."
+      "text": "The filters on the left narrow any search and all combine. The tour ticked the Refugee protection group, added the tags cessation and Sri Lanka, chose Government won and pressed Search. Case types and tags are a work in progress. Next it opens Veerasingam v. Canada from this list."
     },
     {
       "id": "sh-reader",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
-      "title": "The decision reader",
-      "text": "This is the reader. It has three parts. The header across the top gives the court, outcome, title, citation, case type, date, docket number and judge, with counts of the decisions citing this one, the cases it cites and the statutes it refers to. The side panel on the left holds what iLit found in the decision. The reader itself, on the right, shows the decision as a clean document with numbered paragraphs.",
+      "title": "The reader",
+      "text": "This is the reader. It has three parts. The header across the top gives the title, court, outcome, citation, date decided and decision maker, with a link back to the search and a button to save the decision to the Workbench. The side panel on the left holds what iLit found in the decision. The reader itself, on the right, shows the decision as a clean document with numbered paragraphs.",
       "target": "#caseReaderPanel",
       "top": true,
       "lead": "Next, let's open Veerasingam v. Canada",
-      "leadText": "A refugee cessation decision the Minister won, used for the rest of the tour. Press Next and the tour will click it open.",
+      "leadText": "Press Next and the tour will open this refugee cessation decision, which it uses for the rest of the tour.",
       "via": "#searchResults .case-result[data-case-id='{cessation}']",
       "before": [
         {
@@ -2337,14 +2306,18 @@
           "do": "wait",
           "ms": 600
         }
-      ]
+      ],
+      "cardPos": "bottom-right"
     },
     {
-      "id": "sh-side",
+      "id": "sh-side-about",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
-      "title": "The side panel",
+      "title": "The side panel: About",
       "target": ".reader-pane.target",
+      "broad": true,
+      "auto": true,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -2362,7 +2335,6 @@
         }
       ],
       "timeout": 20,
-      "say": "First, a quick look at the side panel's three tabs: About, Authorities and Intelligence.",
       "act": [
         {
           "do": "click",
@@ -2372,40 +2344,19 @@
         {
           "do": "wait",
           "ms": 900
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='auth']"
-        },
-        {
-          "do": "wait",
-          "ms": 1200
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='intel']"
-        },
-        {
-          "do": "wait",
-          "ms": 1200
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='about']"
-        },
-        {
-          "do": "wait",
-          "ms": 500
         }
       ],
-      "text": "About holds the recorded outcome, the case details, and the topics found in the text with how often each appears. Authorities lists every case and statute the decision cites, with how many times and at which paragraphs, so you can move through the decision by its citations. Intelligence shows the judge and how this decision has been cited since. The Intelligence tab is the small version of two full pages we visit later."
+      "text": "The About tab holds the title and citation, the recorded outcome, the decision maker, how many decisions cite this one and how many cases and statutes it cites, the case details, and the topics found in the text with how often each appears."
     },
     {
-      "id": "sh-text",
+      "id": "sh-side-auth",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
-      "title": "The decision itself",
-      "target": ".reader-pane.source",
+      "title": "The side panel: Authorities",
+      "target": ".reader-pane.target",
+      "broad": true,
+      "auto": true,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -2422,13 +2373,145 @@
           "ms": 600
         }
       ],
-      "say": "Now the decision itself. The tour will scroll down through the text.",
+      "timeout": 20,
       "act": [
+        {
+          "do": "click",
+          "selector": "#decisionTarget [data-v6-tab='auth']",
+          "unless": "#decisionTarget [data-v6-tab='auth'].on"
+        },
+        {
+          "do": "wait",
+          "ms": 900
+        }
+      ],
+      "text": "The Authorities tab lists every case and statute the decision cites, with how many times and at which paragraphs, so you can move through the decision by its citations."
+    },
+    {
+      "id": "sh-side-judge",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "The side panel: Intelligence, the judge",
+      "target": ".reader-pane.target",
+      "broad": true,
+      "auto": true,
+      "cardPos": "bottom-right",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ],
+      "timeout": 20,
+      "act": [
+        {
+          "do": "click",
+          "selector": "#decisionTarget [data-v6-tab='intel']",
+          "unless": "#decisionTarget [data-v6-tab='intel'].on"
+        },
+        {
+          "do": "wait",
+          "ms": 900
+        },
+        {
+          "do": "click",
+          "selector": "#decisionTarget [data-v6-isub='judge']"
+        },
+        {
+          "do": "wait",
+          "ms": 900
+        }
+      ],
+      "text": "The Intelligence tab opens with a judge snapshot: who decided this case, their decisions in the library and how often each side succeeded. Judge names are still being cleaned up, so a count can look thin. The full version is the Judge profiles page, which we visit later."
+    },
+    {
+      "id": "sh-side-cite",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "The side panel: Intelligence, citations",
+      "target": ".reader-pane.target",
+      "broad": true,
+      "auto": true,
+      "cardPos": "bottom-right",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ],
+      "timeout": 20,
+      "act": [
+        {
+          "do": "click",
+          "selector": "#decisionTarget [data-v6-tab='intel']",
+          "unless": "#decisionTarget [data-v6-tab='intel'].on"
+        },
+        {
+          "do": "wait",
+          "ms": 900
+        },
+        {
+          "do": "click",
+          "selector": "#decisionTarget [data-v6-isub='intel']"
+        },
+        {
+          "do": "wait",
+          "ms": 900
+        }
+      ],
+      "text": "The other half of the Intelligence tab is a citation snapshot: how many decisions have cited this one, and with what results. The full version is Citation Intelligence, which we also visit later."
+    },
+    {
+      "id": "sh-text",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "The decision itself",
+      "target": ".reader-pane.source",
+      "broad": true,
+      "cardPos": "bottom-left",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ],
+      "during": [
         {
           "do": "scroll",
           "selector": "#decisionBody .fmt-para",
-          "by": 1400,
-          "ms": 5000,
+          "by": 2600,
+          "ms": 26000,
+          "delay": 1500,
           "back": true
         }
       ],
@@ -2439,22 +2522,27 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "A citation, previewed",
-      "text": "When a gold citation names a paragraph, hovering over it shows the text of that paragraph, taken from the cited decision in the library. You can check what a case is being used for without leaving the page or opening a second document.",
-      "target": ".reader-hover-tooltip.is-visible",
-      "also": [
+      "target": ".reader-pane.source",
+      "broad": true,
+      "auto": true,
+      "cardPos": "bottom-left",
+      "before": [
         {
-          "sel": [
-            {
-              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-              "pin": true
-            },
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ]
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ],
-      "optional": true,
-      "say": "Back in the text: hovering the mouse over a gold citation shows the paragraph this decision is relying on.",
+      "settle": 400,
       "act": [
         {
           "do": "hover",
@@ -2474,6 +2562,17 @@
           "timeout": 4
         }
       ],
+      "text": "Hovering the mouse over a gold citation that names a paragraph shows the text of that paragraph, taken from the cited decision in the library. You can check what a case is being used for without leaving the page. That is the hover card. The next card shows what a click does."
+    },
+    {
+      "id": "sh-cite-card",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={cessation}",
+      "title": "A citation, opened",
+      "target": ".reader-pane.source",
+      "broad": true,
+      "auto": true,
+      "cardPos": "bottom-left",
       "before": [
         {
           "do": "waitFor",
@@ -2490,29 +2589,6 @@
           "ms": 600
         }
       ],
-      "settle": 400
-    },
-    {
-      "id": "sh-cite-card",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "Open it as a card, and pin it",
-      "text": "A click opens the cited passage as a card under the paragraph, with the passage in full. The pin keeps a card open while you keep reading, so a passage can be checked against the reasons. Double-clicking a citation opens that decision in a new tab, and the i icon on a card shows how often the cited case has been cited, without leaving this decision. Statutes work the same way.",
-      "target": "#decisionBody .v6-card2.v6-case",
-      "also": [
-        {
-          "sel": [
-            {
-              "css": "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-              "pin": true
-            },
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
-            "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ]
-        }
-      ],
-      "optional": true,
-      "say": "A click on the citation keeps the passage open as a card, and the pin holds it there.",
       "act": [
         {
           "do": "click",
@@ -2538,30 +2614,15 @@
           "unless": "#decisionBody .v6-card2.v6-case.is-pinned"
         }
       ],
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        }
-      ]
+      "text": "A click opens the cited passage as a card under the paragraph, in full. The pin keeps a card open while you keep reading, so a passage can be checked against the reasons. Double-clicking a citation opens that decision in a new tab. Statutes work the same way."
     },
     {
       "id": "sh-explore-reader",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "Explore the reader",
-      "target": "#caseReaderPanel",
       "explore": true,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -2576,6 +2637,15 @@
         {
           "do": "wait",
           "ms": 600
+        },
+        {
+          "do": "click",
+          "selector": "#v6Clear",
+          "when": "#v6Clear:not([hidden])"
+        },
+        {
+          "do": "wait",
+          "ms": 400
         }
       ],
       "text": "Your turn. Scroll through the decision, hover over citations, open and pin cards, and click through the side panel tabs. Clicks that would take you to another page are paused during this step, so you cannot lose your place. Click Next when you are done and we will move on to Intelligence and Statistics."
@@ -2583,23 +2653,42 @@
     {
       "id": "sh-ci",
       "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
-      "title": "How a case is used",
-      "text": "Citation Intelligence is the full version of the reader's citation snapshot, shown here for Vavilov, the Supreme Court's leading decision on judicial review. The headline figures count the decisions in the library that cite it and how often. The chips below open further sections: citing decisions by year, who won in them, the courts and judges that cite it most, the statutes and cases that appear with it, and every place it is cited. Outcomes are read by fixed rules and can be wrong or unclear, so treat them as a guide and check the decision itself.",
-      "target": {
-        "css": "#ciBody .ix-hero",
-        "text": "cited alongside|No other decision"
-      },
-      "top": true,
-      "lead": "Next, let's go to Intelligence / Statistics",
-      "leadText": "This section holds the full versions of the reader's judge and citation snapshots. Press Next and the tour will open it, starting with Citation Intelligence for Vavilov.",
+      "url": "/data-explorer?tab=citation-intelligence",
+      "title": "Citation Intelligence",
+      "lead": "Next, Intelligence / Statistics",
+      "leadText": "Press Next and the tour will open Citation Intelligence, the full version of the reader's citation snapshot.",
       "point": "nav.primary-groups [data-group='intel']",
+      "target": "#citationIntelligencePanel",
+      "broad": true,
+      "auto": true,
       "timeout": 45,
-      "also": [
+      "cardPos": "bottom-right",
+      "act": [
         {
-          "sel": "#ciBody .ix-nav"
+          "do": "type",
+          "selector": "#ciSearch",
+          "text": "Vavilov",
+          "unless": "#ciBody .ix-hero"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#ciSuggest .ix-sg",
+          "timeout": 10,
+          "optional": true
+        },
+        {
+          "do": "click",
+          "selector": "#ciSuggest .ix-sg",
+          "match": "Vavilov",
+          "unless": "#ciBody .ix-hero"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#ciBody .ix-hero",
+          "timeout": 40
         }
-      ]
+      ],
+      "text": "The tour searched for Vavilov, the Supreme Court's leading decision on judicial review, by typing its name and picking it from the list. The figures count the decisions in the library that cite it. Outcomes are read by rules and can be wrong, so check the decision itself."
     },
     {
       "id": "sh-judges",
@@ -2607,10 +2696,13 @@
       "url": "/data-explorer?tab=judge-profile",
       "title": "Judge profiles",
       "lead": "Next, judge profiles",
-      "leadText": "The full version of the reader's judge snapshot. Press Next and the tour will open the page.",
+      "leadText": "Press Next and the tour will open the full version of the reader's judge snapshot.",
       "via": "#researchViews [data-tab='judge-profile']",
-      "target": "#jpMain .ix-hero",
+      "target": "#judgeProfilePanel",
+      "broad": true,
+      "auto": true,
       "timeout": 45,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -2618,7 +2710,6 @@
           "timeout": 45
         }
       ],
-      "say": "Let's open one judge: Justice Brouwer of the Federal Court.",
       "act": [
         {
           "do": "type",
@@ -2644,47 +2735,21 @@
           "timeout": 15
         }
       ],
-      "span": [
-        "#jpMain .ix-tiles",
-        "#jpMain .ix-grid > .ix-card:first-child"
-      ],
-      "text": "Judges are listed down the left with their number of decisions. A profile shows how many decisions the judge has in the library, how often the government and individuals succeeded, the busiest year, decisions year by year and the most cited decisions. The list is still being cleaned up, so some entries are not single judges and counts are a guide, not a final figure. Outcome coding is rule-based, and the page says where it is uncertain."
+      "text": "The tour searched for Justice Brouwer by typing the name in the list and opening the profile. It shows the judge's decisions and how often each side succeeded. The list is still being cleaned up, so counts are a guide."
     },
     {
       "id": "sh-fc",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "Federal Court files that never reach a decision",
-      "text": "Most immigration files at the Federal Court never end in a published decision, so decisions alone give an incomplete picture. This page is built from the Court's own registry of immigration files, so it can describe every immigration application for leave and judicial review it holds, not only the ones that produced reasons. The headline figures show, for whatever the filters select, how many files there are, how often leave and judicial review are granted, settlements, time to a leave decision, and stays of removal.",
-      "target": [
-        "#fcAnalyticsPanel .page-header",
-        "#fcxKpis"
-      ],
-      "needsData": true,
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#fcxStatus",
-            "text": "files in|unavailable"
-          },
-          "timeout": 30
-        }
-      ],
-      "timeout": 12,
-      "top": true,
+      "title": "FC Analytics",
       "lead": "Next, FC Analytics",
-      "leadText": "The last page in this section. Press Next and the tour will open it.",
-      "via": "#researchViews [data-tab='fc-analytics']"
-    },
-    {
-      "id": "sh-fc-unique",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "What happens to a file",
-      "text": "This is the unusual part. The funnel shows how many filed files reach a leave decision, a hearing and a judgment, and the rest were discontinued, are still open, or ended another way. Grant rates are shown by year filed, with their counts beside them because small groups are not reliable. Published decisions alone cannot show any of this.",
-      "target": ".fcx-card:has(#fcxFunnel)",
+      "leadText": "Press Next and the tour will open the last page in this section.",
+      "via": "#researchViews [data-tab='fc-analytics']",
+      "target": "#fcAnalyticsPanel",
+      "broad": true,
       "needsData": true,
+      "timeout": 12,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -2695,17 +2760,17 @@
           "timeout": 30
         }
       ],
-      "timeout": 12
+      "text": "FC Analytics covers Federal Court immigration files, including the many that never reach a published decision. It is built from the Court's own registry. Next, the page opens for you to explore."
     },
     {
       "id": "sh-fc-explore",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "Explore FC Analytics",
-      "target": "#fcAnalyticsPanel",
       "explore": true,
       "needsData": true,
       "timeout": 12,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -2723,11 +2788,10 @@
       "section": "Workbench",
       "url": "/workbench",
       "title": "The analyst workbench",
-      "text": "The Workbench is the analyst's own space. Analysts will have a log in; the tour uses a demonstration account with no password, and the name only keeps lists apart. Saved decisions, folders and notes live here. The case list follows the analyst's IMM files and flags when the Federal Court docket has moved, so an analyst can see updates from the FC Analytics data since they last looked, without searching each file again.",
-      "target": "#view-home .homegrid > .stack:first-child > .card:first-child",
-      "top": true,
-      "lead": "Next, the analyst workbench",
-      "leadText": "Analysts get a workspace of their own. Press Next and the tour will open it.",
+      "text": "The workbench is still in development. Eventually each analyst will have a log in and a space of their own for files, a case list, saved decisions and notes. The case list is meant to flag when the Federal Court docket moves on an analyst's IMM files. The demonstration account has no password.",
+      "target": "#appView",
+      "lead": "Next, the Analyst workbench",
+      "leadText": "Press Next and the tour will open it.",
       "via": "nav.primary-groups a.primary-link[href='/workbench']",
       "before": [
         {
@@ -2738,39 +2802,34 @@
           },
           "timeout": 20
         }
-      ]
+      ],
+      "broad": true,
+      "cardPos": "bottom-left"
     },
     {
       "id": "sh-la-intro",
       "section": "Live analysis",
       "url": "/live-analysis",
-      "title": "Live analysis: plug in your own document",
-      "text": "Live analysis lets an analyst plug any draft or decision into iLit: a memorandum of argument, a deferral decision, an ID or IAD decision, or a draft of their own, as a Word file, a text PDF or pasted text. iLit reads it with the same rules it uses on every decision in the library, so the document gets what they get: citations recognised and linked to the cases they name, statutes tied to the statute library, and topics tagged. The document is read in memory and dropped as soon as the page is drawn. It is never saved, never added to the library, and never sent to an AI model or any outside service. Closing the page leaves no copy.",
-      "target": "#liveAnalysisPanel .la-inputs",
-      "top": true,
+      "title": "Live analysis",
+      "text": "Live analysis lets an analyst plug in any Word file, text PDF or pasted draft, such as a memorandum of argument or a decision. iLit reads it with the same rules it uses on every decision in the library, so citations and statutes are recognised and linked. The document is read in memory, never saved, and never sent to an AI model.",
+      "target": "#liveAnalysisPanel",
       "fresh": true,
-      "lead": "Next, let's go to Live analysis",
-      "leadText": "The last big feature. Press Next and the tour will open Live analysis.",
+      "lead": "Next, Live analysis",
+      "leadText": "Press Next and the tour will open it.",
       "point": "#tab-live",
-      "also": [
-        {
-          "sel": ".la-privacy"
-        }
-      ]
+      "broad": true,
+      "cardPos": "bottom-right"
     },
     {
       "id": "sh-la-drop",
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "A Word file, dropped in",
-      "text": "A fictional Memorandum of Argument from a refugee cessation judicial review, written for this demonstration. In practice it could be the memo filed by opposing counsel, or a draft an analyst is preparing.",
-      "target": "#laDrop",
-      "also": [
-        {
-          "sel": "#laStatus"
-        }
-      ],
-      "say": "A Word file, dropped in as it would be from a desktop.",
+      "target": "#liveAnalysisPanel",
+      "broad": true,
+      "cardPos": "bottom-right",
+      "say": "We will drop in a fabricated Word document to demonstrate the functionality.",
+      "sayTarget": "#liveAnalysisPanel",
       "act": [
         {
           "do": "drop",
@@ -2789,23 +2848,17 @@
           "timeout": 8,
           "unless": "#decisionBody span.citation-link"
         }
-      ]
+      ],
+      "text": "This is a fictional Memorandum of Argument from a refugee cessation judicial review, written for this demonstration. In practice it could be the memo filed by opposing counsel, or a draft an analyst is preparing."
     },
     {
       "id": "sh-la-run",
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "The memo, marked up",
-      "text": "iLit went through the memo line by line. The counts show the case citations and statute references it found. Each one is marked in the text, as in the reader, so it can be previewed, opened as a card and pinned.",
-      "target": [
-        ".v6-stats",
-        ".mk-row"
-      ],
-      "also": [
-        {
-          "sel": ".reader-pane.source"
-        }
-      ],
+      "target": "#caseReaderPanel",
+      "broad": true,
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "drop",
@@ -2826,6 +2879,7 @@
         }
       ],
       "say": "Read document runs the same rules used on the library.",
+      "sayTarget": "#liveAnalysisPanel",
       "act": [
         {
           "do": "click",
@@ -2842,75 +2896,25 @@
           "selector": "#laModalClose",
           "when": "#laModalClose"
         }
-      ]
-    },
-    {
-      "id": "sh-la-library",
-      "section": "Live analysis",
-      "url": "/live-analysis",
-      "title": "Matched to the library",
-      "text": "Baker is matched to the decision in the library, at the paragraphs the memo cites (21 to 28), so an analyst can check at once whether those paragraphs say what the memo claims. Short forms such as 'Vavilov, above at para 99' and 'Ibid at para 100' are traced back to the case they refer to.",
-      "target": [
-        {
-          "css": "span.citation-link[data-target-case-id]",
-          "text": "^Baker"
-        },
-        "span.citation-link[data-target-case-id]"
       ],
-      "also": [
-        {
-          "sel": {
-            "css": "span.citation-link",
-            "text": "above at para"
-          }
-        }
-      ],
-      "before": [
-        {
-          "do": "drop",
-          "selector": "#laDrop",
-          "file": "/site-tour/sample-memo.docx",
-          "name": "Memorandum of Argument (fictional).docx",
-          "unless": "#decisionBody span.citation-link",
-          "when": "#laDrop"
-        },
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#laStatus",
-            "text": "docx"
-          },
-          "timeout": 8,
-          "unless": "#decisionBody span.citation-link"
-        },
-        {
-          "do": "click",
-          "selector": "#laAnalyze",
-          "unless": "#decisionBody span.citation-link"
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody span.citation-link",
-          "timeout": 40
-        },
-        {
-          "do": "click",
-          "selector": "#laModalClose",
-          "when": "#laModalClose"
-        }
-      ]
+      "text": "iLit went through the memo line by line. The counts show the case citations and statute references it found. Each one is marked in the text, as in the reader, so it can be previewed, opened as a card and pinned. A citation to a case in the library, such as Baker, links to that decision."
     },
     {
       "id": "sh-wrap",
       "section": "Summing up",
       "url": "/data-explorer?tab=about",
       "title": "What is live, and what is not",
-      "text": "Live today: search, the reader, citation and judge pages, Federal Court analytics and Live analysis. The Workbench log in is still to come. Still being improved: plain-word search, case types and tags, and judge names. iLit is built around the Federal Court, the Federal Court of Appeal and the Supreme Court; the library also holds some tribunal decisions. It is a research aid, not legal advice. The full tour covers every feature in detail.",
-      "target": "#homeNot",
+      "text": "Live today: search, the reader, citation and judge pages, Federal Court analytics and Live analysis. The Workbench is still being built. Still being improved: plain-word search, case types and tags, and judge names. iLit is built around the Federal Court, the Federal Court of Appeal and the Supreme Court. It is a research aid, not legal advice. To finish, explore what is coming soon.",
+      "target": "#homeButtons",
       "top": true,
-      "lead": "Next, back to Home",
-      "leadText": "Back to the start to finish.",
-      "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']"
+      "lead": "Let's go back to the home page and wrap up the tour.",
+      "leadText": "A short summary of what is live and what is still being built.",
+      "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']",
+      "also": [
+        {
+          "sel": "#homeNot"
+        }
+      ]
     }
   ]
 }

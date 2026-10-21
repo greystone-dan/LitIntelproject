@@ -54,6 +54,29 @@ def test_short_tour_explore_steps_hand_the_page_to_the_visitor_and_say_how_to_mo
         assert "Click Next" in step["text"] and "paused" in step["text"], step["id"]
 
 
+def test_short_tour_follows_daniels_feedback_on_wording_and_structure():
+    short = {step["id"]: step for step in tour_steps()["shortSteps"]}
+    text = json.dumps(list(short.values()))
+    assert "decision reader" not in text.lower() and "full tour" not in text.lower()   # it is "the reader"; no pointers to the other tour
+    assert "tour will scroll" not in text and "unusual part" not in text
+    # one step for each major side panel tab, then the two halves of Intelligence; the filters are one step
+    tabs = [i for i in short if i.startswith("sh-side-")]
+    assert tabs == ["sh-side-about", "sh-side-auth", "sh-side-judge", "sh-side-cite"]
+    assert "sh-filters" in short and not any(i.startswith("sh-filters-") for i in short)
+    # hover and click are one card each
+    assert "sh-cite-hover" in short and "sh-cite-card" in short
+    # whole-region highlights and nothing the card could hide: pointer-driven steps carry no say card and light a broad region
+    for step in short.values():
+        if step.get("auto"):
+            assert step.get("broad") and step.get("act") and not step.get("say"), step["id"]
+        if step.get("explore"):
+            assert step.get("cardPos") == "bottom-right", step["id"]
+    assert "fabricated Word document" in short["sh-la-drop"]["say"]
+    assert "under development" in short["sh-workbench"]["text"] or "in development" in short["sh-workbench"]["text"]
+    assert "go back to the home page and wrap up the tour" in short["sh-wrap"]["lead"]
+    assert "explore what is coming soon" in short["sh-wrap"]["text"]
+
+
 def test_short_tour_says_before_every_page_change():
     short = tour_steps()["shortSteps"]
     for before, step in zip(short, short[1:]):

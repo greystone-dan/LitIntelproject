@@ -77,10 +77,14 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
         for key in ("via", "point", "lead"):
             if step.get(key) is not None and not isinstance(step[key], str):
                 problems.append(f"{label}: {key} must be a string")
-        if step.get("act") and not step.get("say"):
-            problems.append(f"{label}: a step that acts must first say what it will do (say)")
+        if step.get("act") and not step.get("say") and not step.get("auto"):
+            problems.append(f"{label}: a step that acts must first say what it will do (say), or be marked auto")
         if step.get("say") and not step.get("act"):
             problems.append(f"{label}: say is only for a step that acts")
+        if step.get("auto") and (step.get("say") or not step.get("act")):
+            problems.append(f"{label}: an auto step acts at once: it needs act and no say")
+        if step.get("cardPos") not in (None, "bottom-right", "bottom-left"):
+            problems.append(f"{label}: cardPos can only be bottom-right or bottom-left")
         if (step.get("via") or step.get("point")) and not step.get("lead"):
             problems.append(f"{label}: via or point needs a lead line")
         for action in step.get("before", []) + step.get("act", []):
@@ -320,6 +324,7 @@ def _clear_place(card: dict, g: dict) -> bool:
     return False
 
 
+CORNER_CARD_SHARE = 0.12                                     # a card kept in a corner may cover at most this share of a lit region
 GEOMETRY_SLACK = 2       # px: rounding and sub-pixel borders
 CARD_STILL = 24          # px: a card that moves less than this has not moved
 CARD_NEAR = 360          # px: a card further than this from its region should move closer (the engine's NEAR)
@@ -374,7 +379,14 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
             where = "off screen" if off else ("hidden by its panel" if hidden else "cut")
             problems.append(f"ring cuts {name} by {round(cut)}px ({where})")
         if card and _overlap(card, ring) > 0:
-            problems.append(f"card covers {name}" if _clear_place(card, g) else f"note: card on {name} (no clear place for it on this screen)")
+            if g.get("fixed"):                           # a whole-page highlight or explore step: the card waits in a corner (cardPos) by design,
+                share = _overlap(card, ring) / max(1, ring["w"] * ring["h"])   # but it may hide only a small part of what is lit
+                if share > CORNER_CARD_SHARE:
+                    problems.append(f"card in its corner hides {round(share * 100)}% of {name} (limit {round(CORNER_CARD_SHARE * 100)}%)")
+                else:
+                    problems.append(f"note: card in its corner, over part of {name}")
+            else:
+                problems.append(f"card covers {name}" if _clear_place(card, g) else f"note: card on {name} (no clear place for it on this screen)")
     if card:
         keep = [box for box in g.get("keep") or [] if _overlap(card, box) > 0]
         if keep:
@@ -394,7 +406,7 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
             near = not focus or max(focus["x"] - stay["x"] - stay["w"], stay["x"] - focus["x"] - focus["w"],
                                     focus["y"] - stay["y"] - stay["h"], stay["y"] - focus["y"] - focus["h"]) <= CARD_NEAR
             could_stay = near and _fits(stay, g) and not any(_overlap(stay, item.get("ring")) for item in items)
-            if moved > CARD_STILL and could_stay:
+            if moved > CARD_STILL and could_stay and not g.get("fixed"):
                 problems.append(f"card jumped {round(moved)}px (its last place was still clear)")
     return problems
 

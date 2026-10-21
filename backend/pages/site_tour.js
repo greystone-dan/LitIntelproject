@@ -193,7 +193,7 @@
       var node=await findNode(a,token);
       if(!node)return n>0;
       if(live&&ui&&a.do!=='fill'){
-        ui.items=[{node:node,sel:null}];
+        if(!(STEPS[state&&state.i]||{}).broad)ui.items=[{node:node,sel:null}];   // a broad step keeps its whole region lit
         await bringIntoView(node,token);
         if(a.high)await lift(node,token,a.high);
         place();
@@ -388,10 +388,15 @@
       if(!b){holes.push(null);return}
       var x=Math.max(3,b.left-pad),y=Math.max(3,b.top-pad),x2=Math.min(vw-3,b.right+pad),y2=Math.min(floor,b.bottom+pad);
       item.capped=false;
-      if(b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){   // taller than the screen: ring its first whole rows
+      if(!(STEPS[state&&state.i]||{}).cardPos&&b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){   // taller than the screen: ring its first whole rows (a card kept in a corner needs no room below, so the ring reaches the screen's foot)
         var limit=floor-pad-roomBelow(across,vw),end=limit-b.top>=150?rowsEnd(item.node,limit):null;
         if(end==null&&limit<floor-pad)end=rowsEnd(item.node,floor-pad);
         if(end!=null){y2=Math.min(y2,end+pad);item.capped=true}
+      }
+      var kept=STEPS[state&&state.i]||{};
+      if(kept.cardPos&&ui.card.getAttribute('data-phase')==='show'&&b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){
+        var cardTop=floor-ui.card.offsetHeight-14-pad-4;           // a page taller than the screen: the ring stops where the corner card starts, so the card never covers what is lit
+        if(cardTop-b.top>=200)y2=Math.min(y2,cardTop);
       }
       var minH=Math.min(40,b.height),minW=Math.min(24,b.width);   // a sliver at the edge of the screen is not worth a ring
       holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y)}:null);
@@ -399,7 +404,7 @@
     // one light shade with a window cut for each region (even-odd fill)
     var d='M0 0H'+vw+'V'+vh+'H0Z';
     holes.forEach(function(h){if(h)d+='M'+h.x+' '+h.y+'h'+h.w+'v'+h.h+'h'+(-h.w)+'Z'});
-    ui.path.setAttribute('d',d);
+    ui.path.setAttribute('d',holes.some(Boolean)?d:'');             // nothing lit (an explore step): no shade either
     var rings=ui.rings;
     while(rings.children.length<holes.length)rings.appendChild(el('div','ilit-tour-ring'));
     [].forEach.call(rings.children,function(r,k){
@@ -444,6 +449,12 @@
   var cardAt=null,SIDE_COST={right:0,left:120,below:260,above:420,corner:4000};   // beside reads best, then below, then above
   function placeCard(focus,holes,vw,floor){
     var c=ui.card;
+    var cur=STEPS[state&&state.i]||{};
+    var phase=c.getAttribute('data-phase');
+    if(cur.cardPos&&(phase==='show'||phase==='say')){   // whole-page highlights and explore steps: the card waits in a bottom corner, above the control bar
+      if(c.style.width)c.style.width='';
+      setCard(cur.cardPos==='bottom-left'?24:Math.max(14,vw-c.offsetWidth-24),Math.max(14,floor-c.offsetHeight-14),'left','');return;
+    }
     if(cardAt&&gliding)return;
     if(cardAt){
       var here=pickCard(focus,holes,vw,floor,cardAt.width);
@@ -950,8 +961,10 @@
       if(token!==run)return;
       if(!done&&(s.before[k].do==='waitFor'||s.before[k].do==='type'))return skipOver(i,token,'before');
     }
+    // 3a. an "auto" step acts at once (the pointer moves and clicks), and the one card comes after
+    if(s.auto&&s.act&&s.act.length&&state.phase!=='back'&&state.phase!=='show')return perform(i);
     // 3. a step that acts first says what it will do, lighting the place
-    if(s.act&&s.act.length&&state.phase!=='back'&&state.phase!=='show'){
+    if(s.act&&s.act.length&&!s.auto&&state.phase!=='back'&&state.phase!=='show'){
       var first=s.act.filter(function(a){return a.selector&&a.do!=='waitFor'&&!(a.unless&&findVisible(a.unless))&&!(a.when&&!findVisible(a.when))})[0];
       var spotSel=s.sayTarget||(first&&first.selector);
       var node=spotSel?(await waitFor(spotSel,first&&first.timeout||8,token)):null;
@@ -976,9 +989,17 @@
     var token=++run,s=STEPS[i];
     render(i,null,'pending');
     try{
+      var lit=false;
+      var light=function(){                                        // the whole region stays lit while the pointer works inside it
+        if(lit||!s.broad||!s.target||!ui)return;
+        var region=findVisible(s.target);
+        if(region){lit=true;ui.items=itemsFor(s,region);place()}
+      };
+      light();
       for(var k=0;k<s.act.length;k++){
         var ok=await doAction(s.act[k],token,true);
         if(token!==run)return;
+        light();
         if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token,'act');
       }
       await settleScroll(token);
@@ -1029,6 +1050,18 @@
     if(s.hover&&target){await pointAt(target,token);if(token!==run)return;hoverOn(target)}
     state.phase='show';
     render(i,items,'show',s.focus||0);ready(i,'show');
+    if(s.during&&!(state&&state.dir<0))runDuring(s,token);        // e.g. a slow scroll through the text while the card explains it
+  }
+  async function runDuring(s,token){
+    try{
+      for(var k=0;k<s.during.length;k++){
+        var a=s.during[k];
+        await sleep(a.delay||800);
+        if(token!==run)return;
+        var node=findVisible(a.selector);
+        if(node&&a.do==='scroll')await slowScroll(node,a,true,token);
+      }
+    }catch(e){}
   }
   var hovered=null;
   function hoverOn(node){
@@ -1160,7 +1193,7 @@
     if(!ui)return null;
     function box(b){return b?{x:round(b.left),y:round(b.top),w:round(b.right-b.left),h:round(b.bottom-b.top)}:null}
     var rings=[].map.call(ui.rings.children,function(r){return r.style.display==='none'?null:box(r.getBoundingClientRect())});
-    return {vw:document.documentElement.clientWidth||window.innerWidth,vh:window.innerHeight,focus:ui.focus,
+    return {vw:document.documentElement.clientWidth||window.innerWidth,vh:window.innerHeight,focus:ui.focus,fixed:!!(STEPS[state&&state.i]||{}).cardPos,
       card:box(ui.card.getBoundingClientRect()),dock:box(ui.dock.getBoundingClientRect()),
       cursor:ui.cursor.classList.contains('on')?box(ui.cursor.getBoundingClientRect()):null,
       keep:keepClear().map(function(b){return {x:round(b.x),y:round(b.y),w:round(b.w),h:round(b.h)}}),

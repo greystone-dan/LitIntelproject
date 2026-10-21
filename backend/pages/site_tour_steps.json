@@ -2135,7 +2135,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Search for a case",
-      "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the court, the date, the judge, how the case ended, the type of case, and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
+      "text": "Everything starts with one search box. You can type a case name like Vavilov, a citation like 2019 SCC 65, or words from the reasons. Each result shows the citation, court, date and judge and, where known, how the case ended and how many other decisions cite it. Searching in plain words works, but the matching is still being improved.",
       "target": "#caseSearch",
       "also": [
         {
@@ -2278,7 +2278,7 @@
           "timeout": 45
         }
       ],
-      "text": "The advanced filters on the left narrow any search, and they all combine. The tour has just ticked the whole Refugee protection group of case types, added two topic tags, cessation and Sri Lanka, picked the outcome Government won, and pressed Search. A decision must carry both tags, so only cessation decisions that mention Sri Lanka remain, and only the ones the Minister won. Case types are worked out by fixed rules from the provisions a decision applies, and tags are the topics found in each decision. Both are a work in progress. The next step opens Veerasingam v. Canada from this list."
+      "text": "The filters on the left narrow any search and all combine. The tour ticked the Refugee protection group, which selects all seven of its case types, added the tags cessation and Sri Lanka, chose Government won and pressed Search. Case types and tags are a work in progress. Next it opens Veerasingam v. Canada from this list."
     },
     {
       "id": "sh-reader",
@@ -2788,8 +2788,8 @@
       "section": "Workbench",
       "url": "/workbench",
       "title": "The analyst workbench",
-      "text": "The workbench is still in development and is not finished. Eventually each analyst will have a log in and a space of their own for files, a case list, saved decisions and notes. The case list is meant to flag when the Federal Court docket has moved on an analyst's IMM files, so updates show without searching each file again. The demonstration account here has no password.",
-      "target": "#appView h1",
+      "text": "The workbench is still in development. Eventually each analyst will have a log in and a space of their own for files, a case list, saved decisions and notes. The case list is meant to flag when the Federal Court docket moves on an analyst's IMM files. The demonstration account has no password.",
+      "target": "#appView",
       "lead": "Next, the Analyst workbench",
       "leadText": "Press Next and the tour will open it.",
       "via": "nav.primary-groups a.primary-link[href='/workbench']",
@@ -2803,12 +2803,8 @@
           "timeout": 20
         }
       ],
-      "span": [
-        "#tiles",
-        "#caseCard"
-      ],
       "broad": true,
-      "cardPos": "bottom-right"
+      "cardPos": "bottom-left"
     },
     {
       "id": "sh-la-intro",

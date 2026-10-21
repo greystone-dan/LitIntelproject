@@ -40,8 +40,7 @@ def validate_steps(data: dict) -> list[str]:
     cases = data.get("cases") or {}
     if not data.get("steps"):
         problems.append("no steps")
-    for key in ("steps", "shortSteps"):
-        problems.extend(_validate_list(data, data.get(key) or [], cases))
+    problems.extend(_validate_list(data, data.get("steps") or [], cases))
     return problems
 
 
@@ -50,9 +49,11 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
     seen: set[str] = set()
     for index, step in enumerate(steps, 1):
         label = f"step {index} ({step.get('id', '?')})"
-        for key in ("id", "section", "url", "title", "text"):
+        for key in ("id", "section", "url", "title"):
             if not step.get(key):
                 problems.append(f"{label}: missing {key}")
+        if not step.get("text") and len(str(step.get("title", "")).split()) < 3:
+            problems.append(f"{label}: missing text (only a card whose title is a whole sentence may have none)")
         if step.get("id") in seen:
             problems.append(f"{label}: duplicate id")
         seen.add(step.get("id"))
@@ -83,10 +84,16 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
             problems.append(f"{label}: say is only for a step that acts")
         if step.get("auto") and (step.get("say") or not step.get("act")):
             problems.append(f"{label}: an auto step acts at once: it needs act and no say")
-        if step.get("cardPos") not in (None, "bottom-right", "bottom-left"):
-            problems.append(f"{label}: cardPos can only be bottom-right or bottom-left")
-        if (step.get("via") or step.get("point")) and not step.get("lead"):
-            problems.append(f"{label}: via or point needs a lead line")
+        if step.get("cardPos") not in (None, "bottom-right", "bottom-left", "top-right", "right-middle"):
+            problems.append(f"{label}: cardPos can only be bottom-right, bottom-left, top-right or right-middle")
+        if step.get("cardSize") not in (None, "large"):
+            problems.append(f"{label}: cardSize can only be large")
+        if step.get("hint") and not step.get("explore"):
+            problems.append(f"{label}: a hint is only for an explore step")
+        if step.get("early") and not step.get("auto"):
+            problems.append(f"{label}: early is only for an auto step")
+        if step.get("lead"):
+            problems.append(f"{label}: the tour has no lead cards: each card is a step of its own")
         for action in step.get("before", []) + step.get("act", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
@@ -108,7 +115,6 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
 
 
 
-TOUR_KEY = "steps"     # --tour short: walk the short tour ("shortSteps") instead of the full one
 LOCAL_TOUR = False   # --local-tour: the walk uses this checkout's tour on another site's data
 
 
@@ -232,7 +238,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
     from playwright.sync_api import sync_playwright
 
     data = json.loads(STEPS_FILE.read_text(encoding="utf-8"))
-    steps = data[TOUR_KEY]
+    steps = data["steps"]
     failures = 0
     rows = []
     with sync_playwright() as pw:
@@ -245,7 +251,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.add_init_script(
-                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'%s}))" % (index, ",variant:'short'" if TOUR_KEY == "shortSteps" else "")
+                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'}))" % index
             )
             status = "ok"
             try:
@@ -373,6 +379,8 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
                 problems.append(f"ring misses the top of {name} (taller than the screen: its start must show)")
             elif ring["h"] < min(150, room["h"] / 3) or ring["y"] + ring["h"] > floor + GEOMETRY_SLACK:
                 problems.append(f"ring shows too little of {name} ({round(ring['h'])}px of a {round(room['h'])}px screen)")
+        elif cut > GEOMETRY_SLACK and item.get("capped") and ring["y"] <= full["y"] + GEOMETRY_SLACK and ring["h"] >= 150 and ring["y"] + ring["h"] <= floor + GEOMETRY_SLACK:
+            pass                                         # a list ringed down to its last whole row on purpose, so the corner card stays clear of what is lit
         elif cut > GEOMETRY_SLACK:
             off = full["y"] < 0 or full["y"] + full["h"] > floor or full["x"] < 0 or full["x"] + full["w"] > g["vw"]
             hidden = bool(seen) and (seen["h"] < full["h"] - GEOMETRY_SLACK or seen["w"] < full["w"] - GEOMETRY_SLACK)
@@ -450,7 +458,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
     part=(first, last) walks only those steps (from first, as after a refresh there), to re-check a few quickly."""
     from playwright.sync_api import sync_playwright
 
-    steps = json.loads(STEPS_FILE.read_text(encoding="utf-8"))[TOUR_KEY]
+    steps = json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]
     by_id = {step["id"]: step for step in steps}
     problems = 0
     geometry_fails: list[str] = []
@@ -464,12 +472,12 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         errors: list[str] = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
-        page.click("[data-ilit-tour-short]" if TOUR_KEY == "shortSteps" else "[data-ilit-tour-start]")
+        page.click("[data-ilit-tour-start]")
         if part:
             first = next(k for k, step in enumerate(steps) if step["id"] == part[0])
             page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
             page.wait_for_timeout(500)
-            page.evaluate("([i, v]) => { window.ilitTour.exit(); sessionStorage.setItem('ilit.tour.v1', JSON.stringify(Object.assign({i: i, active: true, phase: 'enter', dir: 1, t0: Date.now()}, v ? {variant: 'short'} : {}))) }", [first, TOUR_KEY == "shortSteps"])
+            page.evaluate("i => { window.ilitTour.exit(); sessionStorage.setItem('ilit.tour.v1', JSON.stringify({i: i, active: true, phase: 'enter', dir: 1, t0: Date.now()})) }", first)
             page.reload(wait_until="domcontentloaded")
             seen.extend(step["id"] for step in steps[:first])
         print(f"walk at {size}" + (f" (steps {part[0]} to {part[1]})" if part else ""))
@@ -538,14 +546,14 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
             ):
                 data_notes.append("statistics EMPTY")
-            if step_id == "reader-cite-card" and page.evaluate(
+            if step_id == "sh-cite-card" and page.evaluate(
                 "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
             ):
                 data_notes.append("citation card has NO PINPOINT")
             # The filter demo must end with the tour's decision at the top of the list, and that is the one it opens.
-            if step_id == "adv-won":
+            if step_id == "sh-results":
                 first_result = page.evaluate("() => document.querySelector('#searchResults .case-result')?.dataset.caseId || ''")
-            if step_id == "reader-open":
+            if step_id == "sh-reader":
                 opened = page.evaluate("() => new URLSearchParams(location.search).get('case_id') || ''")
                 if first_result is not None and opened != first_result:
                     notes.append(f"the decision opened ({opened}) is NOT the first result of the filter demo ({first_result})")
@@ -651,12 +659,11 @@ def main() -> int:
     parser.add_argument("--part", default="", help="with --walk: walk only steps FIRST:LAST (step ids), e.g. plain-search:adv-won")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
     parser.add_argument("--local-tour", action="store_true", help="use this checkout's explorer page, tour steps and script on the site at --base-url (to check an unmerged tour on the real library)")
-    parser.add_argument("--tour", choices=("full", "short"), default="full", help="which tour the browser checks walk (the steps file is always validated for both)")
+    parser.add_argument("--tour", choices=("full", "short"), default="short", help="no longer used (there is one tour); kept so older commands still run")
     parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
-    global LOCAL_TOUR, TOUR_KEY
+    global LOCAL_TOUR
     LOCAL_TOUR = args.local_tour
-    TOUR_KEY = "shortSteps" if args.tour == "short" else "steps"
     if args.pick_case:
         return pick_example_case(args.base_url.rstrip("/"))
 
@@ -669,7 +676,7 @@ def main() -> int:
     base = args.base_url.rstrip("/")
     shot_ids = {s for s in args.shot_ids.split(",") if s}
     if args.shots and not shot_ids:
-        shot_ids = {step["id"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))[TOUR_KEY]}
+        shot_ids = {step["id"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]}
     short = run_probes(base)
     failures = run_controls(base, args.width)
     if args.walk:

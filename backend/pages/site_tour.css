@@ -66,3 +66,14 @@ html.ilit-tour-on .la-modal{padding-bottom:96px}   /* a dialog's buttons stay cl
 html.ilit-tour-on .la-modal{justify-content:flex-start;padding-left:24px}html.ilit-tour-on .la-dialog{width:min(980px,calc(100vw - 480px))}   /* and the dialog leaves room beside it for the card */
 /* The tour shows the plain reader: the Experimental "Whose position" bar is left out of every step. */
 html.ilit-tour-on [data-pos-bar]{display:none!important}
+/* the "Find the unit" panel is a developer tool: it never shows during the tour (Daniel, 10-21) */
+html.ilit-tour-on #unitSearchPanel{display:none!important}
+.ilit-tour-title:empty{display:none}
+/* a larger card for a step that is mostly words (Live analysis, 1 of 3) */
+.ilit-tour-card.large{width:min(520px,calc(100vw - 28px))}
+.ilit-tour-card.large .ilit-tour-title{font-size:28px}
+.ilit-tour-card.large .ilit-tour-text{font-size:19.5px;line-height:1.6}
+/* an explore step after the visitor has started using the page: just the hint, low on the screen */
+.ilit-tour-card.hint{width:min(280px,calc(100vw - 28px));padding:11px 16px}
+.ilit-tour-card.hint .ilit-tour-kicker,.ilit-tour-card.hint .ilit-tour-title{display:none}
+.ilit-tour-card.hint .ilit-tour-text{margin:0;font-size:15px}

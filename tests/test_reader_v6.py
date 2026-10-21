@@ -144,7 +144,7 @@ def test_reader_v6_theme_a_header_about_and_citation_card():
     # Citation cards are as wide as the text and show six lines before scrolling.
     assert ".v6-card2{margin:2px 0 16px 0;max-width:none" in css
     # Six lines exactly: 16px type at 1.55 line height, box height 6 x 1.55em, no vertical padding on the scroll box.
-    rule = css[css.index(".v6-card2 .v6-cscroll{"):]
+    rule = css[css.rindex(".v6-card2 .v6-cscroll{"):]
     rule = rule[:rule.index("}")]
     assert "font-size:16px" in rule and "line-height:1.55" in rule and "max-height:calc(1.55em*6)" in rule
     assert "padding-top" not in rule and "padding-bottom" not in rule and "padding:" not in rule.replace("padding-right", "")

@@ -70,8 +70,8 @@
   {
    "date": "2026-10-20",
    "theme": "performance",
-   "title": "Merged, not live yet: faster result counts and ranking",
-   "text": "The result counts down the side are worked out from one list of matching cases instead of several, and ranking reads each case's details once. Results are meant to be identical, only faster. Not on the live site yet.",
+   "title": "Faster result counts and ranking",
+   "text": "The result counts down the side are worked out from one list of matching cases instead of several, and ranking reads each case's details once. Results are the same, only faster. Live since 2026-10-21 (deployed that morning, no database change).",
    "refs": [
     "#606",
     "#608"
@@ -124,8 +124,8 @@
   {
    "date": "2026-10-20",
    "theme": "federal-court",
-   "title": "Merged, not live yet: French decisions read correctly",
-   "text": "The reader for French-language decisions now finds the judge, file number and outcome more reliably. Decisions already stored are corrected by a separate script that has not been run yet.",
+   "title": "French decisions read correctly (code live, stored decisions not yet corrected)",
+   "text": "The reader for French-language decisions now finds the judge, file number and outcome more reliably for decisions read from now on. The code is live since 2026-10-20. Decisions already stored are corrected by a separate script that has not been run yet.",
    "refs": [
     "#592"
    ],

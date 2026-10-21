@@ -324,6 +324,7 @@ def _clear_place(card: dict, g: dict) -> bool:
     return False
 
 
+CORNER_CARD_SHARE = 0.12                                     # a card kept in a corner may cover at most this share of a lit region
 GEOMETRY_SLACK = 2       # px: rounding and sub-pixel borders
 CARD_STILL = 24          # px: a card that moves less than this has not moved
 CARD_NEAR = 360          # px: a card further than this from its region should move closer (the engine's NEAR)
@@ -378,8 +379,12 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
             where = "off screen" if off else ("hidden by its panel" if hidden else "cut")
             problems.append(f"ring cuts {name} by {round(cut)}px ({where})")
         if card and _overlap(card, ring) > 0:
-            if g.get("fixed"):                           # a whole-page highlight or explore step: the card waits in the corner (cardPos) by design
-                problems.append(f"note: card in its corner, over part of {name}")
+            if g.get("fixed"):                           # a whole-page highlight or explore step: the card waits in a corner (cardPos) by design,
+                share = _overlap(card, ring) / max(1, ring["w"] * ring["h"])   # but it may hide only a small part of what is lit
+                if share > CORNER_CARD_SHARE:
+                    problems.append(f"card in its corner hides {round(share * 100)}% of {name} (limit {round(CORNER_CARD_SHARE * 100)}%)")
+                else:
+                    problems.append(f"note: card in its corner, over part of {name}")
             else:
                 problems.append(f"card covers {name}" if _clear_place(card, g) else f"note: card on {name} (no clear place for it on this screen)")
     if card:

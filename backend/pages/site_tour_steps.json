@@ -2432,7 +2432,7 @@
           "ms": 900
         }
       ],
-      "text": "The Intelligence tab opens with a judge snapshot: who decided this case, how many decisions they have in the library and how often each side succeeded. The full version is the Judge profiles page, which we visit later."
+      "text": "The Intelligence tab opens with a judge snapshot: who decided this case, their decisions in the library and how often each side succeeded. Judge names are still being cleaned up, so a count can look thin. The full version is the Judge profiles page, which we visit later."
     },
     {
       "id": "sh-side-cite",
@@ -2488,7 +2488,7 @@
       "title": "The decision itself",
       "target": ".reader-pane.source",
       "broad": true,
-      "cardPos": "bottom-right",
+      "cardPos": "bottom-left",
       "before": [
         {
           "do": "waitFor",
@@ -2525,7 +2525,6 @@
       "target": ".reader-pane.source",
       "broad": true,
       "auto": true,
-      "optional": true,
       "cardPos": "bottom-left",
       "before": [
         {
@@ -2573,7 +2572,6 @@
       "target": ".reader-pane.source",
       "broad": true,
       "auto": true,
-      "optional": true,
       "cardPos": "bottom-left",
       "before": [
         {
@@ -2690,7 +2688,7 @@
           "timeout": 40
         }
       ],
-      "text": "The tour searched for Vavilov, the Supreme Court's leading decision on judicial review, by typing its name and picking it from the list. The figures count the decisions in the library that cite it. The chips below open citing decisions by year, who won in them, the courts and judges that cite it, and what is cited with it. Outcomes are read by rules and can be wrong, so check the decision itself."
+      "text": "The tour searched for Vavilov, the Supreme Court's leading decision on judicial review, by typing its name and picking it from the list. The figures count the decisions in the library that cite it. Outcomes are read by rules and can be wrong, so check the decision itself."
     },
     {
       "id": "sh-judges",
@@ -2737,7 +2735,7 @@
           "timeout": 15
         }
       ],
-      "text": "The tour searched for Justice Brouwer by typing the name in the list on the left and opening the profile. It shows how many decisions the judge has in the library, how often each side succeeded, decisions year by year and the most cited decisions. The list is still being cleaned up, so counts are a guide, not a final figure."
+      "text": "The tour searched for Justice Brouwer by typing the name in the list and opening the profile. It shows the judge's decisions and how often each side succeeded. The list is still being cleaned up, so counts are a guide."
     },
     {
       "id": "sh-fc",
@@ -2762,7 +2760,7 @@
           "timeout": 30
         }
       ],
-      "text": "FC Analytics covers Federal Court immigration files, including the many that never reach a published decision. It is built from the Court's own registry, so it counts every application for leave and judicial review the registry holds. It shows how many files there are, a funnel from filing to judgment, grant rates by year filed, timing and stays of removal. Next, the page opens for you to explore."
+      "text": "FC Analytics covers Federal Court immigration files, including the many that never reach a published decision. It is built from the Court's own registry. Next, the page opens for you to explore."
     },
     {
       "id": "sh-fc-explore",
@@ -2817,7 +2815,7 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "Live analysis",
-      "text": "Live analysis lets an analyst plug in any Word file, text PDF or pasted draft: a memorandum of argument, a deferral decision, an ID or IAD decision, or a draft of their own. iLit reads it with the same rules it uses on every decision in the library, so citations are recognised and linked to the cases they name, statutes are tied to the statute library, and topics are tagged. The document is read in memory and dropped as soon as the page is drawn. It is never saved, never added to the library, and never sent to an AI model or any outside service.",
+      "text": "Live analysis lets an analyst plug in any Word file, text PDF or pasted draft, such as a memorandum of argument or a decision. iLit reads it with the same rules it uses on every decision in the library, so citations and statutes are recognised and linked. The document is read in memory, never saved, and never sent to an AI model.",
       "target": "#liveAnalysisPanel",
       "fresh": true,
       "lead": "Next, Live analysis",

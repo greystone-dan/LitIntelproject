@@ -393,6 +393,11 @@
         if(end==null&&limit<floor-pad)end=rowsEnd(item.node,floor-pad);
         if(end!=null){y2=Math.min(y2,end+pad);item.capped=true}
       }
+      var kept=STEPS[state&&state.i]||{};
+      if(kept.cardPos&&ui.card.getAttribute('data-phase')==='show'&&b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){
+        var cardTop=floor-ui.card.offsetHeight-14-pad-4;           // a page taller than the screen: the ring stops where the corner card starts, so the card never covers what is lit
+        if(cardTop-b.top>=200)y2=Math.min(y2,cardTop);
+      }
       var minH=Math.min(40,b.height),minW=Math.min(24,b.width);   // a sliver at the edge of the screen is not worth a ring
       holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y)}:null);
     });

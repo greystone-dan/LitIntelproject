@@ -63,22 +63,13 @@ def test_home_counts_are_read_live_not_typed_in():
 def test_home_is_not_a_presentation_and_the_tour_button_sits_on_the_title_page():
     steps = json.loads((PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]
     assert not [step["id"] for step in steps if step["id"].startswith("home-")]       # the reader moves through About themselves
-    assert steps[0]["id"] == "tour-welcome" and steps[1]["id"] == "search-page"       # the tour goes straight into the site
+    assert steps[0]["url"] == "/data-explorer?tab=about" and steps[0]["target"] == "#homeIntro"   # the tour starts on the title page
     page = (PAGES / "home_about.html").read_text(encoding="utf-8")
+    assert 'id="homeIntro"' in page
     assert page.count("data-ilit-tour-start") == 1 and page.count('id="homeButtons"') == 1
+    assert "data-ilit-tour-short" not in page and "Short tour" not in page             # one tour, one button
     assert page.index("data-ilit-tour-start") < page.index('id="homeAboutIntro"')   # Take the tour is on the title page, above everything else
     assert page.index('id="homeButtons"') > page.index('id="homeNot"')                # See what is coming closes the page
-    short = {step["id"]: step for step in json.loads((PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))["shortSteps"]}
-    assert short["sh-what"]["target"] == "#homeIntro" and 'id="homeIntro"' in page    # short tour step 1 lights the title page
-    assert "PLACEHOLDER" not in short["sh-what"].get("note", "")
-    by_id = {step["id"]: step for step in steps}
-    for name in ("wrap", "done"):
-        selectors = [by_id[name]["target"]] + list(by_id[name].get("span", []))
-        for selector in selectors:
-            first = selector.split()[0]
-            assert first.startswith("#home"), (name, selector)
-            assert f'id="{first[1:]}"' in page, (name, selector)
-        assert by_id[name]["url"] == "/data-explorer?tab=about"
 
 
 def test_home_coming_soon_is_the_new_preview_and_the_old_one_is_kept_under_development():

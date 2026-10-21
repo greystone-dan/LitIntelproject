@@ -8,8 +8,7 @@
 (function(){
   'use strict';
   var DATA=window.ILIT_TOUR||{steps:[],cases:{}};
-  var FULL_STEPS=(DATA.introOn?DATA.intro||[]:[]).concat(DATA.steps||[]),SHORT_STEPS=DATA.shortSteps||[],CASES=DATA.cases||{};   // the About introduction is kept, switched off until those pages are final
-  var STEPS=FULL_STEPS;                                          // the short tour swaps in SHORT_STEPS (state.variant); the full tour is the default
+  var STEPS=DATA.steps||[],CASES=DATA.cases||{};
   var KEY=DATA.key||'ilit.tour.v1',CASE_KEY='ilit.tour.cases';
   if(window.top!==window.self||!STEPS.length)return;           // never inside a frame (the Workbench embeds two tools)
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,7 +19,6 @@
   function save(s){try{sessionStorage.setItem(KEY,JSON.stringify(s))}catch(e){}}
   function clear(){try{sessionStorage.removeItem(KEY);sessionStorage.removeItem(CASE_KEY)}catch(e){}}
   var state=load();
-  if(state&&state.variant==='short'&&SHORT_STEPS.length)STEPS=SHORT_STEPS;
   var run=0;                                                      // bumped whenever a step is (re)started; stale async work checks it
   var ui=null,watch=null;
   window.__ilitTourTimes=window.__ilitTourTimes||{};
@@ -929,7 +927,6 @@
     if(i>=STEPS.length){finish();return}
     var s=STEPS[i];
     state=state||{i:i};
-    if(STEPS===SHORT_STEPS&&SHORT_STEPS!==FULL_STEPS&&!state.variant)state.variant='short';   // a state rebuilt mid-tour must stay the short tour
     if(state.i!==i)state.phase=direction>0?'enter':'back';
     state.i=i;state.active=true;state.dir=direction;
     if(!state.t0)state.t0=Date.now();
@@ -1157,11 +1154,9 @@
       }catch(e){}
     });
   }
-  async function start(variant){
-    var short=variant==='short'&&SHORT_STEPS.length>0;
-    STEPS=short?SHORT_STEPS:FULL_STEPS;
+  async function start(){
     caseIds={};pendingLookups={};cardAt=null;
-    state={i:0,active:true,t0:Date.now(),phase:'enter'};if(short)state.variant='short';save(state);
+    state={i:0,active:true,t0:Date.now(),phase:'enter'};save(state);
     build();render(0,[],true);
     // sign in and look up the example decisions once, together, so later steps do not wait on them
     await Promise.all((DATA.demoSignIn!==false?[demoSignIn()]:[]).concat(Object.keys(CASES).map(resolveCase)));
@@ -1182,10 +1177,10 @@
 
   /* ---------- starting it ---------- */
   document.addEventListener('click',function(e){
-    var b=e.target.closest&&e.target.closest('[data-ilit-tour-start],[data-ilit-tour-short]');
+    var b=e.target.closest&&e.target.closest('[data-ilit-tour-start]');
     if(!b)return;
     e.preventDefault();
-    start(b.hasAttribute('data-ilit-tour-short')?'short':undefined);
+    start();
   });
   // Where everything is on screen right now, for the tour check (scripts/check_site_tour.py): each lit element's full
   // box and the part of it its panels let show, each ring, the card, the control bar and the pointer.
@@ -1207,7 +1202,7 @@
         return {full:n?box(fullRect(item)):null,seen:n?box(liveRect(item)):null,ring:rings[k]||null,room:room,capped:!!item.capped,underBar:n?round(underBar(shownBox(n))):0};
       })};
   }
-  window.ilitTour={start:start,exit:exit,get steps(){return STEPS},shortSteps:SHORT_STEPS,resolveUrl:resolveUrl,resolveCase:resolveCase,geometry:geometry,times:function(){return window.__ilitTourTimes}};
+  window.ilitTour={start:start,exit:exit,get steps(){return STEPS},resolveUrl:resolveUrl,resolveCase:resolveCase,geometry:geometry,times:function(){return window.__ilitTourTimes}};
 
   function boot(){
     var want=new URLSearchParams(location.search).get('tour');

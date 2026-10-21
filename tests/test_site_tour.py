@@ -32,22 +32,8 @@ def test_every_step_url_is_a_real_page():
         assert client.get(path, follow_redirects=False).status_code == 200, path
 
 
-def test_short_tour_is_a_second_shorter_list_and_leaves_the_full_tour_alone():
-    data = tour_steps()
-    short, full = data["shortSteps"], data["steps"]
-    assert len(full) == 54 or len(full) > 40                # the full tour is still the long one
-    assert 0 < len(short) <= len(full) // 2
-    assert len({step["id"] for step in short} & {step["id"] for step in full}) == 0
-    for step in short:
-        assert len(step["text"].split()) >= 25, step["id"]  # explainer cards are full sentences, not captions
-        assert not re.search(r"\b(RPD|RAD)\b", json.dumps(step)), step["id"]
-    for path in {re.sub(r"[?#].*", "", step["url"]) for step in short}:
-        assert client.get(path, follow_redirects=False).status_code == 200, path
-    assert "window.ILIT_TOUR=" in client.get("/site-tour.js").text and '"shortSteps"' in client.get("/site-tour.js").text
-
-
 def test_short_tour_explore_steps_hand_the_page_to_the_visitor_and_say_how_to_move_on():
-    explore = [step for step in tour_steps()["shortSteps"] if step.get("explore")]
+    explore = [step for step in tour_steps()["steps"] if step.get("explore")]
     assert len(explore) == 2
     for step in explore:
         assert not step.get("act") and not step.get("say"), step["id"]      # nothing is done for the visitor here
@@ -55,7 +41,7 @@ def test_short_tour_explore_steps_hand_the_page_to_the_visitor_and_say_how_to_mo
 
 
 def test_short_tour_follows_daniels_feedback_on_wording_and_structure():
-    short = {step["id"]: step for step in tour_steps()["shortSteps"]}
+    short = {step["id"]: step for step in tour_steps()["steps"]}
     text = json.dumps(list(short.values()))
     assert "decision reader" not in text.lower() and "full tour" not in text.lower()   # it is "the reader"; no pointers to the other tour
     assert "tour will scroll" not in text and "unusual part" not in text
@@ -78,19 +64,11 @@ def test_short_tour_follows_daniels_feedback_on_wording_and_structure():
 
 
 def test_short_tour_says_before_every_page_change():
-    short = tour_steps()["shortSteps"]
+    short = tour_steps()["steps"]
     for before, step in zip(short, short[1:]):
         page = lambda url: re.sub(r"[?#].*", "", url) + (re.search(r"tab=[\w-]+", url) or [""])[0]   # noqa: E731
         if page(before["url"]) != page(step["url"]):
             assert step.get("lead"), f"{step['id']} changes page without telling the visitor first"
-
-
-def test_short_tour_buttons_sit_beside_take_a_tour():
-    for name in ("home_about.html", "about_content.html"):
-        page = (ROOT / "backend" / "pages" / name).read_text(encoding="utf-8")
-        assert page.count("data-ilit-tour-short") == 1 and "Short tour" in page
-        start, short = page.index("data-ilit-tour-start"), page.index("data-ilit-tour-short")
-        assert 0 < short - start < 400, name
 
 
 def test_example_cases_have_a_citation_to_look_up():
@@ -130,7 +108,7 @@ def test_tour_warms_only_its_own_read_only_data():
 
 
 def test_live_analysis_steps_read_the_document_once():
-    for step in tour_steps()["steps"] + tour_steps()["shortSteps"]:
+    for step in tour_steps()["steps"] + tour_steps()["steps"]:
         for action in step.get("before", []):
             if action.get("selector") in ("#laDrop", "#laAnalyze"):
                 assert action.get("unless") == "#decisionBody span.citation-link", step["id"]
@@ -208,26 +186,6 @@ def test_tour_script_parses(tmp_path):
     assert result.returncode == 0, result.stderr
 
 
-def test_steps_that_write_say_so_and_the_tour_never_moves_on_by_itself():
-    steps = tour_steps()["steps"]
-    for step in steps:
-        clicks_save = any(a.get("selector") in ("#v6SaveWb", "#laPinAll") for a in step.get("before", []))
-        assert not clicks_save or step.get("writes"), step["id"]
-    # The only automatic move is skipping a step whose target is missing; a button never calls go().
-    assert "btn.onclick=function(){var node=qs(b.click);if(node)node.click();btn.disabled=true}" in tour_js()
-
-
-def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
-    data = tour_steps()
-    fc_steps = [s for s in data["steps"] if s["id"].startswith("fc-")]
-    assert 4 <= len(fc_steps) <= 6                        # a few narrative steps, not every chart
-    assert all(not s.get("also") for s in fc_steps)    # one box per statistics step
-    assert {"la-safety", "la-drop", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
-    assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "sri-lanka-tag", "cessation-sri-lanka-won", "case-name-search", "tour-decision", "judge-brouwer"}
-    assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
-
-
 def test_card_follows_the_highlight_and_controls_stay_in_the_dock():
     js = tour_js()
     assert "function placeCard(" in js and "ilit-tour-dock" in js
@@ -244,56 +202,6 @@ def test_future_features_now_lives_on_the_roadmap_page():
     assert "future-features" in routes._data_explorer_page_html()
 
 
-def test_sections_follow_the_header_tabs_without_going_back():
-    sections = [step["section"] for step in tour_steps()["steps"]]
-    order = list(dict.fromkeys(sections))
-    assert order == ["Welcome", "Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Summing up"]
-    for name in order:                                   # each section is one unbroken run of steps
-        first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
-        assert set(sections[first:last + 1]) == {name}, name
-
-
-def test_tour_is_calm_and_leaves_the_page_usable():
-    css, js, steps = tour_css(), tour_js(), tour_steps()["steps"]
-    assert "ilit-tour-tag" not in css                                        # no labels on the borders
-    assert ".ilit-tour-block{position:fixed;inset:0;pointer-events:auto" in css   # Daniel 10-09: the page cannot be clicked or scrolled
-    assert "lockPage(true)" in js and "'wheel','touchmove'" in js and "e.isTrusted" in js and "Exit tour" in js
-    assert ".ilit-tour-dim path{fill:rgba(32,37,34,.14)}" in css             # a light shade, not a dark one
-    assert "ilit-tour-cursor" in css and "pointAt(" in js                    # a pointer shows what the tour presses
-    by_id = {step["id"]: step for step in steps}
-    for name in ("search-page", "judges", "workbench-home", "la-safety"):  # each page is introduced before its parts
-        assert by_id[name].get("top") and by_id[name].get("lead"), name
-    data = tour_steps()                                                      # a feature tour for now: the About introduction
-    assert data["introOn"] is False and data["intro"][0]["id"] == "welcome"  # is kept, switched off, until those pages are final
-    assert steps[0]["id"] == "tour-welcome" and steps[0]["target"] is None and "DATA.introOn" in js
-    assert "Please click Next at the bottom" in steps[0]["text"]
-    la = by_id["la-private"]["text"]                                         # Live analysis: worded as the code behaves
-    assert "never saved" in la and "never added to the library" in la and "AI model" in la
-    assert "la-coming" not in by_id                                          # the arguments-and-themes card is gone (Daniel, 10-15)
-    for step in steps:                                                       # text first, then the action on Next
-        assert bool(step.get("act")) == bool(step.get("say")), step["id"]
-    assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
-    typed = [a.get("text") for name in ("case-search", "plain-search") for a in by_id[name]["act"] if a.get("do") == "type"]
-    assert typed == ["Vavilov", "best interests of the child"]                # a case, then plain words (marked a work in progress)
-    assert "work in progress" in by_id["plain-search"]["text"] and "work in progress" in by_id["adv-case-type"]["text"]
-    filters = json.dumps([by_id[n].get("act") for n in ("adv-tag", "adv-tag-country", "adv-won")])
-    assert "cessation" in filters and "sri lanka" in filters and "citesFilter" not in json.dumps(steps)
-    assert "Sri Lanka" in by_id["adv-tag-country"]["say"] and by_id["adv-sort"]["target"] == "#quickSort"
-    pins = [s for s in steps if "v6-pinbtn" in json.dumps(s.get("act"))]
-    assert [s["id"] for s in pins] == ["reader-cite-pin"]                     # the pin is shown once
-    assert "v6-ibtn" in json.dumps(by_id["reader-cite-info"]["act"])          # and the i icon is pressed
-    assert by_id["citation-intelligence"]["url"].endswith("case_id={vavilov}") and "Brouwer" in json.dumps(by_id["judge-open"]["act"])
-    wrap = by_id["wrap"]
-    assert wrap["url"] == "/data-explorer?tab=about" and "not rely on" in wrap["text"] and "public information" in wrap["text"]
-    assert "French support" in by_id["done"]["text"] and "security settings" in by_id["done"]["text"]
-    assert not any(a.get("do") in ("type", "fill") and a.get("selector") == "#searchQuery"   # filters only, no typed query
-                   for step in steps if step["id"].startswith("adv-") for a in step.get("before", []) + (step.get("act") or []))
-    click = by_id["reader-cite-card"]["act"][0]                              # clicks a citation that has a pinpoint
-    assert click["do"] == "click" and any(isinstance(t, dict) and t.get("pin") for t in click["selector"])
-    readers = [s for s in steps if s["section"] == "Reading a decision"]
-    assert all("{cessation}" in s.get("url", "") for s in readers)            # one cessation decision throughout
-
-
 def test_live_analysis_drops_the_fictional_word_file():
     drops = [a for step in tour_steps()["steps"] for a in step.get("before", []) if a.get("do") == "drop"]
     assert drops and all(a["file"] == "/site-tour/sample-memo.docx" for a in drops)
@@ -302,11 +210,6 @@ def test_live_analysis_drops_the_fictional_word_file():
     from backend.live_analysis import extract_document
     text, _ = extract_document(response.content, "memo.docx", None)
     assert text.startswith("MEMORANDUM OF ARGUMENT (FICTIONAL") and "Baker" in text
-
-
-def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
-    text = {step["id"]: step for step in tour_steps()["steps"]}["wrap"]["text"]
-    assert "built" in text and "run by hand" in text and "not yet scheduled" in text
 
 
 def _moment(card, ring, full=None, cursor=None):
@@ -384,29 +287,10 @@ def test_card_and_rings_follow_the_layout_rules():
     assert "u.skip.style.visibility" in js                          # Next keeps its place when Skip section is not offered
 
 
-def test_cards_state_what_is_shown_and_the_decision_is_a_cessation_case():
-    data = tour_steps()
-    for step in data["steps"]:                      # no narration of the tour's own buttons ("Next clicks it", "I'll...")
-        for key in ("text", "say", "lead", "leadText"):
-            words = step.get(key) or ""
-            if step["id"] != "tour-welcome":           # the welcome card asks for Next, in Daniel's words
-                assert "Next " not in words and "click next" not in words.lower(), (step["id"], key)
-            assert "I'll" not in words and "I will" not in words, (step["id"], key)
-    cessation = data["cases"]["cessation"]
-    assert cessation["citation"] == "2024 FC 639" and "case_type=refugee_cessation" in cessation["search"]   # Veerasingam (Daniel, 10-09)
-    assert "sri%20lanka" in cessation["search"] and "cites_case_id" not in cessation["search"]
-    tour_decision = next(p for p in data["probes"] if p["id"] == "tour-decision")
-    assert "case_type=refugee_cessation" in tour_decision["url"]
-
-
 def test_opening_fc_analytics_drops_another_tab_s_judge():
     # a judge profile's ?judge=slug used to carry into Federal Court Analytics as a judge filter, showing 0 files;
     # the other tabs that read judge (the Testing tabs) keep it
     assert "if(selected==='fc-analytics'&&from!=='fc-analytics')url.searchParams.delete('judge')" in routes._data_explorer_page_html()
-
-
-def test_tour_never_opens_the_outline():
-    assert "outl" not in json.dumps(tour_steps()["steps"])   # Daniel: the tour should not click on the Outline at all
 
 
 def test_filter_demo_is_checked_to_put_the_tour_decision_first():
@@ -452,13 +336,6 @@ def test_control_bar_keeps_next_and_exit_on_screen_on_phones():
     assert ".ilit-tour-dock{left:12px;right:12px" in phone and "flex-wrap:wrap" in phone
 
 
-def test_intelligence_steps_show_the_rest_of_citation_and_judge_pages_and_the_files_by_year_chart():
-    steps = [s["id"] for s in json.loads((Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]]
-    assert steps.index("citation-detail") == steps.index("citation-intelligence") + 1
-    assert steps.index("judge-detail") == steps.index("judge-open") + 1
-    assert "fc-by-year" in steps and "fc-people" not in steps
-
-
 def test_tour_hides_the_experimental_whose_position_bar():
     css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
     assert "html.ilit-tour-on [data-pos-bar]{display:none!important}" in css
@@ -467,28 +344,3 @@ def test_tour_hides_the_experimental_whose_position_bar():
 def test_phone_reader_puts_the_side_panel_above_the_text_and_lets_the_page_scroll_in_the_tour():
     css = (Path(__file__).resolve().parent.parent / "backend" / "pages" / "site_tour.css").read_text(encoding="utf-8")
     assert "@media(max-width:760px){html.ilit-tour-on .inline-case-reader{height:auto!important}html.ilit-tour-on .reader-pane.target{order:-1}}" in css
-
-
-def test_polish_of_10_15_transitions_wording_and_scroll_bar():
-    root = Path(__file__).resolve().parent.parent / "backend" / "pages"
-    steps = json.loads((root / "site_tour_steps.json").read_text(encoding="utf-8"))["steps"]
-    ids = [s["id"] for s in steps]
-    by_id = {s["id"]: s for s in steps}
-    assert ids.index("reader-intel-intro") == ids.index("reader-about") + 1 and ids.index("reader-judge") == ids.index("reader-intel-intro") + 1
-    assert "judge who decided this case" in by_id["reader-intel-intro"]["text"] and not by_id["reader-intel-intro"].get("act")
-    assert by_id["reader-intel"]["say"].startswith("We also have intelligence features for this case as a whole")
-    assert "text of the paragraph this decision is citing" in by_id["reader-cite-hover"]["say"]
-    assert "marked in purple" in by_id["reader-stat-hover"]["say"]
-    assert "same two buttons" in by_id["reader-stat-card"]["text"] and "not a finished feature" in by_id["reader-stat-card"]["text"]
-    assert "navigate the decision by citation" in by_id["reader-authorities"]["text"]
-    assert [a["sel"] for a in by_id["citation-detail"]["also"]] == ["#ciTime", "#ciOut"]   # the first two sections ringed; a third made the ring run off a 1440x900 screen
-    assert by_id["fc-intro"]["leadText"].startswith("We will now move on to the final section of intelligence and statistics")
-    assert by_id["fc-intro"]["text"].startswith("Every other platform out there only offers information about cases that have resulted in decisions.")
-    assert by_id["workbench-home"]["leadText"].startswith("This is still in development, but will eventually serve as a personal workspace")
-    js = (root / "reader_v6.js").read_text(encoding="utf-8")
-    css = (root / "reader_v6.css").read_text(encoding="utf-8")
-    assert '<div class="v6-cscroll">${citedTextHtml(info.text' in js                  # a long cited passage scrolls inside its card
-    assert ".v6-card2 .v6-cscroll{max-height:min(40vh,18rem);overflow-y:auto" in css
-    assert ".v6-abody .v6-cited{max-height:280px;overflow:auto}" in css
-    assert [a["high"] for a in by_id["reader-cite-hover"]["act"] if a["do"] == "hover"] == [0.6]   # the preview opens above: mid-panel, not on the last line
-    assert by_id["fc-by-year"]["target"] == "#fcxOutcomes"                                       # the chart alone, so the card has room beside or below it

@@ -40,8 +40,7 @@ def validate_steps(data: dict) -> list[str]:
     cases = data.get("cases") or {}
     if not data.get("steps"):
         problems.append("no steps")
-    for key in ("steps", "shortSteps"):
-        problems.extend(_validate_list(data, data.get(key) or [], cases))
+    problems.extend(_validate_list(data, data.get("steps") or [], cases))
     return problems
 
 
@@ -108,7 +107,6 @@ def _validate_list(data: dict, steps: list, cases: dict) -> list[str]:
 
 
 
-TOUR_KEY = "steps"     # --tour short: walk the short tour ("shortSteps") instead of the full one
 LOCAL_TOUR = False   # --local-tour: the walk uses this checkout's tour on another site's data
 
 
@@ -232,7 +230,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
     from playwright.sync_api import sync_playwright
 
     data = json.loads(STEPS_FILE.read_text(encoding="utf-8"))
-    steps = data[TOUR_KEY]
+    steps = data["steps"]
     failures = 0
     rows = []
     with sync_playwright() as pw:
@@ -245,7 +243,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.add_init_script(
-                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'%s}))" % (index, ",variant:'short'" if TOUR_KEY == "shortSteps" else "")
+                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'%s}))" % index
             )
             status = "ok"
             try:
@@ -450,7 +448,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
     part=(first, last) walks only those steps (from first, as after a refresh there), to re-check a few quickly."""
     from playwright.sync_api import sync_playwright
 
-    steps = json.loads(STEPS_FILE.read_text(encoding="utf-8"))[TOUR_KEY]
+    steps = json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]
     by_id = {step["id"]: step for step in steps}
     problems = 0
     geometry_fails: list[str] = []
@@ -464,12 +462,12 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         errors: list[str] = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
-        page.click("[data-ilit-tour-short]" if TOUR_KEY == "shortSteps" else "[data-ilit-tour-start]")
+        page.click("[data-ilit-tour-start]")
         if part:
             first = next(k for k, step in enumerate(steps) if step["id"] == part[0])
             page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
             page.wait_for_timeout(500)
-            page.evaluate("([i, v]) => { window.ilitTour.exit(); sessionStorage.setItem('ilit.tour.v1', JSON.stringify(Object.assign({i: i, active: true, phase: 'enter', dir: 1, t0: Date.now()}, v ? {variant: 'short'} : {}))) }", [first, TOUR_KEY == "shortSteps"])
+            page.evaluate("i => { window.ilitTour.exit(); sessionStorage.setItem('ilit.tour.v1', JSON.stringify({i: i, active: true, phase: 'enter', dir: 1, t0: Date.now()})) }", first)
             page.reload(wait_until="domcontentloaded")
             seen.extend(step["id"] for step in steps[:first])
         print(f"walk at {size}" + (f" (steps {part[0]} to {part[1]})" if part else ""))
@@ -651,12 +649,11 @@ def main() -> int:
     parser.add_argument("--part", default="", help="with --walk: walk only steps FIRST:LAST (step ids), e.g. plain-search:adv-won")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
     parser.add_argument("--local-tour", action="store_true", help="use this checkout's explorer page, tour steps and script on the site at --base-url (to check an unmerged tour on the real library)")
-    parser.add_argument("--tour", choices=("full", "short"), default="full", help="which tour the browser checks walk (the steps file is always validated for both)")
+    parser.add_argument("--tour", choices=("full", "short"), default="short", help="no longer used (there is one tour); kept so older commands still run")
     parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
-    global LOCAL_TOUR, TOUR_KEY
+    global LOCAL_TOUR
     LOCAL_TOUR = args.local_tour
-    TOUR_KEY = "shortSteps" if args.tour == "short" else "steps"
     if args.pick_case:
         return pick_example_case(args.base_url.rstrip("/"))
 
@@ -669,7 +666,7 @@ def main() -> int:
     base = args.base_url.rstrip("/")
     shot_ids = {s for s in args.shot_ids.split(",") if s}
     if args.shots and not shot_ids:
-        shot_ids = {step["id"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))[TOUR_KEY]}
+        shot_ids = {step["id"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]}
     short = run_probes(base)
     failures = run_controls(base, args.width)
     if args.walk:

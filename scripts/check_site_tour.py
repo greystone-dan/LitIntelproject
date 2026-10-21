@@ -251,7 +251,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.add_init_script(
-                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'%s}))" % index
+                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'}))" % index
             )
             status = "ok"
             try:

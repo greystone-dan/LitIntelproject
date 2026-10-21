@@ -473,7 +473,7 @@
         "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
       ],
       "explore": true,
-      "cardPos": "bottom-left",
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -506,7 +506,7 @@
       "target": "#decisionBody .v6-card2.v6-case",
       "auto": true,
       "explore": true,
-      "cardPos": "bottom-left",
+      "cardPos": "bottom-right",
       "before": [
         {
           "do": "waitFor",
@@ -523,7 +523,7 @@
           "ms": 600
         }
       ],
-      "timeout": 12,
+      "timeout": 20,
       "act": [
         {
           "do": "click",
@@ -539,12 +539,13 @@
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
           ],
           "unless": "#decisionBody .v6-card2.v6-case",
-          "high": true
+          "high": true,
+          "timeout": 15
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody .v6-card2.v6-case",
-          "timeout": 8
+          "timeout": 15
         }
       ],
       "text": "Each citation can be expanded out, and opened as a paragraph in the decision. The pin icon keeps it from disappearing, the i icon will provide more information in the side panel. Let's move on to the side panel next."
@@ -912,7 +913,7 @@
       "via": "#tab-live",
       "top": true,
       "fresh": true,
-      "cardPos": "right-middle",
+      "cardPos": "bottom-right",
       "cardSize": "large",
       "text": "The iLIT website is built entirely on processing text. What this means is that it works not just on court decisions, but on any text. This opens up an incredibly useful feature: live analysis."
     },
@@ -921,7 +922,7 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "Live Analysis",
-      "cardPos": "right-middle",
+      "cardPos": "bottom-right",
       "cardSize": "large",
       "text": "A user can drag and drop a word or PDF document onto the page, and 'plug it in' to the website. iLIT can read the text, highlight citations, and link the document to the library in the same way any case would be linked."
     },
@@ -930,7 +931,7 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "Live Analysis",
-      "cardPos": "right-middle",
+      "cardPos": "bottom-right",
       "cardSize": "large",
       "text": "The file itself is never sent to any external databases, and is not stored. This also uses no AI, it is all simply computer code."
     },
@@ -939,11 +940,11 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "A Word file, dropped in",
-      "target": "#liveAnalysisPanel",
+      "target": "#liveAnalysisPanel .la-inputs",
       "broad": true,
       "cardPos": "bottom-right",
       "say": "Let's demonstrate this functionality. We will drop in a made up word document and iLIT will process it, just like it has processed the 75k decisions in the database. The difference is, this process happens on your computer, and the document is never saved by iLIT.",
-      "sayTarget": "#liveAnalysisPanel",
+      "sayTarget": "#liveAnalysisPanel .la-inputs",
       "act": [
         {
           "do": "drop",
@@ -1021,7 +1022,8 @@
       "via": "#brandHome, .topbar a[href^='/data-explorer?tab=about']",
       "target": "#homeButtons",
       "top": true,
-      "text": "iLIT searches and reads Federal Court, Federal Court of Appeal and Supreme Court decisions, shows how they connect through citations, profiles the judges, adds Federal Court activity data no other site has, and can read your own documents without saving them. The Workbench is still being built. Feel free to check out the 'see what is coming' section, or spend more time using the site."
+      "cardPos": "top-right",
+      "text": "iLIT searches and reads Federal Court, Federal Court of Appeal and Supreme Court decisions, maps how they cite each other, profiles the judges, adds Federal Court activity data, and reads your own documents without saving them. The Workbench is still being built. Feel free to check out the 'see what is coming' section, or spend more time using the site."
     }
   ]
 }

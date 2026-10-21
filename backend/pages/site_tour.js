@@ -395,7 +395,10 @@
       if(kept.cardPos&&ui.card.getAttribute('data-phase')==='show'&&b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){
         var cw=ui.card.offsetWidth,cl=kept.cardPos==='bottom-left'?24:vw-cw-24;
         var cardTop=floor-ui.card.offsetHeight-14-pad-4;           // a page taller than the screen: the ring stops where the corner card starts, so the card never covers what is lit
-        if(cl<b.right+pad&&cl+cw>b.left-pad&&cardTop-b.top>=200)y2=Math.min(y2,cardTop);   // (only when the card is over the ring: a card on the other side leaves the whole region lit)
+        if(cl<b.right+pad&&cl+cw>b.left-pad&&cardTop-b.top>=200){
+          var stop=rowsEnd(item.node,cardTop-pad);                  // end the ring under a whole row, never through the middle of one
+          y2=Math.min(y2,stop!=null&&stop-b.top>=120?stop+pad:cardTop);item.capped=true;
+        }   // (only when the card is over the ring: a card on the other side leaves the whole region lit)
       }
       var minH=Math.min(40,b.height),minW=Math.min(24,b.width);   // a sliver at the edge of the screen is not worth a ring
       holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y)}:null);

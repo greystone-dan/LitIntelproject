@@ -199,7 +199,7 @@
         place();
         await pointAt(node,token);
         if(token!==run)return false;
-        if(a.do!=='type'&&a.do!=='hover'&&a.do!=='glide')await press();
+        if(a.do!=='type'&&a.do!=='hover'&&a.do!=='glide'&&a.do!=='scroll')await press();
       }
       else if(a.do!=='fill'&&a.do!=='type'&&(!onScreen(node)||a.high)){try{nativeIntoView.call(node,{block:a.high?'start':'center'})}catch(e){}}   // Back or a refresh: no show, but act where it can be seen
       if(a.do!=='hover')hoverOff();
@@ -211,6 +211,7 @@
         case 'open':if(!node.open)node.open=true;break;
         case 'click':node.click();break;
         case 'hover':hoverOn(node);break;
+        case 'scroll':await slowScroll(node,a,live,token);break;     // live: a slow, even scroll through the text, so it can be read as it passes
         case 'glide':if(!live)node.scrollIntoView({block:'nearest'});break;   // live: bringIntoView above already moved it, slowly
         case 'submit':if(node.requestSubmit)node.requestSubmit();else node.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));break;
         case 'drop':if(!(await dropFile(node,a,live)))return false;break;
@@ -220,6 +221,22 @@
       else await sleep(live?(a.pause||250):60);
     }
     return true;
+  }
+
+  // Scroll the panel that holds `node` down by a.by pixels over a.ms milliseconds, then (a.back) back to the top.
+  async function slowScroll(node,a,live,token){
+    var box=scrollParent(node)||document.scrollingElement||document.documentElement;
+    var from=box.scrollTop,to=Math.max(0,Math.min(from+(a.by||600),box.scrollHeight-box.clientHeight));
+    if(!live||reduce){box.scrollTop=to;return}
+    var ms=a.ms||2500,t0=Date.now();
+    for(;;){
+      if(token!==run)return;
+      var k=Math.min(1,(Date.now()-t0)/ms);
+      box.scrollTop=from+(to-from)*k;
+      if(k>=1)break;
+      await sleep(16);
+    }
+    if(a.back){await sleep(500);if(token===run)box.scrollTop=from}
   }
 
   // Drop one of the tour's own fictional sample files on a drop zone, as a person dragging it from their desktop would.
@@ -295,6 +312,7 @@
   var SCROLL_KEYS=/^(Spacebar|PageUp|PageDown|Home|End|ArrowUp|ArrowDown|Enter)$/,PAGE_KEYS=/^(PageUp|PageDown|Home|End|ArrowUp|ArrowDown)$/;
   function hold(e){
     if(!ui||!e.isTrusted)return;
+    if(exploring){if(wouldLeave(e)){e.preventDefault();e.stopPropagation()}return}   // an explore step: the page is the visitor's, apart from clicks that would leave it
     var scroll=e.type==='wheel'||e.type==='touchmove'||(e.type==='keydown'&&PAGE_KEYS.test(e.key));   // these scroll the page even from the dock
     var inside=e.target&&e.target.closest&&e.target.closest(scroll?'.ilit-tour-card':'.ilit-tour-card,.ilit-tour-dock');
     if(inside)return;                                              // the card's own text scrolls, the buttons press
@@ -866,6 +884,8 @@
     // in the last section there is nothing to skip to: the button fades out but keeps its room, so Next does not shift
     u.skip.style.visibility=sectionOf(i)===sectionOf(STEPS.length-1)||!STEPS.slice(i+1).some(function(x){return x.section!==s.section})?'hidden':'';
     u.card.classList.toggle('pending',pending);
+    exploring=!pending&&mode==='show'&&!!s.explore;                 // an "explore it yourself" step: the page can be used, but not left
+    u.root.classList.toggle('explore',exploring);
     if(pending)u.card.removeAttribute('data-ms');
     u.dock.classList.toggle('pending',pending);
     place();
@@ -879,6 +899,18 @@
     save(state);
   }
   var direction=1;
+  // While an explore step is up the visitor may scroll, click and read, but no click may take them to another page.
+  var exploring=false;
+  var NAV_LOCK="a[href]:not([href^='#']):not([href^='javascript']),nav.primary-groups,#researchViews,.topbar,.return-to-results,[data-goto],[data-group]";
+  function wouldLeave(e){                                           // would this event take the visitor off the page they are on?
+    if(!exploring||!e.target||!e.target.closest||e.target.closest('.ilit-tour'))return false;
+    if(e.type==='keydown'&&e.key!=='Enter')return false;
+    var s=STEPS[state&&state.i]||{},extra=s.lock?(Array.isArray(s.lock)?s.lock.join(','):s.lock):'';
+    if(e.type==='dblclick'&&e.target.closest('[data-cite-id],.citation-link,mark.chunk-statute'))return true;   // double-clicking a citation opens another page
+    return !!e.target.closest(NAV_LOCK+(extra?','+extra:''));
+  }
+  function locked(e){if(wouldLeave(e)){e.preventDefault();e.stopPropagation();e.stopImmediatePropagation()}}
+  ['click','dblclick','auxclick','keydown'].forEach(function(t){document.addEventListener(t,locked,true)});
   async function show(i,dir){
     var token=++run;
     direction=dir||direction;
@@ -886,6 +918,7 @@
     if(i>=STEPS.length){finish();return}
     var s=STEPS[i];
     state=state||{i:i};
+    if(STEPS===SHORT_STEPS&&SHORT_STEPS!==FULL_STEPS&&!state.variant)state.variant='short';   // a state rebuilt mid-tour must stay the short tour
     if(state.i!==i)state.phase=direction>0?'enter':'back';
     state.i=i;state.active=true;state.dir=direction;
     if(!state.t0)state.t0=Date.now();

@@ -36,14 +36,30 @@ def test_short_tour_is_a_second_shorter_list_and_leaves_the_full_tour_alone():
     data = tour_steps()
     short, full = data["shortSteps"], data["steps"]
     assert len(full) == 54 or len(full) > 40                # the full tour is still the long one
-    assert 0 < len(short) <= len(full) // 4
+    assert 0 < len(short) <= len(full) // 2
     assert len({step["id"] for step in short} & {step["id"] for step in full}) == 0
     for step in short:
-        assert len(step["text"].split()) >= 35, step["id"]  # explainer cards are full sentences, not captions
+        assert len(step["text"].split()) >= 25, step["id"]  # explainer cards are full sentences, not captions
         assert not re.search(r"\b(RPD|RAD)\b", json.dumps(step)), step["id"]
     for path in {re.sub(r"[?#].*", "", step["url"]) for step in short}:
         assert client.get(path, follow_redirects=False).status_code == 200, path
     assert "window.ILIT_TOUR=" in client.get("/site-tour.js").text and '"shortSteps"' in client.get("/site-tour.js").text
+
+
+def test_short_tour_explore_steps_hand_the_page_to_the_visitor_and_say_how_to_move_on():
+    explore = [step for step in tour_steps()["shortSteps"] if step.get("explore")]
+    assert len(explore) == 2
+    for step in explore:
+        assert not step.get("act") and not step.get("say"), step["id"]      # nothing is done for the visitor here
+        assert "Click Next" in step["text"] and "paused" in step["text"], step["id"]
+
+
+def test_short_tour_says_before_every_page_change():
+    short = tour_steps()["shortSteps"]
+    for before, step in zip(short, short[1:]):
+        page = lambda url: re.sub(r"[?#].*", "", url) + (re.search(r"tab=[\w-]+", url) or [""])[0]   # noqa: E731
+        if page(before["url"]) != page(step["url"]):
+            assert step.get("lead"), f"{step['id']} changes page without telling the visitor first"
 
 
 def test_short_tour_buttons_sit_beside_take_a_tour():

@@ -187,8 +187,8 @@ def test_repository_has_exactly_one_expected_head():
     config = Config(str(ROOT / "alembic.ini"))
     config.set_main_option("script_location", str(ROOT / "alembic"))
     scripts = ScriptDirectory.from_config(config)
-    assert scripts.get_heads() == ["0050_search_speed_indexes"]
-    assert scripts.get_current_head() == "0050_search_speed_indexes"
+    assert scripts.get_heads() == ["0051_case_tags_value_covering"]
+    assert scripts.get_current_head() == "0051_case_tags_value_covering"
     assert scripts.get_revision("0001_case_metadata").down_revision is None
     assert scripts.get_revision("0015_fc_activity_classifications").down_revision == "0014_judge_profiles"
 
@@ -206,3 +206,13 @@ def test_single_head_check_rejects_synthetic_multiple_heads(tmp_path):
     assert len(scripts.get_heads()) == 2
     with pytest.raises(CommandError, match="multiple heads"):
         scripts.get_current_head()
+
+
+def test_0051_is_one_concurrent_index_build_and_undo_drops_only_it():
+    source = (ROOT / "alembic" / "versions" / "0051_case_tags_value_covering.py").read_text(encoding="utf-8")
+    assert source.count("CREATE INDEX CONCURRENTLY IF NOT EXISTS ix_case_tags_value_version_covering") == 1
+    assert "ON case_tags (value, taxonomy_version) INCLUDE (case_id)" in source
+    for forbidden in ("ALTER ", "UPDATE ", "DELETE ", "TRUNCATE", "DROP TABLE", "op.drop_index", "op.create_index"):
+        assert forbidden not in source
+    assert source.count('op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_case_tags_value_version_covering")') == 1
+    assert "autocommit_block" in source

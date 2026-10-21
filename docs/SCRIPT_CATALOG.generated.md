@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 198
+Active scripts documented: 199
 
 ## Catalog
 
@@ -201,6 +201,7 @@ Active scripts documented: 198
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
+| `tag_index_check.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_index_check.py --help` |
 | `top_unlinked_cited.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\top_unlinked_cited.py --help` |
 | `train_learned_positions.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_positions.py --help` |
 | `train_learned_roles.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\train_learned_roles.py --help` |
@@ -2881,6 +2882,20 @@ Active scripts documented: 198
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_cases_v3.py --help
+```
+
+## `scripts/tag_index_check.py`
+
+**Purpose:** Read-only check for migration 0051 (covering index on case_tags): sizes, build estimate and the tag lookup plan. Run it BEFORE the migration (to size it and record the plan) and AFTER (to prove the index is used and valid). Only SELECT / EXPLAIN statements run. It does not read keys. python scripts/tag_index_check.py --out tag_index_before.txt python scripts/tag_index_check.py --out tag_index_after.txt
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\tag_index_check.py --help
 ```
 
 ## `scripts/top_unlinked_cited.py`

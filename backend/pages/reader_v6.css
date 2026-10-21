@@ -287,7 +287,7 @@ body:not(.reader-experimental) .v6-exp{display:none!important}
  .v6-ititle{background:var(--v6-paper)}
  /* click cards: as wide as the text column, text scrolls after six lines */
  .v6-card2{margin:2px 0 16px 0;max-width:none;width:auto;box-sizing:border-box}
- .v6-card2 .v6-cscroll{font-size:16px;line-height:1.55;max-height:calc(1.55em*6 + 26px);overflow-y:auto;overscroll-behavior:contain;padding-right:8px}
+ .v6-card2 .v6-cscroll{font-size:16px;line-height:1.55;max-height:calc(1.55em*6);overflow-y:auto;overscroll-behavior:contain;padding-right:8px}
  .v6-card2 .v6-cscroll .v6-cited:last-child p:last-child,.v6-card2 .v6-cscroll .v6-cited:last-child blockquote:last-child{margin-bottom:0}
 }
 /* phones: back link, title, details line, then Save to Workbench */

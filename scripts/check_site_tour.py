@@ -379,6 +379,8 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
                 problems.append(f"ring misses the top of {name} (taller than the screen: its start must show)")
             elif ring["h"] < min(150, room["h"] / 3) or ring["y"] + ring["h"] > floor + GEOMETRY_SLACK:
                 problems.append(f"ring shows too little of {name} ({round(ring['h'])}px of a {round(room['h'])}px screen)")
+        elif cut > GEOMETRY_SLACK and item.get("capped") and ring["y"] <= full["y"] + GEOMETRY_SLACK and ring["h"] >= 150 and ring["y"] + ring["h"] <= floor + GEOMETRY_SLACK:
+            pass                                         # a list ringed down to its last whole row on purpose, so the corner card stays clear of what is lit
         elif cut > GEOMETRY_SLACK:
             off = full["y"] < 0 or full["y"] + full["h"] > floor or full["x"] < 0 or full["x"] + full["w"] > g["vw"]
             hidden = bool(seen) and (seen["h"] < full["h"] - GEOMETRY_SLACK or seen["w"] < full["w"] - GEOMETRY_SLACK)

@@ -81,3 +81,6 @@
  #decisionBody .pos-g-go{min-height:44px;min-width:44px}
  #decisionBody .pos-legend-box summary,#decisionBody .pos-rely summary{min-height:32px;display:flex;align-items:center}
 }
+
+/* Experimental only (Daniel, 10-22): the bar and every paragraph note stay hidden unless the Experimental switch is on. */
+body:not(.reader-experimental) :is([data-pos-bar],[data-pos-note]){display:none!important}

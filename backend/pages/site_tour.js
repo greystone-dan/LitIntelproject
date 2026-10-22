@@ -192,8 +192,7 @@
       if(!node)return n>0;
       if(live&&ui&&a.do!=='fill'){
         if(!(STEPS[state&&state.i]||{}).broad)ui.items=[{node:node,sel:null}];   // a broad step keeps its whole region lit
-        await bringIntoView(node,token);
-        if(a.high)await lift(node,token,a.high);
+        await smoothly(async function(){await bringIntoView(node,token);if(a.high)await lift(node,token,a.high)},token);
         place();
         await pointAt(node,token);
         if(token!==run)return false;
@@ -203,6 +202,7 @@
       if(a.do!=='hover')hoverOff();
       switch(a.do){
         case 'type':await typeInto(node,a.text||'',token,live);break;
+        case 'pickTag':if(!(await pickTag(node,a,token,live)))return false;break;
         case 'fill':await fillInto(node,(DATA.texts||{})[a.sample]||'');break;
         case 'check':if(!node.checked)node.click();break;
         case 'uncheck':if(node.checked)node.click();break;
@@ -221,6 +221,29 @@
     return true;
   }
 
+  // Pick one tag in the Tag filter: type it, wait for the pick list (a cold database can take a while to answer the first time,
+  // so it waits long and asks again only once, never in a pile), click the entry and check the chip is there.
+  // a.text: what to type; a.entry: the entry's name (a pattern); a.seconds: how long to wait for the list (default 45).
+  async function pickTag(input,a,token,live){
+    var chip={css:'#tagChips .sp-tag',text:a.chip||a.entry};
+    if(findVisible(chip))return true;
+    for(var attempt=0;attempt<2;attempt++){
+      await typeInto(input,a.text||'',token,live);                  // the second time round the text is already there: it asks the list again
+      if(token!==run)return false;
+      var entry=await waitFor({css:'#tagPickList button[data-v]',text:a.entry},attempt?(a.seconds||45):Math.min(20,a.seconds||45),token);
+      if(token!==run)return false;
+      if(!entry)continue;
+      if(live&&ui){
+        if(!(STEPS[state&&state.i]||{}).broad)ui.items=[{node:entry,sel:null}];
+        place();await pointAt(entry,token);
+        if(token!==run)return false;
+        await press();
+      }
+      if(entry.isConnected)entry.click();
+      if(await waitFor(chip,5,token))return true;
+    }
+    return false;
+  }
   // Scroll the panel that holds `node` down by a.by pixels over a.ms milliseconds, then (a.back) back to the top.
   async function slowScroll(node,a,live,token){
     var box=scrollParent(node)||document.scrollingElement||document.documentElement;
@@ -582,15 +605,32 @@
     [2,24,48].forEach(function(y){                                  // a bar pinned a little below the top edge counts too
       for(var n=pageAt(Math.max(2,Math.min(window.innerWidth-2,x)),y);n&&n!==document.body&&n!==document.documentElement;n=n.parentElement){
         var pos=getComputedStyle(n).position;
-        if(pos==='sticky'||pos==='fixed'){var r=n.getBoundingClientRect();if(r.top<=50&&r.bottom<window.innerHeight*0.4)low=Math.max(low,r.bottom);break}
+        if(pos==='sticky'||pos==='fixed'){
+          var r=n.getBoundingClientRect();
+          if(pos==='sticky'&&r.top>parseFloat(getComputedStyle(n).top)+2)break;   // a sticky bar that has not reached its place yet is not pinned (it will move)
+          if(r.top<=50&&r.bottom<window.innerHeight*0.4)low=Math.max(low,r.bottom);
+          break;
+        }
       }
+    });
+    return low;
+  }
+  // The bottom edge of a bar that is not pinned yet but will be as soon as the page scrolls (Research's search bar sticks to the
+  // top). Counted before the page moves, so the first move already lands clear of it and never has to come back.
+  function stuckTop(node){
+    var low=0;
+    [].forEach.call(document.querySelectorAll('.topbar,.sp-top'),function(bar){
+      if(!visible(bar)||(node&&bar.contains(node)))return;
+      var cs=getComputedStyle(bar),top=parseFloat(cs.top);
+      if((cs.position!=='sticky'&&cs.position!=='fixed')||!(top>=0&&top<=50))return;
+      low=Math.max(low,top+bar.getBoundingClientRect().height);
     });
     return low;
   }
   // The free part of the screen: below any pinned bar, above the control bar.
   function freeArea(node){
     var top=12,bottom=dockTop()-14;
-    if(node)top=Math.max(top,pinnedTop(node.getBoundingClientRect().left+20)+10);
+    if(node)top=Math.max(top,pinnedTop(node.getBoundingClientRect().left+20)+10,node.closest&&node.closest('.ilit-tour')?0:stuckTop(node)+10);
     return {top:top,bottom:bottom};
   }
   function onScreen(node){
@@ -619,8 +659,13 @@
 
   /* ---------- slow scrolling: the page never jumps ---------- */
   var gliding=0;
+  // A step's scrolling is worked out first with instant jumps (planning), then played back as ONE glide per scrolling
+  // place, from where the page started to where it ends up. However many small corrections the placing needs, the visitor
+  // sees one smooth move in one direction: no overshoot, no coming back.
+  var planning=false,planned=null;
   function scrollTopOf(box){return box?box.scrollTop:(window.scrollY||document.documentElement.scrollTop)}
   function setScroll(box,v){
+    if(planning&&planned&&!planned.has(box))planned.set(box,scrollTopOf(box));
     try{if(box)box.scrollTo({top:v,behavior:'instant'});else window.scrollTo({top:v,behavior:'instant'})}
     catch(e){if(box)box.scrollTop=v;else window.scrollTo(0,v)}
   }
@@ -628,7 +673,7 @@
     var from=scrollTopOf(box),max=box?box.scrollHeight-box.clientHeight:document.documentElement.scrollHeight-window.innerHeight;
     var to=Math.max(0,Math.min(max,from+delta));
     if(Math.abs(to-from)<2)return Promise.resolve();
-    if(reduce){setScroll(box,to);return Promise.resolve()}
+    if(reduce||planning){setScroll(box,to);return Promise.resolve()}
     var ms=Math.round(Math.min(2600,Math.max(900,Math.abs(to-from)*1.7))),t0=null;
     gliding++;
     return new Promise(function(done){
@@ -641,6 +686,21 @@
       }
       requestAnimationFrame(frame);
     });
+  }
+  async function smoothly(fn,token){
+    if(reduce||planning){await fn();return}
+    var starts=new Map();
+    planning=true;planned=starts;
+    try{await fn()}finally{planning=false;planned=null}
+    if(token!==run)return;
+    var jobs=[];
+    starts.forEach(function(start,box){
+      var end=scrollTopOf(box);
+      if(Math.abs(end-start)<2)return;
+      setScroll(box,start);                                          // back to where the visitor was, then one glide to the end
+      jobs.push(glide(box,end-start,token));
+    });
+    await Promise.all(jobs);
   }
   // While the tour runs, the site's own "jump to" moves (Find, Search this decision, the Outline) glide slowly too.
   var nativeIntoView=Element.prototype.scrollIntoView;
@@ -744,7 +804,7 @@
   // so the region sits at the top of the free area and the card can speak below it, instead of covering part of it.
   async function makeRoom(s,main,token){
     if(!ui||!main||!main.node||!visible(main.node)||scrollParent(main.node))return;
-    ui.title.textContent=s.title||'';ui.text.textContent=s.text||'';ui.extra.textContent='';   // the card as it will read
+    ui.title.textContent=s.title||'';setRich(ui.text,s.text||'');ui.extra.textContent='';   // the card as it will read
     var W=ui.card.offsetWidth,H=ui.card.offsetHeight+24,vw=document.documentElement.clientWidth||window.innerWidth;   // a line to spare
     var r=fullRect(main),f=freeArea(main.node),gap=20,m=14;
     if(r.left-gap-W>=m||vw-r.right-gap-W>=m)return;                 // there is room at a side
@@ -824,13 +884,26 @@
     var x=Math.round(r.left+Math.min(r.width/2,Math.max(16,r.width*0.3))),y=Math.round(r.top+Math.min(r.height/2,22));
     if(pointer.x==null){                                            // first appearance: from the Next button
       var nb=ui.next.getBoundingClientRect();
-      pointer.x=Math.round(nb.left+nb.width/2);pointer.y=Math.round(nb.top+nb.height/2);
+      pointer.x=Math.round(nb.left+Math.min(16,nb.width/2));pointer.y=Math.round(nb.top+nb.height/2);
       c.style.transition='none';c.style.transform='translate('+pointer.x+'px,'+pointer.y+'px)';
       c.getBoundingClientRect();c.style.transition='';
     }
     var from={x:pointer.x,y:pointer.y};
     pointer.x=x;pointer.y=y;c.classList.add('on');place();          // the card makes way for where the pointer is going first
     pointer.x=from.x;pointer.y=from.y;
+    var cm=/translate\((-?[\d.]+)px, *(-?[\d.]+)px\)/.exec(ui.card.style.transform||'');
+    if(cm&&!reduce){                                                // the straight way crosses the card (waiting in its corner): go up or across first, then along
+      var cl=+cm[1],ct=+cm[2],cr=cl+ui.card.offsetWidth,cb=ct+ui.card.offsetHeight;
+      var hits=function(ax,ay,bx,by){for(var k=0;k<=24;k++){var px=ax+(bx-ax)*k/24,py=ay+(by-ay)*k/24;if(px+34>cl&&px-16<cr&&py+34>ct&&py-16<cb)return true}return false};
+      if(hits(from.x,from.y,x,y)&&!hits(from.x,from.y,from.x,y)&&!hits(from.x,y,x,y)){
+        var d1=Math.abs(y-from.y);
+        c.style.transitionDuration=Math.round(Math.min(900,Math.max(380,d1*1.2)))+'ms, .2s';
+        c.style.transform='translate('+from.x+'px,'+y+'px)';
+        await sleep(Math.round(Math.min(900,Math.max(380,d1*1.2))));
+        if(token!==run)return;
+        from={x:from.x,y:y};pointer.x=from.x;pointer.y=from.y;
+      }
+    }
     var dist=Math.hypot(x-pointer.x,y-pointer.y);
     var ms=reduce||dist<4?0:Math.round(Math.min(1200,Math.max(520,dist*1.36)));   // already there (a button clicked again): no wait
     c.style.transitionDuration=ms+'ms, .2s';
@@ -859,6 +932,23 @@
     while(last<STEPS.length-1&&sectionOf(last+1)===sec)last++;
     return {n:i-first+1,of:last-first+1};
   }
+  // Card text: {count} is the number of decisions the search on the page found (so a card never quotes a stale figure), a blank
+  // line starts a new paragraph, and **words** are bold.
+  function countToken(){var m=/^\s*([\d,]+\+?)\s+decisions?\b/.exec((qs('#searchMeta')||{}).textContent||'');return m?m[1]:'these'}
+  function setRich(node,text){
+    node.textContent='';
+    String(text||'').replace(/\{count\}/g,countToken).split('**').forEach(function(part,k){
+      if(part)node.appendChild(k%2?el('strong',null,part):document.createTextNode(part));
+    });
+  }
+  // Nothing a step does may leave the card waiting for ever: after 30 seconds without progress it moves on, as a missing element does.
+  // A step that clicks and types for the visitor starts the clock again as each action begins, with that action's own wait added.
+  function armStuck(i,at,ms){
+    if(!ui)return;
+    clearTimeout(ui.stuck);
+    ui.stuck=setTimeout(function(){if(ui&&at===run&&ui.card.classList.contains('pending'))skipOver(i,++run,'stuck')},ms);
+  }
+  var acting=false;                                                 // the tour is clicking and typing for the visitor
   function render(i,items,mode,focus){
     var s=STEPS[i],u=build(),sp=sectionPlace(i),pending=mode==='pending';
     document.documentElement.classList.add('ilit-tour-on');
@@ -868,7 +958,7 @@
     if(!pending){
       u.kicker.textContent=(s.section||'Tour')+(sp.of>1?' · '+sp.n+' of '+sp.of:'');
       u.title.textContent=mode==='lead'?s.lead:(s.title||'');
-      u.text.textContent=mode==='lead'?(s.leadText||''):mode==='say'?(s.say||''):(s.text||'');
+      setRich(u.text,mode==='lead'?(s.leadText||''):mode==='say'?(s.say||''):(s.text||''));
       u.extra.textContent='';
       if(mode==='show'){
         if(s.writes)u.extra.appendChild(el('span','ilit-tour-writes',s.writes));
@@ -890,12 +980,8 @@
     collapseCard(!pending&&mode==='show'&&u.collapsed);
     u.count.textContent='Step '+(i+1)+' of '+STEPS.length;
     clearTimeout(u.slow);
-    if(pending)u.slow=setTimeout(function(){if(ui&&ui.card.classList.contains('pending'))ui.count.textContent='Loading…'},900);   // only a slow step says so
-    clearTimeout(u.stuck);
-    if(pending){                                                    // nothing a step does may leave the card waiting for ever: after 30 seconds it moves on, as a missing element does
-      var at=run;
-      u.stuck=setTimeout(function(){if(ui&&at===run&&ui.card.classList.contains('pending'))skipOver(i,++run,'stuck')},30000);
-    }
+    if(pending&&!acting)u.slow=setTimeout(function(){if(ui&&ui.card.classList.contains('pending'))ui.count.textContent='Loading…'},900);   // only a slow step says so (not one where the pointer is at work)
+    if(pending)armStuck(i,run,30000);
     u.fill.style.width=Math.round(((i+1)/STEPS.length)*100)+'%';
     u.back.disabled=i===0;
     u.next.textContent=i===STEPS.length-1&&mode==='show'?'Done':'Next';
@@ -953,6 +1039,7 @@
   ['click','dblclick','auxclick','keydown'].forEach(function(t){document.addEventListener(t,locked,true)});
   async function show(i,dir){
     var token=++run;
+    acting=false;
     direction=dir||direction;
     if(i<0)i=0;
     if(i>=STEPS.length){finish();return}
@@ -971,7 +1058,7 @@
     if(!sameLocation(url)){
       if((state.phase==='enter'||state.phase==='lead')&&s.lead){     // "OK, let's move on": light the place it will click, wait for Next
         var spot=findVisible(fillIds(s.via||s.point||''));
-        if(spot)await bringIntoView(spot,token);
+        if(spot)await smoothly(function(){return bringIntoView(spot,token)},token);
         if(token!==run)return;
         state.phase='lead';
         render(i,spot?[{node:spot,sel:null}]:[],'lead');ready(i,'lead');
@@ -981,9 +1068,9 @@
       return navigate(i,url,token,false);
     }
     state.nav=null;
+    if(s.reset&&state.phase!=='show'){resetSite();await sleep(60);if(token!==run)return}   // this step starts from an empty search, whichever way it was reached
     if(s.fresh&&direction<0&&state.reloaded!==i){state.reloaded=i;save(state);location.reload();return}   // a page that changes as you use it starts clean when you step back to it
     if(state.reloaded!==i)state.reloaded=null;
-    if(s.top&&state.phase!=='show'&&scrollTopOf(null)>4){await glide(null,-scrollTopOf(null),token);if(token!==run)return}   // a page is introduced from its top
     // 2. get the page ready, quietly
     for(var k=0;k<(s.before||[]).length;k++){
       var done=await doAction(s.before[k],token,false);
@@ -999,8 +1086,10 @@
       var node=spotSel?(await waitFor(spotSel,first&&first.timeout||8,token)):null;
       if(token!==run)return;
       if(!node&&!s.sayTarget&&first){if(s.optional)return skipOver(i,token,'say-target')}
-      if(node)await bringIntoView(node,token);
-      if(node&&first&&first.high&&token===run)await lift(node,token,first.high);   // something that opens below itself: well up the panel, not on its last line
+      if(node)await smoothly(async function(){
+        await bringIntoView(node,token);
+        if(first&&first.high&&token===run)await lift(node,token,first.high);   // something that opens below itself: well up the panel, not on its last line
+      },token);
       if(token!==run)return;
       state.phase='say';
       render(i,node?[{node:node,sel:spotSel}]:[],'say');ready(i,'say');
@@ -1009,13 +1098,14 @@
     if(s.act)for(var q=0;q<s.act.length;q++){                      // Back or a refresh: the same result, without the show
       var ok=await doAction(s.act[q],token,false);
       if(token!==run)return;
-      if(!ok&&(s.act[q].do==='waitFor'||s.act[q].do==='type'))return skipOver(i,token,'act-quiet');
+      if(!ok&&(s.act[q].do==='waitFor'||s.act[q].do==='type'||s.act[q].do==='pickTag'))return skipOver(i,token,'act-quiet');
     }
     return result(i,token);
   }
   // Next on "say": the pointer goes and does it, then the result is shown.
   async function perform(i){
     var token=++run,s=STEPS[i];
+    acting=true;
     render(i,null,'pending');
     try{
       var lit=false;
@@ -1024,7 +1114,7 @@
         var region=findVisible(s.target);
         if(region){
           lit=true;ui.items=itemsFor(s,region);place();
-          if(s.early){await showWhole(ui.items,0,token);await sleep(reduce?0:900)}   // the highlight settles on the region before anything moves
+          if(s.early){await smoothly(function(){return showWhole(ui.items,0,token)},token);await sleep(reduce?0:900)}   // the highlight settles on the region before anything moves
         }
       };
       if(s.early){                                                 // the card changes first, so the words lead the picture; Next waits until the result
@@ -1033,10 +1123,11 @@
       }
       await light();
       for(var k=0;k<s.act.length;k++){
+        armStuck(i,token,((s.act[k].seconds||s.act[k].timeout||8)+30)*1000);
         var ok=await doAction(s.act[k],token,!s.act[k].quiet);
         if(token!==run)return;
         await light();
-        if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token,'act');
+        if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].do==='pickTag'||s.act[k].required))return skipOver(i,token,'act');
       }
       await settleScroll(token);
     }catch(e){return skipOver(i,token,'error')}                    // an action that throws must not leave the card waiting
@@ -1053,15 +1144,19 @@
     var spot=live?findVisible(fillIds(s.via||s.point||'')):null;
     if(spot){
       ui.items=[{node:spot,sel:null}];
-      await bringIntoView(spot,token);place();
+      await smoothly(function(){return bringIntoView(spot,token)},token);place();
       await pointAt(spot,token);if(token!==run)return;
       await press();if(token!==run)return;
     }
     var via=live&&s.via?findVisible(fillIds(s.via)):null;
     if(via){
+      var from=location.href,changed=0;
       via.click();
       var end=Date.now()+6000;
-      while(Date.now()<end&&!sameLocation(url)){await sleep(100);if(token!==run)return}
+      while(Date.now()<end&&!sameLocation(url)){
+        if(location.href!==from&&!changed)changed=Date.now();
+        if(changed&&Date.now()-changed>300)break;                   // the click took the page somewhere else (the Workbench tab sets #live): go straight to this step's own page, do not wait it out
+        await sleep(100);if(token!==run)return}
     }
     if(!sameLocation(url)){location.assign(url);return}
     return show(i,1);
@@ -1078,10 +1173,14 @@
     var main=(items[s.focus||0]||{}).node||target;
     if(main)await steady(main,token);                               // a list that is still filling in: wait until it stops growing
     if(token!==run)return;
-    if(!s.noScroll&&!s.top)await bringIntoView(main,token);
-    if(!s.noScroll&&s.lift&&main)await lift(main,token,s.lift);     // a small target (one citation) is brought up the pane, clear of the corner card, wherever the page was left
-    if(!s.noScroll)await showWhole(items,s.focus||0,token,s.top);         // then the rest of what is lit, when it all fits
-    if(!s.noScroll)await makeRoom(s,items[s.focus||0],token);       // and room for the card beside or below it
+    if(!s.noScroll||(s.top&&state.phase!=='show'))await smoothly(async function(){   // everything below is worked out first, then played as one glide
+      if(s.top&&state.phase!=='show'&&scrollTopOf(null)>4)await glide(null,-scrollTopOf(null),token);   // a page is introduced from its top
+      if(s.noScroll)return;
+      if(!s.top)await bringIntoView(main,token);
+      if(s.lift&&main)await lift(main,token,s.lift);                // a small target (one citation) is brought up the pane, clear of the corner card, wherever the page was left
+      await showWhole(items,s.focus||0,token,s.top);                // then the rest of what is lit, when it all fits
+      await makeRoom(s,items[s.focus||0],token);                    // and room for the card beside or below it
+    },token);
     if(token!==run)return;
     if(s.optional&&main&&!onScreen(main))return skipOver(i,token,'off-screen');  // there but out of sight: skip it
     if(s.hover&&target){await pointAt(target,token);if(token!==run)return;hoverOn(target)}
@@ -1194,15 +1293,30 @@
       }catch(e){}
     });
   }
-  async function start(){
+  // Every tour begins from a clean page: whatever the visitor left in the search (typed words, ticked filters, the open
+  // filter panel, results) is cleared, and the page is at the top. Steps that need it do the same when they are entered (reset).
+  function resetSite(){
+    try{
+      var clear=qs('#clearSearch'),panel=qs('#searchPanel');
+      if(clear&&panel)clear.click();                                // the site's own Clear: words, filters, ticked types, tags and results
+      if(panel&&panel.classList.contains('sp-adv')){var t=qs('#toggleAdvancedSearch');if(t)t.click()}
+      var cards=qs('#v6Clear');if(cards&&!cards.hidden)cards.click();
+    }catch(e){}
+  }
+  function start(){
     caseIds={};pendingLookups={};cardAt=null;
     state={i:0,active:true,t0:Date.now(),phase:'enter'};save(state);
-    build();render(0,[],true);
-    // sign in and look up the example decisions once, together, so later steps do not wait on them
-    await Promise.all((DATA.demoSignIn!==false?[demoSignIn()]:[]).concat(Object.keys(CASES).map(resolveCase)));
-    warm();
+    run++;
+    resetSite();
+    if(scrollTopOf(null)>0)setScroll(null,0);
     var url=new URL(location.href);
     if(url.searchParams.has('tour')){url.searchParams.delete('tour');history.replaceState(null,'',url.pathname+url.search+url.hash)}
+    // The welcome card needs nothing from the server, so it shows and works at once. Signing in and looking up the example
+    // decisions go on behind it (on a cold start that can take several seconds); the steps that need a decision wait for its
+    // lookup when they get there. (Until 10-22 the card waited for the lookups before it was drawn, and a Next pressed in that
+    // time was undone when they finished, leaving the tour on step 1.)
+    var started=state;
+    Promise.all((DATA.demoSignIn!==false?[demoSignIn()]:[]).concat(Object.keys(CASES).map(resolveCase))).then(function(){if(state===started&&ui)warm()});
     show(0,1);
   }
 

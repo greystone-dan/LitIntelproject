@@ -95,6 +95,10 @@
     "/analytics/search/facets?query=Vavilov&facets=0&citation_stats=0",
     "/analytics/search/cases?query=best+interests+of+the+child&sort_by=relevance&limit=50&facets=0&citation_stats=0",
     "/analytics/search/facets?query=best+interests+of+the+child&facets=0&citation_stats=0",
+    "/analytics/search/tags?q=cessation&limit=10",
+    "/analytics/search/tags?q=sri+lanka&limit=10",
+    "/analytics/search/cases?tags=cessation%2Csri_lanka&government_outcome=won&case_type=refugee_claim%2Crefugee_cessation%2Crefugee_exclusion%2Crefugee_vacation%2Cpre_removal_risk_assessment%2Crefugee_eligibility_safe_third%2Crefugee_sponsorship_resettlement&sort_by=newest&limit=50&facets=0&citation_stats=0",
+    "/analytics/search/facets?tags=cessation%2Csri_lanka&government_outcome=won&case_type=refugee_claim%2Crefugee_cessation%2Crefugee_exclusion%2Crefugee_vacation%2Cpre_removal_risk_assessment%2Crefugee_eligibility_safe_third%2Crefugee_sponsorship_resettlement&facets=0&citation_stats=0",
     "/cases/{cessation}/reader-data?evidence=0",
     "/api/judge-profiles/judge-zinn",
     "/citation-map/cases/{vavilov}/authority-signals?limit=4&context_limit=1",
@@ -156,11 +160,21 @@
       "url": "/data-explorer?tab=search",
       "title": "Search for a case",
       "via": "nav.primary-groups [data-group='research']",
+      "target": "#caseSearch",
+      "reset": true,
+      "cardPos": "bottom-right",
+      "text": "This is the search bar, where research starts. We will begin with a simple search for a well known decision."
+    },
+    {
+      "id": "sh-search-results",
+      "section": "Research",
+      "url": "/data-explorer?tab=search",
+      "title": "Search results",
       "target": "#searchResults",
+      "reset": true,
+      "auto": true,
       "cardPos": "bottom-right",
       "timeout": 45,
-      "say": "This is the search bar, where research starts. We will begin with a simple search for a well known decision.",
-      "sayTarget": "#caseSearch",
       "act": [
         {
           "do": "type",
@@ -177,7 +191,7 @@
           "timeout": 45
         }
       ],
-      "text": "Search results display key information such as the citation, court, date, judge, outcome and how many decisions cite the case. Now, let's open up and make use of some advanced search features."
+      "text": "Search results display key information such as the citation, court, date, judge, outcome and how many decisions cite the case. Next, let's open some advanced search filters."
     },
     {
       "id": "sh-filters",
@@ -193,111 +207,23 @@
       "act": [
         {
           "do": "click",
-          "selector": "#clearSearchTop",
-          "when": "#searchQuery:not(:placeholder-shown)",
-          "quiet": true
+          "selector": "#clearSearchTop"
+        },
+        {
+          "do": "wait",
+          "ms": 300
         },
         {
           "do": "click",
           "selector": "#toggleAdvancedSearch",
-          "unless": "#searchPanel.sp-adv",
-          "quiet": true
+          "unless": "#searchPanel.sp-adv"
         },
         {
           "do": "wait",
-          "ms": 400,
-          "quiet": true
-        },
-        {
-          "do": "check",
-          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-all"
-        },
-        {
-          "do": "wait",
-          "ms": 500
-        },
-        {
-          "do": "type",
-          "selector": "#tagSearch",
-          "text": "cessation",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*cessation"
-          }
-        },
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#tagPickList button[data-v]",
-            "text": "^cessation"
-          },
-          "timeout": 10,
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*cessation"
-          },
-          "nudge": "#tagSearch"
-        },
-        {
-          "do": "click",
-          "selector": "#tagPickList button[data-v]",
-          "match": "^cessation",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*cessation"
-          }
-        },
-        {
-          "do": "type",
-          "selector": "#tagSearch",
-          "text": "sri lanka",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*sri[ _]lanka"
-          }
-        },
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#tagPickList button[data-v]",
-            "text": "^sri[ _]lanka"
-          },
-          "timeout": 10,
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*sri[ _]lanka"
-          },
-          "nudge": "#tagSearch"
-        },
-        {
-          "do": "click",
-          "selector": "#tagPickList button[data-v]",
-          "match": "^sri[ _]lanka",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*sri[ _]lanka"
-          }
-        },
-        {
-          "do": "click",
-          "selector": "#quickFilters .qf-chip[data-qf='outcome'][data-value='won']",
-          "unless": "#quickFilters .qf-chip[data-qf='outcome'][data-value='won'].is-active"
-        },
-        {
-          "do": "wait",
-          "ms": 500
-        },
-        {
-          "do": "click",
-          "selector": "#caseSearch .sq-go[type='submit']"
-        },
-        {
-          "do": "waitFor",
-          "selector": "#searchResults .case-result",
-          "timeout": 45
+          "ms": 700
         }
       ],
-      "text": "Filters are used to narrow search results. Combine multiple filters and hit apply to search for cases meeting all of those criteria."
+      "text": "Filters are used in combination to narrow search results. Combine multiple selections to find specific case types. Clicking a filter will automatically search the library and display the results. Let's apply some filters: we will search for Refugee protection cases, won by the government, with the cessation and Sri Lanka tags."
     },
     {
       "id": "sh-results",
@@ -310,80 +236,39 @@
           "sel": ".sp-head"
         }
       ],
+      "auto": true,
       "cardPos": "bottom-right",
-      "timeout": 45,
+      "timeout": 90,
       "before": [
         {
           "do": "click",
           "selector": "#toggleAdvancedSearch",
           "unless": "#searchPanel.sp-adv",
           "quiet": true
-        },
+        }
+      ],
+      "act": [
         {
           "do": "check",
           "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-all"
         },
         {
-          "do": "type",
+          "do": "wait",
+          "ms": 400
+        },
+        {
+          "do": "pickTag",
           "selector": "#tagSearch",
           "text": "cessation",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*cessation"
-          }
+          "seconds": 60,
+          "entry": "^cessation"
         },
         {
-          "do": "waitFor",
-          "selector": {
-            "css": "#tagPickList button[data-v]",
-            "text": "^cessation"
-          },
-          "timeout": 10,
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*cessation"
-          },
-          "nudge": "#tagSearch"
-        },
-        {
-          "do": "click",
-          "selector": "#tagPickList button[data-v]",
-          "match": "^cessation",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*cessation"
-          }
-        },
-        {
-          "do": "type",
+          "do": "pickTag",
           "selector": "#tagSearch",
           "text": "sri lanka",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*sri[ _]lanka"
-          }
-        },
-        {
-          "do": "waitFor",
-          "selector": {
-            "css": "#tagPickList button[data-v]",
-            "text": "^sri[ _]lanka"
-          },
-          "timeout": 10,
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*sri[ _]lanka"
-          },
-          "nudge": "#tagSearch"
-        },
-        {
-          "do": "click",
-          "selector": "#tagPickList button[data-v]",
-          "match": "^sri[ _]lanka",
-          "unless": {
-            "css": "#tagChips .sp-tag",
-            "text": "^\\s*sri[ _]lanka"
-          }
+          "seconds": 60,
+          "entry": "^sri[ _]lanka"
         },
         {
           "do": "click",
@@ -391,17 +276,17 @@
           "unless": "#quickFilters .qf-chip[data-qf='outcome'][data-value='won'].is-active"
         },
         {
-          "do": "click",
-          "selector": "#caseSearch .sq-go[type='submit']",
-          "unless": "#searchResults .case-result"
+          "do": "waitFor",
+          "selector": "#searchMeta[data-state='success']",
+          "timeout": 90
         },
         {
           "do": "waitFor",
           "selector": "#searchResults .case-result",
-          "timeout": 45
+          "timeout": 90
         }
       ],
-      "text": "We have 16 cases in the library that are classified as refugee protection, contain both the cessation and Sri Lanka tags, and were won by the government. Let's continue and open the top result, Veerasingam v. Canada."
+      "text": "We have {count} cases in the library that are classified as refugee protection, contain both the cessation and Sri Lanka tags, and were won by the government. Let's continue and open the top result, Veerasingam v. Canada."
     },
     {
       "id": "sh-reader",
@@ -734,7 +619,6 @@
       "title": "Explore the reader",
       "explore": true,
       "cardPos": "bottom-right",
-      "hint": "Click Next to continue the tour.",
       "before": [
         {
           "do": "waitFor",
@@ -790,7 +674,6 @@
       "explore": true,
       "cardPos": "top-right",
       "timeout": 45,
-      "hint": "Click Next to continue the tour.",
       "act": [
         {
           "do": "type",
@@ -826,7 +709,6 @@
       "via": "#researchViews [data-tab='judge-profile']",
       "explore": true,
       "cardPos": "top-right",
-      "hint": "Click Next to continue the tour.",
       "before": [
         {
           "do": "waitFor",
@@ -841,8 +723,8 @@
       "id": "sh-fc-data",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=judge-profile",
-      "title": "FC Activity Data",
-      "text": "This next tab sets iLIT apart from any other available platform out there. Every other site is built upon published decisions. However, the vast majority of cases we work with never reach a final decision. This is a huge blindspot when we are trying to get an understanding of the litigation landscape.",
+      "title": "Next, FC Activity",
+      "text": "Let's continue to the FC Activity intelligence tab.",
       "target": "#researchViews [data-tab='fc-analytics']",
       "cardPos": "bottom-right"
     },
@@ -856,7 +738,6 @@
       "needsData": true,
       "timeout": 12,
       "cardPos": "top-right",
-      "hint": "Click Next to continue the tour.",
       "before": [
         {
           "do": "waitFor",
@@ -867,13 +748,14 @@
           "timeout": 30
         }
       ],
-      "text": "iLIT contains the FC Activity information of every single IMM case ever filed in the Federal Court. This information was pulled and collected, and is valuable in that it can provide additional context and statistics that no other site can. Feel free to scroll and view the charts. The filters above will change the charts below."
+      "text": "This next tab sets iLIT apart from any other available platform out there. Every other site is built upon published decisions. However, the vast majority of cases we work with never reach a final decision. This is a huge blind spot when we are trying to get an understanding of the litigation landscape.\n\niLIT contains the FC Activity information of every single IMM case ever filed in the Federal Court. This information was pulled and collected, and is valuable in that it can provide additional context and statistics that no other site can. Feel free to scroll and view the charts. The filters above will change the charts below.",
+      "cardSize": "large"
     },
     {
       "id": "sh-next-wb",
       "section": "Workbench",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "Let's continue, and check out the Analyst Workbench",
+      "title": "Let's continue to the last major section of the website, the Analyst Workbench Demo.",
       "text": "",
       "target": "nav.primary-groups a.primary-link[href='/workbench']"
     },
@@ -883,9 +765,8 @@
       "url": "/workbench",
       "title": "The Analyst Workbench",
       "via": "nav.primary-groups a.primary-link[href='/workbench']",
-      "target": "#view-home .homegrid > .stack:first-child > .card:first-child",
       "top": true,
-      "cardPos": "bottom-right",
+      "cardPos": "top-right",
       "before": [
         {
           "do": "waitFor",
@@ -902,7 +783,7 @@
       "id": "sh-next-la",
       "section": "Live analysis",
       "url": "/workbench",
-      "title": "Finally, Live Analysis.",
+      "title": "Finally, we will finish off by exploring the most impactful use case for iLIT - the Live Analysis Feature.",
       "text": "",
       "target": "#tab-live"
     },
@@ -916,25 +797,17 @@
       "fresh": true,
       "cardPos": "bottom-right",
       "cardSize": "large",
-      "text": "The iLIT website is built entirely on processing text. What this means is that it works not just on court decisions, but on any text. This opens up an incredibly useful feature: live analysis."
+      "text": "There are two important things to clarify before we continue.\n\n1. iLIT today was built with the assistance of AI, but it does not run on it. The site works without relying on any external AI providers or third-party companies.\n\n2. iLIT works by inputting plain text. What this means in practice is that **iLIT will work not just on court decisions, but on any inputted text.**\n\nWhat this means is that iLIT can be used not just as a research tool for public decisions, but it can be used on any word document, or clearly legible PDF. And it can do it live, in the browser, without storing anything permanently."
     },
     {
-      "id": "sh-la-2",
+      "id": "sh-la-demo",
       "section": "Live analysis",
       "url": "/live-analysis",
-      "title": "Live Analysis",
+      "title": "A Word file, dropped in",
+      "target": "#liveAnalysisPanel .la-inputs",
+      "broad": true,
       "cardPos": "bottom-right",
-      "cardSize": "large",
-      "text": "A user can drag and drop a word or PDF document onto the page, and 'plug it in' to the website. iLIT can read the text, highlight citations, and link the document to the library in the same way any case would be linked."
-    },
-    {
-      "id": "sh-la-3",
-      "section": "Live analysis",
-      "url": "/live-analysis",
-      "title": "Live Analysis",
-      "cardPos": "bottom-right",
-      "cardSize": "large",
-      "text": "The file itself is never sent to any external databases, and is not stored. This also uses no AI, it is all simply computer code."
+      "text": "Let's demonstrate this functionality. We will drop in a made up word document and iLIT will process it, just like it has processed the 75k decisions in the database. The difference is, this process happens on your computer, and the document is never saved by iLIT."
     },
     {
       "id": "sh-la-drop",
@@ -943,9 +816,8 @@
       "title": "A Word file, dropped in",
       "target": "#liveAnalysisPanel .la-inputs",
       "broad": true,
+      "auto": true,
       "cardPos": "bottom-right",
-      "say": "Let's demonstrate this functionality. We will drop in a made up word document and iLIT will process it, just like it has processed the 75k decisions in the database. The difference is, this process happens on your computer, and the document is never saved by iLIT.",
-      "sayTarget": "#liveAnalysisPanel .la-inputs",
       "act": [
         {
           "do": "drop",
@@ -994,8 +866,6 @@
           "unless": "#decisionBody span.citation-link"
         }
       ],
-      "say": "Read document runs the same rules used on the library.",
-      "sayTarget": "#liveAnalysisPanel",
       "act": [
         {
           "do": "click",
@@ -1013,7 +883,17 @@
           "when": "#laModalClose"
         }
       ],
-      "text": "iLIT went through the memo line by line. The counts show the case citations and statute references it found. Each one is marked in the text, as in the reader, so it can be previewed, opened as a card and pinned. A citation to a case in the library, such as Baker, links to that decision."
+      "text": "iLIT went through the memo line by line. The counts show the case citations and statute references it found. Each one is marked in the text, as in the reader, so it can be previewed, opened as a card and pinned. A citation to a case in the library, such as Baker, links to that decision. This draft is not stored in the library, or added to the database in any way.",
+      "auto": true
+    },
+    {
+      "id": "sh-future",
+      "section": "Live analysis",
+      "url": "/live-analysis",
+      "title": "Future use cases",
+      "cardPos": "bottom-right",
+      "cardSize": "large",
+      "text": "To be clear, this is just scratching the surface of how this feature, and iLIT as a whole, can benefit users. Check out the Coming soon section after the tour for more on the potential applications."
     },
     {
       "id": "sh-wrap",

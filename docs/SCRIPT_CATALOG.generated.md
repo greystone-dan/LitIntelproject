@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 198
+Active scripts documented: 199
 
 ## Catalog
 
@@ -59,6 +59,7 @@ Active scripts documented: 198
 | `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
+| `chat_demo.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\chat_demo.py --help` |
 | `check_argument_lists.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_argument_lists.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
@@ -893,6 +894,20 @@ Active scripts documented: 198
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help
+```
+
+## `scripts/chat_demo.py`
+
+**Purpose:** Throwaway local-model chat demo ("Under development"); separate from the iLit site. Run by hand on the PC, never as part of the site or a scheduled task: ILIT_CHAT_DEMO=1 python scripts/chat_demo.py It binds to 127.0.0.1:8765 only and talks only to the local Ollama on the same machine. Messages are never stored or logged; only counters are kept in memory. Without ILIT_CHAT_DEMO=1 it refuses to start. CHAT_DEMO_STUB=1 swaps the model for a canned reply (used for tests and screenshots).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\chat_demo.py --help
 ```
 
 ## `scripts/check_argument_lists.py`

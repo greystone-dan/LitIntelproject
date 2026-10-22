@@ -68,6 +68,48 @@
  ],
  "entries": [
   {
+   "date": "2026-10-21",
+   "theme": "navigation",
+   "title": "Tour rewritten step by step; long tour removed",
+   "text": "Merged, not live yet: the tour now has 30 steps with one card per step, the extra Short tour buttons are gone, and the long tour is removed. A follow-up fix keeps the hover step from being hidden by the corner card on a first visit.",
+   "refs": [
+    "#615",
+    "#616"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-21",
+   "theme": "navigation",
+   "title": "Short tour reworked",
+   "text": "The short site tour was reworked from feedback: it now highlights whole regions of the page and gives each side tab its own step. Live since 2026-10-21.",
+   "refs": [
+    "#611",
+    "#614"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-21",
+   "theme": "reader",
+   "title": "Case reader: new header card and wider citation cards",
+   "text": "The case reader has a header card at the top, an About tab, a two-line Authorities list and wider citation cards. Desktop only for now; phone width still needs follow-up work. Live since 2026-10-21.",
+   "refs": [
+    "#613"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-21",
+   "theme": "docs",
+   "title": "New About page title page, overview and diagrams",
+   "text": "The About page opens with a new title page, a clearer overview and diagrams of how the library fits together. Live since 2026-10-21.",
+   "refs": [
+    "#612"
+   ],
+   "auto": false
+  },
+  {
    "date": "2026-10-20",
    "theme": "performance",
    "title": "Faster result counts and ranking",
@@ -251,6 +293,1156 @@
    "auto": false
   },
   {
+   "date": "2026-10-19",
+   "theme": "infrastructure",
+   "title": "Roadmap preview: drop stale \"RAD loading is under way\"",
+   "text": "",
+   "refs": [
+    "#567"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "reader",
+   "title": "Reader: show the recorded disposition instead of \"Not recorded\"",
+   "text": "",
+   "refs": [
+    "#566"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "infrastructure",
+   "title": "Paragraph chunking: no hanging headings on paragraph rows; read-only audit script",
+   "text": "",
+   "refs": [
+    "#565"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-19",
+   "theme": "infrastructure",
+   "title": "Hide related-paragraph links behind ILIT_NOTE_LINKS (off by default)",
+   "text": "",
+   "refs": [
+    "#564"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-18",
+   "theme": "infrastructure",
+   "title": "Re-split script: exact dry-run counts and embedding carry-over",
+   "text": "",
+   "refs": [
+    "#563"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-18",
+   "theme": "reader",
+   "title": "Split paragraph rows with the reader's numbering; re-split and FCA headline fill scripts",
+   "text": "",
+   "refs": [
+    "#562"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-18",
+   "theme": "infrastructure",
+   "title": "Cleanup 8: delete 36 unused one-off scripts",
+   "text": "",
+   "refs": [
+    "#559"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-18",
+   "theme": "infrastructure",
+   "title": "Remove unused backend modules and dependencies",
+   "text": "",
+   "refs": [
+    "#550"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-18",
+   "theme": "docs",
+   "title": "Trim stale documentation and consolidate operator guides",
+   "text": "",
+   "refs": [
+    "#546"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-18",
+   "theme": "docs",
+   "title": "Reconcile root documentation with current implementation",
+   "text": "",
+   "refs": [
+    "#544"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "infrastructure",
+   "title": "Find paragraphs whose number follows a heading on the same line",
+   "text": "",
+   "refs": [
+    "#556"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "outcomes",
+   "title": "Outcome rules: fix a regression from #554 and two more patterns",
+   "text": "",
+   "refs": [
+    "#555"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "outcomes",
+   "title": "Outcome rules v2: fix errors found in the graded dry-run sample",
+   "text": "",
+   "refs": [
+    "#554"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "infrastructure",
+   "title": "Better paragraph roles and outline sections for FC, FCA, SCC (flag, default off)",
+   "text": "",
+   "refs": [
+    "#553"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "tagging",
+   "title": "Coming soon: outline and position-tag accuracy now from FC, FCA and SCC hand-read samples",
+   "text": "",
+   "refs": [
+    "#552"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "statutes",
+   "title": "Pinpoints: read hyphen-joined paragraph ranges in French/SCC decisions, keep statute paragraphs out",
+   "text": "",
+   "refs": [
+    "#551"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "infrastructure",
+   "title": "Coming soon: label the outline accuracy figure as Refugee Board only",
+   "text": "",
+   "refs": [
+    "#545"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "infrastructure",
+   "title": "Run database-dependent tests with clear skips",
+   "text": "",
+   "refs": [
+    "#543"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "infrastructure",
+   "title": "Prune completed manager state and obsolete project artifacts",
+   "text": "",
+   "refs": [
+    "#539"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-17",
+   "theme": "infrastructure",
+   "title": "Remove stale evaluation outputs",
+   "text": "",
+   "refs": [
+    "#538"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-16",
+   "theme": "infrastructure",
+   "title": "Outline: read Refugee Board decisions (behind ILIT_OUTLINE_HEADINGS)",
+   "text": "",
+   "refs": [
+    "#535"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-16",
+   "theme": "infrastructure",
+   "title": "Outline: one block per opinion for SCC and FCA, bare-number paragraphs (flagged)",
+   "text": "",
+   "refs": [
+    "#534"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-16",
+   "theme": "infrastructure",
+   "title": "Outline: read the headings the court printed (flagged, off by default)",
+   "text": "",
+   "refs": [
+    "#533"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-16",
+   "theme": "tagging",
+   "title": "Home pages follow the site's type scale; tour wording and tag step fix",
+   "text": "",
+   "refs": [
+    "#532"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-16",
+   "theme": "infrastructure",
+   "title": "Land on Home by default, full-width Home tabs, clearer FCA files graph",
+   "text": "",
+   "refs": [
+    "#531"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-15",
+   "theme": "infrastructure",
+   "title": "Coming soon: match the mock-up exactly (Take a tour button, page width)",
+   "text": "",
+   "refs": [
+    "#530"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-15",
+   "theme": "infrastructure",
+   "title": "Home > Coming soon: the approved preview page; old Coming soon moved to Development",
+   "text": "",
+   "refs": [
+    "#529"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-15",
+   "theme": "citations",
+   "title": "Home About is reader-guided (no intro tour steps); tour button at the bottom; citation ring fix",
+   "text": "",
+   "refs": [
+    "#528"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-15",
+   "theme": "infrastructure",
+   "title": "Home tab with the new About and Coming soon; main tour starts on Home",
+   "text": "",
+   "refs": [
+    "#527"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-15",
+   "theme": "statutes",
+   "title": "About tour polish: transitions, wording and scrolling; long citation and statute cards scroll inside",
+   "text": "",
+   "refs": [
+    "#526"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "mobile",
+   "title": "About site tour on phones: reader steps work, tour check passes in 26 more places",
+   "text": "",
+   "refs": [
+    "#525"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "judges",
+   "title": "About site tour: citation and judge pages shown, files-by-year chart, no whose-position bar",
+   "text": "",
+   "refs": [
+    "#524"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "mobile",
+   "title": "About site tour: control bar fits on phones",
+   "text": "",
+   "refs": [
+    "#523"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Coming soon: roadmap list opens with Reading a case",
+   "text": "",
+   "refs": [
+    "#521"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Coming soon: evidence opens with outline and cards; tour readable and steppable",
+   "text": "",
+   "refs": [
+    "#520"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Coming soon: show the link count, name links in the held-back wording",
+   "text": "",
+   "refs": [
+    "#519"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Coming soon: next-300 counts and grades, Supreme Court layers held back",
+   "text": "",
+   "refs": [
+    "#518"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Add next-300 FCA/SCC immigration layers (data files only)",
+   "text": "",
+   "refs": [
+    "#517"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "reader",
+   "title": "Reader (Experimental): Related paragraphs in other decisions",
+   "text": "",
+   "refs": [
+    "#516"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Coming soon: Related paragraphs card and a second polish pass",
+   "text": "",
+   "refs": [
+    "#515"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-14",
+   "theme": "infrastructure",
+   "title": "Add stored links between related paragraph notes (data file)",
+   "text": "",
+   "refs": [
+    "#514"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Coming soon: use live coverage counts",
+   "text": "",
+   "refs": [
+    "#513"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Coming soon: plain-words graders and current case-frame count",
+   "text": "",
+   "refs": [
+    "#512"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Add table and loader for stored \"possibly the same point\" note links",
+   "text": "",
+   "refs": [
+    "#511"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "reader",
+   "title": "Reader: a \"Where each piece comes from\" strip in the Experimental view",
+   "text": "",
+   "refs": [
+    "#510"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Add next-156 decision layers (frames, issue maps, notes) as data files",
+   "text": "",
+   "refs": [
+    "#509"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Coming soon: new numbers for the next 158 decisions and the matching test",
+   "text": "",
+   "refs": [
+    "#508"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Loader undo: never remove an older issue map on the same decision",
+   "text": "",
+   "refs": [
+    "#507"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Fewer tabs: Development replaces Lab (Lab home + Changelog), About without the changelog",
+   "text": "",
+   "refs": [
+    "#506"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "One feature inventory for Coming soon and the Lab status board",
+   "text": "",
+   "refs": [
+    "#505"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Loader: own source labels for the next-158 layers (core-150 behaviour unchanged)",
+   "text": "",
+   "refs": [
+    "#504"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "mobile",
+   "title": "Phone top bar, Lab buttons and About buttons tidied",
+   "text": "",
+   "refs": [
+    "#503"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "infrastructure",
+   "title": "Coming soon: evidence tiers at a glance and a \"where this helps\" section",
+   "text": "",
+   "refs": [
+    "#502"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-13",
+   "theme": "reader",
+   "title": "Coming soon: reader layers demo and tested numbers for each intelligence pass",
+   "text": "",
+   "refs": [
+    "#501"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-12",
+   "theme": "reader",
+   "title": "Reader (Experimental): case frame, issue map and paragraph notes for the 150 core decisions",
+   "text": "",
+   "refs": [
+    "#500"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-12",
+   "theme": "infrastructure",
+   "title": "Coming soon is the public preview; Development and Testing become one private Lab",
+   "text": "",
+   "refs": [
+    "#499"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-12",
+   "theme": "citations",
+   "title": "Refined citations: short names from either party and (ACRONYM) definitions",
+   "text": "",
+   "refs": [
+    "#497"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-12",
+   "theme": "citations",
+   "title": "Refined citations: recover more \"Name, at para N\" and \"Name, above\" short forms",
+   "text": "",
+   "refs": [
+    "#496"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-12",
+   "theme": "judges",
+   "title": "Reader: tidy case summary card and replace bare Judge tag",
+   "text": "",
+   "refs": [
+    "#495"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "citations",
+   "title": "Refined citations: \"of that decision\" pinpoints and unanchored \"Name, above\" forms",
+   "text": "",
+   "refs": [
+    "#494"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "citations",
+   "title": "Refined citations: audit by type and fixes for missed citations",
+   "text": "",
+   "refs": [
+    "#493"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "judges",
+   "title": "Intelligence judge list shows all judges",
+   "text": "",
+   "refs": [
+    "#492"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "judges",
+   "title": "Judge lists reach all judges (search + Show more)",
+   "text": "",
+   "refs": [
+    "#491"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "infrastructure",
+   "title": "Live Analysis top bar matches the site; /coming-soon redirects to Roadmap",
+   "text": "",
+   "refs": [
+    "#490"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "infrastructure",
+   "title": "Roadmap: one expandable page with an evidence tier on every item",
+   "text": "",
+   "refs": [
+    "#489"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "infrastructure",
+   "title": "Coming soon: fix stray text, stale position count, Live Analysis entry",
+   "text": "",
+   "refs": [
+    "#488"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "tagging",
+   "title": "Reader: fix flicker when a case summary card and position tags are both present",
+   "text": "",
+   "refs": [
+    "#487"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "tagging",
+   "title": "Whose-position tags: accurate empty-state text and a tested 0.7 bar",
+   "text": "",
+   "refs": [
+    "#486"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "infrastructure",
+   "title": "Admin toggle replaces the Welcome chooser",
+   "text": "",
+   "refs": [
+    "#485"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "tagging",
+   "title": "Citation sections: tag at the citation, show Cited in on sidebar authorities",
+   "text": "",
+   "refs": [
+    "#484"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "infrastructure",
+   "title": "Outline v2: fixes from real FC 10452, FCA 46452, RAD 75188",
+   "text": "",
+   "refs": [
+    "#483"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "citations",
+   "title": "Outline v2: no overlaps, Disposition kept, citation cards carry section",
+   "text": "",
+   "refs": [
+    "#482"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "reader",
+   "title": "Case summary card in the reader (flag-gated), with case_frames table and loader",
+   "text": "",
+   "refs": [
+    "#481"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "citations",
+   "title": "Reader outline v2: four sections, sub-points, and where each citation sits",
+   "text": "",
+   "refs": [
+    "#480"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "tagging",
+   "title": "Whose-position tags: paragraph_positions table, loader, 70% rule, Live Analysis (default off)",
+   "text": "",
+   "refs": [
+    "#478"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-11",
+   "theme": "tagging",
+   "title": "Whose-position tagger: rules plus a small learned model (default off)",
+   "text": "",
+   "refs": [
+    "#477"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Find decided issues: add round 4 (212 issues, 71 decisions)",
+   "text": "",
+   "refs": [
+    "#476"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Roles: recognise RPD findings as the order paragraph (rules and learned roles)",
+   "text": "",
+   "refs": [
+    "#475"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "citations",
+   "title": "Find decided issues: show citations in normal spelling",
+   "text": "",
+   "refs": [
+    "#474"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Find decided issues: add round 3 (201 issues, 72 decisions)",
+   "text": "",
+   "refs": [
+    "#473"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Roles: position within the reasons fixes short-decision dispositions (learned roles, default off)",
+   "text": "",
+   "refs": [
+    "#472"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Find decided issues: link the 313 unlinked issues",
+   "text": "",
+   "refs": [
+    "#471"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Find decided issues: say who won",
+   "text": "",
+   "refs": [
+    "#470"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Live Analysis: decided-issue search (default off)",
+   "text": "",
+   "refs": [
+    "#469"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "tagging",
+   "title": "Learned paragraph roles v2: second-stage model (default off)",
+   "text": "",
+   "refs": [
+    "#468"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Unit search: drop disposition and cover hits when enough real hits exist",
+   "text": "",
+   "refs": [
+    "#467"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Learned paragraph roles behind ILIT_LEARNED_ROLES (default off)",
+   "text": "",
+   "refs": [
+    "#466"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Structure-based units and learned paragraph roles, both behind default-off flags",
+   "text": "",
+   "refs": [
+    "#465"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Fix intermittent job-runner signal test (pid file read too early)",
+   "text": "",
+   "refs": [
+    "#464"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Unit search highlight, and unit roles from the case-structure labeller",
+   "text": "",
+   "refs": [
+    "#463"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Find the unit: experimental search box on the case search page",
+   "text": "",
+   "refs": [
+    "#462"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Unit search: court filter inside the paragraph search, Member label",
+   "text": "",
+   "refs": [
+    "#461"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Fill missing paragraph search rows by court (RAD), court filter accepts full names",
+   "text": "",
+   "refs": [
+    "#460"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Unit search: fix reversed range, better ranking, court filter, time limit",
+   "text": "",
+   "refs": [
+    "#459"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "search",
+   "title": "Unit-level keyword search endpoint (off by default)",
+   "text": "",
+   "refs": [
+    "#458"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "reader",
+   "title": "Reader panel: header unit count matches the data",
+   "text": "",
+   "refs": [
+    "#457"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "reader",
+   "title": "Reader units: anchors fixed, Discussion units panel section (experimental), Supreme Court paragraph split",
+   "text": "",
+   "refs": [
+    "#456"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Position rules: courts below as earlier decision makers, dissent detector, held-out scorer",
+   "text": "",
+   "refs": [
+    "#455"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Whose position: clearer for a first-time lawyer",
+   "text": "",
+   "refs": [
+    "#454"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Mark party arguments inside each discussion unit (experimental)",
+   "text": "",
+   "refs": [
+    "#453"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "judges",
+   "title": "Refresh pitch numbers to today's state (75,677 decisions, RAD, judges)",
+   "text": "",
+   "refs": [
+    "#452"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Show whose position: 565 more decisions (665 total)",
+   "text": "",
+   "refs": [
+    "#451"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Case types: RAD/RPD decisions are not typed safe-third or cessation unless the opening says so",
+   "text": "",
+   "refs": [
+    "#450"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Coming soon: argument-breakdown page (\"Whose position\")",
+   "text": "",
+   "refs": [
+    "#449"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "citations",
+   "title": "Position rules: evaluations of the earlier decision are the author's, Ibid. follows its citation",
+   "text": "",
+   "refs": [
+    "#448"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "tagging",
+   "title": "Stage 2 no-AI checks: direction cue and dissent suspect",
+   "text": "",
+   "refs": [
+    "#447"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Position rules: memorandum headings and issue questions are the author's",
+   "text": "",
+   "refs": [
+    "#446"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "AI proof of concept: prop_v6 prompt fixes from QA grading",
+   "text": "",
+   "refs": [
+    "#445"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "statutes",
+   "title": "Fix intermittent CI failure: statute anchor names cached by id()",
+   "text": "",
+   "refs": [
+    "#444"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "AI proof of concept: majority vs dissent parts in the propositions run (prop_v5)",
+   "text": "",
+   "refs": [
+    "#443"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "docs",
+   "title": "Case frame: document kind and author, so a one-sided draft reads as that side's argument",
+   "text": "",
+   "refs": [
+    "#442"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "infrastructure",
+   "title": "Position-holder rules: whose view a paragraph reports (no AI)",
+   "text": "",
+   "refs": [
+    "#439"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "docs",
+   "title": "Refresh documentation links and deployment runbooks",
+   "text": "",
+   "refs": [
+    "#436"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "mobile",
+   "title": "Improve mobile layout and accessibility for About and Research",
+   "text": "",
+   "refs": [
+    "#435"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-10",
+   "theme": "reader",
+   "title": "Add shared-behavior tests for case and Live Analysis readers",
+   "text": "",
+   "refs": [
+    "#433"
+   ],
+   "auto": true
+  },
+  {
    "date": "2026-10-10",
    "theme": "reader",
    "title": "Show whose position, on a first set of decisions",
@@ -281,6 +1473,906 @@
    "auto": false
   },
   {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Position preview: ignore stored paragraph numbers the decision does not have",
+   "text": "",
+   "refs": [
+    "#441"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "tagging",
+   "title": "Reader preview: whose-position tags and one-line summaries",
+   "text": "",
+   "refs": [
+    "#440"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Tour: the Workbench step waits for the case list before lighting it",
+   "text": "",
+   "refs": [
+    "#438"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Coming soon: six clickable demos on fixed invented data",
+   "text": "",
+   "refs": [
+    "#437"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "performance",
+   "title": "Tour: cache its fixed demo data so steps open quickly",
+   "text": "",
+   "refs": [
+    "#428"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Coming soon preview: guided tour with real screens and mock-ups on them",
+   "text": "",
+   "refs": [
+    "#427"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "judges",
+   "title": "Tour: pass the walk on the real library, and FC Analytics no longer shows 0 files after a judge profile",
+   "text": "",
+   "refs": [
+    "#426"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Tour round 10: welcome card, Veerasingam, i icon, page lock",
+   "text": "",
+   "refs": [
+    "#425"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Coming soon preview: stepped mock-up presentation (deterministic, teams, future local AI)",
+   "text": "",
+   "refs": [
+    "#424"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-09",
+   "theme": "infrastructure",
+   "title": "Tour: a real cessation decision (Saha) at the top of the filter demo, plain cards, no Outline",
+   "text": "",
+   "refs": [
+    "#423"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-08",
+   "theme": "infrastructure",
+   "title": "About and Coming soon: basic Overview, step-by-step How it works, reorganized Coming soon",
+   "text": "",
+   "refs": [
+    "#420"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-08",
+   "theme": "infrastructure",
+   "title": "Welcome page with Demo and Admin modes",
+   "text": "",
+   "refs": [
+    "#419"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "reader",
+   "title": "Tour: clear the reader's pinned bars and shorten the click-through steps",
+   "text": "",
+   "refs": [
+    "#418"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute extraction: unregistered named acts stay unkeyed",
+   "text": "",
+   "refs": [
+    "#417"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Tour: fit rings and the card to long result lists on the real library",
+   "text": "",
+   "refs": [
+    "#416"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Tour: measured layout checks per step, a card that stays put, whole highlights, no pointer on the text",
+   "text": "",
+   "refs": [
+    "#415"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "performance",
+   "title": "Site tour round 6: feature tour first, fuller Live analysis, whole highlights, faster pointer",
+   "text": "",
+   "refs": [
+    "#414"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "FC Activity backlog: fast mode and standalone laptop runner",
+   "text": "",
+   "refs": [
+    "#413"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Site tour round 5: starts on About, explains before it acts, one cessation decision throughout",
+   "text": "",
+   "refs": [
+    "#412"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "FC Activity overnight backlog runner",
+   "text": "",
+   "refs": [
+    "#411"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute regexes: no exponential backtracking on long provision lists",
+   "text": "",
+   "refs": [
+    "#410"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute extraction: remove the remaining per-provision full scans",
+   "text": "",
+   "refs": [
+    "#409"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Workbench: full width, compact scrolling pins, Coming soon tape",
+   "text": "",
+   "refs": [
+    "#408"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Coming soon: full About-style pages for every area, much more content",
+   "text": "",
+   "refs": [
+    "#407"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Refined citations: store the pinpoint (additive columns, builder fills them)",
+   "text": "",
+   "refs": [
+    "#406"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Add read-only script to measure pinpoints on refined citations",
+   "text": "",
+   "refs": [
+    "#405"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "About: Full detail (previous text), restored diagrams, CBSA \"Who it is for\"",
+   "text": "",
+   "refs": [
+    "#404"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "About overview: fuller intro (what, why, who, where)",
+   "text": "",
+   "refs": [
+    "#403"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Research tab and search bar: multi-court, true total, Clear search, loading bar",
+   "text": "",
+   "refs": [
+    "#402"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Coming soon: roadmap overview and section sub-tabs; old Coming soon renamed Development",
+   "text": "",
+   "refs": [
+    "#401"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Case reader: side panel rework, working highlight toggles, i and pin on citation cards",
+   "text": "",
+   "refs": [
+    "#400"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "About: short Overview and a new How it works sub-tab",
+   "text": "",
+   "refs": [
+    "#399"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Refined citations: keep missed pinpoints (FCJ/Carswell cites, narrative clauses, name plus year)",
+   "text": "",
+   "refs": [
+    "#398"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "outcomes",
+   "title": "Live Analysis parity: outcome card, outline and case type",
+   "text": "",
+   "refs": [
+    "#397"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Site tour: preload the Last 5 years statistics",
+   "text": "",
+   "refs": [
+    "#396"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Business Case tab under Coming soon",
+   "text": "",
+   "refs": [
+    "#395"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "mobile",
+   "title": "Reader on phones: keep Save to Workbench on screen",
+   "text": "",
+   "refs": [
+    "#394"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Site tour round 4: calmer, narrative, room to explore",
+   "text": "",
+   "refs": [
+    "#393"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "About page: Overview and Changelog sub-tabs, full-width text",
+   "text": "",
+   "refs": [
+    "#392"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "docs",
+   "title": "Future features: a document-style roadmap page instead of a tour",
+   "text": "",
+   "refs": [
+    "#391"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Site tour: grouped FC steps, filters-only cessation demo, no slow steps",
+   "text": "",
+   "refs": [
+    "#390"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Add a Future features tour of concept mock-ups",
+   "text": "",
+   "refs": [
+    "#389"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Main tabs: reset in the page instead of reloading (fixes slow tabs)",
+   "text": "",
+   "refs": [
+    "#388"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Site tour round 3: Next-only scripted tour in header order, labelled highlights, filters walkthrough",
+   "text": "",
+   "refs": [
+    "#387"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "tagging",
+   "title": "Live Analysis: Formatted by default, tags work for uploaded documents",
+   "text": "",
+   "refs": [
+    "#386"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Site tour round 2: fixed Next, FC Activity walkthrough, live analysis demo, cessation demo",
+   "text": "",
+   "refs": [
+    "#385"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Header: ILIT home button on the left, tabs on the right, clean page on tab click",
+   "text": "",
+   "refs": [
+    "#384"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Search: remove the full-text checkbox",
+   "text": "",
+   "refs": [
+    "#383"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Search: a plain sentence with lowercase \"and\" is not an all-words operator query",
+   "text": "",
+   "refs": [
+    "#381"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Add \"Take a tour\": guided walkthrough of the real site",
+   "text": "",
+   "refs": [
+    "#380"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Search: fix slow full-text search and time-box the whole-text scan",
+   "text": "",
+   "refs": [
+    "#379"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Refined citations: drop litigant-mention short forms, phrase neutrals and stray Ibid rows",
+   "text": "",
+   "refs": [
+    "#378"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Case search: multi-select case type filter in Advanced",
+   "text": "",
+   "refs": [
+    "#377"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Refined citations: linker for the side table and a CITATIONS_SOURCE read switch (default off)",
+   "text": "",
+   "refs": [
+    "#376"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "reader",
+   "title": "Reader Outline from case structure (no AI, nothing stored)",
+   "text": "",
+   "refs": [
+    "#375"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Search: paragraph-index path, synonym list, gold-query scorer",
+   "text": "",
+   "refs": [
+    "#373"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "citations",
+   "title": "Citations: stop marking provinces, bodies and ordinary words as short-form citations",
+   "text": "",
+   "refs": [
+    "#372"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Search: sentence queries match cases with most of the words",
+   "text": "",
+   "refs": [
+    "#371"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "outcomes",
+   "title": "Live Analysis: decision formatting, header details, outcome and case type",
+   "text": "",
+   "refs": [
+    "#370"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Live Analysis: fix slow statute extraction and dotted S.C.R. matching",
+   "text": "",
+   "refs": [
+    "#369"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Case types: two more FCA motion rules and a longer export opening",
+   "text": "",
+   "refs": [
+    "#368"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "search",
+   "title": "Show the stored case type as an info box on search cards and in the reader",
+   "text": "",
+   "refs": [
+    "#367"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Re-extraction: --skip-cases-in to run the rest after a first tranche",
+   "text": "",
+   "refs": [
+    "#366"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute extraction: keep the named act when a list continues before \"of the Act\"",
+   "text": "",
+   "refs": [
+    "#365"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute re-extraction: add --restore so backed-up rows can be put back",
+   "text": "",
+   "refs": [
+    "#364"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "outcomes",
+   "title": "Read header and outcome of Refugee Law Lab Reporter RPD decisions",
+   "text": "",
+   "refs": [
+    "#363"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Provincial immigration acts: Ontario, Alberta, Manitoba text",
+   "text": "",
+   "refs": [
+    "#362"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Re-extraction dry run: write removed and added rows with context",
+   "text": "",
+   "refs": [
+    "#361"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Ingest: extract statute references from full text",
+   "text": "",
+   "refs": [
+    "#360"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Case types: matters under other regimes are not immigration",
+   "text": "",
+   "refs": [
+    "#359"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Workbench: live cited-by count on pins, name as typed, tidy Live analysis card",
+   "text": "",
+   "refs": [
+    "#358"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Resolver: refuse old consolidations on court-aware names",
+   "text": "",
+   "refs": [
+    "#357"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Constitution Acts 1867 and 1982: stored text and aliases",
+   "text": "",
+   "refs": [
+    "#356"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute text import, batch 4 (25 federal acts and regulations)",
+   "text": "",
+   "refs": [
+    "#355"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute sections: repair glued-word sections (25s, 2d, 97of) from the cited text, with undo",
+   "text": "",
+   "refs": [
+    "#354"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute references: resolve unkeyed act names to registered instruments (dry-run backfill with undo)",
+   "text": "",
+   "refs": [
+    "#353"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Add Workbench tab (demo sign-in, case list with flags, pins, Live analysis, De-identifier)",
+   "text": "",
+   "refs": [
+    "#352"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute library: third batch, Bill of Rights, FAA, PIPEDA, Income Tax Regulations",
+   "text": "",
+   "refs": [
+    "#351"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "outcomes",
+   "title": "Read RAD outcomes, government role and cover pages correctly",
+   "text": "",
+   "refs": [
+    "#350"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Daily intake: fix IMM walk start and slow refresh query",
+   "text": "",
+   "refs": [
+    "#349"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "statutes",
+   "title": "Statute library: second batch of 37 federal instruments",
+   "text": "",
+   "refs": [
+    "#348"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "infrastructure",
+   "title": "Case types: add second type to the review export",
+   "text": "",
+   "refs": [
+    "#347"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "reader",
+   "title": "Reader: Similar cases and Shares authorities (hidden until fingerprints are stored)",
+   "text": "",
+   "refs": [
+    "#346"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-07",
+   "theme": "outcomes",
+   "title": "Fix government outcome side and winner for Minister appeals",
+   "text": "",
+   "refs": [
+    "#345"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "infrastructure",
+   "title": "Daily intake job: new decisions and new FC IMM activity records",
+   "text": "",
+   "refs": [
+    "#344"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "statutes",
+   "title": "Statute library: import 41 more federal instruments (dry run first, no AI)",
+   "text": "",
+   "refs": [
+    "#343"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "infrastructure",
+   "title": "About page rewritten for the demo, Changelog brought up to date",
+   "text": "",
+   "refs": [
+    "#342"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "infrastructure",
+   "title": "Case types: fix stay motions, s.44 referrals, RAD reviews, vacations, Rule 369",
+   "text": "",
+   "refs": [
+    "#341"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "infrastructure",
+   "title": "Fingerprint build: safe for a long live run, optional workers",
+   "text": "",
+   "refs": [
+    "#340"
+   ],
+   "auto": true
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "statutes",
+   "title": "Statute extraction fixes from the 2026 FC 738 review",
+   "text": "",
+   "refs": [
+    "#339"
+   ],
+   "auto": true
+  },
+  {
    "date": "2026-10-06",
    "theme": "statutes",
    "title": "Statute reference extraction improved against a hand-checked set",
@@ -304,6 +2396,16 @@
     "#337"
    ],
    "auto": false
+  },
+  {
+   "date": "2026-10-06",
+   "theme": "citations",
+   "title": "Citation extraction: reject weak short forms and title-block name-only rows",
+   "text": "",
+   "refs": [
+    "#336"
+   ],
+   "auto": true
   },
   {
    "date": "2026-10-06",

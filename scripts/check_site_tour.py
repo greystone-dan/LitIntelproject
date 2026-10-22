@@ -31,7 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "waitFor", "wait", "drop", "hover", "glide", "scroll"}
+ACTIONS = {"type", "pickTag", "fill", "check", "uncheck", "open", "click", "submit", "waitFor", "wait", "drop", "hover", "glide", "scroll"}
 
 
 def validate_steps(data: dict) -> list[str]:

@@ -36,48 +36,111 @@ def _tour():
     return {step["id"]: step for step in tour_steps()["steps"]}
 
 
-def test_explore_steps_hand_the_page_to_the_visitor_and_the_hint_says_how_to_move_on():
+def test_explore_steps_hand_the_page_to_the_visitor_and_their_cards_stay_up():
     steps = _tour()
     for step in steps.values():
         if step.get("hint"):
             assert step.get("explore") and "Next" in step["hint"], step["id"]
         if step.get("explore") and not step.get("act"):
             assert not step.get("say"), step["id"]          # nothing is done for the visitor here
-    # the interactive pages collapse to "click Next" once the visitor starts using them (Daniel, 10-21)
+    # the explore cards no longer shrink to "click Next" when the visitor scrolls: they stay up (Daniel, 10-22)
     for key in ("sh-explore-reader", "sh-ci", "sh-judges", "sh-fc"):
-        assert steps[key].get("hint"), key
+        assert steps[key].get("explore") and not steps[key].get("hint"), key
     assert not steps["sh-ci"].get("target") and not steps["sh-judges"].get("target") and not steps["sh-fc"].get("target")   # nothing lit
     assert [steps[k]["cardPos"] for k in ("sh-ci", "sh-judges", "sh-fc")] == ["top-right"] * 3
+    assert steps["sh-fc"]["cardSize"] == "large"            # the FC Activity card carries two cards' words
+
+
+def test_every_card_is_a_step_of_its_own():
+    # a step that "said" something and then showed its result used to be two cards with the same "Step 4 of 30"
+    assert not [step["id"] for step in tour_steps()["steps"] if step.get("say") or step.get("lead")]
 
 
 def test_tour_follows_daniels_step_list_in_order_and_in_his_words():
     steps = _tour()
     order = list(steps)
     text = json.dumps(list(steps.values()))
-    assert len(order) == len(set(order)) == 30
+    assert len(order) == len(set(order)) == 31
     assert "decision reader" not in text.lower() and "full tour" not in text.lower() and "Ilit" not in text   # "the reader"; iLIT
-    assert not any(step.get("lead") for step in steps.values())            # every card is a step of its own, so Step x of N is true
-    assert order[:6] == ["sh-what", "sh-about", "sh-begin", "sh-search", "sh-filters", "sh-results"]
+    assert order[:7] == ["sh-what", "sh-about", "sh-begin", "sh-search", "sh-search-results", "sh-filters", "sh-results"]
     # the decision text comes before the side panel, then the side panel in the order of its tabs
     assert order[order.index("sh-reader"):order.index("sh-explore-reader") + 1] == [
         "sh-reader", "sh-text", "sh-cite-hover", "sh-cite-card", "sh-side-about", "sh-side-auth", "sh-side-cite", "sh-side-judge", "sh-explore-reader"]
-    assert order[-7:] == ["sh-next-la", "sh-la-1", "sh-la-2", "sh-la-3", "sh-la-drop", "sh-la-run", "sh-wrap"]
+    assert order[order.index("sh-judges"):] == ["sh-judges", "sh-fc-data", "sh-fc", "sh-next-wb", "sh-workbench", "sh-next-la", "sh-la-1",
+                                               "sh-la-demo", "sh-la-drop", "sh-la-run", "sh-future", "sh-wrap"]
     assert steps["sh-what"]["text"].startswith("This short tour of iLIT will walk through some of the key features")
     assert steps["sh-about"]["target"] == "#homeAboutIntro" and steps["sh-about"]["title"] == "What is iLIT?"
     assert "Let's begin in the research tab." in steps["sh-begin"]["title"]
-    assert "This is the search bar, where research starts" in steps["sh-search"]["say"] and "Vavilov" in json.dumps(steps["sh-search"]["act"])
-    assert steps["sh-filters"].get("early") and steps["sh-filters"]["text"].startswith("Filters are used to narrow search results.")
+    assert "This is the search bar, where research starts" in steps["sh-search"]["text"] and "Vavilov" in json.dumps(steps["sh-search-results"]["act"])
+    assert steps["sh-search-results"]["text"].endswith("Next, let's open some advanced search filters.")
     assert "7 case types" not in text and "seven case types" not in text
-    assert "16 cases in the library" in steps["sh-results"]["text"] and steps["sh-results"]["also"]
     assert steps["sh-cite-hover"].get("explore") and "Camayo" in steps["sh-cite-hover"]["text"]       # the visitor's own mouse hovers
     assert steps["sh-cite-card"].get("explore")
     for key in ("sh-side-about", "sh-side-auth", "sh-side-cite", "sh-side-judge"):
         assert steps[key]["target"] == ".reader-pane.target" and steps[key].get("explore") and steps[key]["cardPos"] == "bottom-right", key
     assert "Both default to the current case" in steps["sh-side-cite"]["text"]
-    assert steps["sh-la-1"]["cardSize"] == "large" and not steps["sh-la-1"].get("target")
-    assert "made up word document" in steps["sh-la-drop"]["say"]
+    assert steps["sh-fc-data"]["text"] == "Let's continue to the FC Activity intelligence tab."
+    assert steps["sh-fc"]["text"].startswith("This next tab sets iLIT apart") and "every single IMM case ever filed" in steps["sh-fc"]["text"]
+    assert steps["sh-next-wb"]["title"] == "Let's continue to the last major section of the website, the Analyst Workbench Demo."
     assert "still in development" in steps["sh-workbench"]["text"]
+    assert "target" not in steps["sh-workbench"] and steps["sh-workbench"]["cardPos"] == "top-right"          # no highlight, the card high on the screen
+    assert steps["sh-next-la"]["title"].startswith("Finally, we will finish off by exploring the most impactful use case for iLIT")
+    la1 = steps["sh-la-1"]
+    assert la1["cardSize"] == "large" and not la1.get("target") and "**iLIT will work not just on court decisions, but on any inputted text.**" in la1["text"]
+    assert "does not run on it" in la1["text"] and "without storing anything permanently" in la1["text"]
+    assert "made up word document" in steps["sh-la-demo"]["text"] and steps["sh-la-drop"].get("auto")
+    assert steps["sh-la-run"]["text"].endswith("This draft is not stored in the library, or added to the database in any way.")
+    assert steps["sh-future"]["title"] == "Future use cases" and "just scratching the surface" in steps["sh-future"]["text"]
     assert steps["sh-wrap"]["text"].endswith("Feel free to check out the 'see what is coming' section, or spend more time using the site.")
+
+
+def test_filters_are_opened_in_one_step_and_applied_in_the_next_by_the_pointer():
+    steps = _tour()
+    opening, applying = steps["sh-filters"], steps["sh-results"]
+    assert opening["text"].startswith("Filters are used in combination to narrow search results.")
+    assert "automatically search the library" in opening["text"] and "Sri Lanka tags" in opening["text"]
+    assert [a["do"] for a in opening["act"] if a["do"] != "wait"] == ["click", "click"]      # Clear search, then Advanced
+    assert opening["act"][0]["selector"] == "#clearSearchTop" and not any(a.get("quiet") for a in opening["act"])   # the pointer is seen doing it
+    assert opening.get("early") and opening.get("auto")                       # the card explains while it happens
+    # the filters themselves: Refugee protection, the two tags, and Government won last, because that click is what runs the search
+    kinds = [(a["do"], a.get("text") or a["selector"]) for a in applying["act"] if a["do"] in ("check", "pickTag", "click")]
+    assert [k[0] for k in kinds] == ["check", "pickTag", "pickTag", "click"]
+    assert [a["text"] for a in applying["act"] if a["do"] == "pickTag"] == ["cessation", "sri lanka"]
+    assert "data-value='won'" in kinds[-1][1] and applying["act"][-1]["selector"] == "#searchResults .case-result"
+    assert applying["act"][-2]["selector"] == "#searchMeta[data-state='success']"          # the list is the finished search, not an older one
+    assert "{count}" in applying["text"] and "16 cases" not in applying["text"]            # the figure is read from the page, never stale
+    assert applying["text"].endswith("Let's continue and open the top result, Veerasingam v. Canada.")
+
+
+def test_the_filter_searches_are_warmed_so_the_first_walk_is_not_slow():
+    cache = tour_steps()["cache"]
+    assert "/analytics/search/tags?q=cessation&limit=10" in cache and "/analytics/search/tags?q=sri+lanka&limit=10" in cache
+    assert any(u.startswith("/analytics/search/cases?tags=cessation%2Csri_lanka&government_outcome=won&case_type=refugee_claim") for u in cache)
+    assert any(u.startswith("/analytics/search/facets?tags=cessation%2Csri_lanka&government_outcome=won") for u in cache)
+    assert cache.index("/analytics/search/tags?q=cessation&limit=10") < cache.index("/cases/{cessation}/reader-data?evidence=0")   # needed first, asked first
+
+
+def test_the_tour_starts_at_once_and_a_next_pressed_early_is_not_undone():
+    js = tour_js()
+    start = js[js.index("function start(){"):js.index("/* ---------- keyboard ---------- */")]
+    assert "async function start" not in js and "await" not in start          # the welcome card waits for nothing
+    assert "show(0,1)" in start and "resetSite()" in start and ".then(function(){if(state===started&&ui)warm()})" in start
+
+
+def test_every_step_that_needs_a_clean_search_resets_it_and_the_pick_of_a_tag_is_patient():
+    js, steps = tour_js(), _tour()
+    assert steps["sh-search"].get("reset") and steps["sh-search-results"].get("reset")
+    assert "function resetSite(" in js and "#clearSearch" in js and "sp-adv" in js
+    pick = js[js.index("async function pickTag("):js.index("// Scroll the panel that holds")]
+    assert "attempt<2" in pick and "nudge" not in pick                          # one patient try and one more, never a pile of lookups
+    assert all(a.get("seconds", 0) >= 45 for a in steps["sh-results"]["act"] if a["do"] == "pickTag")
+
+
+def test_scrolling_is_planned_and_played_as_one_glide():
+    js = tour_js()
+    assert "function smoothly(" in js and "planning=true" in js
+    assert js.count("await smoothly(") >= 4                                      # result, each action, the say card, the lit region
+    assert "function stuckTop(" in js                                            # a bar that will pin counts before the page moves
 
 
 def test_every_page_change_is_a_pointer_click_on_a_named_tab():

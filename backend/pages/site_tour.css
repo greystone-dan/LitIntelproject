@@ -72,13 +72,13 @@ html.ilit-tour-on #unitSearchPanel{display:none!important}
 /* the longer cards use the same type as every other card (Daniel, 10-22). Live analysis and Future use cases are a little wider than the plain card;
    the FC Activity card carries two cards' words, so it is wide and short and stays clear of the filter row below it. */
 .ilit-tour-card.large{width:min(560px,calc(100vw - 28px))}
-.ilit-tour-card.large[data-step="sh-fc"]{width:min(900px,calc(100vw - 28px))}
+.ilit-tour-card.large[data-step="sh-fc"]{width:min(900px,calc(100vw - 28px));padding-top:12px;padding-bottom:12px}
 /* Explore steps: a small button in the card's corner shrinks it to a tab and brings it back (Daniel, 10-22). */
 .ilit-tour-min{position:absolute;top:8px;right:10px;padding:2px 8px;border:1px solid transparent;border-radius:5px;background:transparent;color:#5f6863;font:500 12.5px/1.4 inherit;font-family:inherit;cursor:pointer}
 .ilit-tour-min:hover{border-color:#d8d5ca;color:#202522}
 .ilit-tour-min:focus-visible{outline:2px solid #315d8d;outline-offset:2px}
 .ilit-tour-min[hidden]{display:none}
-.ilit-tour-card.min{width:auto;padding:8px 12px}
+.ilit-tour-card.min,.ilit-tour-card.large[data-step].min{width:auto;padding:8px 12px}
 .ilit-tour-card.min .ilit-tour-kicker,.ilit-tour-card.min .ilit-tour-title,.ilit-tour-card.min .ilit-tour-text,.ilit-tour-card.min .ilit-tour-extra{display:none}
 .ilit-tour-card.min .ilit-tour-min{position:static;color:#176c68;font-weight:600}
 /* an explore step after the visitor has started using the page: just the hint, low on the screen */

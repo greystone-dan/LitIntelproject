@@ -1552,6 +1552,37 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 	]
 
 
+@router.get("/tour-window.js", include_in_schema=False)
+def tour_window_loader_script() -> Response:
+	from .tour_window import window_loader
+
+	return Response(window_loader(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/tour-window/", include_in_schema=False)
+def tour_window_page() -> HTMLResponse:
+	from .tour_window import window_html
+
+	return HTMLResponse(window_html(), headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/tour-window/tour_data.json", include_in_schema=False)
+def tour_window_data() -> Response:
+	from .tour_window import window_data
+
+	return Response(window_data(), media_type="application/json", headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/tour-window/img/{name}", include_in_schema=False)
+def tour_window_image(name: str) -> Response:
+	from .tour_window import window_image
+
+	data = window_image(name)
+	if data is None:
+		raise HTTPException(status_code=404, detail="No such tour picture")
+	return Response(data, media_type="image/webp", headers={"Cache-Control": "public, max-age=86400"})
+
+
 @router.get("/site-tour.js", include_in_schema=False)
 def site_tour_script() -> Response:
 	from .site_tour import tour_js

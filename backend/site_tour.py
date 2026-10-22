@@ -1,9 +1,9 @@
-"""The "Take a tour" walkthrough: a small self-contained script, style sheet and step list.
+"""The "Take a tour" button: ``inject_site_tour`` adds the small opener script to a page, and the tour plays in
+the recorded window (see ``tour_window.py``).
 
-The steps are plain data in ``pages/site_tour_steps.json``. ``/site-tour.js`` serves the steps and the
-script together, ``/site-tour.css`` the styles; ``inject_site_tour`` adds both to a page. The tour only
-points at the real site; it makes no AI calls and no outside requests, and writes nothing unless a step
-has a button that says so.
+The old live tour (``/site-tour.js``, ``/site-tour.css`` and its step list in ``pages/site_tour_steps.json``) is no
+longer put on any page. Its files stay for now because the demo-memo cache in Live analysis still reads the sample
+text and the sample Word file from here; they can be removed in a follow-up.
 """
 
 from __future__ import annotations
@@ -54,14 +54,20 @@ def tour_js() -> str:
 
 
 @lru_cache(maxsize=1)
+def tour_window_version() -> str:
+    from .tour_window import window_loader
+
+    return hashlib.sha1(window_loader().encode("utf-8")).hexdigest()[:10]
+
+
+@lru_cache(maxsize=1)
 def tour_version() -> str:
     return hashlib.sha1((tour_js() + tour_css()).encode("utf-8")).hexdigest()[:10]
 
 
 def inject_site_tour(html: str) -> str:
-    """Add the tour's style sheet and script to a page (once)."""
-    if "/site-tour.js" in html:
+    """Add the tour window's opener script to a page (once). The tour itself plays in /tour-window/."""
+    if "/tour-window.js" in html:
         return html
-    version = tour_version()
-    html = html.replace("</head>", f'<link rel="stylesheet" href="/site-tour.css?v={version}">\n</head>', 1)
-    return html.replace("</body>", f'<script src="/site-tour.js?v={version}" defer></script>\n</body>', 1)
+    version = tour_window_version()
+    return html.replace("</body>", f'<script src="/tour-window.js?v={version}" defer></script>\n</body>', 1)

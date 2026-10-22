@@ -328,6 +328,8 @@ test checks that these paths continue to exist.
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
+| `backend/pages/tour_window.html` | TODO: describe this file |
+| `backend/pages/tour_window_loader.js` | TODO: describe this file |
 | `backend/pages/unit_search_ui.css` | TODO: describe this file |
 | `backend/pages/unit_search_ui.js` | TODO: describe this file |
 | `backend/pages/welcome.py` | Admin / experimental switch (hides development tabs unless turned on) |
@@ -372,6 +374,7 @@ test checks that these paths continue to exist.
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
 | `backend/tour_cache.py` | A short-lived server cache for the site tour's fixed demo requests |
+| `backend/tour_window.py` | The "Take a tour" window: a recorded walk through the real site |
 | `backend/unit_keyword_search.py` | Find the discussion unit, not just the case (no model, no AI call) |
 | `backend/workbench.py` | Workbench: a demo analyst's own space (case list with activity flags, pinned decisions, notes) |
 
